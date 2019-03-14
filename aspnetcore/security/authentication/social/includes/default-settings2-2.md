@@ -1,0 +1,11 @@
+---
+ms.openlocfilehash: 733a41a76e289f8aed6ec2d246ed720e44808fec
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57182764"
+---
+Wywołanie [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity) umożliwia skonfigurowanie domyślnych ustawień systemu. [AddAuthentication(String)](/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication#Microsoft_Extensions_DependencyInjection_AuthenticationServiceCollectionExtensions_AddAuthentication_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_) przeciążenia zestawy [DefaultScheme](/dotnet/api/microsoft.aspnetcore.authentication.authenticationoptions.defaultscheme) właściwości. [AddAuthentication (Akcja&lt;AuthenticationOptions&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication#Microsoft_Extensions_DependencyInjection_AuthenticationServiceCollectionExtensions_AddAuthentication_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Authentication_AuthenticationOptions__) przeciążenie umożliwia konfigurowanie opcji uwierzytelniania, które mogą być używane do definiowania schematów uwierzytelniania domyślny dla różnych celów. Kolejne wywołania `AddAuthentication` zastąpienie wcześniej skonfigurowane [AuthenticationOptions](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions) właściwości.
+
+[AuthenticationBuilder](/dotnet/api/microsoft.aspnetcore.authentication.authenticationbuilder) metody rozszerzenia, które rejestrują program obsługi uwierzytelniania mogą lze volat pouze jednou dla schematu uwierzytelniania. Istnieją przeciążenia, które umożliwia konfigurowanie właściwości schematu, nazwa schematu i nazwę wyświetlaną.
