@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/index
 title: Starsze wersje — wprowadzenie formularze sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Dokumentacja platformy ASP.NET Web Forms 4 i starszych wersji.
+description: Samouczek dotyczący platformy ASP.NET Web Forms 4 i starszych wersji.
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
@@ -11,7 +11,7 @@ msc.type: chapter
 ---
 <a name="older-versions---web-forms-getting-started"></a>Starsze wersje — wprowadzenie formularze sieci Web
 ====================
-> Dokumentacja platformy ASP.NET Web Forms 4 i starszych wersji.
+> Samouczek dotyczący platformy ASP.NET Web Forms 4 i starszych wersji.
 
 
 - [ASP.NET 4 — Tailspin Spyworks](tailspin-spyworks/index.md)
