@@ -8,12 +8,12 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 9a8ecac5203234c140783bbe3a518d35f6a57675
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b593c6225c05c7405c9d8b78abfd29a087d47b04
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076061"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421262"
 ---
 <a name="adding-a-controller"></a>Dodawanie kontrolera
 ====================
@@ -56,7 +56,7 @@ ASP.NET MVC wywołuje różne klasy kontrolera (i różnych metod akcji w nich),
 
 /[Controller]/[ActionName]/[Parameters]
 
-Pierwszą część adresu URL określa klasę kontrolera do wykonania. Dlatego /HelloWorld mapuje klasy HelloWorldController. Druga część adresu URL określa metody akcji w klasie, do wykonania. Dlatego /HelloWorld/Index spowoduje, że metoda indeks() klasy HelloWorldcontroller do wykonania. Należy zauważyć, że mieliśmy do odwiedzenia /HelloWorld powyżej i metodę, która została niejawnego indeksu. Jest to spowodowane metodę o nazwie "Index" jest to domyślna metoda, która zostanie wywołana na kontrolerze, jeśli nie jest jawnie określona.
+Pierwszą część adresu URL określa klasę kontrolera do wykonania. Dlatego /HelloWorld mapuje klasy HelloWorldController. Druga część adresu URL określa metody akcji w klasie, do wykonania. Dlatego /HelloWorld/Index spowoduje, że metoda indeks() klasy HelloWorldController do wykonania. Należy zauważyć, że mieliśmy do odwiedzenia /HelloWorld powyżej i metodę, która została niejawnego indeksu. Jest to spowodowane metodę o nazwie "Index" jest to domyślna metoda, która zostanie wywołana na kontrolerze, jeśli nie jest jawnie określona.
 
 [![To jest Moja Akcja domyślna](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 

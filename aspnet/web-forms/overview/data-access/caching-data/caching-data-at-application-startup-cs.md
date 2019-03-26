@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c97058e5fd54dfd0393ec5ad020ad957d9719784
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 692b2a13664a9a5153a85a230dd513b022518316
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077882"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423991"
 ---
 <a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
 ====================
@@ -103,7 +103,7 @@ Podobnie pamięć podręczną danych może służyć do przechowywania w pamięc
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
-Aby dodać element do pamięci podręcznej danych przez nieograniczony czas na podstawie czasu, należy użyć `System.Web.Caching.Cache.NoAbsoluteExpiration` i `System.Web.Caching.Cache.NoSlidingExpiration` wartości jako parametry wejściowe. Tego określonego przeciążenia pamięci podręcznej danych `Insert` została wybrana metoda, tak aby można było podać *priorytet* elementu pamięci podręcznej. Priorytet jest używany do określenia, jakie elementy, aby oczyścić z pamięci podręcznej, kiedy jest za mało dostępnej pamięci. W tym miejscu użyjemy priorytet `NotRemovable`, co zapewnia, że ten element pamięci podręcznej wygrał t oczyszczanie.
+Aby dodać element do pamięci podręcznej danych przez nieograniczony czas na podstawie czasu, należy użyć `System.Web.Caching.Cache.NoAbsoluteExpiration` i `System.Web.Caching.Cache.NoSlidingExpiration` wartości jako parametry wejściowe. Tego określonego przeciążenia pamięci podręcznej danych `Insert` została wybrana metoda, tak aby można było podać *priorytet* elementu pamięci podręcznej. Priorytet jest używany do określenia, jakie elementy, aby oczyścić z pamięci podręcznej, kiedy jest za mało dostępnej pamięci. W tym miejscu użyjemy priorytet `NotRemovable`, dzięki któremu nie będzie oczyszczanie tego elementu w pamięci podręcznej.
 
 > [!NOTE]
 > W tym samouczku, Pobierz implementuje `StaticCache` klasy przy użyciu podejścia zmiennej członka statycznego. Kod technik pamięci podręcznej stanu i danych aplikacji jest dostępna w komentarzach w pliku klasy.

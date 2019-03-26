@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 64615f126f87cec7a96f86385ee7a717fdcdd103
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d867c7ae073fafe1e9674deb7c03bf1cfd24dd7
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075962"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425837"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Stronicowanie danych raportu w kontrolce DataList lub Repeater (VB)
 ====================
@@ -127,7 +127,7 @@ Ponieważ `GetProductsAsPagedDataSource` metoda oczekuje dwóch parametrów wej�
 
 Indeks strony i wartości rozmiaru strony należy pamiętać różnych ogłaszania zwrotnego. One może znajdować się w widoku stanu, utrwalone w zmiennej querystring, przechowywane w zmiennych sesji lub zapamiętanych przy użyciu niektórych innych technik. W tym samouczku użyjemy ciąg zapytania, który ma tę zaletę, dzięki czemu określonej strony danych do zakładek.
 
-W szczególności użyj pageIndex pola querystring i pageSize dla `pageIndex` i `pageSize` parametrów, odpowiednio (zobacz rysunek 7). Poświęć chwilę, aby ustawić wartości domyślne dla tych parametrów, jako wartości querystring wygrał t być obecna, gdy użytkownik najpierw odwiedzi tę stronę. Aby uzyskać `pageIndex`, ustawianie wartości domyślnej 0 (co spowoduje wyświetlenie pierwszej strony danych) i `pageSize` s domyślną wartość 4.
+W szczególności użyj pageIndex pola querystring i pageSize dla `pageIndex` i `pageSize` parametrów, odpowiednio (zobacz rysunek 7). Poświęć chwilę, aby ustawić wartości domyślne dla tych parametrów, jako wartości querystring nie być obecna, gdy użytkownik najpierw odwiedzi tę stronę. Aby uzyskać `pageIndex`, ustawianie wartości domyślnej 0 (co spowoduje wyświetlenie pierwszej strony danych) i `pageSize` s domyślną wartość 4.
 
 
 [![Używanie ciąg zapytania jako źródła dla parametrów pageIndex i pageSize](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)

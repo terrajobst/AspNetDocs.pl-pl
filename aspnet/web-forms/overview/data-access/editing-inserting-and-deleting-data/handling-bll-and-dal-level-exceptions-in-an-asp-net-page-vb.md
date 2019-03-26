@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 129d4338-1315-4f40-89b5-2b84b807707d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 86b8bb00e83f311d311a51a747086356833a8c93
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 968f222742e0bd5f145082e8b2c33bbc43ee78cd
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076937"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423016"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (VB)
 ====================
@@ -98,7 +98,7 @@ W tym momencie mamy listę wszystkich produktów `ProductName`, `QuantityPerUnit
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Krok 2. Bez problemu zmieniała obsługi wyjątków na poziomie warstwy DAL
 
-Natomiast naszych można edytować kontrolki GridView bajeczną działa, gdy użytkownicy wprowadzają wartości prawne na nazwę edytowanego produktu, ceny i jednostek w magazynie, wprowadzanie wartości niedozwolony powoduje wyjątek. Na przykład, pomijając `ProductName` wartość powoduje, że [nonullallowedexception —](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) zostanie wygenerowany od `ProductName` właściwość `ProdcutsRow` klasa ma jego `AllowDBNull` właściwością `false`; Jeśli Baza danych nie działa, `SqlException` zostaną zgłoszone przez TableAdapter, podczas próby połączenia z bazą danych. Bez podejmowania żadnych działań, tych wyjątków się pojawiać z warstwy dostępu do danych do warstwy logiki biznesowej, a następnie na stronie ASP.NET, a na koniec do środowiska uruchomieniowego programu ASP.NET.
+Natomiast naszych można edytować kontrolki GridView bajeczną działa, gdy użytkownicy wprowadzają wartości prawne na nazwę edytowanego produktu, ceny i jednostek w magazynie, wprowadzanie wartości niedozwolony powoduje wyjątek. Na przykład, pomijając `ProductName` wartość powoduje, że [nonullallowedexception —](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) zostanie wygenerowany od `ProductName` właściwość `ProductsRow` klasa ma jego `AllowDBNull` właściwością `false`; Jeśli Baza danych nie działa, `SqlException` zostaną zgłoszone przez TableAdapter, podczas próby połączenia z bazą danych. Bez podejmowania żadnych działań, tych wyjątków się pojawiać z warstwy dostępu do danych do warstwy logiki biznesowej, a następnie na stronie ASP.NET, a na koniec do środowiska uruchomieniowego programu ASP.NET.
 
 W zależności od sposobu skonfigurowania aplikacji sieci web i czy odwiedzasz aplikacji z `localhost`, nieobsługiwanego wyjątku może spowodować strony ogólny błąd serwera, raport szczegółowy komunikat o błędzie lub strony sieci web przyjazna dla użytkownika. Zobacz [obsługę błędów w programie Web aplikacji na platformie ASP.NET](http://www.15seconds.com/issue/030102.htm) i [customErrors Element](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) więcej informacji na temat sposobu na nieprzechwycony wyjątek środowiska uruchomieniowego programu ASP.NET.
 

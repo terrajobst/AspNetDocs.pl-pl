@@ -8,12 +8,12 @@ ms.date: 07/11/2013
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 4d29f087cd658faf1fadb0d9a85e9f32c03a2b3f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a022138c594154109ff0bfba85949099e6b2d2a2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076361"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422756"
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>Wiązanie parametrów interfejsie Web API platformy ASP.NET
 ====================
@@ -182,7 +182,7 @@ Poniżej przedstawiono metody kontrolera, który używa `[IfNoneMatch]` atrybutu
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample23.cs)]
 
-Oprócz **ParameterBindingAttribute**, jest innym haku dodawania niestandardowego **HttpParameterBinding**. Na **HttpConfiguration** obiektu **ParameterBindingRules** właściwości to zbiór funkcji anomymous typu (**HttpParameterDescriptor**  - &gt; **HttpParameterBinding**). Na przykład można dodać regułę, która korzysta z żadnych parametrów element ETag dla metody GET `ETagParameterBinding` z `if-none-match`:
+Oprócz **ParameterBindingAttribute**, jest innym haku dodawania niestandardowego **HttpParameterBinding**. Na **HttpConfiguration** obiektu **ParameterBindingRules** właściwości to zbiór funkcjami anonimowymi typu (**HttpParameterDescriptor**  - &gt; **HttpParameterBinding**). Na przykład można dodać regułę, która korzysta z żadnych parametrów element ETag dla metody GET `ETagParameterBinding` z `if-none-match`:
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample24.cs)]
 

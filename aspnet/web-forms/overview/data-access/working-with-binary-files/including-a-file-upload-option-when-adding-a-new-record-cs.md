@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c3887f920126d70b300de5a0d6e09474fd33c332
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8b7f839f16150b93645a9fe868642fa5f36248a9
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077105"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424979"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Dołączanie opcji przekazywania pliku podczas dodawania nowego rekordu (C#)
 ====================
@@ -73,7 +73,7 @@ Ponieważ warstwa prezentacji tylko powinny współpracować z warstwy logiki bi
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample2.cs)]
 
 > [!NOTE]
-> Upewnij się, został zapisany wpisany zestaw danych przed dodaniem `InsertWithPicture` metody LOGIKI. Ponieważ `CategoriesTableAdapter` kod klasy został wygenerowany automatycznie na podstawie wpisana zestawu danych, jeśli don t najpierw zapisać zmiany do zestawu danych wpisane `Adapter` właściwość wygrał t wiedzieć o `InsertWithPicture` metody.
+> Upewnij się, został zapisany wpisany zestaw danych przed dodaniem `InsertWithPicture` metody LOGIKI. Ponieważ `CategoriesTableAdapter` kod klasy został wygenerowany automatycznie na podstawie wpisana zestawu danych, jeśli don t najpierw zapisać zmiany do zestawu danych wpisane `Adapter` właściwość nie będzie wiedzieć o `InsertWithPicture` metody.
 
 
 ## <a name="step-3-listing-the-existing-categories-and-their-binary-data"></a>Krok 3. Wyświetlanie listy istniejących kategorii i ich dane binarne
@@ -231,7 +231,7 @@ Umożliwiają s Poświęć chwilę, w celu przetestowania Wstawianie interfejsu 
 **Rysunek 9**: Ostrzeżenie jest wyświetlane, jeśli został przekazany nieprawidłowy typ pliku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image16.png))
 
 
-Po sprawdzeniu strona wymaga obraz do przekazania i uzyskany t akceptuje plików innych niż PDF lub innych JPG, Dodaj nową kategorię prawidłowy obraz JPG, jeśli pole broszura pozostanie puste. Po kliknięciu przycisku Wstaw będzie ogłaszanie zwrotne strony i nowy rekord zostanie dodany do `Categories` tabelę zawierającą binarne treści przekazany obraz s bezpośrednio w bazie danych. Kontrolki GridView zostanie zaktualizowana i zawiera wiersz dla nowo dodanego kategorii, ale, jak pokazano na rysunku nr 10, nowy obraz s kategorii nie jest poprawnie renderowana.
+Po upewnieniu się, że strona wymaga obraz do przekazania i nie akceptuje plików innych niż PDF lub innych JPG, Dodaj nową kategorię prawidłowy obraz JPG, jeśli pole broszura pozostanie puste. Po kliknięciu przycisku Wstaw będzie ogłaszanie zwrotne strony i nowy rekord zostanie dodany do `Categories` tabelę zawierającą binarne treści przekazany obraz s bezpośrednio w bazie danych. Kontrolki GridView zostanie zaktualizowana i zawiera wiersz dla nowo dodanego kategorii, ale, jak pokazano na rysunku nr 10, nowy obraz s kategorii nie jest poprawnie renderowana.
 
 
 [![Nowa kategoria s, który nie jest wyświetlany obraz](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image10.gif)](including-a-file-upload-option-when-adding-a-new-record-cs/_static/image17.png)

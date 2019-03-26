@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 634ea84b-f904-4afe-b71b-49cccef4d9cc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 26896e6ee3c02e8f939296ecbfb8b7d500940765
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 10c2f6379f6d3139dd3bcf1027ff456e074298c3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076970"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425096"
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 — modele i dostęp do danych
 
@@ -148,7 +148,7 @@ W tym zadaniu utworzysz model danych do interakcji z bazy danych dodane w poprze
     ![Dodawanie modelu danych jednostki ADO.NET StoreDB](aspnet-mvc-4-models-and-data-access/_static/image6.png "Dodawanie modelu danych jednostki ADO.NET StoreDB")
 
     *Dodawanie modelu danych jednostki ADO.NET StoreDB*
-2. **Kreator modelu Entity Data Model** będą wyświetlane. Ten kreator przeprowadzi Cię przez tworzenie warstwy modelu. Ponieważ modelu należy tworzyć w oparciu o istniejące recentyl bazy danych dodane, wybierz opcję **Generuj z bazy danych** i kliknij przycisk **dalej**.
+2. **Kreator modelu Entity Data Model** będą wyświetlane. Ten kreator przeprowadzi Cię przez tworzenie warstwy modelu. Ponieważ modelu należy tworzyć w oparciu o istniejącą bazę danych, ostatnio dodane, wybierz opcję **Generuj z bazy danych** i kliknij przycisk **dalej**.
 
     ![Wybieranie zawartości modelu](aspnet-mvc-4-models-and-data-access/_static/image7.png "wybierania zawartości modelu")
 
@@ -280,7 +280,7 @@ Po wygenerowaniu modelu zmodyfikujesz StoreController, aby zapewnić wyświetlan
 <a id="Task_1_-_Populating_Sample_Data"></a>
 #### <a name="task-1---populating-sample-data"></a>Zadanie 1 — wypełniania przykładowych danych
 
-W ramach tego zadania spowoduje wypełnienie bazy danych z przykładowymi danymi tworzonemu zasobowi początkowemu przy użyciu najpierw kod.
+W ramach tego zadania spowoduje wypełnienie bazy danych z przykładowymi danymi podczas jej tworzenia przy użyciu najpierw kod.
 
 1. Otwórz **rozpocząć** rozwiązania znajdujący się w **źródło/Ex2-CreatingADatabaseCodeFirst/rozpoczęcia/** folderu. W przeciwnym razie będziesz nadal korzystać z **zakończenia** rozwiązania uzyskać, wykonując poprzednim ćwiczeniu.
 
@@ -580,7 +580,7 @@ Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w portalu 
 1. Przejdź do [portalu zarządzania pakietu Windows Azure](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft, powiązaną z Twoją subskrypcją.
 
     > [!NOTE]
-    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](http://aka.ms/aspnet-hol-azure).
+    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](https://aka.ms/aspnet-hol-azure).
 
     ![Zaloguj się do portalu usługi Windows Azure](aspnet-mvc-4-models-and-data-access/_static/image31.png "Zaloguj się do portalu usługi Windows Azure")
 

@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: e902881d3dab6a902cb747a197a32f317d199723
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 71e566523d658eb8198453f354a12e63a4c38495
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066410"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421040"
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych
 ====================
@@ -78,7 +78,7 @@ Użyjemy AJAX do wywołania metody akcji rejestru z naszych widok szczegółów.
 
 Biblioteka pierwszego odwołuje się do podstawowej biblioteki skryptu po stronie klienta ASP.NET AJAX. Ten plik jest około 24k rozmiar (skompresować) i zawiera podstawowe funkcje AJAX po stronie klienta. Drugi biblioteka zawiera funkcje narzędzia, które integrują się z platformy ASP.NET MVC wbudowanych AJAX metody pomocnicze (które będziemy używać wkrótce).
 
-Firma Microsoft może, a następnie Wyświetl kod szablonu, które dodaliśmy wcześniej, aby zamiast outputing komunikat "Nie zarejestrowano Cię do tego zdarzenia", firma Microsoft zamiast renderować łącze wypchnięcie aktualizacji wykonuje wywołanie AJAX, która wywołuje naszych RSVPForEvent metody akcji kontrolera RSVP i RSVPs użytkownika:
+Firma Microsoft może, a następnie Wyświetl kod szablonu, które dodaliśmy wcześniej, aby zamiast podawania komunikat "Nie zarejestrowano Cię do tego zdarzenia", firma Microsoft zamiast renderować łącze wypchnięcie aktualizacji wykonuje wywołanie AJAX, która wywołuje naszych RSVPForEvent metody akcji kontrolera RSVP i RSVPs użytkownika:
 
 [!code-aspx[Main](use-ajax-to-deliver-dynamic-updates/samples/sample6.aspx)]
 

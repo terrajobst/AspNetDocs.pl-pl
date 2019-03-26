@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: 21a178de-4c5a-4211-8a9c-74ec576c0f30
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 9b27ccc6ce26e8266947c531d299ba69bbec4fde
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5eff66b701d775a553a51437e540619b4524a58f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075410"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421560"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 z ASP.NET MVC — część 2
 ====================
@@ -24,7 +24,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 ## <a name="adding-an-automatic-datetime-template"></a>Dodanie automatycznego szablonu daty/godziny
 
-W pierwszej części tego samouczka pokazano sposób dodawania atrybutów do modelu, aby jawnie określić formatowanie i jak możesz jawnie określić szablon, który zostanie użyty do wyświetlenia modelu. Na przykład [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu w następujących jawnie kodu Określa formatowanie `ReleaseDate` właściwości.
+W pierwszej części tego samouczka pokazano sposób dodawania atrybutów do modelu, aby jawnie określić formatowanie i jak możesz jawnie określić szablon, który zostanie użyty do wyświetlenia modelu. Na przykład [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu w poniższym kodzie jawnie określa formatowanie `ReleaseDate` właściwości.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
@@ -104,7 +104,7 @@ Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
 
 Tym razem `ReleaseDate` właściwości wyświetla datę bez czasu i czerwony czcionki. Obrazuje to, że typu szablonu, który zawiera nazwę danych (w tym przypadku `DateTime`) jest automatycznie używany do wyświetlenia wszystkich właściwości modelu tego typu. Po zakończeniu zmieniona *DateTime.cshtml* plik *LoudDateTime.cshtml*, ASP.NET już nie można odnaleźć szablonu w *Views\Movies\DisplayTemplates* folderu, więc używać *DateTime.cshtml* szablonu z * Views\Movies\Shared\* folderu.
 
-(Szablonu zgodnej jest uwzględniana wielkość liter, więc nazwa pliku szablonu mogły być utworzone przy użyciu dowolnej wielkości liter. Adapterem *DATETIME.chstml, datetime.cshtml*, i *DaTeTiMe.cshtml* wszystkie dopasuje `DateTime` typu.)
+(Szablonu zgodnej jest uwzględniana wielkość liter, więc nazwa pliku szablonu mogły być utworzone przy użyciu dowolnej wielkości liter. Adapterem *DATETIME.cshtml, datetime.cshtml*, i *DaTeTiMe.cshtml* wszystkie dopasuje `DateTime` typu.)
 
 Aby zapoznać się z: w tym momencie `ReleaseDate` pola są wyświetlane przy użyciu *Views\Movies\DisplayTemplates\DateTime.cshtml* szablonu, który wyświetla dane przy użyciu formatu daty krótkiej, ale w przeciwnym razie dodaje nie specjalne formatowanie.
 

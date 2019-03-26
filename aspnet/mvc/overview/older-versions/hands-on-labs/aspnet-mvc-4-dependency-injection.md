@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 3f9222c7b485f552da91f4875c882db7e03cdd0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 52aba3fa5948d32180fbf135444433771b17756d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072668"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425651"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 — wstrzykiwanie zależności
 
@@ -361,7 +361,7 @@ Aby wstawić **Przeglądaj** widoku teraz zarejestrujesz mechanizmu rozpoznawani
     (Code Snippet — *ASP.NET zależności iniekcji laboratorium — Ex02 — Zarejestruj CustomViewPageActivator*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample16.cs)]
-5. Zamień na wystąpienie platformy ASP.NET MVC 4 mechanizmem rozpoznawania zależności **UnityDependencyResolver**. Aby to zrobić, Zastąp **Initialise** metoda zawartość następującym kodem:
+5. Zamień na wystąpienie platformy ASP.NET MVC 4 mechanizmem rozpoznawania zależności **UnityDependencyResolver**. Aby to zrobić, Zastąp **zainicjować** metoda zawartość następującym kodem:
 
     (Code Snippet — *rozpoznawania zależności aktualizacji laboratorium — Ex02 — wstrzykiwanie zależności ASP.NET*)
 
@@ -508,7 +508,7 @@ Następujące pojęcia zostały objęte pomocą techniczną:
 
 Możesz zainstalować **programu Microsoft Visual Studio Express 2012 for Web** lub inne &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe wskazówki ułatwiają kroki wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
+1. Przejdź do [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 

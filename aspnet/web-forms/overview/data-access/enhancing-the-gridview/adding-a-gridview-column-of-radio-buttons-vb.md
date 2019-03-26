@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 2e31b60b-8723-4f14-b7ee-37859454dc3b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 76b3dbd502eff7c97f57fdacd120ac2312aaceae
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 262e4e303daeda56b6590c8f2f925850b216f300
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076967"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422340"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Dodawanie kolumny przycisków radiowych do kontrolki GridView (VB)
 ====================
@@ -179,7 +179,7 @@ Istnieją dwie metody, które mogą zostać podjęte w celu wstrzyknięcia znacz
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-vb/samples/sample5.aspx)]
 
-W tym miejscu `GetUniqueRadioButton` i `GetRadioButtonValue` będzie metody zdefiniowanej w klasie związanym z kodem, który zwrócony odpowiedni `id` i `value` atrybutu wartości dla każdego przycisku radiowego. Ta metoda sprawdza się w przypadku przypisywania `id` i `value` atrybutów, ale znajduje się krótki, jeśli zachodzi potrzeba określenia `checked` wartość atrybutu, ponieważ składnia wiązania danych jest wykonywany tylko, gdy najpierw powiązania danych z widoku GridView. W związku z tym, jeśli widoku GridView ma stan widoku, włączone, metody formatowania tylko nastąpi po pierwszym załadowaniu strony (lub gdy widoku GridView jest jawnie odbitych ze źródłem danych) i w związku z tym funkcja, która ustawia `checked` atrybut wygrał t volat jen tehdy ogłaszanie zwrotne. Jego s zamiast drobny problem i nieco poza zakres tego artykułu, dzięki czemu będzie jest pozostawienie tej. Czy mogę sposób, jednak zachęcamy do wypróbowania przy użyciu powyższej metody i działa go za pośrednictwem do punktu, gdzie można będzie zatrzymywane. Gdy t wykonywania wygrał uzyskać żadnych bliżej do wersji roboczych, pomoże sprzyjają lepiej zrozumieć widoku GridView i cyklem życia wiązania danych.
+W tym miejscu `GetUniqueRadioButton` i `GetRadioButtonValue` będzie metody zdefiniowanej w klasie związanym z kodem, który zwrócony odpowiedni `id` i `value` atrybutu wartości dla każdego przycisku radiowego. Ta metoda sprawdza się w przypadku przypisywania `id` i `value` atrybutów, ale znajduje się krótki, jeśli zachodzi potrzeba określenia `checked` wartość atrybutu, ponieważ składnia wiązania danych jest wykonywany tylko, gdy najpierw powiązania danych z widoku GridView. W związku z tym, jeśli widoku GridView ma stan widoku, włączone, metody formatowania tylko nastąpi po pierwszym załadowaniu strony (lub gdy widoku GridView jest jawnie odbitych ze źródłem danych) i w związku z tym funkcja, która ustawia `checked` atrybutu nie można wywołać dla ogłaszanie zwrotne. Jego s zamiast drobny problem i nieco poza zakres tego artykułu, dzięki czemu będzie jest pozostawienie tej. Czy mogę sposób, jednak zachęcamy do wypróbowania przy użyciu powyższej metody i działa go za pośrednictwem do punktu, gdzie można będzie zatrzymywane. Chociaż takie wykonywania nie będzie rozpocząć wszelkie bliżej do wersji roboczych, pomoże sprzyjają lepiej zrozumieć widoku GridView i cyklem życia wiązania danych.
 
 Inne podejście do iniekcji niestandardowe, niskiego poziomu znaczników w szablonie i podejście, który będzie używany na potrzeby tego samouczka jest dodanie [formancie Literal](https://msdn.microsoft.com/library/sz4949ks(VS.80).aspx) do szablonu. Następnie, w tym s GridView `RowCreated` lub `RowDataBound` programu obsługi zdarzeń w formancie Literal można programowo uzyskać dostęp i jej `Text` właściwością znaczników do emitowania.
 

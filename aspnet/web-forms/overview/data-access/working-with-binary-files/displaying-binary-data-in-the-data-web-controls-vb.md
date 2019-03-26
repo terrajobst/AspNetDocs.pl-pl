@@ -8,12 +8,12 @@ ms.date: 03/27/2007
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42db8122d75689f8a0e6961826b06f53622d6313
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19c377e0f0cd9b27ac7c05af0ab050d8e213fe69
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069314"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424654"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Wyświetlanie danych binarnych w kontrolkach internetowych danych (VB)
 ====================
@@ -183,7 +183,7 @@ Powyższy kod przyjmuje s, ponieważ niektóre obrazu pliku o nazwie `NoPictureA
 Również być spowodowane ten wyjątek, jeśli `CategoriesTableAdapter` s `GetCategoryWithBinaryDataByCategoryID` metoda s `SELECT` instrukcji przywrócono listy kolumn główne zapytanie s może nastąpić, jeśli używasz instrukcji SQL zapytań ad-hoc i był ponownie uruchom Kreator TableAdapter s główne zapytanie. Zaznacz, aby upewnić się, że `GetCategoryWithBinaryDataByCategoryID` metoda s `SELECT` instrukcja nadal zawiera `Picture` kolumny.
 
 > [!NOTE]
-> Za każdym razem, gdy `DisplayCategoryPicture.aspx` jest odwiedzoną, baza danych jest dostępny i określonej kategorii s dane obrazu są zwracane. Jeśli t nie zostały obraz s kategorii zmieniona, ponieważ użytkownik ostatni zawiera przegląd, jednak to nieużywanego nakładu pracy. Na szczęście usługa HTTP umożliwia *warunkowego pobiera*. Za pomocą warunkowego GET, wysyła klienta wysyłającego żądanie HTTP [ `If-Modified-Since` nagłówka HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) zawierający datę i godzinę ostatniego pobrania tego zasobu z serwera sieci web w kliencie. Jeśli zawartość nie została zmieniona, ponieważ ta określona data, serwer sieci web mogą odpowiadać za pomocą [niezmodyfikowane kod stanu (304)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) i zrezygnujesz z powrotem przesyłania zawartości żądany zasób s. Krótko mówiąc ta metoda zwalnia serwer sieci web z konieczności wysyłania zawartości dla zasobu, jeśli go nie został zmodyfikowany od czasu ostatni dostęp klienta.
+> Za każdym razem, gdy `DisplayCategoryPicture.aspx` jest odwiedzoną, baza danych jest dostępny i określonej kategorii s dane obrazu są zwracane. Jeśli obraz s kategoria nie została zmieniona, ponieważ użytkownik ostatni zawiera przegląd, jednak to nieużywanego nakładu pracy. Na szczęście usługa HTTP umożliwia *warunkowego pobiera*. Za pomocą warunkowego GET, wysyła klienta wysyłającego żądanie HTTP [ `If-Modified-Since` nagłówka HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) zawierający datę i godzinę ostatniego pobrania tego zasobu z serwera sieci web w kliencie. Jeśli zawartość nie została zmieniona, ponieważ ta określona data, serwer sieci web mogą odpowiadać za pomocą [niezmodyfikowane kod stanu (304)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) i zrezygnujesz z powrotem przesyłania zawartości żądany zasób s. Krótko mówiąc ta metoda zwalnia serwer sieci web z konieczności wysyłania zawartości dla zasobu, jeśli go nie został zmodyfikowany od czasu ostatni dostęp klienta.
 
 
 Aby zaimplementować to zachowanie, wymaga jednak sytuacja: dodajesz `PictureLastModified` kolumny `Categories` tabeli, aby przechwycić, gdy `Picture` kolumny był ostatnio aktualizowany, a także kod pod kątem `If-Modified-Since` nagłówka. Aby uzyskać więcej informacji na temat `If-Modified-Since` nagłówka i warunkowego przepływ pracy GET, zobacz [HTTP warunkowego GET dla hakerów RSS](http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers) i [bardziej Przyjrzyj się wykonywanie żądań HTTP na stronie ASP.NET](http://aspnet.4guysfromrolla.com/articles/122204-1.aspx).

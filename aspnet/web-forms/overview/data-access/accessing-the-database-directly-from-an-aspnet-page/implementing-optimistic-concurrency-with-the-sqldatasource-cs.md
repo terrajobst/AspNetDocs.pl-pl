@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f2590e8e7712d719eb89403ef839f03066a93d2b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6569f8e8f11bb67bc0723908225c7fd663a845b3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069443"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423975"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#)
 ====================
@@ -28,7 +28,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 Jak dodać Wstawianie, aktualizowanie i usuwanie możliwości kontrolki SqlDataSource zbadaliśmy w poprzednim samouczku. Krótko mówiąc, aby zapewnić te funkcje Musieliśmy określ odpowiedni `INSERT`, `UPDATE`, lub `DELETE` instrukcję SQL w formancie s `InsertCommand`, `UpdateCommand`, lub `DeleteCommand` właściwości wraz z odpowiednim Parametry w `InsertParameters`, `UpdateParameters`, i `DeleteParameters` kolekcji. Podczas tych właściwości i kolekcje można określić ręcznie skonfigurować źródło danych Kreatora s Zaawansowana oferuje Generuj `INSERT`, `UPDATE`, i `DELETE` na podstawie wyboru instrukcji, która spowoduje automatyczne tworzenie tych instrukcji `SELECT` instrukcji.
 
-Wraz z Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru, okno dialogowe Zaawansowane opcje generowania SQL zawiera opcję Użyj optymistycznej współbieżności (patrz rysunek 1). Po zaznaczeniu tej opcji, `WHERE` klauzul wygenerowany automatycznie `UPDATE` i `DELETE` instrukcje są modyfikowane w celu wykonania tylko aktualizacji lub usuwania Jeśli bazowego t nie zostały danych bazy danych został zmodyfikowany od czasu użytkownika ostatniego załadowania danych do siatki.
+Wraz z Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru, okno dialogowe Zaawansowane opcje generowania SQL zawiera opcję Użyj optymistycznej współbieżności (patrz rysunek 1). Po zaznaczeniu tej opcji, `WHERE` klauzul wygenerowany automatycznie `UPDATE` i `DELETE` instrukcje są modyfikowane tylko wykonać aktualizację, lub usunąć, jeśli nie zostały zmodyfikowane podstawowych danych w bazie danych, ponieważ użytkownik ostatniego załadowania danych do siatki.
 
 
 ![Obsługa optymistycznej współbieżności można dodać z zaawansowanych generowanie kodu SQL — okno dialogowe Opcje](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
@@ -52,7 +52,7 @@ Na rysunku 2 przedstawiono ta interakcja.
 **Rysunek 2**: Gdy dwóch użytkowników jednoczesne aktualizowanie istnieje rekord s potencjał s jeden użytkownik zmienia się na zastąpić inne zasoby ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))
 
 
-Aby zapobiec w tym scenariuszu unfolding formę [kontroli współbieżności](http://en.wikipedia.org/wiki/Concurrency_control) musi zostać wdrożone. [Optymistyczna współbieżność](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) fokus w tym samouczku działa na założeniu, że może być konfliktów współbieżności i, wynikają większość czasu takie konflikty wygrał t. W związku z tym jeśli wystąpić konflikt, mechanizmu kontroli optymistycznej współbieżności po prostu informuje użytkownika, t może ich zmiany można zapisać, ponieważ inny użytkownik zmodyfikował tych samych danych.
+Aby zapobiec w tym scenariuszu unfolding formę [kontroli współbieżności](http://en.wikipedia.org/wiki/Concurrency_control) musi zostać wdrożone. [Optymistyczna współbieżność](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) fokus w tym samouczku działa przy założeniu, że w chwili, gdy może być konfliktów współbieżności every teraz, a następnie, większość czasu nie będą występować takie konflikty. W związku z tym jeśli wystąpić konflikt, mechanizmu kontroli optymistycznej współbieżności po prostu informuje użytkownika, t może ich zmiany można zapisać, ponieważ inny użytkownik zmodyfikował tych samych danych.
 
 > [!NOTE]
 > W przypadku aplikacji, w którym zakłada się, że będzie istniało wiele konfliktów współbieżności, lub jeśli takie konflikty nie są dopuszczalna następnie mechanizm kontroli pesymistycznej współbieżności można zamiast tego. Odwołaj się do [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) samouczek bardziej szczegółowe omówienie dotyczące kontroli pesymistycznej współbieżności.
@@ -66,7 +66,7 @@ Mechanizmu kontroli optymistycznej współbieżności działa przez zapewnienie 
 **Rysunek 3**: Update lub Delete, aby odnieść sukces, oryginalnym wartości musi być równa wartości bieżącej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))
 
 
-Istnieją różne metody Implementowanie optymistycznej współbieżności (zobacz [Peter A. Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp) s [Optmistic współbieżności aktualizowanie logiki](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki przegląd szereg opcji). Rozszerza technikę, przy użyciu kontrolki SqlDataSource (a także ADO.NET wpisanych zestawów danych używanych w naszej warstwy dostępu do danych) `WHERE` klauzuli obejmujący porównanie wszystkich oryginalnych wartości. Następujące `UPDATE` instrukcji, na przykład aktualizuje nazwę i cena produktu tylko wtedy, gdy wartości bieżącej bazy danych są równe wartości, które zostały pierwotnie pobrany podczas aktualizowania rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały pierwotnie załadowane do kontrolki GridView kliknięcie przycisku Edytuj:
+Istnieją różne metody Implementowanie optymistycznej współbieżności (zobacz [Peter A. Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp)firmy [optymistycznej współbieżności aktualizowanie logiki](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki przegląd szereg opcji). Rozszerza technikę, przy użyciu kontrolki SqlDataSource (a także ADO.NET wpisanych zestawów danych używanych w naszej warstwy dostępu do danych) `WHERE` klauzuli obejmujący porównanie wszystkich oryginalnych wartości. Następujące `UPDATE` instrukcji, na przykład aktualizuje nazwę i cena produktu tylko wtedy, gdy wartości bieżącej bazy danych są równe wartości, które zostały pierwotnie pobrany podczas aktualizowania rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały pierwotnie załadowane do kontrolki GridView kliknięcie przycisku Edytuj:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample1.sql)]
@@ -129,7 +129,7 @@ Niestety, rozszerzone `UPDATE` i `DELETE` są automatycznie instrukcji wygenerow
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample6.sql)]
 
-`UnitPrice` Kolumny w `Products` tabela może mieć `NULL` wartości. Jeśli określony rekord ma `NULL` wartość `UnitPrice`, `WHERE` część klauzuli `[UnitPrice] = @original_UnitPrice` będzie *zawsze* obliczyć wartość false, ponieważ `NULL = NULL` zawsze zwraca wartość False. W związku z tym, rekordy zawierające `NULL` wartości nie można edytować lub usuwać, jako `UPDATE` i `DELETE` instrukcji `WHERE` klauzule wygrał t zwrócenia wszystkich wierszy, aby zaktualizować lub usunąć.
+`UnitPrice` Kolumny w `Products` tabela może mieć `NULL` wartości. Jeśli określony rekord ma `NULL` wartość `UnitPrice`, `WHERE` część klauzuli `[UnitPrice] = @original_UnitPrice` będzie *zawsze* obliczyć wartość false, ponieważ `NULL = NULL` zawsze zwraca wartość False. W związku z tym, rekordy zawierające `NULL` wartości nie można edytować lub usuwać, jako `UPDATE` i `DELETE` instrukcji `WHERE` klauzule nie zwraca wszystkie wiersze, aby zaktualizować lub usunąć.
 
 > [!NOTE]
 > Ta usterka najpierw zostało zgłoszone do firmy Microsoft w czerwcu 2004 r. w [SqlDataSource generuje niepoprawny instrukcji SQL](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937) i zaplanowano powinno zostać rozwiązany w następnej wersji platformy ASP.NET.
@@ -189,7 +189,7 @@ Po drugie okno przeglądarki aktualizuje rekord, oryginalna nazwa produktu okre�
 > Usuń działa w taki sam sposób. Za pomocą dwóch okna przeglądarki otwartego Rozpocznij od edycji danego produktu przy użyciu jednego, a następnie zapisanie jej zmiany. Po zapisaniu zmian w jednej przeglądarki, kliknij przycisk Usuń dla tego samego produktu w innym. Ponieważ oryginalne don wartości t dopasować w `DELETE` instrukcja s `WHERE` klauzuli delete dyskretnie nie powiedzie się.
 
 
-Z perspektywy użytkownika końcowego s w drugim oknie przeglądarki po kliknięciu przycisku Aktualizuj siatki powraca do trybu edycji wstępnie, ale ich zmiany zostały utracone. Jednak miejsca s nie wizualną opinię, która trzymaj t uaktualnili swoje zmiany. Najlepiej Jeśli zmiany użytkownika s zostaną utracone na naruszenie współbieżności, możemy d powiadamiać użytkowników i, Zachowaj siatki w trybie edycji. Pozwól, s, zobacz, jak to zrobić.
+Z perspektywy użytkownika końcowego s w drugim oknie przeglądarki po kliknięciu przycisku Aktualizuj siatki powraca do trybu edycji wstępnie, ale ich zmiany zostały utracone. Jednak miejsca s nie wizualną opinię, który nie został trzymaj swoje zmiany. Najlepiej Jeśli zmiany użytkownika s zostaną utracone na naruszenie współbieżności, możemy d powiadamiać użytkowników i, Zachowaj siatki w trybie edycji. Pozwól, s, zobacz, jak to zrobić.
 
 ## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>Krok 3. Określanie, kiedy nastąpiło naruszenie współbieżności
 

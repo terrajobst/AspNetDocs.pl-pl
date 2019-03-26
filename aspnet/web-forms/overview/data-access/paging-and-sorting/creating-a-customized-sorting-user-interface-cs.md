@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 6f81b633-9d01-4e52-ae4a-2ea6bc109475
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 28926276e183ae7cf7ed4087d8c73044741389e5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6733aa228bb96b5d34ae2770d32fe0063d7052f1
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068972"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424108"
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>Tworzenie dostosowanego interfejsu użytkownika sortowania (C#)
 ====================
@@ -79,7 +79,7 @@ Gdy widoku GridView jest powiązana ze źródłem danych, tworzy `GridViewRow` d
 **Rysunek 3**: Jedna z technik polega na dodawaniu Separator wierszy do źródła danych
 
 
-Korzystam z rekordów separator termin w cudzysłowie, ponieważ nie istnieje rekord specjalny separator; przeciwnie firma Microsoft musi jakiś sposób flagi, które określonego rekordu w źródle danych służy jako separator, a nie wiersz zwykłych danych. Dla naszych przykładach, możemy ponownie powiązania `ProductsDataTable` wystąpienie GridView, który składa się z `ProductRows`. Firma Microsoft może Flaga rekordu jako wiersz separatora, ustawiając jego `CategoryID` właściwość `-1` (ponieważ taki wartość istnieje zazwyczaj).
+Korzystam z rekordów separator termin w cudzysłowie, ponieważ nie istnieje rekord specjalny separator; przeciwnie firma Microsoft musi jakiś sposób flagi, które określonego rekordu w źródle danych służy jako separator, a nie wiersz zwykłych danych. Dla naszych przykładach, możemy ponownie powiązania `ProductsDataTable` wystąpienie GridView, który składa się z `ProductRows`. Firma Microsoft może Flaga rekordu jako wiersz separatora, ustawiając jego `CategoryID` właściwość `-1` (ponieważ jest to wartość ta nie istnieje zazwyczaj).
 
 Korzystanie z tej techniki d należy wykonać następujące czynności:
 

@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f1173feb-11ee-4017-8f3f-86599ea6ae13
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8bbd20cb64fb27a0a6de2cdc14743f6961f4bf0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5e12f4ec9a6e8c53ee88388355ecfbd81b100c3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076025"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422327"
 ---
 <a name="iteration-2--make-the-application-look-nice-c"></a>Iteracja #2 — zastosować Szukaj nieuprzywilejowany (C#)
 ====================
@@ -112,7 +112,7 @@ Galeria projektów platformy ASP.NET MVC ma dobry wybór style innego projektu. 
 
 Jednak może być konieczne tworzenie projektu całkowicie unikatowy dla witryny sieci Web. W takim przypadku warto pracować w firmie projektowej witryny sieci Web. Czy mogę zdecydowała się takiego podejścia do projektowania aplikacji Contact Manager.
 
-Czy mogę Konfigurowanie menedżera kontaktu z iteracji nr 1 i przesłania projektu do firmie projektowej. One nie jest właścicielem programu Visual Studio (shame na nich!), jednak, że t powodują problemu. Byli w stanie bezpłatnie pobrać z programu Microsoft Visual Web Developer [ https://www.asp.net ](https://www.asp.net) witryny sieci Web i otwórz aplikacji Contact Manager w Visual Web Developer. W kilka dni ich było generowane projektu na rysunku 7.
+Czy mogę Konfigurowanie menedżera kontaktu z iteracji nr 1 i przesłania projektu do firmie projektowej. Nie będzie należał do programu Visual Studio (shame na nich!), ale które nie powodują problemu. Byli w stanie bezpłatnie pobrać z programu Microsoft Visual Web Developer [ https://www.asp.net ](https://www.asp.net) witryny sieci Web i otwórz aplikacji Contact Manager w Visual Web Developer. W kilka dni ich było generowane projektu na rysunku 7.
 
 
 [![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)

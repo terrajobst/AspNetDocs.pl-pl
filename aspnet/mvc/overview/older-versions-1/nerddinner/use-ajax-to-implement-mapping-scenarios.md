@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: f731990a-0a81-4d62-81df-87d676cdedd6
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: f7de23ca46e6dc00fe8075e28068a8b3f95d02cd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9beddfcaf568bf374271fb9fcb3af3a38aff4b72
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074627"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424836"
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>Korzystanie z technologii AJAX w celu implementacji scenariuszy mapowania
 ====================
@@ -150,7 +150,7 @@ Aby wdrożyć to rozwiązanie, utworzymy nową klasę "SearchController", klikni
 
 [!code-csharp[Main](use-ajax-to-implement-mapping-scenarios/samples/sample10.cs)]
 
-Metody akcji SearchByLocation SearchController wewnętrznie wywołuje metodę FindByLocation DinnerRespository można pobrać listy kolacji w pobliżu. Zamiast zwracać obiekty obiad bezpośrednio do klienta, jednak zamiast tego zwraca JsonDinner obiektów. Klasa JsonDinner udostępnia podzbiór właściwości obiad (na przykład: ze względów bezpieczeństwa nie ujawnić, nazwy użytkowników, którzy mają RSVP'd na obiad). Zawiera również właściwość RSVPCount, która nie istnieje na obiad — i które dynamicznie jest obliczana przez liczenie obiektów RSVP skojarzonych z określonym obiad.
+Metody akcji SearchByLocation SearchController wewnętrznie wywołuje metodę FindByLocation DinnerRepository można pobrać listy kolacji w pobliżu. Zamiast zwracać obiekty obiad bezpośrednio do klienta, jednak zamiast tego zwraca JsonDinner obiektów. Klasa JsonDinner udostępnia podzbiór właściwości obiad (na przykład: ze względów bezpieczeństwa nie ujawnić, nazwy użytkowników, którzy mają RSVP'd na obiad). Zawiera również właściwość RSVPCount, która nie istnieje na obiad — i które dynamicznie jest obliczana przez liczenie obiektów RSVP skojarzonych z określonym obiad.
 
 Następnie używamy metody pomocnika Json() w klasie bazowej kontrolera w celu zwrócenia sekwencji kolacji przy użyciu formatu przewodowy opartych na formacie JSON. JSON to format standardowy tekst reprezentujący proste struktur danych. Poniżej przedstawiono przykład jak listę dwóch obiektów JsonDinner sformatowanego JSON wygląda gdy zwracany z naszych metody akcji:
 

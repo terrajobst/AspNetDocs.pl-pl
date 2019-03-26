@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 7cb9c949936c3af73d4c904d401c36d4d83f3e18
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 998191a21388d76fb18b59fca9bcea7a40507c86
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072350"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425577"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Zarządzanie cyklem życia aplikacji: od projektowania do produkcji
 ====================
@@ -26,7 +26,7 @@ przez [Jason Lee](https://github.com/jrjlee)
 > Temat ma na celu zapewnienie ogólny przegląd dla [serii samouczków](deploying-web-applications-in-enterprise-scenarios.md) na wdrażanie w Internecie w przedsiębiorstwie. Nie martw się, jeśli nie znasz niektóre pojęcia opisane w tym miejscu&#x2014;samouczków, które należy wykonać zawierają szczegółowe informacje o wszystkich tych zadań i technik.
 > 
 > > [!NOTE]
-> > Zapewnienia Forthe prostotę, w tym temacie nie omówiono w nim aktualizowanie bazy danych jako część procesu wdrażania. Wprowadzanie aktualizacji przyrostowych funkcje bazy danych jest wymagane wiele scenariuszy wdrażania w przedsiębiorstwie i wskazówki można znaleźć w sposób, w tym celu w dalszej części tej serii samouczków. Aby uzyskać więcej informacji, zobacz [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
+> > Dla uproszczenia w tym temacie nie omówiono w nim aktualizowanie bazy danych jako część procesu wdrażania. Wprowadzanie aktualizacji przyrostowych funkcje bazy danych jest wymagane wiele scenariuszy wdrażania w przedsiębiorstwie i wskazówki można znaleźć w sposób, w tym celu w dalszej części tej serii samouczków. Aby uzyskać więcej informacji, zobacz [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
 
 
 ## <a name="overview"></a>Omówienie

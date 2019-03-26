@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: e5d99c2b-d8ee-413c-80d5-c120cffb0a4c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ad6dfecf71a7577215e43222a8788e5c48d0c4c2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6216f24e497936245280f337477b287ff2afb080
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071078"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421391"
 ---
 <a name="triggering-an-animation-in-another-control-c"></a>Wyzwalanie animacji w innej kontrolce (C#)
 ====================
@@ -54,7 +54,7 @@ W ramach `<Animations>` węzła, animacje miejsce w zwykły sposób. Aby stały 
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-cs/samples/sample6.aspx)]
 
-Należy zwrócić uwagę specjalne kolejność, w jakiej są wyświetlane poszczególne animacji. Po pierwsze przycisk pobiera dezaktywowane, po uruchomieniu animacji. Ponieważ ma nie `AnimationTarget` atrybutu w `<EnableAction>` elementu, ta animacja jest stosowana do sterowania źródłowy: przycisku. Kroki opisane w dwóch następnych animacji są przeprowadzane parallelly (`<Parallel>` elementu). Zachowują się ich `AnimationTarget` Ustaw atrybuty `"Panel1"`, dlatego animowanie panelu nie przycisk.
+Należy zwrócić uwagę specjalne kolejność, w jakiej są wyświetlane poszczególne animacji. Po pierwsze przycisk pobiera dezaktywowane, po uruchomieniu animacji. Ponieważ ma nie `AnimationTarget` atrybutu w `<EnableAction>` elementu, ta animacja jest stosowana do sterowania źródłowy: przycisku. Kroki opisane w dwóch następnych animacji przeprowadza się równolegle (`<Parallel>` elementu). Zachowują się ich `AnimationTarget` Ustaw atrybuty `"Panel1"`, dlatego animowanie panelu nie przycisk.
 
 
 [![Kliknięcie na przycisk uruchamiania animacji panelu](triggering-an-animation-in-another-control-cs/_static/image2.png)](triggering-an-animation-in-another-control-cs/_static/image1.png)

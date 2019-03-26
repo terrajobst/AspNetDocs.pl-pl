@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 17e11c33d6bf2a75e99e3bda4d6ab89c5b1631f9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9969a68a3e1aa043845fb5affd6d3b73dec4136d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071495"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425395"
 ---
-<a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opcje magazynu danych (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
-====================
+# <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opcje magazynu danych (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+
 przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -62,13 +62,13 @@ Duże ilości danych, które mogą być przechowywane w bazach danych NoSQL moż
 
 Na platformie Azure [HDInsight](https://azure.microsoft.com/services/hdinsight/) pozwala na przetwarzanie, analizowanie i wyciągaj nowe wnioski na podstawie dużych ilości danych przy użyciu możliwości usługi Hadoop. Na przykład można go użyć do analizowania dzienników serwera sieci web:
 
-- Włącz rejestrowanie serwera sieci web do swojego konta magazynu. Spowoduje to utworzenie Azure zapisywanie dzienników usług obiektów Blob dla każdego żądania HTTP do aplikacji. Blob Service to w zasadzie magazyn plików w chmurze i dobrze integruje się z HDInsight. 
+- Włącz rejestrowanie serwera sieci web do swojego konta magazynu. Spowoduje to utworzenie Azure zapisywanie dzienników usług obiektów Blob dla każdego żądania HTTP do aplikacji. Blob Service to w zasadzie magazyn plików w chmurze i dobrze integruje się z HDInsight.
 
     ![Dzienniki do magazynu obiektów Blob](data-storage-options/_static/image2.png)
-- Ponieważ aplikacja pobiera ruchu, dzienniki usług IIS na serwerze sieci web są zapisywane do magazynu obiektów Blob. 
+- Ponieważ aplikacja pobiera ruchu, dzienniki usług IIS na serwerze sieci web są zapisywane do magazynu obiektów Blob.
 
     ![Dzienniki serwera sieci Web](data-storage-options/_static/image3.png)
-- W portalu, kliknij przycisk **New** - **usług danych** - **HDInsight** - **szybkie tworzenie**, i określ nazwę klastra HDInsight, rozmiar klastra (liczba węzłów danych klastrów HDInsight) i nazwę użytkownika i hasło dla klastra HDInsight. 
+- W portalu, kliknij przycisk **New** - **usług danych** - **HDInsight** - **szybkie tworzenie**, i określ nazwę klastra HDInsight, rozmiar klastra (liczba węzłów danych klastrów HDInsight) i nazwę użytkownika i hasło dla klastra HDInsight.
 
     ![HDInsight](data-storage-options/_static/image4.png)
 
@@ -175,7 +175,7 @@ Odczekaj kilka sekund, a masz bazę danych na platformie Azure gotowe do użycia
 
 ![Utworzona nowa baza danych SQL](data-storage-options/_static/image10.png)
 
-Dlatego platformy Azure w kilka sekund, co może potrwać możesz dzień lub w tygodniu lub dłużej mogą to zrobić w środowisku lokalnym. A ponieważ użytkownik może równie łatwo można utworzyć bazy danych automatycznie w skrypcie lub za pomocą interfejsu API zarządzania, można dynamicznie skalować w poziomie Dzięki rozdzieleniu danych w wielu < o:p > bazach danych, tak długo, jak aplikacja ma zaprogramowane w tym. < /o : p >
+Dlatego platformy Azure w kilka sekund, co może potrwać możesz dzień lub w tygodniu lub dłużej mogą to zrobić w środowisku lokalnym. A ponieważ użytkownik może równie łatwo można utworzyć bazy danych automatycznie w skrypcie lub za pomocą interfejsu API zarządzania, można dynamicznie skalować w poziomie Dzięki rozdzieleniu danych w wielu bazach danych, tak długo, jak aplikacja ma zaprogramowane w tym.
 
 Jest to przykład naszego modelu platforma jako usługa. Nie trzeba zarządzać serwerami, robimy to. Nie trzeba martwić się o kopiach zapasowych, robimy to. Działa w wysokiej dostępności — w bazie danych są automatycznie replikowane między trzema serwerami. Jeśli maszyna jest niszczony, firma Microsoft automatycznie awaryjnie i utraty żadnych danych. Serwer jest regularnie poprawek, nie trzeba martwić.
 
@@ -267,7 +267,7 @@ Aby uzyskać więcej informacji zobacz następujące zasoby.
 
 Wybieranie platformy bazy danych:
 
-- [Dostęp do danych rozwiązania o wysokiej skalowalności: Przy użyciu programu SQL, NoSQL i Polyglot Persistence](http://aka.ms/dag-doc). Książka elektroniczna przez Microsoft Patterns and Practices, przechodzi szczegółowo w różne rodzaje danych przechowywane są dostępne dla aplikacji w chmurze.
+- [Dostęp do danych rozwiązania o wysokiej skalowalności: Przy użyciu programu SQL, NoSQL i Polyglot Persistence](https://aka.ms/dag-doc). Książka elektroniczna przez Microsoft Patterns and Practices, przechodzi szczegółowo w różne rodzaje danych przechowywane są dostępne dla aplikacji w chmurze.
 - [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/ff898430.aspx). Zobacz podstawy spójności danych, replikacja danych oraz wskazówki dotyczące synchronizacji, wzorzec indeksowania tabeli, wzorzec zmaterializowanego widoku.
 - [BASE: Alternatywa Acid](http://queue.acm.org/detail.cfm?id=1394128). Artykuł o kompromis między spójnością danych i skalowalności.
 - [Siedem baz danych w ciągu siedmiu tygodni: Przewodnik dotyczący nowoczesnych baz danych i przepływu NoSQL](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921). Książka autorstwa Eric Redmond i Jim R. Wilson. Zdecydowanie zaleca się wprowadzenie samodzielnie należała do zakresu platform magazyn danych jest obecnie dostępne.

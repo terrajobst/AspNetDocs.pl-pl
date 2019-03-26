@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: deae088d1daa63e2936aedf80eded18588b1ec60
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2b0d7aeab357a0009c44a29ff66f22ce8a744a90
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066683"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422155"
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a>Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB)
 ====================
@@ -38,7 +38,7 @@ Kod JavaScript `confirm(string)` funkcja wyświetla własny parametr wejściowy 
 **Rysunek 1**: Kod JavaScript `confirm(string)` metoda wyświetla komunikat Messagebox modalne, po stronie klienta
 
 
-Podczas przesyłania formularza, jeśli wartość `false` jest zwracana z obsługi zdarzenia po stronie klienta, a następnie przesyłania formularza zostanie anulowana. Dzięki tej funkcji można przygotować Usuń przycisk s po stronie klienta `onclick` programu obsługi zdarzeń, zwróć wartość wywołania `confirm("Are you sure you want to delete this product?")`. Jeśli użytkownik kliknie przycisk Anuluj, `confirm(string)` zwróci wartość false, co powoduje przesłanie formularza anulować. Za pomocą nie zwrotu można usunąć produkt został kliknięty przycisk Usuń, którego wygrał t. Jeśli jednak użytkownik kliknie przycisk OK w oknie dialogowym potwierdzenia, ogłaszania zwrotnego będzie nadal nieobniżone i produktu zostaną usunięte. Zapoznaj się z [s przy użyciu języka JavaScript `confirm()` metodę przesyłania formularza kontrolki](http://www.webreference.com/programming/javascript/confirm/) Aby uzyskać więcej informacji na temat tej techniki.
+Podczas przesyłania formularza, jeśli wartość `false` jest zwracana z obsługi zdarzenia po stronie klienta, a następnie przesyłania formularza zostanie anulowana. Dzięki tej funkcji można przygotować Usuń przycisk s po stronie klienta `onclick` programu obsługi zdarzeń, zwróć wartość wywołania `confirm("Are you sure you want to delete this product?")`. Jeśli użytkownik kliknie przycisk Anuluj, `confirm(string)` zwróci wartość false, co powoduje przesłanie formularza anulować. Za pomocą nie zwrotu produkt został kliknięty przycisk Usuń, którego nie zostanie usunięty. Jeśli jednak użytkownik kliknie przycisk OK w oknie dialogowym potwierdzenia, ogłaszania zwrotnego będzie nadal nieobniżone i produktu zostaną usunięte. Zapoznaj się z [s przy użyciu języka JavaScript `confirm()` metodę przesyłania formularza kontrolki](http://www.webreference.com/programming/javascript/confirm/) Aby uzyskać więcej informacji na temat tej techniki.
 
 Dodanie niezbędnych skryptu po stronie klienta różni się nieco Jeśli za pomocą szablonów niż przy użyciu CommandField. W związku z tym w tym samouczku przyjrzymy się przykład FormView i GridView.
 

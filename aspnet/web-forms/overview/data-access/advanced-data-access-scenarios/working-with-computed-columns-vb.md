@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 81254408252c5e786c938d4eb8beb1c7a2b65218
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 136e4a07422d9f71ed56ac132d93f5eade273ca2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077054"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423172"
 ---
 <a name="working-with-computed-columns-vb"></a>Praca z kolumnami obliczanymi (VB)
 ====================
@@ -32,7 +32,7 @@ Ponieważ wartość kolumny obliczanej s jest określana przez wyrażenie, takic
 
 Jednym z wyzwań przy użyciu obliczonych kolumn za pomocą TableAdapter, która używa instrukcji SQL zapytań ad-hoc jest to, że TableAdapter s `INSERT` i `UPDATE` zapytania są automatycznie generowane każdym zakończeniu Kreator konfiguracji TableAdapter. W związku z tym, kolumnach obliczanych ręcznie usunięty z `INSERT` i `UPDATE` zapytań pojawi się ponownie, jeśli Kreator jest uruchamiać ponownie. Don TableAdapters, których używanie procedur składowanych t borykają się z tym kruchości, mają własne Osobliwości, które będzie można rozwiązać w kroku 3.
 
-W tym samouczku zostanie dodany do kolumny obliczanej `Suppliers` tabeli w bazie danych Northwind, a następnie utwórz odpowiedni obiekt TableAdapter do pracy z tej tabeli i jej kolumny obliczanej. Mamy nasz TableAdapter używanie procedur składowanych zamiast instrukcji SQL zapytań ad-hoc, dzięki czemu nasze t są dostosowania utracone podczas służy Kreator konfiguracji TableAdapter.
+W tym samouczku zostanie dodany do kolumny obliczanej `Suppliers` tabeli w bazie danych Northwind, a następnie utwórz odpowiedni obiekt TableAdapter do pracy z tej tabeli i jej kolumny obliczanej. Mamy nasz TableAdapter używanie procedur składowanych zamiast instrukcji SQL zapytań ad-hoc, dzięki czemu nasze dostosowania nie są utracone, gdy jest używany Kreator konfiguracji TableAdapter.
 
 Rozpocznij pracę dzięki s!
 

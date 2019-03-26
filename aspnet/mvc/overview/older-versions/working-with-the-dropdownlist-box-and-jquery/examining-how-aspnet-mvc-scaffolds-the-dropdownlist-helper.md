@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 8921d7f2-21f0-427a-8b27-2df7251174b0
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 542790b7f475cc641ed26ff3187c25c25118e0ed
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ef83ef22e17ab7bda035d0f11ab936fe56d58800
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069974"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423029"
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>Badanie sposobu tworzenia szkieletu pomocnika DropDownList przez wzorzec ASP.NET MVC
 ====================
@@ -197,7 +197,7 @@ Uruchom aplikację, a następnie edytuj albumu. Zmień adres URL, aby użyć `Ed
 
 ### <a name="which-approach-should-you-use"></a>Które rozwiązanie należy użyć?
 
-Wszystkie trzy metody wyświetlane są akceptowalne. Wielu programistów chce explictily — dostęp próbny `SelectList` do `DropDownList` przy użyciu `ViewBag`. Takie podejście ma dodatkową zaletę, zapewniając elastyczność przy użyciu bardziej odpowiednie nazwy dla kolekcji. Jedno zastrzeżenie: to nie nazwa `ViewBag SelectList` obiekt o nazwie identycznej z nazwą właściwości modelu.
+Wszystkie trzy metody wyświetlane są akceptowane. Wielu programistów chce jawne przekazywanie `SelectList` do `DropDownList` przy użyciu `ViewBag`. Takie podejście ma dodatkową zaletę, zapewniając elastyczność przy użyciu bardziej odpowiednie nazwy dla kolekcji. Jedno zastrzeżenie: to nie nazwa `ViewBag SelectList` obiekt o nazwie identycznej z nazwą właściwości modelu.
 
 Niektórzy deweloperzy preferowane podejście ViewModel. Inne należy wziąć pod uwagę pełniejszy znaczników i wygenerowany kod HTML podejście ViewModel uprzywilejowanych.
 

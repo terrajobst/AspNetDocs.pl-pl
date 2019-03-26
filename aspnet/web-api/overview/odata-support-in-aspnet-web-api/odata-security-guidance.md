@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0e43ec6b1cbe922b00f0f71d08aed4d0f4c08af8
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078242"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425863"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData
 ====================
@@ -25,7 +25,7 @@ W tym temacie opisano niektóre problemy z zabezpieczeniami, które należy wzi�
 
 Semantyki zapytań są oparte na modelu entity data model (EDM) struktury, nie podstawowych typów modelu. Właściwości można wykluczyć z EDM i nie będą widoczne dla zapytania. Na przykład załóżmy, że model zawiera typ pracownika z właściwością wynagrodzenia. Możesz chcieć wyłączyć tę właściwość z EDM, aby go ukryć od klientów.
 
-Istnieją dwa sposoby wyłączają właściwość EDM. Możesz ustawić **[IgnoreDataMember]** atrybutu dla właściwości w klasie modelu:
+Istnieją dwa sposoby spod właściwości EDM. Możesz ustawić **[IgnoreDataMember]** atrybutu dla właściwości w klasie modelu:
 
 [!code-csharp[Main](odata-security-guidance/samples/sample1.cs)]
 

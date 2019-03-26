@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 775286df610df9040cbf04125b1742b6befa055b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 93ee29ae125e9442ee755998768a8105dfb485c0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071585"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424303"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
 ====================
@@ -945,7 +945,7 @@ Wartość *controlRenderingCompatibility* jest ciąg, który umożliwia potencja
 
 W ASP.NET 3.5 z dodatkiem SP1 i wcześniejszymi wersjami, struktura renderuje *wyłączone* atrybutu w kod znaczników HTML, aby każdy formant, którego *włączone* właściwością *false*. Jednak zgodnie ze specyfikacją HTML 4.01, tylko *wejściowych* elementy powinny mieć tego atrybutu.
 
-W ramach platformy ASP.NET 4, możesz ustawić *controlRenderingCompatabilityVersion* właściwość "3.5", jak w poniższym przykładzie:
+W ramach platformy ASP.NET 4, możesz ustawić *controlRenderingCompatibilityVersion* właściwość "3.5", jak w poniższym przykładzie:
 
 [!code-xml[Main](overview/samples/sample70.xml)]
 
@@ -957,7 +957,7 @@ Możesz utworzyć kod znaczników dla *etykiety* kontroli podobnie do poniższeg
 
 [!code-html[Main](overview/samples/sample72.html)]
 
-W ramach platformy ASP.NET 4, możesz ustawić *controlRenderingCompatabilityVersion* "4.0". W takim przypadku czynność reguluje tylko tym renderowania *wejściowych* elementy będą renderowane *wyłączone* atrybutu, gdy formantu *włączone* właściwość jest ustawiona na *false* . Formanty, które nie są renderowane HTML *wejściowych* zamiast renderowania elementów *klasy* atrybut, który odwołuje się do klasy CSS używanej do definiowania wyłączone wyglądu kontrolki. Na przykład *etykiety* kontrolki wyświetlane we wcześniejszym przykładzie wygeneruje następujący kod:
+W ramach platformy ASP.NET 4, możesz ustawić *controlRenderingCompatibilityVersion* "4.0". W takim przypadku czynność reguluje tylko tym renderowania *wejściowych* elementy będą renderowane *wyłączone* atrybutu, gdy formantu *włączone* właściwość jest ustawiona na *false* . Formanty, które nie są renderowane HTML *wejściowych* zamiast renderowania elementów *klasy* atrybut, który odwołuje się do klasy CSS używanej do definiowania wyłączone wyglądu kontrolki. Na przykład *etykiety* kontrolki wyświetlane we wcześniejszym przykładzie wygeneruje następujący kod:
 
 [!code-html[Main](overview/samples/sample73.html)]
 

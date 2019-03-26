@@ -8,12 +8,12 @@ ms.date: 03/08/2013
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
-ms.openlocfilehash: a3e8b42cdadf99df6971a278834b1429e129ce72
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a3021f166262ee953b0cbe9ea88762a385925b88
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070994"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423107"
 ---
 <a name="breezeangular-template"></a>Szablon Breeze/Angular
 ====================
@@ -30,7 +30,7 @@ Szablon Breeze/Angular SPA jest odmianą na [szablon KnockoutJS SPA](../introduc
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/NgRunningTodoPage.png)
 
-Wypukłymi aplikacja wygląda bardzo podobnie do szablon KnockoutJS SPA. Ale zupełnie różne pod maską. Szablon KnockoutJS używa Knockout dla wiązania danych i raw AJAX uzyskać dostęp do danych. Szablon Breeze/Angular używa Angular dla powiązania danych i łatwo uzyskać dostęp do danych. Te bibliotekami włączyć dodatkowe funkcje, w tym nawigowania po stronach i historię.
+Wypukłymi aplikacja wygląda bardzo podobnie do szablon KnockoutJS SPA. Ale zupełnie różne pod maską. Szablon KnockoutJS używa Knockout dla wiązania danych i raw AJAX uzyskać dostęp do danych. Szablon Breeze/Angular używa Angular dla powiązania danych i łatwo uzyskać dostęp do danych. Te biblioteki Włącz dodatkowe funkcje, w tym nawigowania po stronach i historię.
 
 Poniżej przedstawiono informacje o stronie aplikacji:
 
@@ -89,7 +89,7 @@ Teraz masz ziemi SPA. Wszystko, co można zobaczyć, a środowisko podczas manip
 
 Logika sprawdzania poprawności jest wykonywane po stronie klienta, szybka i bezproblemowa. Atrybutów sprawdzania poprawności na serwerze klasy modelu są propagowane do klienta, a następnie wykonywane automatycznie, zanim klient kontaktuje się z serwerem.
 
-Przejrzyj ruchu sieciowego. Należy zauważyć, że żadne wywołania do serwera podczas było Breeze wykryła błąd. Każda zmiana prawidłowy w wyniku żądania POST do "/ api/zadania/SaveChanges". Szybka i bezproblemowa razem zmiany i wysyła je ze sobą jako pojedyncze żądanie do kontrolera internetowego interfejsu API `SaveChanges` metody. To różni się od szablonu KockoutJS SPA, który sprawia, że PUT, POST i usuwania żądań dla każdego elementu indywidualnie.
+Przejrzyj ruchu sieciowego. Należy zauważyć, że żadne wywołania do serwera podczas było Breeze wykryła błąd. Każda zmiana prawidłowy w wyniku żądania POST do "/ api/zadania/SaveChanges". Szybka i bezproblemowa razem zmiany i wysyła je ze sobą jako pojedyncze żądanie do kontrolera internetowego interfejsu API `SaveChanges` metody. To różni się od szablon KnockoutJS SPA, który sprawia, że PUT, POST i usuwania żądań dla każdego elementu indywidualnie.
 
 Zauważ również, że istnieje żaden ruch sieciowy podczas przełączania między TodoList i dotyczących stron. Wynika to z zapytania została ograniczona do lokalnej pamięci podręcznej szybka i bezproblemowa.
 
@@ -107,7 +107,7 @@ Stos po stronie serwera składa się z kodu dla deweloperów i trzy bibliotek .N
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ServerArchitecture.png)
 
-Podstawowa architektura jest taka sama jak szablon KockoutJS SPA. Jednak implementacja jest znacznie prostsza: Dto zostały usunięte, a większość szczegóły Entity Framework zostały delegowane Breeze.NET.
+Podstawowa architektura jest taka sama jak szablon KnockoutJS SPA. Jednak implementacja jest znacznie prostsza: Dto zostały usunięte, a większość szczegóły Entity Framework zostały delegowane Breeze.NET.
 
 ## <a name="next-steps"></a>Następne kroki
 

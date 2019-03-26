@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 0bc191b2-4311-479a-a83a-7f1b1c32e6fe
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: b735c414c629b9ff6617dbf80782d57543306c00
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5829aab8cb266a65674d052ab77ab8e10c60670
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078398"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422860"
 ---
 <a name="build-a-model-with-business-rule-validations"></a>Budowanie modelu z walidacją reguł biznesowych
 ====================
@@ -122,7 +122,7 @@ Do implementowania tej klasy, utworzymy kliknij prawym przyciskiem myszy w folde
 
 ![](build-a-model-with-business-rule-validations/_static/image10.png)
 
-Następnie możemy wdrożyć nasze klasy DinnerRespository, za pomocą poniższego kodu:
+Następnie możemy wdrożyć nasze klasy DinnerRepository, za pomocą poniższego kodu:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample3.cs)]
 

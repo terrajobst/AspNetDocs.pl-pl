@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d4998c8b739b4b1a06699a17464a7399a87a8595
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3db54a134e8f842cab1d3471c69f5a8e2039d83d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070484"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423614"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR
 ====================
@@ -22,7 +22,7 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Pobierz Camp Web szkolenia Kit](http://aka.ms/webcamps-training-kit)
+[Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
 
 > Możliwość Wypchnij zawartość do dołączonych klientów, jak to się dzieje, w czasie rzeczywistym po stronie serwera są wyposażone w aplikacji sieci Web w czasie rzeczywistym. Dla deweloperów platformy ASP.NET **ASP.NET SignalR** jest biblioteką, aby dodać funkcje sieci web w czasie rzeczywistym do aplikacji. Wykorzystuje ona transportów kilka automatyczne wybieranie najlepiej transportu dostępnych danego klienta i serwera najlepsze dostępne mechanizm transportu. Wykorzystuje ona **WebSocket**, interfejs API języka HTML5, która umożliwia komunikację dwukierunkową między przeglądarką i serwerem.
 > 
@@ -34,7 +34,7 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > 
 > ![Architektura SignalR](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>

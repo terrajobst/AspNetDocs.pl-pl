@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e71ad365ecbfc1bb33117a6c93e7108a4b3866a6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d52fadc1ddcc101d5815df6f1c1bc5eeba95d9b8
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074555"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440368"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (VB)
 ====================
@@ -30,7 +30,7 @@ W [omówienie edytowania i usuwania danych w kontrolce DataList](an-overview-of-
 
 Jak widzieliśmy w [obsługi LOGIKI i wyjątki DAL na poziomie strony ASP.NET](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) samouczek, jeśli wyjątek jest zgłaszany z głębokości logiki biznesowej i warstwy dostępu do danych, szczegóły wyjątku są zwracane do kontrolki ObjectDataSource i następnie do widoku GridView. Firma Microsoft pokazaliśmy, jak bezpiecznie obsługiwać te wyjątki, tworząc `Updated` lub `RowUpdated` programy obsługi zdarzeń dla elementu ObjectDataSource lub GridView, sprawdzanie, dla wyjątku i wskazującą, czy wyjątek został obsłużony.
 
-DataList samouczków, jednak t konto za pomocą kontrolki ObjectDataSource, aktualizowania i usuwania danych. Zamiast tego pracujemy bezpośrednio w odniesieniu do LOGIKI. W celu wykrycia wyjątki pochodzące z LOGIKI lub warstwy DAL, musimy zaimplementować obsługę kodu w ramach kodem naszą stronę ASP.NET wyjątków. W tym samouczku opisano jak bardziej przeczucie obsługiwać wyjątki zgłoszone podczas edycji s DataList aktualizowanie przepływu pracy.
+Naszych samouczków DataList, jednak nie są za pomocą kontrolki ObjectDataSource aktualizowania i usuwania danych. Zamiast tego pracujemy bezpośrednio w odniesieniu do LOGIKI. W celu wykrycia wyjątki pochodzące z LOGIKI lub warstwy DAL, musimy zaimplementować obsługę kodu w ramach kodem naszą stronę ASP.NET wyjątków. W tym samouczku opisano jak bardziej przeczucie obsługiwać wyjątki zgłoszone podczas edycji s DataList aktualizowanie przepływu pracy.
 
 > [!NOTE]
 > W *omówienie edytowania i usuwania danych w kontrolce DataList* samouczku Omówiliśmy różne techniki edytowania i usuwania danych w kontrolce DataList kilka technik bierze udziału za pomocą kontrolki ObjectDataSource aktualizacji i usuwanie. Jeśli te techniki zostanie zastosowana, może obsługiwać wyjątki od LOGIKI lub warstwy DAL za pośrednictwem ObjectDataSource s `Updated` lub `Deleted` procedury obsługi zdarzeń.
@@ -131,7 +131,7 @@ GridView i kontrolki ObjectDataSource zapewniają obsługi zdarzeń po poziomu, 
 
 W tym samouczku widzieliśmy sposób dodawania obsługi wyjątków, aby można edytować s DataList aktualizowanie przepływu pracy, dodając `Try ... Catch` za pomocą bloku `UpdateCommand` programu obsługi zdarzeń. Jeśli wyjątek jest zgłaszany podczas aktualizowania przepływu pracy, `Catch` bloku s Kod jest wykonywany, wyświetlania informacji pomocnych w `ExceptionDetails` etykiety.
 
-W tym momencie kontrolki DataList nie podejmuje żadnych działań zapobiegające wyjątki od dzieje się w pierwszej kolejności. Mimo że wiemy, że ceny spowodują wyjątek, że firma Microsoft t dodać jeszcze żadnej funkcji, aby aktywnie uniemożliwić użytkownikowi wprowadzanie takich nieprawidłowe dane wejściowe. W naszym samouczku dalej zobaczymy, jak zmniejszyć wyjątki spowodowane przez nieprawidłowy użytkownik danych wejściowych przez dodawanie kontrolek weryfikacji w `EditItemTemplate`.
+W tym momencie kontrolki DataList nie podejmuje żadnych działań zapobiegające wyjątki od dzieje się w pierwszej kolejności. Mimo że wiemy, ceny spowodują wyjątek, firma Microsoft nie dodano jeszcze żadnych funkcji do aktywnego uniemożliwić użytkownikowi wprowadzanie takich nieprawidłowe dane wejściowe. W naszym samouczku dalej zobaczymy, jak zmniejszyć wyjątki spowodowane przez nieprawidłowy użytkownik danych wejściowych przez dodawanie kontrolek weryfikacji w `EditItemTemplate`.
 
 Wszystkiego najlepszego programowania!
 

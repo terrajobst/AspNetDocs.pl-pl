@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 3e8b0627-3eb7-488e-807e-067cba7cec05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 029c17d5f996f595aef1af68c3ddb9b21f99f5cf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4ea1713541c30623c0f7c8387318549dd36a125f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072683"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423588"
 ---
 <a name="strategies-for-database-development-and-deployment-c"></a>Strategie projektowania i wdrażania baz danych (C#)
 ====================
@@ -66,7 +66,7 @@ Brak liczby wad tego podejścia. Po pierwsze nie ma żadnych mamy nadzieję, że
 
 Główną Korzyścią płynącą dokumentowania zmian w bazie danych w prozie jest prostotę. Komputer t konieczność znajomości składni SQL do tworzenia i modyfikowania obiektów bazy danych. Można rejestrować zmiany w prozie i ich wdrażania za pomocą programu SQL Server Management Studio s graficznego interfejsu użytkownika.
 
-Utrzymywanie dziennika zmian w prozie, niewątpliwie, nie jest bardzo zaawansowane i uzyskany działa dobrze w przypadku niektórych projektów, takich jak te, które mają duży zakres, częstych zmian do modelu danych lub obejmować wielu deweloperów. Jednak umieścić takie podejście, które działają bardzo dobrze w małych one-man projektów tylko sporadycznie zmian do modelu danych, które mają i gdzie zapoznają deweloper nie ma silnej tła przy użyciu składni SQL do tworzenia i modyfikowania obiektów bazy danych.
+Utrzymywanie dziennika zmian w prozie jest niewątpliwie, nie bardzo zaawansowane i nie będzie działać dobrze w przypadku niektórych projektów, takich jak te, które mają duży zakres, częstych zmian do modelu danych lub obejmować wielu deweloperów. Jednak umieścić takie podejście, które działają bardzo dobrze w małych one-man projektów tylko sporadycznie zmian do modelu danych, które mają i gdzie zapoznają deweloper nie ma silnej tła przy użyciu składni SQL do tworzenia i modyfikowania obiektów bazy danych.
 
 > [!NOTE]
 > Informacje przedstawione w dzienniku zmian jest technicznie rzecz biorąc, tylko potrzebne do wdrożenia — czasu I zalecamy przechowywanie historii zmian. Jednak zamiast utrzymania pojedynczej, nigdy nie rośnie pliku dziennika zmian, należy rozważyć utworzenie inny plik dziennika dla każdej wersji bazy danych. Zazwyczaj należy do wersji bazy danych każdorazowo, gdy jest wdrożony. Poprzez utrzymywanie dziennika zmian dzienników można zaczynając od linii bazowej, odtworzyć dowolnej wersji bazy danych, wykonując skrypty dziennika zmian, począwszy od wersji 1 i kontynuowanie aż do wersji należy ponownie utworzyć.

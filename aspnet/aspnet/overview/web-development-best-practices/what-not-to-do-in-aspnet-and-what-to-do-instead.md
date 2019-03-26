@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 512d2e2b39467635390fa175546f79d8c9f89f4a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a09169327d8eed45a83b232354af74a14aa89817
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070070"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425044"
 ---
 # <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Czego nie robić na platformie ASP.NET i co zrobić zamiast tego
 
@@ -151,7 +151,7 @@ Poniższy przykład pokazuje, jak określić w pliku Web.config, że uwierzyteln
 
 Zalecenie: Nigdy nie jest ustawiona na wartość false.
 
-Domyślnie EnbableViewStateMac jest ustawiona na wartość true. Nawet wtedy, gdy aplikacja nie używa stanu widoku, nie należy ustawiać EnableViewStateMac na wartość false. Ustawienie wartości FALSE spowoduje, że aplikacja narażone na wykonywanie skryptów między witrynami.
+Domyślnie EnableViewStateMac jest ustawiona na wartość true. Nawet wtedy, gdy aplikacja nie używa stanu widoku, nie należy ustawiać EnableViewStateMac na wartość false. Ustawienie wartości FALSE spowoduje, że aplikacja narażone na wykonywanie skryptów między witrynami.
 
 Począwszy od platformy ASP.NET 4.5.2, środowisko wykonawcze wymusza **EnableViewStateMac = true**. Nawet wtedy, gdy zostanie ustawiona na wartość false, środowisko uruchomieniowe ignoruje tę wartość i będzie kontynuowane z ustawioną wartość true. Aby uzyskać więcej informacji, zobacz [ASP.NET 4.5.2 i EnableViewStateMac](https://blogs.msdn.com/b/webdev/archive/2014/05/07/asp-net-4-5-2-and-enableviewstatemac.aspx).
 

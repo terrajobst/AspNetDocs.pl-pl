@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 75c8f58c6fece6b234a6cf5852d98e0ee583e614
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796355"
----
 # <a name="contribute-to-the-aspnet-documentation"></a>Współtworzenie dokumentacji platformy ASP.NET
 
 W tym dokumencie opisano proces współtworzenia artykułów i przykłady kodu, które są hostowane na [witrynie dokumentacji platformy ASP.NET](https://docs.microsoft.com/aspnet/). Błąd pisowni poprawki i nowe artykuły są powitalnej wkładów.
@@ -18,28 +10,28 @@ Artykuły są przechowywane w repozytorium jako pliki Markdown. Proste do zawart
 
 Potrzebujesz podstawową wiedzę na temat [Git i GitHub.com](https://guides.github.com/activities/hello-world/).
 
-* Otwórz [problem](https://github.com/aspnet/Docs/issues/new) opisujący, co chcesz zrobić, takich jak zmiana istniejącego artykułu lub utworzeniem nowej. Prosimy często konspekt dla nowej sugestii tematu. Oczekiwania na zatwierdzenie przez zespół inwestować dużo czasu.
-* Rozwidlenia [aspnet/Docs](https://github.com/aspnet/Docs/) repozytorium i utwórz gałąź dla Twoich zmian.
+* Otwórz [problem](https://github.com/aspnet/AspNetDocs/issues/new) opisujący, co chcesz zrobić, takich jak zmiana istniejącego artykułu lub utworzeniem nowej. Prosimy często konspekt dla nowej sugestii tematu. Oczekiwania na zatwierdzenie przez zespół inwestować dużo czasu.
+* Rozwidlenia [aspnet/AspNetDocs](https://github.com/aspnet/AspNetDocs/) repozytorium i utwórz gałąź dla Twoich zmian.
 * Prześlij żądanie Ściągnięcia do gałęzi głównej, z uwzględnieniem zmienionych uprawnień.
 * Jeśli żądanie Ściągnięcia ma etykietę "wymagana przez cla" przypisane, [ukończenia wkładu umowę licencji (CLA)](https://cla.dotnetfoundation.org/).
 * Odpowiadanie na żądania Ściągnięcia, opinie.
 
 Aby uzyskać przykład, gdzie ten proces doprowadził do publikacji nowego artykułu, zobacz [problem &num;67](https://github.com/dotnet/docs/issues/67) i [żądania ściągnięcia &num;798](https://github.com/dotnet/docs/pull/798) w repozytorium dokumentacji platformy .NET. Nowy artykuł jest [dokumentowanie kodu](https://docs.microsoft.com/dotnet/articles/csharp/codedoc).
 
-## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Docs Authoring Pack rozszerzenia programu Visual Studio Code 
+## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Docs Authoring Pack rozszerzenia programu Visual Studio Code
 
 Jeśli używasz programu Visual Studio Code na potrzeby współtworzenia dokumentacji platformy ASP.NET, możesz zwiększyć produktywność, instalując [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) rozszerzenia. Rozszerzenie udostępnia szeroką gamą narzędzi, który pomaga w języku znaczników Markdown Zaznaczanie błędów, sprawdzanie pisowni kodu i szablony artykułów.
 
 ## <a name="markdown-syntax"></a>Składnia języka markdown
 
-Artykuły są pisane w [DocFx składni języka Markdown](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html), który jest nadzbiorem [Markdown połączonego z usługą GitHub (GFM)](https://guides.github.com/features/mastering-markdown/). Przykłady dla funkcji interfejsu użytkownika często używane w dokumentacji platformy ASP.NET przy użyciu składni DFM, zobacz [metadanych i szablonu języka znaczników Markdown](https://github.com/dotnet/docs/blob/master/styleguide/template.md) w przewodniku stylistycznym repozytorium dokumentacji platformy .NET. 
+Artykuły są pisane w [DocFx składni języka Markdown](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html), który jest nadzbiorem [Markdown połączonego z usługą GitHub (GFM)](https://guides.github.com/features/mastering-markdown/). Przykłady dla funkcji interfejsu użytkownika często używane w dokumentacji platformy ASP.NET przy użyciu składni DFM, zobacz [metadanych i szablonu języka znaczników Markdown](https://github.com/dotnet/docs/blob/master/styleguide/template.md) w przewodniku stylistycznym repozytorium dokumentacji platformy .NET.
 
 ## <a name="folder-structure-conventions"></a>Konwencje struktury folderów
 
-Dla każdego pliku Markdown może istnieć folder obrazów i folder do przykładowego kodu. Jeśli artykuł jest [fundamentals/configuration/index.md](https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), obrazy znajdują się w [podstawy/configuration/index/\_statyczne](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) i przykładowych plików projektu aplikacji znajdują się w [ podstawy/configuration / / przykładowy indeks](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Obraz w *fundamentals/configuration/index.md* pliku jest renderowany przez następujący kod Markdown:
+Dla każdego pliku Markdown może istnieć folder obrazów i folder do przykładowego kodu. Jeśli artykuł jest [signalr/overview/advanced/dependency-injection.md](https://github.com/aspnet/AspNetDocs/blob/master/aspnet/signalr/overview/advanced/dependency-injection.md), obrazy znajdują się w [signalr/overview/zaawansowane / — wstrzykiwanie zależności /\_statyczne](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/signalr/overview/advanced/dependency-injection/_static) i przykładowy projekt aplikacji pliki znajdują się w [signalr/overview/zaawansowane/zależności iniekcji/samples](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/signalr/overview/advanced/dependency-injection/samples). Obraz w *signalr/overview/advanced/dependency-injection.md* pliku jest renderowany przez następujący kod Markdown:
 
-```
-![description of image for alt attribute](configuration/index/_static/imagename.png)
+```md
+![description of image for alt attribute](dependency-injection/_static/image1.png)
 ```
 
 Wszystkie obrazy powinny mieć [tekst alternatywny (alt)](https://wikipedia.org/wiki/Alt_attribute). Porady dotyczące określania tekst alternatywny, znaleźć zasoby online, takich jak [WebAIM: Tekst alternatywny](https://webaim.org/techniques/alttext/).
@@ -50,13 +42,13 @@ Na użytek małe nazw plików języka Markdown i nazwy plików obrazów.
 
 Skorzystaj z łączy wewnętrznych `uid` artykułu docelowej z łączem xref (tekst łącza jest ustawiona na tytuł połączonej zawartości):
 
-```
+```md
 <xref:uid_of_the_topic>
 ```
 
 Tytuł artykułu nie nadaje się do tekstu łącza (na przykład wyraz lub frazę w zdaniu jest tekst łącza), z następującymi określić link odsyłaczy i tekst łącza:
 
-```
+```md
 [link text](xref:uid_of_the_topic)
 ```
 
@@ -71,38 +63,38 @@ Nie dołączaj obrazów z artykułami, z wyjątkiem:
 
 Te ograniczenia zmniejszyć rozmiar repozytorium.
 
-Jako opcjonalny krok upewnij się, że wszystkie obrazy i zrzuty ekranu użyte w dokumentacji są kompresowane, co ułatwia spełnienie wydajność ładowania strona i rozmiaru pliku. Kilka popularnych narzędzi obejmują TinyPNG (przy użyciu [TinyPNG witryny sieci Web](https://tinypng.com/) lub [TinyPNG API](https://tinypng.com/developers)) lub [Image Optimizer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ImageOptimizer) rozszerzenia programu Visual Studio. 
+Jako opcjonalny krok upewnij się, że wszystkie obrazy i zrzuty ekranu użyte w dokumentacji są kompresowane, co ułatwia spełnienie wydajność ładowania strona i rozmiaru pliku. Kilka popularnych narzędzi obejmują TinyPNG (przy użyciu [TinyPNG witryny sieci Web](https://tinypng.com/) lub [TinyPNG API](https://tinypng.com/developers)) lub [Image Optimizer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ImageOptimizer) rozszerzenia programu Visual Studio.
 
 ## <a name="code-snippets"></a>Fragmenty kodu
 
-Artykuły często zawierają fragmenty kodu, aby zilustrować punktów. Język DFM umożliwia skopiuj kod do pliku Markdown, lub można znaleźć w osobnym pliku kodu. Firma Microsoft wolą używać plików osobnego kodu zawsze, gdy jest to możliwe zminimalizować ryzyko wystąpienia błędów w kodzie. Pliki kodu są przechowywane w repozytorium, przy użyciu struktury folderów opisanej wcześniej dla przykładowych projektów. 
+Artykuły często zawierają fragmenty kodu, aby zilustrować punktów. Język DFM umożliwia skopiuj kod do pliku Markdown, lub można znaleźć w osobnym pliku kodu. Firma Microsoft wolą używać plików osobnego kodu zawsze, gdy jest to możliwe zminimalizować ryzyko wystąpienia błędów w kodzie. Pliki kodu są przechowywane w repozytorium przy użyciu struktury folderów opisanej wcześniej dla przykładowych projektów.
 
 Poniższe przykłady ilustrują [składni fragment kodu języka DFM](https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html#code-snippet) do użycia w *configuration/index.md* pliku.
 
 Do renderowania całego pliku z kodem jako fragment kodu:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs)]
 ```
 
 Aby renderować część pliku jako fragment, używając numerów wierszy:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?range=1-10,20,30,40-50]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=1-10,20,30,40-50]
 ```
 
-Aby uzyskać C# fragmenty kodu, dokumentacja [ C# region](https://docs.microsoft.com/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region). Jeśli to możliwe, należy użyć regionów, a nie numery wierszy ponieważ numery wierszy w pliku kodu mogą zmienić i odwołania do numerów wierszy w języku znaczników Markdown zsynchronizowany. C#regiony mogą być zagnieżdżone. Jeśli odwołanie do regionu zewnętrzny, wewnętrzny `#region` i `#endregion` dyrektywy nie są renderowane przy użyciu fragmentu kodu. 
+Aby uzyskać C# fragmenty kodu, dokumentacja [ C# region](https://docs.microsoft.com/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region). Jeśli to możliwe, należy użyć regionów, a nie numery wierszy ponieważ numery wierszy w pliku kodu mogą zmienić i odwołania do numerów wierszy w języku znaczników Markdown zsynchronizowany. C#regiony mogą być zagnieżdżone. Jeśli odwołanie do regionu zewnętrzny, wewnętrzny `#region` i `#endregion` dyrektywy nie są renderowane przy użyciu fragmentu kodu.
 
 Aby renderować C# regionu o nazwie "snippet_Example":
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example)]
 ```
 
 Aby wyróżnić wybrane wiersze w renderowanym fragmentu kodu (zazwyczaj renderowany jako kolor tła żółty):
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example&highlight=1-3,10,20-25)]
 [!code-csharp[](configuration/index/sample/Program.cs?range=10-20&highlight=1-3]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=10-20&highlight=1-3]
@@ -116,13 +108,13 @@ Przetestować zmiany z [narzędzia wiersza polecenia DocFX](https://dotnet.githu
 Wymaga DocFX:
 
 * .NET framework na Windows.
-* Środowiska mono dla systemu Linux lub macOS. 
+* Środowiska mono dla systemu Linux lub macOS.
 
 ### <a name="windows-instructions"></a>Instrukcje Windows
 
 * Pobierz i Rozpakuj *docfx.zip* z [zwalnia DocFX](https://github.com/dotnet/docfx/releases).
 * DocFX należy dodać do ścieżki.
-* W powłoce poleceń, przejdź do folderu, który zawiera *docfx.json* pliku (*aspnet* zawartości platformy ASP.NET lub *aspnetcore* zawartości platformy ASP.NET Core) i uruchom następujące polecenie:
+* W powłoce poleceń, przejdź do *aspnet* folder, który zawiera *docfx.json* pliku i uruchom następujące polecenie:
 
   ```console
   docfx --serve
@@ -144,7 +136,7 @@ Wymaga DocFX:
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-* W powłoce poleceń, przejdź do folderu, który zawiera *docfx.json* pliku (*aspnet* zawartości platformy ASP.NET lub *aspnetcore* zawartości platformy ASP.NET Core) i uruchom następujące polecenie, aby tworzyć i obsługiwać dokumenty za pomocą jego aliasu:
+* W powłoce poleceń, przejdź do *aspnet* folder, który zawiera *docfx.json* pliku i uruchom następujące polecenie, aby tworzyć i obsługiwać dokumenty za pomocą jego aliasu:
 
   ```console
   docfx-serve
@@ -161,4 +153,4 @@ Naszym celem jest pisanie dokumentacji, która jest łatwe do zrozumienia przez 
 
 ## <a name="redirects"></a>Przekierowuje
 
-Jeśli usuwać artykuły, zmień jej nazwę pliku lub przenieść je do innego folderu, utworzyć przekierowanie, aby nie otrzymywać osób, które zakładek artykuł *404 Nie znaleziono* błędu. Dodanie przekierowań do [głównego pliku przekierowania](https://github.com/aspnet/Docs/blob/master/.openpublishing.redirection.json).
+Jeśli usuwać artykuły, zmień jej nazwę pliku lub przenieść je do innego folderu, utworzyć przekierowanie, aby nie otrzymywać osób, które zakładek artykuł *404 Nie znaleziono* błędu. Dodanie przekierowań do [głównego pliku przekierowania](https://github.com/aspnet/AspNetDocs/blob/master/.openpublishing.redirection.json).

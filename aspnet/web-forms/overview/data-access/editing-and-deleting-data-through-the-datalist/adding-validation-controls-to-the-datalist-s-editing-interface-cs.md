@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2fe85d6513a229f11b3aad7c7cc6c7124c94d70f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c552dd54830152afbe100ed03fb6764ddfb590dd
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072800"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422665"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (C#)
 ====================
@@ -156,10 +156,10 @@ Dodaj następujący kod na początku `UpdateCommand` programu obsługi zdarzeń 
 
 [!code-csharp[Main](adding-validation-controls-to-the-datalist-s-editing-interface-cs/samples/sample2.cs)]
 
-Dodając ten produkt będzie podejmować próby można zaktualizować tylko wtedy, gdy przesłane dane są prawidłowe. Większość użytkowników, których t mieć możliwość ogłaszanie zwrotne nieprawidłowych danych z powodu skrypty po stronie klienta formanty sprawdzania poprawności, ale użytkowników, których przeglądarek don obsługuje języka JavaScript lub obsługi języka JavaScript, które mają wyłączony, można pominąć sprawdzanie po stronie klienta i przesyłać nieprawidłowe dane.
+Dodając ten produkt będzie podejmować próby można zaktualizować tylko wtedy, gdy przesłane dane są prawidłowe. Większość użytkowników nie będzie mógł ogłaszanie zwrotne nieprawidłowych danych z powodu skrypty po stronie klienta formanty sprawdzania poprawności, ale użytkowników, których przeglądarek don t obsługuje języka JavaScript lub, obsługą języka JavaScript wyłączona, można pominąć sprawdzanie po stronie klienta i przesłać nieprawidłowe dane.
 
 > [!NOTE]
-> Uważni czytnik będzie pamiętamy podczas aktualizowania danych przy użyciu GridView, firma Microsoft trzeba jawnie sprawdziła `Page.IsValid` właściwości w klasie CodeBehind nasze strony s. Jest to spowodowane konsultować się z widoku GridView `Page.IsValid` właściwości dla nas i tylko przychody z aktualizacją update tylko wtedy, gdy zwraca wartość `True`.
+> Uważni czytnik będzie przypominać podczas aktualizowania danych widoku GridView, musimy nie zostały jawnie sprawdziła `Page.IsValid` właściwości w klasie CodeBehind nasze strony s. Jest to spowodowane konsultować się z widoku GridView `Page.IsValid` właściwości dla nas i tylko przychody z aktualizacją update tylko wtedy, gdy zwraca wartość `True`.
 
 
 ## <a name="step-3-summarizing-data-entry-problems"></a>Krok 3. Podsumowanie problemów zapis danych

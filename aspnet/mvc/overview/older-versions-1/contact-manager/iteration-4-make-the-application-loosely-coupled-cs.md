@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 955991c148d48020c66cbc63ec6da45e3a9cc282
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 389627e610eebcdabee9b4db524e5915186db099
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072236"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440355"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#)
 ====================
@@ -61,7 +61,7 @@ Wyobraź sobie, na przykład, możesz zdecydować zmienić sposób implementacji
 
 Gdy aplikacja jest luźno powiązane, z drugiej strony zmiana wprowadzona do jednej części aplikacji bez ingerowania w pozostałe części aplikacji. Na przykład możesz przełączyć technologii dostępu do danych bez modyfikowania logikę weryfikacji lub kontrolera.
 
-W tym iteracji możemy skorzystać z kilka wzorców projektowania oprogramowania, które pozwalają nam Refaktoryzuj naszej aplikacji Contact Manager do bardziej luźno powiązanych aplikacji. Gdy firma Microsoft będzie gotowe, Contact Manager wygrał t nic robić, jego t są przeprowadzić przed. Jednak firma Microsoft będzie można zmienić w przyszłości łatwiej aplikacji.
+W tym iteracji możemy skorzystać z kilka wzorców projektowania oprogramowania, które pozwalają nam Refaktoryzuj naszej aplikacji Contact Manager do bardziej luźno powiązanych aplikacji. Gdy firma Microsoft będzie gotowe, Contact Manager wygrał t, czy wszystkie elementy, które nie zrobił przed. Jednak firma Microsoft będzie można zmienić w przyszłości łatwiej aplikacji.
 
 > [!NOTE] 
 > 
@@ -79,7 +79,7 @@ Implementacja wzorca repozytorium wymaga od nas wykonaj następujące dwa kroki:
 
 Najpierw musimy utworzyć interfejs, który zawiera opis wszystkich metod dostępu do danych, które należy wykonać. Interfejs IContactManagerRepository znajduje się w ofercie 1. Ten interfejs w tym artykule opisano pięć metod: CreateContact(), DeleteContact(), EditContact(), GetContact, and ListContacts().
 
-**Wyświetlanie listy 1 - Models\IContactManagerRepositiory.cs**
+**Wyświetlanie listy 1 - Models\IContactManagerRepository.cs**
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample1.cs)]
 
@@ -165,7 +165,7 @@ Chcemy można było całkowicie oddzielić nasze warstwy usług z naszych warstw
 
 Jednak nasze warstwy usług musi mieć możliwość przekazywania komunikatów o błędach weryfikacji do warstwy kontrolera. Jak możemy włączyć warstwy usługi, aby komunikować się komunikaty o błędach weryfikacji bez sprzężenia kontrolera i warstwy usług Będziemy korzystać z zalet wzorzec projektowania oprogramowania o nazwie [wzorzec Dekoratora](http://en.wikipedia.org/wiki/Decorator_pattern).
 
-Kontroler używa ModelStateDictionary, o nazwie ModelState do reprezentowania błędy sprawdzania poprawności. W związku z tym być może uznasz, że do przekazania ModelState z kontrolera warstwy do warstwy usług. Jednak w warstwie usługi za pomocą ModelState czyniłyby warstwą usługi zależne od funkcji platformę ASP.NET MVC. Powinien to być nieprawidłowy, ponieważ w przyszłości, możesz chcieć użyć warstwy usług z aplikacji WPF, nie aplikacji ASP.NET MVC. W takim przypadku wouldn t ma dotyczyć odwołanie struktury ASP.NET MVC, aby użyć klasy ModelStateDictionary.
+Kontroler używa ModelStateDictionary, o nazwie ModelState do reprezentowania błędy sprawdzania poprawności. W związku z tym być może uznasz, że do przekazania ModelState z kontrolera warstwy do warstwy usług. Jednak w warstwie usługi za pomocą ModelState czyniłyby warstwą usługi zależne od funkcji platformę ASP.NET MVC. Powinien to być nieprawidłowy, ponieważ w przyszłości, możesz chcieć użyć warstwy usług z aplikacji WPF, nie aplikacji ASP.NET MVC. W takim przypadku nie ma dotyczyć odwołanie struktury ASP.NET MVC, aby użyć klasy ModelStateDictionary.
 
 Wzorzec Dekoratora można opakować istniejącej klasy w nowej klasy, aby zaimplementować interfejs. Projekcie Contact Manager zawiera klasę ModelStateWrapper zawarte w ofercie 7. Klasa ModelStateWrapper implementuje interfejs w ofercie 8.
 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: d8e837a5d56871d271590859c2e82336111cc87a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d3bc39a37cace003c3fda6691f0dd7f893128b07
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067436"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425252"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 — podstawy
 
@@ -389,7 +389,7 @@ Plik **~/Views/Shared/\_layout.cshtml** służy do konfiguracji szablonu dla wsp
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. Obejmują div renderować tę sekcję treści każdej strony. Zastąp  <strong>@RenderBody()</strong> następującym kodem higlighted: (C#)
+5. Obejmują div renderować tę sekcję treści każdej strony. Zastąp  <strong>@RenderBody()</strong> przy użyciu następujących wyróżniony kod: (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
@@ -800,7 +800,7 @@ W tym zadaniu doda linkiem w widoku Store, aby mieć łącze w każdej nazwie ga
    > 
    > Mimo że ta metoda działa, zależy ciąg zapisane na stałe. Jeśli później zmienisz kontrolera, należy ręcznie zmienić tę instrukcję. Lepszą alternatywą jest użycie **pomocnika kodu HTML** metody. Platforma ASP.NET MVC zawiera metodą pomocnika kodu HTML, który jest dostępny dla tych zadań. **Html.ActionLink()** metody pomocnika ułatwia tworzenie HTML **&lt;&gt;** łącza, upewniając się, ścieżek URL są poprawnie zakodowane w adresie URL.
    > 
-   > Htlm.ActionLink ma kilka przeciążeń. W tym ćwiczeniu zostanie użyty, który przyjmuje trzy parametry:
+   > Html.ActionLink ma kilka przeciążeń. W tym ćwiczeniu zostanie użyty, który przyjmuje trzy parametry:
    > 
    > 1. Tekst łącza, co spowoduje wyświetlenie nazwy gatunku
    > 2. Nazwa akcji kontrolera (**Przeglądaj**)
@@ -1017,7 +1017,7 @@ Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w portalu 
 1. Przejdź do [portalu zarządzania pakietu Windows Azure](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft, powiązaną z Twoją subskrypcją.
 
     > [!NOTE]
-    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](http://aka.ms/aspnet-hol-azure).
+    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](https://aka.ms/aspnet-hol-azure).
 
     ![Zaloguj się do portalu usługi Windows Azure](aspnet-mvc-4-fundamentals/_static/image48.png "Zaloguj się do portalu usługi Windows Azure")
 

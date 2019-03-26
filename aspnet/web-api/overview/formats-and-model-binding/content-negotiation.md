@@ -8,12 +8,12 @@ ms.date: 05/20/2012
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: e936bdfa52f786ec86d3e84eac3cd644225b6f92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9cfbed49c1022fbf26160e89aed3ab474f5e0fdc
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070412"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425694"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>Negocjowanie zawartości we wzorcu ASP.NET Web API
 ====================
@@ -48,7 +48,7 @@ Serwer może wysłać w odpowiedzi:
 
 [!code-console[Main](content-negotiation/samples/sample3.cmd)]
 
-W tym przykładzie klient zażądał JSON, Javascript lub "nic" (\*/\*). Serwer odpowiada przy użyciu reprezentacji JSON `Product` obiektu. Należy zauważyć, że nagłówek Content-Type w odpowiedzi jest ustawiona na &quot;application/json&quot;.
+W tym przykładzie klient zażądał JSON, Javascript lub "nic" (\*/\*). Serwer zwrócił reprezentacja JSON `Product` obiektu. Należy zauważyć, że nagłówek Content-Type w odpowiedzi jest ustawiona na &quot;application/json&quot;.
 
 Kontroler może również zwracać **obiektu HttpResponseMessage** obiektu. Aby określić obiekt CLR treść odpowiedzi, należy wywołać **CreateResponse** — metoda rozszerzenia:
 
@@ -62,7 +62,7 @@ Obiekt, który serializuje zasobu jest nazywany *nośnika elementu formatująceg
 
 Po pierwsze, potok pobiera **IContentNegotiator** usługi z **HttpConfiguration** obiektu. Zapewnia również na liście programy formatujące multimedia z **HttpConfiguration.Formatters** kolekcji.
 
-Następnie potok wywołuje **IContentNegotiatior.Negotiate**, przekazując:
+Następnie potok wywołuje **IContentNegotiator.Negotiate**, przekazując:
 
 - Typ obiektu do zserializowania
 - Kolekcja programy formatujące multimedia
@@ -73,7 +73,7 @@ Następnie potok wywołuje **IContentNegotiatior.Negotiate**, przekazując:
 - Które element formujący do używania
 - Typ nośnika dla odpowiedzi
 
-Jeśli element formatujący nie zostanie znaleziony, **Negotiate** metoda zwraca **null**i klienta błędu recevies HTTP 406 (niedozwolone).
+Jeśli element formatujący nie zostanie znaleziony, **Negotiate** metoda zwraca **null**, a klient odbiera błąd HTTP 406 (niedozwolone).
 
 Poniższy kod pokazuje, jak kontroler bezpośrednio wywołać negocjacje zawartości:
 

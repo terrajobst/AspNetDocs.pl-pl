@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4cec939795c2b3abfd51c894f985dfd2eb7bc361
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2cfe18b99af7b04d18a52e64b77e1b9a6b204f75
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076163"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423445"
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Konfigurowanie witryny internetowej, która korzysta z usług aplikacji (C#)
 ====================
@@ -138,7 +138,7 @@ Aby sprawdzić, czy obiekty bazy danych usług aplikacji zostały pomyślnie dod
 **Rysunek 4**: Upewnij się, że obiekty bazy danych zostały dodane do produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-cs/_static/image12.jpg))
 
 
-Tylko wtedy należy użyć `aspnet_regsql.exe` narzędzia podczas wdrażania aplikacji sieci web po raz pierwszy lub po raz pierwszy po uruchomieniu przy użyciu usług aplikacji. Gdy te obiekty bazy danych znajdują się w produkcyjnej bazie danych są wygrał t trzeba być ponownie dodane lub zmodyfikowane.
+Tylko wtedy należy użyć `aspnet_regsql.exe` narzędzia podczas wdrażania aplikacji sieci web po raz pierwszy lub po raz pierwszy po uruchomieniu przy użyciu usług aplikacji. Gdy te obiekty bazy danych znajdują się w produkcyjnej bazy danych, które nie muszą być ponownie dodane lub zmodyfikowane.
 
 ### <a name="copying-user-accounts-from-development-to-production"></a>Kopiowanie kont użytkowników od projektowania do produkcji
 
@@ -148,7 +148,7 @@ Korzystając z `SqlMembershipProvider` i `SqlRoleProvider` klasy dostawców do p
 
 Oprócz `ApplicationId` kolumnie `aspnet_Applications` tabeli znajdują się także `ApplicationName` kolumny, która zawiera nazwę aplikacji do bardziej przyjaznego dla człowieka. Próba uzyskania witryny sieci Web pracować przy użyciu konta użytkownika, takich jak sprawdzanie poprawności poświadczeń użytkownika s, na stronie logowania, musi ona informować `SqlMembershipProvider` klasy aplikacji, jakie chcesz pracować. Zwykle robi to poprzez dostarczenie nazwę aplikacji i jego wartość pochodzi z konfiguracją dostawcy s w programie `Web.config` — w szczególności za pośrednictwem `applicationName` atrybutu.
 
-Ale co się stanie, jeśli `applicationName` atrybut nie jest określony w `Web.config`? W takim przypadku członkostwa system używa ścieżka katalogu głównego aplikacji jako `applicationName` wartość. Jeśli `applicationName` atrybut nie jest jawnie określona `Web.config`, następnie istnieje możliwość, że środowisko deweloperskie i środowisko produkcyjne Użyj katalog główny aplikacji jest inny i w związku z tym zostanie skojarzona z inną aplikacją nazwy w usługi aplikacji. Sytuacji takich niezgodności, a następnie będzie miał tych użytkowników utworzonych w środowisku deweloperskim `ApplicationId` wartość, która nie jest zgodna z `ApplicationId` wartość w środowisku produkcyjnym. Wynikiem jest tych użytkowników, których t i można się zalogować.
+Ale co się stanie, jeśli `applicationName` atrybut nie jest określony w `Web.config`? W takim przypadku członkostwa system używa ścieżka katalogu głównego aplikacji jako `applicationName` wartość. Jeśli `applicationName` atrybut nie jest jawnie określona `Web.config`, następnie istnieje możliwość, że środowisko deweloperskie i środowisko produkcyjne Użyj katalog główny aplikacji jest inny i w związku z tym zostanie skojarzona z inną aplikacją nazwy w usługi aplikacji. Sytuacji takich niezgodności, a następnie będzie miał tych użytkowników utworzonych w środowisku deweloperskim `ApplicationId` wartość, która nie jest zgodna z `ApplicationId` wartość w środowisku produkcyjnym. Wynikiem jest Ci użytkownicy będą mogli logować się.
 
 > [!NOTE]
 > Jeśli okaże się, w takiej sytuacji — z kontami użytkowników skopiowane do środowiska produkcyjnego niezgodny `ApplicationId` wartość — można napisać zapytanie, aby zaktualizować te nieprawidłowe `ApplicationId` wartości `ApplicationId` używane w środowisku produkcyjnym. Po zaktualizowaniu użytkowników, których konta zostały utworzone w środowisku programistycznym będą teraz mogli logować się do aplikacji sieci web w środowisku produkcyjnym.

@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 92c70297-4430-4e4e-919a-9c2333a8d09a
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
-ms.openlocfilehash: be6ddbdfbe8da33871355c2a7917a7ce7008d81b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a319e2eb71da1bf693b1bd14ae368c844e7daeb1
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075122"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440264"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (VB)
 ====================
@@ -61,7 +61,7 @@ Wyobraź sobie, na przykład, możesz zdecydować zmienić sposób implementacji
 
 Gdy aplikacja jest luźno powiązane, z drugiej strony zmiana wprowadzona do jednej części aplikacji bez ingerowania w pozostałe części aplikacji. Na przykład możesz przełączyć technologii dostępu do danych bez modyfikowania logikę weryfikacji lub kontrolera.
 
-W tym iteracji możemy skorzystać z kilka wzorców projektowania oprogramowania, które pozwalają nam Refaktoryzuj naszej aplikacji Contact Manager do bardziej luźno powiązanych aplikacji. Gdy firma Microsoft będzie gotowe, Contact Manager wygrał t nic robić, jego t są przeprowadzić przed. Jednak firma Microsoft będzie można zmienić w przyszłości łatwiej aplikacji.
+W tym iteracji możemy skorzystać z kilka wzorców projektowania oprogramowania, które pozwalają nam Refaktoryzuj naszej aplikacji Contact Manager do bardziej luźno powiązanych aplikacji. Gdy firma Microsoft będzie gotowe, Contact Manager wygrał t, czy wszystkie elementy, które nie zrobił przed. Jednak firma Microsoft będzie można zmienić w przyszłości łatwiej aplikacji.
 
 > [!NOTE] 
 > 
@@ -165,7 +165,7 @@ Chcemy można było całkowicie oddzielić nasze warstwy usług z naszych warstw
 
 Jednak nasze warstwy usług musi mieć możliwość przekazywania komunikatów o błędach weryfikacji do warstwy kontrolera. Jak możemy włączyć warstwy usługi, aby komunikować się komunikaty o błędach weryfikacji bez sprzężenia kontrolera i warstwy usług Będziemy korzystać z zalet wzorzec projektowania oprogramowania o nazwie [wzorzec Dekoratora](http://en.wikipedia.org/wiki/Decorator_pattern).
 
-Kontroler używa ModelStateDictionary, o nazwie ModelState do reprezentowania błędy sprawdzania poprawności. W związku z tym być może uznasz, że do przekazania ModelState z kontrolera warstwy do warstwy usług. Jednak w warstwie usługi za pomocą ModelState czyniłyby warstwą usługi zależne od funkcji platformę ASP.NET MVC. Powinien to być nieprawidłowy, ponieważ w przyszłości, możesz chcieć użyć warstwy usług z aplikacji WPF, nie aplikacji ASP.NET MVC. W takim przypadku wouldn t ma dotyczyć odwołanie struktury ASP.NET MVC, aby użyć klasy ModelStateDictionary.
+Kontroler używa ModelStateDictionary, o nazwie ModelState do reprezentowania błędy sprawdzania poprawności. W związku z tym być może uznasz, że do przekazania ModelState z kontrolera warstwy do warstwy usług. Jednak w warstwie usługi za pomocą ModelState czyniłyby warstwą usługi zależne od funkcji platformę ASP.NET MVC. Powinien to być nieprawidłowy, ponieważ w przyszłości, możesz chcieć użyć warstwy usług z aplikacji WPF, nie aplikacji ASP.NET MVC. W takim przypadku nie ma dotyczyć odwołanie struktury ASP.NET MVC, aby użyć klasy ModelStateDictionary.
 
 Wzorzec Dekoratora można opakować istniejącej klasy w nowej klasy, aby zaimplementować interfejs. Projekcie Contact Manager zawiera klasę ModelStateWrapper zawarte w ofercie 7. Klasa ModelStateWrapper implementuje interfejs w ofercie 8.
 

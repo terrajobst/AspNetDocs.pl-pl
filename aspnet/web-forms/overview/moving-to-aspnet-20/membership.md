@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: d7fa3cb61608ea089141931cb9362359cdc92619
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4fab68555eeb27420e60a28aca2f2c0fb9a73e3
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068054"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421521"
 ---
 <a name="membership"></a>Członkostwo
 ====================
@@ -42,7 +42,7 @@ Członkostwo jest implementowany przez następujące cztery kroki. Należy pami�
 
 ## <a name="creating-the-membership-database"></a>Tworzenie bazy danych członkostwa
 
-Jeśli swój przy użyciu programu SQL Server 7.0 lub później, jako magazyn członkostwa, można użyć aspnet\_narzędzie regsql (dostępne najłatwiej z programu Visual Studio .NET 2005 wiersza polecenia) do konfiguracji bazy danych. Aspnet\_regsql narzędzie może służyć jako narzędzie wiersza polecenia lub przy użyciu Kreatora graficznego interfejsu użytkownika. Metoda Kreator jest najprostszym sposobem skonfigurowania bazy danych. Aby uzyskać dostęp do kreatora, po prostu uruchom następujące polecenie:
+Jeśli używasz programu SQL Server 7.0 lub później, jako magazyn członkostwa, można użyć aspnet\_narzędzie regsql (dostępne najłatwiej z programu Visual Studio .NET 2005 wiersza polecenia) do konfiguracji bazy danych. Aspnet\_regsql narzędzie może służyć jako narzędzie wiersza polecenia lub przy użyciu Kreatora graficznego interfejsu użytkownika. Metoda Kreator jest najprostszym sposobem skonfigurowania bazy danych. Aby uzyskać dostęp do kreatora, po prostu uruchom następujące polecenie:
 
 `aspnet_regsql W`
 
@@ -107,7 +107,7 @@ Następujące elementy sterujące logowania są dostępne w programie ASP.NET 2.
 
 ## <a name="login-control"></a>Kontrolka Login
 
-Kontrolka Login udostępnia interfejs dla kogoś zalogować się do systemu członkostwa. Udostępnia przycisk logowania i textboxt nazwy użytkownika i hasła. Wiele innych typowych funkcji np. łącze do zarejestrowania dla osób, które nie zostały jeszcze wykonane, dzięki czemu pole wyboru, która umożliwia użytkownikom automatyczne logowanie przy następnych wizytach, łącza do monitu o hasło itp. Wszystkie funkcje kontroli logowania są możliwe do dostosowania przy użyciu właściwości formantu.
+Kontrolka Login udostępnia interfejs dla kogoś zalogować się do systemu członkostwa. Udostępnia przycisk logowania i pole tekstowe nazwy użytkownika i hasła. Wiele innych typowych funkcji np. łącze do zarejestrowania dla osób, które nie zostały jeszcze wykonane, dzięki czemu pole wyboru, która umożliwia użytkownikom automatyczne logowanie przy następnych wizytach, łącza do monitu o hasło itp. Wszystkie funkcje kontroli logowania są możliwe do dostosowania przy użyciu właściwości formantu.
 
 W programie ASP.NET: 1.x, deweloperzy musieli napisać ilość kodu w celu wyszukiwania, korzystając z uwierzytelniania formularzy. Za pomocą członkostwa programu ASP.NET 2.0 można sprawdzić poprawność użytkowników bez pisania kodu w ogóle. Program ASP.NET automatycznie wykona wyszukiwania użytkownika. (Jeśli używasz kontrolki logowania bez użycia członkostwa ASP.NET, możesz użyć **OnAuthenticate** metody do weryfikacji użytkownika.)
 

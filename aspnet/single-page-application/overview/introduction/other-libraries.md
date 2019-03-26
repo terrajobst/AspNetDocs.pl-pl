@@ -8,12 +8,12 @@ ms.date: 02/05/2013
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 53c97580b45bb40a6c3256c8038ec5c8b861b69f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5503a00df707ee79282a32c77ed2287e93cf8f48
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066179"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425473"
 ---
 <a name="know-a-library-other-than-knockout"></a>Znasz biblioteki inne niż Knockout?
 ====================
@@ -48,7 +48,7 @@ Szablon użyciu SPA jest ponownego wdrażania szablonu Knockout SPA, korzystają
 
 [Hot Towel SPA szablonu](../templates/hottowel-template.md). Ten szablon łączy w kilku bibliotek JavaScript, w tym szybka i bezproblemowa, Knockout i RequireJS oraz Twitter Bootstrap.
 
-W porównaniu z innych szablonów wymienione w tym miejscu teample Hot Towel zapewnia bardziej szczegółowy aplikacji, z której można tworzyć własne. Istnieją więcej koncepcji, które należy zwrócić uwagę, ale po zrozumieniu ich ten szablon może być po prostu czego szukasz. Jeśli chcesz skompilować SPA, ale nie podjęcie decyzji rozpocząć, należy użyć Hot Towel, a w ciągu kilku sekund będziesz mieć SPA i wszystkie narzędzia potrzebne do tworzenia na nim.
+W porównaniu z innych szablonów wymienione w tym miejscu, szablon Hot Towel zapewnia bardziej szczegółowy aplikacji, z której można tworzyć własne. Istnieją więcej koncepcji, które należy zwrócić uwagę, ale po zrozumieniu ich ten szablon może być po prostu czego szukasz. Jeśli chcesz skompilować SPA, ale nie podjęcie decyzji rozpocząć, należy użyć Hot Towel, a w ciągu kilku sekund będziesz mieć SPA i wszystkie narzędzia potrzebne do tworzenia na nim.
 
 ## <a name="feature-table"></a>Tabela funkcji
 
@@ -60,7 +60,7 @@ Poniżej przedstawiono funkcji oferowanych przez każdy szablon SPA:
 |      Przykładowe ToDo       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
 |     Szablon kompletnego      |             | &#10003; |                |           |          | &#10003;  |
 | Nawigacji i Historia |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
-|        Bibliotekami        |             |          |                |           |          |           |
+|        Biblioteki       |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
 |    &#8195;Backbone     |             | &#10003; |                |           |          |           |
 |         Breeze         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |

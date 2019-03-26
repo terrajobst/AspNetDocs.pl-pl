@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: a526f0ec-779e-4a2b-a476-6604090d25ce
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2c52fcf746d80899d7ea568c8110c4dfa610224c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 06c5fea8a058f15e72d455cf0e15b462d8f91e38
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071048"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440394"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (C#)
 ====================
@@ -119,7 +119,7 @@ Za pomocą `DeleteCommand` dodana właściwość tagu inteligentnego s GridView 
 Po kliknięciu przycisku Usuń występuje odświeżenie strony, przypisuje widoku GridView `ProductID` parametru wartość z `DataKeys` wartość kolekcji dla wiersza, którego przycisk Usuń został kliknięty i wywołuje SqlDataSource s `Delete()` metody. Kontrolki SqlDataSource następnie nawiązuje połączenie z bazą danych i wykonuje `DELETE` instrukcji. Kontrolki GridView następnie rebinds do SqlDataSource powrót i wyświetlanie bieżący zestaw produktów (który nie zawiera już po prostu usunąć rekordu).
 
 > [!NOTE]
-> Ponieważ w widoku GridView używane jego `DataKeys` kolekcję, aby wypełnić parametry SqlDataSource go s istotne, GridView s `DataKeyNames` właściwości można ustawić kolumny, które tworzą klucz podstawowy oraz że SqlDataSource s `SelectCommand` zwraca te kolumny. Ponadto go s pamiętać, że parametr nazwy SqlDataSource s `DeleteCommand` ustawiono `@ProductID`. Jeśli `DataKeyNames` nie ustawiono właściwości lub parametru nie ma nazwy `@ProductsID`, klikając przycisk Usuń spowoduje odświeżenie strony, ale uzyskany t faktycznie usunąć dowolny rekord.
+> Ponieważ w widoku GridView używane jego `DataKeys` kolekcję, aby wypełnić parametry SqlDataSource go s istotne, GridView s `DataKeyNames` właściwości można ustawić kolumny, które tworzą klucz podstawowy oraz że SqlDataSource s `SelectCommand` zwraca te kolumny. Ponadto go s pamiętać, że parametr nazwy SqlDataSource s `DeleteCommand` ustawiono `@ProductID`. Jeśli `DataKeyNames` nie ustawiono właściwości lub parametru nie ma nazwy `@ProductsID`, klikając przycisk Usuń spowoduje odświeżenie strony, ale nie usuwa żadnych rekordów.
 
 
 Rysunek 5 przedstawia ta interakcja w formie graficznej. Odwołaj się do [badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) samouczka, aby uzyskać bardziej szczegółowe omówienie dotyczące łańcuch zdarzeń powiązanych ze Wstawianie, aktualizowanie i usuwanie danych formantu sieci Web.
@@ -192,7 +192,7 @@ Ponieważ generowanie `INSERT`, `UPDATE`, i `DELETE` opcji instrukcji jest dost�
 
 Gdy `INSERT`, `UPDATE`, i `DELETE` instrukcji można wprowadzić ręcznie, należy wziąć pod uwagę następujące porada. Początkowo Instalatora SqlDataSource tak, aby ponownie ściąga dane tylko z `Products` tabeli. Użyj kolumny określ s kreatora Konfigurowanie źródła danych na ekranie tabeli lub widoku, dzięki czemu możesz automatycznie wygenerować `INSERT`, `UPDATE`, i `DELETE` instrukcji. Następnie wybierz po ukończeniu kreatora skonfigurować SelectQuery z okna właściwości (lub też, wróć do kreatora Konfigurowanie źródła danych, ale użyj Określ niestandardową instrukcję SQL lub procedury składowanej opcji). Następnie zaktualizuj `SELECT` instrukcję, aby uwzględnić `JOIN` składni. Ta metoda zapewnia korzyści zaoszczędzić czas, automatycznie generowanych instrukcji SQL i pozwala na bardziej dostosowanego `SELECT` instrukcji.
 
-Innym ograniczeniem automatycznego generowania `INSERT`, `UPDATE`, i `DELETE` instrukcji jest fakt, że kolumny w `INSERT` i `UPDATE` instrukcji opierają się na kolumny zwracane przez `SELECT` instrukcji. Firma Microsoft może być konieczne zaktualizować ani wstawić zwiększenie lub zmniejszenie liczby pól, jednak. Na przykład, w tym przykładzie z kroku nr 2 może chcemy mieć `UnitPrice` elementu BoundField się tylko do odczytu. W takim przypadku należy go t nie powinna występować w `UpdateCommand`. Lub chcemy ustawić wartość pola w tabeli, który nie jest widoczna w widoku GridView. Na przykład podczas dodawania nowego rekordu firma Microsoft może być `QuantityPerUnit` wartość zadań do wykonania.
+Innym ograniczeniem automatycznego generowania `INSERT`, `UPDATE`, i `DELETE` instrukcji jest fakt, że kolumny w `INSERT` i `UPDATE` instrukcji opierają się na kolumny zwracane przez `SELECT` instrukcji. Firma Microsoft może być konieczne zaktualizować ani wstawić zwiększenie lub zmniejszenie liczby pól, jednak. Na przykład, w tym przykładzie z kroku nr 2 może chcemy mieć `UnitPrice` elementu BoundField się tylko do odczytu. W takiej sytuacji nie powinny występować w `UpdateCommand`. Lub chcemy ustawić wartość pola w tabeli, który nie jest widoczna w widoku GridView. Na przykład podczas dodawania nowego rekordu firma Microsoft może być `QuantityPerUnit` wartość zadań do wykonania.
 
 Takie dostosowania są wymagane, należy to zrobić ręcznie, za pośrednictwem oknie właściwości, Określ niestandardową instrukcję SQL lub procedury składowanej opcja w kreatorze lub za pomocą składni deklaratywnej.
 
@@ -204,7 +204,7 @@ Takie dostosowania są wymagane, należy to zrobić ręcznie, za pośrednictwem 
 
 W kolejności dla danych, sieci Web kontroluje wykorzystanie ich wbudowane wstawiania, edytowanie i usuwanie możliwości kontroli źródła danych, które są powiązane muszą oferować takie funkcje. Dla SqlDataSource, oznacza to, że `INSERT`, `UPDATE`, i `DELETE` instrukcji SQL muszą być przypisane do `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości. Te właściwości, a odpowiednie kolekcje parametry, można ręcznie dodawać lub generowane automatycznie za pomocą Kreatora konfigurowania źródła danych. W tym samouczku zbadaliśmy obu tych technik.
 
-Zbadaliśmy optymistycznej współbieżności przy użyciu kontrolki ObjectDataSource w [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) samouczka. Kontrolki SqlDataSource zapewnia również obsługę optymistycznej współbieżności. Jak wspomniano w kroku 2, podczas automatycznego generowania `INSERT`, `UPDATE`, i `DELETE` instrukcji, Kreator oferuje użyj opcji optymistycznej współbieżności. Jak opisano w następnym samouczku, za pomocą optymistycznej współbieżności przy użyciu kontrolki SqlDataSource modyfikuje `WHERE` klauzul `UPDATE` i `DELETE` instrukcji, aby upewnić się, że wartości innych kolumn, że t zmienione od ostatniego danych wyświetlane na stronie.
+Zbadaliśmy optymistycznej współbieżności przy użyciu kontrolki ObjectDataSource w [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) samouczka. Kontrolki SqlDataSource zapewnia również obsługę optymistycznej współbieżności. Jak wspomniano w kroku 2, podczas automatycznego generowania `INSERT`, `UPDATE`, i `DELETE` instrukcji, Kreator oferuje użyj opcji optymistycznej współbieżności. Jak opisano w następnym samouczku, za pomocą optymistycznej współbieżności przy użyciu kontrolki SqlDataSource modyfikuje `WHERE` klauzul `UPDATE` i `DELETE` instrukcji, aby upewnić się, że wartości w innych kolumnach nie zostały zmienione od momentu ostatniego danych wyświetlane na stronie.
 
 Wszystkiego najlepszego programowania!
 

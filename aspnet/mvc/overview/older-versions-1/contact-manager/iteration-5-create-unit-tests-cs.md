@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 28ad8f80-b8a5-444e-b478-8b15a846060c
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 68d0ae15db115685b3e1a44f8b3b5b7e33674a8b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b2e96c996905bc73698d1c0b11df97d1dd366172
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069458"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422171"
 ---
 <a name="iteration-5--create-unit-tests-c"></a>Iteracja #5 — Tworzenie testów jednostkowych (C#)
 ====================
@@ -147,7 +147,7 @@ Początkowo chcemy metoda CreateContact() udostępnianych przez klasy ContactMan
 
 - CreateContact() — testy tego CreateContact() zwraca wartość true, gdy prawidłowy kontakt jest przekazywany do metody.
 - CreateContactRequiredFirstName() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z Brak imię jest przekazywany do metody CreateContact().
-- CreateContactRequredLastName() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z Brak nazwisko jest przekazywany do metody CreateContact().
+- CreateContactRequiredLastName() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z Brak nazwisko jest przekazywany do metody CreateContact().
 - CreateContactInvalidPhone() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z nieprawidłowym numerem telefonu jest przekazywany do metody CreateContact().
 - CreateContactInvalidEmail() - testów, że komunikat o błędzie został dodany do stanu modelu, podczas kontaktu z nieprawidłowy adres e-mail jest przekazywany do metody CreateContact()...
 

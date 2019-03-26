@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a73fac6107be45455465b506a019bcc9a41b1deb
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068885"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425525"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Załącznik: Poprawka przykładowy Application (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure)
 ====================
@@ -376,13 +376,13 @@ Następnie należy utworzyć nową usługę w chmurze platformy Azure. Skryptach
 
 Zanim będzie można wdrożyć usługę w chmurze, musisz zaktualizować niektóre pliki konfiguracji.
 
-W MyFixIt.WorkerRoler\app.config w obszarze `connectionStrings`, zastąp wartość `appdb` parametrów połączenia parametrami połączenia dla bazy danych SQL. Parametry połączenia można uzyskać z portalu. W portalu, kliknij przycisk **baz danych SQL** - **appdb** - **parametry połączenia bazy danych SQL w widoku na potrzeby ADO .net, ODBC i PHP oraz JDBC**. Skopiuj parametry połączenia ADO.NET i wklej tę wartość do pliku app.config. Zastąp "{Twoja\_hasło\_tutaj}" za pomocą hasła bazy danych. (Zakładając, że skrypty są używane do wdrażania aplikacji MVC, określone hasło bazy danych w `SqlDatabasePassword` skryptu parametru.)
+W MyFixIt.WorkerRole\app.config w obszarze `connectionStrings`, zastąp wartość `appdb` parametrów połączenia parametrami połączenia dla bazy danych SQL. Parametry połączenia można uzyskać z portalu. W portalu, kliknij przycisk **baz danych SQL** - **appdb** - **parametry połączenia bazy danych SQL w widoku na potrzeby ADO .net, ODBC i PHP oraz JDBC**. Skopiuj parametry połączenia ADO.NET i wklej tę wartość do pliku app.config. Zastąp "{Twoja\_hasło\_tutaj}" za pomocą hasła bazy danych. (Zakładając, że skrypty są używane do wdrażania aplikacji MVC, określone hasło bazy danych w `SqlDatabasePassword` skryptu parametru.)
 
 Wynik powinien wyglądać następująco:
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample32.xml)]
 
-W tym samym pliku MyFixIt.WorkerRoler\app.config w obszarze `appSettings`, Zastąp dwie wartości symboli zastępczych dla konta usługi Azure storage.
+W tym samym pliku MyFixIt.WorkerRole\app.config w obszarze `appSettings`, Zastąp dwie wartości symboli zastępczych dla konta usługi Azure storage.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample33.xml?highlight=2-3)]
 

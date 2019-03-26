@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e33e4b401d957f4aa5560193dd8af0e53ca3b631
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 06ee6f8ea415ddde4e47acacaa74a29cbf9a0478
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068429"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425590"
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>Implementowanie optymistycznej współbieżności (VB)
 ====================
@@ -60,7 +60,7 @@ Mechanizmu kontroli optymistycznej współbieżności działa przez zapewnienie 
 **Rysunek 2**: Update lub Delete, aby odnieść sukces, oryginalnym wartości musi być równa wartości bieżącej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image6.png))
 
 
-Istnieją różne metody Implementowanie optymistycznej współbieżności (zobacz [Peter A. Bromberg](http://peterbromberg.net/)firmy [Optmistic współbieżności aktualizowanie logiki](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki przegląd szereg opcji). ADO.NET DataSet wpisane zapewnia co wdrożenia, które można skonfigurować tylko znaczników pola wyboru. Włączanie optymistycznej współbieżności dla TableAdapter w zestawie danych wpisane rozszerzają TableAdapter `UPDATE` i `DELETE` porównanie wszystkich oryginalnej wartości w instrukcji `WHERE` klauzuli. Następujące `UPDATE` instrukcji, na przykład aktualizuje nazwę i cena produktu tylko wtedy, gdy wartości bieżącej bazy danych są równe wartości, które zostały pierwotnie pobrany podczas aktualizowania rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały pierwotnie załadowane do kontrolki GridView kliknięcie przycisku Edytuj:
+Istnieją różne metody Implementowanie optymistycznej współbieżności (zobacz [Peter A. Bromberg](http://peterbromberg.net/)firmy [optymistycznej współbieżności aktualizowanie logiki](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki przegląd szereg opcji). ADO.NET DataSet wpisane zapewnia co wdrożenia, które można skonfigurować tylko znaczników pola wyboru. Włączanie optymistycznej współbieżności dla TableAdapter w zestawie danych wpisane rozszerzają TableAdapter `UPDATE` i `DELETE` porównanie wszystkich oryginalnej wartości w instrukcji `WHERE` klauzuli. Następujące `UPDATE` instrukcji, na przykład aktualizuje nazwę i cena produktu tylko wtedy, gdy wartości bieżącej bazy danych są równe wartości, które zostały pierwotnie pobrany podczas aktualizowania rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały pierwotnie załadowane do kontrolki GridView kliknięcie przycisku Edytuj:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample1.sql)]

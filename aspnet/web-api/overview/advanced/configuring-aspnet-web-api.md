@@ -8,12 +8,12 @@ ms.date: 03/31/2014
 ms.assetid: 9e10a700-8d91-4d2e-a31e-b8b569fe867c
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 57066b8ce3254caf59cf927d16d96f8bc22a8acd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 270268b77f398084169843e20b0a2bf9f1c2a011
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072587"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423160"
 ---
 <a name="configuring-aspnet-web-api-2"></a>Konfigurowanie wzorca ASP.NET Web API 2
 ====================
@@ -53,7 +53,7 @@ Ustawienia konfiguracji interfejsu API sieci Web są definiowane w [HttpConfigur
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>Konfigurowanie interfejsu API sieci Web przy użyciu hostingu platformy ASP.NET
 
-W aplikacji ASP.NET należy skonfigurować interfejs API sieci Web, wywołując [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) w **aplikacji\_Start** metody. **Konfiguruj** metoda przyjmuje delegata z pojedynczym parametrem typu **HttpConfiguration**. Wykonaj wszystkie swoje kod wewnątrz obiektu delegowanego.
+W aplikacji ASP.NET należy skonfigurować interfejs API sieci Web, wywołując [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) w **aplikacji\_Start** metody. **Konfiguruj** metoda przyjmuje delegata z pojedynczym parametrem typu **HttpConfiguration**. Wykonaj wszystkie konfiguracji wewnątrz obiektu delegowanego.
 
 Oto przykład korzystający z delegata anonimowego:
 

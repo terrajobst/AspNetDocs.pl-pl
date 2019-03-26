@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7b7ba2fb3f1bba0447e700c84a017266cba305e6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bd54a1d8ae3a2913c9d8a11c5b31ba1c829450d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072149"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425317"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Programy formatujące multimedia we wzorcu ASP.NET Web API 2
 ====================
@@ -46,7 +46,7 @@ Typ nośnika określa, jak interfejs API sieci Web serializuje i deserializuje t
 Aby utworzyć element formatujący nośnik, pochodzi z jednej z tych klas:
 
 - [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Odczyt asynchroniczny używa klasy i metody zapisu.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Ta klasa jest pochodną **element MediaTypeFormatter** , ale używa sychronous odczytu/zapisu metod.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Ta klasa jest pochodną **element MediaTypeFormatter** , ale używa metod synchronicznych odczytu/zapisu.
 
 Wyprowadzanie z **BufferedMediaTypeFormatter** jest prostsze, ponieważ brak kodu asynchronicznego, ale oznacza to również, zablokować wątek wywołujący podczas operacji We/Wy.
 
@@ -56,7 +56,7 @@ Poniższy przykład pokazuje element formatujący typu nośnika, który może wy
 
 [!code-csharp[Main](media-formatters/samples/sample3.cs)]
 
-Aby zaimplementować elementu formatującego CSV, Definiowanie klasy, która pochodzi od klasy **BufferedMediaTypeFormater**:
+Aby zaimplementować elementu formatującego CSV, Definiowanie klasy, która pochodzi od klasy **BufferedMediaTypeFormatter**:
 
 [!code-csharp[Main](media-formatters/samples/sample4.cs)]
 

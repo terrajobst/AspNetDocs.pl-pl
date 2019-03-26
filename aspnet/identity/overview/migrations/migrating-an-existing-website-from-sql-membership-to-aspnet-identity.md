@@ -8,19 +8,18 @@ ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 393d14799973e9126379743f63f79a7131206f38
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b80f2f5cc4702c3e406d8989905c56508711e788
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069971"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426084"
 ---
-<a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity
-====================
+# <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity
+
 przez [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
 
 > W tym samouczku przedstawiono kroki, aby migrować istniejącą aplikację sieci web z użytkownika i dane roli utworzone za pomocą członkostwa SQL do nowego systemu produktu ASP.NET Identity. Ta strategia polega na Zmienianie istniejącego schematu bazy danych do jednej wymaganej przez punkt zaczepienia w starym/nowe klasy i tożsamości ASP.NET. Po przyjmiesz takie podejście, po migracji bazy danych, bez wysiłku obsługi przyszłe aktualizacje tożsamości.
-
 
 W tym samouczku podejmujemy szablonu aplikacji sieci web (formularze sieci Web) utworzone za pomocą programu Visual Studio 2010, aby utworzyć dane użytkownika i roli. Następnie użyjemy skrypty SQL przeprowadzić migrację istniejącej bazy danych do tabel wymaganych przez system tożsamości. Następnie utworzymy zainstalowania niezbędnych pakietów NuGet i dodawać nowe strony zarządzania konta, które używają systemu tożsamości do zarządzania członkostwa. Jako test migracji użytkownicy utworzeni za pomocą członkostwa SQL powinna być mogli się zalogować i nowych użytkowników powinny mieć możliwość rejestrowania. Pełny przykład można znaleźć [tutaj](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SQLMembership-Identity-OWIN/). Zobacz też [migracji z członkostwa ASP.NET do produktu ASP.NET Identity](http://travis.io/blog/2015/03/24/migrate-from-aspnet-membership-to-aspnet-identity.html).
 
@@ -50,7 +49,7 @@ W tym samouczku podejmujemy szablonu aplikacji sieci web (formularze sieci Web) 
 
 1. Instalowanie programu Visual Studio Express 2013 for Web lub Visual Studio 2013, wraz z [najnowsze aktualizacje](https://www.microsoft.com/download/details.aspx?id=44921).
 2. Otwórz projekt powyżej w zainstalowanej wersji programu Visual Studio. Jeśli na maszynie nie zainstalowano programu SQL Server Express, monit jest wyświetlany po otwarciu projektu, ponieważ ciąg połączenia używany program SQL Express. Można albo zainstalować program SQL Express lub jako obejścia Zmień parametry połączenia do LocalDb. W tym artykule zmienimy je do LocalDb.
-3. Otwórz plik web.config, a następnie zmień parametry połączenia z. SQLExpess do (LocalDb) w wersji 11.0. Usuń "wystąpienie użytkownika = true" z ciągu połączenia.
+3. Otwórz plik web.config, a następnie zmień parametry połączenia z. SQLExpress do (LocalDb) w wersji 11.0. Usuń "wystąpienie użytkownika = true" z ciągu połączenia.
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image3.jpg)
 4. Otwórz Eksploratora serwera i sprawdź, czy można zaobserwować schematu tabeli i danych.
@@ -115,7 +114,7 @@ Dzięki tym informacjom można utworzyć instrukcje SQL, aby tworzyć nowe tabel
 
 [!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
-Ten skrypt generowanie bazy danych może służyć jako początek, w którym firma Microsoft będzie wykonywać dodatkowe zmiany, aby dodać nowe kolumny, a następnie skopiować dane. Dzięki temu jest możemy wygenerować `_MigrationHistory` tabeli, który jest używany przez EntityFramework do modyfikacji schematu bazy danych, gdy model klasy zmiany w przyszłych wersjach programu wersje tożsamości. 
+Ten skrypt generowanie bazy danych może służyć jako początek, w którym firma Microsoft będzie wykonywać dodatkowe zmiany, aby dodać nowe kolumny, a następnie skopiować dane. Dzięki temu jest możemy wygenerować `_MigrationHistory` tabeli, który jest używany przez EntityFramework do modyfikacji schematu bazy danych, gdy model klasy zmiany w przyszłych wersjach programu wersje tożsamości.
 
 Informacje o użytkowniku członkostwa SQL ma inne właściwości, oprócz tych, które w klasie modelu tożsamości użytkownika: wiadomości e-mail, prób podania hasła, Data ostatniego logowania, Data ostatniej blokady itp. Jest to przydatne informacje, a następnie prosimy o poświęcenie jej mają zostać przeniesione do systemu tożsamości. Można to zrobić przez dodanie dodatkowych właściwości do modelu użytkowników i ich mapowanie do kolumny tabeli w bazie danych. Możemy to zrobić, dodając klasę tej podklasy `IdentityUser` modelu. Firma Microsoft można dodać właściwości do klasy niestandardowej i Edytuj skrypt SQL w celu dodania odpowiednich kolumn podczas tworzenia tabeli. Kod dla tej klasy jest dokładniejszym opisem zawartym w artykule. Skrypt SQL do tworzenia `AspnetUsers` tabeli po dodając nowe właściwości będą
 
@@ -125,7 +124,7 @@ Następnie należy skopiować informacje o istniejącym z członkostwa w bazie d
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample2.sql)]
 
-W instrukcji SQL z powyższych informacji na temat każdego użytkownika z *aspnet\_użytkowników* i *aspnet\_członkostwa* tabele są kopiowane do kolumn  *AspnetUsers* tabeli. Modyfikacja tylko wykonywane na w tym miejscu jest, gdy firma Microsoft Skopiuj hasło. Ponieważ algorytm szyfrowania haseł w członkostwa SQL używany "PasswordSalt" i "PasswordFormat", możemy skopiować, zbyt wraz ze skrótem hasła, aby może służyć do odszyfrowywania hasła przez tożsamość. Jest to wyjaśnione bardziej szczegółowo w artykule, gdy Podłączanie hasher hasła niestandardowego. 
+W instrukcji SQL z powyższych informacji na temat każdego użytkownika z *aspnet\_użytkowników* i *aspnet\_członkostwa* tabele są kopiowane do kolumn  *AspnetUsers* tabeli. Modyfikacja tylko wykonywane na w tym miejscu jest, gdy firma Microsoft Skopiuj hasło. Ponieważ algorytm szyfrowania haseł w członkostwa SQL używany "PasswordSalt" i "PasswordFormat", możemy skopiować, zbyt wraz ze skrótem hasła, aby może służyć do odszyfrowywania hasła przez tożsamość. Jest to wyjaśnione bardziej szczegółowo w artykule, gdy Podłączanie hasher hasła niestandardowego.
 
 Ten przykład dotyczy tego pliku skryptu. W przypadku aplikacji, które posiada dodatkowe tabele deweloperów wykonać podejście podobne do dodawania dodatkowych właściwości klasy modelu użytkownika i zamapować do kolumny w tabeli AspnetUsers. Aby uruchomić skrypt,
 
@@ -158,7 +157,7 @@ Jak wspomniano wcześniej, funkcja tożsamości używa programu Entity Framework
 
 W naszym przykładzie tabele AspNetRoles, AspNetUserClaims, AspNetLogins i AspNetUserRole mieć kolumn, które są podobne do istniejącego wdrożenia systemu tożsamości. Dlatego można ponownie użyć istniejących klas do mapowania tych tabel. Tabela AspNetUser zawiera pewne dodatkowe kolumny, które są używane do przechowywania dodatkowych informacji z tabele członkostwa SQL. Mogą to być mapowane, tworząc klasę modelu, Rozszerz istniejącą implementację programu "IdentityUser" i Dodaj dodatkowe właściwości.
 
-1. Modele skojarzonym folderu projektu i dodawanie klasy użytkownika. Nazwa klasy powinna być zgodna dane dodane w kolumnie "Dyskryminatora" w tabeli "AspnetUsers".
+1. Utwórz folder modeli w projekcie, a następnie Dodaj klasę użytkownika. Nazwa klasy powinna być zgodna dane dodane w kolumnie "Dyskryminatora" w tabeli "AspnetUsers".
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image10.png)
 
@@ -199,7 +198,7 @@ Należy wprowadzić pewne zmiany, na przykład do pracy z projektem, które mamy
 - Register.aspx.cs i Login.aspx.cs kodzie Użyj klasy `UserManager` z pakietów tożsamości, aby utworzyć użytkownika. W tym przykładzie należy użyć Menedżera UserManager dodawane w folderze modeli, wykonując kroki opisane wcześniej.
 - Użyj klasy użytkownika utworzone zamiast IdentityUser w kodzie Register.aspx.cs i Login.aspx.cs klasy. Przechwytuje to naszym klasy użytkownika niestandardowego systemu tożsamości.
 - Możesz pominąć część, aby utworzyć bazę danych.
-- Deweloper musi ustawić identyfikator aplikacji dla nowego użytkownika, aby dopasować bieżący identyfikator aplikacji. Można to zrobić podczas badania ApplicationId dla tej aplikacji, zanim obiekt użytkownika zostanie utworzony w klasie Register.aspx.cs i ustawiając go przed utworzeniem użytkownika. 
+- Deweloper musi ustawić identyfikator aplikacji dla nowego użytkownika, aby dopasować bieżący identyfikator aplikacji. Można to zrobić podczas badania ApplicationId dla tej aplikacji, zanim obiekt użytkownika zostanie utworzony w klasie Register.aspx.cs i ustawiając go przed utworzeniem użytkownika.
 
     Przykład:
 

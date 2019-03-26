@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 2469f7ea-1489-42fb-a8e1-414c90141ce9
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 20baa40c34dd8c8907b940764987441bc7a91da9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 92191e87ed78d8e549d14412ff4a5a9d8eb4afbb
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071051"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422467"
 ---
 <a name="executing-several-animations-at-the-same-time-vb"></a>Wykonywanie kilku animacji w tym samym czasie (VB)
 ====================
@@ -52,7 +52,7 @@ Poniżej przedstawiono możliwe kod znaczników dla `AnimationExtender` kontrolk
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-vb/samples/sample5.aspx)]
 
-I w rzeczywistości: po uruchomieniu tego skryptu, panel jest wyświetlany, a następnie zmienia rozmiar (więcej niż threefolding jego szerokość i halfing wysokość) i stopniowo zmniejsza się w tym samym czasie.
+I w rzeczywistości: po uruchomieniu tego skryptu, panel jest wyświetlana, następnie zmienia rozmiar (więcej niż tripling jego szerokość i wysokość halving) i stopniowo zmniejsza się w tym samym czasie.
 
 
 [![Panel jest wygaszanie i zmienianie rozmiaru (w tym jego zawartości, dzięki aparat renderowania w przeglądarce)](executing-several-animations-at-the-same-time-vb/_static/image2.png)](executing-several-animations-at-the-same-time-vb/_static/image1.png)

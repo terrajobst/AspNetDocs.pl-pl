@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 318a2f1c587feb360212a390bb5de7bdc127513d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d5011d42d0c2200bc782ab548f6bfa0d952f6e72
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071804"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420923"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2
 ====================
@@ -49,7 +49,7 @@ Należy zauważyć, że klasa kontrolera jest zależna od `ProductRepository`, i
 
 - Jeśli chcesz zastąpić `ProductRepository` z inną implementacją, trzeba będzie również zmodyfikować klasy kontrolera.
 - Jeśli `ProductRepository` ma zależności, należy skonfigurować w kontrolerze. Dla dużego projektu za pomocą wielu kontrolerów kodu konfiguracji staje się rozproszone w projekcie.
-- Ciężko jest testy jednostkowe, ponieważ kontroler jest ustalony do wykonywania zapytań w bazie danych. Dla testu jednostkowego należy użyć pozorny ani klas zastępczych repozytorium, które nie jest możliwe z projektem currect.
+- Ciężko jest testy jednostkowe, ponieważ kontroler jest ustalony do wykonywania zapytań w bazie danych. Dla testu jednostkowego należy użyć pozorny ani klas zastępczych repozytorium, które nie jest możliwe w bieżącym projekcie.
 
 Można rozwiązać te problemy, zapewniając *wprowadza* repozytorium do kontrolera. Po pierwsze, Refaktoryzuj `ProductRepository` klasy w interfejsie:
 

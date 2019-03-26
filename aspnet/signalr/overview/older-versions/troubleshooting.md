@@ -8,12 +8,12 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d485829fb60b32b063405f37ae9c6c278bf7255b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 798c41ee36372d12f03d07bbd7af3a26c161d33f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077663"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423328"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>Rozwiązywanie problemów z usługą SignalR (SignalR 1.x)
 ====================
@@ -69,7 +69,7 @@ SignalR używa dwóch modeli komunikacji: Centra i PersistentConnections. Skład
 
 [!code-csharp[Main](troubleshooting/samples/sample3.cs)]
 
-**C# serwera kod, który mapuje trasę koncentratora lub wielu centrów, jeśli masz wiele aplikacji**
+**C#Kod serwera, który mapuje trasę z koncentratorem lub wielu centrach, jeśli masz wiele aplikacji**
 
 [!code-csharp[Main](troubleshooting/samples/sample4.cs)]
 

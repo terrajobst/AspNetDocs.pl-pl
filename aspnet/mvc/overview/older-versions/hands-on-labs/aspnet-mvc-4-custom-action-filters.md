@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 0170fda6849c1dfb53b44908ea55ba2cad0dd067
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4c8628cc289610e287c0a3bc3c8a4c7a833c9fde
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069605"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423419"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 — niestandardowe filtry akcji
 
@@ -261,7 +261,7 @@ W tym zadaniu utworzysz nowy niestandardowy filtr akcji można wstawić do klasy
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > Ten niestandardowy filtr akcji jest prawie taki sam, niż ten, który został utworzony w poprzednim ćwiczeniu. Główną różnicą jest to, że ma on *&quot;rejestrowane przez&quot;* zaktualizowany o nazwie tej nowej klasy, aby zidentyfikować filtr wystąpiły atrybut zarejestrowany dziennika.
+    > Ten niestandardowy filtr akcji jest prawie taki sam, niż ten, który został utworzony w poprzednim ćwiczeniu. Główną różnicą jest to, że ma on *&quot;rejestrowane przez&quot;* zaktualizowany o nazwie tej nowej klasy, aby zidentyfikować atrybut, który filtr zarejestrowany dziennika.
 
 <a id="Ex2Task2"></a>
 
@@ -292,7 +292,7 @@ W tym zadaniu zostanie dodaje nowy filtr niestandardowy do klasy StoreController
 <a id="Task_3_Managing_Filter_Ordering"></a>
 #### <a name="task-3-managing-filter-ordering"></a>Zadanie 3. Zarządzanie, kolejności filtru
 
-W tym zadaniu dowiesz się, jak zarządzać kolejność wykonywania filtrów przy użyciu podawany zamówienia.
+W tym zadaniu dowiesz się, jak zarządzać kolejność wykonywania filtrów za pomocą właściwości zamówienia.
 
 1. Otwórz **StoreController** klasy znajdujący się w **MvcMusicStore\Controllers** i określ **kolejności** właściwości w obu filtrów, takich jak pokazano poniżej.
 
@@ -325,7 +325,7 @@ W tym zadaniu dowiesz się, jak zarządzać kolejność wykonywania filtrów prz
 <a id="Task_4_Registering_Filters_Globally"></a>
 #### <a name="task-4-registering-filters-globally"></a>Zadanie 4. Rejestrowanie filtry globalnie
 
-To zadanie zaktualizuje rozwiązanie, aby zarejestrować nowy filtr (**MyNewCustomActionFilter**) jako filtrów globalnych. W ten sposób zostanie wyzwolone przez wszystkie zestawem akcji w aplikacji i nie tylko w StoreController z nich, tak jak w poprzednim zadaniu.
+To zadanie zaktualizuje rozwiązanie, aby zarejestrować nowy filtr (**MyNewCustomActionFilter**) jako filtrów globalnych. W ten sposób zostanie wyzwolone przez wszystkie akcje wykonywane w aplikacji, a nie tylko w StoreController z nich, tak jak w poprzednim zadaniu.
 
 1. W **StoreController** klasy, należy usunąć **[MyNewCustomActionFilter]** atrybut i właściwość kolejności **[CustomActionFilter]**. Jego powinien wyglądać następująco:
 
@@ -375,7 +375,7 @@ Przez ukończenie tego laboratorium praktyczne mają pokazaliśmy, jak rozszerzy
 
 Możesz zainstalować **programu Microsoft Visual Studio Express 2012 for Web** lub inne &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe wskazówki ułatwiają kroki wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
+1. Przejdź do [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -419,7 +419,7 @@ Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w portalu 
 1. Przejdź do [portalu zarządzania pakietu Windows Azure](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft, powiązaną z Twoją subskrypcją.
 
     > [!NOTE]
-    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](http://aka.ms/aspnet-hol-azure).
+    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](https://aka.ms/aspnet-hol-azure).
 
     ![Zaloguj się do portalu usługi Windows Azure](aspnet-mvc-4-custom-action-filters/_static/image17.png "Zaloguj się do portalu usługi Windows Azure")
 

@@ -8,12 +8,12 @@ ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: e7461098f93bf64d6ff0d0e4ecdb64338f96be8b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d819fabf4f367c8f6d0ce857bc248a2b812c2b21
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077879"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422210"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity
 ====================
@@ -82,7 +82,7 @@ W tym temacie założono, że czytelnik zna mechanizmu stanu trwałego, które b
 
 Masz wiele swobody przy projektowaniu repozytoriów dla dostosowany przechowywania dostawcy. Musisz utworzyć repozytoriów dla funkcji, które będą używane w aplikacji. Na przykład jeśli nie używasz role w aplikacji, nie trzeba utworzyć magazynu dla ról lub ról użytkownika. Z technologii i istniejącej infrastruktury może wymagać to struktura, która jest bardzo inna niż domyślna implementacja produktu ASP.NET Identity. W warstwie dostępu do danych możesz zapewnić logikę do pracy ze strukturą repozytoriów.
 
-Aby MySQL implementacja repozytoria danych dla tożsamości ASP.NET w wersji 2.0, zobacz [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql).
+MySQL wykonania repozytoria danych dla tożsamości ASP.NET w wersji 2.0, zobacz [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql).
 
 W warstwie dostępu do danych, możesz zapewnić logikę, aby zapisać dane z produktu ASP.NET Identity do źródła danych. Warstwa dostępu do danych dla dostawcy magazynu dostosowanych może obejmować następujące klasy do przechowywania informacji o użytkowniku i ról.
 

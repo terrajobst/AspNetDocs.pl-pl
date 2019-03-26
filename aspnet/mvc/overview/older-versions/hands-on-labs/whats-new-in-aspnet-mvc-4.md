@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9d5a51a5887ecbbc96fce1416b88aa849bc3674e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0c4b7b2641c91cbb63ec46fa707c004f7273a303
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074699"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422691"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co nowego we wzorcu ASP.NET MVC 4
 
@@ -144,7 +144,7 @@ W tym ćwiczeniu przedstawimy rozszerzenia w szablonach projektu programu ASP.NE
     *jQuery sprawdzania poprawności*
 
     > [!NOTE]
-    > Zwróć uwagę, że dwa Zaloguj się w sekcji, w pierwszej sekcji można Zaloguj się przy użyciu konta zarejestrowany z lokacji i w drugiej sekcji, możesz altenativelly logowanie się za pomocą innej usługi uwierzytelniania, takich jak google (domyślnie wyłączone).
+    > Należy zauważyć dwa dziennika w sekcjach, w pierwszej sekcji, które możesz zalogować się przy użyciu zarejestrowanego konta z witryny, a w drugiej sekcji, które możesz też zalogować się przy użyciu innej usługi uwierzytelniania, takich jak google (domyślnie wyłączone).
 5. Zamknij przeglądarkę, aby zatrzymać debuger i powrócić do programu Visual Studio.
 6. Otwórz plik **AuthConfig.cs** znajdujący się w folderze **aplikacji\_Start** folderu.
 7. Usuń komentarz z ostatniego wiersza, aby zarejestrować klienta Google *OAuth* uwierzytelniania.
@@ -429,7 +429,7 @@ Jednym z kluczowych aktualizacji w programie ASP.NET MVC 4 jest obsługa opracow
 <a id="Task_2_-_Creating_Mobile_Views"></a>
 #### <a name="task-2---creating-mobile-views"></a>Zadanie 2 — Tworzenie przenośnych widoków
 
-W tym zadaniu utworzysz mobilnej wersji widoku indeksu zawartości zaadaptować pod kątem lepszych appareance na urządzeniach przenośnych.
+W tym zadaniu utworzysz mobilnej wersji widoku indeksu zawartości zaadaptować pod kątem lepszych wygląd na urządzeniach przenośnych.
 
 1. Kopiuj **Views\Home\Index.cshtml** wyświetlanie i wklej go, aby utworzyć kopię, Zmień nazwę nowego pliku do **Index.Mobile.cshtml**.
 2. Otwórz utworzony nowy **Index.Mobile.cshtml** wyświetlanie i Zastąp istniejące &lt;ul&gt; tagu przy użyciu tego kodu. W ten sposób zostanie zaktualizowany &lt;ul&gt; tagu przy użyciu adnotacji danych mobilnych jQuery używać przenośnych motywy z jQuery.
@@ -512,15 +512,15 @@ W tym zadaniu przedstawimy przykład implementacji dodane przez jQuery.Mobile.MV
 
     Widok częściowy używa nowej metody **ViewContext.HttpContext.GetOverriddenBrowser()** do ustalenia źródła pochodzenia żądania sieci web i wyświetlić odpowiednie łącze, aby przełączyć się do widoków Desktop lub Mobile.
 
-    **GetOverridenBrowser** metoda zwraca **HttpBrowserCapabilitiesBase** wystąpienie, które odnosi się do agenta użytkownika aktualnie ustawiona dla żądania (rzeczywistych lub zastąpiona). Tej wartości można użyć do pobrania właściwości, takie jak **IsMobileDevice**.
+    **GetOverriddenBrowser** metoda zwraca **HttpBrowserCapabilitiesBase** wystąpienie, które odnosi się do agenta użytkownika aktualnie ustawiona dla żądania (rzeczywistych lub zastąpiona). Tej wartości można użyć do pobrania właściwości, takie jak **IsMobileDevice**.
 
     ![Widok częściowy ViewSwitcher](whats-new-in-aspnet-mvc-4/_static/image30.png "ViewSwitcher widoku częściowego")
 
     *Widok częściowy ViewSwitcher*
 4. Otwórz **ViewSwitcherController.cs** klasa znajduje się w **kontrolerów** folderu. Zapoznaj się z tym SwitchView akcji jest wywoływana przez łącze w składniku ViewSwitcher i zwróć uwagę, nowych metod HttpContext.
 
-    - **HttpContext.ClearOverridenBrowser()** metoda usuwa wszelkich przesłoniętych agentów użytkownika dla bieżącego żądania.
-    - **HttpContext.SetOverridenBrowser()** metoda zastępuje żądania rzeczywistą wartość agenta użytkownika przy użyciu określonego agenta użytkownika.  
+    - **HttpContext.ClearOverriddenBrowser()** metoda usuwa wszelkich przesłoniętych agentów użytkownika dla bieżącego żądania.
+    - **HttpContext.SetOverriddenBrowser()** metoda zastępuje żądania rzeczywistą wartość agenta użytkownika przy użyciu określonego agenta użytkownika.  
         ![Kontroler ViewSwitcher](whats-new-in-aspnet-mvc-4/_static/image31.png "ViewSwitcher kontrolera")  
 *Kontroler ViewSwitcher*
 
@@ -580,8 +580,8 @@ Po uruchomieniu tego kodu, gdy przeglądarka iPhone generuje żądanie, aplikacj
 > [!NOTE]
 > Dzięki temu testowania żądanie dla urządzeń iPhone został uproszczony dla celów demonstracyjnych i może nie działać zgodnie z oczekiwaniami dla każdego ciąg agenta użytkownika dla telefonu iPhone, (na przykład test jest uwzględniana wielkość liter).
 
-4. Utwórz kopię  **\_Layout.Mobile.cshtml** w pliku **Views\Shared** folder i zmień jego kopię, &quot; **\_Layout.iPhone.csthml**&quot;.
-5. Otwórz  **\_Layout.iPhone.csthml** utworzonego w poprzednim kroku.
+4. Utwórz kopię  **\_Layout.Mobile.cshtml** w pliku **Views\Shared** folder i zmień jego kopię, &quot; **\_Layout.iPhone.cshtml**&quot;.
+5. Otwórz  **\_Layout.iPhone.cshtml** utworzonego w poprzednim kroku.
 6. Znajdź div element z atrybutem roli danych równa **strony** i zmień **data-theme** atrybutu &quot; **a**&quot;.
 
 
@@ -674,7 +674,7 @@ Metody asynchroniczne akcji, które zwracają wystąpień zadań może również
     (Code Snippet — *platformy ASP.NET MVC 4 laboratorium — Ex04 — atrybuty*)
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
-6. Otwórz **PhotoController** klasy i zaktualizuj **galerii** metoda opóźnienie wykonania 1000 milisekund, spędzonych (1 sekunda) do symulacji długo działające zadania.
+6. Otwórz **PhotoController** klasy i zaktualizuj **galerii** metoda opóźnienie wykonania 1000 milisekund (1 sekunda) symulować długotrwałe zadanie.
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
 7. Otwórz **Web.config** pliku i włącz błędy niestandardowe, dodając następujący element.
@@ -904,7 +904,7 @@ Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w portalu 
 1. Przejdź do [portalu zarządzania pakietu Windows Azure](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft, powiązaną z Twoją subskrypcją.
 
     > [!NOTE]
-    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](http://aka.ms/aspnet-hol-azure).
+    > Platforma Windows Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](https://aka.ms/aspnet-hol-azure).
 
     ![Zaloguj się do portalu usługi Windows Azure](whats-new-in-aspnet-mvc-4/_static/image61.png "Zaloguj się do portalu usługi Windows Azure")
 

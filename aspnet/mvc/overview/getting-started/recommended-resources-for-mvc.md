@@ -8,19 +8,19 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f57ce4236abe71de3f6f60cb2d7930f7ae9a8d7a
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072770"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423913"
 ---
-<a name="mvc-recommended-resources"></a>Zalecane zasoby dla wzorca MVC
-====================
+# <a name="mvc-recommended-resources"></a>Zalecane zasoby dla wzorca MVC
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ten temat zawiera łącza do zasobów dokumentacji dotyczących platformy ASP.NET MVC 5. Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com/) wątku lub dowolny link, który może być przydatne, Wyślij [mnie](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) wiadomość e-mail z linkiem. Łącza przedstawione tutaj są okresowo aktualizowane. Można znaleźć starsze (ale w wielu przypadkach, nadal obowiązują) łączy platformy ASP.NET MVC [Mapa zawartości MSDN](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx).
-> 
+>
 > Jest dobrym miejscem, aby uzyskać odpowiedzi na swoje pytania lub rozwiązania problemów [platformy ASP.NET MVC forum](https://forums.asp.net/1146.aspx/1?MVC) lub na [stackoverflow](http://stackoverflow.com/questions/tagged/mvc+asp.net-mvc).
 > <a id="gettingstarted"></a>
 
@@ -63,8 +63,8 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
     - [Porady i wskazówki w programie Visual Studio 2013](https://channel9.msdn.com/Events/Build/2014/2-582) przez Cathy Sullivan
     - [Automatyzacja w dowolnym miejscu przy użyciu nowych zestawów SDK, narzędzi i usług na platformie Azure](https://channel9.msdn.com/Events/Build/2014/3-621) przez Brady'ego Gastera Jan opłaty
     - [Co to jest nowego w usłudze Azure Web Sites Chris Compy, i Nir Mashkowski](https://channel9.msdn.com/Events/Build/2014/3-625)
-    - [Tworzenie dużych: Lekcje wyniesione z klientów platformy Azure](https://channel9.msdn.com/Events/Build/2014/3-633) przez Chrisa Clayton, — Markiem Simmsem   
-        [Tworzenie aplikacji jednostronicowej przy użyciu platformy ASP.NET i AngularJS](https://channel9.msdn.com/Events/Build/2014/3-644) przez David Catuhe, Jan Galloway'em
+    - [Tworzenie dużych: Lekcje wyniesione z klientów platformy Azure](https://channel9.msdn.com/Events/Build/2014/3-633) przez Chrisa Clayton, — Markiem Simmsem
+    - [Tworzenie aplikacji jednostronicowej przy użyciu platformy ASP.NET i AngularJS](https://channel9.msdn.com/Events/Build/2014/3-644) przez David Catuhe, Jan Galloway'em
     - [Projektowanie i implementowanie hybrydowych rozwiązań w chmurze dla architektów](https://channel9.msdn.com/Events/Build/2014/3-632)
     - [Model grupy zasobów platformy Azure: Nowoczesne zarządzanie w chmurze nowoczesnych](https://channel9.msdn.com/Events/Build/2014/2-607) przez Gautam Thapar, Totten Nathana
     - [Tworzenie aplikacji internetowych interfejsów API dla aplikacji mobilnych przy użyciu wzorca ASP.NET Web API 2.1](https://channel9.msdn.com/Events/Build/2014/3-603) przez Daniel Roth
@@ -168,8 +168,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Wykres pierścieniowy pamięci podręcznej i dziura pierścieniowy buforowania platformy Asp.Net MVC 4](http://www.dotnet-tricks.com/Tutorial/mvc/ODJa210113-Donut-Caching-and-Donut-Hole-Caching-with-Asp.Net-MVC-4.html)
 - [Informacje o pamięci podręcznej we wzorcu Asp.Net MVC przy użyciu przykładu](http://www.dotnet-tricks.com/Tutorial/mvc/4R5c050113-Understanding-Caching-in-Asp.Net-MVC-with-example.html)
 - [http://webdevchecklist.com/asp.net/performance/](http://webdevchecklist.com/asp.net/performance/)
-- [Model widoku platformy ASP.NET MVC: Entity Framework &amp; serializacja kodu JSON](http://www.dotnetexpertguide.com/2013/06/aspnet-mvc-view-model-entity-framework-json-serialization.html)  
- Nandip Makwana przedstawia przydatne porady do zwiększenia wydajności (i niższych użycie procesora CPU) przez wyeliminowanie niepotrzebnych serializacji obiektów podrzędnych
+- [Model widoku platformy ASP.NET MVC: Entity Framework &amp; serializacji JSON](http://www.dotnetexpertguide.com/2013/06/aspnet-mvc-view-model-entity-framework-json-serialization.html) Nandip Makwana przedstawia przydatne porady do zwiększenia wydajności (i niższych użycie procesora CPU) przez wyeliminowanie niepotrzebnych serializacji obiektów podrzędnych
 - [Async i Await](http://blog.stephencleary.com/2012/02/async-and-await.html) na platformie ASP.NET, Autor: Stephen wyraźnie
 - [Debugowanie i wydajności za pomocą możliwość wypróbowania](http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx)
 - [Zwiększyć obserwowaną wydajność witryn sieci Web platformy ASP.NET MVC, widoki częściowe asynchroniczne](http://blog.michaelckennedy.net/2012/11/13/improve-perceived-performance-of-asp-net-mvc-websites-with-async-partialviews/)
@@ -365,7 +364,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Obsługa WebP obrazów za pomocą platformy ASP.NET MVC](http://friism.com/serving-webp-images-with-asp-net-mvc)
 - [Potok szczegółowa platformy ASP.NET MVC](http://www.dotnet-tricks.com/Tutorial/mvc/LYHK270114-Detailed-ASP.NET-MVC-Pipeline.html)
 - [Zagnieżdżanie układów w MVC](http://astutelogic.com/nesting-layouts-in-mvc/) przez Dunker Russell
-- Czy mogę[mplementing RichTextEditor lub WYSIWYG (TinyMCE) we wzorcu ASP.NET MVC](http://www.dotnetfunda.com/articles/show/2657/implementing-richtexteditor-or-wysiwyg-tinymce-in-aspnet-mvc) przez Sheo Narayan
+- [Implementowanie RichTextEditor lub WYSIWYG (TinyMCE) we wzorcu ASP.NET MVC](http://www.dotnetfunda.com/articles/show/2657/implementing-richtexteditor-or-wysiwyg-tinymce-in-aspnet-mvc) przez Sheo Narayan
 - [Powiązanie widoków z kolekcji typu anonimowego we wzorcu ASP.NET MVC](http://www.dotnetfunda.com/articles/show/2655/binding-views-with-anonymous-type-collection-in-aspnet-mvc) przez Sheo Narayan
 - [Zapisywanie obszaru roboczego w języku HTML 5 jako obraz na platformie ASP.NET MVC](http://www.dotnetfunda.com/articles/show/2665/saving-html-5-canvas-as-image-in-aspnet-mvc) przez Sheo Narayan
 - [Utrzymywanie rozmiar obrazu i położenie na stronie w bazie danych przy użyciu platformy ASP.NET MVC](http://www.dotnetfunda.com/articles/show/2783/maintaining-image-size-and-position-on-the-page-in-database-using-aspn) przez Sheo Narayan

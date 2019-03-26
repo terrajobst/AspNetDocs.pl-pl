@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: 4dcc62573fad13ec8b37b2c59e884eec7ca80b92
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e2f3781623af5a32149e1db1c17b67ce43b7da0
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067808"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423981"
 ---
 # <a name="configuration-builders-for-aspnet"></a>Konstruktorzy konfiguracji dla platformy ASP.NET
 
@@ -191,7 +191,7 @@ Na przykład za pomocą poprzedniej *web.config* pliku, klucz/wartość w poprze
 
 Ten konstruktor konfiguracji udostępnia funkcję podobne do [platformy ASP.NET Core klucz tajny Menedżera](/aspnet/core/security/app-secrets).
 
-[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) mogą być używane w projektach .NET Framework, ale musi zostać określony plik wpisów tajnych. Alternatywnie można zdefiniować `UserSecretsId` właściwość w projekcie plików, a następnie utwórz plik raw wpisów tajnych w bieżącej lokalizacji do odczytu. Aby zachować zależności zewnętrznych spoza projektu, plik wpisów tajnych jest formacie XML. Formatowanie, XML jest szczegółowo opisuje implementacja i format nie powinna być używana na. Jeśli zachodzi potrzeba udostępniania *secrets.json* plików w projektach .NET Core, należy rozważyć użycie [SimpleJsonConfigBuilder](#simplejsonconfig). `SimpleJsonConfigBuilder` Formatowania dla platformy .NET Core należy również uwzględnić szczegółowo opisuje implementacja może ulec zmianie.
+[UserSecretsConfigBuilder](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.UserSecrets/) mogą być używane w projektach .NET Framework, ale musi zostać określony plik wpisów tajnych. Alternatywnie można zdefiniować `UserSecretsId` właściwość w projekcie plików, a następnie utwórz plik raw wpisów tajnych w bieżącej lokalizacji do odczytu. Aby zachować zależności zewnętrznych spoza projektu, plik wpisów tajnych jest formacie XML. Formatowanie, XML jest szczegółowo opisuje implementacja i format nie powinna być używana na. Jeśli zachodzi potrzeba udostępniania *secrets.json* plików w projektach .NET Core, należy rozważyć użycie [SimpleJsonConfigBuilder](#simplejsonconfigbuilder). `SimpleJsonConfigBuilder` Formatowania dla platformy .NET Core należy również uwzględnić szczegółowo opisuje implementacja może ulec zmianie.
 
 Konfiguracja atrybuty dla `UserSecretsConfigBuilder`:
 

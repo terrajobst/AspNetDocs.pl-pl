@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 22b8379fd2d97aeb85137e1cc128fe5d053f44ed
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c20341a7fa0f5c5382ce7f2f6d459c4a6bec509f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072902"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424100"
 ---
 <a name="signalr-scaleout-with-redis"></a>SignalR — skalowanie w poziomie z użyciem pamięci podręcznej Redis
 ====================
@@ -144,7 +144,7 @@ Również obejmować usługę zarządzania (wymienione w obszarze "Narzędzia do
 
 ![](scaleout-with-redis/_static/image6.png)
 
-**Zainstaluj narzędzie Web Deploy 3.0.** Podczas uruchamiania Menedżera usług IIS, zostanie wyświetlony monit o zainstalowanie platformy sieci Web firmy Microsoft lub możesz [Pobierz intstaller](https://go.microsoft.com/fwlink/?LinkId=255386). W Instalatorze platformy wyszukiwania dla narzędzia Web Deploy i zainstalować Web Deploy 3.0
+**Zainstaluj narzędzie Web Deploy 3.0.** Podczas uruchamiania Menedżera usług IIS, zostanie wyświetlony monit o zainstalowanie platformy sieci Web firmy Microsoft lub możesz [Pobierz Instalatora](https://go.microsoft.com/fwlink/?LinkId=255386). W Instalatorze platformy wyszukiwania dla narzędzia Web Deploy i zainstalować Web Deploy 3.0
 
 ![](scaleout-with-redis/_static/image7.png)
 

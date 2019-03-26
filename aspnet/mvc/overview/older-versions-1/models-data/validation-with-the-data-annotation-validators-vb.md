@@ -8,12 +8,12 @@ ms.date: 05/29/2009
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8159693adced7f102f6fe1457d7b103f8596d231
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6bfe11a40bbdf0cd9dfe4d81d9c7436a5adb9491
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066278"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420689"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>Walidacja przy użyciu modułów walidacji adnotacji danych (VB)
 ====================
@@ -55,7 +55,7 @@ Ten wiersz kodu rejestruje DataAnnotationsModelBinder jako domyślnego integrato
 Gdy używasz integratora modelu adnotacji danych, używasz modułu sprawdzania poprawności atrybutów do wykonywania sprawdzania poprawności. Przestrzeń nazw System.ComponentModel.DataAnnotations zawiera następujące atrybuty weryfikacji:
 
 - Zakres — umożliwia weryfikuje, czy wartość właściwości należące do określonego zakresu wartości.
-- ReqularExpression — można sprawdzić, czy wartość właściwości odpowiada wzorcowi określonemu wyrażeniu regularnemu.
+- Wyrażenia regularnego — można sprawdzić, czy wartość właściwości odpowiada wzorcowi określonemu wyrażeniu regularnemu.
 - Wymagane — można oznaczać właściwości zgodnie z potrzebami.
 - StringLength — umożliwia określenie maksymalnej długości dla właściwości ciągu.
 - Sprawdzanie poprawności — klasa bazowa dla wszystkich atrybutów modułu sprawdzania poprawności.

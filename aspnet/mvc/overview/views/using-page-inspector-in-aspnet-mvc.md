@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: abb1ef355bd7614daaab8c205d9d53065856cd23
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075974"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424368"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC
 ====================
@@ -139,7 +139,7 @@ Następnie będziesz mieć rzut oka na oknie HTML oraz sposób mapowania element
 
 Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji.
 
-Kliknij w górnej części strony, który jest wyświetlany komunikat "logohere". To badanie konkretnego elementu bardziej szczegółowo, aby wyświetlana w oknie przeglądarki nie jest już zmienia się po przesunięciu wskaźnika myszy.
+Kliknij w górnej części strony, który jest wyświetlany komunikat "Twoje logo". To badanie konkretnego elementu bardziej szczegółowo, aby wyświetlana w oknie przeglądarki nie jest już zmienia się po przesunięciu wskaźnika myszy.
 
 Teraz umieść kursor myszy na **HTML** okna. Podczas przesuwania wskaźnika myszy, narzędzie Page Inspector przedstawia element w obrębie **HTML** okna i odpowiadający mu element w oknie przeglądarki.
 

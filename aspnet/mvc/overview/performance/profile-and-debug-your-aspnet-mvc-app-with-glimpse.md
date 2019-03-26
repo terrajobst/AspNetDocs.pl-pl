@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea149b6450cf02c993c7690752a05396802336be
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073418"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425057"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilowanie i debugowanie aplikacji ASP.NET MVC za pomocą pakietów Glimpse
 ====================
@@ -58,7 +58,7 @@ Przejdź do http://localhost:&lt; port #&gt;/glimpse.axd, a następnie kliknij p
 
 W przypadku paska ulubionych wyświetlane możesz przeciągnij i upuść przyciski możliwość wypróbowania i dodać je jako bookmarklets:
 
-![Programu Internet Explorer przy użyciu boookmarklets możliwość wypróbowania](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
+![Programu Internet Explorer przy użyciu bookmarklets możliwość wypróbowania](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image5.png)
 
 Możesz teraz przechodzić swojej aplikacji, a **głowic się wyświetlanie** (HUD) są widoczne u dołu strony.
 
@@ -104,11 +104,11 @@ Możesz umieścić kursor segment czasu, aby uzyskać szczegółowe informacje o
 <a id="da"></a>
 ## <a name="using-glimpse-on-azure"></a>Używanie możliwość wypróbowania na platformie Azure
 
-Możliwość wypróbowania domyślne zasady zabezpieczeń zezwala tylko możliwość wypróbowania dane mają być wyświetlane z hosta lokalnego. Możesz zmienić te zasady zabezpieczeń, aby można było wyświetlić te dane na serwerze zdalnym (np. aplikacji sieci web na platformie Azure). Dla środowisk testowych na platformie Azure, Dodaj wyróżnione znacznika do końca *web.confg* plik, aby włączyć możliwość wypróbowania:
+Możliwość wypróbowania domyślne zasady zabezpieczeń zezwala tylko możliwość wypróbowania dane mają być wyświetlane z hosta lokalnego. Możesz zmienić te zasady zabezpieczeń, aby można było wyświetlić te dane na serwerze zdalnym (np. aplikacji sieci web na platformie Azure). Dla środowisk testowych na platformie Azure, Dodaj wyróżnione znacznika do końca *web.config* plik, aby włączyć możliwość wypróbowania:
 
 [!code-xml[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample3.xml?highlight=2-6)]
 
-Dzięki tej zmianie samodzielnie każdemu użytkownikowi możliwość wyświetlenia danych możliwość wypróbowania w lokalizacji zdalnej. Rozważ dodanie znaczników powyżej profil publikowania, dzięki czemu jest ona wdrożona tylko stosowane podczas korzystania z tego profilu publikowania (na przykład Twoja Azure test proifle.) Aby ograniczyć możliwość wypróbowania dane, dodamy `canViewGlimpseData` roli oraz Zezwalanie tylko na użytkowników w tej roli, aby wyświetlić dane możliwość wypróbowania.
+Dzięki tej zmianie samodzielnie każdemu użytkownikowi możliwość wyświetlenia danych możliwość wypróbowania w lokalizacji zdalnej. Należy rozważyć dodanie znaczników powyżej profil publikowania, dzięki czemu ona wdrożona tylko stosowane podczas korzystania z tego profilu publikowania (na przykład Azure test profilu.) Aby ograniczyć możliwość wypróbowania dane, dodamy `canViewGlimpseData` roli oraz Zezwalanie tylko na użytkowników w tej roli, aby wyświetlić dane możliwość wypróbowania.
 
 Usuń komentarze z *GlimpseSecurityPolicy.cs* pliku, a następnie zmień [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) wywołać z `Administrator` do `canViewGlimpseData` roli:
 

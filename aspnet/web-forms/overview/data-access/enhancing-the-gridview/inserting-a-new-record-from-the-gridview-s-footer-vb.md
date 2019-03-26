@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0c661190125e818d3abaf54f50a0067d0944a956
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6e56c46d1f2574b9f228190e0e0c8205240015ed
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076478"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423966"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>Wstawianie nowego rekordu w stopce kontrolki GridView (VB)
 ====================
@@ -207,7 +207,7 @@ W związku z tym, aby odpowiedzieć użytkownik, kliknij przycisk Dodaj, musimy 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample6.vb)]
 
 > [!NOTE]
-> Możesz się zastanawiać, dlaczego program obsługi zdarzeń bothers sprawdzanie `Page.IsValid` właściwości. Gdy wszystkie uzyskany t zwrotu można pominąć, jeśli podano nieprawidłowe dane w interfejsie Wstawianie? To założenie jest poprawna, dopóki użytkownik nie wyłączył JavaScript lub podjęte kroki w celu obejścia logiki weryfikacji po stronie klienta. Krótko mówiąc jeden nigdy nie będą miały ściśle weryfikacji po stronie klienta; sprawdzenia poprawności po stronie serwera powinny być zawsze realizowane przed rozpoczęciem pracy z danymi.
+> Możesz się zastanawiać, dlaczego program obsługi zdarzeń bothers sprawdzanie `Page.IsValid` właściwości. Przecież nie będzie zwrotu pomijane, jeśli podano nieprawidłowe dane w interfejsie Wstawianie? To założenie jest poprawna, dopóki użytkownik nie wyłączył JavaScript lub podjęte kroki w celu obejścia logiki weryfikacji po stronie klienta. Krótko mówiąc jeden nigdy nie będą miały ściśle weryfikacji po stronie klienta; sprawdzenia poprawności po stronie serwera powinny być zawsze realizowane przed rozpoczęciem pracy z danymi.
 
 
 W kroku 1 utworzyliśmy `ProductsDataSource` ObjectDataSource taki sposób, że jego `Insert()` metody jest mapowany na `ProductsBLL` klasy s `AddProduct` metody. Aby wstawić nowy rekord do `Products` tabeli, można po prostu wywołać ObjectDataSource s `Insert()` metody:

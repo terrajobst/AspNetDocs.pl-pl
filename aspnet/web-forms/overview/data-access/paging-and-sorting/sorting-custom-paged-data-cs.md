@@ -2,18 +2,18 @@
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 title: Sortowanie niestandardowo stronicowanych danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: W poprzednim samouczku dowiedzieliśmy sposób implementacji niestandardowych stronicowania, gdy presentating danych na stronie sieci web. W tym samouczku zobaczymy, jak rozszerzyć poprzednią...
+description: W poprzednim samouczku dowiedzieliśmy, jak zaimplementować niestandardowy stronicowania, podczas wyświetlania danych na stronie sieci web. W tym samouczku zobaczymy, jak rozszerzyć poprzednią...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc0ca571957f29afd7e3a2657e58272f804fc6ef
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ebc6be8c41251190a0124fe5f3d2c154f1ad4450
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069032"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425655"
 ---
 <a name="sorting-custom-paged-data-c"></a>Sortowanie niestandardowo stronicowanych danych (C#)
 ====================
@@ -21,7 +21,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe) lub [Pobierz plik PDF](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
 
-> W poprzednim samouczku dowiedzieliśmy sposób implementacji niestandardowych stronicowania, gdy presentating danych na stronie sieci web. W tym samouczku widzimy, jak rozszerzyć poprzedni przykład obsługę sortowanie stronicowania niestandardowego.
+> W poprzednim samouczku dowiedzieliśmy, jak zaimplementować niestandardowy stronicowania, podczas wyświetlania danych na stronie sieci web. W tym samouczku widzimy, jak rozszerzyć poprzedni przykład obsługę sortowanie stronicowania niestandardowego.
 
 
 ## <a name="introduction"></a>Wprowadzenie

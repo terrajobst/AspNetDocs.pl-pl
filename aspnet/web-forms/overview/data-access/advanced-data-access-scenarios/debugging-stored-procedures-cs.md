@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: c655c324-2ffa-4c21-8265-a254d79a693d
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a377dde0c4ed25aed549ca1f3b8eeeecece79517
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4558a309248c89483d198f47f731eee2a266695f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070676"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421469"
 ---
 <a name="debugging-stored-procedures-c"></a>Debugowanie procedur składowanych (C#)
 ====================
@@ -48,7 +48,7 @@ SQL Server 2005 oferuje obsługę debugowania dla języka T-SQL i obiektami zarz
 
 Visual Studio umożliwia debugowanie procedur składowanych na lokalnego i zdalnego wystąpienia programu SQL Server. Lokalne wystąpienie programu SQL Server jest taki, który jest zainstalowany na tym samym komputerze co program Visual Studio. Jeśli bazy danych programu SQL Server, którego używasz, nie znajduje się na komputerze deweloperskim, następnie uważa się zdalne wystąpienie. Potrzeby tych samouczków firma Microsoft masz doświadczenie z lokalnego wystąpienia programu SQL Server. Debugowanie procedur składowanych na zdalnym wystąpieniu programu SQL server wymaga dodatkowych czynności konfiguracyjnych, niż gdy debugowanie procedur składowanych w lokalnym wystąpieniu.
 
-Jeśli używasz lokalnego wystąpienia programu SQL Server, możesz rozpocząć od kroku 1 i działać na końcu tego samouczka. Jeśli używasz zdalnego wystąpienia programu SQL Server, należy najpierw trzeba upewnij się, że podczas debugowania można są rejestrowane na komputerze deweloperskim przy użyciu konta użytkownika Windows, który ma identyfikator logowania programu SQL Server w zdalnym wystąpieniu. Moveover, zarówno tych danych logowania w bazie danych, jak i nazwy logowania bazy danych służący do nawiązywania połączenia z bazą danych działającej aplikacji platformy ASP.NET muszą być elementami członkowskimi `sysadmin` roli. Na końcu tego samouczka, aby uzyskać więcej informacji na temat konfigurowania programu Visual Studio i programu SQL Server do debugowania zdalnego wystąpienia, zobacz obiekty bazy danych debugowania języka T-SQL w sekcji wystąpienia zdalnego.
+Jeśli używasz lokalnego wystąpienia programu SQL Server, możesz rozpocząć od kroku 1 i działać na końcu tego samouczka. Jeśli używasz zdalnego wystąpienia programu SQL Server, należy najpierw trzeba upewnij się, że podczas debugowania można są rejestrowane na komputerze deweloperskim przy użyciu konta użytkownika Windows, który ma identyfikator logowania programu SQL Server w zdalnym wystąpieniu. Ponadto, zarówno tych danych logowania w bazie danych, jak i nazwy logowania bazy danych służący do nawiązywania połączenia z bazą danych działającej aplikacji platformy ASP.NET muszą być elementami członkowskimi `sysadmin` roli. Na końcu tego samouczka, aby uzyskać więcej informacji na temat konfigurowania programu Visual Studio i programu SQL Server do debugowania zdalnego wystąpienia, zobacz obiekty bazy danych debugowania języka T-SQL w sekcji wystąpienia zdalnego.
 
 Ponadto Dowiedz się, że obsługę debugowania dla języka T-SQL, obiektów bazy danych nie jest jako funkcja sformatowany jako obsługę debugowania dla aplikacji platformy .NET. Na przykład warunków i punktu przerwania filtry nie są obsługiwane, tylko podzbiór debugowania systemu windows są dostępne, nie można użyć, Edytuj i Kontynuuj, bezpośrednim staje się bezużyteczny i tak dalej. Zobacz [ograniczenia poleceń debugera i funkcji](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) Aby uzyskać więcej informacji.
 

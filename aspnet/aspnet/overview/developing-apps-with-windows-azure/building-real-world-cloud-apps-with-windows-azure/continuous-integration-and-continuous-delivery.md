@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: f701488025ec84a17651f9abff43f84531d35689
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b384fe08ebd6a106b9469debfb13014e87534b8f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072725"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425928"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
@@ -32,7 +32,7 @@ Chmura umożliwia zminimalizowanie kosztów utrzymania środowiska testowego, po
 
 Ogólnie zaleca się wykonanie ciągłe dostarczanie do tworzenia i środowisk przejściowych. Większość zespołów, nawet w firmie Microsoft wymagają ręcznego procesu przeglądu i zatwierdzania wdrożenia produkcyjnego. W środowisku produkcyjnym warto upewnić się, że wdrożenie to następuje najważniejszych osób w zespole rozwoju dostępnych dla pomocy technicznej lub w okresach o małym natężeniu ruchu. Ale ma nic do uniemożliwić całkowicie Automatyzacja środowiska deweloperskie i testowe, tak, aby wszystko, co deweloper musi wykonać zaewidencjonować zmianę oraz środowisko zostało skonfigurowane do testy odbiorcze.
 
-Na poniższym diagramie z [Microsoft Patterns and Practices e-book, ciągłego dostarczania](http://aka.ms/ReleasePipeline) przedstawia Typowy przepływ pracy. Kliknij obraz, aby zobaczyć, jak to pełny rozmiar w jego oryginalnego kontekstu.
+Na poniższym diagramie z [Microsoft Patterns and Practices e-book, ciągłego dostarczania](https://aka.ms/ReleasePipeline) przedstawia Typowy przepływ pracy. Kliknij obraz, aby zobaczyć, jak to pełny rozmiar w jego oryginalnego kontekstu.
 
 [![Przepływ pracy ciągłego dostarczania](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci web w usłud
 
 Zobacz też następujące zasoby:
 
-- [Tworzenie potoku wersji przy użyciu serwera Team Foundation Server 2012](http://aka.ms/ReleasePipeline). Książka elektroniczna praktyczne laboratoria oraz przykładowy kod przez Microsoft Patterns and Practices, zapewnia szczegółowe wprowadzenie do ciągłego dostarczania. Obejmuje korzystanie z programu Visual Studio Lab Management i Release Management programu Visual Studio.
+- [Tworzenie potoku wersji przy użyciu serwera Team Foundation Server 2012](https://aka.ms/ReleasePipeline). Książka elektroniczna praktyczne laboratoria oraz przykładowy kod przez Microsoft Patterns and Practices, zapewnia szczegółowe wprowadzenie do ciągłego dostarczania. Obejmuje korzystanie z programu Visual Studio Lab Management i Release Management programu Visual Studio.
 - [ALM Rangers DevOps, narzędzia i wskazówki](https://aka.ms/vsarsolutions/). ALM Rangers wprowadzone DevOps Workbench przykładowe pomocnika rozwiązanie i praktyczne wskazówki we współpracy z wzorców &amp; książki rozwiązania *tworzenie potoku wydania z programem TFS 2012*, jako doskonały sposób na rozpoczęcie Pojęcia związane z DevOps uczenia &amp; Release Management dla programu TFS 2012, jak i do testów laboratoryjnych. Wskazówki przedstawiono sposób twórz raz i wdrażanie w wielu środowiskach.
 - [Testowanie dostarczania ciągłego w programie Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). Książka elektroniczna przez Microsoft Patterns and Practices, wyjaśnia, jak zintegrować testy zautomatyzowane za pomocą ciągłego dostarczania.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Kod źródłowy tak zaprojektowane, aby przechwycić kompilacji z serwera TFS (na podstawie etykiety), skompiluj go, spakujesz ją, ktoś w roli DevOps, aby skonfigurować określone aspekty i wypchnąć je do platformy Azure. Narzędzie do śledzenia procesu wdrażania w celu umożliwienia operacji "wycofanie" wcześniej wdrożonej wersji. Narzędzie nie ma zależności zewnętrznych i może działać w autonomicznej przy użyciu interfejsów API programu TFS i zestawu Azure SDK.

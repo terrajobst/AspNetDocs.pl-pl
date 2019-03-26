@@ -8,12 +8,12 @@ ms.date: 03/31/2014
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 039923a91d957765fa8b2c0cfe11abc8790c1e88
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 067542e8b8aa9909bbb2147f8e11e34604986d87
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074453"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424030"
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Odporność połączeń wzorca ASP.NET Web Forms i przejmowanie poleceń
 ====================
@@ -141,7 +141,7 @@ Następnie utworzysz klas, które platformy Entity Framework będzie wywoływać
 
 Następujące wiersze kodu są na tym, co powoduje, że kod interceptor do uruchomienia programu Entity Framework wysyła zapytania do bazy danych. Należy zauważyć, że ponieważ utworzono oddzielne interceptor klas na potrzeby symulacji błędu przejściowego i rejestrowania, można niezależnie włączać i wyłączać je.   
   
- Możesz dodać za pomocą interceptory `DbInterception.Add` metody dowolnym miejscu w kodzie; nie musi znajdować się w `Application_Start` metody. Innym rozwiązaniem, jeśli nie dodasz interceptory w `Application_Start` metody, byłoby zaktualizuj lub Dodaj klasę o nazwie *WingtipToysConfiguration.cs* i umieścić powyższy kod na końcu konstruktora `WingtipToysbConfiguration` klasy.
+ Możesz dodać za pomocą interceptory `DbInterception.Add` metody dowolnym miejscu w kodzie; nie musi znajdować się w `Application_Start` metody. Innym rozwiązaniem, jeśli nie dodasz interceptory w `Application_Start` metody, byłoby zaktualizuj lub Dodaj klasę o nazwie *WingtipToysConfiguration.cs* i umieścić powyższy kod na końcu konstruktora `WingtipToysConfiguration` klasy.
 
 Wszędzie tam, gdzie należy umieścić ten kod nie należy do wykonania `DbInterception.Add` dla tego samego interceptor więcej niż jeden raz lub możesz uzyskać interceptor dodatkowych wystąpień. Na przykład jeśli dodasz dwa razy interceptor rejestrowanie, zobaczysz dwa dzienniki dla każdego zapytania SQL.
 
@@ -156,7 +156,7 @@ Kodzie symulacji błędu przejściowego napisanych w taki sposób, że można sp
 3. Wprowadź nowy produkt o nazwie "Throw" za pomocą odpowiedniego pliku opis i cena obrazu.
 4. Naciśnij klawisz **Dodaj produkt** przycisku.  
    Zauważysz, przeglądarka prawdopodobnie zawieszanie przez kilka sekund, natomiast Entity Framework ponawia próbę zapytanie kilka razy. Pierwszym ponowieniem próby przebiega bardzo szybko, a następnie zwiększa się czas oczekiwania przed każdym dodatkowe ponowieniem próby. Ten proces jest już oczekiwania nosi nazwę każdego ponawiania *wykładniczego wycofywania* .
-5. Poczekaj, aż strona nie jest już atttempting do załadowania.
+5. Zaczekaj, aż strona nie jest już próbuje załadować.
 6. Zatrzymaj projekt i przyjrzyj się programu Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Możesz znaleźć **dane wyjściowe** okna, wybierając **debugowania**  - &gt; **Windows**  - &gt;  **Dane wyjściowe**. Może być konieczne przewiń ekran za kilka innych dzienników napisany przez użytkownika rejestratora.  
   
    Zwróć uwagę, możliwość wyświetlenia rzeczywiste zapytania SQL wysyłane do bazy danych. Zobaczysz niektóre początkowej zapytań i poleceń, które obsługuje platformy Entity Framework, aby rozpocząć pracę, sprawdzania tabeli historii wersji i migracji bazy danych.   

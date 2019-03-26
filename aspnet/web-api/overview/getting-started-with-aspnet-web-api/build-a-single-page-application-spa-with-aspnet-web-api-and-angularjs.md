@@ -8,18 +8,18 @@ ms.date: 09/30/2015
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c3557bb2be2807b11874937fcc629b5b773e463
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 03409e2fda831a07bbc5321ad842633b23ec25e5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075032"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422418"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js
 ====================
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
-[Pobierz Camp Web szkolenia Kit](http://aka.ms/webcamps-training-kit)
+[Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
 
 > W aplikacji sieci web tradycyjnych klienta (przeglądarki) inicjuje komunikację z serwerem, żądając strony. Serwer następnie przetwarza żądanie i wysyła do klienta, HTML strony. W kolejnych interakcji ze stroną — np. użytkownik przechodzi do łącza lub przesyła formularz z danymi — nowe wezwanie jest wysyłane do serwera, a przepływ uruchamia ponownie: serwer przetwarza żądanie i wysyła nową stronę w przeglądarce w odpowiedzi na nowe żądanie akcji ED przez klienta.
 > 
@@ -29,7 +29,7 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > 
 > W tym praktycznym laboratorium będą korzystać z tych technologii, aby zaimplementować maniaków komputerowych Quiz, witryny sieci Web elementy towarzyszące składni oparty na koncepcji SPA. Najpierw wdroży warstwy usług przy użyciu interfejsu API sieci Web platformy ASP.NET do udostępnienia wymagane punkty końcowe do pobierania na pytania quizu i przechowywania odpowiedzi. Następnie utworzysz bogaty i elastyczny interfejs użytkownika przy użyciu efektów przekształcania AngularJS i CSS3.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Omówienie
@@ -98,7 +98,7 @@ W ramach interfejsu API sieci Web jest częścią stosu ASP.NET i jest przeznacz
 <a id="Ex1Task1"></a>
 #### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>Zadanie 1 — Tworzenie początkowej projektu dla maniaków komputerowych Quiz
 
-W ramach tego zadania będzie Tworzenie nowego projektu ASP.NET MVC z obsługą interfejsu API sieci Web platformy ASP.NET na podstawie **One ASP.NET** projektu typu, który jest dostarczany z programem Visual Studio. **One ASP.NET** łączy wszystkie technologie ASP.NET i daje możliwość mieszać i dopasowywać je zgodnie z potrzebami. Następnie dodasz klasy modelu Entity Framework i initializator bazy danych, aby wstawić pytania quizu.
+W ramach tego zadania będzie Tworzenie nowego projektu ASP.NET MVC z obsługą interfejsu API sieci Web platformy ASP.NET na podstawie **One ASP.NET** projektu typu, który jest dostarczany z programem Visual Studio. **One ASP.NET** łączy wszystkie technologie ASP.NET i daje możliwość mieszać i dopasowywać je zgodnie z potrzebami. Następnie dodasz klasy modelu Entity Framework i inicjatora bazy danych, aby wstawić pytania quizu.
 
 1. Otwórz **Visual Studio Express 2013 for Web** i wybierz **pliku | Nowy projekt...**  można uruchomić nowego rozwiązania.
 

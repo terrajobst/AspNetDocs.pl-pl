@@ -2,24 +2,24 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 title: Otwórz typy w protokole OData v4 Web API platformy ASP.NET | Dokumentacja firmy Microsoft
 author: microsoft
-description: W protokole OData v4 otwarty typ jest typem stuctured, który zawiera właściwości dynamicznych, oprócz żadnych właściwości, które są zadeklarowane w definicji typu. Otwórz...
+description: W protokole OData v4 otwarty typ jest strukturą typu, który zawiera właściwości dynamicznych, oprócz żadnych właściwości, które są zadeklarowane w definicji typu. Otwórz...
 ms.author: riande
 ms.date: 09/15/2014
 ms.assetid: f25f5ac5-4800-4950-abe5-c97750a27fc6
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 77771d85532b8b622c2ad4ca219a38990e474c9c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f901e5efc38e5cda6eb606b6bc1ecfe7dea3599c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071414"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423441"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>Otwórz typy w protokole OData v4 Web API platformy ASP.NET
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> W protokole OData v4 *Otwórz typ* jest typem stuctured, który zawiera właściwości dynamicznych, oprócz żadnych właściwości, które są zadeklarowane w definicji typu. Typy otwarte umożliwiają bardziej elastyczne modeli danych. W tym samouczku pokazano, jak używać typy otwarte w programie ASP.NET Web API OData.
+> W protokole OData v4 *Otwórz typ* jest strukturą typu, który zawiera właściwości dynamicznych, oprócz żadnych właściwości, które są zadeklarowane w definicji typu. Typy otwarte umożliwiają bardziej elastyczne modeli danych. W tym samouczku pokazano, jak używać typy otwarte w programie ASP.NET Web API OData.
 > 
 > Ten samouczek zakłada się, czy znasz już sposób tworzenia punktu końcowego OData w interfejsie API sieci Web platformy ASP.NET. Jeśli nie, należy zacząć od przeczytania [utworzenie punktu końcowego OData v4](create-an-odata-v4-endpoint.md) pierwszy.
 > 

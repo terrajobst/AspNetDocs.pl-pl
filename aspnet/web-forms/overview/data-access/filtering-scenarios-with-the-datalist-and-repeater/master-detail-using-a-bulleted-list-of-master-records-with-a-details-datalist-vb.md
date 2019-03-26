@@ -8,12 +8,12 @@ ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3a10d6e5f60efad1f88c5acc8371a24dbf8d2cb7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 73a93c93932a004e76cf4ef7be1b3308ef6b991f
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077204"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422899"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Formularz rekord główny/szczegóły korzystający z listy punktowanej rekordów głównych z kontrolką DataList szczegółów (VB)
 ====================
@@ -100,7 +100,7 @@ Następujący kod przedstawia składni deklaratywnej w elemencie powtarzanym i k
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample4.aspx)]
 
 > [!NOTE]
-> W tym samouczku powtarzanego musi mieć swój stan widoku, włączone (należy zwrócić uwagę na pominięcie `EnableViewState="False"` ze składni deklaratywnej w elemencie powtarzanym s). W kroku 3 możemy utworzyć program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń, w którym będziemy aktualizować DataList s ObjectDataSource s `SelectParameters` kolekcji. Elementu powtarzanego s `ItemCommand`, jednak wygrał t fire, jeśli stan widoku jest wyłączone. Zobacz [Stumper pytania ASP.NET](http://scottonwriting.net/sowblog/posts/1263.aspx) i [swoje rozwiązanie](http://scottonwriting.net/sowBlog/posts/1268.aspx) Aby uzyskać więcej informacji o tym, dlaczego stan widoku, należy włączyć Repeater s `ItemCommand` wyzwolenie zdarzenia.
+> W tym samouczku powtarzanego musi mieć swój stan widoku, włączone (należy zwrócić uwagę na pominięcie `EnableViewState="False"` ze składni deklaratywnej w elemencie powtarzanym s). W kroku 3 możemy utworzyć program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń, w którym będziemy aktualizować DataList s ObjectDataSource s `SelectParameters` kolekcji. Elementu powtarzanego s `ItemCommand`, jednak nie będą uruchamiane, jeśli stan widoku jest wyłączone. Zobacz [Stumper pytania ASP.NET](http://scottonwriting.net/sowblog/posts/1263.aspx) i [swoje rozwiązanie](http://scottonwriting.net/sowBlog/posts/1268.aspx) Aby uzyskać więcej informacji o tym, dlaczego stan widoku, należy włączyć Repeater s `ItemCommand` wyzwolenie zdarzenia.
 
 
 Element LinkButton z `ID` wartość właściwości `ViewCategory` nie ma jej `Text` zestawu właściwości. Jeśli po prostu chcemy była wyświetlana nazwa kategorii, firma Microsoft ma ustawiał właściwość Text deklaratywne, za pomocą składni wiązania danych, w następujący sposób:

@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 54e263e277852d2d478ce5bccd4164254498831a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 957facaf2988fedb6615e95701af5155cbcb23d2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066038"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423099"
 ---
 <a name="dependency-injection-in-signalr"></a>Wstrzykiwanie zależności w usłudze SignalR
 ====================
@@ -59,7 +59,7 @@ Lepszym rozwiązaniem jest "wstrzyknąć" `ILogger` do obiektu — na przykład 
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-Teraz obiekt nie jest odpowiedzialny za wybierając, które `ILogger` do użycia. Możesz swich `ILogger` implementacje bez wprowadzania zmian obiektów, które od niego zależne.
+Teraz obiekt nie jest odpowiedzialny za wybierając, które `ILogger` do użycia. Możesz przełączać `ILogger` implementacje bez wprowadzania zmian obiektów, które od niego zależne.
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
@@ -179,7 +179,7 @@ Utwórz powiązanie dla **IHubConnectionContext** w następujący sposób:
 
 [!code-csharp[Main](dependency-injection/samples/sample18.cs)]
 
-Ten kod creatres funkcja anonimowa, która zwraca **IHubConnection**. **WhenInjectedInto** metoda informuje Ninject, aby użyć tej funkcji, tylko wtedy, gdy tworzenie `IStockTicker` wystąpień. Przyczyną jest to, że SignalR tworzy **IHubConnectionContext** wystąpień wewnętrznie i nie chcemy do zastąpienia, jak SignalR ich tworzenia. Ta funkcja ma zastosowanie tylko do naszych `StockTicker` klasy.
+Ten kod tworzy funkcja anonimowa, która zwraca **IHubConnection**. **WhenInjectedInto** metoda informuje Ninject, aby użyć tej funkcji, tylko wtedy, gdy tworzenie `IStockTicker` wystąpień. Przyczyną jest to, że SignalR tworzy **IHubConnectionContext** wystąpień wewnętrznie i nie chcemy do zastąpienia, jak SignalR ich tworzenia. Ta funkcja ma zastosowanie tylko do naszych `StockTicker` klasy.
 
 Mechanizm rozpoznawania zależności do przekazania **MapSignalR** metody, dodając konfiguracji Centrum:
 

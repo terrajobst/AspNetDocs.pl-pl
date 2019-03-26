@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 7ad0ec27021514b447e569e479a9e9127e3f75fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0fc533fb3673639769ecdfa8b3d02ff40133cb27
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069920"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421626"
 ---
 <a name="part-3-creating-an-admin-controller"></a>Część 3. Tworzenie kontrolera administratora
 ====================
@@ -95,7 +95,7 @@ Następnie otwórz plik Global.asax i Dodaj następujący kod do **aplikacji\_St
 
 Na tym etapie firma Microsoft nie zostały zapisane jakiegokolwiek kodu klienta, ale można wywołać interfejsu API za pomocą przeglądarki sieci web lub debugowania HTTP narzędzia, takie jak sieci web [Fiddler](http://www.fiddler2.com/fiddler2/). W programie Visual Studio naciśnij klawisz F5, aby rozpocząć debugowanie. Spowoduje to otwarcie przeglądarki sieci web do `http://localhost:*portnum*/`, gdzie *portnum* niektóre numer portu to.
 
-Wyślij żądanie HTTP do "`http://localhost:*portnum*/api/admin`. Pierwsze żądanie może być powolne, ponieważ Entify Framework musi utworzyć i Inicjowanie bazy danych. Odpowiedź powinna coś podobnego do następującego:
+Wyślij żądanie HTTP do "`http://localhost:*portnum*/api/admin`. Pierwsze żądanie może być powolne, platformy Entity Framework musi utworzyć i Inicjowanie bazy danych. Odpowiedź powinna coś podobnego do następującego:
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 

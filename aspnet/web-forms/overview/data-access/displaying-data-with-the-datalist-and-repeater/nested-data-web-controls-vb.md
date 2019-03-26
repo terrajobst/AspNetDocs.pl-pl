@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 297d76da5bf049ec68a351562f96f3587b059b55
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e0807f6db3ad4ef9377843d60824e6cd43dd245
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077222"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440381"
 ---
 <a name="nested-data-web-controls-vb"></a>Zagnieżdżone kontrolki internetowe danych (VB)
 ====================
@@ -140,7 +140,7 @@ Ta metoda po prostu tworzy wystąpienie `ProductsBLL` metodę i zwraca wyniki `G
 Po wprowadzeniu tych zmian, aby użyć tej nowej metody, Poświęć chwilę, aby wyświetlić stronę za pośrednictwem przeglądarki. Dane wyjściowe powinny być identyczne dane wyjściowe, gdy za pomocą kontrolki ObjectDataSource i `ItemDataBound` metody obsługi zdarzeń (odnoszą się do rysunku 5, aby wyświetlić zrzut ekranu).
 
 > [!NOTE]
-> Może się wydawać pracy, aby utworzyć `GetProductsInCategory(categoryID)` metody w klasie CodeBehind strony ASP.NET. Ta metoda po prostu tworzy wystąpienie `ProductsBLL` klasy i zwraca wyniki jego `GetProductsByCategoryID(categoryID)` metody. Dlaczego nie po prostu wywołać tę metodę bezpośrednio z składnia wiązania z danymi w elemencie powtarzanym wewnętrzne, takie jak: `DataSource='<%# ProductsBLL.GetProductsByCategoryID(CType(Eval("CategoryID"), Integer)) %>'`? Chociaż ta składnia wygrał t współpracują z naszych bieżąca implementacja parametru `ProductsBLL` klasy (ponieważ `GetProductsByCategoryID(categoryID)` metoda jest metodą wystąpienia), można zmodyfikować `ProductsBLL` uwzględnianie statycznego `GetProductsByCategoryID(categoryID)` metody lub Klasa statyczna `Instance()` metodę, aby zwrócić nowe wystąpienie klasy `ProductsBLL` klasy.
+> Może się wydawać pracy, aby utworzyć `GetProductsInCategory(categoryID)` metody w klasie CodeBehind strony ASP.NET. Ta metoda po prostu tworzy wystąpienie `ProductsBLL` klasy i zwraca wyniki jego `GetProductsByCategoryID(categoryID)` metody. Dlaczego nie po prostu wywołać tę metodę bezpośrednio z składnia wiązania z danymi w elemencie powtarzanym wewnętrzne, takie jak: `DataSource='<%# ProductsBLL.GetProductsByCategoryID(CType(Eval("CategoryID"), Integer)) %>'`? Chociaż ta składnia nie będzie działać z naszych bieżąca implementacja parametru `ProductsBLL` klasy (ponieważ `GetProductsByCategoryID(categoryID)` metoda jest metodą wystąpienia), można zmodyfikować `ProductsBLL` uwzględnianie statycznego `GetProductsByCategoryID(categoryID)` metody lub Klasa statyczna `Instance()` metodę, aby zwrócić nowe wystąpienie klasy `ProductsBLL` klasy.
 
 
 Podczas modyfikacji wyeliminować potrzebę `GetProductsInCategory(categoryID)` metody w klasie CodeBehind strony ASP.NET, metody klasy CodeBehind daje większą elastyczność w stosowaniu dane pobrane, jak zajmiemy się wkrótce.
@@ -151,7 +151,7 @@ Dwie techniki poprzedniej możemy ve zbadane pobrania tych produktów dla bież�
 
 Biorąc pod uwagę *N* kategorie w systemie, to podejście sieci *N* + 1 wywołania zapytanie jednej bazy danych dla bazy danych do wszystkich kategorii a następnie *N* wywołania można pobrać produktów specyficzne dla każdej kategorii. Firma Microsoft może jednak pobrać wszystkie wymagane dane w jednym wywołaniu wywołania tylko dwie bazy danych do wszystkich kategorii, a drugi do wszystkich produktów. Gdy będziemy już mieć wszystkie produkty, możemy filtrować te produkty więc tylko produkty dopasowania bieżącego `CategoryID` są powiązane z tej kategorii s wewnętrzny elementu powtarzanego.
 
-Do tej funkcji, tylko musimy upewnić niewielkich modyfikacji do `GetProductsInCategory(categoryID)` metody w naszej platformy ASP.NET strony s osobna klasa kodu. Zamiast bezrefleksyjne zwracania wyników z `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody, możemy zamiast tego pierwszym uzyskaniu dostępu do *wszystkich* produktów (jeśli one, że t został już dostępne), a następnie powrócić po prostu widok filtrowany produkty oparte na przekazanym `CategoryID`.
+Do tej funkcji, tylko musimy upewnić niewielkich modyfikacji do `GetProductsInCategory(categoryID)` metody w naszej platformy ASP.NET strony s osobna klasa kodu. Zamiast bezrefleksyjne zwracania wyników z `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody, możemy zamiast pierwszym uzyskaniu dostępu do *wszystkich* produktów (jeśli one nie uzyskano dostępu już), a następnie powrócić po prostu widok filtrowany produkty oparte na przekazanym `CategoryID`.
 
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample8.vb)]

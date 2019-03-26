@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: 97c13898-0741-45f9-b3fa-7540ab1679e6
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad940afd03b66c17a4d8b1e5c727c317022fbc0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 58d4c14e2b888f933457fe421235499943354182
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070931"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422926"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Sortowanie danych w kontrolce DataList lub Repeater (VB)
 ====================
@@ -135,7 +135,7 @@ Na tym etapie, po raz pierwszy, odwiedzając stronę produktów początkowo zost
 
 
 > [!NOTE]
-> Kliknięcie przycisku Odśwież powoduje, że dane automatycznie ponownie posortowana, ponieważ stan widoku elementu powtarzanego s została wyłączona, powodowanie elementu powtarzanego ponownie powiązać ze swoim źródłem danych na każdym zwrotu. Jeśli był widoku elementu powtarzanego s stan włączony, zmiana sortowania listy rozwijanej listy wygrał t ma żadnego wpływu na kolejność sortowania. Aby rozwiązać ten problem, Utwórz program obsługi zdarzeń dla s przycisk Odśwież `Click` zdarzeń i ponowne wiązanie powtarzanego do źródła danych (przez wywołanie elementu powtarzanego s `DataBind()` metody).
+> Kliknięcie przycisku Odśwież powoduje, że dane automatycznie ponownie posortowana, ponieważ stan widoku elementu powtarzanego s została wyłączona, powodowanie elementu powtarzanego ponownie powiązać ze swoim źródłem danych na każdym zwrotu. Jeśli był widoku elementu powtarzanego s stan włączony, zmiana sortowania listy rozwijanej liście nie ma żadnego wpływu na kolejność sortowania. Aby rozwiązać ten problem, Utwórz program obsługi zdarzeń dla s przycisk Odśwież `Click` zdarzeń i ponowne wiązanie powtarzanego do źródła danych (przez wywołanie elementu powtarzanego s `DataBind()` metody).
 
 
 ## <a name="remembering-the-sort-expression-and-direction"></a>Uzupełnij wyrażenie sortowania i kierunek

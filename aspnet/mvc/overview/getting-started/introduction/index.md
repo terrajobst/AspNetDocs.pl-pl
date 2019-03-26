@@ -15,7 +15,7 @@ msc.type: chapter
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-W tej serii samouczków następujące obejmuje platformy ASP.NET MVC: Źródło [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
+W tej serii samouczków następujące obejmuje platformy ASP.NET MVC: Źródło [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
 
 - [Wprowadzenie](getting-started.md)
 - [Dodawanie kontrolera](adding-a-controller.md)

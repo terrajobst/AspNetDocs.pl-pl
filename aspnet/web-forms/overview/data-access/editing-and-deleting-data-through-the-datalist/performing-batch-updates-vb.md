@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 67ab034880c8140e6156721956059b7cdd3f077b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c903dd64ba7dd19a8af63224ee54629086279bf6
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069101"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425889"
 ---
 <a name="performing-batch-updates-vb"></a>Wykonywanie aktualizacji wsadowych (VB)
 ====================
@@ -126,7 +126,7 @@ Gdy użytkownik kliknie jeden z przycisków Aktualizuj wszystkie `UpdateAllSuppl
 
 ## <a name="updating-only-those-addresses-that-have-been-modified"></a>Aktualizowanie tych adresów, które zostały zmodyfikowane
 
-Algorytm aktualizacji usługi batch, używany dla tego samouczka wywołań `UpdateSupplierAddress` metodę *co* dostawcy w elemencie DataList, niezależnie od tego, czy ich informacje o adresie został zmieniony. Chociaż takie blind aktualizacje nie są zazwyczaj problem z wydajnością, której jest przeprowadzana inspekcja zmiany do tabeli bazy danych może prowadzić do zbędny rekordów. Na przykład, jeśli używasz wyzwalacze do rejestrowania wszystkich `UPDATE` s `Suppliers` do tabeli inspekcji, za każdym razem, gdy użytkownik kliknie przycisk Aktualizuj wszystkie, zostanie utworzony nowy rekord inspekcji dla każdego dostawcy w systemie, niezależnie od tego, czy użytkownik wprowadzone zmiany.
+Algorytm aktualizacji usługi batch, używany dla tego samouczka wywołań `UpdateSupplierAddress` metodę *co* dostawcy w elemencie DataList, niezależnie od tego, czy ich informacje o adresie został zmieniony. Chociaż takie ukryta aktualizacje nie są zazwyczaj problem z wydajnością, której jest przeprowadzana inspekcja zmiany do tabeli bazy danych może prowadzić do zbędny rekordów. Na przykład, jeśli używasz wyzwalacze do rejestrowania wszystkich `UPDATE` s `Suppliers` do tabeli inspekcji, za każdym razem, gdy użytkownik kliknie przycisk Aktualizuj wszystkie, zostanie utworzony nowy rekord inspekcji dla każdego dostawcy w systemie, niezależnie od tego, czy użytkownik wprowadzone zmiany.
 
 Klasy ADO.NET DataTable i DataAdapter są przeznaczone do obsługi aktualizacji wsadowych, których wyniki tylko zmodyfikowanych, usuniętych i nowych rekordów w jakiejkolwiek korespondencji bazy danych. Każdy wiersz w tabeli DataTable ma [ `RowState` właściwość](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) wskazuje, czy wiersz został dodany do elementu DataTable, usunąć z niego zmodyfikowany, czy pozostaje bez zmian. Gdy DataTable początkowo jest wypełniony, wszystkie wiersze są oznaczone bez zmian. Zmiana wartości kolumny wiersza s oznacza wiersza, jako zmodyfikowane.
 

@@ -8,21 +8,20 @@ ms.date: 04/09/2015
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 1d5b44ccce423dda8ac77029e361a531b6c91b26
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 14a8ec16fe741d87a23bfa45046386a2c08d2f27
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075566"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424342"
 ---
-<a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity — zalecane zasoby
-====================
+# <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity — zalecane zasoby
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ten temat zawiera łącza do zasobów dokumentacji o sposobie używania produktu ASP.NET Identity.
-> 
+>
 > Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com) wątku lub dowolny link, który powinien być przydatny, [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Identity recommended resources) z linkiem lub po prostu pozostaw na komunikat wyświetlany u dołu tej strony.
-
 
 - [Wprowadzenie do korzystania z produktu ASP.NET Identity](#gettingstarted)
 - [Nowe artykuły odczytu musi polecanych](#feat)
@@ -35,6 +34,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Q &amp; (/ odpowiedź na pytanie)](#qand)
 
 <a id="gettingstarted"></a>
+
 ## <a name="getting-started-with-aspnet-identity"></a>Wprowadzenie do korzystania z systemu ASP.NET Identity
 
 - [MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowanie jednokrotne](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) w tym samouczku dowiesz się, jak napisać aplikację ASP.NET MVC 5 z autoryzacją usługi Facebook i Google OAuth 2. Pokazano również, jak dodać dodatkowe dane do bazy danych tożsamości.
@@ -44,6 +44,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
+
 ## <a name="new-featured-must-read-articles"></a>Nowe artykuły odczytu musi polecanych
 
 - [Przewodnik: Tożsamość platformy ASP.NET MVC z uwierzytelnianiem konta Microsoft](http://www.benday.com/2014/02/25/walkthrough-asp-net-mvc-identity-with-microsoft-account-authentication/) przez [Benjamin dnia](http://www.benday.com/about/)
@@ -53,6 +54,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET Identity 2.0: Dostosowywanie użytkownikami i rolami](http://typecastexception.com/post/2014/06/22/ASPNET-Identity-20-Customizing-Users-and-Roles.aspx)
 
 <a id="adv"></a>
+
 ## <a name="intermediate-aspnet-identity"></a>Pośredni produktu ASP.NET Identity
 
 - [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
@@ -64,6 +66,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET Identity — funkcja blokady użytkownika](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>
+
 ## <a name="where-to-ask-questions-request-features-report-a-bug-and-nightly-builds"></a>Gdzie można zadawać pytania, funkcje na żądanie, Zgłoś usterkę i nocne kompilacje
 
 - Na stronie StackOverflow, używany jest tag [aspnet tożsamości](http://stackoverflow.com/questions/tagged/asp.net-identity)
@@ -71,6 +74,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Tożsamości ASP.NET w witrynie GitHub](https://github.com/aspnet/AspNetIdentity) Get nocnych kompilacji funkcji żądania otwarcia usterki.
 
 <a id="blog"></a>
+
 ## <a name="blog-posts-on-identity"></a>Wpisy w blogu tożsamości
 
 - [Co to jest SecurityStamp w produkcie ASP.NET Identity?](http://stackoverflow.com/questions/19487322/what-is-asp-net-identitys-iusersecuritystampstoretuser-interface/19505060#19505060)
@@ -120,6 +124,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Przenoszenie do produktu ASP.NET Identity z członkostwa ASP.NET](http://webdojo.sharepoint.com/ajmatthews/_layouts/15/start.aspx#/Lists/Posts/Post.aspx?ID=2) przez Alistair Matthews
 
 <a id="video"></a>
+
 ## <a name="videos"></a>Wideo
 
 - Channel 9 [zabezpieczanie aplikacji ASP.NET i usług: Internetową zabezpieczenia dla nowoczesnych aplikacji](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B421#fbid=PhVT9E1WRtr?hashlink=fbid) przez Ido Flatow
@@ -132,6 +137,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Czeski produktu ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY) w tym wykładu w tekście objaśniono sposób wdrażania uwierzytelniania podstawowego, jak dodać obsługę dostawców tożsamości zewnętrznych, takich jak Twitter lub Facebook i sposobu używania haseł jednorazowych (OTP). [Nástupce je produktu ASP.NET Identity członkostwa dostawcy ról&#367; v ASP.NET, tedy knihovna pro zajišt&#283;ní autentizace uživatel&#367;. V této p&#345;ednášce si ukážeme, jak nasad]
 
 <a id="cust"></a>
+
 ## <a name="custom-storage-providers-for-aspnet-identity"></a>Niestandardowi dostawcy magazynu dla produktu ASP.NET Identity
 
 Jeśli chcesz zapisać własnego dostawcę, zapoznaj się z [przegląd z niestandardowego dostawcy magazynu dla produktu ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md) i [wdrażanie produktu ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx) i obejrzyj źródło jednego z projektów OSS na liście poniżej.
@@ -144,7 +150,7 @@ Jeśli chcesz zapisać własnego dostawcę, zapoznaj się z [przegląd z niestan
 - [Usługa Azure Table Storage](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) przez James Randall.
 - Azure Table Storage: [AspNet.Identity.TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) by [@stuartleeks](https://twitter.com/stuartleeks).
 - [CouchDB / Cloudant przez Daniel Wertheim.](https://github.com/danielwertheim/mycouch.aspnet.identity)
-- Ciąg elastycznej[h: Elastyczne tożsamości](https://github.com/bmbsqd/elastic-identity) przez Bombsquad AB.
+- [Elastyczne wyszukiwanie: Elastyczne tożsamości](https://github.com/bmbsqd/elastic-identity) przez Bombsquad AB.
 - [Bazy danych MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) przez Sheely Jonathana Sheely Jonathana.
 - [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) przez Antônio Milesi Bastos.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) przez [ @tourismgeek ](https://twitter.com/tourismgeek).
@@ -153,11 +159,13 @@ Jeśli chcesz zapisać własnego dostawcę, zapoznaj się z [przegląd z niestan
 - Szablony T4 do generowania kodu programu EF magazynu użytkowników "bazy danych najpierw": [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
 
 <a id="additional"></a>
+
 ## <a name="additional-aspnet-identity-resources"></a>Zasoby dodatkowe produktu ASP.NET Identity
 
 - [Wprowadzenie do dostawców zabezpieczeń Yahoo i LinkedIn OAuth dla OWIN](http://blog.beabigrockstar.com/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/) przez Jerrie Pelser instrukcje dotyczące Yahoo i LinkedIn.
 
 <a id="qand"></a>
+
 ## <a name="qampa-questionanswer"></a>Q&amp;(/ odpowiedź na pytanie)
 
 - PYT.: Zablokowane użytkowników, którzy włączyli "Zapamiętaj mnie" (tak, aby nie musieli się go za pomocą funkcji 2FA na komputerze/przeglądarki) nie są zablokowane. Dlaczego i jak zapobiec? Odpowiedź [tutaj](http://stackoverflow.com/questions/24312247/locked-out-users-can-login-if-they-have-auth-cookie).
@@ -177,6 +185,6 @@ Jeśli chcesz zapisać własnego dostawcę, zapoznaj się z [przegląd z niestan
 - PYT.: Sposób unieważnienie tokeny zabezpieczające? Odpowiedź [tutaj](http://stackoverflow.com/questions/22755700/revoke-token-generated-by-usertokenprovider-in-asp-net-identity-2-0/22767286#22767286).
 - PYT.: W jaki sposób jest magazyn oświadczenia w oprogramowaniu pośredniczącym pliku cookie? Odpowiedź [tutaj](http://stackoverflow.com/questions/22320632/storing-retrieving-user-data-without-database-when-using-owin-cookie-authenticat/22541856#22541856).
 - PYT.: Chcę mieć numer PIN lub zabezpieczeń zapoznania się na każdej metody akcji w mojej aplikacji MVC, ale chcę przechowywać Powodzenie użytkowników, aby nie musieli wprowadzać numeru PIN na każde żądanie do tej metody akcji. Odpowiedź [tutaj](http://stackoverflow.com/questions/22479958/security-check-an-user-to-a-access-controller-action/22486075#22486075).
-- PYT.: Czy mogę tak, aby zapisać adres e-mail zwrócony od dostawcy społecznościowych z bazą danych, jak to zrobić? Odpowiedź [tutaj](http://stackoverflow.com/questions/22888397/save-claims-to-db-on-login/22970969#22970969):
+- PYT.: Czy mogę tak, aby zapisać adres e-mail zwrócony od dostawcy społecznościowych do bazy danych, jak to zrobić? Odpowiedź [tutaj](http://stackoverflow.com/questions/22888397/save-claims-to-db-on-login/22970969#22970969):
 - PYT.: Jak można sprawdzić, podczas logowania się zarówno z/za pomocą — ruch wychodzący plik cookie "Zapamiętaj mnie"? Odpowiedź [tutaj](http://stackoverflow.com/questions/22956486/how-can-i-detect-when-a-user-logs-in-with-microsoft-aspnet-identity/22970698#22970698).
 - PYT.: Po wywołaniu logowanie za pomocą można zmodyfikować oświadczeń w produkcie ASP.NET Identity z oprogramowaniem OWIN? Odpowiedź: Wywołaniem SignIn jest dokładnie, co użytkownik ma wykonać, gdy chcesz zmodyfikować oświadczenia dla użytkownika. Zasadniczo powoduje ClaimsIdentity być serializowane w pliku cookie, dlatego możesz wyświetlić nowe roszczenia, które są wyświetlane podczas kolejnych żądań.

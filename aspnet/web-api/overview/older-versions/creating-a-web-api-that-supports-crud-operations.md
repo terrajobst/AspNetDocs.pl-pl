@@ -8,12 +8,12 @@ ms.date: 01/28/2012
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: ba061b26b8527e447f25f6046057542a54f989a8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f3cb0004075ef7687ca1096bd407c342b4d0b7be
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074525"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423758"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD we wzorcu ASP.NET Web API 1
 ====================
@@ -109,7 +109,7 @@ Dodaj następującą implementacją:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample2.cs)]
 
-Teraz Dodaj klasę do folderu modeli, o nazwie &quot;ProductRepository.&quot; Ta klasa wdroży `IProductRespository` interfejsu. Dodaj następującą implementacją:
+Teraz Dodaj klasę do folderu modeli, o nazwie &quot;ProductRepository.&quot; Ta klasa wdroży `IProductRepository` interfejsu. Dodaj następującą implementacją:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample3.cs)]
 
@@ -133,7 +133,7 @@ W **Dodaj kontroler** kreatora, nazwy kontrolera &quot;ProductsController&quot;.
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
-> Nie jest niezbędne do Twojej contollers należy umieścić w folderze o nazwie kontrolerów. Nazwa folderu nie jest ważna; jest po prostu wygodny sposób organizowania plików źródłowych.
+> Nie jest konieczne kontrolerach należy umieścić w folderze o nazwie kontrolerów. Nazwa folderu nie jest ważna; jest po prostu wygodny sposób organizowania plików źródłowych.
 
 
 **Dodaj kontroler** Kreator utworzy plik o nazwie ProductsController.cs w folderze kontrolerów. Jeśli ten plik nie jest jeszcze otwarty, kliknij dwukrotnie, aby go otworzyć. Dodaj następujący kod **przy użyciu** instrukcji:
@@ -216,7 +216,7 @@ Nazwa metody rozpoczyna się od &quot;umieścić... &quot;, więc internetowego 
 
 ## <a name="deleting-a-resource"></a>Usuwanie zasobu
 
-Aby usunąć resourse, należy zdefiniować metodę "Usuń...".
+Aby usunąć zasób, należy zdefiniować "Usuń..." Metoda.
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample12.cs)]
 

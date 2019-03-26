@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a275eed17552d26b63f98762c6c870bd53dd455d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b863cb0045fcec202931148bff5befa7ed62db4d
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069764"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424147"
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodem JavaScript (VB)
 ====================
@@ -52,7 +52,7 @@ Jedyną czynnością, brakuje w kontrolce użytkownika jeszcze jest `DynamicPopu
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample5.aspx)]
 
-Ponownie należy zaznaczyć otrzymano nieoczekiwany identyfikator używany w kontrolce: `mcd1$myDate` zamiast `myDate`. Wcześniej kod JavaScript używany `mcd1_dpe1` dostęp do `DynamicPopulateExtender` zamiast `dpe1`. Ta strategia nazewnictwa jest specjalnych wymagań, korzystając z `DynamicPopulateExtender` znajdujących się pod kontrolą użytkownika. Ponadto należy osadzić kontroli użytkownika w określony sposób, aby umożliwić jej pracę. Tworzenie nowej strony programu ASP.NET i zarejestrować prefiksu tagu kontrolki użytkownika, które zostało zaimplementowane:
+Ponownie należy zaznaczyć otrzymano nieoczekiwany identyfikator używany w kontrolce: `mcd1$myDate` zamiast `myDate`. Wcześniej kod JavaScript używany `mcd1_dpe1` dostęp do `DynamicPopulateExtender` zamiast `dpe1`. Ta strategia nazewnictwa jest specjalnych wymagań, korzystając z `DynamicPopulateExtender` znajdujących się pod kontrolą użytkownika. Ponadto należy osadzić kontrolki użytkownika w określony sposób, aby umożliwić jej pracę. Tworzenie nowej strony programu ASP.NET i zarejestrować prefiksu tagu kontrolki użytkownika, które zostało zaimplementowane:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample6.aspx)]
 

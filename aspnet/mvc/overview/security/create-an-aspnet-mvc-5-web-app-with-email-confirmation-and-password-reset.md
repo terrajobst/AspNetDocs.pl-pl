@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 5092476c6cf59bea6fab6fa6f169ff11ec4c9c4a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 650063db25f38b02cc33955925d1e3c2f45db665
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067697"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58420858"
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
 ====================
@@ -137,7 +137,7 @@ Strony logowania będzie zawierać teraz link resetowania hasła.
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>Wyślij ponownie link potwierdzenie adresu e-mail
 
-Gdy użytkownik tworzy nowe konto lokalne, są pocztą e-mail link do potwierdzenia, które są wymagane, aby korzystały mogą oni się zalogować. Jeśli użytkownik przypadkowo usuwa wiadomość e-mail z potwierdzeniem lub nigdy nie odebraniu wiadomości e-mail, należy ponownie wysyłane link do potwierdzenia. Następujących zmian w kodzie pokazują, jak włączyć tę opcję.
+Gdy użytkownik tworzy nowe konto lokalne, są pocztą e-mail link do potwierdzenia, które są wymagane, aby korzystały mogą oni się zalogować. Jeśli użytkownik przypadkowo usunął wiadomość e-mail z potwierdzeniem lub nigdy nie odebraniu wiadomości e-mail, należy ponownie wysyłane link do potwierdzenia. Następujących zmian w kodzie pokazują, jak włączyć tę opcję.
 
 Dodaj następującą metodę pomocnika do dołu *Controllers\AccountController.cs* pliku:
 

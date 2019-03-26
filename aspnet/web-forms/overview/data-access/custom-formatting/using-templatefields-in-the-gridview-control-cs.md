@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 11de31e8-a78a-4f96-bd75-66e994175902
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4d1cad54d07ba3756d653685b3e04cb66e5ca98b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 163b66323325f24430f8f5fda40aab5b9e8f3b85
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071906"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426071"
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Używanie kontrolek TemplateField w kontrolce GridView (C#)
 ====================
@@ -148,9 +148,9 @@ Aby ukończyć ten pierwszy krok, Usuń `LastName` elementu BoundField i Zmień 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample4.aspx)]
 
 
-[![Pierwszy i ostatni nazwy każdego pracownika są wyświetlane w jedną kolumną](using-templatefields-in-the-gridview-control-cs/_static/image29.png)](using-templatefields-in-the-gridview-control-cs/_static/image28.png)
+[![Pierwszy i ostatni nazwy każdego pracownika są wyświetlane w jednej kolumnie](using-templatefields-in-the-gridview-control-cs/_static/image29.png)](using-templatefields-in-the-gridview-control-cs/_static/image28.png)
 
-**Na rysunku nr 10**: Pierwszy i ostatni nazwy każdego pracownika są wyświetlane w jedną kolumną ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-gridview-control-cs/_static/image30.png))
+**Na rysunku nr 10**: Pierwszy i ostatni nazwy każdego pracownika są wyświetlane w jedną kolumnę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-gridview-control-cs/_static/image30.png))
 
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>Krok 3. Przy użyciu kontrolki kalendarza do wyświetlenia`HiredDate`pola

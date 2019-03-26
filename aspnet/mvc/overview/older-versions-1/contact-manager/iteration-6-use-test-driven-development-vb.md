@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b1700e0ccece543c381dbb4fa7d6243de57ed4d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ac502a1f57b25dd596489d1e7abaa55a77ddb6c7
+ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075164"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58440342"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>Iteracja #6 — korzystanie z projektowania opartego na testach (VB)
 ====================
@@ -80,9 +80,9 @@ Dodamy tej nowej funkcji do naszej aplikacji postępując zgodnie z procesem pro
 
 ## <a name="what-gets-tested"></a>Co pobiera przetestowane
 
-Jak wspomniano w poprzedniej iteracji, zazwyczaj nie pisać testy jednostkowe dla logiką dostępu do danych ani wyświetlić logiki. Komputer t pisanie testów jednostkowych logiką dostępu do danych, ponieważ dostęp do bazy danych jest stosunkowo wolne działanie. Komputer testów jednostkowych zapisu t logiki widoku, ponieważ uzyskanie dostępu do widoku wymaga uruchamiając serwera sieci web, która jest stosunkowo wolne działanie. T nie powinien napisać test jednostkowy, chyba że testu mogą być wykonywane wielokrotnie bardzo szybko
+Jak wspomniano w poprzedniej iteracji, zazwyczaj nie pisać testy jednostkowe dla logiką dostępu do danych ani wyświetlić logiki. Komputer t pisanie testów jednostkowych logiką dostępu do danych, ponieważ dostęp do bazy danych jest stosunkowo wolne działanie. Komputer testów jednostkowych zapisu t logiki widoku, ponieważ uzyskanie dostępu do widoku wymaga uruchamiając serwera sieci web, która jest stosunkowo wolne działanie. Nie należy napisać test jednostkowy, chyba że testu mogą być wykonywane wielokrotnie bardzo szybko
 
-Ponieważ programowania sterowanego testami jest wymuszany przez testy jednostkowe, możemy skoncentrować się początkowo na pisaniu kontrolera i logiki biznesowej. Firma Microsoft należy unikać modyfikowania bazy danych lub widoki. Zdobyliśmy t modyfikacji bazy danych lub Utwórz naszych widoków do bardzo końca tego samouczka. Rozpoczniemy pracę co mogą być testowane.
+Ponieważ programowania sterowanego testami jest wymuszany przez testy jednostkowe, możemy skoncentrować się początkowo na pisaniu kontrolera i logiki biznesowej. Firma Microsoft należy unikać modyfikowania bazy danych lub widoki. Firma Microsoft nie modyfikacji bazy danych lub Utwórz naszych widoków do bardzo końca tego samouczka. Rozpoczniemy pracę co mogą być testowane.
 
 ## <a name="creating-user-stories"></a>Tworzenie przypadków użycia
 
@@ -250,7 +250,7 @@ Należy utworzyć nową tabelę bazy danych grupy. Wykonaj następujące kroki:
 | Nazwa | nvarchar(50) | False |
 
 
-Następnie należy usunąć wszystkie dane z tabeli kontaktów (w przeciwnym razie zdobyliśmy t można było utworzyć relację między tabelami kontaktów i grup). Wykonaj następujące kroki:
+Następnie należy usunąć wszystkie dane z tabeli kontaktów (w przeciwnym razie firma Microsoft nie będzie można utworzyć relacji między tabelami kontaktów i grup). Wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy tabeli kontaktów i wybierz opcję menu **Pokaż dane tabeli**.
 2. Usuń wszystkie wiersze.
@@ -310,7 +310,7 @@ Następnie należy do zaimplementowania klasy nasze repozytorium. W trakcie tej 
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample14.vb)]
 
-Firma Microsoft haven t faktycznie implementowany dowolnej z metod związanych z pracą z grupami skontaktuj się z pomocą naszych rzeczywistych klasy EntityContactManagerRepository. Obecnie klasy EntityContactManagerRepository ma metody klasy zastępczej dla wszystkich metod kontaktu grupy wyświetlane w interfejsie IContactManagerRepository. Na przykład metoda ListGroups() obecnie wygląda następująco:
+Firma Microsoft nie faktycznie zaimplementowano dowolnej z metod związanych z pracą z grupami skontaktuj się z pomocą naszych rzeczywistych klasy EntityContactManagerRepository. Obecnie klasy EntityContactManagerRepository ma metody klasy zastępczej dla wszystkich metod kontaktu grupy wyświetlane w interfejsie IContactManagerRepository. Na przykład metoda ListGroups() obecnie wygląda następująco:
 
 [!code-vb[Main](iteration-6-use-test-driven-development-vb/samples/sample15.vb)]
 

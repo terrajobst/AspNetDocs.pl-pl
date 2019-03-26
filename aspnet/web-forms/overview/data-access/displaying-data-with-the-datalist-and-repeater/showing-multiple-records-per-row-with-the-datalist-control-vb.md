@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: f555c531-bf33-4699-9987-42dbfef23c1f
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7a23e8897e4fbdf84c4d6916c22bad9687fa5ee6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e8b5493694b24e4187ecb69ca8d2eff6a8507985
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072593"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421222"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB)
 ====================
@@ -66,7 +66,7 @@ Poświęć chwilę, aby odwiedzić stronę w przeglądarce. Jak pokazano na rysu
 
 Podczas domyślne zachowanie dla kontrolki DataList jest układ elementy w pionie w tabelę jednokolumnową, wielowierszowych to zachowanie można łatwo zmienić za pomocą kontrolek DataList s [ `RepeatDirection` właściwość](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Właściwości można zaakceptować jedną z dwóch wartości: `Horizontal` lub `Vertical` (ustawienie domyślne).
 
-Zmieniając `RepeatDirection` właściwość `Vertical` do `Horizontal`, jego rekordów w jednym wierszu, powoduje wyświetlenie elementu DataList tworzenia jedną kolumnę na element źródła danych. Aby zilustrować ten efekt, kliknij DataList w projektancie, a następnie w oknie Właściwości zmień `RepeatDirection` właściwość `Vertical` do `Horiztonal`. Natychmiast po wykonaniu tej czynności projektanta dostosowuje układ DataList s tworzenia z pojedynczy wiersz tabeli wielokolumnowej interfejsu (zobacz rysunek 3).
+Zmieniając `RepeatDirection` właściwość `Vertical` do `Horizontal`, jego rekordów w jednym wierszu, powoduje wyświetlenie elementu DataList tworzenia jedną kolumnę na element źródła danych. Aby zilustrować ten efekt, kliknij DataList w projektancie, a następnie w oknie Właściwości zmień `RepeatDirection` właściwość `Vertical` do `Horizontal`. Natychmiast po wykonaniu tej czynności projektanta dostosowuje układ DataList s tworzenia z pojedynczy wiersz tabeli wielokolumnowej interfejsu (zobacz rysunek 3).
 
 
 [![Elementy RepeatDirection właściwości połączenia z opisywanym jak kierunek DataList s są określone w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)

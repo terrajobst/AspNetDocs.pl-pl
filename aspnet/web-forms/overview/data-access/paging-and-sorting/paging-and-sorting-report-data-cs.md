@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 811a6ef2-ec66-4c8e-a089-6f795056e288
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ebef919deeda409cfa6805b603f67ef96ff003e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 15e23b09df13f11c69a2fd6c721981e632a25434
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078155"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422119"
 ---
 <a name="paging-and-sorting-report-data-c"></a>Stronicowanie i sortowanie danych raportu (C#)
 ====================
@@ -194,7 +194,7 @@ Następnie wróć do `DataBound` programu obsługi zdarzeń i Dodaj następując
 
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample6.cs)]
 
-Ten kod, który rozpoczyna się przez wyczyszczenie między elementami `PageList` DropDownList. To może wydawać się zbędne, ponieważ jeden t wouldn oczekiwany numer strony, aby zmienić, ale inni użytkownicy mogą jednocześnie przy użyciu systemu, dodawanie lub usuwanie rekordów z `Products` tabeli. Takie wstawienia lub usunięcia można zmienić liczbę stron danych.
+Ten kod, który rozpoczyna się przez wyczyszczenie między elementami `PageList` DropDownList. To może wydawać się zbędne, ponieważ nie ma jednego oczekiwać liczbę stron, aby zmienić, ale inni użytkownicy mogą jednocześnie przy użyciu systemu, dodawanie lub usuwanie rekordów z `Products` tabeli. Takie wstawienia lub usunięcia można zmienić liczbę stron danych.
 
 Następnie należy ponownie utworzyć numery stron i ten, który mapuje bieżącego widoku GridView `PageIndex` wybrane domyślnie. Możemy to zrobić za pomocą pętli z zakresu od 0 do `PageCount - 1`, dodawania nowego `ListItem` w każdej iteracji i ustawienie jej `Selected` właściwość na true, jeśli bieżący indeks iteracji jest równe GridView s `PageIndex` właściwości.
 
@@ -253,7 +253,7 @@ Podczas tworzenia wiązania kontrolki ObjectDataSource do kontrolki GridView za 
 
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample9.aspx)]
 
-Pola można skonfigurować tak, aby go s nie można sortować, czyszcząc jego `SortExpression` właściwości (przypisywanie do pustego ciągu). Na przykład załóżmy, że firma Microsoft po chcesz zezwolić klientom sortować nasze produkty według ceny. `UnitPrice` s elementu BoundField `SortExpression` właściwość może zostać usunięty w oznaczeniu deklaracyjnym, albo za pomocą okna dialogowego pola, (który jest dostępny, klikając łącze Edytowanie kolumn w widoku GridView tagu inteligentnego s).
+Pola można skonfigurować tak, aby go s nie można sortować, czyszcząc jego `SortExpression` właściwości (przypisywanie do pustego ciągu). Na przykład załóżmy, że nie chcemy przekazać naszych klientów, sortować nasze produkty według ceny. `UnitPrice` s elementu BoundField `SortExpression` właściwość może zostać usunięty w oznaczeniu deklaracyjnym, albo za pomocą okna dialogowego pola, (który jest dostępny, klikając łącze Edytowanie kolumn w widoku GridView tagu inteligentnego s).
 
 
 ![Wyniki są posortowane według UnitPrice w kolejności rosnącej](paging-and-sorting-report-data-cs/_static/image27.png)

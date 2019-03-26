@@ -8,12 +8,12 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 6df35a420a0733003808a12d065b03f08ef56dd9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 60fffd7cd5139b2be34968c1f33474be867f0962
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073058"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422886"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>Wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu usługi SignalR 1.x
 ====================
@@ -136,7 +136,7 @@ W tej sekcji utworzymy aplikację przeglądarki, która wysyła położenie kszt
 
 ## <a name="add-the-client-loop"></a>Dodaj pętlę klienta
 
-Ponieważ wysyłanie położenie kształtu na zdarzenie przesunięcia kursora myszy, co spowoduje utworzenie niepotrzebnych ilości ruchu sieciowego, wiadomości z klienta konieczne ograniczona. Użyjemy javascript `setInterval` funkcję, aby skonfigurować pętlę, która wysyła do serwera według stałej stawki ustalanej nowe informacje pozycji. Ta pętla jest bardzo proste reprezentacja "gier pętlę", wielokrotnie wywołana funkcja, która napędza wszystkich funkcji grę lub innych symulacji.
+Ponieważ wysyłanie położenie kształtu na zdarzenie przesunięcia kursora myszy, co spowoduje utworzenie niepotrzebne ilości ruchu sieciowego, wiadomości z klienta konieczne ograniczona. Użyjemy javascript `setInterval` funkcję, aby skonfigurować pętlę, która wysyła do serwera według stałej stawki ustalanej nowe informacje pozycji. Ta pętla jest bardzo proste reprezentacja "gier pętlę", wielokrotnie wywołana funkcja, która napędza wszystkich funkcji grę lub innych symulacji.
 
 1. Zaktualizuj kod klienta, strony HTML, aby dopasować poniższy fragment kodu.
 

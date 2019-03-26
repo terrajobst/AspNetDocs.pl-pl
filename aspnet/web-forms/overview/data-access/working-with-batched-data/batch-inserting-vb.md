@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 58338d8bfdd782167aafaa440f2d549d6eeb838e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1078087e9ff2564e94a5b1df1efb6c96928524c7
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068888"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424927"
 ---
 <a name="batch-inserting-vb"></a>Wstawianie w partiach (VB)
 ====================
@@ -195,7 +195,7 @@ Ten kod po prostu ukrywa `DisplayInterface` panelu i pokazuje `InsertingInterfac
 Następnie należy utworzyć procedury obsługi zdarzeń dla Dodaj produkty z formantów wydania i przycisk Anuluj w interfejsie Wstawianie. Po kliknięciu jednego z tych przycisków, musimy przywrócić interfejsu ekranu. Tworzenie `Click` procedury obsługi zdarzeń dla obu formanty przycisków, dzięki czemu mogą wywołać `ReturnToDisplayInterface`, dodamy chwilowo metody. Oprócz ukrywanie `InsertingInterface` panelu i wyświetlanie `DisplayInterface` panelu `ReturnToDisplayInterface` metoda musi zwracać kontrolki sieci Web do ich edycji wstępnie stanu. Obejmuje to ustawienie kontrolek DROPDOWNLIST `SelectedIndex` właściwości do 0 i wyczyszczenie `Text` właściwości kontrolki pola tekstowego.
 
 > [!NOTE]
-> Należy wziąć pod uwagę, co może się zdarzyć, jeśli firma t są zwracają formanty do stanu wstępnie edycji przed zwróceniem do wyświetlania interfejsu. Użytkownik może kliknij przycisk wydania produktu procesu, wprowadź produkty z wydanie a następnie kliknij Dodaj produkty z wydania. Spowoduje to Dodaj produkty i powrót użytkownika do wyświetlania interfejsu. W tym momencie użytkownik może chcieć dodać inny wydania. Po kliknięciu przycisku wydania produktu procesu, które zwracają interfejs Wstawianie, ale metody DropDownList wybrane opcje i wartości pola tekstowego nadal będzie wypełniana przy użyciu ich poprzedniej wartości.
+> Należy wziąć pod uwagę, co może się zdarzyć, jeśli firma Microsoft nie zwróciła formanty do stanu wstępnie edycji przed zwróceniem do wyświetlania interfejsu. Użytkownik może kliknij przycisk wydania produktu procesu, wprowadź produkty z wydanie a następnie kliknij Dodaj produkty z wydania. Spowoduje to Dodaj produkty i powrót użytkownika do wyświetlania interfejsu. W tym momencie użytkownik może chcieć dodać inny wydania. Po kliknięciu przycisku wydania produktu procesu, które zwracają interfejs Wstawianie, ale metody DropDownList wybrane opcje i wartości pola tekstowego nadal będzie wypełniana przy użyciu ich poprzedniej wartości.
 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
@@ -215,7 +215,7 @@ Poświęć chwilę, w celu przetestowania tej strony w przeglądarce. Po raz pie
 
 ## <a name="step-4-adding-the-products"></a>Krok 4. Dodawanie produktów
 
-Wszystko, który pozostaje w tym samouczku to można zapisać produktów w bazie danych w produktach Dodaj przycisk wydania s `Click` program obsługi zdarzeń. Można to osiągnąć, tworząc `ProductsDataTable` i dodawanie `ProductsRow` wystąpienia dla każdego z podanych nazw produktów. Po tych `ProductsRow` s dodano podejmiemy wywołanie `ProductsBLL` klasy s `UpdateWithTransaction` metody, przekazując `ProductsDataTable`. Pamiętamy `UpdateWithTransaction` metody, która została utworzona w [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-vb.md) samouczków, przekazuje `ProductsDataTable` do `ProductsTableAdapter` s `UpdateWithTransaction` metody. Z tego miejsca pracy jest transakcja ADO.NET i problemów TableAdatper `INSERT` instrukcji do bazy danych dla każdego dodano `ProductsRow` w elemencie DataTable. Przy założeniu, że wszystkie produkty są dodawane bez błędów, transakcja została zatwierdzona, w przeciwnym razie jego jest wycofywana.
+Wszystko, który pozostaje w tym samouczku to można zapisać produktów w bazie danych w produktach Dodaj przycisk wydania s `Click` program obsługi zdarzeń. Można to osiągnąć, tworząc `ProductsDataTable` i dodawanie `ProductsRow` wystąpienia dla każdego z podanych nazw produktów. Po tych `ProductsRow` s dodano podejmiemy wywołanie `ProductsBLL` klasy s `UpdateWithTransaction` metody, przekazując `ProductsDataTable`. Pamiętamy `UpdateWithTransaction` metody, która została utworzona w [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-vb.md) samouczków, przekazuje `ProductsDataTable` do `ProductsTableAdapter`firmy `UpdateWithTransaction` metody. Z tego miejsca pracy jest transakcja ADO.NET i problemów TableAdapter `INSERT` instrukcji do bazy danych dla każdego dodano `ProductsRow` w elemencie DataTable. Przy założeniu, że wszystkie produkty są dodawane bez błędów, transakcja została zatwierdzona, w przeciwnym razie jego jest wycofywana.
 
 W kodzie Dodaj produkty z przycisku wydania s `Click` program obsługi zdarzeń musi także wykonać nieco sprawdzania błędów. Ponieważ nie ma żadnych RequiredFieldValidators używany w interfejsie Wstawianie, użytkownik może podać dla produktu pomijając jego nazwę. Ponieważ nazwa produktu s jest wymagany, jeśli taki warunek rozwoju musimy ostrzegać użytkowników i operacje wstawiania nie kontynuować. Pełne `Click` następuje kod procedury obsługi zdarzeń:
 

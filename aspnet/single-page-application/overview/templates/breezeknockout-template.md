@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
-ms.openlocfilehash: 006d360748674a645ceddb82017f68b0f80f041b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 478ee9f851a395c68701347c04534bfe72d94512
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066365"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424862"
 ---
 <a name="breezeknockout-template"></a>Szablon Breeze/Knockout
 ====================
@@ -83,7 +83,7 @@ Teraz masz ziemi SPA. Wszystko, co można zobaczyć, a środowisko podczas manip
 
 Logika sprawdzania poprawności jest wykonywane po stronie klienta, szybka i bezproblemowa. Atrybutów sprawdzania poprawności na serwerze klasy modelu są propagowane do klienta, a następnie wykonywane automatycznie, zanim klient kontaktuje się z serwerem.
 
-Przejrzyj ruchu sieciowego. Należy zauważyć, że żadne wywołania do serwera podczas było Breeze wykryła błąd. Każda zmiana prawidłowy w wyniku żądania POST do "/ api/zadania/SaveChanges". Szybka i bezproblemowa razem zmiany i wysyła je ze sobą jako pojedyncze żądanie do kontrolera internetowego interfejsu API `SaveChanges` metody. To różni się od szablonu KockoutJS SPA, który sprawia, że PUT, POST i usuwania żądań dla każdego elementu indywidualnie.
+Przejrzyj ruchu sieciowego. Należy zauważyć, że żadne wywołania do serwera podczas było Breeze wykryła błąd. Każda zmiana prawidłowy w wyniku żądania POST do "/ api/zadania/SaveChanges". Szybka i bezproblemowa razem zmiany i wysyła je ze sobą jako pojedyncze żądanie do kontrolera internetowego interfejsu API `SaveChanges` metody. To różni się od szablon KnockoutJS SPA, który sprawia, że PUT, POST i usuwania żądań dla każdego elementu indywidualnie.
 
 ## <a name="peek-inside"></a>Wgląd do wewnątrz
 
@@ -99,7 +99,7 @@ Stos po stronie serwera składa się z kodu dla deweloperów i trzy bibliotek .N
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ServerArchitecture.png)
 
-Podstawowa architektura jest taka sama jak szablon KockoutJS SPA. Jednak implementacja jest znacznie prostsza: Dto zostały usunięte, a większość szczegóły Entity Framework zostały delegowane Breeze.NET.
+Podstawowa architektura jest taka sama jak szablon KnockoutJS SPA. Jednak implementacja jest znacznie prostsza: Dto zostały usunięte, a większość szczegóły Entity Framework zostały delegowane Breeze.NET.
 
 ## <a name="next-steps"></a>Następne kroki
 

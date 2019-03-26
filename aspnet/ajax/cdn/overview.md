@@ -8,21 +8,21 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 65eee9bc477fc8adf10e8d819b93375ffbb72d7b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6fd91f8c05462b603d6911e16bd48ec618d635d9
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071996"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425733"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Usługa Microsoft AJAX Content Delivery Network
 ====================
 > [!WARNING]
-> Aplikacje produkcyjne nie powinna przyjmować twardych zależności zasobów w sieci CDN. Aplikacje powinny testu dla zasobu usługi CDN, do których odwołuje się i użyj zasób rezerwowy, gdy sieć CDN jest niedostępny. 
+> Aplikacje produkcyjne nie powinna przyjmować twardych zależności zasobów w sieci CDN. Aplikacje powinny testu dla zasobu usługi CDN, do których odwołuje się i użyj zasób rezerwowy, gdy sieć CDN jest niedostępny.
 >
 > Microsoft Ajax CDN jest objęta umową SLA niż przy użyciu usługi Azure CDN.
 >
-> Użyj [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/5832) na zgłaszanie problemów z Microsoft Ajax CDN.
+> Użyj [problem w usłudze GitHub](https://github.com/aspnet/AspNetDocs/issues/116) na zgłaszanie problemów z Microsoft Ajax CDN.
 
 ## <a name="table-of-contents"></a>Spis treści
 
@@ -797,6 +797,21 @@ Następujące wersje programu [https://github.com/scottjehl/Respond](https://git
 
 Następujące wersje programu [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap znajdują się w sieci CDN:
 
+#### <a name="bootstrap-version-431"></a>Uruchomienie wersji 4.3.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/bootstrap.bundle.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.3.1/css/bootstrap-reboot.css.map
+
 #### <a name="bootstrap-version-421"></a>Wersja bootstrap 4.2.1
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.js
@@ -841,6 +856,22 @@ Następujące wersje programu [getbootstrap.com](http://getbootstrap.com "getboo
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
+
+#### <a name="bootstrap-version-341"></a>Wersja bootstrap 3.4.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap-theme.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap-theme.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap-theme.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.eot
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.svg
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.ttf
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/fonts/glyphicons-halflings-regular.woff2
 
 #### <a name="bootstrap-version-340"></a>Wersja bootstrap 3.4.0
 

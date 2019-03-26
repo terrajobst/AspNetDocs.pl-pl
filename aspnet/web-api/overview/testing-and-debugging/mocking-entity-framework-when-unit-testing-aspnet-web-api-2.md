@@ -8,12 +8,12 @@ ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f1799b3f9d698053c397e57da3f33ff900ec4013
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7ed2d543ca019e926a87e6897aa0d8a0784f4796
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066653"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422626"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Pozorowanie programu Entity Framework podczas testowania ASP.NET Web API 2 jednostek
 ====================
@@ -138,7 +138,7 @@ Teraz można przystąpić do konfigurowania projektu testowego.
 <a id="testpackages"></a>
 ## <a name="install-nuget-packages-in-test-project"></a>Instalowanie pakietów NuGet w projekcie testowym
 
-Gdy używasz pusty szablon do tworzenia aplikacji projektu testu jednostkowego (StoreApp.Tests) nie obejmuje wszystkie zainstalowane pakiety NuGet. Inne szablony, takie jak szablon interfejsu API sieci Web obejmują niektóre pakiety NuGet w projekcie testów jednostkowych. W tym samouczku musi zawierać pakiet platformy Entity Framework i pakiet Microsoft ASP.NET Web API 2 Core do projektu testowego.
+Gdy używasz pusty szablon do tworzenia aplikacji projektu testu jednostkowego (StoreApp.Tests) nie obejmuje wszystkie zainstalowane pakiety NuGet. Inne szablony, takie jak szablon interfejsu API sieci Web obejmują niektóre pakiety NuGet w projekcie testów jednostkowych. W tym samouczku musi zawierać pakietu programu Entity Framework i pakiet Microsoft ASP.NET Web API 2 Core do projektu testowego.
 
 Kliknij prawym przyciskiem myszy projekt StoreApp.Tests, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Musisz wybrać projekt StoreApp.Tests, aby dodać pakiety do tego projektu.
 

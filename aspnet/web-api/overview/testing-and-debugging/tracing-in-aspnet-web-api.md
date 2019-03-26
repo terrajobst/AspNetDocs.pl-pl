@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: e0d525e497cf41a79820417a9c832fa6b5cd7f8a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 59bce8c511167e8ba8a8db6f1842e352c90f3039
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068075"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424901"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Śledzenie we wzorcu ASP.NET Web API 2
 ====================
@@ -89,7 +89,7 @@ Do zapisu, śledzenia, można wywołać **ITraceWriter.Trace** metoda bezpośred
 
 W tej sekcji opisano sposób pisania moduł zapisujący śledzenia niestandardowego interfejsu API sieci Web.
 
-Pakiet Microsoft.AspNet.WebApi.Tracing jest oparty na bardziej ogólnych Infrastruktura śledzenia w interfejsie API sieci Web. Zamiast korzystać z Microsoft.AspNet.WebApi.Tracing, można także podłączyć niektóre inne biblioteki śledzenia/rejestrowanie, takich jak [NLog](http://nlog-project.org/) lub [log4net](http://logging.apache.org/log4net/).
+Pakiet Microsoft.AspNet.WebApi.Tracing jest oparty na bardziej ogólnych Infrastruktura śledzenia w interfejsie API sieci Web. Zamiast używania Microsoft.AspNet.WebApi.Tracing, można także podłączyć niektóre inne biblioteki śledzenia/rejestrowania, takich jak [NLog](http://nlog-project.org/) lub [log4net](http://logging.apache.org/log4net/).
 
 Aby zbierać dane śledzenia, należy zaimplementować **ITraceWriter** interfejsu. Poniżej przedstawiono prosty przykład:
 
@@ -113,7 +113,7 @@ Moduł zapisujący śledzenia tylko jedna może być aktywne. Domyślnie, intern
 
 Śledzenie w ramach interfejsu API sieci Web używa *fasady* wzorca: Po włączeniu funkcji śledzenia interfejsu API sieci Web opakowuje różne części Potok żądań z klasami, które wykonują wywołania śledzenia.
 
-Na przykład podczas wybierania kontrolera, potok używa **IHttpControllerSelector** interfejsu. Z włączonym śledzeniem pipleline wstawia klasę, która implementuje **IHttpControllerSelector** , ale wywołania za pośrednictwem rzeczywistej implementacji:
+Na przykład podczas wybierania kontrolera, potok używa **IHttpControllerSelector** interfejsu. Z włączonym śledzeniem potoku wstawia klasę, która implementuje **IHttpControllerSelector** , ale wywołania za pośrednictwem rzeczywistej implementacji:
 
 ![Śledzenie interfejsu API sieci Web używa wzorca fasady.](tracing-in-aspnet-web-api/_static/image8.png)
 

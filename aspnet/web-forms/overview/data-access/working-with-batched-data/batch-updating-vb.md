@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: d191a204-d7ea-458d-b81c-0b9049ecb55f
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 76c475b67943b77d99630e087ed46fe6d5f11a03
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dc40c056aa951b94ca0af2af339d9c7987ffd987
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078566"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58426032"
 ---
 <a name="batch-updating-vb"></a>Aktualizowanie w partiach (VB)
 ====================
@@ -241,7 +241,7 @@ Ta metoda rozpoczyna przez pobranie wszystkich produktów w `ProductsDataTable` 
 
 Dla każdego wiersza `ProductID` jest pobierany z `DataKeys` zbierania i odpowiednie `ProductsRow` wybrana w zaufanym `ProductsDataTable`. Cztery kontrolki wejściowe TemplateField programowo są określone i ich wartości przypisane do `ProductsRow` wystąpienia właściwości s. Po każdym GridView wartości wierszy s zostały użyte w celu aktualizacji `ProductsDataTable`, jej s przekazany do s LOGIKI `UpdateWithTransaction` metodę, która jako widzieliśmy w poprzednim samouczku, po prostu wywołuje widok w dół do DAL s `UpdateWithTransaction` metody.
 
-Algorytm aktualizacji usługi batch na potrzeby tego samouczka aktualizuje każdego wiersza w `ProductsDataTable` odnosi się do wiersza w widoku GridView, niezależnie od tego, czy informacje o produkcie s został zmieniony. Chociaż takie blind aktualizacje nie są zazwyczaj problem z wydajnością, której jest przeprowadzana inspekcja zmiany do tabeli bazy danych może prowadzić do zbędny rekordów. Ponownie [wykonywanie aktualizacji wsadowych](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) samouczka będziemy zbadano partii Aktualizowanie interfejsu za pomocą kontrolki DataList i dodać kod, który będzie aktualizować jedynie te rekordy, które rzeczywiście zostały zmodyfikowane przez użytkownika. Możesz skorzystać z technik [wykonywanie aktualizacji wsadowych](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) można zaktualizować kod w tym samouczku, w razie potrzeby.
+Algorytm aktualizacji usługi batch na potrzeby tego samouczka aktualizuje każdego wiersza w `ProductsDataTable` odnosi się do wiersza w widoku GridView, niezależnie od tego, czy informacje o produkcie s został zmieniony. Chociaż takie ukryta aktualizacje nie są zazwyczaj problem z wydajnością, której jest przeprowadzana inspekcja zmiany do tabeli bazy danych może prowadzić do zbędny rekordów. Ponownie [wykonywanie aktualizacji wsadowych](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) samouczka będziemy zbadano partii Aktualizowanie interfejsu za pomocą kontrolki DataList i dodać kod, który będzie aktualizować jedynie te rekordy, które rzeczywiście zostały zmodyfikowane przez użytkownika. Możesz skorzystać z technik [wykonywanie aktualizacji wsadowych](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md) można zaktualizować kod w tym samouczku, w razie potrzeby.
 
 > [!NOTE]
 > Podczas tworzenia powiązania ze źródłem danych do kontrolki GridView za pośrednictwem jego tagu inteligentnego, Visual Studio automatycznie przypisuje danych źródła s podstawowej wartości klucza GridView s `DataKeyNames` właściwości. Jeśli użytkownik nie został powiązany kontrolki ObjectDataSource do kontrolki GridView za pośrednictwem tagu inteligentnego s GridView opisany w kroku 1, a następnie należy ręcznie ustawić GridView s `DataKeyNames` właściwości ProductID, aby uzyskać dostęp do `ProductID` wartość dla każdego wiersza za pośrednictwem `DataKeys` kolekcji.
@@ -269,7 +269,7 @@ Dla tych typów sytuacjach należy rozważyć użycie następujących `BatchUpda
 
 `BatchMethodAlternate` rozpoczyna się od utworzenia nowego pustego `ProductsDataTable` o nazwie `products`. Następnie przeprowadza użytkownika przez proces GridView s `Rows` kolekcji i dla każdego wiersza pobiera informacje o określonym produktem, za pomocą s LOGIKI `GetProductByProductID(productID)` metody. Pobrany `ProductsRow` wystąpienie posiada jego właściwości, aktualizowane w taki sam sposób jak `BatchUpdate`, ale po zaktualizowaniu wiersza są importowane do `products` `ProductsDataTable` za pośrednictwem DataTable s [ `ImportRow(DataRow)` metoda](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
-Po `For Each` pętli zakończeniu `products` zawiera jeden `ProductsRow` wystąpienia dla każdego wiersza w widoku GridView. Ponieważ każda z `ProductsRow` wystąpienia zostały dodane do `products` (zamiast aktualizacja), jeśli firma Microsoft bezrefleksyjne przekazać go do `UpdateWithTransaction` — metoda `ProductsTableAdatper` podejmie próbę wstawienia poszczególnych rekordów do bazy danych. Zamiast tego należy określić, że każda z tych wierszy została zmodyfikowana (nie dodane).
+Po `For Each` pętli zakończeniu `products` zawiera jeden `ProductsRow` wystąpienia dla każdego wiersza w widoku GridView. Ponieważ każda z `ProductsRow` wystąpienia zostały dodane do `products` (zamiast aktualizacja), jeśli firma Microsoft bezrefleksyjne przekazać go do `UpdateWithTransaction` — metoda `ProductsTableAdapter` podejmie próbę wstawienia poszczególnych rekordów do bazy danych. Zamiast tego należy określić, że każda z tych wierszy została zmodyfikowana (nie dodane).
 
 Można to osiągnąć przez dodanie nowej metody do LOGIKI o nazwie `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, pokazano poniżej, zestawy `RowState` każdego z `ProductsRow` wystąpienia w `ProductsDataTable` do `Modified` i następnie przekazuje `ProductsDataTable` s DAL `UpdateWithTransaction` metody.
 

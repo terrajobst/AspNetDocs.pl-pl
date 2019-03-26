@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: 57666c69-2b0f-423a-a61d-be49547fa585
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 6768472b0c75757c9f368cfea58d5084c26719e1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e933ca0398d99a41089b4d1e18d21dd657db4b6b
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078362"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423354"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 z ASP.NET MVC — część 4
 ====================
@@ -24,7 +24,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 ### <a name="adding-a-template-for-editing-dates"></a>Dodawanie szablonu do edycji daty
 
-W tej sekcji utworzysz szablon do edycji daty, które będą stosowane w przypadku platformy ASP.NET MVC pojawi się interfejs użytkownika do edycji właściwości modelu, które są oznaczone **data** wyliczenie [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutu. Szablon będą renderowane tylko datę. czas, nie będą wyświetlane. W szablonie użyjesz [selektora daty interfejsu użytkownika jQuery](http://jqueryui.com/demos/datepicker/) kalendarza podręcznego, aby umożliwić edytowanie daty.
+W tej sekcji utworzysz szablon do edycji daty, które będą stosowane w przypadku platformy ASP.NET MVC pojawi się interfejs użytkownika do edycji właściwości modelu, które są oznaczone **data** wyliczenie [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybut. Szablon będą renderowane tylko datę. czas, nie będą wyświetlane. W szablonie użyjesz [selektora daty interfejsu użytkownika jQuery](http://jqueryui.com/demos/datepicker/) kalendarza podręcznego, aby umożliwić edytowanie daty.
 
 Aby rozpocząć, otwórz *Movie.cs* pliku i Dodaj [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutem **data** wyliczeniu, aby `ReleaseDate` właściwości, jak pokazano w poniższym kodzie:
 

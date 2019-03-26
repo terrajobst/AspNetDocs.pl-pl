@@ -8,18 +8,18 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 315e89c81782edf0875c65afd27153102d733050
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075023"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424251"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem
 ====================
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
-[Pobierz Camp Web szkolenia Kit](http://aka.ms/webcamps-training-kit)
+[Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure ułatwia tworzenie i wdrażanie witryn sieci Web w środowisku produkcyjnym. Ale wszystko nie będzie gotowe, gdy aplikacja jest aktywna, po prostu rozpoczynasz pracę! Konieczne będzie obsługiwać zmiany wymagań, aktualizacji bazy danych, skalowania i więcej. Na szczęście usługa Azure App Service zapewnia pełne wsparcie, z dużą ilością funkcje ułatwiające zachowują te witryny działających normalnie.
 >
@@ -31,7 +31,7 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 >
 > Z bazami danych SQL ważne jest zapewnić aktualność wydajność bazy danych podczas wdrażania nowej wersji aplikacji. Dzięki **migracje Code First Framework jednostki**, tworzenia i wdrażania modelu danych został uproszczony, aby zaktualizować swoje środowiska w ciągu kilku minut. To ćwiczenie praktyczne pokazują różne tematy, które mogą wystąpić podczas wdrażania aplikacji sieci web na środowisko produkcyjne w systemie Microsoft Azure.
 >
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 >
 > Aby uzyskać więcej szczegółowe informacje dotyczące tego tematu, zobacz [tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure e-book](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
@@ -62,10 +62,10 @@ Do ukończenia tego laboratorium praktycznego niezbędne jest, następujące ele
 - [System kontroli wersji GIT](http://git-scm.com/download)
 - Subskrypcja Microsoft Azure
 
-    - Zaloguj się w celu [bezpłatnej wersji próbnej](http://aka.ms/watk-freetrial)
-    - Jeśli masz program Visual Studio Professional, Test Professional, Premium lub Ultimate z subskrypcją MSDN lub platform MSDN, aktywować swoje [korzyść MSDN](http://aka.ms/watk-msdn) teraz, aby rozpocząć tworzenie i testowanie na platformie Azure
-    - [BizSpark](http://aka.ms/watk-bizspark) członków automatycznie otrzymują Azure korzyści za pomocą Visual Studio Ultimate z subskrypcją MSDN
-    - Elementy członkowskie [sieci Microsoft Partner Network](http://aka.ms/watk-mpn) programu Cloud Essentials otrzymywać miesięczne środki na korzystanie z platformy Azure bez dodatkowych opłat
+    - Zaloguj się w celu [bezpłatnej wersji próbnej](https://aka.ms/watk-freetrial)
+    - Jeśli masz program Visual Studio Professional, Test Professional, Premium lub Ultimate z subskrypcją MSDN lub platform MSDN, aktywować swoje [korzyść MSDN](https://aka.ms/watk-msdn) teraz, aby rozpocząć tworzenie i testowanie na platformie Azure
+    - [BizSpark](https://aka.ms/watk-bizspark) członków automatycznie otrzymują Azure korzyści za pomocą Visual Studio Ultimate z subskrypcją MSDN
+    - Elementy członkowskie [sieci Microsoft Partner Network](https://aka.ms/watk-mpn) programu Cloud Essentials otrzymywać miesięczne środki na korzystanie z platformy Azure bez dodatkowych opłat
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Konfiguracja

@@ -8,18 +8,18 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 82248efd767c1110b9a4067b7d0c0e2ecafcbef9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 54d86de49bf61305b17fc80964723c518abd467b
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073616"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423250"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Ćwiczenia praktyczne: Narzędzia Visual Studio 2013 Web Tools
 ====================
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
-[Pobierz Camp Web szkolenia Kit](http://aka.ms/webcamps-training-kit)
+[Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
 
 > Visual Studio to środowisko doskonałymi metodami tworzenia oprogramowania. Na podstawie NET Windows oraz projekty sieci web. Obejmuje ona edytorem tekstu zaawansowane, która może być bez problemów używany do edytowania plików autonomicznych bez projektu.
 > 
@@ -27,7 +27,7 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > 
 > Wszystkie te możliwości jest również dostępna dla rozszerzenia, dzięki czemu można łatwo rozszerzyć edytorów oraz zaawansowanych nowych funkcji, zgodnie z potrzebami. Web Essentials to kolekcja rozszerzeń programu Visual Studio (najczęściej) związane z sieci web. Zawiera on też wiele nowych uzupełnianiu IntelliSense (szczególnie w przypadku CSS), nowe funkcje łączność z przeglądarkami, automatyczne plików JSHint dla języka JavaScript, nowe ostrzeżenia dla HTML, CSS i wiele innych funkcji, które są niezbędne do tworzenia nowoczesnej sieci web.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -224,7 +224,7 @@ W tym zadaniu użyje Browser Link **sprawdzić tryb** funkcję, aby wykryć dok�
     ![Otwieranie pliku Site.css](visual-studio-2013-web-tools/_static/image16.png "otwierania pliku Site.css")
 
     *Otwieranie pliku Site.css*
-5. Naciśnij klawisz **CTRL** + **F** i typ **.front .flip container** można znaleźć selektora CSS.
+5. Naciśnij klawisz **CTRL** + **F** i typ **.front .flip kontenera** można znaleźć selektora CSS.
 6. Kliknij przycisk światła niebieskim kwadratem we właściwości klasy, aby otworzyć selektor kolorów obramowania.
 
     ![Otwieranie selektor kolorów](visual-studio-2013-web-tools/_static/image17.png "otworzyć selektor kolorów")

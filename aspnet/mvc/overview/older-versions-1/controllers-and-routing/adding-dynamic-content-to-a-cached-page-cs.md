@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 2ddd4407-d143-4a94-877c-21771bfb97a6
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a03f943b936c68215d65dca92e62431642226993
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 26e40ff9659a4b8552b2a087c7c948c9f1f1554c
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071570"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424173"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a>Dodawanie zawartości dynamicznej do buforowanej strony (C#)
 ====================
@@ -72,7 +72,7 @@ Jest łatwiejszy sposób, aby móc korzystać z pamięci podręcznej po podstawi
 
 Wyświetlanie listy 4 zawiera klasy statycznej, która udostępnia dwie metody: RenderBanner() i RenderBannerInternal(). Metoda RenderBanner() reprezentuje metodę pomocnika rzeczywistych. Ta metoda jest rozszerzeniem standardowa klasy ASP.NET MVC HtmlHelper dzięki czemu można wywołać Html.RenderBanner() w widoku, podobnie jak każda inna metoda pomocnika.
 
-Metoda RenderBanner() wywołuje metodę HttpResponse.WriteSubstitution(), przekazując RenderBannerInternal() metody do metody WriteSubsitution().
+Metoda RenderBanner() wywołuje metodę HttpResponse.WriteSubstitution(), przekazując RenderBannerInternal() metody do metody WriteSubstitution().
 
 Metoda RenderBannerInternal() jest metody prywatnej. Ta metoda nie będzie widoczne jako metody pomocnika. Metoda RenderBannerInternal() losowo zwraca jeden obraz anonsu transparent z listy trzy obrazy anonsu baner.
 

@@ -8,12 +8,12 @@ ms.date: 03/12/2012
 ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 62e6187cd82252e7d30f21e03cc4d08418fa39ee
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e6a04c490a1f7e3b2a450414b4be6f02804b9681
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066773"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422600"
 ---
 <a name="exception-handling-in-aspnet-web-api"></a>Obsługa wyjątków w Web API platformy ASP.NET
 ====================
@@ -73,7 +73,7 @@ Aby zastosować filtr do wszystkich akcji w kontrolerze, Dodaj filtr jako atrybu
 
 [!code-csharp[Main](exception-handling/samples/sample5.cs)]
 
-Aby zastosować filtr globalnie do wszystkich kontrolerów składnika Web API, należy dodać wystąpienia filtru w celu **GlobalConfiguration.Configuration.Filters** kolekcji. Filtry wyjątku w tej kolekcji są stosowane do dowolnej akcji kontrolera interfejsu API sieci Web.
+Aby zastosować filtr globalnie do wszystkich kontrolerów składnika Web API, należy dodać wystąpienia filtru w celu **GlobalConfiguration.Configuration.Filters** kolekcji. Zastosuj filtry wyjątków w tej kolekcji do dowolnej akcji kontrolera interfejsu API sieci Web.
 
 [!code-csharp[Main](exception-handling/samples/sample6.cs)]
 

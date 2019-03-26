@@ -8,12 +8,12 @@ ms.date: 07/17/2006
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82f1127b01c211a2af91623d4df7ca10dcad6d8a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6c8a07d7b0819df4deb566644fe36bc504d2a2ca
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070961"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424576"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Omówienie wstawiania, aktualizowania i usuwania danych (C#)
 ====================
@@ -179,7 +179,7 @@ W kontrolce GridView udostępnia wbudowaną obsługę na poziomie wiersza, edyto
 Wartości przypisane do `DeleteParameters` są wartości `DataKeyNames` pola dla wiersza, którego przycisk Usuń został kliknięty. Dlatego istotne jest, w widoku GridView `DataKeyNames` poprawnie można ustawić właściwości. Jeśli brakuje, `DeleteParameters` zostanie przypisany `null` wartość w kroku 1, co z kolei nie spowoduje żadnego usunięte rekordy w kroku 2.
 
 > [!NOTE]
-> `DataKeys` Kolekcji znajduje się w stan kontrolki GridView s, co oznacza, że `DataKeys` wartości zostaną zapamiętane na odświeżenie strony, nawet jeśli wyłączono stan widoku GridView s. Jest bardzo ważne jest, że stan widoku pozostanie włączony GridViews, która obsługuje edytowania lub usuwania (zachowanie domyślne). Jeśli ustawisz GridView s `EnableViewState` właściwości `false`, edytowania i usuwania zachowanie będzie działać prawidłowo dla pojedynczego użytkownika, ale w przypadku równoczesnych użytkowników, usuwaniem danych, istnieje możliwość przypadkowego może te równoczesnych użytkowników Usuń lub Edytuj rejestruje, t są planowane. Zobacz Mój wpis w blogu [ostrzeżenia: Współbieżność wystawiania przy użyciu platformy ASP.NET 2.0 GridViews/DetailsView/FormViews tej edycji pomocy technicznej i/lub usuwanie i Whose stan widoku jest wyłączona](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx), aby uzyskać więcej informacji.
+> `DataKeys` Kolekcji znajduje się w stan kontrolki GridView s, co oznacza, że `DataKeys` wartości zostaną zapamiętane na odświeżenie strony, nawet jeśli wyłączono stan widoku GridView s. Jest bardzo ważne jest, że stan widoku pozostanie włączony GridViews, która obsługuje edytowania lub usuwania (zachowanie domyślne). Jeśli ustawisz GridView s `EnableViewState` właściwości `false`, edytowania i usuwania zachowanie będzie działać prawidłowo dla pojedynczego użytkownika, ale w przypadku równoczesnych użytkowników, usuwaniem danych, istnieje możliwość przypadkowego może te równoczesnych użytkowników Usuń lub Edytuj rekordy, które mogą przypadkowo. Zobacz Mój wpis w blogu [ostrzeżenia: Współbieżność wystawiania przy użyciu platformy ASP.NET 2.0 GridViews/DetailsView/FormViews tej edycji pomocy technicznej i/lub usuwanie i Whose stan widoku jest wyłączona](http://scottonwriting.net/sowblog/archive/2006/10/03/163215.aspx), aby uzyskać więcej informacji.
 
 
 Ostrzeżenie to ten sam dotyczy także DetailsViews i FormViews.

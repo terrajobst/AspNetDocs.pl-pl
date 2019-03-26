@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 642ff4554ed3664af0b5cc8e49d6b236c568131b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 21cfbd0bf691ea033e9a5a873ab49c83507750d5
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074990"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425967"
 ---
 <a name="part-6-creating-product-and-order-controllers"></a>Część 6. Tworzenie kontrolerów produktów i zamówień
 ====================
@@ -96,7 +96,7 @@ Last — metoda wziąć pod uwagę jej `PostOrder`. W tej chwili, ta metoda przy
 
 [!code-json[Main](using-web-api-with-entity-framework-part-6/samples/sample10.json)]
 
-Jest to dobrze kolejności i Entity Framework trafem korzysta wstawi je do bazy danych. Ale zawiera jednostkę produktu, która wcześniej nie istniał. Klient właśnie utworzony nowy produkt w naszej bazie danych! Będzie to Zaskoczenie do działu fullfilment kolejności, po zgłoszeniu zamówienie koala polarnych. Wnioski, należy zachować ostrożność bardzo dane, które akceptują żądania POST lub PUT.
+Jest to dobrze kolejności i Entity Framework trafem korzysta wstawi je do bazy danych. Ale zawiera jednostkę produktu, która wcześniej nie istniał. Klient właśnie utworzony nowy produkt w naszej bazie danych! Będzie to Zaskoczenie do działu realizacji zamówienia, po zgłoszeniu zamówienie koala polarnych. Wnioski, należy zachować ostrożność bardzo dane, które akceptują żądania POST lub PUT.
 
 Aby uniknąć tego problemu, należy zmienić `PostOrder` metodę, aby wykonać `OrderDTO` wystąpienia. Użyj `OrderDTO` utworzyć `Order`.
 

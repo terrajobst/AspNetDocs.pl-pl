@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: bb4704e7f4f13fab04acdbdd642174884517e18a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91a6496e2640668c58ec0493d47d909e2de67367
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071360"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58421353"
 ---
 <a name="part-7-creating-the-main-page"></a>Część 7. Tworzenie strony głównej
 ====================
@@ -61,7 +61,7 @@ Zauważ również, `total` właściwość `OrderDetailsViewModel`. Ta właściwo
 Następnie dodaj te funkcje, aby `AppViewModel`:
 
 - `resetCart` Usuwa wszystkie elementy z koszyka.
-- `getDetails` pobiera szczegóły zamówienia (przez pusing nowej `OrderDetailsViewModel` na `details` listy).
+- `getDetails` pobiera szczegóły zamówienia (wypychając nową `OrderDetailsViewModel` na `details` listy).
 - `createOrder` Tworzy nowe zamówienie i usuwa zawartość koszyka.
 
 
@@ -105,7 +105,7 @@ Poniżej przedstawiono wiązania szczegóły zamówienia:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-7/samples/sample11.html)]
 
-Iteruje przez elementy w kolejności i wyświetla produktu, ceny i ilość. Div otaczającego jest widoczne tylko wtedy, gdy tablica szczegółowe informacje zawiera jeden lub więcej elementów.
+Iteruje przez elementy w kolejności i wyświetla produktu, ceny i ilości. Div otaczającego jest widoczne tylko wtedy, gdy tablica szczegółowe informacje zawiera jeden lub więcej elementów.
 
 ## <a name="conclusion"></a>Wniosek
 

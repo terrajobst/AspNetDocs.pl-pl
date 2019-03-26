@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 5c9b0c71e2e0d35645e975e9adb7086e65bcf4c3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5145f0a9bfe615fa98a7341841f72597594de1e4
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066665"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424264"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych
 ====================
@@ -50,7 +50,7 @@ W tej sekcji Dodaj kolumnę daty urodzenia `Person` klasa podstawowa dla `Studen
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample3.ps1)]
 
-    Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` klasy, a następnie w `Up` metody zostanie wyświetlony kod, który tworzy nową kolumnę. `Up` Metoda tworzy kolumny, wprowadzając zmiany, a `Down` metoda usuwa kolumny, gdy użytkownik jest wycofywanie zmian.
+    Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMigration` klasy, a następnie w `Up` metody zostanie wyświetlony kod, który tworzy nową kolumnę. `Up` Metoda tworzy kolumny, wprowadzając zmiany, a `Down` metoda usuwa kolumny, gdy użytkownik jest wycofywanie zmian.
 
     ![AddBirthDate_migration_code](deploying-a-database-update/_static/image1.png)
 4. Skompiluj rozwiązanie, a następnie wprowadź następujące polecenie w **Konsola Menedżera pakietów** okna (Upewnij się, projekt ContosoUniversity.DAL została ona zaznaczona):

@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 0f982827-f8f9-420d-b36b-57b23f5aa519
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9d75c80b4c1bac5011acc896d91ff2fcd5a19298
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a5623c34ad7f8c9b5effed318a04b204ab66ecaa
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078107"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425200"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Formularz typu rekord główny/szczegóły korzystający z kontrolki GridView umożliwiającej wybór rekordu głównego z kontrolką DetailView szczegółów (C#)
 ====================
@@ -153,7 +153,7 @@ Raz `productDetailsDataSource` ObjectDataSource został poprawnie skonfigurowany
 
 W tym i w poprzednich samouczkach trzy widzieliśmy kilka technik do wyświetlania raportów wzorzec/szczegół. W tym samouczku zbadaliśmy przy użyciu GridView możliwy do przechowywania rekordów głównych i DetailsView, aby wyświetlić szczegółowe informacje dotyczące wybranego rekordu głównego na tej samej stronie. W samouczkach wcześniej zobaczyliśmy, jak wyświetlać raporty wzorzec/szczegół za pomocą kontrolek DROPDOWNLIST i wyświetlania rekordów głównych w jedną stronę sieci web i rekordy na innym.
 
-W tym samouczku kończy się nasze badania wzorzec/szczegół raportów. Począwszy od następnej tutorialwe rozpocznie się naszych badań niestandardowe formatowanie przy użyciu GridView DetailsView i FormView. Zobaczymy, jak dostosować wygląd tych formantów na podstawie danych powiązany z nimi, sposób podsumowywania danych w stopce kontrolki GridView i jak za pomocą szablonów w celu uzyskania lepszej kontroli nad układu.
+W tym samouczku kończy się nasze badania wzorzec/szczegół raportów. Począwszy od następnego samouczka rozpocznie się naszych badań niestandardowe formatowanie przy użyciu GridView DetailsView i FormView. Zobaczymy, jak dostosować wygląd tych formantów na podstawie danych powiązany z nimi, sposób podsumowywania danych w stopce kontrolki GridView i jak za pomocą szablonów w celu uzyskania lepszej kontroli nad układu.
 
 Wszystkiego najlepszego programowania!
 

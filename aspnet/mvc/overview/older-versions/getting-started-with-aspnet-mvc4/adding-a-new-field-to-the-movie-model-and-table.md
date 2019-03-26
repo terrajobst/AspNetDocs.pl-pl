@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0f9b659b67a9a62635091b1e87169bce1218281a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a1f56a48c0c5b16993a853532689a2b524a1f92e
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076871"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425447"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Dodawanie nowego pola do modelu Movie i tabeli
 ====================
@@ -142,7 +142,7 @@ Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** ok
 
 `add-migration` Polecenie informuje platformę migracji, aby zbadać bieżącej modelu movie z bieżącym schemacie filmu bazy danych i utworzyć niezbędny kod, aby przeprowadzić migrację bazy danych do nowego modelu. AddRatingMig jest dowolnego i jest używany do nazywania plików migracji. Warto użyć znaczącą nazwę krok migracji.
 
-Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` klasy, a następnie w `Up` metody zostanie wyświetlony kod, który tworzy nową kolumnę.
+Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMigration` klasy, a następnie w `Up` metody zostanie wyświetlony kod, który tworzy nową kolumnę.
 
 [!code-csharp[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample8.cs)]
 

@@ -8,12 +8,12 @@ ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 2a22c5b686cb8e02054f421f78a8fc910af7ce28
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bbb38ddde49cdeea4255e0e05bd559ddd9e5f692
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077483"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425993"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools 2013.2 dla programu Visual Studio 2013 — informacje o wersji
 ====================
@@ -112,7 +112,7 @@ Firefox używa magazynu certyfikatów, dzięki czemu zostanie wyświetlone ostrz
 
     `<div data-bind="text: foo.bar.baz.etc" />`
 
-    IntelilSense wyświetlany jest pełną obsługą technologii IntelliSense obiekt JavaScript.
+    Funkcja IntelliSense wyświetlana jest pełną obsługą technologii IntelliSense obiekt JavaScript.
 
     ![Pełny obiekt JavaScript IntelliSense przedstawiający](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image15.png)
 - **Nowy selektor adresu URL w pliku HTML, Razor, CSS LESS i Sass dokumentów**: VS 2013 są dostarczane z programem nie Wybór adresu URL poza stron formularzy sieci Web. Nowy selektor adres URL dla HTML, Razor, CSS, LESS i Sass edytory jest bezpłatne okna dialogowego, fluent selektor Pisownia, który rozumie ".." i pliku filtrów odpowiednio listy tagów img lub łącza.
@@ -177,12 +177,13 @@ Poniższe zrzuty ekranu pokazują tworzenie szkieletów modeli.
 NuGet 2.8.1, który RTM został wydany w kwietnia 2014 r. Poniżej przedstawiono najważniejsze punkty w informacjach o wersji, ale Sprawdź, czy [pełne uwagi do wersji](http://docs.nuget.org/docs/release-notes/nuget-2.8) Aby uzyskać więcej informacji na temat tych zmian.
 
 - **TARGET Windows Phone 8.1 aplikacji**: NuGet 2.8.1 teraz wspiera przy użyciu monikerów target framework "WindowsPhoneApp", "WPA", "WindowsPhoneApp81" i "WPA81" w aplikacji programu Windows Phone 8.1.
+
 - **Stosowanie poprawek do rozpoznawania zależności**: Podczas rozpoznawania zależności pakietów, NuGet w przeszłości została zaimplementowana strategii wybierania Najniższa wersja pakietu głównych i pomocniczych, spełniające zależności w pakiecie. W przeciwieństwie do wersji głównych i pomocniczych, wersja poprawki zabezpieczeń był zawsze rozpoznać najwyższa wersja. Chociaż zachowanie było intencjami, utworzyć braku determinizm dla instalowanie pakietów z zależnościami.
 - **Przełącznik DependencyVersion**: Chociaż zmienia NuGet 2.8 *domyślne* zachowanie dla rozpoznawania zależności, dodaje także bardziej precyzyjną kontrolę nad procesem rozpoznawania zależności za pośrednictwem przełącznika - DependencyVersion w konsoli Menedżera pakietów. Przełącznik umożliwia rozpoznawania zależności, aby Najniższa wersja możliwe (zachowanie domyślne), najnowsza wersja to możliwe, lub najwyższy drobnych lub wersja poprawki zabezpieczeń. Ta opcja działa tylko dla install-package polecenia programu powershell.
 - **Atrybut DependencyVersion**: Oprócz przełącznika - DependencyVersion szczegóły przedstawiono powyżej, NuGet ma również dozwolone dla możliwości można ustawić nowy atrybut w pliku nuget.config Definiowanie co to jest wartość domyślna, jeśli nie określono przełącznika - DependencyVersion w wywołania Install-package. Ta wartość obowiązują również w oknie dialogowym Menedżer pakietów NuGet dla wszystkich operacji pakietu instalacji. Aby ustawić tę wartość, należy dodać atrybut poniżej do pliku nuget.config:
 
     `<config> <add key="dependencyversion" value="Highest" /> </config>`
-- **Podgląd operacji NuGet za pomocą - whatif**: Niektóre pakiety NuGet może mieć wykresy zależności szczegółowe i jako takie on być przydatne podczas instalacji, odinstalowywania i zaktualizować operację, aby najpierw sprawdzić, co się stanie. NuGet 2.8 dodaje standardowy programu PowerShell — co zrobić, jeśli przełączyć się do polecenia install-package, odinstaluj pakiet i pakiet aktualizacji, umożliwiające wizualizowanie całego zamknięcia pakietów, do których zostanie zastosowana polecenia.
+- **Podgląd operacji NuGet za pomocą - WhatIf**: Niektóre pakiety NuGet może mieć wykresy zależności szczegółowe i jako takie on być przydatne podczas instalacji, odinstalowywania i zaktualizować operację, aby najpierw sprawdzić, co się stanie. NuGet 2.8 dodaje standardowy programu PowerShell — co zrobić, jeśli przełączyć się do polecenia install-package, odinstaluj pakiet i pakiet aktualizacji, umożliwiające wizualizowanie całego zamknięcia pakietów, do których zostanie zastosowana polecenia.
 - **Obniżyć wersję pakietu**: Nie jest niczym niezwykłym, aby zainstalować wstępną wersję pakietu w celu zbadania nowe funkcje i zdecydować wycofać do ostatniego stabilnej wersji. Przed NuGet 2.8 to wieloetapowy proces odinstalowywania wstępną wersję pakietu oraz jego zależności, a następnie zainstaluj starszą wersję. Za pomocą NuGet 2.8, pakiet aktualizacji będzie teraz wycofać zamknięcia cały pakiet (np. drzewo zależności pakietu) do poprzedniej wersji.
 - **Tworzenie zależności**: Wiele różnych typów funkcji mogą być dostarczane jako pakietów NuGet — w tym narzędzia, które są używane do optymalizacji procesu rozwoju. Te składniki mogą być zarejestrowana w tworzeniu nowego pakietu, należy rozważyć nie opublikowany zależność nowy pakiet, gdy jest ona nowsza. NuGet 2.8 umożliwia pakietu do identyfikacji w pliku .nuspec developmentDependency. Po zainstalowaniu tych metadanych również dodane do pliku packages.config projektu, do którego pakiet został zainstalowany. Podczas tego pliku packages.config później jest analizowana pod kątem zależności NuGet podczas pakowania nuget.exe, wykluczy te zależności, oznaczone jako zależności rozwoju.
 - **Pliki poszczególnych packages.config na różnych platformach**: Podczas opracowywania aplikacji dla wielu platform docelowych jest często mają różne pliki projektów dla poszczególnych środowisk odpowiednich kompilacji. Jest również typowe korzystanie z różnych pakietach NuGet w plikach inny projekt, pakiety są dostępne dla różnych poziomów pomocy technicznej dla różnych platform. NuGet 2.8 zapewnia ulepszoną obsługę tego scenariusza, tworząc packages.config różnych plików dla plików do innego projektu specyficznego dla platformy.
@@ -205,7 +206,7 @@ NuGet 2.8.1, który RTM został wydany w kwietnia 2014 r. Poniżej przedstawiono
 - [Atrybut ulepszenia routingu](../../../mvc/overview/releases/mvc51-release-notes.md#AttributeRouting)
 - [Obsługa ładowania początkowego szablony Edytora](../../../mvc/overview/releases/mvc51-release-notes.md#Bootstrap)
 - [Obsługa typu wyliczeniowego w widokach](../../../mvc/overview/releases/mvc51-release-notes.md#Enum)
-- [Obsługa Unobstrusive MinLength / MaxLength atrybutów](../../../mvc/overview/releases/mvc51-release-notes.md#Unobtrusive)
+- [Dyskretny kod obsługi MinLength / MaxLength atrybutów](../../../mvc/overview/releases/mvc51-release-notes.md#Unobtrusive)
 - [Obsługa kontekstu "this" w dyskretnego kodu Ajax](../../../mvc/overview/releases/mvc51-release-notes.md#thisContext)
 - Różne [poprawki błędów](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=MVC&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 

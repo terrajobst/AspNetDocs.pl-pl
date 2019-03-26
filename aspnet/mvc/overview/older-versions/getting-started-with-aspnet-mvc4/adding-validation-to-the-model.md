@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 5819d789f31b9452d40ae3aa7f821f101ae126ce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c0cfd4f900c88f953cf7004a987bc267a1e1b4a2
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073493"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58422036"
 ---
 <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
 ====================
@@ -55,7 +55,7 @@ Firma Microsoft użyje migracji do zaktualizowania schematu. Skompiluj rozwiąza
 
 [!code-console[Main](adding-validation-to-the-model/samples/sample3.cmd)]
 
-Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` Klasa pochodna o podanej nazwie (*AddDataAnnotationsMig*), a następnie w `Up` metody zostanie wyświetlony kod, który aktualizuje ograniczenia schematu. `Title` i `Genre` pola nie są już dopuszcza wartości null (oznacza to, wprowadź wartość) i `Rating` pole ma maksymalną długość 5.
+Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMigration` Klasa pochodna o podanej nazwie (*AddDataAnnotationsMig*), a następnie w `Up` metody zostanie wyświetlony kod, który aktualizuje ograniczenia schematu. `Title` i `Genre` pola nie są już dopuszcza wartości null (oznacza to, wprowadź wartość) i `Rating` pole ma maksymalną długość 5.
 
 Atrybuty weryfikacji określić zachowanie, które mają zostać wymuszone we właściwościach modelu, które są stosowane względem. `Required` Atrybut wskazuje, że właściwość musi mieć wartość; w tym przykładzie filmu musi mieć wartości `Title`, `ReleaseDate`, `Genre`, i `Price` właściwości, aby był prawidłowy. `Range` Atrybut ogranicza wartości do określonego zakresu. `StringLength` Atrybut pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie długości minimalnej. Typy wewnętrzne (takie jak `decimal, int, float, DateTime`) są wymagane domyślnie i nie ma potrzeby `Required` atrybutu.
 

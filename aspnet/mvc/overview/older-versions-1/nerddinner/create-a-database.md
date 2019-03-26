@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: 983f3ffa-08b8-4868-b8c9-aa34593fc683
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: b6ab0740f251889f0fa0561809cac2bbe79bcb3a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48ca2984ca8e4ec5b2bc49952a8718aa26138aea
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078140"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423705"
 ---
 <a name="create-a-database"></a>Tworzenie bazy danych
 ====================
@@ -94,7 +94,7 @@ Firma Microsoft będzie Zapisz go i nadaj mu nazwę "RSVP".
 
 Teraz mamy dwie tabele w naszej bazie danych. Nasze ostatnim krokiem projektowania schematu będzie można skonfigurować "jeden do wielu" relacji między tymi dwiema tabelami — tak, aby firma Microsoft można skojarzyć każdy wiersz obiad z zero lub więcej wierszy RSVP, które go dotyczą. Firma Microsoft będzie to zrobić, konfigurując tabeli RSVP "DinnerID" w kolumnie relacji klucza obcego z kolumną "DinnerID" w tabeli "Kolacji".
 
-W tym celu firma Microsoft będzie otwierają RSVP tabeli w Projektancie tabel, klikając dwukrotnie plik w Eksploratorze serwera. Następnie należy wybrać kolumnę "DinnerID" znajdujący się w nim, kliknij prawym przyciskiem myszy, a wybierz polecenia menu kontekstowego "Relationshps...":
+W tym celu firma Microsoft będzie otwierają RSVP tabeli w Projektancie tabel, klikając dwukrotnie plik w Eksploratorze serwera. Następnie należy wybrać kolumnę "DinnerID" znajdujący się w nim, kliknij prawym przyciskiem myszy i wybierz polecenie "Relacje..." polecenia menu kontekstowego:
 
 ![](create-a-database/_static/image12.png)
 

@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 142c8e93422ac03d2f2205b6635f88b982b4c9e2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91a1c967fbe74dbda8f8ac9635fdccbe05b0b6cc
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066068"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423900"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurowanie ustawień na poziomie połączenia i poleceń warstwy dostępu do danych (C#)
 ====================
@@ -106,7 +106,7 @@ Za pomocą tej klasy częściowej utworzony i zapisany, otwórz `ProductsBLL` kl
 
 Ta klasa częściowa udostępnia tylko jedną właściwość obiektu bazowego połączenia: `ConnectionString`. Jeśli chcesz udostępnić obiektu całego połączenia po przekroczeniu granicach TableAdapter, można również zmienić `Connection` poziom ochrony właściwości s. Automatycznie wygenerowany kod, zbadaliśmy w kroku 1 wykazało, że TableAdapter s `Connection` właściwość jest oznaczona jako `internal`, co oznacza, że jej może zostać oceniony jedynie przez klasy z tego samego zestawu. Można to zmienić, jednak za pośrednictwem TableAdapter s `ConnectionModifier` właściwości.
 
-Otwórz `Northwind` zestawu danych, kliknij pozycję `ProductsTableAdatper` w projektancie, a następnie przejdź do okna właściwości. Zobaczysz `ConnectionModifier` ustawiony na wartość domyślną `Assembly`. Aby `Connection` dostępne spoza zestawu s wpisana zestawu danych, zmień właściwość `ConnectionModifier` właściwość `Public`.
+Otwórz `Northwind` zestawu danych, kliknij pozycję `ProductsTableAdapter` w projektancie, a następnie przejdź do okna właściwości. Zobaczysz `ConnectionModifier` ustawiony na wartość domyślną `Assembly`. Aby `Connection` dostępne spoza zestawu s wpisana zestawu danych, zmień właściwość `ConnectionModifier` właściwość `Public`.
 
 
 [![Poziom dostępności s właściwości połączenia można skonfigurować za pomocą właściwości ConnectionModifier](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
