@@ -399,7 +399,7 @@ description: 'Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Przesyłanie w czasie rzeczywistym</h3>
-                                                    <p>Dowiedz się, jak utworzyć aplikację do obsługi rozmów korzystającą z SignalR2 na platformie ASP.NET i programu Visual Studio.</p>
+                                                    <p>Dowiedz się, jak utworzyć aplikację do rozmów za pomocą signalr2 na platformie ASP.NET i programu Visual Studio.</p>
                                                 </div>
                                             </div>
                                         </div>
