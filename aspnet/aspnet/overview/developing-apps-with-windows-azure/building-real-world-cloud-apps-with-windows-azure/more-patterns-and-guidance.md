@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 3de929ff7253928f2f9cd9b033ef6c643744e91c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 87dbbc0b598a6592b511383a5487a04b302b0994
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073889"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425668"
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Więcej wzorców i wskazówki (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
@@ -61,7 +61,7 @@ Wideo
 Przykładowy kod
 
 - [Poprawka aplikacji znajdująca się na tę książkę elektroniczną](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002).
-- [Podstawy usługi na platformie Azure w języku C# dla programu Visual Studio 2012 w chmurze](http://aka.ms/csf). Projekt do pobrania w witrynie Microsoft Code Gallery obejmuje zarówno kod, jak i dokumentacji opracowany przez Microsoft klienta Advisory Team (CAT). Przedstawia liczbę najlepszych rozwiązań, które są zalecane w serii wideo przed uszkodzeniami i tworzenie dużych i przed uszkodzeniami oficjalny dokument. Na stronie galerii kodów również linki do obszerną dokumentację przez autorów projektu — Zobacz szczególnie [kolekcji witryny typu wiki Cloud Service Fundamentals](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) łącze w niebieskim polu w górnej części opis projektu. Ten projekt i dokumentację dla niego nadal aktywnie opracowywane, ułatwiając lepszym wyborem informacji na temat wiele tematów niż podobne, ale starsze oficjalne dokumenty.
+- [Podstawy usługi na platformie Azure w języku C# dla programu Visual Studio 2012 w chmurze](https://aka.ms/csf). Projekt do pobrania w witrynie Microsoft Code Gallery obejmuje zarówno kod, jak i dokumentacji opracowany przez Microsoft klienta Advisory Team (CAT). Przedstawia liczbę najlepszych rozwiązań, które są zalecane w serii wideo przed uszkodzeniami i tworzenie dużych i przed uszkodzeniami oficjalny dokument. Na stronie galerii kodów również linki do obszerną dokumentację przez autorów projektu — Zobacz szczególnie [kolekcji witryny typu wiki Cloud Service Fundamentals](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) łącze w niebieskim polu w górnej części opis projektu. Ten projekt i dokumentację dla niego nadal aktywnie opracowywane, ułatwiając lepszym wyborem informacji na temat wiele tematów niż podobne, ale starsze oficjalne dokumenty.
 
 Książki kopii
 
@@ -101,7 +101,7 @@ Wielu współpracownikom w firmie Microsoft przejrzane i komentarz projektów i 
 - Edward Wu - podano przykładowy kod w rozdziale logowania jednokrotnego.
 - Guang Yang - napisał skryptów automatyzacji programu PowerShell.
 
-Elementy członkowskie [Advisory Council wskazówki dla deweloperów Microsoft](http://aka.ms/DGAC) (DGAC) również przejrzeć i komentarz wersje robocze:
+Elementy członkowskie [Advisory Council wskazówki dla deweloperów Microsoft](https://aka.ms/DGAC) (DGAC) również przejrzeć i komentarz wersje robocze:
 
 - Jean-Luc Boucho
 - Catalin Gheorghiu

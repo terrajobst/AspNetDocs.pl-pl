@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: f40eb338a1b6b8eebb6578dd7938e96a05b1617f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 644beb37bf893a590be03dd0929c5870af6fbe87
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075197"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58425772"
 ---
 <a name="master-pages"></a>Strony wzorcowe
 ====================
@@ -94,7 +94,7 @@ W tym środowisku laboratoryjnym utworzysz nową stronę wzorcową i zdefiniuj t
 
 1. Umieść kursor w każdej komórce tabeli i ustaw *dopasowanie w pionie* właściwości *górnej*.
 2. Z przybornika Wstawianie formantu ContentPlaceHolder górnej komórki tabeli (komórki nagłówka.)
-3. Podczas wstawiania tego formantu ContentPlaceHolder można zauważyć, że wiersze o nierównej wysokości zajmuje prawie całej strony, jak pokazano na rysunku 4. Dont wiedzieć, w tym momencie.
+3. Podczas wstawiania tego formantu ContentPlaceHolder można zauważyć, że wiersze o nierównej wysokości zajmuje prawie całej strony, jak pokazano na rysunku 4. Nie przejmuj się o tym w tym momencie.
 
 
 ![Puste miejsce znajduje się w tej samej komórki jako ContentPlaceHolder](master-pages/_static/image1.gif)
@@ -127,7 +127,7 @@ W tym środowisku laboratoryjnym utworzysz nową stronę wzorcową i zdefiniuj t
 2. Wybierz exercise1.master wybierz w oknie dialogowym strona wzorcowa jak pokazano na rysunku 7.
 3. Kliknij przycisk OK, aby dodać nową stronę zawartości.
 
-Z jednym formantem zawartości dla każdego formantu ContentPlaceHolder na stronie wzorcowej w programie Visual Studio zostanie wyświetlona nowa strona zawartości. Domyślnie formanty zawartości są puste, aby dodać własną zawartość. Jeżeli youd musiały korzystać z zawartości z formantu ContentPlaceHolder strony wzorcowej, po prostu kliknij symbol tagu inteligentnego (małe czarną strzałkę w prawym górnym rogu formantu) i wybierz polecenie *domyślną zawartość wzorców* za pomocą tagu inteligentnego, jak pokazano na **rysunek 8**. Jeśli tak zrobisz, element menu zmienia się na *Utwórz niestandardowe zawartość*. W tym momencie klikając polecenie usuwa zawartość z strony wzorcowej, umożliwiając Definiowanie niestandardowej zawartości dla tego określonego formantu zawartości.
+Z jednym formantem zawartości dla każdego formantu ContentPlaceHolder na stronie wzorcowej w programie Visual Studio zostanie wyświetlona nowa strona zawartości. Domyślnie formanty zawartości są puste, aby dodać własną zawartość. Jeśli chcesz używać zawartości z formantu ContentPlaceHolder strony wzorcowej, po prostu kliknij symbol tagu inteligentnego (małe czarną strzałkę w prawym górnym rogu formantu) i wybierz polecenie *domyślną zawartość wzorców* za pomocą tagu inteligentnego, jak pokazano na **rysunek 8**. Jeśli tak zrobisz, element menu zmienia się na *Utwórz niestandardowe zawartość*. W tym momencie klikając polecenie usuwa zawartość z strony wzorcowej, umożliwiając Definiowanie niestandardowej zawartości dla tego określonego formantu zawartości.
 
 
 ![Ustawienia formantu zawartości domyślne, aby zawartość strony główne](master-pages/_static/image4.gif)

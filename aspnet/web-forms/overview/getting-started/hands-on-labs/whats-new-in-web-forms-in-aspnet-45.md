@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 54e0234d6f13ce62803dbe55a836414a93a207b2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 78cb6dec71e6b4974fdea4f205d1a36ebdfc3104
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066557"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58424447"
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5
 ====================
@@ -51,7 +51,7 @@ W tym praktyczne laboratorium dowiesz się jak:
 - Korzystać z nowych funkcji wiązania modelu w formularzach sieci Web
 - Korzystanie z dostawców wartości do mapowania danych ze strony metody związanym z kodem
 - Adnotacje danych na użytek walidacji danych wejściowych użytkownika
-- Wykonaj advange unobstrusive weryfikacji po stronie klienta przy użyciu jQuery w formularzach sieci Web
+- Korzystać z zalet dyskretny kod weryfikacji po stronie klienta przy użyciu jQuery w formularzach sieci Web
 - Implementowanie weryfikacji żądań szczegółowe
 - Implementowanie strony asynchronicznego przetwarzania w formularzach sieci Web
 
@@ -407,13 +407,13 @@ Program ASP.NET 4.5 wprowadza weryfikacji adnotacji danych w formularzach sieci 
     > [EmailAddress(ErrorMessage=&quot;Invalid Email&quot;), MaxLength(56)]: Two annotations in the same line.
     > 
     > Można również definiować własne komunikaty o błędach w ramach każdego atrybutu.
-3. Otwórz **CustomerDetails.aspx** i Usuń wszystkie RequiredFieldvalidators dla pól Imię i nazwisko w w sekcjach EditItemTemplate i InsertItemTemplate kontroli FormView.
+3. Otwórz **CustomerDetails.aspx** i Usuń wszystkie RequiredFieldValidators dla pól Imię i nazwisko w w sekcjach EditItemTemplate i InsertItemTemplate kontroli FormView.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample24.aspx)]
 
     > [!NOTE]
     > Jedną z zalet przy użyciu adnotacji danych jest logikę weryfikacji nie są zduplikowane na stronach aplikacji. Zdefiniuj go jeden raz w modelu i użyć go na wszystkich stronach aplikacji, które manipulowanie danymi.
-4. Otwórz **CustomerDetails.aspx** związanym z kodem i zlokalizuj metodę SaveCustomer. Ta metoda jest wywoływana podczas wstawiania nowego klienta i odbiera parametru klienta od wartości kontrolki FormView. Podczas mapowania między kontrolkami strony i odmówić obiektu parametr ASP.NET będą wykonywane sprawdzanie poprawności modelu względem wszystkich adnotacji danych atrybutów, a wypełnienie słownika ModelState wystąpiły błędy. Jeśli istnieją.
+4. Otwórz **CustomerDetails.aspx** związanym z kodem i zlokalizuj metodę SaveCustomer. Ta metoda jest wywoływana podczas wstawiania nowego klienta i odbiera parametru klienta od wartości kontrolki FormView. W przypadku Określa mapowanie między stroną i obiekcie parametru występuje ASP.NET będzie wykonać sprawdzanie poprawności modelu względem wszystkich atrybutów adnotacji danych i wypełnienie słownika ModelState wystąpiły błędy. Jeśli istnieje.
 
     ModelState.IsValid tylko zwróci wartość true, jeśli wszystkie pola w modelu są prawidłowe po przeprowadzeniu weryfikacji.
 
@@ -623,7 +623,7 @@ W tym laboratorium praktycznego zostały rozwiązane i przedstawiono następują
 - Korzystać z nowych funkcji wiązania modelu w formularzach sieci Web
 - Korzystanie z dostawców wartości do mapowania danych ze strony metody związanym z kodem
 - Adnotacje danych na użytek walidacji danych wejściowych użytkownika
-- Wykonaj advange unobstrusive weryfikacji po stronie klienta przy użyciu jQuery w formularzach sieci Web
+- Korzystać z zalet dyskretny kod weryfikacji po stronie klienta przy użyciu jQuery w formularzach sieci Web
 - Implementowanie weryfikacji żądań szczegółowe
 - Implementowanie strony asynchronicznego przetwarzania w formularzach sieci Web
 
@@ -678,7 +678,7 @@ Ten dodatek będzie pokazują, jak utworzyć nową witrynę sieci web w witrynie
 1. Przejdź do [portalu zarządzania systemu Azure](https://manage.windowsazure.com/) i zaloguj się przy użyciu poświadczeń firmy Microsoft, powiązaną z Twoją subskrypcją.
 
     > [!NOTE]
-    > Za pomocą platformy Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](http://aka.ms/aspnet-hol-azure).
+    > Za pomocą platformy Azure można bezpłatny hosting 10 witryn sieci Web platformy ASP.NET i skalowanie w miarę wzrostu ruchu. Możesz zarejestrować się [tutaj](https://aka.ms/aspnet-hol-azure).
 
     ![Zaloguj się do portalu usługi Windows Azure](whats-new-in-web-forms-in-aspnet-45/_static/image30.png "Zaloguj się do portalu usługi Windows Azure")
 
