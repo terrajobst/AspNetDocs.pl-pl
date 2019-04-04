@@ -2,12 +2,18 @@
 uid: signalr/overview/getting-started/index
 title: Wprowadzenie do SignalR | Dokumentacja firmy Microsoft
 author: bradygaster
-description: 'Dowiedz się więcej o ASP.NET SignalR biblioteki SignalR platformy ASP.NET jest nową biblioteką dla deweloperów platformy ASP.NET, która ułatwia opracowywanie funkcji sieci web w czasie rzeczywistym. SignalR umożliwia bi...'
+description: Dowiedz się więcej o ASP.NET SignalR biblioteki SignalR platformy ASP.NET jest nową biblioteką dla deweloperów platformy ASP.NET, która ułatwia opracowywanie funkcji sieci web w czasie rzeczywistym. SignalR umożliwia bi...
 ms.author: bradyg
 ms.date: 09/19/2014
 ms.assetid: 2acff246-c74c-4277-b539-35bc42988c6f
 msc.legacyurl: /signalr/overview/getting-started
 msc.type: chapter
+ms.openlocfilehash: 4573a04f115ab5d2fdc363f9746a22bc3939174c
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796320"
 ---
 <a name="signalr-getting-started"></a><span data-ttu-id="199f9-104">Wprowadzenie do SignalR</span><span class="sxs-lookup"><span data-stu-id="199f9-104">SignalR Getting Started</span></span>
 ====================

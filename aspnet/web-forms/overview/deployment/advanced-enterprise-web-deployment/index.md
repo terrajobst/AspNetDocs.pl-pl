@@ -1,13 +1,19 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: 'ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 4 Tematy zaawansowane | Dokumentacja firmy Microsoft'
+title: ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 4 Tematy zaawansowane | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie.'
+description: Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie.
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: eacf0e3a-c2e9-4f77-a676-249146f393e8
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
+ms.openlocfilehash: b042faf38fe0269508895f1b7826908cf086222d
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796314"
 ---
 <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a><span data-ttu-id="7ba0c-103">ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 4: tematy zaawansowane</span><span class="sxs-lookup"><span data-stu-id="7ba0c-103">ASP.NET 4 - Enterprise Deployment Series 4 Advanced Topics</span></span>
 ====================

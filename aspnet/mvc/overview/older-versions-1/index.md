@@ -2,12 +2,18 @@
 uid: mvc/overview/older-versions-1/index
 title: Starsze wersje — MVC 1 i 2 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Zasoby do nauki, jak program MVC 1 i 2.'
+description: Zasoby do nauki, jak program MVC 1 i 2.
 ms.author: riande
 ms.date: 10/10/2014
 ms.assetid: 1506f70f-6919-45bd-8c75-a17aff77510c
 msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
+ms.openlocfilehash: 8f06d9d08c381e8c6d704149b29d46196baceae9
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796561"
 ---
 <a name="older-versions---mvc-1-and-2"></a><span data-ttu-id="7fb19-103">Starsze wersje — MVC 1 i 2</span><span class="sxs-lookup"><span data-stu-id="7fb19-103">Older Versions - MVC 1 and 2</span></span>
 ====================

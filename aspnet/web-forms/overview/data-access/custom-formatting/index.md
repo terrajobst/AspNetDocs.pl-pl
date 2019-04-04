@@ -8,6 +8,12 @@ ms.date: 10/05/2011
 ms.assetid: 320b7d26-837f-4fa7-a242-1ab82f8bdbe9
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting
 msc.type: chapter
+ms.openlocfilehash: 72a9b91b6d646d5c7d9d3105b4c36eec38a98236
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796484"
 ---
 <a name="custom-formatting"></a><span data-ttu-id="62555-103">Formatowanie niestandardowe</span><span class="sxs-lookup"><span data-stu-id="62555-103">Custom Formatting</span></span>
 ====================

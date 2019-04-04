@@ -2,12 +2,18 @@
 uid: web-forms/videos/data-access/how-do-i-with-linq/index
 title: Jak to zrobić za pomocą LINQ | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Ta seria wideo przeprowadzi Cię przez wszystko, czego potrzebujesz, aby dobrze poznacie przy użyciu LINQ jako programista internetowy.'
+description: Ta seria wideo przeprowadzi Cię przez wszystko, czego potrzebujesz, aby dobrze poznacie przy użyciu LINQ jako programista internetowy.
 ms.author: riande
 ms.date: 02/24/2012
 ms.assetid: 11b3547a-7c4f-4849-8e27-3cfbe255034e
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq
 msc.type: chapter
+ms.openlocfilehash: a0dcc4a6a067dbba7dce7f2cea0015272b409ab2
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796377"
 ---
 <a name="how-do-i-with-linq"></a><span data-ttu-id="88869-103">Jak to zrobić za pomocą zapytań LINQ</span><span class="sxs-lookup"><span data-stu-id="88869-103">How Do I with LINQ</span></span>
 ====================

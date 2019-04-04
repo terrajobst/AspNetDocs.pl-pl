@@ -2,12 +2,18 @@
 uid: signalr/overview/older-versions/index
 title: Starsze wersje biblioteki SignalR | Dokumentacja firmy Microsoft
 author: bradygaster
-description: 'Dokumentacja, które odnoszą się do starszych wersji biblioteki SignalR.'
+description: Dokumentacja, które odnoszą się do starszych wersji biblioteki SignalR.
 ms.author: bradyg
 ms.date: 09/19/2014
 ms.assetid: 607f4617-380f-41fa-bf46-147e82bb8124
 msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
+ms.openlocfilehash: 160c3b2f0d255314bdf9fef3eda22cb578de476e
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796688"
 ---
 <a name="signalr-older-versions"></a><span data-ttu-id="baf33-103">Starsze wersje biblioteki SignalR</span><span class="sxs-lookup"><span data-stu-id="baf33-103">SignalR Older Versions</span></span>
 ====================

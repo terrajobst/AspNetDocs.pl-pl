@@ -6,8 +6,14 @@ description: ''
 ms.author: riande
 ms.date: 10/14/2017
 ms.assetid: fc98bde7-484a-4191-bba2-04d29551cb8f
-msc.legacyurl: null
+msc.legacyurl: ''
 msc.type: content
+ms.openlocfilehash: a9b1c8122109075bf54678a1d4172b83dc34960a
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796308"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a><span data-ttu-id="4e0ae-102">Usługa Microsoft AJAX Content Delivery Network</span><span class="sxs-lookup"><span data-stu-id="4e0ae-102">Microsoft Ajax Content Delivery Network</span></span>
 ====================

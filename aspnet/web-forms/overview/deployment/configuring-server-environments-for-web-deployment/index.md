@@ -2,12 +2,18 @@
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/index
 title: ASP.NET 4 — Konfigurowanie serwerów przedsiębiorstwa wdrożenia seria 2 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Ten samouczek przedstawia sposób konfigurowania środowisk serwera na potrzeby pomocy technicznej, uruchamiane jednym kliknięciem i automatycznych, wdrożenia witryny sieci Web i publikowania w różnych scen różnych...'
+description: Ten samouczek przedstawia sposób konfigurowania środowisk serwera na potrzeby pomocy technicznej, uruchamiane jednym kliknięciem i automatycznych, wdrożenia witryny sieci Web i publikowania w różnych scen różnych...
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: 489b414b-2322-4385-8638-04e08c0b6c90
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment
 msc.type: chapter
+ms.openlocfilehash: 559718b0ddb4ffc892ea166c7c3a4dfaf36e3691
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797432"
 ---
 <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a><span data-ttu-id="cbe54-103">ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 2: konfigurowanie serwerów</span><span class="sxs-lookup"><span data-stu-id="cbe54-103">ASP.NET 4 - Enterprise Deployment Series 2 Configuring Servers</span></span>
 ====================

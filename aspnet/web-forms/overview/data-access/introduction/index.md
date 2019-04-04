@@ -2,12 +2,18 @@
 uid: web-forms/overview/data-access/introduction/index
 title: Wprowadzenie | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Ten zestaw wprowadzających samouczków opisano procedurę tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI) i spójnego wyglądu w lokacji.'
+description: Ten zestaw wprowadzających samouczków opisano procedurę tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI) i spójnego wyglądu w lokacji.
 ms.author: riande
 ms.date: 11/11/2011
 ms.assetid: 74f3a86b-81fa-4d64-820a-304613f72caa
 msc.legacyurl: /web-forms/overview/data-access/introduction
 msc.type: chapter
+ms.openlocfilehash: 7f161727e5ad1dd509e308de939a11da4e061b70
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796389"
 ---
 <a name="introduction"></a><span data-ttu-id="25a7d-103">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="25a7d-103">Introduction</span></span>
 ====================

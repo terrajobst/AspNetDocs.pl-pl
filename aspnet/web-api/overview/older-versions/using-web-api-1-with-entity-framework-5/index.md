@@ -2,12 +2,18 @@
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/index
 title: Przy użyciu wzorca ASP.NET Web API 1 z platformą Entity Framework 5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Jak utworzyć aplikację sieci Web API 1, która używa programu Entity Framework dla bazy danych trwałości.'
+description: Jak utworzyć aplikację sieci Web API 1, która używa programu Entity Framework dla bazy danych trwałości.
 ms.author: riande
 ms.date: 06/16/2014
 ms.assetid: b380c940-84c4-4e4a-980a-fa69986e919b
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5
 msc.type: chapter
+ms.openlocfilehash: 805bf4e94dfbba7b8495ee42438b58bbad6e4b91
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797513"
 ---
 <a name="using-aspnet-web-api-1-with-entity-framework-5"></a><span data-ttu-id="b61fc-103">Używanie wzorca ASP.NET Web API 1 z programem Entity Framework 5</span><span class="sxs-lookup"><span data-stu-id="b61fc-103">Using ASP.NET Web API 1 with Entity Framework 5</span></span>
 ====================

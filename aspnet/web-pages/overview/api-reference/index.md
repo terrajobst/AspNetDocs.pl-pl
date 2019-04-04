@@ -8,6 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: c29776f2-10b5-4632-b383-5f43656d5900
 msc.legacyurl: /web-pages/overview/api-reference
 msc.type: chapter
+ms.openlocfilehash: ff02881684e0058732fc98476454b33bce523c7e
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796348"
 ---
 <a name="api-reference"></a><span data-ttu-id="3a6d3-103">Odwołanie do biblioteki API</span><span class="sxs-lookup"><span data-stu-id="3a6d3-103">API Reference</span></span>
 ====================

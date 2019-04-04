@@ -2,12 +2,18 @@
 uid: single-page-application/index
 title: ASP.NET pojedynczej strony aplikacji | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Pobierz aktualizację 2012 Fall ASP.NET i są lepiej obsługiwani end-to-end do tworzenia aplikacji za pomocą znaczące interakcji po stronie klienta, za pomocą JavaScrip...'
+description: Pobierz aktualizację 2012 Fall ASP.NET i są lepiej obsługiwani end-to-end do tworzenia aplikacji za pomocą znaczące interakcji po stronie klienta, za pomocą JavaScrip...
 ms.author: riande
 ms.date: 11/14/2012
 ms.assetid: 4760328c-3d73-4757-a36f-ab80a5b3f611
 msc.legacyurl: /single-page-application
 msc.type: categoryindex
+ms.openlocfilehash: 30b992967c3fe36539481f11a94a5db290cf99c5
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796580"
 ---
 <a name="aspnet-single-page-application"></a><span data-ttu-id="310a7-103">ASP.NET pojedynczej strony aplikacji</span><span class="sxs-lookup"><span data-stu-id="310a7-103">ASP.NET Single Page Application</span></span>
 ====================

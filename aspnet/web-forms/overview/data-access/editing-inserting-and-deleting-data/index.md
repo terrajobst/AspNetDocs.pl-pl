@@ -1,13 +1,19 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/index
-title: 'Edytowanie, wstawianie i usuwanie danych | Dokumentacja firmy Microsoft'
+title: Edytowanie, wstawianie i usuwanie danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'W tych samouczkach zobaczysz, jak zamapować metod formantu ObjectDataSource metody LOGIKI i sposób konfigurowania GridView DetailsView i FormView co...'
+description: W tych samouczkach zobaczysz, jak zamapować metod formantu ObjectDataSource metody LOGIKI i sposób konfigurowania GridView DetailsView i FormView co...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 9fc60498-ced4-47c6-b2cf-8d464e6aeef8
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data
 msc.type: chapter
+ms.openlocfilehash: e1eeed7541ad9c088cb87784ac33cc2f53fb8ed2
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796528"
 ---
 <a name="editing-inserting-and-deleting-data"></a><span data-ttu-id="a5831-103">Edytowanie, wstawianie i usuwanie danych</span><span class="sxs-lookup"><span data-stu-id="a5831-103">Editing, Inserting, and Deleting Data</span></span>
 ====================

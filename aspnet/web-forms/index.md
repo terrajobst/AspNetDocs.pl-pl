@@ -2,12 +2,18 @@
 uid: web-forms/index
 title: ASP.NET Web Forms | Microsoft Docs
 author: rick-anderson
-description: 'Pobierz Visual Web Developer Express & Dowiedz się, jak szybko utworzyć sieci web, które aplikacje przy użyciu łatwych do zrozumienia formantów na formularzach sieci Web platformy ASP.NET w projektowania wizualnego Environ —...'
+description: Pobierz Visual Web Developer Express & Dowiedz się, jak szybko utworzyć sieci web, które aplikacje przy użyciu łatwych do zrozumienia formantów na formularzach sieci Web platformy ASP.NET w projektowania wizualnego Environ —...
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: 7e4ce5d2-ab22-44f0-9825-c12eed7b8fcb
 msc.legacyurl: /web-forms
 msc.type: categoryindex
+ms.openlocfilehash: 88c12f74c3fa086a90b9999d6a4887be106c1e98
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797281"
 ---
 <a name="aspnet-web-forms"></a><span data-ttu-id="c4d60-103">Formularze sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="c4d60-103">ASP.NET Web Forms</span></span>
 ====================

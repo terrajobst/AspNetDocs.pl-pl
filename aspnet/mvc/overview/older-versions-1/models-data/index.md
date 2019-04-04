@@ -2,12 +2,18 @@
 uid: mvc/overview/older-versions-1/models-data/index
 title: Models (Data) | Microsoft Docs
 author: rick-anderson
-description: 'W tej serii samouczków dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. W trakcie tego samouczka utworzysz aplikację sieci web...'
+description: W tej serii samouczków dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. W trakcie tego samouczka utworzysz aplikację sieci web...
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
+ms.openlocfilehash: aee92dffc059d984bc9e5d5a93fc03ed4a2f8136
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796371"
 ---
 <a name="models-data"></a><span data-ttu-id="19dd8-104">Modele (dane)</span><span class="sxs-lookup"><span data-stu-id="19dd8-104">Models (Data)</span></span>
 ====================

@@ -2,12 +2,18 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/index
 title: Suwak | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'W tym samouczku pokazano, jak używać kontrolki suwaka do wyświetlania suwaka graficznych, które użytkownicy mogą kontrolować za pomocą myszy.'
+description: W tym samouczku pokazano, jak używać kontrolki suwaka do wyświetlania suwaka graficznych, które użytkownicy mogą kontrolować za pomocą myszy.
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: fd7812d1-55d7-4e4a-96c8-1614b375db56
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider
 msc.type: chapter
+ms.openlocfilehash: a73631fc1e5345e8705b6eb69e0241d44e298af7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796294"
 ---
 <a name="slider"></a><span data-ttu-id="0a7b5-103">Suwak</span><span class="sxs-lookup"><span data-stu-id="0a7b5-103">Slider</span></span>
 ====================
