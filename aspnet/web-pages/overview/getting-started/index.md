@@ -2,12 +2,18 @@
 uid: web-pages/overview/getting-started/index
 title: Wprowadzenie do składnika ASP.NET Web Pages | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Dowiedz się więcej o stron sieci Web platformy ASP.NET strony sieci Web ASP.NET i Nowa składnia Razor oferują szybki, przystępny i nieskomplikowany sposób łączenia kodu serwera z HTML t...'
+description: Dowiedz się więcej o stron sieci Web platformy ASP.NET strony sieci Web ASP.NET i Nowa składnia Razor oferują szybki, przystępny i nieskomplikowany sposób łączenia kodu serwera z HTML t...
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
+ms.openlocfilehash: d46c4100bf169caa5dfd0f265e16d00d519ac847
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796672"
 ---
 <a name="getting-started-with-aspnet-web-pages"></a>Wprowadzenie do wzorca ASP.NET Web Pages
 ====================

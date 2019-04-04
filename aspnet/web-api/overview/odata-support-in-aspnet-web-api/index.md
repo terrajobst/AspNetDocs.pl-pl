@@ -2,12 +2,18 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
 title: OData w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Jak utworzyć punkty końcowe OData w interfejsie API sieci Web. OData jest protokół dostępu do danych w sieci Web. Zapewnia jednolity sposób, w celu wykonywania zapytań i manipulowania zestawami danych. Internetowy interfejs API s...'
+description: Jak utworzyć punkty końcowe OData w interfejsie API sieci Web. OData jest protokół dostępu do danych w sieci Web. Zapewnia jednolity sposób, w celu wykonywania zapytań i manipulowania zestawami danych. Internetowy interfejs API s...
 ms.author: riande
 ms.date: 08/17/2012
 ms.assetid: 9151c605-e911-4f24-95b5-ca310b105abf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
+ms.openlocfilehash: 9b805bb1ed9d7b5dea53a2aaccbf471829145920
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796478"
 ---
 <a name="odata-in-aspnet-web-api"></a>OData w interfejsie Web API platformy ASP.NET
 ====================

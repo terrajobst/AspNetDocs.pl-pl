@@ -2,12 +2,18 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/index
 title: Wyświetlanie danych za pomocą kontrolek DataList i Repeater | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'W tych samouczkach przedstawiono alternatywnych sposobów, aby wyświetlić dane za pomocą kontrolek DataList i Repeater.'
+description: W tych samouczkach przedstawiono alternatywnych sposobów, aby wyświetlić dane za pomocą kontrolek DataList i Repeater.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 3005174a-ba3d-4937-8b3e-b913ee4172ac
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater
 msc.type: chapter
+ms.openlocfilehash: 7b751a7c9dfdb5738dafb795a82f80540ae002bd
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796710"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater"></a>Wyświetlanie danych za pomocą kontrolek DataList i Repeater
 ====================

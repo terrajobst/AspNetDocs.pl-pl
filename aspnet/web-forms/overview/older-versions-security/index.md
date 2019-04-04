@@ -2,12 +2,18 @@
 uid: web-forms/overview/older-versions-security/index
 title: Starsze wersje — zabezpieczenia | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Tematy zabezpieczenia, uwierzytelnianie i autoryzacja dla platformy ASP.NET 4 i starszych aplikacji formularzy sieci Web.'
+description: Tematy zabezpieczenia, uwierzytelnianie i autoryzacja dla platformy ASP.NET 4 i starszych aplikacji formularzy sieci Web.
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: 2f952638-6b1f-48b6-b019-1c5d1e9ab746
 msc.legacyurl: /web-forms/overview/older-versions-security
 msc.type: chapter
+ms.openlocfilehash: 5a2eeef18163d0d408e4aba33bad7464ebf600a8
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797401"
 ---
 <a name="older-versions---security"></a>Starsze wersje — zabezpieczenia
 ====================

@@ -1,13 +1,19 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
-title: 'ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1 | Dokumentacja firmy Microsoft'
+title: ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Ten przewodnik opisuje sposób spełnić wiele wyzwań, które będzie występować w przypadku zarządzać wdrażaniem aplikacji sieci web skali korporacyjnej rozwój...'
+description: Ten przewodnik opisuje sposób spełnić wiele wyzwań, które będzie występować w przypadku zarządzać wdrażaniem aplikacji sieci web skali korporacyjnej rozwój...
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: 83e0a572-428f-4bea-9638-1a031c6901c0
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
+ms.openlocfilehash: 92bc3d18c417e73e198d0f7663489fd931bf75b5
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796501"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1
 ====================

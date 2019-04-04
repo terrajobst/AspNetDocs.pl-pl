@@ -2,12 +2,18 @@
 uid: web-forms/overview/getting-started/index
 title: Wprowadzenie do wzorca ASP.NET Web Forms | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Dowiedz się więcej o ASP.NET sieci Web Forms formularzy sieci Web ASP.NET umożliwia kompilacji dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej i hund...'
+description: Dowiedz się więcej o ASP.NET sieci Web Forms formularzy sieci Web ASP.NET umożliwia kompilacji dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej i hund...
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: f645d3b1-1092-43c6-a28a-074b413924b4
 msc.legacyurl: /web-forms/overview/getting-started
 msc.type: chapter
+ms.openlocfilehash: de5f8df4a6247ae41971867cafda15835b4944e4
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57796472"
 ---
 <a name="getting-started-with-aspnet-web-forms"></a>Wprowadzenie do wzorca ASP.NET Web Forms
 ====================

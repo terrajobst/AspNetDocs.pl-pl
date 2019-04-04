@@ -2,12 +2,18 @@
 uid: mvc/videos/mvc-2/how-do-i/index
 title: How-Do-I | Microsoft Docs
 author: rick-anderson
-description: 'Filmy wideo w tej sekcji obejmują ASP.NET MVC, w tym jak utworzyć "Storefront" - aplikacji całego handlu elektronicznego od początku, aby zakończyć.'
+description: Filmy wideo w tej sekcji obejmują ASP.NET MVC, w tym jak utworzyć "Storefront" - aplikacji całego handlu elektronicznego od początku, aby zakończyć.
 ms.author: riande
 ms.date: 09/15/2011
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
+ms.openlocfilehash: 09b8b31059ed6a238414714847d191426e28db28
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57797488"
 ---
 <a name="how-do-i"></a>Jak to zrobić
 ====================

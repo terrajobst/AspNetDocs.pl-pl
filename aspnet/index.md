@@ -6,7 +6,13 @@ author: Rick-Anderson
 ms.author: riande
 title: Dokumentacja platformy ASP.NET
 ms.date: 08/24/2018
-description: 'Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i inne materiały.'
+description: Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i inne materiały.
+ms.openlocfilehash: d46c4b3f39a540244905be3e6cb9a48373613190
+ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58423753"
 ---
 <div id="main" class="v2">
     <div class="container">
