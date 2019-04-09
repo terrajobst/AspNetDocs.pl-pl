@@ -83,7 +83,7 @@ Zwróć uwagę, że treść strony HTML znajdującej się w ofercie 2 zawiera na
 
 &lt;% Response.Write(DateTime.Now)%&gt;
 
-Możesz użyć ograniczników skryptu &lt;% i %&gt; do oznaczania początku i końcu skryptu. Ten skrypt został napisany w języku Visual basic. Wyświetla bieżącą datę i godzinę, wywołując metodę Response.Write() do renderowania zawartości do przeglądarki. Ograniczniki skryptu &lt;% i %&gt; można wykonać jedną lub więcej instrukcji.
+Możesz użyć ograniczników skryptu &lt;% i %&gt; do oznaczania początku i końcu skryptu. Ten skrypt został napisany w języku Visual Basic. Wyświetla bieżącą datę i godzinę, wywołując metodę Response.Write() do renderowania zawartości do przeglądarki. Ograniczniki skryptu &lt;% i %&gt; można wykonać jedną lub więcej instrukcji.
 
 Ponieważ wywołujesz Response.Write() tak często, firma Microsoft umożliwia skrót do wywoływania metody Response.Write(). Wyświetl w ofercie 3 korzysta z ogranicznikami &lt;% = i %&gt; jako skrót do wywoływania Response.Write().
 
