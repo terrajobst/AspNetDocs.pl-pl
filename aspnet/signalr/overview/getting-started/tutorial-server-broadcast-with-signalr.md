@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aa8c0be6e4a758da34fc6eed902e31049d0a9a9c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078395"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379732"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Serwer emisji z SignalR 2
 
@@ -43,7 +43,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
- * [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
+* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
@@ -75,7 +75,7 @@ Rozpocznij od utworzenia *Stock* modelu klasy, które będzie używane do przech
 
 ### <a name="create-the-stocktickerhub-and-stockticker-classes"></a>Tworzenie klasy StockTickerHub i StockTicker
 
-Za pomocą interfejsu API Centrum SignalR będzie obsługiwać interakcji z serwera do klienta. A `StockTickerHub` klasę pochodzącą od `SignalRHub` klasy będzie obsługiwać odbieranie wywołań metod i połączenia od klientów. Należy również utrzymania danych giełdowych i uruchom `Timer` obiektu. `Timer` Obiektu okresowo spowoduje wyzwolenie aktualizacji cen niezależne od połączeń klientów. Nie można umieścić te funkcje w `Hub` klasy, ponieważ przejściowy koncentratorów. Aplikacja tworzy `Hub` wystąpienia klasy dla każdego zadania w Centrum, takich jak połączenia i wywołania od klienta do serwera. Dlatego mechanizm, który przechowuje dane zapasów, aktualizacji cen i emituje aktualizacji cen musi działać w osobnej klasy. Będzie nazwa klasy `StockTicker`.
+Za pomocą interfejsu API Centrum SignalR będzie obsługiwać interakcji z serwera do klienta. A `StockTickerHub` klasy pochodzącej od elementu SignalR `Hub` klasy będzie obsługiwać odbieranie wywołań metod i połączenia od klientów. Należy również utrzymania danych giełdowych i uruchom `Timer` obiektu. `Timer` Obiektu okresowo spowoduje wyzwolenie aktualizacji cen niezależne od połączeń klientów. Nie można umieścić te funkcje w `Hub` klasy, ponieważ przejściowy koncentratorów. Aplikacja tworzy `Hub` wystąpienia klasy dla każdego zadania w Centrum, takich jak połączenia i wywołania od klienta do serwera. Dlatego mechanizm, który przechowuje dane zapasów, aktualizacji cen i emituje aktualizacji cen musi działać w osobnej klasy. Będzie nazwa klasy `StockTicker`.
 
 ![Emisja z StockTicker](tutorial-server-broadcast-with-signalr/_static/image3.png)
 

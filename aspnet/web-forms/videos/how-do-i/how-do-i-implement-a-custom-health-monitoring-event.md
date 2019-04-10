@@ -8,15 +8,15 @@ ms.date: 12/17/2007
 ms.assetid: 5fa365a1-d709-40e2-b7bf-489ff687f2ce
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-event
 msc.type: video
-ms.openlocfilehash: d3d5955cbb432390c48b7174c3cb35e6c282bf79
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48e0449d09ff0dfee4820820fefc89113ff98e84
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078179"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383099"
 ---
-<a name="how-do-i-implement-a-custom-health-monitoring-event"></a>[Jak mogę] Implementowanie niestandardowego zdarzenia monitorowania kondycji
-====================
+# <a name="how-do-i-implement-a-custom-health-monitoring-event"></a>[Jak mogę] Implementowanie niestandardowego zdarzenia monitorowania kondycji
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym wideo pikseli Chris pokazują, jak utworzyć niestandardowego zdarzenia, która rozszerza standardowe zdarzeń monitorowania kondycji na ASP.NET monitorowania kondycji. Niestandardowy zdarzeń dodatkowe informacje i formatuje ją dla dostawcy zdarzeń monitorowania kondycji. Aby podnieść niestandardowego zdarzenia monitorowania kondycji jawnie od programu .NET Framework jedynie podniesienie standardowych zdarzeń monitorowania kondycji zostanie utworzony niestandardowy moduł HTTP. Ponadto zdarzenia monitorowania kondycji niestandardowego jest wywoływane jawnie na stronie za kod dla strony .aspx.

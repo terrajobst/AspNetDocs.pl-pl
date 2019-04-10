@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 90582e54-3e90-432a-9da5-689fb39ed56b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d1c3b59896b8c509e9c62738ccd1b37c250a840
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 668815d58f2dc9a67cce441dfa267fa043a35091
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074072"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387207"
 ---
-<a name="dynamically-populating-a-control-using-javascript-code-vb"></a>Dynamiczne wypełnianie kontrolki przy użyciu kodu JavaScript (VB)
-====================
+# <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>Dynamiczne wypełnianie kontrolki przy użyciu kodu JavaScript (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate1VB.pdf)
@@ -55,7 +55,7 @@ W celu próbki nieco bardziej elastyczne, użytkownik może teraz wybierać mię
 Należy pamiętać, że w kontekście przycisk radiowy, wyrażenie JavaScript `this.value` odnosi się do wartości bieżącego przycisku, które akurat jest dokładnie te same informacje `getDate()` metoda może pracować.
 
 
-[![Kliknięcie przycisku pobiera datę z serwera, w formacie określonym](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
+[![A Kliknij przycisk pobiera datę z serwera, w formacie określonym](dynamically-populating-a-control-using-javascript-code-vb/_static/image2.png)](dynamically-populating-a-control-using-javascript-code-vb/_static/image1.png)
 
 Kliknięcie przycisku pobiera datę z serwera, w formacie określonym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-populating-a-control-using-javascript-code-vb/_static/image3.png))
 

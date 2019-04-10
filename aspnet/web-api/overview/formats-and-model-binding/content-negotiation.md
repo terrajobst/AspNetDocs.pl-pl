@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/content-negotiation
-title: Zawartość negocjacji we wzorcu ASP.NET Web API | Dokumentacja firmy Microsoft
+title: Zawartość negocjacji we wzorcu ASP.NET Web API — ASP.NET 4.x
 author: MikeWasson
-description: W tym artykule opisano, jak ASP.NET Web API implementuje negocjacje zawartości HTTP.
+description: W tym artykule opisano, jak ASP.NET Web API implementuje HTTP negocjacje zawartości dla platformy ASP.NET 4.x.
 ms.author: riande
 ms.date: 05/20/2012
+ms.custom: seoapril2019
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfbed49c1022fbf26160e89aed3ab474f5e0fdc
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: cb6668ff6de276d3778ce11f27ce597d8bf1f9c7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425694"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380164"
 ---
-<a name="content-negotiation-in-aspnet-web-api"></a>Negocjowanie zawartości we wzorcu ASP.NET Web API
-====================
+# <a name="content-negotiation-in-aspnet-web-api"></a>Negocjowanie zawartości we wzorcu ASP.NET Web API
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-W tym artykule opisano, jak ASP.NET Web API implementuje negocjacji zawartości.
+W tym artykule opisano Implementowanie negocjacje zawartości dla platformy ASP.NET Web API platformy ASP.NET 4.x.
 
 Specyfikacja protokołu HTTP (RFC 2616) definiuje negocjacje zawartości jako "proces wybierania najlepszych reprezentację danej odpowiedzi, gdy istnieje wiele reprezentacji." Te nagłówki żądania są podstawowym mechanizmem negocjowanie zawartości w protokole HTTP:
 

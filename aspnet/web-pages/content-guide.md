@@ -8,15 +8,15 @@ ms.date: 01/13/2011
 ms.assetid: b558e481-775a-4aa0-bd3b-ad61e530c2d2
 msc.legacyurl: /web-pages/content-guide
 msc.type: content
-ms.openlocfilehash: e5c2edcceeda977919c1212719786630e7bb8a4f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e410ac0c6d3430c00e171775d842ee30eeab021
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067295"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383173"
 ---
-<a name="webmatrix-content-guide"></a>Przewodnik po zawartości programu WebMatrix
-====================
+# <a name="webmatrix-content-guide"></a>Przewodnik po zawartości programu WebMatrix
+
 
 > [!NOTE] 
 > Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [programu Visual Studio Code](https://code.visualstudio.com/).
@@ -42,7 +42,7 @@ Program WebMatrix to zestaw narzędzi, który umożliwia łatwe tworzenie witryn
 | Analizowanie ruchu sieciowego i Optymalizacja pod kątem optymalizacji dla aparatów wyszukiwania | [Analizowanie ruchu](https://go.microsoft.com/fwlink/?LinkId=202902) — śledzenie informacji odwiedzający (analiza) [Użyj program WebMatrix w celu optymalizacji witryny przez aparaty wyszukiwania](https://go.microsoft.com/fwlink/?LinkId=202953) [Optymalizuj pod kątem wyszukiwania](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/webx-seo.mp4) (wideo) |
 | Zwiększyć wydajność witryny sieci Web | [Dodawanie buforowania szybciej witryn sieci Web](https://go.microsoft.com/fwlink/?LinkId=202903) — buforowania, aby zwiększyć szybkość reakcji witryny sieci Web |
 | Dodawanie zabezpieczeń (Członkowskimi) w witrynie sieci Web | [Dodawanie zabezpieczeń i członkostwa](https://go.microsoft.com/fwlink/?LinkId=202904) — wprowadzenie do witryny sieci Web członkostwo — tworzenie witryny sieci Web, która ma rejestracji i strony logowania — Tworzenie strony tylko do elementów członkowskich — tworzenie zabezpieczeń dla grup użytkowników (role) — Tworzenie strony zmiany hasła — dzięki czemu Użytkownicy generowania nowego hasła — uniemożliwia automatyczne programy dołączenie do swojej witryny sieci Web |
-| Testowanie bezpiecznej komunikacji (SSL) | [Zabezpieczanie komunikacji w sieci Web: Certyfikaty SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660) |
+| Testowanie bezpiecznej komunikacji (SSL) | [Securing Web Communications: Certyfikaty SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660) |
 | Debugowanie stron sieci web za pomocą narzędzi i technik kodowania | [Wprowadzenie do debugowania](https://go.microsoft.com/fwlink/?LinkId=202905) — przy użyciu Pomocnika ServerInfo do wyświetlania informacji o serwerze — osadzanie wyrażeń w danych wyjściowych do wyświetlenia strony wartości — przy użyciu Pomocnika ObjectInfo, aby wyświetlić wartości obiektu — przy użyciu narzędzi do debugowania |
 | Dodawanie funkcji całej witryny w kodzie | [Dostosowywanie zachowania dla całej witryny](https://go.microsoft.com/fwlink/?LinkId=202906) — Dodawanie kodu do uruchomienia witryny sieci Web — uruchamianie kodu, przed i po nim pliki w folderze - tworzenia bardziej czytelne i którą można przeszukiwać adresów URL |
 | Publikowanie witryny sieci Web | [Sposób publikowania aplikacji sieci web za pomocą programu WebMatrix](https://go.microsoft.com/fwlink/?LinkId=202954) [pobierania, edytowanie i ponowne opublikowanie witryny sieci Web za pomocą programu WebMatrix](https://go.microsoft.com/?linkid=9751042) [Microsoft WebMatrix: Publikowanie zgodności](https://www.iis.net/learn/develop/troubleshooting-webmatrix/microsoft-webmatrix-publish-compatibility) [Microsoft WebMatrix: Certyfikat błędy podczas publikowania](https://www.iis.net/learn/develop/troubleshooting-webmatrix/microsoft-webmatrix-certificate-errors-during-publishing) [lokacji publikowanie](https://mediadl.microsoft.com/mediadl/www/s/silverlight/video/web/webmatrix/webx-publish.mp4) (wideo) |
@@ -50,7 +50,7 @@ Program WebMatrix to zestaw narzędzi, który umożliwia łatwe tworzenie witryn
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-**Read**
+**Odczyt**
 
 - [Zestaw szkoleniowy Camp w sieci Web firmy Microsoft dla programu WebMatrix](http://trainingkit.webcamps.ms/WebMatrix.htm)
 - [Prześlij usterkę lub sugestię](https://go.microsoft.com/fwlink/?LinkId=195940)

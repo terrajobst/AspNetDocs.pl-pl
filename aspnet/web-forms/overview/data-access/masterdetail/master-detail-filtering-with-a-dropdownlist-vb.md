@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: ea44717e-ab2e-46cd-a692-e4a9c0de194c
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d9d50da7f11d1494d49fbeaa18a45991e577cdb3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5db5e30cac21bad0591f4476a1b1156b50117536
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067010"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382267"
 ---
-<a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Filtrowanie rekordu głównego/szczegółów przy użyciu kontrolki DropDownList (VB)
-====================
+# <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Filtrowanie rekordu głównego/szczegółów przy użyciu kontrolki DropDownList (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_7_VB.exe) lub [Pobierz plik PDF](master-detail-filtering-with-a-dropdownlist-vb/_static/datatutorial07vb1.pdf)
@@ -35,7 +35,7 @@ Istnieje wiele sposobów, za pomocą których można zaimplementować wzorzec/sz
 Raport wzorzec/szczegół spowoduje wyświetlenie listy kategorii z kontrolki DropDownList, za pomocą elementu wybranej listy produktów wyświetlane dalej na dół strony w GridView. Pierwsze zadanie w przód od nas, następnie jest kategorie wyświetlane w kontrolki DropDownList. Otwórz `FilterByDropDownList.aspx` strony w `Filtering` folderu, przeciągnij z przybornika do projektanta strony kontrolki DropDownList i ustaw jego `ID` właściwość `Categories`. Następnie kliknij łącze Wybierz źródło danych z kontrolki DropDownList tagu inteligentnego. Spowoduje to wyświetlenie Kreatora konfiguracji źródła danych.
 
 
-[![Określ źródło danych metody DropDownList](master-detail-filtering-with-a-dropdownlist-vb/_static/image2.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image1.png)
+[![SOkreśl źródło danych metody DropDownList](master-detail-filtering-with-a-dropdownlist-vb/_static/image2.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image1.png)
 
 **Rysunek 1**: Określ źródło danych metody DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image3.png))
 
@@ -43,17 +43,17 @@ Raport wzorzec/szczegół spowoduje wyświetlenie listy kategorii z kontrolki Dr
 Wybierz dodać nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource` wywołującej `CategoriesBLL` klasy `GetCategories()` metody.
 
 
-[![Dodawanie nowego elementu ObjectDataSource, o nazwie CategoriesDataSource](master-detail-filtering-with-a-dropdownlist-vb/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image4.png)
+[![ADodaj nowe CategoriesDataSource o nazwie elementu ObjectDataSource](master-detail-filtering-with-a-dropdownlist-vb/_static/image5.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image4.png)
 
 **Rysunek 2**: Dodaj nazwę nowej kontrolki ObjectDataSource `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image6.png))
 
 
-[![Wybierz użyć klasy CategoriesBLL](master-detail-filtering-with-a-dropdownlist-vb/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image7.png)
+[![Cbierz na korzystanie z klasy CategoriesBLL](master-detail-filtering-with-a-dropdownlist-vb/_static/image8.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image7.png)
 
 **Rysunek 3**: Możliwość użycia `CategoriesBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image9.png))
 
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetCategories()](master-detail-filtering-with-a-dropdownlist-vb/_static/image11.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image10.png)
+[![Configuruj ObjectDataSource przy użyciu metody GetCategories()](master-detail-filtering-with-a-dropdownlist-vb/_static/image11.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image10.png)
 
 **Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image12.png))
 
@@ -61,7 +61,7 @@ Wybierz dodać nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource` 
 Po skonfigurowaniu ObjectDataSource musimy nadal określić które pole źródła danych powinny być wyświetlane w DropDownList i jedną powinna być skojarzona jako wartość dla elementu listy. Masz `CategoryName` pola jako ekran i `CategoryID` jako wartość dla każdego elementu listy.
 
 
-[![Masz wyświetlana lista DropDownList na pole CategoryName i użyj CategoryID jako wartość](master-detail-filtering-with-a-dropdownlist-vb/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image13.png)
+[![HAve wyświetlana lista DropDownList na pole CategoryName i użyj CategoryID jako wartość](master-detail-filtering-with-a-dropdownlist-vb/_static/image14.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image13.png)
 
 **Rysunek 5**: Ma ekran DropDownList `CategoryName` pola i użyj `CategoryID` jako wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image15.png))
 
@@ -69,7 +69,7 @@ Po skonfigurowaniu ObjectDataSource musimy nadal określić które pole źródł
 W tym momencie mamy wypełniony rekordy z kontrolki DropDownList `Categories` tabeli (wszystkie wykonywane w ciągu około sześciu sekund). Rysunek 6. pokazuje nasz postęp tej pory, podczas wyświetlania za pośrednictwem przeglądarki.
 
 
-[![Menu rozwijane zawiera listę bieżących kategorii](master-detail-filtering-with-a-dropdownlist-vb/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image16.png)
+[![A Lista rozwijana zawiera listę bieżących kategorii](master-detail-filtering-with-a-dropdownlist-vb/_static/image17.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image16.png)
 
 **Rysunek 6**: Wyświetla listę rozwijaną listę bieżących kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image18.png))
 
@@ -79,7 +79,7 @@ W tym momencie mamy wypełniony rekordy z kontrolki DropDownList `Categories` ta
 Ten ostatni etap naszego raportu wzorzec/szczegół jest aby wyświetlić listę produktów skojarzonych z wybranej kategorii. W tym celu na stronie Dodaj GridView i utworzyć nowe kontrolki ObjectDataSource, o nazwie `productsDataSource`. Masz `productsDataSource` kontroli wybrakowane swoje dane z `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody.
 
 
-[![Wybierz metodę GetProductsByCategoryID(categoryID)](master-detail-filtering-with-a-dropdownlist-vb/_static/image20.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image19.png)
+[![SWybiera metoda GetProductsByCategoryID(categoryID)](master-detail-filtering-with-a-dropdownlist-vb/_static/image20.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image19.png)
 
 **Rysunek 7**: Wybierz `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image21.png))
 
@@ -87,7 +87,7 @@ Ten ostatni etap naszego raportu wzorzec/szczegół jest aby wyświetlić listę
 Po wybraniu tej metody, Kreator ObjectDataSource nam monituje o podanie wartości dla metody *`categoryID`* parametru. Aby użyć wartości wybranych `categories` elementu DropDownList Ustaw źródło parametru do kontroli i ControlID do `Categories`.
 
 
-[![Ustaw categoryID parametru na wartość DropDownList kategorii](master-detail-filtering-with-a-dropdownlist-vb/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image22.png)
+[![Set categoryID wartość DropDownList kategorie](master-detail-filtering-with-a-dropdownlist-vb/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image22.png)
 
 **Rysunek 8**: Ustaw *`categoryID`* parametru na wartość `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
 
@@ -100,12 +100,12 @@ Poświęć chwilę, aby wyewidencjonować postępach w przeglądarce. Po pierwsz
 Rysunki 9 i 10 ilustrują raportu wzorzec/szczegół w działaniu.
 
 
-[![Po pierwsze, odwiedzając stronę, są wyświetlane produkty spożywczy](master-detail-filtering-with-a-dropdownlist-vb/_static/image26.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image25.png)
+[![WGD, odwiedzając pierwszej strony, produkty spożywczy są wyświetlane](master-detail-filtering-with-a-dropdownlist-vb/_static/image26.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image25.png)
 
 **Rysunek 9**: Po pierwsze, odwiedzając stronę, są wyświetlane produkty spożywczy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image27.png))
 
 
-[![Zaznaczenie nowego produktu (produkty) automatycznie powoduje odświeżenie strony, trwa aktualizowanie widoku GridView](master-detail-filtering-with-a-dropdownlist-vb/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image28.png)
+[![SWybranie nowego produktu (produkty) automatycznie powoduje odświeżenie strony, trwa aktualizowanie widoku GridView](master-detail-filtering-with-a-dropdownlist-vb/_static/image29.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Zaznaczenie nowego produktu (produkty) automatycznie powoduje odświeżenie strony, aktualizowanie kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image30.png))
 
@@ -117,7 +117,7 @@ Podczas odwiedzania najpierw `FilterByDropDownList.aspx` stronie kategorii pierw
 Aby dodać nowy element listy do metody DropDownList, przejdź do okna właściwości, a następnie kliknąć wielokropek w `Items` właściwości. Dodaj nowy element listy z `Text` "— Wybierz kategorię--" i `Value` `-1`.
 
 
-[![Dodaj wybierz kategorię — element listy](master-detail-filtering-with-a-dropdownlist-vb/_static/image32.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image31.png)
+[![Add wybierz kategorię — element listy](master-detail-filtering-with-a-dropdownlist-vb/_static/image32.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image31.png)
 
 **Rysunek 11**: Dodaj wybierz kategorię — element listy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image33.png))
 
@@ -138,7 +138,7 @@ Ponadto należy ustawić kontrolki DropDownList `AppendDataBoundItems` na warto�
 Po wprowadzeniu tych zmian po raz pierwszy, odwiedzając stronę opcji "--Wybierz kategorię--" jest zaznaczone, a produkty nie są wyświetlane.
 
 
-[![Po załadowaniu strony początkowej produkty nie są wyświetlane](master-detail-filtering-with-a-dropdownlist-vb/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image35.png)
+[![On początkowej Załaduj stronę produkty nie są wyświetlane](master-detail-filtering-with-a-dropdownlist-vb/_static/image36.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image35.png)
 
 **Rysunek 13**: Na początkowej produktów bez obciążenia strony są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image37.png))
 
@@ -153,7 +153,7 @@ Techniki używane w tym miejscu jest podobna do metody możemy używane do wyśw
 Zrzut ekranu pokazuje, rysunek 14 `FilterByDropDownList.aspx` po wybraniu opcji "--Wybierz kategorię--". W tym miejscu domyślnie są wyświetlane wszystkie produkty i użytkownika można zawęzić wyświetlania, wybierając określonej kategorii.
 
 
-[![Wszystkie produkty są teraz wyświetlane domyślnie](master-detail-filtering-with-a-dropdownlist-vb/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image38.png)
+[![Awszystkie produkty są teraz wyświetlane domyślnie](master-detail-filtering-with-a-dropdownlist-vb/_static/image39.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image38.png)
 
 **Rysunek 14**: Wszystkie produkty są teraz wyświetlane domyślnie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image40.png))
 

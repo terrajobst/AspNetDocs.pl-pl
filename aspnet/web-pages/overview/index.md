@@ -8,19 +8,19 @@ ms.date: 05/18/2012
 ms.assetid: 1a2ed0e8-63da-4110-9896-e2731d86f7c4
 msc.legacyurl: /web-pages/overview
 msc.type: book
-ms.openlocfilehash: f95d998b838e262dd1843c882dae466a88c23ad5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b4c9e9eb85f6ba9a1e2b2d0a1bbaf027ee25bc0d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797505"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381851"
 ---
-<a name="web-pages-guidance"></a>Wskazówki dotyczące stron sieci Web
-====================
+# <a name="web-pages-guidance"></a>Wskazówki dotyczące stron sieci Web
+
 - [Wprowadzenie](getting-started/index.md)
 
     - [Programowanie przy użyciu wzorca ASP.NET Web Pages w programie Visual Studio](getting-started/program-asp-net-web-pages-in-visual-studio.md)
-    - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](getting-started/introducing-razor-syntax-c.md)
+    - [Wprowadzenie do składni Razor programowania dla Internetu na platformie ASP.NET](getting-started/introducing-razor-syntax-c.md)
     - [ASP.NET Web Pages i Visual Basic](getting-started/introducing-razor-syntax-vb.md)
     - [ASP.NET Web Pages (Razor) — często zadawane pytania](getting-started/aspnet-web-pages-razor-faq.md)
     - [Wysyłanie wiadomości e-mail z witryny](getting-started/11-adding-email-to-your-web-site.md)
@@ -42,7 +42,7 @@ ms.locfileid: "57797505"
 - [Interfejs użytkownika, układy i motywy](ui-layouts-and-themes/index.md)
 
     - [Praca z formularzami](ui-layouts-and-themes/4-working-with-forms.md)
-    - [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites.md)
+    - [Walidacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites.md)
     - [Tworzenie spójnego wyglądu](ui-layouts-and-themes/3-creating-a-consistent-look.md)
     - [Dostosowywanie zachowania dla całej witryny](ui-layouts-and-themes/18-customizing-site-wide-behavior.md)
     - [Praca z obrazami](ui-layouts-and-themes/9-working-with-images.md)
@@ -67,13 +67,13 @@ ms.locfileid: "57797505"
 
     - [Dodawanie zabezpieczeń i członkostwa](security/16-adding-security-and-membership.md)
     - [Włączanie logowania z zewnętrznych witryn w witrynie ASP.NET Web Pages](security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site.md)
-    - [Korzystanie z mechanizmu CAPTCHA w celu uniemożliwiania automatycznym programom (robotom) korzystania z witryny ASP.NET](security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site.md)
+    - [Korzystanie z mechanizmu CAPTCHA w celu uniemożliwiania automatycznym programom (botom) korzystania z witryny ASP.NET](security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site.md)
 - [Wydajność](performance-and-traffic/index.md)
 
-    - [Buforowanie w celu poprawienia wydajności witryny](performance-and-traffic/15-caching-to-improve-the-performance-of-your-website.md)
+    - [Buforowanie w celu poprawienia wydajności witryny internetowej](performance-and-traffic/15-caching-to-improve-the-performance-of-your-website.md)
     - [Analizowanie ruchu](performance-and-traffic/14-analyzing-traffic.md)
     - [Tworzenie pakietów i minifikacja zasobów w witrynie ASP.NET Web Pages (Razor)](performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
-- [Dokumentacja interfejsu API](api-reference/index.md)
+- [Odwołanie do biblioteki API](api-reference/index.md)
 
     - [Interfejs API platformy ASP.NET — krótki przewodnik](api-reference/asp-net-web-pages-api-reference.md)
 - [Wydania](releases/index.md)

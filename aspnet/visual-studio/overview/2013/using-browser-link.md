@@ -8,15 +8,15 @@ ms.date: 10/04/2013
 ms.assetid: 46cbfe20-b4dc-449b-9016-80657dd44fbe
 msc.legacyurl: /visual-studio/overview/2013/using-browser-link
 msc.type: authoredcontent
-ms.openlocfilehash: f470aa7e425d16aec3f67d2a0ebb664a3e7eac41
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 723a38de4569b0bb58817c70aabb84fef8e19591
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075173"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395098"
 ---
-<a name="using-browser-link-in-visual-studio-2013"></a>Za pomocą łącza przeglądarki w programie Visual Studio 2013
-====================
+# <a name="using-browser-link-in-visual-studio-2013"></a>Za pomocą łącza przeglądarki w programie Visual Studio 2013
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 Łącze przeglądarki jest nową funkcją w programie Visual Studio 2013, która tworzy kanał komunikacyjny między środowiska programistycznego i jeden lub więcej przeglądarek sieci web. Można użyć łącze przeglądarki, aby odświeżyć aplikację sieci web w kilku przeglądarkach jednocześnie, która jest przydatna przy testowaniu obsługiwania wielu przeglądarek.

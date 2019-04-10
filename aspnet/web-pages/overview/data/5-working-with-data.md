@@ -8,15 +8,15 @@ ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: a688761c87376aa93463c13eaa07858d3acb9dc2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0fc828e39cfcce22d4cc226954cf7d1731b04e42
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078044"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379784"
 ---
-<a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn
-====================
+# <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule opisano, jak utworzyć bazę danych w witrynie internetowej ASP.NET Web Pages (Razor) za pomocą narzędzia Microsoft WebMatrix oraz sposób tworzenia stron, które pozwalają na wyświetlanie, dodawanie, edytowanie i usuwanie danych.
@@ -51,7 +51,7 @@ Wyobraź sobie książki adresowej typowy. Dla każdego wpisu w książce adreso
 
 Typowym sposobem obraz dane, takie jak to jest tabela z wierszami i kolumnami. Każdy wiersz względem bazy danych, jest często określane jako rekord. Każda kolumna (czasami określane jako pola) zawiera wartość dla każdego typu danych: imię, ostatni nazwy i tak dalej.
 
-| **Identyfikator** | **Imię** | **Nazwisko** | **Adres** | **Poczta e-mail** | **Telefon** |
+| **Identyfikator** | **FirstName** | **LastName** | **Adres** | **Poczta e-mail** | **Numer telefonu** |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Jakub | Adams | 1234 Main St. Seattle (Waszyngton) 99011 | terry@cohowinery.com | 555 0101 |
@@ -151,7 +151,7 @@ Gdy już masz bazę danych z danymi w nim dane można wyświetlić strony sieci 
 
 > [!TIP] 
 > 
-> **Język Structured Query Language (SQL)**
+> **Structured Query Language (SQL)**
 > 
 > SQL jest językiem, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia umożliwiające pobieranie danych i zaktualizować go i umożliwiające tworzenie, modyfikowanie i zarządzanie tabel bazy danych. SQL różni się od języka programowania (takiego jak używane w programie WebMatrix), ponieważ przy użyciu języka SQL, chodzi o to, że Poinformuj bazy danych należy, i jest zadanie bazy danych, aby dowiedzieć się, jak można pobrać dane lub wykonać zadania. Poniżej przedstawiono przykłady niektórych poleceń SQL oraz ich działania:
 > 
@@ -390,4 +390,4 @@ W tej sekcji pokazano, jak można zezwolić użytkownikom na usuwanie produktu z
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
 - [Łączenie się z programu SQL Server lub bazie danych MySQL w programie WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
-- [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Walidacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)

@@ -8,15 +8,15 @@ ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: d7985fcd48e1282437cc3a7d3c1b528af2e44ae0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a47d428830fa6c43bcb9ce797d65b73891b44618
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425785"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381890"
 ---
-<a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych na platformie ASP.NET 4.5
-====================
+# <a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych na platformie ASP.NET 4.5
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ta seria samouczków obejmuje podstawy tworzenia asynchronicznego wzorca ASP.NET Web Forms aplikacji za pomocą [Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11), która jest bezpłatna wersja programu Microsoft Visual Studio. Można również użyć [programu Visual Studio 2012](https://www.microsoft.com/visualstudio/11). Poniższe sekcje są uwzględnione w tym samouczku.
@@ -31,7 +31,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > - [Konfiguracja serwera dla wywołania usługi sieci Web opóźnienie współbieżności wysoki/wysoka](#ServerConfig)
 > 
 > Pełny przykład znajduje się w tym samouczku w  
->  [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/) na [GitHub](https://github.com/) lokacji.
+> [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/) na [GitHub](https://github.com/) lokacji.
 
 
 Strony sieci Web platformy ASP.NET 4.5 w połączeniu [.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx) umożliwia rejestrowanie metod asynchronicznych, które zwracają obiekt typu [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). .NET Framework 4 wprowadzono asynchronicznego koncepcji programowania, nazywane [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) i obsługuje ASP.NET 4.5 [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Zadania są reprezentowane przez **zadań** typu i powiązanych typów [System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx) przestrzeni nazw. .NET Framework 4.5 jest oparta na tej asynchronicznej obsługi za pomocą [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych, które ułatwić pracę z [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) obiektów znacznie mniej złożone niż wcześniejsza metody asynchroniczne. [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe jest syntaktycznych skrótem wskazująca, że fragment kodu asynchronicznego powinien zaczekać na inne części kodu. [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) — słowo kluczowe reprezentuje wskazówkę, która służy do oznaczania metod jako opartego na zadaniach asynchronicznej metody. Kombinacja **await**, **async**i **zadań** obiektu ułatwia pisanie kodu asynchronicznego w .NET 4.5. Nowy model, w przypadku metod asynchronicznych jest nazywany *wzorca asynchronicznego opartego na zadaniach* (**NACIŚNIJ**). W tym samouczku założono, masz pewną znajomość asynchroniczne przy użyciu programistyczne [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) przestrzeni nazw.
@@ -192,7 +192,7 @@ Aby wykorzystać zalety aplikacji sieci web asynchronicznego, konieczne może by
 
     - Otwórz Menedżera usług IIS i przejdź do okienka pul aplikacji.
     - Kliknij prawym przyciskiem myszy docelową pulę aplikacji, a następnie wybierz pozycję **Zaawansowane ustawienia**.  
-        ![Zaawansowane](using-asynchronous-methods-in-aspnet-45/_static/image4.png)
+        ![zaawansowane](using-asynchronous-methods-in-aspnet-45/_static/image4.png)
     - W **Zaawansowane ustawienia** okno dialogowe, zmiana *długość kolejki* od 1000 do 5000.  
         ![Długość kolejki](using-asynchronous-methods-in-aspnet-45/_static/image5.png)  
   
@@ -200,7 +200,7 @@ Aby wykorzystać zalety aplikacji sieci web asynchronicznego, konieczne może by
 
 - [Przechowywanie wersji platformy .NET i .NET 4.5 Multi-Targeting — jest uaktualnienie w miejscu do programu .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
 - [Jak skonfigurować aplikację usług IIS lub pulę aplikacji do użycia w programie ASP.NET 3.5, a nie w wersji 2.0](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-- [Wersje i zależności platformy .NET Framework](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- [Wersje i zależności programu .NET Framework](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
 
 - Jeśli aplikacja korzysta z usług sieci web lub może być konieczne zwiększenie przestrzeni nazw System.NET nawiązać połączenia z usługą zaplecza za pośrednictwem protokołu HTTP należy [connectionManagement/maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx) elementu. Dla aplikacji platformy ASP.NET to jest ograniczona przez funkcję automatycznej konfiguracji do 12 razy liczba procesorów CPU. Oznacza to, że na cztery procesory mogą istnieć maksymalnie 12 \* 4 = 48 jednoczesnych połączeń do punktu końcowego adresu IP. Ponieważ to jest powiązany z [autokonfiguracji](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx), najłatwiejszy sposób na zwiększenie `maxconnection` na platformie ASP.NET aplikacja ma ustawiony [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programowo w z `Application_Start` method in Class metoda *global.asax* pliku. Zobacz przykład pobrać przykład.
 - W .NET 4.5, wartość domyślna 5000 dla [MaxConcurrentRequestsPerCPU](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx) powinny być dobrym stanie.

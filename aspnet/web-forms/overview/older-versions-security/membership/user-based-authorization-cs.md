@@ -8,15 +8,15 @@ ms.date: 01/18/2008
 ms.assetid: 3c815a9e-2296-4b9b-b945-776d54989daa
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 18aad3bde961747af64de2b76ff83feb767597d9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f596a4a9ae92e567a5ac98db26584d4575931a60
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068594"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382108"
 ---
-<a name="user-based-authorization-c"></a>Autoryzacja oparta na użytkownikach (C#)
-====================
+# <a name="user-based-authorization-c"></a>Autoryzacja oparta na użytkownikach (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_07_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial07_UserAuth_cs.pdf)
@@ -45,7 +45,7 @@ Zajmiemy się składnia dla reguły autoryzacji adresów URL w kroku 1, ale najp
 Rysunek 1 przedstawia przepływ pracy potoku platformy ASP.NET `FormsAuthenticationModule`i `UrlAuthorizationModule` po nadejściu nieautoryzowanego żądania. W szczególności rysunek 1 pokazuje żądania anonimowe osoby odwiedzającej dla `ProtectedPage.aspx`, który jest strona, która nie zezwala na dostęp dla użytkowników anonimowych. Ponieważ użytkownik jest anonimowy, `UrlAuthorizationModule` anuluje żądanie i zwraca stan HTTP 401 nieautoryzowane. `FormsAuthenticationModule` Następnie konwertuje stanu 401 na przekierowanie 302 strony logowania. Po uwierzytelnieniu użytkownika za pośrednictwem strony logowania, użytkownik jest przekierowywany do `ProtectedPage.aspx`. Tym razem `FormsAuthenticationModule` identyfikację użytkownika, w oparciu o jego biletu uwierzytelniania. Teraz, gdy użytkownik jest uwierzytelniony, `UrlAuthorizationModule` zezwala na dostęp do tej strony.
 
 
-[![Uwierzytelnianie formularzy i przepływu pracy autoryzacji adresów URL](user-based-authorization-cs/_static/image2.png)](user-based-authorization-cs/_static/image1.png)
+[![TADAM uwierzytelniania formularzy i przepływu pracy autoryzacji adresu URL](user-based-authorization-cs/_static/image2.png)](user-based-authorization-cs/_static/image1.png)
 
 **Rysunek 1**: Uwierzytelnianie formularzy i przepływu pracy autoryzacji adresu URL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image3.png))
 
@@ -59,7 +59,7 @@ Wyobraź sobie, że naszej witryny sieci Web były jej reguł autoryzacji adres�
 Rysunek 2 przedstawia to mylące przepływu pracy.
 
 
-[![Domyślny przepływ pracy może prowadzić do mylące cyklu](user-based-authorization-cs/_static/image5.png)](user-based-authorization-cs/_static/image4.png)
+[![TUżytkownik domyślny przepływ pracy może prowadzić do cyklu mylące](user-based-authorization-cs/_static/image5.png)](user-based-authorization-cs/_static/image4.png)
 
 **Rysunek 2**: Domyślny przepływ pracy może prowadzić do cyklu mylące ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image6.png))
 
@@ -116,7 +116,7 @@ Program ASP.NET ułatwia do zdefiniowania reguł autoryzacji różne dla różny
 Zaktualizujmy naszą witrynę sieci Web, tak aby tylko uwierzytelnieni użytkownicy mogą odwiedzać strony ASP.NET w `Membership` folderu. W tym musimy dodać `Web.config` plik `Membership` folder i jego ustawienia autoryzacji, aby uniemożliwić użytkownikom anonimowym. Kliknij prawym przyciskiem myszy `Membership` folder w Eksploratorze rozwiązań wybierz menu Dodaj nowy element z menu kontekstowego, a następnie dodaj nowy plik konfiguracji sieci Web o nazwie `Web.config`.
 
 
-[![Dodaj plik Web.config w folderze członkostwa](user-based-authorization-cs/_static/image8.png)](user-based-authorization-cs/_static/image7.png)
+[![ADodaj plik Web.config w folderze członkostwa](user-based-authorization-cs/_static/image8.png)](user-based-authorization-cs/_static/image7.png)
 
 **Rysunek 3**: Dodaj `Web.config` plik `Membership` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image9.png))
 
@@ -124,7 +124,7 @@ Zaktualizujmy naszą witrynę sieci Web, tak aby tylko uwierzytelnieni użytkown
 W tym momencie projekt może zawierać dwóch `Web.config` pliki: jeden w katalogu głównym, a drugi w `Membership` folderu.
 
 
-[![Aplikacja powinna teraz zawierać dwóch plikach Web.config](user-based-authorization-cs/_static/image11.png)](user-based-authorization-cs/_static/image10.png)
+[![YNasza aplikacja powinna teraz zawierać dwóch plikach Web.config](user-based-authorization-cs/_static/image11.png)](user-based-authorization-cs/_static/image10.png)
 
 **Rysunek 4**: Usługi aplikacji powinny teraz zawierać dwa `Web.config` plików ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image12.png))
 
@@ -140,7 +140,7 @@ W celu przetestowania tej zmiany, odwiedź stronę główną w przeglądarce i u
 Kliknij link tworzenie kont użytkowników w lewej kolumnie. Spowoduje to przejście do `~/Membership/CreatingUserAccounts.aspx`. Ponieważ `Web.config` w pliku `Membership` folderu definiuje reguły autoryzacji, aby uniemożliwić dostęp anonimowy `UrlAuthorizationModule` anuluje żądanie i zwraca stan HTTP 401 nieautoryzowane. `FormsAuthenticationModule` Modyfikuje to 302 stan przekierowania przesyłania nam do strony logowania. Należy pamiętać, że strona możemy zostały próby uzyskania dostępu do (`CreatingUserAccounts.aspx`) jest przekazywana do strony logowania za pomocą `ReturnUrl` parametr querystring.
 
 
-[![Ponieważ adres URL autoryzacji zasady Stanów Zjednoczonych zabraniają anonimowy dostęp firma Microsoft nastąpi przekierowanie do strony logowania](user-based-authorization-cs/_static/image14.png)](user-based-authorization-cs/_static/image13.png)
+[![SInce adres URL autoryzacji zasady Stanów Zjednoczonych zabraniają anonimowy dostęp, firma Microsoft nastąpi przekierowanie do strony logowania](user-based-authorization-cs/_static/image14.png)](user-based-authorization-cs/_static/image13.png)
 
 **Rysunek 5**: Ponieważ adres URL autoryzacji zasady Stanów Zjednoczonych zabraniają anonimowy dostęp, firma Microsoft nastąpi przekierowanie do strony logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image15.png))
 
@@ -196,7 +196,7 @@ Powyższy kod przekierowuje uwierzytelnionego, nieautoryzowanym użytkownikom `U
 W tym momencie możemy anonimowe, więc `Request.IsAuthenticated` zwraca `false` i firma Microsoft nie nastąpi przekierowanie do `UnauthorizedAccess.aspx`. Zamiast tego zostanie wyświetlona strona logowania. Zaloguj się jako użytkownik inny niż Tito, takich jak Bruce. Po wprowadzeniu odpowiednimi poświadczeniami, logowania stronie przekierowuje nam z powrotem do `~/Membership/CreatingUserAccounts.aspx`. Jednak ponieważ ta strona jest dostępna wyłącznie dla Tito, firma Microsoft jest brak autoryzacji do wyświetlania go i niezwłocznie powrót do strony logowania. Tym razem jednak `Request.IsAuthenticated` zwraca `true` (i `ReturnUrl` parametr querystring istnieje), dzięki czemu możemy są przekierowywane do `UnauthorizedAccess.aspx` strony.
 
 
-[![Uwierzytelniony, nieautoryzowani użytkownicy są przekierowywane do UnauthorizedAccess.aspx](user-based-authorization-cs/_static/image17.png)](user-based-authorization-cs/_static/image16.png)
+[![Authenticated, nieautoryzowani użytkownicy są przekierowywani do UnauthorizedAccess.aspx](user-based-authorization-cs/_static/image17.png)](user-based-authorization-cs/_static/image16.png)
 
 **Rysunek 6**: Uwierzytelniony, nieautoryzowani użytkownicy są przekierowywane do `UnauthorizedAccess.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image18.png))
 
@@ -236,7 +236,7 @@ Powyższy kod używa [ `DirectoryInfo` klasy](https://msdn.microsoft.com/library
 Poświęć chwilę, aby odwiedzić tę stronę za pośrednictwem przeglądarki. Wyświetli listę plików znajdujących się w katalogu głównym aplikacji. Wyświetl lub usuń LinkButtons kliknięcie spowoduje odświeżenie strony, ale żadna akcja będzie być fakt, że zostały wykonane następujące kroki jeszcze do tworzenie obsługi zdarzeń wymagane.
 
 
-[![Kontrolki GridView Wyświetla listę plików w katalogu głównym aplikacji sieci Web](user-based-authorization-cs/_static/image20.png)](user-based-authorization-cs/_static/image19.png)
+[![Tzawiera on GridView listę plików w katalogu głównym aplikacji sieci Web](user-based-authorization-cs/_static/image20.png)](user-based-authorization-cs/_static/image19.png)
 
 **Rysunek 7**: Kontrolki GridView Wyświetla listę plików w katalogu głównym aplikacji sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image21.png))
 
@@ -252,7 +252,7 @@ Następnie należy utworzyć procedurę obsługi zdarzeń dla GridView [ `Select
 Ten kod korzysta z GridView `SelectedValue` właściwości, aby określić nazwę cały plik wybranego pliku. Wewnętrznie `DataKeys` odwołuje się do kolekcji w celu uzyskania `SelectedValue`, więc konieczne jest ustawienie GridView `DataKeyNames` właściwość na nazwę, jak opisano wcześniej w tym kroku. [ `File` Klasy](https://msdn.microsoft.com/library/system.io.file.aspx) służy do odczytywania zawartość wybranego pliku w ciąg, który jest przypisywany do `FileContents` pola `Text` właściwości, w ten sposób wyświetlania zawartości wybranego pliku na stronie.
 
 
-[![Zawartość pliku wybrana są wyświetlane w polu tekstowym](user-based-authorization-cs/_static/image23.png)](user-based-authorization-cs/_static/image22.png)
+[![Tw polu tekstowym jest wyświetlana zawartość HE wybrany plik](user-based-authorization-cs/_static/image23.png)](user-based-authorization-cs/_static/image22.png)
 
 **Rysunek 8**: Zawartość pliku wybrana są wyświetlane w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image24.png))
 
@@ -268,7 +268,7 @@ Na koniec należy dodać program obsługi zdarzeń, używając następującego k
 Kod po prostu Wyświetla pełną nazwę pliku do usunięcia w `FileContents` TextBox *bez* faktycznego usuwania pliku.
 
 
-[![Kliknięcie przycisku Usuń nie rzeczywistego usunięcia pliku](user-based-authorization-cs/_static/image26.png)](user-based-authorization-cs/_static/image25.png)
+[![Clicking usuwanie przycisku rzeczywistości nie usuwa plik](user-based-authorization-cs/_static/image26.png)](user-based-authorization-cs/_static/image25.png)
 
 **Rysunek 9**: Klikając polecenie Usuń przycisk rzeczywistości nie usuwa plik ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image27.png))
 
@@ -298,7 +298,7 @@ Jednak ten kod nie jest już prawidłowy. Przenosząc `FileContents` pole teksto
 Po przeniesieniu pole tekstowe do widoku logowania `LoggedInTemplate` i aktualizowania kodu strony z odwołaniem do pola tekstowego przy użyciu `FindControl("controlId")` wzorca, odwiedź stronę jako użytkownik anonimowy. Jak pokazano na rysunku nr 10, `FileContents` nie jest wyświetlane pole tekstowe. Element LinkButton widok nadal jest wyświetlany.
 
 
-[![Kontrolki widoku logowania renderuje tylko pole tekstowe FileContents dla uwierzytelnionych użytkowników](user-based-authorization-cs/_static/image29.png)](user-based-authorization-cs/_static/image28.png)
+[![TRenderuje on kontrolki widoku logowania tylko użytkownicy uwierzytelnieni w polu tekstowym FileContents](user-based-authorization-cs/_static/image29.png)](user-based-authorization-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Widoku logowania kontrolka renderuje tylko `FileContents` pole tekstowe dla użytkowników uwierzytelnionych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image30.png))
 
@@ -318,7 +318,7 @@ W tym momencie możemy dodać widoku logowania do TemplateField. Następujący k
 Na ilustracji 11 pokazano, w rezultacie nie jest że dość jako widok kolumny jest nadal wyświetlany, mimo że LinkButtons widok, w kolumnie są ukryte. Omówimy sposób ukrywania całą kolumnę GridView (i nie tylko element LinkButton) w następnej sekcji.
 
 
-[![Kontrolki widoku logowania ukrywa LinkButtons widoku dla użytkowników anonimowych](user-based-authorization-cs/_static/image32.png)](user-based-authorization-cs/_static/image31.png)
+[![TADAM kontrolki widoku logowania ukrywa LinkButtons widoku dla użytkowników anonimowych](user-based-authorization-cs/_static/image32.png)](user-based-authorization-cs/_static/image31.png)
 
 **Rysunek 11**: Kontrolki widoku logowania ukrywa LinkButtons widoku dla użytkowników anonimowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image33.png))
 
@@ -341,12 +341,12 @@ Dodaj następujący kod do `Page_Load` program obsługi zdarzeń przed wiązanie
 Tak jak Omówiliśmy to w [ *omówienie uwierzytelniania formularzy* ](../introduction/an-overview-of-forms-authentication-cs.md) samouczku `User.Identity.Name` zwraca nazwę tożsamości. Odpowiada to nazwa użytkownika wprowadzona w formancie logowania. Jeśli jest Tito, odwiedzając strony, druga kolumna w widoku GridView `Visible` właściwość jest ustawiona na `true`; w przeciwnym razie jest równa `false`. Wynikiem jest, że gdy ktoś inny niż Tito odwiedzin strony innego użytkownika uwierzytelnionego lub użytkownik anonimowy kolumny usuwania nie są odtwarzane (patrz rysunek 12); Jednak gdy Tito odwiedzających stronę, Usuń kolumnę jest obecny (zobacz rysunek 13).
 
 
-[![Usuń kolumnę jest nie renderowane podczas odwiedzone przez kogoś innego niż Tito (na przykład Bruce)](user-based-authorization-cs/_static/image35.png)](user-based-authorization-cs/_static/image34.png)
+[![TUsuń kolumnę jest nie renderowane podczas odwiedzone przez kogoś innego niż Tito (na przykład Bruce)](user-based-authorization-cs/_static/image35.png)](user-based-authorization-cs/_static/image34.png)
 
 **Rysunek 12**: Usuń kolumnę jest nie renderowane podczas odwiedzone przez kogoś innego niż Tito (na przykład Bruce) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image36.png))
 
 
-[![Usuń kolumnę nie jest renderowany Tito](user-based-authorization-cs/_static/image38.png)](user-based-authorization-cs/_static/image37.png)
+[![Tjest on Usuń kolumnę renderowany Tito](user-based-authorization-cs/_static/image38.png)](user-based-authorization-cs/_static/image37.png)
 
 **Rysunek 13**: Usuń kolumnę nie jest renderowany Tito ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image39.png))
 
@@ -366,7 +366,7 @@ Atrybut `SelectedIndexChanged` określają procedury obsługi zdarzeń, które t
 Jeśli jakiś sposób, próbuje wykonać użytkownik inny niż Tito `RowDeleting` programu obsługi zdarzeń lub bez uwierzytelnienia użytkownik podejmuje próbę wykonania `SelectedIndexChanged` programu obsługi zdarzeń środowiska uruchomieniowego .NET zgłosi `SecurityException`.
 
 
-[![Jeśli kontekst zabezpieczeń nie ma autoryzacji do wykonania metody, jest zgłaszany securityexception —](user-based-authorization-cs/_static/image41.png)](user-based-authorization-cs/_static/image40.png)
+[![IJeśli kontekst zabezpieczeń nie ma autoryzacji do wykonania metody, jest zgłaszany securityexception —](user-based-authorization-cs/_static/image41.png)](user-based-authorization-cs/_static/image40.png)
 
 **Rysunek 14**: Jeśli kontekst zabezpieczeń nie ma autoryzacji do wykonania metody `SecurityException` zgłaszany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](user-based-authorization-cs/_static/image42.png))
 

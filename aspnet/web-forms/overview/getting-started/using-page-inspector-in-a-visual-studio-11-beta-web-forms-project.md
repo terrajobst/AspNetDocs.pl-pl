@@ -8,20 +8,20 @@ ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: d2c377f8466f8f324b75ce60860aa00c11bc0ffe
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c39e1cf42fde382a9e74d7f865f0dac1aa62ddc8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076205"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384243"
 ---
-<a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms
-====================
+# <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms
+
 przez Tim Ammann
 
 > Narzędzie Page Inspector dla programu Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybranie dowolnego elementu w zintegrowanej przeglądarki i narzędzie Page Inspector natychmiast wyróżnia elementu źródłowego i arkusze CSS. Można przeglądać dowolnej strony w aplikacji, szybkie znalezienie źródła renderowanego kodu znaczników i użyj narzędzia przeglądarki bezpośrednio w środowisku Visual Studio.
 > 
-> Ten samouczek shwos jak włączyć tryb inspekcji i następnie szybko zlokalizować i edytować reguły CSS i tekstu w projekcie sieci web. W tym samouczku użyto projektu aplikacji formularzy sieci Web, ale można również użyć narzędzia Page Inspector dla projektów witryny sieci Web i [MVC](https://go.microsoft.com/?linkid=9802002) aplikacji.
+> W tym samouczku pokazano, jak włączyć tryb inspekcji szybko zlokalizować i edytować reguły CSS i tekstu w projekcie sieci web. W tym samouczku użyto projektu aplikacji formularzy sieci Web, ale można również użyć narzędzia Page Inspector dla projektów witryny sieci Web i [MVC](https://go.microsoft.com/?linkid=9802002) aplikacji.
 > 
 > Samouczek zawiera następujące sekcje:
 > 
@@ -198,7 +198,7 @@ Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie insp
 
 W przeglądarce narzędzia Page Inspector, umieść kursor myszy na sekcję "Home Page" do momentu **div.content otoki** etykieta jest wyświetlana. Kliknij raz, aby wybrać ten element.
 
-**— Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Kliknij pozycję "opakowanie .content .featured". Narzędzie Page Inspector otwiera się w pliku CSS, która definiuje ten styl (Site.css) i zaznacza odpowiednie style CSS.
+**Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Kliknij pozycję "opakowanie .content .featured". Narzędzie Page Inspector otwiera się w pliku CSS, która definiuje ten styl (Site.css) i zaznacza odpowiednie style CSS.
 
 ![Plik CSS](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image18.png)
 

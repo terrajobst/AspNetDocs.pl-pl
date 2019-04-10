@@ -8,15 +8,15 @@ ms.date: 10/16/2008
 ms.assetid: 37a1ebae-8773-408f-8645-d21da7ff9ae1
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b840e0a5cc325a043ae88c10f52cca418589119
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7de5a1545ee59e671058f09789ce69d5062d3655
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075401"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380980"
 ---
-<a name="passing-data-to-view-master-pages-vb"></a>Przekazywanie danych do stron wzorcowych widoku (VB)
-====================
+# <a name="passing-data-to-view-master-pages-vb"></a>Przekazywanie danych do stron wzorcowych widoku (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_VB.pdf)
@@ -33,7 +33,7 @@ Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontroler
 Wyobraź sobie, że tworzysz aplikacji bazy danych filmów i mają być wyświetlane na liście kategorii filmu na każdej stronie w aplikacji (patrz rysunek 1). Wyobraź sobie, co więcej, że na liście kategorii filmu są przechowywane w tabeli bazy danych. W takiej sytuacji sensowne będzie do pobrania kategorii z bazy danych i renderowania na liście kategorii filmu w obrębie strony wzorcowej widoku.
 
 
-[![Wyświetlanie kategorii filmu w widoku strony wzorcowej](passing-data-to-view-master-pages-vb/_static/image2.png)](passing-data-to-view-master-pages-vb/_static/image1.png)
+[![Dkategorie filmu isplaying strony wzorcowej widoku](passing-data-to-view-master-pages-vb/_static/image2.png)](passing-data-to-view-master-pages-vb/_static/image1.png)
 
 **Rysunek 01**: Wyświetlanie kategorii filmu w widoku strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-vb/_static/image3.png))
 
@@ -59,7 +59,7 @@ Należy zauważyć, że zarówno `Index()` i `Details()` akcje dodania dwóch el
 `Details()` Akcja go dodaje również dwa klucze o nazwie kategorie i filmy. Klucz kategorie reprezentuje jeszcze raz na liście kategorii filmu wyświetlane przez strony wzorcowej widoku. Klucz filmy reprezentuje listę filmów w określonej kategorii wyświetlanych przez strony widoku szczegółów (patrz rysunek 2).
 
 
-[![Widok szczegółów](passing-data-to-view-master-pages-vb/_static/image5.png)](passing-data-to-view-master-pages-vb/_static/image4.png)
+[![TWidok szczegółów HE](passing-data-to-view-master-pages-vb/_static/image5.png)](passing-data-to-view-master-pages-vb/_static/image4.png)
 
 **Rysunek 02**: Widok szczegółów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-vb/_static/image6.png))
 

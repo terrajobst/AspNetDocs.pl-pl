@@ -8,15 +8,15 @@ ms.date: 05/21/2008
 ms.assetid: 0aa1c84f-c9e2-4699-b009-0e28643ecbc6
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e3846ea696a1a5a29fd53d6753878fab9dd9a95d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 431d5a124017e2a23bfaa7579f63d61faf0b8ebd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069602"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379797"
 ---
-<a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-c"></a>Określanie tytułu, tagów meta i innych nagłówków HTML na stronie wzorcowej (C#)
-====================
+# <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-c"></a>Określanie tytułu, tagów meta i innych nagłówków HTML na stronie wzorcowej (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_03_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_03_CS.pdf)
@@ -169,7 +169,7 @@ Po wykonaniu tej czynności, odwiedź witrynę za pośrednictwem przeglądarki. 
 Rysunek 5. pokazuje `MultipleContentPlaceHolders.aspx` stronie podczas przeglądania za pośrednictwem przeglądarki. Należy pamiętać, że tytuł dokładnie strony filename (mniej rozszerzenia), "MultipleContentPlaceHolders".
 
 
-[![Jeśli tytuł nie jawnie określone, nazwa_pliku strony jest używane automatycznie](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image5.png)
+[![If tytuł nie jawnie określone, nazwa_pliku strony jest używane automatycznie](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image5.png)
 
 **Rysunek 05**: Jeśli tytuł nie jawnie określone, nazwa_pliku strony jest używane automatycznie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image7.png))
 
@@ -191,7 +191,7 @@ System mapy witryny jest kompilowanych [modelu dostawca](http://aspnet.4guysfrom
 Rozpocznij od utworzenia pliku mapy witryny w folderze głównym witryny sieci Web o nazwie `Web.sitemap`. W tym celu kliknij prawym przyciskiem myszy nazwę witryny sieci Web w Eksploratorze rozwiązań, wybierz pozycję Dodaj nowy element, a następnie wybierz szablon mapy witryny. Upewnij się, że plik ma nazwę `Web.sitemap` i kliknij przycisk Dodaj.
 
 
-[![Dodaj plik o nazwie Web.sitemap folder główny witryny sieci Web](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image8.png)
+[![ADodaj plik o nazwie Web.sitemap folder główny witryny sieci Web](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image8.png)
 
 **Rysunek 06**: Dodaj plik o nazwie `Web.sitemap` folder główny witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image10.png))
 
@@ -224,7 +224,7 @@ Rozpocznij od usuwanie istniejących znaczników listę nieuporządkowaną z sek
 Z Kreatora konfiguracji źródła danych wybierz powiązać formant SiteMapDataSource o nazwie ListView `LessonsDataSource`. Formant SiteMapDataSource zwraca strukturę hierarchiczną z systemu lokacji w mapie.
 
 
-[![Powiąż formant SiteMapDataSource kontrolki ListView LessonsList](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image12.png)
+[![BZnajdź SiteMapDataSource kontrolki do kontrolki ListView LessonsList](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image12.png)
 
 **Rysunek 08**: Powiązać formant SiteMapDataSource `LessonsList` kontrolki ListView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image14.png))
 
@@ -239,7 +239,7 @@ Po utworzeniu kontrolki SiteMapDataSource, należy zdefiniować szablony ListVie
 Po skonfigurowaniu szablonów ListView, odwiedź witrynę internetową. Jak pokazano na rysunku nr 9, w sekcji — lekcje zawiera pojedynczy element punktowanej głównej. Gdzie są informacje i za pomocą kontrolek ContentPlaceHolder wielu lekcje? SiteMapDataSource jest przeznaczony do zwrócenia hierarchicznego zestawu danych, ale kontrolki ListView mogą być wyświetlane tylko jeden poziom w hierarchii. W związku z tym tylko pierwszy poziom węzłów mapy witryny zwrócony przez SiteMapDataSource jest wyświetlany.
 
 
-[![Sekcja lekcje zawiera pojedynczego elementu listy](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image15.png)
+[![Ton — lekcje sekcja zawiera pojedynczy element listy](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image15.png)
 
 **Rysunek 09**: Sekcja lekcje zawiera pojedynczy element listy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image17.png))
 
@@ -254,7 +254,7 @@ Dzięki tej zmianie ListView Wyświetla elementy punktor, aby uzyskać informacj
 Konfigurując SiteMapDataSource, aby pominąć węzeł początkowy i jawne dodanie elementu punktor głównej w sekcji lekcje Wyświetla zamierzonych danych wyjściowych.
 
 
-[![W sekcji lekcje zawiera element punktor w domu i każdy węzeł podrzędny](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image18.png)
+[![Ton — lekcje sekcja zawiera punktor element do głównej i każdy węzeł podrzędny](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image18.png)
 
 **Na rysunku nr 10**: W sekcji lekcje zawiera element punktor w domu i każdy węzeł podrzędny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs/_static/image20.png))
 

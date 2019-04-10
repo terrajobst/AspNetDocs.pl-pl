@@ -8,15 +8,15 @@ ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b49c1e6425080693229c6c132df3879504c835c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067523"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379537"
 ---
-<a name="search"></a>Wyszukaj
-====================
+# <a name="search"></a>Wyszukaj
+
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
@@ -54,7 +54,7 @@ Jeśli `searchString` parametru zawiera ciąg, zapytanie filmy zostanie zmodyfik
 `s => s.Title` Powyższy kod jest [wyrażenia Lambda](https://msdn.microsoft.com/library/bb397687.aspx). Wyrażenia lambda są używane w oparte na metodzie [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) jako argumenty do standardowych metod operatorów kwerendy takich zapytań jak [gdzie](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) metodę użytą w kodzie powyżej. Zapytania LINQ nie są wykonywane, gdy są one definiowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego, wykonanie zapytania jest odroczone, co oznacza, że wyniku obliczenia wyrażenia zostanie opóźnione, dopóki wartość zrealizowane faktycznie jest powtarzana lub [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) metoda jest wywoływana. W `Search` przykładzie zapytanie jest wykonywane w *Index.cshtml* widoku. Aby uzyskać więcej informacji na temat wykonywania zapytań z opóźnieniem, zobacz [wykonywania zapytania](https://msdn.microsoft.com/library/bb738633.aspx).
 
 > [!NOTE]
-> [Zawiera](https://msdn.microsoft.com/library/bb155125.aspx) metoda jest uruchomiona w bazie danych, a nie kodu C# powyżej. W bazie danych [zawiera](https://msdn.microsoft.com/library/bb155125.aspx) mapuje [SQL LIKE](https://msdn.microsoft.com/library/ms179859.aspx), która jest uwzględniana wielkość liter.
+> [Zawiera](https://msdn.microsoft.com/library/bb155125.aspx) metoda jest uruchomiona w bazie danych, a nie kodu c# powyżej. W bazie danych [zawiera](https://msdn.microsoft.com/library/bb155125.aspx) mapuje [SQL LIKE](https://msdn.microsoft.com/library/ms179859.aspx), która jest uwzględniana wielkość liter.
 
 Teraz możesz zaktualizować `Index` widok, w którym będą wyświetlane na formularzu do użytkownika.
 

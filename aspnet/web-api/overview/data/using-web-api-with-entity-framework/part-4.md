@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: d2f5710c-23c7-40a5-9cd9-5d0516570cba
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5d05a2e5d4380a15078317545325bd20fde3f83c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: be4948e5443a5eb4e1824c63dd0c445a7ee1928e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070490"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384697"
 ---
-<a name="handling-entity-relations"></a>Obsługa relacji jednostek
-====================
+# <a name="handling-entity-relations"></a>Obsługa relacji jednostek
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
+[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
 W tej sekcji opisano niektóre szczegóły, jak EF ładuje powiązanych jednostek i sposób obsługi właściwości nawigacji cykliczne w klasach modeli. (Ta sekcja zawiera wiedzę i nie jest wymagane do ukończenia tego samouczka. Jeśli wolisz, przejdź do [część 5.](part-5.md).)
 

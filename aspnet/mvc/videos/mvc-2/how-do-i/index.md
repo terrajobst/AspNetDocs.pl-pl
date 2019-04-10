@@ -8,15 +8,15 @@ ms.date: 09/15/2011
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
-ms.openlocfilehash: 09b8b31059ed6a238414714847d191426e28db28
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 84c626764573108969fec51a2cba028e463b1962
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797488"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380889"
 ---
-<a name="how-do-i"></a>Jak to zrobić
-====================
+# <a name="how-do-i"></a>Jak to zrobić
+
 > Filmy wideo w tej sekcji obejmują ASP.NET MVC, w tym jak utworzyć "Storefront" - aplikacji całego handlu elektronicznego od początku, aby zakończyć.
 
 
@@ -30,12 +30,12 @@ ms.locfileid: "57797488"
 - [Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript](preventing-javascript-injection-attacks.md)
 - [Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC](creating-unit-tests-for-aspnet-mvc-applications.md)
 - [Tworzenie niestandardowych pomocników HTML](creating-custom-html-helpers.md)
-- [Tworzenie klas modelu za pomocą modelu LINQ to SQL](creating-model-classes-with-linq-to-sql.md)
+- [Tworzenie klas modeli za pomocą modelu LINQ to SQL](creating-model-classes-with-linq-to-sql.md)
 - [Wyświetlanie tabeli danych bazy danych](displaying-a-table-of-database-data.md)
 - [Co to jest ASP.NET MVC — 80-minutowy film techniczny dla deweloperów (tworzenie aplikacji NerdDinner)](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
-- [Dlaczego warto wybrać ASP.NET MVC — 3-minutowa prezentacja wideo dla osób podejmujących decyzje](why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
+- [Dlaczego warto wybrać wzorzec ASP.NET MVC — 3-minutowa prezentacja wideo dla osób podejmujących decyzje](why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
 - [ASP.NET MVC: 10-minutowe wideo techniczne dla deweloperów](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
-- [Zwracanie danych w formacie JSON na potrzeby wywoływania rozszerzeń AJAX w aplikacji internetowej ASP.NET MVC](how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
+- [Zwracanie danych w formacie JSON na potrzeby wywoływania AJAX w aplikacji internetowej ASP.NET MVC](how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
 - [Praca z danymi w widokach częściowych ASP.NET MVC](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
 - [Implementowanie modeli widoków do zarządzania danymi dla widoków ASP.NET MVC](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
 - [Tworzenie niestandardowego pomocnika HTML dla aplikacji MVC](how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)

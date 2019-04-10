@@ -8,15 +8,15 @@ ms.date: 05/29/2007
 ms.assetid: 15282963-2ec5-4013-b6bc-f1fcf272818e
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-nobot-control
 msc.type: video
-ms.openlocfilehash: 275bbbeb9859662c94bb795f9a91b15a28fe2184
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f03d94669d4d9b0089c8106b01812fe9722b6944
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069041"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379212"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a>[Jak mogę] Użyj kontrolka NoBot ASP.NET AJAX?
-====================
+# <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a>[Jak mogę] Użyj kontrolka NoBot ASP.NET AJAX?
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 Kontrolka NoBot z ASP.NET AJAX Control Toolkit zapobiega niektórych rodzajów nieautoryzowanego dostępu do aplikacji sieci Web. W tym filmie pokazano zobaczymy, jak kontrolka NoBot udostępnia szereg wbudowanych chroni przed automatyczny dostęp, w tym Sprawdzanie liczby i częstotliwości przesyłania formularza. Widzimy także, jak kontrolka umożliwia deweloperom Definiowanie niestandardowych wyzwania, takie jak test JavaScript, który zakończy się powodzeniem, tylko wtedy, gdy ta strona jest wyświetlana w przeglądarce.

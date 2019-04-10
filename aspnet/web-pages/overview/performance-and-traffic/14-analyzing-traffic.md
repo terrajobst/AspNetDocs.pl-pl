@@ -8,15 +8,15 @@ ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: 57e6a0d4681f147faa5e9ca3b6ed0ef287d6a381
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076541"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390223"
 ---
-<a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Obiekt odwiedzający informacji (analiza) witrynie ASP.NET Web Pages (Razor) ze śledzenia
-====================
+# <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Obiekt odwiedzający informacji (analiza) witrynie ASP.NET Web Pages (Razor) ze śledzenia
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule opisano, jak dodać analizy witryn sieci Web do stron w witrynie internetowej ASP.NET Web Pages (Razor) za pomocą pomocnika.
@@ -85,6 +85,6 @@ W tej procedurze utworzysz stronę układu, który używa `GetGoogleHtml` pomocn
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Witryna usługi Google Analytics](https://www.google.com/analytics/)
+- [Google Analytics site](https://www.google.com/analytics/)
 - [Yahoo! Analiza witrynę sieci Web](http://help.yahoo.com/l/us/yahoo/ywa/)
 - [StatCounter lokacji](http://statcounter.com/)

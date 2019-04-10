@@ -8,15 +8,15 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067526"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397373"
 ---
-<a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013
-====================
+# <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013
+
 przez [Erik Reitan](https://github.com/Erikre)
 
 Na wielu stronach formularz sieci Web ASP.NET piszesz kod w języku Visual Basic, C# lub innego języka. Edytor kodu w programie Visual Studio może pomóc szybko Pisz kod, a jednocześnie pomaga uniknąć błędów. Ponadto Edytor umożliwia sposobów zmniejszyć ilość pracy, które należy wykonać w celu utworzenia kodu wielokrotnego użytku.

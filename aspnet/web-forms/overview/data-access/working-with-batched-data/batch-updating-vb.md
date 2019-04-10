@@ -8,15 +8,15 @@ ms.date: 06/26/2007
 ms.assetid: d191a204-d7ea-458d-b81c-0b9049ecb55f
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dc40c056aa951b94ca0af2af339d9c7987ffd987
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d1809c869253ecb454e427a5092015a69009da5c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426032"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386947"
 ---
-<a name="batch-updating-vb"></a>Aktualizowanie w partiach (VB)
-====================
+# <a name="batch-updating-vb"></a>Aktualizowanie w partiach (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_64_VB.zip) lub [Pobierz plik PDF](batch-updating-vb/_static/datatutorial64vb1.pdf)
@@ -31,7 +31,7 @@ W [poprzedni Samouczek](wrapping-database-modifications-within-a-transaction-vb.
 W tym samouczku utworzymy GridView, gdzie każdy wiersz jest edytowalny (patrz rysunek 1). Ponieważ każdy wiersz jest wyświetlana w interfejsie edycji miejsca s nie ma potrzeby wartości w kolumnie edycji, zaktualizuj i przyciski "Anuluj". Zamiast tego, dostępne są dwa przyciski aktualizacji produktów na stronie, po kliknięciu wyliczyć wierszy GridView i aktualizują bazę danych.
 
 
-[![Każdy wiersz w widoku GridView jest edytowalna](batch-updating-vb/_static/image1.gif)](batch-updating-vb/_static/image1.png)
+[![Estacje wiersza w widoku GridView jest edytowalna](batch-updating-vb/_static/image1.gif)](batch-updating-vb/_static/image1.png)
 
 **Rysunek 1**: Każdy wiersz w widoku GridView jest edytowalna ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image2.png))
 
@@ -57,12 +57,12 @@ Ciągu kolejnych kilku kroków utworzymy całkowicie edytowalne GridView. W krok
 Zanim firma martwić się o tworzeniu GridView których wiersze są edytowalne, umożliwić s najpierw po prostu wyświetlanie informacji o produkcie. Otwórz `BatchUpdate.aspx` stronie `BatchData` folder i przeciągnij GridView z przybornika do projektanta. Ustaw GridView s `ID` do `ProductsGrid` i z jego tag inteligentny chcesz powiązać nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource można pobrać danych z `ProductsBLL` klasy s `GetProducts` metody.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLL](batch-updating-vb/_static/image2.gif)](batch-updating-vb/_static/image3.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLL](batch-updating-vb/_static/image2.gif)](batch-updating-vb/_static/image3.png)
 
 **Rysunek 2**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image4.png))
 
 
-[![Pobieranie danych produktu przy użyciu metody GetProducts](batch-updating-vb/_static/image3.gif)](batch-updating-vb/_static/image5.png)
+[![Robierz dane produktu przy użyciu metody GetProducts](batch-updating-vb/_static/image3.gif)](batch-updating-vb/_static/image5.png)
 
 **Rysunek 3**: Pobieranie danych produkt za pomocą `GetProducts` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image6.png))
 
@@ -70,7 +70,7 @@ Zanim firma martwić się o tworzeniu GridView których wiersze są edytowalne, 
 Podobnie jak GridView funkcji modyfikacji s ObjectDataSource zostały zaprojektowane do pracy na podstawie na wiersz. Aby zaktualizować zestaw rekordów, będziemy potrzebować do zapisania fragmentem kodu w klasie CodeBehind strony s ASP.NET, która partii dane i przekazuje je do LOGIKI. W związku z tym Ustaw list rozwijanych w ObjectDataSource s aktualizacji, WSTAWIANIA i usuwania karty na (Brak). Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](batch-updating-vb/_static/image4.gif)](batch-updating-vb/_static/image7.png)
+[![Set list rozwijanych w aktualizacji, WSTAWIANIA i usuwania karty (Brak)](batch-updating-vb/_static/image4.gif)](batch-updating-vb/_static/image7.png)
 
 **Rysunek 4**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image8.png))
 
@@ -107,7 +107,7 @@ Let s rozpoczynać `ProductName` TemplateField. Kliknij link Edytuj szablony z t
 Następnie dodaj RequiredFieldValidator do `ItemTemplate` aby upewnić się, że użytkownik udostępnia wartość dla każdej nazwy produktu s. Ustaw `ControlToValidate` Właściwość ProductName, `ErrorMessage` właściwości do Ciebie należy podać nazwę produktu. i `Text` właściwość \*. Po wprowadzeniu te dodatki do `ItemTemplate`, ekran powinien wyglądać podobnie jak rysunek 6.
 
 
-[![Teraz TemplateField ProductName zawiera pole tekstowe i RequiredFieldValidator](batch-updating-vb/_static/image6.gif)](batch-updating-vb/_static/image9.png)
+[![TZawiera on ProductName TemplateField teraz pole tekstowe i RequiredFieldValidator](batch-updating-vb/_static/image6.gif)](batch-updating-vb/_static/image9.png)
 
 **Rysunek 6**: `ProductName` TemplateField zawiera teraz pole tekstowe oraz RequiredFieldValidator ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image10.png))
 
@@ -117,7 +117,7 @@ Aby uzyskać `UnitPrice` edytowanie interfejsu, zacznij od skopiowania pole teks
 Również dodać CompareValidator do `UnitPrice` s `ItemTemplate` do upewnij się, że wartości wprowadzone przez użytkownika wartość waluty prawidłowe większe niż lub równe 0,00 USD. Ustaw s modułu sprawdzania poprawności `ControlToValidate` właściwość UnitPrice, jego `ErrorMessage` właściwości do Ciebie należy wprowadzić wartość waluty prawidłowe. Można pominąć wszystkie waluty symboli., jego `Text` właściwości \*, jego `Type` właściwości `Currency`, jego `Operator` właściwości `GreaterThanEqual`i jego `ValueToCompare` właściwości na wartość 0.
 
 
-[![Dodaj CompareValidator, aby upewnić się, wprowadzone cena to wartość waluty nieujemną.](batch-updating-vb/_static/image7.gif)](batch-updating-vb/_static/image11.png)
+[![Add CompareValidator, aby upewnić się, wprowadzone cena jest wartością walutową nieujemną.](batch-updating-vb/_static/image7.gif)](batch-updating-vb/_static/image11.png)
 
 **Rysunek 7**: Dodaj CompareValidator, aby upewnić się, wprowadzone cena jest wartością nieujemną waluty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image12.png))
 
@@ -135,12 +135,12 @@ Interfejs edytowania w `CategoryName` TemplateField s `EditItemTemplate` zawiera
 Przeciągnij kontrolki DropDownList z przybornika do `CategoryName` TemplateField s `ItemTemplate`, ustawiając jego `ID` do `Categories`. Na tym etapie firma Microsoft będzie zazwyczaj Definiowanie kontrolek DROPDOWNLIST s źródła danych za pomocą tagu inteligentnego tworzenia nowego elementu ObjectDataSource. Jednakże, spowoduje to dodanie elementu ObjectDataSource w ramach `ItemTemplate`, co spowoduje wystąpienie kontrolki ObjectDataSource utworzone dla każdego wiersza w widoku GridView. Zamiast tego można pozwolić tworzenia kontrolki ObjectDataSource poza s GridView kontrolek TemplateField s. Zakończ edycję szablonu i przeciągnij kontrolki ObjectDataSource z przybornika w Projektancie pod `ProductsDataSource` ObjectDataSource. Nadaj nazwę nowej kontrolki ObjectDataSource `CategoriesDataSource` i skonfigurować go do używania `CategoriesBLL` klasy s `GetCategories` metody.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy CategoriesBLL](batch-updating-vb/_static/image8.gif)](batch-updating-vb/_static/image13.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy CategoriesBLL](batch-updating-vb/_static/image8.gif)](batch-updating-vb/_static/image13.png)
 
 **Rysunek 8**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image14.png))
 
 
-[![Pobieranie danych kategorii przy użyciu metody GetCategories](batch-updating-vb/_static/image9.gif)](batch-updating-vb/_static/image15.png)
+[![Robierz dane kategorii przy użyciu metody GetCategories](batch-updating-vb/_static/image9.gif)](batch-updating-vb/_static/image15.png)
 
 **Rysunek 9**: Pobrać za pomocą danych kategorii `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image16.png))
 
@@ -148,7 +148,7 @@ Przeciągnij kontrolki DropDownList z przybornika do `CategoryName` TemplateFiel
 Ponieważ ten ObjectDataSource jest używany tylko w celu pobrania danych, należy ustawić list rozwijanych w kartach UPDATE i DELETE (Brak). Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![Zestaw list rozwijanych w aktualizacji i usuwania karty (Brak)](batch-updating-vb/_static/image10.gif)](batch-updating-vb/_static/image17.png)
+[![Set list rozwijanych w aktualizacji i usuwania karty (Brak)](batch-updating-vb/_static/image10.gif)](batch-updating-vb/_static/image17.png)
 
 **Na rysunku nr 10**: Ustaw listy rozwijane w aktualizacji i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image18.png))
 
@@ -161,7 +161,7 @@ Po zakończeniu pracy kreatora, `CategoriesDataSource` s oznaczeniu deklaracyjny
 Za pomocą `CategoriesDataSource` utworzone i skonfigurowane, wróć do `CategoryName` TemplateField s `ItemTemplate` a DropDownList s tagu inteligentnego, kliknij Link, wybierz źródło danych. W Kreatorze konfiguracji źródła danych wybierz `CategoriesDataSource` opcji z pierwszej listy rozwijanej, a następnie wybrać opcję `CategoryName` używany do wyświetlania i `CategoryID` jako wartość.
 
 
-[![Powiązywanie metody DropDownList CategoriesDataSource](batch-updating-vb/_static/image11.gif)](batch-updating-vb/_static/image19.png)
+[![BZnajdź DropDownList do CategoriesDataSource](batch-updating-vb/_static/image11.gif)](batch-updating-vb/_static/image19.png)
 
 **Rysunek 11**: Powiąż DropDownList do `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image20.png))
 
@@ -190,7 +190,7 @@ Uwaga jak `<asp:ListItem Value="">` — wybierz jedną — zawiera jego `Value` 
 Firma Microsoft ve wprowadzone szereg zmian do szablonów GridView s bez wstrzymywania, aby wyświetlić postępach. Poświęć chwilę, aby wyświetlić postępach za pośrednictwem przeglądarki. Jak pokazano na rysunku 13, każdy wiersz jest renderowany przy użyciu jego `ItemTemplate`, zawierającą s komórki edytowanie interfejsu.
 
 
-[![Każdy wiersz GridView jest edytowalna](batch-updating-vb/_static/image13.gif)](batch-updating-vb/_static/image21.png)
+[![Estacje wiersza w widoku GridView jest edytowalna](batch-updating-vb/_static/image13.gif)](batch-updating-vb/_static/image21.png)
 
 **Rysunek 13**: Każdy wiersz GridView jest edytowalna ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image22.png))
 
@@ -223,7 +223,7 @@ Po co powyżej wymienione zmiany formatowania, dodając formanty przycisków i u
 Rysunek 16 pokazuje tej strony, podczas wyświetlania za pośrednictwem przeglądarki, po dodaniu kontrolki przycisku w sieci Web i formatowania zmian.
 
 
-[![Teraz strona zawiera dwa przyciski produktów Update](batch-updating-vb/_static/image16.gif)](batch-updating-vb/_static/image23.png)
+[![Ton strony teraz obejmuje dwa aktualizacji produktów przyciski](batch-updating-vb/_static/image16.gif)](batch-updating-vb/_static/image23.png)
 
 **Rysunek 16**: Strona teraz obejmuje dwa aktualizacji produktów przyciski ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-updating-vb/_static/image24.png))
 

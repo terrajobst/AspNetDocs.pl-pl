@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: dd6bf5d8eb8a05dad1d230ef40c9b863e2af7094
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1f25a9afdf379d725496bd88f6ac192ab19930ca
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069716"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384516"
 ---
 # <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>Samouczek: Należy użyć migracje EF w aplikacji ASP.NET MVC i wdrożyć na platformie Azure
 
@@ -33,7 +33,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Elastyczność połączeń i przejmowanie poleceń](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+- [Odporność połączeń i przejmowanie poleceń](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-code-first-migrations"></a>Włączanie funkcji migracje Code First
 
@@ -168,8 +168,8 @@ Będzie wdrożyć bazę danych Azure SQL database. SQL database to usługa relac
 10. Modyfikowanie [sortowania](/sql/relational-databases/collations/collation-and-unicode-support) zgodnie z potrzebami.
 11. Wprowadź administrator **nazwa użytkownika administratora SQL** i **hasło administratora SQL**.
 
-   - W przypadku wybrania **nowy serwer SQL Database**, określić nową nazwę i hasło, które będzie używana później podczas dostępu do bazy danych.
-   - Jeśli został wybrany serwer, który został utworzony wcześniej, należy wprowadzić poświadczenia dla tego serwera.
+    - W przypadku wybrania **nowy serwer SQL Database**, określić nową nazwę i hasło, które będzie używana później podczas dostępu do bazy danych.
+    - Jeśli został wybrany serwer, który został utworzony wcześniej, należy wprowadzić poświadczenia dla tego serwera.
 
 12. Zbieranie danych telemetrycznych można włączyć dla usługi App Service za pomocą usługi Application Insights. Za pomocą mało konfigurowania usługi Application Insights zbiera cenne zdarzeń, wyjątków, zależności, żądania i informacje o śledzeniu. Aby dowiedzieć się więcej na temat usługi Application Insights, zobacz [usługi Azure Monitor](https://azure.microsoft.com/services/monitor/).
 13. Kliknij przycisk **Utwórz** u dołu, aby wskazać, że jesteś gotowy.

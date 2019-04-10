@@ -8,15 +8,15 @@ ms.date: 05/30/2007
 ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 770b1ae92db8384a0c0b7f038b1ea994ae4c1b4c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3e8fa3fe62ee2f58cd5cfbd32d17a3613cf80c12
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077993"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382502"
 ---
-<a name="caching-data-with-the-objectdatasource-c"></a>Buforowanie danych za pomocą kontrolki ObjectDataSource (C#)
-====================
+# <a name="caching-data-with-the-objectdatasource-c"></a>Buforowanie danych za pomocą kontrolki ObjectDataSource (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_58_CS.exe) lub [Pobierz plik PDF](caching-data-with-the-objectdatasource-cs/_static/datatutorial58cs1.pdf)
@@ -66,7 +66,7 @@ Zanim zaczniemy naszych eksploracji funkcji buforowania s ObjectDataSource, umo�
 Podobnie jak w przypadku innych folderów `Default.aspx` w `Caching` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![Rysunek 2: Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](caching-data-with-the-objectdatasource-cs/_static/image3.png)](caching-data-with-the-objectdatasource-cs/_static/image2.png)
+[![Figure 2: Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](caching-data-with-the-objectdatasource-cs/_static/image3.png)](caching-data-with-the-objectdatasource-cs/_static/image2.png)
 
 **Rysunek 2**: Rysunek 2: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image4.png))
 
@@ -91,7 +91,7 @@ W tym samouczku przedstawiono sposób użycia ObjectDataSource kontroli s wbudow
 Zacznij od otwarcia `ObjectDataSource.aspx` stronie `Caching` folderu. Przeciągnij GridView z przybornika w projektancie, ustaw jego `ID` właściwości `Products`i w tagu inteligentnego, chcesz powiązać kontrolkę ObjectDataSource o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource do pracy z `ProductsBLL` klasy.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLL](caching-data-with-the-objectdatasource-cs/_static/image7.png)](caching-data-with-the-objectdatasource-cs/_static/image6.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLL](caching-data-with-the-objectdatasource-cs/_static/image7.png)](caching-data-with-the-objectdatasource-cs/_static/image6.png)
 
 **Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image8.png))
 
@@ -99,7 +99,7 @@ Zacznij od otwarcia `ObjectDataSource.aspx` stronie `Caching` folderu. Przeciąg
 Na tej stronie umożliwiają s Utwórz GridView można edytować, aby można sprawdzić, co się stanie po zmodyfikowaniu dane buforowane w kontrolki ObjectDataSource za pośrednictwem interfejsu s GridView. Należy pozostawić listy rozwijanej wybierz OPCJĘ karty ustawiona na wartość domyślną `GetProducts()`, ale zmienić wybrany element na karcie aktualizacji `UpdateProduct` przeciążenie, które akceptuje `productName`, `unitPrice`, i `productID` jako jego parametry wejściowe.
 
 
-[![Ustawianie listy rozwijanej aktualizacji karty s przeciążenia UpdateProduct odpowiednie](caching-data-with-the-objectdatasource-cs/_static/image10.png)](caching-data-with-the-objectdatasource-cs/_static/image9.png)
+[![Set listy rozwijanej kartę s aktualizacji przeciążenia odpowiednie UpdateProduct](caching-data-with-the-objectdatasource-cs/_static/image10.png)](caching-data-with-the-objectdatasource-cs/_static/image9.png)
 
 **Rysunek 5**: Ustaw s kartę aktualizacji listy rozwijanej zastosowanie `UpdateProduct` przeciążenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image11.png))
 
@@ -114,7 +114,7 @@ Należy widoku GridView można edytować, zaznaczając pole wyboru Włącz edyto
 > Potrzebujesz przeglądu sposobu dostosowywania interfejsu edycji kontrolki GridView s? Jeśli tak, odwołaj się do [Dostosowywanie interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) samouczka.
 
 
-[![Włącz obsługę GridView do edycji, sortowania i stronicowania](caching-data-with-the-objectdatasource-cs/_static/image13.png)](caching-data-with-the-objectdatasource-cs/_static/image12.png)
+[![EWłącz GridView obsługę edycji, sortowanie i stronicowanie](caching-data-with-the-objectdatasource-cs/_static/image13.png)](caching-data-with-the-objectdatasource-cs/_static/image12.png)
 
 **Rysunek 6**: Włącz obsługę GridView do edycji, sortowania i stronicowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image14.png))
 
@@ -127,7 +127,7 @@ Po wprowadzeniu tych zmian GridView, kontrolkami GridView i kontrolki ObjectData
 Jak pokazano na rysunku 7, wyświetla listę GridView można edytować nazwy, kategorii i cenę każdego z produktów w bazie danych. Poświęć chwilę, w celu przetestowania sortowania funkcji strony s wyniki strony za pomocą ich i edytować rekord.
 
 
-[![Każdy produkt s nazwy, kategorii i cena znajduje się w sortowanie, Pageable, można edytować kontrolki GridView](caching-data-with-the-objectdatasource-cs/_static/image16.png)](caching-data-with-the-objectdatasource-cs/_static/image15.png)
+[![Estacje produktu s nazwa, kategoria i cena znajduje się w sortowanie, Pageable, można edytować GridView](caching-data-with-the-objectdatasource-cs/_static/image16.png)](caching-data-with-the-objectdatasource-cs/_static/image15.png)
 
 **Rysunek 7**: Każdy produkt s nazwy, kategorii i cena znajduje się w sortowanie, Pageable, można edytować kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image17.png))
 
@@ -141,7 +141,7 @@ Następująca sekwencja zdarzeń odbywa się z każdym razem, gdy widoku GridVie
 Aby w pełni docenić częstotliwość, z jaką dane są pobierane z bazy danych, umożliwiają s wyświetlić komunikat wskazujący, gdy dane są ponownie pobierane. Dodaj kontrolkę etykieta Web powyżej GridView o nazwie `ODSEvents`. Czyści jej `Text` właściwości i ustaw jego `EnableViewState` właściwość `false`. Poniżej etykiety, Dodaj kontrolkę przycisku w sieci Web, a następnie ustaw jego `Text` właściwość zwrotu.
 
 
-[![Dodaj etykietę i przycisk do strony powyżej widoku GridView](caching-data-with-the-objectdatasource-cs/_static/image19.png)](caching-data-with-the-objectdatasource-cs/_static/image18.png)
+[![ADodaj etykietę i przycisk, aby strona powyżej GridView](caching-data-with-the-objectdatasource-cs/_static/image19.png)](caching-data-with-the-objectdatasource-cs/_static/image18.png)
 
 **Rysunek 8**: Dodaj etykietę i przycisk do strony powyżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image20.png))
 
@@ -156,12 +156,12 @@ Każdorazowo, gdy kontrolki ObjectDataSource kieruje żądanie do architektury d
 Odwiedź tę stronę w przeglądarce. Po pierwsze odwiedzenia strony, zdarzenie Zaznaczanie tekstu, uruchamiane jest wyświetlany. Kliknij przycisk ogłaszania wstecznego i należy pamiętać, że tekst znika (przy założeniu, że GridView s `EnableViewState` właściwość jest ustawiona na `true`, wartość domyślna). To dlatego, na odświeżenie strony, widoku GridView jest odtworzone swój stan widoku i w związku z tym t sięgają ObjectDataSource dla swoich danych. Sortowanie, stronicowanie i edytowanie danych, jednak powoduje, że GridView ponownie powiązać ze swoim źródłem danych i w związku z tym zdarzenie wybranie uruchamiane wyświetleniu tekstu.
 
 
-[![Po każdym widoku GridView jest odbitych ze swoim źródłem danych, wybranie event uruchamiany jest wyświetlana](caching-data-with-the-objectdatasource-cs/_static/image22.png)](caching-data-with-the-objectdatasource-cs/_static/image21.png)
+[![Whenever, który widoku GridView jest odbitych do źródła danych, wybranie event uruchamiany jest wyświetlany](caching-data-with-the-objectdatasource-cs/_static/image22.png)](caching-data-with-the-objectdatasource-cs/_static/image21.png)
 
 **Rysunek 9**: Po każdym widoku GridView jest odbitych ze swoim źródłem danych, wybranie event uruchamiany jest wyświetlany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image23.png))
 
 
-[![Kliknięcie powoduje odświeżenie strony przycisk GridView, aby zostać odtworzone swój stan widoku](caching-data-with-the-objectdatasource-cs/_static/image25.png)](caching-data-with-the-objectdatasource-cs/_static/image24.png)
+[![Clicking powoduje odświeżenie strony przycisk GridView, aby zostać odtworzone swój stan widoku](caching-data-with-the-objectdatasource-cs/_static/image25.png)](caching-data-with-the-objectdatasource-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Kliknięcie przycisku zwrotu powoduje, że GridView zostać odtworzone swój stan widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image26.png))
 
@@ -180,7 +180,7 @@ Wystarczy ustawić kilka właściwości, można skonfigurować kontrolki ObjectD
 Umożliwiają konfigurowanie s `ProductsDataSource` ObjectDataSource do jego dane z pamięci podręcznej przez 30 sekund na skalę bezwzględną. Ustaw ObjectDataSource s `EnableCaching` właściwości `true` i jego `CacheDuration` właściwości do 30. Pozostaw `CacheExpirationPolicy` właściwość ustawioną na wartość domyślną `Absolute`.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource buforować dane przez 30 sekund](caching-data-with-the-objectdatasource-cs/_static/image28.png)](caching-data-with-the-objectdatasource-cs/_static/image27.png)
+[![Configuruj ObjectDataSource buforować dane przez 30 sekund](caching-data-with-the-objectdatasource-cs/_static/image28.png)](caching-data-with-the-objectdatasource-cs/_static/image27.png)
 
 **Rysunek 11**: Konfigurowanie kontrolki ObjectDataSource buforować dane przez 30 sekund ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image29.png))
 
@@ -227,7 +227,7 @@ Wszystkiego najlepszego programowania!
 
 Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [ASP.NET Caching: Technik i najlepszych rozwiązań](https://msdn.microsoft.com/library/aa478965.aspx)
+- [Program ASP.NET buforowanie: Technik i najlepszych rozwiązań](https://msdn.microsoft.com/library/aa478965.aspx)
 - [Buforowanie w Przewodniku dotyczącym architektury dla aplikacji .NET Framework](https://msdn.microsoft.com/library/ee817645.aspx)
 - [Dane wyjściowe pamięci podręcznej na platformie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 

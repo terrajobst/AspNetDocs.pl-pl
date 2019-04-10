@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: bd6611a03ee4940f5d4176ce23464f313b9ec884
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ece436d44908497d6cf10017ba1ee285bfb4a5b2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067541"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382107"
 ---
-<a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do wzorca ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix
-====================
+# <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do wzorca ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Niniejszy samouczek jest ostateczny PAYG w zestawie samouczków, która wprowadza stron ASP.NET Web Pages i programu Microsoft WebMatrix. Omówiono w nim sposób publikowania witryny z Internetem, aby inne osoby mogą pracować z nim. Przyjęto założenie, że zostały wykonane serii za pośrednictwem [tworzenia spójnego wyszukiwania do witryn stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251585).

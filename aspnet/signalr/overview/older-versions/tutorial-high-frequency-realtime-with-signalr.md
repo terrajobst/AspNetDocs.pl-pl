@@ -8,15 +8,15 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 60fffd7cd5139b2be34968c1f33474be867f0962
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 179f6dd3a60f8c49770ee34af93d54defad0adc4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422886"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379419"
 ---
-<a name="high-frequency-realtime-with-signalr-1x"></a>Wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu usługi SignalR 1.x
-====================
+# <a name="high-frequency-realtime-with-signalr-1x"></a>Wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu usługi SignalR 1.x
+
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
@@ -45,7 +45,7 @@ Gdy aplikacja będzie działać, przy użyciu tej metody, nie jest zalecany mode
 Ten samouczek zawiera następujące sekcje:
 
 - [Wymagania wstępne](#prerequisites)
-- [Tworzenie projektu](#createtheproject)
+- [Utwórz projekt](#createtheproject)
 - [Dodaj pakiety JQuery.UI NuGet i biblioteki SignalR platformy ASP.NET](#nugetpackages)
 - [Tworzenie podstawowej aplikacji](#baseapp)
 - [Dodaj pętlę klienta](#clientloop)

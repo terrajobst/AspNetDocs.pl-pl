@@ -8,15 +8,15 @@ ms.date: 02/17/2014
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: dd06a54d396bd85eeef7c004ee115828d541a2c1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dbcd25331387f8606343e551302bc3ed1f9b2c25
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067946"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379511"
 ---
-<a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Renderowanie witrynach ASP.NET Web Pages (Razor) dla urządzeń przenośnych
-====================
+# <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Renderowanie witrynach ASP.NET Web Pages (Razor) dla urządzeń przenośnych
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule opisano sposób tworzenia stron w witrynie ASP.NET Web Pages (Razor), która będzie renderowana odpowiednio na urządzeniach przenośnych.
@@ -37,7 +37,7 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 Strony ASP.NET Web Pages umożliwia tworzenie niestandardowych służy do renderowania zawartości na telefon komórkowy lub innych urządzeń.
 
-Najprostszym sposobem utworzenia strony specyficznych dla urządzenia w witrynie ASP.NET Web Pages jest przy użyciu wzorca nazewnictwa plików następująco: <em>FileName.</em><em>Mobile</em><em>.cshtml</em>. Możesz utworzyć dwie wersje strony (na przykład jeden o nazwie <em>MyFile.cshtml</em> i jedną o nazwie <em>MyFile.Mobile.cshtml</em>). W czasie, gdy urządzenie przenośne żąda wykonywania <em>MyFile.cshtml</em>, platforma ASP.NET renderuje zawartość z <em>MyFile.Mobile.cshtml</em>. W przeciwnym razie <em>MyFile.cshtml</em> jest renderowany.
+Najprostszym sposobem utworzenia strony specyficznych dla urządzenia w witrynie ASP.NET Web Pages jest przy użyciu wzorca nazewnictwa plików następująco: *FileName.Mobile.cshtml*. Możesz utworzyć dwie wersje strony (na przykład jeden o nazwie *MyFile.cshtml* i jedną o nazwie *MyFile.Mobile.cshtml*). W czasie, gdy urządzenie przenośne żąda wykonywania *MyFile.cshtml*, platforma ASP.NET renderuje zawartość z *MyFile.Mobile.cshtml*. W przeciwnym razie *MyFile.cshtml* jest renderowany.
 
 Poniższy przykład pokazuje, jak umożliwiające renderowanie mobilnych, dodając strony zawartości dla urządzeń przenośnych. *Page1.cshtml* zawiera zawartość oraz pasek boczny nawigacji. *Page1.Mobile.cshtml* zawiera tę samą zawartość, ale pomija pasku bocznym.
 

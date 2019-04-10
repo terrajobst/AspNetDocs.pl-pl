@@ -8,15 +8,15 @@ ms.date: 12/10/2012
 ms.assetid: b0a214c7-2f38-4dbc-b47f-bd7bd9df97bd
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: 3c14bc6feb144a52773bf7bd4c23df24966a9ebb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0603bc24e070e223551813f66a75889a2e46fd35
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068780"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379550"
 ---
-<a name="custom-mvc-template"></a>Niestandardowy szablon MVC
-====================
+# <a name="custom-mvc-template"></a>Niestandardowy szablon MVC
+
 przez [Eloff wybieramy](https://github.com/joeloff)
 
 Wersja MVC 3 Tools Update dla programu Visual Studio 2010 wprowadzono kreatora oddzielnego projektu dla projektów MVC. Zmiana została napędzana przez dwa czynniki. Po pierwsze wprowadzenia nowych szablonów w MVC 3 i pomoc techniczna dla aparatów widoków dodatkowe, takie jak Razor spowodować overcrowding oknie dialogowym Nowy projekt w programie Visual Studio. Po drugie klienci miał o punkty rozszerzeń i Kreator nowego projektu MVC czy umożliwić nam odpowiedzieć na te żądania.

@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: b384fe08ebd6a106b9469debfb13014e87534b8f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0fb0a331a2a6e2af5c5097db8b57942525d24ffc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425928"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384308"
 ---
-<a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
-====================
+# <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+
 przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -34,7 +34,7 @@ Ogólnie zaleca się wykonanie ciągłe dostarczanie do tworzenia i środowisk p
 
 Na poniższym diagramie z [Microsoft Patterns and Practices e-book, ciągłego dostarczania](https://aka.ms/ReleasePipeline) przedstawia Typowy przepływ pracy. Kliknij obraz, aby zobaczyć, jak to pełny rozmiar w jego oryginalnego kontekstu.
 
-[![Przepływ pracy ciągłego dostarczania](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
+[![Cprzepływ pracy dostarczania ontinuous](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Jak chmura umożliwia ekonomiczne ciągłej integracji i ciągłego wdrażania
 

@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: e40d2962ccac56eaaf4812819aa42168e69295bc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d76f607f1d5e779d43ee15d8f2d697e7b0f147ae
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067553"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380122"
 ---
-<a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy
-====================
+# <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Ten samouczek pokazuje, jak utworzyć formularz wprowadzania, a następnie wprowadź dane, który można pobrać z formularza do tabeli bazy danych użycia stron ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii za pośrednictwem [podstawy formularzy HTML strony ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581).

@@ -8,15 +8,15 @@ ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: d722130e625a9f867923280fce0ef35f19bfeb9d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 18056c917b32680678c536229e8e26d5cc7db161
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071015"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395137"
 ---
-<a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX
-====================
+# <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX
+
 przez [Scott Cate](https://github.com/scottcate)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
@@ -32,7 +32,7 @@ Tym oficjalnym dokumencie patrzy na wdrożenie i stosowanie profilowania ASP.NET
 
 Ten dokument jest oparty na wersji Beta 2 programu Visual Studio 2008 i programu .NET Framework 3.5. Tym oficjalnym dokumencie przyjęto założenie, będzie on pracować przy użyciu programu Visual Studio 2008 Beta 2, nie Visual Web Developer Express, i zapewnia wskazówki, zgodnie z interfejsu użytkownika programu Visual Studio. Przykłady kodu mogą korzystać z szablonów projektów w Visual Web Developer Express.
 
-## <a name="profiles-and-authentication"></a>*Profile i uwierzytelniania*
+## *<a name="profiles-and-authentication"></a>Profile i uwierzytelniania*
 
 Microsoft ASP.NET profilów i usług uwierzytelniania są dostarczane przez system uwierzytelnianie formularzy programu ASP.NET i są składniki standardowe programu ASP.NET. Rozszerzenia AJAX programu ASP.NET umożliwiają skryptu dostęp do tych usług za pomocą skryptu serwerów proxy, za pomocą bardzo prosta modelu w przestrzeni nazw Sys.Services biblioteki klienta AJAX.
 
@@ -42,7 +42,7 @@ Usługa profilu umożliwia automatyczne integracji i przechowywanie danych użyt
 
 Dołączanie do aplikacji uwierzytelnianie programu ASP.NET i uwierzytelnienia usługi profilowania, wykracza poza zakres tego dokumentu. Aby uzyskać więcej informacji na temat, zobacz biblioteki MSDN Library odwoływać się do artykułu Zarządzanie użytkownikami przy użyciu członkostwa w [ https://msdn.microsoft.com/library/tw292whz.aspx ](https://msdn.microsoft.com/library/tw292whz.aspx). Program ASP.NET zawiera również narzędzia, aby automatycznie skonfigurować członkostwo z programem SQL Server, która jest domyślnego dostawcę usługi uwierzytelniania dla członkostwa ASP.NET. Aby uzyskać więcej informacji, zobacz artykuł narzędzia rejestracji serwera SQL platformy ASP.NET (Aspnet\_regsql.exe) na [ https://msdn.microsoft.com/library/ms229862(vs.80).aspx ](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
-## <a name="using-the-aspnet-ajax-authentication-service"></a>*Przy użyciu usługi uwierzytelniania platformy ASP.NET AJAX*
+## *<a name="using-the-aspnet-ajax-authentication-service"></a>Przy użyciu usługi uwierzytelniania platformy ASP.NET AJAX*
 
 Usługa uwierzytelniania AJAX programu ASP.NET, należy włączyć w pliku web.config:
 
@@ -52,7 +52,7 @@ Usługa uwierzytelniania wymaga uwierzytelniania formularzy programu ASP.NET, ab
 
 Gdy usługa uwierzytelniania AJAX jest włączone i skonfigurowane, skrypt po stronie klienta mogą od razu korzystać Sys.Services.AuthenticationService obiektu. Skrypt po stronie klienta będzie przede wszystkim chcesz korzystać z zalet `login` metody i `isLoggedIn` właściwości. Istnieje kilka właściwości do zapewnienia wartości domyślne metody logowania, która może akceptować dużą liczbą parametrów.
 
-*Sys.Services.AuthenticationService members*
+*Elementy członkowskie Sys.Services.AuthenticationService*
 
 *Metoda logowania:*
 
@@ -112,7 +112,7 @@ Dokumentacja funkcji określonej przez tę właściwość powinna mieć następu
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| Błąd | Określa informacje o błędzie. |
+| error | Określa informacje o błędzie. |
 | userContext | Określa informacje o kontekście użytkownika, które zostały podane podczas logowania lub wylogowywania funkcja została wywołana. |
 | methodName | Nazwa metody wywołującej. |
 
@@ -304,7 +304,7 @@ Poniższy kod zostanie Sprawdź, czy użytkownik jest uwierzytelniany i jeśli t
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample12.js)]
 
-## <a name="using-a-custom-authentication-service-provider"></a>*Za pomocą dostawcy usług uwierzytelniania niestandardowego*
+## *<a name="using-a-custom-authentication-service-provider"></a>Za pomocą dostawcy usług uwierzytelniania niestandardowego*
 
 Rozszerzenia AJAX programu ASP.NET umożliwiają tworzenie dostawcy usługi uwierzytelniania niestandardowego skryptu, zapewniając swoje funkcje za pośrednictwem usługi sieci web niestandardowego. Aby możliwe było użycie usługi sieci web należy ujawnić dwie metody `Login` i `Logout`; i te metody musi być określona za pomocą tego samego podpisy metod jako domyślnej usługi sieci web ASP.NET AJAX uwierzytelniania.
 
@@ -338,7 +338,7 @@ Usługi ASP.NET — w szczególności usługi profilowania, członkostwo i uwier
 
 Ponadto tworząc implementacji usługi uproszczone sieci web za pomocą podpisów metody równoważne, deweloperzy mogą tworzyć dostawcy niestandardowego skryptu dla tych wewnętrznych usług ASP.NET. Obsługa tych technik upraszcza tworzenie zaawansowanych aplikacji klienckich, przy jednoczesnym zapewnieniu deweloperom z szerokiej gamy elastyczności w celu spełnienia określonych wymagań.
 
-## <a name="bio"></a>*Bio*
+## *<a name="bio"></a>Biografia*
 
 Scott Cate pracował nad przy użyciu technologii Microsoft Web od 1997 r i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacji koncentruje się na rozwiązania programowe wiedzy opartych na. Scott można się skontaktować za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blog znajduje się na [ScottCate.com](http://ScottCate.com)
 

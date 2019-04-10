@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 345f4981ebdd5384068bd42bce0581f94866ad1d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63efa46410e821947c6b0ee4ecd0c790fbf793e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065915"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380096"
 ---
-<a name="creating-a-business-logic-layer-vb"></a>Tworzenie warstwy logiki biznesowej (VB)
-====================
+# <a name="creating-a-business-logic-layer-vb"></a>Tworzenie warstwy logiki biznesowej (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_2_VB.exe) lub [Pobierz plik PDF](creating-a-business-logic-layer-vb/_static/datatutorial02vb1.pdf)
@@ -129,7 +129,7 @@ Do korzystania z nowej LOGIKI klas, wszystkie, które muszą być zmienione się
 Klasy LOGIKI również możliwy deklaratywne (jak wpisane w zestawie danych) za pomocą kontrolki ObjectDataSource. Omawiane będą ObjectDataSource bardziej szczegółowo w ramach następujących samouczków.
 
 
-[![Lista produktów są wyświetlane w widoku GridView](creating-a-business-logic-layer-vb/_static/image4.png)](creating-a-business-logic-layer-vb/_static/image3.png)
+[![TADAM lista produktów są wyświetlane w widoku GridView](creating-a-business-logic-layer-vb/_static/image4.png)](creating-a-business-logic-layer-vb/_static/image3.png)
 
 **Rysunek 3**: Lista produktów jest wyświetlany w kontrolce GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-business-logic-layer-vb/_static/image5.png))
 
@@ -148,7 +148,7 @@ Te reguły można i powinien zostać przedstawiony na poziomie bazy danych. Limi
 Oprócz Wymuszanie tych zasad w bazie danych są powinien również są wymuszane na poziomie zestawu danych. W rzeczywistości długość pola i tego, czy wartość jest wymagane lub opcjonalne są już przechwytywane dla każdego elementu DataTable zestawu elementach DataColumns. Aby wyświetlić istniejące weryfikacji na poziomie pola dostarczana automatycznie, przejdź do Projektanta obiektów DataSet, wybierz jedną z DataTables pola, a następnie przejdź do okna właściwości. Jak pokazano na rysunku 4, `QuantityPerUnit` DataColumn w `ProductsDataTable` może się składać maksymalnie 20 znaków i umożliwić `NULL` wartości. Jeśli firma Microsoft podejmie próbę ustaw `ProductsDataRow`firmy `QuantityPerUnit` właściwości na wartość ciągu jest dłuższa niż 20 znaków `ArgumentException` zostanie zgłoszony.
 
 
-[![DataColumn zapewnia podstawową walidację na poziomie pola](creating-a-business-logic-layer-vb/_static/image7.png)](creating-a-business-logic-layer-vb/_static/image6.png)
+[![TADAM DataColumn zapewnia podstawowe pole weryfikacji na poziomie](creating-a-business-logic-layer-vb/_static/image7.png)](creating-a-business-logic-layer-vb/_static/image6.png)
 
 **Rysunek 4**: DataColumn zapewnia podstawowe pole weryfikacji na poziomie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-business-logic-layer-vb/_static/image8.png))
 
@@ -156,7 +156,7 @@ Oprócz Wymuszanie tych zasad w bazie danych są powinien również są wymuszan
 Niestety, firma Microsoft nie można określić granice kontroli, takie jak `UnitPrice` wartość musi być większa lub równa zero, w oknie właściwości. Aby udostępnić ten typ weryfikacji na poziomie pola musimy utworzyć program obsługi zdarzeń dla tabeli DataTable [columnchanging —](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx) zdarzeń. Jak wspomniano w [poprzedni Samouczek](creating-a-data-access-layer-vb.md), obiektów DataSet, DataTable i DataRow, utworzonych przez wpisany zestaw danych można rozszerzyć za pomocą klasy częściowe. Ta technika, możemy utworzyć `ColumnChanging` program obsługi zdarzeń dla `ProductsDataTable` klasy. Rozpocznij od utworzenia klasy w `App_Code` folder o nazwie `ProductsDataTable.ColumnChanging.vb`.
 
 
-[![Dodaj nową klasę w folderze App_Code](creating-a-business-logic-layer-vb/_static/image10.png)](creating-a-business-logic-layer-vb/_static/image9.png)
+[![ADodaj nową klasę w folderze App_Code](creating-a-business-logic-layer-vb/_static/image10.png)](creating-a-business-logic-layer-vb/_static/image9.png)
 
 **Rysunek 5**: Dodaj nową klasę do `App_Code` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-business-logic-layer-vb/_static/image11.png))
 

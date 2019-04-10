@@ -8,15 +8,15 @@ ms.date: 01/10/2011
 ms.assetid: ffa3d5c9-91e5-4da3-b409-560b0c7fbbf0
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 3d729d1b0615533dddceff484acb3d42247f6cab
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7f0c5ff599235157bd11f5f86a26b8882e0f29dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076811"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381812"
 ---
-<a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Plik Readme dla programu WebMatrix i wzorca ASP.NET Web Pages (Razor) w wersji Beta 3
-====================
+# <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Plik Readme dla programu WebMatrix i wzorca ASP.NET Web Pages (Razor) w wersji Beta 3
+
 > Plik Readme dla programu WebMatrix i wzorca ASP.NET Web Pages (Razor) w wersji Beta 3
 
 9 listopada 2010
@@ -70,7 +70,7 @@ ms.locfileid: "57076811"
 
 > .NET Framework w wersji 4 jest wymagany dla programu WebMatrix w wersji Beta. W niektórych przypadkach Instalator programu WebMatrix w wersji Beta będzie można spróbować zainstalować na platformie, która nie jest częścią zestawu obsługiwanej konfiguracji. W szczególności Windows Vista bez dodatku SP1 dla aktualizacji będzie można rozpocząć instalację programu WebMatrix w wersji Beta, ale składnik .NET Framework 4 będą się nie powieść i blokowanie instalacji.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj na obsługiwanych platformach, w tym:
 > 
 > - Windows 7
@@ -83,7 +83,7 @@ ms.locfileid: "57076811"
 
 #### <a name="issue-cannot-install-webmatrix-beta-3-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Problem: Nie można zainstalować program WebMatrix w wersji Beta 3, jeśli zainstalowano program Microsoft Visual Studio 2008 bez programu Microsoft Visual Studio 2008 z dodatkiem SP1
 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj [programu Microsoft Visual Studio 2008 z dodatkiem SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) z Centrum pobierania Microsoft.
 
 
@@ -94,7 +94,7 @@ ms.locfileid: "57076811"
 > - *System.Data.SqlServerCe.dll* (ADO.NET provider)
 > - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Odinstalowanie programu SQL Server Compact 4.0. Pobierz i zainstaluj pełną wersję programu .NET Framework 3.5 SP1 w następującej lokalizacji:  
 >   
 > [Microsoft .NET Framework 3.5 z dodatkiem Service pack 1 (pełny pakiet)](https://go.microsoft.com/fwlink/?LinkId=194828)  
@@ -106,7 +106,7 @@ ms.locfileid: "57076811"
 
 > Używanie opcji wiersza polecenia programu SQL Server Compact dezinstalacji nie działa w tej wersji.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Użyj *programy i funkcje* w Panelu sterowania Windows, aby odinstalować program Microsoft SQL Server Compact 4.0.
 
 
@@ -117,7 +117,7 @@ ms.locfileid: "57076811"
 Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z wersji Beta 3 programu ASP.NET Web Pages o składni Razor.
 
 - [Nowe funkcje](#NewFeatures)
-- [Changes](#Changes)
+- [Zmiany](#Changes)
 - [Problemy](#Issues)
 
 <a id="NewFeatures"></a>
@@ -209,7 +209,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 
 > Może to być problemem, jeśli zamierzasz używać tabeli użytkownika niestandardowego dla członkostwa, ale nazwy tabeli problem, aby przekazać `WebSecurity.InitializeDatabaseConnection` metody. Ponieważ metoda nie domyślnie Zgłoś błąd, jeśli nie ma tabeli, które określisz, a zamiast tego tworzy nową tabelę, aplikacja może się pojawić działa. Jednak kod aplikacji, która opiera się na tabeli użytkownika niestandardowego (i w polach w nim) po pewnym czasie może zakończyć się nieoczekiwanym błędem.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Upewnij się, że nazwa jest przekazywany w `InitializeDatabaseConnection` metoda dopasowania profilu użytkownika tabeli w bazie danych członkostwa lub upewnij się, że `autoCreateTables` parametr ma wartość false.
 
 
@@ -224,7 +224,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Jeśli używasz niestandardowych zestawów w projekcie w programie Visual Studio, przestrzenie nazw zadeklarowanych w te zestawy nie są importowane automatycznie w czasie projektowania. W rezultacie odwołania do typów niestandardowych mogą nie być rozpoznawane w czasie projektowania i są oznaczone jako nie został rozpoznany w programie Visual Studio ("wężyk"). Ten problem występuje tylko w czasie projektowania w programie Visual Studio; sama aplikacja działa prawidłowo.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Obejmują `using` — instrukcja (`imports` w języku Visual Basic), odwołuje się do jednostek, które nie są rozpoznawane w czasie projektowania.
 
 
@@ -239,7 +239,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Po uaktualnieniu do wersji Beta 3, zostanie wyświetlony błąd, klasa pomocy (na przykład `Facebook` klasy) nie można odnaleźć. Począwszy od wersji Beta 2 i kontynuowanie w wersji Beta 3, pomocników zostały przeniesione do pakietów, które jawnie należy zainstalować. Istniejące witryny nie są uaktualniane do uwzględnienia tych pakietów; obejmuje to lokacje w *\My Documents\IISExpress* lub *\My Documents\My witryn sieci Web* folderów. W szczególności, zostanie wyświetlony ten błąd, jeśli używasz witryny domyślnej w *obszarze Moje witryny* (witryna "website1"), który zawiera odwołanie do `Twitter` pomocnika.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Komentarz wywołania wszystkie obiekty pomocnicze w danej lokacji, uruchom  *\_administratora* strony, a następnie zainstaluj pakiet lub pakiety zawierające wątków, które chcesz użyć. Po zainstalowaniu pakietu usuniesz komentarz wiersze, które odwołują się pomocników.
 
 
@@ -271,7 +271,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 
 > Ten problem nie występuje po załadowaniu wersji Beta 3 na oczyszczonym komputerze.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > W Panelu sterowania odinstaluj stron ASP.NET Web Pages. Następnie ponownie zainstalować wersji Beta 3.
 
 
@@ -292,7 +292,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Podczas wdrażania, kopie zestawów stron ASP.NET Web Pages (na przykład *Microsoft.WebPages.dll*) do *Bin* folderu witryny sieci Web na serwerze. (To może być spowodowane tym automatycznie podczas wdrażania lub ponieważ Deweloper jawnie skopiowany zestawów.) Jednak po zainstalowaniu wersji Beta 3, błędy występuje, takie jak błędy, których nie można znaleźć niektórych typów. Dzieje się tak, ponieważ wiele typów stron sieci Web platformy ASP.NET zostały przeniesione do innej przestrzeni nazw w wersji Beta 3.
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Wyczyść *Bin* folderu wdrożonej aplikacji, skopiuj nowych zestawów do folderu (lub ponownego wdrażania aplikacji), a następnie ponownie uruchom aplikację.
 
 
@@ -304,7 +304,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 
 > Problem pojawia się, ponieważ ponownego zapisywania adresów URL nie jest włączone domyślnie dla usług IIS 7 i IIS 7.5. Scenariusz likeliest jest, że nie ma problem podczas testowania lokalnie przy użyciu usług IIS Express, ale występują w przypadku wdrażania witryny sieci Web do hostowania witryny sieci Web.
 > 
-> **Obejście problemu**
+> **Obejście**
 > 
 > - Jeśli masz kontrolę nad komputerem serwera, na komputerze serwera, zainstaluj aktualizację opisaną na stronie [aktualizacja jest dostępna, że umożliwia niektórych obsługi usług IIS 7.0 lub 7.5 usług IIS do obsługi żądań, których adresy URL nie kończą się kropką](https://support.microsoft.com/kb/980368).
 > - Jeśli nie masz kontrolę nad komputerem serwera (na przykład wdrażasz do hostingu witryny sieci Web), Dodaj następujący kod do witryny sieci Web *Web.config* pliku:
@@ -317,7 +317,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Jeśli używano stron ASP.NET Web Pages w projekcie aplikacji sieci Web lub w aplikacji ASP.NET MVC, zostanie wyświetlony błąd, *WebPageHttpApplication* nie można odnaleźć.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Jeśli ten błąd, Zmień klasę bazową, z którego pochodzi aplikacja. W *Global.asax* plików, zmień następujący wiersz:
 > 
 > [!code-csharp[Main](beta3/samples/sample8.cs)]
@@ -351,7 +351,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Jeśli używasz języka Visual Basic (Tworzenie *.vbhtml* plików), `Database` i `WebGrid` pomocników nie będzie działać, jeśli aplikacja jest skonfigurowana do użycia w trybie średniego zaufania.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Tymczasowe ustawienie aplikacji można używać pełnego zaufania.
 
 <a id="Known_Issues_SQL_Server_Compact"></a>
@@ -361,7 +361,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > SQL Server Compact 4.0 nie rozpoznaje `Encrypt` właściwość `SqlCeConnection` klasy. Nie należy używać tej właściwości do szyfrowania plików bazy danych. `Encrypt` Właściwość została zakończona w SQL Server Compact 3.5 wersji i została zachowana tylko w przypadku zgodności z poprzednimi wersjami. 
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Użyj `Encryption Mode` właściwość `SqlCeConnection` klasy do szyfrowania plików bazy danych programu SQL Server Compact 4.0. Poniższy przykład pokazuje, jak utworzyć zaszyfrowane programu SQL Server Compact 4.0 bazy danych przy użyciu `Encryption Mode` właściwości:
 > 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
@@ -385,7 +385,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Natywnych bibliotek DLL programu SQL Server Compact 4.0 muszą programu Microsoft Visual C++ 2008 bibliotek środowiska uruchomieniowego (x 86, IA64 i x 64), z dodatkiem Service Pack 1.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj program .NET Framework 3.5 SP1. Spowoduje to również zainstalowanie Visual C++ 2008 środowiska uruchomieniowego bibliotek z dodatkiem SP1. Biblioteki można pobrać z następującej lokalizacji:   
 >   
 > [Aktualizacja zabezpieczeń biblioteki ATL do programu Microsoft Visual C++ 2008 z dodatkiem Service Pack 1 pakietu redystrybucyjnego](https://go.microsoft.com/fwlink/?LinkId=194827)
@@ -400,7 +400,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 
 > [!code-xml[Main](beta3/samples/sample17.xml)]
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Odinstaluj program SQL Server Compact 4.0 CTP1. Pobierz i zainstaluj pełne wersje programu .NET Framework z następującej lokalizacji:
 > 
 > [Microsoft .NET Framework 3.5 z dodatkiem Service pack 1 (pełny pakiet)](https://go.microsoft.com/fwlink/?LinkId=194828)  
@@ -415,7 +415,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Problem: Instalowanie aplikacji może zająć dużo czasu, jeśli folder Moje dokumenty użytkownika jest przekierowywany do udziału sieciowego
 
-> **Obejście problemu**  
+> **Obejście**  
 > Brak. Aplikacja może potrwać chwilę, aby zainstalować, ale zostanie zainstalowany poprawnie.
 
 
@@ -427,7 +427,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > W **ustawień publikowania** okno dialogowe, jeśli docelowy adres URL rozpoczyna się od `http://` lub `https://`, witryna może nie działać po wdrożeniu.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Upewnij się, że przed opublikowaniem witryny, docelowy adres URL na **ustawień publikowania** zaczyna się okno dialogowe `http://` lub `https://`.
 
 
@@ -435,7 +435,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Ten błąd może wystąpić z kilku powodów. Jedną z przyczyn tego błędu są widoczne jest, jeśli skrypt bazy danych zawiera znak pojedynczego cudzysłowu ('), jak i docelowej bazy danych MySQL na domyślny zestaw znaków nie jest na UTF-8.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Ustaw domyślny zestaw znaków dla zdalnej bazy danych MySQL na UTF-8.
 
 
@@ -454,7 +454,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Przechodzenie do aplikacji WCF powoduje błąd podobny do następującego:
 > 
-> *Nie można załadować pliku lub zestawu ' Microsoft.Web.Administration, wersja = 7.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 "lub jednej z jego zależności. System nie może odnaleźć określonego pliku.*
+> *Nie można załadować pliku lub zestawu ' Microsoft.Web.Administration, wersja = 7.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 "lub jednej z jego zależności. W systemie nie można odnaleźć określonego pliku.*
 > 
 > Dzieje się tak, ponieważ wersja usług IIS Express w wersji Beta nie obsługuje WCF domyślnie.
 > 
@@ -477,7 +477,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > - W Windows Vista lub Windows 7 zalogowano się za pomocą konta, które nie ma uprawnienia administracyjne, a Kontrola konta użytkownika (UAC) jest wyłączona.
 > - Używasz systemu Microsoft Windows XP lub Microsoft Windows Server 2003.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Większość zadań w programie WebMatrix w wersji Beta 3 nie wymagają uprawnień administracyjnych. Dla osób, które wykonują można wykonać operacji, ponieważ administrator lub wykonaj następujące kroki:
 > 
 > - W Windows Vista lub Windows 7 włączenie funkcji Kontrola konta użytkownika.
@@ -488,7 +488,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > **Witryny sieci Web galerii** opcja jest wyłączona, jeśli nie zainstalowano 3.0 Instalatora platformy sieci Web.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj [Instalatora platformy sieci Web firmy Microsoft 3.0](https://go.microsoft.com/fwlink/?LinkID=194638).
 
 
@@ -496,7 +496,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > W systemie Windows Server 2003 podczas uruchamiania stronę lub uruchom usługi IIS Express, usługi IIS Express nie można uruchomić. Dla stron sieci Web zostanie wyświetlony błąd wskazujący, że aplikacja została uruchomiona przez użytkownika innych niż administracyjne.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Uruchom program WebMatrix w wersji Beta 3 jako użytkownik z uprawnieniami administracyjnymi. Aby uzyskać więcej informacji zobacz następujący artykuł bazy wiedzy:  
 >   
 > [Aplikacja, która jest uruchamiana przez użytkowników innych niż administracyjne nie może nasłuchiwać na ruch HTTP, komputera, na którym aplikacja jest uruchomiona w Windows Vista, Windows Server 2003 lub Windows XP.](https://support.microsoft.com/kb/939786)
@@ -506,7 +506,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Google Chrome nie jest wyświetlana na liście przeglądarek, w obszarze **Uruchom** na **Home** kartę.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Niektóre wersje programu Google Chrome nie rejestrują się prawidłowo z tej funkcji domyślne programy w programie Windows. Obejść ten problem, uruchom program Google Chrome, kliknij przycisk *dostosowywanie i kontroli Google Chrome* menu, kliknij przycisk *opcje*, a następnie kliknij przycisk *upewnij Google Chrome w mojej przeglądarce domyślnej*.
 
 
@@ -514,7 +514,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > **Klucz obcy** okno dialogowe pozwala na wprowadzanie nazwy klucza podstawowego z tabeli klucza podstawowego.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Jest to zamierzone. Nie musisz wprowadzić nazwę klucza podstawowego z tabeli klucza podstawowego.
 
 
@@ -522,7 +522,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > **Relacje** przycisku w obszarze **tabeli** karcie **baz danych** obszar roboczy jest wyłączona w przypadku baz danych programu SQL Server Compact.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Brak. SQL Server Compact nie obsługuje relacje między tabelami.
 
 
@@ -530,7 +530,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > W SQL Server Compact 4.0, jeśli nie określisz typ danych takich jak `SqlDbType` lub `DbType` parametrów w zapytaniach parametrycznych, zgłaszany jest wyjątek podczas wykonywania kwerendy.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Jawnie ustawić typ danych dla parametrów, takich jak `SqlDbType` lub `DbType`. Jest to istotne w przypadku typów danych obiektów BLOB (`image` i `ntext`). Należy użyć kodu, jak pokazano poniżej:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
@@ -548,6 +548,6 @@ Aby uzyskać więcej informacji na temat programu WebMatrix w wersji Beta 3 zoba
 - [ASP.NET](https://asp.net/webmatrix)
 - [Microsoft.com/web](https://www.microsoft.com/web)
 
-* * *
+---
 
 © 2010 Microsoft Corporation. Wszelkie prawa zastrzeżone. [Warunki użytkowania](https://msdn.microsoft.cos/cc300389.aspx).

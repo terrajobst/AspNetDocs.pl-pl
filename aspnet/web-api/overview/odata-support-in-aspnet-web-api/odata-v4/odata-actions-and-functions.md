@@ -8,15 +8,15 @@ ms.date: 06/27/2014
 ms.assetid: 0e6fb03c-b16d-4bb0-ab0b-552bd2b6ece1
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
-ms.openlocfilehash: 45b84ec4ee76e83ece99bf6841c28e13c3ab7728
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6b0388c0e60f4a81ddb52a13fe2d05c2c7d27313
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077630"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380863"
 ---
-<a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Akcje i funkcje w protokole OData v4 przy użyciu wzorca ASP.NET Web API 2.2
-====================
+# <a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Akcje i funkcje w protokole OData v4 przy użyciu wzorca ASP.NET Web API 2.2
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > W protokole OData akcje i funkcje są w sposób, aby dodać zachowania po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach. W tym samouczku przedstawiono sposób dodawania akcji i funkcji do punktu końcowego OData v4, przy użyciu Web API 2.2. Samouczek opiera się na samouczka [tworzenia protokołu OData v4 punktu końcowego Używanie wzorca ASP.NET Web API 2](create-an-odata-v4-endpoint.md)

@@ -8,15 +8,15 @@ ms.date: 02/16/2008
 ms.assetid: 94c3e5d9-a904-445e-a34e-d92fd1ca108a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 604bf4af2a46e56d9445de141fae1a1651acf47f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 33544825403db67fc3b8f0e9eae5d7671b8d2e67
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078014"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402196"
 ---
-<a name="aspnet-mvc-controller-overview-vb"></a>Omówienie kontrolera ASP.NET MVC (VB)
-====================
+# <a name="aspnet-mvc-controller-overview-vb"></a>Omówienie kontrolera ASP.NET MVC (VB)
+
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > W tym samouczku Walther Autor: Stephen przedstawiono kontrolery ASP.NET MVC. Dowiesz się, jak utworzyć nowe kontrolery i zwracania różnych typów wyników akcji.

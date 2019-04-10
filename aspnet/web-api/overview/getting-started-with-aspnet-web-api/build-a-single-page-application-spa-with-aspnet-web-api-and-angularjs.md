@@ -1,33 +1,37 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: 'Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js | Dokumentacja firmy Microsoft'
+title: 'Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i Angular.js — ASP.NET 4.x'
 author: rick-anderson
-description: W aplikacji sieci web tradycyjnych klienta (przeglądarki) inicjuje komunikację z serwerem, żądając strony. Serwer następnie przetwarza żądania...
+description: 'Kodu krok po kroku: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js dla platformy ASP.NET 4.x.'
 ms.author: riande
 ms.date: 09/30/2015
+ms.custom: seoapril2019
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 03409e2fda831a07bbc5321ad842633b23ec25e5
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422418"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390275"
 ---
-<a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js
-====================
+# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 [Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
 
-> W aplikacji sieci web tradycyjnych klienta (przeglądarki) inicjuje komunikację z serwerem, żądając strony. Serwer następnie przetwarza żądanie i wysyła do klienta, HTML strony. W kolejnych interakcji ze stroną — np. użytkownik przechodzi do łącza lub przesyła formularz z danymi — nowe wezwanie jest wysyłane do serwera, a przepływ uruchamia ponownie: serwer przetwarza żądanie i wysyła nową stronę w przeglądarce w odpowiedzi na nowe żądanie akcji ED przez klienta.
+Ta sesja hands on lab dowiesz się, jak tworzyć jednej strony aplikacji (SPA) przy użyciu interfejsu API sieci Web platformy ASP.NET i platformy Angular.js dla platformy ASP.NET 4.x.
+
+W tym praktycznym laboratorium będą korzystać z tych technologii, aby zaimplementować maniaków komputerowych Quiz, witryny sieci Web elementy towarzyszące składni oparty na koncepcji SPA. Najpierw wdroży warstwy usług przy użyciu interfejsu API sieci Web platformy ASP.NET do udostępnienia wymagane punkty końcowe do pobierania na pytania quizu i przechowywania odpowiedzi. Następnie utworzysz bogaty i elastyczny interfejs użytkownika przy użyciu efektów przekształcania AngularJS i CSS3.
+
+W aplikacji sieci web tradycyjnych klienta (przeglądarki) inicjuje komunikację z serwerem, żądając strony. Serwer następnie przetwarza żądanie i wysyła do klienta, HTML strony. W kolejnych interakcji ze stroną — np. użytkownik przechodzi do łącza lub przesyła formularz z danymi — nowe wezwanie jest wysyłane do serwera, a przepływ uruchamia ponownie: serwer przetwarza żądanie i wysyła nową stronę w przeglądarce w odpowiedzi na nowe żądanie akcji ED przez klienta.
 > 
 > W aplikacji jednostronicowej (źródła) całej strony jest ładowany w przeglądarce po wykonaniu początkowego żądania, ale kolejne interakcje odbywać się za pośrednictwem żądań Ajax. Oznacza to, że przeglądarka musi zaktualizować tylko części strony, który został zmieniony; nie ma potrzeby ponowne załadowanie całej strony. Podejście SPA ogranicza czas przez aplikację, aby odpowiedzieć na działania użytkownika, skutkuje bardziej płynne środowisko.
 > 
 > Architektura SPA obejmuje niektóre wyzwania, które nie są obecne w aplikacjach sieci web tradycyjnych. Jednak rozwijających się technologii, takich jak Web API platformy ASP.NET, JavaScript struktur, takich jak AngularJS, nowych funkcji stylów, dostarczonych przez CSS3 co tak naprawdę łatwe projektowanie i tworzenie aplikacji jednostronicowych.
 > 
-> W tym praktycznym laboratorium będą korzystać z tych technologii, aby zaimplementować maniaków komputerowych Quiz, witryny sieci Web elementy towarzyszące składni oparty na koncepcji SPA. Najpierw wdroży warstwy usług przy użyciu interfejsu API sieci Web platformy ASP.NET do udostępnienia wymagane punkty końcowe do pobierania na pytania quizu i przechowywania odpowiedzi. Następnie utworzysz bogaty i elastyczny interfejs użytkownika przy użyciu efektów przekształcania AngularJS i CSS3.
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 
@@ -72,7 +76,7 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Ćwiczenia
@@ -433,7 +437,7 @@ W tym zadaniu CSS3, właściwości użyje do wykonywania animacji, dodając prze
 
     *Trwa pobieranie następujące pytanie, w tym celu przerzucania*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

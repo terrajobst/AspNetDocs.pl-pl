@@ -8,18 +8,18 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0d3b45fd51192d227d852dc2f05b45ca42944c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fa0573738fee8f1decc13c9797f644002931e09d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067973"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381500"
 ---
-<a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Tworzenie punktu końcowego OData v3 z interfejsu Web API 2
-====================
+# <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Tworzenie punktu końcowego OData v3 z interfejsu Web API 2
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > [Open Data Protocol](http://www.odata.org/) (OData) to protokół dostępu do danych w sieci Web. Protokół OData zapewnia ujednolicone struktury danych, wykonywania zapytań o dane i manipulowania zestawu danych przy użyciu operacji CRUD (tworzenia, odczytu, aktualizacji i usuwania). OData obsługuje formaty JSON i AtomPub (XML). Usługa OData definiuje również sposób do udostępnienia metadanych dotyczących danych. Klienci mogą używać metadane, aby dowiedzieć się, informacje o typie i relacje dla zestawu danych.
 >

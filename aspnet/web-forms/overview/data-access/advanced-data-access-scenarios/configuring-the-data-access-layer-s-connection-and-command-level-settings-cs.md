@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 91a1c967fbe74dbda8f8ac9635fdccbe05b0b6cc
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d6a787206862b88f915859d4a8fc4dd3c3166293
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423900"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389599"
 ---
-<a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurowanie ustawień na poziomie połączenia i poleceń warstwy dostępu do danych (C#)
-====================
+# <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurowanie ustawień na poziomie połączenia i poleceń warstwy dostępu do danych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_72_CS.zip) lub [Pobierz plik PDF](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/datatutorial72cs1.pdf)
@@ -51,7 +51,7 @@ Z wyjątkiem [opakowywanie modyfikacji bazy danych w ramach transakcji](../worki
 Każda klasa TableAdapter ma `Connection` właściwość, która określa informacje o połączeniu z bazą danych. Ten typ danych właściwości s i `ConnectionString` wartości są określane przez wybrane w Kreatorze konfiguracji TableAdapter. Pamiętaj, że po dodaniu najpierw TableAdapter z zestawem danych wpisane ten kreator zapyta, nam dla bazy danych źródła (patrz rysunek 1). Listy rozwijanej w pierwszym kroku dotyczy tych baz danych, określone w pliku konfiguracji, a także innych baz danych w Eksploratorze serwera s połączeń danych. Jeśli bazy danych, które firma Microsoft nie istnieje na liście rozwijanej, można określić nowego połączenia z bazą danych, klikając przycisk nowe połączenie oraz udostępniając informacje o połączeniu potrzebne.
 
 
-[![Pierwszym krokiem, który Kreator konfiguracji TableAdapter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
+[![Ton pierwszy krok kreatora konfiguracji TableAdapter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
 
 **Rysunek 1**: Pierwszym krokiem, który Kreator konfiguracji TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image3.png))
 
@@ -109,7 +109,7 @@ Ta klasa częściowa udostępnia tylko jedną właściwość obiektu bazowego po
 Otwórz `Northwind` zestawu danych, kliknij pozycję `ProductsTableAdapter` w projektancie, a następnie przejdź do okna właściwości. Zobaczysz `ConnectionModifier` ustawiony na wartość domyślną `Assembly`. Aby `Connection` dostępne spoza zestawu s wpisana zestawu danych, zmień właściwość `ConnectionModifier` właściwość `Public`.
 
 
-[![Poziom dostępności s właściwości połączenia można skonfigurować za pomocą właściwości ConnectionModifier](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
+[![Ton właściwości połączenia s poziom dostępności można skonfigurować za pomocą właściwości ConnectionModifier](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
 
 **Rysunek 4**: `Connection` Właściwości ułatwień dostępu można skonfigurować poziom s za pośrednictwem `ConnectionModifier` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image8.png))
 

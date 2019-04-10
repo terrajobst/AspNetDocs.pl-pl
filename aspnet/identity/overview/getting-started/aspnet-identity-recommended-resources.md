@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-recommended-resources
-title: ASP.NET Identity — zalecane zasoby | Dokumentacja firmy Microsoft
+title: ASP.NET Identity — zalecane zasoby — ASP.NET 4.x
 author: Rick-Anderson
 description: Ten temat zawiera łącza do zasobów dokumentacji o sposobie używania produktu ASP.NET Identity. Jeśli znasz świetnym wpisie na blogu, wątek w witrynie stackoverflow lub innych łą...
 ms.author: riande
 ms.date: 04/09/2015
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 14a8ec16fe741d87a23bfa45046386a2c08d2f27
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8e476f8a4172ebbe55819cda1ceb5458426243bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424342"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381903"
 ---
 # <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity — zalecane zasoby
 
@@ -23,10 +24,10 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 >
 > Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com) wątku lub dowolny link, który powinien być przydatny, [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Identity recommended resources) z linkiem lub po prostu pozostaw na komunikat wyświetlany u dołu tej strony.
 
-- [Wprowadzenie do korzystania z produktu ASP.NET Identity](#gettingstarted)
+- [Wprowadzenie do korzystania z systemu ASP.NET Identity](#gettingstarted)
 - [Nowe artykuły odczytu musi polecanych](#feat)
 - [Pośredni produktu ASP.NET Identity](#adv)
-- [Filmy wideo](#video)
+- [Wideo](#video)
 - [Gdzie można zadawać pytania, funkcje na żądanie, Zgłoś usterkę i nocne kompilacje](#samp)
 - [Wpisy w blogu tożsamości](#blog)
 - [Niestandardowi dostawcy magazynu dla produktu ASP.NET Identity](#cust)
@@ -39,7 +40,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 - [MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowanie jednokrotne](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) w tym samouczku dowiesz się, jak napisać aplikację ASP.NET MVC 5 z autoryzacją usługi Facebook i Google OAuth 2. Pokazano również, jak dodać dodatkowe dane do bazy danych tożsamości.
 - [Wdrażanie bezpiecznej aplikacji ASP.NET MVC z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL na platformie Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). W tym samouczku dodaje wdrażania platformy Azure, jak zabezpieczyć swoją aplikację przy użyciu ról, jak dodać użytkowników i ról i funkcji zabezpieczeń za pomocą członkostwo interfejsu API.
-- [Wprowadzenie do produktu ASP.NET Identity](introduction-to-aspnet-identity.md)
+- [Wprowadzenie do systemu ASP.NET Identity](introduction-to-aspnet-identity.md)
 - [Tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, adres e-mail potwierdzenia i resetowanie hasła](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
 - [Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
@@ -58,9 +59,9 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 ## <a name="intermediate-aspnet-identity"></a>Pośredni produktu ASP.NET Identity
 
 - [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w systemie ASP.NET Identity](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Dodawanie systemu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 - MSDN Magazine [uwierzytelniania zewnętrznego w produkcie ASP.NET Identity](https://msdn.microsoft.com/magazine/dn745860.aspx) przez Dino Esposito
 - MSDN Magazine[Pierwsze spojrzenie w produkcie ASP.NET Identity](https://msdn.microsoft.com/magazine/dn605872.aspx) przez Dino Esposito
 - [ASP.NET Identity — funkcja blokady użytkownika](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)

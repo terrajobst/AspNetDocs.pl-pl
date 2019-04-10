@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: 4bc8d19a-80f1-44b4-adbf-95ed22d691ca
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c20626b24e43031fc4103365396fc26b6a6daf93
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c135bacd7f9f87fac87a3c8cf41bad359bb3c0a2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070043"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379186"
 ---
-<a name="aspnet-mvc-routing-overview-vb"></a>Omówienie routingu we wzorcu ASP.NET MVC (VB)
-====================
+# <a name="aspnet-mvc-routing-overview-vb"></a>Omówienie routingu we wzorcu ASP.NET MVC (VB)
+
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > W tym samouczku Walther Autor: Stephen pokazuje, jak platforma ASP.NET MVC mapuje żądania przeglądarki do akcji kontrolera.
@@ -95,7 +95,7 @@ Na koniec wywołania metody indeks() w ofercie 5 /Home adres URL powoduje wyjąt
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample5.vb)]
 
 
-[![Wywołanie akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
+[![Invoking akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
 
 **Rysunek 01**: Wywołanie akcji kontrolera, który oczekuje, że wartość parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-routing-overview-vb/_static/image2.png))
 
