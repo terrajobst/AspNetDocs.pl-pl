@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: febf2824-4e3d-4dc6-84c5-f99777ec6144
 msc.legacyurl: /web-pages/videos
 msc.type: book
-ms.openlocfilehash: 8ad0a510ea62848b7a429c0bd4fa781b50c2ce53
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 86b90a21f59ee0ad52a3e6f7db19d4714282105c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796713"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401143"
 ---
-<a name="videos"></a>Wideo
-====================
+# <a name="videos"></a>Wideo
+
 
 > [!NOTE] 
 > Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [programu Visual Studio Code](https://code.visualstudio.com/).
@@ -36,7 +36,7 @@ ms.locfileid: "57796713"
 - [Strony Razor programu ASP.NET](aspnet-razor-pages/index.md)
 
     - [Wprowadzenie do programu WebMatrix i wzorca ASP.NET Web Pages](aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
-    - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+    - [Wprowadzenie do składni Razor programowania dla Internetu na platformie ASP.NET](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
     - [Tworzenie spójnego wyglądu (część 1)](aspnet-razor-pages/creating-a-consistent-look-part-1.md)
     - [Tworzenie spójnego wyglądu (część 2)](aspnet-razor-pages/creating-a-consistent-look-part-2.md)
     - [Praca z formularzami (część 1)](aspnet-razor-pages/working-with-forms-part-1.md)

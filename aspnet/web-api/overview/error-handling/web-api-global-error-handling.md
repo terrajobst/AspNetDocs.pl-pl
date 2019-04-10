@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: Globalna Obsługa błędów w programie ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Globalna Obsługa błędów w wzorca ASP.NET Web API 2 — ASP.NET 4.x
 author: davidmatson
-description: ''
+description: Omówienie globalna Obsługa błędów w programie ASP.NET Web API 2 dla programu ASP.NET 4.x.
 ms.author: riande
 ms.date: 02/03/2014
+ms.custom: seoapril2019
 ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3e371760d2b34eb2be492e6ebbb33a5f9f7eff10
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7d9f4fb9909671d7c4c8ee2aa9285b0186c4b125
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076355"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414377"
 ---
-<a name="global-error-handling-in-aspnet-web-api-2"></a>Globalna Obsługa błędów w programie ASP.NET Web API 2
-====================
+# <a name="global-error-handling-in-aspnet-web-api-2"></a>Globalna Obsługa błędów w programie ASP.NET Web API 2
+
 przez [David Matson](https://github.com/davidmatson), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-Obecnie nie istnieje łatwy sposób w interfejsie API sieci Web do logowania lub globalnie obsługi błędów. Niektóre nieobsługiwane wyjątki mogą być przetwarzane za pośrednictwem [filtry wyjątków](exception-handling.md), ale istnieje kilka przypadków, które nie obsługują filtry wyjątków. Na przykład:
+Ten temat zawiera omówienie globalna Obsługa błędów w programie ASP.NET Web API 2 dla programu ASP.NET 4.x. Obecnie nie istnieje łatwy sposób w interfejsie API sieci Web do logowania lub globalnie obsługi błędów. Niektóre nieobsługiwane wyjątki mogą być przetwarzane za pośrednictwem [filtry wyjątków](exception-handling.md), ale istnieje kilka przypadków, które nie obsługują filtry wyjątków. Na przykład:
 
 1. Wyjątków zgłaszanych przez konstruktory kontrolera.
 2. Wyjątków zgłaszanych przez programy obsługi komunikatów.

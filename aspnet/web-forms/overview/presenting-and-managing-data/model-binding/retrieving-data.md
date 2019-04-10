@@ -8,26 +8,26 @@ ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: c53c27f4852eab9813bd917315111e7cd3b04953
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 29baaf2917e47ac46a78a252721be725b4e9b58f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075641"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398478"
 ---
-<a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Pobieranie i wyświetlanie danych za pomocą wiązania modelu i formularzy sieci web
-====================
+# <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Pobieranie i wyświetlanie danych za pomocą wiązania modelu i formularzy sieci web
+
 
 > W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji prostszą niż rozwiązywania problemów związanych z danymi obiektów źródła (takich jak kontrolki ObjectDataSource lub SqlDataSource). Ta seria rozpoczyna się od wprowadzające informacje i przenosi do bardziej zaawansowanych pojęciach w kolejnych samouczkach.
 > 
->  Wzorca wiązania modelu współpracuje z dowolnym technologii dostępu do danych. W tym samouczku użyjesz programu Entity Framework, ale można użyć technologii dostępu do danych, który jest najbardziej znane. Z kontrolki powiązane z danymi serwera, na przykład kontrolki GridView, ListView, DetailsView lub FormView określane są nazwy metod na potrzeby wybierając, aktualizowanie, usuwanie i tworzenie danych. W tym samouczku należy określić wartość dla metody SelectMethod. 
+> Wzorca wiązania modelu współpracuje z dowolnym technologii dostępu do danych. W tym samouczku użyjesz programu Entity Framework, ale można użyć technologii dostępu do danych, który jest najbardziej znane. Z kontrolki powiązane z danymi serwera, na przykład kontrolki GridView, ListView, DetailsView lub FormView określane są nazwy metod na potrzeby wybierając, aktualizowanie, usuwanie i tworzenie danych. W tym samouczku należy określić wartość dla metody SelectMethod. 
 > 
 > W ramach tej metody można przewidzieć logikę pobierania danych. W następnym samouczku ustawi wartości dla operacji UpdateMethod, DeleteMethod i operacji InsertMethod.
 >
 > Możesz [Pobierz](https://go.microsoft.com/fwlink/?LinkId=286116) kompletnego projektu w C# lub Visual Basic. Do pobrania kod działa, za pomocą programu Visual Studio 2012 i nowszych. Używa szablonu programu Visual Studio 2012, który różni się nieco od szablonu programu Visual Studio 2017, przedstawione w tym samouczku.
 > 
 > W tym samouczku możesz uruchomić aplikację w programie Visual Studio. Można również wdrożyć aplikację na dostawcy usług hostingowych i był dostępny za pośrednictwem Internetu. Firma Microsoft oferuje bezpłatny internetowy hostowanie do 10 witryn sieci web w  
->  [bezpłatne konto wersji próbnej platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Aby uzyskać informacje o sposobie wdrażania projektu sieci web programu Visual Studio do usługi Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) serii. Ten samouczek pokazuje również, jak użyć migracje Code First Framework jednostki do wdrożenia bazy danych programu SQL Server do usługi Azure SQL Database.
+> [bezpłatne konto wersji próbnej platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Aby uzyskać informacje o sposobie wdrażania projektu sieci web programu Visual Studio do usługi Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) serii. Ten samouczek pokazuje również, jak użyć migracje Code First Framework jednostki do wdrożenia bazy danych programu SQL Server do usługi Azure SQL Database.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 

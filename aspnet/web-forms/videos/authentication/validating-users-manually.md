@@ -8,15 +8,15 @@ ms.date: 08/22/2008
 ms.assetid: c11eec26-25a2-41fb-9330-ddc123c0423a
 msc.legacyurl: /web-forms/videos/authentication/validating-users-manually
 msc.type: video
-ms.openlocfilehash: b530963dbaad8c03eef87004fb8536063ebc2534
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3fc0ad6b366650d20d2710574a0b443f8cd994ee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067619"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396697"
 ---
-<a name="validating-users-manually"></a>Ręczna walidacja użytkowników
-====================
+# <a name="validating-users-manually"></a>Ręczna walidacja użytkowników
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 W tym wideo Stagner Jan pokazano, jak ręcznie utworzyć własne formularz sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj samouczek zabezpieczeń "Sprawdzanie poprawności użytkownika poświadczeń względem członkostwa użytkownika Store" ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).

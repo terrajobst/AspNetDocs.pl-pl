@@ -8,15 +8,15 @@ ms.date: 08/08/2011
 ms.assetid: b3fb4480-0f41-495b-add6-163ca92dc8a3
 msc.legacyurl: /web-forms/overview
 msc.type: book
-ms.openlocfilehash: 0c29a844bd227a79e6df5231e0903129e306742e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4b38d6b54f53508f7b568207fe7f1a624a7af5f3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797436"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402274"
 ---
-<a name="aspnet-web-forms-guidance"></a>Wskazówki dotyczące formularzy sieci Web ASP.NET
-====================
+# <a name="aspnet-web-forms-guidance"></a>Wskazówki dotyczące formularzy sieci Web ASP.NET
+
 - [Wprowadzenie](getting-started/index.md)
 
     - [Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013](getting-started/getting-started-with-aspnet-45-web-forms/index.md)
@@ -34,14 +34,14 @@ ms.locfileid: "57797436"
     - [Tworzenie podstawowej strony modelu Web Forms w programie Visual Studio 2013](getting-started/creating-a-basic-web-forms-page.md)
     - [Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013](getting-started/code-editing-in-web-forms-pages.md)
     - [Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms](getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project.md)
-    - [Warsztaty programu Visual Studio 2012](getting-started/hands-on-labs/index.md)
+    - [Ćwiczenia praktyczne programu Visual Studio 2012](getting-started/hands-on-labs/index.md)
 
-        - [Co nowego na platformie ASP.NET i opracowywaniu aplikacji internetowych w programie Visual Studio 2012](getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
-        - [Nowości we wzorcu Web Forms na platformie ASP.NET 4.5](getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45.md)
+        - [Co nowego w platformie ASP.NET i w programowaniu dla Internetu w programie Visual Studio 2012](getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
+        - [Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5](getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45.md)
         - [Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012](getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
 - [Praca z danymi](presenting-and-managing-data/index.md)
 
-    - [Wiązania modelu i model Web Forms w programie Visual Studio 2013](presenting-and-managing-data/model-binding/index.md)
+    - [Powiązania modelu i model Web Forms w programie Visual Studio 2013](presenting-and-managing-data/model-binding/index.md)
 
         - [Pobieranie i wyświetlanie danych](presenting-and-managing-data/model-binding/retrieving-data.md)
         - [Aktualizowanie, usuwanie i tworzenie danych](presenting-and-managing-data/model-binding/updating-deleting-and-creating-data.md)
@@ -56,7 +56,7 @@ ms.locfileid: "57797436"
 - [Wydajność](performance-and-caching/index.md)
 
     - [Używanie metod asynchronicznych na platformie ASP.NET 4.5](performance-and-caching/using-asynchronous-methods-in-aspnet-45.md)
-- [Wdrażanie](deployment/index.md)
+- [wdrażania](deployment/index.md)
 
     - [Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](deployment/visual-studio-web-deployment/index.md)
 
@@ -72,11 +72,11 @@ ms.locfileid: "57797436"
         - [Wdrażanie z wiersza polecenia](deployment/visual-studio-web-deployment/command-line-deployment.md)
         - [Wdrażanie dodatkowych plików](deployment/visual-studio-web-deployment/deploying-extra-files.md)
         - [Rozwiązywanie problemów](deployment/visual-studio-web-deployment/troubleshooting.md)
-    - [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
+    - [ASP.NET4 - wprowadzenie do wdrożenia w przedsiębiorstwie](deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
         - [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-        - [Enterprise Web Deployment: Omówienie scenariusza](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-        - [Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+        - [Wdrażanie w Internecie w przedsiębiorstwie: omówienie scenariusza](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+        - [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
     - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](deployment/web-deployment-in-the-enterprise/index.md)
 
         - [Wdrażanie w Internecie w przedsiębiorstwie](deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -94,21 +94,21 @@ ms.locfileid: "57797436"
 
         - [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
         - [Wybieranie właściwego podejścia do wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-        - [Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-        - [Scenariusz: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-        - [Scenariusz: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
-        - [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (agent zdalny)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-        - [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (program obsługi narzędzia Web Deploy)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-        - [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+        - [Scenariusz: konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+        - [Scenariusz: konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+        - [Scenariusz: konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+        - [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (agent zdalny)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+        - [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (procedura obsługi narzędzia Web Deploy)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+        - [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
         - [Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy](deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)
         - [Tworzenie farmy serwerów za pomocą rozwiązania Web Farm Framework](deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md)
         - [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)
     - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 3: konfigurowanie serwera TFS](deployment/configuring-team-foundation-server-for-web-deployment/index.md)
 
-        - [Konfigurowanie programu Team Foundation Server dla wdrażania w Internecie](deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)
-        - [Tworzenie projektu zespołowego w programie TFS](deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md)
+        - [Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie](deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)
+        - [Tworzenie projektu zespołowego na serwerze TFS](deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md)
         - [Dodawanie zawartości do kontroli źródła](deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control.md)
-        - [Konfigurowanie serwera kompilacji TFS dla wdrażania w Internecie](deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment.md)
+        - [Konfigurowanie serwera kompilacji TFS na potrzeby wdrażania w Internecie](deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment.md)
         - [Tworzenie definicji kompilacji, która obsługuje wdrożenie](deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)
         - [Wdrażanie określonej kompilacji](deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md)
         - [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołowej](deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment.md)
@@ -120,25 +120,25 @@ ms.locfileid: "57797436"
         - [Wdrażanie członkostw ról bazy danych w środowiskach testowych](deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)
         - [Wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)
         - [Wykluczanie plików i folderów z wdrożenia](deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md)
-        - [Przełączanie aplikacji internetowej w tryb offline za pomocą narzędzia Web Deploy](deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy.md)
+        - [Przełączanie aplikacji internetowych w tryb offline za pomocą narzędzia Web Deploy](deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy.md)
         - [Uruchamianie skryptów programu Windows PowerShell z poziomu plików projektów programu MSBuild](deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files.md)
         - [Rozwiązywanie problemów z procesem tworzenia pakietów](deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process.md)
 - [Zaawansowane](advanced/index.md)
 
-    - [Elastyczność połączeń wzorca ASP.NET Web Forms i przejmowanie poleceń](advanced/aspnet-web-forms-connection-resiliency-and-command-interception.md)
+    - [Odporność połączeń wzorca ASP.NET Web Forms i przejmowanie poleceń](advanced/aspnet-web-forms-connection-resiliency-and-command-interception.md)
 - [Starsze wersje — wprowadzenie](older-versions-getting-started/index.md)
 
     - [ASP.NET 4 — Tailspin Spyworks](older-versions-getting-started/tailspin-spyworks/index.md)
 
         - [Część 1. Plik -> Nowy projekt](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
         - [Część 2. Warstwa dostępu do danych](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-        - [Część 3: Układ i Menu kategorii](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
-        - [Część 4: Tworzenie listy produktów](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
-        - [Część 5: Logika biznesowa](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-        - [Część 6: Członkostwo ASP.NET](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
-        - [Część 7: Dodawanie funkcji](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-        - [Część 8: Końcowe strony, obsługa wyjątków i zawierania](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
-    - [ASP.NET4 — wprowadzenie do programu Entity Framework 4 i wzorca Web Forms](older-versions-getting-started/getting-started-with-ef/index.md)
+        - [Część 3. Układ i menu kategorii](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+        - [Część 4. Tworzenie listy produktów](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
+        - [Część 5. Logika biznesowa](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
+        - [Część 6. Członkostwo platformy ASP.NET](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+        - [Część 7. Dodawanie funkcji](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
+        - [Część 8. Końcowe strony, obsługa wyjątków i podsumowanie](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+    - [ASP.NET 4 — wprowadzenie do programu Entity Framework 4 i wzorca Web Forms](older-versions-getting-started/getting-started-with-ef/index.md)
 
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0 — część 2](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)
@@ -148,11 +148,11 @@ ms.locfileid: "57797436"
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0 — część 6](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6.md)
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0 — część 7](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7.md)
         - [Wprowadzenie do podejścia Database First w programie Entity Framework 4.0 — część 8](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
-    - [ASP.NET4 — kontynuowanie pracy z programem Entity Framework 4 i wzorcem Web Forms](older-versions-getting-started/continuing-with-ef/index.md)
+    - [ASP.NET 4 — kontynuowanie pracy z programem Entity Framework 4 i wzorcem Web Forms](older-versions-getting-started/continuing-with-ef/index.md)
 
-        - [Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-        - [Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-        - [Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: Sortowanie i filtrowanie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+        - [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+        - [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: dodawanie warstwy logiki biznesowej i testów jednostkowych](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+        - [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: sortowanie i filtrowanie](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
         - [Obsługa współbieżności przy użyciu programu Entity Framework 4.0 na platformie ASP.NET 4](older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 na platformie ASP.NET 4](older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Co nowego w programie Entity Framework 4.0](older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)
@@ -174,7 +174,7 @@ ms.locfileid: "57797436"
 
         - [Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX](older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
         - [Objaśnienie wyzwalaczy UpdatePanel ASP.NET AJAX](older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers.md)
-        - [Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX ](older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+        - [Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX](older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services.md)
         - [Objaśnienie lokalizacji kodu ASP.NET AJAX](older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization.md)
         - [Objaśnienie usług internetowych ASP.NET AJAX](older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services.md)
         - [Objaśnienie możliwości debugowania kodu ASP.NET AJAX](older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities.md)
@@ -234,7 +234,7 @@ ms.locfileid: "57797436"
         - [Rejestrowanie szczegółów błędów za pomocą biblioteki ELMAH (VB)](older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb.md)
         - [Prekompilowanie witryny internetowej (VB)](older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb.md)
         - [Użytkownicy i role w produkcyjnej witrynie internetowej (VB)](older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb.md)
-- [Starsze wersje — Ajax Control Toolkit](ajax-control-toolkit/index.md)
+- [Starsze wersje — AJAX Control Toolkit](ajax-control-toolkit/index.md)
 
     - [Wprowadzenie](ajax-control-toolkit/getting-started/index.md)
 
@@ -256,7 +256,7 @@ ms.locfileid: "57797436"
         - [Wykonywanie kilku animacji w tym samym czasie (C#)](ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs.md)
         - [Wykonywanie kilku animacji jedna po drugiej (C#)](ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs.md)
         - [Animacja w zależności od warunku (C#)](ajax-control-toolkit/animation/animation-depending-on-a-condition-cs.md)
-        - [Wybieranie jednej animacji spoza listy (C#)](ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs.md)
+        - [Wybieranie jednej animacji z listy (C#)](ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs.md)
         - [Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (C#)](ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs.md)
         - [Wyłączanie akcji podczas animacji (C#)](ajax-control-toolkit/animation/disabling-actions-during-animation-cs.md)
         - [Wyzwalanie animacji w innej kontrolce (C#)](ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs.md)
@@ -269,7 +269,7 @@ ms.locfileid: "57797436"
         - [Wykonywanie kilku animacji w tym samym czasie (VB)](ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-vb.md)
         - [Wykonywanie kilku animacji jedna po drugiej (VB)](ajax-control-toolkit/animation/executing-several-animations-after-each-other-vb.md)
         - [Animacja w zależności od warunku (VB)](ajax-control-toolkit/animation/animation-depending-on-a-condition-vb.md)
-        - [Wybieranie jednej animacji spoza listy (VB)](ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb.md)
+        - [Wybieranie jednej animacji z listy (VB)](ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb.md)
         - [Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (VB)](ajax-control-toolkit/animation/animating-in-response-to-user-interaction-vb.md)
         - [Wyłączanie akcji podczas animacji (VB)](ajax-control-toolkit/animation/disabling-actions-during-animation-vb.md)
         - [Wyzwalanie animacji w innej kontrolce (VB)](ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb.md)
@@ -287,7 +287,7 @@ ms.locfileid: "57797436"
         - [Wypełnianie listy przy użyciu kontrolki CascadingDropDown (VB)](ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb.md)
         - [Używanie kontrolki CascadingDropDown z bazą danych (VB)](ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-vb.md)
         - [Wstępne ustawianie pozycji listy przy użyciu kontrolki CascadingDropDown (VB)](ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb.md)
-        - [Przy użyciu automatycznego odświeżania z CascadingDropDown (VB)](ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb.md)
+        - [Używanie automatycznego ogłaszania zwrotnego za pomocą kontrolki CascadingDropDown (VB)](ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb.md)
     - [CollapsiblePanel](ajax-control-toolkit/collapsiblepanel/index.md)
 
         - [Rozwijanie i zwijanie panelu z poziomu języka JavaScript (C#)](ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-cs.md)
@@ -307,9 +307,9 @@ ms.locfileid: "57797436"
     - [DropShadow](ajax-control-toolkit/dropshadow/index.md)
 
         - [Dostosowywanie indeksu Z kontrolki DropShadow (C#)](ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs.md)
-        - [Manipulowanie właściwościami DropShadow z poziomu kodu klienta (C#)](ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs.md)
+        - [Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (C#)](ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs.md)
         - [Dostosowywanie indeksu Z kontrolki DropShadow (VB)](ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb.md)
-        - [Manipulowanie właściwościami DropShadow z poziomu kodu klienta (VB)](ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb.md)
+        - [Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (VB)](ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb.md)
     - [DynamicPopulate](ajax-control-toolkit/dynamicpopulate/index.md)
 
         - [Dynamiczne wypełnianie kontrolki (C#)](ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs.md)
@@ -356,7 +356,7 @@ ms.locfileid: "57797436"
 
         - [Testowanie siły hasła (C#)](ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs.md)
         - [Testowanie siły hasła (VB)](ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-vb.md)
-    - [Popup](ajax-control-toolkit/popup/index.md)
+    - [Okno podręczne](ajax-control-toolkit/popup/index.md)
 
         - [Używanie wielu kontrolek Popup (C#)](ajax-control-toolkit/popup/using-multiple-popup-controls-cs.md)
         - [Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (C#)](ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
@@ -364,7 +364,7 @@ ms.locfileid: "57797436"
         - [Używanie wielu kontrolek Popup (VB)](ajax-control-toolkit/popup/using-multiple-popup-controls-vb.md)
         - [Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (VB)](ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
         - [Obsługa ogłaszania zwrotnego w kontrolce Popup bez kontrolki UpdatePanel (VB)](ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
-    - [Rating](ajax-control-toolkit/rating/index.md)
+    - [Klasyfikacja](ajax-control-toolkit/rating/index.md)
 
         - [Tworzenie kontrolki Rating (C#)](ajax-control-toolkit/rating/creating-a-rating-control-cs.md)
         - [Tworzenie kontrolki Rating (VB)](ajax-control-toolkit/rating/creating-a-rating-control-vb.md)
@@ -374,7 +374,7 @@ ms.locfileid: "57797436"
         - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#)](ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs.md)
         - [Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)](ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb.md)
         - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (VB)](ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb.md)
-    - [Slider](ajax-control-toolkit/slider/index.md)
+    - [Suwak](ajax-control-toolkit/slider/index.md)
 
         - [Kontrolka Slider z automatycznym ogłaszaniem zwrotnym (C#)](ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-cs.md)
         - [Powiązanie danych kontrolki Slider (C#)](ajax-control-toolkit/slider/databinding-the-slider-control-cs.md)
@@ -392,10 +392,10 @@ ms.locfileid: "57797436"
 
         - [Tworzenie warstwy dostępu do danych (C#)](data-access/introduction/creating-a-data-access-layer-cs.md)
         - [Tworzenie warstwy logiki biznesowej (C#)](data-access/introduction/creating-a-business-logic-layer-cs.md)
-        - [Strony wzorcowe i nawigacja w witrynie (C#)](data-access/introduction/master-pages-and-site-navigation-cs.md)
+        - [Strony wzorcowe i nawigacja po witrynie (C#)](data-access/introduction/master-pages-and-site-navigation-cs.md)
         - [Tworzenie warstwy dostępu do danych (VB)](data-access/introduction/creating-a-data-access-layer-vb.md)
         - [Tworzenie warstwy logiki biznesowej (VB)](data-access/introduction/creating-a-business-logic-layer-vb.md)
-        - [Strony wzorcowe i nawigacja w witrynie (VB)](data-access/introduction/master-pages-and-site-navigation-vb.md)
+        - [Strony wzorcowe i nawigacja po witrynie (VB)](data-access/introduction/master-pages-and-site-navigation-vb.md)
     - [Podstawowe raportowanie](data-access/basic-reporting/index.md)
 
         - [Wyświetlanie danych za pomocą kontrolki ObjectDataSource (C#)](data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs.md)
@@ -431,7 +431,7 @@ ms.locfileid: "57797436"
         - [Omówienie wstawiania, aktualizowania i usuwania danych (C#)](data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)
         - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (C#)](data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
         - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (C#)](data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
-        - [Dodawanie kontrolek weryfikacji do interfejsów edycji i wstawiania (C#)](data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+        - [Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (C#)](data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
         - [Dostosowywanie interfejsu modyfikacji danych (C#)](data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md)
         - [Implementowanie optymistycznej współbieżności (C#)](data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)
         - [Dodawanie potwierdzenia po stronie klienta podczas usuwania (C#)](data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md)
@@ -439,7 +439,7 @@ ms.locfileid: "57797436"
         - [Omówienie wstawiania, aktualizowania i usuwania danych (VB)](data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)
         - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (VB)](data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
         - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (VB)](data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
-        - [Dodawanie kontrolek weryfikacji do interfejsów edycji i wstawiania (VB)](data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+        - [Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (VB)](data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
         - [Dostosowywanie interfejsu modyfikacji danych (VB)](data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)
         - [Implementowanie optymistycznej współbieżności (VB)](data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)
         - [Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB)](data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md)
@@ -481,12 +481,12 @@ ms.locfileid: "57797436"
         - [Omówienie edytowania i usuwania danych w elemencie DataList (C#)](data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
         - [Wykonywanie aktualizacji wsadowych (C#)](data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md)
         - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (C#)](data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs.md)
-        - [Dodawanie kontrolek weryfikacji do interfejsu edycji kontrolki DataList (C#)](data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
+        - [Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (C#)](data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
         - [Dostosowywanie interfejsu edycji kontrolki DataList (C#)](data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs.md)
         - [Omówienie edytowania i usuwania danych w kontrolce DataList (VB)](data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
         - [Wykonywanie aktualizacji wsadowych (VB)](data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md)
         - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (VB)](data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb.md)
-        - [Dodawanie kontrolek weryfikacji do interfejsu edycji kontrolki DataList (VB)](data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
+        - [Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (VB)](data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
         - [Dostosowywanie interfejsu edycji kontrolki DataList (VB)](data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-vb.md)
     - [Stronicowanie i sortowanie za pomocą kontrolek DataList i Repeater](data-access/paging-and-sorting-with-the-datalist-and-repeater/index.md)
 
@@ -500,11 +500,11 @@ ms.locfileid: "57797436"
         - [Przyciski niestandardowe w kontrolkach DataList i Repeater (VB)](data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb.md)
     - [Uzyskiwanie dostępu do bazy danych bezpośrednio ze strony platformy ASP.NET](data-access/accessing-the-database-directly-from-an-aspnet-page/index.md)
 
-        - [Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (C#)](data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs.md)
+        - [Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (C#)](data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs.md)
         - [Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (C#)](data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs.md)
         - [Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (C#)](data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
         - [Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#)](data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
-        - [Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (VB)](data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)
+        - [Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (VB)](data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)
         - [Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (VB)](data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb.md)
         - [Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (VB)](data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
         - [Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (VB)](data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
@@ -536,10 +536,10 @@ ms.locfileid: "57797436"
         - [Buforowanie danych w architekturze (VB)](data-access/caching-data/caching-data-in-the-architecture-vb.md)
         - [Buforowanie danych przy uruchamianiu aplikacji (VB)](data-access/caching-data/caching-data-at-application-startup-vb.md)
         - [Używanie zależności pamięci podręcznej SQL (VB)](data-access/caching-data/using-sql-cache-dependencies-vb.md)
-    - [Mapy witryny opartej na bazie danych](data-access/database-driven-site-maps/index.md)
+    - [Mapy witryn opartych na bazie danych](data-access/database-driven-site-maps/index.md)
 
-        - [Tworzenie niestandardowego dostawcy mapy witryny opartego na bazie danych (C#)](data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs.md)
-        - [Tworzenie niestandardowego dostawcy mapy witryny opartego na bazie danych (VB)](data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb.md)
+        - [Tworzenie niestandardowego dostawcy map witryn opartych na bazie danych (C#)](data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs.md)
+        - [Tworzenie niestandardowego dostawcy map witryn opartych na bazie danych (VB)](data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb.md)
     - [Praca z partiami danych](data-access/working-with-batched-data/index.md)
 
         - [Opakowywanie modyfikacji bazy danych w ramach transakcji (C#)](data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md)
@@ -584,12 +584,12 @@ ms.locfileid: "57797436"
 
         - [Tworzenie schematu członkostwa w programie SQL Server (C#)](older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md)
         - [Tworzenie kont użytkowników (C#)](older-versions-security/membership/creating-user-accounts-cs.md)
-        - [Weryfikowanie poświadczeń użytkownika względem magazynu użytkowników struktury członkostwa (C#)](older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md)
+        - [Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (C#)](older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md)
         - [Autoryzacja oparta na użytkownikach (C#)](older-versions-security/membership/user-based-authorization-cs.md)
         - [Przechowywanie dodatkowych informacji dotyczących użytkowników (C#)](older-versions-security/membership/storing-additional-user-information-cs.md)
         - [Tworzenie schematu członkostwa w programie SQL Server (VB)](older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md)
         - [Tworzenie kont użytkowników (VB)](older-versions-security/membership/creating-user-accounts-vb.md)
-        - [Weryfikowanie poświadczeń użytkownika względem magazynu użytkowników struktury członkostwa (VB)](older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)
+        - [Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (VB)](older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)
         - [Autoryzacja oparta na użytkownikach (VB)](older-versions-security/membership/user-based-authorization-vb.md)
         - [Przechowywanie dodatkowych informacji dotyczących użytkowników (VB)](older-versions-security/membership/storing-additional-user-information-vb.md)
     - [ASP.NET 3.5 — role](older-versions-security/roles/index.md)
@@ -602,10 +602,10 @@ ms.locfileid: "57797436"
         - [Autoryzacja oparta na rolach (VB)](older-versions-security/roles/role-based-authorization-vb.md)
     - [ASP.NET 3.5 — administrowanie zabezpieczeniami](older-versions-security/admin/index.md)
 
-        - [Kompilowanie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)](older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs.md)
+        - [Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)](older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs.md)
         - [Odzyskiwanie i zmienianie haseł (C#)](older-versions-security/admin/recovering-and-changing-passwords-cs.md)
         - [Odblokowywanie i zatwierdzanie kont użytkowników (C#)](older-versions-security/admin/unlocking-and-approving-user-accounts-cs.md)
-        - [Kompilowanie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)](older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb.md)
+        - [Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)](older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb.md)
         - [Odzyskiwanie i zmienianie haseł (VB)](older-versions-security/admin/recovering-and-changing-passwords-vb.md)
         - [Odblokowywanie i zatwierdzanie kont użytkowników (VB)](older-versions-security/admin/unlocking-and-approving-user-accounts-vb.md)
 - [Starsze wersje — ASP.NET 2.0](moving-to-aspnet-20/index.md)

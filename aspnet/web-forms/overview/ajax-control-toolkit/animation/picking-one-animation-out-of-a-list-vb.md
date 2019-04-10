@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 81ba9116-d485-40c0-8ff6-7e9ae23e0a0c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9c60d7cff7c841d23185fbdf07abf0e894b21cf5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7d8807962e5cf668358e03821d5fd3bf755a0e7d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067463"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418888"
 ---
-<a name="picking-one-animation-out-of-a-list-vb"></a>Wybieranie jednej animacji z listy (VB)
-====================
+# <a name="picking-one-animation-out-of-a-list-vb"></a>Wybieranie jednej animacji z listy (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5VB.pdf)
@@ -53,7 +53,7 @@ Następujące znaczniki definiuje trzy subanimations: Zmiana rozmiaru szerokoś�
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample5.aspx)]
 
 
-[![Jeden z trzech możliwych animacji: Poszerzania panelu](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
+[![One animacji trzy możliwe: Panel pobiera szersze](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
 
 Jeden z trzech możliwych animacji: Panel poszerzania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](picking-one-animation-out-of-a-list-vb/_static/image3.png))
 

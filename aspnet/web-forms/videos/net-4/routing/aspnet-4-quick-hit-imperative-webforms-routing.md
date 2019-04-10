@@ -8,15 +8,15 @@ ms.date: 11/05/2009
 ms.assetid: c78fd810-4309-4d58-afd9-81e9ffa77429
 msc.legacyurl: /web-forms/videos/net-4/routing/aspnet-4-quick-hit-imperative-webforms-routing
 msc.type: video
-ms.openlocfilehash: cfb7dcf7ba964112cf57d2b86a5f5cf4c88820e5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a034d6f934da055d06130302c288066e98d9a7e9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074819"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403717"
 ---
-<a name="aspnet-4-quick-hit---imperative-webforms-routing"></a>ASP.NET 4 "Szybkie strzał" - Imperatywny Routing formularzy WebForms
-====================
+# <a name="aspnet-4-quick-hit---imperative-webforms-routing"></a>ASP.NET 4 "Szybkie strzał" - Imperatywny Routing formularzy WebForms
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 W tym filmie wideo dowiesz się, jak należy obowiązkowo routing formularzy WebForms za pomocą Kreatora wyrażeń. 

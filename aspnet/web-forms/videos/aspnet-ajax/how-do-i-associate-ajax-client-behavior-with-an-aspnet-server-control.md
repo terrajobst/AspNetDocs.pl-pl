@@ -8,15 +8,15 @@ ms.date: 10/18/2007
 ms.assetid: 3a75ac02-225d-4e30-8669-0156c3ef06c7
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control
 msc.type: video
-ms.openlocfilehash: 35ffec97c7652622ae69c443f741114758ef95b4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9fdb0665aa8a6cb038203d31f8f71a8725834cee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073148"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417419"
 ---
-<a name="how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control"></a>[Jak mogę] Kojarzenie zachowania klienta AJAX z kontrolką serwera ASP.NET?
-====================
+# <a name="how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control"></a>[Jak mogę] Kojarzenie zachowania klienta AJAX z kontrolką serwera ASP.NET?
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 Dowiedz się, jak utworzyć zachowania klienta, w zależności od Microsoft AJAX, może być skojarzony z kontrolką serwera ASP.NET na stronie .aspx. Zachowanie klienta rozszerza funkcjonalność standardowy formant ASP.NET za pomocą skojarzeń, a nie przez utworzenie nowego formantu niestandardowego. W związku z tym zachowanie może zostać ponownie użyte w wielu wystąpieniach lub typów formantów usługi ASP.NET w zależności od implementacji.

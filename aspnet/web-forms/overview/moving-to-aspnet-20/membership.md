@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: d4fab68555eeb27420e60a28aca2f2c0fb9a73e3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421521"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408189"
 ---
-<a name="membership"></a>Członkostwo
-====================
+# <a name="membership"></a>Członkostwo
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Członkostwo ASP.NET jest oparta na powodzenie modelu uwierzytelniania formularzy z platformy ASP.NET 1.x. Uwierzytelnianie formularzy programu ASP.NET zapewnia wygodny sposób uwzględnienie formularz logowania w aplikacji ASP.NET i weryfikowania użytkowników przed bazę danych lub w innym magazynie danych.
@@ -74,7 +74,7 @@ Interfejs sieci Web można uruchomić, klikając przycisk Konfiguracja platformy
 
 Spowoduje to uruchomienie narzędzie Administratorskie witryny sieci Web ASP.NET, pokazano poniżej. Administrowanie witryną sieci Web platformy ASP.NET to interfejs cztery karty, która ułatwia zarządzanie ustawieniami aplikacji. Dostępne są następujące karty:
 
-- **Strona główna**
+- **Home**
 - **Zabezpieczenia** użytkowników, ról i dostępu.
 - **Aplikacja** konfigurowania ustawień aplikacji.
 - **Dostawca** Konfiguracja i testowanie aplikacji dostawcy członkostwa.

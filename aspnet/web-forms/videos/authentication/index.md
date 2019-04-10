@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 4a365e58-9b18-4bd2-bfd5-6981e7f2e179
 msc.legacyurl: /web-forms/videos/authentication
 msc.type: chapter
-ms.openlocfilehash: 00a91f03e05a56a3ebbe75f113b1330cffc57a99
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 68c1acdaaf1e6674f4dc3bcca0557382407ca147
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796606"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400116"
 ---
-<a name="authentication"></a>Uwierzytelnianie
-====================
+# <a name="authentication"></a>Uwierzytelnianie
+
 > Jak implementować oraz zarządzanie zabezpieczeniami (uwierzytelnianie) w aplikacji ASP.NET.
 
 
@@ -32,11 +32,11 @@ ms.locfileid: "57796606"
 - [Modyfikowanie ustawień członkostwa w domyślnym schemacie członkostwa](changing-membership-settings-in-the-default-membership-schema.md)
 - [Tworzenie kont użytkowników za pomocą Kreatora tworzenia użytkownika](creating-user-accounts-with-the-create-user-wizard.md)
 - [Programowe tworzenie kont użytkowników](creating-user-accounts-programmatically.md)
-- [Ręczne weryfikowanie użytkowników](validating-users-manually.md)
-- [Weryfikowanie użytkowników za pomocą kontrolki logowania](validating-users-with-the-login-control.md)
+- [Ręczna walidacja użytkowników](validating-users-manually.md)
+- [Walidacja użytkowników za pomocą kontrolki logowania](validating-users-with-the-login-control.md)
 - [Dodawanie użytkowników do systemu członkostwa](adding-users-to-your-membership-system.md)
 - [Rejestrowanie użytkowników w systemie członkostwa](logging-users-into-your-membership-system.md)
 - [Implementowanie wzorca weryfikacji rejestracji](implement-the-registration-verification-pattern.md)
 - [Proste uwierzytelnianie usługi internetowej](simple-web-service-authentication.md)
 - [Tworzenie nieaktywnych użytkowników](creating-inactive-users.md)
-- [Obrona przed iniekcją kodu SQL](sql-injection-defense.md)
+- [Obrona przed wstrzyknięciem kodu SQL](sql-injection-defense.md)

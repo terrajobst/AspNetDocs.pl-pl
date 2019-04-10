@@ -8,16 +8,17 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: eb1a4632caf00097012bd1757da44016a076630f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bf3336c2467553ba3714bbd4fbb41a35a0490768
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066482"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410607"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Tworzenie podstawowego strony formularzy sieci Web 4.5 programu ASP.NET przy użyciu programu Visual Studio 2013
+# 
 
-=== przez [Erik Reitan](https://github.com/Erikre)
+przez [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -187,7 +188,7 @@ Visual Studio oferuje różne sposoby, aby ustawić właściwości formantów na
 ### <a name="to-set-control-properties"></a>Aby ustawić właściwości kontrolki
 
 
-1. Najpierw wyświetl **właściwości** systemu windows, wybierając z **widoku** menu —&gt; **Windows inne**  - &gt; **Okna properies**. Można też wybrać opcję **F4** do wyświetlenia **właściwości** okna.
+1. Najpierw wyświetl **właściwości** systemu windows, wybierając z **widoku** menu —&gt; **Windows inne**  - &gt; **Okno właściwości**. Można też wybrać opcję **F4** do wyświetlenia **właściwości** okna.
 2. Wybierz [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontroli, a następnie w polu **właściwości** okna, ustaw wartość **tekstu** do **nazwę wyświetlaną**. Wprowadzony tekst jest wyświetlany przycisk w projektancie, jak pokazano na poniższej ilustracji.
 
     ![Ustaw tekst przycisku](creating-a-basic-web-forms-page/_static/image10.png "przycisk Ustaw tekst")

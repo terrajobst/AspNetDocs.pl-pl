@@ -8,15 +8,15 @@ ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 7ad3b7a453a40f2708902ae5b9e5cb75b931d54d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2010de510cf44bba1b95d29dbdb573ab78f452f7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067229"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411361"
 ---
-<a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie aplikacji ASP.NET Web Forms z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS (C#)
-====================
+# <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie aplikacji ASP.NET Web Forms z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS (C#)
+
 przez [Erik Reitan](https://github.com/Erikre)
 
 [Pobieranie aplikacji formularzy sieci Web ASP.NET za pomocą poczty E-mail i SMS procedury uwierzytelniania dwuskładnikowego](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
@@ -108,7 +108,7 @@ W tym momencie włączono uwierzytelniania dwuskładnikowego dla aplikacji. Dla 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w systemie ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
 - [Łącza do produktu ASP.NET Identity zalecane zasoby](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [Wdrażanie aplikacji formularzy bezpiecznej sieci Web platformy ASP.NET z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL w witrynie sieci Web platformy Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [Seria samouczków formularzy sieci Web platformy ASP.NET — Dodaj dostawcę uwierzytelniania OAuth 2.0](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)

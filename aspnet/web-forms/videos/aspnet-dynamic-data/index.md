@@ -8,19 +8,19 @@ ms.date: 10/05/2011
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
-ms.openlocfilehash: 2b9bf121e9eced28a91616a8d7515e1fb563f304
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 11fca6096a1ada5df95971f2c77c8e72660ad864
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796633"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400155"
 ---
-<a name="aspnet-dynamic-data"></a>Dane dynamiczne ASP.NET
-====================
+# <a name="aspnet-dynamic-data"></a>Dane dynamiczne ASP.NET
+
 > Jak korzystać z ASP.NET Dynamic Data do tworzenia szkieletu aplikacji, które automatycznie uzyskać dostęp do danych.
 
 
-- [Tworzenie pierwszego szkieletu i dane dynamiczne](your-first-scaffold-and-what-is-dynamic-data.md)
+- [Tworzenie pierwszego szkieletu i informacje o danych dynamicznych](your-first-scaffold-and-what-is-dynamic-data.md)
 - [Włączanie wbudowanego edytowania w kontrolce GridView](how-do-i-enable-inline-gridview-editing.md)
 - [Zmiana sposobu renderowania pól](how-do-i-change-how-my-fields-render.md)
 - [Obsługa wyjątków logiki biznesowej](how-do-i-handle-business-logic-exceptions.md)
@@ -32,8 +32,8 @@ ms.locfileid: "57796633"
 - [Rozpoczynanie modyfikowania aplikacji danych dynamicznych przy użyciu routingu adresów URL](begin-modifying-dynamic-data-applications-with-url-routing.md)
 - [Włączanie wbudowanego edytowania w aplikacjach ASP.NET Dynamic Data](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)
 - [Włączanie routingu specyficznego dla tabeli w aplikacjach danych dynamicznych](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)
-- [Korzystanie z weryfikacji atrybutów w aplikacjach ASP.NET Dynamic Data](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)
-- [Implementowanie weryfikacji pola niestandardowego z logiką imperatywną w języku Visual Basic lub C#](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
+- [Korzystanie z walidacji atrybutów w aplikacjach ASP.NET Dynamic Data](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)
+- [Implementowanie walidacji pola niestandardowego z logiką imperatywną w języku Visual Basic lub C#](how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c.md)
 - [Usuwanie kolumn z siatek danych modelu DynamicData](how-to-remove-columns-from-your-dynamicdata-data-grids.md)
 - [Tworzenie niestandardowych formularzy specyficznych dla tabeli w aplikacji ASP.NET Dynamic Data](how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application.md)
 - [ASP.NET Dynamic Data — niestandardowe formatowanie formularzy](aspnet-dynamic-data-custom-form-formatting.md)

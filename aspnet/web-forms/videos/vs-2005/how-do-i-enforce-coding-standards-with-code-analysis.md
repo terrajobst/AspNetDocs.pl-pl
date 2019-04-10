@@ -8,15 +8,15 @@ ms.date: 07/09/2007
 ms.assetid: ab2eedbc-79b5-4b63-a1df-935940c1545b
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
 msc.type: video
-ms.openlocfilehash: 609f91090520cc36f312a68d63ba6d7356bb008d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1a9cf8ac7e8618dd3733080ba6a065e14f1cb68c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066302"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417146"
 ---
-<a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Jak mogę] Wymuszanie norm kodowania za pomocą analizy kodu?
-====================
+# <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Jak mogę] Wymuszanie norm kodowania za pomocą analizy kodu?
+
 przez [Chris Menegay](https://twitter.com/CMenegay)
 
 Za pomocą programu Visual Studio Team System masz szczegółową kontrolę reguł analizy kodu, które mają zastosowanie do projektów biblioteki klas, projektów witryny sieci web i kontroli kodu źródłowego. W tym filmie wideo, firma Microsoft Dowiedz się, jak określić błędów i ostrzeżeń, które będą miały zastosowanie, podczas projektu kompilacji i kodu zaewidencjonowania i zobaczymy, jak pominąć określoną regułę zastosowanie do określonej składowej klasy. To konfigurowalne, jakie mogą zostać wymuszone przez norm kodowania, aby poprawić jakość kodu, przy jednoczesnym zapewnieniu niemający zastosowania reguły nigdy nie uzyskać Ci.

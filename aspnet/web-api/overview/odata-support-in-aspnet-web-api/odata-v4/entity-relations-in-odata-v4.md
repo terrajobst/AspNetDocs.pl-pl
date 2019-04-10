@@ -8,15 +8,15 @@ ms.date: 06/26/2014
 ms.assetid: 72657550-ec09-4779-9bfc-2fb15ecd51c7
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: d07ddab83462ee1bc84ba8ab15fe906937f506e6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fbafb2b2346689271905db5790cdddeeb809b070
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075047"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418810"
 ---
-<a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>Relacje jednostek w protokole OData v4 przy użyciu wzorca ASP.NET Web API 2.2
-====================
+# <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>Relacje jednostek w protokole OData v4 przy użyciu wzorca ASP.NET Web API 2.2
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > Większość zestawów danych należy zdefiniować relacje między jednostkami: Klienci mają zamówienia; książki mają autorzy; Jeśli te produkty mają dostawców. Używanie protokołu OData, klienci mogą przejść za pośrednictwem relacji jednostek. Biorąc pod uwagę produktu, można znaleźć dostawcy. Można również tworzyć i usuwać relacje. Na przykład można ustawić dostawcę dla produktu.

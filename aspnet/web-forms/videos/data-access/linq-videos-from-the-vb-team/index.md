@@ -8,22 +8,22 @@ ms.date: 02/24/2012
 ms.assetid: 257373bb-eab0-47bc-b5a2-37a9e91666d6
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team
 msc.type: chapter
-ms.openlocfilehash: 67c6aaf358d4c7c2764493e8c17e1d5245096014
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3db35464b448727ef3477a90149459a46e0f76d7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797260"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412167"
 ---
-<a name="linq-videos-from-the-vb-team"></a>Filmy dotyczące zapytań LINQ od zespołu języka VB
-====================
+# <a name="linq-videos-from-the-vb-team"></a>Filmy dotyczące zapytań LINQ od zespołu języka VB
+
 > Filmy te oferują przez godzinę i połowy zawartości koncentruje się na nowe funkcje języka Visual Basic 9.0 zawarte w programie Visual Studio 2008 LINQ.
 
 
-- [Wprowadzenie do LINQ](how-do-i-get-started-with-linq.md)
+- [Wprowadzenie do zapytań LINQ](how-do-i-get-started-with-linq.md)
 - [Wykonywanie zapytań w odniesieniu do grup i danych zagregowanych](how-do-i-perform-group-and-aggregate-queries.md)
 - [Uaktualnianie projektów języka Visual Basic w celu włączenia zapytań LINQ](how-do-i-upgrade-visual-basic-projects-to-enable-linq.md)
-- [Wprowadzenie do LINQ to XML](how-do-i-get-started-with-linq-to-xml.md)
+- [Wprowadzenie do interfejsu LINQ to XML](how-do-i-get-started-with-linq-to-xml.md)
 - [Włączanie funkcji IntelliSense XML i używanie przestrzeni nazw XML](how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
 - [Tworzenie dokumentów XML na podstawie danych SQL](how-do-i-create-xml-documents-from-sql-data.md)
-- [Tworzenie arkuszy programu Excel za pomocą LINQ to XML](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)
+- [Tworzenie arkuszy programu Excel za pomocą interfejsu LINQ to XML](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)

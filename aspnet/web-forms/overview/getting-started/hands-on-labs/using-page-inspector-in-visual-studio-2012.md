@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: ce654eb5abd54613987f2375cc973febc9dc2ad5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071225"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396567"
 ---
-<a name="using-page-inspector-in-visual-studio-2012"></a>Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012
-====================
+# <a name="using-page-inspector-in-visual-studio-2012"></a>Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 > W tym laboratorium praktyczne wykryje nowe narzędzie służące do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector.
@@ -59,7 +59,7 @@ Należy dysponować następującymi elementami do przygotowania tego laboratoriu
 - [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) lub wyższego poziomu (odczyt [dodatek a.](#AppendixA) instrukcje dotyczące sposobu jego instalacji).
 - Program Internet Explorer 9 lub nowszy
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -106,7 +106,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
     *Wybieranie pliku, aby wyświetlić podgląd w narzędzia Page Inspector*
 3. Okno narzędzia Page Inspector będzie zawierać */Home/Index* adres URL mapowany do źródła wybranego widoku.
 
-    ![ThefirstcontactwithPageInspector](using-page-inspector-in-visual-studio-2012/_static/image2.png)
+    ![Pierwszy kontakt z PageInspector](using-page-inspector-in-visual-studio-2012/_static/image2.png)
 
     *Pierwszy kontakt z narzędziem Page Inspector*
 
@@ -130,7 +130,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
     *Przełącz tryb inspekcji przycisku*
 6. W przeglądarce narzędzia Page Inspector Przesuń wskaźnik myszy nad elementów strony. Podczas przesuwania wskaźnika myszy nad dowolną część renderowanej strony, typ elementu jest wyświetlany, oraz odpowiedni kod źródłowy lub kod jest wyróżniony w edytorze programu Visual Studio.
 
-    ![Inspectionmodeinaction](using-page-inspector-in-visual-studio-2012/_static/image5.png)
+    ![Tryb inspekcji w działaniu](using-page-inspector-in-visual-studio-2012/_static/image5.png)
 
     *Tryb inspekcji w działaniu*
 
@@ -139,7 +139,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
 
     Jeśli użytkownik należy zwrócić uwagę na **Index.cshtml** plik, zauważysz, że fragment kodu źródłowego, który generuje wybranego elementu jest wyróżniona. Ta funkcja ułatwia tworzenie, edytowanie plików źródłowych długie, zapewniając bezpośredni i szybki sposób uzyskiwać dostęp do kodu.
 
-    ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
+    ![Sprawdzanie elementów](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Sprawdzanie elementów*
 7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.") ) można wyłączyć kursora.
@@ -156,7 +156,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
     > [!NOTE]
     > Ponieważ nagłówek jest częścią układu witryny, narzędzie Page Inspector będzie również otworzyć \_plik Layout.cshtml i wyróżnienie na segmencie kodu.
 
-    ![Discoveringstyles](using-page-inspector-in-visual-studio-2012/_static/image9.png)
+    ![Odnajdywanie style](using-page-inspector-in-visual-studio-2012/_static/image9.png)
 
     *Odnajdywanie stylów i pliki źródłowe zaznaczonego elementu*
 11. Wskaźnikiem Przełącz Inspekcja włączona umieść kursor myszy poniżej niebieski pasek polecane, a następnie kliknij przycisk Półokrąg.
@@ -180,7 +180,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
     *Zmiana wartości CSS w narzędzia Page Inspector*
 15. Kliknij przycisk **— śledzenie stylów** karcie znajduje się w prawym okienku narzędzia Page Inspector. Jest to alternatywny sposób, aby zobaczyć wszystkie style, które są stosowane do wyboru, uporządkowane według nazwy atrybutu.
 
-    ![CSSstylestracing](using-page-inspector-in-visual-studio-2012/_static/image13.png)
+    ![Style CSS śledzenia](using-page-inspector-in-visual-studio-2012/_static/image13.png)
 
     *Śledzenie stylów CSS zaznaczonego elementu*
 16. Kolejną funkcją narzędzia Page Inspector jest okienko układu. Tryb inspekcji, zaznacz pasek nawigacyjny, a następnie kliknij przycisk **układ** karty w okienku po prawej stronie. Zostanie wyświetlony dokładny rozmiar wybranego elementu, a także jego rozmiar przesunięcie, marża, uzupełnienie i obramowanie. Należy zauważyć, że wartości w tym widoku można również zmodyfikować.
@@ -218,7 +218,7 @@ W ramach tego zadania będzie używane narzędzie Page inspector i rozwiązywani
 2. Przełącz tryb inspekcji zaznaczone kliknij przycisk Zamknij, aby, ale nie na, link Zarejestruj, aby otworzyć jego kod.
 
     Należy zauważyć, że kod źródłowy łączy znajduje się w  **\_LoginPartial.cshtml** pliku nie Index.cshtml ani \_Layout.cshtml, będące miejscach może wyglądać na pierwszym miejscu. Zostały umieszczone bezpośrednio w pliku poprawnego źródła.
-3. W **style** kartę, zlokalizuj i kliknij **<section> #login</section>** elementu, który jest kontenerem HTML, aby te łącza.
+3. W **style** kartę, zlokalizuj i kliknij  **\<sekcji > #login** elementu, który jest kontenerem HTML, aby te łącza.
 
     Należy zauważyć, że **#login** styl automatycznie znajduje się w **Site.css** po kliknięciu przycisku. Ponadto ten kod jest podświetlona.
 
@@ -261,12 +261,12 @@ W ramach tego zadania będzie używane narzędzie Page inspector i rozwiązywani
 
     *Przypisywanie nowy tytuł*
 
-    ![PhotoGallerypage](using-page-inspector-in-visual-studio-2012/_static/image23.png)
+    ![Galeria fotografii strony](using-page-inspector-in-visual-studio-2012/_static/image23.png)
 
     *Strona Galeria fotografii zaktualizowane*
-11. Na koniec wybierz **PhotoGallery** projektu i naciśnij klawisz **F5** do uruchomienia aplikacji. Sprawdź wszystkie zmiany działają zgodnie z oczekiwaniami.
+11. Na koniec wybierz pozycję **PhotoGallery** projektu i naciśnij klawisz **F5** do uruchomienia aplikacji. Sprawdź wszystkie zmiany działają zgodnie z oczekiwaniami.
 
-* * *
+---
 
 <a id="Exercise2"></a>
 
@@ -347,7 +347,7 @@ W tym zadaniu dowiesz się, jak używać funkcji narzędzia Page Inspector w kon
     > [!NOTE]
     > ponieważ nagłówek jest częścią układu witryny, narzędzie Page Inspector również otworzyć plik Site.Master i zaznacz segment kodu, których to dotyczy.
 
-    ![DiscoveringstylesWebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "odnajdywanie stylów i pliki źródłowe zaznaczonego elementu")
+    ![Odnajdywanie style WebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "odnajdywanie stylów i pliki źródłowe zaznaczonego elementu")
 
     *Odnajdywanie stylów i pliki źródłowe zaznaczonego elementu*
 11. Wskaźnikiem Przełącz Inspekcja włączona umieść kursor myszy poniżej paska menu, a następnie kliknij przycisk puste Półokrąg.
@@ -421,7 +421,7 @@ W tym zadaniu można będzie używać narzędzia Page inspector rozwiązywanie n
     Narzędzie Page Inspector zna wszystkie różnych plików wchodzących w skład bieżącej strony i może wykryć, gdy zmienią się któryś z tych plików. Generuje alert w każdym przypadku, gdy nie jest zsynchronizowany z plikami źródłowymi bieżącej strony w przeglądarce.
 5. W przeglądarce narzędzia Page Inspector kliknij pasek znajdujący się poniżej paska adresu, aby zapisać zmiany i ponownie załaduj stronę.
 
-    ![Reloadingthepage](using-page-inspector-in-visual-studio-2012/_static/image40.png)
+    ![Ponownie załadować stronę](using-page-inspector-in-visual-studio-2012/_static/image40.png)
 
     *Ponownie załadować stronę*
 
@@ -457,7 +457,7 @@ W tym zadaniu można będzie używać narzędzia Page inspector rozwiązywanie n
     *Strona Galeria fotografii zaktualizowane*
 11. Na koniec zaznacz **F5** do uruchomienia aplikacji, sprawdź wszystkie zmiany działają zgodnie z oczekiwaniami.
 
-* * *
+---
 
 <a id="Summary"></a>
 

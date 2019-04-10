@@ -8,15 +8,15 @@ ms.date: 12/12/2012
 ms.assetid: 9f06c1f2-ffaa-4831-94a0-2e4a3befdf07
 msc.legacyurl: /web-api/overview/security/forms-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 35d62a83382553085ed8a728dcdcdae0e93090b8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 147bfab76e48497f35a72b28cd935f40ec4193bf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078266"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410084"
 ---
-<a name="forms-authentication-in-aspnet-web-api"></a>Uwierzytelnianie formularzy we wzorcu ASP.NET Web API
-====================
+# <a name="forms-authentication-in-aspnet-web-api"></a>Uwierzytelnianie formularzy we wzorcu ASP.NET Web API
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 Uwierzytelnianie formularzy używa formularza HTML w celu wysłania poświadczeń użytkownika do serwera. Nie jest standardem Internet. Uwierzytelnianie formularzy jest tylko internetowych interfejsów API, które są wywoływane z poziomu aplikacji internetowej tak, aby użytkownik może korzystać z formularza HTML.

@@ -8,18 +8,18 @@ ms.date: 11/14/2012
 ms.assetid: a17452c8-35fc-4ac2-811e-16d29f647cf7
 msc.legacyurl: /single-page-application/overview
 msc.type: book
-ms.openlocfilehash: 0f121ded971e404e6b7ec90c55741bab3bf2af8c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ba656ecc14204d833e9dc18b941a2c19ec5e06ef
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796402"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59397731"
 ---
-<a name="single-page-application-overview"></a>Omówienie aplikacji jednostronicowej
-====================
+# <a name="single-page-application-overview"></a>Omówienie aplikacji jednostronicowej
+
 - [Wprowadzenie](introduction/index.md)
 
-    - [Aplikacja jednostronicowa: Szablon KnockoutJS](introduction/knockoutjs-template.md)
+    - [Aplikacja jednostronicowa: szablon KnockoutJS](introduction/knockoutjs-template.md)
     - [Znasz biblioteki inne niż Knockout?](introduction/other-libraries.md)
 - [Szablony](templates/index.md)
 

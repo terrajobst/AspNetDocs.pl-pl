@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 8f4b7186ae5c7b7b384ebcb23f7c9ad65caeb0bd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 204611513860e268001596b9c7ac9e9c023caa12
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068864"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399856"
 ---
-<a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie obrazu wideo w witrynie ASP.NET Web Pages (Razor)
-====================
+# <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie obrazu wideo w witrynie ASP.NET Web Pages (Razor)
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule wyjaśniono, jak na potrzeby odtwarzacz wideo (w przypadku nośników) w witrynie internetowej ASP.NET Web Pages (Razor) umożliwiają użytkownikom wyświetlanie filmów wideo, które są przechowywane w witrynie. Stron ASP.NET Web Pages o składni Razor umożliwia Flash (*SWF*), usługa Media Player (*wmv*) i Silverlight (*.xap*) filmów wideo.

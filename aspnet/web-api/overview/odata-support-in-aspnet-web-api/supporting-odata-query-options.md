@@ -1,23 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: Obsługa opcji zapytań protokołu OData, we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Obsługa opcji zapytania OData, we wzorcu ASP.NET Web API 2 — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Przegląd wraz z przykładami kodu pokazuje pomocnicze opcje zapytania OData w programie ASP.NET Web API 2 dla platformy ASP.NET 4.x.
 ms.author: riande
 ms.date: 02/04/2013
+ms.custom: seoapril2019
 ms.assetid: 50e6e62b-e72e-4a29-8293-4b67377bd21f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
 msc.type: authoredcontent
-ms.openlocfilehash: 8745183125c9dd1dcc7cb0e146367a893bdb0170
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 428e4942e42436585049c1e84cd7b07a4a79c0d1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073913"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411569"
 ---
-<a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>Obsługa opcji zapytań protokołu OData we wzorcu ASP.NET Web API 2
-====================
+# <a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>Obsługa opcji zapytań protokołu OData we wzorcu ASP.NET Web API 2
+
 przez [Mike Wasson](https://github.com/MikeWasson)
+
+W tym omówieniu z przykładami kodu pokazuje pomocnicze opcje zapytania OData w programie ASP.NET Web API 2 dla programu ASP.NET 4.x. 
 
 Usługa OData definiuje parametry, które mogą służyć do modyfikowania zapytanie OData. Klient wysyła te parametry do ciągu zapytania identyfikatora URI żądania. Na przykład aby posortować wyniki, klient używa parametru $orderby:
 
@@ -78,7 +81,7 @@ Opcja $top zapewnia maksymalną liczbę zwracanych pozycji, a opcja $skip zapewn
 
 Opcja $filter umożliwia klientowi filtrowanie wyników za pomocą wyrażenia logicznego. Wyrażenia filtru są bardzo wydajny; obejmują one operatory logiczne i arytmetyczne, parametry funkcji i funkcji daty.
 
-| Zwróć wszystkie produkty z kategorii jest równa "Zabawki". | `http://localhost/Products?$filter=Category` EQ "Zabawki" |
+| Zwróć wszystkie produkty z kategorii jest równa "Zabawki". | `http://localhost/Products?$filter=Category` eq 'Toys' |
 | --- | --- |
 | Zwróć wszystkie produkty z ceną mniej niż 10. | `http://localhost/Products?$filter=Price` lt 10 |
 | Operatory logiczne: Zwróć wszystkie produkty których cena > = 5, a cena < = 15. | `http://localhost/Products?$filter=Price` GE 5 i le ceny 15 |

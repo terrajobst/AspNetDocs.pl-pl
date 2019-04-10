@@ -8,15 +8,15 @@ ms.date: 10/13/2010
 ms.assetid: c8511ebe-68bc-4240-87c3-d5ced84a3f37
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 44205f0ef59e00ad9fb1c45fdc0ba8934b5804cc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5431d60506f5b0a0f4bbcd8e86b316c728a1191
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076790"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415924"
 ---
-<a name="part-7-membership-and-authorization"></a>Część 7. Członkostwo i autoryzacja
-====================
+# <a name="part-7-membership-and-authorization"></a>Część 7. Członkostwo i autoryzacja
+
 przez [Galloway'em Jon](https://github.com/jongalloway)
 
 > MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  

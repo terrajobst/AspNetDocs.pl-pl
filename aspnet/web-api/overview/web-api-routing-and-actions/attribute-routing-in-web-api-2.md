@@ -8,15 +8,15 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 65e2268418501f89a77a0ba20f7960a618c2e9b7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068903"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405460"
 ---
-<a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu we wzorcu ASP.NET Web API 2
-====================
+# <a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu we wzorcu ASP.NET Web API 2
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 *Routing* jest jak internetowy interfejs API dopasowuje się do identyfikatora URI do akcji. Składnik Web API 2 obsługuje nowy typ routingu, o nazwie *trasowanie atrybutów*. Jak wskazuje nazwa, routing atrybutu używa atrybutów do definiowania trasy. Trasowanie atrybutów zapewnia większą kontrolę nad identyfikatory URI w interfejsie API sieci web. Na przykład można łatwo utworzyć identyfikatory URI, które opisują hierarchie zasobów.
@@ -50,7 +50,7 @@ Za pomocą atrybutu routingu jest prosta, aby zdefiniować trasę dla tego ident
 
 Poniżej przedstawiono niektóre wzorce, które atrybutu routingu powoduje, że łatwo.
 
-**Przechowywanie wersji interfejsu API**
+**Obsługa wersji interfejsu API**
 
 W tym przykładzie "/ api/v1/produktów" byłaby przekierowane do innego kontrolera niż "/ api/2/produktów".
 
@@ -228,8 +228,8 @@ Alternatywnie można określić wartość domyślną wewnątrz szablonu trasy w 
 
 Jest prawie taki sam, jak w poprzednim przykładzie, ale istnieje niewielka różnica zachowanie po zastosowaniu wartość domyślną.
 
-- W pierwszym przykładzie ("{lcid?}") wartość domyślna 1033, to przypisać bezpośrednio do parametru metody, tak aby było to dokładna wartość parametru.
-- W drugim przykładzie ("{lcid = 1033}"), wartość domyślna "1033" przechodzi przez proces wiązania modelu. Integrator modelu domyślne przekonwertuje "1033" na wartość liczbową 1033. Można jednak dodatku niestandardowego integratora modelu, który może zrobić coś inaczej.
+- W pierwszym przykładzie ("{lcid:int?}") wartość domyślna 1033, to przypisać bezpośrednio do parametru metody, tak aby było to dokładna wartość parametru.
+- W drugim przykładzie ("{lcid:int = 1033}"), wartość domyślna "1033" przechodzi przez proces wiązania modelu. Integrator modelu domyślne przekonwertuje "1033" na wartość liczbową 1033. Można jednak dodatku niestandardowego integratora modelu, który może zrobić coś inaczej.
 
 (W większości przypadków, chyba że masz niestandardowe integratorów modeli w potoku, dwa formularze będą równoważne).
 

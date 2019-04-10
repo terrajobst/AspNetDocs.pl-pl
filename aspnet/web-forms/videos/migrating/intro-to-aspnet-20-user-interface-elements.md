@@ -8,15 +8,15 @@ ms.date: 07/25/2006
 ms.assetid: eb2e621c-3017-4382-83ee-cbec8148ac04
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-20-user-interface-elements
 msc.type: video
-ms.openlocfilehash: 6e9968af439447ffc3438be054fdeb0be6a5dba4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0a7ca569bc5d1f7bfb38465e0ae5a701e713fcb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075296"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417081"
 ---
-<a name="intro-to-aspnet-20-user-interface-elements"></a>[Wprowadzenie do platformy ASP.NET 2.0:] Elementy interfejsu użytkownika
-====================
+# <a name="intro-to-aspnet-20-user-interface-elements"></a>[Wprowadzenie do platformy ASP.NET 2.0:] Elementy interfejsu użytkownika
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 Ta emisja internetowa patrzy na funkcji ASP.NET 2.0, które upraszczają konstrukcji interfejsy użytkownika, w tym strony wzorcowe, kompozycje i formantów nawigacji.

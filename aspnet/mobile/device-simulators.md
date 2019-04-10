@@ -1,19 +1,20 @@
 ---
 uid: mobile/device-simulators
-title: Symulowanie testowanie popularnych urządzeń przenośnych | Dokumentacja firmy Microsoft
+title: Symulowanie popularnych urządzeń przenośnych na potrzeby testowania za pomocą programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Możesz pobrać emulatory dla popularnych urządzeń przenośnych i przeglądarek, wykonując te linki
+description: Pobierz emulatory dla popularnych urządzeń przenośnych i przeglądarki na potrzeby testów aplikacji ASP.NET. Zawiera urządzenia iPhone, Android, BrowserStack i nie tylko.
 ms.author: riande
 ms.date: 10/11/2018
+ms.custom: seoapril2019
 ms.assetid: bfb5612e-c3ec-4f28-b43b-63d781aa2272
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
-ms.openlocfilehash: 8299295154d23f8fc430676b2c8ad8efc98ad185
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aec442e05a7db69dfaea4b0cca53bbf41792500c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068744"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412154"
 ---
 # <a name="simulate-popular-mobile-devices-for-testing"></a>Symulowanie popularnych urządzeń przenośnych na potrzeby testowania
 

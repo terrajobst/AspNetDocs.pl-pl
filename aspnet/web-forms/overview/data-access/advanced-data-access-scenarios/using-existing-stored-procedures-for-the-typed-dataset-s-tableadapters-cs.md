@@ -8,15 +8,15 @@ ms.date: 07/18/2007
 ms.assetid: 440bef2a-1641-4238-99e3-8e2d44e7d94c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: df095a7eeac0910078cfa206ed1ba7be9a1334d2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3c825b61734a7987d919ff40d6641471117a11dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066515"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416678"
 ---
-<a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Korzystanie z istniejących procedur składowanych dla elementów TableAdapter typizowanego zestawu danych (C#)
-====================
+# <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Korzystanie z istniejących procedur składowanych dla elementów TableAdapter typizowanego zestawu danych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_68_CS.zip) lub [Pobierz plik PDF](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/datatutorial68cs1.pdf)
@@ -39,7 +39,7 @@ W tym samouczku przedstawiony zostanie sposób konfigurowania TableAdapter używ
 Programu Visual Studio ułatwia dodawanie nowych procedur składowanych do bazy danych. Umożliwiają s Dodaj nową procedurę składowaną z bazą danych Northwind, która zwraca wszystkie kolumny z `Products` tabeli dla tych, które mają konkretny `CategoryID` wartość. W oknie Eksploratora serwera rozwiń węzeł bazy danych Northwind, tak, aby jego folderów — diagramy baz danych, tabele, widoki i tak dalej — są wyświetlane. Jak widać widzieliśmy w poprzednim samouczku folderu procedur składowanych zawiera bazy danych s istniejących procedur składowanych. Aby dodać nową procedurę składowaną, kliknij prawym przyciskiem myszy folder procedur składowanych i wybierz opcję Dodaj nową procedurę przechowywaną z menu kontekstowego.
 
 
-[![Kliknij prawym przyciskiem myszy Folder procedur składowanych i Dodaj nową procedurę składowaną](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image1.png)
+[![Rprawo kliknij Folder procedury składowanej i Dodaj nową procedurę przechowywaną](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image2.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image1.png)
 
 **Rysunek 1**: Kliknij prawym przyciskiem myszy Folder procedur przechowywanych i Dodaj nową procedurę przechowywaną ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image3.png))
 
@@ -58,19 +58,19 @@ Do wykonania tej operacji `CREATE PROCEDURE` skryptu i dodać procedurę składo
 Na rysunku 2 przedstawiono program Visual Studio po `Products_SelectByCategoryID` procedura składowana została zapisana.
 
 
-[![Products_SelectByCategoryID procedura składowana została dodana do bazy danych](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
+[![TADAM Products_SelectByCategoryID procedura składowana została dodana do bazy danych](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image5.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image4.png)
 
 **Rysunek 2**: Procedura składowana `Products_SelectByCategoryID` został dodany do bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image6.png))
 
 
 ## <a name="step-2-configuring-the-tableadapter-to-use-an-existing-stored-procedure"></a>Krok 2. Konfigurowanie TableAdapter do użycia istniejącą procedurę składowaną
 
-Teraz, gdy `Products_SelectByCategoryID` procedura składowana została dodana do bazy danych, możemy concigure nasze warstwy dostępu do danych, aby użyć tej procedury składowanej, gdy jeden z jego metod jest wywoływany. W szczególności firma Microsoft doda `GetProducstByCategoryID(categoryID)` metody `ProductsTableAdapter` w `NorthwindWithSprocs` wpisany zestaw danych, który wywołuje `Products_SelectByCategoryID` przechowywane procedury, którą właśnie utworzyliśmy.
+Teraz, gdy `Products_SelectByCategoryID` procedura składowana została dodana do bazy danych, możemy skonfigurować nasz warstwy dostępu do danych, aby użyć tej procedury składowanej, gdy jeden z jego metod jest wywoływany. W szczególności firma Microsoft doda `GetProductsByCategoryID(categoryID)` metody `ProductsTableAdapter` w `NorthwindWithSprocs` wpisany zestaw danych, który wywołuje `Products_SelectByCategoryID` przechowywane procedury, którą właśnie utworzyliśmy.
 
 Zacznij od otwarcia `NorthwindWithSprocs` zestawu danych. Kliknij prawym przyciskiem myszy `ProductsTableAdapter` i wybierz polecenie Dodaj zapytanie, aby uruchomić Kreatora konfiguracji zapytania TableAdapter. W [poprzedni Samouczek](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) postanowiliśmy mają TableAdapter, Utwórz nową procedurę składowaną dla nas. Na potrzeby tego samouczka, chcemy, aby powiązać nową metodę TableAdapter do istniejących `Products_SelectByCategoryID` procedury składowanej. W związku z tym opcję użycia istniejącej procedury składowanej z pierwszego kroku s kreatora, a następnie kliknij przycisk Dalej.
 
 
-[![Wybierz opcję użycia istniejącej procedury składowanej — opcja](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)
+[![Cbierz Użyj istniejącej przechowywane procedury opcji](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image8.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image7.png)
 
 **Rysunek 3**: Wybierz opcję Użyj istniejącej przechowywane procedury opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image9.png))
 
@@ -78,7 +78,7 @@ Zacznij od otwarcia `NorthwindWithSprocs` zestawu danych. Kliknij prawym przycis
 Następujący ekran zawiera listy rozwijanej wypełniony bazy danych s procedur składowanych. Wybieranie procedury składowanej wyświetla jego parametrów wejściowych po lewej i pola danych zwracane (jeśli istnieją) po prawej stronie. Wybierz `Products_SelectByCategoryID` przechowywane procedury z listy i kliknij przycisk Dalej.
 
 
-[![Wybierz Products_SelectByCategoryID procedury składowanej](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image11.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)
+[![PProcedura składowana Products_SelectByCategoryID su](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image11.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image10.png)
 
 **Rysunek 4**: Wybierz `Products_SelectByCategoryID` Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image12.png))
 
@@ -88,7 +88,7 @@ Następny ekran najpierw zadaje nam jakiego rodzaju dane zwracane przez procedur
 Ponieważ `Products_SelectByCategoryID` procedura składowana ma zwracać wszystkie produkty, które należą do określonej kategorii, wybierz pierwszą odpowiedź — dane tabelaryczne — i kliknij przycisk Dalej.
 
 
-[![Wskazuje, że procedura składowana ma zwracać dane tabelaryczne](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)
+[![Indicate procedury składowanej zwracanych danych tabelarycznych](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image14.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image13.png)
 
 **Rysunek 5**: Wskazuje, że procedury składowanej zwraca dane tabelaryczne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image15.png))
 
@@ -96,7 +96,7 @@ Ponieważ `Products_SelectByCategoryID` procedura składowana ma zwracać wszyst
 Pozostaje tylko do wskazania, co metoda wzorce do użycia oraz nazwy dotyczącej tych metod. Pozostaw zarówno wypełnienia DataTable i zwrócenia opcje DataTable zaznaczone, ale Zmień nazwę metody służące do `FillByCategoryID` i `GetProductsByCategoryID`. Następnie kliknij przycisk Dalej, aby przejrzeć podsumowanie zadań, które wykona Kreator. Jeśli wszystko jest poprawne, kliknij przycisk Zakończ.
 
 
-[![Nazwa FillByCategoryID metod i GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
+[![NNazwa FillByCategoryID metod i GetProductsByCategoryID](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image17.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image16.png)
 
 **Rysunek 6**: Nazwa metody `FillByCategoryID` i `GetProductsByCategoryID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image18.png))
 
@@ -125,12 +125,12 @@ Aby przetestować nowo dodanych `Products_SelectByCategoryID` procedury składow
 Otwórz `ExistingSprocs.aspx` stronie `AdvancedDAL` folder i przeciągnij kontrolki DropDownList z przybornika do projektanta. Ustaw DropDownList s `ID` właściwości `Categories` i jego `AutoPostBack` właściwość `true`. Następnie z jej tagu inteligentnego powiązać metody DropDownList nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource`. Skonfigurować kontrolki ObjectDataSource pobiera dane z `CategoriesBLL` klasy s `GetCategories` metody. Ustawianie list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
 
 
-[![Pobieranie danych z metody GetCategories CategoriesBLL klasy s](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image19.png)
+[![Robierz dane z klasy CategoriesBLL s GetCategories metoda](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image20.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image19.png)
 
 **Rysunek 7**: Pobieranie danych z `CategoriesBLL` klasy s `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image21.png))
 
 
-[![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
+[![Set list rozwijanych w aktualizacji, WSTAWIANIA i usuwania karty (Brak)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image23.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image22.png)
 
 **Rysunek 8**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image24.png))
 
@@ -145,12 +145,12 @@ W tym momencie DropDownList i kontrolki ObjectDataSource s oznaczeniu deklaracyj
 Następnie przeciągnij GridView do konstruktora, umieszczając go poniżej metody DropDownList. Ustaw GridView s `ID` do `ProductsByCategory` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsByCategoryDataSource`. Konfigurowanie `ProductsByCategoryDataSource` ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy go pobrać jego dane za pomocą `GetProductsByCategoryID(categoryID)` metody. Ponieważ ten GridView będą używane tylko do wyświetlania danych, ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak) i kliknij przycisk Dalej.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image26.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image25.png)
 
 **Rysunek 9**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image27.png))
 
 
-[![Pobieranie danych z metody GetProductsByCategoryID(categoryID)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)
+[![Robierz dane z metody GetProductsByCategoryID(categoryID)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image29.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Pobieranie danych z `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image30.png))
 
@@ -158,7 +158,7 @@ Następnie przeciągnij GridView do konstruktora, umieszczając go poniżej meto
 Metody wybranej na karcie Wybierz oczekuje parametru, więc w ostatnim kroku kreatora nam wyświetla monit o podanie parametru źródła s. Zmień wartość na liście rozwijanej źródła parametru do kontroli, a następnie wybierz `Categories` formantu z listy rozwijanej ControlID. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![Użyj metody DropDownList kategorie jako źródło categoryID parametru](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
+[![USE DropDownList kategorie jako źródło categoryID parametr](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image32.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image31.png)
 
 **Rysunek 11**: Użyj `Categories` DropDownList jako źródło `categoryID` parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image33.png))
 
@@ -168,7 +168,7 @@ Po zakończeniu pracy Kreatora ObjectDataSource programu Visual Studio spowoduje
 Odwiedź stronę za pośrednictwem przeglądarki. Przy wybranej kategorii Beverages strony i odpowiadających im produktów, które są wyświetlane w siatce. Zmiana listy rozwijanej do alternatywnego kategorii, jak rysunek 12 przedstawiono powoduje odświeżenie strony i ponownie ładuje siatki z produktami nowo wybranej kategorii.
 
 
-[![Produkty z kategorii generuje są wyświetlane.](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image34.png)
+[![TWyświetlono produktów z kategorii generuje](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image35.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image34.png)
 
 **Rysunek 12**: Produkty z kategorii generuje są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image36.png))
 
@@ -206,12 +206,12 @@ Jeśli nie ma żadnych błędów, wykonywania instrukcji SQL tej transakcji, kor
 Pozwól, s, spójrz na konkretny przykład. Ograniczenie klucza obcego istnieje między `Categories` i `Products` tabel, co oznacza, że każdy `CategoryID` pole `Products` tabeli musi być mapowane `CategoryID` wartość w `Categories` tabeli. Dowolna akcja, którą naruszyłoby to ograniczenie, np. podjęto próbę usunięcia kategorii, która jest skojarzona produktów, powoduje naruszenie ograniczenia klucza obcego. Aby to sprawdzić, ponownie przykład aktualizowanie i usuwanie istniejących danych binarnych w pracy z sekcji danych binarnych (`~/BinaryData/UpdatingAndDeleting.aspx`). Ta strona zawiera listę poszczególnych kategorii w systemie, wraz z przyciski edytowania i usuwania (zobacz rysunek 13), ale Jeśli spróbujesz usunąć kategorię, która jest skojarzona produktów — takich jak Beverages — usunięcie nie powiodło się z powodu naruszenia ograniczenia klucza obcego (zobacz rysunek 14).
 
 
-[![Każda kategoria jest wyświetlany w widoku GridView z funkcją Edytuj i usuń przyciski](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
+[![Estacje wyświetlania kategorii w GridView z funkcją Edytuj i usuń przyciski](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image38.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image37.png)
 
 **Rysunek 13**: Każda kategoria jest wyświetlany w widoku GridView z funkcją Edytuj i usuń przyciski ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image39.png))
 
 
-[![Nie można usunąć kategorii, której istniejących produktów](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
+[![Yjednostki organizacyjnej nie można usunąć kategorii, której istniejących produktów](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image41.png)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image40.png)
 
 **Rysunek 14**: Nie można usunąć kategorii, której istniejących produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image42.png))
 
@@ -240,7 +240,7 @@ Podczas gdy my będziemy dodano `Categories_Delete` procedurę składowaną w ba
 > Wcześniej w tym samouczku pracy przy użyciu `NorthwindWithSprocs` zestawu danych. Jednak, że zestaw danych zawiera tylko pojedynczy element `ProductsDataTable`, więc chcemy Praca z elementami roboczymi. W związku z tym, w pozostałej części tego samouczka I mówiąc o m Data Access Layer I odwołujące się do `Northwind` zestawu danych, który utworzyliśmy najpierw w [Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczka.
 
 
-Otwórz zestaw danych Northwind, wybierz `CategoriesTableAdapter`, a następnie przejdź do okna właściwości. Wyświetla okno właściwości `InsertCommand`, `UpdateCommand`, `DeleteCommand`, i `SelectCommand` posługują się TableAdapter, a także jej nazwę oraz informacje o połączeniu. Rozwiń `DeleteCommand` właściwości, aby wyświetlić jego szczegóły. Jak pokazano na rysunku 15, `DeleteCommand` s `ComamndType` właściwość jest ustawiona na tekst, który powoduje, że będzie można wysyłać tekst `CommandText` właściwość jako kwerendy SQL zapytań ad-hoc.
+Otwórz zestaw danych Northwind, wybierz `CategoriesTableAdapter`, a następnie przejdź do okna właściwości. Wyświetla okno właściwości `InsertCommand`, `UpdateCommand`, `DeleteCommand`, i `SelectCommand` posługują się TableAdapter, a także jej nazwę oraz informacje o połączeniu. Rozwiń `DeleteCommand` właściwości, aby wyświetlić jego szczegóły. Jak pokazano na rysunku 15, `DeleteCommand` s `CommandType` właściwość jest ustawiona na tekst, który powoduje, że będzie można wysyłać tekst `CommandText` właściwość jako kwerendy SQL zapytań ad-hoc.
 
 
 ![W Projektancie Aby wyświetlić jego właściwości w oknie dialogowym właściwości wybierz CategoriesTableAdapter](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/_static/image43.png)

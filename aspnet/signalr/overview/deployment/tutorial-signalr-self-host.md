@@ -8,20 +8,20 @@ ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 194f72ce40067e177a23b1eb70bd07ceb2225a04
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c3fe4a08a30aa2ed116dfa36ce6206dc9cbd07f8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425564"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415079"
 ---
-<a name="tutorial-signalr-self-host"></a>Samouczek: samodzielne hostowanie usługi SignalR
-====================
+# <a name="tutorial-signalr-self-host"></a>Samouczek: samodzielne hostowanie usługi SignalR
+
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
 
 > W tym samouczku pokazano, jak utworzyć samodzielnie hostowany serwer SignalR 2 i jak połączyć się z nim za pomocą klienta języka JavaScript.
 >

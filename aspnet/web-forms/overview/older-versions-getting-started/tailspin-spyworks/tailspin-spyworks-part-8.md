@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 3b49ee53e82933de9b50960779c28ca6ab7441e5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: db8db4e3bff8047b48a7528b5146873ab6d84714
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076613"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398686"
 ---
-<a name="part-8-final-pages-exception-handling-and-conclusion"></a>Część 8. Końcowe strony, obsługa wyjątków i podsumowanie
-====================
+# <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Część 8. Końcowe strony, obsługa wyjątków i podsumowanie
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
@@ -28,7 +28,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 
 Utwórz nową stronę o nazwie ContactUs.aspx
 
-Za pomocą projektanta, utwórz następującą postać biorąc ważne, aby uwzględnić ToolkitScriptManager i kontrolka edytora z AjaxdControlToolkit. .
+Za pomocą projektanta, utwórz następującą postać biorąc ważne, aby uwzględnić ToolkitScriptManager i kontrolka edytora z AjaxControlToolkit. .
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 

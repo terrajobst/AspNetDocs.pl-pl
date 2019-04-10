@@ -8,18 +8,18 @@ ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 91a6496e2640668c58ec0493d47d909e2de67367
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 028631f8855e4d94bebb0e965de75c4025e22859
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421353"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409268"
 ---
-<a name="part-7-creating-the-main-page"></a>Część 7. Tworzenie strony głównej
-====================
+# <a name="part-7-creating-the-main-page"></a>Część 7. Tworzenie strony głównej
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-the-main-page"></a>Tworzenie strony głównej
 
@@ -113,8 +113,8 @@ W tym samouczku utworzono aplikację, która korzysta z programu Entity Framewor
 
 Dodatkowe zasoby:
 
-- [ASP.NET Data Access Content Map](https://msdn.microsoft.com/library/6759sth4.aspx)
-- [Entity Framework Developer Center](https://msdn.microsoft.com/data/ef)
+- [Mapa zawartości dostępu do danych w programie ASP.NET](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [Centrum deweloperów programu Entity Framework](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-web-api-with-entity-framework-part-6.md)

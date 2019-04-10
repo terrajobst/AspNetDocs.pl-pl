@@ -8,22 +8,22 @@ ms.date: 09/19/2014
 ms.assetid: fda81611-b67b-4c62-915e-8adc1924a401
 msc.legacyurl: /signalr/overview/performance
 msc.type: chapter
-ms.openlocfilehash: 1f5e0ec92a7babb41c45cb16166cc1060e824cfa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6292ec084bbacdd41b5df63d9ac1017c43407b37
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796630"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402508"
 ---
-<a name="signalr-performance"></a>Wydajność usługi SignalR
-====================
+# <a name="signalr-performance"></a>Wydajność usługi SignalR
+
 > Jak zwiększyć wydajność aplikacji SignalR.
 
 
-- [Wydajność SignalR](signalr-performance.md)
-- [Wprowadzenie do skalowania w poziomie w SignalR](scaleout-in-signalr.md)
+- [Wydajność usługi SignalR](signalr-performance.md)
+- [Wprowadzenie do skalowania w poziomie w usłudze SignalR](scaleout-in-signalr.md)
 - [SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus](scaleout-with-windows-azure-service-bus.md)
 - [SignalR — skalowanie w poziomie z użyciem pamięci podręcznej Redis](scaleout-with-redis.md)
 - [SignalR — skalowanie w poziomie z użyciem programu SQL Server](scaleout-with-sql-server.md)
-- [Testowanie gęstości połączenia SignalR za pomocą funkcji Crank](signalr-connection-density-testing-with-crank.md)
-- [Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure](using-signalr-performance-counters-in-an-azure-web-role.md)
+- [Testowanie gęstości połączenia usługi SignalR za pomocą funkcji Crank](signalr-connection-density-testing-with-crank.md)
+- [Korzystanie z liczników wydajności usługi SignalR w roli internetowej platformy Azure](using-signalr-performance-counters-in-an-azure-web-role.md)

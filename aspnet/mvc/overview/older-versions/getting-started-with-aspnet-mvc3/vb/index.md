@@ -8,15 +8,15 @@ ms.date: 04/12/2012
 ms.assetid: c2f134f3-fc6b-4603-823f-d1eabe55bba2
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb
 msc.type: chapter
-ms.openlocfilehash: e8096554caf3bbb746b2102c43b2727369799c16
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9dbaf1cbf7eb89a47c1e7e388c4dc35b9900b97d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796395"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399115"
 ---
-<a name="getting-started-with-aspnet-mvc-3-vbnet"></a>Wprowadzenie do korzystania ze wzorca ASP.NET MVC 3 (VB.NET)
-====================
+# <a name="getting-started-with-aspnet-mvc-3-vbnet"></a>Wprowadzenie do korzystania ze wzorca ASP.NET MVC 3 (VB.NET)
+
 > Podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express przy użyciu VB.NET.
 
 
@@ -27,5 +27,5 @@ ms.locfileid: "57796395"
 - [Uzyskiwanie dostępu do danych modelu za pomocą kontrolera (VB)](accessing-your-models-data-from-a-controller.md)
 - [Badanie metod edycji i widoku edycji (VB)](examining-the-edit-methods-and-edit-view.md)
 - [Dodawanie nowego pola do modelu Movie i tabeli bazy danych (VB)](adding-a-new-field.md)
-- [Dodawanie weryfikacji do modelu (VB)](adding-validation-to-the-model.md)
+- [Dodawanie walidacji do modelu (VB)](adding-validation-to-the-model.md)
 - [Ulepszanie metod Details i Delete (VB)](improving-the-details-and-delete-methods.md)

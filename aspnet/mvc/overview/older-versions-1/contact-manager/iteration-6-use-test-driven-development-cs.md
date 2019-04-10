@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d456952bea9a1933247382f4786809b0b2f32034
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 94885984ebad90523369dcf5771d0f77a753008f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440329"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405667"
 ---
-<a name="iteration-6--use-test-driven-development-c"></a>Iteracja #6 — korzystanie z projektowania opartego na testach (C#)
-====================
+# <a name="iteration-6--use-test-driven-development-c"></a>Iteracja #6 — korzystanie z projektowania opartego na testach (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-6-use-test-driven-development-cs/_static/contactmanager_6_cs1.zip)
@@ -113,7 +113,7 @@ Nasz pierwszy Historia użytkownika jest, czy użytkownik powinien móc wyświet
 Tworzenie nowego testu jednostkowego, klikając prawym przyciskiem myszy folder kontrolerów w projekcie ContactManager.Tests wybierając **Dodaj, testowanie nowych**i wybierając polecenie **testów jednostkowych** szablonu (patrz rysunek 1). Nazwa nowej jednostki testowania GroupControllerTest.cs i kliknij przycisk **OK** przycisku.
 
 
-[![Dodawanie testu jednostkowego GroupControllerTest](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
+[![Atest jednostkowy GroupControllerTest dding](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
 
 **Rysunek 01**: Dodawanie testu jednostkowego GroupControllerTest ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image2.png))
 
@@ -141,7 +141,7 @@ Klasa kontrolera grupy w ofercie 2 zawiera absolutnego minimum wymagane do przek
 Po dodamy klasy GroupController i grupy do naszego projektu pierwszy test jednostki zakończy się pomyślnie (patrz rysunek 2). Wykonaliśmy minimalne pracę wymaganą do przekazania do testu. Nadszedł czas na Świętuj.
 
 
-[![SUKCES!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
+[![Success!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
 
 **Rysunek 02**: SUKCES! ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image4.png))
 
@@ -267,12 +267,12 @@ Następnie należy zdefiniować relacje między grupami tabeli bazy danych i ist
 9. Kliknij przycisk Zapisz, aby zapisać zmiany do tabeli kontaktów.
 
 
-[![Tworzenie relacji tabeli bazy danych](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
+[![Cworzenie relacji tabeli bazy danych](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
 
 **Rysunek 03**: Tworzenie relacji tabeli bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image6.png))
 
 
-[![Określanie relacji między tabelami](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
+[![Srelacje między tabelami pecifying](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
 
 **Rysunek 04**: Określanie relacji między tabelami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image8.png))
 
@@ -288,7 +288,7 @@ Następnie należy zaktualizować nasz model danych do reprezentowania nowej tab
 5. Kliknij prawym przyciskiem myszy właściwość nawigacji grupy, która pojawia się w dolnej części jednostki Contact. Zmień nazwę *grup* właściwość nawigacji do *grupy* (pojedynczą).
 
 
-[![Aktualizowanie modelu Entity Framework z bazy danych](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
+[![Uualizacja modelu Entity Framework z bazy danych](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
 
 **Rysunek 05**: Aktualizowanie modelu Entity Framework z bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image10.png))
 
@@ -296,7 +296,7 @@ Następnie należy zaktualizować nasz model danych do reprezentowania nowej tab
 Po wykonaniu tych kroków, od modelu danych będzie reprezentować tabel kontaktów i grup. W Projektancie jednostki powinny być widoczne oba jednostki (patrz rysunek 6).
 
 
-[![Projektant ekranu, wyświetlania grupy i skontaktuj się z](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
+[![EWyświetlanie projektanta ntity grupy i skontaktuj się z pomocą](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
 
 **Rysunek 06**: Projektant ekranu, wyświetlania grupy i skontaktuj się z pomocą ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image12.png))
 
@@ -329,7 +329,7 @@ Należy utworzyć następujące nowych widoków do zarządzania grupami kontaktu
 - Views\Group\Delete.aspx - Wyświetla formularz potwierdzenia związanych z usuwaniem grup kontaktu
 
 
-[![Wyświetl indeks grupy](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
+[![TADAM widoku indeks grupy](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
 
 **Rysunek 07**: Widok grupy indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image14.png))
 
@@ -343,7 +343,7 @@ Należy zmodyfikować następujące istniejących widoków, aby zawierały grup 
 Możesz zobaczyć zmodyfikowanych widoków, analizując aplikacji programu Visual Studio, który towarzyszy w tym samouczku. Na przykład rysunek 8 przedstawia widok skontaktuj się z indeksu.
 
 
-[![Widok indeksu kontaktów](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
+[![TADAM widoku indeksu skontaktuj się z pomocą](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
 
 **Rysunek 08**: Widok indeksu kontaktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image16.png))
 

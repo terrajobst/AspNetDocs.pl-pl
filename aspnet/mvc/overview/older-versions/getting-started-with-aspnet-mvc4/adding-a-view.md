@@ -8,15 +8,15 @@ ms.date: 08/28/2012
 ms.assetid: dde851d7-882e-4d99-9b96-cf96daed81cc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7b55a55db6207b8ff18b2dd207e919cee45f6973
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1ab1ea8b277b48b3b72edb9dd45aa4cc2937ffa8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067727"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418056"
 ---
-<a name="adding-a-view"></a>Dodawanie widoku
-====================
+# <a name="adding-a-view"></a>Dodawanie widoku
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]

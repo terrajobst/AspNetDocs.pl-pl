@@ -8,15 +8,15 @@ ms.date: 06/26/2007
 ms.assetid: ac6916d0-a5ab-4218-9760-7ba9e72d258c
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c5b4d3c21fad9000ae50ecb35a5d94d176a135ee
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: da913e08cd007a89b659f87ef30ea15160692c09
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069569"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416951"
 ---
-<a name="batch-deleting-c"></a>Usuwanie w partiach (C#)
-====================
+# <a name="batch-deleting-c"></a>Usuwanie w partiach (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_65_CS.zip) lub [Pobierz plik PDF](batch-deleting-cs/_static/datatutorial65cs1.pdf)
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 Każdy, kto został użyty w kliencie poczty e-mail w trybie online jest już znane z jednym z najbardziej typowych partii usuwanie interfejsów: pole wyboru w każdym wierszu w siatce z odpowiedniego Usuń wszystkie zaznaczone elementy przycisku (patrz rysunek 1). W tym samouczku jest raczej krótkie ponieważ możemy ve ustanowionego wszystkie trudną pracę w poprzednich samouczkach w tworzeniu interfejsu opartego na sieci web i metodę, aby usunąć serii rekordów w jednej niepodzielnej operacji. W [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) samouczku utworzyliśmy GridView z kolumny pól wyboru, a w polu [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md) samouczku utworzyliśmy metody w LOGIKI, która będzie używać transakcji można usunąć `List<T>` z `ProductID` wartości. W tym samouczku Zapoznamy bazują na i scalić naszych doświadczeń poprzedniej, aby utworzyć instancję pracy usuwania przykład.
 
 
-[![Każdy wiersz zawiera pola wyboru](batch-deleting-cs/_static/image1.gif)](batch-deleting-cs/_static/image1.png)
+[![Estacje wiersz zawiera pola wyboru](batch-deleting-cs/_static/image1.gif)](batch-deleting-cs/_static/image1.png)
 
 **Rysunek 1**: Każdy wiersz zawiera pola wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image2.png))
 
@@ -41,7 +41,7 @@ Każdy, kto został użyty w kliencie poczty e-mail w trybie online jest już zn
 Ponieważ utworzyliśmy partii Usuwanie interfejsu w [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) samouczek, możemy po prostu skopiować go do `BatchDelete.aspx` zamiast go utworzyć od podstaw. Zacznij od otwarcia `BatchDelete.aspx` strony w `BatchData` folder i `CheckBoxField.aspx` stronie `EnhancedGridView` folderu. Z `CheckBoxField.aspx` strony, przejdź do widoku źródła i skopiuj znaczników między `<asp:Content>` tagów, jak pokazano na rysunku 2.
 
 
-[![Skopiuj oznaczeniu deklaracyjnym CheckBoxField.aspx do Schowka](batch-deleting-cs/_static/image2.gif)](batch-deleting-cs/_static/image3.png)
+[![CKopiuj deklaratywne znaczników CheckBoxField.aspx do Schowka](batch-deleting-cs/_static/image2.gif)](batch-deleting-cs/_static/image3.png)
 
 **Rysunek 2**: Skopiuj oznaczeniu deklaracyjnym `CheckBoxField.aspx` do Schowka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image4.png))
 
@@ -54,7 +54,7 @@ Następnie przejdź do widoku źródła `BatchDelete.aspx` i Wklej zawartość S
 Po skopiowaniu w oznaczeniu deklaracyjnym i kod źródłowy, Poświęć chwilę na testowanie `BatchDelete.aspx` , wyświetlając go za pośrednictwem przeglądarki. Powinien zostać wyświetlony GridView zawierającą listę pierwszych dziesięciu produktów w GridView, przy czym każdy wiersz ofercie nazwa produktu s, kategorii i cenę wraz z pola wyboru. Powinny być trzy przyciski: Zaznacz wszystko, usuń zaznaczenie wszystkich i Usuń wybranych produktów. Kliknięcie przycisku Sprawdź wszystkie wybiera wszystkie pola wyboru, podczas gdy Usuń zaznaczenie wszystkich czyści wszystkie pola wyboru. Klikając polecenie Usuń wybrane produkty wyświetla komunikat, który zawiera listę `ProductID` wartości wybranych produktów, ale faktycznie nie usuwa produktów.
 
 
-[![Interfejs z CheckBoxField.aspx została przeniesiona do BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
+[![Ton interfejsu CheckBoxField.aspx została przeniesiona do BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
 
 **Rysunek 3**: Interfejs z `CheckBoxField.aspx` została przeniesiona do `BatchDeleting.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image6.png))
 
@@ -82,12 +82,12 @@ Zaktualizowano kod tworzy `List<T>` typu `int` (`productIDsToDelete`) i wypełni
 Rysunek 4 przedstawia widoku GridView po liczbę wierszy zostały wybrane do usunięcia. Rysunek 5. pokazuje ekranu natychmiast, po kliknięciu przycisku Usuń wybrane produkty. Należy pamiętać, że na rysunku 5 `ProductID` wartości usunięte rekordy są wyświetlane w etykiecie poniżej kontrolki GridView i tych wierszy nie są już w widoku GridView.
 
 
-[![Wybrane produkty zostaną usunięte.](batch-deleting-cs/_static/image4.gif)](batch-deleting-cs/_static/image7.png)
+[![Ton wybrane produkty zostaną usunięte](batch-deleting-cs/_static/image4.gif)](batch-deleting-cs/_static/image7.png)
 
 **Rysunek 4**: Wybrane produkty zostaną usunięte ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image8.png))
 
 
-[![Wartości usunięte ProductID produkty są wymienione poniżej GridView](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
+[![TUsunięto wartości HE ProductID produktów są wymienione poniżej GridView](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
 
 **Rysunek 5**: Usunięto produktów `ProductID` wartości są wymienione poniżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image10.png))
 

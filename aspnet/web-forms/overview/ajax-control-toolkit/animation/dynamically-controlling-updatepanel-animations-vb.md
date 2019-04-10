@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: bea66072-59b6-42b4-98fa-211812f5925f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2a4c01ffdee20f2c7970d999b34bf1374088d4c5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 223fad7013a53212c0c822a87bd3e2fcc0a5f17f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074750"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408956"
 ---
-<a name="dynamically-controlling-updatepanel-animations-vb"></a>Dynamiczne kontrolowanie animacji kontrolki UpdatePanel (VB)
-====================
+# <a name="dynamically-controlling-updatepanel-animations-vb"></a>Dynamiczne kontrolowanie animacji kontrolki UpdatePanel (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2VB.pdf)
@@ -58,7 +58,7 @@ Na koniec `UpdatePanelAnimationExtender` muszą być skonfigurowane: Ustaw `Targ
 Uruchom plik w przeglądarce. Zawsze, gdy klikniesz przycisk, bieżący czas jest wyświetlany w panelu zawsze zanikania przy czasie trwania jednej sekundy.
 
 
-[![Stopniowe bieżący czas](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
+[![TADAM bieżący czas jest stopniowe](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
 
 Bieżący czas jest stopniowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))
 

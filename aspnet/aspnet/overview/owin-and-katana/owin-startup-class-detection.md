@@ -8,15 +8,15 @@ ms.date: 01/28/2019
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 0b34cca8b48383dbb028106651758dff889ed614
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4d9424d691f92aacf078faed09689daa40a44fd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070571"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418342"
 ---
-<a name="owin-startup-class-detection"></a>Wykrywanie klasy początkowej interfejsu OWIN
-====================
+# <a name="owin-startup-class-detection"></a>Wykrywanie klasy początkowej interfejsu OWIN
+
 
 > W tym samouczku pokazano, jak skonfigurować klasy początkowej OWIN, które są ładowane. Aby uzyskać więcej informacji na temat OWIN, zobacz [Omówienie projektu Katana](an-overview-of-project-katana.md). Ten samouczek został napisany przez Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj projektu i Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 >
@@ -79,7 +79,8 @@ ms.locfileid: "57070571"
      > [!NOTE]
      > W powyższym kodzie możemy zostały oznaczone jako komentarz `OwinStartup` atrybutu, a my one polegania na Konwencji uruchamiania klasę o nazwie `Startup` .-Naciśnij ***F5*** do uruchomienia aplikacji. Następnie kliknij przycisk Odśwież kilka razy.
 
-    ![](owin-startup-class-detection/_static/image4.png) Uwaga: Liczby wyświetlanej na ilustracjach w tym samouczku nie będą zgodne, zostanie wyświetlona liczba. Ciąg milisekund jest używany do wyświetlenia nowej odpowiedzi po odświeżeniu strony.
+    ![](owin-startup-class-detection/_static/image4.png)
+  Uwaga: Liczby wyświetlanej na ilustracjach w tym samouczku nie będą zgodne, zostanie wyświetlona liczba. Ciąg milisekund jest używany do wyświetlenia nowej odpowiedzi po odświeżeniu strony.
   Można wyświetlić informacje o śledzeniu w **dane wyjściowe** okna.
 
     ![](owin-startup-class-detection/_static/image5.png)

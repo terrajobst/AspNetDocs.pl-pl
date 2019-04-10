@@ -8,15 +8,15 @@ ms.date: 06/21/2007
 ms.assetid: 4618499e-1925-414e-a432-16952bb967f4
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 msc.type: video
-ms.openlocfilehash: d0950ec711e85435c5a25028e357d9519817f7b9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f92fa38a42fe73d22085e5a88b66ea6df0d68191
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077546"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403769"
 ---
-<a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[Jak mogę] Pisać kod szybciej przy użyciu testów jednostkowych?
-====================
+# <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[Jak mogę] Pisać kod szybciej przy użyciu testów jednostkowych?
+
 przez [Chris Menegay](https://twitter.com/CMenegay)
 
 W tym filmie pokazano dowie się, jak testy jednostkowe mogą zwiększyć produktywność za ułatwianie debugowania procesu. Zobaczymy, jak Visual Studio Team System może wygenerować testu jednostkowego, aby zautomatyzować wykonywanie kodu, który jest debugowany, co pozwoli zaoszczędzić czas potrzebny na uruchamianie aplikacji sieci Web i wykonywać żadnych czynności, wymagane ręczne wykonanie tego samego kodu. Wyników testów jednostkowych jest, że możesz szybciej napisać kod działał on bardziej niezawodnie.

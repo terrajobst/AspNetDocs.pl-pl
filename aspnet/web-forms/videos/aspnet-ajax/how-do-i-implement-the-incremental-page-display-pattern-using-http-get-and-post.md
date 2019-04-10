@@ -8,15 +8,15 @@ ms.date: 03/13/2007
 ms.assetid: 28d5bb59-9aad-4cdd-8088-1e9d3d230ac5
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post
 msc.type: video
-ms.openlocfilehash: c36b6d59dfa8d66f23542be466a1c614dfb263f2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4766f6d20c17cf99c11fc634cf15743ef839716
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075524"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413714"
 ---
-<a name="how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post"></a>[Jak mogę] Implementowanie wzorca przyrostowego wyświetlania strony przy użyciu protokołu HTTP GET i POST?
-====================
+# <a name="how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post"></a>[Jak mogę] Implementowanie wzorca przyrostowego wyświetlania strony przy użyciu protokołu HTTP GET i POST?
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 Ten film wideo ma inną przyjrzeć AJAX wzorca przyrostowego wyświetlania strony pobierane i wyświetlane przyrostowo strony sieci Web. W tym filmie pokazano dane są pobierane z serwera za pomocą żądania HTTP GET i POST zamiast starszej demonstracyjnych użycia wywołania usługi sieci Web.

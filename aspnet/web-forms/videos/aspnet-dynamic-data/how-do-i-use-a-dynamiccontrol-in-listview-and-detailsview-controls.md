@@ -8,15 +8,15 @@ ms.date: 05/08/2008
 ms.assetid: 816175a2-47b1-49ba-b346-cfb1ee33096a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls
 msc.type: video
-ms.openlocfilehash: ce587fd1cb73178c75d291a6cb7a7e3f24d29390
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4916885afff0900d85f7ef58b84abc50144aa29e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070703"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406330"
 ---
-<a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>Jak używać obiektów dynamiccontrol w ListView i DetailsView kontrolkach?
-====================
+# <a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a>Jak używać obiektów dynamiccontrol w ListView i DetailsView kontrolkach?
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 W tym wideo porównuje tej samej aplikacji, które są zapisywane, jeden raz z danymi dynamicznymi i jeden raz bez. W procesie, możesz dodać **DynamicControl** obiekty do **ListView** i **DetailsView** kontrolki.

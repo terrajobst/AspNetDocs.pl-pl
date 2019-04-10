@@ -8,15 +8,15 @@ ms.date: 10/17/2013
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: cd6197a9cbed822ba874a19823521a3711be9201
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8234bd1b7eb74d9b03e507f00d9ad937314288be
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422717"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411283"
 ---
-<a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools dla programu Visual Studio 2013 — informacje o wersji
-====================
+# <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools dla programu Visual Studio 2013 — informacje o wersji
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Ten dokument zawiera opis wersji programu ASP.NET and Web Tools for Visual Studio 2013.
@@ -26,19 +26,19 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 - [Uwagi dotyczące instalacji](#TOC1)
 - [Dokumentacja](#TOC2)
-- [Wymagania dotyczące oprogramowania](#TOC4)
+- [Wymagania programowe](#TOC4)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>Nowe funkcje w ASP.NET and Web Tools for Visual Studio 2013
 
 - [One ASP.NET](#TOC6)
 - [Nowe środowisko projektu sieci Web](#newproj)
-- [ASP.NET Scaffolding](#scaffold)
+- [Funkcja tworzenia szkieletu ASP.NET](#scaffold)
 - [Łączność z przeglądarkami](#browser-link)
 - [Ulepszenia edytora sieci Web programu Visual Studio](#web-editor)
 - [Obsługa aplikacji sieci Web usługi Azure App Service w programie Visual Studio](#waws)
 - [Web Publish ulepszenia](#publish)
 - [NuGet 2.7](#nuget)
-- [ASP.NET Web Forms](#TOC9)
+- [Formularze sieci Web ASP.NET](#TOC9)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [ASP.NET SignalR](#TOC13)

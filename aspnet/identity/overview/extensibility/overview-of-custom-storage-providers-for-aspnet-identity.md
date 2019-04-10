@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity | Dokumentacja firmy Microsoft
+title: Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity — ASP.NET 4.x
 author: Rick-Anderson
 description: ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy likacji...
 ms.author: riande
 ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: d819fabf4f367c8f6d0ce857bc248a2b812c2b21
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 71201e9d91080855350349b966fe7916ce21a909
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422210"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411270"
 ---
-<a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity
-====================
+# <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy aplikacji. W tym temacie opisano, jak utworzyć dostawcę dostosowane magazynu dla produktu ASP.NET Identity. Poruszono w nim ważne pojęcia do tworzenia własnego dostawcy magazynu, ale nie jest to przewodnik krok po kroku implementowanie dostawcy magazynu niestandardowego.
@@ -214,7 +215,7 @@ Poniższy przykład przedstawia klasę magazynu ról. Parametr ogólny element T
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
-- **IRoleStore&lt;TRole&gt;**  
+- **Interfejs IRoleStore&lt;element TRole&gt;**  
   [Interfejs IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfejs definiuje metody służące do zaimplementowania w klasie magazynu ról. Zawiera ona metody tworzenia, aktualizowania, usuwania i pobierania ról.
 - **RoleStore&lt;TRole&gt;**  
   Aby dostosować elemencie RoleStore, należy utworzyć klasę, która implementuje interfejs interfejs IRoleStore. Musisz zaimplementować tę klasę, jeśli chcesz użyć ról w Twoim systemie. Konstruktor, który przyjmuje parametr o nazwie *bazy danych* typu ExampleDatabase jest ilustruje sposób przekazywania w klasie dostępu do danych. Na przykład w implementacji MySQL, ten konstruktor przyjmuje parametr typu MySQLDatabase.  

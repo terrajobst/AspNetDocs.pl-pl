@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 41497361-7fba-4825-b36c-f58d79522a88
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b9a731be89d0582ebd411809a6bbcbee801fea2a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 056e89b20ccab0e56b1fab422c817d842beff446
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067088"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400844"
 ---
-<a name="using-textboxwatermark-in-a-formview-vb"></a>Używanie kontrolki TextBoxWatermark w kontrolce FormView (VB)
-====================
+# <a name="using-textboxwatermark-in-a-formview-vb"></a>Używanie kontrolki TextBoxWatermark w kontrolce FormView (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark1VB.pdf)
@@ -49,7 +49,7 @@ Zapamiętaj nazwę (`ID`) źródła danych, ponieważ będzie on używany w `Dat
 Teraz, gdy użytkownik zmieni do trybu wstawiania `FormView` kontrolować, pole tekstowe dla nowego dostawcy jest wstępnie dzięki `TextBoxWatermarkExtender` kontroli. Kliknij wewnątrz pola tekstowego umożliwia tekstu wypełniacza zniknąć.
 
 
-[![Znak wodny w polu pochodzi z urządzenia extender](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
+[![Tznak wodny HE, w polu pochodzi z urządzenia extender](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
 
 Znak wodny w polu pochodzi z urządzenia extender ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-textboxwatermark-in-a-formview-vb/_static/image3.png))
 

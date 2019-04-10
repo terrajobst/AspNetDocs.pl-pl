@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 5c97464ee50291338a80120a86b1b86b07bc672d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068498"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400207"
 ---
-<a name="caching"></a>Buforowanie
-====================
+# <a name="caching"></a>Buforowanie
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Zrozumienie buforowania jest ważne dla właściwie wykonanego aplikacji ASP.NET. ASP.NET 1.x oferowane trzy różne opcje do buforowania; buforowanie danych wyjściowych, buforowanie fragmentu i interfejsu API w pamięci podręcznej.
@@ -56,7 +56,7 @@ Unieważnianie elementu, który został wstawiony powyżej, po prostu usunąć e
 
 Należy zauważyć, że klucz elementu, który działa jako klucz w pamięci podręcznej musi być taka sama jak wartość dodawane do tablicy kluczy pamięci podręcznej.
 
-## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>Na podstawie sondowania zależności pamięci podręcznej SQL<em>(nazywane również opartą na tabeli zależności)</em>
+## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>Na podstawie sondowania Dependencies(Also called Table-Based Dependencies) pamięci podręcznej SQL
 
 SQL Server 7 i 2000 na użytek model oparty na sondowanie zależności pamięci podręcznej SQL. Model oparty na sondowanie używa wyzwalacza w tabeli bazy danych, który jest wyzwalany, gdy zmienią się dane w tabeli. Który wyzwolić aktualizacje **changeId** w tabeli powiadomienie, że aplikacja ASP.NET sprawdza okresowo. Jeśli **changeId** pola zostały zaktualizowane, ASP.NET wie, że dane zostały zmienione, a jego unieważnia buforowane dane.
 
@@ -213,7 +213,7 @@ Wprowadzono kilka zmian w konfiguracji buforowania programu ASP.NET 2.0. &lt;Buf
 
 | **Element** | **Opis** |
 | --- | --- |
-| **cache** | Element opcjonalny. Definiuje ustawienia powiązane z aplikacji globalnej pamięci podręcznej. |
+| **pamięć podręczna** | Element opcjonalny. Definiuje ustawienia powiązane z aplikacji globalnej pamięci podręcznej. |
 | **outputCache** | Element opcjonalny. Określa ustawienia pamięci podręcznej danych wyjściowych w całej aplikacji. |
 | **outputCacheSettings** | Element opcjonalny. Określa ustawienia pamięci podręcznej danych wyjściowych, które mogą być stosowane do stron w aplikacji. |
 | **sqlCacheDependency** | Element opcjonalny. Konfiguruje zależności pamięci podręcznej SQL dla aplikacji ASP.NET. |

@@ -1,28 +1,31 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
+title: Wprowadzenie do wzorca ASP.NET Web API 2 (C#) — ASP.NET 4.x
 author: MikeWasson
-description: Protokół HTTP nie jest używany tylko do obsługi stron internetowych. Ponadto jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i ubiq...
+description: Samouczek z kodem. Użyj interfejsu API sieci Web platformy ASP.NET, aby utworzyć internetowy interfejs API zwraca listę produktów.
 ms.author: riande
 ms.date: 11/28/2017
+ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7bec95af4532535f0d620bfe6862958907466874
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076718"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401754"
 ---
-<a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
-====================
+# <a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+[Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+
+W tym samouczku użyjesz internetowego interfejsu API platformy ASP.NET do tworzenia internetowego interfejsu API, który zwraca listę produktów.
 
 Protokół HTTP nie jest używany tylko do obsługi stron internetowych. Protokół HTTP to również zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest prosty, elastyczny i uniwersalny. Prawie każda platforma obsługuje bibliotekę HTTP, więc usługi HTTP mogą być stosowane dla szerokiej gamy klientów takich jak przeglądarki, urządzenia przenośne czy tradycyjne aplikacje komputerowe.
 
-Internetowy interfejs API platformy ASP.NET to architektura służąca do tworzenia internetowych interfejsów API w programie .NET Framework. W tym samouczku użyjesz internetowego interfejsu API platformy ASP.NET do tworzenia internetowego interfejsu API, który zwraca listę produktów.
+Internetowy interfejs API platformy ASP.NET to architektura służąca do tworzenia internetowych interfejsów API w programie .NET Framework. 
 
 ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 

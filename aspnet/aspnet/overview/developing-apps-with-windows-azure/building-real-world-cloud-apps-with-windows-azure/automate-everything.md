@@ -8,15 +8,15 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: 18e988279b56e479b0bb27de2f01ab22a2e70301
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d27c8c1910a79cea8ccdf4231d3bc2b80a20dc68
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422613"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418368"
 ---
-<a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzowanie wszystkiego (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure)
-====================
+# <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzowanie wszystkiego (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure)
+
 przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -125,7 +125,7 @@ Pierwszą rzeczą, o której działanie skryptu jest, tworzenie aplikacji sieci 
 
 ### <a name="create-the-storage-account"></a>Tworzenie konta magazynu
 
-Uruchamia skrypt głównego <em>AzureStorage.ps1 nowy</em> skryptu, określając "<em>&lt;podaną nazwą&gt;</em>magazynu" dla nazwy konta magazynu i tych samych danych Centrum lokalizacji Aplikacja sieci web.
+Uruchamia skrypt głównego *AzureStorage.ps1 nowy* skryptu, określając "*&lt;podaną nazwą&gt;* magazynu" dla nazwy konta magazynu i tych samych danych Centrum lokalizacji Aplikacja sieci web.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 

@@ -8,15 +8,15 @@ ms.date: 05/04/2012
 ms.assetid: f4cc2d40-6a78-429b-b06f-07d000d4caad
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: fd7357a94ab09effcec86f3725a37cfb2ef4746a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4da291af4042e6e09c6917703b160ca717eecd15
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073958"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407994"
 ---
-<a name="excluding-files-and-folders-from-deployment"></a>Wykluczanie plików i folderów z wdrożenia
-====================
+# <a name="excluding-files-and-folders-from-deployment"></a>Wykluczanie plików i folderów z wdrożenia
+
 przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
@@ -47,7 +47,7 @@ Po wybraniu **tylko pliki potrzebne do uruchomienia tej aplikacji**, potok WPP p
 
 > [!NOTE]
 > Logikę, która określa, które pliki do uwzględnienia znajduje się w tym pliku:   
-> *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
+> *%ProgramFiles%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
 
 
 ## <a name="excluding-specific-files-and-folders"></a>Wykluczenie określonych plików i folderów

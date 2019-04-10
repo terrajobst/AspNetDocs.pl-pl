@@ -8,15 +8,15 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 692b2a13664a9a5153a85a230dd513b022518316
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 7e858fe4c1f8e93f6e6fa30b33f5682945d03c32
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423991"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403080"
 ---
-<a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
-====================
+# <a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz plik PDF](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
@@ -119,7 +119,7 @@ Dodaj `Global.asax` plik do katalogu głównego aplikacji sieci web, kliknij pra
 > Jeśli masz już `Global.asax` plik w projekcie, globalna klasa aplikacji typu elementu nie będzie wyświetlane w oknie dialogowym Dodaj nowy element.
 
 
-[![Dodaj plik Global.asax do katalogu głównego aplikacji sieci Web](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
+[![Add pliku Global.asax do katalogu głównego usługi aplikacji sieci Web](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
 **Rysunek 3**: Dodaj `Global.asax` plik w katalogu głównym Twojej aplikacji sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image5.png))
 
@@ -142,7 +142,7 @@ Te samouczki tylko musimy dodać kod, aby `Application_Start` metody, więc moż
 To wszystko. Przy uruchamianiu aplikacji `LoadStaticCache()` metoda pobrania informacji o dostawcy z LOGIKI i go przechowywać w zmiennej członka statycznego (lub niezależnie od pamięci podręcznej przechowywanie możesz zakończył się przy użyciu w `StaticCache` klasy). Aby sprawdzić to zachowanie, ustaw punkt przerwania `Application_Start` metody i uruchomić aplikację. Należy pamiętać, że punkt przerwania zostaje trafiony po uruchomieniu aplikacji. Kolejne żądania, jednak nie powodują `Application_Start` wykonać metodę.
 
 
-[![Użyj punkt przerwania, aby Sprawdź, czy program obsługi zdarzeń Application_Start jest wykonywana.](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
+[![USE punkt przerwania, aby Sprawdź, czy program obsługi zdarzeń Application_Start jest wykonywana.](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
 **Rysunek 4**: Użyj punkt przerwania, aby upewnij się, `Application_Start` procedura obsługi zdarzeń jest wykonywane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image8.png))
 
@@ -158,12 +158,12 @@ W tym momencie `StaticCache` klasa ma wersję dostawcy danych, pamięci podręcz
 Zacznij od otwarcia `AtApplicationStartup.aspx` stronie `Caching` folderu. Przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` właściwość `Suppliers`. Następnie z tagu inteligentnego GridView zdecydować się na utworzenie nowego elementu ObjectDataSource, o nazwie `SuppliersCachedDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `StaticCache` klasy `GetSuppliers()` metody.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy StaticCache](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy StaticCache](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
 
 **Rysunek 5**: Konfigurowanie kontrolki ObjectDataSource używać `StaticCache` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image11.png))
 
 
-[![Pobieranie danych dostawcy pamięci podręcznej przy użyciu metody GetSuppliers()](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
+[![USE GetSuppliers() metody do pobierania danych dostawcy pamięci podręcznej](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
 
 **Rysunek 6**: Użyj `GetSuppliers()` metody do pobierania danych dostawcy pamięci podręcznej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image14.png))
 
@@ -176,7 +176,7 @@ Po zakończeniu działania kreatora programu Visual Studio automatycznie doda Bo
 Rysunek nr 7 przedstawia stronę po wyświetleniu za pośrednictwem przeglądarki. Dane wyjściowe są, taka sama miał możemy ściągnąć dane od LOGIKI `SuppliersBLL` klasy, ale przy użyciu `StaticCache` klasy zwraca dane dostawcy jako pamięci podręcznej podczas uruchamiania aplikacji. Możesz ustawić punkty przerwania w `StaticCache` klasy `GetSuppliers()` metodę, aby sprawdzić to zachowanie.
 
 
-[![Dane dostawcy pamięci podręcznej są wyświetlane w widoku GridView](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
+[![Ton dane w pamięci podręcznej dostawcy jest wyświetlana w widoku GridView](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
 
 **Rysunek 7**: Dane dostawcy pamięci podręcznej są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image17.png))
 

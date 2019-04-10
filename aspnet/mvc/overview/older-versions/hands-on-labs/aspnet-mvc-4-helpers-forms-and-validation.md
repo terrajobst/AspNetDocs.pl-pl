@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 45aab00140f63cd84ea1b7ba22f655b0e4373f97
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 639a8e0e5fd9557221c95aee1bef0294df047ae8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423081"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406317"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 — pomocnicy, formularze i walidacja
 
@@ -70,7 +70,7 @@ Dla wygody większość kodu, który będzie zarządzany wzdłuż tego laborator
 
 Jeśli nie jesteś zaznajomiony z fragmentów kodu w usłudze Visual Studio i chcesz dowiedzieć się, jak z nich korzystać, możesz zapoznać się z dodatku z tego dokumentu &quot; [dodatek B: Za pomocą fragmentów kodu](#AppendixB)&quot;.
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -84,7 +84,7 @@ Następujące ćwiczeń składają się tym warsztatów:
 3. [Tworzenie widoku edycji](#Exercise3)
 4. [Dodawanie widoku Create](#Exercise4)
 5. [Usuwanie obsługi](#Exercise5)
-6. [Dodawanie weryfikacji](#Exercise6)
+6. [Dodawanie walidacji](#Exercise6)
 7. [Przy użyciu jQuery dyskretny kod po stronie klienta](#Exercise7)
 
 > [!NOTE]
@@ -755,7 +755,7 @@ W tym zadaniu przetestujesz, **StoreManager** Tworzenie szablonu przeprowadza we
    > 
    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
-* * *
+---
 
 <a id="Summary"></a>
 

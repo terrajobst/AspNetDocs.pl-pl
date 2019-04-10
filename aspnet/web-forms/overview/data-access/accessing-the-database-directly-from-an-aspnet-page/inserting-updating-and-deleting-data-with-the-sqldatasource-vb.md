@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: 9673bef3-892c-45ba-a7d8-0da3d6f48ec5
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e02796a7ffe854b746100a5f17d00c811a2b973c
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 5be1fd787c1ee001ce46384162eaebc89ec5c0a8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440316"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404783"
 ---
-<a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (VB)
-====================
+# <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_49_VB.exe) lub [Pobierz plik PDF](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/datatutorial49vb1.pdf)
@@ -50,7 +50,7 @@ Gdy `InsertCommand`, `UpdateCommand`, lub `DeleteCommand` wartość została okr
 Zacznij od otwarcia `InsertUpdateDelete.aspx` i `Querying.aspx` strony z `SqlDataSource` folderu. Przy użyciu projektanta na `Querying.aspx` wybierz SqlDataSource i GridView z pierwszego przykładu ( `ProductsDataSource` i `GridView1` kontrolek). Po zaznaczeniu dwóch kontrolek, przejdź do menu Edycja i wybierz polecenie Kopiuj (lub po prostu naciśnij klawisze Ctrl + C). Następnie przejdź do projektanta `InsertUpdateDelete.aspx` i Wklej w kontrolkach. Po przesunięciu dwóch kontrolek celu `InsertUpdateDelete.aspx`, przetestowania strony w przeglądarce. Powinien zostać wyświetlony wartości `ProductID`, `ProductName`, i `UnitPrice` kolumn dla wszystkich rekordów w `Products` tabeli bazy danych.
 
 
-[![Wszystkie produkty zostaną wyświetlone, uporządkowane według elementu ProductID](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.png)
+[![AWyświetlane są wszystkie produkty, uporządkowane według ProductID](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.png)
 
 **Rysunek 1**: Wszystkie te produkty zostaną wyświetlone, uporządkowane według `ProductID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image2.png))
 
@@ -87,7 +87,7 @@ Kliknij przycisk wielokropka we właściwości DeleteQuery, aby wyświetlić okn
 Następnie kliknij przycisk Odśwież parametry, aby dodać `@ProductID` parametru do listy poniższych parametrów.
 
 
-[![W oknie właściwości wybierz właściwość DeleteQuery](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image3.png)
+[![Sw oknie właściwości, należy wybrać właściwość DeleteQuery](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image3.png)
 
 **Rysunek 3**: W oknie właściwości wybierz właściwość DeleteQuery ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image4.png))
 
@@ -111,7 +111,7 @@ Należy pamiętać, dodanie `DeleteCommand` właściwości, jak również `<Dele
 Za pomocą `DeleteCommand` dodana właściwość tagu inteligentnego s GridView zawiera teraz opcję Włącz usuwanie. Przejdź dalej i zaznacz to pole wyboru. Zgodnie z opisem w [Omówienie programu Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md), powoduje to, że GridView dodać CommandField z jego `ShowDeleteButton` właściwością `True`. Rysunek 4 przedstawia, gdy strona jest kontrolowane za pośrednictwem przeglądarki przycisk Usuń jest dołączony. Przetestuj tę stronę się przez usunięcie niektórych produktów.
 
 
-[![Każdy wiersz GridView zawiera teraz przycisk Usuń](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image5.png)
+[![Estacje wiersza w widoku GridView zawiera teraz przycisk usuwania](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image5.png)
 
 **Rysunek 4**: Każdy wiersz GridView zawiera teraz przycisk Usuń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.png))
 
@@ -137,7 +137,7 @@ Jako badania, w kroku 1 `INSERT`, `UPDATE`, i `DELETE` instrukcji SQL można okr
 Pozwól, zapoznaj się z tej opcji automatycznego generowania s. Dodaj element DetailsView do projektanta w `InsertUpdateDelete.aspx` i ustaw jego `ID` właściwość `ManageProducts`. Następnie wybierz za pomocą tagu inteligentnego s DetailsView utworzyć nowe źródło danych i utworzyć SqlDataSource, o nazwie `ManageProductsDataSource`.
 
 
-[![Utwórz nowy SqlDataSource, o nazwie ManageProductsDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.png)
+[![CTwórz nowe ManageProductsDataSource o nazwie SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.png)
 
 **Rysunek 6**: Utwórz nowy o nazwie SqlDataSource `ManageProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.png))
 
@@ -145,7 +145,7 @@ Pozwól, zapoznaj się z tej opcji automatycznego generowania s. Dodaj element D
 Za pomocą Kreatora konfigurowania źródła danych zoptymalizowany pod kątem używania `NORTHWINDConnectionString` połączenia ciągu, a następnie kliknij przycisk Dalej. Z Konfiguruj ekranu instrukcji Select, pozostaw kolumn Określ z tabeli lub widoku zaznaczony przycisk radiowy, a następnie wybierz `Products` tabeli z listy rozwijanej. Wybierz `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumny z listy wyboru.
 
 
-[![Korzystając z tabeli Produkty, zwracają ProductID, ProductName, UnitPrice i nieobsługiwane kolumny](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.png)
+[![USING tabeli Produkty, zwracają ProductID, ProductName, UnitPrice i wycofane kolumn](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.png)
 
 **Rysunek 7**: Za pomocą `Products` tabeli, zwróć `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumn ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image10.png))
 
@@ -173,7 +173,7 @@ Aby włączyć funkcji modyfikacji danych s DetailsView, sprawdź Włącz wstawi
 Odwiedź stronę w przeglądarce i zwróć uwagę, edytowania, usuwania i nowe przyciski objęte DetailsView. Klikając przycisk Edytuj jest przekształcany DetailsView tryb edycji, który wyświetla każdego elementu BoundField którego `ReadOnly` właściwość jest ustawiona na `False` (ustawienie domyślne) jako pole tekstowe i CheckBoxField jako pola wyboru.
 
 
-[![DetailsView s domyślny interfejs edytowania](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image11.png)
+[![TADAM s DetailsView interfejsu edycji kontrolki domyślne](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image11.png)
 
 **Rysunek 9**: S DetailsView interfejsu edycji kontrolki domyślne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image12.png))
 

@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: f1173feb-11ee-4017-8f3f-86599ea6ae13
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d5e12f4ec9a6e8c53ee88388355ecfbd81b100c3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6d3286a0ec2b03f6efdc56fd9816029482a879a6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422327"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415430"
 ---
-<a name="iteration-2--make-the-application-look-nice-c"></a>Iteracja #2 — zastosować Szukaj nieuprzywilejowany (C#)
-====================
+# <a name="iteration-2--make-the-application-look-nice-c"></a>Iteracja #2 — zastosować Szukaj nieuprzywilejowany (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-2-make-the-application-look-nice-cs/_static/contactmanager_2_cs1.zip)
@@ -50,7 +50,7 @@ Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą it
 Celem tej iteracji jest poprawić wygląd aplikacji Contact Manager. Obecnie Contact Manager używa domyślnej strony wzorcowej widoku platformy ASP.NET MVC i arkusza stylów kaskadowych (patrz rysunek 1). Te don t wygląd zły, ale nie chcę t ma Contact Manager wyglądały podobnie jak każdej innej platformy ASP.NET MVC witryny sieci Web. Chcę zastąpić te pliki niestandardowych plików.
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image1.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image1.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image1.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image1.png)
 
 **Rysunek 01**: Domyślny wygląd aplikacji ASP.NET MVC ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image2.png))
 
@@ -68,7 +68,7 @@ Galeria projektów platformy ASP.NET MVC jest bezpłatnym zasobem obsługiwane p
 Galeria projektów platformy ASP.NET MVC obsługuje kolekcję projektów bezpłatne witryny sieci Web, które zostały utworzone specjalnie do korzystanie w projekcie ASP.NET MVC. Projekty są przekazywane przez członków społeczności. Osoby odwiedzające galerii można Zagłosuj na ich ulubionych projekty (patrz rysunek 2).
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image2.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image3.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image2.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image3.png)
 
 **Rysunek 02**: Galeria projektów platformy ASP.NET MVC ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image4.png))
 
@@ -83,17 +83,17 @@ Pisania tego samouczka, najbardziej popularnych projektów w galerii jest projek
 6. Wybierz opcję menu programu Visual Studio **edycji, Znajdź i Zamień, szybkiego zamieniania** i Zastąp *[Nazwamojegoprojektu]* z *ContactManager* (zobacz rysunek 5).
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image3.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image5.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image3.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image5.png)
 
 **Rysunek 03**: Odblokowanie pliku pobranego z Internetu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image6.png))
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image4.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image7.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image4.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image7.png)
 
 **Rysunek 04**: Zastąpienie plików w Eksploratorze rozwiązań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image8.png))
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image5.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image9.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image5.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image9.png)
 
 **Rysunek 05**: Zastąpienie [nazwa_projektu] ContactManager ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image10.png))
 
@@ -101,7 +101,7 @@ Pisania tego samouczka, najbardziej popularnych projektów w galerii jest projek
 Po wykonaniu tych kroków, aplikacji sieci web użyje nowy projekt. Strona na rysunku 6 przedstawia wygląd aplikacji Contact Manager z projektem października.
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image6.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image11.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image6.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image11.png)
 
 **Rysunek 06**: ContactManager za pomocą szablonu października ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image12.png))
 
@@ -115,7 +115,7 @@ Jednak może być konieczne tworzenie projektu całkowicie unikatowy dla witryny
 Czy mogę Konfigurowanie menedżera kontaktu z iteracji nr 1 i przesłania projektu do firmie projektowej. Nie będzie należał do programu Visual Studio (shame na nich!), ale które nie powodują problemu. Byli w stanie bezpłatnie pobrać z programu Microsoft Visual Web Developer [ https://www.asp.net ](https://www.asp.net) witryny sieci Web i otwórz aplikacji Contact Manager w Visual Web Developer. W kilka dni ich było generowane projektu na rysunku 7.
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
 
 **Rysunek 07**: Projekt platformy ASP.NET MVC Contact Manager ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image14.png))
 
@@ -139,7 +139,7 @@ Metoda Html.ActionLink() powoduje wyświetlenie całej hiperłącze HTML. Metoda
 Zwróć uwagę, co więcej, że nowy projekt zawiera karty zaznaczone i niezaznaczone. Na przykład na rysunku 8 **Utwórz nowy kontakt** wybrana jest karta i **Moje kontakty** karta nie jest zaznaczone.
 
 
-[![Okno dialogowe Nowy projekt](iteration-2-make-the-application-look-nice-cs/_static/image8.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image15.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-2-make-the-application-look-nice-cs/_static/image8.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image15.png)
 
 **Rysunek 08**: Zaznaczony i niezaznaczony karty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-2-make-the-application-look-nice-cs/_static/image16.png))
 

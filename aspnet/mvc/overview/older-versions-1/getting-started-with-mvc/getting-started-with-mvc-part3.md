@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: e8f1515c-c277-47ff-a23e-224118f13f02
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: f55e558dd056e86bdd2310894959aef02a9d8de2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3eff3aceea302c51e6970bb13fbee3a8bf98a71d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072707"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411985"
 ---
-<a name="adding-a-view"></a>Dodawanie widoku
-====================
+# <a name="adding-a-view"></a>Dodawanie widoku
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
@@ -38,7 +38,7 @@ Teraz Dodajmy Wyświetl szablon do naszego projektu, który możemy użyć nasze
 
 Zostanie wyświetlone okno dialogowe "Dodaj widok", która zapewnia nam kilka opcji, jak chcemy utworzyć szablon widoku, który może być używany przez naszych Index — metoda. Na razie nie należy wprowadzić zmiany i po prostu kliknij przycisk Dodaj.
 
-[![Okno dialogowe dodawania widoku](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
+[![AWyświetl okno dialogowe dd](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
 
 Po kliknięciu przycisku Dodaj nowy folder i nowy plik pojawi się w folderze rozwiązania, jak pokazano tutaj. Teraz masz folder HelloWorld w widokach i plik Index.aspx wewnątrz tego folderu.
 
@@ -50,7 +50,7 @@ Nowy plik indeksu jest również już otwarte i gotowy do edycji. Dodaj tekst w 
 
 Uruchom aplikację i odwiedź [ `http://localhost:xx/HelloWorld` ](http://localhostxx) ponownie w przeglądarce. Metoda indeksu kontrolera w tym przykładzie nie wykonać pracę, ale wywołać "return View()", co oznacza, że chcemy użyć pliku szablonu widoku do renderowania odpowiedzi do klienta. Ponieważ firma Microsoft nie jawnie określono nazwę pliku szablonu widoku, który będzie używany, za pomocą Index.aspx Wyświetl plik w folderze \Views\HelloWorld ustawiana domyślnie platformy ASP.NET MVC. Teraz widzimy, ciąg, który możemy zakodowane w naszym widoku.
 
-[![Indeks - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
+[![Index — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
 
 Wygląda dość dobrze. Jednak zauważyć, że tytuł w przeglądarce jest wyświetlany komunikat "Index" i big tytuł na stronie jest wyświetlany komunikat "Moja aplikacja MVC." Zmieńmy te z nich.
 
@@ -80,7 +80,7 @@ Open /HelloWorld/Index.aspx. Ma dwa miejsca, aby zmienić. Po pierwsze tytuł wy
 
 Uruchom aplikację, a następnie odwiedź /Movies. Zauważ, że tytuł przeglądarki, podstawowego nagłówka i dodatkowych nagłówków zostały zmienione. To można łatwo stworzyć duże zmiany w aplikacji, używając niewielkie zmiany do widoku.
 
-[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![Movie lista — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 Nasze trochę "dane" (w tym przypadku "Hello World!" komunikat) ma wartość twardych jednak kodowane. Mamy V (widoki), a następnie mamy C (kontrolery), ale nie M (Model) jeszcze. Krótko omówimy sposób tworzenia bazy danych i pobierania danych modelu z niego.
 
@@ -113,7 +113,7 @@ Należy również zwrócić uwagę podczas pisania, ponieważ widok o WelcomeVie
 
 Uruchom aplikację i odwiedź `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` ponownie. Teraz Przenosimy dane z adresu URL, jest automatycznie przekazywana do kontrolera, kontrolera pakiety danych na ViewModel i przekazuje tego obiektu, na naszej widoku. Widok nie wyświetla dane w postaci kodu HTML do użytkownika.
 
-[![Wprowadzenie — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
+[![Wkranu — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
 Cóż, to był rodzaju "M" dla modelu, ale nie rodzaj bazy danych. Przyjrzyjmy się, co możemy wyjaśniono konto i bazę danych filmów.
 

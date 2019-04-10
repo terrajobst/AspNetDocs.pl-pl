@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/introduction-to-aspnet-identity
-title: Wprowadzenie do produktu ASP.NET Identity | Dokumentacja firmy Microsoft
+title: Wprowadzenie do produktu ASP.NET Identity — ASP.NET 4.x
 author: jongalloway
 description: Systemu członkostwa programu ASP.NET została wprowadzona w systemach kopii programu ASP.NET 2.0 w wersji 2005 i od czasu, a następnie typicall aplikacji sieci web sposoby miały miejsce wiele zmian...
 ms.author: riande
 ms.date: 01/22/2019
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4a545e52d2d9ea04a10c37c116fd326c60de9f8f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 34a0d62d7afcaffa8fbac0bc774d9266efb6b165
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077075"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413051"
 ---
-<a name="introduction-to-aspnet-identity"></a>Wprowadzenie do systemu ASP.NET Identity
-====================
+# <a name="introduction-to-aspnet-identity"></a>Wprowadzenie do systemu ASP.NET Identity
+
 
 > Systemu członkostwa programu ASP.NET została wprowadzona w systemach kopii programu ASP.NET 2.0 w wersji 2005 i od czasu, a następnie w sposób, w aplikacji sieci web zazwyczaj obsługiwać uwierzytelnianie i autoryzacja było wiele zmian. ASP.NET Identity jest nowy wygląd, na jakie systemu członkostwa powinny być podczas kompilowania nowoczesnych aplikacji dla sieci web, telefonu lub tabletu.
 

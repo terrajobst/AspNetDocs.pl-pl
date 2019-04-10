@@ -8,15 +8,15 @@ ms.date: 02/14/2008
 ms.assetid: fa9c74b0-c692-4553-805c-b89f8bf2c4da
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-cascading-style-sheets-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 6d3566fa7267b389d0b2ac0ecd31ff368e659e5a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 06e447cedd46c9476de6ed765292b477d7198225
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066086"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407786"
 ---
-<a name="how-do-i-cascading-style-sheets-in-visual-studio-2008"></a>[Jak mogę] Kaskadowe arkusze stylów w programie Visual Studio 2008
-====================
+# <a name="how-do-i-cascading-style-sheets-in-visual-studio-2008"></a>[Jak mogę] Kaskadowe arkusze stylów w programie Visual Studio 2008
+
 przez Asli Bilgin
 
 W tym filmie omówimy ulepszone narzędzia do tworzenia zewnętrznej kaskadowe arkusze stylów. CSS są istotne dla dowolnej dobrze zaprojektowana witryny sieci web i program Visual Studio 2008 udostępnił Arsenał narzędzia do tworzenia i zarządzania CSS.

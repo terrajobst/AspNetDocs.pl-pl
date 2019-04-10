@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: 9158a1f53268daec6e6fbdf003dd73e1d62cc667
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067988"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412180"
 ---
-<a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wyświetlanie danych
-====================
+# <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wyświetlanie danych
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym samouczku dowiesz się, jak utworzyć bazę danych w programie WebMatrix oraz jak wyświetlać dane z bazy danych na stronie, gdy używasz stron ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii za pośrednictwem [wprowadzenie do programowania programu ASP.NET Web Pages](../introducing-razor-syntax-c.md).
@@ -214,7 +214,7 @@ Na tym etapie bazy danych został otwarty, trafiła do Ciebie dane chcesz i przy
 
 > [!TIP] 
 > 
-> **Język Structured Query Language (SQL)**
+> **Structured Query Language (SQL)**
 > 
 > SQL jest językiem, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia umożliwiające pobieranie danych i zaktualizować go i umożliwiające tworzenie, modyfikowanie i zarządzanie danymi w tabelach bazy danych. SQL różni się od języka programowania (takich jak C#). Przy użyciu języka SQL Poinformuj bazy danych należy, i jest zadanie bazy danych, aby dowiedzieć się, jak można pobrać dane lub wykonać zadanie. Poniżej przedstawiono przykłady niektórych poleceń SQL oraz ich działania:
 > 

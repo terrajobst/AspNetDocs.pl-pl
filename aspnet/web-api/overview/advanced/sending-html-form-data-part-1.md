@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-1
-title: 'Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: Dane zakodowane | Dokumentacja firmy Microsoft'
+title: 'Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: Dane zakodowane — ASP.NET 4.x'
 author: MikeWasson
-description: ''
+description: W tym artykule pokazano, jak publikować dane zakodowane do kontrolera interfejsu API sieci Web programu ASP.NET 4.x
 ms.author: riande
 ms.date: 06/15/2012
+ms.custom: seoapril2019
 ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 2d01212cc408f8bb66fa3103464c9a1f7a1e21c6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fb0309af11910125943737ebb721b356b7bd08bc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073457"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418303"
 ---
-<a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: dane w formacie form-urlencoded
-====================
+# <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: dane w formacie form-urlencoded
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 ## <a name="part-1-form-urlencoded-data"></a>Część 1. dane w formacie form-urlencoded
@@ -133,4 +134,4 @@ To samo podejście umożliwia wysyłanie tablicę typów prostych:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Część 2. Przekazywanie pliku i wieloczęściowej wiadomości MIME](sending-html-form-data-part-2.md)
+[Część 2. przekazywanie plików i wieloczęściowa wiadomość MIME](sending-html-form-data-part-2.md)

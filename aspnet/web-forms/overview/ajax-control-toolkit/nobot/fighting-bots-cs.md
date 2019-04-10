@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 0a1917e0-884a-4576-8e93-9ed660faae51
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 52ed34e7640cd125a3b4c3b50ab760a7c1d713f1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 178d839f67d70670b3b5acf470acb7ae8cf1c33f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405810"
 ---
-<a name="fighting-bots-c"></a>Zwalczanie botów (C#)
-====================
+# <a name="fighting-bots-c"></a>Zwalczanie botów (C#)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/NoBot0.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/nobot0CS.pdf)
@@ -65,7 +65,7 @@ Na koniec należy formularza w celu przesyłania i elementu label, aby wyprowadz
 Uruchom ten skrypt, a dezaktywować JavaScript lub Prześlij formularz w ciągu pierwszych dwóch sekund lub Prześlij formularz siedem razy w ciągu 30 sekund, zostanie wyświetlony komunikat o błędzie. Jednak należy uważnie użyć tej kontrolki, ponieważ tylko około 90-95% użytkownicy mają JavaScript aktywowany, w związku z tym 5 – 10% użytkowników zakończy się niepowodzeniem `NoBot`użytkownika testu.
 
 
-[![Ten komunikat o błędzie może być spowodowane przez robota](fighting-bots-cs/_static/image2.png)](fighting-bots-cs/_static/image1.png)
+[![Tjego komunikat o błędzie może być spowodowane przez robota](fighting-bots-cs/_static/image2.png)](fighting-bots-cs/_static/image1.png)
 
 Ten komunikat o błędzie może być spowodowane przez robota ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](fighting-bots-cs/_static/image3.png))
 

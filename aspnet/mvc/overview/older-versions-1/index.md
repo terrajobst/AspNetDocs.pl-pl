@@ -8,15 +8,15 @@ ms.date: 10/10/2014
 ms.assetid: 1506f70f-6919-45bd-8c75-a17aff77510c
 msc.legacyurl: /mvc/overview/older-versions-1
 msc.type: chapter
-ms.openlocfilehash: 8f06d9d08c381e8c6d704149b29d46196baceae9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5827542a951a4b65d1c9b02b0ad15ed988bf1456
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796561"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399635"
 ---
-<a name="older-versions---mvc-1-and-2"></a>Starsze wersje — MVC 1 i 2
-====================
+# <a name="older-versions---mvc-1-and-2"></a>Starsze wersje — MVC 1 i 2
+
 > Zasoby do nauki, jak program MVC 1 i 2.
 
 
@@ -26,7 +26,7 @@ ms.locfileid: "57796561"
     - [Objaśnienie procesu wykonywania we wzorcu ASP.NET MVC](overview/understanding-the-asp-net-mvc-execution-process.md)
     - [Objaśnienie modeli, widoków i kontrolerów (C#)](overview/understanding-models-views-and-controllers-cs.md)
     - [Objaśnienie modeli, widoków i kontrolerów (VB)](overview/understanding-models-views-and-controllers-vb.md)
-- [Wprowadzenie do MVC](getting-started-with-mvc/index.md)
+- [Wprowadzenie do wzorca MVC](getting-started-with-mvc/index.md)
 
     - [Wprowadzenie do wzorca ASP.NET MVC](getting-started-with-mvc/getting-started-with-mvc-part1.md)
     - [Dodawanie kontrolera](getting-started-with-mvc/getting-started-with-mvc-part2.md)
@@ -34,35 +34,35 @@ ms.locfileid: "57796561"
     - [Tworzenie bazy danych](getting-started-with-mvc/getting-started-with-mvc-part4.md)
     - [Uzyskiwanie dostępu do danych modelu za pomocą kontrolera](getting-started-with-mvc/getting-started-with-mvc-part5.md)
     - [Dodawanie metody Create i tworzenie widoku](getting-started-with-mvc/getting-started-with-mvc-part6.md)
-    - [Dodawanie weryfikacji do modelu](getting-started-with-mvc/getting-started-with-mvc-part7.md)
+    - [Dodawanie walidacji do modelu](getting-started-with-mvc/getting-started-with-mvc-part7.md)
     - [Dodawanie kolumny do modelu](getting-started-with-mvc/getting-started-with-mvc-part8.md)
 - [Modele (dane)](models-data/index.md)
 
-    - [Tworzenie klas modelu za pomocą programu Entity Framework (C#)](models-data/creating-model-classes-with-the-entity-framework-cs.md)
-    - [Tworzenie klas modelu za pomocą modelu LINQ to SQL (C#)](models-data/creating-model-classes-with-linq-to-sql-cs.md)
+    - [Tworzenie klas modeli za pomocą programu Entity Framework (C#)](models-data/creating-model-classes-with-the-entity-framework-cs.md)
+    - [Tworzenie klas modeli za pomocą modelu LINQ to SQL (C#)](models-data/creating-model-classes-with-linq-to-sql-cs.md)
     - [Wyświetlanie tabeli danych bazy danych (C#)](models-data/displaying-a-table-of-database-data-cs.md)
-    - [Wykonywanie prostej weryfikacji (C#)](models-data/performing-simple-validation-cs.md)
-    - [Weryfikowanie z użyciem interfejsu IDataErrorInfo (C#)](models-data/validating-with-the-idataerrorinfo-interface-cs.md)
-    - [Weryfikowanie z użyciem warstwy usług (C#)](models-data/validating-with-a-service-layer-cs.md)
-    - [Weryfikacja przy użyciu modułów weryfikacji adnotacji danych (C#)](models-data/validation-with-the-data-annotation-validators-cs.md)
-    - [Tworzenie klas modelu za pomocą programu Entity Framework (VB)](models-data/creating-model-classes-with-the-entity-framework-vb.md)
-    - [Tworzenie klas modelu za pomocą modelu LINQ to SQL (VB)](models-data/creating-model-classes-with-linq-to-sql-vb.md)
+    - [Wykonywanie prostej walidacji (C#)](models-data/performing-simple-validation-cs.md)
+    - [Walidacja z użyciem interfejsu IDataErrorInfo (C#)](models-data/validating-with-the-idataerrorinfo-interface-cs.md)
+    - [Walidacja z użyciem warstwy usług (C#)](models-data/validating-with-a-service-layer-cs.md)
+    - [Walidacja przy użyciu modułów walidacji adnotacji danych (C#)](models-data/validation-with-the-data-annotation-validators-cs.md)
+    - [Tworzenie klas modeli za pomocą programu Entity Framework (VB)](models-data/creating-model-classes-with-the-entity-framework-vb.md)
+    - [Tworzenie klas modeli za pomocą modelu LINQ to SQL (VB)](models-data/creating-model-classes-with-linq-to-sql-vb.md)
     - [Wyświetlanie tabeli danych bazy danych (VB)](models-data/displaying-a-table-of-database-data-vb.md)
-    - [Wykonywanie prostej weryfikacji (VB)](models-data/performing-simple-validation-vb.md)
-    - [Weryfikowanie z użyciem interfejsu IDataErrorInfo (VB)](models-data/validating-with-the-idataerrorinfo-interface-vb.md)
-    - [Weryfikowanie z użyciem warstwy usług (VB)](models-data/validating-with-a-service-layer-vb.md)
-    - [Weryfikacja przy użyciu modułów weryfikacji adnotacji danych (VB)](models-data/validation-with-the-data-annotation-validators-vb.md)
+    - [Wykonywanie prostej walidacji (VB)](models-data/performing-simple-validation-vb.md)
+    - [Walidacja z użyciem interfejsu IDataErrorInfo (VB)](models-data/validating-with-the-idataerrorinfo-interface-vb.md)
+    - [Walidacja z użyciem warstwy usług (VB)](models-data/validating-with-a-service-layer-vb.md)
+    - [Walidacja przy użyciu modułów walidacji adnotacji danych (VB)](models-data/validation-with-the-data-annotation-validators-vb.md)
 - [Widoki ASP.NET MVC](views/index.md)
 
     - [Omówienie widoków ASP.NET MVC (C#)](views/asp-net-mvc-views-overview-cs.md)
     - [Tworzenie niestandardowych pomocników HTML (C#)](views/creating-custom-html-helpers-cs.md)
     - [Klasa TagBuilder do tworzenia pomocników HTML (C#)](views/using-the-tagbuilder-class-to-build-html-helpers-cs.md)
-    - [Tworzenie układów strony za pomocą stron wzorcowych widoku (C#)](views/creating-page-layouts-with-view-master-pages-cs.md)
+    - [Tworzenie układów stron za pomocą stron wzorcowych widoku (C#)](views/creating-page-layouts-with-view-master-pages-cs.md)
     - [Przekazywanie danych do stron wzorcowych widoku (C#)](views/passing-data-to-view-master-pages-cs.md)
     - [Omówienie widoków ASP.NET MVC (VB)](views/asp-net-mvc-views-overview-vb.md)
     - [Tworzenie niestandardowych pomocników HTML (VB)](views/creating-custom-html-helpers-vb.md)
     - [Klasa TagBuilder do tworzenia pomocników HTML (VB)](views/using-the-tagbuilder-class-to-build-html-helpers-vb.md)
-    - [Tworzenie układów strony za pomocą stron wzorcowych widoku (VB)](views/creating-page-layouts-with-view-master-pages-vb.md)
+    - [Tworzenie układów stron za pomocą stron wzorcowych widoku (VB)](views/creating-page-layouts-with-view-master-pages-vb.md)
     - [Przekazywanie danych do stron wzorcowych widoku (VB)](views/passing-data-to-view-master-pages-vb.md)
 - [Kontrolery i routing](controllers-and-routing/index.md)
 
@@ -86,7 +86,7 @@ ms.locfileid: "57796561"
     - [Tworzenie tras niestandardowych (VB)](controllers-and-routing/creating-custom-routes-vb.md)
     - [Tworzenie ograniczenia trasy (VB)](controllers-and-routing/creating-a-route-constraint-vb.md)
     - [Tworzenie niestandardowego ograniczenia trasy (VB)](controllers-and-routing/creating-a-custom-route-constraint-vb.md)
-- [Wdrażanie](deployment/index.md)
+- [wdrażania](deployment/index.md)
 
     - [Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (C#)](deployment/using-asp-net-mvc-with-different-versions-of-iis-cs.md)
     - [Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (VB)](deployment/using-asp-net-mvc-with-different-versions-of-iis-vb.md)
@@ -98,32 +98,32 @@ ms.locfileid: "57796561"
     - [Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (VB)](security/authenticating-users-with-forms-authentication-vb.md)
     - [Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (VB)](security/authenticating-users-with-windows-authentication-vb.md)
     - [Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (VB)](security/preventing-javascript-injection-attacks-vb.md)
-- [Testowanie jednostek](unit-testing/index.md)
+- [Testowanie jednostkowe](unit-testing/index.md)
 
     - [Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (C#)](unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs.md)
     - [Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (VB)](unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb.md)
 - [Contact Manager](contact-manager/index.md)
 
-    - [Iteracja 1 — Tworzenie aplikacji (C#)](contact-manager/iteration-1-create-the-application-cs.md)
-    - [Iteracja 2 — Ulepszanie wyglądu aplikacji (C#)](contact-manager/iteration-2-make-the-application-look-nice-cs.md)
-    - [Iteracja 3 — Dodawanie weryfikacji formularza (C#)](contact-manager/iteration-3-add-form-validation-cs.md)
-    - [Iteracja 4 — Luźne sprzężenie aplikacji (C#)](contact-manager/iteration-4-make-the-application-loosely-coupled-cs.md)
-    - [Iteracja 5 — Tworzenie testów jednostkowych (C#)](contact-manager/iteration-5-create-unit-tests-cs.md)
-    - [Iteracja 6 — Korzystanie z projektowania opartego na testach (C#)](contact-manager/iteration-6-use-test-driven-development-cs.md)
-    - [Iteracja 7 — Dodawanie funkcji Ajax (C#)](contact-manager/iteration-7-add-ajax-functionality-cs.md)
-    - [Iteracja 1 — Tworzenie aplikacji (VB)](contact-manager/iteration-1-create-the-application-vb.md)
-    - [Iteracja 2 — Ulepszanie wyglądu aplikacji (VB)](contact-manager/iteration-2-make-the-application-look-nice-vb.md)
-    - [Iteracja 3 — Dodawanie weryfikacji formularza (VB)](contact-manager/iteration-3-add-form-validation-vb.md)
-    - [Iteracja 4 — Luźne sprzężenie aplikacji (VB)](contact-manager/iteration-4-make-the-application-loosely-coupled-vb.md)
-    - [Iteracja 5 — Tworzenie testów jednostkowych (VB)](contact-manager/iteration-5-create-unit-tests-vb.md)
-    - [Iteracja 6 — Korzystanie z projektowania opartego na testach (VB)](contact-manager/iteration-6-use-test-driven-development-vb.md)
-    - [Iteracja 7 — Dodawanie funkcji Ajax (VB)](contact-manager/iteration-7-add-ajax-functionality-vb.md)
+    - [Iteracja #1 — Tworzenie aplikacji (C#)](contact-manager/iteration-1-create-the-application-cs.md)
+    - [Iteracja #2 — zastosować Szukaj nieuprzywilejowany (C#)](contact-manager/iteration-2-make-the-application-look-nice-cs.md)
+    - [Iteracja #3 — Dodawanie weryfikacji formularza (C#)](contact-manager/iteration-3-add-form-validation-cs.md)
+    - [Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#)](contact-manager/iteration-4-make-the-application-loosely-coupled-cs.md)
+    - [Iteracja #5 — Tworzenie testów jednostkowych (C#)](contact-manager/iteration-5-create-unit-tests-cs.md)
+    - [Iteracja #6 — korzystanie z projektowania opartego na testach (C#)](contact-manager/iteration-6-use-test-driven-development-cs.md)
+    - [Iteracja #7 — dodawanie funkcji Ajax (C#)](contact-manager/iteration-7-add-ajax-functionality-cs.md)
+    - [Iteracja #1 — Tworzenie aplikacji (VB)](contact-manager/iteration-1-create-the-application-vb.md)
+    - [Iteracja #2 — zastosować Szukaj nieuprzywilejowany (VB)](contact-manager/iteration-2-make-the-application-look-nice-vb.md)
+    - [Iteracja #3 — Dodawanie weryfikacji formularza (VB)](contact-manager/iteration-3-add-form-validation-vb.md)
+    - [Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (VB)](contact-manager/iteration-4-make-the-application-loosely-coupled-vb.md)
+    - [Iteracja #5 — Tworzenie testów jednostkowych (VB)](contact-manager/iteration-5-create-unit-tests-vb.md)
+    - [Iteracja #6 — korzystanie z projektowania opartego na testach (VB)](contact-manager/iteration-6-use-test-driven-development-vb.md)
+    - [Iteracja #7 — dodawanie funkcji Ajax (VB)](contact-manager/iteration-7-add-ajax-functionality-vb.md)
 - [NerdDinner](nerddinner/index.md)
 
     - [Wprowadzenie do samouczka NerdDinner](nerddinner/introducing-the-nerddinner-tutorial.md)
     - [Tworzenie nowego projektu ASP.NET MVC](nerddinner/create-a-new-aspnet-mvc-project.md)
     - [Tworzenie bazy danych](nerddinner/create-a-database.md)
-    - [Budowanie modelu z weryfikacją reguł biznesowych](nerddinner/build-a-model-with-business-rule-validations.md)
+    - [Budowanie modelu z walidacją reguł biznesowych](nerddinner/build-a-model-with-business-rule-validations.md)
     - [Implementowanie interfejsu użytkownika typu lista/szczegóły przy użyciu kontrolerów i widoków](nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui.md)
     - [Włączanie obsługi operacji CRUD (tworzenia, odczytu, aktualizacji i usuwania) w formularzach danych](nerddinner/provide-crud-create-read-update-delete-data-form-entry-support.md)
     - [Korzystanie z podejścia ViewData i implementowanie klas ViewModel](nerddinner/use-viewdata-and-implement-viewmodel-classes.md)

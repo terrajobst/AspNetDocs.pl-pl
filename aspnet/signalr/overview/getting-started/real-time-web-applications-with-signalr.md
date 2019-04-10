@@ -8,21 +8,21 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3db54a134e8f842cab1d3471c69f5a8e2039d83d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423614"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412011"
 ---
-<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR
-====================
+# <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR
+
 
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
+[Pobierz Camp Web szkolenia zestawu, wersji z października 2015 r.](https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b)
 
 > Możliwość Wypchnij zawartość do dołączonych klientów, jak to się dzieje, w czasie rzeczywistym po stronie serwera są wyposażone w aplikacji sieci Web w czasie rzeczywistym. Dla deweloperów platformy ASP.NET **ASP.NET SignalR** jest biblioteką, aby dodać funkcje sieci web w czasie rzeczywistym do aplikacji. Wykorzystuje ona transportów kilka automatyczne wybieranie najlepiej transportu dostępnych danego klienta i serwera najlepsze dostępne mechanizm transportu. Wykorzystuje ona **WebSocket**, interfejs API języka HTML5, która umożliwia komunikację dwukierunkową między przeglądarką i serwerem.
 > 
@@ -34,8 +34,7 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > 
 > ![Architektura SignalR](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględniane w sieci Web zestaw szkoleniowy Camp, października 2015 wydania, dostępne pod adresem [ https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b ](https://github.com/Microsoft-Web/WebCampTrainingKit/releases/tag/v2015.10.13b).  Należy pamiętać, że link Instalatora na tej stronie nie działa już; Użyj jednego z linków w sekcji zasobów.
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Omówienie
@@ -77,7 +76,7 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Ćwiczenia
@@ -394,7 +393,7 @@ W tym zadaniu skonfigurujesz **Quiz maniaków komputerowych** połączyć się z
 
     *Tabela komunikatów płyty montażowej*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

@@ -8,15 +8,15 @@ ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: f71d8311cbb1131d9c30c0bd9071a1c6c90f9976
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 19cda45ce1b425462ec491bcc86b7a0b76dec162
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072398"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409801"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
@@ -276,7 +276,7 @@ A *.pubxml* plik zawiera ustawienia, które odnoszą się do profilu publikowani
 
     ![Podgląd plików do opublikowania w środowisku produkcyjnym](deploying-to-production/_static/image14.png)
 
-    Przejrzyj listę plików, które zostaną skopiowane. Zobaczysz, że wszystkie *.cs* pliki, w tym *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*, i  *Master.Designer.cs* pliki są pomijane. Cały ten kod został skompilowany do *ContosoUniversity.dll* i *ContosUniversity.pdb* pliki, które znajdują się w *bin* folderu. Ponieważ tylko *.dll* jest potrzebny do uruchomienia aplikacji, a określony wcześniej powinny być wdrażane tylko pliki potrzebne do uruchomienia aplikacji, nie *.cs* pliki zostały skopiowane do lokalizacji docelowej środowisko. *Obj* folder i *ContosoUniversity.csproj* i *. csproj.user* pliki są pomijane dla tego samego powodu.
+    Przejrzyj listę plików, które zostaną skopiowane. Zobaczysz, że wszystkie *.cs* pliki, w tym *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*, i  *Master.Designer.cs* pliki są pomijane. Cały ten kod został skompilowany do *ContosoUniversity.dll* i *ContosoUniversity.pdb* pliki, które znajdują się w *bin* folderu. Ponieważ tylko *.dll* jest potrzebny do uruchomienia aplikacji, a określony wcześniej powinny być wdrażane tylko pliki potrzebne do uruchomienia aplikacji, nie *.cs* pliki zostały skopiowane do lokalizacji docelowej środowisko. *Obj* folder i *ContosoUniversity.csproj* i *. csproj.user* pliki są pomijane dla tego samego powodu.
 
     Kliknij przycisk **Publikuj** do wdrożenia do środowiska produkcyjnego.
 2. Testowanie w produkcji, zgodnie z tej samej procedury, których użyto podczas przemieszczania.

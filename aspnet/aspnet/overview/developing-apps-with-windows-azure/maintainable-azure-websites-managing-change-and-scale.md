@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 315e89c81782edf0875c65afd27153102d733050
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424251"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409736"
 ---
-<a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem
-====================
+# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 [Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
@@ -58,7 +58,7 @@ W tym praktyczne laboratorium dowiesz się jak:
 Do ukończenia tego laboratorium praktycznego niezbędne jest, następujące elementy:
 
 - [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/) or greater
-- [Azure SDK for .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
+- [Zestaw Azure SDK dla platformy .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
 - [System kontroli wersji GIT](http://git-scm.com/download)
 - Subskrypcja Microsoft Azure
 
@@ -89,7 +89,7 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Ćwiczenia
@@ -625,7 +625,7 @@ W tym zadaniu użyjesz okno Eksploratora serwera w programie Visual Studio do ł
 
     ![Łączenie z platformą Windows Azure](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
-    *Łączenie z platformą Azure*
+    *Nawiązywanie połączenia z usługą Azure*
 4. Rozwiń **Azure** węzła, kliknij prawym przyciskiem myszy **magazynu** i wybierz **dołączanie zewnętrznej usługi Storage...** .
 5. W **dodać nowe konto magazynu** okna dialogowego wprowadź **nazwa konta** i **klucz konta** uzyskanego w poprzednim zadaniu i kliknij **OK**.
 
@@ -909,7 +909,7 @@ Teraz spowoduje wykonanie testu obciążenia, który został utworzony w poprzed
     > - Zmniejszenie wartości maksymalne i minimalne **Procesora docelowego** zakres w konfiguracji skalowania automatycznego w aplikacji sieci web
     > - Uruchom test obciążenia w chmurze przy użyciu **plany testów Azure**. Więcej informacji na [tutaj](/azure/devops/test/load-test/index?view=vsts)
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

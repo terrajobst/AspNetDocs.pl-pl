@@ -8,15 +8,15 @@ ms.date: 01/14/2008
 ms.assetid: 829d2f56-5c48-445b-b826-3418a450c788
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eb533cf763c2f3132ea0a5420b4d4cbea16c61cd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c992c782ce52066452b42bc09052ec1985e13200
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077090"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417094"
 ---
-<a name="forms-authentication-configuration-and-advanced-topics-vb"></a>Konfiguracja uwierzytelniania formularzy i tematy zaawansowane (VB)
-====================
+# <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>Konfiguracja uwierzytelniania formularzy i tematy zaawansowane (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_03_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial03_AuthAdvanced_vb.pdf)
@@ -84,7 +84,7 @@ Po upływie definiuje bezwzględny czas w przyszłości wygaśnięcia biletu uwi
 Rysunek 1 przedstawia przepływ pracy, gdy slidingExpiration będzie miał ustawioną na wartość false, a limit czasu jest ustawiona na 30. Należy pamiętać, że bilet uwierzytelniania, wygenerowany przy logowaniu zawiera datę wygaśnięcia, a ta wartość nie jest aktualizowana podczas kolejnych żądań. Jeśli FormsAuthenticationModule wykryje, że bilet wygasł, odrzuci ją i traktuje żądania jako użytkownik anonimowy.
 
 
-[![Graficzna reprezentacja biletu uwierzytelniania formularzy, po upływie slidingExpiration ma wartość false](forms-authentication-configuration-and-advanced-topics-vb/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image1.png)
+[![A Graficzna reprezentacja slidingExpiration podczas wygaśnięcia biletu uwierzytelniania formularzy wynosi false](forms-authentication-configuration-and-advanced-topics-vb/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image1.png)
 
 **Rysunek 01**: Graficzna reprezentacja biletu uwierzytelniania formularzy, po upływie slidingExpiration ma wartość false ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image3.png))
 
@@ -92,7 +92,7 @@ Rysunek 1 przedstawia przepływ pracy, gdy slidingExpiration będzie miał ustaw
 Na rysunku 2 przedstawiono przepływ pracy, gdy slidingExpiration będzie miał ustawioną wartość PRAWDA, a limit czasu jest ustawiona na 30. Po odebraniu uwierzytelnionego żądania (z biletem wygasła) jej wygaśnięcia jest aktualizowany do limitu liczby minut w przyszłości.
 
 
-[![Graficzna reprezentacja biletu uwierzytelniania formularzy po slidingExpiration ma wartość true](forms-authentication-configuration-and-advanced-topics-vb/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image4.png)
+[![A Graficzna reprezentacja biletu uwierzytelniania formularzy gdy ma wartość true slidingExpiration](forms-authentication-configuration-and-advanced-topics-vb/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image4.png)
 
 **Rysunek 02**: Graficzna reprezentacja biletu uwierzytelniania formularzy po slidingExpiration ma wartość true ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image6.png))
 
@@ -181,7 +181,7 @@ Zagwarantowanie autentyczności biletu, muszą się systemem uwierzytelniania fo
 Podczas tworzenia (lub modyfikowania) bilet, a systemem uwierzytelniania formularzy tworzy komputera MAC i dołącza je do danych biletu. Po odebraniu kolejne żądanie systemem uwierzytelniania formularzy porównuje dane systemów MAC i biletu umożliwia sprawdzenie oryginalności dane biletu. Rysunek 3 ilustruje ten przepływ pracy w formie graficznej.
 
 
-[![Autentyczności biletu jest zapewniony przez komputer MAC](forms-authentication-configuration-and-advanced-topics-vb/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image7.png)
+[![TAutentyczności HE biletu jest zapewniony przez komputer MAC](forms-authentication-configuration-and-advanced-topics-vb/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image7.png)
 
 **Rysunek 03**: Zapewniony autentyczności biletu do komputera MAC ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image9.png))
 
@@ -238,7 +238,7 @@ W celu przechowywania danych użytkownika w biletu uwierzytelniania, należy nap
 Zawsze, gdy będziemy musieli uzyskiwać dostęp do danych przechowywanych w--ticket, możemy to zrobić przez Przechwytywanie FormsAuthenticationTicket bieżącego żądania i deserializacja właściwości danych użytkownika. W przypadku daty urodzenia i pracodawca przykładowe nazwy firma Microsoft będzie podzielić ciąg UserData dwóch podciągów w oparciu o ogranicznika (|).
 
 
-[![Dodatkowe informacje dotyczące użytkownika mogą być przechowywane w biletu uwierzytelniania](forms-authentication-configuration-and-advanced-topics-vb/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image10.png)
+[![Adodatkowe użytkownika informacji może znajdować się w biletu uwierzytelniania](forms-authentication-configuration-and-advanced-topics-vb/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image10.png)
 
 **Rysunek 04**: Dodatkowe użytkownika informacje mogą być przechowywane w biletu uwierzytelniania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image12.png))
 
@@ -302,7 +302,7 @@ Jeśli Request.IsAuthenticated ma wartość True, a następnie WelcomeBackMessag
 Rysunek 5. pokazuje zrzut ekranu przedstawiający tego ekranu w działaniu. Logowanie trybie Scott wyświetla komunikat powitalny Wstecz, obejmującą Scotta firmy i tytuł.
 
 
-[![Firmy i tytuł aktualnie zalogowany na użytkownika są wyświetlane](forms-authentication-configuration-and-advanced-topics-vb/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image13.png)
+[![TWyświetlane są HE aktualnie zalogowanego użytkownika w firmie i tytuł](forms-authentication-configuration-and-advanced-topics-vb/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image13.png)
 
 **Rysunek 05**: Firmy i tytuł aktualnie zalogowany na użytkownika są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image15.png))
 
@@ -338,7 +338,7 @@ W tym samouczku utworzymy niestandardowe obiekty jednostki i tożsamości w apli
 Następnie dodaj dwa nowe pliki klasy aplikacji\_katalogu z kodem, jeden o nazwie CustomIdentity.vb i jedną o nazwie CustomPrincipal.vb.
 
 
-[![Dodawanie klasy CustomPrincipal i CustomIdentity do projektu](forms-authentication-configuration-and-advanced-topics-vb/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image16.png)
+[![AKlasa CustomPrincipal klasy do projektu i dd CustomIdentity](forms-authentication-configuration-and-advanced-topics-vb/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image16.png)
 
 **Rysunek 06**: Dodawanie CustomIdentity i CustomPrincipal klas do projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image18.png))
 
@@ -362,7 +362,7 @@ Potoku platformy ASP.NET przyjmuje żądanie przychodzące i przetwarza je za po
 Po wystąpieniu zdarzenia AuthenticateRequest potoku platformy ASP.NET zgłasza [zdarzeń PostAuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), który jest, gdzie można zastąpić obiekt obiektów GenericPrincipal utworzony przez FormsAuthenticationModule z wystąpieniem klasy Nasze Obiekcie CustomPrincipal. Rysunek 7 przedstawia ten przepływ pracy.
 
 
-[![Genericprincipal — zastępuje CustomPrincipal w zdarzeniu PostAuthenticationRequest](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
+[![TZastępuje on obiektów GenericPrincipal CustomPrincipal w zdarzeniu PostAuthenticationRequest](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
 
 **Rysunek 07**: Genericprincipal — zastępuje CustomPrincipal w zdarzeniu PostAuthenticationRequest ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image21.png))
 
@@ -370,7 +370,7 @@ Po wystąpieniu zdarzenia AuthenticateRequest potoku platformy ASP.NET zgłasza 
 Aby można było wykonać kod w odpowiedzi na zdarzenie potoku platformy ASP.NET, możemy utworzyć programu obsługi zdarzeń odpowiednie w pliku Global.asax lub utworzyć własną moduł HTTP. W tym samouczku utworzymy programu obsługi zdarzeń w pliku Global.asax. Rozpocznij, dodając Global.asax do swojej witryny sieci Web. Kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i Dodaj element typu globalna klasa aplikacji o nazwie pliku Global.asax.
 
 
-[![Dodaj plik Global.asax do swojej witryny sieci Web](forms-authentication-configuration-and-advanced-topics-vb/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image22.png)
+[![ADodaj plik Global.asax do witryny sieci Web](forms-authentication-configuration-and-advanced-topics-vb/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image22.png)
 
 **Rysunek 08**: Dodaj plik Global.asax do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-vb/_static/image24.png))
 

@@ -8,15 +8,15 @@ ms.date: 12/20/2007
 ms.assetid: fd3db529-601a-4a6e-b91a-d9cbe1ff7bd4
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history
 msc.type: video
-ms.openlocfilehash: f3248d21223eacfede0ffe54e5fea5fdff073af4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 25e3d707d31d238d8a237d9bfefcfea5ea736c44
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071309"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410568"
 ---
-<a name="introduction-to-aspnet-ajax-history"></a>Wprowadzenie do kontrolki History ASP.NET Ajax
-====================
+# <a name="introduction-to-aspnet-ajax-history"></a>Wprowadzenie do kontrolki History ASP.NET Ajax
+
 przez [Bertrand Le Roy](https://github.com/bleroy)
 
 Dowiedz się, jak rozszerzeń ASP.NET w wersji zapoznawczej zapewnia kontrolę nad przycisk Wstecz w przeglądarce w technologii Ajax. **Rozszerzenia AJAX programu ASP.NET są dostępne w [(wersja zapoznawcza) w programie ASP.NET 3.5 rozszerzenia](https://www.asp.net/downloads/35-sp1#find) (grudnia 2007).**

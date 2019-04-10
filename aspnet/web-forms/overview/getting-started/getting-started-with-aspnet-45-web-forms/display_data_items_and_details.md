@@ -8,15 +8,15 @@ ms.date: 1/04/2019
 ms.assetid: 64a491a8-0ed6-4c2f-9c1c-412962eb6006
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: acc2f8e78375ef0455d467e2af750ecbee623224
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 54896da5565c9383f13fc352da26bbdc3cb63a76
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072035"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405368"
 ---
-<a name="display-data-items-and-details"></a>Wyświetlanie elementów danych i szczegóły
-====================
+# <a name="display-data-items-and-details"></a>Wyświetlanie elementów danych i szczegóły
+
 przez [Erik Reitan](https://github.com/Erikre)
 
 > W tej serii samouczków dowiesz się, podstawy tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu ASP.NET 4.7 i Microsoft Visual Studio 2017.
@@ -39,9 +39,9 @@ W tym samouczku dowiesz się, jak wyświetlać elementy danych i szczegóły ele
 
 Jest kilka różnych opcji można użyć, aby powiązać dane z kontrolką serwera. Najbardziej typowe obejmują:
 
- * Dodawanie kontroli źródła danych
- * Ręczne dodawanie kodu
- * Przy użyciu wiązania modelu
+* Dodawanie kontroli źródła danych
+* Ręczne dodawanie kodu
+* Przy użyciu wiązania modelu
 
 ### <a name="use-a-data-source-control-to-bind-data"></a>Użyj kontroli źródła danych, aby powiązać dane
 

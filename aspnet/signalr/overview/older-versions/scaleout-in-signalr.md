@@ -8,15 +8,15 @@ ms.date: 04/29/2013
 ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 78e53c38ec760334cecee0431d52d993a657b908
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9bad72d31a0ebc491910ebb128b3b3a7fb537958
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078329"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402690"
 ---
-<a name="introduction-to-scaleout-in-signalr-1x"></a>Wprowadzenie do skalowania w poziomie w usłudze SignalR 1.x
-====================
+# <a name="introduction-to-scaleout-in-signalr-1x"></a>Wprowadzenie do skalowania w poziomie w usłudze SignalR 1.x
+
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]

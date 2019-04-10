@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c46b6e1ca13228feb764d9c660ad578576956970
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d988b2ed6b7d1760557cbfbb543afa85b320c984
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069518"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402443"
 ---
-<a name="preventing-javascript-injection-attacks-vb"></a>Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (VB)
-====================
+# <a name="preventing-javascript-injection-attacks-vb"></a>Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (VB)
+
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_VB.pdf)
@@ -33,7 +33,7 @@ Zawsze, gdy użytkownik akceptuje dane wejściowe użytkownika i ponownie wyświ
 Wyobraź sobie, że utworzono witrynę sieci Web opinii klientów (patrz rysunek 1). Klienci mogą odwiedź witrynę internetową i wprowadź informacje zwrotne o swoich doświadczeniach z używania produktów. Gdy klient wyśle ich opinie, opinii, zostanie wyświetlony ponownie na stronie opinii.
 
 
-[![Opinie klientów witryny sieci Web](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
+[![Cwca opinii witryny sieci Web](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
 **Rysunek 01**: Opinie klientów witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image3.png))
 
@@ -65,7 +65,7 @@ Wyobraź sobie, wprowadź następujący tekst do formularza opinii klientów:
 Ten tekst reprezentuje skryptu JavaScript, która wyświetla okno komunikatu alertu. Po trafi tego skryptu do opinii formularzu komunikat <em>coś!</em> pojawi się w każdym przypadku, gdy każdy użytkownik odwiedza witrynę sieci Web z opinii klientów w przyszłości (patrz rysunek 2).
 
 
-[![Iniekcja kodu JavaScript](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
+[![JavaScript iniekcji](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
 
 **Rysunek 02**: Iniekcja kodu JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image6.png))
 
@@ -93,7 +93,7 @@ Należy zauważyć, że wartość `feedback.Message` ma format HTML zakodowane p
 Jaki jest średnia w formacie HTML kodowanie ciągu? Podczas HTML kodowania ciągu, niebezpiecznych znaków takich jak `<` i `>` są zastępowane przez odwołań do jednostek kodu HTML, takich jak `&lt;` i `&gt;`. W takim przypadku ciąg `<script>alert("Boo!")</script>` ma format HTML zakodowane, jego są konwertowane na `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Zakodowany ciąg nie jest już wykonuje jako skrypt JavaScript, gdy interpretowany przez przeglądarkę. Zamiast tego możesz pobrać nieszkodliwe strony na rysunku 3.
 
 
-[![Bezcelowe ataku JavaScript](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
+[![Defeated ataku JavaScript](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
 **Rysunek 03**: Udaremnione ataku JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image9.png))
 

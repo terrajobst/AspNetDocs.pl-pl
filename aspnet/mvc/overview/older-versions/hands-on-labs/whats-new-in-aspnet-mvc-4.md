@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 0c4b7b2641c91cbb63ec46fa707c004f7273a303
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422691"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411127"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co nowego we wzorcu ASP.NET MVC 4
 
@@ -173,14 +173,14 @@ W tym ćwiczeniu przedstawimy rozszerzenia w szablonach projektu programu ASP.NE
 
    *Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4*
 
-   - **HTML 5 znaczników**
+    - **HTML 5 znaczników**
 
        Przeglądaj widoków szablonu, aby dowiedzieć się, nowych znaczników motywu.
 
        ![Nowy szablon, za pomocą znacznika About.cshtml Razor i HTML5. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Nowego szablonu, za pomocą znacznika About.cshtml Razor i HTML5.")
 
        *Nowy szablon przy użyciu znaczników Razor i HTML5 (About.cshtml).*
-   - **Zaktualizowano bibliotek JavaScript**
+    - **Zaktualizowano bibliotek JavaScript**
 
        Domyślny szablon platformy ASP.NET MVC 4 zawiera teraz KnockoutJS i struktura JavaScript MVVM, która umożliwia tworzenie rozbudowanych aplikacji internetowych o wysokiej dynamice za pomocą języków JavaScript i HTML. Podobnie jak w MVC3, jQuery i biblioteki interfejsu użytkownika jQuery znajdują się również w ASP.NET MVC 4.
 
@@ -250,11 +250,11 @@ Za pomocą techniki adaptacyjne renderowania, zostanie wyświetlona witryna **wy
 > Podstawowy format zapytanie o multimedia to: @media \[Zakres: wszystkie | urządzenia przenośnego | Drukuj | Projekcja | ekran\] ([właściwość: wartość] i... [właściwość: wartość])
 
 
-Przykłady z zapytaniami multimediów: &gt;  <strong>@media wszystkie i (maksymalna szerokość: 1000px) i (minimalna szerokość: 700px) {}:</strong> Aby uzyskać wszystkie rozwiązania między 700px i 1000px.
+Przykłady z zapytaniami multimediów: &gt;  **@media wszystkie i (maksymalna szerokość: 1000px) i (minimalna szerokość: 700px) {}:** Aby uzyskać wszystkie rozwiązania między 700px i 1000px.
 
-> <strong>@media ekran i (minimalna szerokość: 400 piks.) i (maksymalna szerokość: 700px) {…}:</strong> Tylko dla ekranów. Rozwiązanie musi wynosić od 400 do 700px.
+> **@media ekran i (minimalna szerokość: 400 piks.) i (maksymalna szerokość: 700px) {…}:** Tylko dla ekranów. Rozwiązanie musi wynosić od 400 do 700px.
 > 
-> <strong>@media urządzenia przenośnego i (minimalna szerokość: 20em) ekranu i (minimalna szerokość: 20em) {…}:</strong> Ekranu i urządzenia (mobile i urządzenia). Minimalna szerokość musi być większa niż 20em.
+> **@media urządzenia przenośnego i (minimalna szerokość: 20em) ekranu i (minimalna szerokość: 20em) {…}:** Ekranu i urządzenia (mobile i urządzenia). Minimalna szerokość musi być większa niż 20em.
 > 
 > Więcej informacji na ten temat można znaleźć na [lokacji W3C](http://www.w3.org/TR/css3-mediaqueries/).
 
@@ -263,7 +263,7 @@ Możesz teraz przedstawimy działania adaptacyjne renderowania, poprawa czytelno
 
 1. Otwórz **PhotoGallery.sln** rozwiązania, które zostały utworzone w zadaniu 1 i wybierz **PhotoGallery** projektu. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie.
 2. Zmienia szerokość w przeglądarce, ustawienia systemu windows o połowę lub mniej niż czwarta oryginalnego rozmiaru. Zwróć uwagę, co się dzieje z elementami w nagłówku: Niektóre elementy nie będą widoczne w obszaru nagłówka.
-3. Otwórz <strong>Site.css</strong> plik z Eksploratora rozwiązania Visual Studio, na terenie <strong>zawartości</strong> folderu projektu. Naciśnij klawisz <strong>CTRL + F</strong> aby otworzyć wyszukiwanie zintegrowane z Visual Studio i zapisać <strong>@media</strong> zlokalizować <strong>CSS media query</strong>.
+3. Otwórz **Site.css** plik z Eksploratora rozwiązania Visual Studio, na terenie **zawartości** folderu projektu. Naciśnij klawisz **CTRL + F** aby otworzyć wyszukiwanie zintegrowane z Visual Studio i zapisać **@media** zlokalizować **CSS media query**.
 
     Warunki zapytania nośnika, które są zdefiniowane w tym szablonie działa w ten sposób: Gdy rozmiar okna przeglądarki jest poniżej **850 px**, reguły CSS stosowane są zdefiniowane w tym bloku nośnika.
 
@@ -274,13 +274,13 @@ Możesz teraz przedstawimy działania adaptacyjne renderowania, poprawa czytelno
 
     ![Po lewej stronie, strony są stosowane @media styl w prawo, styl zostanie pominięty](whats-new-in-aspnet-mvc-4/_static/image17.png "po lewej stronie, strony są stosowane @media styl w prawo, styl zostanie pominięty.")
 
-    <em>W lewej stronie są stosowane @media styl w prawo, styl zostanie pominięty.</em>
+    *W lewej stronie są stosowane @media styl w prawo, styl zostanie pominięty.*
 
     Teraz sprawdźmy co się dzieje na urządzeniach przenośnych:
 
     ![Po lewej stronie, strony są stosowane @media styl w prawo, styl zostanie pominięty](whats-new-in-aspnet-mvc-4/_static/image18.png "po lewej stronie, strony są stosowane @media styl w prawo, styl zostanie pominięty.")
 
-    <em>W lewej stronie są stosowane @media styl w prawo, styl zostanie pominięty.</em>
+    *W lewej stronie są stosowane @media styl w prawo, styl zostanie pominięty.*
 
     Mimo że można zauważyć, że zmiany, gdy strona jest wyświetlana w przeglądarce sieci Web nie są bardzo istotne, gdy na urządzeniu przenośnym, różnice stają się bardziej oczywiste. Po lewej stronie obrazu widać, że styl niestandardowy czytelne.
 
@@ -543,7 +543,7 @@ W tym zadaniu zostanie zaktualizowana układ pulpitu, aby uwzględnić przełąc
     ![Wyświetl przełącznik renderowane w widoku pulpitu](whats-new-in-aspnet-mvc-4/_static/image32.png "przełącznikiem widoku renderowane w widoku pulpitu")
 
     *Wyświetl przełącznik renderowane w widoku pulpitu*
-7. Przełącz do widoku przenośnych ponownie, a następnie przejdź do <strong>o</strong> strony (http://localhost[portu]/Home/About). Należy zauważyć, że nawet, jeśli jeszcze nie utworzono widok About.Mobile.cshtml, na stronie informacje jest wyświetlana przy użyciu układu dla urządzeń przenośnych (\_Layout.Mobile.cshtml).
+7. Przełącz do widoku przenośnych ponownie, a następnie przejdź do **o** strony (http://localhost[portu]/Home/About). Należy zauważyć, że nawet, jeśli jeszcze nie utworzono widok About.Mobile.cshtml, na stronie informacje jest wyświetlana przy użyciu układu dla urządzeń przenośnych (\_Layout.Mobile.cshtml).
 
     ![Informacje o stronie](whats-new-in-aspnet-mvc-4/_static/image33.png "o stronie")
 
@@ -764,7 +764,7 @@ Za pomocą wstawek kodu masz kod, czego potrzebujesz w zasięgu ręki. Dokument 
 
 Możesz zainstalować **programu Microsoft Visual Studio Express 2012 for Web** lub inne &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe wskazówki ułatwiają kroki wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; *Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
 2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -805,7 +805,7 @@ Działanie witryny oraz na urządzeniu iPhone symulowane można użyć rozszerze
 <a id="Task_1_-_Installing_WebMatrix_2"></a>
 #### <a name="task-1---installing-webmatrix-2"></a>Zadanie 1 — Instalowanie programu WebMatrix 2
 
-1. Przejdź do [ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>programu WebMatrix 2</em>&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; *programu WebMatrix 2*&quot;.
 2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -875,7 +875,7 @@ Działanie witryny oraz na urządzeniu iPhone symulowane można użyć rozszerze
 3. W &quot;przeglądanie za pomocą&quot; okno dialogowe, kliknij przycisk **Dodaj**.
 4. W &quot;Dodaj Program&quot; okno dialogowe, użyj następujących wartości:
 
-   - <strong>Program</strong>: C:\Users\*{CurrentUser}<em>\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe * (odpowiednio zaktualizować ścieżkę)</em>
+   - **Program**: C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(odpowiednio zaktualizować ścieżkę)*
    - **Argumenty**: &quot;1&quot;
    - **Przyjazna nazwa**: symulatora telefonu iPhone
 

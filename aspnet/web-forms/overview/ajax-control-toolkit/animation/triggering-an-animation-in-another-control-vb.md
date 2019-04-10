@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: 25ebaf1f-5a9f-423d-98c7-1d694e93664f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b390ebfaec695a1c2565a91acaa38dbcc10a8959
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c74e829c85ae3b57d54a62aeb79388f1131e7184
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425798"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398205"
 ---
-<a name="triggering-an-animation-in-another-control-vb"></a>Wyzwalanie animacji w innej kontrolce (VB)
-====================
+# <a name="triggering-an-animation-in-another-control-vb"></a>Wyzwalanie animacji w innej kontrolce (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8VB.pdf)
@@ -57,7 +57,7 @@ W ramach `<Animations>` węzła, animacje miejsce w zwykły sposób. Aby stały 
 Należy zwrócić uwagę specjalne kolejność, w jakiej są wyświetlane poszczególne animacji. Po pierwsze przycisk pobiera dezaktywowane, po uruchomieniu animacji. Ponieważ ma nie `AnimationTarget` atrybutu w `<EnableAction>` elementu, ta animacja jest stosowana do sterowania źródłowy: przycisku. Kroki opisane w dwóch następnych animacji przeprowadza się równolegle (`<Parallel>` elementu). Zachowują się ich `AnimationTarget` Ustaw atrybuty `"Panel1"`, dlatego animowanie panelu nie przycisk.
 
 
-[![Kliknięcie na przycisk uruchamiania animacji panelu](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
+[![A Kliknięcie na przycisk uruchamiania animacji panelu](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
 
 Kliknięcie na przycisk uruchamia panel animacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](triggering-an-animation-in-another-control-vb/_static/image3.png))
 

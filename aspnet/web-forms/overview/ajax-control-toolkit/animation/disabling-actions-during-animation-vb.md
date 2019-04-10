@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: a86c0276-6481-46ee-8b4f-8c2009399ee9
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 811e1d75f79885f3f4c561d9211fec625fcf1807
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3f8073b468a431d5c4b0d222bf385c8c6d32b2a8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068453"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419096"
 ---
-<a name="disabling-actions-during-animation-vb"></a>Wyłączanie akcji podczas animacji (VB)
-====================
+# <a name="disabling-actions-during-animation-vb"></a>Wyłączanie akcji podczas animacji (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation7.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation7VB.pdf)
@@ -55,7 +55,7 @@ Byłoby to możliwe ponownie włączyć przycisk po animacji, przy użyciu nast�
 Jednak w danym scenariuszu byłoby to bezcelowe od przycisku znika i nie jest widoczny na końcu animacji.
 
 
-[![Przycisk został wyłączony, tak szybko, jak działa animacji](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
+[![Tprzycisk he jest wyłączony, tak szybko, jak działa animacji](disabling-actions-during-animation-vb/_static/image2.png)](disabling-actions-during-animation-vb/_static/image1.png)
 
 Przycisk został wyłączony, tak szybko, jak działa animacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](disabling-actions-during-animation-vb/_static/image3.png))
 

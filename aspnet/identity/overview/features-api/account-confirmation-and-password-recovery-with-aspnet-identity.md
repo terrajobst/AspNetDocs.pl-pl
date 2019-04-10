@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity (C#) | Dokumentacja firmy Microsoft
+title: Konto potwierdzenie & odzyskiwanie hasła — produktu ASP.NET Identity (C#) — ASP.NET 4.x
 author: HaoK
 description: Przed wykonaniem tej instrukcji, które należy wykonać tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, adres e-mail potwierdzenia i resetowaniem hasła. W tym samouczku...
 ms.author: riande
 ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 04e4bbc8b6405dc60b8335191d88920028eef599
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 2e4cd21d66e69590fb1642d7974e4b7f82cba0cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424849"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396424"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Konto odzyskiwania potwierdzenia i hasła w produkcie ASP.NET Identity (C#)
 
@@ -229,8 +230,8 @@ Poniższy kod przedstawia metodę potwierdzenie e-mail:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowanie jednokrotne](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) także przedstawiono sposób dodawania informacji o profilu z tabelą użytkowników.
 - [ASP.NET MVC i tożsamości w wersji 2.0: Opis podstawowych funkcji](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) przez Atten Jan.
-- [Wprowadzenie do produktu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
+- [Wprowadzenie do systemu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Ogłoszenie RTM produktu ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) przez autorem jest Pranav Rastogi.

@@ -8,15 +8,15 @@ ms.date: 10/15/2014
 ms.assetid: 92c84846-f0ea-4b5e-94b6-5004874eb060
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 01d117260ef458453bee79285a37a8977221998c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 29c3670ad7ab93acb0be878e5bd961d0ea446eee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57065909"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396235"
 ---
-<a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Zabezpieczanie interfejsu API sieci Web za pomocą indywidualnych kont i logowania lokalnego we wzorcu ASP.NET Web API 2.2
-====================
+# <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Zabezpieczanie interfejsu API sieci Web za pomocą indywidualnych kont i logowania lokalnego we wzorcu ASP.NET Web API 2.2
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobierz przykładową aplikację](https://github.com/MikeWasson/LocalAccountsApp)

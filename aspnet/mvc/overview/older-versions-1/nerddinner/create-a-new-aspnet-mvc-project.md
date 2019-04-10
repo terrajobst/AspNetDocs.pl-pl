@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: 7e0e9928-8fdc-4b74-9882-55fac0976628
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
-ms.openlocfilehash: 3f34f17aa35dbfed2d52daf615c8dc81be6e7847
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c85db4289698988ead44afd452da17054bab9f07
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078410"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417211"
 ---
-<a name="create-a-new-aspnet-mvc-project"></a>Tworzenie nowego projektu ASP.NET MVC
-====================
+# <a name="create-a-new-aspnet-mvc-project"></a>Tworzenie nowego projektu ASP.NET MVC
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -60,14 +60,14 @@ Po utworzeniu nowej aplikacji platformy ASP.NET MVC z programem Visual Studio au
 
 Projekty programu ASP.NET MVC domyślnie mają sześć katalogów najwyższego poziomu:
 
-| **Directory** | **Cel** |
+| **Katalog** | **Cel** |
 | --- | --- |
 | **/ Kontrolerów** | Gdzie umieścić klasy kontrolera, które obsługuje adres URL żądania |
-| **/ Modeli** | Gdzie umieścić klas, które reprezentują i manipulowanie danymi |
+| **/Models** | Gdzie umieścić klas, które reprezentują i manipulowanie danymi |
 | **/ Widoków** | Gdzie umieścić pliki szablonów interfejsu użytkownika, które są odpowiedzialne za renderowaniem w danych wyjściowych |
 | **/ Skryptów** | Gdzie umieścić pliki biblioteki JavaScript i skrypty (js) |
-| **/Content** | Gdzie umieścić CSS i pliki obrazów i innej zawartości innego niż dynamic/inne niż JavaScript |
-| **/ Aplikacji\_danych** | W przypadku, gdy są przechowywane pliki danych chcesz odczytu/zapisu. |
+| **/ Zawartości** | Gdzie umieścić CSS i pliki obrazów i innej zawartości innego niż dynamic/inne niż JavaScript |
+| **/App\_Data** | W przypadku, gdy są przechowywane pliki danych chcesz odczytu/zapisu. |
 
 ASP.NET MVC nie wymaga tej struktury. W rzeczywistości deweloperzy pracujący nad dużych aplikacji będzie zazwyczaj partycji aplikacji się w wielu projektach umożliwiają łatwiejsze w zarządzaniu (na przykład: klasy modelu danych często go w projekcie osobnej klasy biblioteki z aplikacji sieci web). Jednak domyślnej struktury projektu, zapewniają nieuprzywilejowany domyślnej konwencji katalogu, który możemy użyć, aby zachować czyste starannością aplikacji.
 

@@ -8,15 +8,15 @@ ms.date: 11/15/2007
 ms.assetid: 199c6ca0-3a9e-4a88-96c5-70fce8d4d9bf
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database
 msc.type: video
-ms.openlocfilehash: 907efe9b69e6412627d0fc79f147a59abfa4ff78
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e4dfbdedad2211d94610966e3f390b23681b658f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074882"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419291"
 ---
-<a name="how-do-i-linq-to-sql-querying-the-database"></a>[Jak mogę] LINQ do SQL: wykonywanie zapytania w bazie danych
-====================
+# <a name="how-do-i-linq-to-sql-querying-the-database"></a>[Jak mogę] LINQ do SQL: wykonywanie zapytania w bazie danych
+
 przez [Scott Stanfield](https://github.com/scottstanfield)
 
 To wideo pokazuje, jak zapytanie dotyczące bazy danych za pomocą LINQ, podstawowej SQL za pomocą wizualizatora zapytania, powiązań danych do kontrolek ASP.NET i stronicowania rekordów.

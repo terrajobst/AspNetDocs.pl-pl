@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/formats-and-model-binding/json-and-xml-serialization
-title: JSON i serializacji XML we wzorcu ASP.NET Web API | Dokumentacja firmy Microsoft
+title: JSON i serializacji XML we wzorcu ASP.NET Web API — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: W tym artykule opisano elementy formatujące formatami JSON i XML w interfejsie API sieci Web platformy ASP.NET dla aplikacji ASP.NET 4.x.
 ms.author: riande
 ms.date: 05/30/2012
+ms.custom: seoapril2019
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: 47967e6e1dd0e84b6059c07d7544c0e755fdf510
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067292"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408280"
 ---
-<a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON i serializacji XML we wzorcu ASP.NET Web API
-====================
+# <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON i serializacji XML we wzorcu ASP.NET Web API
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 W tym artykule opisano elementy formatujące formatami JSON i XML w interfejsie API sieci Web platformy ASP.NET.
@@ -37,7 +38,7 @@ Internetowy interfejs API udostępnia programy formatujące typy nośnika dla fo
     - [Wcięcia](#json_indenting)
     - [Camelcase](#json_camelcasing)
     - [Anonimowy i ze słabą kontrolą typów obiektów](#json_anon)
-- [XML Media-Type Formatter](#xml_media_type_formatter)
+- [Element formatujący typu nośnika XML](#xml_media_type_formatter)
 
     - [Właściwości tylko do odczytu](#xml_readonly)
     - [Daty](#xml_dates)

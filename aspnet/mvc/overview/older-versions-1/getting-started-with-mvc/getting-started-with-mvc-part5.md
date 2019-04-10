@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: 76dc324134dc93c9552741fea9f1136abdc9184a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e0b540c030bf600def9b9efad4c73f055a343851
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069617"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402833"
 ---
-<a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
-====================
+# <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
@@ -26,7 +26,7 @@ W tej sekcji użyjemy Utwórz nową klasę MoviesController i pisanie kodu, któ
 
 Kliknij prawym przyciskiem folder kontrolery i upewnij MoviesController nowe.
 
-[![Dodawanie kontrolera](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Add Controller](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 Spowoduje to utworzenie nowego pliku "MoviesController.cs" poniżej naszej folder \Controllers w projekcie. Zaktualizujmy MovieController można pobrać listy filmów z naszym nowo wypełniania bazy danych.
 
@@ -42,11 +42,11 @@ Należy pamiętać, że jeśli masz utworzony nowej klasy, należy skompilować 
 
 Kliknij przycisk Dodaj, a system automatycznie wygeneruje kod dla widoku dla nas wyświetlanych z naszej listy filmów. Jest to dobry moment, aby zmienić &lt;h2&gt; nagłówek na wartość podobną "Moja lista filmu", takie jak były wykonywane wcześniej przy użyciu widoku Hello World.
 
-[![Filmy — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![Movies — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
 Uruchom aplikację, a następnie odwiedź /Movies na pasku adresu. Firma Microsoft została teraz pobierane są dane z bazy danych przy użyciu podstawowego zapytania wewnątrz kontrolera i zwrócone dane do widoku, który zna filmy. Ten widok, a następnie uruchamia się za pośrednictwem listy filmów i tworzy tabelę danych dla nas.
 
-[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Movie lista — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 Firma Microsoft nie będzie zaimplementowana funkcji edycji, szczegółów i usuwania, z tą aplikacją — więc nie potrzebujemy łącza domyślny szablon szkieletu utworzony dla nas. Otwórz plik /Movies/Index.aspx i usuń je.
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono kod źródłowy dla naszych zaktualizowany szablon widoku
 
 Łączy, które firma Microsoft nie będzie już konieczne, która zostanie utworzona, więc usuniemy je w tym przykładzie Zostanie zachowana, aby nasze Utwórz nowe łącze, ponieważ to jest dalej! Oto jak wygląda naszą aplikację z tej kolumny usunięte.
 
-[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Movie lista — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 W efekcie powstał prostą listę danych filmu. Jednak po kliknięciu przycisku "Utwórz nowy" link przejdziemy błąd, ponieważ nie jest podłączany! Przejdźmy implementuje metody tworzenia akcji i umożliwić użytkownikowi wprowadzanie nowych filmów w naszej bazie danych.
 

@@ -8,15 +8,15 @@ ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: b51ffda9aa10dd8b1fe98c4b56f70994eb016cec
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3a39e8d1979a743101d728eb3430e9aa0efb1252
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425720"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415638"
 ---
-<a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2017
-====================
+# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2017
+
 
 [Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -182,7 +182,7 @@ Aby uruchomić projekt ukończone, otwórz *WingtipToys* folder i kliknij dwukro
 
 Po ukończeniu tej serii samouczka kwizu sprawdzić swoją wiedzę i wzmocnienia kluczowych pojęć. Każde pytanie zawiera wyjaśnienie i linki do dodatkowych wskazówek.
 
- * [Quiz formularzy sieci Web ASP.NET](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
+* [Quiz formularzy sieci Web ASP.NET](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
 
 ## <a name="tutorial-support-and-comments"></a>Samouczek pomocy technicznej i komentarze
 

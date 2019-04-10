@@ -8,15 +8,15 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 650063db25f38b02cc33955925d1e3c2f45db665
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 165343fd20b92becee1956c7a19870219323e073
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58420858"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409398"
 ---
-<a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
-====================
+# <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > W tym samouczku dowiesz się, jak utworzyć aplikację sieci web ASP.NET MVC 5 z potwierdzenie adresu e-mail i resetowania haseł za pomocą systemu członkostwa ASP.NET Identity. Możesz pobrać gotową aplikację [tutaj](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952). Pobierany zasób zawiera debugowania wątków, które umożliwiają testowanie potwierdzenie adresu e-mail i SMS bez konfigurowania wiadomości e-mail lub dostawcy programu SMS.

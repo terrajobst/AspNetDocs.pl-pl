@@ -8,15 +8,15 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 6fe55a14b40f8c50dee91cdc7f59d0378f2a1ea2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: de65e01b888d9ed15da3903f086b40c49b32b9fb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075509"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402417"
 ---
-<a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 — funkcje mobilne
-====================
+# <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 — funkcje mobilne
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Teraz jest dostępna wersja MVC 5 tego samouczka przy użyciu przykładów kodu w zasięgu [wdrożyć aplikację ASP.NET MVC 5 Mobile sieci Web w usłudze Azure Web Sites](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
@@ -134,7 +134,7 @@ Kopiuj *Views\Home\AllTags.cshtml* plik *Views\Home\AllTags.Mobile.cshtml*. Otw�
 
 Przejdź na stronę tagów za pomocą przeglądarki na komputerze i za pomocą emulatora w przeglądarce dla urządzeń przenośnych. Emulator przeglądarce dla urządzeń przenośnych zawiera dwa wprowadzone zmiany.
 
-[![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
+[![p2m_layoutTags.Mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
 Z kolei Monitor nie zmienił się.
 
@@ -248,7 +248,7 @@ Odśwież *alltags —* Wyświetl w przeglądarce dla urządzeń przenośnych. M
 >
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
 >
->  i dodać następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.
+> i dodać następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.
 >
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 

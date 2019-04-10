@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
-title: Wiązanie parametrów interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Wiązanie parametrów interfejsie ASP.NET Web API — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: W tym artykule opisano sposób internetowy interfejs API wiąże parametrów i jak dostosować proces wiązania w programie ASP.NET 4.x.
 ms.author: riande
 ms.date: 07/11/2013
+ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a022138c594154109ff0bfba85949099e6b2d2a2
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f121f12ce689a079412bbd5392fde4fea863ff1f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422756"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401975"
 ---
-<a name="parameter-binding-in-aspnet-web-api"></a>Wiązanie parametrów interfejsie Web API platformy ASP.NET
-====================
+# <a name="parameter-binding-in-aspnet-web-api"></a>Wiązanie parametrów interfejsie Web API platformy ASP.NET
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-Gdy interfejs API sieci Web wywołuje metodę dla kontrolera, należy ustawić w niej wartości parametrów w procesie zwanym *powiązania*. W tym artykule opisano, jak interfejs API sieci Web tworzy powiązania parametrów i w jaki sposób dostosować proces wiązania.
+W tym artykule opisano, jak interfejs API sieci Web tworzy powiązania parametrów i w jaki sposób dostosować proces wiązania. Gdy interfejs API sieci Web wywołuje metodę dla kontrolera, należy ustawić w niej wartości parametrów w procesie zwanym *powiązania*. 
 
 Domyślnie by powiązać parametry interfejsu API sieci Web stosowane są następujące reguły:
 

@@ -8,15 +8,15 @@ ms.date: 07/16/2008
 ms.assetid: 0427dd22-7836-4b69-b2c2-66c765ace34f
 msc.legacyurl: /web-forms/videos/authentication/asp-forms-login-relocation
 msc.type: video
-ms.openlocfilehash: 57887785537664c4984bd3b7817c6c288d8d324a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9aa31566f383b20d3c1ea8a637ce8a93107871c6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069662"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418394"
 ---
-<a name="asp-forms-login-relocation"></a>Relokacja logowania formularzy stron ASP
-====================
+# <a name="asp-forms-login-relocation"></a>Relokacja logowania formularzy stron ASP
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 Stagner Jan używa w poprzednim przykładzie kodu, aby kontynuować, dostosowywanie uwierzytelniania platformy ASP.NET, przenoszenie i zmiana nazwy funkcji logowania w aplikacji ASP.NET. Aby uzyskać więcej informacji na temat tej wersji demonstracyjnej, znajduje się zapoznać się z samouczkiem [tutaj](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).

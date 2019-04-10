@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i usłudze Azure App Service | Dokumentacja firmy Microsoft
+title: Wdrażania haseł i innych danych poufnych na platformie ASP.NET i usługi Azure App Service — ASP.NET 4.x
 author: Rick-Anderson
 description: Ten samouczek pokazuje, jak Twój kod może bezpieczne przechowywanie i dostęp do informacji poufnych. Najbardziej istotną kwestią jest, że nigdy nie przechowuj hasła lub inne dawcy...
 ms.author: riande
 ms.date: 05/21/2015
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 8b5d6bf9fad72218341e4e0b90144da01abea3aa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2620d9e2eaf3c7719d9a289e42bb91270708ae79
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072710"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419447"
 ---
-<a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i w usłudze Azure App Service
-====================
+# <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i w usłudze Azure App Service
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ten samouczek pokazuje, jak Twój kod może bezpieczne przechowywanie i dostęp do informacji poufnych. Najważniejsze jest nigdy nie przechowuj haseł i innych poufnych danych w kodzie źródłowym i wpisów tajnych w środowisku produkcyjnym nie należy używać w trybie projektowania i testowania.

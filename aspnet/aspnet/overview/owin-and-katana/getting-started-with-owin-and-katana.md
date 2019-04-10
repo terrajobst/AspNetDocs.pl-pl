@@ -8,15 +8,15 @@ ms.date: 09/27/2013
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 9920861da0e67d9304a944cacfb8ff8685267cd6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5b5ecfcc7561e3e7bc13e1c8819a548e73ae1ab3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074252"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408098"
 ---
-<a name="getting-started-with-owin-and-katana"></a>Wprowadzenie do korzystania z interfejsu OWIN i projektu Katana
-====================
+# <a name="getting-started-with-owin-and-katana"></a>Wprowadzenie do korzystania z interfejsu OWIN i projektu Katana
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Otwórz interfejs sieci Web platformy .NET (OWIN)](http://owin.org/) definiuje abstrakcję między serwerami sieci web platformy .NET i aplikacji sieci web. Dzięki rozdzieleniu serwer sieci web z aplikacji, OWIN ułatwia tworzenie oprogramowania pośredniczącego do tworzenia aplikacji internetowych .NET. Ponadto OWIN ułatwia port aplikacji sieci web do innych hostów&#8212;na przykład hostingu samodzielnego w usłudze Windows lub inny proces.
@@ -105,6 +105,6 @@ Teraz należy używać CTRL + F5, aby uruchomić aplikację bez debugowania, tak
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wykrywanie klasy początkowej OWIN](owin-startup-class-detection.md)
+- [Wykrywanie klasy początkowej interfejsu OWIN](owin-startup-class-detection.md)
 - [Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web platformy ASP.NET](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [Korzystanie z OWIN na potrzeby samodzielnego hostowania SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

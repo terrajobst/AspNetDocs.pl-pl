@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: c3a14f51df7aaf5c5935cf60ee4e687c10048e91
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 789bf26df82d275c45e633de50c3cce1d82838b6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069233"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406629"
 ---
-<a name="aspnet-denied-access-to-iis-directories"></a>Platforma ASP.NET nie ma dostępu do katalogów usług IIS
-====================
+# <a name="aspnet-denied-access-to-iis-directories"></a>Platforma ASP.NET nie ma dostępu do katalogów usług IIS
+
 > Tym oficjalnym dokumencie opisano, co należy zrobić, jeśli żądanie do aplikacji platformy ASP.NET zwraca błąd, "odmowa dostępu do *DirectoryName* katalogu. Nie można uruchomić monitorowania zmiany w katalogu".
 > 
 > Stosuje się do platformy ASP.NET w wersji 1.0 i 1.1 programu ASP.NET.

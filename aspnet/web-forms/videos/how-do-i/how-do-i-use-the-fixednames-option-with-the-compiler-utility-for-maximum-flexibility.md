@@ -8,15 +8,15 @@ ms.date: 07/24/2008
 ms.assetid: e332a1e0-226d-40ad-be99-96f13ecaec24
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
 msc.type: video
-ms.openlocfilehash: 07fa077f75034e5bb52e85e202b26b32e3822b77
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1b58f217716ecbc037aae736fd323bb7da8afbdd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075293"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398153"
 ---
-<a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[Jak mogę] Używanie opcji Fixednames w narzędziu kompilatora, aby zapewnić maksymalną elastyczność
-====================
+# <a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[Jak mogę] Używanie opcji Fixednames w narzędziu kompilatora, aby zapewnić maksymalną elastyczność
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym filmie pokazano pikseli Chris pokazują, jak używanie opcji fixednames w aspnet\_compiler.exe narzędzie, aby wygenerować plik spójne nazwy w danych wyjściowych kompilacji. Po pierwsze, zobacz, jak aspnet danych wyjściowych kompilacji\_compiler.exe narzędzie generuje pliki wyjściowe dla witryny sieci web platformy ASP.NET, które reprezentują poszczególne składniki w tym strony, kompozycje i foldery w witrynie. Zobacz, jak składniki są nazywane i ich zawartość w stosunku do witryny sieci web. Następnie zobacz, jak używanie opcji fixednames w celu standaryzacji nazw plików wyjściowych, które są oparte na plikach źródłowych, na których są oparte. Następnie Dowiedz się więcej o zagadnienia dotyczące korzystania z każdą z opcji kompilacji podczas wdrażania aktualizacji do skompilowanej witryny sieci web, skupiając się na składniki, które z największym prawdopodobieństwem mogą być aktualizowane.

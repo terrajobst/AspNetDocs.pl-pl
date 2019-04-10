@@ -8,15 +8,15 @@ ms.date: 05/29/2009
 ms.assetid: 7ca8013e-9dfc-4e33-8336-cdccfd5f9414
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 203e49e67d8a9c6eb9dbf605a8d7d860737de073
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 300fc9f7e82fe8201b083de9e740e1620f5d09b9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078389"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59411816"
 ---
-<a name="validation-with-the-data-annotation-validators-c"></a>Walidacja przy użyciu modułów walidacji adnotacji danych (C#)
-====================
+# <a name="validation-with-the-data-annotation-validators-c"></a>Walidacja przy użyciu modułów walidacji adnotacji danych (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Korzystaj z integratora modelu adnotacji danych do wykonywania sprawdzania poprawności w aplikacji ASP.NET MVC. Dowiedz się, jak używać różnych typów atrybutów modułu sprawdzania poprawności i pracować z nimi w programie Microsoft Entity Framework.

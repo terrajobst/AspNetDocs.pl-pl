@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: 778baa4e-4af8-4665-947e-7a01d1a4dff2
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ebc6be8c41251190a0124fe5f3d2c154f1ad4450
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a65fe60dc44eb40591733ba9371e409f690fea52
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425655"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409242"
 ---
-<a name="sorting-custom-paged-data-c"></a>Sortowanie niestandardowo stronicowanych danych (C#)
-====================
+# <a name="sorting-custom-paged-data-c"></a>Sortowanie niestandardowo stronicowanych danych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_CS.exe) lub [Pobierz plik PDF](sorting-custom-paged-data-cs/_static/datatutorial26cs1.pdf)
@@ -71,7 +71,7 @@ Poświęć chwilę, aby przetestować tę procedurę składowaną z różnymi wa
 **Rysunek 1**: Wypróbuj różne wartości dla parametrów procedury składowanej s trzech danych wejściowych
 
 
-[![S procedury składowanej wyniki są wyświetlane w oknie danych wyjściowych](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
+[![Ts procedury składowanej HE wyniki są wyświetlane w oknie danych wyjściowych](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
 
 **Rysunek 2**: S procedury składowanej w oknie danych wyjściowych wyświetlanych wyników ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-cs/_static/image4.png))
 
@@ -145,7 +145,7 @@ Aby włączyć sortowanie w widoku GridView, po prostu zaznacz pole wyboru Włą
 Rysunek nr 7 przedstawia pierwszej strony wyniki, gdy są sortowane według `UnitPrice` w kolejności rosnącej.
 
 
-[![Wyniki są sortowane według UnitPrice](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
+[![THE wyniki są sortowane według UnitPrice](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
 
 **Rysunek 7**: Wyniki są sortowane według UnitPrice ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-cs/_static/image11.png))
 
@@ -166,7 +166,7 @@ Ten wyjątek występuje, ponieważ `SortExpression` s GridView `SupplierName` el
 **Rysunek 9**: Zmień SortExpression s elementu BoundField NazwaDostawcy CompanyName
 
 
-[![Teraz można posortować wyników według dostawcy](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
+[![TTeraz można sortować wyniki używane przez dostawcę](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
 
 **Na rysunku nr 10**: Można teraz można posortować wyników według dostawcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-cs/_static/image16.png))
 

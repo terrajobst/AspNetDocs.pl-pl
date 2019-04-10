@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: 13a5a423-9235-4dde-b408-2fd10f791d63
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 19ca40374f97d59cac4f1677f886f3e48eab7b67
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ec59b63050a9d561c4f3da5a8eaaffbefef48454
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069377"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410529"
 ---
-<a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>Podstawowe różnice między usługami IIS a programem ASP.NET Development Server (C#)
-====================
+# <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>Podstawowe różnice między usługami IIS a programem ASP.NET Development Server (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_06_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial06_WebServerDiff_cs.pdf)
@@ -50,7 +50,7 @@ Do wyświetlenia tego typu błędu w działaniu w przeglądach książki witryny
 Następnie odwiedź *uczyć się ASP.NET 3.5 w ciągu 24 godzin* strony przeglądu książki w środowisku programistycznym, przy użyciu serwera projektowego ASP.NET. Przy założeniu, że zalogowano się do komputera przy użyciu konta, które ma odpowiednie uprawnienia do tworzenia i modyfikowania pliku tekstowego w sieci web katalogu głównego aplikacji przejrzyj książki pojawi się taka sama jak przed, ale każdorazowo, gdy strona jest odwiedzone daty i godziny oraz użytkownika  Adres IP jest przechowywany w `LastTYASP35Access.txt` pliku. Wskazać w przeglądarce do tego pliku; powinien zostać wyświetlony komunikat podobny do przedstawionego na rysunku 1.
 
 
-[![Plik tekstowy zawiera Data i godzina ostatniej odwiedzono przeglądu książki](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
+[![TZawiera on plik tekstowy, Data i godzina ostatniej przeglądu książki został odwiedzony](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
 
 **Rysunek 1**: Plik tekstowy zawiera Data i godzina ostatniej odwiedzono przeglądu książki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))
 
@@ -58,7 +58,7 @@ Następnie odwiedź *uczyć się ASP.NET 3.5 w ciągu 24 godzin* strony przeglą
 Wdrażanie aplikacji sieci web w środowisku produkcyjnym, a następnie odwiedź hostowanej *uczyć się ASP.NET 3.5 w ciągu 24 godzin* strony przeglądu książki. W tym momencie w albo powinna zostać wyświetlona strona przeglądu książki, jako normalny lub komunikat o błędzie pokazano na rysunku 2. Niektórych dostawców usług hosta sieci web przyznać uprawnienia do zapisu do anonimowych ASP.NET konta komputera w którym przypadku strony będzie działać bez błędów. Jeśli jednak dostawcą hosta sieci web nie zezwala na dostęp do zapisu dla konta anonimowego, a następnie [ `UnauthorizedAccessException` wyjątek](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) jest wywoływane, gdy `TYASP35.aspx` strona próbuje zapisać bieżącą datę i czas `LastTYASP35Access.txt` pliku.
 
 
-[![Domyślne konto komputera, używanego przez usługi IIS nie ma uprawnień do zapisu w systemie plików](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
+[![TDomyślne maszyny konto używane przez usługi IIS nie ma uprawnień do zapisu w systemie plików](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
 
 **Rysunek 2**: Domyślnie maszyny konto używane przez usługi IIS jest nie mieć uprawnień do zapisu w systemie plików ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image6.png))
 
@@ -96,7 +96,7 @@ Przy użyciu serwera projektowego ASP.NET, odwiedź witrynę, a następnie wprow
 Wprowadź ten adres URL w pasku adresu powoduje, że przeglądarkę, aby wysłać żądanie do ASP.NET Development Server dla pliku. Sesje hands ASP.NET Development Server wniosek do środowiska uruchomieniowego programu ASP.NET do przetwarzania. Ponieważ firma Microsoft nie jeszcze logowali się i `Web.config` w `PrivateDocs` folderu skonfigurowano odmowę dostępu anonimowego, środowisko uruchomieniowe ASP.NET automatycznie przekierowuje nam do strony logowania `Login.aspx` (zobacz rysunek 3). Jeśli przekierowanie użytkownika do strony logowania, program ASP.NET zawiera `ReturnUrl` parametr querystring, która wskazuje stronę użytkownik próbował wyświetlić. Po pomyślnym zalogowaniu się użytkownika mogą być zwrócone do tej strony.
 
 
-[![Nieautoryzowani użytkownicy są automatycznie przekierowywane do strony logowania](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
+[![UUżytkownicy nauthorized są automatyczne przekierowanie do strony logowania](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
 
 **Rysunek 3**: Nieautoryzowani użytkownicy są automatycznie przekierowywane do strony logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image9.png))
 
@@ -104,7 +104,7 @@ Wprowadź ten adres URL w pasku adresu powoduje, że przeglądarkę, aby wysła�
 Teraz zobaczmy, jak to działa w środowisku produkcyjnym. Wdrażanie aplikacji, a następnie wprowadź bezpośredni adres URL do jednego z plików PDF w `PrivateDocs` folder w środowisku produkcyjnym. Wyświetla monit o przeglądarce wysyłanie żądań usług IIS dla pliku. Ponieważ pliku statycznego jest wymagane, usług IIS umożliwia pobranie i zwraca go bez wywoływania środowiska uruchomieniowego programu ASP.NET. W rezultacie wystąpił nie adres URL autoryzacji operacji sprawdzania; zawartość PDF funkcji rzekomo prywatne są dostępne dla każdego, kto zna bezpośredni adres URL do pliku.
 
 
-[![Użytkownicy anonimowi mogą pobierać pliki PDF prywatnego przy użyciu bezpośredniego adresu URL do pliku](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
+[![Adostęp użytkowników można pobrać prywatnej PDF plików przez wprowadzanie bezpośredni adres URL do pliku](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
 
 **Rysunek 4**: Użytkownicy anonimowi można pobrać prywatnej PDF plików przez wprowadzanie bezpośredni adres URL do pliku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image12.png))
 

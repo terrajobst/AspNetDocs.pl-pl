@@ -8,22 +8,22 @@ ms.date: 05/16/2012
 ms.assetid: b71d1611-5f26-40dd-8315-b65b9d69b198
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 3b86454aed230ee5dcb65454c92842bf83f3cff0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3226039ad399fb43c82c98331be41450f6f679bd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797444"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405212"
 ---
-<a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 3: konfigurowanie serwera TFS
-====================
+# <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 3: konfigurowanie serwera TFS
+
 > Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web w różnych środowiskach docelowych.
 
 
-- [Konfigurowanie programu Team Foundation Server dla wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment.md)
-- [Tworzenie projektu zespołowego w programie TFS](creating-a-team-project-in-tfs.md)
+- [Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment.md)
+- [Tworzenie projektu zespołowego na serwerze TFS](creating-a-team-project-in-tfs.md)
 - [Dodawanie zawartości do kontroli źródła](adding-content-to-source-control.md)
-- [Konfigurowanie serwera kompilacji TFS dla wdrażania w Internecie](configuring-a-tfs-build-server-for-web-deployment.md)
+- [Konfigurowanie serwera kompilacji TFS na potrzeby wdrażania w Internecie](configuring-a-tfs-build-server-for-web-deployment.md)
 - [Tworzenie definicji kompilacji, która obsługuje wdrożenie](creating-a-build-definition-that-supports-deployment.md)
 - [Wdrażanie określonej kompilacji](deploying-a-specific-build.md)
 - [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołowej](configuring-permissions-for-team-build-deployment.md)

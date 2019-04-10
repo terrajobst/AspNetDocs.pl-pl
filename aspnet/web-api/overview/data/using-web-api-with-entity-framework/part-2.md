@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: 88908ff8-51a9-40eb-931c-a8139128b680
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 162ef2cd4ba11040e1bc938617a36495489ba5bc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 57dacda421968f341284d89c9a3ad80040c16e25
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069806"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405082"
 ---
-<a name="add-models-and-controllers"></a>Dodawanie modeli i kontrolerów
-====================
+# <a name="add-models-and-controllers"></a>Dodawanie modeli i kontrolerów
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
+[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
 W tej sekcji dodasz klasy modeli, które definiują jednostek bazy danych. Następnie dodasz kontrolerów internetowych interfejsów API, które wykonują operacje CRUD na tych jednostkach.
 

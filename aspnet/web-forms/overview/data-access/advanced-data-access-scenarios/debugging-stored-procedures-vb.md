@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 106f7498a70339556d0662a986d71a01a21074ab
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6dda18eb27d45f8dfdb4803cf3aca3ffe96bf11e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424537"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406564"
 ---
-<a name="debugging-stored-procedures-vb"></a>Debugowanie procedur składowanych (VB)
-====================
+# <a name="debugging-stored-procedures-vb"></a>Debugowanie procedur składowanych (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_74_VB.zip) lub [Pobierz plik PDF](debugging-stored-procedures-vb/_static/datatutorial74vb1.pdf)
@@ -67,7 +67,7 @@ Ponieważ `Products_SelectByCategoryID` oczekuje procedury składowanej `@Catego
 Po dostarczeniu wartość `@CategoryID` parametru procedury składowanej jest wykonywany. Zamiast uruchamiania do zakończenia, jednak debuger przerywa wykonywanie w pierwszej instrukcji. Należy pamiętać, żółta strzałka na marginesie, wskazujący bieżącą lokalizację w procedurze składowanej. Można wyświetlać i edytować wartości parametrów za pomocą okna czujki lub, ustawiając kursor nad nazwę parametru w procedurze składowanej.
 
 
-[![Debuger został zatrzymany w pierwszej instrukcji procedury składowanej](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
+[![TADAM debuger został zatrzymany w pierwszej instrukcji procedury składowanej](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
 
 **Rysunek 2**: Debuger został zatrzymany w pierwszej instrukcji procedury składowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image4.png))
 
@@ -85,7 +85,7 @@ Podczas debugowania procedury składowanej bezpośrednio z poziomu Eksploratora 
 Zanim firma Microsoft będzie mogła rozpocząć debugowanie procedur składowanych wywoływać z aplikacji, należy wydać polecenie aplikacji sieci web ASP.NET w celu zintegrowania za pomocą debugera programu SQL Server. Rozpocznij, klikając prawym przyciskiem myszy nazwę witryny sieci Web w Eksploratorze rozwiązań (`ASPNET_Data_Tutorial_74_VB`). Wybierz opcję strony właściwości, z menu kontekstowego, wybierz element Opcje uruchamiania po lewej stronie i zaznacz pole wyboru programu SQL Server, w sekcji debugery (zobacz rysunek 3).
 
 
-[![Zaznacz pole wyboru serwera SQL na stronach właściwości s aplikacji](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
+[![CZaznacz pole wyboru serwera SQL w aplikacji s stron właściwości](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
 
 **Rysunek 3**: Zaznacz pole wyboru serwera SQL w aplikacji s strony właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image7.png))
 
@@ -108,7 +108,7 @@ W tym momencie aplikacji ASP.NET skonfigurowano programowi Visual Studio do debu
 Otwórz `Products_SelectByCategoryID` procedury składowanej i ustaw punkt przerwania na początku `SELECT` instrukcji, klikając na marginesie w odpowiednim miejscu lub umieszczając kursor na początku `SELECT` instrukcji i naciskając klawisz F9. Rysunek 4 przedstawia, punkt przerwania jest pokazywana jako czerwone kółko na marginesie.
 
 
-[![Ustaw punkt przerwania w Products_SelectByCategoryID procedury składowanej](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
+[![Ste procedury składowanej punkt przerwania w Products_SelectByCategoryID](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
 
 **Rysunek 4**: Ustaw punkt przerwania `Products_SelectByCategoryID` Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image10.png))
 
@@ -126,12 +126,12 @@ Ustaw punkt przerwania i włączoną opcją debugowanie aplikacji możemy przyst
 `Products_SelectByCategoryID` Procedura składowana została utworzona w [za pomocą istniejących procedur składowanych dla s wpisany zestaw danych TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) samouczka. Jego odpowiadającą mu stronę sieci web (`~/AdvancedDAL/ExistingSprocs.aspx`) zawiera GridView wyświetlający wyników zwróconych przez tę procedurę składowaną. Odwiedź tę stronę za pośrednictwem przeglądarki. Gdy wykorzystasz na stronie punkt przerwania w `Products_SelectByCategoryID` procedury składowanej spowoduje osiągnięcie i kontroli zwrócił do programu Visual Studio. Podobnie jak w kroku 1, można przejść przez procedurę składowaną s instrukcji i widoku i modyfikowanie wartości parametrów.
 
 
-[![Na stronie ExistingSprocs.aspx początkowo wyświetlane są Beverages](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
+[![TWyświetla on strony ExistingSprocs.aspx początkowo Beverages](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
 
 **Rysunek 6**: `ExistingSprocs.aspx` Strony wyświetli początkowo Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image14.png))
 
 
-[![S procedury składowanej punkt przerwania zostanie osiągnięty](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
+[![TADAM s procedury składowanej punkt przerwania zostanie osiągnięty](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
 
 **Rysunek 7**: Procedura składowana s, został osiągnięty punkt przerwania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image17.png))
 
@@ -139,12 +139,12 @@ Ustaw punkt przerwania i włączoną opcją debugowanie aplikacji możemy przyst
 Jak okna czujki w przedstawia rysunek 7, wartość `@CategoryID` parametru to 1. Jest to spowodowane `ExistingSprocs.aspx` strony początkowo wyświetlane produkty należące do tej kategorii, która ma `CategoryID` wartość 1. Wybierz inną kategorię z listy rozwijanej. Ten sposób powoduje odświeżenie strony i ponownie uruchamia `Products_SelectByCategoryID` procedury składowanej. Punkt przerwania zostaje trafiony ponownie, ale tym razem `@CategoryID` wartość s parametru odzwierciedla element do wybranej listy rozwijanej s `CategoryID`.
 
 
-[![Wybierz inną kategorię z listy rozwijanej](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
+[![CWybierz inną kategorię z listy rozwijanej](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
 
 **Rysunek 8**: Wybierz inną kategorię z listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image20.png))
 
 
-[![@CategoryID Parametr odzwierciedla kategorii wybrać na stronie sieci Web](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
+[![TADAM @CategoryID parametru odzwierciedla wybrać kategorię ze strony sieci Web](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
 
 **Rysunek 9**: `@CategoryID` Parametru odzwierciedla wybrać kategorię ze strony internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image23.png))
 

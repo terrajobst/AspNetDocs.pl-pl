@@ -8,15 +8,15 @@ ms.date: 08/19/2008
 ms.assetid: 1c1283b2-6956-4937-b568-d30de432ce23
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e83a5f8e5d1726dc2f39a9aee6515995ce0ed157
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0446a125845134d2fad869094a540c960f6b0a25
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076034"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406473"
 ---
-<a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (VB)
-====================
+# <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym samouczku dowiesz się, jak używać platformy ASP.NET MVC i routingu adresów URL, z różnymi wersjami programu Internet Information Services. Można dowiedzieć się, jak różne strategie Używanie wzorca ASP.NET MVC za pomocą usług IIS 7.0 (tryb klasyczny), usług IIS 6.0 i starszych wersjach usług IIS.
@@ -54,7 +54,7 @@ Tryb przetwarzania żądania jest określana przez pulę aplikacji. Można okre�
 Domyślnie program IIS jest skonfigurowany do obsługi dwóch pul aplikacji: **Domyślna pula aplikacji** i **pulę aplikacji klasycznych .NET**. Jeśli domyślna pula aplikacji jest zaznaczone, aplikacja jest uruchomiona w trybie zintegrowanym żądania przetwarzania. Jeśli wybrano klasyczne .NET pulę aplikacji, Twoja aplikacja jest uruchomiona w trybie klasycznym żądania przetwarzania.
 
 
-[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.png)
+[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image1.png)
 
 **Rysunek 1**: Wykrywanie trybu przetwarzania żądania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.png))
 
@@ -97,7 +97,7 @@ Trasa domyślna skonfigurowane w ofercie 1 umożliwia tras adresów URL, które 
 Niestety starsze wersje usług IIS nie będzie przekazywać te żądania do struktury ASP.NET. W związku z tym te żądania nie uzyskać kierowane do kontrolera. Na przykład jeśli wykonasz żądanie typu przeglądarki dla adresu URL /Home/indeksu następnie otrzymasz strony błędu na rysunku 2.
 
 
-[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.png)
+[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.png)
 
 **Rysunek 2**: Odbieranie błąd 404 Nie znaleziono ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.png))
 
@@ -173,7 +173,7 @@ Poniżej przedstawiono, jak włączyć wieloznaczną mapę skryptu dla usług II
 7. Kliknij przycisk **OK** przycisku
 
 
-[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.png)
+[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.png)
 
 **Rysunek 3**: Tworzenie wieloznaczną mapę skryptu za pomocą usług IIS 7.0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image6.png))
 
@@ -190,7 +190,7 @@ Wykonaj następujące kroki, aby utworzyć wieloznaczną mapę skryptu za pomoc�
 8. Kliknij przycisk **OK** przycisku
 
 
-[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image7.png)
+[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image7.png)
 
 **Rysunek 4**: Tworzenie wieloznaczną mapę skryptu za pomocą usług IIS 6.0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image8.png))
 
@@ -198,7 +198,7 @@ Wykonaj następujące kroki, aby utworzyć wieloznaczną mapę skryptu za pomoc�
 Po włączeniu mapowania skryptów symboli wieloznacznych, należy zmodyfikować tabeli tras w pliku Global.asax, aby obejmowała główny trasy. W przeciwnym razie otrzymasz strony błędu na rysunku 5 podczas przesyłania żądania do strony głównej aplikacji. Można użyć zmodyfikowany plik Global.asax w ofercie 4.
 
 
-[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image9.png)
+[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image9.png)
 
 **Rysunek 5**: Główny trasy błąd braku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-vb/_static/image10.png))
 

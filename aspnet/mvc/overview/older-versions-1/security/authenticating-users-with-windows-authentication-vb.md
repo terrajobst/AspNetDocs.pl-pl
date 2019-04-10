@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 532fa051-7d5c-4d6d-87f6-339ce4b84c44
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e37508dedd4243dd1a1638e68760f6f4310e61a8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d6b48d676c2dd90fc052b338f31a389e0fb809be
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076385"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402313"
 ---
-<a name="authenticating-users-with-windows-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (VB)
-====================
+# <a name="authenticating-users-with-windows-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak używać uwierzytelniania Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie Windows w pliku konfiguracji sieci web aplikacji i jak skonfigurować uwierzytelnianie za pomocą programu IIS. Na koniec dowiesz się, jak używać atrybutu [Authorize] do ograniczania dostępu do akcji kontrolera do konkretnych użytkowników Windows lub grup.

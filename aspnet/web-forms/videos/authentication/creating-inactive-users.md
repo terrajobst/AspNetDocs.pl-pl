@@ -8,15 +8,15 @@ ms.date: 09/16/2010
 ms.assetid: dc572644-1f4f-40a2-8173-e17caa3c8582
 msc.legacyurl: /web-forms/videos/authentication/creating-inactive-users
 msc.type: video
-ms.openlocfilehash: 45ab6cec449886d08396509fca4a3b12c4f16e05
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d0d9bb0f6471acd996530eab76a97cda2667dabd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070595"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413389"
 ---
-<a name="creating-inactive-users"></a>Tworzenie nieaktywnych użytkowników
-====================
+# <a name="creating-inactive-users"></a>Tworzenie nieaktywnych użytkowników
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 W tym filmie pokazano Stagner Jan przeprowadzi tworzenie nieaktywnych użytkowników w systemie członkostwa ASP.NET, a następnie aktywuj użytkowników jeden na raz przy użyciu interfejsu administracyjnego.

@@ -8,15 +8,15 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: f4dae827627103e5cfb9981b6c3b9342cdc34c13
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071603"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403912"
 ---
-<a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i Telemetria (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
-====================
+# <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i Telemetria (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+
 przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
@@ -72,7 +72,7 @@ Wdrażanie aplikacji na platformie Azure i rozpocząć korzystanie z niej. Utwó
 
 Następnie wróć do **usługi New Relic** strony w **dodatki** w portalu, a następnie kliknij na karcie **Zarządzaj**. Portal wysyła do portalu zarządzania usługi New Relic przy użyciu logowania jednokrotnego do uwierzytelniania, aby nie musieli wprowadzać poświadczeń ponownie. Na stronie Przegląd przedstawia informacje o różnych statystyk wydajności. (Kliknij obraz, aby zobaczyć pełny rozmiar strony Przegląd).
 
-[![Nowa karta Relic monitorowania](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![Nfolder monitorowanie Relic tab](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 Poniżej przedstawiono kilka statystyk, które można zobaczyć:
 
@@ -139,7 +139,7 @@ Gdy warto mieć logowanie zawsze w środowisku produkcyjnym, inny najlepszym roz
 
 Aplikacje sieci Web w usłudze Azure App Service ma wbudowaną obsługę pisania `System.Diagnostics` dzienników do systemu plików, Table storage lub Blob storage. Możesz wybrać poziomów rejestrowania różnych dla każdego miejsca docelowego przechowywania, a poziom rejestrowania na bieżąco można zmienić bez ponownego uruchamiania aplikacji. Obsługa magazynu obiektów Blob ułatwia uruchamianie [HDInsight](https://docs.microsoft.com/azure/hdinsight/) analizy zadania na dzienniki aplikacji, ponieważ HDInsight wie, jak pracować z usługą Blob storage bezpośrednio.
 
-### <a name="log-exceptions"></a>Rejestruje wyjątki
+### <a name="log-exceptions"></a>rejestrowanie wyjątków
 
 Po prostu nie umieszczaj *wyjątku. ToString()* w kodzie rejestrowania. Który powoduje, że informacje kontekstowe. W przypadku wystąpienia błędów programu SQL instalacja pozostawia się numer błędu SQL. Dla wszystkich wyjątków zawierają informacje o kontekście, wyjątków, sama i wyjątków wewnętrznych, aby upewnić się, że udostępniasz wszystko, które będą potrzebne do rozwiązywania problemów. Na przykład informacje o kontekście może obejmować nazwę serwera, identyfikator transakcji i nazwę użytkownika (ale nie hasło lub jakichkolwiek kluczy tajnych!).
 

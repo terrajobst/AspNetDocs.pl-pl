@@ -9,17 +9,13 @@ ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 50fdcc1959b8f3a02ec5bbe0eb7417ffb8a260a3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: d90a327da40ffd6d7956c5fbe019cf9de30c706d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425912"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407513"
 ---
-<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Aktualizowanie powiązanych danych z platformą Entity Framework w aplikacji ASP.NET MVC
-====================
-
-
 # <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Samouczek: Aktualizowanie powiązanych danych przy użyciu programu EF w aplikacji ASP.NET MVC
 
 W poprzednim samouczku wyświetlane są powiązane dane. W tym samouczku zostaną zaktualizowane powiązane dane. W przypadku większości relacji można to zrobić, aktualizując pola kluczy obcych lub właściwości nawigacji. W przypadku relacji wiele do wielu platformy Entity Framework nie ujawnia tabelę sprzężenia bezpośrednio, dzięki czemu można dodawać i usuwać jednostki do i z właściwości nawigacji odpowiednie.

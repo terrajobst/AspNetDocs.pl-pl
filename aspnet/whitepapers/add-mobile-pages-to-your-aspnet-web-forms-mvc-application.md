@@ -8,16 +8,16 @@ ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: 1693838a74f0564e38e11a2827cceb3d6474677b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: db8f336f3fd9a88dfb32f99510fc53cd7b4a5178
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070289"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415989"
 ---
-<a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Instrukcje: dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms/MVC
-====================
-> **Dotyczy**
+# <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Instrukcje: dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms/MVC
+
+> **Dotyczy:**
 > 
 > - Formularze sieci Web platformy ASP.NET w wersji 4.0
 > - ASP.NET MVC w wersji 3.0 lub nowszej
@@ -240,7 +240,7 @@ Następnie należy pamiętać, że dodając HomeController drugi do aplikacji (c
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Teraz błąd zaczną away i adresu URL http://<em>twoja_witryna</em>/ będzie korzystał z strony głównej pulpitu i http://<em>twoja_witryna</em>/mobile/ będzie korzystał z przenośnymi strony głównej.
+Teraz błąd zaczną away i URL http:\/\/*twoja_witryna*/ będzie korzystał z strony głównej pulpitu i http:\/\/*twoja_witryna*będzie /mobile/ Docieraj do większej przenośnych strony głównej.
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Przekierowywanie odwiedziny na urządzeniach mobilnych do usługi mobilnej obszaru
 

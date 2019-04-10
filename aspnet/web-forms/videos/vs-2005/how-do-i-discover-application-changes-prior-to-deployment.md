@@ -8,15 +8,15 @@ ms.date: 07/25/2007
 ms.assetid: 6945a637-cab3-4a13-a678-f6d2d83c2587
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
 msc.type: video
-ms.openlocfilehash: c6870e33ba7707ca06633876c1f453576811ce7f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2cedf4dd161751802bf197ee6b96731259bc5c2f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066746"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59402937"
 ---
-<a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[Jak mogę] Odnajdywanie zmian w aplikacji przed ich wdrożeniem?
-====================
+# <a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[Jak mogę] Odnajdywanie zmian w aplikacji przed ich wdrożeniem?
+
 przez [hakerom Paul](https://github.com/pjhacker)
 
 Dowiedz się, jak używać Eksploratora kontroli źródła z Visual Studio Team System, aby wykryć zmiany wprowadzone do aplikacji sieci Web i upewnij się, że wdrożony tylko niezbędne zmiany w działającej witrynie sieci Web. Również przyjrzymy się bezpłatne narzędzie, które pozwala na scalanie zmian ze sobą w celu uproszczenia wdrożenia.

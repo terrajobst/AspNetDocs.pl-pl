@@ -8,15 +8,15 @@ ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 17a3a4925766b74446955a8e3a6fddbf9d29a721
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077234"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406772"
 ---
-<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (Visual Basic)
-====================
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (Visual Basic)
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule umożliwia przegląd programowania przy użyciu stron ASP.NET Web Pages przy użyciu składni Razor i Visual Basic. ASP.NET to technologia firmy Microsoft dotyczące uruchamiania dynamicznych stron sieci web na serwerach sieci web.
@@ -284,7 +284,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         <strong>Example</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsInt(), IsInt()`
@@ -296,7 +298,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsBool(), IsBool()`
@@ -308,7 +312,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsFloat(), IsFloat()`
@@ -320,7 +326,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDecimal(), IsDecimal()`
@@ -332,7 +340,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDateTime(), IsDateTime()`
@@ -344,7 +354,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `ToString()`
@@ -374,7 +386,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         <strong>Examples</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+ - * /`
@@ -386,7 +400,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `=`
@@ -398,7 +414,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `<>`
@@ -410,7 +428,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `< > <= >=`
@@ -422,7 +442,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `&`
@@ -434,7 +456,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+= -=`
@@ -446,7 +470,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `.`
@@ -458,7 +484,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `()`
@@ -470,7 +498,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `Not`
@@ -482,7 +512,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AndAlso OrElse`
@@ -512,7 +544,7 @@ Oto przykład, aby lepiej zrozumieć różnice:
 | Pełny adres URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nazwa serwera | *mycompanyserver* |
-| Ścieżka wirtualna | */humanresources/CompanyPolicy.htm* |
+| Ścieżka wirtualna | */HumanResources/CompanyPolicy.htm* |
 | Ścieżka fizyczna | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Wirtualny katalog główny jest /, podobnie jak głównego C: dysku \. (Folder wirtualny ścieżki zawsze używać ukośników.) Ścieżka wirtualna folderu nie musi mieć taką samą nazwę jak folder fizycznych; może być aliasem. (Na serwerach produkcyjnych, ścieżka wirtualna rzadko odpowiada dokładnej ścieżki fizycznej.)

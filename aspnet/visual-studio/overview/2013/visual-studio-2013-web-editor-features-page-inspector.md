@@ -8,15 +8,15 @@ ms.date: 10/17/2013
 ms.assetid: 17b67048-c61c-4ac0-a73a-a8079b493253
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-page-inspector
 msc.type: video
-ms.openlocfilehash: c32b4171202d2bb11a523b8882f70b7b2750ad6f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: aa6a01a37b6f39f87e2b77d351b221aee415a3c5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421729"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418849"
 ---
-<a name="visual-studio-2013-web-editor-features---page-inspector"></a>Funkcje edytora internetowego programu Visual Studio 2013 — narzędzie Page Inspector
-====================
+# <a name="visual-studio-2013-web-editor-features---page-inspector"></a>Funkcje edytora internetowego programu Visual Studio 2013 — narzędzie Page Inspector
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 Scott Hanselman pokazuje, jak funkcja narzędzie Page Inspector w programie Visual Studio 2013 umożliwia interaktywnie pracować ze znacznikami renderowanej strony, w pełni zintegrowana z kodem źródłowym, który czyniło je.

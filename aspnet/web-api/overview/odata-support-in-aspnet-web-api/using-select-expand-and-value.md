@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
-title: Za pomocą $select, $expand and $value w programie ASP.NET Web API 2 OData | Dokumentacja firmy Microsoft
+title: Za pomocą $select, $expand and $value w programie ASP.NET Web API 2 OData — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Omówienie i przykładowy kod dla $Rozwiń, $select, a $value opcji na liście OData Web API 2 dla programu ASP.NET 4.x.
 ms.author: riande
 ms.date: 10/11/2013
+ms.custom: seoapril2019
 ms.assetid: 43279a80-a96c-4564-b6ea-ad992a2d6828
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
 msc.type: authoredcontent
-ms.openlocfilehash: d198ecf40155cba36204bc0810f4735aae6b100b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8b5d3e87c679a31f1908aa648219ae5c6b701a1f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068798"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400701"
 ---
-<a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>Za pomocą $select, $expand and $value w programie ASP.NET Web API 2 OData
-====================
+# <a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>Za pomocą $select, $expand and $value w programie ASP.NET Web API 2 OData
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-Składnik Web API 2 dodaje obsługę dla $expand, $select i opcje $value w protokole OData. Te opcje umożliwiają klientowi do kontrolowania reprezentacji, która go ponownie z serwera.
+Omówienie i przykładowy kod dla $Rozwiń, $select, a $value opcji na liście OData Web API 2 dla programu ASP.NET 4.x. Te opcje umożliwiają klientowi do kontrolowania reprezentacji, która go ponownie z serwera.
 
 - **$expand** powoduje, że z powiązanymi obiektami być wbudowane w odpowiedzi.
 - **$select** wybierze podzbiór właściwości do uwzględnienia w odpowiedzi.

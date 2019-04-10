@@ -8,29 +8,29 @@ ms.date: 10/05/2011
 ms.assetid: bac10aee-6731-4a0f-84d7-9eef5e560ae5
 msc.legacyurl: /web-forms/videos/net-4
 msc.type: chapter
-ms.openlocfilehash: e8565bc2914570eef982bbcc63a8497c2d38386a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ea11b464329a755d5625797327f5a0a3ccb0f426
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796418"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400591"
 ---
-<a name="net-4"></a>.NET 4
-====================
+# <a name="net-4"></a>.NET 4
+
 > Nowe funkcje platformy ASP.NET i funkcje dostępne w programie .NET Framework 4.
 
 
-- [Ajax](ajax/index.md)
+- [AJAX](ajax/index.md)
 
-    - [Imperatywna składnia języka JavaScript dla kontrolek po stronie klienta](ajax/aspnet-4-quick-hit-imperative-javascript-syntax-for-microsoft-client-side-controls.md)
+    - [Imperatywna składnia języka JavaScript dla kontrolek Microsoft po stronie klienta](ajax/aspnet-4-quick-hit-imperative-javascript-syntax-for-microsoft-client-side-controls.md)
     - [ScriptLoader](ajax/aspnet-4-quick-hit-the-scriptloader.md)
-    - [Składnia JQuery dla Microsoft Ajax](ajax/aspnet-4-quick-hit-jquery-syntax-for-microsoft-ajax.md)
+    - [Składnia jQuery dla technologii Microsoft AJAX](ajax/aspnet-4-quick-hit-jquery-syntax-for-microsoft-ajax.md)
     - [Szablony danych AJAX](ajax/aspnet-4-quick-hit-ajax-data-templates.md)
 - [Wykres](chart/index.md)
 
-    - [Kontrolka wykresu](chart/aspnet-4-quick-hit-chart-control.md)
-    - [Wprowadzenie do nowej kontrolki wykresu w programie Visual Studio 2010](chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
-- [Funkcje podstawowe](core/index.md)
+    - [Formant wykresu](chart/aspnet-4-quick-hit-chart-control.md)
+    - [Wprowadzenie nowej kontrolki wykresu w programie Visual Studio 2010](chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
+- [Core](core/index.md)
 
     - [Automatyczne uruchamianie](core/aspnet-4-quick-hit-auto-start.md)
     - [Czyszczenie plików Web.Config](core/aspnet-4-quick-hit-clean-webconfig-files.md)
@@ -59,6 +59,6 @@ ms.locfileid: "57796418"
     - [Wychodzący routing formularzy WebForms](routing/aspnet-4-quick-hit-outbound-webforms-routing.md)
     - [Korzystanie z routingu we wzorcu ASP.NET Web Forms](routing/how-do-i-use-routing-with-aspnet-web-forms.md)
     - [Praca z adresami URL w routingu ASP.NET](routing/how-do-i-work-with-urls-in-aspnet-routing.md)
-- [OPTYMALIZACJA DLA APARATÓW WYSZUKIWANIA](seo/index.md)
+- [Optymalizacja dla aparatów wyszukiwania](seo/index.md)
 
     - [Dynamiczne metadane](seo/aspnet-4-quick-hit-dynamic-metadata.md)

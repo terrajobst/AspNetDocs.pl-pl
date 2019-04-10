@@ -8,22 +8,22 @@ ms.date: 01/14/2008
 ms.assetid: de2d65b9-aadc-42ba-abe1-4e87e66521a0
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 64c8ccbc82a5c80a6f1e3199bfceb62add6cde51
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5bb3cf45e50e480d81a441280842c1eec58f4877
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077828"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59406876"
 ---
-<a name="an-overview-of-forms-authentication-c"></a>Omówienie uwierzytelniania formularzy (C#)
-====================
+# <a name="an-overview-of-forms-authentication-c"></a>Omówienie uwierzytelniania formularzy (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_02_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial02_FormsAuth_cs.pdf)
 
 > W tym samouczku będziemy zmieni się z zaledwie dyskusji do wdrożenia; w szczególności omówimy Wdrażanie uwierzytelniania formularzy. Zaczniemy tworzenie w ramach tego samouczka aplikacji sieci web będzie być wbudowane w system w kolejnych samouczkach podczas przenoszenia z uwierzytelniania formularzy proste do członkostwa i ról.
 > 
-> Zobacz ten film, aby uzyskać więcej informacji na ten temat: [Za pomocą uwierzytelniania podstawowego formularzy na platformie ASP.NET](# "using-basic-forms-authentication-in-aspnet").
+> Zobacz ten film, aby uzyskać więcej informacji na ten temat: [Za pomocą podstawowe uwierzytelnianie formularzy w programie ASP.NET:](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md).
 
 
 ## <a name="introduction"></a>Wprowadzenie
@@ -85,7 +85,7 @@ Zanim można skonfigurować uwierzytelnianie formularzy, najpierw należy w witr
 > Program Visual Studio obsługuje dwa tryby zarządzania projektem: Projektów witryny sieci Web i projektów aplikacji sieci Web. Projektów witryny sieci Web brakuje pliku projektu, a Web Application Projects naśladować architektury projektu w Visual Studio .NET 2002/2003 — Dołącz plik projektu i skompilować kod źródłowy projektu do jednego zestawu, który jest umieszczony w folderze/bin. Visual Studio 2005 projektów początkowo tylko obsługiwane witryny sieci Web, mimo że modelu projektu aplikacji sieci Web została przywrócona z dodatkiem Service Pack 1; Program Visual Studio 2008 oferuje oba modele projektu. Visual Web Developer 2005 i wersji 2008, ale obsługują tylko projektów witryny sieci Web. Czy mogę używać modelu projektu witryny sieci Web. Jeśli używasz wersji non-Express i chcesz użyć [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880%28vs.80%29.aspx) zamiast tego możesz to zrobić, ale należy pamiętać, że może istnieć pewne rozbieżności między wyświetlanych na ekranie oraz czynności należy wykonać w porównaniu z zrzuty ekranu pokazano, jak i instrukcje podane w tych samouczkach.
 
 
-[![Tworzenie nowego pliku w oparciu o System witryny sieci Web](an-overview-of-forms-authentication-cs/_static/image3.png)](an-overview-of-forms-authentication-cs/_static/image2.png)
+[![Ctwórz witryny sieci Web New File System-Based](an-overview-of-forms-authentication-cs/_static/image3.png)](an-overview-of-forms-authentication-cs/_static/image2.png)
 
 **Rysunek 2**: Tworzenie witryny sieci Web New File System-Based ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image4.png))
 
@@ -95,7 +95,7 @@ Zanim można skonfigurować uwierzytelnianie formularzy, najpierw należy w witr
 Następnie dodaj nową stronę wzorcową do lokacji w katalogu głównym o nazwie Site.master. [Strony wzorcowe](https://msdn.microsoft.com/library/wtxbf3hh.aspx) włączyć projektanta strony zdefiniować szablon całej lokacji, które mogą być stosowane do strony ASP.NET. Główną zaletą stron wzorcowych to, że ogólnego wyglądu witryny można zdefiniować w obrębie jednej lokalizacji, co ułatwia aktualizacji lub dostosować układ strony.
 
 
-[![Dodaj stronę wzorcową o nazwie Site.master do witryny sieci Web](an-overview-of-forms-authentication-cs/_static/image6.png)](an-overview-of-forms-authentication-cs/_static/image5.png)
+[![Add Master strony o nazwie Site.master do witryny sieci Web](an-overview-of-forms-authentication-cs/_static/image6.png)](an-overview-of-forms-authentication-cs/_static/image5.png)
 
 **Rysunek 3**: Dodaj Site.master o nazwie Master strony do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image7.png))
 
@@ -109,7 +109,7 @@ Strona wzorcowa definiuje układ stron statycznych i regiony, które mogą być 
 Ze znacznikami podanymi powyżej przełączanie do widoku projektu zawiera układ strony wzorcowej. Wszystkie strony ASP.NET, które używają tej strony wzorcowej będzie miał ten jednolity układ i możliwość określenia znaczniki dla `MainContent` regionu.
 
 
-[![Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu](an-overview-of-forms-authentication-cs/_static/image9.png)](an-overview-of-forms-authentication-cs/_static/image8.png)
+[![Ton strony wzorcowej, podczas wyświetlania za pośrednictwem widoku Projekt](an-overview-of-forms-authentication-cs/_static/image9.png)](an-overview-of-forms-authentication-cs/_static/image8.png)
 
 **Rysunek 4**: Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image10.png))
 
@@ -121,7 +121,7 @@ W tym momencie mamy strony Default.aspx w naszej witryny sieci Web, ale nie uży
 Następnie kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz dodać nowy formularz sieci Web o nazwie Default.aspx. Tym razem, zaznacz pole wyboru "Wybierz stronę wzorcową", a następnie wybierz stronę wzorcową Site.master z listy.
 
 
-[![Dodawanie nowej strony Default.aspx, wybierając pozycję Wybierz stronę wzorcową](an-overview-of-forms-authentication-cs/_static/image12.png)](an-overview-of-forms-authentication-cs/_static/image11.png)
+[![Add, nowej Default.aspx strona wybór opcji wybierz stronę wzorcową](an-overview-of-forms-authentication-cs/_static/image12.png)](an-overview-of-forms-authentication-cs/_static/image11.png)
 
 **Rysunek 5**: Dodaj nowe Default.aspx strona wybór opcji wybierz stronę wzorcową ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image13.png))
 
@@ -158,7 +158,7 @@ Domyślnie aplikacje ASP.NET uwierzytelnianie Windows. Aby zmienić typ uwierzyt
 Jeśli projekt nie zawiera jeszcze pliku Web.config, należy dodać jeden teraz przez kliknięcie prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, wybierając Dodaj nowy element, a następnie dodanie pliku konfiguracji sieci Web.
 
 
-[![Jeśli projekt nie zawiera jeszcze pliku Web.config, dodaj je teraz](an-overview-of-forms-authentication-cs/_static/image16.png)](an-overview-of-forms-authentication-cs/_static/image15.png)
+[![If projektu nie jest jeszcze obejmują pliku Web.config, czy dodać ją teraz](an-overview-of-forms-authentication-cs/_static/image16.png)](an-overview-of-forms-authentication-cs/_static/image15.png)
 
 **Rysunek 7**: Jeśli Twój projekt jest nie jeszcze dołączyć plik Web.config, Dodaj teraz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image17.png))
 
@@ -190,7 +190,7 @@ Strona logowania ma trzy obowiązki:
 Zacznijmy od pierwszego zadania. Dodawanie nowej strony programu ASP.NET do katalogu głównego witryny o nazwie Login.aspx i skojarz go ze stroną wzorcową Site.master.
 
 
-[![Dodawanie nowej strony programu ASP.NET o nazwie Login.aspx](an-overview-of-forms-authentication-cs/_static/image19.png)](an-overview-of-forms-authentication-cs/_static/image18.png)
+[![ADodaj nowy ASP.NET strony o nazwie Login.aspx](an-overview-of-forms-authentication-cs/_static/image19.png)](an-overview-of-forms-authentication-cs/_static/image18.png)
 
 **Rysunek 8**: Dodaj nowy ASP.NET strony o nazwie Login.aspx ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image20.png))
 
@@ -204,7 +204,7 @@ W tym momencie ekran powinien wyglądać podobnie do ekranu zrzut na rysunku 9, 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample4.aspx)]
 
 
-[![Na stronie logowania zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę](an-overview-of-forms-authentication-cs/_static/image22.png)](an-overview-of-forms-authentication-cs/_static/image21.png)
+[![TADAM logowania strona zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę](an-overview-of-forms-authentication-cs/_static/image22.png)](an-overview-of-forms-authentication-cs/_static/image21.png)
 
 **Rysunek 9**: Logowania strona zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image23.png))
 
@@ -250,7 +250,7 @@ Podczas tworzenia biletu uwierzytelniania formularzy używamy właściwości tek
 Aby przetestować stronę logowania, odwiedź stronę w przeglądarce. Rozpocznij, wprowadzając nieprawidłowe poświadczenia, takie jak nazwa "Nope" i hasło "tak". Po kliknięciu przycisku logowania. nastąpi odświeżenie strony i będzie wyświetlana etykieta InvalidCredentialsMessage.
 
 
-[![Etykieta InvalidCredentialsMessage jest wyświetlany po wprowadzeniu nieprawidłowe poświadczenia](an-overview-of-forms-authentication-cs/_static/image25.png)](an-overview-of-forms-authentication-cs/_static/image24.png)
+[![TInvalidCredentialsMessage etykieta jest wyświetlana po wprowadzeniu nieprawidłowe poświadczenia](an-overview-of-forms-authentication-cs/_static/image25.png)](an-overview-of-forms-authentication-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Etykieta InvalidCredentialsMessage jest wyświetlany po wprowadzeniu nieprawidłowych poświadczeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image26.png))
 
@@ -379,7 +379,7 @@ Z tym dodatkiem strony wzorcowej Site.master każda strona w naszej witryny siec
 Ponieważ dodaliśmy widoku logowania na stronie wzorcowej może znajdować się w każdej strony w naszej witrynie. Jednak mogą istnieć stron sieci web gdy nie chcemy pokazuj tego komunikatu. Jedna takie strona jest strony logowania, ponieważ link do strony logowania jest prawdopodobnie poza ma miejsce. Ponieważ firma Microsoft umieszczone kontrolki widoku logowania w ContentPlaceHolder na stronie głównej, firma Microsoft można zastąpić ten kod znaczników domyślne na naszej stronie zawartości. Otwórz Login.aspx i przejdź do projektanta. Ponieważ firma Microsoft nie został jawnie zdefiniowany kontrolkę zawartości w Login.aspx dla LoginContent ContentPlaceHolder na stronie głównej, na stronie logowania będzie wyświetlana znaczników domyślnej strony wzorcowej dla tego elementu ContentPlaceHolder. Widać to za pomocą projektanta — LoginContent ContentPlaceHolder Pokazuje znaczniki domyślne (kontrolki widoku logowania).
 
 
-[![Na stronie logowania przedstawiono domyślne zawartości dla strony wzorcowej LoginContent ContentPlaceHolder](an-overview-of-forms-authentication-cs/_static/image33.png)](an-overview-of-forms-authentication-cs/_static/image32.png)
+[![TZawiera on strony logowania domyślnej zawartości dla strony wzorcowej LoginContent ContentPlaceHolder](an-overview-of-forms-authentication-cs/_static/image33.png)](an-overview-of-forms-authentication-cs/_static/image32.png)
 
 **Rysunek 16**: Na stronie logowania znajdują się domyślne zawartości dla strony wzorcowej LoginContent ContentPlaceHolder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image34.png))
 
@@ -393,7 +393,7 @@ Aby zastąpić domyślne znaczniki dla LoginContent ContentPlaceHolder, kliknij 
 Rysunek 17 pokazuje strony Login.aspx po odwiedzeniu z poziomu przeglądarki po wprowadzeniu tej zmiany. Należy pamiętać, że nie "Hello, stranger" lub "Witaj ponownie, *username*" wiadomości w lewym panelu nawigacyjnym &lt;div&gt; się podczas odwiedzania Default.aspx.
 
 
-[![Na stronie logowania ukrywa znaczników LoginContent ContentPlaceHolder domyślne](an-overview-of-forms-authentication-cs/_static/image36.png)](an-overview-of-forms-authentication-cs/_static/image35.png)
+[![TUkrywa on strony logowania znaczników domyślnych LoginContent ContentPlaceHolder firmy](an-overview-of-forms-authentication-cs/_static/image36.png)](an-overview-of-forms-authentication-cs/_static/image35.png)
 
 **Rysunek 17**: Na stronie logowania ukrywa znaczników domyślnych LoginContent ContentPlaceHolder firmy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image37.png))
 
@@ -424,12 +424,12 @@ Ponieważ stanu logowania znajduje się poza kontrolki widoku logowania, pojawi 
 Rysunek 18 pokazuje Default.aspx, gdy odwiedza Jisun. Należy zauważyć, że kolumna po lewej stronie wyświetla komunikat "Witaj ponownie, Jisun" wraz z linkiem do logowania. Klikając przycisk wylogowania LinkButton powoduje odświeżenie strony, wylogowania Jisun systemu i przekierowuje jej Logout.aspx. Jak pokazano na rysunku 19, przez razem, gdy Jisun osiągnie Logout.aspx ona już został wyrejestrowany i dlatego jest anonimowy. W związku z tym, kolumna po lewej stronie zawiera tekst "Witaj, stranger" oraz link do strony logowania.
 
 
-[![Pokazuje default.aspx](an-overview-of-forms-authentication-cs/_static/image39.png)](an-overview-of-forms-authentication-cs/_static/image38.png)
+[![DPokazuje efault.aspx](an-overview-of-forms-authentication-cs/_static/image39.png)](an-overview-of-forms-authentication-cs/_static/image38.png)
 
 **Rysunek 18**: Default.aspx pokazuje "Witamy z powrotem, Jisun" wraz z LinkButton "Wylogowania" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image40.png))
 
 
-[![Pokazuje Logout.aspx](an-overview-of-forms-authentication-cs/_static/image42.png)](an-overview-of-forms-authentication-cs/_static/image41.png)
+[![Logout.aspx Shows](an-overview-of-forms-authentication-cs/_static/image42.png)](an-overview-of-forms-authentication-cs/_static/image41.png)
 
 **Rysunek 19**: Logout.aspx pokazuje "Witaj, stranger" wraz z LinkButton "Login" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image43.png))
 

@@ -119,6 +119,7 @@ Wymaga DocFX:
   ```console
   docfx --serve
   ```
+
 * W przeglądarce przejdź do `http://localhost:8080/group1-dest/`.
 
 ### <a name="mono-instructions"></a>Instrukcje platformy mono
@@ -128,6 +129,7 @@ Wymaga DocFX:
   ```console
   brew install mono
   ```
+
 * Pobierz [najnowszą wersję DocFX](https://github.com/dotnet/docfx/releases).
 * Wyodrębnij archiwum do *$ głównej/bin/docfx*.
 * Tworzenie aliasów dla pary **docfx** w powłoce bash. Pierwszy alias jest używany do tworzenia w dokumentacji. Drugi aliasu jest używane do tworzenia i obsługi dokumentacji.
@@ -136,11 +138,13 @@ Wymaga DocFX:
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
+
 * W powłoce poleceń, przejdź do *aspnet* folder, który zawiera *docfx.json* pliku i uruchom następujące polecenie, aby tworzyć i obsługiwać dokumenty za pomocą jego aliasu:
 
   ```console
   docfx-serve
   ```
+
 * W przeglądarce przejdź do `http://localhost:8080/group1-dest/`.
 
 ## <a name="voice-and-tone"></a>Głos i ton

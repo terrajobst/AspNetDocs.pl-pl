@@ -8,15 +8,15 @@ ms.date: 04/30/2009
 ms.assetid: 50a55e3b-3f5c-429b-baf9-730221e9ef4c
 msc.legacyurl: /web-forms/videos/building-35-applications/css
 msc.type: video
-ms.openlocfilehash: f11d3a72db7adc376cf1213eba1f1a820471305f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 04cea82af810f08e1d425fcbf3d3c2639fbc3775
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076187"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412050"
 ---
-<a name="css"></a>CSS
-====================
+# <a name="css"></a>CSS
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 Kaskadowe arkusze stylów są integralną częścią tworzenie nowoczesnych aplikacji internetowych i Visual Web Developer 2008 zawiera zbiór CSS zaawansowanych urządzeń, aby ułatwić tworzenie. W tym filmie pokazano Poznaj VWD firmy Edytor CSS, Konstruktor, Menedżer i technologii IntelliSense.

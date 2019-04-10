@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 2ddd4407-d143-4a94-877c-21771bfb97a6
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 26e40ff9659a4b8552b2a087c7c948c9f1f1554c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c126270304178d178f4b8f9739fa5c51e5dd0551
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424173"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415365"
 ---
-<a name="adding-dynamic-content-to-a-cached-page-c"></a>Dodawanie zawartości dynamicznej do buforowanej strony (C#)
-====================
+# <a name="adding-dynamic-content-to-a-cached-page-c"></a>Dodawanie zawartości dynamicznej do buforowanej strony (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak łączyć zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak Anonse transparentu lub elementy wiadomości, w ramach strony została wyjściowych w pamięci podręcznej.
@@ -93,10 +93,6 @@ Zmodyfikowany widok indeksu w ofercie 5 ilustruje, jak można użyć metody pomo
 W tym samouczku wyjaśniono, jak może dynamicznie aktualizować zawartość w pamięci podręcznej strony. Pokazaliśmy ci, jak użyć metody HttpResponse.WriteSubstitution() Włączanie zawartości dynamicznej ich wstrzyknięcie w stronę z pamięci podręcznej. Przedstawiono również sposób hermetyzacji wywołanie metody WriteSubstitution() wewnątrz metody pomocnika kodu HTML.
 
 Skorzystaj z zalet pamięci podręcznej, jeśli to możliwe — może mieć znaczący wpływ na wydajność aplikacji sieci web. Jak wyjaśniono w ramach tego samouczka, możesz korzystać z pamięci podręcznej, nawet wtedy, gdy trzeba wyświetlić zawartość dynamiczna na stronach sieci.
-
-## 
-
-## 
 
 > [!div class="step-by-step"]
 > [Poprzednie](improving-performance-with-output-caching-cs.md)

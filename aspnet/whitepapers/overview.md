@@ -8,15 +8,15 @@ ms.date: 11/15/2011
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
 msc.legacyurl: /whitepapers
 msc.type: content
-ms.openlocfilehash: 5017efc4d141afba206aaca5a8b5e6bab996ebbf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4745e68053fae38019b6121295382a170fd2d858
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077549"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412934"
 ---
-<a name="whitepapers"></a>Dodatkowe informacje
-====================
+# <a name="whitepapers"></a>Dodatkowe informacje
+
 > Na tej stronie znajdziesz oficjalne dokumenty ułatwiające Instalowanie i konfigurowanie programu ASP.NET, a także ułatwiają do pisania aplikacji platformy ASP.NET bezpieczne, szybkie i elastyczne.
 > 
 > - [ASP.NET 4](#aspnet4)

@@ -8,15 +8,15 @@ ms.date: 05/04/2012
 ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 114dd21002ef41627f3a101c0197a85fd5208887
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d774a8e13e108d1be4c39e1e909d3d9683968a0d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074843"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404926"
 ---
-<a name="understanding-the-project-file"></a>Objaśnienie pliku projektu
-====================
+# <a name="understanding-the-project-file"></a>Objaśnienie pliku projektu
+
 przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
@@ -90,7 +90,7 @@ Plik projektu musi zwykle zapewniają wiele różnych rodzajów informacji, aby 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-Aby pobrać wartości właściwości, należy użyć formatu <strong>$(</strong><em>PropertyName</em><strong>)</strong><em>.</em> Na przykład, aby pobrać wartość <strong>ServerName</strong> właściwość, należy wpisać:
+Aby pobrać wartości właściwości, należy użyć formatu **$(***PropertyName***) ***.* Na przykład, aby pobrać wartość **ServerName** właściwość, należy wpisać:
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -192,8 +192,8 @@ Obiekty docelowe i zadania mogą obejmować **warunek** atrybutów. W efekcie mo
 
 Ogólnie rzecz biorąc podczas tworzenia użytecznych zadań i obiektów docelowych, konieczne będzie odwoływać się do właściwości i elementy, które zostały zdefiniowane w innym miejscu w pliku projektu:
 
-- Aby użyć wartości właściwości, wpisz <strong>$(</strong><em>PropertyName</em><strong>)</strong>, gdzie <em>PropertyName</em> nazywa się <strong>właściwość</strong> element lub nazwę parametru.
-- Aby użyć elementu, wpisz <strong>@(</strong><em>ItemName</em><strong>)</strong>, gdzie <em>ItemName</em> nazywa się <strong>elementu</strong> elementu.
+- Aby użyć wartości właściwości, wpisz **$(***PropertyName***)**, gdzie *PropertyName* nazywa się **właściwość** elementu lub nazwa parametr.
+- Aby użyć elementu, wpisz **@(***ItemName***)**, gdzie *ItemName* nazywa się **elementu** elementu.
 
 > [!NOTE]
 > Należy pamiętać, że jeśli tworzysz wiele elementów o takiej samej nazwie, którą tworzysz listy. Z kolei jeśli tworzysz wiele właściwości o takiej samej nazwie, ostatnią wartość właściwości, należy podać zastąpią wszelkie poprzednie właściwości o takiej samej nazwie&#x2014;właściwość może zawierać tylko jedną wartość.

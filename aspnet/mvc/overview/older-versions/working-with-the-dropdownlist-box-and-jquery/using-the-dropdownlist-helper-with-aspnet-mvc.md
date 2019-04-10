@@ -8,21 +8,21 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 11b874d2d07c84631c6c5c266c22c6de49d40cf2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2a4d991205351531129480bee221651021483967
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073823"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396255"
 ---
-<a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Używanie pomocnika DropDownList we wzorcu ASP.NET MVC
-====================
+# <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Używanie pomocnika DropDownList we wzorcu ASP.NET MVC
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Ta seria samouczków obejmuje podstawy pracy z [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) pomocnika oraz [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) pomocy w aplikacji sieci Web platformy ASP.NET MVC. Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio, aby wykonać kroki samouczka można użyć. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagań wstępnych wymienionych poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można indywidualnie zainstalować wymagania wstępne, korzystając z następujących linków:
 
 - [Visual Studio Web Developer Express SP1 prerequisites](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
-- [Program ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+- [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(Obsługa środowiska uruchomieniowego i narzędzi)
 
 Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack). W tym samouczku założono, że zostały wykonane [wprowadzenie do platformy ASP.NET MVC](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) samouczek lub[platformy ASP.NET MVC Music Store](../mvc-music-store/mvc-music-store-part-1.md) samouczek lub znasz rozwoju platformy ASP.NET MVC. Ten samouczek rozpoczyna się od modyfikacji projektu z [platformy ASP.NET MVC Music Store](../mvc-music-store/mvc-music-store-part-1.md) samouczka. Możesz pobrać projekt startowy z następującego linku [pobrać wersję języka C#](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15829).
@@ -190,7 +190,7 @@ Otwórz *Views\Home\MultiSelectCountry.cshtml* pliku i Dodaj `htmlAttributes` pa
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-W powyższym kodzie dodajemy atrybutu w kodzie HTML i wartością atrybutu `class = "chzn-select"`. \@ Znak poprzedniego klasa ma nic wspólnego z aparatu widoku Razor. `class` jest [— słowo kluczowe języka C#](https://msdn.microsoft.com/library/x53a06bb.aspx). Słowa kluczowe języka C# nie można używać jako identyfikatorów, o ile nie obejmują one \@ jako prefiksu. W powyższym przykładzie `@class` jest prawidłowym identyfikatorem, ale **klasy** jest niezgodny, ponieważ **klasy** jest słowem kluczowym.
+W powyższym kodzie dodajemy atrybutu w kodzie HTML i wartością atrybutu `class = "chzn-select"`. \@ Znak poprzedniego klasa ma nic wspólnego z aparatu widoku Razor. `class` jest [ C# — słowo kluczowe](https://msdn.microsoft.com/library/x53a06bb.aspx). Słowa kluczowe języka C# nie można używać jako identyfikatorów, o ile nie obejmują one \@ jako prefiksu. W powyższym przykładzie `@class` jest prawidłowym identyfikatorem, ale **klasy** jest niezgodny, ponieważ **klasy** jest słowem kluczowym.
 
 Dodaj odwołania do *Chosen/chosen.jquery.js* i *Chosen/chosen.css* plików. *Chosen/chosen.jquery.js* i implementuje funkcjonalnie z wtyczki wybrane. *Chosen/chosen.css* plik zawiera stylu. Dodaj te odwołania do dołu *Views\Home\MultiSelectCountry.cshtml* pliku. Poniższy kod pokazuje, jak odwoływać się do wtyczki wybrane.
 

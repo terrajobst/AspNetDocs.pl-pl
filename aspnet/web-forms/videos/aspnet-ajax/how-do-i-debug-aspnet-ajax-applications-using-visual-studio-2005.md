@@ -8,15 +8,15 @@ ms.date: 07/16/2007
 ms.assetid: 0c766dac-5366-47e4-baa4-3a9fd71e4b80
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005
 msc.type: video
-ms.openlocfilehash: 15dc6d0f9e6f77d387b1fd1df97bf1515e39737a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 12b0826408679461f58106a393dd2e0408c2f8c9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066017"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408228"
 ---
-<a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a>[Jak mogę] Debugowanie aplikacji ASP.NET AJAX przy użyciu programu Visual Studio 2005?
-====================
+# <a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a>[Jak mogę] Debugowanie aplikacji ASP.NET AJAX przy użyciu programu Visual Studio 2005?
+
 przez [Scott Golightly](https://github.com/scottgolightly)
 
 W tym filmie pokazano możemy Dowiedz się, jak debugowanie aplikacji ASP.NET AJAX przy użyciu programu Visual Studio 2005. Są wyświetlane, jak funkcja ScriptManager umożliwia dostęp do kodu JavaScript, utworzone przez formanty serwera ASP.NET AJAX, i Widzimy również sposób użycia klasy Sys.Debug, aby wstawić komunikat śledzenia i punkt przerwania.

@@ -8,20 +8,20 @@ ms.date: 10/05/2011
 ms.assetid: 27591afa-3c14-47e6-8323-573f8f7aa862
 msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
-ms.openlocfilehash: d53304d60888de55ad474f5be8c0cfe6f8b122bb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7d300a1f29c7712408d17c6629da6cefb67b3cdb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796464"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410321"
 ---
-<a name="how-do-i"></a>Jak to zrobić?
-====================
+# <a name="how-do-i"></a>Jak to zrobić?
+
 > Jak przeprowadzić szereg typowych zadań.
 
 
 - [Uzyskaj porady i wskazówki ekspertów](how-do-i-learn-the-tips-and-tricks-of-experts.md)
-- [Tworzenie wielojęzycznej witryny z lokalizacją](how-do-i-create-a-multi-lingual-site-with-localization.md)
+- [Tworzenie wielojęzycznej witryny przy użyciu lokalizacji](how-do-i-create-a-multi-lingual-site-with-localization.md)
 - [Korzystanie z buforowania](how-do-i-make-use-of-caching.md)
 - [Większe wykorzystanie buforowania](how-do-i-make-greater-use-of-caching.md)
 - [Korzystanie ze składników Web Part i personalizacji](how-do-i-utilize-web-parts-and-personalization.md)
@@ -29,7 +29,7 @@ ms.locfileid: "57796464"
 - [Zabezpieczanie witryny przy użyciu członkostwa i ról](how-do-i-secure-my-site-using-membership-and-roles.md)
 - [Tworzenie strony „Skontaktuj się z nami”](how-do-i-create-a-contact-us-page.md)
 - [Tworzenie w pełni funkcjonalnego portalu logowania klienta](how-do-i-create-a-full-featured-customer-login-portal.md)
-- [Korzystanie ze stron wzorcowych i nawigacja w witrynie](how-do-i-use-master-pages-and-site-navigation.md)
+- [Korzystanie ze stron wzorcowych i nawigacji po witrynie](how-do-i-use-master-pages-and-site-navigation.md)
 - [Tworzenie witryn internetowych opartych na danych](how-do-i-create-data-driven-web-sites.md)
 - [Wdrażanie modułu HttpModule](how-do-i-implement-an-httpmodule.md)
 - [Konfigurowanie dostawcy członkostwa SQL](how-do-i-set-up-the-sql-membership-provider.md)
@@ -44,16 +44,16 @@ ms.locfileid: "57796464"
 - [Tworzenie niestandardowej kontrolki użytkownika na platformie ASP.NET](how-do-i-create-a-custom-user-control-in-aspnet.md)
 - [Implementowanie monitorowania kondycji dla aplikacji ASP.NET](how-do-i-implement-health-monitoring-for-an-aspnet-application.md)
 - [Implementowanie śledzenia w witrynie internetowej ASP.NET](how-do-i-implement-tracing-in-an-aspnet-web-site.md)
-- [Programy obsługi zdarzeń na stronach ASP.NET Web Pages i w kontrolkach ASP.NET](how-do-i-event-handlers-in-aspnet-web-pages-and-controls.md)
+- [Procedury obsługi zdarzeń na stronach ASP.NET Web Pages i w kontrolkach ASP.NET](how-do-i-event-handlers-in-aspnet-web-pages-and-controls.md)
 - [Implementowanie niestandardowego zdarzenia monitorowania kondycji](how-do-i-implement-a-custom-health-monitoring-event.md)
 - [Używanie stanu kontrolki do utrwalania informacji dla niestandardowej kontrolki serwera internetowego](how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control.md)
 - [Odczyt, zapis i usuwanie plików cookie na platformie ASP.NET](read-write-and-delete-cookies-in-aspnet.md)
 - [Zapisywanie i ładowanie informacji o stanie widoku dla niestandardowej kontrolki serwera internetowego](how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control.md)
 - [Tworzenie i używanie zdarzeń na poziomie aplikacji na platformie ASP.NET](how-do-i-create-and-use-application-level-events-in-aspnet.md)
 - [Proste operacje przekazywania plików na platformie ASP.NET](how-do-i-simple-file-uploads-in-aspnet.md)
-- [Operacje przekazywania wielu plików na platformie ASP.NET 2](how-do-i-multiple-file-uploads-in-aspnet-2.md)
-- [Operacje przekazywania wielu plików na platformie ASP.NET 1](how-do-i-multiple-file-uploads-in-aspnet-1.md)
-- [Przekazywanie plików za pomocą interfejsu stylu AJAX](how-do-i-file-uploads-with-an-ajax-style-interface.md)
+- [Operacje przekazywania wielu plików na platformie ASP.NET 2](how-do-i-multiple-file-uploads-in-aspnet-2.md)
+- [Operacje przekazywania wielu plików na platformie ASP.NET 1](how-do-i-multiple-file-uploads-in-aspnet-1.md)
+- [Przekazywanie plików za pomocą interfejsu w stylu AJAX](how-do-i-file-uploads-with-an-ajax-style-interface.md)
 - [Praca ze stronami wzorcowymi w sposób deklaratywny i programowy](how-do-i-work-with-master-pages-declaratively-and-programmatically.md)
 - [Obsługa zdarzeń na stronach wzorcowych i stronach zawartości](how-do-i-handle-events-in-master-and-content-pages.md)
 - [Używanie elementu ObjectDataSource z klasą dostępu do danych i obiektem biznesowym](how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object.md)
@@ -72,7 +72,7 @@ ms.locfileid: "57796464"
 - [Używanie ról do segmentacji funkcji w witrynie internetowej ASP.NET](how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site.md)
 - [Praca z zagnieżdżonymi stronami wzorcowymi w celu tworzenia standardowych układów zawartości](how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts.md)
 - [Wykrywanie możliwości przeglądarki we wzorcu ASP.NET Web Pages](how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
-- [Mapowanie kontrolki serwera platformy ASP.NET do adaptera używanego do jej renderowania](how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
+- [Mapowanie kontrolki serwera platformy ASP.NET na adapter używany do jej renderowania](how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
 - [Przekazywanie informacji z jednej strony do innej przy użyciu ciągu zapytania](how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
 - [Użyj aspnet\_merge.exe narzędzie do scalania zestawów](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
 - [Implementowanie ogłaszania zwrotnego między stronami na platformie ASP.NET](how-do-i-implement-a-cross-page-postback-in-aspnet.md)
@@ -85,7 +85,7 @@ ms.locfileid: "57796464"
 - [Zapisywanie zdarzeń sieciowych w elemencie SqlWebEventProvider bazy danych programu SQL Server](how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider.md)
 - [Wysyłanie wiadomości e-mail z witryny internetowej przy użyciu platformy ASP.NET](how-do-i-use-aspnet-to-send-email-from-a-web-site.md)
 - [Konfigurowanie powiadomienia e-mail na potrzeby monitorowania kondycji w witrynie internetowej ASP.NET](how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site.md)
-- [Używanie projektu wdrożenia w Internecie przy użyciu programu Visual Studio 2008](how-do-i-use-a-visual-studio-2008-web-deployment-project.md)
+- [Używanie projektu wdrożenia w Internecie programu Visual Studio 2008](how-do-i-use-a-visual-studio-2008-web-deployment-project.md)
 - [Wysyłanie wiadomości e-mail z szablonem dla zdarzeń monitorowania kondycji na platformie ASP.NET](how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet.md)
 - [Asynchroniczne wysyłanie wiadomości e-mail za pomocą platformy ASP.NET](how-do-i-send-email-asynchronously-with-aspnet.md)
 - [Osadzanie obrazu w wiadomości e-mail za pomocą platformy ASP.NET](how-do-i-embed-an-image-in-an-email-with-aspnet.md)
@@ -94,7 +94,7 @@ ms.locfileid: "57796464"
 - [Tworzenie składników wielokrotnego użytku na potrzeby wysyłania wiadomości e-mail do listy dystrybucyjnej](how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list.md)
 - [Prekompilowanie witryny internetowej ASP.NET](how-do-i-precompile-an-aspnet-website.md)
 - [Używanie klasy FtpWebRequest do tworzenia połączenia FTP z serwerem FTP](how-do-i-use-the-ftpwebrequest-class-to-create-an-ftp-connection-to-a-ftp-server.md)
-- [Eksportowanie danych do pliku w formacie CSV (rozdzielanego przecinkami) dla aplikacji takich jak program Excel](how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel.md)
+- [Eksportowanie danych do pliku w formacie CSV (wartości rozdzielone przecinkami) dla aplikacji takich jak program Excel](how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel.md)
 - [Zastępowanie kodu HTML na stronie ASP.NET za pomocą właściwości Reponse.Filter](how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page.md)
 - [Używanie klasy OutputCache w celu buforowania strony ASP.NET](how-do-i-use-outputcache-to-cache-an-aspnet-page.md)
 - [Buforowanie części strony ASP.NET](how-do-i-cache-portions-of-an-aspnet-page.md)
@@ -103,8 +103,8 @@ ms.locfileid: "57796464"
 - [Synchronizowanie danych w dodatkowych kontrolkach użytkownika na podstawie wyborów użytkownika](how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections.md)
 - [Używanie obiektu pamięci podręcznej platformy ASP.NET w celu buforowania informacji o aplikacji](how-do-i-use-the-aspnet-cache-object-to-cache-application-information.md)
 - [Utrwalanie stanu kontrolki użytkownika podczas ogłaszania zwrotnego](how-do-i-persist-the-state-of-a-user-control-during-a-postback.md)
-- [Dodawanie kontrolek programów obsługi zdarzeń skryptu klienta na stronie ASP.NET](how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page.md)
-- [Objaśnienie i ochrona przed atakami polegającymi na wprowadzeniu skryptu na platformie ASP.NET](how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet.md)
+- [Dodawanie kontrolek procedur obsługi zdarzeń skryptu klienta na stronie ASP.NET](how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page.md)
+- [Objaśnienie ataków polegających na wprowadzeniu skryptu i ochrona przed nimi na platformie ASP.NET](how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet.md)
 - [Technologie dostępu do danych platformy ASP.NET, wprowadzenie do LINQ](aspnet-data-access-technologies-an-introduction-to-linq.md)
 - [Tworzenie i używanie klas w języku JavaScript](how-do-i-create-and-use-classes-in-javascript.md)
 - [Tworzenie wydajnego i standardowego podejścia do implementowania stylów CSS](how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles.md)

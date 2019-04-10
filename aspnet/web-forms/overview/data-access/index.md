@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: cf54a6fb-a362-4481-b967-c158b98092f7
 msc.legacyurl: /web-forms/overview/data-access
 msc.type: chapter
-ms.openlocfilehash: 0060650de35a8693a9c1432876df1d4902bb1ade
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d2f9d48618a102df7ea24a6d2a80b5c3026c7752
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797316"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405407"
 ---
-<a name="older-versions---data-access"></a>Starsze wersje — dostęp do danych
-====================
+# <a name="older-versions---data-access"></a>Starsze wersje — dostęp do danych
+
 > Instrukcje wykonywania różnych zadań związanych z danymi, za pomocą kontrolki danych wzorca ASP.NET Web Forms.
 
 
@@ -24,10 +24,10 @@ ms.locfileid: "57797316"
 
     - [Tworzenie warstwy dostępu do danych (C#)](introduction/creating-a-data-access-layer-cs.md)
     - [Tworzenie warstwy logiki biznesowej (C#)](introduction/creating-a-business-logic-layer-cs.md)
-    - [Strony wzorcowe i nawigacja w witrynie (C#)](introduction/master-pages-and-site-navigation-cs.md)
+    - [Strony wzorcowe i nawigacja po witrynie (C#)](introduction/master-pages-and-site-navigation-cs.md)
     - [Tworzenie warstwy dostępu do danych (VB)](introduction/creating-a-data-access-layer-vb.md)
     - [Tworzenie warstwy logiki biznesowej (VB)](introduction/creating-a-business-logic-layer-vb.md)
-    - [Strony wzorcowe i nawigacja w witrynie (VB)](introduction/master-pages-and-site-navigation-vb.md)
+    - [Strony wzorcowe i nawigacja po witrynie (VB)](introduction/master-pages-and-site-navigation-vb.md)
 - [Podstawowe raportowanie](basic-reporting/index.md)
 
     - [Wyświetlanie danych za pomocą kontrolki ObjectDataSource (C#)](basic-reporting/displaying-data-with-the-objectdatasource-cs.md)
@@ -63,7 +63,7 @@ ms.locfileid: "57797316"
     - [Omówienie wstawiania, aktualizowania i usuwania danych (C#)](editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)
     - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (C#)](editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
     - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (C#)](editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
-    - [Dodawanie kontrolek weryfikacji do interfejsów edycji i wstawiania (C#)](editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+    - [Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (C#)](editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
     - [Dostosowywanie interfejsu modyfikacji danych (C#)](editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md)
     - [Implementowanie optymistycznej współbieżności (C#)](editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md)
     - [Dodawanie potwierdzenia po stronie klienta podczas usuwania (C#)](editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md)
@@ -71,7 +71,7 @@ ms.locfileid: "57797316"
     - [Omówienie wstawiania, aktualizowania i usuwania danych (VB)](editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)
     - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (VB)](editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
     - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (VB)](editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
-    - [Dodawanie kontrolek weryfikacji do interfejsów edycji i wstawiania (VB)](editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+    - [Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (VB)](editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
     - [Dostosowywanie interfejsu modyfikacji danych (VB)](editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)
     - [Implementowanie optymistycznej współbieżności (VB)](editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb.md)
     - [Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB)](editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb.md)
@@ -113,12 +113,12 @@ ms.locfileid: "57797316"
     - [Omówienie edytowania i usuwania danych w elemencie DataList (C#)](editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
     - [Wykonywanie aktualizacji wsadowych (C#)](editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md)
     - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (C#)](editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs.md)
-    - [Dodawanie kontrolek weryfikacji do interfejsu edycji kontrolki DataList (C#)](editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
+    - [Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (C#)](editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
     - [Dostosowywanie interfejsu edycji kontrolki DataList (C#)](editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs.md)
     - [Omówienie edytowania i usuwania danych w kontrolce DataList (VB)](editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
     - [Wykonywanie aktualizacji wsadowych (VB)](editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb.md)
     - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (VB)](editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb.md)
-    - [Dodawanie kontrolek weryfikacji do interfejsu edycji kontrolki DataList (VB)](editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
+    - [Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (VB)](editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
     - [Dostosowywanie interfejsu edycji kontrolki DataList (VB)](editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-vb.md)
 - [Stronicowanie i sortowanie za pomocą kontrolek DataList i Repeater](paging-and-sorting-with-the-datalist-and-repeater/index.md)
 
@@ -132,11 +132,11 @@ ms.locfileid: "57797316"
     - [Przyciski niestandardowe w kontrolkach DataList i Repeater (VB)](custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb.md)
 - [Uzyskiwanie dostępu do bazy danych bezpośrednio ze strony platformy ASP.NET](accessing-the-database-directly-from-an-aspnet-page/index.md)
 
-    - [Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (C#)](accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs.md)
+    - [Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (C#)](accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs.md)
     - [Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (C#)](accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs.md)
     - [Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (C#)](accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
     - [Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#)](accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
-    - [Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (VB)](accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)
+    - [Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (VB)](accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb.md)
     - [Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (VB)](accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb.md)
     - [Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (VB)](accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
     - [Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (VB)](accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
@@ -168,10 +168,10 @@ ms.locfileid: "57797316"
     - [Buforowanie danych w architekturze (VB)](caching-data/caching-data-in-the-architecture-vb.md)
     - [Buforowanie danych przy uruchamianiu aplikacji (VB)](caching-data/caching-data-at-application-startup-vb.md)
     - [Używanie zależności pamięci podręcznej SQL (VB)](caching-data/using-sql-cache-dependencies-vb.md)
-- [Mapy witryny opartej na bazie danych](database-driven-site-maps/index.md)
+- [Mapy witryn opartych na bazie danych](database-driven-site-maps/index.md)
 
-    - [Tworzenie niestandardowego dostawcy mapy witryny opartego na bazie danych (C#)](database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs.md)
-    - [Tworzenie niestandardowego dostawcy mapy witryny opartego na bazie danych (VB)](database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb.md)
+    - [Tworzenie niestandardowego dostawcy map witryn opartych na bazie danych (C#)](database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs.md)
+    - [Tworzenie niestandardowego dostawcy map witryn opartych na bazie danych (VB)](database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb.md)
 - [Praca z partiami danych](working-with-batched-data/index.md)
 
     - [Opakowywanie modyfikacji bazy danych w ramach transakcji (C#)](working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md)

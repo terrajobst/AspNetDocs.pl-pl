@@ -8,15 +8,15 @@ ms.date: 07/24/2008
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 64d3b6f7e817624b4fc329d3fc6548088f2a5f2d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b79beb79b4ba87fd031f2f2de04a5078d42fa866
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076115"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401923"
 ---
-<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Jak mogę] Store i manipulować informacjami po stronie klienta przy użyciu ukrytego pola
-====================
+# <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Jak mogę] Store i manipulować informacjami po stronie klienta przy użyciu ukrytego pola
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym filmie pokazano pikseli Chris pokazują, jak przy użyciu ukrytego pola jako jedno z podejść do zarządzania stanem prostego na stronie ASP.NET i dla komunikacji klienta informacje przetwarzania po stronie. Najpierw Zobacz, jak dodać pole ukryte do strony za pomocą kontrolki serwera ASP.NET, formant HiddenField i pobierania wartości pola ukrytego w kodzie po stronie serwera po po kopii. Dowiedz się, jak do manipulowania wartością pola ukrytego skryptu po stronie klienta, a następnie pobrać zmodyfikowane wartości w kodzie po stronie serwera. Na koniec zobaczyć przykład sposobu używania kilku ukryte pola do przechowywania informacji od przetwarzania po stronie klienta, które można opublikowany ponownie do serwera przetwarzania.

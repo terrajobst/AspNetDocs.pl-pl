@@ -8,15 +8,15 @@ ms.date: 02/10/2010
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 087f30428602137e01f574825f3ebcd4db9285ff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d721bb14b9907ae594d1d5207b6f802e84326c9c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077843"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414728"
 ---
-<a name="request-validation---preventing-script-attacks"></a>Żądanie walidacji — zapobieganie atakom za pomocą skryptów
-====================
+# <a name="request-validation---preventing-script-attacks"></a>Żądanie walidacji — zapobieganie atakom za pomocą skryptów
+
 > W tym dokumencie opisano funkcję weryfikacji żądania programu ASP.NET, where, domyślnie, aplikacja nie będzie mógł niekodowany zawartość HTML przesłane do serwera przetwarzania. Gdy aplikacja została zaprojektowana w celu bezpiecznego przetwarzania danych HTML można wyłączyć tej funkcji sprawdzania poprawności żądania.
 > 
 > Stosuje się do platformy ASP.NET 1.1 i ASP.NET 2.0.

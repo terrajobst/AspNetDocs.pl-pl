@@ -8,15 +8,15 @@ ms.date: 05/08/2008
 ms.assetid: f2b20119-abf4-4e78-9c47-adf563ad174c
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-make-custom-pages
 msc.type: video
-ms.openlocfilehash: 233efe11a592a72d20fe637948612ee29d62c0da
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5214a748633bb3a5e7e38bcaed6015a607b8d63b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075116"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414104"
 ---
-<a name="how-do-i-make-custom-pages"></a>Jak utworzyć niestandardowe strony?
-====================
+# <a name="how-do-i-make-custom-pages"></a>Jak utworzyć niestandardowe strony?
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 W tym filmie dowiesz się, jak utworzyć niestandardowej strony w przypadku niektórych tabel, podczas gdy inne strony używają standardowych funkcji.

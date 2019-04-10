@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 51a0d175-913b-43d8-95e3-840fb96ad1a9
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4115b3898415d63ffb122f3d0fea93022f2baa02
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 973878ef0afd62035b3fc840371e6c6223c8951c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413792"
 ---
-<a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodawanie weryfikacji formularza (C#)
-====================
+# <a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodawanie weryfikacji formularza (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-3-add-form-validation-cs/_static/contactmanager_3_cs1.zip)
@@ -51,7 +51,7 @@ Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą it
 W drugiej iteracji aplikacji Contact Manager dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem kontaktu bez podawania wartości wymaganych pól formularza. Możemy zweryfikować numerów telefonów i adresów e-mail (patrz rysunek 1).
 
 
-[![Okno dialogowe Nowy projekt](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-3-add-form-validation-cs/_static/image1.jpg)](iteration-3-add-form-validation-cs/_static/image1.png)
 
 **Rysunek 01**: Formularz z weryfikacją ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-3-add-form-validation-cs/_static/image2.png))
 

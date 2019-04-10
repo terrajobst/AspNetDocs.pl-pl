@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 4452169a01276cbc60f2a2057e6b560022ccd7c0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 09f8389a04c5600ca9ee8365a9dc5a0d607c0a4d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075839"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403925"
 ---
-<a name="the-aspnet-20-page-model"></a>Modelu programu ASP.NET 2.0 strony
-====================
+# <a name="the-aspnet-20-page-model"></a>Modelu programu ASP.NET 2.0 strony
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W programie ASP.NET: 1.x, deweloperzy ma wybór między wbudowany model kodu i model kodu związanego z kodem. Związane z kodem można zaimplementować przy użyciu atrybutu Src lub atrybut CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają możliwość wyboru między wbudowany kod i związane z kodem, ale zostały znaczne ulepszenia do modelu związanym z kodem.
@@ -34,7 +34,7 @@ W programie ASP.NET: 1.x, model związanym z kodem składa się z plikiem ASPX (
 
 ## <a name="the-code-behind-model-in-aspnet-20"></a>Model związanym z kodem w programie ASP.NET 2.0
 
-Program ASP.NET 2.0 znacznie poprawia przy tym modelu. W programie ASP.NET 2.0 związanym z kodem jest implementowany przy użyciu nowego *klas częściowych* dostarczane w programie ASP.NET 2.0. Klasy związane z kodem w programie ASP.NET 2.0 jest definiowane jako klasę częściową, co oznacza, że zawiera on tylko część definicji klasy. Pozostała część definicji klasy jest generowana dynamicznie przy ASP.NET 2.0 przy użyciu strony ASPX, w czasie wykonywania lub witryny sieci Web są wstępnie skompilowane. Łącze między plikiem CodeBehind i strony ASPX nadal zostanie nawiązane, przy użyciu dyrektywy @ Page. Jednak zamiast atrybutu CodeBehind lub Src ASP.NET 2.0 używa teraz atrybut CodeFile. Atrybut Inherits umożliwia również określić nazwę klasy dla strony.
+Program ASP.NET 2.0 znacznie poprawia przy tym modelu. W programie ASP.NET 2.0 związanym z kodem jest implementowany przy użyciu nowego *klas częściowych* dostarczane w programie ASP.NET 2.0. Klasy związane z kodem w programie ASP.NET 2.0 jest zdefiniowany jako klasę częściową, co oznacza, że zawiera on tylko część definicji klasy. Pozostała część definicji klasy jest generowana dynamicznie przy ASP.NET 2.0 przy użyciu strony ASPX, w czasie wykonywania lub witryny sieci Web są wstępnie skompilowane. Łącze między plikiem CodeBehind i strony ASPX nadal zostanie nawiązane, przy użyciu dyrektywy @ Page. Jednak zamiast atrybutu CodeBehind lub Src ASP.NET 2.0 używa teraz atrybut CodeFile. Atrybut Inherits umożliwia również określić nazwę klasy dla strony.
 
 Typowe dyrektywy @ Page może wyglądać następująco:
 
@@ -265,7 +265,7 @@ Ta właściwość zwraca obiekt PageStatePersister dla strony. Ta właściwość
 
 ## <a name="uniquefilepathsuffix"></a>UniqueFilePathSuffix
 
-Ta właściwość Zwraca unikatowy suffic, która jest dołączana do ścieżki pliku do pamięci podręcznej przeglądarki. Wartość domyślna to \_ \_ufps = 6-cyfrowy numer.
+Ta właściwość Zwraca unikatowy sufiks, który jest dołączany do ścieżki pliku do pamięci podręcznej przeglądarki. Wartość domyślna to \_ \_ufps = 6-cyfrowy numer.
 
 ## <a name="new-public-methods-for-the-page-class"></a>Nowych metod publicznych klasy strony
 
@@ -508,7 +508,7 @@ Pamiętamy *cbRef* jest wartością zwracaną z wywołania GetCallbackEventRefer
 
 ## <a name="step-4--register-the-client-side-script"></a>Krok 4: Rejestrowanie skryptu po stronie klienta
 
-Odwołania, które wywołanie GetCallbackEventReference określone, czy skrypt po stronie klienta o nazwie **ShowCompanyName** będzie wykonywany po pomyślnym zakończeniu wywołania zwrotnego po stronie serwera. Czy skrypt musi zostać dodane do strony, przy użyciu wystąpienia ClientScriptManager. (W klasie ClientScriptManager będzie dicussed w dalszej części tego modułu). Dlatego należy wykonać podobne do tego:
+Odwołania, które wywołanie GetCallbackEventReference określone, czy skrypt po stronie klienta o nazwie **ShowCompanyName** będzie wykonywany po pomyślnym zakończeniu wywołania zwrotnego po stronie serwera. Czy skrypt musi zostać dodane do strony, przy użyciu wystąpienia ClientScriptManager. (Klasy ClientScriptManager zostanie dokładnie omówione w dalszej części tego modułu.) Dlatego należy wykonać podobne do tego:
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample16.js)]
 

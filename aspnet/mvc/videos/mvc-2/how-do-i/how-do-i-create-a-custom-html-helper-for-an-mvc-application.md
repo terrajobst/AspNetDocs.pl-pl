@@ -8,15 +8,15 @@ ms.date: 12/11/2009
 ms.assetid: 58b5eb15-4160-4ce2-ae70-6ba94262ea73
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 4061c06cfeab2278e5732295b034f81f7995c2a4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 60953243d3038667e4f729b1394e68f0c9d7c178
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071837"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59415053"
 ---
-<a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>Jak mogę Tworzenie niestandardowego pomocnika HTML dla aplikacji MVC?
-====================
+# <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>Jak mogę Tworzenie niestandardowego pomocnika HTML dla aplikacji MVC?
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym filmie pokazano pikseli Chris przedstawia sposób tworzenia niestandardowych HtmlHelper, która nie jest dostępna w standardowy zestaw w aplikacji MVC. Najpierw przykładowej aplikacji MVC jest tworzona pokaz kontrolera i widoku, aby przetestować niestandardowego HtmlHelper. Następnie moduł jest tworzony przy użyciu publicznego funkcja, która jest metodą rozszerzenia, który reprezentuje implementację niestandardowej HtmlHelper. Dotyczy tworzenia niestandardowego elementu pomocniczego `<img>` tagów na stronie sieci i odbiera kilka parametrów dla ruchu przychodzącego, m.in. identyfikator adresu url i tekst alternatywny obrazu znacznika. Logika jest dodawane do funkcji dla zwracania ukończoną `<img>` tag z określonymi informacjami. Następnie niestandardowe HtmlHelper jest używana na stronie pokaz do wyświetlania obrazu. Na koniec niestandardowe HtmlHelper rozwinięta i obejmuje wiele zastąpienia konstruktora, które zapewniają elastyczność więcej łatwe tworzenie różnych `<img>` tagów.

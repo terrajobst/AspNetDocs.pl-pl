@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 78cb6dec71e6b4974fdea4f205d1a36ebdfc3104
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424447"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401746"
 ---
-<a name="whats-new-in-web-forms-in-aspnet-45"></a>Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5
-====================
+# <a name="whats-new-in-web-forms-in-aspnet-45"></a>Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 > Nowa wersja ASP.NET Web Forms wprowadzono szereg ulepszeń skoncentrowane na ułatwieniu środowisko użytkownika podczas pracy z danymi.
@@ -396,7 +396,7 @@ Program ASP.NET 4.5 wprowadza weryfikacji adnotacji danych w formularzach sieci 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5 ma rozszerzyć istniejącą kolekcję adnotacji danych. Poniżej przedstawiono niektóre adnotacje danych, możesz użyć: [CreditCard], [Phone] [EmailAddress], [zakres], [porównać], [Url] [FileExtensions], [wymagane] [Key], [wyrażenia regularnego].
+    > .NET framework 4.5 ma rozszerzyć istniejącą kolekcję adnotacji danych. Poniżej przedstawiono niektóre adnotacje danych, możesz użyć: [CreditCard], [Phone] [EmailAddress], [zakres], [porównać], [Url] [FileExtensions], [wymagane] [klucz], [wyrażenia regularnego].
     > 
     > Niektóre przykłady użycia:
     > 
@@ -612,7 +612,7 @@ Czas operacji w witrynie sieci web są doskonałymi kandydatami dla programowani
 > Ponadto można wdrożyć tę aplikację do platformy Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

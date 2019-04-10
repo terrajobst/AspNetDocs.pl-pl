@@ -8,15 +8,15 @@ ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: aa852e7bbd93622154d59e0d0a13ffa680812df2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7374b1afafa9ca63309f3c0369c5efd808f7f28a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073865"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401988"
 ---
-<a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
-====================
+# <a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
+
 13 stycznia 2011
 
 ## <a name="contents"></a>Spis treści
@@ -33,7 +33,7 @@ ms.locfileid: "57073865"
     - [Instalacja programu WebMatrix w wersji 1.0](#Known_Issues_Installation)
     - [ASP.NET Web Pages](#Known_Issues_ASPNET)
     - [WebMatrix](#Known_Issues_WebMatrix)
-    - [Usługi IIS Express](#Known_Issues_IISExpress)
+    - [IIS Express](#Known_Issues_IISExpress)
     - [SQL Server Compact](#Known_Issues_SQLServerCompact)
     - [Instalowanie aplikacji](#Known_Issues_Installing_Applications)
     - [Publikowanie aplikacji](#Known_Issues_Publishing_Applications)
@@ -73,7 +73,7 @@ ms.locfileid: "57073865"
 
 > .NET Framework w wersji 4 jest wymagany dla programu WebMatrix. W niektórych przypadkach Instalatora programu WebMatrix w wersji 1.0 będzie można spróbować zainstalować na platformie, która nie jest częścią zestawu obsługiwanej konfiguracji. W szczególności Windows Vista bez dodatku SP1 dla aktualizacji będzie można rozpocząć instalację programu WebMatrix, ale składnik .NET Framework 4 będą się nie powieść i blokowanie instalacji.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj na obsługiwanych platformach, w tym:
 > 
 > - Windows 7
@@ -86,7 +86,7 @@ ms.locfileid: "57073865"
 
 #### <a name="issue-cannot-install-webmatrix-10-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Problem: Nie można zainstalować program WebMatrix w wersji 1.0, jeśli zainstalowano program Microsoft Visual Studio 2008 bez programu Microsoft Visual Studio 2008 z dodatkiem SP1
 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj [programu Microsoft Visual Studio 2008 z dodatkiem SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) z Centrum pobierania Microsoft.
 
 
@@ -97,7 +97,7 @@ ms.locfileid: "57073865"
 > - *System.Data.SqlServerCe.dll* (ADO.NET provider)
 > - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Odinstalowanie programu SQL Server Compact 4.0. Pobierz i zainstaluj pełną wersję programu .NET Framework 3.5 SP1 w następującej lokalizacji:  
 >   
 > [Microsoft .NET Framework 3.5 z dodatkiem Service pack 1 (pełny pakiet)](https://go.microsoft.com/fwlink/?LinkId=194828)  
@@ -109,7 +109,7 @@ ms.locfileid: "57073865"
 
 > Używanie opcji wiersza polecenia programu SQL Server Compact dezinstalacji nie działa w tej wersji.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Użyj *programy i funkcje* w Panelu sterowania Windows, aby odinstalować program Microsoft SQL Server Compact 4.0.
 
 
@@ -120,7 +120,7 @@ ms.locfileid: "57073865"
 Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z wersji 1.0 składnika ASP.NET Web Pages o składni Razor.
 
 - [Nowe funkcje](#NewFeatures)
-- [Changes](#Changes)
+- [Zmiany](#Changes)
 - [Problemy](#Issues)
 
 #### <a id="NewFeatures"></a>  Nowe funkcje
@@ -154,7 +154,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 
 > Może to być problemem, jeśli zamierzasz używać tabeli użytkownika niestandardowego dla członkostwa, ale nazwy tabeli problem, aby przekazać `WebSecurity.InitializeDatabaseConnection` metody. Ponieważ metoda nie domyślnie Zgłoś błąd, jeśli nie ma tabeli, które określisz, a zamiast tego tworzy nową tabelę, aplikacja może się pojawić działa. Jednak kod aplikacji, która opiera się na tabeli użytkownika niestandardowego (i w polach w nim) po pewnym czasie może zakończyć się nieoczekiwanym błędem.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Upewnij się, że nazwa jest przekazywany w `InitializeDatabaseConnection` metoda dopasowania profilu użytkownika tabeli w bazie danych członkostwa lub upewnij się, że `autoCreateTables` parametr ma wartość false.
 
 
@@ -183,7 +183,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Jeśli zainstalowano pakiet, przy użyciu Menedżera pakietów w wersji Beta 3, a następnie spróbuj odinstalować go za pomocą bieżącej wersji, pakiet nie został całkowicie odinstalowany. Przy użyciu Menedżera pakietów **Odinstaluj** przycisku spowoduje usunięcie niektórych składników, ale pozostawia pakietu kodu biblioteki i nie powoduje aktualizacji *plików package.config* pliku.
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Wykonaj następujące kroki:  
 > 1. Usuń *aplikacji\_Data\packages* folderu. Spowoduje to usunięcie wszystkich pakietów.   
 > 2. Usuń *packages.config* pliku w katalogu głównym witryny sieci Web.
@@ -196,7 +196,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > [!NOTE]
 > Mimo że będzie najczęściej widzisz to zachowanie podczas korzystania z interfejsu Menedżera pakietów opartych na sieci web, takie samo zachowanie występuje, gdy dodać, usunąć lub zmodyfikować pliki w *aplikacji\_danych* folderu.
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Aby pracować z pakietów w programie Visual Studio, należy użyć rozszerzenia NuGet zamiast Menedżera pakietów opartych na sieci web. Aby uzyskać informacje, zobacz [dokumentacja programu NuGet](https://docs.microsoft.com/nuget/). Jeśli pracujesz z innymi plikami w *aplikacji\_danych* folderu, pomyśl o pozostawieniu plików, w innym miejscu, aby uniknąć tego problemu. Jeśli nie jest to praktyczne, Usuń *aplikacji\_offline.htm* pliku ręcznie lub poczekaj, aż lokacji powróci do trybu online automatycznie (domyślnie po 30 sekundach).
 
 
@@ -238,7 +238,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 
 > Problem pojawia się, ponieważ ponownego zapisywania adresów URL nie jest włączone domyślnie dla usług IIS 7 i IIS 7.5. Scenariusz likeliest jest, że nie ma problem podczas testowania lokalnie przy użyciu usług IIS Express, ale występują w przypadku wdrażania witryny sieci Web do hostowania witryny sieci Web.
 > 
-> **Obejście problemu**
+> **Obejście**
 > 
 > - Jeśli masz kontrolę nad komputerem serwera, na komputerze serwera, zainstaluj aktualizację opisaną na stronie [aktualizacja jest dostępna, że umożliwia niektórych obsługi usług IIS 7.0 lub 7.5 usług IIS do obsługi żądań, których adresy URL nie kończą się kropką](https://support.microsoft.com/kb/980368).
 > - Jeśli nie masz kontrolę nad komputerem serwera (na przykład wdrażasz do hostingu witryny sieci Web), Dodaj następujący kod do witryny sieci Web *web.config* pliku: 
@@ -255,9 +255,9 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 > 1. Kopiowanie zestawów aparatu bazy danych, które mają *Bin* folderze (i jego podfolderach) w aplikacji na komputerze docelowym:  
 > 
 >    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->        **Aby** *\Bin*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>to</em></strong>\Bin\x86*
->    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
+>      **Aby** *\Bin*
+>    - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*  **do** *\Bin\x86*
+>    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
 > 
 > 2. W folderze głównym witryny sieci Web, należy utworzyć lub otworzyć *web.config* pliku. (W wersji 1.0 programu WebMatrix, jest dostępna po kliknięciu tego typu pliku **wszystkich** w **wybierz typ pliku** okno dialogowe.)
 > 3. Dodaj następujący element jako element podrzędny elementu `<configuration>` — element (poza `<system.web>` elementu):
@@ -269,7 +269,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 
 > Jeśli używasz języka Visual Basic (Tworzenie *.vbhtml* plików), `Database` i `WebGrid` pomocników nie będzie działać, jeśli aplikacja jest skonfigurowana do użycia w trybie średniego zaufania.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Jeśli używasz programu Visual Studio 2010, możesz rozwiązać ten problem, instalując wersji dodatku Service Pack 1. Do czasu udostępnienia ostateczną wersją wersji z dodatkiem SP1 możesz pobrać wersji Beta programu z dodatkiem SP1 z [Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) stronie Microsoft Download Center.   
 >   
 > Jeśli nie jest to praktyczne, lub jeśli nie używasz programu Visual Studio 2010, można tymczasowo ustawić aplikacji można używać pełnego zaufania.
@@ -283,7 +283,7 @@ Ta sekcja dokumentu opisano nowe funkcje, zmiany i znane problemy związane z we
 >   
 > To żądanie pobiera wszystkie ciągi zasobów w *System.Web.WebPages.Administration.dll* zestawu. Pobierane są wszystkie zasoby osadzone, (nawet te, które nie są przeznaczone do służyć jako zawartość statyczna). Jeśli zasobów osadzonych zawiera poufne informacje, to stanowią zagrożenie bezpieczeństwa. 
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Jeśli tworzysz **ApplicationPart** obiektu, upewnij się, że zasoby osadzone skojarzony, **ApplicationPart** obiektu zestawu, nie zawierają informacji poufnych.
 
 
@@ -299,7 +299,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 #### <a name="issue-changes-in-the-username-or-password-of-a-database-connection-string-in-a-webconfig-file-are-not-reflected-in-the-databases-workspace"></a>Problem: Zmiany nazwy użytkownika lub hasło parametrów połączenia bazy danych w pliku web.config nie są widoczne w obszarze roboczym baz danych
 
-> **Obejście problemu**  
+> **Obejście**  
 > 
 > 1. W *web.config* plików, Zmień nazwę bazy danych w parametrach połączenia (na przykład dodać "1" do niego).
 > 2. Zapisz *web.config* pliku.
@@ -313,7 +313,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > Jeśli program WebMatrix jest uruchomiona przy użyciu podniesionych uprawnień (czyli ułatwiają rozpoczęcie korzystania z programu WebMatrix **Uruchom jako Administrator** opcji Windows), nie można usunąć foldery, które są tworzone przez program WebMatrix za pomocą Eksploratora Windows.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Uruchom Eksploratora Windows, używając podniesionego poziomu uprawnień. Wykonaj następujące kroki:  
 > 
 > 1. W Windows, kliknij przycisk **Start**.
@@ -328,7 +328,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 > - W Windows Vista lub Windows 7 zalogowano się za pomocą konta, które nie ma uprawnienia administracyjne, a Kontrola konta użytkownika (UAC) jest wyłączona.
 > - Używasz systemu Microsoft Windows XP lub Microsoft Windows Server 2003.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Większość zadań w programie WebMatrix w wersji 1.0 nie wymagają uprawnień administracyjnych. Dla osób, które wykonują można wykonać operacji, ponieważ administrator lub wykonaj następujące kroki:
 > 
 > - W Windows Vista lub Windows 7 włączenie funkcji Kontrola konta użytkownika.
@@ -339,7 +339,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > **Witryny sieci Web galerii** opcja jest wyłączona, jeśli nie zainstalowano 3.0 Instalatora platformy sieci Web.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Zainstaluj [Instalatora platformy sieci Web firmy Microsoft 3.0](https://go.microsoft.com/fwlink/?LinkID=194638).
 
 
@@ -347,7 +347,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > Google Chrome nie jest wyświetlana na liście przeglądarek, w obszarze **Uruchom** na **Home** kartę.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Niektóre wersje programu Google Chrome nie rejestrują się prawidłowo z tej funkcji domyślne programy w programie Windows. Obejść ten problem, uruchom program Google Chrome, kliknij przycisk *dostosowywanie i kontroli Google Chrome* menu, kliknij przycisk *opcje*, a następnie kliknij przycisk *upewnij Google Chrome w mojej przeglądarce domyślnej*.
 
 
@@ -355,7 +355,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > **Klucz obcy** okno dialogowe pozwala na wprowadzanie nazwy klucza podstawowego z tabeli klucza podstawowego.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Jest to zamierzone. Nie musisz wprowadzić nazwę klucza podstawowego z tabeli klucza podstawowego.
 
 
@@ -363,7 +363,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > Technologia IntelliSense jest obsługiwana w programie WebMatrix dla języków HTML i CSS. Jednak nie jest dostępny dla innych języków. 
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Brak.
 
 
@@ -371,7 +371,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > Funkcja IntelliSense dla kodu znaczników w programie WebMatrix obsługuje HTML za pomocą [XHTML 1.0 przejściowe schematu](http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/#xhtml1-transitional) i przy użyciu CSS [schematu CSS 2.1](http://www.w3.org/TR/CSS2/). Ponieważ IntelliSense jest oparta na te określone schematy, niektóre znaczniki, atrybuty lub właściwości może być sugerowane, które nie są odpowiednie dla bieżącej definicji stylu lub strony. Dla kodu HTML może ona również prowadzić do nieoczekiwanych sugestie w zawartości, które mogą być interpretowane jako źle sformułowane XHTML (na przykład, gdy tagi nie zostały zamknięte). Ten problem może być bardziej zauważalne, jeśli punkt wstawiania znajduje się wewnątrz tagu niekompletne; w takim przypadku funkcja IntelliSense może Sugeruj nowe tagi otwierające lub oferują inne nieprawidłowe sugestie. 
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Dla kodu HTML upewnij się, czy działają w obrębie strony XHTML pełną, poprawnie sformułowany. CSS nie ma sposobu obejścia.
 
 
@@ -379,7 +379,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > W czasie funkcja IntelliSense nie może być wywołana, zgodnie z wprowadzanych HTML i CSS w edytorze. W szczególności to może się zdarzyć, gdy punkt wstawiania znajduje się bezpośrednio obok innego elementu, lub na końcu pliku. 
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Upewnij się, że jest odstęp wokół punktu wstawiania, i czy punkt wstawiania nie jest na końcu pliku. Technologia IntelliSense można także wywoływać ręcznie, naciskając klawisze Ctrl + spacja.
 
 
@@ -387,7 +387,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programisty
 
 > Program WebMatrix w wersji 1.0 zapewnia nie interfejsu użytkownika lub gest wyłączenie funkcji IntelliSense. 
 > 
-> **Obejście problemu**   
+> **Obejście**   
 > Uruchom program WebMatrix, używając następującego polecenia, w tym przełącznik, który powoduje wyłączenie funkcji IntelliSense:  
 >   
 > `WebMatrix.exe #ExecuteCommand# EditorIntelliSense off`
@@ -414,7 +414,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Problem: Instalowanie aplikacji może zająć dużo czasu, jeśli folder Moje dokumenty użytkownika jest przekierowywany do udziału sieciowego
 
-> **Obejście problemu**  
+> **Obejście**  
 > Brak. Aplikacja może potrwać chwilę, aby zainstalować, ale zostanie zainstalowany poprawnie.
 
 
@@ -424,7 +424,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Program WebMatrix obsługuje w pełni wdrażanie obsługi danych binarnych dla programu SQL Server Compact do serwera z programem .NET Framework w wersji 3.5 i konfiguracji trybie średniego zaufania.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Preferowany obejście polega na zainstalowanie programu .NET Framework 4 na serwerze. Alternatywnie wykonaj następujące czynności:
 > 
 > 1. Dodaj następujące elementy do `SecurityClasses` sekcji *Web\_MediumTrust.config* pliku:
@@ -442,7 +442,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > W niektórych okolicznościach publikowania aplikacji powoduje wystąpienie błędu "Usługa jest niedostępna".
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > W programie WebMatrix, należy dodać ukośnik odwrotny (\) na końcu nazwę serwera w **ustawień publikowania** okna, a następnie opublikować aplikację ponownie.
 
 
@@ -450,7 +450,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Po opublikowaniu aplikacji Moodle, aplikacja nie działa prawidłowo.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > W programie WebMatrix, należy dodać ukośnika (/) na końcu **Nazwa lokacji** pole **ustawień publikowania** okna, a następnie opublikować aplikację ponownie.
 
 
@@ -458,7 +458,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Publikowanie witryny systemu nopCommerce kończy się niepowodzeniem i zgłasza błąd bazy danych, takich jak "Wstawianie nop\_tabeli dziennika nie powiodło się."
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > 
 > 1. W programie WebMatrix, kliknij przycisk **Uruchom** można uruchomić witryny systemu nopCommerce lokalnie.
 > 2. Zaloguj się do strony administrowania.
@@ -470,13 +470,13 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 #### <a name="issue-silverstripe-cms-displays-a-http-500-php-fcgi-error-when-you-download-a-published-site"></a>Problem: System CMS Silverstripe Wyświetla "HTTP 500 PHP FCGI błąd", po pobraniu opublikowanej witryny
 
-> **Obejście problemu**  
+> **Obejście**  
 > Po kliknięciu **pobierania opublikowano witrynę**, Pomiń `silverstripe-cache/manifest_main` w **Podgląd publikowania**. Ten plik jest używany na potrzeby buforowania i jest specyficzny dla każdego komputera.
 
 
 #### <a name="issue-subtext-displays-server-error-in--application-when-you-download-a-published-site"></a>Problem: Subtext Wyświetla "Błąd serwera w aplikacji» /»" po pobraniu opublikowanej witryny
 
-> **Obejście problemu**  
+> **Obejście**  
 > Otwórz witrynę programu *web.config* i zastąp nazwę użytkownika i hasło w parametrach połączenia bazy danych przy użyciu poświadczeń administratora programu SQL Server (poświadczenia "sa").
 > 
 > Alternatywnie, wykonaj następujące kroki, aby nadać kontu użytkownika, użytkownik jest zalogowany przy użyciu `db_owner` uprawnienia:
@@ -491,7 +491,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > W **ustawień publikowania** okno dialogowe, jeśli docelowy adres URL rozpoczyna się od `http://` lub `https://`, witryna może nie działać po wdrożeniu.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Upewnij się, że przed opublikowaniem witryny, docelowy adres URL na **ustawień publikowania** zaczyna się okno dialogowe `http://` lub `https://`.
 
 
@@ -499,7 +499,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Ten błąd może wystąpić z kilku powodów. Jedną z przyczyn tego błędu są widoczne jest, jeśli skrypt bazy danych zawiera znak pojedynczego cudzysłowu ('), jak i docelowej bazy danych MySQL na domyślny zestaw znaków nie jest na UTF-8.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Ustaw domyślny zestaw znaków dla zdalnej bazy danych MySQL na UTF-8.
 
 
@@ -507,7 +507,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Jeśli publikowanie lub pobrać witryny DotNetNuke, może być konieczne wyczyszczenie pamięci podręcznej, aby uzyskać nowe linki, które ma być wyświetlana w witrynie.
 > 
-> **Obejście problemu**
+> **Obejście**
 > 
 > 1. Zaloguj się jako "Host".
 > 2. Przejdź do menu hosta i wybierz **ustawienia hosta**.
@@ -518,7 +518,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 #### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>Problem: Niektóre linki w program AtomSite nie działają po pobraniu opublikowanej witryny
 
-> **Obejście problemu**  
+> **Obejście**  
 > W *service.config* pliku *users.config* pliku i wszystkie *.xml* pliki, Zastąp ciąg adresu URL (na przykład `http://myhost.com/atomsite`) przy użyciu lokalnego (na przykład `http://localhost:1239`).
 
 
@@ -526,7 +526,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Domyślnie program WebMatrix instaluje MySQL z zestawem znaków UTF-8. Jeśli instalowanie bazy danych MySQL na własną rękę, a nie jest zestaw znaków UTF-8 (na przykład jest Latin1), proces publikowania dla baz danych może zakończyć się niepowodzeniem.
 > 
-> **Obejście problemu**
+> **Obejście**
 > 
 > 1. Zmień zestaw MySQL na UTF-8 znaków. (Aby uzyskać więcej informacji, zobacz [zestaw znaków serwera i sortowania](http://dev.mysql.com/doc/refman/5.0/en/charset-server.html) w witrynie internetowej MySQL.)
 > 2. Zainstaluj aplikację.
@@ -537,7 +537,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 > Niektóre aplikacje (na przykład Kentico CMS) wymagane jest ich uruchamiania w przeglądarce, aby można było wykonać po instalacji, takich jak tworzenie bazy danych. Jeśli spróbujesz opublikować aplikację tak, nie kończą działania Instalatora opartego na przeglądarce, próby pobrania tej samej lokacji z serwera zdalnego nie powiedzie się.
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Zakończ Instalatora opartego na przeglądarce, przed opublikowaniem w witrynie.
 
 
@@ -547,7 +547,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 > 
 > [!code-console[Main](overview/samples/sample9.cmd)]
 > 
-> **Obejście problemu**  
+> **Obejście**  
 > Jeśli jest to praktyczne, ponownie opublikować witryny (lub opublikować) przy użyciu poświadczeń bez uprawnień administratora dla bazy danych.
 
 

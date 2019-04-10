@@ -8,15 +8,15 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: b5eb98dfdf3fc013920f45080d4a20e1fa507725
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068420"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407357"
 ---
-<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (C#)
-====================
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (C#)
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule umożliwia przegląd programowania przy użyciu stron ASP.NET Web Pages z użyciem składni Razor. ASP.NET to technologia firmy Microsoft dotyczące uruchamiania dynamicznych stron sieci web na serwerach sieci web. To zespoły artykuły na temat korzystania z języka programowania C#.
@@ -342,7 +342,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
 
 :::row:::
     :::column:::
-    <strong>— Metoda</strong>
+    <strong>Metoda</strong>
     :::column-end:::
     :::column:::
     <strong>Opis</strong>
@@ -351,7 +351,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
     <strong>Przykład</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsInt(), IsInt()`
@@ -363,7 +365,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsBool(), IsBool()`
@@ -375,7 +379,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsFloat(), IsFloat()`
@@ -387,7 +393,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDecimal(), IsDecimal()`
@@ -399,7 +407,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `AsDateTime(), IsDateTime()`
@@ -411,7 +421,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `ToString()`
@@ -440,7 +452,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
     <strong>Przykłady</strong>
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+` `-` `*` `/`
@@ -452,7 +466,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `=`
@@ -464,7 +480,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `==`
@@ -476,7 +494,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `!=`
@@ -488,7 +508,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `< > <= >=`
@@ -500,7 +522,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+`
@@ -512,7 +536,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `+=` `-=`
@@ -524,7 +550,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `.`
@@ -536,7 +564,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `()`
@@ -548,7 +578,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `[]`
@@ -560,7 +592,9 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
         `!`
@@ -572,10 +606,12 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
     :::column-end:::
 :::row-end:::
-* * *
+
+---
+
 :::row:::
     :::column:::
-        `&&` <code>&#124;&#124;</code>
+        `&&` `||`
     :::column-end:::
     :::column:::
     Operator logiczny oraz i lub które są używane do łączenia ze sobą warunki.
@@ -603,7 +639,7 @@ Oto przykład, aby lepiej zrozumieć różnice:
 | Pełny adres URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nazwa serwera | *mycompanyserver* |
-| Ścieżka wirtualna | */humanresources/CompanyPolicy.htm* |
+| Ścieżka wirtualna | */HumanResources/CompanyPolicy.htm* |
 | Ścieżka fizyczna | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Wirtualny katalog główny jest /, podobnie jak głównego C: dysku \. (Folder wirtualny ścieżki zawsze używać ukośników.) Ścieżka wirtualna folderu nie musi mieć taką samą nazwę jak folder fizycznych; może być aliasem. (Na serwerach produkcyjnych, ścieżka wirtualna rzadko odpowiada dokładnej ścieżki fizycznej.)
@@ -808,7 +844,7 @@ Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut 
 **Programowanie za pomocą języka Visual Basic**
 
 
-[Dodatek: Język Visual Basic i składnia](https://go.microsoft.com/fwlink/?LinkId=202908)
+[Załącznik: Język Visual Basic i składnia](https://go.microsoft.com/fwlink/?LinkId=202908)
 
 
 **Dokumentacja referencyjna**
@@ -816,4 +852,4 @@ Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut 
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[W języku C#](https://msdn.microsoft.com/library/kx37x362.aspx)
+[Język C#](https://msdn.microsoft.com/library/kx37x362.aspx)

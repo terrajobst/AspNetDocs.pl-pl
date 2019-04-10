@@ -8,15 +8,15 @@ ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: de700055168f9d17167c82afe836b546160c6e91
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 680739cbcf54bc9ca7a3bd8167d043ff537eaad5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071465"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417536"
 ---
-<a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzami HTML w witrynach ASP.NET Web Pages (Razor)
-====================
+# <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzami HTML w witrynach ASP.NET Web Pages (Razor)
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule opisano sposób przetwarzania formularza HTML (za pomocą pola tekstowe i przyciski) podczas pracy w witrynie internetowej ASP.NET Web Pages (Razor).
@@ -138,5 +138,5 @@ Można to naprawić, jednak. Masz dostęp do wartości, które zostały przesła
 
 - [1,001 sposobów uzyskania danych wejściowych od użytkowników w sieci Web](https://msdn.microsoft.com/library/ms971057.aspx)
 - [Za pomocą formularzy i przetwarzania danych wejściowych użytkownika](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
-- [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Walidacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)
 - [Za pomocą automatycznego uzupełniania w formularzach HTML](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

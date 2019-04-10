@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: c847db058bc03115210f12eeb0c3c76fecc8a31e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 34c8776636478e8c40064bb29ae0311ee4fdc8d8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075593"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409788"
 ---
-<a name="part-6-aspnet-membership"></a>Część 6. Członkostwo platformy ASP.NET
-====================
+# <a name="part-6-aspnet-membership"></a>Część 6. Członkostwo platformy ASP.NET
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.

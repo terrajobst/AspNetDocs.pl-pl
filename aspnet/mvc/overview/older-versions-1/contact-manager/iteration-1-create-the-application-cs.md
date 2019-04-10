@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: db0f160b-901c-46d3-865e-7ab6cd4ed68d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8fb2481342fa309941257feae792d9aa3c7bf721
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 5b3883d8a73d50039dfe6f11f757a0f1cb7ece3a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422678"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400974"
 ---
-<a name="iteration-1--create-the-application-c"></a>Iteracja #1 — Tworzenie aplikacji (C#)
-====================
+# <a name="iteration-1--create-the-application-c"></a>Iteracja #1 — Tworzenie aplikacji (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-1-create-the-application-cs/_static/contactmanager_1_cs1.zip)
@@ -91,7 +91,7 @@ Projekt aplikacji sieci Web platformy ASP.NET MVC. Uruchom program Visual Studio
 Upewnij się, że program .NET Framework 3.5 wybrany z listy rozwijanej u góry po prawej stronie **nowy projekt** okna dialogowego. W przeciwnym razie nie będzie wyświetlane szablonu aplikacji sieci Web programu ASP.NET MVC.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image1.jpg)](iteration-1-create-the-application-cs/_static/image1.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image1.jpg)](iteration-1-create-the-application-cs/_static/image1.png)
 
 **Rysunek 01**: Okno dialogowe Nowy projekt ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image2.png))
 
@@ -103,7 +103,7 @@ Aplikacja platformy ASP.NET MVC **Tworzenie projektu testu jednostkowego** zosta
 > Ponieważ Visual Web Developer nie obsługuje projektów testowych, nie uzyskasz okna dialogowego Utwórz projekt testów jednostkowych podczas korzystania z programu Visual Web Developer.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image2.jpg)](iteration-1-create-the-application-cs/_static/image3.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image2.jpg)](iteration-1-create-the-application-cs/_static/image3.png)
 
 **Rysunek 02**: Okno dialogowe Tworzenie projektu testu jednostkowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image4.png))
 
@@ -111,7 +111,7 @@ Aplikacja platformy ASP.NET MVC **Tworzenie projektu testu jednostkowego** zosta
 Aplikacja platformy ASP.NET MVC pojawi się w oknie Eksploratora rozwiązań w usłudze Visual Studio (zobacz rysunek 3). Jeśli don t znajdują się w oknie Eksploratora rozwiązań, a następnie można otworzyć tego okna, wybierając opcję menu **widok, w Eksploratorze rozwiązań**. Zwróć uwagę, że rozwiązanie zawiera dwa projekty: projekt testu i projekt składnika ASP.NET MVC. Projekt składnika ASP.NET MVC ma nazwę ContactManager i projekt testu o nazwie ContactManager.Tests.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image3.jpg)](iteration-1-create-the-application-cs/_static/image5.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image3.jpg)](iteration-1-create-the-application-cs/_static/image5.png)
 
 **Rysunek 03**: Okna Eksploratora rozwiązań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image6.png))
 
@@ -141,7 +141,7 @@ Platforma ASP.NET MVC z żadną bazą danych nowoczesnych, łącznie z bazy dany
 Utwórz nową bazę danych, klikając prawym przyciskiem myszy aplikację\_folderu danych w oknie Eksploratora rozwiązań i wybierając opcję menu **Dodaj, nowy element**. W **Dodaj nowy element** okno dialogowe, wybierz opcję **danych** kategorii i **bazy danych SQL Server** szablonu (zobacz rysunek 4). Nadaj nazwę nowej bazy danych ContactManagerDB.mdf i kliknij przycisk OK.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image4.jpg)](iteration-1-create-the-application-cs/_static/image7.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image4.jpg)](iteration-1-create-the-application-cs/_static/image7.png)
 
 **Rysunek 04**: Tworzenie nowej bazy danych Microsoft SQL Server Express ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image8.png))
 
@@ -156,7 +156,7 @@ Po utworzeniu nowej bazy danych, baza danych jest wyświetlana w aplikacji\_fold
 Okno Eksploratora serwera do tworzenia nowych obiektów bazy danych, takich jak tabele bazy danych, widoki, wyzwalacze i procedury składowane. Kliknij prawym przyciskiem myszy folder Tabele i wybierz opcję menu **Dodaj nową tabelę**. Pojawi się Projektant tabeli bazy danych (zobacz rysunek 5).
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image5.jpg)](iteration-1-create-the-application-cs/_static/image9.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image5.jpg)](iteration-1-create-the-application-cs/_static/image9.png)
 
 **Rysunek 05**: Projektant tabel bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image10.png))
 
@@ -203,22 +203,22 @@ Wykonaj następujące kroki, aby tworzenie klas modelu danych:
 5. W **wybierz obiekty bazy danych** krok, zaznacz pole wyboru tabel (patrz rysunek 9). Model danych będzie zawierać wszystkich tabel znajdujących się w bazie danych (istnieje tylko jeden, tabeli kontaktów). Wprowadź przestrzeń nazw *modeli*. Kliknij przycisk Zakończ, aby zakończyć pracę kreatora.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image6.jpg)](iteration-1-create-the-application-cs/_static/image11.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image6.jpg)](iteration-1-create-the-application-cs/_static/image11.png)
 
 **Rysunek 06**: Okno dialogowe Dodaj nowy element ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image12.png))
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image7.jpg)](iteration-1-create-the-application-cs/_static/image13.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image7.jpg)](iteration-1-create-the-application-cs/_static/image13.png)
 
 **Rysunek 07**: Wybierz zawartość modelu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image14.png))
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image8.jpg)](iteration-1-create-the-application-cs/_static/image15.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image8.jpg)](iteration-1-create-the-application-cs/_static/image15.png)
 
 **Rysunek 08**: Wybierz połączenie danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image16.png))
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image9.jpg)](iteration-1-create-the-application-cs/_static/image17.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image9.jpg)](iteration-1-create-the-application-cs/_static/image17.png)
 
 **Rysunek 09**: Wybierz obiekty bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image18.png))
 
@@ -228,7 +228,7 @@ Po zakończeniu działania Kreator modelu Entity Data Model, zostanie wyświetlo
 Kreator modelu Entity Data Model generuje nazwy klas na podstawie nazw tabel bazy danych. Prawie zawsze należy zmienić nazwę klasy generowanej przez kreatora. Kliknij prawym przyciskiem myszy klasy kontaktów w projektancie, a następnie wybierz opcję menu **Zmień nazwę**. Zmień nazwę klasy kontaktów (liczba mnoga) do kontaktu (w liczbie pojedynczej). Po zmianie nazwy klasy, klasy powinna pojawić się, jak na rysunku nr 10.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image10.jpg)](iteration-1-create-the-application-cs/_static/image19.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image10.jpg)](iteration-1-create-the-application-cs/_static/image19.png)
 
 **Na rysunku nr 10**: Klasa kontaktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image20.png))
 
@@ -242,7 +242,7 @@ Następnym krokiem jest do utworzenia naszej kontrolera głównego. Kontroler g�
 Utwórz klasę kontrolera głównej prawym przyciskiem myszy folder kontrolerów w oknie Eksploratora rozwiązań i wybierając opcję menu **Dodaj, kontroler** (zobacz rysunek 11). Zwróć uwagę, pola wyboru **dodają metody akcji na potrzeby scenariuszy tworzenia, aktualizowania lub szczegóły**. Upewnij się, że to pole wyboru jest zaznaczone przed kliknięciem przycisku **Dodaj** przycisku.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image11.jpg)](iteration-1-create-the-application-cs/_static/image21.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image11.jpg)](iteration-1-create-the-application-cs/_static/image21.png)
 
 **Rysunek 11**: Dodawanie kontrolera głównego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image22.png))
 
@@ -272,7 +272,7 @@ Obecnie tego wykonujemy ve tworzenia kontrolera indeksu, następnie należy utwo
 Tworzenie widoku indeksu, klikając prawym przyciskiem myszy metodę indeks() i wybierając opcję menu **Dodaj widok** (zobacz rysunek 12). Wybranie tej opcji menu otwiera **Dodaj widok** okna dialogowego (zobacz rysunek 13).
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image12.jpg)](iteration-1-create-the-application-cs/_static/image23.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image12.jpg)](iteration-1-create-the-application-cs/_static/image23.png)
 
 **Rysunek 12**: Dodawanie widoku indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image24.png))
 
@@ -280,7 +280,7 @@ Tworzenie widoku indeksu, klikając prawym przyciskiem myszy metodę indeks() i 
 W **Dodaj widok** okno dialogowe, zaznacz pola wyboru **utworzyć widok silnie typizowane**. Wybierz widok danych klasy ContactManager.Models.Contact i wyświetlanie listy zawartości. Zaznaczenie tych opcji generuje widok, który wyświetla listę rekordów kontaktów.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image13.jpg)](iteration-1-create-the-application-cs/_static/image25.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image13.jpg)](iteration-1-create-the-application-cs/_static/image25.png)
 
 **Rysunek 13**: Okno dialogowe Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image26.png))
 
@@ -300,7 +300,7 @@ Musimy wprowadzić modyfikacji jednego widoku indeksu. Ponieważ firma Microsoft
 Po zmodyfikowaniu widoku indeksu można uruchomić aplikacji Contact Manager. Wybierz opcję menu debugowania, Rozpocznij debugowanie lub po prostu naciśnij klawisz F5. Podczas pierwszego uruchomienia aplikacji, uzyskasz okna dialogowego na rysunku 14. Wybierz opcję **modyfikowanie pliku Web.config, aby włączyć debugowanie** i kliknij przycisk OK.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image14.jpg)](iteration-1-create-the-application-cs/_static/image27.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image14.jpg)](iteration-1-create-the-application-cs/_static/image27.png)
 
 **Rysunek 14**: Włączanie debugowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image28.png))
 
@@ -308,7 +308,7 @@ Po zmodyfikowaniu widoku indeksu można uruchomić aplikacji Contact Manager. Wy
 Widok indeksu jest zwracany przez domyślne. Ten widok zawiera listę wszystkich danych z tabeli bazy danych kontaktów (zobacz rysunek 15).
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image15.jpg)](iteration-1-create-the-application-cs/_static/image29.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image15.jpg)](iteration-1-create-the-application-cs/_static/image29.png)
 
 **Rysunek 15**: Widok indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image30.png))
 
@@ -336,7 +336,7 @@ W treści metody Create() Entity Framework służy do wstawiania nowego kontaktu
 Możesz wygenerować formularza HTML do tworzenia nowych kontaktów w jednej z dwóch metod Create() prawym przyciskiem myszy i wybierając opcję menu **Dodaj widok** (zobacz rysunek 16).
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image16.jpg)](iteration-1-create-the-application-cs/_static/image31.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image16.jpg)](iteration-1-create-the-application-cs/_static/image31.png)
 
 **Rysunek 16**: Dodawanie widoku Create ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image32.png))
 
@@ -344,7 +344,7 @@ Możesz wygenerować formularza HTML do tworzenia nowych kontaktów w jednej z d
 W **Dodaj widok** okno dialogowe, wybierz opcję **ContactManager.Models.Contact** klasy i **Utwórz** opcję Wyświetl zawartość (zobacz rysunek 17). Po kliknięciu **Dodaj** przycisk Utwórz, Wyświetl jest generowana automatycznie.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image17.jpg)](iteration-1-create-the-application-cs/_static/image33.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image17.jpg)](iteration-1-create-the-application-cs/_static/image33.png)
 
 **Rysunek 17**: Wyświetlanie strony explode ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image34.png))
 
@@ -358,7 +358,7 @@ Utwórz widok zawiera pól formularza, dla każdej właściwości klasy skontakt
 Po zmodyfikowaniu metody Create() i Dodaj widok Utwórz, można uruchomić aplikację Menedżer skontaktuj się z pomocą i tworzenie nowych kontaktów. Kliknij przycisk **Utwórz nowy** łącze, które pojawia się w widoku indeksu, aby przejść do widoku Create. Powinien zostać wyświetlony widok na rysunku 18.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image18.jpg)](iteration-1-create-the-application-cs/_static/image35.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image18.jpg)](iteration-1-create-the-application-cs/_static/image35.png)
 
 **Rysunek 18**: Tworzenie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image36.png))
 
@@ -380,7 +380,7 @@ Entity Framework jest używany do zapisania zmodyfikowanych skontaktuj się z ba
 Można wygenerować widok, który zawiera formularz edycji, kliknij prawym przyciskiem myszy metodę Edit() i wybierając opcję menu Dodaj widok. W oknie dialogowym Dodawanie widoku wybierz **ContactManager.Models.Contact** klasy i **Edytuj** wyświetlanie zawartości (zobacz rysunek 19).
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image19.jpg)](iteration-1-create-the-application-cs/_static/image37.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image19.jpg)](iteration-1-create-the-application-cs/_static/image37.png)
 
 **Rysunek 19**: Dodawanie widoku edycji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image38.png))
 
@@ -409,7 +409,7 @@ Dwie nowe metody Delete() są zawarte w ofercie 8.
 Pierwsza metoda Delete() zwraca formularza Potwierdzenie usuwania rekordu kontaktu z bazy danych (zobacz Figure20). Druga metoda Delete() wykonuje operację usuwania rzeczywiste w bazie danych. Po kontakcie ma zostały pobrane z bazy danych, metod programu Entity Framework DeleteObject() i SaveChanges() są wywoływane w celu wykonania usunięcia bazy danych.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image20.jpg)](iteration-1-create-the-application-cs/_static/image39.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image20.jpg)](iteration-1-create-the-application-cs/_static/image39.png)
 
 **Rysunek 20**: Wyświetl potwierdzenia usunięcia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image40.png))
 
@@ -419,7 +419,7 @@ Potrzebujemy do modyfikowania widoku indeksu, tak aby zawierała link do usuwani
 Html.ActionLink ({id = element. % Identyfikator})&gt;
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image21.jpg)](iteration-1-create-the-application-cs/_static/image41.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image21.jpg)](iteration-1-create-the-application-cs/_static/image41.png)
 
 **Rysunek 21**: Indeks widok z link edycji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image42.png))
 
@@ -429,7 +429,7 @@ Następnie należy utworzyć widok potwierdzenie usunięcia. Kliknij prawym przy
 W odróżnieniu od przypadku listy, tworzenia i edytowania widoków, okno dialogowe dodawania widoku nie zawiera opcję, aby utworzyć widok Delete. Zamiast tego należy wybrać **ContactManager.Models.Contact** klasy danych i **pusty** wyświetlanie zawartości. Wybieranie pusty widok opcji zawartość będzie wymagać NAS utworzyć widok, określić główną przyczynę.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image22.jpg)](iteration-1-create-the-application-cs/_static/image43.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image22.jpg)](iteration-1-create-the-application-cs/_static/image43.png)
 
 **Rysunek 22**: Dodawanie widoku potwierdzenia usunięcia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image44.png))
 
@@ -447,12 +447,12 @@ Go może być odblokowane, nazwa klasy Nasze kontrolera do pracy z kontaktów no
 Ten problem jest łatwe rozwiązać problem. Najpierw musimy Refaktoryzuj nazwę kontrolera głównego. Otwórz klasę HomeController w edytorze kodu programu Visual Studio, kliknij prawym przyciskiem myszy nazwę klasy i wybierz opcję menu **Refaktoryzacja zmiany nazwy**. Wybranie tej opcji menu zostanie otwarte okno dialogowe zmieniania nazwy.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image23.jpg)](iteration-1-create-the-application-cs/_static/image45.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image23.jpg)](iteration-1-create-the-application-cs/_static/image45.png)
 
 **Ilustracja 23**: Refaktoryzacja nazwę kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image46.png))
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image24.jpg)](iteration-1-create-the-application-cs/_static/image47.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image24.jpg)](iteration-1-create-the-application-cs/_static/image47.png)
 
 **Rysunek 24**: Za pomocą okna dialogowego zmiany nazwy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image48.png))
 
@@ -462,7 +462,7 @@ Jeśli zmienisz nazwę klasy kontrolera, Visual Studio spowoduje zaktualizowanie
 Po wprowadzeniu tej zmiany, aplikacja nie będzie miało kontrolera głównego. Po uruchomieniu aplikacji, uzyskasz strony błędu w ilustracja 25.
 
 
-[![Okno dialogowe Nowy projekt](iteration-1-create-the-application-cs/_static/image25.jpg)](iteration-1-create-the-application-cs/_static/image49.png)
+[![Tokno dialogowe Nowy projekt HE](iteration-1-create-the-application-cs/_static/image25.jpg)](iteration-1-create-the-application-cs/_static/image49.png)
 
 **Rysunek 25**: Nie domyślnego kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-1-create-the-application-cs/_static/image50.png))
 

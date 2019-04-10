@@ -8,15 +8,15 @@ ms.date: 07/18/2007
 ms.assetid: a5a4a9ba-d18d-489a-a6b0-a3c26d6b0274
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bc640564cfb67f0c1512bc7f4fae9ea7e6bc981f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1d8387f782ace50f16d44ba8df4df8014d563674
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076607"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396463"
 ---
-<a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Tworzenie nowych procedur składowanych dla elementów TableAdapter typizowanego zestawu danych (VB)
-====================
+# <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Tworzenie nowych procedur składowanych dla elementów TableAdapter typizowanego zestawu danych (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_67_VB.zip) lub [Pobierz plik PDF](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/datatutorial67vb1.pdf)
@@ -28,7 +28,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 Te samouczki warstwy dostępu do danych (DAL) używa wpisanych zestawów danych. Zgodnie z opisem w [Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-vb.md) samouczek, zestawów danych w określonym typie składa się z silnie typizowane DataTable i adapterów TableAdapter. DataTable reprezentują jednostki logiczne w systemie podczas interfejsu adapterów TableAdapter z podstawowej bazy danych do wykonywania pracy dostępu do danych. W tym wypełnianie DataTable przy użyciu danych, wykonywania zapytań, które zwracają danych skalarnych, wstawiania, aktualizowania i usuwania rekordów z bazy danych.
 
-Polecenia SQL, wykonywane przez elementów TableAdapter może być albo instrukcji SQL zapytań ad-hoc, takich jak `SELECT columnList FROM TableName`, lub procedur składowanych. TableAdapters w naszej architektury użyj instrukcji SQL zapytań ad-hoc. Wielu programistów i administratorów baz danych, jednak preferowanie procedur składowanych, za pośrednictwem instrukcji SQL zapytań ad-hoc ze względów bezpieczeństwa, łatwość konserwacji i updateability. Preferuj innych ardently instrukcji SQL zapytań ad-hoc dla ich elastyczność. Własnego pracy I Preferuj procedur składowanych w instrukcji SQL zapytań ad-hoc, ale wybrany uprościć samouczki wcześniej za pomocą instrukcji SQL zapytań ad-hoc.
+Polecenia SQL, wykonywane przez elementów TableAdapter może być albo instrukcji SQL zapytań ad-hoc, takich jak `SELECT columnList FROM TableName`, lub procedur składowanych. TableAdapters w naszej architektury użyj instrukcji SQL zapytań ad-hoc. Wielu programistów i administratorów baz danych, jednak preferowanie procedur składowanych, za pośrednictwem instrukcji SQL zapytań ad-hoc ze względów bezpieczeństwa, łatwość konserwacji i aktualizacji. Preferuj innych ardently instrukcji SQL zapytań ad-hoc dla ich elastyczność. Własnego pracy I Preferuj procedur składowanych w instrukcji SQL zapytań ad-hoc, ale wybrany uprościć samouczki wcześniej za pomocą instrukcji SQL zapytań ad-hoc.
 
 Podczas definiowania TableAdapter lub dodawania nowych metod, Kreator s TableAdapter sprawia, że równie łatwo można utworzyć nowe procedury składowane, lub użyć istniejących procedur składowanych, jak używać instrukcji SQL zapytań ad-hoc. W tym samouczku zajmiemy się, jak Kreator s TableAdapter automatycznego generowania procedur składowanych. W następnym samouczku przedstawiony zostanie sposób konfigurowania metody TableAdapter s, aby użyć istniejącej lub ręcznie utworzone procedur składowanych.
 
@@ -86,7 +86,7 @@ Zanim zaczniemy naszych dyskusji na temat tworzenia DAL, korzystanie z procedur 
 Podobnie jak w przypadku innych folderów `Default.aspx` w `AdvancedDAL` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)
+[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image3.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image2.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image4.png))
 
@@ -111,7 +111,7 @@ Aby zademonstrować, Tworzenie warstwy dostępu do danych, która używa procedu
 Dodaj nowy zestaw danych do projektu, klikając prawym przyciskiem myszy `DAL` folderu, wybierając Dodaj nowy element, a następnie wybierając szablon zestawu danych, jak pokazano na rysunku 4.
 
 
-[![Dodaj nowy Typizowany zestaw danych do projektu o nazwie NorthwindWithSprocs.xsd](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png)
+[![ADodaj nowy wpisany zestaw danych do projektu o nazwie NorthwindWithSprocs.xsd](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image7.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image6.png)
 
 **Rysunek 4**: Dodaj nowy zestaw danych wpisany do projektu o nazwie `NorthwindWithSprocs.xsd` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image8.png))
 
@@ -121,9 +121,9 @@ Spowoduje to utworzenie nowego zestawu danych wpisane, otwórz jego projektanta,
 Na tym ekranie dalej będziemy wybierz, jak TableAdapter powinien uzyskiwać dostęp do bazy danych. W poprzednich samouczkach Wybraliśmy pierwszej opcji, użyj instrukcji SQL. Na potrzeby tego samouczka wybierz drugą opcję Utwórz nowe procedury składowane i kliknij przycisk Dalej.
 
 
-[![Poinstruuj TableAdpater, aby utworzyć nowe procedury składowane](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png)
+[![Instruct TableAdapter na tworzenie nowych procedur składowanych](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image10.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image9.png)
 
-**Rysunek 5**: Poinstruuj TableAdpater na tworzenie nowych procedur składowanych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png))
+**Rysunek 5**: Poinstruuj TableAdapter na tworzenie nowych procedur składowanych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image11.png))
 
 
 Tak samo, jak przy użyciu instrukcji SQL zapytań ad-hoc, w następnym kroku będziemy prośba o podanie `SELECT` instrukcji kwerendy głównych s TableAdapter. Jednak zamiast klauzuli `SELECT` instrukcji wprowadzone w tym miejscu można wykonać zapytania ad hoc bezpośrednio, Kreator s TableAdapter ma utworzyć procedurę składowaną, która zawiera to `SELECT` zapytania.
@@ -134,7 +134,7 @@ Należy użyć następującego `SELECT` zapytania dla tego TableAdapter:
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample4.sql)]
 
 
-[![Wprowadź zapytanie SELECT](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png)
+[![EWprowadź wybierz zapytanie](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image13.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image12.png)
 
 **Rysunek 6**: Wprowadź `SELECT` zapytania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image14.png))
 
@@ -160,7 +160,7 @@ Mając przechowywanych procedur, które są tworzone automatycznie przez kreator
 Po wprowadzeniu `SELECT` zapytania i potwierdzenie, że zaznaczono opcję instrukcje generowania Insert, Update i Delete, kliknij przycisk Dalej. Ta następnym ekranie pokazano na rysunku 8 monituje o podanie nazwy procedur składowanych, który Kreator ma utworzyć wybierając, wstawianie, aktualizowanie i usuwanie danych. Zmiany są przechowywane nazwy procedury `Products_Select`, `Products_Insert`, `Products_Update`, i `Products_Delete`.
 
 
-[![Zmień nazwę procedury składowane](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
+[![RZmień nazwę procedury składowanej](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image17.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image16.png)
 
 **Rysunek 8**: Zmień nazwę procedur składowanych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image18.png))
 
@@ -176,7 +176,7 @@ Aby wyświetlić kreatora TableAdapter zostaną użyte do utworzenia czterech pr
 Po nazw procedur składowanych, kliknij obok nazwy TableAdapter s odpowiadających im metod. Podobnie jak podczas przy użyciu instrukcji SQL zapytań ad-hoc możemy utworzyć metody fill istniejącego elementu DataTable lub zwracać nową. Firma Microsoft można również określić, czy TableAdapter powinien zawierać wzorca bazy danych bezpośrednio do wstawiania, aktualizowania i usuwania rekordów. Pozostaw zaznaczone wszystkie trzy pola wyboru, ale Zmień nazwę zwrotu metody DataTable `GetProducts` (jak pokazano na rysunku nr 10).
 
 
-[![Nazwa metody GetProducts i wypełnienia](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)
+[![NNazwa metody, wypełnij i GetProducts](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image21.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image20.png)
 
 **Na rysunku nr 10**: Nazwa metody `Fill` i `GetProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image22.png))
 
@@ -184,7 +184,7 @@ Po nazw procedur składowanych, kliknij obok nazwy TableAdapter s odpowiadający
 Kliknij przycisk Dalej, aby wyświetlić podsumowanie działań, które wykona Kreator. Ukończ pracę kreatora, klikając przycisk Zakończ. Po zakończeniu pracy Kreatora nastąpi powrót do s DataSet Designer, która teraz powinna zawierać `ProductsDataTable`.
 
 
-[![S Projektanta obiektów DataSet zawiera nowo dodanych ProductsDataTable](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)
+[![Tzestaw danych, s Projektant pokazuje nowo dodane ProductsDataTable](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image24.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image23.png)
 
 **Rysunek 11**: DataSet s Designer przedstawia nowo dodane `ProductsDataTable` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image25.png))
 
@@ -206,7 +206,7 @@ TableAdapter Kreator automatycznie użyte w kroku 2 stworzone procedury składow
 Aby wyświetlić lub zmodyfikować procedury składowanej, kliknij dwukrotnie jego nazwę w Eksploratorze serwera lub Alternatywnie kliknij prawym przyciskiem myszy na procedury składowanej i wybierz przycisk Otwórz. Przedstawia rysunek 13 `Products_Delete` procedurą składowaną, po otwarciu.
 
 
-[![Procedury składowane można go otworzyć i zmodyfikować z poziomu programu Visual Studio](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png)
+[![Sskładowana procedury, można otworzyć i zmodyfikować z w ramach programu Visual Studio](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image28.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image27.png)
 
 **Rysunek 13**: Przechowywane procedury, można otworzyć i zmodyfikować z w ramach programu Visual Studio ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image29.png))
 
@@ -250,7 +250,7 @@ W tym miejscu można usunąć tego parametru, po prostu wybierając `@Original_P
 Możesz też odświeżyć parametry używane dla wszystkich metod, klikając prawym przyciskiem myszy na obiekt TableAdapter w Projektancie i wybierając pozycję Konfiguruj. Pojawi się Kreator konfiguracji TableAdapter, listę procedur składowanych, umożliwiający wybieranie, wstawianie, aktualizowanie i usuwanie wraz z parametrami procedur składowanych oczekiwać. Jeśli możesz kliknąć na liście rozwijanej aktualizacji możesz zobaczyć `Products_Update` procedur składowanych oczekiwano parametrów wejściowych, które nie są już zawiera teraz `@Original_ProductID` (zobacz rysunek 15). Po prostu kliknij Zakończ, aby automatycznie aktualizować posługują się TableAdapter kolekcji parametrów.
 
 
-[![Można też użyć Kreator konfiguracji TableAdapter s odświeżyć jego kolekcjach parametru metody](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
+[![Yjednostki organizacyjnej można też użyć s TableAdapter Kreator konfiguracji do kolekcji parametrów metody jego odświeżania](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image32.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image31.png)
 
 **Rysunek 15**: Można też użyć s TableAdapter Kreator konfiguracji do kolekcji parametrów metody jego odświeżania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image33.png))
 
@@ -270,7 +270,7 @@ Rozpocznij, klikając prawym przyciskiem myszy na obiekt TableAdapter i wybieraj
 Spowoduje to uruchomienie Kreatora konfiguracji zapytania TableAdapter najpierw wyświetla monit dotyczący sposobu TableAdapter powinien uzyskiwać dostęp do bazy danych. Aby utworzyć procedurę przechowywaną, opcję tworzenia nowej procedury składowanej, a następnie kliknij przycisk Dalej.
 
 
-[![Wybierz pozycję Utwórz nową procedurę składowaną opcji](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)
+[![CUtwórz nową procedurę składowaną opcji bierz](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image36.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image35.png)
 
 **Rysunek 17**: Wybierz pozycję Utwórz nową procedurę składowaną opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image37.png))
 
@@ -278,7 +278,7 @@ Spowoduje to uruchomienie Kreatora konfiguracji zapytania TableAdapter najpierw 
 Następny ekran prosi nam identyfikują typ kwerenda do wykonania, czy będzie zwrócić zestaw wierszy lub pojedynczą wartość skalarną lub wykonać `UPDATE`, `INSERT`, lub `DELETE` instrukcji. Ponieważ `GetProductByProductID(productID)` metody będzie zwracać wiersz, pozostaw SELECT, która zwraca, opcja wiersza zaznaczone i kliknij Dalej.
 
 
-[![Wybierz polecenie SELECT, która zwraca wiersz — opcja](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)
+[![Cbierz SELECT, która zwraca wiersz opcji](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image39.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image38.png)
 
 **Rysunek 18**: Wybierz polecenie SELECT, która zwraca wiersz opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image40.png))
 
@@ -289,7 +289,7 @@ Na następnym ekranie są wyświetlane do TableAdapter s głównego zapytania, k
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample9.sql)]
 
 
-[![Zamień na nazwę procedury składowanej zapytania SELECT](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)
+[![RZamień Nazwa procedury składowanej przy użyciu zapytania wybierz](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image42.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image41.png)
 
 **Rysunek 19**: Zastąp nazwa procedury składowanej z `SELECT` zapytania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image43.png))
 
@@ -297,7 +297,7 @@ Na następnym ekranie są wyświetlane do TableAdapter s głównego zapytania, k
 Kolejne ekranu prosi o nazwę procedury przechowywanej, która zostanie utworzona. Wprowadź nazwę `Products_SelectByProductID` i kliknij przycisk Dalej.
 
 
-[![Nazwa nowego Products_SelectByProductID procedury składowanej](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
+[![NNazwa nowego Products_SelectByProductID procedury składowane](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image45.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image44.png)
 
 **Rysunek 20**: Nazwij nową procedurę przechowywaną `Products_SelectByProductID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image46.png))
 
@@ -305,7 +305,7 @@ Kolejne ekranu prosi o nazwę procedury przechowywanej, która zostanie utworzon
 Ostatnim krokiem Kreator pozwala zmienić metodę nazwy wygenerowane, jak również wskazać, czy ma być używany do wypełnienia DataTable wzorzec, wróć do wzorca DataTable i / lub. W przypadku tej metody należy pozostawić obie opcje zaznaczone, ale Zmień nazwę metody służące do `FillByProductID` i `GetProductByProductID`. Kliknij przycisk Dalej, aby wyświetlić podsumowanie kroków kreatora zostanie wykonywania, a następnie kliknij przycisk Zakończ, aby zakończyć pracę kreatora.
 
 
-[![Zmień nazwę metody s TableAdapter FillByProductID i GetProductByProductID](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image47.png)
+[![RZmień nazwę metody TableAdapter s FillByProductID i GetProductByProductID](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image48.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image47.png)
 
 **Rysunek 21**: Zmień nazwę metody s TableAdapter `FillByProductID` i `GetProductByProductID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image49.png))
 
@@ -335,7 +335,7 @@ W tym momencie utworzyliśmy DAL, korzystającą z procedur składowanych w celu
 Otwórz `NewSprocs.aspx` strony w `AdvancedDAL` folder i przeciągnij GridView z przybornika w projektancie, nadając mu nazwę `Products`. Z widoku GridView chce powiązać nowe kontrolki ObjectDataSource, o nazwie tagu inteligentnego s `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLLWithSprocs` klasy, jak pokazano na rysunku 22.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image50.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image51.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image50.png)
 
 **Rysunek 22**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image52.png))
 
@@ -345,7 +345,7 @@ Listy rozwijanej wybierz karcie ma dwie opcje `GetProducts` i `GetProductByProdu
 Po zakończeniu pracy Kreatora ObjectDataSource, Visual Studio spowoduje dodanie BoundFields i CheckBoxField GridView dla pól danych produktu. Włącz GridView s wbudowanego edytowania i usuwania funkcji, sprawdzając Włącz edytowanie i Włącz usuwanie opcji w tagu inteligentnego.
 
 
-[![Ta strona zawiera GridView za pomocą edytowania i usuwania włączona obsługa](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image53.png)
+[![TZawiera on strony GridView za pomocą edycji i usuwania włączona obsługa](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image54.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image53.png)
 
 **Ilustracja 23**: Ta strona zawiera GridView za pomocą edycji i usuwania włączona obsługa ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image55.png))
 
@@ -362,7 +362,7 @@ W tym momencie możemy można uporządkować dane widoku GridView przez dostosow
 Niezależnie od tego, czy należy podwyższyć poziom widoku GridView lub nie przetestowania strony s podstawowe funkcje w przeglądarce. Jak pokazano na rysunku 24, strona zawiera listę produktów w GridView zapewniająca — w wierszu edytowania i usuwania możliwości.
 
 
-[![Produkty można wyświetlać, edytować i usuwane z widoku GridView](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image56.png)
+[![TProduktów można Viewed edytowana i usunięte z widoku GridView](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image57.png)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image56.png)
 
 **Rysunek 24**: Produkty, które mogą być wyświetlane, edytowana i usunięte z kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/_static/image58.png))
 

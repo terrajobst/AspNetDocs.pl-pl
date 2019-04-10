@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/older-versions/self-host-a-web-api
-title: Hosta samodzielnego ASP.NET Web API 1 (C#) | Dokumentacja firmy Microsoft
+title: Hosta samodzielnego ASP.NET Web API 1 (C#) — ASP.NET 4.x
 author: MikeWasson
-description: ASP.NET Web API nie wymaga usług IIS. Interfejs API sieci web można hosta samodzielnego procesu hosta. W tym samouczku pokazano, jak hostować interfejs API sieci web wewnątrz applic konsoli...
+description: Samouczek przy użyciu kodu pokazuje, jak hostować interfejs API sieci web w aplikacji konsoli.
 ms.author: riande
 ms.date: 01/26/2012
+ms.custom: seoapril2019
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 63d192a6fa2aafef3770d5b0b97ec32e001b69db
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7c73bf4734f8ed8a1bf93595c0847f611ad9cc15
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070865"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409606"
 ---
-<a name="self-host-aspnet-web-api-1-c"></a>Hosta samodzielnego ASP.NET Web API 1 (C#)
-====================
+# <a name="self-host-aspnet-web-api-1-c"></a>Hosta samodzielnego ASP.NET Web API 1 (C#)
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-> ASP.NET Web API nie wymaga usług IIS. Interfejs API sieci web można hosta samodzielnego procesu hosta. W tym samouczku pokazano, jak hostować interfejs API sieci web w aplikacji konsoli.
+> W tym samouczku pokazano, jak hostować interfejs API sieci web w aplikacji konsoli. ASP.NET Web API nie wymaga usług IIS. Interfejs API sieci web można hosta samodzielnego procesu hosta. 
 > 
 > **Nowe aplikacje powinny używać OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web.** Zobacz [korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu Web API 2 platformy ASP.NET](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).
 > 

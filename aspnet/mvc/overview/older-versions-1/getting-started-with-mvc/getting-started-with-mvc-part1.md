@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: 2d9c1dd0dd3c9f892b42b0f29ac3361a7f2b638c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dcc2e703829cfa0b77575870feff451fd0738f56
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069797"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416496"
 ---
-<a name="intro-to-aspnet-mvc"></a>Wprowadzenie do wzorca ASP.NET MVC
-====================
+# <a name="intro-to-aspnet-mvc"></a>Wprowadzenie do wzorca ASP.NET MVC
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > > [!NOTE]
@@ -32,11 +32,11 @@ Upewnijmy się, w naszej pierwszej aplikacji sieci Web programu ASP.NET MVC przy
 
 Poniżej przedstawiono dwa zrzuty ekranu aplikacji, którą utworzysz. Będziesz mieć prostą tabelę filmów z różnych kolumn.
 
-[![Lista filmu — Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[![Movie lista — Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
 I należy utworzyć formularz, abyśmy mogli dodać do listy filmów.
 
-[![Utwórz film — Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[![CTwórz filmu — Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
 ## <a name="skills-youll-learn"></a>Umiejętności, których dowiesz się
 
@@ -61,7 +61,7 @@ Visual Web Developer jest środowiskiem IDE lub zintegrowanego środowiska dewel
 
 Można tworzyć aplikacje przy użyciu języka Visual Basic lub Visual C#. Teraz, wybierz pozycję Visual C# po lewej stronie a następnie wybierz "Aplikacja sieci Web ASP.NET MVC 2". Nazwij swój projekt "Filmy", a następnie kliknij przycisk OK.
 
-[![Nowy projekt](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[![NNowy projekt](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
 Po prawej stronie jest Eksploratora rozwiązań przedstawiający wszystkie pliki i foldery w aplikacji. Duże okno w środku jest umożliwiającym edytowanie kodu i spędzają większość czasu. Program Visual Studio ulegał szablonu domyślnego dla projektu platformy ASP.NET MVC, który został utworzony, więc teraz utworzono działającą aplikację bez żadnego działania! Jest to prosty tekst "Hello World! Projekt i jest dobrym miejscem do uruchomienia dla naszej aplikacji.
 
@@ -77,7 +77,7 @@ Jest zielona strzałka w prawo, który będzie kompilujesz program i uruchomić 
 
 Spowoduje to Visual Web Developer uruchomić serwer sieci web development i uruchomić aplikację sieci web (nie ma żadnych konfiguracji lub wymagane umożliwiające wykonanie tej czynności ręczne). Zostanie następnie uruchomi przeglądarkę i skonfiguruj ją, aby przejść do strony głównej aplikacji. Zwróć uwagę, poniżej, na pasku adresu przeglądarki jest wyświetlany komunikat "localhost", a nie podobny do example.com. Wynika to z localhost zawsze wskazuje na swoim komputerze lokalnym — działającego w takim przypadku aplikacji, którą właśnie utworzyliśmy.
 
-[![Strona główna](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
+[![Hpolecenie niektó strony](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
 
 Gotowych ten szablon domyślny zawiera dwie strony do odwiedzenia i strony logowania podstawowe. Możemy zmienić sposób działania tej aplikacji i Poznaj nieco platformy ASP.NET MVC w procesie. Zamknij przeglądarkę i umożliwia zmiany kodu.
 

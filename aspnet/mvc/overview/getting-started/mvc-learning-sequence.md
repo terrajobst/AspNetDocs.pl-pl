@@ -8,15 +8,15 @@ ms.date: 05/22/2015
 ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: 720e3999fe2c1872a50c82bad0711bbcadd176cd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e78ad67187b2da96ca3766e6914e396508aa180e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067394"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417549"
 ---
-<a name="mvc-recommended-tutorials-and-articles"></a>Zalecane samouczki i artykuły dotyczące wzorca MVC
-====================
+# <a name="mvc-recommended-tutorials-and-articles"></a>Zalecane samouczki i artykuły dotyczące wzorca MVC
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="pwd"></a>
@@ -39,7 +39,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Tworzenie aplikacji platformy ASP.NET MVC 5 za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowanie jednokrotne](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) w tym samouczku dowiesz się, jak utworzyć aplikację sieci web ASP.NET MVC 5, która pozwala użytkownikom na logowanie przy użyciu poświadczeń z zewnętrznego uwierzytelniania przy użyciu protokołu OAuth 2.0 Dostawca, takich jak Facebook, Twitter, LinkedIn, Microsoft lub Google.
 - [Tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, adres e-mail potwierdzenia i resetowaniem hasła](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) najpierw w serii tożsamości, zawiera kod [Wyślij ponownie link do potwierdzenia](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
 - [Aplikacja ASP.NET MVC 5 z wiadomości SMS i wiadomości e-mail uwierzytelniania dwuskładnikowego](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) drugiej serii tożsamości.
-- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych na platformie ASP.NET i w usłudze Azure App Service](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i w usłudze Azure App Service](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
 - [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` i plik cookie zabezpieczeń kod wymaga od użytkownika posiadania konta zatwierdzonych wiadomości e-mail przed ich zalogowaniem się, jak SignInManager sprawdza, czy wymaganie uwierzytelniania 2FA i nie tylko.
 - [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) zawiera szczegółowe informacje o tożsamości, nie można odnaleźć w [tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, adres e-mail potwierdzenia i resetowaniem hasła](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) takie jak umożliwić Użytkownicy zresetować zapomniane hasła.
 

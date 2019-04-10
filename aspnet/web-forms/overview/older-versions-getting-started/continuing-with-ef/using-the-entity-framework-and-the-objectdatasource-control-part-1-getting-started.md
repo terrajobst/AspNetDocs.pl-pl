@@ -8,15 +8,15 @@ ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 5eaeaa0aa474e1aed86954e6c10dd1703b938944
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c0f11019c7410b756d592066a7fe33b3e26fd383
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078290"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407201"
 ---
-<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Korzystanie z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie
-====================
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Korzystanie z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 > W tej serii samouczków jest oparta na Contoso University aplikacji sieci web, który jest tworzony przez [rozpoczęcie korzystania z programu Entity Framework 4.0](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) serii samouczków. Jeśli nie została ukończona wcześniej samouczki, jako punkt początkowy na potrzeby tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie serii samouczków.

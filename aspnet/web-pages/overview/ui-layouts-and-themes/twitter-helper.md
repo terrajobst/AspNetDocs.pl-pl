@@ -8,15 +8,15 @@ ms.date: 11/26/2018
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
-ms.openlocfilehash: fabe9f2b84d278a766dc8d8b7bfc00e1eb967127
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5dda267b146f11355dd94181ef2926e4a304a3ad
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076127"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59399011"
 ---
-<a name="twitter-helper-with-aspnet-web-pages"></a>Pomocnik usługi Twitter we wzorcu ASP.NET Web Pages
-====================
+# <a name="twitter-helper-with-aspnet-web-pages"></a>Pomocnik usługi Twitter we wzorcu ASP.NET Web Pages
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > [!IMPORTANT]

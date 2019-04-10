@@ -8,21 +8,21 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 93ee29ae125e9442ee755998768a8105dfb485c0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424303"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409723"
 ---
-<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
-====================
+# <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
+
 > Ten dokument zawiera omówienie wiele nowych funkcji dla platformy ASP.NET, które są uwzględnione w ramach platformy.NET Framework 4 i w programie Visual Studio 2010.
 > 
 > [Pobierz ten oficjalny dokument](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
 
 
-**Zawartość**
+**Spis treści**
 
 **[Core Services](#0.2__Toc253429238 "_Toc253429238")**  
 [Plik Web.config, Refaktoryzacja](#0.2__Toc253429239 "_Toc253429239")  
@@ -37,7 +37,7 @@ ms.locfileid: "58424303"
 [Monitorowanie wydajności dla poszczególnych aplikacji w procesie roboczym pojedynczego](#0.2__Toc253429248 "_Toc253429248")  
 [Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
-**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
+**[AJAX](#0.2__Toc253429250 "_Toc253429250")**  
 [Uwzględnione za pomocą MVC i formularzy sieci Web w technologii jQuery](#0.2__Toc253429251 "_Toc253429251")  
 [Obsługa sieci dostarczania zawartości](#0.2__Toc253429252 "_Toc253429252")  
 [Skrypty jawne ScriptManager](#0.2__Toc253429253 "_Toc253429253")
@@ -202,7 +202,7 @@ ASP.NET 4 umożliwia również konfigurowanie znaki, które są używane przez s
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Domyślnie <em>requestPathInvalidChars</em> atrybut definiuje osiem znaków jako nieprawidłowe. (W ciągu, która jest przypisana do <em>requestPathInvalidChars</em> domyślnie<em>,</em>mniej niż (&lt;), większe niż (&gt;) i handlowe "i" (&amp;) znaków zakodowane, ponieważ `Web.config` plik jest plikiem XML.) Można dostosować zestaw nieprawidłowych znaków, zgodnie z potrzebami.
+Domyślnie *requestPathInvalidChars* atrybut definiuje osiem znaków jako nieprawidłowe. (W ciągu, która jest przypisana do *requestPathInvalidChars* domyślnie mniej niż (&lt;), większe niż (&gt;), a handlowe "i" (&amp;) kodowania znaków, ponieważ `Web.config` pliku jest plikiem XML). Można dostosować zestaw nieprawidłowych znaków, zgodnie z potrzebami.
 
 > [!NOTE]
 > Należy pamiętać, platformy ASP.NET 4 zawsze odrzuca ścieżki adresu URL, zawierających znaki w zakresie ASCII od 0x00 do 0x1F, ponieważ te są nieprawidłowe znaki adresu URL, zgodnie z definicją w dokumencie RFC 2396 IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). W wersjach systemu Windows Server z systemem usług IIS 6 lub nowszego, sterownik http.sys protokołu urządzenia automatycznie odrzuca adresy URL z tych znaków.
@@ -443,15 +443,15 @@ ASP.NET określa możliwości przeglądarki, który użytkownik używa do przegl
 
 Na poniższej liście przedstawiono Nowa przeglądarka plików definicji:
 
-- *blackberry.browser*
-- *chrome.browser*
-- *Default.browser*
-- *firefox.browser*
-- *gateway.browser*
-- *generic.browser*
-- *ie.browser*
-- *iemobile.browser*
-- *iphone.browser*
+- *Blackberry.Browser*
+- *Chrome.Browser*
+- *Default.Browser*
+- *Firefox.Browser*
+- *Gateway.Browser*
+- *Generic.Browser*
+- *IE.Browser*
+- *iemobile.Browser*
+- *iPhone.Browser*
 - *opera.browser*
 - *safari.browser*
 
@@ -628,7 +628,7 @@ Po uruchomieniu strony, która zawiera tę kontrolkę, wartość "scott" jest wy
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-W tym przypadku zostanie użyta wartość searchterm parametru trasy dla @companyname parametru w <em>wybierz</em> instrukcji.
+W tym przypadku zostanie użyta wartość searchterm parametru trasy dla @companyname parametru w *wybierz* instrukcji.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 

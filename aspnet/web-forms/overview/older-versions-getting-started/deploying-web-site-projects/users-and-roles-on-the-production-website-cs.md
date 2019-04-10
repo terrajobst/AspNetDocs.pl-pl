@@ -8,15 +8,15 @@ ms.date: 06/09/2009
 ms.assetid: dbc54313-5d05-4285-98b3-726edea6d0c9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f08afe5f4ab379d1532f50267299892829c95dcc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 691de0a29ce4798d2f18a58141b833db9cddb2d5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073298"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396606"
 ---
-<a name="users-and-roles-on-the-production-website-c"></a>Użytkownicy i role w produkcyjnej witrynie internetowej (C#)
-====================
+# <a name="users-and-roles-on-the-production-website-c"></a>Użytkownicy i role w produkcyjnej witrynie internetowej (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_cs.pdf)

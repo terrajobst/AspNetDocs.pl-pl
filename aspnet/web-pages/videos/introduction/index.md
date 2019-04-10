@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: b8a43660-177f-4a00-bb51-be887364c607
 msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
-ms.openlocfilehash: f645e05deb334346ed7199b804387a29e9538165
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4e5ef19044a265f48d51586062fb7d2dc024b4c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796474"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413675"
 ---
-<a name="introduction-to-web-pages-videos"></a>Wprowadzenie do stron sieci Web filmów wideo
-====================
+# <a name="introduction-to-web-pages-videos"></a>Wprowadzenie do stron sieci Web filmów wideo
+
 > Które pliki wideo można wyświetlić w opanowaniu podstaw dotyczących stron sieci Web i programu WebMatrix.
 
 > [!NOTE] 

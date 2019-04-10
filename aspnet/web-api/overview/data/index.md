@@ -1,26 +1,27 @@
 ---
 uid: web-api/overview/data/index
-title: Praca z danymi w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Praca z danymi we wzorcu ASP.NET Web API — ASP.NET 4.x
 author: rick-anderson
-description: Jak program CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji w interfejsie API sieci Web.
+description: Jak program CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji w interfejsie API sieci Web dla ASP.NET 4.x.
 ms.author: riande
 ms.date: 10/23/2014
+ms.custom: seoapril2019
 ms.assetid: 995cbe38-7dbd-4c36-a5d0-a761944c7636
 msc.legacyurl: /web-api/overview/data
 msc.type: chapter
-ms.openlocfilehash: e926c82e84b7cac2ba69a8baa62d2719647523d2
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9c5ef1e85f0b5ca7ead67dfe28a3a43f3e5c464a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796482"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400038"
 ---
-<a name="working-with-data-in-aspnet-web-api"></a>Praca z danymi we wzorcu ASP.NET Web API
-====================
+# <a name="working-with-data-in-aspnet-web-api"></a>Praca z danymi we wzorcu ASP.NET Web API
+
 > Jak program CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji w interfejsie API sieci Web.
 
 
-- [Używanie interfejsu Web API 2 z programem Entity Framework 6](using-web-api-with-entity-framework/index.md)
+- [Używanie wzorca Web API 2 z programem Entity Framework 6](using-web-api-with-entity-framework/index.md)
 
     - [Tworzenie projektu](using-web-api-with-entity-framework/part-1.md)
     - [Dodawanie modeli i kontrolerów](using-web-api-with-entity-framework/part-2.md)

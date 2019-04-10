@@ -8,22 +8,22 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 7342b5f4a7e2327f3f3850941510a6e46ec30842
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077822"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59407110"
 ---
-<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
-====================
+# <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
+
 - [Omówienie](#overview)
 - [Uwagi dotyczące instalacji](#installation-notes)
-- [Wymagania dotyczące oprogramowania](#software-requirements)
+- [Wymagania programowe](#software-requirements)
 - [Dokumentacja](#documentation)
 - [Pomoc techniczna](#support)
 - [Uaktualnianie projektu ASP.NET MVC 2 do wzorca ASP.NET MVC 3 Tools Update](#upgrading)
-- [ASP.NET MVC 3 Tools Update (April 12, 2011)](#tu-changes)
+- [Program ASP.NET MVC 3 Tools Update (12 kwietnia 2011)](#tu-changes)
 
     - [Okno dialogowe "Dodaj kontroler" można teraz tworzenia szkieletu kontrolerów z kodem dostępu do widoków i danych](#tu-AddControllerDialog)
     - [Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" okno dialogowe](#tu-ImprovementsNewDialogBox)
@@ -32,7 +32,7 @@ ms.locfileid: "57077822"
     - [Szablony projektów obejmują teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet](#tu-EF)
     - [Szablony projektów zawierają biblioteki JavaScript jako wstępnie zainstalowanych pakietów NuGet](#tu-JavaScriptLibsNuget)
     - [Znane problemy](#tu-KI)
-- [ASP.NET MVC 3 RTM (January 13, 2011)](#MVC3RTM)
+- [Program ASP.NET MVC 3 RTM (13 stycznia 2011)](#MVC3RTM)
 
     - [Zmiana: Zaktualizowana wersja interfejs użytkownika jQuery w celu 1.8.7](#RTM-1)
     - [Zmiana: Zmieniono domyślny ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider](#RTM-2)
@@ -60,7 +60,7 @@ ms.locfileid: "57077822"
 - [ASP.NET MVC 3 Release Candidate (Nov 9, 2010)](#TOC_ASP_NET_3_RC)
 
     - [Nowe funkcje w wersji RC platformy ASP.NET MVC 3](#_Toc276711785)
-    - [NuGet Package Manager](#_Toc276711786)
+    - [Menedżer pakietów NuGet](#_Toc276711786)
     - [Ulepszone "Nowego projektu" okno dialogowe](#_Toc276711787)
     - [Bezsesyjne kontrolerów](#_Toc276711788)
     - [Nowe atrybuty weryfikacji](#_Toc276711789)
@@ -141,7 +141,7 @@ W samouczkach i innych informacji na temat platformy ASP.NET MVC są dostępne n
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>Obsługa
+## <a name="support"></a>Pomoc techniczna
 
 To jest w pełni obsługiwana wersja. Informacje dotyczące uzyskiwania pomocy technicznej znajduje się w temacie [witryny sieci Web Microsoft Support](https://support.microsoft.com/).
 
@@ -435,7 +435,7 @@ Gdy *Html.ValidationMessage* metoda wyświetla komunikat dotyczący sprawdzania 
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Naprawiono @model deklaracji, nie należy dodawać spacji do dokumentu
 
-We wcześniejszych wersjach <em>@model</em> deklaracji w górnej części widoku dodać pusty wiersz do wyniku renderowania kodu HTML. Ten problem został rozwiązany, tak, aby deklaracji nie wprowadza białe znaki.
+We wcześniejszych wersjach *@model* deklaracji w górnej części widoku dodać pusty wiersz do wyniku renderowania kodu HTML. Ten problem został rozwiązany, tak, aby deklaracji nie wprowadza białe znaki.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Dodano "FileExtensions" właściwość aparatów widoków do obsługi nazw plików specyficzne dla aparatu
@@ -462,7 +462,7 @@ We wcześniejszych wersjach, jawne wartości, które zostały przekazane do *Ren
 - W poprzednich wersjach platformy ASP.NET MVC filtry akcji zostały utworzone na żądanie z wyjątkiem sytuacji, w niektórych przypadkach. To zachowanie nigdy nie było gwarantowane działanie, ale jedynie szczegółowo opisuje implementacja i kontrakt dla filtrów było należy wziąć pod uwagę ich bezstanowe. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywne. W związku z tym wszelkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może nie działać.
 - Kolejność wykonywania filtrów wyjątek został zmieniony na filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtrów na kontrolerze, który miał takie same *kolejności* wartości, ponieważ osoby korzystające z metody akcji był wykonywany przed filtry wyjątków dla metody akcji. Zazwyczaj można tak, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 to zamówienie została wycofana, aby najpierw wykonana bardziej konkretny od pozostałych obsługi wyjątków. Tak jak w starszych wersjach Jeśli *kolejności* właściwość jest jawnie określona, filtry są uruchamiane w określonej kolejności.
 - Nową właściwość o nazwie *FileExtensions* została dodana do *VirtualPathProviderViewEngine* klasy bazowej. Gdy ASP.NET wyszukuje widoku przy użyciu ścieżki (a nie według nazwy), są traktowane jako widoki tylko z rozszerzeniem pliku zawarte w określonej przez tę właściwość nowej listy. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany, aby włączyć rozszerzenie pliku niestandardowe widoki formularzy sieci Web, a w przypadku, gdy dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotną zmianę w aplikacjach. Obejście polega na zmodyfikowanie wartości *FileExtensions* właściwość, aby dołączyć rozszerzenie niestandardowego pliku.
-- Niestandardowe kontrolera fabryki implementacji, które bezpośrednio zaimplementować <em>IControllerFactory</em> interfejs musi dostarczyć implementację nowej <em>GetControllerSessionBehavior</em>  <em>Metoda, która została dodana do interfejsu w tej wersji</em>. Ogólnie rzecz biorąc, zaleca się, możesz nie bezpośrednio zaimplementować niniejszy interfejs i pochodzi od klasy <em>DefaultControllerFactory</em>.
+- Niestandardowe kontrolera fabryki implementacji, które bezpośrednio zaimplementować *IControllerFactory* interfejs musi dostarczyć implementację nowej *GetControllerSessionBehavior* metody dodane do interfejsu w tej wersji. Ogólnie rzecz biorąc, zaleca się, możesz nie bezpośrednio zaimplementować niniejszy interfejs i pochodzi od klasy *DefaultControllerFactory*.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Znane problemy

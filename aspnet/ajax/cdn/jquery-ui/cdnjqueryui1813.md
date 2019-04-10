@@ -8,15 +8,15 @@ ms.date: 07/23/2014
 ms.assetid: f9ad2bf4-69eb-49f9-ac15-20b6bc9ba3e3
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1813
 msc.type: content
-ms.openlocfilehash: cb4355da2129b94a736b59060a9280db201208c3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: affca311f1fd8cce8310a4e0542fb5ee2971de90
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070157"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59417562"
 ---
-<a name="jquery-ui-1813-on-the-microsoft-ajax-cdn"></a>Zestaw jQuery UI 1.8.13 w usłudze Microsoft AJAX CDN
-====================
+# <a name="jquery-ui-1813-on-the-microsoft-ajax-cdn"></a>Zestaw jQuery UI 1.8.13 w usłudze Microsoft AJAX CDN
+
 Interfejs użytkownika jQuery 1.8.13 biblioteka zawiera następujące pliki:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/jquery-ui.js
@@ -43,7 +43,7 @@ Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/cupertino/jquery-ui.css
   
 
-* * *
+---
 
 
 **Ciemny gałęzi**  
@@ -59,30 +59,30 @@ Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/eggplant/jquery-ui.css
   
 
-* * *
+---
 
 
 **Excite-Bike**  
 [![Obraz](cdnjqueryui1813/_static/image7.png)](http://jqueryui.com/themeroller/#ffDefault=segoe+ui,+Arial,+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=3px&amp;bgColorHeader=f9f9f9&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=100&amp;borderColorHeader=cccccc&amp;fcHeader=e69700&amp;iconColorHeader=5fa5e3&amp;bgColorContent=eeeeee&amp;bgTextureContent=06_inset_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=aaaaaa&amp;fcContent=222222&amp;iconColorContent=0a82eb&amp;bgColorDefault=1484e6&amp;bgTextureDefault=08_diagonals_thick.png&amp;bgImgOpacityDefault=22&amp;borderColorDefault=ffffff&amp;fcDefault=ffffff&amp;iconColorDefault=fcdd4a&amp;bgColorHover=2293f7&amp;bgTextureHover=08_diagonals_thick.png&amp;bgImgOpacityHover=26&amp;borderColorHover=2293f7&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=e69700&amp;bgTextureActive=08_diagonals_thick.png&amp;bgImgOpacityActive=20&amp;borderColorActive=e69700&amp;fcActive=ffffff&amp;iconColorActive=ffffff&amp;bgColorHighlight=c5ddfc&amp;bgTextureHighlight=07_diagonals_small.png&amp;bgImgOpacityHighlight=25&amp;borderColorHighlight=ffffff&amp;fcHighlight=333333&amp;iconColorHighlight=0b54d5&amp;bgColorError=e69700&amp;bgTextureError=08_diagonals_thick.png&amp;bgImgOpacityError=20&amp;borderColorError=e69700&amp;fcError=ffffff&amp;iconColorError=ffffff&amp;bgColorOverlay=e6b900&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=30&amp;bgColorShadow=e69700&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=20&amp;thicknessShadow=0px&amp;offsetTopShadow=6px&amp;offsetLeftShadow=6px&amp;cornerRadiusShadow=3px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/excite-bike/jquery-ui.css
 
-**Flick**  
+**Szybkiego ruchu**  
 [![Obraz](cdnjqueryui1813/_static/image8.png)](http://jqueryui.com/themeroller/#ffDefault=Helvetica%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=2px&amp;bgColorHeader=dddddd&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=50&amp;borderColorHeader=dddddd&amp;fcHeader=444444&amp;iconColorHeader=0073ea&amp;bgColorContent=ffffff&amp;bgTextureContent=01_flat.png&amp;bgImgOpacityContent=75&amp;borderColorContent=dddddd&amp;fcContent=444444&amp;iconColorContent=ff0084&amp;bgColorDefault=f6f6f6&amp;bgTextureDefault=03_highlight_soft.png&amp;bgImgOpacityDefault=100&amp;borderColorDefault=dddddd&amp;fcDefault=0073ea&amp;iconColorDefault=666666&amp;bgColorHover=0073ea&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=25&amp;borderColorHover=0073ea&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=ffffff&amp;bgTextureActive=02_glass.png&amp;bgImgOpacityActive=65&amp;borderColorActive=dddddd&amp;fcActive=ff0084&amp;iconColorActive=454545&amp;bgColorHighlight=ffffff&amp;bgTextureHighlight=01_flat.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=cccccc&amp;fcHighlight=444444&amp;iconColorHighlight=0073ea&amp;bgColorError=ffffff&amp;bgTextureError=01_flat.png&amp;bgImgOpacityError=55&amp;borderColorError=ff0084&amp;fcError=222222&amp;iconColorError=ff0084&amp;bgColorOverlay=eeeeee&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=80&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=60&amp;thicknessShadow=4px&amp;offsetTopShadow=-4px&amp;offsetLeftShadow=-4px&amp;cornerRadiusShadow=0px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/flick/jquery-ui.css
 
-**Hot-Sneaks**  
+**Hot Sneaks**  
 [![Obraz](cdnjqueryui1813/_static/image9.png)](http://jqueryui.com/themeroller/#ffDefault=Gill+Sans,Arial,sans-serif&amp;fwDefault=bold&amp;fsDefault=1.2em&amp;cornerRadius=4px&amp;bgColorHeader=35414f&amp;bgTextureHeader=09_dots_small.png&amp;bgImgOpacityHeader=35&amp;borderColorHeader=2c4359&amp;fcHeader=e1e463&amp;iconColorHeader=e1e463&amp;bgColorContent=ffffff&amp;bgTextureContent=01_flat.png&amp;bgImgOpacityContent=75&amp;borderColorContent=aaaaaa&amp;fcContent=2c4359&amp;iconColorContent=c02669&amp;bgColorDefault=93c3cd&amp;bgTextureDefault=07_diagonals_small.png&amp;bgImgOpacityDefault=50&amp;borderColorDefault=93c3cd&amp;fcDefault=333333&amp;iconColorDefault=ffffff&amp;bgColorHover=ccd232&amp;bgTextureHover=07_diagonals_small.png&amp;bgImgOpacityHover=75&amp;borderColorHover=999999&amp;fcHover=212121&amp;iconColorHover=454545&amp;bgColorActive=db4865&amp;bgTextureActive=07_diagonals_small.png&amp;bgImgOpacityActive=40&amp;borderColorActive=ff6b7f&amp;fcActive=ffffff&amp;iconColorActive=ffffff&amp;bgColorHighlight=ffff38&amp;bgTextureHighlight=10_dots_medium.png&amp;bgImgOpacityHighlight=80&amp;borderColorHighlight=b4d100&amp;fcHighlight=363636&amp;iconColorHighlight=88a206&amp;bgColorError=ff3853&amp;bgTextureError=07_diagonals_small.png&amp;bgImgOpacityError=50&amp;borderColorError=ff6b7f&amp;fcError=ffffff&amp;iconColorError=ffeb33&amp;bgColorOverlay=f7f7ba&amp;bgTextureOverlay=11_white_lines.png&amp;bgImgOpacityOverlay=85&amp;opacityOverlay=80&amp;bgColorShadow=ba9217&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=75&amp;opacityShadow=20&amp;thicknessShadow=10px&amp;offsetTopShadow=8px&amp;offsetLeftShadow=8px&amp;cornerRadiusShadow=5px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/hot-sneaks/jquery-ui.css
   
 
-* * *
+---
 
 
-**Humanity**  
+**Ludzkości**  
 [![Obraz](cdnjqueryui1813/_static/image10.png)](http://jqueryui.com/themeroller/#tr=ffDefault=Helvetica,Arial,sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=cb842e&amp;bgTextureHeader=02_glass.png&amp;bgImgOpacityHeader=25&amp;borderColorHeader=d49768&amp;fcHeader=ffffff&amp;iconColorHeader=ffffff&amp;bgColorContent=f4f0ec&amp;bgTextureContent=05_inset_soft.png&amp;bgImgOpacityContent=100&amp;borderColorContent=e0cfc2&amp;fcContent=1e1b1d&amp;iconColorContent=c47a23&amp;bgColorDefault=ede4d4&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=70&amp;borderColorDefault=cdc3b7&amp;fcDefault=3f3731&amp;iconColorDefault=f08000&amp;bgColorHover=f5f0e5&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=100&amp;borderColorHover=f5ad66&amp;fcHover=a46313&amp;iconColorHover=f08000&amp;bgColorActive=f4f0ec&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=100&amp;borderColorActive=e0cfc2&amp;fcActive=b85700&amp;iconColorActive=f35f07&amp;bgColorHighlight=f5f5b5&amp;bgTextureHighlight=04_highlight_hard.png&amp;bgImgOpacityHighlight=75&amp;borderColorHighlight=d9bb73&amp;fcHighlight=060200&amp;iconColorHighlight=cb672b&amp;bgColorError=fee4bd&amp;bgTextureError=04_highlight_hard.png&amp;bgImgOpacityError=65&amp;borderColorError=f8893f&amp;fcError=592003&amp;iconColorError=ff7519&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=75&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=75&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/humanity/jquery-ui.css
 
-**Le-Frog**  
+**Le żab**  
 [![Obraz](cdnjqueryui1813/_static/image11.png)](http://jqueryui.com/themeroller/#ffDefault=Lucida+Grande%2C+Lucida+Sans%2C+Arial%2C+sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=10px&amp;bgColorHeader=3a8104&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=33&amp;borderColorHeader=3f7506&amp;fcHeader=ffffff&amp;iconColorHeader=ffffff&amp;bgColorContent=285c00&amp;bgTextureContent=05_inset_soft.png&amp;bgImgOpacityContent=10&amp;borderColorContent=72b42d&amp;fcContent=ffffff&amp;iconColorContent=72b42d&amp;bgColorDefault=4ca20b&amp;bgTextureDefault=03_highlight_soft.png&amp;bgImgOpacityDefault=60&amp;borderColorDefault=45930b&amp;fcDefault=ffffff&amp;iconColorDefault=ffffff&amp;bgColorHover=4eb305&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=50&amp;borderColorHover=8bd83b&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=285c00&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=30&amp;borderColorActive=72b42d&amp;fcActive=ffffff&amp;iconColorActive=ffffff&amp;bgColorHighlight=fbf5d0&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=f9dd34&amp;fcHighlight=363636&amp;iconColorHighlight=4eb305&amp;bgColorError=ffdc2e&amp;bgTextureError=08_diagonals_thick.png&amp;bgImgOpacityError=95&amp;borderColorError=fad000&amp;fcError=2b2b2b&amp;iconColorError=cd0a0a&amp;bgColorOverlay=444444&amp;bgTextureOverlay=08_diagonals_thick.png&amp;bgImgOpacityOverlay=15&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=07_diagonals_small.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=30&amp;thicknessShadow=0px&amp;offsetTopShadow=4px&amp;offsetLeftShadow=4px&amp;cornerRadiusShadow=4px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/le-frog/jquery-ui.css
 
@@ -91,14 +91,14 @@ Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/mint-choc/jquery-ui.css
   
 
-* * *
+---
 
 
 **Całkowite zachmurzenie**  
 [![Obraz](cdnjqueryui1813/_static/image13.png)](http://jqueryui.com/themeroller/#ffDefault=Trebuchet+MS%2C+Helvetica%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=dddddd&amp;bgTextureHeader=02_glass.png&amp;bgImgOpacityHeader=35&amp;borderColorHeader=bbbbbb&amp;fcHeader=444444&amp;iconColorHeader=999999&amp;bgColorContent=c9c9c9&amp;bgTextureContent=05_inset_soft.png&amp;bgImgOpacityContent=50&amp;borderColorContent=aaaaaa&amp;fcContent=333333&amp;iconColorContent=999999&amp;bgColorDefault=eeeeee&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=60&amp;borderColorDefault=cccccc&amp;fcDefault=3383bb&amp;iconColorDefault=70b2e1&amp;bgColorHover=f8f8f8&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=100&amp;borderColorHover=bbbbbb&amp;fcHover=599fcf&amp;iconColorHover=3383bb&amp;bgColorActive=999999&amp;bgTextureActive=06_inset_hard.png&amp;bgImgOpacityActive=75&amp;borderColorActive=999999&amp;fcActive=ffffff&amp;iconColorActive=454545&amp;bgColorHighlight=eeeeee&amp;bgTextureHighlight=01_flat.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=ffffff&amp;fcHighlight=444444&amp;iconColorHighlight=3383bb&amp;bgColorError=c0402a&amp;bgTextureError=01_flat.png&amp;bgImgOpacityError=55&amp;borderColorError=c0402a&amp;fcError=ffffff&amp;iconColorError=fbc856&amp;bgColorOverlay=eeeeee&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=80&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=60&amp;thicknessShadow=4px&amp;offsetTopShadow=-4px&amp;offsetLeftShadow=-4px&amp;cornerRadiusShadow=0pxdow%3D0px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/overcast/jquery-ui.css
 
-**Pepper-Grinder**  
+**Młynek chili**  
 [![Obraz](cdnjqueryui1813/_static/image14.png)](http://jqueryui.com/themeroller/#ffDefault=Trebuchet+MS%2C+Tahoma%2C+Verdana%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=ffffff&amp;bgTextureHeader=23_fine_grain.png&amp;bgImgOpacityHeader=15&amp;borderColorHeader=d4d1bf&amp;fcHeader=453821&amp;iconColorHeader=b83400&amp;bgColorContent=eceadf&amp;bgTextureContent=23_fine_grain.png&amp;bgImgOpacityContent=10&amp;borderColorContent=d9d6c4&amp;fcContent=1f1f1f&amp;iconColorContent=222222&amp;bgColorDefault=f8f7f6&amp;bgTextureDefault=23_fine_grain.png&amp;bgImgOpacityDefault=10&amp;borderColorDefault=cbc7bd&amp;fcDefault=654b24&amp;iconColorDefault=b83400&amp;bgColorHover=654b24&amp;bgTextureHover=23_fine_grain.png&amp;bgImgOpacityHover=65&amp;borderColorHover=654b24&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=eceadf&amp;bgTextureActive=23_fine_grain.png&amp;bgImgOpacityActive=15&amp;borderColorActive=d9d6c4&amp;fcActive=140f06&amp;iconColorActive=8c291d&amp;bgColorHighlight=f7f3de&amp;bgTextureHighlight=23_fine_grain.png&amp;bgImgOpacityHighlight=15&amp;borderColorHighlight=b2a266&amp;fcHighlight=3a3427&amp;iconColorHighlight=3572ac&amp;bgColorError=b83400&amp;bgTextureError=23_fine_grain.png&amp;bgImgOpacityError=68&amp;borderColorError=681818&amp;fcError=ffffff&amp;iconColorError=fbdb93&amp;bgColorOverlay=6e4f1c&amp;bgTextureOverlay=16_diagonal_maze.png&amp;bgImgOpacityOverlay=20&amp;opacityOverlay=60&amp;bgColorShadow=000000&amp;bgTextureShadow=16_diagonal_maze.png&amp;bgImgOpacityShadow=40&amp;opacityShadow=60&amp;thicknessShadow=5px&amp;offsetTopShadow=0&amp;offsetLeftShadow=-10px&amp;cornerRadiusShadow=18px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/pepper-grinder/jquery-ui.css
 
@@ -107,7 +107,7 @@ Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/redmond/jquery-ui.css
   
 
-* * *
+---
 
 
 **Wygładzania**  
@@ -118,19 +118,19 @@ Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci 
 [![Obraz](cdnjqueryui1813/_static/image17.png)](http://jqueryui.com/themeroller/#ffDefault=segoe+ui%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=ece8da&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=100&amp;borderColorHeader=d4ccb0&amp;fcHeader=433f38&amp;iconColorHeader=847e71&amp;bgColorContent=f5f3e5&amp;bgTextureContent=04_highlight_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=dfd9c3&amp;fcContent=312e25&amp;iconColorContent=808080&amp;bgColorDefault=459e00&amp;bgTextureDefault=04_highlight_hard.png&amp;bgImgOpacityDefault=15&amp;borderColorDefault=327E04&amp;fcDefault=ffffff&amp;iconColorDefault=eeeeee&amp;bgColorHover=67b021&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=25&amp;borderColorHover=327E04&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=fafaf4&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=100&amp;borderColorActive=d4ccb0&amp;fcActive=459e00&amp;iconColorActive=8DC262&amp;bgColorHighlight=fcf0ba&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=e8e1b5&amp;fcHighlight=363636&amp;iconColorHighlight=8DC262&amp;bgColorError=ffedad&amp;bgTextureError=03_highlight_soft.png&amp;bgImgOpacityError=95&amp;borderColorError=e3a345&amp;fcError=cd5c0a&amp;iconColorError=cd0a0a&amp;bgColorOverlay=2b2922&amp;bgTextureOverlay=05_inset_soft.png&amp;bgImgOpacityOverlay=15&amp;opacityOverlay=90&amp;bgColorShadow=cccccc&amp;bgTextureShadow=04_highlight_hard.png&amp;bgImgOpacityShadow=95&amp;opacityShadow=20&amp;thicknessShadow=12px&amp;offsetTopShadow=-12px&amp;offsetLeftShadow=-12px&amp;cornerRadiusShadow=10px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/south-street/jquery-ui.css
 
-**Start**  
+**Uruchamianie**  
 [![Obraz](cdnjqueryui1813/_static/image18.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana%2CArial%2Csans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=5px&amp;bgColorHeader=2191c0&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=75&amp;borderColorHeader=4297d7&amp;fcHeader=eaf5f7&amp;iconColorHeader=d8e7f3&amp;bgColorContent=fcfdfd&amp;bgTextureContent=06_inset_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=a6c9e2&amp;fcContent=222222&amp;iconColorContent=0078ae&amp;bgColorDefault=0078ae&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=45&amp;borderColorDefault=77d5f7&amp;fcDefault=ffffff&amp;iconColorDefault=e0fdff&amp;bgColorHover=79c9ec&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=75&amp;borderColorHover=448dae&amp;fcHover=026890&amp;iconColorHover=056b93&amp;bgColorActive=6eac2c&amp;bgTextureActive=12_gloss_wave.png&amp;bgImgOpacityActive=50&amp;borderColorActive=acdd4a&amp;fcActive=ffffff&amp;iconColorActive=f5e175&amp;bgColorHighlight=f8da4e&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=fcd113&amp;fcHighlight=915608&amp;iconColorHighlight=f7a50d&amp;bgColorError=e14f1c&amp;bgTextureError=12_gloss_wave.png&amp;bgImgOpacityError=45&amp;borderColorError=cd0a0a&amp;fcError=ffffff&amp;iconColorError=fcd113&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=75&amp;opacityOverlay=30&amp;bgColorShadow=999999&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=55&amp;opacityShadow=45&amp;thicknessShadow=0px&amp;offsetTopShadow=5px&amp;offsetLeftShadow=5px&amp;cornerRadiusShadow=5px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/start/jquery-ui.css
   
 
-* * *
+---
 
 
 **Słoneczna**  
 [![Obraz](cdnjqueryui1813/_static/image19.png)](http://jqueryui.com/themeroller/#ffDefault=Segoe+UI%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=8px&amp;bgColorHeader=817865&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=45&amp;borderColorHeader=494437&amp;fcHeader=ffffff&amp;iconColorHeader=fadc7a&amp;bgColorContent=feeebd&amp;bgTextureContent=03_highlight_soft.png&amp;bgImgOpacityContent=100&amp;borderColorContent=8e846b&amp;fcContent=383838&amp;iconColorContent=d19405&amp;bgColorDefault=fece2f&amp;bgTextureDefault=12_gloss_wave.png&amp;bgImgOpacityDefault=60&amp;borderColorDefault=d19405&amp;fcDefault=4c3000&amp;iconColorDefault=3d3d3d&amp;bgColorHover=ffdd57&amp;bgTextureHover=12_gloss_wave.png&amp;bgImgOpacityHover=70&amp;borderColorHover=a45b13&amp;fcHover=381f00&amp;iconColorHover=bd7b00&amp;bgColorActive=ffffff&amp;bgTextureActive=05_inset_soft.png&amp;bgImgOpacityActive=30&amp;borderColorActive=655e4e&amp;fcActive=0074c7&amp;iconColorActive=eb990f&amp;bgColorHighlight=fff9e5&amp;bgTextureHighlight=12_gloss_wave.png&amp;bgImgOpacityHighlight=90&amp;borderColorHighlight=eeb420&amp;fcHighlight=1f1f1f&amp;iconColorHighlight=ed9f26&amp;bgColorError=d34d17&amp;bgTextureError=07_diagonals_medium.png&amp;bgImgOpacityError=20&amp;borderColorError=ffb73d&amp;fcError=ffffff&amp;iconColorError=ffe180&amp;bgColorOverlay=5c5c5c&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=50&amp;opacityOverlay=80&amp;bgColorShadow=cccccc&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=30&amp;opacityShadow=60&amp;thicknessShadow=7px&amp;offsetTopShadow=-7px&amp;offsetLeftShadow=-7px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/sunny/jquery-ui.css
 
-**Swanky-Purse**  
+**Swanky portfelu**  
 [![Obraz](cdnjqueryui1813/_static/image20.png)](http://jqueryui.com/themeroller/#ffDefault=Georgia%2C+Verdana%2CArial%2Csans-serif&amp;fwDefault=bold&amp;fsDefault=1.2em&amp;cornerRadius=5px&amp;bgColorHeader=261803&amp;bgTextureHeader=13_diamond.png&amp;bgImgOpacityHeader=8&amp;borderColorHeader=baaa5a&amp;fcHeader=eacd86&amp;iconColorHeader=e9cd86&amp;bgColorContent=443113&amp;bgTextureContent=13_diamond.png&amp;bgImgOpacityContent=8&amp;borderColorContent=efec9f&amp;fcContent=efec9f&amp;iconColorContent=efec9f&amp;bgColorDefault=4f4221&amp;bgTextureDefault=13_diamond.png&amp;bgImgOpacityDefault=10&amp;borderColorDefault=362917&amp;fcDefault=f8eec9&amp;iconColorDefault=e8e2b5&amp;bgColorHover=675423&amp;bgTextureHover=13_diamond.png&amp;bgImgOpacityHover=25&amp;borderColorHover=362917&amp;fcHover=f8eec9&amp;iconColorHover=f2ec64&amp;bgColorActive=443113&amp;bgTextureActive=13_diamond.png&amp;bgImgOpacityActive=8&amp;borderColorActive=efec9f&amp;fcActive=f9f2bd&amp;iconColorActive=f9f2bd&amp;bgColorHighlight=d5ac5d&amp;bgTextureHighlight=13_diamond.png&amp;bgImgOpacityHighlight=25&amp;borderColorHighlight=362917&amp;fcHighlight=060200&amp;iconColorHighlight=070603&amp;bgColorError=fee4bd&amp;bgTextureError=04_highlight_hard.png&amp;bgImgOpacityError=65&amp;borderColorError=c26629&amp;fcError=803f1e&amp;iconColorError=ff7519&amp;bgColorOverlay=372806&amp;bgTextureOverlay=13_diamond.png&amp;bgImgOpacityOverlay=20&amp;opacityOverlay=80&amp;bgColorShadow=ddd4b0&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=75&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=12px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/swanky-purse/jquery-ui.css
 
@@ -139,7 +139,7 @@ Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.13/themes/trontastic/jquery-ui.css
   
 
-* * *
+---
 
 
 **UI-Darkness**  

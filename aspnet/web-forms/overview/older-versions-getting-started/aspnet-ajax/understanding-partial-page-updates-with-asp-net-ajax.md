@@ -8,15 +8,15 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 4883046aa16d5e67b7f0c92e15c897ef1a933b67
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d2d7982a4e0175824ffede965dc8206219485df2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073340"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396476"
 ---
-<a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX
-====================
+# <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX
+
 przez [Scott Cate](https://github.com/scottcate)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)

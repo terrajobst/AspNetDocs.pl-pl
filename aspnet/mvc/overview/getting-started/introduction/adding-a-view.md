@@ -5,15 +5,15 @@ description: Dodawanie widoku do aplikacji MVC
 ms.author: riande
 ms.date: 01/23/2019
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: afa7584529566ebe82a0eb3849de89bd0df064bd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 42469611f94b374d6692a1c2017aced77a0a414c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073952"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59403860"
 ---
-<a name="adding-a-view"></a>Dodawanie widoku
-====================
+# <a name="adding-a-view"></a>Dodawanie widoku
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]

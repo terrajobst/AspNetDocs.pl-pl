@@ -8,15 +8,15 @@ ms.date: 03/02/2009
 ms.assetid: 204b7e86-f560-4611-8adb-785b33e777b9
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9c14ceff17d15b1a8460bad41429b82cb9504a24
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 180b34e45ae97c64c82906c93aa647c4924d8539
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069167"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398114"
 ---
-<a name="creating-a-controller-vb"></a>Tworzenie kontrolera (VB)
-====================
+# <a name="creating-a-controller-vb"></a>Tworzenie kontrolera (VB)
+
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > W tym samouczku Walther Autor: Stephen pokazuje, jak dodać kontrolera do aplikacji ASP.NET MVC.
@@ -29,12 +29,12 @@ Celem tego samouczka jest wyjaśniają, jak utworzyć nowe platformy ASP.NET MVC
 Najprostszym sposobem utworzenia nowego kontrolera jest kliknij prawym przyciskiem myszy folder kontrolerów, w oknie Eksploratora rozwiązań w usłudze Visual Studio i wybierz **Dodaj, kontroler** opcji menu (patrz rysunek 1). Wybranie tej opcji menu otwiera **Dodaj kontroler** okna dialogowego (patrz rysunek 2).
 
 
-[![Okno dialogowe Nowy projekt](creating-a-controller-vb/_static/image1.jpg)](creating-a-controller-vb/_static/image1.png)
+[![Tokno dialogowe Nowy projekt HE](creating-a-controller-vb/_static/image1.jpg)](creating-a-controller-vb/_static/image1.png)
 
 **Rysunek 01**: Dodawanie nowego kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-controller-vb/_static/image2.png))
 
 
-[![Okno dialogowe Nowy projekt](creating-a-controller-vb/_static/image2.jpg)](creating-a-controller-vb/_static/image3.png)
+[![Tokno dialogowe Nowy projekt HE](creating-a-controller-vb/_static/image2.jpg)](creating-a-controller-vb/_static/image3.png)
 
 **Rysunek 02**: Okno dialogowe Dodawanie kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-controller-vb/_static/image4.png))
 
@@ -56,7 +56,7 @@ Należy zawsze tworzyć kontrolerów w folderze kontrolerów. W przeciwnym razie
 Podczas tworzenia kontrolera, masz możliwość automatycznego wygenerowania metod akcji tworzenia, aktualizowania lub szczegóły (zobacz rysunek 3). Jeśli wybierzesz tę opcję, generowany jest klasy kontrolera w ofercie 2.
 
 
-[![Automatyczne tworzenie metod akcji](creating-a-controller-vb/_static/image3.jpg)](creating-a-controller-vb/_static/image5.png)
+[![Cmetody akcji worzenie automatycznie](creating-a-controller-vb/_static/image3.jpg)](creating-a-controller-vb/_static/image5.png)
 
 **Rysunek 03**: Automatyczne tworzenie metod akcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-controller-vb/_static/image6.png))
 
@@ -76,7 +76,7 @@ Kontroler ASP.NET MVC jest po prostu klasą. Jeśli wolisz, możesz zignorować 
 3. Zmodyfikuj plik wynikowy klasy, tak, aby klasa dziedziczy z klasy bazowej System.Web.Mvc.Controller (patrz lista 3).
 
 
-[![Tworzenie nowej klasy](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
+[![Cworzenie nową klasę](creating-a-controller-vb/_static/image4.jpg)](creating-a-controller-vb/_static/image7.png)
 
 **Rysunek 04**: Tworzenie nowej klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-controller-vb/_static/image8.png))
 

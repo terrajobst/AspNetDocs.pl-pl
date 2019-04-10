@@ -8,15 +8,15 @@ ms.date: 11/01/2010
 ms.assetid: 658b149b-d770-46bf-8b4b-4e47cca242f3
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: f60ca3e76fda8a18da1ad83e955e5e4759f5e3af
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 91c96cc413e63ad2fc160ffbb473c4f3e1ada3e4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074600"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401065"
 ---
-<a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Tworzenie aplikacji MVC 3 ze składnią Razor i dyskretnym kodem JavaScript
-====================
+# <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Tworzenie aplikacji MVC 3 ze składnią Razor i dyskretnym kodem JavaScript
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Przykładową aplikację sieci web listy użytkowników pokazuje, jak łatwo jest tworzyć aplikacje platformy ASP.NET MVC 3, za pomocą aparatu widoku Razor. Przykładowa aplikacja pokazuje, jak używać nowego aparatu widoku Razor z platformą ASP.NET MVC w wersji 3 i Visual Studio 2010 w celu utworzenia fikcyjnej listy użytkowników witryny sieci Web, która zawiera funkcje, takie jak tworzenie, wyświetlanie, edytowanie i usuwanie użytkowników.
@@ -36,7 +36,7 @@ Można ściągnąć projekt ukończone VB i C# [tutaj](https://code.msdn.microso
 
 Aby uruchomić tego samouczka, Otwórz program Visual Studio 2010, a następnie utwórz nowy projekt za pomocą *aplikacji sieci Web programu ASP.NET MVC 3* szablonu. Nazwij aplikację &quot;Mvc3Razor&quot;.
 
-[![Nowy projekt MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
+[![Nfolder projektu MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
 
 W **nowego projektu programu ASP.NET MVC 3** okno dialogowe, wybierz opcję **aplikacji internetowej**wybierz aparatu widoku Razor, a następnie kliknij przycisk **OK**.
 

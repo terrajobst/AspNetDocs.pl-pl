@@ -8,22 +8,22 @@ ms.date: 09/09/2011
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: a4f78061850ef5ad8c3381daafdb5ea6bca4cb2f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0f9b4e2ba0514df4c017a192f3c2136a7eec60c7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074942"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59413259"
 ---
-<a name="aspnet-mvc-4"></a>ASP.NET MVC 4
-====================
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+
 > Ten dokument opisuje wersję platformy ASP.NET MVC 4.
 
 
 - [Uwagi dotyczące instalacji](#_Toc303253802)
 - [Dokumentacja](#_Toc303253803)
 - [Pomoc techniczna](#_Toc303253804)
-- [Wymagania dotyczące oprogramowania](#_Toc303253805)
+- [Wymagania programowe](#_Toc303253805)
 - [Nowe funkcje we wzorcu ASP.NET MVC 4](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
@@ -32,14 +32,14 @@ ms.locfileid: "57074942"
     - [Tryby wyświetlania](#_Toc303253810)
     - [jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki](#_Toc303253811)
     - [Zadanie obsługi asynchronicznego kontrolerów](#_Toc303253813)
-    - [Zestaw Azure SDK](#_Toc303253814)
+    - [Azure SDK](#_Toc303253814)
     - [Migracje baz danych](#_Toc303253818)
     - [Szablonu pusty projekt](#_Toc303253819)
     - [Dodawanie kontrolera do dowolnego folderu projektu](#_Toc303253820)
     - [Tworzenie pakietów i minifikacja](#_Toc303253821)
     - [Włączanie logowania do usług Facebook i innych lokacji za pomocą protokołu OAuth i OpenID](#_Toc303253822)
 - [Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4](#_Toc303253806)
-- [Zmiany w porównaniu z platformy ASP.NET MVC 4 w wersji Release Candidate](#_Toc303253817)
+- [Changes from ASP.NET MVC 4 Release Candidate](#_Toc303253817)
 - [Znane problemy i fundamentalne zmiany](#_Toc303253815)
 
 <a id="_Toc303253802"></a>
@@ -63,7 +63,7 @@ Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie MSDN pod adrese
 W samouczkach i innych informacji na temat platformy ASP.NET MVC są dostępne na stronie witryny sieci Web platformy ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
 <a id="_Toc303253804"></a>
-## <a name="support"></a>Obsługa
+## <a name="support"></a>Pomoc techniczna
 
 ASP.NET MVC 4 jest w pełni obsługiwany. Jeśli masz pytania na temat pracy z tej wersji można również ogłaszać je na forum platformy ASP.NET MVC ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), gdzie są często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET.
 

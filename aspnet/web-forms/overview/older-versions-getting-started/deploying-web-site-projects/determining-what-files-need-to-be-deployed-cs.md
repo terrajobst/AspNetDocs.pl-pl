@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: f8d78a88-cc91-40d8-bce3-3d7954f6033b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ad759cefc372f6276ce1b16beea7282d9685ef82
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c17e3afaf4406489a14d0537a33fef384d6c5a19
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067589"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408969"
 ---
-<a name="determining-what-files-need-to-be-deployed-c"></a>Określanie, które pliki muszą zostać wdrożone (C#)
-====================
+# <a name="determining-what-files-need-to-be-deployed-c"></a>Określanie, które pliki muszą zostać wdrożone (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_cs.pdf)
@@ -34,7 +34,7 @@ Ogólnie rzecz biorąc wszystkie pliki obsługi po stronie klienta mają zostać
 
 Strony ASP.NET web pages są podzielone na deklaratywne znaczników i kod źródłowy. Część oznaczeniu deklaracyjnym obejmuje HTML, sieci Web, formanty i składnia wiązania danych; fragment kodu zawiera procedury obsługi zdarzeń zapisaną w kodzie języka Visual Basic lub C#. Fragmenty kodu znaczników i kodu zwykle są podzielone na różne pliki: `WebPage.aspx` zawiera oznaczeniu deklaracyjnym podczas `WebPage.aspx.cs` przechowuje kod.
 
-Należy wziąć pod uwagę strony ASP.NET o nazwie Clock.aspx, który zawiera formant etykiety, którego tekst jest właściwością bieżącą datę i godzinę, o których załadowanie strony. Część oznaczeniu deklaracyjnym (w `Clock.aspx`) zawierałoby kod znaczników dla formantu sieci Web etykiety —`<asp:Label runat="server" id="TimeLabel" />` — podczas fragment kodu (w `Clock.aspx.cs`) będzie zawierał `Page_Load` obsługę zdarzeń z następującym kodem:
+Należy wziąć pod uwagę strony ASP.NET o nazwie Clock.aspx, który zawiera formant etykiety, którego tekst jest właściwością bieżącą datę i godzinę, o których załadowanie strony. Część oznaczeniu deklaracyjnym (w `Clock.aspx`) zawierałoby kod znaczników dla formantu sieci Web etykiety —`<asp:Label runat="server" id="TimeLabel" />` — podczas fragment kodu (w `Clock.aspx.cs`) będzie zawierał `Page_Load` programu obsługi zdarzeń z następującym kodem:
 
 [!code-csharp[Main](determining-what-files-need-to-be-deployed-cs/samples/sample1.cs)]
 
@@ -93,7 +93,7 @@ Pobierania w tym samouczku obejmuje aplikacji programu ASP.NET o nazwie przeglą
 Rysunek 1 pokazuje zrzut ekranu, przeglądy książki witryny sieci Web podczas wyświetlania za pośrednictwem przeglądarki. W tym miejscu zostanie wyświetlona strona ~ /`Tech/TYASP35.aspx`, który przegląda książki *uczyć się ASP.NET 3.5 w ciągu 24 godzin*. Nawigacji, która obejmuje górnej części strony i w menu w lewej kolumnie są oparte na struktura mapy witryny, które są zdefiniowane w `Web.sitemap`. Obraz w prawym górnym rogu jest jednym z okładki książki obrazów znajdujących się w `Images` folderu. Witryny sieci Web wygląd i działanie są definiowane za pomocą kaskadowych reguły arkusza stylów, wskazane przez pliki CSS w folderze style, chociaż nadrzędna układ strony jest zdefiniowana na stronie głównej `Site.master`.
 
 
-[![Witryny sieci Web przeglądy książki oferuje recenzje pewną liczbę tytułów](determining-what-files-need-to-be-deployed-cs/_static/image2.png)](determining-what-files-need-to-be-deployed-cs/_static/image1.png)
+[![TPrzeglądy książki witryny sieci Web, oferuje recenzje pewną liczbę tytułów](determining-what-files-need-to-be-deployed-cs/_static/image2.png)](determining-what-files-need-to-be-deployed-cs/_static/image1.png)
 
 **Rysunek 1:** Witryny sieci Web przeglądy książki oferuje recenzje gamę tytuły ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](determining-what-files-need-to-be-deployed-cs/_static/image3.png))
 
@@ -116,7 +116,7 @@ Model projektu aplikacji sieci Web używa kompilację typu explicit — kodu źr
 Na rysunku 2 przedstawiono pliki, które tworzą projektu aplikacji sieci Web przeglądy książki.
 
 
-[![Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web](determining-what-files-need-to-be-deployed-cs/_static/image5.png)](determining-what-files-need-to-be-deployed-cs/_static/image4.png)
+[![Tzawiera on Eksploratora rozwiązań listę plików, wchodzące w skład projektu aplikacji sieci Web](determining-what-files-need-to-be-deployed-cs/_static/image5.png)](determining-what-files-need-to-be-deployed-cs/_static/image4.png)
 
 **Rysunek 2**: Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web
 
@@ -143,7 +143,7 @@ Opcja menu kompilacji w programie Visual Studio jest obecny w projektach aplikac
 Rysunek 3 przedstawia pliki, które składają się projekt witryny sieci Web przeglądy książki.
 
 
- [![Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web](determining-what-files-need-to-be-deployed-cs/_static/image7.png)](determining-what-files-need-to-be-deployed-cs/_static/image6.png) 
+ [![Tzawiera on Eksploratora rozwiązań listę plików, wchodzące w skład projektu witryny sieci Web](determining-what-files-need-to-be-deployed-cs/_static/image7.png)](determining-what-files-need-to-be-deployed-cs/_static/image6.png) 
 
 **Rysunek 3**: Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web
 

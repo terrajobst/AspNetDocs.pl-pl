@@ -8,15 +8,15 @@ ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6a684e01b67c2ea139a50b568098d2dcf594272
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 23741d7974713102e6ccb46ced5d62ec202505e8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068213"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400857"
 ---
-<a name="creating-custom-html-helpers-c"></a>Tworzenie niestandardowych pomocników HTML (C#)
-====================
+# <a name="creating-custom-html-helpers-c"></a>Tworzenie niestandardowych pomocników HTML (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
@@ -49,7 +49,7 @@ Platforma ASP.NET MVC zawiera następujący zestaw standardowych pomocników HTM
 Rozważmy na przykład formularz w ofercie 1. Ta forma jest renderowany przy pomocy dwóch standardowa pomocników HTML (patrz rysunek 1). Ten formularz używa `Html.BeginForm()` i `Html.TextBox()` metody pomocnika do renderowania prostego formularza HTML.
 
 
-[![Strony renderowane przy użyciu pomocników HTML](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
+[![Pwiek, renderowane przy użyciu pomocników HTML](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
 **Rysunek 01**: Strony renderowane przy użyciu pomocników HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-cs/_static/image3.png))
 
@@ -104,7 +104,7 @@ Po drugie, zwróć uwagę, że pierwszy parametr `Label()` metody jest poprzedzo
 Po utworzeniu metodę rozszerzenia, a następnie skompilować aplikację pomyślnym, metoda rozszerzenia pojawia się w Visual Studio technologii Intellisense, podobnie jak wszystkie inne metody klasy (patrz rysunek 2). Jedyną różnicą jest to rozszerzenie, które metody są wyświetlane z symbolem specjalne obok nich (ikona strzałki w dół).
 
 
-[![Przy użyciu metody rozszerzenia Html.Label()](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
+[![USING — metoda rozszerzenia Html.Label()](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
 **Rysunek 02**: Przy użyciu metody rozszerzenia Html.Label() ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-cs/_static/image6.png))
 

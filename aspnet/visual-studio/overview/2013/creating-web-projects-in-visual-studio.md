@@ -8,15 +8,15 @@ ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 3d96d796d22c3511fedc45c024274300143b119b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a62c821159cd097507019d5efb29e01958ec9fba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069053"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59398107"
 ---
-<a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów internetowych ASP.NET w programie Visual Studio 2013
-====================
+# <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów internetowych ASP.NET w programie Visual Studio 2013
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 > W tym temacie opisano opcje tworzenia projektów sieci web platformy ASP.NET w programie Visual Studio 2013 z aktualizacją Update 3
@@ -81,7 +81,7 @@ Visual Studio zawiera funkcje, które ułatwiają pracę z usługami platformy A
 - Tworzenie i zarządzanie nimi, aplikacje sieci web lub maszyn wirtualnych, które aplikacji dostępne za pośrednictwem Internetu.
 - Wyświetl dzienniki utworzone przez aplikację podczas jej działania w chmurze.
 - Zdalnie korzystać z trybu debugowania podczas działania aplikacji w chmurze.
-- Viiew i zarządzać innymi usługami platformy Azure, takich jak bazy danych SQL.
+- Wyświetlanie i Zarządzanie innymi usługami platformy Azure, takich jak bazy danych SQL.
 
 Możesz [utworzyć konto platformy Azure](https://www.windowsazure.com/pricing/free-trial/) za darmo zawierającej podstawowych usług, takich jak aplikacje sieci web, a jeśli jesteś subskrybentem MSDN możesz [aktywować korzyści](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) które podają miesięczne środki na korzystanie z usług Azure dodatkowe usługi. 
 

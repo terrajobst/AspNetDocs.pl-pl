@@ -8,15 +8,15 @@ ms.date: 08/01/2007
 ms.assetid: 8e8fd5a9-0e98-415a-93f5-9ad7524ae9bb
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-automate-testing-using-team-build
 msc.type: video
-ms.openlocfilehash: 95a02d8eaaeaa06b2323eaecc03fda58c2acb397
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9692a2a981d8521fa2e4f9344d2bcdfbf2e97ffd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074333"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59416548"
 ---
-<a name="how-do-i-automate-testing-using-team-build"></a>[Jak mogę] Automatyzacja testowania za pomocą Team Build?
-====================
+# <a name="how-do-i-automate-testing-using-team-build"></a>[Jak mogę] Automatyzacja testowania za pomocą Team Build?
+
 przez [Chris Menegay](https://twitter.com/CMenegay)
 
 W tym filmie pokazano dowie się, jak zdefiniować zautomatyzowane testy, które będą uruchamiane podczas kompilacji zespołowej za pomocą programu Visual Studio Team System i jak możemy przejść do szczegółów wyniki tych testów. Możemy również dowiedzieć się, że [zadania kompilacji narzędzia Test](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt) zapewnia alternatywny sposób określania testy do uruchomienia podczas kompilacji zespołowej.

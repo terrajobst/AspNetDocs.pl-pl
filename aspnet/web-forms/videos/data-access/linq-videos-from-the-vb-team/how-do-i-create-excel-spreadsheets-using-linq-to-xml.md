@@ -8,15 +8,15 @@ ms.date: 11/15/2007
 ms.assetid: 147e51e3-3488-4e48-a06c-059c2cebd728
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-create-excel-spreadsheets-using-linq-to-xml
 msc.type: video
-ms.openlocfilehash: 45b63e2b0b5885b1a1ad04f9f8bea7ecade99ad4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1483030faf631099b8c044d1fbbdd000128f4fce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078101"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59414195"
 ---
-<a name="how-do-i-create-excel-spreadsheets-using-linq-to-xml"></a>[Jak mogę] Tworzenie za pomocą LINQ to XML arkusze kalkulacyjne programu Excel?
-====================
+# <a name="how-do-i-create-excel-spreadsheets-using-linq-to-xml"></a>[Jak mogę] Tworzenie za pomocą LINQ to XML arkusze kalkulacyjne programu Excel?
+
 przez [Beth Massi](https://github.com/bethmassi)
 
 Deweloperzy języka Visual Basic będą Dowiedz się, jak zapytania ich bazy danych programu SQL Server, aby można było łatwo tworzyć arkusze kalkulacyjne programu Excel bezpośrednio w Edytorze Visual Basic, za pomocą LINQ to XML.

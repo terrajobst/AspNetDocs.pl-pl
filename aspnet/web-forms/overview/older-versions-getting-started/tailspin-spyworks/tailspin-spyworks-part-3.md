@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: f55b29a271dbdb72d3e2249ed74517b77d78cf5e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: badae58d5b43fb2674f4918f54f999ff48d0b5b0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069074"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59418017"
 ---
-<a name="part-3-layout-and-category-menu"></a>Część 3. Układ i menu kategorii
-====================
+# <a name="part-3-layout-and-category-menu"></a>Część 3. Układ i menu kategorii
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
@@ -66,7 +66,7 @@ Należy pamiętać, instrukcji "Eval": &lt;% # Eval("CategoryName") %&gt;
 
 Składnia ASP.NET &lt;% # %&gt; jest Konwencja skrót, który powoduje, że środowisko uruchomieniowe do wykonania, niezależnie od rodzaju znajduje się w obrębie i zapisuje wyniki "w wierszu".
 
-Instrukcja Eval("CategoryName") powoduje, że, bieżącego wpisu w powiązanej kolekcji elementów danych, pobrać wartości nazw elementów modelu Entity "CatagoryName". Jest to zwarta składnia bardzo zaawansowaną funkcją.
+Instrukcja Eval("CategoryName") powoduje, że, bieżącego wpisu w powiązanej kolekcji elementów danych, pobrać wartości nazw elementów modelu Entity "CategoryName". Jest to zwarta składnia bardzo zaawansowaną funkcją.
 
 Uruchomimy aplikację teraz.
 

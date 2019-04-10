@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 45d74249a34fc7e37e9776a398615d2f613a7582
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 242665b3ba2e2ad2157abbe2c44ae207f15e72ce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068135"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410867"
 ---
-<a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Włączanie obsługi operacji CRUD (tworzenia, odczytu, aktualizacji i usuwania) w formularzach danych
-====================
+# <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Włączanie obsługi operacji CRUD (tworzenia, odczytu, aktualizacji i usuwania) w formularzach danych
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -41,7 +41,7 @@ Dodaliśmy wcześniej metod akcji do DinnersController, które zaimplementować 
 | */Dinners/* | GET | Wyświetlona lista nadchodzących kolacji HTML. |
 | */Dinners/szczegóły / [id]* | GET | Wyświetl szczegółowe informacje o określonych obiad. |
 
-Teraz dodamy metody akcji w celu zaimplementowania trzy dodatkowe adresy URL: <em>/Dinners/Edit / [identyfikator], / kolacji/tworzenie,</em>i<em>/Dinners/Delete / [id]</em>. Te adresy URL umożliwi obsługę kolacji edycji istniejących, tworzenie nowych kolacji i usuwanie kolacji.
+Teraz dodamy metody akcji w celu zaimplementowania trzy dodatkowe adresy URL: */Dinners/Edit / [id]*, */kolacji/tworzenie*, i */Dinners/Delete / [id]*. Te adresy URL umożliwi obsługę kolacji edycji istniejących, tworzenie nowych kolacji i usuwanie kolacji.
 
 Firma Microsoft będzie obsługiwać interakcje czasownik HTTP GET i POST protokołu HTTP te nowe adresy URL. Żądania HTTP GET do tych adresów URL będą wyświetlane początkowa widoku HTML w danych (formularza wypełniony danymi obiad "Edytuj" w przypadku pustego formularza w przypadku "Utwórz" i ekran potwierdzenia usunięcia przypadku "delete"). Żądania HTTP POST do tych adresów URL będzie save/aktualizowanie/usuwanie danych firmy Dinner w naszym DinnerRepository (i z tego miejsca w bazie danych).
 
@@ -49,7 +49,7 @@ Firma Microsoft będzie obsługiwać interakcje czasownik HTTP GET i POST protok
 | --- | --- | --- |
 | */Dinners/edit / [id]* | GET | Wyświetlanie edytowalnego formularza HTML wypełniony danymi obiad. |
 | POST | Zapisywanie zmian w formularzu na obiad z nich do bazy danych. |
-| */Dinners/Create* | GET | Wyświetlanie pustego formularza HTML, który pozwala użytkownikom na definiowanie nowych kolacji. |
+| */ Kolacji/tworzenia* | GET | Wyświetlanie pustego formularza HTML, który pozwala użytkownikom na definiowanie nowych kolacji. |
 | POST | Utwórz nowy obiad i zapisz go w bazie danych. |
 | */Dinners/delete / [id]* | GET | Wyświetl usuwanie ekran potwierdzenia. |
 | POST | Usuwa określony obiad z bazy danych. |
@@ -138,7 +138,7 @@ Rozpocznie się przez dodanie przeciążonej metody akcji "Edit" do naszych Dinn
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-Gdy atrybut [AcceptVerbs] jest stosowany do metod akcji przeciążona, ASP.NET MVC automatycznie obsługuje wysyłania żądań do metody odpowiedniej akcji w zależności od przychodzącego zlecenie HTTP. Żądania HTTP POST <em>/Dinners/Edit / [id]</em> adresy URL zostaną wysłane do powyższej metody edycji podczas wszystkich innych żądaniach czasownik HTTP <em>/Dinners/Edit / [id]</em>zaczną adresy URL do pierwszej metody edycji (które zostały zaimplementowane ma atrybut [AcceptVerbs]).
+Gdy atrybut [AcceptVerbs] jest stosowany do metod akcji przeciążona, ASP.NET MVC automatycznie obsługuje wysyłania żądań do metody odpowiedniej akcji w zależności od przychodzącego zlecenie HTTP. Żądania HTTP POST */Dinners/Edit / [id]* adresy URL zostaną wysłane do powyższej metody edycji podczas wszystkich innych żądaniach czasownik HTTP */Dinners/Edit / [id]* zaczną adresy URL do pierwszej metody edycji (które zostały zaimplementowane nie masz `[AcceptVerbs]` atrybutu).
 
 | **Temat po stronie: Dlaczego rozróżnienia przy użyciu poleceń HTTP?** |
 | --- |
@@ -228,7 +228,7 @@ Metoda pomocnika Html.ValidationMessage() obsługuje również drugi parametr, k
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Powyższy kod wyświetla:  <em>&lt;span klasy = "pole błędzie sprawdzania poprawności"&gt;\*&lt;/span&gt;</em>zamiast domyślny tekst błędu, gdy błąd występuje Właściwość EventDate.
+Powyższy kod wyświetla: *&lt;span klasy = "pole błędzie sprawdzania poprawności"&gt;\*&lt;/span&gt;* zamiast domyślny tekst błędu, gdy błąd występuje Właściwość EventDate.
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() Helper Method
 

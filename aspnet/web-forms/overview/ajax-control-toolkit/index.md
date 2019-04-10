@@ -8,15 +8,15 @@ ms.date: 10/05/2011
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: ad68d8f074bc3c453e991abf7f8d393fbe9740ba
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 795283c33d63272b29b91fd7037c3463bc71abad
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796470"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59410750"
 ---
-<a name="older-versions---ajax-control-toolkit"></a>Starsze wersje — AJAX Control Toolkit
-====================
+# <a name="older-versions---ajax-control-toolkit"></a>Starsze wersje — AJAX Control Toolkit
+
 > Jak rozpocząć pracę przy użyciu zestawu narzędzi Ajax Control Toolkit i jak korzystać z niektórych z najpopularniejszych kontrolki. DevExpress utrzymuje bezpłatne i open source zestawu narzędzi Ajax Control Toolkit.
 > 
 > 
@@ -43,7 +43,7 @@ ms.locfileid: "57796470"
     - [Wykonywanie kilku animacji w tym samym czasie (C#)](animation/executing-several-animations-at-the-same-time-cs.md)
     - [Wykonywanie kilku animacji jedna po drugiej (C#)](animation/executing-several-animations-after-each-other-cs.md)
     - [Animacja w zależności od warunku (C#)](animation/animation-depending-on-a-condition-cs.md)
-    - [Wybieranie jednej animacji spoza listy (C#)](animation/picking-one-animation-out-of-a-list-cs.md)
+    - [Wybieranie jednej animacji z listy (C#)](animation/picking-one-animation-out-of-a-list-cs.md)
     - [Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (C#)](animation/animating-in-response-to-user-interaction-cs.md)
     - [Wyłączanie akcji podczas animacji (C#)](animation/disabling-actions-during-animation-cs.md)
     - [Wyzwalanie animacji w innej kontrolce (C#)](animation/triggering-an-animation-in-another-control-cs.md)
@@ -56,7 +56,7 @@ ms.locfileid: "57796470"
     - [Wykonywanie kilku animacji w tym samym czasie (VB)](animation/executing-several-animations-at-the-same-time-vb.md)
     - [Wykonywanie kilku animacji jedna po drugiej (VB)](animation/executing-several-animations-after-each-other-vb.md)
     - [Animacja w zależności od warunku (VB)](animation/animation-depending-on-a-condition-vb.md)
-    - [Wybieranie jednej animacji spoza listy (VB)](animation/picking-one-animation-out-of-a-list-vb.md)
+    - [Wybieranie jednej animacji z listy (VB)](animation/picking-one-animation-out-of-a-list-vb.md)
     - [Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (VB)](animation/animating-in-response-to-user-interaction-vb.md)
     - [Wyłączanie akcji podczas animacji (VB)](animation/disabling-actions-during-animation-vb.md)
     - [Wyzwalanie animacji w innej kontrolce (VB)](animation/triggering-an-animation-in-another-control-vb.md)
@@ -74,7 +74,7 @@ ms.locfileid: "57796470"
     - [Wypełnianie listy przy użyciu kontrolki CascadingDropDown (VB)](cascadingdropdown/filling-a-list-using-cascadingdropdown-vb.md)
     - [Używanie kontrolki CascadingDropDown z bazą danych (VB)](cascadingdropdown/using-cascadingdropdown-with-a-database-vb.md)
     - [Wstępne ustawianie pozycji listy przy użyciu kontrolki CascadingDropDown (VB)](cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb.md)
-    - [Przy użyciu automatycznego odświeżania z CascadingDropDown (VB)](cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb.md)
+    - [Używanie automatycznego ogłaszania zwrotnego za pomocą kontrolki CascadingDropDown (VB)](cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb.md)
 - [CollapsiblePanel](collapsiblepanel/index.md)
 
     - [Rozwijanie i zwijanie panelu z poziomu języka JavaScript (C#)](collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-cs.md)
@@ -94,9 +94,9 @@ ms.locfileid: "57796470"
 - [DropShadow](dropshadow/index.md)
 
     - [Dostosowywanie indeksu Z kontrolki DropShadow (C#)](dropshadow/adjusting-the-z-index-of-a-dropshadow-cs.md)
-    - [Manipulowanie właściwościami DropShadow z poziomu kodu klienta (C#)](dropshadow/manipulating-dropshadow-properties-from-client-code-cs.md)
+    - [Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (C#)](dropshadow/manipulating-dropshadow-properties-from-client-code-cs.md)
     - [Dostosowywanie indeksu Z kontrolki DropShadow (VB)](dropshadow/adjusting-the-z-index-of-a-dropshadow-vb.md)
-    - [Manipulowanie właściwościami DropShadow z poziomu kodu klienta (VB)](dropshadow/manipulating-dropshadow-properties-from-client-code-vb.md)
+    - [Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (VB)](dropshadow/manipulating-dropshadow-properties-from-client-code-vb.md)
 - [DynamicPopulate](dynamicpopulate/index.md)
 
     - [Dynamiczne wypełnianie kontrolki (C#)](dynamicpopulate/dynamically-populating-a-control-cs.md)
@@ -143,7 +143,7 @@ ms.locfileid: "57796470"
 
     - [Testowanie siły hasła (C#)](passwordstrength/testing-the-strength-of-a-password-cs.md)
     - [Testowanie siły hasła (VB)](passwordstrength/testing-the-strength-of-a-password-vb.md)
-- [Popup](popup/index.md)
+- [Okno podręczne](popup/index.md)
 
     - [Używanie wielu kontrolek Popup (C#)](popup/using-multiple-popup-controls-cs.md)
     - [Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (C#)](popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
@@ -151,7 +151,7 @@ ms.locfileid: "57796470"
     - [Używanie wielu kontrolek Popup (VB)](popup/using-multiple-popup-controls-vb.md)
     - [Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (VB)](popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
     - [Obsługa ogłaszania zwrotnego w kontrolce Popup bez kontrolki UpdatePanel (VB)](popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
-- [Rating](rating/index.md)
+- [Klasyfikacja](rating/index.md)
 
     - [Tworzenie kontrolki Rating (C#)](rating/creating-a-rating-control-cs.md)
     - [Tworzenie kontrolki Rating (VB)](rating/creating-a-rating-control-vb.md)
@@ -161,7 +161,7 @@ ms.locfileid: "57796470"
     - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#)](reorderlist/drag-and-drop-via-reorderlist-cs.md)
     - [Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)](reorderlist/using-postbacks-with-reorderlist-vb.md)
     - [Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (VB)](reorderlist/drag-and-drop-via-reorderlist-vb.md)
-- [Slider](slider/index.md)
+- [Suwak](slider/index.md)
 
     - [Kontrolka Slider z automatycznym ogłaszaniem zwrotnym (C#)](slider/using-the-slider-control-with-auto-postback-cs.md)
     - [Powiązanie danych kontrolki Slider (C#)](slider/databinding-the-slider-control-cs.md)

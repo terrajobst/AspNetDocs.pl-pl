@@ -8,15 +8,15 @@ ms.date: 02/16/2008
 ms.assetid: c28ba88d-3a93-47f5-a306-049bd766714d
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a7f4afd70a17281123a7448a00896c186b9a00f8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 84af745d338e38ece438fa58d51d0929c7b92967
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067724"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408462"
 ---
-<a name="aspnet-mvc-views-overview-vb"></a>Omówienie widoków ASP.NET MVC (VB)
-====================
+# <a name="aspnet-mvc-views-overview-vb"></a>Omówienie widoków ASP.NET MVC (VB)
+
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Co to jest widok ASP.NET MVC i jak różni się on ze strony HTML? W tym samouczku Walther Autor: Stephen stanowi wprowadzenie do widoków i pokazuje, jak możesz korzystać z zalet danych widoku i pomocników HTML w widoku.
@@ -83,7 +83,7 @@ Zwróć uwagę, że treść strony HTML znajdującej się w ofercie 2 zawiera na
 
 &lt;% Response.Write(DateTime.Now)%&gt;
 
-Możesz użyć ograniczników skryptu &lt;% i %&gt; do oznaczania początku i końcu skryptu. Ten skrypt został napisany w języku Visual Basic. Wyświetla bieżącą datę i godzinę, wywołując metodę Response.Write() do renderowania zawartości do przeglądarki. Ograniczniki skryptu &lt;% i %&gt; można wykonać jedną lub więcej instrukcji.
+Możesz użyć ograniczników skryptu &lt;% i %&gt; do oznaczania początku i końcu skryptu. Ten skrypt został napisany w języku Visual basic. Wyświetla bieżącą datę i godzinę, wywołując metodę Response.Write() do renderowania zawartości do przeglądarki. Ograniczniki skryptu &lt;% i %&gt; można wykonać jedną lub więcej instrukcji.
 
 Ponieważ wywołujesz Response.Write() tak często, firma Microsoft umożliwia skrót do wywoływania metody Response.Write(). Wyświetl w ofercie 3 korzysta z ogranicznikami &lt;% = i %&gt; jako skrót do wywoływania Response.Write().
 
@@ -104,7 +104,7 @@ Na przykład widok w ofercie 4 wykorzystuje trzy pomocników HTML — pomocnicy 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
 
-[![Okno dialogowe Nowy projekt](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
+[![Tokno dialogowe Nowy projekt HE](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
 **Rysunek 01**: Standardowa formularz logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-views-overview-vb/_static/image2.png))
 

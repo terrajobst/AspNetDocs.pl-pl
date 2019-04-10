@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: Walidacja we wzorcu ASP.NET Web API modelu | Dokumentacja firmy Microsoft
+title: Model sprawdzania poprawności we wzorcu ASP.NET Web API — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Omówienie sprawdzania poprawności modelu programu ASP.NET Web API dla platformy ASP.NET 4.x.
 ms.author: riande
 ms.date: 07/20/2012
+ms.custom: seoapril2019
 ms.assetid: 7d061207-22b8-4883-bafa-e89b1e7749ca
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 611a6466e160387592df678b3b8556625ff8e234
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d4e792f8cc2f79c2ab82c5a74fd50f49475fac4f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068642"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404575"
 ---
-<a name="model-validation-in-aspnet-web-api"></a>Weryfikacja modelu we wzorcu ASP.NET Web API
-====================
+# <a name="model-validation-in-aspnet-web-api"></a>Weryfikacja modelu we wzorcu ASP.NET Web API
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-Gdy klient wysyła dane do interfejsu API sieci web, często chcesz sprawdzić poprawność danych przed wykonaniem jakiegokolwiek przetwarzania. W tym artykule pokazano, jak dodawać adnotacje do modeli, korzystanie z adnotacji do sprawdzania poprawności danych i obsługi błędów sprawdzania poprawności w interfejsie API sieci web.
+W tym artykule pokazano, jak dodawać adnotacje do modeli, korzystanie z adnotacji do sprawdzania poprawności danych i obsługi błędów sprawdzania poprawności w interfejsie API sieci web. Gdy klient wysyła dane do interfejsu API sieci web, często chcesz sprawdzić poprawność danych przed wykonaniem jakiegokolwiek przetwarzania. 
 
 ## <a name="data-annotations"></a>Adnotacje danych
 

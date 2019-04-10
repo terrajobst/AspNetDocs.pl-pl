@@ -8,15 +8,15 @@ ms.date: 03/24/2008
 ms.assetid: 113f10b3-a19a-471b-8ff6-db3c79ce8a91
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41cd8cef2582b730391e5221629e9bb35794c159
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ee858cba449b0a8c8e693970a10ce0182e8c3da
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067076"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59412401"
 ---
-<a name="creating-and-managing-roles-c"></a>Tworzenie ról i zarządzanie nimi (C#)
-====================
+# <a name="creating-and-managing-roles-c"></a>Tworzenie ról i zarządzanie nimi (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.09.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_cs.pdf)
@@ -48,7 +48,7 @@ Rozpocznij od utworzenia nowego folderu w projekcie o nazwie `Roles`. Następnie
 Na tym etapie projektu w Eksploratorze rozwiązań powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 1.
 
 
-[![Cztery nowe strony zostały dodane do folderu ról](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
+[![FNasze nowe strony zostały dodane do folderu role](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
 
 **Rysunek 1**: Cztery nowe strony zostały dodane do `Roles` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image3.png))
 
@@ -68,7 +68,7 @@ Na koniec zaktualizuj mapy witryny (`Web.sitemap`) do uwzględnienia tych nowych
 Za pomocą mapy witryny aktualizacji odwiedź witrynę za pośrednictwem przeglądarki. Jak pokazano na rysunku 2, nawigacji po lewej stronie teraz zawiera elementy samouczki ról.
 
 
-[![Cztery nowe strony zostały dodane do folderu ról](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
+[![FNasze nowe strony zostały dodane do folderu role](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
 
 **Rysunek 2**: Cztery nowe strony zostały dodane do `Roles` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image6.png))
 
@@ -149,7 +149,7 @@ Powyższy kod uruchamia, przypisując Nazwa roli przycięty, wprowadzić w `Role
 Utwórz rolę o nazwie Administratorzy. Odwiedź stronę `ManageRoles.aspx` stronie za pośrednictwem przeglądarki, wpisz w polu tekstowym administratorów (patrz rysunek 3), a następnie kliknij przycisk Utwórz rolę.
 
 
-[![Utworzenie roli administratorów](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
+[![CTwórz grupy administratorów](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
 
 **Rysunek 3**: Utworzenie roli administratorów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image9.png))
 
@@ -157,7 +157,7 @@ Utwórz rolę o nazwie Administratorzy. Odwiedź stronę `ManageRoles.aspx` stro
 Co się dzieje? Występuje odświeżenie strony, ale nie ma żadnych wizualnych oznak aktywacji, który faktycznie został rolę dodawane do systemu. Firma Microsoft aktualizuje tę stronę w kroku 5, aby uwzględnić wizualną opinię. Teraz, jednak możesz sprawdzić, przechodząc do utworzono rolę `SecurityTutorials.mdf` bazy danych i wyświetlanie danych za pomocą `aspnet_Roles` tabeli. Jak pokazano na rysunku 4, `aspnet_Roles` tabela zawiera rekord o rolach administratorów po prostu dodanego przez producenta.
 
 
-[![Aspnet_Roles tabela zawiera wiersz dla administratorów](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
+[![Tma on aspnet_Roles tabeli Wiersz dla administratorów](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
 
 **Rysunek 4**: `aspnet_Roles` Tabela zawiera wiersz dla administratorów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image12.png))
 
@@ -175,7 +175,7 @@ Możemy rozszerzyć `ManageRoles.aspx` strony, aby dołączyć listę bieżącyc
 Przy użyciu tego kodu w miejscu odwiedź stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 5, powinien zostać wyświetlony siatkę z jedną kolumną etykietą elementu. Siatka zawiera wiersz dla roli Administratorzy, dodane w kroku 4.
 
 
-[![Kontrolki GridView są wyświetlane role w jednej kolumnie](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
+[![TPrzedstawia on GridView role, w jednej kolumnie](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
 
 **Rysunek 5**: Kontrolki GridView są wyświetlane role w jednej kolumnie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image15.png))
 
@@ -203,7 +203,7 @@ Obecnie `RoleList` GridView tylko jest powiązana z listy ról, jeśli najpierw 
 Teraz, gdy użytkownik dodaje nową rolę `RoleList` GridView zawiera po prostu dodać roli w zwrotu, zapewniając wizualną opinię, że rola została pomyślnie utworzona. Na przykład można znaleźć `ManageRoles.aspx` strony za pośrednictwem przeglądarki, a następnie dodaj rolę o nazwie nadzorców. Po kliknięciu przycisku Utwórz rolę nastąpi odświeżenie strony i siatki zostanie zaktualizowana, aby obejmować administratorów, a także nową rolę, nadzorców.
 
 
-[![Rola nadzorców ma, zostały dodane](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
+[![Tma on rolę nadzorców, dodano](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
 
 **Rysunek 6**: Rola nadzorców ma, dodano ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image18.png))
 
@@ -220,7 +220,7 @@ W tym momencie użytkownik może utworzyć nową rolę i wyświetlić wszystkie 
 Możemy rozszerzyć GridView w `ManageRoles.aspx` obejmujący usuwania przycisku, po kliknięciu spowoduje usunięcie wybranej roli. Rozpocznij, dodając do kontrolki GridView przycisk Usuń, przechodząc do okna dialogowego pól i dodawanie przycisk Usuń, który znajduje się w obszarze opcji CommandField. Wprowadzić Delete znajdujący się po lewej stronie kolumny i ustaw jego `DeleteText` właściwości do usunięcia roli.
 
 
-[![Dodaj przycisk usuwania do kontrolki RoleList GridView](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
+[![APrzycisk Usuń w kontrolce GridView RoleList dd](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
 
 **Rysunek 7**: Przycisk Usuń, aby dodać `RoleList` kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image21.png))
 

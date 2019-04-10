@@ -8,15 +8,15 @@ ms.date: 10/07/2008
 ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d96f574c9284ab259b8733b3b8109ecd0b689aa8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c33812ab9d758c3155a2f75f59bfb63c55487dc7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078005"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396411"
 ---
-<a name="displaying-a-table-of-database-data-vb"></a>Wyświetlanie tabeli danych bazy danych (VB)
-====================
+# <a name="displaying-a-table-of-database-data-vb"></a>Wyświetlanie tabeli danych bazy danych (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_VB.pdf)
@@ -61,7 +61,7 @@ Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator modelu Entity Data 
 3. W **wybierz obiekty bazy danych** kroku, rozwiń węzeł tabele, wybierz tabelę filmów. Wprowadź przestrzeń nazw *modeli* i kliknij przycisk **Zakończ** przycisku.
 
 
-[![Tworzenie zapytań LINQ do klas SQL](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
+[![Cworzenie LINQ do klas SQL](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
 
 **Rysunek 01**: Tworzenie zapytań LINQ do klas SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image2.png))
 
@@ -69,7 +69,7 @@ Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator modelu Entity Data 
 Po zakończeniu działania Kreator modelu Entity Data Model, zostanie otwarty projektant modelu danych jednostki. Projektant powinien być wyświetlany jednostki filmy (patrz rysunek 2).
 
 
-[![Projektant modelu danych jednostki](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
+[![TADAM projektancie Entity Data Model](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
 
 **Rysunek 02**: Projektant modelu danych jednostki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image4.png))
 
@@ -83,7 +83,7 @@ Kliknij dwukrotnie nazwę klasy na powierzchni projektowej i Zmień nazwę klasy
 Teraz, gdy mamy już sposobem reprezentowania naszych danych bazy danych, możemy utworzyć kontroler, który zwraca kolekcję filmów. W oknie Eksploratora rozwiązań w usłudze Visual Studio kliknij prawym przyciskiem myszy folder kontrolerów, a następnie wybierz opcję menu **Dodaj, kontroler** (zobacz rysunek 3).
 
 
-[![Dodawanie kontrolera Menu](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
+[![TADAM Dodawanie kontrolera Menu](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
 
 **Rysunek 03**: Dodawanie kontrolera Menu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image6.png))
 
@@ -91,7 +91,7 @@ Teraz, gdy mamy już sposobem reprezentowania naszych danych bazy danych, możem
 Gdy **Dodaj kontroler** zostanie wyświetlone okno dialogowe, wprowadź nazwę kontrolera MovieController (zobacz rysunek 4). Kliknij przycisk **Dodaj** przycisk, aby dodać nowy kontroler.
 
 
-[![Okno dialogowe Dodawanie kontrolera](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
+[![Tokno dialogowe Dodaj kontroler HE](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
 
 **Rysunek 04**: Okno dialogowe Dodawanie kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image8.png))
 
@@ -113,7 +113,7 @@ Kompiluj aplikację, wybierając opcję menu **twórz, Kompiluj rozwiązanie**. 
 Kliknij prawym przyciskiem myszy działanie indeks() i wybierz opcję menu **Dodaj widok** (zobacz rysunek 5).
 
 
-[![Dodawanie widoku](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
+[![AWidok dding](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
 
 **Rysunek 05**: Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image10.png))
 
@@ -121,7 +121,7 @@ Kliknij prawym przyciskiem myszy działanie indeks() i wybierz opcję menu **Dod
 W **Dodaj widok** okno dialogowe, zaznacz pola wyboru **utworzyć widok silnie typizowane**. Wybierz klasę filmu jako **wyświetlić klasy danych**. Wybierz *listy* jako **wyświetlanie zawartości** (patrz rysunek 6). Zaznaczenie tych opcji spowoduje wygenerowanie silnie typizowane widoku, który wyświetla listę filmów.
 
 
-[![Okno dialogowe dodawania widoku](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
+[![Tokno dialogowe dodawania widoku HE](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
 
 **Rysunek 06**: Okno dialogowe Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image12.png))
 
@@ -135,7 +135,7 @@ Po kliknięciu **Dodaj** przycisk, widok w ofercie 2 jest generowany automatyczn
 Możesz uruchomić aplikację, wybierając opcję menu **debugowania i Rozpocznij debugowanie** (lub naciskając klawisz F5). Uruchomiona jest aplikacja uruchomi program Internet Explorer. Jeśli przejdziesz do adresu URL /Movie, a następnie zobaczysz stronę na rysunku 7.
 
 
-[![Tabelę filmy](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
+[![A Tabela filmy](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
 
 **Rysunek 07**: Tabela filmów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image14.png))
 
@@ -158,7 +158,7 @@ Wykonaj następujące kroki, aby utworzyć częściowego:
 
 Po wykonaniu tych kroków, należy zmodyfikować MovieTemplate częściowe wyglądać lista 3.
 
-**Listing 3 – Views\Movie\MovieTemplate.ascx**
+**Wyświetlanie listy 3 — Views\Movie\MovieTemplate.ascx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample3.aspx)]
 

@@ -8,15 +8,15 @@ ms.date: 04/01/2008
 ms.assetid: 9e4e687c-b4ec-434f-a4ef-edb0b8f365e4
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 863ac36ae6a94ece841088db925c04deb3bf36c9
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ed255b4d5938457e82c1fca4d759b6a5691c3f6c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077246"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59401767"
 ---
-<a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)
-====================
+# <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.12.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_cs.pdf)
@@ -56,7 +56,7 @@ Strony ASP.NET w programie `Administration` folderu są przeznaczone wyłącznie
 Na tym etapie projektu w Eksploratorze rozwiązań powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 1.
 
 
-[![Cztery nowe strony i pliku Web.config zostały dodane do witryny sieci Web](building-an-interface-to-select-one-user-account-from-many-cs/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image1.png)
+[![FNasze nowe strony i pliku Web.config zostały dodane do witryny sieci Web](building-an-interface-to-select-one-user-account-from-many-cs/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image1.png)
 
 **Rysunek 1**: Cztery nowe strony i `Web.config` plików zostały dodane do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image3.png))
 
@@ -68,7 +68,7 @@ Na koniec zaktualizuj mapy witryny (`Web.sitemap`) do uwzględnienia wpis do `Ma
 Za pomocą mapy witryny aktualizacji odwiedź witrynę za pośrednictwem przeglądarki. Jak pokazano na rysunku 2, nawigacji po lewej stronie teraz zawiera elementy samouczki administracji.
 
 
-[![Mapa witryny zawiera węzeł o nazwie Administracja użytkownikami](building-an-interface-to-select-one-user-account-from-many-cs/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image4.png)
+[![TObejmuje on mapy witryny Administracja użytkownikami węzeł o nazwie](building-an-interface-to-select-one-user-account-from-many-cs/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image4.png)
 
 **Rysunek 2**: Mapa witryny zawiera węzeł o nazwie użytkownika administracji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image6.png))
 
@@ -82,7 +82,7 @@ Otwórz `ManageUsers.aspx` strony w `Administration` folderze i Dodaj GridView, 
 Aby wyświetlić informacje o koncie żądanego użytkownika w widoku GridView, ustaw GridView `AutoGenerateColumns` wartość False dla właściwości i dodać BoundFields dla `UserName`, `Email`, i `Comment` właściwości i CheckBoxFields dla `IsApproved`, `IsLockedOut`, i `IsOnline` właściwości. Tę konfigurację można zastosować za pomocą formantu oznaczeniu deklaracyjnym lub za pomocą okna dialogowego pól. Rysunek 3 przedstawia zrzut ekranu: pola dialogowego po usunięto zaznaczenie pola wyboru pól automatycznego generowania i BoundFields i CheckBoxFields została dodana i skonfigurowana.
 
 
-[![Dodaj trzy BoundFields i trzy CheckBoxFields do widoku GridView](building-an-interface-to-select-one-user-account-from-many-cs/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image7.png)
+[![ADodaj trzy BoundFields i trzy CheckBoxFields do kontrolki GridView](building-an-interface-to-select-one-user-account-from-many-cs/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image7.png)
 
 **Rysunek 3**: Dodaj trzy BoundFields i trzy CheckBoxFields do kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image9.png))
 
@@ -98,7 +98,7 @@ Następnie należy napisać kod, który wiąże kont użytkowników do widoku Gr
 Poświęć chwilę, aby przetestować stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 4, `UserAccounts` GridView Wyświetla nazwę użytkownika, adres e-mail i innych informacji dotyczących konta dla wszystkich użytkowników w systemie.
 
 
-[![Konta użytkowników są wyświetlane w widoku GridView](building-an-interface-to-select-one-user-account-from-many-cs/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image10.png)
+[![TKonta użytkowników używane są wyświetlane w widoku GridView](building-an-interface-to-select-one-user-account-from-many-cs/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image10.png)
 
 **Rysunek 4**: Konta użytkowników są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image12.png))
 
@@ -122,7 +122,7 @@ Ta metoda określa opcje filtrowania jako elementy `string` tablicy `filterOptio
 Rysunek 5. pokazuje `ManageUsers.aspx` stronie podczas przeglądania za pośrednictwem przeglądarki.
 
 
-[![Powtarzanego Wyświetla 27 LinkButtons filtrowania](building-an-interface-to-select-one-user-account-from-many-cs/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image13.png)
+[![TADAM Repeater Wyświetla 27 filtrowanie LinkButtons](building-an-interface-to-select-one-user-account-from-many-cs/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image13.png)
 
 **Rysunek 5**: Elementu powtarzanego Wyświetla 27 filtrowanie LinkButtons ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image15.png))
 
@@ -152,7 +152,7 @@ Utwórz procedurę obsługi zdarzeń dla elementu powtarzanego `ItemCommand` zda
 Przy użyciu tego kodu w miejscu przetestowania funkcji filtrowania. Po pierwsze odwiedzenia strony, są wyświetlane wszystkie konta użytkowników (odnoszą się do rysunek 5). Klikając element LinkButton powoduje odświeżenie strony i filtruje wyniki wyświetlanie tylko tych kont użytkowników, które zaczyna się element.
 
 
-[![Użyj LinkButtons filtrowania, aby wyświetlić tych użytkowników, których nazwa użytkownika, który rozpoczyna się od określonej litery](building-an-interface-to-select-one-user-account-from-many-cs/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image16.png)
+[![USE LinkButtons filtrowanie, aby wyświetlić tych użytkowników Whose Username rozpoczyna się od litery niektóre](building-an-interface-to-select-one-user-account-from-many-cs/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image16.png)
 
 **Rysunek 6**: Umożliwia wyświetlanie tych użytkowników Whose Username rozpoczyna się od litery niektóre LinkButtons filtrowanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image18.png))
 
@@ -197,7 +197,7 @@ Następnie należy utworzyć procedurę obsługi zdarzeń dla każdego element L
 Rysunek nr 7 przedstawia cztery LinkButtons podczas wyświetlania przy użyciu widoku projektowania wizualnego dewelopera sieci Web.
 
 
-[![Dodać pierwszego, poprzedniego, w następnej kolejności i ostatniej LinkButtons poniżej widoku GridView](building-an-interface-to-select-one-user-account-from-many-cs/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image19.png)
+[![Add pierwszy, Previous, dalej i ostatniego LinkButtons poniżej GridView](building-an-interface-to-select-one-user-account-from-many-cs/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image19.png)
 
 **Rysunek 7**: Najpierw, Dodaj Wstecz, Next i ostatniego LinkButtons poniżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image21.png))
 
@@ -229,12 +229,12 @@ Ostatnim krokiem jest napisanie kodu dla czterech LinkButtons `Click` procedury 
 Rysunki 8 i 9 Pokaż niestandardowy interfejs stronicowania w działaniu. Rysunek 8 przedstawia `ManageUsers.aspx` stronie podczas wyświetlania na pierwszej stronie danych we wszystkich kontach użytkownika. Należy pamiętać, że wyświetlane są tylko 10 kont 13. Kliknięcie łącza Dalej lub ostatni powoduje odświeżenie strony, aktualizacje `PageIndex` 1 w celu powiązania z drugiej strony użytkownika konta do siatki (patrz rysunek 9).
 
 
-[![Pierwsze 10 konta użytkowników są wyświetlane.](building-an-interface-to-select-one-user-account-from-many-cs/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image22.png)
+[![THE pierwsze 10 kont użytkowników są wyświetlane](building-an-interface-to-select-one-user-account-from-many-cs/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image22.png)
 
 **Rysunek 8**: Pierwsze 10 konta użytkowników są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image24.png))
 
 
-[![Klikając łącze do następnej Wyświetla drugiej stronie kont użytkowników](building-an-interface-to-select-one-user-account-from-many-cs/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image25.png)
+[![Clicking dalej Wyświetla łącze drugiej stronie kont użytkowników](building-an-interface-to-select-one-user-account-from-many-cs/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-cs/_static/image25.png)
 
 **Rysunek 9**: Klikając łącze do następnej Wyświetla drugiej stronie kont użytkowników ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-cs/_static/image27.png))
 

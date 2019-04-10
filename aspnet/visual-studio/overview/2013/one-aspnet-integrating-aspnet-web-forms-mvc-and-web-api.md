@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 85e4369ee458043eec59fb27e317d18466f61f32
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 1023d9bef311e58fb5fb0bb24cde80e8320e6bac
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422535"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419057"
 ---
-<a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Ćwiczenia praktyczne: Jedna platforma ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API
-====================
+# <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Ćwiczenia praktyczne: Jedna platforma ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 [Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
@@ -72,7 +72,7 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Ćwiczenia
@@ -427,7 +427,7 @@ Podczas tworzenia internetowego interfejsu API, warto utworzyć stronę pomocy, 
 
     *Szczegółowe informacje na stronie*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

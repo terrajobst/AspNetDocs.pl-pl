@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: e5b6ed70-19ed-4024-ba4f-6d78e8acdc0f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1e2124327a36c94db8bafbdf91f767068ac7e834
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 22c7eecb841ff67196d21e6efeeda63a3456c5cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066242"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59409086"
 ---
-<a name="using-postbacks-with-reorderlist-vb"></a>Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)
-====================
+# <a name="using-postbacks-with-reorderlist-vb"></a>Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4VB.pdf)
@@ -62,7 +62,7 @@ Na koniec, aby aktywować tę funkcję ASP.NET AJAX i zestaw narzędzi do sterow
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample6.aspx)]
 
 
-[![Każda zmiana kolejności wyzwala ogłaszania zwrotnego](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
+[![EZmiana kolejności ach wyzwala ogłaszania zwrotnego](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
 
 Każda zmiana kolejności wyzwala ogłaszania zwrotnego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-postbacks-with-reorderlist-vb/_static/image3.png))
 

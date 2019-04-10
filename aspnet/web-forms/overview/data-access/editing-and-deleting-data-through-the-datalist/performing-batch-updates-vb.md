@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c903dd64ba7dd19a8af63224ee54629086279bf6
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 7292736a9c12d5013fb4aeef15085bb8d7d74884
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425889"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405732"
 ---
-<a name="performing-batch-updates-vb"></a>Wykonywanie aktualizacji wsadowych (VB)
-====================
+# <a name="performing-batch-updates-vb"></a>Wykonywanie aktualizacji wsadowych (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_37_VB.exe) lub [Pobierz plik PDF](performing-batch-updates-vb/_static/datatutorial37vb1.pdf)
@@ -29,7 +29,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 W [poprzedni Samouczek](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md) zbadaliśmy sposób tworzenia DataList na poziomie elementu. Jak standardowy GridView można edytować każdy element w kontrolce DataList uwzględnione zmiany przycisku, po kliknięciu czyniłyby można edytować elementu. Ten element poziomu edycji działa dobrze w przypadku danych, które są aktualizowane tylko co pewien czas, niektórych scenariuszy przypadków użycia wymagają użytkownikowi edytowanie wielu rekordów. Jeśli użytkownik musi edytowanie wielu rekordów i jest zmuszony do kliknij przycisk Edytuj, ich zmiany, a następnie kliknij przycisk Aktualizuj dla każdego z nich, ilość klikając mogą utrudniać jej wydajność. W takich sytuacjach lepszym rozwiązaniem jest zapewnienie DataList pełni edytowalne, gdzie jeden *wszystkich* jego elementy są w trybie edycji, a których wartości mogą być edytowane, klikając przycisk Aktualizuj wszystkie na stronie (patrz rysunek 1).
 
 
-[![Każdy element w pełni edytowalne DataList może być modyfikowany.](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
+[![Emożna zmodyfikować ach elementu w pełni edytowalne DataList](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
 
 **Rysunek 1**: Można zmodyfikować każdego elementu w pełni edytowalne DataList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-batch-updates-vb/_static/image3.png))
 
@@ -50,7 +50,7 @@ Dla DataList pełni edytowalne, chcemy *wszystkich* z `DataListItem` s do render
 Zacznij od otwarcia `BatchUpdate.aspx` strony, Dodaj kontrolki DataList i ustaw jego `ID` właściwość `Suppliers`. Za pomocą kontrolek DataList s tagu inteligentnego, zoptymalizowany pod kątem można dodać nowego formantu ObjectDataSource o nazwie `SuppliersDataSource`.
 
 
-[![Tworzenie nowego elementu ObjectDataSource, o nazwie SuppliersDataSource](performing-batch-updates-vb/_static/image5.png)](performing-batch-updates-vb/_static/image4.png)
+[![CTwórz nowe SuppliersDataSource o nazwie elementu ObjectDataSource](performing-batch-updates-vb/_static/image5.png)](performing-batch-updates-vb/_static/image4.png)
 
 **Rysunek 2**: Utwórz nowy o nazwie elementu ObjectDataSource `SuppliersDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-batch-updates-vb/_static/image6.png))
 
@@ -58,12 +58,12 @@ Zacznij od otwarcia `BatchUpdate.aspx` strony, Dodaj kontrolki DataList i ustaw 
 Konfigurowanie kontrolki ObjectDataSource do pobierania danych przy użyciu `SuppliersBLL` klasy s `GetSuppliers()` — metoda (zobacz rysunek 3). Podobnie jak w poprzednim samouczku, zamiast aktualizowania informacji o dostawcy za pomocą kontrolki ObjectDataSource, firma Microsoft będzie pracować bezpośrednio warstwy logiki biznesowej. W związku z tym, zmień wartość na liście rozwijanej (Brak) na karcie aktualizacji (zobacz rysunek 4).
 
 
-[![Pobieranie informacji o dostawcy przy użyciu metody GetSuppliers()](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
+[![RInformacje o dostawcach przy użyciu metody GetSuppliers() obierz](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
 
 **Rysunek 3**: Pobrać za pomocą informacji o dostawcy `GetSuppliers()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-batch-updates-vb/_static/image9.png))
 
 
-[![Zmień wartość na liście rozwijanej na (Brak) na karcie aktualizacji](performing-batch-updates-vb/_static/image11.png)](performing-batch-updates-vb/_static/image10.png)
+[![Set listy rozwijanej (Brak), na karcie aktualizacji](performing-batch-updates-vb/_static/image11.png)](performing-batch-updates-vb/_static/image10.png)
 
 **Rysunek 4**: Zmień wartość na liście rozwijanej na (Brak) na karcie aktualizacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-batch-updates-vb/_static/image12.png))
 
@@ -87,7 +87,7 @@ W `ItemTemplate` I m przy użyciu dwóch nowych klas CSS `SupplierPropertyLabel`
 Po wprowadzeniu tych zmian, odwiedź tę stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 5, każdy element DataList Wyświetla nazwę dostawcy jako tekst i użyto pola tekstowe, aby wyświetlić adres, miasto i kraj.
 
 
-[![Każdy dostawca w elemencie DataList jest edytowalna](performing-batch-updates-vb/_static/image14.png)](performing-batch-updates-vb/_static/image13.png)
+[![Estacje dostawcy w elemencie DataList jest edytowalna](performing-batch-updates-vb/_static/image14.png)](performing-batch-updates-vb/_static/image13.png)
 
 **Rysunek 5**: Każdy dostawca w elemencie DataList jest edytowalna ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-batch-updates-vb/_static/image15.png))
 
@@ -104,7 +104,7 @@ Rozpocznij od Dodawanie kontrolki przycisku w sieci Web powyżej DataList i usta
 Rysunek 6 przedstawia stronę po aktualizacji wszystkie przyciski zostały dodane.
 
 
-[![Dwa przyciski wszystkich aktualizacji zostały dodane do strony](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
+[![TWO aktualizacji wszystkie przyciski zostały dodane do strony](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
 
 **Rysunek 6**: Dwa przyciski wszystkich aktualizacji zostały dodane do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-batch-updates-vb/_static/image18.png))
 

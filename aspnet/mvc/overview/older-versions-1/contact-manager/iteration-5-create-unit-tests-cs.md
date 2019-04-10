@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: 28ad8f80-b8a5-444e-b478-8b15a846060c
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b2e96c996905bc73698d1c0b11df97d1dd366172
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 68080859e205283f56d8f543bfa06b76bb22a39d
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422171"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59408865"
 ---
-<a name="iteration-5--create-unit-tests-c"></a>Iteracja #5 — Tworzenie testów jednostkowych (C#)
-====================
+# <a name="iteration-5--create-unit-tests-c"></a>Iteracja #5 — Tworzenie testów jednostkowych (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-5-create-unit-tests-cs/_static/contactmanager_5_cs1.zip)
@@ -117,12 +117,12 @@ Zanim użyjesz Moq, należy wykonać następujące czynności:
 5. Po wykonaniu tych kroków, folderze odwołania powinien wyglądać jak rysunek 2.
 
 
-[![Odblokowywanie Moq](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
+[![Unblocking Moq](iteration-5-create-unit-tests-cs/_static/image1.jpg)](iteration-5-create-unit-tests-cs/_static/image1.png)
 
 **Rysunek 01**: Odblokowywanie Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-cs/_static/image2.png))
 
 
-[![Odwołania po dodaniu Moq](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
+[![Rodwołania po dodaniu Moq](iteration-5-create-unit-tests-cs/_static/image2.jpg)](iteration-5-create-unit-tests-cs/_static/image3.png)
 
 **Rysunek 02**: Odwołania po dodaniu Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-cs/_static/image4.png))
 
@@ -185,7 +185,7 @@ Pozostałe testy Sprawdź, czy gdy wywoływana jest metoda CreateContact(), z ni
 Można uruchomić testy jednostkowe w ofercie 1, wybierając opcję menu **, przebieg testu, wszystkie testy w rozwiązaniu (CTRL + R, A)**. Wyniki testów są wyświetlane w oknie wyników testu (zobacz rysunek 4).
 
 
-[![Test Results](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
+[![TWyniki EST](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)
 
 **Rysunek 04**: Wyniki testu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-cs/_static/image8.png))
 
