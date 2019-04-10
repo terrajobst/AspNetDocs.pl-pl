@@ -8,25 +8,25 @@ ms.date: 10/05/2011
 ms.assetid: d4287e40-272a-412f-b0e9-59a5d97421bd
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20
 msc.type: chapter
-ms.openlocfilehash: ccccb2610e040cf709099b44d1e583eae0848365
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 651ac82196b29d0f90c5dff41c9ce42b4bdcf627
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796533"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395501"
 ---
-<a name="older-versions---aspnet-20"></a><span data-ttu-id="9ae03-103">Starsze wersje — ASP.NET 2.0</span><span class="sxs-lookup"><span data-stu-id="9ae03-103">Older Versions - ASP.NET 2.0</span></span>
-====================
-> <span data-ttu-id="9ae03-104">Jak przeprowadzić migrację aplikacji 1.x ASP.NET do ASP.NET 2.0.</span><span class="sxs-lookup"><span data-stu-id="9ae03-104">How to migrate ASP.NET 1.x applications to ASP.NET 2.0.</span></span>
+# <a name="older-versions---aspnet-20"></a><span data-ttu-id="9a052-103">Starsze wersje — ASP.NET 2.0</span><span class="sxs-lookup"><span data-stu-id="9a052-103">Older Versions - ASP.NET 2.0</span></span>
+
+> <span data-ttu-id="9a052-104">Jak przeprowadzić migrację aplikacji 1.x ASP.NET do ASP.NET 2.0.</span><span class="sxs-lookup"><span data-stu-id="9a052-104">How to migrate ASP.NET 1.x applications to ASP.NET 2.0.</span></span>
 
 
-- [<span data-ttu-id="9ae03-105">Ulepszenia w programie Visual Studio 2005</span><span class="sxs-lookup"><span data-stu-id="9ae03-105">Improvements in Visual Studio 2005</span></span>](improvements-in-visual-studio-2005.md)
-- [<span data-ttu-id="9ae03-106">Model strony platformy ASP.NET 2.0</span><span class="sxs-lookup"><span data-stu-id="9ae03-106">ASP.NET 2.0 Page Model</span></span>](the-asp-net-2-0-page-model.md)
-- [<span data-ttu-id="9ae03-107">Kontrolki serwera</span><span class="sxs-lookup"><span data-stu-id="9ae03-107">Server Controls</span></span>](server-controls.md)
-- [<span data-ttu-id="9ae03-108">Strony wzorcowe</span><span class="sxs-lookup"><span data-stu-id="9ae03-108">Master Pages</span></span>](master-pages.md)
-- [<span data-ttu-id="9ae03-109">Kontrolki źródła danych</span><span class="sxs-lookup"><span data-stu-id="9ae03-109">Data Source Controls</span></span>](data-source-controls.md)
-- [<span data-ttu-id="9ae03-110">Kontrolki powiązania danych</span><span class="sxs-lookup"><span data-stu-id="9ae03-110">Data Bound Controls</span></span>](data-bound-controls.md)
-- [<span data-ttu-id="9ae03-111">Buforowanie</span><span class="sxs-lookup"><span data-stu-id="9ae03-111">Caching</span></span>](caching.md)
-- [<span data-ttu-id="9ae03-112">Członkostwo</span><span class="sxs-lookup"><span data-stu-id="9ae03-112">Membership</span></span>](membership.md)
-- [<span data-ttu-id="9ae03-113">Konfiguracja i instrumentacja</span><span class="sxs-lookup"><span data-stu-id="9ae03-113">Configuration and Instrumentation</span></span>](configuration-and-instrumentation.md)
-- [<span data-ttu-id="9ae03-114">Profile, motywy i składniki Web Part</span><span class="sxs-lookup"><span data-stu-id="9ae03-114">Profiles, Themes, and Web Parts</span></span>](profiles-themes-and-web-parts.md)
+- [<span data-ttu-id="9a052-105">Ulepszenia w programie Visual Studio 2005</span><span class="sxs-lookup"><span data-stu-id="9a052-105">Improvements in Visual Studio 2005</span></span>](improvements-in-visual-studio-2005.md)
+- [<span data-ttu-id="9a052-106">Model strony platformy ASP.NET 2.0</span><span class="sxs-lookup"><span data-stu-id="9a052-106">ASP.NET 2.0 Page Model</span></span>](the-asp-net-2-0-page-model.md)
+- [<span data-ttu-id="9a052-107">Kontrolki serwera</span><span class="sxs-lookup"><span data-stu-id="9a052-107">Server Controls</span></span>](server-controls.md)
+- [<span data-ttu-id="9a052-108">Strony wzorcowe</span><span class="sxs-lookup"><span data-stu-id="9a052-108">Master Pages</span></span>](master-pages.md)
+- [<span data-ttu-id="9a052-109">Kontrolki źródła danych</span><span class="sxs-lookup"><span data-stu-id="9a052-109">Data Source Controls</span></span>](data-source-controls.md)
+- [<span data-ttu-id="9a052-110">Kontrolki powiązania danych</span><span class="sxs-lookup"><span data-stu-id="9a052-110">Data Bound Controls</span></span>](data-bound-controls.md)
+- [<span data-ttu-id="9a052-111">Buforowanie</span><span class="sxs-lookup"><span data-stu-id="9a052-111">Caching</span></span>](caching.md)
+- [<span data-ttu-id="9a052-112">Członkostwo</span><span class="sxs-lookup"><span data-stu-id="9a052-112">Membership</span></span>](membership.md)
+- [<span data-ttu-id="9a052-113">Konfiguracja i instrumentacja</span><span class="sxs-lookup"><span data-stu-id="9a052-113">Configuration and Instrumentation</span></span>](configuration-and-instrumentation.md)
+- [<span data-ttu-id="9a052-114">Profile, motywy i składniki Web Part</span><span class="sxs-lookup"><span data-stu-id="9a052-114">Profiles, Themes, and Web Parts</span></span>](profiles-themes-and-web-parts.md)
