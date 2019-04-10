@@ -8,15 +8,15 @@ ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: bbb38ddde49cdeea4255e0e05bd559ddd9e5f692
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 22d4d4afd6963f23d6cfef1745a859c20b69d599
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425993"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422996"
 ---
-<a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools 2013.2 dla programu Visual Studio 2013 — informacje o wersji
-====================
+# <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools 2013.2 dla programu Visual Studio 2013 — informacje o wersji
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 ## <a name="installation-notes"></a>Uwagi dotyczące instalacji
@@ -42,9 +42,9 @@ W poniższych sekcjach opisano funkcje, które zostały wprowadzone w wersji.
 - [Obsługa usługi Azure App Service Web Apps w programie Visual Studio](#waws)
 - [Utwórz zasoby zdalne platformy Azure, podczas tworzenia nowego projektu sieci Web](#AzureResources)
 - [Web Publish ulepszenia](#webpublish)
-- [ASP.NET Scaffolding](#scaffolding)
+- [Funkcja tworzenia szkieletu ASP.NET](#scaffolding)
 - [NuGet 2.8.1](#nuget)
-- [ASP.NET Web Forms](#webforms)
+- [Formularze sieci Web ASP.NET](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
 - [ASP.NET Web API 2.1.2](#webapi)
 - [ASP.NET Web Pages 3.1.2](#webpages)
@@ -185,7 +185,7 @@ NuGet 2.8.1, który RTM został wydany w kwietnia 2014 r. Poniżej przedstawiono
     `<config> <add key="dependencyversion" value="Highest" /> </config>`
 - **Podgląd operacji NuGet za pomocą - WhatIf**: Niektóre pakiety NuGet może mieć wykresy zależności szczegółowe i jako takie on być przydatne podczas instalacji, odinstalowywania i zaktualizować operację, aby najpierw sprawdzić, co się stanie. NuGet 2.8 dodaje standardowy programu PowerShell — co zrobić, jeśli przełączyć się do polecenia install-package, odinstaluj pakiet i pakiet aktualizacji, umożliwiające wizualizowanie całego zamknięcia pakietów, do których zostanie zastosowana polecenia.
 - **Obniżyć wersję pakietu**: Nie jest niczym niezwykłym, aby zainstalować wstępną wersję pakietu w celu zbadania nowe funkcje i zdecydować wycofać do ostatniego stabilnej wersji. Przed NuGet 2.8 to wieloetapowy proces odinstalowywania wstępną wersję pakietu oraz jego zależności, a następnie zainstaluj starszą wersję. Za pomocą NuGet 2.8, pakiet aktualizacji będzie teraz wycofać zamknięcia cały pakiet (np. drzewo zależności pakietu) do poprzedniej wersji.
-- **Tworzenie zależności**: Wiele różnych typów funkcji mogą być dostarczane jako pakietów NuGet — w tym narzędzia, które są używane do optymalizacji procesu rozwoju. Te składniki mogą być zarejestrowana w tworzeniu nowego pakietu, należy rozważyć nie opublikowany zależność nowy pakiet, gdy jest ona nowsza. NuGet 2.8 umożliwia pakietu do identyfikacji w pliku .nuspec developmentDependency. Po zainstalowaniu tych metadanych również dodane do pliku packages.config projektu, do którego pakiet został zainstalowany. Podczas tego pliku packages.config później jest analizowana pod kątem zależności NuGet podczas pakowania nuget.exe, wykluczy te zależności, oznaczone jako zależności rozwoju.
+- **Tworzenie zależności**: Wiele różnych typów funkcji mogą być dostarczane jako pakietów NuGet — w tym narzędzia, które są używane do optymalizacji procesu rozwoju. Te składniki mogą być zarejestrowana w tworzeniu nowego pakietu, należy rozważyć nie opublikowany zależność nowy pakiet, gdy jest ona nowsza. NuGet 2.8 umożliwia pakietu do identyfikacji w pliku .nuspec developmentDependency. Po zainstalowaniu tych metadanych również dodane do pliku packages.config projektu, do którego pakiet został zainstalowany. Podczas tego pliku packages.config później jest analizowana pod kątem zależności NuGet podczas pakowania nuget.exe, wykluczy tych zależności, oznaczone jako zależności rozwoju.
 - **Pliki poszczególnych packages.config na różnych platformach**: Podczas opracowywania aplikacji dla wielu platform docelowych jest często mają różne pliki projektów dla poszczególnych środowisk odpowiednich kompilacji. Jest również typowe korzystanie z różnych pakietach NuGet w plikach inny projekt, pakiety są dostępne dla różnych poziomów pomocy technicznej dla różnych platform. NuGet 2.8 zapewnia ulepszoną obsługę tego scenariusza, tworząc packages.config różnych plików dla plików do innego projektu specyficznego dla platformy.
 - **Powrót do lokalnej pamięci podręcznej**: Chociaż pakiety NuGet są zwykle używane z galerii zdalnego takich jak [galerii pakietów NuGet](http://www.nuget.org) połączenia z siecią, istnieje wiele scenariuszy, w których klient nie jest połączony. Bez połączenia sieciowego klienta programu NuGet nie mógł pomyślnie zainstalować pakiety — nawet wtedy, gdy te pakiety zostały już na komputerze klienckim, w lokalnej pamięci podręcznej narzędzia NuGet. NuGet 2.8 dodaje automatyczne rezerwowego pamięci podręcznej do konsoli Menedżera pakietów.
 

@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: Konwencje routingu we wzorcu ASP.NET Web API 2 Odata | Dokumentacja firmy Microsoft
+title: Konwencje routingu we wzorcu ASP.NET Web API 2 Odata - ASP.NET 4.x
 author: MikeWasson
-description: W tym artykule opisano konwencje routingu, które korzysta z interfejsu API sieci Web dla punktów końcowych OData.
+description: W tym artykule opisano konwencje tras tego Web API 2 w programie ASP.NET 4.x używa punkty końcowe OData.
 ms.author: riande
 ms.date: 07/31/2013
+ms.custom: seoapril2019
 ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: 0199ccde100c8c3ab70db912b8ab984e0617f9dd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8916f8b7a024636be1be055457081487f46a7936
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066749"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421631"
 ---
-<a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Konwencje routingu we wzorcu ASP.NET Web API 2 Odata
-====================
+# <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Konwencje routingu we wzorcu ASP.NET Web API 2 Odata
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-> W tym artykule opisano konwencje routingu, które korzysta z interfejsu API sieci Web dla punktów końcowych OData.
+> W tym artykule opisano konwencje tras w tej sieci Web API 2 w programie ASP.NET 4.x używa punkty końcowe OData.
 
 
 Gdy internetowy interfejs API odbiera żądanie OData, jest on mapowany żądanie nazwy kontrolera i nazwy akcji. Mapowanie jest oparte na metody HTTP i identyfikatora URI. Na przykład `GET /odata/Products(1)` mapuje `ProductsController.GetProduct`.
@@ -60,7 +61,7 @@ Zatem ta ścieżka wybiera się z dostawcą danego produktu 1.
 
 **Podczas badania jednostki**
 
-| Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
+| Request | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
 | --- | --- | --- | --- |
 | Pobierz /entityset | / Produktów | GetEntitySet lub Get | GetProducts |
 | Pobierz /entityset(key) | /Products(1) | GetEntityType lub Get | GetProduct |
@@ -70,7 +71,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie punktu końcowego OData tylko
 
 **Tworzenie, aktualizowanie i usuwanie jednostek**
 
-| Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
+| Request | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
 | --- | --- | --- | --- |
 | OPUBLIKUJ /entityset | / Produktów | PostEntityType lub Post | PostProduct |
 | Umieść /entityset(key) | /Products(1) | PutEntityType lub Put | PutProduct |
@@ -82,7 +83,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie punktu końcowego OData tylko
 
 **Badanie właściwości nawigacji**
 
-| Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
+| Request | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
 | --- | --- | --- | --- |
 | Pobierz /entityset (klucz) / nawigacji | / (1) lub dostawcy produktów | GetNavigationFromEntityType lub GetNavigation | GetSupplierFromProduct |
 | Pobierz /entityset (klucz) / rzutowania/nawigacji | /Products(1)/Models.Book/Author | GetNavigationFromEntityType lub GetNavigation | GetAuthorFromBook |
@@ -91,7 +92,7 @@ Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/w
 
 **Tworzenie i usuwanie łącza**
 
-| Żądanie | Przykład identyfikatora URI | Nazwa akcji |
+| Request | Przykład identyfikatora URI | Nazwa akcji |
 | --- | --- | --- |
 | WPIS /entityset (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | CreateLink |
 | Umieść /entityset (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | CreateLink |
@@ -104,14 +105,14 @@ Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/w
 
 *Wymaga interfejsu Web API 2*
 
-| Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
+| Request | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
 | --- | --- | --- | --- |
 | Pobierz /entityset (klucz) / właściwości | /Products(1)/Name | GetPropertyFromEntityType lub GetProperty | GetNameFromProduct |
 | Pobierz /entityset (klucz) / rzutowania/właściwości | /Products(1)/Models.Book/Author | GetPropertyFromEntityType lub GetProperty | GetTitleFromBook |
 
 **Akcje**
 
-| Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
+| Request | Przykład identyfikatora URI | Nazwa akcji | Przykład akcji |
 | --- | --- | --- | --- |
 | WPIS /entityset (klucz) / akcji | / (1) / szybkość produktów | ActionNameOnEntityType lub nazwa akcji | RateOnProduct |
 | OPUBLIKUJ /entityset (klucz) / rzutowania/akcji | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType lub nazwa akcji | CheckOutOnBook |

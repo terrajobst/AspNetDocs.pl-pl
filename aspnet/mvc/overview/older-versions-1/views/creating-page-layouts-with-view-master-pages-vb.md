@@ -8,15 +8,15 @@ ms.date: 10/16/2008
 ms.assetid: d34f90a1-6de3-482a-a326-f87fdcbaaaff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4ff74b1dc1d83b7ec1c8ecf6eca341a5cd14403f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 175e78d7ccc669c29c63dcb53af7aad1608c7d15
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066662"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422359"
 ---
-<a name="creating-page-layouts-with-view-master-pages-vb"></a>Tworzenie układów stron za pomocą stron wzorcowych widoku (VB)
-====================
+# <a name="creating-page-layouts-with-view-master-pages-vb"></a>Tworzenie układów stron za pomocą stron wzorcowych widoku (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_VB.pdf)
@@ -37,7 +37,7 @@ W tym samouczku dowiesz się, jak tworzyć nowe strony wzorcowej widoku i utworz
 Zacznijmy od utworzenia widoku strony wzorcowej, który definiuje układ dwie kolumny. Można dodać nowej strony wzorcowej widoku do projektu MVC przez kliknięcie prawym przyciskiem myszy Views\Shared folder wybranie opcji menu **Dodaj, nowy element**i wybierając szablon strony wzorcowej widoku MVC (patrz rysunek 1).
 
 
-[![Dodawanie widoku strony wzorcowej](creating-page-layouts-with-view-master-pages-vb/_static/image2.png)](creating-page-layouts-with-view-master-pages-vb/_static/image1.png)
+[![Ana stronie wzorcowej widoku dding](creating-page-layouts-with-view-master-pages-vb/_static/image2.png)](creating-page-layouts-with-view-master-pages-vb/_static/image1.png)
 
 **Rysunek 01**: Dodawanie widoku strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-vb/_static/image3.png))
 
@@ -55,7 +55,7 @@ Na przykład strony wzorcowej widoku w ofercie 1 definiuje układ dwie kolumny. 
 Treść widoku strony wzorcowej w ofercie 1 zawiera dwa `<div>` tagi, które odpowiadają dwie kolumny. Klasa kolumny kaskadowy arkusz stylów jest stosowana do obu `<div>` tagów. Ta klasa jest zdefiniowana w arkuszu stylów zadeklarować w górnej części strony wzorcowej. Możesz obejrzeć, jak strony wzorcowej widoku będzie renderowany przez przełączanie do widoku projektu. Kliknij kartę projekt, w lewym dolnym rogu Edytor kodu źródłowego (patrz rysunek 2).
 
 
-[![Podgląd strony wzorcowej w Projektancie](creating-page-layouts-with-view-master-pages-vb/_static/image5.png)](creating-page-layouts-with-view-master-pages-vb/_static/image4.png)
+[![PPrzeglądanie strony wzorcowej w Projektancie](creating-page-layouts-with-view-master-pages-vb/_static/image5.png)](creating-page-layouts-with-view-master-pages-vb/_static/image4.png)
 
 **Rysunek 02**: Podgląd strony wzorcowej w Projektancie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-vb/_static/image6.png))
 
@@ -65,7 +65,7 @@ Treść widoku strony wzorcowej w ofercie 1 zawiera dwa `<div>` tagi, które odp
 Po utworzeniu strony wzorcowej widoku, można utworzyć co najmniej jeden widok zawartości stron w oparciu o strony wzorcowej widoku. Na przykład można utworzyć stronę zawartości widoku indeksu dla kontrolera głównego, klikając prawym przyciskiem myszy Views\Home folder, wybierając **Dodaj, nowy element**, wybierając opcję **strona zawartości widoku składnika MVC** szablonu, wprowadzając Nazwa Index.aspx, a następnie kliknij przycisk Dodaj przycisk (zobacz rysunek 3).
 
 
-[![Dodawanie strony zawartości widoku](creating-page-layouts-with-view-master-pages-vb/_static/image8.png)](creating-page-layouts-with-view-master-pages-vb/_static/image7.png)
+[![AWyświetl stronę zawartości dding](creating-page-layouts-with-view-master-pages-vb/_static/image8.png)](creating-page-layouts-with-view-master-pages-vb/_static/image7.png)
 
 **Rysunek 03**: Dodawanie widoku strony zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-vb/_static/image9.png))
 
@@ -73,7 +73,7 @@ Po utworzeniu strony wzorcowej widoku, można utworzyć co najmniej jeden widok 
 Po kliknięciu przycisku Dodaj nowe zostanie wyświetlone okno dialogowe umożliwia wybranie do skojarzenia z poziomu strony zawartości widoku strony wzorcowej widoku (zobacz rysunek 4). Możesz przejść do strony wzorcowej widoku Site.master, które zostały utworzone w poprzedniej sekcji.
 
 
-[![Wybieranie strony wzorcowej](creating-page-layouts-with-view-master-pages-vb/_static/image11.png)](creating-page-layouts-with-view-master-pages-vb/_static/image10.png)
+[![Swybranie strony wzorcowej](creating-page-layouts-with-view-master-pages-vb/_static/image11.png)](creating-page-layouts-with-view-master-pages-vb/_static/image10.png)
 
 **Rysunek 04**: Wybieranie strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-vb/_static/image12.png))
 
@@ -101,7 +101,7 @@ Na przykład zmodyfikowanego widoku indeksu w ofercie 3 zawiera tylko dwa `<asp:
 Zażądano widoku w ofercie 3 powoduje wyświetlenie strony na rysunku 5. Należy zauważyć, że widok renderuje stronę zawierającą dwie kolumny. Zwróć uwagę, co więcej, że zawartość z poziomu strony zawartości widoku jest scalany z zawartości z strony wzorcowej widoku.
 
 
-[![Strona zawartości widoku indeksu](creating-page-layouts-with-view-master-pages-vb/_static/image14.png)](creating-page-layouts-with-view-master-pages-vb/_static/image13.png)
+[![THE widok zawartości strony indeksu](creating-page-layouts-with-view-master-pages-vb/_static/image14.png)](creating-page-layouts-with-view-master-pages-vb/_static/image13.png)
 
 **Rysunek 05**: Strona zawartości widoku indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-vb/_static/image15.png))
 
@@ -117,7 +117,7 @@ Istnieją dwa sposoby, które można modyfikować tytuł wyświetlanych przez st
 Podczas renderowania widoku indeksu do przeglądarki, żądany tytuł jest wyświetlany na pasku tytułu w przeglądarce:
 
 
-[![Pasek tytułu w przeglądarce](creating-page-layouts-with-view-master-pages-vb/_static/image17.png)](creating-page-layouts-with-view-master-pages-vb/_static/image16.png)
+[![Bpasek tytułu rzeglądarce](creating-page-layouts-with-view-master-pages-vb/_static/image17.png)](creating-page-layouts-with-view-master-pages-vb/_static/image16.png)
 
 
 Istnieje jeden ważny zapotrzebowania, które strony wzorcowej widoku musi spełniać, aby atrybut tytułu do pracy. Musi zawierać strony wzorcowej widoku `<head runat="server">` tag zamiast normalnego `<head>` tag w przypadku jej nagłówek. Jeśli `<head>` tagu nie zawiera runat = atrybut "server", a następnie tytuł nie będą wyświetlane. Domyślny widok strony wzorcowej obejmuje wymagana `<head runat="server">` tagu.

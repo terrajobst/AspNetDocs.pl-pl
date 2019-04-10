@@ -8,15 +8,15 @@ ms.date: 05/18/2012
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
 msc.legacyurl: /web-pages
 msc.type: categoryindex
-ms.openlocfilehash: 967c5687013cac75b5ec8dd665269026bd46601c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 832f89dfdecb71f2664431a4880978f7355246f4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797373"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420227"
 ---
-<a name="aspnet-web-pages"></a>ASP.NET Web Pages
-====================
+# <a name="aspnet-web-pages"></a>ASP.NET Web Pages
+
 
 > [!NOTE] 
 > Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [programu Visual Studio Code](https://code.visualstudio.com/).
@@ -26,7 +26,7 @@ ms.locfileid: "57797373"
     - [Wprowadzenie](overview/getting-started/index.md)
 
         - [Programowanie przy użyciu wzorca ASP.NET Web Pages w programie Visual Studio](overview/getting-started/program-asp-net-web-pages-in-visual-studio.md)
-        - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](overview/getting-started/introducing-razor-syntax-c.md)
+        - [Wprowadzenie do składni Razor programowania dla Internetu na platformie ASP.NET](overview/getting-started/introducing-razor-syntax-c.md)
         - [ASP.NET Web Pages i Visual Basic](overview/getting-started/introducing-razor-syntax-vb.md)
         - [ASP.NET Web Pages (Razor) — często zadawane pytania](overview/getting-started/aspnet-web-pages-razor-faq.md)
         - [Wysyłanie wiadomości e-mail z witryny](overview/getting-started/11-adding-email-to-your-web-site.md)
@@ -48,7 +48,7 @@ ms.locfileid: "57797373"
     - [Interfejs użytkownika, układy i motywy](overview/ui-layouts-and-themes/index.md)
 
         - [Praca z formularzami](overview/ui-layouts-and-themes/4-working-with-forms.md)
-        - [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites.md)
+        - [Walidacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites.md)
         - [Tworzenie spójnego wyglądu](overview/ui-layouts-and-themes/3-creating-a-consistent-look.md)
         - [Dostosowywanie zachowania dla całej witryny](overview/ui-layouts-and-themes/18-customizing-site-wide-behavior.md)
         - [Praca z obrazami](overview/ui-layouts-and-themes/9-working-with-images.md)
@@ -73,13 +73,13 @@ ms.locfileid: "57797373"
 
         - [Dodawanie zabezpieczeń i członkostwa](overview/security/16-adding-security-and-membership.md)
         - [Włączanie logowania z zewnętrznych witryn w witrynie ASP.NET Web Pages](overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site.md)
-        - [Korzystanie z mechanizmu CAPTCHA w celu uniemożliwiania automatycznym programom (robotom) korzystania z witryny ASP.NET](overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site.md)
+        - [Korzystanie z mechanizmu CAPTCHA w celu uniemożliwiania automatycznym programom (botom) korzystania z witryny ASP.NET](overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site.md)
     - [Wydajność](overview/performance-and-traffic/index.md)
 
-        - [Buforowanie w celu poprawienia wydajności witryny](overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website.md)
+        - [Buforowanie w celu poprawienia wydajności witryny internetowej](overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website.md)
         - [Analizowanie ruchu](overview/performance-and-traffic/14-analyzing-traffic.md)
         - [Tworzenie pakietów i minifikacja zasobów w witrynie ASP.NET Web Pages (Razor)](overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
-    - [Dokumentacja interfejsu API](overview/api-reference/index.md)
+    - [Odwołanie do biblioteki API](overview/api-reference/index.md)
 
         - [Interfejs API platformy ASP.NET — krótki przewodnik](overview/api-reference/asp-net-web-pages-api-reference.md)
     - [Wydania](overview/releases/index.md)
@@ -89,7 +89,7 @@ ms.locfileid: "57797373"
         - [Co nowego we wzorcu ASP.NET Web Pages 2](overview/releases/top-features-in-web-pages-2.md)
         - [ASP.NET Web Pages 2 Developer Preview — plik ReadMe](overview/releases/aspnet-web-pages-2-developer-preview-readme.md)
         - [Równoległe uruchamianie różnych wersji wzorca ASP.NET Web Pages](overview/releases/running-v1-and-v2-sites-side-by-side.md)
-- [Filmy wideo](videos/index.md)
+- [Wideo](videos/index.md)
 
     - [Wprowadzenie](videos/introduction/index.md)
 
@@ -106,7 +106,7 @@ ms.locfileid: "57797373"
     - [Strony Razor programu ASP.NET](videos/aspnet-razor-pages/index.md)
 
         - [Wprowadzenie do programu WebMatrix i wzorca ASP.NET Web Pages](videos/aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
-        - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+        - [Wprowadzenie do składni Razor programowania dla Internetu na platformie ASP.NET](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
         - [Tworzenie spójnego wyglądu (część 1)](videos/aspnet-razor-pages/creating-a-consistent-look-part-1.md)
         - [Tworzenie spójnego wyglądu (część 2)](videos/aspnet-razor-pages/creating-a-consistent-look-part-2.md)
         - [Praca z formularzami (część 1)](videos/aspnet-razor-pages/working-with-forms-part-1.md)
@@ -122,7 +122,7 @@ ms.locfileid: "57797373"
         - [Dodawanie funkcji e-mail do witryny internetowej](videos/aspnet-razor-pages/adding-email-to-your-web-site.md)
         - [Dodawanie wyszukiwania do witryny internetowej](videos/aspnet-razor-pages/adding-search-to-your-web-site.md)
         - [Dodawanie sieci społecznościowych do witryny internetowej](videos/aspnet-razor-pages/adding-social-networking-to-your-website.md)
-- [Program WebMatrix i model Web Pages — szkolenie wideo z Pluralsight](pluralsight.md)
+- [Program WebMatrix i model Web Pages — szkolenie wideo w witrynie Pluralsight](pluralsight.md)
 - [Plik Readme programu WebMatrix](readme/index.md)
 
     - [Plik Readme programu WebMatrix](readme/overview.md)

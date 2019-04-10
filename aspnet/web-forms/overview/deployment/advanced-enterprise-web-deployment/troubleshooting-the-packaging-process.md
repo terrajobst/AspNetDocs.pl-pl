@@ -8,15 +8,15 @@ ms.date: 05/04/2012
 ms.assetid: 794bd819-00fc-47e2-876d-fc5d15e0de1c
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
-ms.openlocfilehash: 22be1ccc5a1ec52d143bedffd79264918c1a45e1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 79774c6a1a1d05d5a7bcd82a5d7aa888933cf089
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069686"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420110"
 ---
-<a name="troubleshooting-the-packaging-process"></a>Rozwiązywanie problemów z procesem tworzenia pakietów
-====================
+# <a name="troubleshooting-the-packaging-process"></a>Rozwiązywanie problemów z procesem tworzenia pakietów
+
 przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)

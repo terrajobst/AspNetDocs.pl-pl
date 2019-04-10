@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 4767b015db0bad09942802827ce54162687fcabc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f86212c1cb559c164342997fb0e4208339b5e3cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068756"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421124"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Odczytywanie powiązanych danych, za pomocą programu Entity Framework w aplikacji ASP.NET MVC (5, 10)
-====================
+# <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Odczytywanie powiązanych danych, za pomocą programu Entity Framework w aplikacji ASP.NET MVC (5, 10)
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Można uruchomić tej serii samouczka od początku lub [pobrać projekt startowy w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
 > 
@@ -152,11 +152,13 @@ Metoda akceptuje dane opcjonalne trasy (`id`) i parametr ciągu zapytania (`cour
 > 
 > Przekierowywanie danych to dane, które w segment adresu URL określony w tabeli routingu znaleziono integratora modelu. Na przykład określa domyślną trasę `controller`, `action`, i `id` segmenty:
 > 
+> ```csharp
 > routes.MapRoute(  
->  Nazwa: "Default"  
->  adres URL: "{controller} / {action} / {id}",  
->  wartości domyślne: nowe {kontrolera = "Home", Akcja = "Index", identyfikator = UrlParameter.Optional}  
+>  name: "Default",  
+>  url: "{controller}/{action}/{id}",  
+>  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }  
 > );
+> ```
 > 
 > Następujący adres URL mapuje trasy domyślnej `Instructor` jako `controller`, `Index` jako `action` i 1 `id`; są to wartości danych trasy.
 > 

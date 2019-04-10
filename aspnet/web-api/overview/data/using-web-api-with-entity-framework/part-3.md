@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: 76e2013a-65b7-488c-834d-9448ecea378e
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 733b1c343d774e5fa8757808be07a9ae67481d84
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 257bd06848adb949330856cc71eeb3d685e9d036
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078317"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421670"
 ---
-<a name="use-code-first-migrations-to-seed-the-database"></a>Użyć migracje Code First na inicjowanie bazy danych
-====================
+# <a name="use-code-first-migrations-to-seed-the-database"></a>Użyć migracje Code First na inicjowanie bazy danych
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
+[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
 W tej sekcji użyjesz [migracje Code First](https://msdn.microsoft.com/data/jj591621) w programie EF w celu umieszczenia w bazie danych testowych.
 

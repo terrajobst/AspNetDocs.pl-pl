@@ -8,15 +8,15 @@ ms.date: 05/08/2008
 ms.assetid: 026e7932-aea4-42c9-8661-c1392407dc4f
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-enable-inline-gridview-editing
 msc.type: video
-ms.openlocfilehash: e5dcd16a3f2e6a209ad343cf86ef3542d12f1b7d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 18070636b96683efdf96f8c3e8eb7d2fd12cc067
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072080"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422112"
 ---
-<a name="how-do-i-enable-inline-gridview-editing"></a>Jak włączyć wbudowanego edytowania w kontrolce GridView?
-====================
+# <a name="how-do-i-enable-inline-gridview-editing"></a>Jak włączyć wbudowanego edytowania w kontrolce GridView?
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 Teraz, po utworzeniu witryny sieci z widokami edycji i szczegółowe informacje, jak możesz włączyć wbudowanego edytowania w **GridView** kontroli? To wideo pokazuje jak, a także ma routingu.

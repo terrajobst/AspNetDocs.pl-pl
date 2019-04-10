@@ -8,15 +8,15 @@ ms.date: 08/20/2008
 ms.assetid: 00a12df9-1f89-4fc5-9d43-19a8d5b80392
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/displaying-a-table-of-database-data
 msc.type: video
-ms.openlocfilehash: baf7a037b5315cc15f8d0fb78e509bc675863f18
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5b26ef9ddb1461d01f7e6862f1cd5605fee532a8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066860"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421722"
 ---
-<a name="displaying-a-table-of-database-data"></a>Wyświetlanie tabeli danych bazy danych
-====================
+# <a name="displaying-a-table-of-database-data"></a>Wyświetlanie tabeli danych bazy danych
+
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 Potrzebujesz wyświetlić zestaw rekordów bazy danych w widoku programu ASP.NET MVC? Dowiedz się więcej na dwa sposoby wyświetlania rekordów w tabeli HTML. Dowiesz się, jak wykonać wszystkie wbudowane formatowania. Poznasz również sposób tworzenia szablonu za pomocą kontrolki użytkownika platformy ASP.NET MVC.

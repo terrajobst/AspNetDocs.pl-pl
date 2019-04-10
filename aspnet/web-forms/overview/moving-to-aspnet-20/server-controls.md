@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: ecf99fa894c1f662542aa8a613195b828bf2c67b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077093"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420760"
 ---
-<a name="server-controls"></a>Kontrolki serwera
-====================
+# <a name="server-controls"></a>Kontrolki serwera
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre architektury zmiany w sposobie ASP.NET 2.0 i Visual Studio 2005 zajmuje się formantów serwera.
@@ -99,7 +99,7 @@ W programie ASP.NET 2.0 definicji typu dokumentu domyślnego, jest następujący
 
 [!code-html[Main](server-controls/samples/sample7.html)]
 
-Jeśli wybierzesz, można zmienić domyślne XHML zgodności za pośrednictwem węzła xhtmlConformance w pliku konfiguracji. Na przykład następujący węzeł w pliku web.config będzie Zmień zgodności XHTML XHTML 1.0 Strict:
+Jeśli wybierzesz, można zmienić domyślne XHTML zgodności za pośrednictwem węzła xhtmlConformance w pliku konfiguracji. Na przykład następujący węzeł w pliku web.config będzie Zmień zgodności XHTML XHTML 1.0 Strict:
 
 [!code-xml[Main](server-controls/samples/sample8.xml)]
 
@@ -193,7 +193,7 @@ W programie ASP.NET 2.0 atrybut requestLengthDiskThreshold elementu httpRuntime 
 
 Jest to dość często występują deweloperów platformy ASP.NET się próby zebrania informacji z serii "strony" przy użyciu paneli, lub przez przeniesienie między stronami. Więcej często niż nie pozwala jest irytujące i jest czasochłonne. Nowy formant kreatora rozwiązuje problemy, umożliwiając dla liniowych i nieliniowych kroków interfejs kreatora, który zna użytkowników. Formant Kreator przedstawia wejściowych formularzy w serii kroków. Każdy krok jest określonego typu określonego przez właściwość StepType formantu. Typy kroku dostępne są następujące:
 
-| **Typ kroku** | **Explanation** |
+| **Typ kroku** | **Wyjaśnienie** |
 | --- | --- |
 | Auto | Kreator automatycznie określi typ kroku, w zależności od jego pozycja w ramach hierarchii kroku. |
 | Uruchamianie | Pierwszym krokiem, często używany do wyświetlania zawartości instrukcji wprowadzających. |
@@ -218,7 +218,7 @@ To wideo jest przewodnik formantu kreatora.
 
 Kontrolka Lokalizuj przypomina formancie Literal. Jednak formant Lokalizuj ma **tryb** właściwość, która określa sposób renderowania kodu znaczników, który jest dodawany do niego. Właściwość trybu obsługuje następujące wartości:
 
-| **Tryb** | **Explanation** |
+| **Tryb** | **Wyjaśnienie** |
 | --- | --- |
 | Transformacja | Kod znaczników jest przekształcane zgodnie z protokołem przeglądarki wysyłającego żądanie. |
 | Przekazywanie | Kod znaczników jest renderowane jako-to. |

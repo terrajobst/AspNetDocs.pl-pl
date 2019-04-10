@@ -8,15 +8,15 @@ ms.date: 01/27/2009
 ms.assetid: 4341f5b1-6fe5-44c5-8b8a-18fa84f80177
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: af91ae24cae505125dc237adfaa11b0ea4d60922
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0a4e8dc3ce5764c6b2ec59c7e3f507064f8a8cb5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074204"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422164"
 ---
-<a name="authenticating-users-with-forms-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (VB)
-====================
+# <a name="authenticating-users-with-forms-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak używać atrybutu [Authorize] do hasła ochrony konkretnych stron w aplikacji MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia i zarządzania użytkownikami i rolami. Poznasz również sposób konfigurowania przechowywania informacji o kontach i roli użytkownika.

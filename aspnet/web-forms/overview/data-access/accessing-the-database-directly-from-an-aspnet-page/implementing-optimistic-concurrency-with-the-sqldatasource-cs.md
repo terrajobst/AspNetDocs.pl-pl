@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6569f8e8f11bb67bc0723908225c7fd663a845b3
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: e8ed68e10d2924a2174494943b654e1f46284be4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423975"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420708"
 ---
-<a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#)
-====================
+# <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_CS.exe) lub [Pobierz plik PDF](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/datatutorial50cs1.pdf)
@@ -47,7 +47,7 @@ Wyobraź sobie, że dwóch użytkowników, Jisun i Szymon, zostały zarówno odw
 Na rysunku 2 przedstawiono ta interakcja.
 
 
-[![Po dwóch użytkowników jednocześnie zaktualizowania rekordu, istnieje ryzyko s s jeden użytkownik zmieni się na zastąpić inne zasoby](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
+[![Wstępnie dwóch użytkowników jednocześnie aktualizacji istnieje rekord s potencjał dla jednego użytkownika s zmieni się na Zastąp innych s](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
 
 **Rysunek 2**: Gdy dwóch użytkowników jednoczesne aktualizowanie istnieje rekord s potencjał s jeden użytkownik zmienia się na zastąpić inne zasoby ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))
 
@@ -61,7 +61,7 @@ Aby zapobiec w tym scenariuszu unfolding formę [kontroli współbieżności](ht
 Mechanizmu kontroli optymistycznej współbieżności działa przez zapewnienie im rekordu są zaktualizowane lub usunięte ma takie same wartości, tak jak podczas aktualizowania lub usuwania procesu uruchamiania. Na przykład po kliknięciu przycisku edycji w edycji kontrolki GridView wartości rekordu s są odczytu z bazy danych i wyświetlane w polach tekstowych i innych formantów sieci Web. Te oryginalne wartości są zapisywane w widoku GridView. Później, po użytkownik wprowadza swoje zmiany i kliknie przycisk Aktualizuj `UPDATE` instrukcją użytą w należy wziąć pod uwagę oryginalnych wartości, a także nowe wartości i aktualizować tylko podstawowy rekordu bazy danych, jeśli oryginalne wartości, że użytkownik rozpoczął edycję są identyczne do wartości w bazie danych. Rysunek 3 przedstawia następująca sekwencja zdarzeń.
 
 
-[![Update lub Delete, które zakończyło się sukcesem oryginalne wartości, musi być równa wartości bieżącej bazy danych](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
+[![Flub Update lub Delete, które zakończyło się sukcesem, oryginalne wartości musi być równa wartości bieżącej bazy danych](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
 
 **Rysunek 3**: Update lub Delete, aby odnieść sukces, oryginalnym wartości musi być równa wartości bieżącej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))
 
@@ -78,7 +78,7 @@ Jak opisano w tym samouczku, włączenie mechanizmu kontroli optymistycznej wsp�
 Zacznij od otwarcia `OptimisticConcurrency.aspx` strony `SqlDataSource` folderu. Przeciągnij kontrolki SqlDataSource z przybornika w Projektancie ustawień jego `ID` właściwość `ProductsDataSourceWithOptimisticConcurrency`. Następnie kliknij łącze Konfigurowanie źródła danych za pomocą tagu inteligentnego sterowania s. Na pierwszym ekranie kreatora wybierz do pracy z `NORTHWINDConnectionString` i kliknij przycisk Dalej.
 
 
-[![Wybierz do pracy z NORTHWINDConnectionString](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
+[![Cbierz do pracy z NORTHWINDConnectionString](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
 
 **Rysunek 4**: Wybierz do pracy z `NORTHWINDConnectionString` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png))
 
@@ -86,7 +86,7 @@ Zacznij od otwarcia `OptimisticConcurrency.aspx` strony `SqlDataSource` folderu.
 W tym przykładzie będziemy dodawać GridView, która umożliwia użytkownikom edytowanie `Products` tabeli. W związku z Konfiguruj ekranu instrukcji Select, wybierz `Products` tabeli z listy rozwijanej i wybierz `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumn, jak pokazano na rysunku 5.
 
 
-[![Z tabeli Produkty zwracają ProductID, ProductName, UnitPrice i nieobsługiwane kolumny](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
+[![FROM tabeli Produkty zwracają ProductID, ProductName, UnitPrice i nieobsługiwane kolumny](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
 
 **Rysunek 5**: Z `Products` tabeli, zwróć `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumn ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png))
 
@@ -152,7 +152,7 @@ Powoduje zastosowanie do naszego przykładu następujących modyfikacji `UpdateC
 Dzięki użyciu kontrolki SqlDataSource skonfigurowany do obsługi optymistycznej współbieżności pozostaje można dodać danych formantu sieci Web do strony, która korzysta z tej kontroli współbieżności. W tym samouczku umożliwiają s Dodaj GridView zapewniająca zarówno edycji oraz funkcję usuwania. Aby to zrobić, przeciągnij GridView z przybornika do projektanta i ustaw jego `ID` do `Products`. Za pomocą tagu inteligentnego s GridView powiązać `ProductsDataSourceWithOptimisticConcurrency` kontrolki SqlDataSource dodanego w kroku 1. Na koniec sprawdź opcje Włącz edytowanie i usuwanie włączyć za pomocą tagu inteligentnego.
 
 
-[![Powiąż widoku GridView z kontrolką SqlDataSource i Włącz edytowanie i usuwanie](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
+[![BZnajdź GridView SqlDataSource i Włącz edytowanie i usuwanie](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
 
 **Rysunek 6**: Powiąż widoku GridView z kontrolką SqlDataSource i Włącz edytowanie i usuwanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png))
 
@@ -173,7 +173,7 @@ Aby wyświetlić kontroli optymistycznej współbieżności w akcji, Otwórz dwa
 W drugim oknie przeglądarki Zmień ceny (ale pozostaw nazwę produktu jako początkowej wartości), a następnie kliknij przycisk Aktualizuj. Na odświeżenie strony siatki powraca do trybu edycji wstępnie, ale zmiana ceny nie została zarejestrowana. Drugi przeglądarkę taką samą wartość jak pierwszy z nich Nowa nazwa jest wyświetlana produktu za pomocą stara cena. Zmiany wprowadzone w drugim oknie przeglądarki zostały utracone. Ponadto zmiany zostały utracone zamiast ciche, ponieważ wystąpił bez wyjątku i komunikat informujący o naruszenie współbieżności właśnie wykonana.
 
 
-[![Zmiany w drugim oknie przeglądarki zostały utracone w trybie dyskretnym](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
+[![TZmienia się on w drugim przeglądarki okna zostały dyskretnie utraty](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
 
 **Rysunek 7**: Zmiany w drugim przeglądarki okna zostały dyskretnie utraty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png))
 
@@ -196,7 +196,7 @@ Z perspektywy użytkownika końcowego s w drugim oknie przeglądarki po kliknię
 Ponieważ Naruszenie współbieżności odrzuca zmiany, które wprowadził jeden, jest dobre rozwiązanie ostrzec użytkownika, jeśli nastąpiło naruszenie współbieżności. Aby ostrzec użytkownika, umożliwiają s dodać formant etykiety w sieci Web do górnej części strony o nazwie `ConcurrencyViolationMessage` którego `Text` właściwości wyświetla następujący komunikat: Podjęto próbę aktualizacji lub usunięcia rekordu, który jednocześnie został zaktualizowany przez innego użytkownika. . Przejrzyj zmiany wprowadzone przez użytkownika a następnie wykonaj ponownie aktualizacji lub usunięcia. Ustaw formant etykiety s `CssClass` właściwość ostrzeżenie, czyli klasę CSS zdefiniowanych w `Styles.css` który wyświetla tekst czcionką czerwony, kursywy, pogrubiony i dużych. Wreszcie, ustaw właściwość etykiety s `Visible` i `EnableViewState` właściwości `false`. To spowoduje ukrycie etykiety z wyjątkiem tylko ogłaszania, te zwrotnego gdzie możemy jawnie ustawić jej `Visible` właściwość `true`.
 
 
-[![Dodaj kontrolkę typu etykieta do strony, aby wyświetlić ostrzeżenia](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
+[![ADodaj kontrolkę typu etykieta do strony, aby wyświetlić ostrzeżenia](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
 
 **Rysunek 8**: Dodaj kontrolkę typu etykieta do strony, aby wyświetlić ostrzeżenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png))
 
@@ -213,7 +213,7 @@ W obu procedurach obsługi zdarzeń sprawdzenie `e.AffectedRows` właściwości 
 Zgodnie z rysunku nr 9 przedstawiono z tych dwóch zdarzenia, bardzo istotne wyświetlany jest komunikat przy każdym wystąpieniu Naruszenie współbieżności.
 
 
-[![Zostanie wyświetlony komunikat w przypadku naruszenia współbieżności](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
+[![A Komunikat jest wyświetlany w przypadku naruszenia współbieżności](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
 
 **Rysunek 9**: Zostanie wyświetlony komunikat w przypadku naruszenia współbieżności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))
 

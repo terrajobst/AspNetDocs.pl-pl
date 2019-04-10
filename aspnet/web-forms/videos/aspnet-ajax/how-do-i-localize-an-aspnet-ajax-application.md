@@ -8,15 +8,15 @@ ms.date: 08/10/2007
 ms.assetid: 62188875-159b-4d9e-98b7-7fda3fdd5b76
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-localize-an-aspnet-ajax-application
 msc.type: video
-ms.openlocfilehash: 5ec6b51e2fd1c2bc2396408e7c6b82e1274b9e86
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 211350e1c6c4060d22327709478afc5a47f887cb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076958"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422788"
 ---
-<a name="how-do-i-localize-an-aspnet-ajax-application"></a>[Jak mogę] Lokalizowanie aplikacji ASP.NET AJAX?
-====================
+# <a name="how-do-i-localize-an-aspnet-ajax-application"></a>[Jak mogę] Lokalizowanie aplikacji ASP.NET AJAX?
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym filmie pokazano Możemy zaczynać przeglądu możliwości lokalizacji standardowego środowiska ASP.NET framework i przyjrzyj się funkcji lokalizacji rozszerzenia AJAX programu ASP.NET. Dowie się, jak firma Microsoft można lokalizować tekst, Data i informacji o numerze na komputerze klienckim, w zależności od ustawień języka w przeglądarce. Możemy też dowiedzieć się, jak wprowadzać naszej aplikacji AJAX wykorzystania zasobów statycznych i osadzone na serwerze.

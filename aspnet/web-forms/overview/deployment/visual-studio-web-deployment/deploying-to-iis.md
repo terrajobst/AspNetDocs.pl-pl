@@ -8,15 +8,15 @@ ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: d49dfad368ca4b81bb865103a99ec223a1cc66df
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 39502e03196d2ba51e826d248ff0ff1e84258131
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076535"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420201"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku testowym
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku testowym
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub u dostawcy hostingu innych firm przy użyciu programu Visual Studio 2017. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).

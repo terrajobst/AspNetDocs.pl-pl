@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 6d5af6563bdf3872110497f4b142dd7353c8d64c
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3833e3f3c6c49ff2b317ad04aff33c9119cb1f41
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426123"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420214"
 ---
-<a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Co nowego w platformie ASP.NET i w programowaniu dla Internetu w programie Visual Studio 2012
-====================
+# <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Co nowego w platformie ASP.NET i w programowaniu dla Internetu w programie Visual Studio 2012
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 > Nowa wersja programu Visual Studio wprowadzono wiele ulepszeń skoncentrowane na ułatwieniu komfort użytkowania i wydajność podczas pracy z technologiami sieci Web. Edytory wizualne Studio CSS, JavaScript i HTML został całkowicie odnowionych, obejmujący wiele pomocy kodu najbardziej w żądanie, takie jak IntelliSense i automatyczne wcięcia. Chodzi o wydajność tworzenie pakietów i minimalizowanie są teraz zintegrowane jak wbudowane funkcje, aby łatwo ograniczyć strony — czas ładowania.
@@ -63,7 +63,7 @@ Ta sesja hands on lab obejmuje następujących czynnościach:
 1. [Ćwiczenie 1: Co nowego w edytorze CSS](#Exercise1)
 2. [Ćwiczenie 2: Co nowego w edytorze HTML](#Exercise2)
 3. [Ćwiczenie 3: What's New in Edytor kodu JavaScript](#Exercise3)
-4. [Ćwiczenie 4: Tworzenie pakietów i minimalizowanie](#Exercise4)
+4. [Ćwiczenie 4: Tworzenie pakietów i minifikacja](#Exercise4)
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**.
 
@@ -578,7 +578,7 @@ W tym zadaniu dowiesz się, jak włączyć i powiązane i zminimalizowany plikó
 
     ![Bundled JavaScript files](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image53.png "Bundled JavaScript files")
 
-    *Bundled JavaScript files*
+    *Powiązane pliki JavaScript*
 
     Włączanie kompresji dla plików CSS i JS była dużo bardziej skomplikowany w poprzedniej wersji programu ASP.NET. Teraz, jak wiesz już, wystarczy dodać jeden wiersz w *Global.asax* pliku umożliwia tworzenie pakietów, a następnie Odwołaj pliki w pakiecie z witryny.
 
@@ -720,7 +720,7 @@ Możesz zainstalować **programu Microsoft Visual Studio Express 2012 for Web** 
 
     *VS Express for Web tile*
 
-* * *
+---
 
 <a id="AppendixB"></a>
 

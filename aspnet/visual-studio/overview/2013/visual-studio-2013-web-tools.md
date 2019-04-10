@@ -8,15 +8,15 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 54d86de49bf61305b17fc80964723c518abd467b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423250"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421072"
 ---
-<a name="hands-on-lab-visual-studio-2013-web-tools"></a>Ćwiczenia praktyczne: Narzędzia Visual Studio 2013 Web Tools
-====================
+# <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Ćwiczenia praktyczne: Narzędzia Visual Studio 2013 Web Tools
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
 [Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
@@ -74,7 +74,7 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
 
 
-* * *
+---
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Ćwiczenia
@@ -324,7 +324,7 @@ W tym zadaniu użyje Browser Link **trybu projektowania** funkcji do edycji obie
 
     ![Okno listy błędów](visual-studio-2013-web-tools/_static/image32.png "okno Lista błędów")
 
-    *Okno listy błędów*
+    *okno listy błędów*
 3. W **Web Essentials** okno dialogowe, kliknij przycisk **tak** do wstawienia opis &lt;meta&gt; tagu.
 
     ![Okno dialogowe usługi sieci Web Essentials](visual-studio-2013-web-tools/_static/image33.png "Web Essentials, okno dialogowe")
@@ -511,7 +511,7 @@ Za pomocą sieci Web Essentials 2013 arkusze stylów i strony HTML przedstawić 
 
     *Odtwarzacz audio uwzględnione w widoku*
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

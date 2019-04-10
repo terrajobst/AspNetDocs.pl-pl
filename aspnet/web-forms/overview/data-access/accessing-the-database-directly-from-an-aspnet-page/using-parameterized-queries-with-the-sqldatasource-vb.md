@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: e322f34c-83b7-41ea-ab65-ab1e0bdcc609
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1dffaf59c6519f288dc36519897e51efa22c6a26
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4814edc35c27ba3d17f9bd7de75f97a7e1ad071f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069740"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422086"
 ---
-<a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (VB)
-====================
+# <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_48_VB.exe) lub [Pobierz plik PDF](using-parameterized-queries-with-the-sqldatasource-vb/_static/datatutorial48vb1.pdf)
@@ -61,7 +61,7 @@ Ponieważ tworzenie zapytania parametrycznego zależy SqlDataSource s `SelectCom
 Podczas wybierania danych do zwrócenia z bazy danych przy użyciu kontrolki SqlDataSource, Kreator konfigurowania źródła danych pozwala po prostu wybierz kolumny do zwrócenia z istniejącej tabeli lub wyświetlenia (patrz rysunek 1). Wykonując to automatycznie gromadzone SQL `SELECT` instrukcję, która jest, co jest wysyłane do bazy danych podczas SqlDataSource s `Select()` metoda jest wywoływana. Ile My mieliśmy w poprzednim samouczku wybierz tabelę produkty z listy rozwijanej i sprawdź `ProductID`, `ProductName`, i `UnitPrice` kolumn.
 
 
-[![Wybierz kolumny do zwrócenia z tabeli lub widoku](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.png)
+[![PSU kolumny do zwrócenia z tabeli lub widoku](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image1.png)
 
 **Rysunek 1**: Wybierz kolumny do zwrócenia z tabeli lub widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image2.png))
 
@@ -71,7 +71,7 @@ Obejmujący `WHERE` w klauzuli `SELECT` instrukcji, kliknij przycisk `WHERE` prz
 W tym przykładzie umożliwiają s zwracać tylko tych wyników, których `UnitPrice` wartość jest mniejsza niż lub równe 25,00. W związku z tym, wybierz `UnitPrice` z listy rozwijanej kolumny i &lt;= z listy rozwijanej operatora. Korzystając z wartości parametru ustaloną (na przykład 25,00) lub wartość parametru jest należy określić programowo, nie zaznaczaj niczego z listy rozwijanej źródeł. Następnie wprowadź wartość parametru zakodowane w polu tekstowym wartość 25,00 i ukończyć proces, klikając przycisk Dodaj.
 
 
-[![Ogranicz wyniki zwrócone z gdzie dodać klauzulę, okno dialogowe](using-parameterized-queries-with-the-sqldatasource-vb/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.png)
+[![LWyniki zwrócone z Dodaj gdzie klauzula okno dialogowe imit](using-parameterized-queries-with-the-sqldatasource-vb/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.png)
 
 **Rysunek 2**: Ogranicz wyniki zwracane z dodawania `WHERE` klauzuli, okno dialogowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image4.png))
 
@@ -93,7 +93,7 @@ Ukończenie konfigurowania SqlDataSource (kliknij przycisk Dalej, następnie Zak
 Gdy SqlDataSource s `Select()` metoda jest wywoływana, `UnitPrice` wartość parametru (25,00) jest stosowany do `@UnitPrice` parametru w `SelectCommand` przed wysłaniem ich do bazy danych. Wynikiem jest tylko tych produktów, które są mniejsze niż lub równe 25,00 są zwracane z `Products` tabeli. Aby potwierdzić, dodać GridView do strony, powiązać go z tym źródłem danych, a następnie wyświetlić stronę za pośrednictwem przeglądarki. Powinien być widoczny tylko tych produktów na liście, które są mniejsze niż lub równe 25,00, ponieważ potwierdza rysunek 3.
 
 
-[![Są wyświetlane tylko te produkty mniej niż lub równe 25,00](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.png)
+[![OWyświetlanych jest tylko do odczytu tych produktów mniejszą niż lub równe 25,00](using-parameterized-queries-with-the-sqldatasource-vb/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.png)
 
 **Rysunek 3**: Wyświetlane są tylko te produkty mniejszą niż lub równe 25,00 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image6.png))
 
@@ -110,7 +110,7 @@ Następnie przeciągnij GridView na stronie i w tagu inteligentnego zdecydować 
 Po wprowadzeniu zapytania (ręcznie lub za pośrednictwem konstruktora zapytań), kliknij przycisk Dalej.
 
 
-[![Zwraca tylko te produkty, mniejsza niż wartość parametru](using-parameterized-queries-with-the-sqldatasource-vb/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.png)
+[![Rowróć tylko te produkty mniejszą niż lub równa wartości parametru](using-parameterized-queries-with-the-sqldatasource-vb/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.png)
 
 **Rysunek 4**: Zwracane tylko te produkty mniejszą niż lub równa wartości parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image8.png))
 
@@ -118,7 +118,7 @@ Po wprowadzeniu zapytania (ręcznie lub za pośrednictwem konstruktora zapytań)
 Ponieważ zapytanie zawiera parametry, następnym ekranie kreatora nam monituje o podanie źródła wartości parametrów. Wybierz formant z listy rozwijanej Źródło parametru i `MaxPrice` (formant pola tekstowego s `ID` wartość) z listy rozwijanej ControlID. Możesz też wprowadzić opcjonalną wartość domyślną do użycia w przypadku, gdy użytkownik nie wprowadził dowolny tekst w `MaxPrice` pola tekstowego. W chwili obecnej, nie należy wprowadzać wartości domyślnej.
 
 
-[![S MaxPrice w polu tekstowym właściwości tekst jest używany jako źródło parametru](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.png)
+[![Tjest on s MaxPrice w polu tekstowym właściwości Text używany jako źródło parametru](using-parameterized-queries-with-the-sqldatasource-vb/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.png)
 
 **Rysunek 5**: `MaxPrice` TextBox s `Text` właściwość jest używana jako źródło parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image10.png))
 
@@ -133,7 +133,7 @@ Należy pamiętać, że parametr w ramach SqlDataSource s `<SelectParameters>` s
 Potrwać chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki. Po pierwsze, odwiedzając stronę lub po każdym `MaxPrice` TextBox brakuje wartości żadne rekordy nie są wyświetlane w widoku GridView.
 
 
-[![Żadne rekordy nie są wyświetlane podczas MaxPrice pole tekstowe jest puste](using-parameterized-queries-with-the-sqldatasource-vb/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.png)
+[![No rekordy są wyświetlane po MaxPrice pole tekstowe jest puste](using-parameterized-queries-with-the-sqldatasource-vb/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.png)
 
 **Rysunek 6**: Żadne rekordy nie są wyświetlane, gdy `MaxPrice` pole tekstowe jest puste ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image12.png))
 
@@ -143,7 +143,7 @@ Jest przyczyna produkty nie są wyświetlane, ponieważ domyślnie pusty ciąg j
 Wprowadź wartość w polu tekstowym, takich jak 5.00 i kliknij przycisk Wyświetl produkty dopasowania. Na odświeżenie strony SqlDataSource informuje, że zmieniło się GridView, że jedna z jej źródła. W związku z tym widoku GridView rebinds do SqlDataSource wyświetlania tych produktów mniejszą lub równą 5,00 zł.
 
 
-[![Produkty mniejszą niż lub równe $5.00 są wyświetlane.](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.png)
+[![PWyświetlanych jest mniejsza niż lub równe $5.00 roducts](using-parameterized-queries-with-the-sqldatasource-vb/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.png)
 
 **Rysunek 7**: Produkty mniejszą niż lub równe $5.00 są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image14.png))
 
@@ -162,7 +162,7 @@ Niestety firma Microsoft obejścia architektury, korzystając z kontrolką SqlDa
 To `WHERE` klauzula zwraca *wszystkich* rekordy Jeżeli `@MaximumPrice` parametr ma wartość `-1.0`. Jeśli wartość parametru jest `-1.0`, tylko te produkty którego `UnitPrice` jest mniejsza niż lub równa `@MaximumPrice` są zwracane wartości parametru. Ustawiając wartość domyślną `@MaximumPrice` parametr `-1.0`, przy pierwszym ładowaniu strony (lub zawsze, gdy `MaxPrice` pole tekstowe jest puste), `@MaximumPrice` będzie mieć wartość `-1.0` i wszystkie produkty zostaną wyświetlone.
 
 
-[![Teraz wszystkie produkty są wyświetlane po MaxPrice pole tekstowe jest puste](using-parameterized-queries-with-the-sqldatasource-vb/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.png)
+[![NPokaż wszystkie produkty są wyświetlane po MaxPrice pole tekstowe jest puste](using-parameterized-queries-with-the-sqldatasource-vb/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.png)
 
 **Rysunek 8**: Teraz wszystkie produkty są wyświetlane, gdy `MaxPrice` pole tekstowe jest puste ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image16.png))
 
@@ -185,7 +185,7 @@ Z `NORTHWND.MDF` bazy danych, kliknij prawym przyciskiem myszy w folderze proced
 Kliknij przycisk Zapisz ikonę (lub Ctrl + S) można zapisać procedury składowanej. Kliknij prawym przyciskiem myszy w folderze procedur składowanych i wybierając polecenie wykonania, możesz przetestować procedurę składowaną. To spowoduje wyświetlenie monitu dla parametrów procedury składowanej s (`@CategoryID`, w tym wystąpieniu), po której wyniki zostaną wyświetlone w oknie danych wyjściowych.
 
 
-[![GetProductsByCategory przechowywane procedury, gdy wykonywane za pomocą @CategoryID 1](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image17.png)
+[![THE procedury składowanej GetProductsByCategory podczas wykonywania za pomocą @CategoryID 1](using-parameterized-queries-with-the-sqldatasource-vb/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image17.png)
 
 **Rysunek 9**: `GetProductsByCategory` Stored Procedure, gdy wykonywane za pomocą `@CategoryID` 1 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image18.png))
 
@@ -193,7 +193,7 @@ Kliknij przycisk Zapisz ikonę (lub Ctrl + S) można zapisać procedury składow
 Pozwól, s, użyć tej procedury składowanej, aby wyświetlić wszystkie produkty z kategorii Beverages w GridView. Na stronie Dodaj nowe kontrolki GridView i powiązać ją z nowego SqlDataSource, o nazwie `BeverageProductsDataSource`. W dalszym ciągu Określ niestandardową instrukcję SQL lub procedury składowanej ekranu, wybierz przycisk radiowy procedury składowanej i wybierz `GetProductsByCategory` przechowywane procedury z listy rozwijanej.
 
 
-[![Wybierz GetProductsByCategory przechowywane procedury z listy rozwijanej](using-parameterized-queries-with-the-sqldatasource-vb/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image19.png)
+[![SProcedura składowana GetProductsByCategory należy wybrać z listy rozwijanej](using-parameterized-queries-with-the-sqldatasource-vb/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image19.png)
 
 **Na rysunku nr 10**: Wybierz `GetProductsByCategory` procedury składowanej z listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image20.png))
 
@@ -201,7 +201,7 @@ Pozwól, s, użyć tej procedury składowanej, aby wyświetlić wszystkie produk
 Ponieważ procedury składowanej akceptuje parametr wejściowy (`@CategoryID`), jeśli klikniesz pozycję dalej monituje NAS, aby określić źródło dla wartości tego parametru s. Beverages `CategoryID` wynosi 1, więc pozostaw Brak listy rozwijanej źródła parametru i wprowadź wartość w polu tekstowym DefaultValue 1.
 
 
-[![Umożliwia powrót do produktów do kategorii Beverages przez ustaloną wartość 1](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image21.png)
+[![USE Hard-Coded wartość 1 do zwrócenia produkty z kategorii Beverages](using-parameterized-queries-with-the-sqldatasource-vb/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image21.png)
 
 **Rysunek 11**: Użyj wartości Hard-Coded 1 do zwrócenia produkty z kategorii Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image22.png))
 
@@ -214,7 +214,7 @@ Jak oznaczeniu deklaracyjnym pokazano, korzystając z procedury składowanej Sql
 Przetestuj stronę w przeglądarce. Wyświetlane są tylko te produkty, które należą do kategorii Beverages, mimo że *wszystkich* produktu pola są wyświetlane od `GetProductsByCategory` procedura składowana ma zwracać wszystkie kolumny z `Products` tabeli. Firma Microsoft może, oczywiście, ograniczenia lub dostosować pola wyświetlane w widoku GridView z okna dialogowego Edytowanie kolumn GridView s.
 
 
-[![Zostaną wyświetlone wszystkie Beverages](using-parameterized-queries-with-the-sqldatasource-vb/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image23.png)
+[![AWyświetlane są wszystkie Beverages](using-parameterized-queries-with-the-sqldatasource-vb/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image23.png)
 
 **Rysunek 12**: Zostaną wyświetlone wszystkie Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image24.png))
 
@@ -246,7 +246,7 @@ Poniższy kod ilustruje sposób pobierania rekordów z `RandomCategoryDataSource
 `randomCategoryView(0)` Zwraca pierwszy `DataRowView` w widoku danych. `randomCategoryView(0)("CategoryName")` Zwraca wartość `CategoryName` kolumny w tym pierwszego wiersza. Należy pamiętać, że DataView typowaniem luźnym. Aby odwołać się do wartości określonej kolumny musimy przekazać nazwę kolumny w formie ciągu (w tym przypadku CategoryName). Rysunek 13 pokazuje komunikat wyświetlany w `CategoryNameLabel` podczas wyświetlania strony. Oczywiście kategorii rzeczywista nazwa wyświetlana jest wybierane losowo przez `RandomCategoryDataSource` SqlDataSource na każdej wizyty do strony (w tym ogłaszania zwrotnego).
 
 
-[![S losowo wybranej kategorii, którego nazwa jest wyświetlana](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image25.png)
+[![TADAM s losowo wybranej kategorii nazwa jest wyświetlana](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image25.png)
 
 **Rysunek 13**: S losowo wybranej kategorii, nazwa jest wyświetlana ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image26.png))
 
@@ -270,7 +270,7 @@ Wszystkie przykłady możemy ve do tej pory widoczne w tym samouczku użyto wart
 Rozpocznij od dodania GridView do strony i powiązać ją z nowego SqlDataSource, o nazwie `ProductsByCategoryDataSource`. Podobnie jak zrobiliśmy w kroku 3, skonfiguruj SqlDataSource wywołuje `GetProductsByCategory` procedury składowanej. Pozostaw ustawiony listy rozwijanej źródła parametru na wartość None, ale nie należy wprowadzać wartości domyślnej, ponieważ firma Microsoft będzie programowo ustawić tę wartość domyślną.
 
 
-[![Nie określaj parametru źródła lub wartość domyślną](using-parameterized-queries-with-the-sqldatasource-vb/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image27.png)
+[![Do Określa źródło parametru lub wartość domyślną](using-parameterized-queries-with-the-sqldatasource-vb/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image27.png)
 
 **Rysunek 14**: Czy określono parametr źródła lub wartości domyślnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image28.png))
 
@@ -288,7 +288,7 @@ Firma Microsoft może przypisać `DefaultValue` z `CategoryID` programowo w para
 To dodawanie strona zawierająca GridView, który pokazuje produkty powiązane z losowo wybranej kategorii.
 
 
-[![Nie określaj parametru źródła lub wartość domyślną](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image29.png)
+[![Do Określa źródło parametru lub wartość domyślną](using-parameterized-queries-with-the-sqldatasource-vb/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image29.png)
 
 **Rysunek 15**: Czy określono parametr źródła lub wartości domyślnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-vb/_static/image30.png))
 

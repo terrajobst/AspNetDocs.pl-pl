@@ -8,15 +8,15 @@ ms.date: 07/16/2007
 ms.assetid: 8fc77048-4d1f-42bf-a947-ecc9a02b25c9
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-profile-services
 msc.type: video
-ms.openlocfilehash: b3cb1bdbd6be4fcdc956b8dc475888b9ab0a440e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 54b82c52f0bd58a0184824a861b5f31754652ace
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073916"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59420318"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[Jak mogę] Korzystać z usług profilu ASP.NET AJAX?
-====================
+# <a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[Jak mogę] Korzystać z usług profilu ASP.NET AJAX?
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 Program ASP.NET 2.0 wprowadzono [właściwości profilu](https://msdn.microsoft.com/library/at64shx3.aspx) za pomocą której można przechowywać szczegóły dla poszczególnych użytkowników aplikacji sieci Web platformy ASP.NET. Usług profilu ASP.NET AJAX umożliwiają interfejsu sieci Web po stronie klienta można pobrać właściwości profilu użytkownika z aplikacji sieci Web po stronie serwera. Ten film pokazuje, jak przykładową witrynę podróży z włączoną obsługą technologii AJAX przechowywać informacje żądania podróży użytkownika tak, aby szczegóły mogą być pobierane, gdy obok odwiedzin witryny.

@@ -8,15 +8,15 @@ ms.date: 06/10/2008
 ms.assetid: 48b58a18-5ea4-468c-b326-f35331b3e1e9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6f22159c4e70beeb590039ea0d4b8126c5424bd5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a218dffb3d23ca95e9864fb7b272bc6a004386c4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421202"
 ---
-<a name="urls-in-master-pages-c"></a>Adresy URL na stronach wzorcowych (C#)
-====================
+# <a name="urls-in-master-pages-c"></a>Adresy URL na stronach wzorcowych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_CS.pdf)
@@ -92,7 +92,7 @@ Aby rozwiązać problem, uszkodzony obraz pokazano na rysunku 2, musimy zaktuali
 Poświęć chwilę, aby zaktualizować `<img>` elementu `src` atrybutu bezwzględny adres URL przy użyciu jednej formy pokazanych powyżej, a następnie odwiedź `~/Admin/Default.aspx` strony za pośrednictwem przeglądarki. Tym razem przeglądarki zostaną prawidłowo znaleźć i wyświetlić `PoweredByASPNET.gif` pliku obrazu (zobacz rysunek 3).
 
 
-[![Obraz PoweredByASPNET.gif jest teraz wyświetlana](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
+[![TObraz PoweredByASPNET.gif jest teraz wyświetlana](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
 
 **Rysunek 03**: `PoweredByASPNET.gif` Obraz jest teraz wyświetlany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](urls-in-master-pages-cs/_static/image7.png))
 

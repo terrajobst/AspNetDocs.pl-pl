@@ -1,27 +1,30 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: Za pomocą interfejsu API sieci Web przy użyciu wzorca ASP.NET Web Forms | Dokumentacja firmy Microsoft
+title: Za pomocą interfejsu API sieci Web przy użyciu wzorca ASP.NET Web Forms — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Samouczek z kodu krok po kroku, aby dodać interfejs API sieci Web do aplikacji formularzy programu ASP.NET dla aplikacji ASP.NET 4.x
 ms.author: riande
 ms.date: 04/03/2012
+ms.custom: seoapril2019
 ms.assetid: 25da8c3f-4e90-4946-9765-4f160985e1e4
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 msc.type: authoredcontent
-ms.openlocfilehash: a14bf0abd8c5d603cf3859891f855415cf3df9f3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ae553b62998fefd128e12711cbde958ea42d8c63
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075368"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59422580"
 ---
-<a name="using-web-api-with-aspnet-web-forms"></a>Korzystanie z wzorca Web API we wzorcu ASP.NET Web Forms
-====================
+# <a name="using-web-api-with-aspnet-web-forms"></a>Korzystanie z wzorca Web API we wzorcu ASP.NET Web Forms
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-Chociaż interfejs API sieci Web platformy ASP.NET jest dostarczana z platformą ASP.NET MVC, jest łatwe do dodania interfejsu API sieci Web do tradycyjnych aplikacji formularzy sieci Web ASP.NET. Ten samouczek przeprowadzi Cię przez kroki.
+Ten samouczek przeprowadzi Cię przez kroki Aby dodać interfejs API sieci Web do tradycyjnych aplikacji formularzy sieci Web platformy ASP.NET na platformie ASP.NET 4.x. 
 
 ## <a name="overview"></a>Omówienie
+
+Chociaż interfejs API sieci Web platformy ASP.NET jest dostarczana z platformą ASP.NET MVC, jest łatwe do dodania interfejsu API sieci Web do tradycyjnych aplikacji formularzy sieci Web ASP.NET.
 
 Aby użyć interfejsu API sieci Web w aplikacji formularzy sieci Web, istnieją dwa podstawowe kroki:
 
