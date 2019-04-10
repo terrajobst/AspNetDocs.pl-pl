@@ -8,15 +8,15 @@ ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: dbf0964695dd2592d063b05c0778923edffe8e2e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 129b6a8f411d482de75e7e5edc5cc919b4d2de52
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076073"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419525"
 ---
-<a name="host-owin-in-an-azure-worker-role"></a>Hostowanie interfejsu OWIN w roli procesu roboczego platformy Azure
-====================
+# <a name="host-owin-in-an-azure-worker-role"></a>Hostowanie interfejsu OWIN w roli procesu roboczego platformy Azure
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > W tym samouczku pokazano, jak na potrzeby samodzielnego hostowania OWIN w roli procesu roboczego Microsoft Azure.
@@ -116,7 +116,7 @@ Emulator obliczeń przypisuje lokalny adres IP punktu końcowego. Adres IP możn
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-Znajdowanie adresu IP, w ramach wdrożenia usług, wdrożenia [identyfikator], szczegóły usługi. Otwórz przeglądarkę internetową i przejdź do http://<em>adres</em>, gdzie <em>adres</em> jest adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80`. Powinny pojawić się Strona powitalna OWIN:
+Znajdowanie adresu IP, w ramach wdrożenia usług, wdrożenia [identyfikator], szczegóły usługi. Otwórz przeglądarkę internetową i przejdź do protokołu http:\/\/*adres*, gdzie *adres* jest adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80`. Powinny pojawić się Strona powitalna OWIN:
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 

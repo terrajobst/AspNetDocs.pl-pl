@@ -8,15 +8,15 @@ ms.date: 03/23/2007
 ms.assetid: 60bb771b-e938-490f-944e-c80bc6bbdc12
 msc.legacyurl: /web-forms/videos/vs-2005/measuring-the-business-value-of-ajax
 msc.type: video
-ms.openlocfilehash: 6fc804c63d1d21b49d9520192c09c09ff199c92d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 28b8cc18f3c0359e8d4b54846481c2c02770c766
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074504"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419473"
 ---
-<a name="measuring-the-business-value-of-ajax"></a>Pomiar wartości biznesowej technologii AJAX
-====================
+# <a name="measuring-the-business-value-of-ajax"></a>Pomiar wartości biznesowej technologii AJAX
+
 przez Eric Lee
 
 ASP.NET AJAX jest dobrze znane możliwości ulepszyć środowisko użytkownika aplikacji sieci Web. Za pomocą programu Visual Studio Team System, można również zastosować miary wartość biznesową elementu Dodawanie ASP.NET AJAX do aplikacji sieci Web. W szczególności umożliwia możliwości obciążenia i testy sieci Web programu Visual Studio Team System Poznaj wpływ różnica w rozmiarze transmisji danych HTTP charakterystyki wydajności i skalowalności aplikacji sieci Web.

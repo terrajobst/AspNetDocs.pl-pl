@@ -8,15 +8,15 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: b593c6225c05c7405c9d8b78abfd29a087d47b04
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 84f9c822f041808184b2c586ce933ba3b24615dc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421262"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419837"
 ---
-<a name="adding-a-controller"></a>Dodawanie kontrolera
-====================
+# <a name="adding-a-controller"></a>Dodawanie kontrolera
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > > [!NOTE]
@@ -40,7 +40,7 @@ Utworzymy nowy kontroler, klikając prawym przyciskiem myszy folder kontrolerów
 
 Nadaj nazwę nowemu kontrolerowi "HelloWorldController", a następnie kliknij przycisk Dodaj.
 
-[![Dodaj kontroler, okno dialogowe](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
+[![AKontroler okna dialogowego dd](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
 
 Zwróć uwagę, w Eksploratorze rozwiązań po prawej stronie, który został utworzony nowy plik o nazwie HelloWorldController.cs, i teraz otworzyć tego pliku w **IDE**.
 
@@ -58,13 +58,13 @@ ASP.NET MVC wywołuje różne klasy kontrolera (i różnych metod akcji w nich),
 
 Pierwszą część adresu URL określa klasę kontrolera do wykonania. Dlatego /HelloWorld mapuje klasy HelloWorldController. Druga część adresu URL określa metody akcji w klasie, do wykonania. Dlatego /HelloWorld/Index spowoduje, że metoda indeks() klasy HelloWorldController do wykonania. Należy zauważyć, że mieliśmy do odwiedzenia /HelloWorld powyżej i metodę, która została niejawnego indeksu. Jest to spowodowane metodę o nazwie "Index" jest to domyślna metoda, która zostanie wywołana na kontrolerze, jeśli nie jest jawnie określona.
 
-[![To jest Moja Akcja domyślna](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
+[![Tjego jest Moje domyślną akcję](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 
 Teraz przejdźmy do `http://localhost:xx/HelloWorld/Welcome.` teraz naszych powitalnej metody wykonywane i zwrócony jego ciągu HTML.
 
 Ponownie / [Controller] / [Nazwa akcji] / [parametry] kontroler zostanie HelloWorld i Witaj w tym przypadku jest to metoda. Mamy jeszcze nie parametry to jeszcze zrobione.
 
-[![Jest to metoda akcji-Zapraszamy!](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
+[![Tjego jest metodą akcji powitalnej](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
 Zmodyfikujmy naszego przykładu nieco tak, że możemy przekazać niektóre informacje z adresu URL do kontrolera, na przykład następująco: / HelloWorld/Witaj? nazwa = Scott&amp;numtimes = 4. Zmienić metodę powitalnej obejmujący dwa parametry i aktualizacji, takich jak go poniżej. Należy pamiętać, aby wskazać, że numTimes parametr powinien domyślnie 1, jeśli nie zostanie przekazany w używaliśmy funkcji opcjonalny parametr języka C#.
 

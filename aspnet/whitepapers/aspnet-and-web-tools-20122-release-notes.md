@@ -8,22 +8,22 @@ ms.date: 02/14/2013
 ms.assetid: bdb18d02-9f61-4676-836d-6fdea94f9282
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
-ms.openlocfilehash: 50e96251f8add00f70193977e73f9af194571c49
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 45e2d1b10665a8ca1965f0761bfa6bfd13444c8e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070304"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419512"
 ---
-<a name="aspnet-and-web-tools-20122-release-notes"></a>Informacje o wersji rozszerzenia ASP.NET and Web Tools 2012.2
-====================
+# <a name="aspnet-and-web-tools-20122-release-notes"></a>Informacje o wersji rozszerzenia ASP.NET and Web Tools 2012.2
+
 > Ten dokument zawiera opis wersji platformy ASP.NET i Web Tools 2012.2. Jest aktualizacja sieci Web narzędzi programu Visual Studio i platformy ASP.NET.
 
 
 - [Uwagi dotyczące instalacji](#_Installation)
 - [Dokumentacja](#_Documentation)
 - [Pomoc techniczna](#_Support)
-- [Wymagania dotyczące oprogramowania](#_Software_Requirements)
+- [Wymagania programowe](#_Software_Requirements)
 - [Nowe funkcje w ASP.NET and Web Tools 2012.2](#_New_Features_in)
 
     - [Narzędzia](#_Tooling)
@@ -58,7 +58,7 @@ Możesz także zainstalować program ASP.NET i Web Tools 2012.2 ręcznie. Koniec
 Samouczki i inne informacje o platformie ASP.NET i Web Tools 2012.2 są dostępne w witrynie sieci web platformy ASP.NET ( https://www.asp.net).
 
 <a id="_Support"></a>
-## <a name="support"></a>Obsługa
+## <a name="support"></a>Pomoc techniczna
 
 Program ASP.NET i Web Tools 2012.2 oficjalnie zostanie zwolniony i obsługiwane. Można użyć swojego kanału normalne pomocy technicznej. Może także umieszczać pytania na forach platformy ASP.NET ([https://forums.asp.net/](https://forums.asp.net/)), gdzie są często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET.
 

@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: b115109c7307d05dc9e620378a51a71407204740
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 016dfa2a5a5fb9aaed0e1c60194e53ac9ccb8b36
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075572"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59419590"
 ---
-<a name="data-bound-controls"></a>Kontrolki powiązania danych
-====================
+# <a name="data-bound-controls"></a>Kontrolki powiązania danych
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Większość aplikacji ASP.NET, zależy od pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały pivotal część interakcji z danymi w dynamicznych aplikacji sieci Web. Program ASP.NET 2.0 wprowadzono znaczne ulepszenia do formantów powiązanych z danymi, w tym nową klasę BaseDataBoundControl i składni deklaratywnej.
@@ -88,7 +88,7 @@ Jeśli zdecydujesz się użyć tabeli bazy danych jako źródła danych dla kont
 
 | **Nazwa kolumny** | **Typ danych** | **Opis** |
 | --- | --- | --- |
-| ID | int | Klucz podstawowy. W tej kolumnie mogą mieć dowolną nazwę. |
+| Identyfikator | int | Klucz podstawowy. W tej kolumnie mogą mieć dowolną nazwę. |
 | ImageUrl | nvarchar (*długość*) | Względny lub bezwzględny adres URL obrazu do wyświetlenia dla usług ad. |
 | NavigateUrl | nvarchar (*długość*) | Docelowy adres URL dla usług ad. Jeśli wartość nie zostanie określona, ad nie jest hiperłącze. |
 | AlternateText | nvarchar (*długość*) | Tekst wyświetlany, jeśli nie można odnaleźć obrazu. W niektórych przeglądarkach tekst jest wyświetlany jako etykietka narzędzia. Tekst alternatywny służy także do ułatwień dostępu, aby użytkownicy, którzy nie są widoczne grafiki słyszalny jego opis, Czytaj na głos. |
@@ -109,7 +109,7 @@ Kontrolki listy zawierają pola listy, DropDownList, CheckBoxList, RadioButtonLi
 
 Dane powiązać kontrolkę listy, na stronie Dodaj kontrolę źródła danych. Określ polecenie SELECT do kontroli źródła danych, a następnie ustaw właściwość DataSourceID formantu listy identyfikator formantu źródła danych. Użyj **DataTextField** i **DataValueField** właściwości, aby określić tekst wyświetlany i wartość dla formantu. Ponadto można użyć **DataTextFormatString** właściwość, aby sterować wyglądem wyświetlania tekstu w następujący sposób:
 
-| **Expression** | **Opis** |
+| **Wyrażenie** | **Opis** |
 | --- | --- |
 | Cena: {0:C} | Aby uzyskać dane liczbowe/dziesiętnych. Wyświetla literału "Cena:" następują cyfry w formacie waluty. Format waluty zależy od ustawień kultury określonej w atrybucie kultury na **strony** dyrektywy lub w pliku Web.config. |
 | {0:D4} | Dla danych liczb całkowitych. Nie można używać z liczb dziesiętnych. Liczby całkowite są wyświetlane w polu o zerowej, która jest cztery znaki dwubajtowe. |
@@ -195,7 +195,7 @@ Przez ustawienie właściwości stylu dla różnych części kontrolki, można d
 
 Możesz pokazać lub ukryć różnych części kontrolki. W poniższej tabeli wymieniono właściwości, które kontrolują, części, które zostaną pokazane lub ukryte.
 
-| **Property** | **Opis** |
+| **Właściwość** | **Opis** |
 | --- | --- |
 | ShowFooter | Pokazuje lub ukrywa stopce kontrolki GridView. |
 | ShowHeader | Pokazuje lub ukrywa sekcji nagłówka w kontrolce GridView. |
@@ -204,7 +204,7 @@ Możesz pokazać lub ukryć różnych części kontrolki. W poniższej tabeli wy
 
 Formant widoku GridView zapewnia kilka zdarzeń, które można programować względem. Dzięki temu można uruchomić procedury niestandardowe zawsze wtedy, gdy wystąpi zdarzenie. W poniższej tabeli wymieniono zdarzenia obsługiwane przez kontrolki GridView.
 
-| **Event** | **Opis** |
+| **Zdarzenie** | **Opis** |
 | --- | --- |
 | PageIndexChanged | Występuje po kliknięciu jednego z przyciski pagera, ale po kontrolki GridView obsługuje stronicowanie. To zdarzenie jest często używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innej strony w formancie. |
 | PageIndexChanging | Występuje po kliknięciu jednego z przyciski pagera, ale przed widoku GridView kontroli obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
@@ -270,7 +270,7 @@ Ponieważ kontroli FormView korzysta z szablonów, nie zapewnia możliwości aut
 | Insert | "Insert" | Używane w operacji wstawiania, aby wstawić nowy rekord w źródle danych przy użyciu wartości dostarczone przez użytkownika. Wywołuje zdarzenia ItemInserting i ItemInserted. |
 | New | "New" | Używana w operacji wstawiania do umieścić formant FormView w trybie wstawiania. Zawartości określona w **InsertItemTemplate** właściwości są wyświetlane dla wiersza danych. |
 | Strona | "Page" | Używana w operacjach stronicowania do reprezentowania przycisku w wierszu pagera, który wykonuje stronicowania. Aby określić stronicowanie, ustaw **Właściwość CommandArgument** właściwości przycisku "Dalej", "Wstecz", "First", "Last" lub indeks strony, dla której chcesz przejść. Wywołuje zdarzenia PageIndexChanging i PageIndexChanged. |
-| Aktualizacja | "Aktualizuj" | Używany podczas aktualizowania operacji próbuje zaktualizować wyświetlany rekord w źródle danych przy użyciu wartości podanych przez użytkownika. Wywołuje zdarzenia ItemUpdating i ItemUpdated. |
+| Aktualizowanie | "Aktualizuj" | Używany podczas aktualizowania operacji próbuje zaktualizować wyświetlany rekord w źródle danych przy użyciu wartości podanych przez użytkownika. Wywołuje zdarzenia ItemUpdating i ItemUpdated. |
 
 W przeciwieństwie do usuwania przycisk (który usuwa wyświetlany rekord natychmiast), po kliknięciu przycisku edycji lub nowy FormView kontrola przechodzi do edycji lub trybie wstawiania odpowiednio. W trybie edycji zawartości znajdujących się w **EditItemTemplate** właściwości są wyświetlane dla bieżącego elementu danych. Edytuj szablon elementu zdefiniowano zazwyczaj taki sposób, że przycisk Edytuj została zastąpiona aktualizacja i przycisk Anuluj. Kontrolki wejściowe, które są odpowiednie dla typu danych pola (na przykład pola tekstowego lub formantu CheckBox) są wyświetlane również zazwyczaj wartość pola użytkownik może go zmodyfikować. Klikając przycisk Aktualizuj aktualizacji rekordu w źródle danych, a kliknięcie przycisku Anuluj porzuca wszystkie zmiany.
 
@@ -296,7 +296,7 @@ Można dostosować wygląd formantu FormView przez ustawienie właściwości sty
 
 Formant widoku FormView zapewnia kilka zdarzeń, które można programować względem. Dzięki temu można uruchomić procedury niestandardowe zawsze wtedy, gdy wystąpi zdarzenie. W poniższej tabeli wymieniono zdarzenia obsługiwane przez kontrolkę FormView.
 
-| **Event** | **Opis** |
+| **Zdarzenie** | **Opis** |
 | --- | --- |
 | ItemCommand | Występuje, gdy kliknięto przycisk w kontrolce FormView. To zdarzenie jest często używane do wykonywania zadań, po kliknięciu przycisku w formancie. |
 | ItemCreated | Występuje po wszystkich obiektów FormViewRow są tworzone w kontrolce FormView. To zdarzenie jest często używane do modyfikowania wartości rekordu, przed wyświetleniem. |
@@ -388,7 +388,7 @@ Można dostosować wygląd kontrolce DetailsView przez ustawienie właściwości
 
 W kontrolce DetailsView udostępnia kilka zdarzeń, które można programować względem. Dzięki temu można uruchomić procedury niestandardowe zawsze wtedy, gdy wystąpi zdarzenie. W poniższej tabeli wymieniono zdarzenia objęte kontrolce DetailsView. W kontrolce DetailsView dziedziczy także te zdarzenia z jej klas bazowych: Powiązanie danych z danymi, usunięty, Init, obciążenia, PreRender i renderowania.
 
-| **Event** | **Opis** |
+| **Zdarzenie** | **Opis** |
 | --- | --- |
 | ItemCommand | Występuje po kliknięciu przycisku w kontrolce DetailsView. |
 | ItemCreated | Występuje po wszystkich obiektów DetailsViewRow są tworzone w kontrolce DetailsView. To zdarzenie jest często używane do modyfikowania wartości rekordu, przed wyświetleniem. |
@@ -554,7 +554,7 @@ TreeView — kontrolka ma unikatowy następujące zdarzenia:
 
 TreeView — kontrolka zawiera wiele właściwości do kontrolowania wyglądu formantu przy użyciu stylów. Dostępne są następujące właściwości.
 
-| **Nazwa właściwości** | **Kontrolki** |
+| **Nazwa właściwości** | **Formanty** |
 | --- | --- |
 | HoverNodeStyle | Określa styl węzłów, gdy wskaźnik myszy jest aktywowany nad nimi. |
 | LeafNodeStyle | Określa styl węzłów liścia. |
@@ -587,7 +587,7 @@ Kontrolki ścieżki mapy witryny składa się z SiteMapNodeItem obiektów. Istni
 
 Właściwości służące do sterowania działaniem kontrolki ścieżki mapy witryny są następujące:
 
-| **Property** | **Opis właściwości** |
+| **Właściwość** | **Opis właściwości** |
 | --- | --- |
 | ParentLevelsDisplayed | Określa, ile węzły nadrzędne są wyświetlane. Wartość domyślna to -1, która nakłada żadnych ograniczeń liczby węzłów nadrzędnych wyświetlane. |
 | PathDirection | Określa kierunek ścieżki mapy witryny. Prawidłowe wartości to RootToCurrent (ustawienie domyślne) i CurrentToRoot. |
@@ -615,7 +615,7 @@ Kontrolki ścieżki mapy witryny ma dwa zdarzenia, które nie pochodzą z klasy 
 
 Następujące style są dostępne dla formatowanie kontrolki ścieżki mapy witryny.
 
-| **Nazwa właściwości** | **Kontrolki** |
+| **Nazwa właściwości** | **Formanty** |
 | --- | --- |
 | CurrentNodeStyle | Określa styl tekstu dla bieżącego węzła. |
 | RootNodeStyle | Określa styl tekstu dla węzła głównego. |
