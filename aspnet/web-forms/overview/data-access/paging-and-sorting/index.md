@@ -8,23 +8,23 @@ ms.date: 10/05/2011
 ms.assetid: d45a8c0c-e8ec-46d3-bc1c-ce446df005c8
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting
 msc.type: chapter
-ms.openlocfilehash: 5127106d6017c9b63fc704765e2c760e437c7ca0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c422a142a06cf9255412384fa384304897f0ac0a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796647"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59400602"
 ---
-<a name="paging-and-sorting"></a><span data-ttu-id="29454-103">Stronicowanie i sortowanie</span><span class="sxs-lookup"><span data-stu-id="29454-103">Paging and Sorting</span></span>
-====================
-> <span data-ttu-id="29454-104">W tych samouczkach dodasz niektóre początkowej sortowania i stronicowania funkcji danych raportów.</span><span class="sxs-lookup"><span data-stu-id="29454-104">In these tutorials you add some initial sorting and paging functionality to data reports.</span></span>
+# <a name="paging-and-sorting"></a><span data-ttu-id="d561c-103">Stronicowanie i sortowanie</span><span class="sxs-lookup"><span data-stu-id="d561c-103">Paging and Sorting</span></span>
+
+> <span data-ttu-id="d561c-104">W tych samouczkach dodasz niektóre początkowej sortowania i stronicowania funkcji danych raportów.</span><span class="sxs-lookup"><span data-stu-id="d561c-104">In these tutorials you add some initial sorting and paging functionality to data reports.</span></span>
 
 
-- [<span data-ttu-id="29454-105">Stronicowanie i sortowanie danych raportu (C#)</span><span class="sxs-lookup"><span data-stu-id="29454-105">Paging and Sorting Report Data (C#)</span></span>](paging-and-sorting-report-data-cs.md)
-- [<span data-ttu-id="29454-106">Efektywne stronicowanie dużych ilości danych (C#)</span><span class="sxs-lookup"><span data-stu-id="29454-106">Efficiently Paging Through Large Amounts of Data (C#)</span></span>](efficiently-paging-through-large-amounts-of-data-cs.md)
-- [<span data-ttu-id="29454-107">Sortowanie niestandardowo stronicowanych danych (C#)</span><span class="sxs-lookup"><span data-stu-id="29454-107">Sorting Custom Paged Data (C#)</span></span>](sorting-custom-paged-data-cs.md)
-- [<span data-ttu-id="29454-108">Tworzenie dostosowanego interfejsu użytkownika sortowania (C#)</span><span class="sxs-lookup"><span data-stu-id="29454-108">Creating a Customized Sorting User Interface (C#)</span></span>](creating-a-customized-sorting-user-interface-cs.md)
-- [<span data-ttu-id="29454-109">Stronicowanie i sortowanie danych raportu (VB)</span><span class="sxs-lookup"><span data-stu-id="29454-109">Paging and Sorting Report Data (VB)</span></span>](paging-and-sorting-report-data-vb.md)
-- [<span data-ttu-id="29454-110">Efektywne stronicowanie dużych ilości danych (VB)</span><span class="sxs-lookup"><span data-stu-id="29454-110">Efficiently Paging Through Large Amounts of Data (VB)</span></span>](efficiently-paging-through-large-amounts-of-data-vb.md)
-- [<span data-ttu-id="29454-111">Sortowanie niestandardowo stronicowanych danych (VB)</span><span class="sxs-lookup"><span data-stu-id="29454-111">Sorting Custom Paged Data (VB)</span></span>](sorting-custom-paged-data-vb.md)
-- [<span data-ttu-id="29454-112">Tworzenie dostosowanego interfejsu użytkownika sortowania (VB)</span><span class="sxs-lookup"><span data-stu-id="29454-112">Creating a Customized Sorting User Interface (VB)</span></span>](creating-a-customized-sorting-user-interface-vb.md)
+- [<span data-ttu-id="d561c-105">Stronicowanie i sortowanie danych raportu (C#)</span><span class="sxs-lookup"><span data-stu-id="d561c-105">Paging and Sorting Report Data (C#)</span></span>](paging-and-sorting-report-data-cs.md)
+- [<span data-ttu-id="d561c-106">Efektywne stronicowanie dużych ilości danych (C#)</span><span class="sxs-lookup"><span data-stu-id="d561c-106">Efficiently Paging Through Large Amounts of Data (C#)</span></span>](efficiently-paging-through-large-amounts-of-data-cs.md)
+- [<span data-ttu-id="d561c-107">Sortowanie niestandardowo stronicowanych danych (C#)</span><span class="sxs-lookup"><span data-stu-id="d561c-107">Sorting Custom Paged Data (C#)</span></span>](sorting-custom-paged-data-cs.md)
+- [<span data-ttu-id="d561c-108">Tworzenie dostosowanego interfejsu użytkownika sortowania (C#)</span><span class="sxs-lookup"><span data-stu-id="d561c-108">Creating a Customized Sorting User Interface (C#)</span></span>](creating-a-customized-sorting-user-interface-cs.md)
+- [<span data-ttu-id="d561c-109">Stronicowanie i sortowanie danych raportu (VB)</span><span class="sxs-lookup"><span data-stu-id="d561c-109">Paging and Sorting Report Data (VB)</span></span>](paging-and-sorting-report-data-vb.md)
+- [<span data-ttu-id="d561c-110">Efektywne stronicowanie dużych ilości danych (VB)</span><span class="sxs-lookup"><span data-stu-id="d561c-110">Efficiently Paging Through Large Amounts of Data (VB)</span></span>](efficiently-paging-through-large-amounts-of-data-vb.md)
+- [<span data-ttu-id="d561c-111">Sortowanie niestandardowo stronicowanych danych (VB)</span><span class="sxs-lookup"><span data-stu-id="d561c-111">Sorting Custom Paged Data (VB)</span></span>](sorting-custom-paged-data-vb.md)
+- [<span data-ttu-id="d561c-112">Tworzenie dostosowanego interfejsu użytkownika sortowania (VB)</span><span class="sxs-lookup"><span data-stu-id="d561c-112">Creating a Customized Sorting User Interface (VB)</span></span>](creating-a-customized-sorting-user-interface-vb.md)

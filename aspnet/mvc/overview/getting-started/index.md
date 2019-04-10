@@ -8,53 +8,53 @@ ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f588af70f3928285274ef6bf14f58697190943ff
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796622"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59405823"
 ---
-<a name="aspnet-mvc-getting-started"></a><span data-ttu-id="fdab3-103">ASP.NET MVC Getting Started</span><span class="sxs-lookup"><span data-stu-id="fdab3-103">ASP.NET MVC Getting Started</span></span>
-====================
-> <span data-ttu-id="fdab3-104">Poniższe wskazówki opisano platformy ASP.NET MVC, a czego pokazuje, jak rozpocząć pracę.</span><span class="sxs-lookup"><span data-stu-id="fdab3-104">The following guidance explains what ASP.NET MVC is and shows how to get started.</span></span>
+# <a name="aspnet-mvc-getting-started"></a><span data-ttu-id="e85b6-103">ASP.NET MVC Getting Started</span><span class="sxs-lookup"><span data-stu-id="e85b6-103">ASP.NET MVC Getting Started</span></span>
+
+> <span data-ttu-id="e85b6-104">Poniższe wskazówki opisano platformy ASP.NET MVC, a czego pokazuje, jak rozpocząć pracę.</span><span class="sxs-lookup"><span data-stu-id="e85b6-104">The following guidance explains what ASP.NET MVC is and shows how to get started.</span></span>
 
 
-- [<span data-ttu-id="fdab3-105">Wprowadzenie do ASP.NET MVC 5</span><span class="sxs-lookup"><span data-stu-id="fdab3-105">Getting Started with ASP.NET MVC 5</span></span>](introduction/index.md)
+- [<span data-ttu-id="e85b6-105">Wprowadzenie do korzystania z wzorca ASP.NET MVC 5</span><span class="sxs-lookup"><span data-stu-id="e85b6-105">Getting Started with ASP.NET MVC 5</span></span>](introduction/index.md)
 
-    - [<span data-ttu-id="fdab3-106">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="fdab3-106">Getting Started</span></span>](introduction/getting-started.md)
-    - [<span data-ttu-id="fdab3-107">Dodawanie kontrolera</span><span class="sxs-lookup"><span data-stu-id="fdab3-107">Adding a Controller</span></span>](introduction/adding-a-controller.md)
-    - [<span data-ttu-id="fdab3-108">Dodawanie widoku</span><span class="sxs-lookup"><span data-stu-id="fdab3-108">Adding a View</span></span>](introduction/adding-a-view.md)
-    - [<span data-ttu-id="fdab3-109">Dodawanie modelu</span><span class="sxs-lookup"><span data-stu-id="fdab3-109">Adding a Model</span></span>](introduction/adding-a-model.md)
-    - [<span data-ttu-id="fdab3-110">Tworzenie parametrów połączenia i praca z SQL Server LocalDB</span><span class="sxs-lookup"><span data-stu-id="fdab3-110">Creating a Connection String and Working with SQL Server LocalDB</span></span>](introduction/creating-a-connection-string.md)
-    - [<span data-ttu-id="fdab3-111">Uzyskiwanie dostępu do danych modelu za pomocą kontrolera</span><span class="sxs-lookup"><span data-stu-id="fdab3-111">Accessing Your Model's Data from a Controller</span></span>](introduction/accessing-your-models-data-from-a-controller.md)
-    - [<span data-ttu-id="fdab3-112">Badanie metod edycji i widoku edycji</span><span class="sxs-lookup"><span data-stu-id="fdab3-112">Examining the Edit Methods and Edit View</span></span>](introduction/examining-the-edit-methods-and-edit-view.md)
-    - [<span data-ttu-id="fdab3-113">Dodawanie wyszukiwania</span><span class="sxs-lookup"><span data-stu-id="fdab3-113">Adding Search</span></span>](introduction/adding-search.md)
-    - [<span data-ttu-id="fdab3-114">Dodanie nowego pola</span><span class="sxs-lookup"><span data-stu-id="fdab3-114">Adding a New Field</span></span>](introduction/adding-a-new-field.md)
-    - [<span data-ttu-id="fdab3-115">Dodawanie weryfikacji</span><span class="sxs-lookup"><span data-stu-id="fdab3-115">Adding Validation</span></span>](introduction/adding-validation.md)
-    - [<span data-ttu-id="fdab3-116">Badanie metod Details i Delete</span><span class="sxs-lookup"><span data-stu-id="fdab3-116">Examining the Details and Delete Methods</span></span>](introduction/examining-the-details-and-delete-methods.md)
-- [<span data-ttu-id="fdab3-117">Wprowadzenie do korzystania z programów EF 6 i MVC 5</span><span class="sxs-lookup"><span data-stu-id="fdab3-117">Getting Started with EF 6 using MVC 5</span></span>](getting-started-with-ef-using-mvc/index.md)
+    - [<span data-ttu-id="e85b6-106">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="e85b6-106">Getting Started</span></span>](introduction/getting-started.md)
+    - [<span data-ttu-id="e85b6-107">Dodawanie kontrolera</span><span class="sxs-lookup"><span data-stu-id="e85b6-107">Adding a Controller</span></span>](introduction/adding-a-controller.md)
+    - [<span data-ttu-id="e85b6-108">Dodawanie widoku</span><span class="sxs-lookup"><span data-stu-id="e85b6-108">Adding a View</span></span>](introduction/adding-a-view.md)
+    - [<span data-ttu-id="e85b6-109">Dodawanie modelu</span><span class="sxs-lookup"><span data-stu-id="e85b6-109">Adding a Model</span></span>](introduction/adding-a-model.md)
+    - [<span data-ttu-id="e85b6-110">Tworzenie parametrów połączenia i praca z bazą danych SQL Server LocalDB</span><span class="sxs-lookup"><span data-stu-id="e85b6-110">Creating a Connection String and Working with SQL Server LocalDB</span></span>](introduction/creating-a-connection-string.md)
+    - [<span data-ttu-id="e85b6-111">Uzyskiwanie dostępu do danych modelu za pomocą kontrolera</span><span class="sxs-lookup"><span data-stu-id="e85b6-111">Accessing Your Model's Data from a Controller</span></span>](introduction/accessing-your-models-data-from-a-controller.md)
+    - [<span data-ttu-id="e85b6-112">Badanie metod edycji i widoku edycji</span><span class="sxs-lookup"><span data-stu-id="e85b6-112">Examining the Edit Methods and Edit View</span></span>](introduction/examining-the-edit-methods-and-edit-view.md)
+    - [<span data-ttu-id="e85b6-113">Dodawanie wyszukiwania</span><span class="sxs-lookup"><span data-stu-id="e85b6-113">Adding Search</span></span>](introduction/adding-search.md)
+    - [<span data-ttu-id="e85b6-114">Dodanie nowego pola</span><span class="sxs-lookup"><span data-stu-id="e85b6-114">Adding a New Field</span></span>](introduction/adding-a-new-field.md)
+    - [<span data-ttu-id="e85b6-115">Dodawanie walidacji</span><span class="sxs-lookup"><span data-stu-id="e85b6-115">Adding Validation</span></span>](introduction/adding-validation.md)
+    - [<span data-ttu-id="e85b6-116">Badanie metod Details i Delete</span><span class="sxs-lookup"><span data-stu-id="e85b6-116">Examining the Details and Delete Methods</span></span>](introduction/examining-the-details-and-delete-methods.md)
+- [<span data-ttu-id="e85b6-117">Wprowadzenie do korzystania z programów EF 6 i MVC 5</span><span class="sxs-lookup"><span data-stu-id="e85b6-117">Getting Started with EF 6 using MVC 5</span></span>](getting-started-with-ef-using-mvc/index.md)
 
-    - [<span data-ttu-id="fdab3-118">Tworzenie modelu danych programu Entity Framework</span><span class="sxs-lookup"><span data-stu-id="fdab3-118">Creating an Entity Framework Data Model</span></span>](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-119">Implementowanie podstawowych funkcji CRUD</span><span class="sxs-lookup"><span data-stu-id="fdab3-119">Implementing Basic CRUD Functionality</span></span>](getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-120">Sortowanie, filtrowanie i stronicowanie</span><span class="sxs-lookup"><span data-stu-id="fdab3-120">Sorting, Filtering, and Paging</span></span>](getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-121">Elastyczność połączeń i przejmowanie poleceń</span><span class="sxs-lookup"><span data-stu-id="fdab3-121">Connection Resiliency and Command Interception</span></span>](getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-122">Migracje Code First i wdrażanie</span><span class="sxs-lookup"><span data-stu-id="fdab3-122">Code First Migrations and Deployment</span></span>](getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-123">Tworzenie bardziej złożonego modelu danych</span><span class="sxs-lookup"><span data-stu-id="fdab3-123">Creating a More Complex Data Model</span></span>](getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-124">Odczytywanie powiązanych danych</span><span class="sxs-lookup"><span data-stu-id="fdab3-124">Reading Related Data</span></span>](getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-125">Aktualizowanie powiązanych danych</span><span class="sxs-lookup"><span data-stu-id="fdab3-125">Updating Related Data</span></span>](getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-126">Model asynchroniczny i procedury składowane</span><span class="sxs-lookup"><span data-stu-id="fdab3-126">Async and Stored Procedures</span></span>](getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-127">Obsługa współbieżności</span><span class="sxs-lookup"><span data-stu-id="fdab3-127">Handling Concurrency</span></span>](getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-128">Implementowanie dziedziczenia</span><span class="sxs-lookup"><span data-stu-id="fdab3-128">Implementing Inheritance</span></span>](getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-    - [<span data-ttu-id="fdab3-129">Zaawansowane scenariusze platformy Entity Framework</span><span class="sxs-lookup"><span data-stu-id="fdab3-129">Advanced Entity Framework Scenarios</span></span>](getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
-- [<span data-ttu-id="fdab3-130">Podejście Database First w programie EF z wykorzystaniem wzorca ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="fdab3-130">EF Database First with ASP.NET MVC</span></span>](database-first-development/index.md)
+    - [<span data-ttu-id="e85b6-118">Tworzenie modelu danych programu Entity Framework</span><span class="sxs-lookup"><span data-stu-id="e85b6-118">Creating an Entity Framework Data Model</span></span>](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-119">Implementowanie podstawowych funkcji CRUD</span><span class="sxs-lookup"><span data-stu-id="e85b6-119">Implementing Basic CRUD Functionality</span></span>](getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-120">Sortowanie, filtrowanie i stronicowanie</span><span class="sxs-lookup"><span data-stu-id="e85b6-120">Sorting, Filtering, and Paging</span></span>](getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-121">Odporność połączeń i przejmowanie poleceń</span><span class="sxs-lookup"><span data-stu-id="e85b6-121">Connection Resiliency and Command Interception</span></span>](getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-122">Migracje Code First i wdrażanie</span><span class="sxs-lookup"><span data-stu-id="e85b6-122">Code First Migrations and Deployment</span></span>](getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-123">Tworzenie bardziej złożonego modelu danych</span><span class="sxs-lookup"><span data-stu-id="e85b6-123">Creating a More Complex Data Model</span></span>](getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-124">Odczytywanie powiązanych danych</span><span class="sxs-lookup"><span data-stu-id="e85b6-124">Reading Related Data</span></span>](getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-125">Aktualizowanie powiązanych danych</span><span class="sxs-lookup"><span data-stu-id="e85b6-125">Updating Related Data</span></span>](getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-126">Model asynchroniczny i procedury składowane</span><span class="sxs-lookup"><span data-stu-id="e85b6-126">Async and Stored Procedures</span></span>](getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-127">Obsługa współbieżności</span><span class="sxs-lookup"><span data-stu-id="e85b6-127">Handling Concurrency</span></span>](getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-128">Implementowanie dziedziczenia</span><span class="sxs-lookup"><span data-stu-id="e85b6-128">Implementing Inheritance</span></span>](getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+    - [<span data-ttu-id="e85b6-129">Zaawansowane scenariusze platformy Entity Framework</span><span class="sxs-lookup"><span data-stu-id="e85b6-129">Advanced Entity Framework Scenarios</span></span>](getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+- [<span data-ttu-id="e85b6-130">Podejście Database First w programie EF z wykorzystaniem wzorca ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="e85b6-130">EF Database First with ASP.NET MVC</span></span>](database-first-development/index.md)
 
-    - [<span data-ttu-id="fdab3-131">Wprowadzenie do podejścia Database First w programie Entity Framework 6 z wykorzystaniem MVC 5</span><span class="sxs-lookup"><span data-stu-id="fdab3-131">Getting Started with Entity Framework 6 Database First using MVC 5</span></span>](database-first-development/setting-up-database.md)
-    - [<span data-ttu-id="fdab3-132">Tworzenie modeli danych i aplikacji internetowych</span><span class="sxs-lookup"><span data-stu-id="fdab3-132">Creating the Web Application and Data Models</span></span>](database-first-development/creating-the-web-application.md)
-    - [<span data-ttu-id="fdab3-133">Generowanie widoków</span><span class="sxs-lookup"><span data-stu-id="fdab3-133">Generating Views</span></span>](database-first-development/generating-views.md)
-    - [<span data-ttu-id="fdab3-134">Zmienianie bazy danych</span><span class="sxs-lookup"><span data-stu-id="fdab3-134">Changing the Database</span></span>](database-first-development/changing-the-database.md)
-    - [<span data-ttu-id="fdab3-135">Dostosowywanie widoku</span><span class="sxs-lookup"><span data-stu-id="fdab3-135">Customizing a View</span></span>](database-first-development/customizing-a-view.md)
-    - [<span data-ttu-id="fdab3-136">Ulepszanie weryfikacji danych</span><span class="sxs-lookup"><span data-stu-id="fdab3-136">Enhancing Data Validation</span></span>](database-first-development/enhancing-data-validation.md)
-- [<span data-ttu-id="fdab3-137">Cykl życia aplikacji ASP.NET MVC 5</span><span class="sxs-lookup"><span data-stu-id="fdab3-137">Lifecycle of an ASP.NET MVC 5 Application</span></span>](lifecycle-of-an-aspnet-mvc-5-application.md)
-- [<span data-ttu-id="fdab3-138">Zalecane zasoby dla MVC</span><span class="sxs-lookup"><span data-stu-id="fdab3-138">MVC Recommended Resources</span></span>](recommended-resources-for-mvc.md)
-- [<span data-ttu-id="fdab3-139">Zalecane samouczki i artykuły dotyczące MVC</span><span class="sxs-lookup"><span data-stu-id="fdab3-139">MVC recommended tutorials and articles</span></span>](mvc-learning-sequence.md)
+    - [<span data-ttu-id="e85b6-131">Wprowadzenie do podejścia Database First w programie Entity Framework 6 z wykorzystaniem wzorca MVC 5</span><span class="sxs-lookup"><span data-stu-id="e85b6-131">Getting Started with Entity Framework 6 Database First using MVC 5</span></span>](database-first-development/setting-up-database.md)
+    - [<span data-ttu-id="e85b6-132">Tworzenie modeli danych i aplikacji internetowych</span><span class="sxs-lookup"><span data-stu-id="e85b6-132">Creating the Web Application and Data Models</span></span>](database-first-development/creating-the-web-application.md)
+    - [<span data-ttu-id="e85b6-133">Generowanie widoków</span><span class="sxs-lookup"><span data-stu-id="e85b6-133">Generating Views</span></span>](database-first-development/generating-views.md)
+    - [<span data-ttu-id="e85b6-134">Zmienianie bazy danych</span><span class="sxs-lookup"><span data-stu-id="e85b6-134">Changing the Database</span></span>](database-first-development/changing-the-database.md)
+    - [<span data-ttu-id="e85b6-135">Dostosowywanie widoku</span><span class="sxs-lookup"><span data-stu-id="e85b6-135">Customizing a View</span></span>](database-first-development/customizing-a-view.md)
+    - [<span data-ttu-id="e85b6-136">Ulepszanie walidacji danych</span><span class="sxs-lookup"><span data-stu-id="e85b6-136">Enhancing Data Validation</span></span>](database-first-development/enhancing-data-validation.md)
+- [<span data-ttu-id="e85b6-137">Cykl życia aplikacji ASP.NET MVC 5</span><span class="sxs-lookup"><span data-stu-id="e85b6-137">Lifecycle of an ASP.NET MVC 5 Application</span></span>](lifecycle-of-an-aspnet-mvc-5-application.md)
+- [<span data-ttu-id="e85b6-138">Zalecane zasoby dla wzorca MVC</span><span class="sxs-lookup"><span data-stu-id="e85b6-138">MVC Recommended Resources</span></span>](recommended-resources-for-mvc.md)
+- [<span data-ttu-id="e85b6-139">Zalecane samouczki i artykuły dotyczące wzorca MVC</span><span class="sxs-lookup"><span data-stu-id="e85b6-139">MVC recommended tutorials and articles</span></span>](mvc-learning-sequence.md)

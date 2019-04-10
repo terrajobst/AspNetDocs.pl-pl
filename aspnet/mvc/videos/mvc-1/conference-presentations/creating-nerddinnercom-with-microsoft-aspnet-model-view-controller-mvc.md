@@ -8,17 +8,17 @@ ms.date: 05/12/2009
 ms.assetid: 4009c18d-cde6-4bbb-b1a4-ae0c6b3f8091
 msc.legacyurl: /mvc/videos/mvc-1/conference-presentations/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc
 msc.type: video
-ms.openlocfilehash: 2e9a14f5dbdcb8520939f9590c343bf26715478c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 238061172fafeb59a46349b6f82c2ea11afb0919
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068159"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59404497"
 ---
-<a name="creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc"></a><span data-ttu-id="38da2-105">Tworzenie witryny NerdDinner.com za pomocą wzorca Microsoft ASP.NET Model View Controller (MVC)</span><span class="sxs-lookup"><span data-stu-id="38da2-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>
-====================
-<span data-ttu-id="38da2-106">przez [Scotta Hanselmana](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="38da2-106">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+# <a name="creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc"></a><span data-ttu-id="8a545-105">Tworzenie witryny NerdDinner.com za pomocą wzorca Microsoft ASP.NET Model View Controller (MVC)</span><span class="sxs-lookup"><span data-stu-id="8a545-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>
 
-<span data-ttu-id="38da2-107">Slajdów.</span><span class="sxs-lookup"><span data-stu-id="38da2-107">No slides.</span></span> <span data-ttu-id="38da2-108">Po prostu kod.</span><span class="sxs-lookup"><span data-stu-id="38da2-108">Just code.</span></span> <span data-ttu-id="38da2-109">Rozpocznij nowy plik i budowanie rzeczywistych witryny sieci Web za pomocą programu ASP.NET, ASP.NET AJAX, uwierzytelniania, autoryzacji, MVC, program Microsoft SQL Server i jQuery w sześćdziesiąt 5 minut lub szybciej.</span><span class="sxs-lookup"><span data-stu-id="38da2-109">Start with File-New and build a real Web site with ASP.NET, ASP.NET AJAX, Authentication, Authorization, MVC, Microsoft SQL Server and jQuery in sixty-five minutes or less.</span></span>
+<span data-ttu-id="8a545-106">przez [Scotta Hanselmana](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="8a545-106">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="38da2-110">&#9654;Obejrzyj film wideo (minuty 71)</span><span class="sxs-lookup"><span data-stu-id="38da2-110">&#9654; Watch video (71 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc)
+<span data-ttu-id="8a545-107">Slajdów.</span><span class="sxs-lookup"><span data-stu-id="8a545-107">No slides.</span></span> <span data-ttu-id="8a545-108">Po prostu kod.</span><span class="sxs-lookup"><span data-stu-id="8a545-108">Just code.</span></span> <span data-ttu-id="8a545-109">Rozpocznij nowy plik i budowanie rzeczywistych witryny sieci Web za pomocą programu ASP.NET, ASP.NET AJAX, uwierzytelniania, autoryzacji, MVC, program Microsoft SQL Server i jQuery w sześćdziesiąt 5 minut lub szybciej.</span><span class="sxs-lookup"><span data-stu-id="8a545-109">Start with File-New and build a real Web site with ASP.NET, ASP.NET AJAX, Authentication, Authorization, MVC, Microsoft SQL Server and jQuery in sixty-five minutes or less.</span></span>
+
+[<span data-ttu-id="8a545-110">&#9654;Obejrzyj film wideo (minuty 71)</span><span class="sxs-lookup"><span data-stu-id="8a545-110">&#9654; Watch video (71 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc)
