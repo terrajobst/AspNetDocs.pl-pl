@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: 0bbf4134-04df-4226-8930-d5bb99e27128
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: edf3786600a8ec7b58422e1ec20e71e2b749d6e4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2d23e65f817c11e45adab56ea054a7c46a35d4f3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073151"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386440"
 ---
-<a name="how-do-i-use-the-combobox-control-c"></a>Jak używać kontrolki ComboBox? (C#)
-====================
+# <a name="how-do-i-use-the-combobox-control-c"></a>Jak używać kontrolki ComboBox? (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Pole kombi to formant ASP.NET AJAX, który łączy elastyczność pole tekstowe z listy opcji, z których użytkownicy mogą wybrać.
@@ -37,7 +37,7 @@ Jeśli chcesz użyć kontrolki ComboBox na stronie formantu ScriptManager należ
 Następnie przeciągnij formant pola kombi na stronę. W przyborniku z innych kontrolek zestawu narzędzi AJAX Control Toolkit i rozszerzeń (patrz rysunek 1) można znaleźć kontrolki ComboBox.
 
 
-[![Prosty formularz do tworzenia wizytówkę](how-do-i-use-the-combobox-control-cs/_static/image1.jpg)](how-do-i-use-the-combobox-control-cs/_static/image1.png)
+[![Sformularz na proste tworzenie wizytówki](how-do-i-use-the-combobox-control-cs/_static/image1.jpg)](how-do-i-use-the-combobox-control-cs/_static/image1.png)
 
 **Rysunek 01**: Wybranie kontrolki ComboBox w przyborniku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image2.png))
 
@@ -45,7 +45,7 @@ Następnie przeciągnij formant pola kombi na stronę. W przyborniku z innych ko
 Firma Microsoft ll umożliwia wyświetlanie statyczną listę opcji kontrolki ComboBox. Użytkownik może wybrać określonego poziomu spiciness ich ds listę trzy opcje: Łagodne, średni i gorąco (patrz rysunek 2).
 
 
-[![Wybranie z listy statycznych elementów](how-do-i-use-the-combobox-control-cs/_static/image2.jpg)](how-do-i-use-the-combobox-control-cs/_static/image3.png)
+[![Swybranie z listy statycznych elementów](how-do-i-use-the-combobox-control-cs/_static/image2.jpg)](how-do-i-use-the-combobox-control-cs/_static/image3.png)
 
 **Rysunek 02**: Wybranie z listy statycznych elementów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image4.png))
 
@@ -53,7 +53,7 @@ Firma Microsoft ll umożliwia wyświetlanie statyczną listę opcji kontrolki Co
 Istnieją dwa sposoby, że te opcje można dodawać do kontrolki ComboBox. Najpierw wybierz opcję zadania opcje edytowania, po umieszczeniu wskaźnika myszy nad kontrolką w widoku Projekt i otworzyć Edytor elementu (zobacz rysunek 3).
 
 
-[![Edytowanie elementów ComboBox](how-do-i-use-the-combobox-control-cs/_static/image3.jpg)](how-do-i-use-the-combobox-control-cs/_static/image5.png)
+[![Eelementy pola kombi dytowanie](how-do-i-use-the-combobox-control-cs/_static/image3.jpg)](how-do-i-use-the-combobox-control-cs/_static/image5.png)
 
 **Rysunek 03**: Edytowanie elementów ComboBox ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image6.png))
 
@@ -71,7 +71,7 @@ Jednak masz również możliwość wprowadzania nowych wybór (na przykład Supe
 Niezależnie od tego, czy wybrać istniejącą wstępnie element lub możesz wprowadzić niestandardowego elementu po przesłaniu formularza, wybór wyświetlany w kontrolce etykiety. Po przesłaniu formularza btnSubmit\_kliknij program obsługi wykonuje i aktualizuje etykietę (zobacz rysunek 4).
 
 
-[![Wyświetlanie wybranego elementu](how-do-i-use-the-combobox-control-cs/_static/image4.jpg)](how-do-i-use-the-combobox-control-cs/_static/image7.png)
+[![Dwybrany element isplaying](how-do-i-use-the-combobox-control-cs/_static/image4.jpg)](how-do-i-use-the-combobox-control-cs/_static/image7.png)
 
 **Rysunek 04**: Wyświetlanie wybranego elementu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image8.png))
 
@@ -104,12 +104,12 @@ Wyobraź sobie, że chcesz wyświetlić listę filmów w ComboBox. Chcesz pobra�
 12. Kliknij przycisk OK, aby zamknąć kreatora.
 
 
-[![Wybieranie źródła danych](how-do-i-use-the-combobox-control-cs/_static/image5.jpg)](how-do-i-use-the-combobox-control-cs/_static/image9.png)
+[![Choosing źródło danych](how-do-i-use-the-combobox-control-cs/_static/image5.jpg)](how-do-i-use-the-combobox-control-cs/_static/image9.png)
 
 **Rysunek 05**: Wybieranie źródła danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image10.png))
 
 
-[![Wybieranie pól tekstu i wartości danych](how-do-i-use-the-combobox-control-cs/_static/image6.jpg)](how-do-i-use-the-combobox-control-cs/_static/image11.png)
+[![Choosing tekstu danych i pola wartości](how-do-i-use-the-combobox-control-cs/_static/image6.jpg)](how-do-i-use-the-combobox-control-cs/_static/image11.png)
 
 **Rysunek 06**: Wybieranie pól tekstu i wartości danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image12.png))
 
@@ -123,7 +123,7 @@ Po wykonaniu powyższych kroków, pola kombi jest powiązany z kontrolką SqlDat
 Należy zauważyć, że kontrolka ComboBox ma właściwość DataSourceID, który wskazuje na użyciu kontrolki SqlDataSource. Po otwarciu strony w przeglądarce zostanie wyświetlona lista filmów z bazy danych (zobacz rysunek 7). Możesz Wybierz film z listy lub wprowadź nowy film wpisując film do pola kombi.
 
 
-[![Wyświetlanie filmów](how-do-i-use-the-combobox-control-cs/_static/image7.jpg)](how-do-i-use-the-combobox-control-cs/_static/image13.png)
+[![Displaying listy filmów](how-do-i-use-the-combobox-control-cs/_static/image7.jpg)](how-do-i-use-the-combobox-control-cs/_static/image13.png)
 
 **Rysunek 07**: Wyświetlanie filmów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image14.png))
 
@@ -150,17 +150,17 @@ Właściwość parametr ComboBox AutoCompleteMode umożliwia określenie, co si�
 - SuggestAppend — pola kombi umożliwia wyświetlenie listy i dołącza pasujący element z listy na wpisany (zobacz rysunek 10).
 
 
-[![Pola kombi sprawia, że sugestię](how-do-i-use-the-combobox-control-cs/_static/image8.jpg)](how-do-i-use-the-combobox-control-cs/_static/image15.png)
+[![Tułatwia on ComboBox sugestię](how-do-i-use-the-combobox-control-cs/_static/image8.jpg)](how-do-i-use-the-combobox-control-cs/_static/image15.png)
 
 **Rysunek 08**: Pola kombi sprawia, że sugestię ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image16.png))
 
 
-[![Pole kombi dołącza pasujący tekst](how-do-i-use-the-combobox-control-cs/_static/image9.jpg)](how-do-i-use-the-combobox-control-cs/_static/image17.png)
+[![ComboBox dołącza pasujący tekst](how-do-i-use-the-combobox-control-cs/_static/image9.jpg)](how-do-i-use-the-combobox-control-cs/_static/image17.png)
 
 **Rysunek 09**: Pole kombi dołącza pasujący tekst ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image18.png))
 
 
-[![Pola kombi sugeruje i dołącza](how-do-i-use-the-combobox-control-cs/_static/image10.jpg)](how-do-i-use-the-combobox-control-cs/_static/image19.png)
+[![TADAM ComboBox sugeruje i dołącza](how-do-i-use-the-combobox-control-cs/_static/image10.jpg)](how-do-i-use-the-combobox-control-cs/_static/image19.png)
 
 **Na rysunku nr 10**: Pola kombi sugeruje i dołącza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-combobox-control-cs/_static/image20.png))
 

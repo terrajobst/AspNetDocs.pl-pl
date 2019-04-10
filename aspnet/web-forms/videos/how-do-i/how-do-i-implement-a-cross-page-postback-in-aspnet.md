@@ -8,15 +8,15 @@ ms.date: 07/10/2008
 ms.assetid: cd88fa45-8f51-48f5-b642-5021acddec40
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
 msc.type: video
-ms.openlocfilehash: a7413926b6bf6624169b48a701d916342bcaf4ce
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a98274a154691e3e0b6c5ff57b57bca1ef57ba6b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073697"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381454"
 ---
-<a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[Jak mogę] Implementowanie ogłaszania zwrotnego między stronami, w programie ASP.NET:
-====================
+# <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[Jak mogę] Implementowanie ogłaszania zwrotnego między stronami, w programie ASP.NET:
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym wideo pikseli Chris przedstawia sposób tworzenia Cross ogłaszania zwrotnego strony na platformie ASP.NET, w którym formantu na stronie źródło zgłasza zwrotu zdarzeń do strony inną docelową. Po pierwsze Dowiedz się, jak skonfigurować kontrolkę przycisku do ogłaszania zwrotnego strony inny element docelowy. Następnie Dowiedz się, jak pobrać informacje z formantów na stronie źródło z właściwość PreviousPage, a także metoda FindControl. Następnie Dowiedz się, jak korzystać z właściwości publiczne na stronie źródło do udostępnienia danych do strony docelowej i Dowiedz się, jak używać @PreviousPageType dyrektywy na stronie docelowej, aby uzyskiwać dostęp do tych właściwości. Na koniec różnice między Cross ogłaszania zwrotnego strony, a także metoda Server.Transfer.

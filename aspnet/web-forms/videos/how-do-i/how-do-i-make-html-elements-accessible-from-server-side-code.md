@@ -8,15 +8,15 @@ ms.date: 05/29/2008
 ms.assetid: 1e2bafaa-ae6a-4c4c-839b-ff2dfe836902
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
 msc.type: video
-ms.openlocfilehash: d464eef52a29e2b2c46104f4790256c57ee343aa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7c3d70c0d91478e0f62fa9e009733485f9d5ad7e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076487"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394013"
 ---
-<a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a>[Jak mogę] Udostępnianie elementów HTML w kodzie po stronie serwera
-====================
+# <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a>[Jak mogę] Udostępnianie elementów HTML w kodzie po stronie serwera
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym filmie pokazano pikseli Chris pokazują, jak udostępnić standardowe elementy HTML na stronie .aspx z kodu po stronie serwera, dzięki czemu ich zastosowania na stronie przetwarzania, takich jak standardowy formant serwera ASP.NET. Najpierw Zobacz jak dodanie runat = atrybut "server" do kontrolki standardowej HTML, takich jak &lt;div&gt; umożliwia mu się odwoływać w kodzie po stronie serwera, z pełną obsługą technologii Intellisense. Następnie możesz zapoznać się kilka przykładów jak może modyfikować elementy HTML na stronie sieci w przypadku tej techniki. Ponadto zobacz, jak ta technika może służyć w połączeniu z nowego formantu ListView w programie .NET Framework w wersji 3.5 do sterowania układem listy.

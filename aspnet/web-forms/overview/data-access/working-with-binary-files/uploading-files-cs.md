@@ -8,15 +8,15 @@ ms.date: 03/27/2007
 ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8849f8f279dde883a71fb3ba1678a589f2e321eb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 02fbd3ca162309aefbefdba9a453af6e55b3900b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070286"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382748"
 ---
-<a name="uploading-files-c"></a>Przekazywanie plików (C#)
-====================
+# <a name="uploading-files-c"></a>Przekazywanie plików (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe) lub [Pobierz plik PDF](uploading-files-cs/_static/datatutorial54cs1.pdf)
@@ -53,7 +53,7 @@ Zanim zaczniemy Poznaj wyzwania związane z dodaniem obsługi dla danych binarny
 Podobnie jak w przypadku innych folderów `Default.aspx` w `BinaryData` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
+[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image2.png))
 
@@ -76,7 +76,7 @@ Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę 
 Dane binarne, który jest skojarzony z modelem danych s aplikacji mogą być przechowywane w jednym z dwóch miejsc: w systemie plików serwera s sieci web z odwołaniem do plików przechowywanych w bazie danych. lub bezpośrednio z poziomu samej bazy danych (zobacz rysunek 4). Każde podejście ma swój własny zestaw zalet i wad i uzasadnia uzyskać bardziej szczegółowe informacje.
 
 
-[![Dane binarne mogą być przechowywane w systemie plików lub bezpośrednio w bazie danych](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
+[![Binary dane mogą być przechowywane w systemie plików lub bezpośrednio z bazy danych](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
 
 **Rysunek 4**: Dane binarne mogą być przechowywane w systemie plików lub bezpośrednio w bazie danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image4.png))
 
@@ -110,7 +110,7 @@ Obecnie ma tylko cztery kolumny w tabeli Kategorie: `CategoryID`, `CategoryName`
 Dodaj nową `varchar(200)` kolumny `Categories` tabelę o nazwie `BrochurePath` i umożliwia `NULL` s i kliknij ikonę Zapisz (lub naciśnij klawisze Ctrl + S).
 
 
-[![Dodaj kolumnę BrochurePath do tabeli Kategorie](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
+[![Add BrochurePath kolumny do tabeli Kategorie](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
 
 **Rysunek 5**: Dodaj `BrochurePath` kolumny `Categories` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image6.png))
 
@@ -132,7 +132,7 @@ Zwróć uwagę, że żaden z tych zapytań powrotu `Categories` tabeli s `Pictur
 Rozpocznij od dodania tych dwóch kolumn, aby `CategoriesDataTable`. Kliknij prawym przyciskiem myszy `CategoriesDataTable` s nagłówka, z menu kontekstowego wybierz polecenie Dodaj, a następnie wybierz opcję kolumny. Spowoduje to utworzenie nowego `DataColumn` w elemencie DataTable o nazwie `Column1`. Zmień nazwę tej kolumny na `Picture`. W oknie właściwości ustaw `DataColumn` s `DataType` właściwość `System.Byte[]` (nie jest to opcja na liście rozwijanej; należy go wpisać).
 
 
-[![Tworzenie obrazu o nazwie DataColumn, którego typem danych jest System.Byte](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![CUtwórz obraz o nazwie DataColumn których typem danych jest System.Byte []](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
 **Rysunek 6**: Tworzenie `DataColumn` nazwanych `Picture` którego `DataType` jest `System.Byte[]` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image8.png))
 
@@ -146,7 +146,7 @@ Za pomocą tych dwóch `DataColumn` s dodane do `CategoriesDataTable`, możemy p
 Aby zaktualizować główne zapytanie TableAdapter, kliknij prawym przyciskiem myszy `CategoriesTableAdapter` nagłówka s i wybierz opcję Konfiguruj z menu kontekstowego. Otwarte Kreatora konfiguracji adaptera tabeli, które firma Microsoft ve widoczne w numerze z poprzednich samouczków. Aktualizuj zapytanie, aby przywrócić `BrochurePath` i kliknij przycisk Zakończ.
 
 
-[![Aktualizowanie listy kolumn w instrukcji SELECT również zwraca BrochurePath](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+[![UAktualizacja listy kolumn w instrukcji SELECT, aby również zwrócić BrochurePath](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
 
 **Rysunek 7**: Aktualizowanie listy kolumn w `SELECT` instrukcji, aby również zwrócić `BrochurePath` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image10.png))
 
@@ -159,12 +159,12 @@ Korzystając z instrukcji SQL zapytań ad-hoc do TableAdapter, aktualizowanie li
 Następnie należy utworzyć nową metodę TableAdapter, która zwraca określoną kategorię s `Picture` wartości w kolumnie. Kliknij prawym przyciskiem myszy `CategoriesTableAdapter` nagłówka s i wybierz opcję Dodaj zapytanie, aby uruchomić Kreatora konfiguracji zapytań TableAdapter. Pierwszym krokiem tego kreatora pyta, czy nam chcemy zapytania o dane za pomocą instrukcji SQL zapytań ad-hoc nową przechowywaną procedurę lub istniejącą grupę. Użyj instrukcji SQL zaznaczyć, a następnie kliknij przycisk Dalej. Ponieważ firma Microsoft będzie zwracać wiersz, wybierz polecenie SELECT, która zwraca wiersze opcji w drugim kroku.
 
 
-[![Wybierz opcję Użyj instrukcji SQL — opcja](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
+[![SWybiera instrukcji SQL użyj opcji](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
 
 **Rysunek 8**: Wybierz opcję Użyj instrukcji SQL opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image12.png))
 
 
-[![Ponieważ zapytanie zwróci rekord z tabeli Kategorie, wybierz pozycję Wybierz, która zwraca wiersze](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
+[![SInce zapytanie zwraca rekord z tabeli Kategorie, wybierz pozycję Wybierz, która zwraca wiersze](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
 
 **Rysunek 9**: Ponieważ zapytanie zwraca rekord z tabeli Kategorie, wybierz pozycję Wybierz, która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image14.png))
 
@@ -177,7 +177,7 @@ W trzecim kroku wprowadź następujące zapytanie SQL, a następnie kliknij przy
 Ostatnim krokiem jest wybranie nazwy dla nowej metody. Użyj `FillCategoryWithBinaryDataByCategoryID` i `GetCategoryWithBinaryDataByCategoryID` wypełnienia DataTable i zwrócenia DataTable wzorców, odpowiednio. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![Wybierz nazwy dla metody s TableAdapter](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
+[![Cbierz nazwy s TableAdapter metody](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
 
 **Na rysunku nr 10**: Wybierz nazwy s TableAdapter metody ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image16.png))
 
@@ -212,7 +212,7 @@ Program ASP.NET 2.0 nowego [formantu sieci Web FileUpload](https://msdn.microsof
 Aby zademonstrować przekazywanie plików, należy otworzyć `FileUpload.aspx` strony w `BinaryData` folderu, przeciągnij formant FileUpload z przybornika do projektanta i ustawić s `ID` właściwość `UploadTest`. Następnie dodaj kontrolkę przycisk w sieci Web, ustawianie jego `ID` i `Text` właściwości w celu `UploadButton` i przekaż plik wybrane odpowiednio. Na koniec, umieść formantu etykiety w sieci Web, poniżej przycisku wyczyścić jej `Text` właściwości i ustaw jego `ID` właściwość `UploadDetails`.
 
 
-[![Dodaj kontrolkę FileUpload do strony ASP.NET](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
+[![Add FileUpload formantu do strony ASP.NET](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
 
 **Rysunek 12**: Dodaj kontrolkę FileUpload do strony ASP.NET ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image18.png))
 
@@ -220,7 +220,7 @@ Aby zademonstrować przekazywanie plików, należy otworzyć `FileUpload.aspx` s
 Rysunek 13 przedstawiono tej strony, podczas wyświetlania za pośrednictwem przeglądarki. Należy pamiętać, że kliknięcie przycisku Przeglądaj wywołuje okno dialogowe wyboru plików, co pozwala na pobranie pliku z komputera. Po wybraniu pliku kliknięcie przycisku przekazywania wybranego pliku powoduje odświeżenie strony, który przesyła zawartość binarną s wybrany plik do serwera sieci web.
 
 
-[![Użytkownik może wybrać plik do przekazania z komputera z serwerem](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
+[![TADAM użytkownika można wybrać plik do przekazania z komputera z serwerem](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
 
 **Rysunek 13**: Użytkownik może wybrać plik do przekazania z komputera z serwerem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image20.png))
 
@@ -241,7 +241,7 @@ FileUpload s `SaveAs(filePath)` zapisuje przekazany plik do określonego *filePa
 Po zakończeniu `Click` procedura obsługi zdarzeń, Poświęć chwilę, aby przetestować stronę w przeglądarce. Kliknij przycisk Przeglądaj i wybierz plik z dysku twardego, a następnie kliknij przycisk Przekaż wybrany plik. Zwrot wyśle zawartość wybranego pliku do serwera sieci web, który następnie zostaną wyświetlone informacje o pliku przed jego zapisaniem `~/Brochures` folderu. Po przekazaniu pliku, wróć do programu Visual Studio, a następnie kliknij przycisk Odśwież w Eksploratorze rozwiązań. Powinien zostać wyświetlony plik, który właśnie został przekazany w folderze ~/Brochures!
 
 
-[![EvolutionValley.jpg plik został przekazany do serwera sieci Web](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
+[![TADAM EvolutionValley.jpg przekazaniu pliku do serwera sieci Web](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
 
 **Rysunek 14**: Plik `EvolutionValley.jpg` został przekazany do serwera sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image22.png))
 

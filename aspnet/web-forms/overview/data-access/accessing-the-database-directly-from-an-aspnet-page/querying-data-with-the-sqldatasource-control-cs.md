@@ -8,15 +8,15 @@ ms.date: 02/20/2007
 ms.assetid: 60512d6a-b572-4b7a-beb3-3e44b4d2020c
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d15e09c2b790c4d1e6b278c4ea35bab7f66b861
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f6aa0e4535f88a04419695114d07ea2cf6ac7036
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070817"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381162"
 ---
-<a name="querying-data-with-the-sqldatasource-control-c"></a>Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (C#)
-====================
+# <a name="querying-data-with-the-sqldatasource-control-c"></a>Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_CS.exe) lub [Pobierz plik PDF](querying-data-with-the-sqldatasource-control-cs/_static/datatutorial47cs1.pdf)
@@ -51,7 +51,7 @@ SqlDataSource udostępnia taką samą funkcjonalność, ale operacjach relacyjne
 
 
 > [!NOTE]
-> W tym samouczku skupimy się na pobieranie danych z bazy danych. W [Wstawianie, aktualizowanie i usuwania danych przy użyciu kontrolki SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md) samouczków, zobaczymy, jak skonfigurować SqlDataSource umożliwiają wstawianie, aktualizowanie i usuwanie.
+> W tym samouczku skupimy się na pobieranie danych z bazy danych. W [Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md) samouczków, zobaczymy, jak skonfigurować SqlDataSource umożliwiają wstawianie, aktualizowanie i usuwanie.
 
 
 ## <a name="the-sqldatasource-and-accessdatasource-controls"></a>SqlDataSource i formanty AccessDataSource
@@ -79,7 +79,7 @@ Zanim zaczniemy, eksplorowanie sposób pracy bezpośrednio z bazy danych, przy u
 Podobnie jak w przypadku innych folderów `Default.aspx` w `SqlDataSource` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
+[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](querying-data-with-the-sqldatasource-control-cs/_static/image5.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image4.gif)
 
 **Rysunek 4**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-cs/_static/image6.gif))
 
@@ -155,7 +155,7 @@ Jak za pomocą kontrolki ObjectDataSource, Kreator s SqlDataSource jedynie przyp
 Po skonfigurowaniu SqlDataSource może być powiązana z danymi formantu sieci Web, takich jak GridView lub DetailsView. W tym samouczku umożliwiają wyświetlanie danych w kontrolce GridView s. Z przybornika przeciągnij GridView na stronę, który należy powiązać `ProductsDataSource` SqlDataSource, wybierając źródło danych z listy rozwijanej w tagu inteligentnego s GridView.
 
 
-[![Dodaj GridView i powiązać kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-cs/_static/image13.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image12.gif)
+[![Add GridView i powiązać ją z kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-cs/_static/image13.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image12.gif)
 
 **Na rysunku nr 10**: Dodaj GridView i powiązać kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-cs/_static/image14.gif))
 
@@ -170,7 +170,7 @@ Poświęć chwilę, aby skonfigurować s GridView trzech BoundFields. Zmiana `Pr
 Odwiedź tę stronę za pośrednictwem przeglądarki. Jak pokazano na ilustracji 11, widoku GridView wyświetla każdy produkt s `ProductID`, `ProductName`, i `UnitPrice` wartości.
 
 
-[![Kontrolki GridView Wyświetla każdego produktu s ProductID ProductName wartości i cena jednostkowa](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
+[![TPrzedstawia on GridView każdego produktu s ProductID, ProductName i wartości UnitPrice](querying-data-with-the-sqldatasource-control-cs/_static/image16.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image15.gif)
 
 **Rysunek 11**: S GridView wyświetla każdy produkt `ProductID`, `ProductName`, i `UnitPrice` wartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-cs/_static/image17.gif))
 
@@ -228,7 +228,7 @@ Po ukończeniu kreatora, widoku GridView będzie mieć trzy BoundFields dodawany
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample5.aspx)]
 
 
-[![Każdy identyfikator produktu s Nazwa kategorii nazwę i skojarzonych pokazuje, widoku GridView](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
+[![TPrzedstawia on GridView identyfikator, nazwę i skojarzone nazwy kategorii każdego produktu s](querying-data-with-the-sqldatasource-control-cs/_static/image22.gif)](querying-data-with-the-sqldatasource-control-cs/_static/image21.gif)
 
 **Rysunek 15**: Identyfikator kontrolki GridView pokazuje każdego produktu, nazwę i skojarzone nazwy kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-cs/_static/image23.gif))
 

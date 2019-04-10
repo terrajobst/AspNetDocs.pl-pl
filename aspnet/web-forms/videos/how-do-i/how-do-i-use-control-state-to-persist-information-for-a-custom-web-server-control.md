@@ -8,15 +8,15 @@ ms.date: 12/17/2007
 ms.assetid: 3004c934-0563-41ac-ad80-fef985e9e5b4
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control
 msc.type: video
-ms.openlocfilehash: 76abeda343c2c1bff8ad3efb96d93bc084750962
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 5411f6d15b6ae4d4ee7557c4fff0158d97574330
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068918"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385205"
 ---
-<a name="how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control"></a>[Jak mogę] Używanie stanu kontrolki do utrwalania informacji dla niestandardowej kontrolki serwera internetowego
-====================
+# <a name="how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control"></a>[Jak mogę] Używanie stanu kontrolki do utrwalania informacji dla niestandardowej kontrolki serwera internetowego
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym filmie pokazano pikseli Chris zostanie przedstawiony sposób przechowywania informacji związanych z niestandardowej kontrolki serwera internetowego w stan formantu, który jest niezależny od informacji stan wyświetlania kontrolki. W przeciwieństwie do stanu widoku stan formantu nie można wyłączyć i dlatego jest bardziej niezawodny sposób przechowywania ważnych informacji dla formantu. Omówienie typy informacji są odpowiednie do przechowywania w stan formantu jest również uwzględniony.

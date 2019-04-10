@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 28385ac2244ab0bfb38ee5fcbc64e6e11804612b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f88f7a31551abda029bee0ec16aa35ce2ef5d2f0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067079"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385959"
 ---
-<a name="introducing-aspnet-web-pages---html-form-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy formularzy HTML
-====================
+# <a name="introducing-aspnet-web-pages---html-form-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy formularzy HTML
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym samouczku przedstawiono podstawowe informacje dotyczące sposobu tworzenia formularza wejściowego i sposób obsługi danych wejściowych użytkownika, gdy używasz stron ASP.NET Web Pages (Razor). A Skoro masz bazę danych, użyjesz umiejętności związane z formularza, aby umożliwić użytkownikom znajdowanie filmy określonych w bazie danych. Przyjęto założenie, że zostały wykonane serii za pośrednictwem [wprowadzenie do wyświetlania danych przy użyciu stron ASP.NET Web Pages](/aspnet/web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data).
@@ -88,7 +88,7 @@ Większość elementów wejściowych użytkownika są HTML `<input>` elementów.
 - Pole tekstowe: `<input type="text">`
 - Pole wyboru: `<input type="check">`
 - Przycisk radiowy: `<input type="radio">`
-- Przycisk: `<input type="button">`
+- Button: `<input type="button">`
 - Przycisk Prześlij: `<input type="submit">`
 
 Można również użyć `<textarea>` elementu do utworzenia wielowierszowego pola tekstowego i `<select>` elementu do utworzenia listy rozwijanej lub przewijaną listę. (Aby uzyskać więcej informacji na temat HTML tworzą elementy, zobacz [formularzy HTML i dane wejściowe](http://www.w3schools.com/html/html_forms.asp) witrynie W3Schools.)

@@ -8,15 +8,15 @@ ms.date: 06/02/2008
 ms.assetid: c8204c05-ec27-40fe-933d-88e4e727a482
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0d9a3bf853afdbde0a419b90d1563fc06d3f9979
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c38160ffa9965384cf4eae2ebda52bd62b766bba
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076016"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396242"
 ---
-<a name="animating-in-response-to-user-interaction-vb"></a>Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (VB)
-====================
+# <a name="animating-in-response-to-user-interaction-vb"></a>Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (VB)
+
 przez [Christian Wenz](https://github.com/wenz)
 
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation6.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation6VB.pdf)
@@ -59,7 +59,7 @@ W tym scenariuszu `<OnClick>` jest używany. Gdy użytkownik kliknie na panelu, 
 [!code-aspx[Main](animating-in-response-to-user-interaction-vb/samples/sample5.aspx)]
 
 
-[![Kliknięcie myszą powoduje uruchomienie animacji](animating-in-response-to-user-interaction-vb/_static/image2.png)](animating-in-response-to-user-interaction-vb/_static/image1.png)
+[![A Kliknięcie myszą powoduje uruchomienie animacji](animating-in-response-to-user-interaction-vb/_static/image2.png)](animating-in-response-to-user-interaction-vb/_static/image1.png)
 
 Kliknięcie myszą powoduje uruchomienie animacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](animating-in-response-to-user-interaction-vb/_static/image3.png))
 

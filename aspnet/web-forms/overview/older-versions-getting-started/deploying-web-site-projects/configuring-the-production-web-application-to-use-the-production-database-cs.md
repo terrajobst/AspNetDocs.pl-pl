@@ -8,15 +8,15 @@ ms.date: 04/23/2009
 ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2560ae7a845c27f7fa5f420eaf1d89618397c60
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fa05645db9d43a836cc75b399153dd2e2c288f7c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075683"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388770"
 ---
-<a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Konfigurowanie produkcyjnej aplikacji internetowej do korzystania z produkcyjnej bazy danych (C#)
-====================
+# <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Konfigurowanie produkcyjnej aplikacji internetowej do korzystania z produkcyjnej bazy danych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_cs.pdf)
@@ -53,7 +53,7 @@ Parametry połączenia bazy danych można tworzyć ręcznie za pomocą witryny, 
 Otwórz program Visual Studio, a następnie przejdź do okna Eksplorator serwera (w Visual Web Developer, w tym oknie jest nazywana Eksplorator bazy danych). Kliknij prawym przyciskiem myszy opcję połączenia danych, a następnie wybierz opcję Dodaj połączenie z poziomu menu kontekstowego. Otwarte kreatora przedstawionej na rysunku 1. Wybierz odpowiednie źródło danych, a następnie kliknij przycisk Kontynuuj.
 
 
-[![Wybierz dodać nową bazę danych do Eksploratora serwera](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image1.jpg) 
+[![CWybierz, aby dodać nową bazę danych do Eksploratora serwera](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image1.jpg) 
 
 **Rysunek 1**: Wybierz dodać nową bazę danych do Eksploratora serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image3.jpg))
 
@@ -61,7 +61,7 @@ Otwórz program Visual Studio, a następnie przejdź do okna Eksplorator serwera
 Następnie określ różne informacje o połączeniu w bazie danych (zobacz rysunek 2). Po zalogowaniu przy użyciu usługi sieci web hostingu firmy, w której należy podać informacje na temat połączenia z bazą danych — nazwa serwera bazy danych, nazwę bazy danych, nazwę użytkownika i hasło używane do łączenia z bazą danych i tak dalej. Po wprowadzeniu tych informacji kliknij przycisk OK, aby zakończyć działanie kreatora i dodawanie bazy danych do Eksploratora serwera.
 
 
-[![Określ informacje dotyczące połączenia bazy danych](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image4.jpg) 
+[![SOkreśl informacje dotyczące połączenia bazy danych](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image4.jpg) 
 
 **Rysunek 2**: Określ informacje dotyczące połączenia bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image6.jpg))
 
@@ -91,7 +91,7 @@ Jeśli nie masz więcej formalny przepływ pracy wdrożenia, albo ręcznie zmody
 Gdy witryna została wdrożona do produkcji, odwiedź witryny produkcyjnej za pośrednictwem przeglądarki. Należy wyświetlić i Ciesz się tego samego środowiska użytkownika, co po lokalnym uruchomieniu aplikacji opartych na danych. Oczywiście gdy użytkownik odwiedza witryny sieci Web w środowisku produkcyjnym ta witryna jest obsługiwana przez serwer bazy danych produkcyjnych, należy odwiedzić witrynę sieci Web w środowisku programistycznym korzysta z bazy danych w trakcie opracowywania. Rysunek 3 przedstawia *uczyć się ASP.NET 3.5 w ciągu 24 godzin* Przejrzyj stronę z witryny sieci Web w środowisku produkcyjnym (Uwaga: adres URL w pasku adresu przeglądarki s).
 
 
-[![Aplikacja ze jest teraz dostępna w środowisku produkcyjnym.](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image7.jpg) 
+[![TAplikacja ze jest teraz dostępna w środowisku produkcyjnym!](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image7.jpg) 
 
 **Rysunek 3**: Aplikacja ze jest teraz dostępna w środowisku produkcyjnym. ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-cs/_static/image9.jpg))
 

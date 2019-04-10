@@ -8,15 +8,15 @@ ms.date: 08/03/2007
 ms.assetid: 213eea41-1ab4-4371-8b24-1a1a66c515de
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fb4a867d5868e8000fcd10130401a9e169b6f49f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a6d6dc7b45d2891d3124794bf7b10f3a7d065130
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076031"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392446"
 ---
-<a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Tworzenie procedur składowanych i funkcji zdefiniowanych przez użytkownika z kodem zarządzanym (C#)
-====================
+# <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Tworzenie procedur składowanych i funkcji zdefiniowanych przez użytkownika z kodem zarządzanym (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_CS.zip) lub [Pobierz plik PDF](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/datatutorial75cs1.pdf)
@@ -59,7 +59,7 @@ Po nawiązaniu połączenia możesz ve okno Eksplorator obiektów spowoduje wyś
 Musimy dołączyć bazy danych Northwind w `DataFiles` folderu (lub wszędzie tam, gdzie może przeniesiono go) do wystąpienia bazy danych programu SQL Server 2005 Express Edition. Kliknij prawym przyciskiem myszy na folder baz danych i wybierz opcję Dołącz z menu kontekstowego. Zostanie wyświetlone okno dialogowe dołączanie bazy danych. Kliknij przycisk Dodaj, przejdź do szczegółów odpowiedniego `NORTHWND.MDF` pliku, a następnie kliknij przycisk OK. W tym momencie ekran powinien wyglądać podobnie jak na rysunku 2.
 
 
-[![Połącz się z wystąpieniem odpowiednią bazą danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
+[![CNawiąż połączenie z odpowiednim wystąpieniem bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
 
 **Rysunek 2**: Połącz się z odpowiednim wystąpieniem bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))
 
@@ -87,7 +87,7 @@ Do utworzenia zarządzanej procedury składowanej lub funkcji zdefiniowanych prz
 Uruchom po otwarciu programu Visual Studio. W menu Plik wybierz nowy projekt, aby wyświetlić okno dialogowe Nowy projekt (zobacz rysunek 4). Przejdź do szczegółów typ projektu bazy danych, a następnie wybierz za pomocą szablonów wymienione po prawej stronie utworzyć nowy projekt programu SQL Server. Wybrano I nazwij ten projekt `ManagedDatabaseConstructs` i umieścić go w ramach rozwiązania o nazwie `Tutorial75`.
 
 
-[![Utwórz nowy projekt programu SQL Server](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
+[![CUtwórz nowy projekt programu SQL Server](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
 
 **Rysunek 4**: Utwórz nowy projekt programu SQL Server ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image8.png))
 
@@ -136,7 +136,7 @@ Aby dodać zarządzanej procedury składowanej do bazy danych Northwind, najpier
 Pozwól, s, Rozpocznij od dodania procedury przechowywanej, która po prostu zwraca wszystkie produkty, które zostały anulowane. Nadaj nowemu plikowi procedury składowanej `GetDiscontinuedProducts.cs`.
 
 
-[![Dodaj nową procedurę składowaną o nazwie GetDiscontinuedProducts.cs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
+[![ADodaj nowe przechowywane procedury o nazwie GetDiscontinuedProducts.cs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
 
 **Rysunek 8**: Dodaj nowe przechowywane procedury o nazwie `GetDiscontinuedProducts.cs` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image14.png))
 
@@ -173,7 +173,7 @@ Aby zaktualizować poziom zgodności bazy danych s, Otwórz okno nowego zapytani
 Kliknij ikonę wykonywania na pasku narzędzi, aby uruchomić zapytanie powyżej.
 
 
-[![Zaktualizuj poziom zgodności bazy danych Northwind s](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
+[![UAktualizuj s poziom zgodności bazy danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
 
 **Rysunek 9**: Aktualizuj s poziom zgodności bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))
 
@@ -201,7 +201,7 @@ Nadal jest jeden więcej próg wykluczający mamy do pokonania przed nazywamy za
 Aby sprawdzić informacje o konfiguracji s bazy danych Northwind, wprowadź i wykonaj polecenie `exec sp_configure` w oknie zapytania. Pokazuje to, że środowisko clr włączone ustawienie aktualnie jest ustawiona na 0.
 
 
-[![Środowisko clr, włączone ustawienie jest aktualnie ustawiona na 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
+[![Tclr HE włączone ustawienie jest aktualnie ustawiona na 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
 
 **Rysunek 12**: Środowisko clr, włączone ustawienie jest aktualnie ustawiona na wartość 0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image22.png))
 
@@ -216,7 +216,7 @@ Jeśli ponownie uruchomisz `exec sp_configure` zobaczysz, że powyższe stwierdz
 Za pomocą Kończenie konfiguracji clr włączone możemy przystąpić do uruchomienia zarządzanej `GetDiscontinuedProducts` procedury składowanej. W oknie zapytania wprowadź, a następnie wykonaj polecenie `exec` `GetDiscontinuedProducts`. Wywoływanie procedury składowanej powoduje, że odpowiedni kod zarządzany w `GetDiscontinuedProducts` wykonać metodę. Ten kod generuje `SELECT` zapytanie, aby zwrócić wszystkie produkty, które zostaną przerwane i zwraca dane do aplikacji wywołującej jest program SQL Server Management Studio, w tym wystąpieniu. Management Studio otrzymuje te wyniki i wyświetla je w oknie wyników.
 
 
-[![GetDiscontinuedProducts procedura składowana ma zwracać wszystkie wycofane produktów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
+[![TADAM GetDiscontinuedProducts przechowywane procedury zwraca wszystkie wycofane produkty](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
 
 **Rysunek 13**: `GetDiscontinuedProducts` Przechowywane procedury zwraca wszystkie wycofane produkty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image25.png))
 
@@ -239,7 +239,7 @@ Aktualizacja `GetProductsWithPriceLessThan` definicję metody s, tak że akceptu
 Po dodaniu tego kodu, należy ponownie wdrożyć projekt programu SQL Server. Następnie wróć do programu SQL Server Management Studio i Odśwież folder procedur składowanych. Powinien zostać wyświetlony nowy wpis `GetProductsWithPriceLessThan`. W oknie zapytania wprowadź, a następnie wykonaj polecenie `exec GetProductsWithPriceLessThan 25`, która wyświetli wszystkie produkty mniej niż 25 USD, jak pokazano na rysunku 14.
 
 
-[![Produkty w wysokości 25 USD są wyświetlane](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
+[![PWyświetlane są roducts w wysokości 25 USD](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
 
 **Rysunek 14**: Wyświetlane są produktów w wysokości 25 USD ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))
 
@@ -257,7 +257,7 @@ Otwórz `NorthwindWithSprocs` wpisana zestawu danych w programie Visual Studio i
 Dodawanie nowej metody powoduje uruchomienie Kreatora konfiguracji zapytania TableAdapter, w którym użyto wiele razy w ciągu ostatnich samouczków. Pierwszym krokiem prosi NAS, aby określić, jak TableAdapter powinien uzyskiwać dostęp do bazy danych: za pomocą instrukcji SQL zapytań ad-hoc lub za pomocą nowej lub istniejącej procedury składowanej. Ponieważ firma Microsoft wcześniej utworzony i zarejestrowany `GetDiscontinuedProducts` zarządzanej procedury składowanej z bazą danych, wybierz pozycję Użyj istniejącej opcji procedury przechowywane i trafień dalej.
 
 
-[![Wybierz opcję użycia istniejącej procedury składowanej — opcja](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
+[![Cbierz Użyj istniejącej przechowywane procedury opcji](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
 
 **Rysunek 15**: Wybierz opcję Użyj istniejącej przechowywane procedury opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))
 
@@ -265,7 +265,7 @@ Dodawanie nowej metody powoduje uruchomienie Kreatora konfiguracji zapytania Tab
 Następny ekran nam monituje o podanie procedury składowanej, który będzie wywoływał metodę. Wybierz `GetDiscontinuedProducts` zarządzane procedurę składowaną z listy rozwijanej, a następnie kliknij przycisk Dalej.
 
 
-[![Wybierz GetDiscontinuedProducts zarządzanego procedury składowanej](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
+[![SWybiera GetDiscontinuedProducts zarządzane procedura składowana](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
 
 **Rysunek 16**: Wybierz `GetDiscontinuedProducts` zarządzane Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))
 
@@ -273,7 +273,7 @@ Następny ekran nam monituje o podanie procedury składowanej, który będzie wy
 Firma Microsoft następnie monit o określenie, czy procedura składowana ma zwracać wiersze, pojedynczą wartość lub nie rób. Ponieważ `GetDiscontinuedProducts` zwraca zestaw wierszy nieobsługiwane produktu z pierwszej opcji (dane tabelaryczne), a następnie kliknij przycisk Dalej.
 
 
-[![Wybierz opcję dane tabelaryczne](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
+[![SWybiera opcję tabelarycznych danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
 
 **Rysunek 17**: Wybierz opcję danych tabelarycznych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image37.png))
 
@@ -281,7 +281,7 @@ Firma Microsoft następnie monit o określenie, czy procedura składowana ma zwr
 Ekran końcowy Kreator pozwala określać wzorce dostępu do danych, które są używane, jak i nazwy metod wynikowe. Pozostaw zaznaczone pola wyboru i nazwę metody `FillByDiscontinued` i `GetDiscontinuedProducts`. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![Nazwa FillByDiscontinued metod i GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
+[![NNazwa FillByDiscontinued metod i GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
 
 **Rysunek 18**: Nazwa metody `FillByDiscontinued` i `GetDiscontinuedProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))
 
@@ -291,7 +291,7 @@ Powtórz te kroki, aby utworzyć metody o nazwie `FillByPriceLessThan` i `GetPro
 Rysunek 19 przedstawiono zrzut ekranu przedstawiający Projektanta obiektów DataSet, po dodaniu metody służące do `ProductsTableAdapter` dla `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzane procedur składowanych.
 
 
-[![ProductsTableAdapter obejmuje nowe metody, które są dodawane w tym kroku](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
+[![Tw tym kroku on ProductsTableAdapter obejmuje nowe metody dodano](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
 
 **Rysunek 19**: `ProductsTableAdapter` Obejmuje nowe metody dodane, w tym kroku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image43.png))
 
@@ -312,12 +312,12 @@ Przy użyciu logiki biznesowej i warstwy dostępu do danych rozszerzony o obsłu
 Otwórz `ManagedFunctionsAndSprocs.aspx` stronie `AdvancedDAL` folder i z przybornika przeciągnij GridView do konstruktora. Ustaw GridView s `ID` właściwości `DiscontinuedProducts` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `DiscontinuedProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource swoich danych z `ProductsBLLWithSprocs` klasy s `GetDiscontinuedProducts` metody.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
 
 **Rysunek 20**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))
 
 
-[![Wybierz metodę GetDiscontinuedProducts z listy rozwijanej wybierz kartę](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
+[![Cbierz metodę GetDiscontinuedProducts z listy rozwijanej wybierz kartę](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
 
 **Rysunek 21**: Wybierz `GetDiscontinuedProducts` metodę z listy rozwijanej wybierz karcie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image49.png))
 
@@ -334,7 +334,7 @@ Poświęć chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki
 Wyniki zwrócone przez procedurę składowaną zarządzane są pakowane w w `ProductsDataTable` przez warstwę DAL a później wrócili do LOGIKI, która zwraca je do warstwy prezentacji, gdzie są powiązane z kontrolki GridView i wyświetlane. Zgodnie z oczekiwaniami, siatka zawiera listę tych produktów, które zostały anulowane.
 
 
-[![Produkty wycofane](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
+[![TProdukty wycofane HE są wymienione](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
 
 **Rysunek 22**: Produkty wycofane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image52.png))
 
@@ -358,7 +358,7 @@ Po dodaniu tej funkcji zdefiniowanej przez użytkownika w bazie danych można zn
 Po dodaniu `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika w bazie danych Northwind; Ilustracja 23 zawierają dane wyjściowe powyższych `SELECT` zapytania po wyświetleniu za pomocą programu Management Studio. Należy również zauważyć, że funkcji zdefiniowanej przez użytkownika znajduje się w folderze wartości skalarnych w Eksploratorze obiektów.
 
 
-[![Każdy produkt s wartości magazynu znajduje się na liście](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
+[![Estacje produkt s wartości magazynu znajduje się na liście](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
 
 **Ilustracja 23**: Każdy produkt s wartości magazynu znajduje się na liście ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image55.png))
 
@@ -376,7 +376,7 @@ Funkcje zdefiniowane przez użytkownika może również zwracać dane tabelarycz
 Po dodaniu `udf_GetProductsByCategoryID` funkcji zdefiniowanej przez użytkownika w bazie danych Northwind; 24 rysunek przedstawia dane wyjściowe powyższych `SELECT` zapytania po wyświetleniu za pomocą programu Management Studio. Funkcje zdefiniowane przez użytkownika, które zwracają dane tabelaryczne znajdują się w folderze funkcji wartości tabeli s Eksplorator obiektów.
 
 
-[![ProductID, ProductName i CategoryID są wyświetlane dla każdego spożywczy](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
+[![TADAM ProductID ProductName i CategoryID są wyświetlane dla każdego spożywczy](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
 
 **Rysunek 24**: `ProductID`, `ProductName`, I `CategoryID` są wyświetlane dla każdego spożywczy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))
 
@@ -392,7 +392,7 @@ Po dodaniu `udf_GetProductsByCategoryID` funkcji zdefiniowanej przez użytkownik
 Aby dodać zarządzane UDF do `ManagedDatabaseConstructs` projektu, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz opcję dodać nowy element. Wybierz szablon zdefiniowane przez użytkownika w oknie dialogowym Dodaj nowy element i nadaj nowemu plikowi UDF `udf_ComputeInventoryValue_Managed.cs`.
 
 
-[![Dodaj nowe UDF zarządzanego projektu ManagedDatabaseConstructs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
+[![ADodaj nowe UDF zarządzane do projektu ManagedDatabaseConstructs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
 
 **Rysunek 25**: Dodaj nowe UDF zarządzane do `ManagedDatabaseConstructs` projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
 
@@ -444,7 +444,7 @@ W [debugowanie procedur składowanych](debugging-stored-procedures-cs.md) samouc
 Wyobraź sobie, że Chcieliśmy, aby debugować `GetProductsWithPriceLessThan` zarządzane procedury składowanej. Zaczniemy przez ustawienie punktu przerwania w kodzie `GetProductsWithPriceLessThan` metody.
 
 
-[![Ustaw punkt przerwania w metodzie GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
+[![Spunkt przerwania w metodzie GetProductsWithPriceLessThan et](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
 
 **Rysunek 27**: Ustaw punkt przerwania `GetProductsWithPriceLessThan` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image65.png))
 
@@ -459,7 +459,7 @@ Gdy `ManagedDatabaseConstructs` projektu zostanie uruchomione z debugera, wykonu
 Powyższy skrypt do wprowadzone był `Test.sql`, rozpocząć debugowanie, przechodząc do menu Debuguj i wybierając Rozpocznij debugowanie lub naciskać klawisz F5 lub zielony odtwarzania ikonę na pasku narzędzi. To będzie kompilować projekty w rozwiązaniu, wdrażanie obiektami zarządzanej bazy danych w bazie danych Northwind, a następnie wykonywania `Test.sql` skryptu. W tym momencie punkt przerwania zostanie osiągnięty, a firma Microsoft może przejść przez `GetProductsWithPriceLessThan` metody, sprawdź wartości parametrów wejściowych i tak dalej.
 
 
-[![Został trafiony punkt przerwania w metodzie GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
+[![TNapotkano punkt przerwania w metodzie GetProductsWithPriceLessThan on](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
 
 **Rysunek 28**: Punkt przerwania w `GetProductsWithPriceLessThan` został trafiony — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))
 
@@ -495,7 +495,7 @@ Jeśli folder zawierający `csc.exe` w nie w systemie s `PATH`, trzeba będzie w
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample19.cmd)]
 
 
-[![Skompilować GetProductsWithPriceGreaterThan.cs do zestawu](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
+[![Compile GetProductsWithPriceGreaterThan.cs do zestawu](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
 
 **Rysunek 29**: Skompilować `GetProductsWithPriceGreaterThan.cs` do zestawu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image71.png))
 
@@ -511,7 +511,7 @@ Kod skompilowany w zestawie jesteśmy gotowi zarejestrować zestaw w bazie danyc
 W programie Management Studio rozwiń folder programowania w bazie danych Northwind. Jednym z jego podfolderów jest zestawów. Aby ręcznie dodać nowego zestawu z bazą danych, kliknij prawym przyciskiem myszy w folderze zestawy, a następnie wybierz nowego zestawu z menu kontekstowego. Ten wyświetla okno dialogowe Nowy zestaw polu (zobacz rysunek 30). Kliknij przycisk przeglądania, wybierz opcję `ManuallyCreatedDBObjects.dll` zestawu możemy po prostu skompilowany, a następnie kliknij OK, aby dodać zestaw do bazy danych. Nie powinien zostać wyświetlony `ManuallyCreatedDBObjects.dll` zestawu w Eksploratorze obiektów.
 
 
-[![Dodaj zestaw ManuallyCreatedDBObjects.dll do bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
+[![Add zestawu ManuallyCreatedDBObjects.dll do bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
 
 **30 rysunek**: Dodaj `ManuallyCreatedDBObjects.dll` zestawu do bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image74.png))
 
@@ -536,7 +536,7 @@ Po wykonaniu powyższych skryptu, Odśwież folder procedur składowanych w Eksp
 Jak pokazano na rysunku 32, powyższe polecenie wyświetla informacje dotyczące tych produktów z `UnitPrice` większa niż 24.95 $.
 
 
-[![ManuallyCreatedDBObjects.dll znajduje się w Eksploratorze obiektów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
+[![TADAM ManuallyCreatedDBObjects.dll znajduje się w Eksploratorze obiektów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
 
 **Ilustracja 32**: `ManuallyCreatedDBObjects.dll` Znajduje się w Eksploratorze obiektów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image78.png))
 

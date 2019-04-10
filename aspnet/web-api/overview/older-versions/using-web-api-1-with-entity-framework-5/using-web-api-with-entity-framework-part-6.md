@@ -8,18 +8,18 @@ ms.date: 07/04/2012
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 21cfbd0bf691ea033e9a5a873ab49c83507750d5
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: ced8c1cdab4839068dab7608a1a9746d5302af07
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425967"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59379108"
 ---
-<a name="part-6-creating-product-and-order-controllers"></a>Część 6. Tworzenie kontrolerów produktów i zamówień
-====================
+# <a name="part-6-creating-product-and-order-controllers"></a>Część 6. Tworzenie kontrolerów produktów i zamówień
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-a-products-controller"></a>Dodawanie kontrolera produktów
 

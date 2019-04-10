@@ -8,15 +8,15 @@ ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: ec1c055d1b3f6ca5c6374a18840c2595bb368e0e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 81c2c6f0070a409c289128ccf5d39f9fff788b48
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068987"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387350"
 ---
-<a name="introducing-aspnet-web-pages---programming-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy programowania
-====================
+# <a name="introducing-aspnet-web-pages---programming-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy programowania
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym samouczku przedstawiono omówienie jak do programu ASP.NET Web Pages o składni Razor.
@@ -162,7 +162,7 @@ Poniżej przedstawiono kilka przykładów warunki, które można przetestować w
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Zmienne dla wartości lub względem wyrażenia można przetestować przy użyciu <em>operatora logicznego</em> lub <em>operator porównania</em>: równe (==) większa (&gt;), mniej niż (&lt;), większa niż lub równe (&gt;=) i mniejsze niż lub równe (&lt;=). ! = Oznacza operator nie jest równa — na przykład, jeśli (! = 0) oznacza <em>Jeśli</em> <em>a</em><em>nie jest równa 0</em>.
+Zmienne dla wartości lub względem wyrażenia można przetestować przy użyciu *operatora logicznego* lub *operator porównania*: równe (==) większa (&gt;), mniej niż (&lt;), większa niż lub równe (&gt;=) i mniejsze niż lub równe (&lt;=). ! = Oznacza operator nie jest równa — na przykład, jeśli (! = 0) oznacza, że *Jeśli nie jest równa 0*.
 
 > [!NOTE]
 > Upewnij się, że można zauważyć, że operator porównania dla równości się (==) nie jest taka sama jak wartość =. = — Operator jest używany tylko do przypisywania wartości (var = 2). Jeśli te operatory są mieszały się, albo otrzymasz błąd lub niektóre dziwne wyniki.

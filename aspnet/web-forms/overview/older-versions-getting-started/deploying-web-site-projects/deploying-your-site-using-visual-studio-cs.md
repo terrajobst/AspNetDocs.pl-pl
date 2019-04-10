@@ -8,15 +8,15 @@ ms.date: 04/01/2009
 ms.assetid: cde4ee53-a5d0-4937-a54b-67877e8266c3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 94f4f3e0d81f3cfae141c8306731cc8eef6f0efb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9512685672e42091e7be11c5710a2434ca8b0488
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068672"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392420"
 ---
-<a name="deploying-your-site-using-visual-studio-c"></a>Wdrażanie witryny przy użyciu programu Visual Studio (C#)
-====================
+# <a name="deploying-your-site-using-visual-studio-c"></a>Wdrażanie witryny przy użyciu programu Visual Studio (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_cs.pdf)
@@ -45,7 +45,7 @@ Przyjrzyjmy się przy użyciu narzędzia kopiowania witryny sieci Web, aby opubl
 Uruchom projekt narzędzia kopiowania witryny sieci Web, klikając ikonę Kopiuj witrynę sieci Web w Eksploratorze rozwiązań (Ta ikona jest zaznaczona kółkiem na rysunku 1). Alternatywnie można wybrać opcję Kopiuj witrynę sieci Web, w menu witryny sieci Web. Każda z tych metod uruchamia interfejsu użytkownika witryny sieci Web kopiowania przedstawionej na rysunku 1; tylko okienka po lewej stronie na rysunku 1 jest wypełniana, ponieważ mamy jeszcze nawiązać połączenia z serwerem zdalnym.
 
 
-[![Interfejs użytkownika narzędzia kopiowania witryny internetowej jest podzielona na dwa okienka](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
+[![TInterfejs użytkownika narzędzia HE kopiowania witryny sieci Web jest podzielona na dwa okienka](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
 
 **Rysunek 1**: Interfejs użytkownika narzędzia kopiowania witryny internetowej jest podzielona na dwa okienka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image3.png))
 
@@ -62,7 +62,7 @@ Można połączyć do docelowej witryny sieci Web, wybierając jedną z czterech
 Większość dostawców usług hosta sieci web obsługuje FTP, ale mniej oferują obsługę rozszerzenia serwera FrontPage. Z tego powodu I została wybrana opcja witryny FTP i następnie wprowadzić informacje o połączeniu, jak pokazano na rysunku 2.
 
 
-[![Określ miejsce docelowe witryny sieci Web](deploying-your-site-using-visual-studio-cs/_static/image5.png)](deploying-your-site-using-visual-studio-cs/_static/image4.png)
+[![SOkreśl miejsce docelowe witryny sieci Web](deploying-your-site-using-visual-studio-cs/_static/image5.png)](deploying-your-site-using-visual-studio-cs/_static/image4.png)
 
 **Rysunek 2**: Określ miejsce docelowe witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image6.png))
 
@@ -72,7 +72,7 @@ Po nawiązaniu połączenia narzędzie kopiowania witryny sieci Web ładuje plik
 Dodajmy nową strony do projektu BookReviewsWSP, a następnie wdrożysz go tak, aby widać narzędzia kopiowania witryny sieci Web w działaniu. Tworzenie nowej strony programu ASP.NET w programie Visual Studio, w katalogu głównym o nazwie `Privacy.aspx`. Strona użycia strony wzorcowej `Site.master` i Dodaj zasady zachowania poufności informacji witryny do tej strony. Rysunek 3 przedstawia programu Visual Studio, po utworzeniu tej strony.
 
 
-[![Dodawanie nowej strony o nazwie &lt;kodu&gt;Privacy.aspx&lt;/code&gt; folder główny witryny sieci Web](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
+[![Add, nowej strony o nazwie &lt;kodu&gt;Privacy.aspx&lt;/code&gt; folder główny witryny sieci Web](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
 
 **Rysunek 3**: Dodawanie nowej strony o nazwie `Privacy.aspx` folder główny witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image9.png))
 
@@ -80,7 +80,7 @@ Dodajmy nową strony do projektu BookReviewsWSP, a następnie wdrożysz go tak, 
 Następnie wróć do interfejsu użytkownika witryny sieci Web kopiowania. Jak pokazano na rysunku 4, w okienku po lewej stronie zawiera teraz nowe pliki - `Policy.aspx` i `Policy.aspx.cs`. Co więcej te pliki są oznaczone ikoną strzałki oraz stan z nowej, wskazującą, czy znajdują się w lokacji lokalnej, ale nie w zdalnej witrynie.
 
 
-[![Narzędzia kopiowania witryny internetowej zawiera nowe &lt;kodu&gt;Privacy.aspx&lt;/code&gt; strony w jej okienku po lewej stronie](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
+[![TZawiera on narzędzia kopiowania witryny internetowej nowy &lt;kodu&gt;Privacy.aspx&lt;/code&gt; strony w jej okienku po lewej stronie](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
 
 **Rysunek 4**: Narzędzia kopiowania witryny internetowej zawiera nowe `Privacy.aspx` strony w jej okienku po lewej stronie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image12.png))
 
@@ -90,7 +90,7 @@ Aby wdrożyć nowe pliki, zaznacz je, a następnie kliknij ikonę strzałki Aby 
 Wraz z listą nowych plików, narzędzia kopiowania witryny sieci Web wyróżnia wszystkie pliki, które różnią się między lokacjami lokalnymi i zdalnymi. Aby to zobaczyć w działaniu, wróć do `Privacy.aspx` strony i dodaj kilka więcej słów do zasady zachowania poufności informacji. Zapisz stronę, a następnie wrócić do narzędzia do kopiowania witryny sieci Web. Jak pokazano na rysunku 5, `Privacy.aspx` strony w okienku po lewej stronie ma stan zmieniono wskazującą, że jest zsynchronizowana z lokacji zdalnej.
 
 
-[![Narzędzia kopiowania witryny internetowej wskazuje, że &lt;kodu&gt;Privacy.aspx&lt;/code&gt; strony został zmieniony.](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
+[![TWskazuje on narzędzia kopiowania witryny internetowej, że &lt;kodu&gt;Privacy.aspx&lt;/code&gt; strony został zmieniony.](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
 
 **Rysunek 5**: Narzędzia kopiowania witryny internetowej wskazuje, że `Privacy.aspx` strony został zmieniony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image15.png))
 
@@ -117,7 +117,7 @@ Spójrzmy na wdrażanie aplikacji przeglądy książki, za pomocą opcji publiko
 Istnieje również opcja przekazywania zawartości `App_Data` folderu.
 
 
-[![Określ miejsce docelowe witryny sieci Web](deploying-your-site-using-visual-studio-cs/_static/image17.png)](deploying-your-site-using-visual-studio-cs/_static/image16.png)
+[![SOkreśl miejsce docelowe witryny sieci Web](deploying-your-site-using-visual-studio-cs/_static/image17.png)](deploying-your-site-using-visual-studio-cs/_static/image16.png)
 
 **Rysunek 6**: Określ miejsce docelowe witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image18.png))
 
@@ -127,7 +127,7 @@ Przeglądanie książki aplikacji zdalnej witryny zawiera pliki wdrożone podcza
 Rysunek 7 zawiera pliki w witrynie FTP, po zakończeniu operacji publikowania. Należy pamiętać, że zostały przekazane tylko stronach adiustacji i pliki obsługi niezbędne sever — i po stronie klienta.
 
 
-[![Tylko potrzebne pliki zostały opublikowane w środowisku produkcyjnym](deploying-your-site-using-visual-studio-cs/_static/image20.png)](deploying-your-site-using-visual-studio-cs/_static/image19.png)
+[![Otylko do odczytu, które są potrzebne pliki zostały opublikowane w środowisku produkcyjnym](deploying-your-site-using-visual-studio-cs/_static/image20.png)](deploying-your-site-using-visual-studio-cs/_static/image19.png)
 
 **Rysunek 7**: Tylko potrzebne pliki zostały opublikowane do środowiska produkcyjnego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-cs/_static/image21.png))
 

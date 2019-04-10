@@ -8,15 +8,15 @@ ms.date: 11/16/2009
 ms.assetid: d47626d1-5ffb-4757-bfbe-49e37f08d474
 msc.legacyurl: /web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-new-rendering-option-for-check-box-lists-and-radio-button-lists
 msc.type: video
-ms.openlocfilehash: ec6b1d8906eac845fbd99626bcd1d0503ebbf625
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 079a43a72e24460c37a185764f82625068116757
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071744"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390847"
 ---
-<a name="aspnet-4-quick-hit--new-rendering-option-for-check-box-lists-and-radio-button-lists"></a>ASP.NET 4 "Szybkie strzał" — Nowa opcja list pól wyboru i list przycisków radiowych renderowania
-====================
+# <a name="aspnet-4-quick-hit--new-rendering-option-for-check-box-lists-and-radio-button-lists"></a>ASP.NET 4 "Szybkie strzał" — Nowa opcja list pól wyboru i list przycisków radiowych renderowania
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 W tym filmie wideo dowiesz się o RepeatLayout opcje renderowania dla pola wyboru, a następnie wyświetla przycisku radiowego. 

@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: d3bc39a37cace003c3fda6691f0dd7f893128b07
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 38aea3b3480dde6ec6182a45c4f61f44eea8e05e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425252"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380226"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 — podstawy
 
@@ -869,7 +869,7 @@ W tym ćwiczeniu zostanie Poznaj rozszerzenia w szablonach projektu ASP.NET MVC 
 <a id="Ex7Task1"></a>
 
 <a id="Task_1_Exploring_the_ASPNET_MVC_4_Internet_Application_Template"></a>
-#### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Zadanie 1: Eksplorowanie szablonu aplikacji internetowych platformy ASP.NET MVC 4
+#### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Zadanie 1. Eksplorowanie szablonu aplikacji internetowych platformy ASP.NET MVC 4
 
 1. Jeśli nie już jest otwarty, uruchom **VS Express for Web**
 2. Wybierz **pliku | Nowe | Projekt** polecenia menu. W **nowy projekt** okno dialogowe, wybierz opcję **Visual C# | Web** szablonu w okienku po lewej stronie drzewa i wybierz polecenie **aplikacji sieci Web programu ASP.NET MVC 4**. **Nazwa** projektu *MusicStore* i zaktualizuj **Nazwa rozwiązania** do *rozpocząć*, a następnie wybierz lokalizację (lub pozostaw wartość domyślną) i kliknij przycisk **OK** .
@@ -947,7 +947,7 @@ W tym ćwiczeniu zostanie Poznaj rozszerzenia w szablonach projektu ASP.NET MVC 
 > Ponadto można wdrożyć tę aplikację do witryny sieci Web systemu Windows Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 

@@ -8,15 +8,15 @@ ms.date: 10/30/2006
 ms.assetid: f8fd58e2-f932-4f08-ab3d-fbf8ff3295d2
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 43a43c95e049acab734fa7d9fdcf2b96f12e78d9
-ms.sourcegitcommit: 62db31596a7da029263cf06335aff12236fb3186
+ms.openlocfilehash: 5714b118a5894731820d8e9775c8f5c8a375856c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440277"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390132"
 ---
-<a name="handling-bll--and-dal-level-exceptions-c"></a>Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (C#)
-====================
+# <a name="handling-bll--and-dal-level-exceptions-c"></a>Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_38_CS.exe) lub [Pobierz plik PDF](handling-bll-and-dal-level-exceptions-cs/_static/datatutorial38cs1.pdf)
@@ -41,7 +41,7 @@ Naszych samouczków DataList, jednak nie są za pomocą kontrolki ObjectDataSour
 Zanim będziemy zajmować obsługi wyjątków, które występują podczas aktualizowania przepływu pracy, chętnie s, należy najpierw utworzyć DataList można edytować. Otwórz `ErrorHandling.aspx` strony w `EditDeleteDataList` folderu, Dodaj kontrolką DataList do projektanta, ustaw jego `ID` właściwości `Products`, i dodać nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy s `GetProducts()` Metoda służąca do wybierania rekordów; Ustawianie list rozwijanych w INSERT, UPDATE i usuwanie kart (Brak).
 
 
-[![Zwraca informacje o produkcie przy użyciu metody GetProducts()](handling-bll-and-dal-level-exceptions-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-cs/_static/image1.png)
+[![Rinformacje o produkcie przy użyciu metody GetProducts() owróć](handling-bll-and-dal-level-exceptions-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-cs/_static/image1.png)
 
 **Rysunek 1**: Zwraca informacje o produkt za pomocą `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image3.png))
 
@@ -60,7 +60,7 @@ Po wprowadzeniu tych zmian znaczniki deklaratywne s strony powinien wyglądać p
 Poświęć chwilę, aby wyświetlić postępach za pośrednictwem przeglądarki (patrz rysunek 2).
 
 
-[![Każdy produkt zawiera przycisk Edytuj](handling-bll-and-dal-level-exceptions-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-cs/_static/image4.png)
+[![Estacje produktu zawiera przycisk Edytuj](handling-bll-and-dal-level-exceptions-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-cs/_static/image4.png)
 
 **Rysunek 2**: Każdy produkt zawiera przycisk Edytuj ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image6.png))
 
@@ -115,12 +115,12 @@ Do ukończenia tego samouczka, wystarczy wywołać `DisplayExceptionDetails` met
 Za pomocą `Try ... Catch` blokowanie w miejscu, użytkownicy są przedstawione przy użyciu bardziej szczegółowy komunikat o błędzie jako rysunki 4 i 5 show. Należy zauważyć, że w przypadku wyjątku kontrolki DataList pozostaje w trybie edycji. To dlatego, gdy wystąpi wyjątek, przepływ sterowania od razu zostanie przekierowana do `Catch` bloku, pomijając kod, który zwraca kontrolki DataList stan wstępnie edycji.
 
 
-[![Komunikat o błędzie jest wyświetlany, jeśli użytkownik pomija pole wymagane](handling-bll-and-dal-level-exceptions-cs/_static/image9.png)](handling-bll-and-dal-level-exceptions-cs/_static/image8.png)
+[![An komunikat o błędzie jest wyświetlany, jeśli użytkownik pomija wymagane pole](handling-bll-and-dal-level-exceptions-cs/_static/image9.png)](handling-bll-and-dal-level-exceptions-cs/_static/image8.png)
 
 **Rysunek 4**: Komunikat o błędzie jest wyświetlany, jeśli użytkownik pomija wymagane pola ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image10.png))
 
 
-[![Komunikat o błędzie jest wyświetlany podczas wprowadzania ceny](handling-bll-and-dal-level-exceptions-cs/_static/image12.png)](handling-bll-and-dal-level-exceptions-cs/_static/image11.png)
+[![An komunikat o błędzie jest wyświetlany podczas wprowadzania ujemna Cena](handling-bll-and-dal-level-exceptions-cs/_static/image12.png)](handling-bll-and-dal-level-exceptions-cs/_static/image11.png)
 
 **Rysunek 5**: Komunikat o błędzie jest wyświetlany podczas wprowadzania ujemna cena ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image13.png))
 

@@ -8,15 +8,15 @@ ms.date: 07/23/2014
 ms.assetid: f236d9f1-1e1c-47a0-be96-40758bf1c22f
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile10
 msc.type: content
-ms.openlocfilehash: 0efc0eea219cc2dfc0d4664b5852f453ac05e071
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aba7930d02be04b85c7036da06005e8795da2b75
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072281"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394084"
 ---
-<a name="jquery-mobile-10-on-the-microsoft-ajax-cdn"></a>System jQuery Mobile 1.0 w usłudze Microsoft AJAX CDN
-====================
+# <a name="jquery-mobile-10-on-the-microsoft-ajax-cdn"></a>System jQuery Mobile 1.0 w usłudze Microsoft AJAX CDN
+
 Biblioteka jQuery Mobile 1.0 zawiera następujące pliki:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0/jquery.mobile-1.0.js

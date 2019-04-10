@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 74abf391bb4aab3ff0d5079e0a24ba20287e18fb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b0c9cd7ab36a8414e0d7d50a68b05bb09a5f24f1
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073487"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387909"
 ---
-<a name="enable-automated-unit-testing"></a>Włączanie automatycznych testów jednostkowych
-====================
+# <a name="enable-automated-unit-testing"></a>Włączanie automatycznych testów jednostkowych
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -98,7 +98,7 @@ Umożliwia umieszczanie naszych kursora w obrębie klasy DinnerTest i wpisz "Ctr
 
 *Uwaga: Okno wyników testów programu VS nie są wyświetlane w kolumnie Nazwa klasy domyślnie. Możesz dodać dziennik, kliknij prawym przyciskiem myszy w oknie wyników badań i za pomocą polecenia menu Dodaj/Usuń kolumny.*
 
-Nasze dwa testy trwały za ułamek chwilę, aby uruchomić — i jak można znaleźć zarówno przekazywały. Firma Microsoft jest teraz przejść na i rozszerzać je, tworząc dodatkowe testy, które sprawdzić poprawności określonej reguły, a także obejmują dwie metody pomocnika - IsUserHost() i IsUserRegisterd() — dodaną do klasy firmy Dinner. Posiadanie tych testów w miejscu dla klasy firmy Dinner, spowoduje to znacznie łatwiejsze i bezpieczniejsze dodać nowe reguły biznesowe i sprawdzania poprawności do niego w przyszłości. Firma Microsoft Dodaj naszej nowej logiki reguły do obiad, a następnie w ciągu kilku sekund Sprawdź, czy go nie zostało przerwane żadnego z naszych poprzedniej funkcji logic.
+Nasze dwa testy trwały za ułamek chwilę, aby uruchomić — i jak można znaleźć zarówno przekazywały. Firma Microsoft jest teraz przejść na i rozszerzać je, tworząc dodatkowe testy, które sprawdzić poprawności określonej reguły, a także obejmują dwie metody pomocnika - IsUserHost() i IsUserRegistered() — dodaną do klasy firmy Dinner. Posiadanie tych testów w miejscu dla klasy firmy Dinner, spowoduje to znacznie łatwiejsze i bezpieczniejsze dodać nowe reguły biznesowe i sprawdzania poprawności do niego w przyszłości. Firma Microsoft Dodaj naszej nowej logiki reguły do obiad, a następnie w ciągu kilku sekund Sprawdź, czy go nie zostało przerwane żadnego z naszych poprzedniej funkcji logic.
 
 Zwróć uwagę, jak przy użyciu nazwy, opisu testu można łatwo szybko zrozumieć, co sprawdza każdy test. Zaleca się **narzędzia -&gt;opcje** polecenia menu, otwierając Test Tools —&gt;ekran konfiguracji wykonywania testów i sprawdzanie, czy "dwukrotne kliknięcie wyniku testu jednostkowego nie powiodło się lub niejednoznaczny Wyświetla pole wyboru punktu awarii w teście". Pozwoli to kliknij dwukrotnie błąd w oknie wyników testu i przejść od razu z niepowodzeniem asercji.
 
@@ -211,7 +211,7 @@ Przede wszystkim mogą zająć jedynie ułamek sekund do uruchomienia i nie wyma
 
 | **Temat po stronie: Struktury wstrzykiwania zależności** |
 | --- |
-| Wykonywanie wstrzykiwanie zależności ręczne (np. Firma Microsoft znajdują się powyżej) działa poprawnie, ale stać się trudniejsze do utrzymania jako liczba zależności i zwiększa składników w aplikacji. Istnieje kilka środowisk iniekcji zależności dla platformy .NET, która pomaga zapewnić jeszcze większą elastyczność zarządzania zależności. Te struktury, czasami nazywane "Inwersja kontroli" (IoC) kontenerów, zapewniają mechanizmy, umożliwiających dodatkowy poziom obsługi konfiguracji dotyczące określania i przekazanie zależności do obiektów w czasie wykonywania (w większości przypadków przy użyciu iniekcji konstruktora ). Niektóre z najpopularniejszych wstrzykiwanie zależności OSS / include IOC platform na platformie .NET: AutoFac Ninject, Spring.NET, StructureMap i Windsor. ASP.NET MVC udostępnia rozszerzalności interfejsów API, które deweloperzy mogą uczestniczyć w rozdzielczości i tworzenia wystąpień kontrolerów i umożliwiająca wstrzykiwanie zależności / platform IoC powinny zostać prawidłowo włączone w ramach tego procesu. Za pomocą platformy DI/IOC będzie również pozwalają nam można usunąć domyślnego konstruktora z naszych DinnersController — która całkowicie usunąć sprzężenia między nim a DinnerRepositorys. Firma Microsoft nie będzie można za pomocą iniekcji zależności / framework IOC z naszej aplikacji NerdDinner. Ale to coś, które firma Microsoft może wziąć pod uwagę na przyszłość Jeśli zwiększył bazy kodu NerdDinner i możliwości. |
+| Wykonywanie wstrzykiwanie zależności ręczne (np. Firma Microsoft znajdują się powyżej) działa poprawnie, ale stać się trudniejsze do utrzymania jako liczba zależności i zwiększa składników w aplikacji. Istnieje kilka środowisk iniekcji zależności dla platformy .NET, która pomaga zapewnić jeszcze większą elastyczność zarządzania zależności. Te struktury, czasami nazywane "Inwersja kontroli" (IoC) kontenerów, zapewniają mechanizmy, umożliwiających dodatkowy poziom obsługi konfiguracji dotyczące określania i przekazanie zależności do obiektów w czasie wykonywania (w większości przypadków przy użyciu iniekcji konstruktora ). Niektóre z najpopularniejszych wstrzykiwanie zależności OSS / include IOC platform na platformie .NET: AutoFac Ninject, Spring.NET, StructureMap i Windsor. ASP.NET MVC udostępnia rozszerzalności interfejsów API, które deweloperzy mogą uczestniczyć w rozdzielczości i tworzenia wystąpień kontrolerów i umożliwiająca wstrzykiwanie zależności / platform IoC powinny zostać prawidłowo włączone w ramach tego procesu. Za pomocą platformy DI/IOC będzie również pozwalają nam można usunąć domyślnego konstruktora z naszych DinnersController — która całkowicie usunąć sprzężenia między nim a DinnerRepository. Firma Microsoft nie będzie można za pomocą iniekcji zależności / framework IOC z naszej aplikacji NerdDinner. Ale to coś, które firma Microsoft może wziąć pod uwagę na przyszłość Jeśli zwiększył bazy kodu NerdDinner i możliwości. |
 
 ### <a name="creating-edit-action-unit-tests"></a>Tworzenie testów jednostkowych akcji edycji
 

@@ -8,18 +8,18 @@ ms.date: 06/16/2014
 ms.assetid: 0fd07176-b74b-48f0-9fac-0f02e3ffa213
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 95075dd748f0fe4eb6d1c52d6bfe4a4576653b4c
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1af29955e8040c34840d4c77fc2006f59d2324dd
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395280"
 ---
-<a name="create-data-transfer-objects-dtos"></a>Tworzenie obiektów transferu danych (DTO)
-====================
+# <a name="create-data-transfer-objects-dtos"></a>Tworzenie obiektów transferu danych (DTO)
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
+[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
 Po prawej stronie teraz nasz internetowy interfejs API jednostek bazy danych do klienta. Klient odbiera dane, które mapuje bezpośrednio na tabelach bazy danych. Jednakże, które nie zawsze jest dobrym pomysłem. Czasami trzeba zmienić kształt danych, który można wysłać do klienta. Na przykład możesz chcieć:
 

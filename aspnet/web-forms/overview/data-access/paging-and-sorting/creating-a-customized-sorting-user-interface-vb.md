@@ -8,15 +8,15 @@ ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 63e31d719991dddec2168524187c304256d1b4e0
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 571e34a8c87bf54b8dd71c912f16ebcdab3c87a7
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426110"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383450"
 ---
-<a name="creating-a-customized-sorting-user-interface-vb"></a>Tworzenie dostosowanego interfejsu użytkownika sortowania (VB)
-====================
+# <a name="creating-a-customized-sorting-user-interface-vb"></a>Tworzenie dostosowanego interfejsu użytkownika sortowania (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_VB.exe) lub [Pobierz plik PDF](creating-a-customized-sorting-user-interface-vb/_static/datatutorial27vb1.pdf)
@@ -31,7 +31,7 @@ Podczas wyświetlania długą listę posortowanych danych w przypadku zaledwie k
 Aby wyróżnić granice między grupami posortowany, wiele witryn sieci Web używają interfejsu użytkownika, który dodaje znak oddzielający takich grup. Separatory, jak w powyższym przedstawionej na rysunku 1 umożliwia użytkownikowi szybciej znaleźć określonej grupy i zidentyfikować jego granice, a także upewnić się, jakie różne grupy istnieje w danych.
 
 
-[![Każda kategoria grupa jest jasno określone](creating-a-customized-sorting-user-interface-vb/_static/image2.png)](creating-a-customized-sorting-user-interface-vb/_static/image1.png)
+[![Estacje grupy kategorii są jasno określone](creating-a-customized-sorting-user-interface-vb/_static/image2.png)](creating-a-customized-sorting-user-interface-vb/_static/image1.png)
 
 **Rysunek 1**: Każda kategoria grupa jest jasno określone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image3.png))
 
@@ -50,7 +50,7 @@ Następnie skonfiguruj widoku GridView w taki sposób, że zawiera on tylko `Pro
 Poświęć chwilę, aby wyświetlić nasz postęp tej pory w przeglądarce. Rysunek 2 przedstawia sortowanie GridView po jego dane są sortowane według kategorii w kolejności alfabetycznej.
 
 
-[![S GridView Sortowalna Data są uporządkowane według kategorii](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
+[![Tjest on s GridView Sortowalna Data uporządkowane według kategorii](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
 
 **Rysunek 2**: S GridView można sortować dane są uporządkowane według kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image6.png))
 
@@ -100,7 +100,7 @@ Zamiast wiadomości dane przed wiążące go do widoku GridView, możemy dodać 
 Aby dodać separator wierszy między poszczególnymi grupami sortowania, firma Microsoft bezpośrednio manipulować tej hierarchii kontroli po jego utworzeniu. Firma Microsoft mieć pewność, że utworzono hierarchii kontroli s GridView po raz ostatni przez razem, gdy strona jest renderowany. W związku z tym, ta metoda zastępuje `Page` klasy s `Render` metody, w tym momencie hierarchii kontroli końcowego s GridView została zaktualizowana do wymaganych separatora wierszy. Rysunek 4 przedstawia ten proces.
 
 
-[![Technikę alternatywne manipuluje hierarchii kontroli s GridView](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
+[![An technika alternatywne manipuluje hierarchii kontroli GridView s](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
 
 **Rysunek 4**: Technikę alternatywne manipuluje s GridView hierarchii kontroli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image10.png))
 
@@ -156,12 +156,12 @@ Klasy CSS, używany do formatowania sortowania wiersz nagłówka grupy `SortHead
 Przy użyciu bieżącego kodu interfejsu sortowania dodaje nagłówków grup sortowania, gdy sortowanie według dowolnego elementu BoundField (zobacz rysunek 5, która zawiera zrzut ekranu podczas sortowania przez dostawcę). Jednak podczas sortowania przez inny typ pola (na przykład CheckBoxField lub TemplateField) sortowania grupy nagłówki są nigdzie nie można odnaleźć (patrz rysunek 6).
 
 
-[![Interfejs sortowania zawiera nagłówki Sortuj i Grupuj, gdy sortowanie według BoundFields](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
+[![TADAM sortowanie interfejsu obejmuje sortowania grupy nagłówki sortowanie według BoundFields](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
 
 **Rysunek 5**: Sortowanie interfejsu obejmuje sortowania grupy nagłówków podczas sortowania przez BoundFields ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image13.png))
 
 
-[![Nagłówki grupy sortowania są, Brak podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image15.png)](creating-a-customized-sorting-user-interface-vb/_static/image14.png)
+[![THE sortowania grupy nagłówki są Brak podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image15.png)](creating-a-customized-sorting-user-interface-vb/_static/image14.png)
 
 **Rysunek 6**: Nagłówki grupy sortowania są, Brak podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image16.png))
 
@@ -178,7 +178,7 @@ Ten kod sprawdza, czy kolumna posortowanego `TableCell` dla bieżącego wiersza 
 Dodając kod powyżej, nagłówków grup sortowania są teraz, gdy sortowanie według CheckBoxField zakończona (zobacz rysunek 7).
 
 
-[![Nagłówki grupy sortowania są teraz obecny podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image18.png)](creating-a-customized-sorting-user-interface-vb/_static/image17.png)
+[![THE sortowania grupy nagłówki są teraz obecny podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image18.png)](creating-a-customized-sorting-user-interface-vb/_static/image17.png)
 
 **Rysunek 7**: Nagłówki grupy sortowania są teraz obecny podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image19.png))
 

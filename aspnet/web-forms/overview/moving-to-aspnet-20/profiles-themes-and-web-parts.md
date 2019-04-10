@@ -8,21 +8,21 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 010adaba61b15ca4421c2d3a4a7590becb53897b
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422856"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390041"
 ---
-<a name="profiles-themes-and-web-parts"></a>Profile, motywy i składniki Web Part
-====================
+# <a name="profiles-themes-and-web-parts"></a>Profile, motywy i składniki Web Part
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia programowe wprowadzone zmiany w konfiguracji. Ponadto istnieje wiele nowych ustawień konfiguracji umożliwiają nowe konfiguracje i instrumentacji.
 
 
-Program ASP.NET 2.0 reprezentuje znaczną poprawę obszaru spersonalizowanych witryn sieci Web. Oprócz członkostwa weve funkcje opisane profilów programu ASP.NET, motywy i składniki Web Part znacznie poprawić personalizacji w witrynach sieci Web.
+Program ASP.NET 2.0 reprezentuje znaczną poprawę obszaru spersonalizowanych witryn sieci Web. Oprócz funkcji członkostwo, które Omówiliśmy już profilów programu ASP.NET, motywy i składniki Web Part znacznie poprawić personalizacji w witrynach sieci Web.
 
 ## <a name="aspnet-profiles"></a>ASP.NET Profiles
 

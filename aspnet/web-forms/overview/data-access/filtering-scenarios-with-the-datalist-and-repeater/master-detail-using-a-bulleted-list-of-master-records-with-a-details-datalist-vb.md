@@ -8,15 +8,15 @@ ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 73a93c93932a004e76cf4ef7be1b3308ef6b991f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: bdf1d69ea8020ce055d7765591cf2d488de71245
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58422899"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388704"
 ---
-<a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Formularz rekord główny/szczegóły korzystający z listy punktowanej rekordów głównych z kontrolką DataList szczegółów (VB)
-====================
+# <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Formularz rekord główny/szczegóły korzystający z listy punktowanej rekordów głównych z kontrolką DataList szczegółów (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_35_VB.exe) lub [Pobierz plik PDF](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/datatutorial35vb1.pdf)
@@ -31,7 +31,7 @@ W [poprzedni Samouczek](master-detail-filtering-acess-two-pages-datalist-vb.md) 
 W tym samouczku firma Microsoft będzie skompresować samouczek dwóch stron w pojedynczej strony Wyświetlanie listy punktowanej nazwy kategorii po lewej stronie ekranu o nazwie każdej kategorii, renderowane jako element LinkButton. Kliknięcie jednego nazwa kategorii LinkButtons wymusza odświeżenie strony i wiąże wybranej kategorii produktów s kontrolką DataList dwie kolumny po prawej stronie ekranu. Oprócz wyświetlania nazwy kategorii s, powtarzanego po lewej stronie pokazuje, ile ma łączna liczba produktów związanych z danej kategorii (patrz rysunek 1).
 
 
-[![S Nazwa kategorii i całkowitą liczbę produktów, które są wyświetlane po lewej stronie](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image1.png)
+[![TADAM s kategorii nazwa i łączna liczba produktów są wyświetlane po lewej stronie](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image2.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image1.png)
 
 **Rysunek 1**: S Nazwa kategorii i całkowitą liczbę produktów, które są wyświetlane po lewej stronie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image3.png))
 
@@ -62,7 +62,7 @@ Następnie można zastąpić `<div>` z `<div class="FloatLeft">`.
 Po dodaniu klasy CSS i konfigurowanie znaczników w `CategoriesAndProducts.aspx` strony, przejdź do projektanta. Powinien zostać wyświetlony powtarzanego liczb zmiennoprzecinkowych z lewej strony kontrolki DataList (chociaż po prawej stronie zarówno po prostu pojawiają się jako szare pola, ponieważ firma Microsoft ve do konfigurowania swoich źródeł danych lub szablonów).
 
 
-[![Powtarzanego jest przestawione do lewej strony kontrolki DataList](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image4.png)
+[![Tjest on Repeater przestawione do lewej strony kontrolki DataList](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image5.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image4.png)
 
 **Rysunek 2**: Powtarzanego jest przestawione do lewej strony kontrolki DataList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image6.png))
 
@@ -81,7 +81,7 @@ Pozwól, s, zapoznaj się z obu tych technik jednocześnie. Pierwszym sposobem j
 Określanie liczby produktów dla każdej kategorii w elemencie powtarzanym s `ItemDataBound` program obsługi zdarzeń nie wymaga żadnych modyfikacji na naszych istniejących warstwy dostępu do danych. Wszystkie modyfikacje mogą być wprowadzane bezpośrednio z poziomu `CategoriesAndProducts.aspx` strony. Rozpocznij, dodając nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource` za pośrednictwem tagu inteligentnego w elemencie powtarzanym s. Następnie skonfiguruj `CategoriesDataSource` ObjectDataSource, tak że pobiera dane z `CategoriesBLL` klasy s `GetCategories()` metody.
 
 
-[![Konfigurowanie kontrolki ObjectDataSource, aby użyć klasy CategoriesBLL s GetCategories() — metoda](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image7.png)
+[![Configuruj ObjectDataSource na korzystanie z klasy CategoriesBLL s GetCategories() metoda](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image8.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image7.png)
 
 **Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy s `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image9.png))
 
@@ -122,7 +122,7 @@ Rozpoczęliśmy poprzez zapewnienie, że firma Microsoft odnośnie do pracy z el
 Po dodaniu tej obsługi zdarzeń, Poświęć chwilę, aby przetestować stronę za pośrednictwem przeglądarki. Należy zauważyć, jak każda kategoria znajduje się na liście punktowanej wyświetlanie nazwy kategorii s i liczba produktów skojarzonych z kategorii (zobacz rysunek 4).
 
 
-[![Każdej kategorii s Nazwa i numer produkty są wyświetlane.](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image10.png)
+[![Estacje kategorii s Nazwa i numer produkty są wyświetlane](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image11.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image10.png)
 
 **Rysunek 4**: Każdej kategorii s Nazwa i numer produkty są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image12.png))
 
@@ -132,7 +132,7 @@ Po dodaniu tej obsługi zdarzeń, Poświęć chwilę, aby przetestować stronę 
 Zamiast określania liczby produktów dla każdej kategorii, ponieważ s powiązany z elementu powtarzanego, możemy usprawnić tego procesu, dostosowując `CategoriesDataTable` i `CategoriesTableAdapter` w warstwie dostępu do danych, aby dołączyć tę informację w sposób macierzysty. Aby to osiągnąć, można dodać nową kolumnę, aby `CategoriesDataTable` do przechowywania liczby skojarzone produkty. Aby dodać nową kolumnę do elementu DataTable, otwórz element zestawu danych wpisane (`App_Code\DAL\Northwind.xsd`), kliknij prawym przyciskiem myszy na DataTable, aby zmodyfikować i wybierz pozycję Dodaj / kolumny. Dodaj nową kolumnę, aby `CategoriesDataTable` (zobacz rysunek 5).
 
 
-[![Dodaj nową kolumnę do CategoriesDataSource](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image13.png)
+[![ADodaj nową kolumnę, aby CategoriesDataSource](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image14.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image13.png)
 
 **Rysunek 5**: Dodaj nową kolumnę, aby `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image15.png))
 
@@ -150,12 +150,12 @@ Gdy `CategoriesDataTable` ma teraz `NumberOfProducts` kolumny, jego wartość ni
 Aby dodać ten nowy `GetCategoriesAndNumberOfProducts()` metody, kliknij prawym przyciskiem myszy `CategoriesTableAdapter` i wybierz opcję nowe zapytanie. Wybranie tej opcji powoduje TableAdapter zapytania Kreatora konfiguracji, które firma Microsoft ve używana wiele razy w poprzednich samouczkach w górę. W przypadku tej metody należy uruchomić kreatora, wskazując, że zapytanie używa instrukcji SQL zapytań ad-hoc, która zwraca wiersze.
 
 
-[![Utwórz metodę, przy użyciu instrukcji SQL zapytań Ad-Hoc](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image17.png)
+[![CUtwórz metodę, przy użyciu instrukcji SQL zapytań Ad-Hoc](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image18.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image17.png)
 
 **Rysunek 7**: Utwórz metodę, za pomocą instrukcji SQL zapytań Ad-Hoc ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image19.png))
 
 
-[![Instrukcja SQL zwraca wiersze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image20.png)
+[![TADAM wierszy zwraca instrukcję SQL](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image21.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image20.png)
 
 **Rysunek 8**: Zwraca wiersze instrukcji SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image22.png))
 
@@ -166,7 +166,7 @@ Na następnym ekranie kreatora monituje o nas na zapytanie do użycia. Do zwróc
 [!code-sql[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample7.sql)]
 
 
-[![Określ zapytanie do użycia](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image23.png)
+[![SOkreśl zapytanie, aby użycie](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image24.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image23.png)
 
 **Rysunek 9**: Określ zapytanie do użycia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image25.png))
 
@@ -176,7 +176,7 @@ Należy pamiętać, że podzapytania, które oblicza liczbę produktów, skojarz
 Po wprowadzeniu tego zapytania, ostatnim krokiem jest wybranie nazwę dla nowej metody. Użyj `FillWithNumberOfProducts` i `GetCategoriesAndNumberOfProducts` wypełnienia DataTable i zwrócenia DataTable wzorców, odpowiednio.
 
 
-[![Nazwa nowego FillWithNumberOfProducts metody s TableAdapter i GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image26.png)
+[![NNazwa s nowy obiekt TableAdapter FillWithNumberOfProducts metod i GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image27.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image26.png)
 
 **Na rysunku nr 10**: Nazwa s nowy obiekt TableAdapter metody `FillWithNumberOfProducts` i `GetCategoriesAndNumberOfProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image28.png))
 
@@ -191,7 +191,7 @@ DAL i LOGIKI pełną, możemy ponownie gotowe powiązać te dane, aby `Categorie
 Za pomocą elementu powtarzanego w pierwotnego stanu, Dodaj nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource` za pośrednictwem tagu inteligentnego w elemencie powtarzanym s. Konfigurowanie kontrolki ObjectDataSource używać `CategoriesBLL` klasy, zamiast go używać, ale `GetCategories()` metody zostały przez niego używane na `GetCategoriesAndNumberOfProducts()` zamiast (zobacz rysunek 11).
 
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image29.png)
+[![Configuruj ObjectDataSource przy użyciu metody GetCategoriesAndNumberOfProducts](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image30.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image29.png)
 
 **Rysunek 11**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetCategoriesAndNumberOfProducts` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image31.png))
 
@@ -218,7 +218,7 @@ Zanim firma martwienia się o braku `SelectedValue` jednak let s najpierw powią
 Za pomocą kontrolek DataList s tagu inteligentnego, zoptymalizowany pod kątem można dodać nowego elementu ObjectDataSource, o nazwie `CategoryProductsDataSource` i skonfigurować go do używania `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody. Ponieważ DataList w tym samouczku udostępnia interfejs tylko do odczytu, możesz ustawić list rozwijanych w INSERT, UPDATE i usuwanie kart (Brak).
 
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductsByCategoryID(categoryID) s ProductsBLL, klasa](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image32.png)
+[![Configuruj ObjectDataSource s klasy ProductsBLL użyj metody GetProductsByCategoryID(categoryID)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image33.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image32.png)
 
 **Rysunek 12**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image34.png))
 
@@ -228,7 +228,7 @@ Ponieważ `GetProductsByCategoryID(categoryID)` metoda oczekuje, że parametr we
 Na razie ustawienie listy rozwijanej źródła parametru brak. Firma Microsoft będzie znajdą się programowo przypisywanie wartości tego parametru, gdy kategorii, który kliknięto element LinkButton w elemencie powtarzanym.
 
 
-[![Czy Określa źródło parametru categoryID parametru](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
+[![Do Określa źródło parametru categoryID parametr](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
 
 **Rysunek 13**: Wobec Określa źródło parametru *`categoryID`* parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
 
@@ -263,12 +263,12 @@ Po upewnieniu się, że przekazany do `CommandName` wartość jest równa ListPr
 W przypadku te dodatki Nasz samouczek dotyczący jest pełny. Poświęć chwilę, aby przetestować działanie w przeglądarce. Rysunek 14 pokazuje ekran, po raz pierwszy, odwiedzając stronę. Ponieważ kategorii musi jeszcze zostać wybrany, produkty nie są wyświetlane. Kliknięcie kategorii, takich jak produktu, wyświetla tych produktów w kategorii produktów w widoku dwie kolumny (patrz rysunek 15).
 
 
-[![Produkty nie są wyświetlane podczas pierwszego odwiedzając stronę](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image38.png)
+[![NProdukty o są wyświetlane podczas pierwszego odwiedzając stronę](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image39.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image38.png)
 
 **Rysunek 14**: Produkty nie są wyświetlane podczas pierwszego odwiedzając stronę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image40.png))
 
 
-[![Kliknięcie listy kategorii produktu pasujących produktów po prawej stronie](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image41.png)
+[![Clicking utworzyć kategorii listy pasujące produkty z prawej strony](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image42.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image41.png)
 
 **Rysunek 15**: Klikając przycisk Kategoria produktu zawiera listę produktów dopasowanie, po prawej stronie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image43.png))
 

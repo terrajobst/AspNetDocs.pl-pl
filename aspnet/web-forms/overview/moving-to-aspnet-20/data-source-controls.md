@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 78fd0e92-f9c6-4e96-a5e9-0375b307a828
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: ba00024e93beba6eab226dd0d381d8734061e095
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3ba9fdaaf655f6510d3ebf6ce0930fbf4000add3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070295"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388871"
 ---
-<a name="data-source-controls"></a>Kontrolki źródła danych
-====================
+# <a name="data-source-controls"></a>Kontrolki źródła danych
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Formant DataGrid na platformie ASP.NET 1.x oznaczone doskonałe poprawę dostęp do danych w aplikacji sieci Web. Jednak to nie było jak przyjazna dla użytkownika jako mogło być. Wymaga ona nadal znaczną ilość kodu w celu uzyskania wiele przydatnych funkcji z niego. Przykład jest modelem w wszystkich przedsięwzięciach dostępu do danych w 1.x.

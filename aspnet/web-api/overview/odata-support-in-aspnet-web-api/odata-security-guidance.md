@@ -1,25 +1,26 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData | Dokumentacja firmy Microsoft
+title: Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData - ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Opisano zagadnienia zabezpieczeń, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pośrednictwem interfejsu OData dla programu ASP.NET Web API 2 na platformie ASP.NET 4.x.
 ms.author: riande
 ms.date: 02/06/2013
+ms.custom: seoapril2019
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 0e43ec6b1cbe922b00f0f71d08aed4d0f4c08af8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8194a368cb0629c30e32ec05bf4bed150d442ad8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425863"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393512"
 ---
-<a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData
-====================
+# <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-W tym temacie opisano niektóre problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pośrednictwem interfejsu OData.
+W tym temacie opisano niektóre problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas udostępniania zestawu danych za pośrednictwem interfejsu OData dla programu ASP.NET Web API 2 na platformie ASP.NET 4.x.
 
 ## <a name="edm-security"></a>Zabezpieczenia EDM
 

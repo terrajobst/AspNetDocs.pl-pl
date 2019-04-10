@@ -1,25 +1,30 @@
 ---
 uid: web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
-title: Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
+title: Tworzenie interfejsów API RESTful za pomocą wzorca ASP.NET Web API — ASP.NET 4.x
 author: rick-anderson
-description: W ostatnich latach stało się jasne, czy protokół HTTP nie jest po prostu potrzeby stron HTML. Warto również to zaawansowana platforma do tworzenia interfejsów API sieci Web, za pomocą o kilku...
+description: 'Ćwiczenia praktyczne: Użyj interfejsu API sieci Web w programie ASP.NET 4.x do tworzenia prostego interfejsu API REST dla aplikacji menedżera kontaktu.'
 ms.author: riande
 ms.date: 02/18/2013
+ms.custom: seoapril2019
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f1f5ebbf5170f205be331b6402951fb429196046
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423718"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391484"
 ---
-<a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą wzorca ASP.NET Web API
-====================
+# <a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą wzorca ASP.NET Web API
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
-> W ostatnich latach stało się jasne, czy protokół HTTP nie jest po prostu potrzeby stron HTML. Ponadto jest to zaawansowana platforma do tworzenia interfejsów API sieci Web, przy użyciu aspekty czasowniki (GET, POST i tak dalej) oraz kilka proste pojęcia — takich jak *identyfikatorów URI* i *nagłówki*. Web API platformy ASP.NET to zestaw składników, które upraszczają Programowanie HTTP. Ponieważ jest on oparty na podstawie środowiska uruchomieniowego platformy ASP.NET MVC, interfejs API sieci Web automatycznie obsługuje szczegóły niskiego poziomu transportu HTTP. W tym samym czasie internetowy interfejs API udostępnia naturalnie modelu programowania protokołu HTTP. W rzeczywistości ma jeden cel interfejsu API sieci Web *nie* abstrakcji natychmiast rzeczywistości HTTP. W rezultacie internetowy interfejs API jest elastyczny i łatwy sposób rozszerzyć. W tym laboratorium praktycznego użyje interfejsu API sieci Web do tworzenia prostego interfejsu API REST dla aplikacji menedżera kontaktu. Zostanie też utworzony klienta do korzystania z interfejsu API. Styl architektury REST okazał się efektywny sposób wykorzystać HTTP -, mimo że na pewno nie jest prawidłowa tylko metody HTTP. Skontaktuj się z pomocą Menedżer udostępni zgodne ze specyfikacją REST na wyświetlanie, dodawanie i usuwanie kontaktów, między innymi. W tym laboratorium wymaga podstawową wiedzę na temat protokołu HTTP, REST, a przyjęto założenie, że masz podstawową wiedzę na temat pracy z kodu HTML, JavaScript i jQuery.
+> Ćwiczenia praktyczne: Użyj interfejsu API sieci Web w programie ASP.NET 4.x do tworzenia prostego interfejsu API REST dla aplikacji menedżera kontaktu. Zostanie też utworzony klienta do korzystania z interfejsu API.
+
+W ostatnich latach stało się jasne, czy protokół HTTP nie jest po prostu potrzeby stron HTML. Ponadto jest to zaawansowana platforma do tworzenia interfejsów API sieci Web, przy użyciu aspekty czasowniki (GET, POST i tak dalej) oraz kilka proste pojęcia — takich jak *identyfikatorów URI* i *nagłówki*. Web API platformy ASP.NET to zestaw składników, które upraszczają Programowanie HTTP. Ponieważ jest on oparty na podstawie środowiska uruchomieniowego platformy ASP.NET MVC, interfejs API sieci Web automatycznie obsługuje szczegóły niskiego poziomu transportu HTTP. W tym samym czasie internetowy interfejs API udostępnia naturalnie modelu programowania protokołu HTTP. W rzeczywistości ma jeden cel interfejsu API sieci Web *nie* abstrakcji natychmiast rzeczywistości HTTP. W rezultacie internetowy interfejs API jest elastyczny i łatwy sposób rozszerzyć.  Styl architektury REST okazał się efektywny sposób wykorzystać HTTP -, mimo że na pewno nie jest prawidłowa tylko metody HTTP. Skontaktuj się z pomocą Menedżer udostępni zgodne ze specyfikacją REST na wyświetlanie, dodawanie i usuwanie kontaktów, między innymi. 
+
+W tym laboratorium wymaga podstawową wiedzę na temat protokołu HTTP, REST, a przyjęto założenie, że masz podstawową wiedzę na temat pracy z kodu HTML, JavaScript i jQuery.
 > 
 > > [!NOTE]
 > > Witryny sieci Web ASP.NET jest dedykowany do interfejsu API sieci Web platformy ASP.NET framework na [ https://asp.net/web-api ](https://asp.net/web-api). Ta lokacja będzie w dalszym ciągu zapewnia najnowsze informacje, przykłady i informacje związane z internetowego interfejsu API, dlatego należy sprawdzić ją często czy chcesz delve głębiej do sztukę tworzenia niestandardowych interfejsów API sieci Web dostępne praktycznie dowolne urządzenie lub rozwoju Framework.
@@ -417,7 +422,7 @@ W ramach tego zadania będziesz zmodyfikuj widok indeksu w aplikacji MVC. Formul
 > Ponadto można wdrożyć tę aplikację do platformy Azure następujące [dodatek C: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixC).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

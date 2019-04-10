@@ -8,15 +8,15 @@ ms.date: 09/09/2011
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: f1d949ec716ea8cb677c54fe5b07431161c58fbc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b7722d5c282f07b35dd18d08911fa562dae6afc2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078200"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387935"
 ---
-<a name="aspnet-mvc-4"></a>ASP.NET MVC 4
-====================
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+
 > Ten dokument opisuje wersję platformy ASP.NET MVC 4 w wersji Beta programu Visual Studio 2010.
 > 
 > > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "57078200"
 - [Uwagi dotyczące instalacji](#_Toc303253802)
 - [Dokumentacja](#_Toc303253803)
 - [Pomoc techniczna](#_Toc303253804)
-- [Wymagania dotyczące oprogramowania](#_Toc303253805)
+- [Wymagania programowe](#_Toc303253805)
 - [Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4](#_Toc303253806)
 - [Nowe funkcje w wersji Beta programu ASP.NET MVC 4](#_Toc303253807)
 
@@ -38,7 +38,7 @@ ms.locfileid: "57078200"
     - [jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki](#_Toc303253811)
     - [Rozwiązania na potrzeby generowania kodu w programie Visual Studio](#_Toc303253812)
     - [Zadanie obsługi asynchronicznego kontrolerów](#_Toc303253813)
-    - [Zestaw Azure SDK](#_Toc303253814)
+    - [Azure SDK](#_Toc303253814)
     - [Znane problemy i fundamentalne zmiany](#_Toc303253815)
 
 <a id="_Toc303253802"></a>
@@ -62,7 +62,7 @@ Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie MSDN pod adrese
 W samouczkach i innych informacji na temat platformy ASP.NET MVC są dostępne na stronie witryny sieci Web platformy ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
 <a id="_Toc303253804"></a>
-## <a name="support"></a>Obsługa
+## <a name="support"></a>Pomoc techniczna
 
 To jest wersja zapoznawcza i nie jest oficjalnie obsługiwana. Jeśli masz pytania na temat pracy z tej wersji, opublikuj je na forum platformy ASP.NET MVC ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), gdzie są często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET.
 

@@ -8,15 +8,15 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 67f44d9f23a2fe83c48e68328b1dee739056e32f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 786be61d48f26e5765eac0c8d6fad7551897f711
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067547"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387689"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Przygotowywanie do wdrożenia bazy danych
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Przygotowywanie do wdrożenia bazy danych
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
@@ -63,7 +63,7 @@ Podczas wdrażania bazy danych aplikacji, zazwyczaj nie po prostu są wdrażane 
 
 Aby zasymulować ten częsty scenariusz, należy skonfigurować migracje Code First `Seed` metodę, która wstawia do bazy danych, które mają być dostępne w środowisku produkcyjnym. To `Seed` metoda nie należy wstawić dane testowe, ponieważ będzie ona uruchamiana w środowisku produkcyjnym, po pierwszym kod tworzy bazę danych w środowisku produkcyjnym.
 
-We wcześniejszych wersjach programu Code First przed migracji został wydany, było często `Seed` metody, aby wstawić dane testowe Ponadto, ponieważ przy każdej zmianie modelu podczas tworzenia bazy danych musiały być całkowicie usunięta i utworzona ponownie od podstaw. Migracje Code First, test, dane są zachowywane po wprowadzeniu zmian w bazie danych, więc łącznie danych testowych w `Seed` metoda nie jest konieczne. Pobrany projekt używa metody, w tym wszystkie dane w `Seed` metody klasy inicjatora. W tym samouczku zostanie wyłączone tej klasy inicjatora i `enable Migrations. Then you'll update the `inicjatora "metody w konfiguracji migracje klasy, tak aby wstawia tylko dane, które mają zostać wstawione w środowisku produkcyjnym.
+We wcześniejszych wersjach programu Code First przed migracji został wydany, było często `Seed` metody, aby wstawić dane testowe Ponadto, ponieważ przy każdej zmianie modelu podczas tworzenia bazy danych musiały być całkowicie usunięta i utworzona ponownie od podstaw. Migracje Code First, test, dane są zachowywane po wprowadzeniu zmian w bazie danych, więc łącznie danych testowych w `Seed` metoda nie jest konieczne. Pobrany projekt używa metody, w tym wszystkie dane w `Seed` metody klasy inicjatora. W tym samouczku możesz wyłączyć tę klasę inicjatora i włączanie funkcji migracje. Następnie zaktualizujesz `Seed` metody w konfiguracji migracje klasy, tak aby wstawia tylko dane, które mają zostać wstawione w środowisku produkcyjnym.
 
 Na poniższym diagramie przedstawiono schemat bazy danych aplikacji:
 
@@ -130,7 +130,7 @@ Projekt jest teraz gotowe do wdrożenia *ContosoUniversity* bazy danych. Po wdro
 > [!NOTE]
 > Dodawanie kodu do `Seed` metodą jest jeden z wielu sposobów wstawiany danych do bazy danych. Alternatywą jest Dodaj kod, aby `Up` i `Down` metody każda klasa migracji. `Up` i `Down` metody zawierają kod, który implementuje zmian w bazie danych. Zobaczysz je w przykłady [wdrażanie aktualizacji bazy danych](deploying-a-database-update.md) samouczka.
 > 
-> Można także napisać kod, który wykonuje instrukcje SQL przy użyciu `Sql` metody. Na przykład, jeśli były dodanie kolumny budżetu Tabela działu i chcesz zainicjować wszystkich budżetów działu do $1000,00 w ramach migracji, możesz dodać wiersz folllowing kodu do `Up` metody dla tej migracji:
+> Można także napisać kod, który wykonuje instrukcje SQL przy użyciu `Sql` metody. Na przykład, jeśli zostały dodanie kolumny budżetu Tabela działu i chcesz zainicjować wszystkich budżetów działu do $1000,00 w ramach migracji, należy dodać następujący wiersz kodu w celu `Up` metody dla tej migracji:
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 

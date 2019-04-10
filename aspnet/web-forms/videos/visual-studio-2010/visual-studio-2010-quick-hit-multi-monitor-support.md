@@ -8,15 +8,15 @@ ms.date: 11/11/2009
 ms.assetid: 26dfc502-d164-4261-8006-ffde9a3e3447
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-multi-monitor-support
 msc.type: video
-ms.openlocfilehash: 04dcebefdefe933ccbc5471224f6604b281ed096
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 8ed863a546c5ecb58308e292a0294e294e1e263e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076196"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378213"
 ---
-<a name="visual-studio-2010-quick-hit---multi-monitor-support"></a>Program Visual Studio 2010 "Strzał szybkiego" — Obsługa wielu monitorów
-====================
+# <a name="visual-studio-2010-quick-hit---multi-monitor-support"></a>Program Visual Studio 2010 "Strzał szybkiego" — Obsługa wielu monitorów
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 W tym filmie pokazano będzie więcej informacji na temat obsługi programu Visual Studio wielu scenariuszy monitorowania, w celu używania powierzchnię ekranu i zoptymalizować ogólny przepływ pracy tworzenia oprogramowania. 

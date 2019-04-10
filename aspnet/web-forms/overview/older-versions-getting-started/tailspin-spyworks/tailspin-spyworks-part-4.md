@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: ca7eccd684473d9a1ec4a8adfd8690b291fe702f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 63afd25e2ccf22d3c7ae5c5048c80a8cf060d4cf
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071618"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59382826"
 ---
-<a name="part-4-listing-products"></a>Część 4. Tworzenie listy produktów
-====================
+# <a name="part-4-listing-products"></a>Część 4. Tworzenie listy produktów
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
@@ -50,7 +50,7 @@ Po naszej stronie ponownie użyjemy źródła danych jednostki do dostępu do ty
 
 W tym celu będzie o EntityDataSource automatycznej klauzuli WHERE i określamy będzie WhereParameter.
 
-Dowiesz się odwołać, podczas tworzenia elementów Menu w naszym "produktu kategorii Menu" dynamicznie zbudowaliśmy łącze, dodając CatagoryID do ciągu kwerendy dla każdego łącza. Firma Microsoft poinformuje źródła danych jednostki do wyprowadzenia parametr gdzie z tego parametru QueryString.
+Dowiesz się odwołać, podczas tworzenia elementów Menu w naszym "produktu kategorii Menu" dynamicznie zbudowaliśmy łącze, dodając CategoryID do ciągu kwerendy dla każdego łącza. Firma Microsoft poinformuje źródła danych jednostki do wyprowadzenia parametr gdzie z tego parametru QueryString.
 
 [!code-aspx[Main](tailspin-spyworks-part-4/samples/sample1.aspx)]
 
@@ -79,7 +79,7 @@ Na stronie głównej witryny kliknij jeden z linków listy kategorii.
 
 ![](tailspin-spyworks-part-4/_static/image6.jpg)
 
-Teraz musimy zaimplementować stronę ProductDetials.apsx i funkcjonalność AddToCart.
+Teraz musimy zaimplementować stronę ProductDetails.aspx i funkcjonalność AddToCart.
 
 Użyj pliku -&gt;nowy, aby utworzyć nazwę strony ProductDetails.aspx przy użyciu witryny stronę wzorcową, ile My mieliśmy wcześniej.
 
@@ -93,7 +93,7 @@ Zawartość koszyka będzie reprezentować bardziej złożonej logiki w naszej a
 
 Należy pamiętać, że firma Microsoft nie wybierają nazwę ShoppingCart.aspx.
 
-Nasze baza danych zawiera tabelę o nazwie "ShoppingCart". Gdy firma Microsoft wygenerowany model Entity Data Model klasy został utworzony dla każdej tabeli w bazie danych. W związku z tym modelu Entity Data Model wygenerować klasę jednostki o nazwie "ShoppingCart". Firma Microsoft można edytować model, dzięki czemu firma Microsoft może używać tej nazwy dla naszej zakupów implementacji koszyka lub rozszerzania jej do naszych potrzeb, ale firma Microsoft będzie zoptymalizowany pod kątem zamiast tego można po prostu wybierz nazwę, która pozwoli uniknąć konfliktu.
+Nasze baza danych zawiera tabelę o nazwie "ShoppingCart". Gdy firma Microsoft wygenerowany model Entity Data Model klasy został utworzony dla każdej tabeli w bazie danych. W związku z tym modelu Entity Data Model wygenerować klasę jednostki o nazwie "ShoppingCart". Firma Microsoft można edytować model, dzięki czemu firma Microsoft może używać tej nazwy dla naszej zakupów implementacji koszyka lub rozszerzania jej do naszych potrzeb, ale firma Microsoft będzie zoptymalizowany pod kątem zamiast tego po prostu zaznacz nazwę, która pozwoli uniknąć konfliktu.
 
 Warto również zauważyć, że utworzymy prostą koszyka zakupów i osadzanie logikę koszyka zakupów z wyświetlaniem koszyka zakupów. Firma Microsoft może też zaimplementować naszego koszyka w oddzielną warstwy biznesowej.
 

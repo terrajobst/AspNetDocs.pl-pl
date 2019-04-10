@@ -8,15 +8,15 @@ ms.date: 05/30/2007
 ms.assetid: 5e189dd7-f4f9-4f28-9b3a-6cb7d392e9c7
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 45a717f9b68a1465d3446b06358a062f6b640c9e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9c5ac1aeff427c78030f789fcb67736020ce3367
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076730"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391809"
 ---
-<a name="caching-data-in-the-architecture-vb"></a>Buforowanie danych w architekturze (VB)
-====================
+# <a name="caching-data-in-the-architecture-vb"></a>Buforowanie danych w architekturze (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_59_VB.exe) lub [Pobierz plik PDF](caching-data-in-the-architecture-vb/_static/datatutorial59vb1.pdf)
@@ -159,7 +159,7 @@ Za pomocą tej modyfikacji `AddCacheItem(key, value)`, invaliding pamięć podr�
 Pamięć podręczna warstwy s klas i metod może służyć do pracy z danymi za pomocą technik możemy ve badany w całym tych samouczków. Aby zilustrować pracy przy użyciu danych z pamięci podręcznej, zapisać zmiany w `ProductsCL` klasy, a następnie otwórz `FromTheArchitecture.aspx` strony w `Caching` folderze i Dodaj GridView. W tagu inteligentnego s GridView należy utworzyć nowe kontrolki ObjectDataSource. W pierwszym kroku s kreator powinien zostać wyświetlony `ProductsCL` klasy jako jedną z opcji z listy rozwijanej.
 
 
-[![Klasa ProductsCL znajduje się na liście rozwijanej obiektów biznesowych](caching-data-in-the-architecture-vb/_static/image5.png)](caching-data-in-the-architecture-vb/_static/image4.png)
+[![TADAM klasy ProductsCL znajduje się na liście rozwijanej obiektów biznesowych](caching-data-in-the-architecture-vb/_static/image5.png)](caching-data-in-the-architecture-vb/_static/image4.png)
 
 **Rysunek 4**: `ProductsCL` Klasa znajduje się na liście rozwijanej obiektów Business ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-in-the-architecture-vb/_static/image6.png))
 
@@ -167,7 +167,7 @@ Pamięć podręczna warstwy s klas i metod może służyć do pracy z danymi za 
 Po wybraniu `ProductsCL`, kliknij przycisk Dalej. Listy rozwijanej wybierz karta ma dwa elementy — `GetProducts()` i `GetProductsByCategoryID(categoryID)` i na karcie aktualizacji ma jedyny `UpdateProduct` przeciążenia. Wybierz `GetProducts()` metody z wybierz kartę i `UpdateProducts` metody z karty aktualizacji i kliknij przycisk Zakończ.
 
 
-[![Metody klasy ProductsCL s są wymienione w listy rozwijane](caching-data-in-the-architecture-vb/_static/image8.png)](caching-data-in-the-architecture-vb/_static/image7.png)
+[![TADAM, które metody s ProductsCL klasy są wymienione w listy rozwijanej](caching-data-in-the-architecture-vb/_static/image8.png)](caching-data-in-the-architecture-vb/_static/image7.png)
 
 **Rysunek 5**: `ProductsCL` Metod klasy s są wymienione w listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-in-the-architecture-vb/_static/image9.png))
 

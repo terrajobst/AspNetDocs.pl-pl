@@ -8,15 +8,15 @@ ms.date: 03/13/2008
 ms.assetid: b041ea07-a174-4a57-b2a8-4ce64232bdae
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures
 msc.type: video
-ms.openlocfilehash: ab88bf56d3f63a562a121dc7523ad221dc5c68cf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b91234b1e0c163a2f6350e93e775864e32218cc0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073301"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390327"
 ---
-<a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Jak mogę LINQ to SQL: aktualizowanie przy użyciu procedur składowanych
-====================
+# <a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Jak mogę LINQ to SQL: aktualizowanie przy użyciu procedur składowanych
+
 przez [Scott Stanfield](https://github.com/scottstanfield)
 
 Zastąp wygenerowany logiki update/delete/insert ORM swoją własną za pomocą procedur składowanych. Film wideo przedstawiono szczegółowo również sposób umożliwia monitorowanie zmian w ORM z wygenerowanym bazy danych SQL do naszych niestandardowe procs składowanych SQL Profiler SQL. Ponieważ firma Microsoft jest po prostu polecenia SQL, te same techniki dotyczą zarówno C# i VB deweloperów.

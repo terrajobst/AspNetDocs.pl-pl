@@ -8,15 +8,15 @@ ms.date: 02/27/2014
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 624f98cea6030e0b7b022f86c4c1aa37f1db9726
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1159d75ec5b2f7e5ac94da0a15acf24b5400798b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078401"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59387479"
 ---
-<a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sortowanie, stronicowanie i filtrowanie danych za pomocą wiązania modelu i formularzy sieci web
-====================
+# <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sortowanie, stronicowanie i filtrowanie danych za pomocą wiązania modelu i formularzy sieci web
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji prostszą niż rozwiązywania problemów związanych z danymi obiektów źródła (takich jak kontrolki ObjectDataSource lub SqlDataSource). Ta seria rozpoczyna się od wprowadzające informacje i przenosi do bardziej zaawansowanych pojęciach w kolejnych samouczkach.

@@ -8,15 +8,15 @@ ms.date: 02/01/2007
 ms.assetid: 2a23e599-2969-4d2a-92c2-4bdfea8f59bc
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-extender
 msc.type: video
-ms.openlocfilehash: a7d14486b23b929d7cecf7b914baa83c99b17cd1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6283d5dfad46b8b2c8915d790d1e66e89ba3a5b8
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072074"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391081"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a>[Jak mogę] Użyj rozszerzenie RoundedCorners ASP.NET AJAX?
-====================
+# <a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a>[Jak mogę] Użyj rozszerzenie RoundedCorners ASP.NET AJAX?
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 W tym filmie pokazano zobaczymy, jak rozszerzenie formantu RoundedCorner umożliwiają stron sieci web twardości wygląd i działanie, dodając atrakcyjny zaokrąglone rogi do obszarów zawartości.

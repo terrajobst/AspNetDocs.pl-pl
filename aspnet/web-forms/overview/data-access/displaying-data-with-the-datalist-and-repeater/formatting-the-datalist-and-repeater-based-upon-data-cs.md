@@ -8,15 +8,15 @@ ms.date: 09/13/2006
 ms.assetid: 83e3d759-82b8-41e6-8d62-f0f4b3edec41
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4c3a6b085dbd9faec8dab45e64b10678aa9a73b3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7ea11f436d8f0455621d22c4d5a5b4d6b6ece68f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071891"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386427"
 ---
-<a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>Formatowanie elementów DataList i Repeater na podstawie danych (C#)
-====================
+# <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>Formatowanie elementów DataList i Repeater na podstawie danych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_30_CS.exe) lub [Pobierz plik PDF](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/datatutorial30cs1.pdf)
@@ -74,7 +74,7 @@ Zanim będziemy zajmować formatowania, umożliwiają s najpierw utworzyć stron
 Gdy zostały zreplikowane funkcji kontrolek DataList i kontrolki ObjectDataSource `Basics.aspx` do `Formatting.aspx`, Poświęć chwilę, aby zmienić DataList s `ID` właściwość `DataList1` na bardziej opisową `ItemDataBoundFormattingExample`. Następnie Wyświetl kontrolki DataList w przeglądarce. Jak pokazano na rysunku 1, formatowania jedyną różnicą między każdego produktu jest, że kolor tła alternatywne.
 
 
-[![Produkty są wymienione w kontrolce DataList](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image1.png)
+[![Tużywane produkty są wymienione w kontrolce DataList](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image1.png)
 
 **Rysunek 1**: Produkty są wymienione w kontrolce DataList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image3.png))
 
@@ -117,7 +117,7 @@ Aby zastosować formatowanie, wystarczy ustawić dwóch formantów Web etykiety 
 Za pomocą `ItemDataBound` zakończona programu obsługi zdarzeń, ponownie `Formatting.aspx` strony w przeglądarce. Tak jak pokazano na rysunku 2, tych produktów z ceną w obszarze 20,00 USD za ma ich nazwy i ceny wyróżnione.
 
 
-[![Te produkty mniej niż 20,00 USD za wyróżniono](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image4.png)
+[![Tgumowy przewód produktów w mniej niż wyróżniono 20,00 USD za](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image4.png)
 
 **Rysunek 2**: Te produkty mniej niż 20,00 USD za wyróżniono ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image6.png))
 
@@ -129,7 +129,7 @@ Za pomocą `ItemDataBound` zakończona programu obsługi zdarzeń, ponownie `For
 `RepeaterItem` S, wchodzące w skład kontrolce elementu powtarzanego jednak don t oferują takie właściwości stylu. W związku z tym stosując formatowanie niestandardowe do powtarzanego wymaga od aplikacji ponownego obliczenia właściwości stylu kontrolki sieci Web w szablonach Repeater s, tak samo, jak zrobiliśmy na rysunku 2.
 
 
-[![Cały element produktu jest wyróżniona na produkty w ramach 20,00 USD za](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image7.png)
+[![Tjest on cały element produktu wyróżniony dla produktów w obszarze 20,00 USD za](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image7.png)
 
 **Rysunek 3**: Cały element produktu jest wyróżniona na produkty w ramach 20,00 USD za ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image9.png))
 
@@ -141,7 +141,7 @@ W *za pomocą kontrolek TemplateField w kontrolce GridView* samouczek widzieliś
 Aby zademonstrować funkcje formatowania, umożliwiają s ma informacje o produkcie, które zawierają tekst [WYCOFANY] obok nazwy produktu s, jeśli jego s wycofane. Umożliwiają s są także jeśli żółty wyróżnione cena go s mniejszą niż 20,00 USD za (jak robiliśmy `ItemDataBound` przykład program obsługi zdarzeń); Jeśli cena jest 20,00 USD za lub nowszej, który pozwala s nie wyświetlają rzeczywista cena, ale zamiast tego tekstu, należy wywołać dla oferty ceny. Rysunek 4 przedstawiono zrzut ekranu produktów, wyświetlanie za te reguły formatowania, które zostały zastosowane.
 
 
-[![Kosztowne produktów cena zostanie zastąpiony tekst, wywołaj oferty cen](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image10.png)
+[![Flub kosztowne produktów, cena zostanie zastąpiony tekst, wywołaj oferty cen](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image10.png)
 
 **Rysunek 4**: Kosztowne produktów, cena zostanie zastąpiony tekst, wywołaj oferty cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image12.png))
 
@@ -182,7 +182,7 @@ Aby wyświetlić ceny, możemy po prostu ustaw `UnitPriceLabel` etykiety s `Text
 Przy użyciu wywołania do funkcji formatowania w miejscu Poświęć chwilę, aby wyświetlić postępach w przeglądarce. Ekran powinien wyglądać podobnie jak rysunek 5 za pomocą uwzględniałyby produkty, łącznie z tekstem [WYCOFANY] i tych produktów wyceny ponad 20,00 USD za posiadające ich ceny zastąpione tekstem, wywołanie oferty ceny.
 
 
-[![Kosztowne produktów cena zostanie zastąpiony tekst, wywołaj oferty cen](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image13.png)
+[![Flub kosztowne produktów, cena zostanie zastąpiony tekst, wywołaj oferty cen](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image13.png)
 
 **Rysunek 5**: Kosztowne produktów, cena zostanie zastąpiony tekst, wywołaj oferty cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image15.png))
 

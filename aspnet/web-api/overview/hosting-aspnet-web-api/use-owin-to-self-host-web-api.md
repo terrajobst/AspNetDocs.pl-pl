@@ -1,22 +1,23 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
+title: Korzystanie z OWIN na potrzeby samodzielnego hostowania wzorca ASP.NET Web API — ASP.NET 4.x
 author: rick-anderson
-description: W tym samouczku pokazano, jak hostować interfejs API sieci Web platformy ASP.NET w aplikacji konsoli, za pomocą OWIN na potrzeby samodzielnego hostowania strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) d...
+description: Samouczek z kodem, przedstawiający sposób hostowania interfejsu API sieci Web platformy ASP.NET w aplikacji konsoli.
 ms.author: riande
 ms.date: 07/09/2013
+ms.custom: seoapril2019
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a83d1350c2e984acd3c115afd27adfe2b05adb2f
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: a67db0bd061846af2db3599e0843ed7c6a22db1e
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58424562"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386518"
 ---
-<a name="use-owin-to-self-host-aspnet-web-api"></a>Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web platformy ASP.NET 
-====================
+# <a name="use-owin-to-self-host-aspnet-web-api"></a>Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web platformy ASP.NET 
+
 
 > W tym samouczku pokazano, jak hostować interfejs API sieci Web platformy ASP.NET w aplikacji konsoli, za pomocą OWIN na potrzeby samodzielnego hostowania strukturę interfejsu API sieci Web.
 >

@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity | Dokumentacja firmy Microsoft
+title: Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity — ASP.NET 4.x
 author: Rick-Anderson
 description: W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartość ciągu dla klucza dla kont użytkowników. ASP.NET Identity umożliwia zmianę typu...
 ms.author: riande
 ms.date: 09/30/2014
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: d2856ce1ca61a29e091bfbd16647b673e6fc659b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 212b07494381d13f6ded96a41b846dcdf7e8ff16
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068762"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59393746"
 ---
-<a name="change-primary-key-for-users-in-aspnet-identity"></a>Zmiana klucza podstawowego dla użytkowników w systemie ASP.NET Identity
-====================
+# <a name="change-primary-key-for-users-in-aspnet-identity"></a>Zmiana klucza podstawowego dla użytkowników w systemie ASP.NET Identity
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartość ciągu dla klucza dla kont użytkowników. ASP.NET Identity umożliwia zmianę typu klucza, aby spełnić wymagania dotyczące danych. Na przykład można zmienić typ klucza z ciągu na liczbę całkowitą.
@@ -209,7 +210,7 @@ Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 Formularze sieci Web z aktualizacją Update 2 należy zmienić na następujących stronach.
 
-**Confirm.aspx.cx**
+**Confirm.aspx.CX**
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample30.cs?highlight=8)]
 
@@ -228,7 +229,7 @@ Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 Formularze sieci Web z aktualizacją Update 3 należy zmienić na następujących stronach.
 
-**Confirm.aspx.cx**
+**Confirm.aspx.CX**
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample33.cs?highlight=8)]
 
@@ -272,7 +273,7 @@ Jeśli wcześniej utworzono produktu ASP.NET Identity tabel przy użyciu innego 
 <a id="other"></a>
 ## <a name="other-resources"></a>Inne zasoby
 
-- [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 - [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 - [Przykładowa aplikacja](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) przy użyciu zmienionego klucz podstawowy

@@ -8,15 +8,15 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cb7a4ff9dbf746c0729129445042e53e506df5d2
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070358"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385738"
 ---
-<a name="what-is-web-forms"></a>Co to jest formularzy sieci Web
-====================
+# <a name="what-is-web-forms"></a>Co to jest formularzy sieci Web
+
 ASP.NET Web Forms jest częścią struktury aplikacji sieci web programu ASP.NET i jest dołączany [programu Visual Studio](https://www.asp.net/downloads). Jest to jeden z czterech modeli programowania służących do tworzenia aplikacji sieci web ASP.NET, pozostałe wersje to ASP.NET MVC, ASP.NET Web Pages i aplikacje jednostronicowe ASP.NET.
 
 Formularze sieci Web są stron żądających użytkowników za pomocą przeglądarki. Te strony mogą być napisane przy użyciu kombinacji HTML, skrypt klienta, formanty serwera i kod serwera. Użytkownicy żądania strony, jest skompilowany i wykonany na serwerze przez platformę, a następnie generuje kod znaczników HTML, przeglądarka umożliwiający renderowanie w ramach. Na stronie ASP.NET Web Forms przedstawia informacje użytkownika w dowolnej przeglądarce lub urządzenie klienckie.

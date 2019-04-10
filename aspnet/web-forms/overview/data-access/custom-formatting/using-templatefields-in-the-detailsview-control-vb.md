@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: 0b91d5f8-127d-4f6a-b204-f2e2b35ef703
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1c18e8be25369d6e7d1703e71b80e75adb9f15fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9a2f500206bbdc09d8007e10c0c7464f1ba384a3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069983"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395072"
 ---
-<a name="using-templatefields-in-the-detailsview-control-vb"></a>Używanie kontrolek TemplateField w kontrolce DetailsView (VB)
-====================
+# <a name="using-templatefields-in-the-detailsview-control-vb"></a>Używanie kontrolek TemplateField w kontrolce DetailsView (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_13_VB.exe) lub [Pobierz plik PDF](using-templatefields-in-the-detailsview-control-vb/_static/datatutorial13vb1.pdf)
@@ -35,7 +35,7 @@ TemplateField zapewnia wyższy stopień elastyczności renderowania danych niż 
 Te same możliwości kontrolek TemplateField dostępne w widoku GridView są również dostępne w kontrolce DetailsView. W tym samouczku będziesz wyświetlamy jednego produktu za pomocą DetailsView, który zawiera dwa kontrolek TemplateField. Pierwszy TemplateField będą łączone `UnitPrice`, `UnitsInStock`, i `UnitsOnOrder` pól danych w jednym wierszu DetailsView. Drugi TemplateField zostanie wyświetlona wartość `Discontinued` pola, ale użyje metody formatowania, aby wyświetlić "YES", jeśli `Discontinued` jest `True`i "NO" inaczej.
 
 
-[![Dwóch kontrolek TemplateField są używane do dostosowywania wyświetlania](using-templatefields-in-the-detailsview-control-vb/_static/image2.png)](using-templatefields-in-the-detailsview-control-vb/_static/image1.png)
+[![TWO kontrolek TemplateField są używane, aby dostosować wyświetlanie](using-templatefields-in-the-detailsview-control-vb/_static/image2.png)](using-templatefields-in-the-detailsview-control-vb/_static/image1.png)
 
 **Rysunek 1**: Dwóch kontrolek TemplateField są używane do dostosowywania wyświetlania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image3.png))
 
@@ -49,7 +49,7 @@ Zgodnie z opisem w poprzednim samouczku, pracując z kontrolek TemplateField jes
 Otwórz `DetailsViewTemplateField.aspx` strony i przeciągnij element DetailsView z przybornika do projektanta. Z tagu inteligentnego DetailsView wybierz można dodać nowego formantu ObjectDataSource, który wywołuje `ProductsBLL` klasy `GetProducts()` metody.
 
 
-[![Dodawanie nowego formantu ObjectDataSource, który wywołuje metodę GetProducts()](using-templatefields-in-the-detailsview-control-vb/_static/image5.png)](using-templatefields-in-the-detailsview-control-vb/_static/image4.png)
+[![Add nowego formantu ObjectDataSource, który wywołuje metodę GetProducts()](using-templatefields-in-the-detailsview-control-vb/_static/image5.png)](using-templatefields-in-the-detailsview-control-vb/_static/image4.png)
 
 **Rysunek 2**: Dodawanie nowej kontrolki ObjectDataSource tego Invokes `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image6.png))
 
@@ -64,7 +64,7 @@ Po wprowadzeniu tych zmian, swojej kontrolce DetailsView oznaczeniu deklaracyjny
 Poświęć chwilę, aby wyświetlić stronę za pośrednictwem przeglądarki. W tym momencie powinien zostać wyświetlony jeden produkt na liście (Chai) przedstawiający nazwę produktu, kategorii, dostawca, ceny, jednostek w magazynie, jednostki w kolejności i jego stan nieobsługiwane wierszy.
 
 
-[![Szczegóły produktu są wyświetlane, używając szeregu BoundFields](using-templatefields-in-the-detailsview-control-vb/_static/image8.png)](using-templatefields-in-the-detailsview-control-vb/_static/image7.png)
+[![TSzczegóły produktu HE są wyświetlane przy użyciu serii BoundFields](using-templatefields-in-the-detailsview-control-vb/_static/image8.png)](using-templatefields-in-the-detailsview-control-vb/_static/image7.png)
 
 **Rysunek 3**: Szczegóły produktu są wyświetlane przy użyciu serii BoundFields ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image9.png))
 
@@ -76,7 +76,7 @@ DetailsView ma wiersz `UnitPrice`, `UnitsInStock`, i `UnitsOnOrder` pola. Możem
 Rozpocznij, klikając link Edytuj pola w DetailsView tagu inteligentnego, aby wyświetlić okno dialogowe pól. Następnie dodaj nowy TemplateField i ustaw jego `HeaderText` właściwość "Cena i spisu" i Przenieś TemplateField nowe, tak że jest umieszczana powyżej `UnitPrice` elementu BoundField.
 
 
-[![Dodaj nowe TemplateField na kontrolce DetailsView](using-templatefields-in-the-detailsview-control-vb/_static/image11.png)](using-templatefields-in-the-detailsview-control-vb/_static/image10.png)
+[![ADodaj nowe TemplateField na kontrolce DetailsView](using-templatefields-in-the-detailsview-control-vb/_static/image11.png)](using-templatefields-in-the-detailsview-control-vb/_static/image10.png)
 
 **Rysunek 4**: Dodaj nowe TemplateField na kontrolce DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image12.png))
 
@@ -88,7 +88,7 @@ Ostatnim zadaniem w tym kroku jest zdefiniowanie `ItemTemplate` kod znaczników 
 W tym samouczku Rozpocznij, dodając kontrolkę typu etykieta do cen i spisu TemplateField `ItemTemplate`. Następnie kliknij link Edytuj powiązania danych z tag inteligentny formant etykiety w sieci Web i powiązać `Text` właściwości `UnitPrice` pola.
 
 
-[![Powiąż właściwości tekstu etykiety z polem danych UnitPrice](using-templatefields-in-the-detailsview-control-vb/_static/image14.png)](using-templatefields-in-the-detailsview-control-vb/_static/image13.png)
+[![BZnajdź pole właściwości tekstu etykiety danych UnitPrice](using-templatefields-in-the-detailsview-control-vb/_static/image14.png)](using-templatefields-in-the-detailsview-control-vb/_static/image13.png)
 
 **Rysunek 5**: Powiąż etykiety `Text` właściwości `UnitPrice` pola danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image15.png))
 
@@ -98,7 +98,7 @@ W tym samouczku Rozpocznij, dodając kontrolkę typu etykieta do cen i spisu Tem
 Dodając ten formant etykiety w sieci Web ceny i TemplateField magazynu będą teraz wyświetlane tylko cena dla wybranego produktu. Rysunek 6 przedstawia zrzut ekranu: postępach tej pory podczas wyświetlania za pośrednictwem przeglądarki.
 
 
-[![Ceny i spisu TemplateField pokazuje cenę](using-templatefields-in-the-detailsview-control-vb/_static/image17.png)](using-templatefields-in-the-detailsview-control-vb/_static/image16.png)
+[![Ton ceny i spisu TemplateField pokazuje cenę](using-templatefields-in-the-detailsview-control-vb/_static/image17.png)](using-templatefields-in-the-detailsview-control-vb/_static/image16.png)
 
 **Rysunek 6**: Ceny i spisu TemplateField pokazuje cenę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image18.png))
 
@@ -110,7 +110,7 @@ Aby określić formatowanie składni wiązania danych używany w kontrolce etyki
 Aby uzyskać `UnitPrice` Użyj formatowania waluty określonych, wybierając wartość odpowiednie listy rozwijanej lub wpisując w polu `{0:C}` ręcznie.
 
 
-[![Cena w formacie waluty](using-templatefields-in-the-detailsview-control-vb/_static/image20.png)](using-templatefields-in-the-detailsview-control-vb/_static/image19.png)
+[![FFormatuj cena jako walutę](using-templatefields-in-the-detailsview-control-vb/_static/image20.png)](using-templatefields-in-the-detailsview-control-vb/_static/image19.png)
 
 **Rysunek 7**: Formatowanie cena jako walutę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image21.png))
 
@@ -126,7 +126,7 @@ W tym momencie została firma Microsoft wyświetlane i sformatowany `UnitPrice` 
 
 Dodawanie znaczników statyczne formanty etykiet w sieci Web i składnia wiązania danych tak, aby ceny i TemplateField magazynu zawiera informacje dotyczące cen i spisu w następujący sposób:
 
-*UnitPrice*  
+*Cena jednostkowa*  
 (**w magazynie / w kolejności:** *UnitsInStock* / *UnitsOnOrder*)
 
 Po wykonaniu tego zadania usługi DetailsView oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
@@ -137,7 +137,7 @@ Po wykonaniu tego zadania usługi DetailsView oznaczeniu deklaracyjnym powinien 
 Za pomocą tych zmian skonsolidowaliśmy informacji o cenach i spisu w pojedynczy wiersz DetailsView.
 
 
-[![Ceny i informacje dotyczące spisu są wyświetlane w pojedynczy wiersz tabeli](using-templatefields-in-the-detailsview-control-vb/_static/image23.png)](using-templatefields-in-the-detailsview-control-vb/_static/image22.png)
+[![TADAM ceny i informacje dotyczące spisu są wyświetlane w pojedynczy wiersz tabeli](using-templatefields-in-the-detailsview-control-vb/_static/image23.png)](using-templatefields-in-the-detailsview-control-vb/_static/image22.png)
 
 **Rysunek 8**: Ceny i informacje dotyczące spisu są wyświetlane w pojedynczy wiersz tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image24.png))
 
@@ -149,7 +149,7 @@ Za pomocą tych zmian skonsolidowaliśmy informacji o cenach i spisu w pojedyncz
 Zamiast wyświetlania CheckBoxField, warto zamiast tego wyświetli się tekst wskazującą, czy produkt jest obsługiwany. W tym celu można usunąć CheckBoxField z DetailsView i następnie dodać elementu BoundField którego `DataField` właściwość `Discontinued`. Poświęć chwilę, aby to zrobić. Po tej zmianie DetailsView zawiera tekst "True" dla uwzględniałyby produkty wycofane i "False" dla produktów, które są nadal aktywne.
 
 
-[![Ciągi wartości True i False są używane do wyświetlania stanu nieobsługiwane](using-templatefields-in-the-detailsview-control-vb/_static/image26.png)](using-templatefields-in-the-detailsview-control-vb/_static/image25.png)
+[![Ton ciągi PRAWDA i FAŁSZ, są używane do wyświetlania stanu wycofany](using-templatefields-in-the-detailsview-control-vb/_static/image26.png)](using-templatefields-in-the-detailsview-control-vb/_static/image25.png)
 
 **Rysunek 9**: Ciągi True i False są używane do wyświetlania stanu wycofany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image27.png))
 
@@ -175,7 +175,7 @@ Przy użyciu tej metody formatowania pełną, pozostaje tylko do wywoływania go
 Spowoduje to `DisplayDiscontinuedAsYESorNO` metoda do wywołania podczas renderowania DetailsView, przekazując `ProductRow` wystąpienia `Discontinued` wartość. Ponieważ `Eval` metoda zwraca wartość typu `Object`, ale `DisplayDiscontinuedAsYESorNO` metoda oczekuje parametru wejściowego typu `Boolean`, firma Microsoft rzutowania `Eval` metody zwracają wartość `Boolean`. `DisplayDiscontinuedAsYESorNO` Metody będą zwracać "YES" lub "NO" w zależności od wartości odbierze. Zwrócona wartość jest wyświetlanych w tym DetailsView wiersz (zobacz rysunek 10).
 
 
-[![Wartości Tak lub nie są teraz wyświetlane w wierszu wstrzymane](using-templatefields-in-the-detailsview-control-vb/_static/image29.png)](using-templatefields-in-the-detailsview-control-vb/_static/image28.png)
+[![YAk lub wartości nie są teraz wyświetlane w wierszu wycofany](using-templatefields-in-the-detailsview-control-vb/_static/image29.png)](using-templatefields-in-the-detailsview-control-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Wartości Tak lub nie są teraz wyświetlane w wierszu wycofany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-detailsview-control-vb/_static/image30.png))
 

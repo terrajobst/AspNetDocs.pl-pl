@@ -8,15 +8,15 @@ ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 8f049adce33e452896b5e2a444635ff30d18e480
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066428"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392992"
 ---
-<a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Sprawdzanie poprawności danych wejściowych użytkownika w witrynach ASP.NET Web Pages (Razor)
-====================
+# <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Sprawdzanie poprawności danych wejściowych użytkownika w witrynach ASP.NET Web Pages (Razor)
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule omówiono sposób sprawdzania poprawności informacji można uzyskać od użytkowników &mdash; czyli się upewnić, że użytkownicy wprowadzają prawidłowe informacje w formacie HTML formularzy w witrynie ASP.NET Web Pages (Razor).

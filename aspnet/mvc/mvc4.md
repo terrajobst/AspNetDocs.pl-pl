@@ -8,15 +8,15 @@ ms.date: 09/12/2011
 ms.assetid: 1279f5b1-390f-4b4b-9e6e-f947cb1ef5f5
 msc.legacyurl: /mvc/mvc4
 msc.type: content
-ms.openlocfilehash: fe66e81734efda20dad515452bb13661dcbf0815
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b1c828825f15e2708541f9cefa20f3bc2d17b9fb
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075512"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392914"
 ---
-<a name="aspnet-mvc-4"></a>ASP.NET MVC 4
-====================
+# <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
+
 ### <a name="top-features"></a>Najważniejsze funkcje
 
 - ASP.NET Web API

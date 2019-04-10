@@ -8,15 +8,15 @@ ms.date: 04/01/2008
 ms.assetid: f9adcb5d-6d70-4885-a3bf-ed95efb4da1a
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c60433f800ccb2dbaaae49421c6cde1431fef528
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ba70db591c373fd9514fdb7079af83a511067162
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077156"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380837"
 ---
-<a name="recovering-and-changing-passwords-vb"></a>Odzyskiwanie i zmienianie haseł (VB)
-====================
+# <a name="recovering-and-changing-passwords-vb"></a>Odzyskiwanie i zmienianie haseł (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.13.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial13_ChangingPasswords_vb.pdf)
@@ -63,7 +63,7 @@ Po użytkownik udostępnił jego nazwa użytkownika — lub jego nazwa użytkown
 Rysunek 1 przedstawia, jak interfejs i zachowanie PasswordRecovery ma wpływ konfiguracji członkostwa.
 
 
-[![RequiresQuestionAndAnswer EnablePasswordRetrieval i EnablePasswordReset mają wpływ na wygląd i zachowanie kontrolki PasswordRecovery](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
+[![TADAM RequiresQuestionAndAnswer EnablePasswordRetrieval i EnablePasswordReset mają wpływ na formant PasswordRecovery wygląd i zachowanie](recovering-and-changing-passwords-vb/_static/image2.png)](recovering-and-changing-passwords-vb/_static/image1.png)
 
 **Rysunek 1**: `RequiresQuestionAndAnswer`, `EnablePasswordRetrieval`, I `EnablePasswordReset` mają wpływ na wygląd i zachowanie kontrolki PasswordRecovery ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image3.png))
 
@@ -93,7 +93,7 @@ Oprócz korzystania z serwera SMTP w sieci, można alternatywnie określić kata
 Po skonfigurowaniu ustawień SMTP, odwiedź witrynę `RecoverPassword.aspx` strony za pośrednictwem przeglądarki. Najpierw wprowadź nazwę użytkownika, który nie istnieje w magazynie użytkownika. Jak pokazano na rysunku 2, kontrola PasswordRecovery wyświetla komunikat informujący, że informacje o użytkowniku nie jest dostępny. Tekst komunikatu można dostosować za pomocą formantu [ `UserNameFailureText` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.usernamefailuretext.aspx).
 
 
-[![Komunikat o błędzie jest wyświetlany, jeśli podano nieprawidłową nazwę użytkownika](recovering-and-changing-passwords-vb/_static/image5.png)](recovering-and-changing-passwords-vb/_static/image4.png)
+[![An komunikat o błędzie jest wyświetlany, jeśli podano nieprawidłową nazwę użytkownika](recovering-and-changing-passwords-vb/_static/image5.png)](recovering-and-changing-passwords-vb/_static/image4.png)
 
 **Rysunek 2**: Komunikat o błędzie jest wyświetlany, jeśli podano nieprawidłową nazwę użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image6.png))
 
@@ -101,7 +101,7 @@ Po skonfigurowaniu ustawień SMTP, odwiedź witrynę `RecoverPassword.aspx` stro
 Teraz wprowadź nazwę użytkownika. Korzystanie z nazwą użytkownika konta w systemie przy użyciu adresu e-mail, że możesz uzyskać dostęp i których zabezpieczeń odpowiedzi, należy znać. Po wprowadzeniu nazwy użytkownika i kliknięcie polecenia przesłania, formant PasswordRecovery wyświetla jej widok zapytania. Jako widok nazwy użytkownika, po wprowadzeniu nieprawidłowe odpowiedzi Wyświetla formant PasswordRecovery komunikatu o błędzie (zobacz rysunek 3). Użyj [ `QuestionFailureText` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.questionfailuretext.aspx) dostosować ten komunikat o błędzie.
 
 
-[![Komunikat o błędzie jest wyświetlany, jeśli użytkownik wprowadzi nieprawidłowe odpowiedzi zabezpieczeń](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
+[![An komunikat o błędzie jest wyświetlany, jeśli użytkownik wprowadzi nieprawidłowe odpowiedzi zabezpieczeń](recovering-and-changing-passwords-vb/_static/image8.png)](recovering-and-changing-passwords-vb/_static/image7.png)
 
 **Rysunek 3**: Komunikat o błędzie jest wyświetlany, jeśli użytkownik wprowadzi nieprawidłowe odpowiedzi zabezpieczeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image9.png))
 
@@ -109,7 +109,7 @@ Teraz wprowadź nazwę użytkownika. Korzystanie z nazwą użytkownika konta w s
 Na koniec Wprowadź poprawne zabezpieczającą i kliknij przycisk Prześlij. W tle formantu PasswordRecovery generuje losowe hasło, następnie przypisuje go do konta użytkownika, wysyła wiadomość e-mail z informacją o tym użytkownika nowego hasła (zobacz rysunek 4), a następnie wyświetla widoku powodzenia.
 
 
-[![Użytkownik otrzymuje wiadomość E-mail z jego nowe hasło](recovering-and-changing-passwords-vb/_static/image11.png)](recovering-and-changing-passwords-vb/_static/image10.png)
+[![TADAM, użytkownik otrzymuje wiadomość E-mail z jego nowe hasło](recovering-and-changing-passwords-vb/_static/image11.png)](recovering-and-changing-passwords-vb/_static/image10.png)
 
 **Rysunek 4**: Użytkownik otrzymuje wiadomość E-mail z jego nowe hasło ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image12.png))
 
@@ -145,7 +145,7 @@ Na koniec punktu `MailDefinition`firmy [ `BodyFileName` właściwość](https://
 Po wprowadzisz te zmiany wracać `RecoverPassword.aspx` stronie, a następnie wprowadź nazwę użytkownika i zabezpieczeń odpowiedzi. Otrzymasz wiadomość e-mail, która wygląda podobnie do pokazanego na rysunku 5 powinny. Należy pamiętać, że `webmaster@example.com` została DW będzie i że temat i treść zostały zaktualizowane.
 
 
-[![Zaktualizowano tematu, treści i DW List](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
+[![TADAM tematu, treści i DW listy zostały zaktualizowane](recovering-and-changing-passwords-vb/_static/image14.png)](recovering-and-changing-passwords-vb/_static/image13.png)
 
 **Rysunek 5**: Tematu, treści i DW listy zostały zaktualizowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image15.png))
 
@@ -197,7 +197,7 @@ Kontrolka ChangePassword umożliwia utworzenie interfejsu użytkownika zmienić 
 Otwórz `ChangePassword.aspx` strony, a następnie dodaj kontrolka ChangePassword do strony, nadając mu nazwę `ChangePwd`. W tym momencie Pokaż hasło zmiany w widoku Projekt wyświetlenia (patrz rysunek 6). Podobnie jak za pomocą kontrolki PasswordRecovery można przełączać się między widoków przy użyciu tagu kontrolki. Ponadto wystąpienia tych widoków są dostosowywane do ponownego obliczenia właściwości stylu asortymencie lub konwertowania go do szablonu.
 
 
-[![Na stronie Dodaj kontrolka ChangePassword](recovering-and-changing-passwords-vb/_static/image17.png)](recovering-and-changing-passwords-vb/_static/image16.png)
+[![AKontrolka ChangePassword do strony dd](recovering-and-changing-passwords-vb/_static/image17.png)](recovering-and-changing-passwords-vb/_static/image16.png)
 
 **Rysunek 6**: Na stronie Dodaj kontrolka ChangePassword ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image18.png))
 
@@ -215,7 +215,7 @@ Ustawienie `DisplayUserName` na wartość True jest przydatne, jeśli chcesz pow
 Odwiedź stronę `ChangePassword.aspx` stronie za pośrednictwem przeglądarki i Zmień hasło. Należy pamiętać, że jest wyświetlany komunikat o błędzie, jeśli wprowadzisz nowe hasło, które nie spełniają długość hasła i wymagania dotyczące znaków innych niż alfanumeryczne, określona w konfiguracji członkostwa (zobacz rysunek 7).
 
 
-[![Na stronie Dodaj kontrolka ChangePassword](recovering-and-changing-passwords-vb/_static/image20.png)](recovering-and-changing-passwords-vb/_static/image19.png)
+[![AKontrolka ChangePassword do strony dd](recovering-and-changing-passwords-vb/_static/image20.png)](recovering-and-changing-passwords-vb/_static/image19.png)
 
 **Rysunek 7**: Na stronie Dodaj kontrolka ChangePassword ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image21.png))
 
@@ -235,7 +235,7 @@ Następnym etapem jest skonfigurowanie kontrolka ChangePassword `MailDefinition`
 Po wprowadzeniu tych zmian, ponownie stronę i Zmień hasło ponownie. Tym razem kontrolka ChangePassword wysyła wiadomość e-mail niestandardowego, w formacie HTML na adres e-mail użytkownika w pliku (zobacz rysunek 8).
 
 
-[![Wiadomość E-mail informuje że ich hasło użytkownika został zmieniony.](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
+[![An E-mail wyświetlony komunikat z informacją, ich hasło użytkownika został zmieniony](recovering-and-changing-passwords-vb/_static/image23.png)](recovering-and-changing-passwords-vb/_static/image22.png)
 
 **Rysunek 8**: Wiadomość E-mail informuje że ich hasło użytkownika został zmieniony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image24.png))
 
@@ -273,7 +273,7 @@ Kod zawiera kilka bitów nieatrakcyjnych i jest bardzo długi. W związku z tym 
 Po wprowadzeniu nowego hasła, potwierdzenie go w drugim polu tekstowym i kliknięcie przycisku użytkownika aktualizacji, ensues odświeżenie strony i `aspnet_Membership_SetPassword` zostanie wywołana procedura składowana, aktualizowanie hasła użytkownika. Zachęcam tych czytelnikom interesuje ta funkcjonalność dokładniej zapoznać się z kodem, a następnie spróbuj rozszerzania funkcji obejmujący wysłanie wiadomości e-mail do użytkownika, którego hasło zostało zmienione.
 
 
-[![Administrator może zmienić hasła użytkownika](recovering-and-changing-passwords-vb/_static/image26.png)](recovering-and-changing-passwords-vb/_static/image25.png)
+[![An Administrator może zmienić hasła użytkownika](recovering-and-changing-passwords-vb/_static/image26.png)](recovering-and-changing-passwords-vb/_static/image25.png)
 
 **Rysunek 9**: Administrator może zmienić hasło użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](recovering-and-changing-passwords-vb/_static/image27.png))
 

@@ -8,15 +8,15 @@ ms.date: 02/15/2013
 ms.assetid: e733027a-525f-47ae-b1c0-2e5ecf6677aa
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment
 msc.type: chapter
-ms.openlocfilehash: a91de204f821cd8301485330518170e458f5da4d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3d8a6a102788cb6b5612e9bc537e1c13e7798c54
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57797560"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378939"
 ---
-<a name="aspnet-web-deployment-using-visual-studio"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio
-====================
+# <a name="aspnet-web-deployment-using-visual-studio"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio
+
 > W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server (nie SQL Server Compact) dostępnych za pośrednictwem Internetu, wdrażając go do witryny sieci Web Windows Azure lub dostawcy hostingu innych firm. Wymaga programu Visual Studio 2012 i program ASP.NET i narzędzia Web Tools 2012.2 Update lub programu Visual Studio 2010. Aby uzyskać informacje specyficzne dla programu SQL Server Compact, zobacz [wdrażanie aplikacji internetowych ASP.NET przy użyciu programu SQL Server Compact przy użyciu programu Visual Studio](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md).
 
 

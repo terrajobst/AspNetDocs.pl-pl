@@ -8,15 +8,15 @@ ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8b34a9f7690777cfcc79d87a5e19586646d5b0d9
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425707"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380668"
 ---
-<a name="iteration-5--create-unit-tests-vb"></a>Iteracja #5 — Tworzenie testów jednostkowych (VB)
-====================
+# <a name="iteration-5--create-unit-tests-vb"></a>Iteracja #5 — Tworzenie testów jednostkowych (VB)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-5-create-unit-tests-vb/_static/contactmanager_5_vb1.zip)
@@ -116,12 +116,12 @@ Zanim użyjesz Moq, należy wykonać następujące czynności:
 4. Dodaj odwołanie do zestawu Moq do projektu testu, wybierając opcję menu **projektu, Dodaj odwołanie** otworzyć **Dodaj odwołanie** okna dialogowego. Na karcie przeglądania przejdź do folderu, w którym rozpakowano Moq i wybierz zestaw Moq.dll. Kliknij przycisk **OK** przycisku (patrz rysunek 2).
 
 
-[![Odblokowywanie Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
+[![Unblocking Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **Rysunek 01**: Odblokowywanie Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image2.png))
 
 
-[![Odwołania po dodaniu Moq](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
+[![Rodwołania po dodaniu Moq](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **Rysunek 02**: Odwołania po dodaniu Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image4.png))
 
@@ -154,7 +154,7 @@ Pierwszy test sprawdza, prawidłowy kontakt nie generuje błąd sprawdzania popr
 
 Kod dla tych testów znajduje się w ofercie 1.
 
-**Listing 1 - Models\ContactManagerServiceTest.vb**
+**Wyświetlanie listy 1 - Models\ContactManagerServiceTest.vb**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
@@ -184,7 +184,7 @@ Pozostałe testy Sprawdź, czy gdy wywoływana jest metoda CreateContact(), z ni
 Można uruchomić testy jednostkowe w ofercie 1, wybierając opcję menu **, przebieg testu, wszystkie testy w rozwiązaniu (CTRL + R, A)**. Wyniki testów są wyświetlane w oknie wyników testu (zobacz rysunek 4).
 
 
-[![Test Results](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
+[![TWyniki EST](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **Rysunek 04**: Wyniki testu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image8.png))
 

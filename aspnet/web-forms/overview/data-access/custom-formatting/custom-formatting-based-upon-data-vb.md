@@ -8,15 +8,15 @@ ms.date: 03/31/2010
 ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d902fd6d042783c036bb42a11b7e469f6dd2b5b6
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a408134b4e26e8ad1f7c22c9d2005a7c551b00c6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070196"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392862"
 ---
-<a name="custom-formatting-based-upon-data-vb"></a>Niestandardowe formatowanie na podstawie danych (VB)
-====================
+# <a name="custom-formatting-based-upon-data-vb"></a>Niestandardowe formatowanie na podstawie danych (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_11_VB.exe) lub [Pobierz plik PDF](custom-formatting-based-upon-data-vb/_static/datatutorial11vb1.pdf)
@@ -49,7 +49,7 @@ Otwórz `CustomColors.aspx` strony w `CustomFormatting` folderu, przeciągnij ko
 Gdy kontrolki ObjectDataSource został powiązany z DetailsView, Poświęć chwilę na modyfikowanie listy pól. Czy załączania do usunięcia `ProductID`, `SupplierID`, `CategoryID`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, i `Discontinued` BoundFields przekształcony w pozostałych BoundFields i zmieniono jego nazwę. Czy mogę również wyczyszczone `Width` i `Height` ustawienia. Ponieważ DetailsView jest wyświetlany tylko jeden rekord, musimy Włączanie stronicowania w celu umożliwiają użytkownikom końcowym wyświetlić wszystkie produkty. To zrobić, zaznaczając pole wyboru Włącz stronicowania w DetailsView tagu inteligentnego.
 
 
-[![Rysunek 1: Włączanie stronicowania zaznacz pole wyboru w tagu inteligentnego DetailsView](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
+[![Figure 1: Włączanie stronicowania zaznacz pole wyboru w tagu inteligentnego DetailsView](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
 
 **Rysunek 1**: Rysunek 1: Włączanie stronicowania zaznacz pole wyboru w tagu inteligentnego DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image3.png))
 
@@ -62,7 +62,7 @@ Po wprowadzeniu tych zmian będzie znaczników DetailsView:
 Poświęć chwilę, w celu przetestowania tej strony w przeglądarce.
 
 
-[![W kontrolce DetailsView Wyświetla jeden produkt w czasie](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
+[![TADAM DetailsView kontrolka Wyświetla jeden produkt w danym momencie](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
 
 **Rysunek 2**: DetailsView kontrolka Wyświetla jeden produkt w danym momencie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image6.png))
 
@@ -124,12 +124,12 @@ Następnie w `DataBound` procedura obsługi zdarzeń, ustawianie komórki `CssCl
 Podczas wyświetlania Chai, której koszt mniej niż 75.00 $, cena jest wyświetlany czcionką normalną (zobacz rysunek 4). Jednak podczas wyświetlania Niku Kobe Mishi, mającej cenie $97.00 cena jest wyświetlana w czcionki pogrubienia, kursywy (zobacz rysunek 5).
 
 
-[![Ceny opóźnienia mniejsze niż $75.00 są wyświetlane w czcionki normalny](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
+[![PMniej niż $75.00 są wyświetlane w czcionce normalny rzedaży](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
 
 **Rysunek 4**: Ceny opóźnienia mniejsze niż $75.00 są wyświetlane w czcionki normalny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image10.png))
 
 
-[![Ceny kosztowne produktów są wyświetlane w pogrubienie, kursywa czcionki](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
+[![ECeny produktów xpensive są wyświetlane w pogrubienie, kursywa czcionki](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
 
 **Rysunek 5**: Ceny kosztowne produktów są wyświetlane w pogrubienie, kursywa czcionki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image13.png))
 
@@ -196,12 +196,12 @@ Gdy będziemy już mieć programowe odwołanie do formantu sieci Web, firma Micr
 Rysunki 7 przedstawia FormView, podczas wyświetlania produktu którego `UnitsInStock` wartość jest większa niż 10, w przypadku, gdy produkt na rysunku 8 ma wartość mniejsza niż 10.
 
 
-[![W przypadku produktów z wystarczająco duże jednostki w magazynie formatowanie niestandardowe nie jest stosowany](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
+[![Flub produktów z wystarczająco dużą jednostek w magazynie, formatowanie niestandardowe nie są stosowane](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
 
 **Rysunek 7**: W przypadku produktów z wystarczająco duże jednostki w magazynie, formatowanie niestandardowe nie jest stosowany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image17.png))
 
 
-[![Jednostki w magazynie numer jest wyświetlany w kolorze czerwonym dla tych produktów za pomocą wartości 10 lub mniejsza](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
+[![Ton jednostek w magazynie numer jest wyświetlany w kolorze czerwonym dla tych produktów za pomocą wartości 10 lub mniej](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
 
 **Rysunek 8**: Jednostki w magazynie numer jest wyświetlany w kolorze czerwonym dla tych produktów za pomocą wartości 10 lub mniejsza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image20.png))
 
@@ -247,7 +247,7 @@ Dodaj GridView poniżej FormView z poprzedniego przykładu, a następnie ustaw j
 Rysunek 9 pokazuje nasz postęp do tego momentu podczas wyświetlania za pośrednictwem przeglądarki.
 
 
-[![Kontrolki GridView Wyświetla nazwy, kategorii i ceny dla każdego produktu](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
+[![TZawiera on GridView, nazwa, kategoria i ceny dla każdego produktu](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
 
 **Rysunek 9**: Kontrolki GridView Wyświetla nazwy, kategorii i ceny dla każdego produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image23.png))
 
@@ -303,7 +303,7 @@ Zamiast `GridViewRow`firmy `BackColor` właściwości bezpośrednio, możemy trz
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample18.vb)]
 
 
-[![Najbardziej niedrogie produkty są wyróżnione żółty](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
+[![TNajbardziej niedrogie produktów są wyróżniony żółtym](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
 
 **Rysunek 11**: Najbardziej niedrogie produkty są wyróżniony żółtym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image27.png))
 

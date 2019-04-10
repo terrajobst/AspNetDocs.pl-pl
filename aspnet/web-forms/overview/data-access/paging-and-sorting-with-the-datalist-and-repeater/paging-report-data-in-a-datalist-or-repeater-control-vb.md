@@ -8,15 +8,15 @@ ms.date: 11/13/2006
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2d867c7ae073fafe1e9674deb7c03bf1cfd24dd7
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 69a6843783dad3d8fcd8a5b93c9d8a31f9bb8ec0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425837"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383242"
 ---
-<a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Stronicowanie danych raportu w kontrolce DataList lub Repeater (VB)
-====================
+# <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Stronicowanie danych raportu w kontrolce DataList lub Repeater (VB)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_44_VB.exe) lub [Pobierz plik PDF](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/datatutorial44vb1.pdf)
@@ -53,7 +53,7 @@ Zanim zaczniemy, w tym samouczku, umożliwiają najpierw Poświęć chwilę, aby
 Następnie otwórz `Default.aspx` strony, a następnie przeciągnij `SectionLevelTutorialListing.ascx` kontrolki użytkownika od `UserControls` folder na powierzchnię projektu. Ten formant użytkownika, które utworzyliśmy w [strony wzorcowe i nawigacja w witrynie](../introduction/master-pages-and-site-navigation-vb.md) samouczek, wylicza mapy witryny i wyświetla te samouczki w bieżącej sekcji na liście punktowanej.
 
 
-[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
+[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image4.png))
 
@@ -110,7 +110,7 @@ Dodaj metodę, która `ProductsBLL` klasę o nazwie `GetProductsAsPagedDataSourc
 Za pomocą `GetProductsAsPagedDataSource` dodane do metody `ProductsBLL` klasy, można teraz utworzyć DataList lub Repeater zapewniająca stronicowania domyślne. Zacznij od otwarcia `Paging.aspx` strony w `PagingSortingDataListRepeater` folder i przeciągnij kontrolką DataList z przybornika w projektancie, ustawienie DataList s `ID` właściwość `ProductsDefaultPaging`. Za pomocą kontrolek DataList s tagu inteligentnego, należy utworzyć nowe kontrolki ObjectDataSource, o nazwie `ProductsDefaultPagingDataSource` i skonfiguruj ją tak, pobiera dane przy użyciu `GetProductsAsPagedDataSource` metody.
 
 
-[![Tworzenie kontrolki ObjectDataSource i skonfigurować go do używania () GetProductsAsPagedDataSource — metoda](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
+[![CTwórz ObjectDataSource i skonfigurować go do używania () GetProductsAsPagedDataSource metoda](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
 
 **Rysunek 5**: Tworzenie kontrolki ObjectDataSource i skonfigurować go do użycia `GetProductsAsPagedDataSource` `()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))
 
@@ -118,7 +118,7 @@ Za pomocą `GetProductsAsPagedDataSource` dodane do metody `ProductsBLL` klasy, 
 Ustawianie list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
 
 
-[![Ustaw listy rozwijane w ramach aktualizacji, WSTAWIANIA i usuwania karty (Brak)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
+[![Set listy rozwijane w kartach UPDATE, INSERT i DELETE (Brak)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
 **Rysunek 6**: Ustaw listy rozwijane w ramach aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))
 
@@ -130,7 +130,7 @@ Indeks strony i wartości rozmiaru strony należy pamiętać różnych ogłaszan
 W szczególności użyj pageIndex pola querystring i pageSize dla `pageIndex` i `pageSize` parametrów, odpowiednio (zobacz rysunek 7). Poświęć chwilę, aby ustawić wartości domyślne dla tych parametrów, jako wartości querystring nie być obecna, gdy użytkownik najpierw odwiedzi tę stronę. Aby uzyskać `pageIndex`, ustawianie wartości domyślnej 0 (co spowoduje wyświetlenie pierwszej strony danych) i `pageSize` s domyślną wartość 4.
 
 
-[![Używanie ciąg zapytania jako źródła dla parametrów pageIndex i pageSize](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
+[![UCiąg zapytania jako źródło dla parametrów pageIndex i pageSize SE](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
 
 **Rysunek 7**: Użyj ciąg zapytania jako źródło dla `pageIndex` i `pageSize` parametrów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image15.png))
 
@@ -149,7 +149,7 @@ Po wprowadzeniu tych zmian, znaczników s DataList i kontrolki ObjectDataSource 
 Podczas początkowego wizyt u klientów tę stronę za pośrednictwem przeglądarki, ani `pageIndex` ani `pageSize` znajdują się parametry querystring. W związku z tym są używane wartości domyślne, od 0 do 4. Jak pokazano na rysunku 8, powoduje to DataList, który wyświetla produktów pierwsze cztery.
 
 
-[![Pierwsze cztery produkty są wymienione.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
+[![TPierwsze cztery produktów są wymienione](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
 
 **Rysunek 8**: Pierwsze cztery produkty są wymienione ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image18.png))
 
@@ -157,7 +157,7 @@ Podczas początkowego wizyt u klientów tę stronę za pośrednictwem przegląda
 Bez interfejsu stronicowania, tam aktualnie nie jest prostym s oznacza, że dla użytkownika przejść do drugiej strony danych. Utworzymy interfejsu stronicowania w kroku 4. Na razie jednak stronicowania można wykonywać tylko bezpośrednio określając kryteria stronicowania w zmiennej querystring. Na przykład, aby wyświetlić drugiej strony, zmienić adres URL w pasku adresu przeglądarki s `Paging.aspx` do `Paging.aspx?pageIndex=2` i naciśnij klawisz Enter. Powoduje to, że drugiej strony danych do wyświetlenia (patrz rysunek 9).
 
 
-[![Druga strona dane są wyświetlane](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
+[![TZnajduje się on drugim strony danych](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
 
 **Rysunek 9**: Druga strona dane są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image21.png))
 
@@ -238,12 +238,12 @@ Umożliwiają s wykonaj interfejsu stronicowania, informujący użytkownika, co 
 Na rysunku nr 10 przedstawiono `Paging.aspx` po raz pierwszy odwiedzony. Ponieważ ciąg zapytania jest pusta, kontrolki DataList domyślnie przedstawia produktów pierwsze cztery; Pierwszy i poprzedni przyciski są wyłączone. Jeśli klikniesz pozycję dalej Wyświetla następnych czterech rekordy (zobacz rysunek 11); Pierwszy i poprzedni przyciski są teraz włączone.
 
 
-[![Strona pierwszego dane są wyświetlane](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
+[![TADAM pierwszej strony danych jest wyświetlany](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
 
 **Na rysunku nr 10**: Strona pierwszego dane są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image24.png))
 
 
-[![Druga strona dane są wyświetlane](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
+[![TZnajduje się on drugim strony danych](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
 
 **Rysunek 11**: Druga strona dane są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image27.png))
 

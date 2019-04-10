@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 828ff18abcc5932f82be71a45ebde589eeb051fa
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ce866a169e69c0d85fe18ddeccf271f1f235d440
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073433"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381123"
 ---
-<a name="part-3-views-and-viewmodels"></a>Część 3. widoki i modele widoków
-====================
+# <a name="part-3-views-and-viewmodels"></a>Część 3. widoki i modele widoków
+
 przez [Galloway'em Jon](https://github.com/jongalloway)
 
 > MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
@@ -38,7 +38,7 @@ Powyższych zmian wskazuje na to, a nie zwrócił ciągu, chcemy zamiast tego u�
 
 Teraz dodamy odpowiedni szablon widoku nasze projektu. W tym celu firma Microsoft będzie umieść kursor tekstu w metodzie akcji indeksu, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję "Dodaj widok". Zostanie wyświetlone okno dialogowe dodawania widoku:
 
-![](mvc-music-store-part-3/_static/image1.jpg)![](mvc-music-store-part-3/_static/image1.png)
+![](mvc-music-store-part-3/_static/image1.jpg) ![](mvc-music-store-part-3/_static/image1.png)
 
 Okno dialogowe "Dodaj widok" pozwala szybko i łatwo wygenerować plik szablonu widoku. Domyślnie "Dodaj widok" okno dialogowe wstępnie wypełnia nazwę Wyświetl szablon do tworzenia, tak aby była zgodna z metody akcji, która będzie go używać. Ponieważ użyliśmy menu kontekstowego "Dodaj widok" w ramach metody akcji indeks() naszych HomeController, okno dialogowe "View Dodaj" powyżej ma "Index" jako nazwy widoku wstępnie wypełnione domyślnie. Nie potrzebujemy zmienić dowolne z opcjami w tym oknie dialogowym, więc kliknij przycisk Dodaj.
 

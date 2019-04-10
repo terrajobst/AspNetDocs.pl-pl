@@ -1,27 +1,28 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: Tworzenie stron pomocy dla interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
+title: Tworzenie stron pomocy dla wzorca ASP.NET Web API — ASP.NET 4.x
 author: MikeWasson
-description: ''
+description: Ten samouczek przy użyciu kodu przedstawiono sposób tworzenia stron pomocy interfejsu API sieci Web platformy ASP.NET na platformie ASP.NET 4.x.
 ms.author: riande
 ms.date: 04/01/2013
+ms.custom: seoapril2019
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: fba368e4017fea65ff96e2540d486662cc6b45f8
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: e3f6a9b8a6835b034a075d580cd9a33136969990
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423731"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395020"
 ---
-<a name="creating-help-pages-for-aspnet-web-api"></a>Tworzenie stron pomocy dla interfejsu API sieci Web platformy ASP.NET
-====================
+# <a name="creating-help-pages-for-aspnet-web-api"></a>Tworzenie stron pomocy dla interfejsu API sieci Web platformy ASP.NET
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-Podczas tworzenia interfejsu API sieci web, często jest przydatne utworzyć stronę pomocy, aby inni deweloperzy powinni wiedzieć, jak wywołać interfejs API. Można utworzyć całą dokumentację ręcznie, ale zaleca się automatyczne generowanie możliwie.
+Ten samouczek przy użyciu kodu przedstawiono sposób tworzenia stron pomocy interfejsu API sieci Web platformy ASP.NET na platformie ASP.NET 4.x.
 
-Aby ułatwić to zadanie, Web API platformy ASP.NET udostępnia bibliotekę do automatycznego wygenerowania stron pomocy w czasie wykonywania.
+Podczas tworzenia interfejsu API sieci web, często jest przydatne utworzyć stronę pomocy, aby inni deweloperzy powinni wiedzieć, jak wywołać interfejs API. Można utworzyć całą dokumentację ręcznie, ale zaleca się automatyczne generowanie możliwie. Aby ułatwić to zadanie, Web API platformy ASP.NET udostępnia bibliotekę do automatycznego wygenerowania stron pomocy w czasie wykonywania.
 
 ![](creating-api-help-pages/_static/image1.png)
 

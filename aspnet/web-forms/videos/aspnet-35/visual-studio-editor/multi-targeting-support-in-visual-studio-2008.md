@@ -8,15 +8,15 @@ ms.date: 11/15/2007
 ms.assetid: 297bd67d-10d9-406d-9c6e-9db0bbe35491
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: e78fcd35c61a147e9ea40d41a7ca826db60952a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a5cbe366b9733f1083223abc37afaa1142a3ff8c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57068801"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388936"
 ---
-<a name="multi-targeting-support-in-visual-studio-2008"></a>Obsługa wielowersyjności kodu w programie Visual Studio 2008
-====================
+# <a name="multi-targeting-support-in-visual-studio-2008"></a>Obsługa wielowersyjności kodu w programie Visual Studio 2008
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 Czy mogę przedstawiają MultiTarget funkcji programu Visual Studio 2008. W przeszłości trzeba było wybrać wersję programu Visual Studio, aby dopasować wersji docelowej platformy .NET. Na przykład programu Visual Studio 2005 pracował przy użyciu platformy .NET 2.5. Teraz za pomocą programu Visual Studio 2008, można wybrać wersji programu .NET, które są odpowiednie dla twojej aplikacji.

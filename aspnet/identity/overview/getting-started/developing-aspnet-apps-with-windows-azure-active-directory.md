@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
-title: Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory | Dokumentacja firmy Microsoft
+title: Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory — ASP.NET 4.x
 author: Rick-Anderson
 description: Narzędzia Microsoft ASP.NET dla usługi Azure Active Directory pozwala w prosty sposób włączania uwierzytelniania dla aplikacji sieci web hostowanych na platformie Azure. Można użyć typ Uwier Azure...
 ms.author: riande
 ms.date: 08/14/2014
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 7f0e569458c9a294cc281b86e731c2fda48768be
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6f8b926c78097b68e6a159f2fdd30e7b8a6477a0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066968"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395176"
 ---
-<a name="developing-aspnet-apps-with-azure-active-directory"></a>Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory
-====================
+# <a name="developing-aspnet-apps-with-azure-active-directory"></a>Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Microsoft ASP.NET narzędzi dla usługi Azure Active Directory upraszcza włączania uwierzytelniania dla aplikacji sieci web hostowanych na [Azure](https://www.windowsazure.com/home/features/web-sites/). Uwierzytelnianie w usłudze Azure służy do uwierzytelniania użytkowników usługi Office 365 z Twojej organizacji, kont firmowych synchronizowanych z lokalnej usługi Active Directory lub użytkownicy utworzeni w własnej domenie niestandardowej usługi Azure Active Directory. Włączanie uwierzytelniania opartego na Windows Azure umożliwia skonfigurowanie aplikacji w celu uwierzytelniania użytkowników za pomocą pojedynczej [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.

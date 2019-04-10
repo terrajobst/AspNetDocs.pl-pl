@@ -1,19 +1,20 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: Migrowanie istniejącej witryny sieci Web z członkostwa SQL do produktu ASP.NET Identity | Dokumentacja firmy Microsoft
+title: Migrowanie istniejącej witryny sieci Web z członkostwa SQL do produktu ASP.NET Identity — ASP.NET 4.x
 author: Rick-Anderson
 description: W tym samouczku przedstawiono kroki, aby migrować istniejącą aplikację sieci web z użytkownika i dane roli utworzone za pomocą członkostwa SQL do nowego produktu ASP.NET Identity s...
 ms.author: riande
 ms.date: 12/19/2014
+ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: b80f2f5cc4702c3e406d8989905c56508711e788
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: f205dfd8692bc946ca2124655bf8bcefbdbd1779
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426084"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59394535"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity
 
@@ -98,7 +99,7 @@ Dla produktu ASP.NET Identity klas do pracy z usługą danych istniejących uży
 
 Musimy mieć tabel dla każdej z tych modeli z kolumnami odpowiadające właściwości. Mapowanie między klasami i tabelami jest zdefiniowany w `OnModelCreating` metody `IdentityDBContext`. Jest to określane jako metoda interfejsu API fluent, konfiguracji i więcej informacji można znaleźć [tutaj](https://msdn.microsoft.com/data/jj591617.aspx). Konfiguracja dla klasy jest zagadnień wymienionych poniżej.
 
-| **Class** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
+| **Class** | **tabela** | **Klucz podstawowy** | **Klucz obcy** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Id |  |
 | IdentityRole | AspnetRoles | Id |  |

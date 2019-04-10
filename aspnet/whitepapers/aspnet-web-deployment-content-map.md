@@ -8,15 +8,15 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: 6df0c9d2f38ad1d39abd62787c600ef80da8e8e0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 3f36f0c504678e1e8b40aef99db81ab99101568b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070799"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383939"
 ---
-<a name="aspnet-web-deployment---recommended-resources"></a>Wdrożenie internetowe na platformie ASP.NET — zalecane zasoby
-====================
+# <a name="aspnet-web-deployment---recommended-resources"></a>Wdrożenie internetowe na platformie ASP.NET — zalecane zasoby
+
 > Ten temat zawiera łącza do dokumentacji zasoby o tym, jak wdrożyć (opublikować) ASP.NET sieci web aplikacji usług IIS przy użyciu programu Visual Studio 2010, Visual Web Developer 2010 i nowszych wersjach.
 > 
 > Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com) wątku lub dowolny link, który powinien być przydatny, [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Deployment%20Content%20Map) z linkiem.
@@ -65,7 +65,7 @@ Ten temat zawiera następujące sekcje:
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>Wyszukiwanie dostawcy usług dla aplikacji ASP.NET hosta
 
-- [ASP.NET Hosting](https://asp.net/hosting)
+- [Hostingu platformy ASP.NET](https://asp.net/hosting)
 
 
 <a id="fromvs"></a>

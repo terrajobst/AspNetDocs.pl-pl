@@ -8,15 +8,15 @@ ms.date: 05/12/2009
 ms.assetid: 96b56eca-a892-45a4-96b4-67e61178650a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b9a3b9a8d5c86cc7aac6aeb8b4bac48af2e2edc7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 4428ef0a6cec4c348bc48d069b990798508c21d4
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066689"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391666"
 ---
-<a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>Tworzenie niestandardowego rozszerzenia kontrolki zestawu narzędzi AJAX Control Toolkit (C#)
-====================
+# <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>Tworzenie niestandardowego rozszerzenia kontrolki zestawu narzędzi AJAX Control Toolkit (C#)
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Niestandardowe rozszerzenia umożliwiają dostosowywanie i rozszerzanie możliwości kontrolek ASP.NET bez konieczności tworzenia nowych klas.
@@ -79,7 +79,7 @@ Następnie należy utworzyć projekt biblioteki klas, który będzie zawierał k
 Po wykonaniu tych kroków, z okna Eksploratora rozwiązań powinien wyglądać jak rysunek 1.
 
 
-[![Rozwiązanie z witryny sieci Web i klasy projektu biblioteki](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image7.png)
+[![Swiązanie z witryny sieci Web i klasy projektu biblioteki](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image7.png)
 
 **Rysunek 01**: Rozwiązanie z witryny sieci Web i klasy projektu biblioteki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image9.png))
 
@@ -100,7 +100,7 @@ Następnie należy dodać wszystkich niezbędnych odwołań do zestawu do projek
 Po wykonaniu tych kroków, folder odwołania do projektu biblioteki klas powinien wyglądać jak rysunek 2.
 
 
-[![Folder odwołania z odwołaniami wymagane](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image10.png)
+[![Rfolder odwołania z odwołaniami wymagane](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image10.png)
 
 **Rysunek 02**: Folder odwołania z odwołaniami wymagane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image12.png))
 
@@ -155,7 +155,7 @@ Metodę initialize() kojarzy keyup obsługi zdarzenia z elementem docelowym zach
 Należy pamiętać, że należy skompilować pliku JavaScript w ofercie 3 jako zasobu osadzonego. Zaznacz ten plik w oknie Eksploratora rozwiązań, otwórz arkusz właściwości i przypisz wartość *zasób osadzony* do **Build Action** właściwości (zobacz rysunek 3). Ta opcja jest dostępna w programie Visual Studio i Visual Web Developer.
 
 
-[![Dodawanie pliku JavaScript jako zasobu osadzonego](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image13.png)
+[![APlik języka JavaScript w postaci zasobów osadzonych dding](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image13.png)
 
 **Rysunek 03**: Dodawanie pliku JavaScript jako zasobu osadzonego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image15.png))
 
@@ -206,7 +206,7 @@ Następnie należy rozszerzyć formant pola tekstowego przy użyciu rozszerzeń 
 2. Wybierz rozszerzenie DisabledButton, a następnie kliknij przycisk **OK** przycisku.
 
 
-[![Okno dialogowe Kreator rozszerzeń](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image19.png)
+[![Tokno dialogowe Kreator rozszerzenia HE](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image19.png)
 
 **Rysunek 05**: Okno dialogowe Kreator rozszerzeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image21.png))
 
@@ -218,7 +218,7 @@ Ponadto firma Microsoft można ustawić właściwości rozszerzenia, które ma D
 3. Przypisz wartość *Zapisz* DisabledText właściwości i wartość *btnSave* właściwości TargetButtonID.
 
 
-[![Ustawianie właściwości rozszerzenia](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image22.png)
+[![SUstawienie właściwości urządzenia extender](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image22.png)
 
 **Rysunek 06**: Ustawianie właściwości rozszerzenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image24.png))
 
@@ -226,7 +226,7 @@ Ponadto firma Microsoft można ustawić właściwości rozszerzenia, które ma D
 Po uruchomieniu strony (przez naciskać klawisz F5), formant przycisku jest początkowo wyłączone. Zaraz po jego uruchomieniu, wprowadzając tekst w polu tekstowym, przycisk kontrolka jest włączona (zobacz rysunek 7).
 
 
-[![Rozszerzenie DisabledButton w działaniu](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image25.png)
+[![Trozszerzenie DisabledButton używane w działaniu](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image25.png)
 
 **Rysunek 07**: Rozszerzenie DisabledButton w akcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image27.png))
 

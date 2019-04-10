@@ -8,15 +8,15 @@ ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b88aa22ccef04ab03b3a16c42e0a30e45ad11901
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b452c59f16107be6d356f86e6c313ba3229dbce6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066248"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392758"
 ---
-<a name="part-2-controllers"></a>Część 2. Kontrolery
-====================
+# <a name="part-2-controllers"></a>Część 2. Kontrolery
+
 przez [Galloway'em Jon](https://github.com/jongalloway)
 
 > MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  

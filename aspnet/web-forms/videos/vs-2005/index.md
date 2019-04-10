@@ -8,38 +8,38 @@ ms.date: 10/05/2011
 ms.assetid: 1bcf9a1c-ed34-4ed0-ab91-253df08fc6ff
 msc.legacyurl: /web-forms/videos/vs-2005
 msc.type: chapter
-ms.openlocfilehash: 0085424743ad2592dd06c58adba801bd676f2c0f
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 25d9cc02ef9b0e8f068c9e84469d9661b06f0b28
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796654"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381110"
 ---
-<a name="visual-studio-2005"></a>Visual Studio 2005
-====================
+# <a name="visual-studio-2005"></a>Visual Studio 2005
+
 > Jak pracować z usługą Visual Studio 2005 Team System i dodatki do wykonywania testów, wdrażania i innych zadań.
 
 
 - [Wprowadzenie do testowania jednostkowego w programie Team System](introduction-to-unit-testing-with-team-system.md)
 - [Wprowadzenie do testowania aplikacji internetowych w programie Team System](introduction-to-testing-web-applications-with-team-system.md)
-- [Wprowadzenie do testowania obciążeniowego aplikacji internetowych w programie Team System](introduction-to-load-testing-web-applications-with-team-system.md)
+- [Wprowadzenie do testowania obciążenia aplikacji internetowych w programie Team System](introduction-to-load-testing-web-applications-with-team-system.md)
 - [Wprowadzenie do testowania ręcznego w programie Team System](introduction-to-manual-testing-with-team-system.md)
 - [Wprowadzenie do zarządzania testami i uruchamiania ich w programie Team System](introduction-to-managing-and-running-tests-with-team-system.md)
 - [Pomiar wartości biznesowej technologii AJAX](measuring-the-business-value-of-ajax.md)
 - [Pokrycie kodu w przypadku testów automatycznych](code-coverage-of-automated-tests.md)
-- [Niestandardowe reguły wyodrębniania i kodowane testy sieci Web](custom-extraction-rules-and-coded-web-tests.md)
+- [Niestandardowe reguły wyodrębniania i kodowane testy internetowe](custom-extraction-rules-and-coded-web-tests.md)
 - [Efekty buforowania](the-effects-of-caching.md)
 - [Agent testu obciążeniowego](using-the-load-test-agent.md)
 - [Efekty funkcji ViewState](the-effects-of-viewstate.md)
 - [Integracja śledzenia usterek z testowaniem](how-do-i-integrate-defect-tracking-with-testing.md)
 - [Tworzenie własnego elementu roboczego usterki](how-do-i-create-my-own-bug-work-item.md)
 - [Szybsze pisanie kodu dzięki testom jednostkowym](how-do-i-write-code-more-quickly-with-unit-tests.md)
-- [Praktyczne projektowanie oparte na testach](how-do-i-practice-test-driven-development.md)
+- [Stosowanie programowania sterowanego testami w praktyce](how-do-i-practice-test-driven-development.md)
 - [Test obciążeniowy aplikacji internetowej](how-do-i-load-test-a-web-application.md)
 - [Dostrajanie wydajności aplikacji internetowej za pomocą profilowania](how-do-i-tune-web-application-performance-with-profiling.md)
 - [Konfigurowanie rozproszonego testowania obciążenia dla testów przy dużych obciążeniach](how-do-i-set-up-distributed-load-testing-for-high-volume-tests.md)
 - [Wymuszanie norm kodowania za pomocą analizy kodu](how-do-i-enforce-coding-standards-with-code-analysis.md)
-- [Korzystanie z testów generycznych](how-do-i-use-generic-tests.md)
+- [Korzystanie z testów rodzajowych](how-do-i-use-generic-tests.md)
 - [Publikowanie i analizowanie wyników testów](how-do-i-publish-and-analyze-test-results.md)
 - [Odnajdywanie zmian w aplikacji przed wdrożeniem](how-do-i-discover-application-changes-prior-to-deployment.md)
 - [Implementowanie ciągłej integracji za pomocą programu Team Foundation](how-do-i-implement-continuous-integration-with-team-foundation.md)

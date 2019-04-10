@@ -8,15 +8,15 @@ ms.date: 10/23/2008
 ms.assetid: dcaaaa8d-7dbd-4f5f-be2a-226c2517872a
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-use-attribute-validation-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: e062c9338e339ede77f1a27f9237890a8789e22a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1cc66d91e19ccfb3ae3582c7df544553e877517f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067160"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392238"
 ---
-<a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>Jak używać weryfikacji atrybutów w aplikacjach ASP.NET Dynamic Data
-====================
+# <a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>Jak używać weryfikacji atrybutów w aplikacjach ASP.NET Dynamic Data
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 To wideo będzie wprowadzenie modyfikowanie klas częściowych w naszej dynamicznych aplikacji danych warstwie dostępu do danych i przeprowadzą NAS pracę przy użyciu atrybutów, skupiając się na atrybutów sprawdzania poprawności. Sprawdzanie poprawności warstwy w tym dostęp do danych jest sprawdzania poprawności w warstwie interfejsu użytkownika i jest bardzo proste wykonać za pomocą ASP.NET Dynamic Data.

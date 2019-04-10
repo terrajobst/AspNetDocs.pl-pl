@@ -8,15 +8,15 @@ ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: ec8cdda5c5b298736a650f82cd6b52d73b6dfe3d
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077051"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389209"
 ---
-<a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)
-====================
+# <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule opisano problemy, które mogą wystąpić podczas pracy z ASP.NET Web Pages (Razor) oraz sugerowane rozwiązania.
@@ -141,7 +141,7 @@ Zastąp odpowiednie wartości dla `your-SMTP-server-name`i tak dalej. Komunikaty
     *Próba połączenia nie powiodło się, ponieważ strona połączona nie odpowiedziała poprawnie po określonym czasie albo ustanowione połączenie nie powiodło się, ponieważ połączony host nie odpowiada*
 
     Ten błąd zazwyczaj oznacza, że aplikacja nie może połączyć się z serwerem SMTP. Sprawdź nazwę serwera i numer portu.
-- <em>Skrzynka pocztowa jest niedostępna. Odpowiedź serwera jest: 5.1.0 &lt; someuser@invaliddomain &gt; nadawcy odrzucone: nieprawidłowy nadawca domeny</em>
+- *Skrzynka pocztowa jest niedostępna. Odpowiedź serwera jest: 5.1.0 &lt; someuser@invaliddomain &gt; nadawcy odrzucone: nieprawidłowy nadawca domeny*
 
     Ten komunikat można wskazać, że `From` adres jest nieprawidłowy lub Brak.
 - *Określony ciąg nie jest w formularzu wymaganych dla adresu e-mail.*

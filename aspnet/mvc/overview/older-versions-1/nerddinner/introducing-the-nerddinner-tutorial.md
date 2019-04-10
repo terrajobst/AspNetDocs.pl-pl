@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: d5efab525841b5c526aa3b656f27b1c42cc74648
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ebd49295ea165ba4ef1a25398cff7dddcfa54f11
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074624"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392199"
 ---
-<a name="introducing-the-nerddinner-tutorial"></a>Wprowadzenie do samouczka NerdDinner
-====================
+# <a name="introducing-the-nerddinner-tutorial"></a>Wprowadzenie do samouczka NerdDinner
+
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -60,18 +60,18 @@ Są następnie kliknąć link RSVP opartych na technologii AJAX w taki sposób, 
 
 Zamierzamy zacząć naszej aplikacji NerdDinner przy użyciu pliku -&gt;polecenie Nowy projekt w programie Visual Studio do tworzenia nowego projektu ASP.NET MVC. Następnie przyrostowe dodamy funkcje i. Po drodze omówimy:
 
-1. [Tworzenie nowego projektu MVC ASP.NET](# "Utwórz nowy projekt ASP.NET MVC")
-2. [Jak utworzyć bazę danych](# "tworzenie bazy danych")
-3. [Sposób tworzenia modelu z weryfikacją reguł biznesowych](# "Budowanie modelu z weryfikacją reguł biznesowych")
-4. [Jak zaimplementować lista/szczegóły interfejsu użytkownika za pomocą widoków i kontrolerów](# "używać kontrolery i widoki, do zaimplementowania interfejsu użytkownika lista/szczegóły")
-5. [Jak zapewnić CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) danych tworzą obsługi](# "obsługuje wpis formularza danych zapewniają CRUD (tworzenia, odczytu, Update, Delete)")
-6. [Jak używać ViewData i Implementowanie klas ViewModel](# "korzystać z podejścia ViewData i Implementowanie klas ViewModel")
-7. [Jak ponownie używać interfejsu użytkownika za pomocą stron wzorcowych i częściowych](# "ponowne używanie interfejsu użytkownika za pomocą stron wzorcowych i częściowych")
-8. [Implementowanie wydajnego stronicowania danych jak](# "zaimplementować wydajne danych stronicowania")
-9. [Jak zabezpieczyć aplikacje przy użyciu uwierzytelniania i autoryzacji](# "bezpieczne aplikacje przy użyciu uwierzytelniania i autoryzacji")
-10. [Jak korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych](# "Użyj AJAX do dostarczania aktualizacji dynamicznych")
-11. [Sposób użycia interfejsu AJAX w celu implementacji scenariuszy mapowania](# "Użyj AJAX do implementacji scenariuszy mapowania")
-12. [Jak włączyć automatyczne testy jednostkowe](# "Włącz zautomatyzowane testy jednostkowe")
+1. [Tworzenie nowego projektu MVC ASP.NET](create-a-new-aspnet-mvc-project.md)
+2. [Jak utworzyć bazę danych](create-a-database.md)
+3. [Sposób tworzenia modelu z weryfikacją reguł biznesowych](build-a-model-with-business-rule-validations.md)
+4. [Jak zaimplementować lista/szczegóły interfejsu użytkownika za pomocą widoków i kontrolerów](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+5. [Jak zapewnić CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) obsługi formularzach danych](provide-crud-create-read-update-delete-data-form-entry-support.md)
+6. [Jak używać ViewData i Implementowanie klas ViewModel](use-viewdata-and-implement-viewmodel-classes.md)
+7. [Jak ponownie używać interfejsu użytkownika za pomocą stron wzorcowych i częściowych](re-use-ui-using-master-pages-and-partials.md)
+8. [Jak Implementowanie wydajnego stronicowania danych](implement-efficient-data-paging.md)
+9. [Jak zabezpieczyć aplikacje przy użyciu uwierzytelniania i autoryzacji](secure-applications-using-authentication-and-authorization.md)
+10. [Jak korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych](use-ajax-to-deliver-dynamic-updates.md)
+11. [Sposób użycia interfejsu AJAX w celu implementacji scenariuszy mapowania](use-ajax-to-implement-mapping-scenarios.md)
+12. [Jak włączyć automatyczne testy jednostkowe](enable-automated-unit-testing.md)
 
 Możesz tworzyć własną kopię NerdDinner od podstaw, wykonując każdego kroku będziemy instrukcje przedstawione w tym rozdziale. Alternatywnie możesz pobrać pełną wersję kodu źródłowego w tym miejscu: [NerdDinner w serwisie GitHub](https://github.com/AspNetMVPSamples/NerdDinner). Możesz również opcjonalnie również [Pobierz bezpłatną wersję PDF po ukończeniu tego samouczka](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf) aby przeczytaj samouczek w trybie offline.
 

@@ -8,15 +8,15 @@ ms.date: 07/21/2010
 ms.assetid: 50223ee9-11b9-4cf3-bca2-e2f10bf471f3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: cada8d9aee649e4f2a5afc1ca2b46863ea458207
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 646aeb4ad99ba9b0ee114c6be4aa528e62ef4775
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075617"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59389950"
 ---
-<a name="part-7-adding-features"></a>Część 7. Dodawanie funkcji
-====================
+# <a name="part-7-adding-features"></a>Część 7. Dodawanie funkcji
+
 przez [Stagner Jan](https://github.com/JoeStagner)
 
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
@@ -41,11 +41,11 @@ Chociaż użytkownicy mogą przeglądać naszego wykazu, umieść elementy w swo
 
 W folderze "Konto" Utwórz dwie strony .aspx, jeden o nazwie OrderList.aspx i nazwanych OrderDetails.aspx
 
-OrderList.aspx będzie korzystać z kontrolki GridView i EntityDataSoure, ile mamy wcześniej.
+OrderList.aspx będzie korzystać z kontrolki GridView i EntityDataSource, ile mamy wcześniej.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample1.aspx)]
 
-EntityDataSoure wybiera rekordy z tabeli Orders filtrowane według nazwy użytkownika (zobacz WhereParameter), które możemy ustawić w zmiennej sesji użytkownikowi logowanie użytkownika.
+EntityDataSource wybiera rekordy z tabeli Orders filtrowane według nazwy użytkownika (zobacz WhereParameter), które możemy ustawić w zmiennej sesji użytkownikowi logowanie użytkownika.
 
 Należy pamiętać, również tych parametrów w pole hiperłącza HyperlinkField GridView:
 
@@ -143,7 +143,7 @@ Należy też zauważyć ten wiersz ważne w górnej części naszych kontroli zn
 
 Ponieważ najpopularniejszych elementów, nie będzie zmiana na podstawie minutę na minutę możemy dodać dyrektywę bóle, aby poprawić wydajność aplikacji. Ta dyrektywa spowoduje, że kod formantów, aby wykonać tylko po wygaśnięciu pamięci podręcznej danych wyjściowych formantu. W przeciwnym razie będą używane w pamięci podręcznej wersji wyjście formantu.
 
-Teraz musimy to zrobić będzie zawierać naszej nowej kontrolki na naszej stronie Default.aspc.
+Teraz musimy to zrobić będzie zawierać naszej nowej kontrolki na naszej stronie Default.aspx.
 
 Użyj przeciągnij i upuść do umieszczenia wystąpienie formantu w kolumnie Otwórz naszych domyślnego formularza.
 

@@ -8,15 +8,15 @@ ms.date: 12/30/2009
 ms.assetid: d2488a1d-0f3f-4994-8fbe-4f59b8c9503e
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application
 msc.type: video
-ms.openlocfilehash: d55151dc12c35c172a854d0caafe30a4f70c8c52
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: bda3b122aaf2970b9238d7120ad15fb06672c85b
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077708"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59378081"
 ---
-<a name="how-do-i-use-httpverbs-attributes-in-an-mvc-application"></a>Jak mogę Używanie atrybutów HttpVerbs w aplikacji MVC?
-====================
+# <a name="how-do-i-use-httpverbs-attributes-in-an-mvc-application"></a>Jak mogę Używanie atrybutów HttpVerbs w aplikacji MVC?
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym wideo pikseli Chris pokazuje, jak używanie atrybutów HttpVerbs w celu kontrolowania dostępu do akcji MVC. Po pierwsze przykładowej aplikacji tworzona jest domyślny kontroler i widok do edycji informacji. Następnie drugiej akcji indeksu jest dodawany do kontrolera, który ma atrybut HttpPost, który ogranicza wywoływana tylko wtedy, gdy jest używana przez metodę POST protokołu HTTP. Jako kontynuację atrybut AcceptVerbs() jest implementowany jako alternatywnej składni dla programu Visual Studio 2008. Następnie omówiono użytkowania HttpVerbs w celu zapobiegania zagrożenie bezpieczeństwa związanych z użyciem żądania HTTP GET do wykonania usuwania z łącza.

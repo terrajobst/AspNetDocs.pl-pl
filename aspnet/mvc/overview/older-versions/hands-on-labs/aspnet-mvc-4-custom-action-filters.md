@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 4c8628cc289610e287c0a3bc3c8a4c7a833c9fde
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 32587c7b0fd3075cd46678922b40bda2019f3a26
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423419"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381136"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 — niestandardowe filtry akcji
 
@@ -59,7 +59,7 @@ Dla wygody większość kodu, który będzie zarządzany wzdłuż tego laborator
 
 Jeśli nie jesteś zaznajomiony z fragmentów kodu w usłudze Visual Studio i chcesz dowiedzieć się, jak z nich korzystać, możesz zapoznać się z dodatku z tego dokumentu &quot; [dodatek C: Za pomocą fragmentów kodu](#AppendixC)&quot;.
 
-* * *
+---
 
 <a id="Exercises"></a>
 
@@ -234,7 +234,7 @@ Więcej informacji na temat kolejność wykonywania filtrów akcji niestandardow
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_Creating_a_new_Custom_Action_Filter"></a>
-#### <a name="task-1-creating-a-new-custom-action-filter"></a>Zadanie 1: Tworzenie nowego niestandardowy filtr akcji
+#### <a name="task-1-creating-a-new-custom-action-filter"></a>Zadanie 1. Tworzenie nowego niestandardowy filtr akcji
 
 W tym zadaniu utworzysz nowy niestandardowy filtr akcji można wstawić do klasy StoreController, jak zarządzać kolejność wykonywania filtrów.
 
@@ -354,7 +354,7 @@ To zadanie zaktualizuje rozwiązanie, aby zarejestrować nowy filtr (**MyNewCust
 > Ponadto można wdrożyć tę aplikację do witryny sieci Web systemu Windows Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
 
 
-* * *
+---
 
 <a id="Summary"></a>
 

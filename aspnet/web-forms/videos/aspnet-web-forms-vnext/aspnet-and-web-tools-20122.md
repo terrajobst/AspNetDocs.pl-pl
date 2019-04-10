@@ -8,15 +8,15 @@ ms.date: 02/18/2013
 ms.assetid: ca7458bd-b238-4633-a8b4-468a4c300acc
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
 msc.type: video
-ms.openlocfilehash: 0753a4708f4290eee525208b86e302d7b232bedc
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 689606291575ef0a324ab64f4f34758fff0fde5a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074759"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388494"
 ---
-<a name="aspnet-and-web-tools-20122"></a>ASP.NET and Web Tools 2012.2
-====================
+# <a name="aspnet-and-web-tools-20122"></a>ASP.NET and Web Tools 2012.2
+
 przez [Galloway'em Jon](https://github.com/jongalloway)
 
 Poznaj nową wersję platformy ASP.NET i Web Tools 2012.2! Ta wersja obejmuje wiele wspaniałych nowych funkcji, w tym szablony projektów, narzędzia sieci web i innych. Dołącz do Galloway'em Jon pokazuje Wyłącz wszystkie najważniejsze nowe funkcje w obszarze pół godziny!

@@ -1,27 +1,28 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: Włączanie operacji CRUD we wzorcu ASP.NET Web API 1 | Dokumentacja firmy Microsoft
+title: Włączanie operacji CRUD we wzorcu ASP.NET Web API 1 - ASP.NET 4.x
 author: MikeWasson
-description: W tym samouczku pokazano, jak do obsługi operacji CRUD w usłudze HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET. Wersje oprogramowania używanych w samouczek Visual Studio 2012 Web AP...
+description: Samouczek przedstawia sposób obsługi operacji CRUD usługi HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET dla aplikacji ASP.NET 4.x.
 ms.author: riande
 ms.date: 01/28/2012
+ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: f3cb0004075ef7687ca1096bd407c342b4d0b7be
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423758"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381357"
 ---
-<a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD we wzorcu ASP.NET Web API 1
-====================
+# <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD we wzorcu ASP.NET Web API 1
+
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
-> W tym samouczku pokazano, jak do obsługi operacji CRUD w usłudze HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET.
+> W tym samouczku pokazano, jak do obsługi operacji CRUD w usłudze HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET dla platformy ASP.NET 4.x.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
@@ -85,7 +86,7 @@ W **nowego projektu programu ASP.NET MVC 4** okno dialogowe, wybierz opcję **in
 
 Dla interfejsu API ProductStore naszych danych składa się z produktów, dlatego utworzymy nową klasę o nazwie `Product`.
 
-Jeśli Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij menu **Widok**, a następnie wybierz pozycję **Eksplorator rozwiązań**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **modeli** folderu. Wybierz z menu kontekstowego, **Dodaj**, a następnie wybierz **klasy**. Nazwij klasę &quot;Product&quot;.
+Jeśli Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij menu **Widok**, a następnie wybierz pozycję **Eksplorator rozwiązań**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **modeli** folderu. Z menu kontekstowego wybierz **Dodaj**, a następnie wybierz **klasy**. Nazwij klasę &quot;Product&quot;.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image3.png)
 

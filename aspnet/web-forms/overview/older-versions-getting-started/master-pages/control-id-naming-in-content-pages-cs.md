@@ -2,26 +2,26 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 title: Kontrolowanie identyfikator nazewnictwa na stronach zawartości (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindConrol)...
+description: Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindControl)...
 ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: 1c7d0916-0988-4b4f-9a03-935e4b5af6af
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0c8617bb14c7023cfd926022b66c69bb5762758b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a398494df0ed2bf749620b717350b21669a1ae5c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075224"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395657"
 ---
-<a name="control-id-naming-in-content-pages-c"></a>Nazewnictwo identyfikatorów kontrolek na stronach zawartości (C#)
-====================
+# <a name="control-id-naming-in-content-pages-c"></a>Nazewnictwo identyfikatorów kontrolek na stronach zawartości (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_CS.pdf)
 
-> Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindConrol). Analizuje tego problemu i jego rozwiązania. Omówiono również sposób programowego dostępu wynikowej wartości identyfikatora klienta.
+> Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindControl). Analizuje tego problemu i jego rozwiązania. Omówiono również sposób programowego dostępu wynikowej wartości identyfikatora klienta.
 
 
 ## <a name="introduction"></a>Wprowadzenie
@@ -83,7 +83,7 @@ W tym momencie oznaczeniu deklaracyjnym formantu zawartości powinien wyglądać
 Rysunek 3 przedstawia stronę oglądany przez projektanta programu Visual Studio.
 
 
-[![Strona zawiera trzy kontrolki sieci Web: pole tekstowe, przycisków i etykiet](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
+[![Tużywane strony zawiera trzy kontrolki sieci Web: pole tekstowe, przycisk i etykietę](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
 
 **Rysunek 03**: Strona zawiera trzy kontrolki sieci Web: pole tekstowe, przycisk i etykietę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image5.png))
 
@@ -133,7 +133,7 @@ Składnia używana do wywołania podczas `FindControl` metoda różni się nieco
 Po wprowadzeniu tego kodu, odwiedź stronę `IDIssues.aspx` stronie za pośrednictwem przeglądarki, wprowadź swój wiek, a następnie kliknij przycisk "Przekaż". Po kliknięciu przycisku "Prześlij" `NullReferenceException` jest wywoływane (zobacz rysunek 5).
 
 
-[![Obiektu NullReferenceException jest wywoływane.](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
+[![A Jest wywoływane obiektu NullReferenceException](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
 
 **Rysunek 05**: A `NullReferenceException` jest wywoływane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image9.png))
 
@@ -173,7 +173,7 @@ Na szczęście odwołania do strony wzorcowej jest dostępny za pośrednictwem `
 Tym razem, odwiedzając stronę za pośrednictwem przeglądarki sieci, wprowadzając Twój wiek, a następnie klikając przycisk "Prześlij", wyświetla komunikat w `Results` etykiety, zgodnie z oczekiwaniami.
 
 
-[![Wieku użytkownika jest wyświetlany w etykiecie](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
+[![TWiek HE użytkownika jest wyświetlany w etykiecie](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
 
 **Rysunek 06**: Wieku użytkownika jest wyświetlany w etykiecie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image12.png))
 
@@ -200,7 +200,7 @@ Dodaj następujący kod do `PageExtensionMethods.cs` plik klasy do definiowania 
 Przy użyciu tego kodu w miejscu, wróć do `IDIssues.aspx` z kodem klasę i komentarz dla bieżącej strony `FindControl` wywołania metody. Zastąp je wywołaniami do `Page.FindControlRecursive("controlID")`. Ładnie dotyczących metod rozszerzających jest to, że pojawiają się bezpośrednio z poziomu listy rozwijane IntelliSense. Jak pokazano na rysunku 7, po wpisaniu strony i okres, kliknij przycisk `FindControlRecursive` metoda znajduje się w rozwijanej wraz z innych funkcji IntelliSense `Control` metody klasy.
 
 
-[![Metody rozszerzenia są uwzględnione w funkcji IntelliSense rozwijanych](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
+[![EMetody rozszerzenia są uwzględnione w funkcji IntelliSense rozwijanych](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
 
 **Rysunek 07**: Metody rozszerzenia są uwzględnione w funkcji IntelliSense rozwijanych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image15.png))
 

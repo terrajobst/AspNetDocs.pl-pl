@@ -8,15 +8,15 @@ ms.date: 05/21/2008
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3bdb533c1cb724d57152e676a75af8067a6828d8
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 866aea01488cee26a7419fe12b7ffa7a0655e9ce
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070736"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59385049"
 ---
-<a name="creating-a-site-wide-layout-using-master-pages-c"></a>Tworzenie układu dla całej witryny za pomocą stron wzorcowych (C#)
-====================
+# <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Tworzenie układu dla całej witryny za pomocą stron wzorcowych (C#)
+
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_01_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_01_CS.pdf)
@@ -29,7 +29,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 Jeden atrybut dobrze zaprojektowanego witryny sieci Web jest układ spójne strony całej lokacji. Przyjmować www.asp.net witryny sieci Web, na przykład. W momencie pisania tego dokumentu każdej strony ma taką samą zawartość, u góry i u dołu strony. Jak pokazano na rysunku 1, bardzo u góry każdej strony wyświetli szarym pasku listę Communities firmy Microsoft. Poniżej oznacza to logo witryny, listy języków, w których został przetłumaczony lokacji i sekcje core: Strona główna, wprowadzenie, Dowiedz się więcej, pliki do pobrania i tak dalej. Podobnie dolnej części strony zawiera informacje o reklamie na www.asp.net, informacje o prawach autorskich oraz łącze do zasad zachowania poufności.
 
 
-[![Witryny sieci Web www.asp.net stosuje spójny wygląd i zachowanie na wszystkich stronach](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
+[![Twww.asp.net HE witryny sieci Web używającego spójny wygląd i możesz ją we wszystkich stron](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
 <strong>Rysunek 01</strong>: Www.asp.net witryny sieci Web używającego spójny wygląd i możesz ją we wszystkich stron ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))
 
@@ -76,7 +76,7 @@ Na rysunku 2 przedstawiono, jak może wyglądać stronę wzorcową dla www.asp.n
 Po zdefiniowaniu strony wzorcowej może być powiązana z nowych stron ASP.NET za pomocą znaczników pola wyboru. Te strony ASP.NET, - o nazwie strony z zawartością — obejmują formantu zawartości dla wszystkich kontrolek ContentPlaceHolder strony wzorcowej. W przypadku odwiedzenia strony zawartości za pośrednictwem przeglądarki aparat ASP.NET tworzy stronę wzorcową hierarchii kontroli i wprowadza hierarchii kontroli poziomu strony zawartości w odpowiednich miejscach. Ta hierarchia połączonych kontroli jest renderowany i wynikowy HTML jest zwracany do przeglądarki użytkownika końcowego. W związku z tym poziomu strony zawartości emituje typowych znaczników, zdefiniowane w jego strony głównej poza kontrolek ContentPlaceHolder i znaczników dla strony, zdefiniowanych w jego własnej zawartości kontrolki. Rysunek 3 ilustruje tę koncepcję.
 
 
-[![Znaczniki strony wymagane jest zespolone do strony wzorcowej](creating-a-site-wide-layout-using-master-pages-cs/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image5.png)
+[![TZnaczników HE żądanie strony jest połączone z funkcjami do strony wzorcowej](creating-a-site-wide-layout-using-master-pages-cs/_static/image6.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image5.png)
 
 **Rysunek 03**: Znaczniki strony wymagane jest zespolone do strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image7.png))
 
@@ -95,7 +95,7 @@ Zanim omówimy tworzenia i używania stron głównych i zawartości, najpierw na
 > Program Visual Studio obsługuje dwa tryby zarządzania projektem: Projektów witryny sieci Web i projektów aplikacji sieci Web. Projektów witryny sieci Web brakuje pliku projektu, a Web Application Projects naśladować architektury projektu w Visual Studio .NET 2002/2003 — Dołącz plik projektu i skompilować kod źródłowy projektu do jednego zestawu, który jest umieszczony w `/bin` folder. Projekty programu Visual Studio 2005 początkowo tylko obsługiwane witryny sieci Web, mimo że [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) została przywrócona z dodatkiem Service Pack 1; Program Visual Studio 2008 oferuje oba modele projektu. Visual Web Developer 2005 i wersji 2008, ale obsługują tylko projektów witryny sieci Web. Czy mogę przy użyciu modelu projektu witryny sieci Web dla mojego pokazy w tej serii samouczków. Jeśli używasz wersji non-Express i chcesz zamiast tego użyj modelu projektu aplikacji sieci Web, możesz to zrobić, ale należy pamiętać, że może istnieć pewne rozbieżności między wyświetlanych na ekranie oraz czynności, które należy wykonać i zrzuty ekranu pokazano oraz instructio podane w tych samouczkach NS.
 
 
-[![Tworzenie nowego pliku w oparciu o System witryny sieci Web](creating-a-site-wide-layout-using-master-pages-cs/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image8.png)
+[![Ctwórz witryny sieci Web New File System-Based](creating-a-site-wide-layout-using-master-pages-cs/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image8.png)
 
 **Rysunek 04**: Tworzenie witryny sieci Web New File System-Based ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image10.png))
 
@@ -103,7 +103,7 @@ Zanim omówimy tworzenia i używania stron głównych i zawartości, najpierw na
 Następnie dodaj stronę wzorcową witryny w katalogu głównym, klikając prawym przyciskiem myszy nazwę projektu, wybierając Dodaj nowy element i wybierając szablon strony wzorcowej. Należy pamiętać, że strony wzorcowe kończyć się rozszerzeniem `.master`. Nazwa tej nowej strony wzorcowej `Site.master` i kliknij przycisk Dodaj.
 
 
-[![Dodaj stronę wzorcową o nazwie Site.master do witryny sieci Web](creating-a-site-wide-layout-using-master-pages-cs/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image11.png)
+[![Add Master strony o nazwie Site.master do witryny sieci Web](creating-a-site-wide-layout-using-master-pages-cs/_static/image12.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image11.png)
 
 **Rysunek 05**: Dodaj nazwanych strony główne `Site.master` do witryny internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image13.png))
 
@@ -132,7 +132,7 @@ Ta domyślna strona wzorcowa oznaczeniu deklaracyjnym służy jako punkt wyjści
 Możemy rozwinąć `Site.master`w oznaczeniu deklaracyjnym domyślnej do utworzenia układu witryny, którym udostępnianie wszystkich stron: typowego nagłówka; w lewej kolumnie nawigacji, wiadomości i innej zawartości w całej lokacji; i stopka, która jest wyświetlana ikona "Obsługiwane przez program Microsoft ASP.NET". Rysunek 6 przedstawia wynik końcowy strony głównej, gdy jeden z jej zawartość strony zostanie wyświetlony za pośrednictwem przeglądarki sieci. Trwa odwiedzoną stronę dotyczy czerwonym kółku regionu na rysunku 6 (`Default.aspx`); inne zawartość jest zdefiniowana na stronie głównej i w związku z tym spójny na wszystkich stronach zawartości.
 
 
-[![Strona wzorcowa definiuje znaczniki dla góry po lewej stronie, a jej dolnej części](creating-a-site-wide-layout-using-master-pages-cs/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image14.png)
+[![TStrona wzorcowa definiuje znaczniki dla góry po lewej stronie, a jej dolnej części](creating-a-site-wide-layout-using-master-pages-cs/_static/image15.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image14.png)
 
 **Rysunek 06**: Definiuje stronę wzorzec znaczników do góry po lewej stronie, a jej dolnej części ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image16.png))
 
@@ -173,12 +173,12 @@ Umożliwia dodawanie nowej strony programu ASP.NET do projektu, który należy p
 > Jeśli utworzono witryny sieci Web ASP.NET przy użyciu modelu projektu aplikacji sieci Web zamiast modelu projektu witryny sieci Web nie zobaczą pola wyboru "Wybierz stronę wzorcową" w oknie dialogowym Dodaj nowy element pokazano na rysunku 7. Do tworzenia zawartości strony, gdy za pomocą projektu aplikacji sieci Web możesz modelować musisz wybrać szablon formularz zawartości sieci Web zamiast szablonu formularza sieci Web. Po wybierając szablon formularz zawartości sieci Web, a następnie klikając przycisk Dodaj, taka sama wybierz stronę wzorcową, zostanie wyświetlone okno dialogowe pokazano na rysunku 8.
 
 
-[![Dodaj nową stronę zawartości](creating-a-site-wide-layout-using-master-pages-cs/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image17.png)
+[![ADodaj nową stronę zawartości](creating-a-site-wide-layout-using-master-pages-cs/_static/image18.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image17.png)
 
 **Rysunek 07**: Dodaj nową stronę zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image19.png))
 
 
-[![Wybierz na stronie wzorcowej Site.master](creating-a-site-wide-layout-using-master-pages-cs/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image20.png)
+[![SWybiera strony wzorcowej Site.master](creating-a-site-wide-layout-using-master-pages-cs/_static/image21.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image20.png)
 
 **Rysunek 08**: Wybierz `Site.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image22.png))
 
@@ -198,7 +198,7 @@ Ponieważ dwóch kontrolek ContentPlaceHolder — strona główna `head` i `Main
 Gdzie strony wzorcowe przykuć uwagę przez poprzednie techniki szablonu normalnej jest ich obsługi w czasie projektowania. Nr 9 przedstawiono `About.aspx` strony zawartości, po wyświetleniu za pośrednictwem widoku projektu programu Visual Web Developer's. Należy pamiętać, że w trakcie widoczna zawartość strony wzorcowej jest wyszarzona i nie może być modyfikowany. Formanty zawartości odpowiadający kontrolek ContentPlaceHolder strony wzorcowej są, jednak można edytować. I tak samo, jak za pomocą dowolnej innej strony ASP.NET, można utworzyć interfejsu strony zawartości, dodając kontrolki sieci Web za pośrednictwem widoków źródła lub projektu.
 
 
-[![Widok projektu zawartości strony wyświetla zawartość strony dla strony i główny](creating-a-site-wide-layout-using-master-pages-cs/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image23.png)
+[![Tużywane strony zawartości projektu widoku wyświetla zarówno dla strony i zawartość strony główne](creating-a-site-wide-layout-using-master-pages-cs/_static/image24.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image23.png)
 
 **Rysunek 09**: Strony zawartości projektu widoku wyświetla zarówno dla strony i zawartości strony główne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image25.png))
 
@@ -208,7 +208,7 @@ Gdzie strony wzorcowe przykuć uwagę przez poprzednie techniki szablonu normaln
 Poświęć chwilę, aby utworzyć odpowiednią zawartość do `About.aspx` strony. Jak widać na rysunku nr 10 wprowadzone "O autorze" Nagłówek i kilka akapitów tekstu, a także możesz dodać kontrolki sieci Web za. Po utworzeniu tego interfejsu, odwiedź stronę `About.aspx` strony za pośrednictwem przeglądarki.
 
 
-[![Odwiedź stronę About.aspx za pośrednictwem przeglądarki](creating-a-site-wide-layout-using-master-pages-cs/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image26.png)
+[![Visit About.aspx strony przez przeglądarkę](creating-a-site-wide-layout-using-master-pages-cs/_static/image27.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image26.png)
 
 **Na rysunku nr 10**: Odwiedź stronę `About.aspx` strony za pomocą przeglądarki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image28.png))
 
@@ -248,7 +248,7 @@ Następnie należy utworzyć `Page_Load` program obsługi zdarzeń dla wzorca st
 Powyższy kod ustawia etykiety `Text` właściwość bieżącą datę i godzinę w formacie dzień tygodnia, nazwy miesiąca i dnia dwóch cyfr (zobacz rysunek 11). Dzięki tej zmianie ponownie jednej strony z zawartością. Jak pokazano na ilustracji 11, wynikowy znaczników jest natychmiast zaktualizowano zmiany strony wzorcowej.
 
 
-[![Zmiany strony wzorcowej są widoczne podczas przeglądania zawartości strony](creating-a-site-wide-layout-using-master-pages-cs/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image29.png)
+[![TZmiany strony wzorcowej HE są widoczne podczas przeglądania strony zawartości](creating-a-site-wide-layout-using-master-pages-cs/_static/image30.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image29.png)
 
 **Rysunek 11**: Zmiany strony wzorcowej są widoczne podczas przeglądania strony zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-site-wide-layout-using-master-pages-cs/_static/image31.png))
 

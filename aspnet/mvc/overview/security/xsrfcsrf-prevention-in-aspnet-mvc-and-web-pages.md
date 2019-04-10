@@ -8,15 +8,15 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: de0e9cc168b9f18fd2bd83329106df45d7551b1a
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077846"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59386563"
 ---
-<a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Zapobieganie atakom XSRF/CSRF we wzorcach ASP.NET MVC i Web Pages
-====================
+# <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Zapobieganie atakom XSRF/CSRF we wzorcach ASP.NET MVC i Web Pages
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Fałszerstwo żądania międzywitrynowego (znany także jako XSRF lub CSRF) jest ataku na aplikacje hostowane w sieci web, według której złośliwych witryn sieci web mogą mieć wpływ na interakcję między przeglądarką klienta i witryny sieci web, któremu ufają tej przeglądarki. Te ataki są możliwe, ponieważ przeglądarki sieci web wysyła tokeny uwierzytelniania automatycznie za pomocą każdego żądania do witryny sieci web. Canonical przykładem jest plik cookie uwierzytelniania, np. ASP. Bilet uwierzytelniania formularzy w sieci. Jednak te ataki można zastosować witryn sieci web, które używają każdy mechanizm uwierzytelniania trwałe (na przykład uwierzytelniania Windows, Basic i tak dalej).
@@ -137,7 +137,7 @@ Wiele wdrożeń, w których korzystanie z uwierzytelniania opartego na oświadcz
 Podczas tworzenia lub weryfikacji tokenu, środowisko uruchomieniowe stosu sieci Web ASP.NET w środowisku uruchomieniowym spróbuje powiązanie z typami:
 
 - `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35` (W przypadku zestawu SDK programu WIF.)
-- `System.Security.Claims.ClaimsIdentity` (For .NET 4.5).
+- `System.Security.Claims.ClaimsIdentity` (Dla platformy .NET 4.5).
 
 Jeśli istnieje tych typów, a bieżący użytkownik *IIIIdentity* implementuje lub podklasy jeden z tych typów, funkcji anti-XSRF użyje (dostawcy tożsamości, identyfikator nazwy) krotki zamiast nazwy użytkownika podczas generowania i Sprawdzanie poprawności tokenów. Jeśli ma nie takich spójnej kolekcji, żądanie zakończy się niepowodzeniem z powodu błędu dla dewelopera z opisem skonfigurować system anti-XSRF zrozumienie mechanizm określonego uwierzytelniania opartego na oświadczeniach w użyciu. Zobacz **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)** sekcji, aby uzyskać więcej informacji.
 
@@ -160,7 +160,7 @@ Od czasu do czasu deweloperów może być ściślejszą kontrolę generowania an
 
 Deweloper może skonfigurować system anti-XSRF z aplikacji\_Start. Konfiguracja jest programowe. Właściwości statyczne *AntiForgeryConfig* typu zostały opisane poniżej. Większość użytkowników przy użyciu oświadczeń chcesz ustawić właściwość UniqueClaimTypeIdentifier.
 
-| **Property** | **Opis** |
+| **Właściwość** | **Opis** |
 | --- | --- |
 | **AdditionalDataProvider** | [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) który udostępnia dodatkowe dane podczas generowania tokenu i używa dodatkowych danych podczas weryfikowania tokenu. Wartość domyślna to *null*. Aby uzyskać więcej informacji, zobacz [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) sekcji. |
 | **CookieName** | Ciąg, który zawiera nazwę pliku cookie HTTP, który jest używany do przechowywania tokenu anti-XSRF sesji. Jeśli ta wartość nie jest ustawiona, nazwy będą automatycznie generowane na podstawie aplikacji wdrożonej ścieżki wirtualnej. Wartość domyślna to *null*. |

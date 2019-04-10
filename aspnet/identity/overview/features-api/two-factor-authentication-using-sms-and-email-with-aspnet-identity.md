@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity | Dokumentacja firmy Microsoft
+title: Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity — ASP.NET 4.x
 author: HaoK
 description: Ten samouczek przedstawia sposób konfigurowania uwierzytelniania dwuskładnikowego (2FA) za pomocą wiadomości SMS i wiadomości e-mail. W tym artykule został napisany przez Rick Anderson ( @RickAndMSFT ), wzór...
 ms.author: riande
 ms.date: 09/15/2015
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
+ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4b253923696e35e59c196578a232f53c11671d16
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071588"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59395294"
 ---
-<a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity
-====================
+# <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity
+
 przez [Hao Kung](https://github.com/HaoK), [autorem jest Pranav Rastogi](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
 
 > Ten samouczek przedstawia sposób konfigurowania uwierzytelniania dwuskładnikowego (2FA) za pomocą wiadomości SMS i wiadomości e-mail.
@@ -52,8 +53,8 @@ W tej sekcji użyjesz NuGet do pobrania próbki, firma Microsoft będzie działa
    W tym samouczku użyjemy [SendGrid](http://sendgrid.com/) do wysyłania wiadomości e-mail i [Twilio](https://www.twilio.com/) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) dla tekstowe sms. `Identity.Samples` Pakiet instaluje kodu, firma Microsoft będzie pracował z.
 3. Ustaw [projektu do używania protokołu SSL](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. *Opcjonalnie*: Postępuj zgodnie z instrukcjami w mojej [samouczek potwierdzenie E-mail](account-confirmation-and-password-recovery-with-aspnet-identity.md) do podpinanie SendGrid, a następnie uruchom aplikację i zarejestrować konto e-mail.
-5. * Opcjonalne: * usunąć kod potwierdzenia łącze w wiadomości e-mail pokaz z próbki ( `ViewBag.Link` kod na kontrolerze konta. Zobacz `DisplayEmail` i `ForgotPasswordConfirmation` metody akcji i widokami razor).
-6. <em>Opcjonalnie: * usunięcie `ViewBag.Status` kodu z kontrolerami zarządzania oraz konta i *Views\Account\VerifyCode.cshtml</em> i <em>Views\Manage\VerifyPhoneNumber.cshtml</em> widokami razor. Alternatywnie możesz zachować `ViewBag.Status` wyświetlany obraz do potrzeb testowania, w jaki sposób ta aplikacja działa lokalnie, bez konieczności Podłączanie i wysłać wiadomość e-mail i wiadomości SMS.
+5. *Opcjonalnie:* Usuń kod potwierdzenia łącze w wiadomości e-mail pokaz z przykładu ( `ViewBag.Link` kod na kontrolerze konta. Zobacz `DisplayEmail` i `ForgotPasswordConfirmation` metody akcji i widokami razor).
+6. *Opcjonalnie:* Usuń `ViewBag.Status` kodu z kontrolerami zarządzania oraz konta i *Views\Account\VerifyCode.cshtml* i *Views\Manage\VerifyPhoneNumber.cshtml* widokami razor. Alternatywnie możesz zachować `ViewBag.Status` wyświetlany obraz do potrzeb testowania, w jaki sposób ta aplikacja działa lokalnie, bez konieczności Podłączanie i wysłać wiadomość e-mail i wiadomości SMS.
 
 > [!NOTE]
 > Ostrzeżenie: W przypadku zmiany ustawień zabezpieczeń, w tym przykładzie produkcji aplikacji będzie musiała zostać poddane inspekcji zabezpieczeń, który jawnie wywołuje się zmian.
@@ -281,6 +282,6 @@ Mimo że można ustawić blokady konta na niepowodzenia próby logowania do has�
 - [MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowanie jednokrotne](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) także przedstawiono sposób dodawania informacji o profilu z tabelą użytkowników.
 - [ASP.NET MVC i tożsamości w wersji 2.0: Opis podstawowych funkcji](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) przez Atten Jan.
 - [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity](account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Wprowadzenie do produktu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
+- [Wprowadzenie do systemu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Ogłoszenie RTM produktu ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) przez autorem jest Pranav Rastogi.
 - [ASP.NET Identity 2.0: Sprawdzanie poprawności konta i autoryzacji Two-Factor Authentication](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) przez Atten Jan.

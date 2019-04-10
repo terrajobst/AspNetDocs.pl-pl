@@ -8,15 +8,15 @@ ms.date: 03/28/2008
 ms.assetid: 3332d6e7-e2e1-4144-b805-e71d51e7e415
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5e59077373b68b907391eff5349e1925222792a3
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e576e11d63f940f1683ed26d217ff255a31b007c
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067046"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59388416"
 ---
-<a name="understanding-aspnet-ajax-web-services"></a>Objaśnienie usług internetowych ASP.NET AJAX
-====================
+# <a name="understanding-aspnet-ajax-web-services"></a>Objaśnienie usług internetowych ASP.NET AJAX
+
 przez [Scott Cate](https://github.com/scottcate)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial05_Web_Services_with_MS_Ajax_cs.pdf)
@@ -48,7 +48,8 @@ Ta zastępowania HttpHandler składa się w celu umożliwienia wywołania język
 
 [!code-json[Main](understanding-asp-net-ajax-web-services/samples/sample2.json)]
 
-> *> [!NOTE] Nazwa operacji jest zdefiniowany jako część adresu URL usługi sieci web; Ponadto komunikatów żądania nie są zawsze przesyłane za pośrednictwem JSON. Usługi sieci Web mogą korzystać z atrybutu ScriptMethod z parametrem UseHttpGet ustawionym na wartość true, co powoduje, że parametry, które zostaną przekazane za pośrednictwem parametrów ciągu zapytania.*
+> *> [!NOTE]
+> Nazwa operacji jest zdefiniowany jako część adresu URL usługi sieci web; Ponadto komunikatów żądania nie są zawsze przesyłane za pośrednictwem JSON. Usługi sieci Web mogą korzystać z atrybutu ScriptMethod z parametrem UseHttpGet ustawionym na wartość true, co powoduje, że parametry, które zostaną przekazane za pośrednictwem parametrów ciągu zapytania.*
 
 
 **Wyświetlanie listy 3. Komunikat odpowiedzi usługi sieci Web serializować do notacji JSON**
@@ -157,7 +158,8 @@ Dodawanie odwołania do CustomersService.asmx za pomocą formantu ScriptManager 
 
 [!code-html[Main](understanding-asp-net-ajax-web-services/samples/sample14.html)]
 
-> *> [!NOTE] Jeśli chcesz zobaczyć rzeczywisty kod serwera proxy JavaScript, który jest generowany możesz wpisać adres URL do żądanej usługi sieci Web platformy .NET w polu adresu programu Internet Explorer i Dołącz /js na końcu.*
+> *> [!NOTE]
+> Jeśli chcesz zobaczyć rzeczywisty kod serwera proxy JavaScript, który jest generowany możesz wpisać adres URL do żądanej usługi sieci Web platformy .NET w polu adresu programu Internet Explorer i Dołącz /js na końcu.*
 
 
 Jeśli debugowanie jest włączone w pliku web.config, którą wersję debugowania serwera proxy JavaScript zostanie osadzony w stronę jako pokazano dalej:
@@ -181,7 +183,7 @@ Przykład użycia serwera proxy JavaScript do wywołania metody sieci Web o nazw
 To wywołanie odwołuje się do przestrzeni nazw InterfaceTraining, CustomersService klasy i metody sieci Web GetCustomersByCountry zdefiniowane w usłudze. Przekazuje kraju uzyskaną z pola tekstowego, a także funkcję wywołania zwrotnego o nazwie OnWSRequestComplete, które powinny być używane, gdy zwraca asynchroniczne wywołanie usługi sieci Web. OnWSRequestComplete obsługuje tablicy obiektów klienta zwrócony przez usługę i konwertuje je do tabeli, która jest wyświetlana na stronie. Dane wyjściowe generowane z wywołania przedstawiono na rysunku 1.
 
 
-[![Powiązanie danych uzyskanych, wprowadzając asynchroniczne wywołanie AJAX do usługi sieci Web.](understanding-asp-net-ajax-web-services/_static/image2.png)](understanding-asp-net-ajax-web-services/_static/image1.png)
+[![Binding danymi uzyskanymi, wprowadzając asynchroniczne wywołanie AJAX do usługi sieci Web.](understanding-asp-net-ajax-web-services/_static/image2.png)](understanding-asp-net-ajax-web-services/_static/image1.png)
 
 **Rysunek 1**: Powiązanie danych uzyskanych, wprowadzając asynchroniczne wywołanie AJAX do usługi sieci Web.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-web-services/_static/image3.png))
 
@@ -199,7 +201,7 @@ Asynchroniczne wywołania zwrotne do usług sieci Web mogą wystąpić różne t
 Błędy występujące podczas wywoływania usługi sieci Web spowoduje wyzwolenie funkcji wywołania zwrotnego OnWSRequestFailed() do wywołania, które przyjmuje obiekt reprezentujący błąd jako parametr. Obiekt błędu udostępnia kilka różnych funkcji w celu ustalenia przyczyny błędu również informację, czy upłynął limit czasu wywołania. Wyświetlanie listy 14 pokazano przykład za pomocą funkcji inny błąd i na rysunku 2 przedstawiono przykład dane wyjściowe generowane przez funkcje.
 
 
-[![Dane wyjściowe generowane przez wywołanie funkcji błąd ASP.NET AJAX.](understanding-asp-net-ajax-web-services/_static/image5.png)](understanding-asp-net-ajax-web-services/_static/image4.png)
+[![Odane wyjściowe generowane przez wywołanie funkcji błąd ASP.NET AJAX.](understanding-asp-net-ajax-web-services/_static/image5.png)](understanding-asp-net-ajax-web-services/_static/image4.png)
 
 **Rysunek 2**: Dane wyjściowe generowane przez wywołanie funkcji błąd ASP.NET AJAX.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-web-services/_static/image6.png))
 
@@ -225,7 +227,7 @@ Typy złożone zaakceptowane lub zwracane przez usługę sieci Web automatycznie
 Aby odpowiedzieć na to pytanie, założono, że na stronie ASP.NET AJAX dane klienta są wyświetlane i umożliwia użytkownikom końcowym zaktualizować adres odbiorcy. Jeśli usługa sieci Web określa, czy typ adresu (złożonych typ zdefiniowany w klasie CustomerDetails) mogą być wysyłane do klienta proces aktualizacji można podzielić na funkcji w celu lepszego ponownego użycia kodu.
 
 
-[![Dane wyjściowe tworzenia wywołanie usługi sieci Web, która zwraca dane RSS.](understanding-asp-net-ajax-web-services/_static/image8.png)](understanding-asp-net-ajax-web-services/_static/image7.png)
+[![Odane wyjściowe tworzenia wywołanie usługi sieci Web, która zwraca dane RSS.](understanding-asp-net-ajax-web-services/_static/image8.png)](understanding-asp-net-ajax-web-services/_static/image7.png)
 
 **Rysunek 3**: Dane wyjściowe tworzenia wywołanie usługi sieci Web, która zwraca dane RSS.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-web-services/_static/image9.png))
 
@@ -273,7 +275,7 @@ W przypadkach, w których konieczne jest korzystanie z kontrolki w określonej s
 [!code-aspx[Main](understanding-asp-net-ajax-web-services/samples/sample25.aspx)]
 
 
-[![Używanie formantu AutoCompleteExtender.](understanding-asp-net-ajax-web-services/_static/image11.png)](understanding-asp-net-ajax-web-services/_static/image10.png)
+[![USING kontroli AutoCompleteExtender.](understanding-asp-net-ajax-web-services/_static/image11.png)](understanding-asp-net-ajax-web-services/_static/image10.png)
 
 **Rysunek 4**: Używanie formantu AutoCompleteExtender.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-web-services/_static/image12.png))
 

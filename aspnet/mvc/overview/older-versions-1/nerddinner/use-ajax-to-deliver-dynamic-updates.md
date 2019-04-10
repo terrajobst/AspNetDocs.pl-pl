@@ -8,15 +8,15 @@ ms.date: 07/27/2010
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 71e566523d658eb8198453f354a12e63a4c38495
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 56ebc40aa500b62811bac0a5041fa9aa4f91f4ae
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58421040"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391055"
 ---
-<a name="use-ajax-to-deliver-dynamic-updates"></a>Korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych
-====================
+# <a name="use-ajax-to-deliver-dynamic-updates"></a>Korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
@@ -114,7 +114,7 @@ Aby użyć jQuery najpierw dodamy skryptu odwołanie do niej. Ponieważ firma Mi
 
 *Porada: Upewnij się, że została zainstalowana poprawka funkcji intellisense języka JavaScript dla programu VS 2008 z dodatkiem SP1, która umożliwia bogatszych obsługę funkcji intellisense dla plików JavaScript (w tym jQuery). Możesz pobrać go z: http://tinyurl.com/vs2008javascripthotfix*
 
-Kod napisany za pomocą technologii JQuery często używa globalnego "$ ()" metody JavaScript, która pobiera jeden lub więcej elementów HTML za pomocą selektora CSS. Na przykład <em>$("#rsvpmsg")</em> wybiera dowolnego elementu HTML o identyfikatorze rsvpmsg, podczas gdy <em>$(".something")</em> wybrać wszystkie elementy o coś, co"CSS nazwy klasy. Można także napisać bardziej zaawansowanych zapytań, takich jak "return wszystkie przyciski radiowe zaznaczone" przy użyciu selektora zapytania takiego jak: <em>$("dane wejściowe [@type= radio] [@checked]")</em>.
+Kod napisany za pomocą technologii JQuery często używa globalnego "$ ()" metody JavaScript, która pobiera jeden lub więcej elementów HTML za pomocą selektora CSS. Na przykład *$("#rsvpmsg")* wybiera dowolnego elementu HTML o identyfikatorze rsvpmsg, podczas gdy *$(".something")* wybrać wszystkie elementy o coś, co"CSS nazwy klasy. Można także napisać bardziej zaawansowanych zapytań, takich jak "return wszystkie przyciski radiowe zaznaczone" przy użyciu selektora zapytania takiego jak: *$("dane wejściowe [@type= radio] [@checked]")*.
 
 Po wybraniu elementów może wywoływać metody na nich podjęcia działania, takie jak ich: *$("#rsvpmsg").hide();*
 

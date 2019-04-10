@@ -8,15 +8,15 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 9b627a66007aec09a404147698e2bef06c7e7794
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074606"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59383840"
 ---
-<a name="bundling-and-minification"></a>Tworzenie pakietów i minifikacja
-====================
+# <a name="bundling-and-minification"></a>Tworzenie pakietów i minifikacja
+
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5, aby poprawić czas ładowania żądań. Tworzenie pakietów i minimalizowanie poprawia czas ładowania dzięki zmniejszeniu liczby żądań do serwera oraz redukcję rozmiaru żądanych zasobów (na przykład CSS i JavaScript.)
@@ -62,10 +62,10 @@ Oprócz usuwanie komentarzy i niepotrzebnych odstępów, następujących paramet
 
 W poniższej tabeli przedstawiono kilka istotnych różnic między ofercie wszystkie zasoby pojedynczo i tworzenie pakietów i minimalizowanie (B/M) w programie próbki.
 
-|  | **Za pomocą B/M** | **Bez B/M** | **Change** |
+|  | **Za pomocą B/M** | **Bez B/M** | **Zmiana** |
 | --- | --- | --- | --- |
 | **Żądań plików** | 9 | 34 | 256% |
-| **KB Sent** | 3.26 | 11.92 | 266% |
+| **KB wysłane** | 3.26 | 11.92 | 266% |
 | **Odebrano KB** | 388.51 | 530 | 36% |
 | **Czas ładowania** | 510 MS | 780 MS | 53% |
 
@@ -165,7 +165,7 @@ Za pomocą następujących plików JavaScript, należy wziąć pod uwagę projek
 
 W poniższej tabeli przedstawiono pliki dodane do pakietu za pomocą symbolu wieloznacznego, jak pokazano:
 
-| **Call** | **Pliki dodane lub zgłoszony wyjątek** |
+| **Wywołania** | **Pliki dodane lub zgłoszony wyjątek** |
 | --- | --- |
 | Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wzorzec wyjątek. Symbol wieloznaczny jest dozwolona tylko na prefiksu lub sufiksu. |
