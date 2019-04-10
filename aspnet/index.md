@@ -7,13 +7,14 @@ ms.author: riande
 title: Dokumentacja platformy ASP.NET
 ms.date: 08/24/2018
 description: Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i inne materiały.
-ms.openlocfilehash: d46c4b3f39a540244905be3e6cb9a48373613190
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58423753"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59384724"
 ---
+<!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
     <div class="container">
         <h1>Dokumentacja platformy ASP.NET</h1>
@@ -146,8 +147,8 @@ ms.locfileid: "58423753"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję dokumentacji Visual Studio 2015/project.json</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtworzenie dokumentacji platformy ASP.NET Core i przykłady</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź programu Visual Studio w wersji 2015/pliku Project.JSON dokumentacji</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -278,8 +279,8 @@ ms.locfileid: "58423753"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtworzenie dokumentacji platformy ASP.NET Core i przykłady</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź programu Visual Studio w wersji 2015/pliku Project.JSON dokumentacji</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -433,13 +434,13 @@ ms.locfileid: "58423753"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Przyczynia się do platformy ASP.NET, dokumentację i przykłady</a></p>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_framework">Platformy</a>
+                        <a href="#aspnet_framework">Struktury</a>
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -562,7 +563,7 @@ ms.locfileid: "58423753"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Przyczynia się do platformy ASP.NET, dokumentację i przykłady</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -695,7 +696,7 @@ ms.locfileid: "58423753"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Przyczynia się do platformy ASP.NET, dokumentację i przykłady</a></p>
                                 </div>
                             </li>
                         </ul>

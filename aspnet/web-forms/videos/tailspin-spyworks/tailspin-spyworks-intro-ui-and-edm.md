@@ -8,22 +8,22 @@ ms.date: 05/12/2010
 ms.assetid: e81c1e34-f64f-4889-9981-8400d7bb49e4
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-intro-ui-and-edm
 msc.type: video
-ms.openlocfilehash: c22af4558556ab2f490065cb8e019ac40019ee91
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: cc0593453494d843a92a84d929eec75d9b386860
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074111"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59392745"
 ---
-<a name="tailspin-spyworks---intro-ui-and-edm"></a><span data-ttu-id="f2631-103">Tailspin Spyworks — wprowadzenie do interfejsu użytkownika i modelu EDM</span><span class="sxs-lookup"><span data-stu-id="f2631-103">Tailspin Spyworks - Intro UI and EDM</span></span>
-====================
-<span data-ttu-id="f2631-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f2631-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+# <a name="tailspin-spyworks---intro-ui-and-edm"></a><span data-ttu-id="2677b-103">Tailspin Spyworks — wprowadzenie do interfejsu użytkownika i modelu EDM</span><span class="sxs-lookup"><span data-stu-id="2677b-103">Tailspin Spyworks - Intro UI and EDM</span></span>
 
-<span data-ttu-id="f2631-105">Jan Stagner dotyczącego Tailspin Spyworks przykładowej aplikacji formularzy sieci Web z zastosowaniem szablonu domyślnego.</span><span class="sxs-lookup"><span data-stu-id="f2631-105">Joe Stagner kicks off the Tailspin Spyworks sample Web Forms application by implementing the default template.</span></span>
+<span data-ttu-id="2677b-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="2677b-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-[<span data-ttu-id="f2631-106">&#9654;Obejrzyj film wideo (12 minut)</span><span class="sxs-lookup"><span data-stu-id="f2631-106">&#9654; Watch video (12 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-intro-ui-and-edm)
+<span data-ttu-id="2677b-105">Jan Stagner dotyczącego Tailspin Spyworks przykładowej aplikacji formularzy sieci Web z zastosowaniem szablonu domyślnego.</span><span class="sxs-lookup"><span data-stu-id="2677b-105">Joe Stagner kicks off the Tailspin Spyworks sample Web Forms application by implementing the default template.</span></span>
+
+[<span data-ttu-id="2677b-106">&#9654;Obejrzyj film wideo (12 minut)</span><span class="sxs-lookup"><span data-stu-id="2677b-106">&#9654; Watch video (12 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-intro-ui-and-edm)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="f2631-107">[Poprzednie](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)
-> [dalej](tailspin-spyworks-directory-organization.md)</span><span class="sxs-lookup"><span data-stu-id="f2631-107">[Previous](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)
+> <span data-ttu-id="2677b-107">[Poprzednie](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)
+> [dalej](tailspin-spyworks-directory-organization.md)</span><span class="sxs-lookup"><span data-stu-id="2677b-107">[Previous](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)
 [Next](tailspin-spyworks-directory-organization.md)</span></span>
