@@ -8,15 +8,15 @@ ms.date: 09/08/2014
 ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: b59a395e255823a732aef1b899612063e09b2424
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0895c2246bc08f50645a865ce2dfffecfbb56a6
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57069008"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59391159"
 ---
-<a name="checkout-and-payment-with-paypal"></a>Finalizacja zakupu i płatność w systemie PayPal
-====================
+# <a name="checkout-and-payment-with-paypal"></a>Finalizacja zakupu i płatność w systemie PayPal
+
 przez [Erik Reitan](https://github.com/Erikre)
 
 [Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
@@ -250,7 +250,7 @@ Jeśli korzystasz z tego samouczka przy użyciu **wstępnie** Wingtip Toys przyk
 
 PayPal to platforma rozliczania opartego na sieci web akceptujący płatności dokonywanych przez sprzedawców internetowych. Następnie w tym samouczku wyjaśniono, jak integrowanie PayPal Express funkcją finalizacji zakupu w aplikacji. Wyewidencjonuj Express pozwala klientom na użyć PayPal do zapłacenia za elementy dodane do ich koszyk sklepowy.
 
-### <a name="create-paylpal-test-accounts"></a>Tworzenie kont PaylPal testu
+### <a name="create-paypal-test-accounts"></a>Tworzenie konta PayPal testowania
 
 Korzystanie z usługi PayPal, w środowisku testowym, należy utworzyć i zweryfikować konta dewelopera testu. Testowe konto dewelopera użyje do utworzenia kupujący konto testowe i testowe konto sprzedawcy. Poświadczenia konta dewelopera testu umożliwi również przykładowej aplikacji Wingtip Toys w celu dostępu do środowiska testowego systemu PayPal.
 
@@ -277,7 +277,7 @@ Korzystanie z usługi PayPal, w środowisku testowym, należy utworzyć i zweryf
 7. Tworzenie konta testowego nabywców, klikając **Utwórz konto** przycisku.  
  **Konta testowania piaskownicy** zostanie wyświetlona strona. 
 
-    ![Finalizacja zakupu i płatność w systemie PayPal — PaylPal kont](checkout-and-payment-with-paypal/_static/image17.png)
+    ![Finalizacja zakupu i płatność w systemie PayPal — konta PayPal](checkout-and-payment-with-paypal/_static/image17.png)
 8. Na **piaskownicy testowe konta** kliknij **facylitatora** konto e-mail.  
     **Profil** i **powiadomień** opcje są wyświetlane.
 9. Wybierz **profilu** opcji, a następnie kliknij przycisk **poświadczenia API** Aby wyświetlić poświadczenia interfejsu API dla konta handlowca testu.
@@ -309,9 +309,9 @@ Spowoduje umieszczenie większość kodu PayPal w jednej klasie. Ta klasa zawier
 
 Klasa NVPAPICaller zawiera obsługę większości funkcji PayPal. Kod w klasie zapewnia metody potrzebne do dokonywania zakupów w środowisku testowym PayPal testu. Następujące trzy funkcje PayPal są używane do robienia zakupów:
 
-- `SetExpressCheckout` — Funkcja
-- `GetExpressCheckoutDetails` — Funkcja
-- `DoExpressCheckoutPayment` — Funkcja
+- `SetExpressCheckout`  — funkcja
+- `GetExpressCheckoutDetails`  — funkcja
+- `DoExpressCheckoutPayment`  — funkcja
 
 `ShortcutExpressCheckout` Metoda zbiera szczegóły informacji i produktu zakupu testu z koszyka zakupów i wywołania `SetExpressCheckout` funkcji PayPal. `GetCheckoutDetails` Metoda potwierdza szczegóły zakupu i wywołania `GetExpressCheckoutDetails` funkcji PayPal przed dokonaniem zakupu testu. `DoCheckoutPayment` Ukończeniu metody zakupu testów w środowisku testowym, wywołując `DoExpressCheckoutPayment` funkcji PayPal. Pozostały kod obsługuje metody płatności PayPal i procesu, takie jak kodowanie ciągów, dekodowania ciągów, przetwarzanie tablic i określanie poświadczeń.
 

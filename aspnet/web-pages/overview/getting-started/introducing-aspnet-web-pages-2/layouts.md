@@ -8,15 +8,15 @@ ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: a6a007678d58547e9987ebda46bd08ae8aea66f7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 58f3ec28914a604aa911cc3cb73733f0d58fd49f
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57072497"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59390419"
 ---
-<a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Wprowadzenie do wzorca ASP.NET Web Pages — tworzenie spójnego układu
-====================
+# <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Wprowadzenie do wzorca ASP.NET Web Pages — tworzenie spójnego układu
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym samouczku dowiesz się, jak używać *układy* do tworzenia spójnego wyglądu dla stron w lokacji korzystającej z ASP.NET Web Pages. Przyjęto założenie, że zostały wykonane serii za pośrednictwem [usuwanie danych z baz danych w programie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251584).
@@ -146,7 +146,7 @@ Otwórz *Movies.cshtml* strony. W kodzie u góry Dodaj następujący wiersz:
 
 `Page` Obiekt jest dostępny na wszystkich *.cshtml* strony i jest w tym celu, a mianowicie udostępnianie informacji między stroną i jego układu.
 
-Otwórz<em>\_Layout.cshtml</em> strony. Zmiana `<title>` elementu, tak że wygląda ten kod znaczników:
+Otwórz  *\_Layout.cshtml* strony. Zmiana `<title>` elementu, tak że wygląda ten kod znaczników:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
