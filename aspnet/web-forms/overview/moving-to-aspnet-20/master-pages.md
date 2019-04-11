@@ -8,15 +8,15 @@ ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 644beb37bf893a590be03dd0929c5870af6fbe87
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 348e28778e0e7d96230534df1d61386ed39f8f11
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425772"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59381149"
 ---
-<a name="master-pages"></a>Strony wzorcowe
-====================
+# <a name="master-pages"></a>Strony wzorcowe
+
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Jednym z kluczowych składników do pomyślnego witryny sieci Web jest spójny wygląd i zachowanie. W programie ASP.NET: 1.x, deweloperzy umożliwia kontrolki użytkownika replikować wspólnych elementów strony w aplikacji sieci Web. Chociaż to oczywiście zwiększą rozwiązania, za pomocą kontrolki użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmian na wielu stronach w lokacji. Formanty użytkownika również nie są renderowane w widoku Projekt po wstawiane na stronie.
@@ -62,7 +62,7 @@ Aby utworzyć nową stronę wzorcową:
 
 1. Otwórz program Visual Studio 2005 i Utwórz nową witrynę sieci Web.
 2. Kliknij plik, nowy, plików.
-3. Wybierz plik głównej z poziomu okna dialogowego Dodawanie nowego elementu, jak pokazano na **rysunek 2**.
+3. Wybierz plik głównej z poziomu okna dialogowego Dodawanie nowego elementu, jak pokazano na **rysunek 2.**.
 4. Kliknij przycisk Dodaj.
 
 
@@ -71,7 +71,7 @@ Aby utworzyć nową stronę wzorcową:
 **Rysunek 2**: Tworzenie nowej strony wzorcowej
 
 
-Należy zauważyć, że plik ma rozszerzenie dla strony wzorcowej <em>.master</em>. Jest jednym ze sposobów, które strony wzorcowej różni się od zwykłej strony. Główną różnicą jest to, że proceduralny @Page dyrektywy, zawiera strony wzorcowej @Master dyrektywy. Przejdź do widoku źródłowego dla głównego strony właśnie został utworzony i przeglądać kod.
+Należy zauważyć, że plik ma rozszerzenie dla strony wzorcowej *.master*. Jest jednym ze sposobów, które strony wzorcowej różni się od zwykłej strony. Główną różnicą jest to, że proceduralny @Page dyrektywy, zawiera strony wzorcowej @Master dyrektywy. Przejdź do widoku źródłowego dla głównego strony właśnie został utworzony i przeglądać kod.
 
 Domyślnie nowe strony wzorcowej będzie mieć jeden formant ContentPlaceHolder. W większości przypadków warto więcej najpierw utworzyć wspólne elementy strony, a następnie Wstawianie kontrolek ContentPlaceHolder gdzie pożądana jest zawartości niestandardowej. W takich przypadkach deweloperzy będą chcieli usunąć domyślny formant ContentPlaceHolder i Wstaw nowe opracowanej strony. Kontrolek ContentPlaceHolder nie są o zmiennym rozmiarze, pomimo faktu, że wyświetlają one uchwyty zmiany rozmiaru. Rozmiary kontroli ContentPlaceHolder automatycznie na podstawie zawartości, która zawiera się on z jednym wyjątkiem; Jeśli umieścisz kontrolki ContentPlaceHolder w elemencie bloku, takich jak komórki tabeli, będzie to rozmiar zgodnie z rozmiarem elementu.
 
@@ -154,7 +154,7 @@ Ustawiając właściwość MasterPageFile w kodzie, można zastosować określon
 
 ## <a name="using-the-ltpagesgt-element"></a>Za pomocą &lt;stron&gt; — Element
 
-Można skonfigurować stronę wzorcową stron, ustawiając atrybut masterPageFile w &lt;stron&gt; elementu w pliku web.config. Przy użyciu tej metody, należy pamiętać o tym, że w plikach web.config niżej w strukturze aplikacji można zastąpić to ustawienie. Dowolny atrybut MasterPageFile w @Page dyrektywy zostanie również zastąpić to ustawienie. Za pomocą &lt;stron&gt; element upraszcza tworzenie <em>wzorca</em> strona wzorcowa, która może zostać zastąpiona w razie potrzeby w szczególności folderów lub plików.
+Można skonfigurować stronę wzorcową stron, ustawiając atrybut masterPageFile w &lt;stron&gt; elementu w pliku web.config. Przy użyciu tej metody, należy pamiętać o tym, że w plikach web.config niżej w strukturze aplikacji można zastąpić to ustawienie. Dowolny atrybut MasterPageFile w @Page dyrektywy zostanie również zastąpić to ustawienie. Za pomocą &lt;stron&gt; element upraszcza tworzenie *wzorca* strona wzorcowa, która może zostać zastąpiona w razie potrzeby w szczególności folderów lub plików.
 
 ## <a name="properties-in-master-pages"></a>Właściwości na stronach wzorcowych
 
