@@ -8,15 +8,15 @@ ms.date: 03/26/2009
 ms.assetid: 098fc90c-6bc1-4de6-978d-8024495097a9
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
 msc.type: video
-ms.openlocfilehash: 01f3b78a459cef65dba7abf9ad2a18817bb77928
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 56b14586b37bb8fc6cf544dc342ac8aa3b8a2c47
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57076523"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59380517"
 ---
-<a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Jak]: Używanie obiektu pamięci podręcznej platformy ASP.NET w celu buforowania informacji o aplikacji
-====================
+# <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Jak]: Używanie obiektu pamięci podręcznej platformy ASP.NET w celu buforowania informacji o aplikacji
+
 przez [Chris pikseli](https://twitter.com/chrispels)
 
 W tym wideo pikseli Chris pokazuje, jak używać obiektu pamięci podręcznej platformy ASP.NET do przechowywania informacji o aplikacji. Przykładowa strona jest tworzona przy użyciu prosty interfejs użytkownika, i dodano nowy kod, który wypełnia siatki przy użyciu danych z pliku XML dysku. Następnie kod jest zmieniony w celu buforowania danych w obiekcie aplikacji pamięci podręcznej po początkowo są pobierane i odczytu z pamięci podręcznej dla kolejnych żądań. Na koniec metody są dodawane do użytkowania bezwzględne i przedłużanie czasu na podstawie zależności dla obiektu w pamięci podręcznej.
