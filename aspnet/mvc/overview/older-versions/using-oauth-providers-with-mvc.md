@@ -8,15 +8,15 @@ ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078386"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59396986"
 ---
-<a name="using-oauth-providers-with-mvc-4"></a>Korzystanie z dostawców uwierzytelniania OAuth we wzorcu MVC 4
-====================
+# <a name="using-oauth-providers-with-mvc-4"></a>Korzystanie z dostawców uwierzytelniania OAuth we wzorcu MVC 4
+
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym samouczku dowiesz się, jak utworzyć aplikację sieci web platformy ASP.NET MVC 4, która umożliwia użytkownikom logowanie za pomocą poświadczeń z zewnętrznego dostawcy, takich jak Facebook, Twitter, Microsoft lub Google, a następnie zintegrować niektóre funkcje, które z tych dostawców w sieci Aplikacja sieci Web. Dla uproszczenia ten samouczek koncentruje się na pracy przy użyciu poświadczeń z usługi Facebook.
@@ -83,7 +83,7 @@ W tym samouczku nie są wyświetlane wszystkie kroki, które należy wykonać, a
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-W przypadku rejestrowania witryny za pomocą usługi Facebook, można zapewnić &quot;localhost&quot; dla domeny, lokacji i `&quot; http://localhost/&quot;` dla adresu URL, jak pokazano na poniższej ilustracji. Przy użyciu localhost pracuje z dostawcami większość, ale obecnie nie współpracujesz z dostawcy firmy Microsoft. W przypadku dostawcy firmy Microsoft musi zawierać prawidłową witrynę sieci web adres URL.
+W przypadku rejestrowania witryny za pomocą usługi Facebook, można zapewnić &quot;localhost&quot; dla domeny, lokacji i `&quot;http://localhost/&quot;` dla adresu URL, jak pokazano na poniższej ilustracji. Przy użyciu localhost pracuje z dostawcami większość, ale obecnie nie współpracujesz z dostawcy firmy Microsoft. W przypadku dostawcy firmy Microsoft musi zawierać prawidłową witrynę sieci web adres URL.
 
 ![Rejestracja witryny](using-oauth-providers-with-mvc/_static/image4.png)
 
