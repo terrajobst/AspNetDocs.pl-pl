@@ -8,15 +8,15 @@ ms.date: 06/01/2015
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 65cd5cd9f7d1f9c5fdaea9b0d16bdfd84259efdd
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b59cd34036c733579e678eab78097d3393f3e671
+ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071339"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59421085"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
-====================
+# <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
+
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
@@ -30,7 +30,7 @@ Scenariusze przedstawione się do platformy Azure i innych dostawców hostingu. 
 
 - [Rozwiązywanie problemów z aplikacją sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 - [Monitoruj aplikacje sieci Web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
-- [Ogłaszamy wydanie programu Windows Azure SDK w wersji 2.0 dla programu .NET](http:// https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (ScottGu blog pokazuje, jak można pobrać dzienników diagnostycznych w programie Visual Studio)
+- [Ogłaszamy wydanie programu Windows Azure SDK w wersji 2.0 dla programu .NET](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (ScottGu blog pokazuje, jak można pobrać dzienników diagnostycznych w programie Visual Studio)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Błąd serwera w aplikacji» /» — bieżące ustawienia błędów niestandardowych uniemożliwiają szczegóły błędu przeglądanie zdalnie
 
@@ -46,7 +46,7 @@ Domyślnie program ASP.NET zawiera szczegółowe informacje o błędzie, tylko w
 
 Aby włączyć tę aplikację wyświetlić szczegółowe komunikaty o błędach, gdy działa na hoście zdalnym, należy edytować plik Web.config, aby ustawić tryb customErrors off, ponownego wdrażania aplikacji i ponownie uruchomić aplikację:
 
-1. Jeśli plik Web.config zawiera acustomErrors element w elemencie thesystem.web, należy zmienić atrybutu themode na "wyłączone". W przeciwnym razie Dodaj acustomErrors element w elemencie thesystem.web atrybutem themode ustawiony na "wyłączone", jak pokazano w poniższym przykładzie: 
+1. Jeśli plik Web.config ma customErrors element w elemencie system.web, zmień atrybut tryb na "wyłączone". W przeciwnym razie Dodaj customErrors element w system.Web — element z atrybutem tryb ustawiony na "wyłączone", jak pokazano w poniższym przykładzie: 
 
     [!code-xml[Main](troubleshooting/samples/sample2.xml)]
 2. Wdróż aplikację.
@@ -129,7 +129,7 @@ Format ciągu inicjującego nie jest zgodny ze specyfikacją, rozpoczynając od 
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Otwórz *Web.config* plik w witrynie wdrożone i sprawdź, czy wartości ciągu połączenia zaczynają się od $(ReplacableToken\_, jak w poniższym przykładzie:
+Otwórz *Web.config* plik w witrynie wdrożone i sprawdź, czy wartości ciągu połączenia zaczynają się od `$(ReplaceableToken_`, jak w poniższym przykładzie:
 
 [!code-xml[Main](troubleshooting/samples/sample5.xml)]
 
@@ -306,7 +306,7 @@ Publikowania zakończy się niepowodzeniem z powodu błędu, który oznacza, że
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli wiesz, że domyślne uprawnienia dla folderów witrynie są prawidłowe oraz że nie należy ustawić, możesz wyłączyć to zachowanie, dodając **&lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli wiesz, że domyślne uprawnienia dla folderów witrynie są prawidłowe oraz że nie należy ustawić, możesz wyłączyć to zachowanie, dodając ** &lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Błędy odmowy dostępu, gdy aplikacja próbuje zapisać do folderu aplikacji
 
@@ -316,7 +316,7 @@ Błędy aplikacji podczas próby tworzenia lub edytowania pliku w jednym z folde
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli aplikacja wymaga dostęp do zapisu do podfolderu, jak pokazano ustawianie uprawnień folderów i wdrażane w tej serii samouczków środowiska produkcyjnego można ustawić uprawnienia dla tego folderu. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym lokacji, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając **&lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli aplikacja wymaga dostęp do zapisu do podfolderu, jak pokazano ustawianie uprawnień folderów i wdrażane w tej serii samouczków środowiska produkcyjnego można ustawić uprawnienia dla tego folderu. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym lokacji, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając ** &lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
