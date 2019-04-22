@@ -12,13 +12,13 @@ ms.openlocfilehash: f79cde60c4015c1d38b58cb41de9a1ae7696a4f9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384815"
 ---
-# <a name="ajax-style-services-with-microsoft-visual-web-developer-2008"></a><span data-ttu-id="ba883-104">Usługi w stylu AJAX w programie Microsoft Visual Web Developer 2008</span><span class="sxs-lookup"><span data-stu-id="ba883-104">AJAX Style Services with Microsoft Visual Web Developer 2008</span></span>
+# <a name="ajax-style-services-with-microsoft-visual-web-developer-2008"></a><span data-ttu-id="ee816-104">Usługi w stylu AJAX w programie Microsoft Visual Web Developer 2008</span><span class="sxs-lookup"><span data-stu-id="ee816-104">AJAX Style Services with Microsoft Visual Web Developer 2008</span></span>
 
-<span data-ttu-id="ba883-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ba883-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="ee816-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ee816-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="ba883-106">AJAX oznacza, że różne dla różnych osób.</span><span class="sxs-lookup"><span data-stu-id="ba883-106">AJAX means different things to different people.</span></span> <span data-ttu-id="ba883-107">Ten film pokazuje podstawowe informacje dotyczące pisania usługi w stylu AJAX (i konsumentów po stronie klienta) w Visual Web Developer 2008.</span><span class="sxs-lookup"><span data-stu-id="ba883-107">This video shows you the basics of writing AJAX style services (and client side consumers) in Visual Web Developer 2008.</span></span>
+<span data-ttu-id="ee816-106">AJAX oznacza, że różne dla różnych osób.</span><span class="sxs-lookup"><span data-stu-id="ee816-106">AJAX means different things to different people.</span></span> <span data-ttu-id="ee816-107">Ten film pokazuje podstawowe informacje dotyczące pisania usługi w stylu AJAX (i konsumentów po stronie klienta) w Visual Web Developer 2008.</span><span class="sxs-lookup"><span data-stu-id="ee816-107">This video shows you the basics of writing AJAX style services (and client side consumers) in Visual Web Developer 2008.</span></span>
 
-[<span data-ttu-id="ba883-108">&#9654;Obejrzyj film wideo (16 w minutach)</span><span class="sxs-lookup"><span data-stu-id="ba883-108">&#9654; Watch video (16 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/ajax-style-services-with-microsoft-visual-web-developer-2008)
+[<span data-ttu-id="ee816-108">&#9654;Obejrzyj film wideo (16 w minutach)</span><span class="sxs-lookup"><span data-stu-id="ee816-108">&#9654; Watch video (16 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/ajax-style-services-with-microsoft-visual-web-developer-2008)

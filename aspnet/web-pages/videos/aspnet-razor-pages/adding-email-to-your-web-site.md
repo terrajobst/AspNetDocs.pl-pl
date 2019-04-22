@@ -12,18 +12,18 @@ ms.openlocfilehash: 72605a131095570390d64fd458ce821ee0f99fbc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386635"
 ---
-# <a name="adding-email-to-your-web-site"></a><span data-ttu-id="16aea-103">Dodawanie funkcji e-mail do witryny internetowej</span><span class="sxs-lookup"><span data-stu-id="16aea-103">Adding Email to Your Web Site</span></span>
+# <a name="adding-email-to-your-web-site"></a><span data-ttu-id="1ca05-103">Dodawanie funkcji e-mail do witryny internetowej</span><span class="sxs-lookup"><span data-stu-id="1ca05-103">Adding Email to Your Web Site</span></span>
 
-<span data-ttu-id="16aea-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="16aea-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="1ca05-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="1ca05-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="16aea-105">Dodawanie funkcji E-mail do witryny sieci Web (część 1)</span><span class="sxs-lookup"><span data-stu-id="16aea-105">Adding Email to Your Web Site (Part 1)</span></span>
+<span data-ttu-id="1ca05-105">Dodawanie funkcji E-mail do witryny sieci Web (część 1)</span><span class="sxs-lookup"><span data-stu-id="1ca05-105">Adding Email to Your Web Site (Part 1)</span></span>
 
-[<span data-ttu-id="16aea-106">&#9654;Obejrzyj film wideo (10 minut)</span><span class="sxs-lookup"><span data-stu-id="16aea-106">&#9654; Watch video (10 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-email-to-your-web-site)
+[<span data-ttu-id="1ca05-106">&#9654;Obejrzyj film wideo (10 minut)</span><span class="sxs-lookup"><span data-stu-id="1ca05-106">&#9654; Watch video (10 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-email-to-your-web-site)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="16aea-107">[Poprzednie](working-with-video.md)
-> [dalej](adding-search-to-your-web-site.md)</span><span class="sxs-lookup"><span data-stu-id="16aea-107">[Previous](working-with-video.md)
+> <span data-ttu-id="1ca05-107">[Poprzednie](working-with-video.md)
+> [dalej](adding-search-to-your-web-site.md)</span><span class="sxs-lookup"><span data-stu-id="1ca05-107">[Previous](working-with-video.md)
 [Next](adding-search-to-your-web-site.md)</span></span>

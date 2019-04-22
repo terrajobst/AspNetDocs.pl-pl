@@ -12,31 +12,31 @@ ms.openlocfilehash: 1a994b37faefe0e20c99a6991768898185e51b43
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417224"
 ---
-# <a name="controllers-and-routing"></a><span data-ttu-id="84d59-103">Kontrolery i routing</span><span class="sxs-lookup"><span data-stu-id="84d59-103">Controllers and Routing</span></span>
+# <a name="controllers-and-routing"></a><span data-ttu-id="c43f7-103">Kontrolery i routing</span><span class="sxs-lookup"><span data-stu-id="c43f7-103">Controllers and Routing</span></span>
 
-> <span data-ttu-id="84d59-104">W tym zestawie samouczków dowiesz się o routingu platformy ASP.NET, która mapuje żądania przeglądarki do akcji kontrolera ASP.NET MVC.</span><span class="sxs-lookup"><span data-stu-id="84d59-104">In this tutorial set, you learn about ASP.NET routing, which maps browser requests to ASP.NET MVC controller actions.</span></span>
+> <span data-ttu-id="c43f7-104">W tym zestawie samouczków dowiesz się o routingu platformy ASP.NET, która mapuje żądania przeglądarki do akcji kontrolera ASP.NET MVC.</span><span class="sxs-lookup"><span data-stu-id="c43f7-104">In this tutorial set, you learn about ASP.NET routing, which maps browser requests to ASP.NET MVC controller actions.</span></span>
 
 
-- [<span data-ttu-id="84d59-105">Omówienie routingu we wzorcu ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-105">ASP.NET MVC Routing Overview (C#)</span></span>](asp-net-mvc-routing-overview-cs.md)
-- [<span data-ttu-id="84d59-106">Objaśnienie filtrów akcji (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-106">Understanding Action Filters (C#)</span></span>](understanding-action-filters-cs.md)
-- [<span data-ttu-id="84d59-107">Poprawa wydajności dzięki buforowaniu danych wyjściowych (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-107">Improving Performance with Output Caching (C#)</span></span>](improving-performance-with-output-caching-cs.md)
-- [<span data-ttu-id="84d59-108">Dodawanie zawartości dynamicznej do buforowanej strony (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-108">Adding Dynamic Content to a Cached Page (C#)</span></span>](adding-dynamic-content-to-a-cached-page-cs.md)
-- [<span data-ttu-id="84d59-109">Tworzenie kontrolera (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-109">Creating a Controller (C#)</span></span>](creating-a-controller-cs.md)
-- [<span data-ttu-id="84d59-110">Tworzenie akcji (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-110">Creating an Action (C#)</span></span>](creating-an-action-cs.md)
-- [<span data-ttu-id="84d59-111">Omówienie routingu we wzorcu ASP.NET MVC (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-111">ASP.NET MVC Routing Overview (VB)</span></span>](asp-net-mvc-routing-overview-vb.md)
-- [<span data-ttu-id="84d59-112">Objaśnienie filtrów akcji (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-112">Understanding Action Filters (VB)</span></span>](understanding-action-filters-vb.md)
-- [<span data-ttu-id="84d59-113">Poprawa wydajności dzięki buforowaniu danych wyjściowych (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-113">Improving Performance with Output Caching (VB)</span></span>](improving-performance-with-output-caching-vb.md)
-- [<span data-ttu-id="84d59-114">Dodawanie zawartości dynamicznej do buforowanej strony (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-114">Adding Dynamic Content to a Cached Page (VB)</span></span>](adding-dynamic-content-to-a-cached-page-vb.md)
-- [<span data-ttu-id="84d59-115">Tworzenie kontrolera (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-115">Creating a Controller (VB)</span></span>](creating-a-controller-vb.md)
-- [<span data-ttu-id="84d59-116">Tworzenie akcji (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-116">Creating an Action (VB)</span></span>](creating-an-action-vb.md)
-- [<span data-ttu-id="84d59-117">Omówienie kontrolera ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-117">ASP.NET MVC Controller Overview (C#)</span></span>](aspnet-mvc-controllers-overview-cs.md)
-- [<span data-ttu-id="84d59-118">Tworzenie tras niestandardowych (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-118">Creating Custom Routes (C#)</span></span>](creating-custom-routes-cs.md)
-- [<span data-ttu-id="84d59-119">Tworzenie ograniczenia trasy (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-119">Creating a Route Constraint (C#)</span></span>](creating-a-route-constraint-cs.md)
-- [<span data-ttu-id="84d59-120">Tworzenie niestandardowego ograniczenia trasy (C#)</span><span class="sxs-lookup"><span data-stu-id="84d59-120">Creating a Custom Route Constraint (C#)</span></span>](creating-a-custom-route-constraint-cs.md)
-- [<span data-ttu-id="84d59-121">Omówienie kontrolera ASP.NET MVC (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-121">ASP.NET MVC Controller Overview (VB)</span></span>](asp-net-mvc-controller-overview-vb.md)
-- [<span data-ttu-id="84d59-122">Tworzenie tras niestandardowych (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-122">Creating Custom Routes (VB)</span></span>](creating-custom-routes-vb.md)
-- [<span data-ttu-id="84d59-123">Tworzenie ograniczenia trasy (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-123">Creating a Route Constraint (VB)</span></span>](creating-a-route-constraint-vb.md)
-- [<span data-ttu-id="84d59-124">Tworzenie niestandardowego ograniczenia trasy (VB)</span><span class="sxs-lookup"><span data-stu-id="84d59-124">Creating a Custom Route Constraint (VB)</span></span>](creating-a-custom-route-constraint-vb.md)
+- [<span data-ttu-id="c43f7-105">Omówienie routingu we wzorcu ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-105">ASP.NET MVC Routing Overview (C#)</span></span>](asp-net-mvc-routing-overview-cs.md)
+- [<span data-ttu-id="c43f7-106">Objaśnienie filtrów akcji (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-106">Understanding Action Filters (C#)</span></span>](understanding-action-filters-cs.md)
+- [<span data-ttu-id="c43f7-107">Poprawa wydajności dzięki buforowaniu danych wyjściowych (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-107">Improving Performance with Output Caching (C#)</span></span>](improving-performance-with-output-caching-cs.md)
+- [<span data-ttu-id="c43f7-108">Dodawanie zawartości dynamicznej do buforowanej strony (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-108">Adding Dynamic Content to a Cached Page (C#)</span></span>](adding-dynamic-content-to-a-cached-page-cs.md)
+- [<span data-ttu-id="c43f7-109">Tworzenie kontrolera (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-109">Creating a Controller (C#)</span></span>](creating-a-controller-cs.md)
+- [<span data-ttu-id="c43f7-110">Tworzenie akcji (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-110">Creating an Action (C#)</span></span>](creating-an-action-cs.md)
+- [<span data-ttu-id="c43f7-111">Omówienie routingu we wzorcu ASP.NET MVC (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-111">ASP.NET MVC Routing Overview (VB)</span></span>](asp-net-mvc-routing-overview-vb.md)
+- [<span data-ttu-id="c43f7-112">Objaśnienie filtrów akcji (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-112">Understanding Action Filters (VB)</span></span>](understanding-action-filters-vb.md)
+- [<span data-ttu-id="c43f7-113">Poprawa wydajności dzięki buforowaniu danych wyjściowych (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-113">Improving Performance with Output Caching (VB)</span></span>](improving-performance-with-output-caching-vb.md)
+- [<span data-ttu-id="c43f7-114">Dodawanie zawartości dynamicznej do buforowanej strony (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-114">Adding Dynamic Content to a Cached Page (VB)</span></span>](adding-dynamic-content-to-a-cached-page-vb.md)
+- [<span data-ttu-id="c43f7-115">Tworzenie kontrolera (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-115">Creating a Controller (VB)</span></span>](creating-a-controller-vb.md)
+- [<span data-ttu-id="c43f7-116">Tworzenie akcji (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-116">Creating an Action (VB)</span></span>](creating-an-action-vb.md)
+- [<span data-ttu-id="c43f7-117">Omówienie kontrolera ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-117">ASP.NET MVC Controller Overview (C#)</span></span>](aspnet-mvc-controllers-overview-cs.md)
+- [<span data-ttu-id="c43f7-118">Tworzenie tras niestandardowych (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-118">Creating Custom Routes (C#)</span></span>](creating-custom-routes-cs.md)
+- [<span data-ttu-id="c43f7-119">Tworzenie ograniczenia trasy (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-119">Creating a Route Constraint (C#)</span></span>](creating-a-route-constraint-cs.md)
+- [<span data-ttu-id="c43f7-120">Tworzenie niestandardowego ograniczenia trasy (C#)</span><span class="sxs-lookup"><span data-stu-id="c43f7-120">Creating a Custom Route Constraint (C#)</span></span>](creating-a-custom-route-constraint-cs.md)
+- [<span data-ttu-id="c43f7-121">Omówienie kontrolera ASP.NET MVC (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-121">ASP.NET MVC Controller Overview (VB)</span></span>](asp-net-mvc-controller-overview-vb.md)
+- [<span data-ttu-id="c43f7-122">Tworzenie tras niestandardowych (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-122">Creating Custom Routes (VB)</span></span>](creating-custom-routes-vb.md)
+- [<span data-ttu-id="c43f7-123">Tworzenie ograniczenia trasy (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-123">Creating a Route Constraint (VB)</span></span>](creating-a-route-constraint-vb.md)
+- [<span data-ttu-id="c43f7-124">Tworzenie niestandardowego ograniczenia trasy (VB)</span><span class="sxs-lookup"><span data-stu-id="c43f7-124">Creating a Custom Route Constraint (VB)</span></span>](creating-a-custom-route-constraint-vb.md)

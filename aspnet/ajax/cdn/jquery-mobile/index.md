@@ -12,25 +12,25 @@ ms.openlocfilehash: f539911e5d7db6bf13f8e1ad41a1358c5b02c76c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383203"
 ---
-# <a name="jquery-mobile"></a><span data-ttu-id="c2af9-102">jQuery Mobile</span><span class="sxs-lookup"><span data-stu-id="c2af9-102">jQuery Mobile</span></span>
+# <a name="jquery-mobile"></a><span data-ttu-id="fb1aa-102">jQuery Mobile</span><span class="sxs-lookup"><span data-stu-id="fb1aa-102">jQuery Mobile</span></span>
 
-- [<span data-ttu-id="c2af9-103">System jQuery Mobile 1.4.2 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-103">jQuery Mobile 1.4.2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile142.md)
-- [<span data-ttu-id="c2af9-104">System jQuery Mobile 1.4.1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-104">jQuery Mobile 1.4.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile141.md)
-- [<span data-ttu-id="c2af9-105">System jQuery Mobile 1.4.0 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-105">jQuery Mobile 1.4.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile140.md)
-- [<span data-ttu-id="c2af9-106">System jQuery Mobile 1.3.2 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-106">jQuery Mobile 1.3.2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile132.md)
-- [<span data-ttu-id="c2af9-107">System jQuery Mobile 1.3.1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-107">jQuery Mobile 1.3.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile131.md)
-- [<span data-ttu-id="c2af9-108">System jQuery Mobile 1.3.0 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-108">jQuery Mobile 1.3.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile130.md)
-- [<span data-ttu-id="c2af9-109">System jQuery Mobile 1.2.0 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-109">jQuery Mobile 1.2.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile120.md)
-- [<span data-ttu-id="c2af9-110">System jQuery Mobile 1.1.2 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-110">jQuery Mobile 1.1.2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile112.md)
-- [<span data-ttu-id="c2af9-111">System jQuery Mobile 1.1.1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-111">jQuery Mobile 1.1.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile111.md)
-- [<span data-ttu-id="c2af9-112">System jQuery Mobile 1.1.0 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-112">jQuery Mobile 1.1.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile110.md)
-- [<span data-ttu-id="c2af9-113">System jQuery Mobile 1.1.0 RC2 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-113">jQuery Mobile 1.1.0 RC2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile110rc2.md)
-- [<span data-ttu-id="c2af9-114">System jQuery Mobile 1.0.1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-114">jQuery Mobile 1.0.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile101.md)
-- [<span data-ttu-id="c2af9-115">System jQuery Mobile 1.0 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-115">jQuery Mobile 1.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10.md)
-- [<span data-ttu-id="c2af9-116">System jQuery Mobile 1.0 RC2 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-116">jQuery Mobile 1.0 RC2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10rc2.md)
-- [<span data-ttu-id="c2af9-117">System jQuery Mobile 1.0 RC1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-117">jQuery Mobile 1.0 RC1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10rc1.md)
-- [<span data-ttu-id="c2af9-118">System jQuery Mobile 1.0 Beta 3 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-118">jQuery Mobile 1.0 Beta 3 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10b3.md)
-- [<span data-ttu-id="c2af9-119">System jQuery Mobile 1.4.5 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="c2af9-119">jQuery Mobile 1.4.5 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile145.md)
+- [<span data-ttu-id="fb1aa-103">jQuery Mobile 1.4.2 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-103">jQuery Mobile 1.4.2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile142.md)
+- [<span data-ttu-id="fb1aa-104">jQuery Mobile 1.4.1 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-104">jQuery Mobile 1.4.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile141.md)
+- [<span data-ttu-id="fb1aa-105">jQuery Mobile 1.4.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-105">jQuery Mobile 1.4.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile140.md)
+- [<span data-ttu-id="fb1aa-106">jQuery Mobile 1.3.2 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-106">jQuery Mobile 1.3.2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile132.md)
+- [<span data-ttu-id="fb1aa-107">jQuery Mobile 1.3.1 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-107">jQuery Mobile 1.3.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile131.md)
+- [<span data-ttu-id="fb1aa-108">jQuery Mobile 1.3.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-108">jQuery Mobile 1.3.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile130.md)
+- [<span data-ttu-id="fb1aa-109">jQuery Mobile 1.2.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-109">jQuery Mobile 1.2.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile120.md)
+- [<span data-ttu-id="fb1aa-110">jQuery Mobile 1.1.2 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-110">jQuery Mobile 1.1.2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile112.md)
+- [<span data-ttu-id="fb1aa-111">jQuery Mobile 1.1.1 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-111">jQuery Mobile 1.1.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile111.md)
+- [<span data-ttu-id="fb1aa-112">jQuery Mobile 1.1.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-112">jQuery Mobile 1.1.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile110.md)
+- [<span data-ttu-id="fb1aa-113">jQuery Mobile 1.1.0 RC2 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-113">jQuery Mobile 1.1.0 RC2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile110rc2.md)
+- [<span data-ttu-id="fb1aa-114">jQuery Mobile 1.0.1 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-114">jQuery Mobile 1.0.1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile101.md)
+- [<span data-ttu-id="fb1aa-115">jQuery Mobile 1.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-115">jQuery Mobile 1.0 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10.md)
+- [<span data-ttu-id="fb1aa-116">jQuery Mobile 1.0 RC2 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-116">jQuery Mobile 1.0 RC2 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10rc2.md)
+- [<span data-ttu-id="fb1aa-117">jQuery Mobile 1.0 RC1 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-117">jQuery Mobile 1.0 RC1 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10rc1.md)
+- [<span data-ttu-id="fb1aa-118">jQuery Mobile 1.0 Beta 3 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-118">jQuery Mobile 1.0 Beta 3 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile10b3.md)
+- [<span data-ttu-id="fb1aa-119">jQuery Mobile 1.4.5 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="fb1aa-119">jQuery Mobile 1.4.5 on the Microsoft Ajax CDN</span></span>](cdnjquerymobile145.md)

@@ -12,14 +12,14 @@ ms.openlocfilehash: 1fdf6d7ab19354b0079add99c3e6930c60f772cf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381981"
 ---
-# <a name="music-store"></a><span data-ttu-id="73a30-103">Music Store</span><span class="sxs-lookup"><span data-stu-id="73a30-103">Music Store</span></span>
+# <a name="music-store"></a><span data-ttu-id="4b866-103">Music Store</span><span class="sxs-lookup"><span data-stu-id="4b866-103">Music Store</span></span>
 
-> <span data-ttu-id="73a30-104">Tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store</span><span class="sxs-lookup"><span data-stu-id="73a30-104">Build the ASP.NET MVC Music Store sample application</span></span>
+> <span data-ttu-id="4b866-104">Tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store</span><span class="sxs-lookup"><span data-stu-id="4b866-104">Build the ASP.NET MVC Music Store sample application</span></span>
 
 
-- [<span data-ttu-id="73a30-105">Sklep MVC Music Store — część 1: wprowadzenie, narzędzia i struktura projektu</span><span class="sxs-lookup"><span data-stu-id="73a30-105">MVC Music Store Part 1: Intro, Tools, and Project Structure</span></span>](mvc-music-store-part-1-intro-tools-and-project-structure.md)
-- [<span data-ttu-id="73a30-106">Sklep MVC Music Store — część 2: Kontrolery</span><span class="sxs-lookup"><span data-stu-id="73a30-106">MVC Music Store Part 2: Controllers</span></span>](mvc-music-store-part-2-controllers.md)
-- [<span data-ttu-id="73a30-107">Sklep MVC Music Store — część 3: widoki i modele widoków</span><span class="sxs-lookup"><span data-stu-id="73a30-107">MVC Music Store Part 3: Views and ViewModels</span></span>](mvc-music-store-part-3-views-and-viewmodels.md)
+- [<span data-ttu-id="4b866-105">MVC Music Store część 1: Wprowadzenie, narzędzia i struktura projektu</span><span class="sxs-lookup"><span data-stu-id="4b866-105">MVC Music Store Part 1: Intro, Tools, and Project Structure</span></span>](mvc-music-store-part-1-intro-tools-and-project-structure.md)
+- [<span data-ttu-id="4b866-106">MVC Music Store część 2: Kontrolery</span><span class="sxs-lookup"><span data-stu-id="4b866-106">MVC Music Store Part 2: Controllers</span></span>](mvc-music-store-part-2-controllers.md)
+- [<span data-ttu-id="4b866-107">MVC Music Store część 3: Widoki i modele widoków</span><span class="sxs-lookup"><span data-stu-id="4b866-107">MVC Music Store Part 3: Views and ViewModels</span></span>](mvc-music-store-part-3-views-and-viewmodels.md)

@@ -12,13 +12,13 @@ ms.openlocfilehash: fce7f7c28dd681fc8df5e111b29d08b6000885d3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397620"
 ---
-# <a name="choosing-the-right-programming-model"></a><span data-ttu-id="6afe1-103">Wybieranie odpowiedniego modelu programowania</span><span class="sxs-lookup"><span data-stu-id="6afe1-103">Choosing the Right Programming Model</span></span>
+# <a name="choosing-the-right-programming-model"></a><span data-ttu-id="ec00e-103">Wybieranie odpowiedniego modelu programowania</span><span class="sxs-lookup"><span data-stu-id="ec00e-103">Choosing the Right Programming Model</span></span>
 
-<span data-ttu-id="6afe1-104">przez [Scotta Hanselmana](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="6afe1-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="ec00e-104">przez [Scotta Hanselmana](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="ec00e-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-<span data-ttu-id="6afe1-105">Firmy Microsoft Scott Hanselman zapewnia informacje, które należy zdecydować, czy jest odpowiedni dla Ciebie wzorca ASP.NET Web Forms, ASP.NET MVC lub strony sieci Web ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="6afe1-105">Microsoft's Scott Hanselman gives you the information you need to decide if ASP.NET Web Forms, ASP.NET MVC, or ASP.NET Web Pages is right for you.</span></span>
+<span data-ttu-id="ec00e-105">Firmy Microsoft Scott Hanselman zapewnia informacje, które należy zdecydować, czy jest odpowiedni dla Ciebie wzorca ASP.NET Web Forms, ASP.NET MVC lub strony sieci Web ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="ec00e-105">Microsoft's Scott Hanselman gives you the information you need to decide if ASP.NET Web Forms, ASP.NET MVC, or ASP.NET Web Pages is right for you.</span></span>
 
-[<span data-ttu-id="6afe1-106">&#9654;Obejrzyj film wideo (5 minut)</span><span class="sxs-lookup"><span data-stu-id="6afe1-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/choosing-the-right-programming-model)
+[<span data-ttu-id="ec00e-106">&#9654;Obejrzyj film wideo (5 minut)</span><span class="sxs-lookup"><span data-stu-id="ec00e-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/choosing-the-right-programming-model)

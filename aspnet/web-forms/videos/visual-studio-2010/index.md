@@ -12,19 +12,19 @@ ms.openlocfilehash: 8325662a34a8ca7c520cf65b50bbe928ce6b4b45
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381045"
 ---
-# <a name="general-vs-2010-tips"></a><span data-ttu-id="f5f63-103">Ogólne wskazówki dotyczące programu VS 2010</span><span class="sxs-lookup"><span data-stu-id="f5f63-103">General VS 2010 Tips</span></span>
+# <a name="general-vs-2010-tips"></a><span data-ttu-id="98c35-103">Ogólne wskazówki dotyczące programu VS 2010</span><span class="sxs-lookup"><span data-stu-id="98c35-103">General VS 2010 Tips</span></span>
 
-> <span data-ttu-id="f5f63-104">Funkcje programu Visual Studio 2010, łącznie z tymi przeznaczone specjalnie do pracy z programem ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="f5f63-104">Features of Visual Studio 2010, including those specifically for working with ASP.NET.</span></span>
+> <span data-ttu-id="98c35-104">Funkcje programu Visual Studio 2010, łącznie z tymi przeznaczone specjalnie do pracy z programem ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="98c35-104">Features of Visual Studio 2010, including those specifically for working with ASP.NET.</span></span>
 
 
-- [<span data-ttu-id="f5f63-105">Profil zoptymalizowany pod kątem kodu</span><span class="sxs-lookup"><span data-stu-id="f5f63-105">Code Optimized Profile</span></span>](visual-studio-2010-quick-hit-code-optimized-profile.md)
-- [<span data-ttu-id="f5f63-106">Hierarchia widoku rozszerzenia Code Search</span><span class="sxs-lookup"><span data-stu-id="f5f63-106">Code Search View Hierarchy</span></span>](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
-- [<span data-ttu-id="f5f63-107">Listy inteligentne funkcji IntelliSense</span><span class="sxs-lookup"><span data-stu-id="f5f63-107">IntelliSense Smart Lists</span></span>](visual-studio-2010-quick-hit-intellisense-smart-lists.md)
-- [<span data-ttu-id="f5f63-108">Obsługa wielu monitorów</span><span class="sxs-lookup"><span data-stu-id="f5f63-108">Multi-Monitor Support</span></span>](visual-studio-2010-quick-hit-multi-monitor-support.md)
-- [<span data-ttu-id="f5f63-109">Nowy szablon projektów internetowych</span><span class="sxs-lookup"><span data-stu-id="f5f63-109">New Web Project Template</span></span>](visual-studio-2010-quick-hit-new-web-project-template.md)
-- [<span data-ttu-id="f5f63-110">Nowa funkcja wielowersyjności kodu</span><span class="sxs-lookup"><span data-stu-id="f5f63-110">New Multi-Targeting</span></span>](visual-studio-2010-quick-hit-new-multi-targeting.md)
-- [<span data-ttu-id="f5f63-111">Witryny internetowe zamiast projektów internetowych</span><span class="sxs-lookup"><span data-stu-id="f5f63-111">Websites Instead of Web Projects</span></span>](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
-- [<span data-ttu-id="f5f63-112">Funkcja IntelliSense dla fragmentów kodu</span><span class="sxs-lookup"><span data-stu-id="f5f63-112">Snippets IntelliSense</span></span>](visual-studio-2010-quick-hit-snippets-intellisense.md)
+- [<span data-ttu-id="98c35-105">Profil zoptymalizowany pod kątem kodu</span><span class="sxs-lookup"><span data-stu-id="98c35-105">Code Optimized Profile</span></span>](visual-studio-2010-quick-hit-code-optimized-profile.md)
+- [<span data-ttu-id="98c35-106">Hierarchia widoku wyszukiwania kodu</span><span class="sxs-lookup"><span data-stu-id="98c35-106">Code Search View Hierarchy</span></span>](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
+- [<span data-ttu-id="98c35-107">Listy inteligentne funkcji IntelliSense</span><span class="sxs-lookup"><span data-stu-id="98c35-107">IntelliSense Smart Lists</span></span>](visual-studio-2010-quick-hit-intellisense-smart-lists.md)
+- [<span data-ttu-id="98c35-108">Obsługa wielu monitorów</span><span class="sxs-lookup"><span data-stu-id="98c35-108">Multi-Monitor Support</span></span>](visual-studio-2010-quick-hit-multi-monitor-support.md)
+- [<span data-ttu-id="98c35-109">Nowy szablon projektów internetowych</span><span class="sxs-lookup"><span data-stu-id="98c35-109">New Web Project Template</span></span>](visual-studio-2010-quick-hit-new-web-project-template.md)
+- [<span data-ttu-id="98c35-110">Nowa funkcja wielowersyjności kodu</span><span class="sxs-lookup"><span data-stu-id="98c35-110">New Multi-Targeting</span></span>](visual-studio-2010-quick-hit-new-multi-targeting.md)
+- [<span data-ttu-id="98c35-111">Witryny internetowe zamiast projektów sieci Web</span><span class="sxs-lookup"><span data-stu-id="98c35-111">Websites Instead of Web Projects</span></span>](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
+- [<span data-ttu-id="98c35-112">Funkcje IntelliSense fragmentów kodu</span><span class="sxs-lookup"><span data-stu-id="98c35-112">Snippets IntelliSense</span></span>](visual-studio-2010-quick-hit-snippets-intellisense.md)

@@ -12,13 +12,13 @@ ms.openlocfilehash: 4fd6ce813a87caf1b3ecd67c5fa59bc536db0f2e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401299"
 ---
-# <a name="aspnet-data-access-technologies-an-introduction-to-linq"></a><span data-ttu-id="38d3e-104">Technologie dostępu do danych w programie ASP.NET, wprowadzenie do LINQ</span><span class="sxs-lookup"><span data-stu-id="38d3e-104">ASP.NET Data Access Technologies, an Introduction to LINQ</span></span>
+# <a name="aspnet-data-access-technologies-an-introduction-to-linq"></a><span data-ttu-id="72adb-104">Technologie dostępu do danych w programie ASP.NET, wprowadzenie do LINQ</span><span class="sxs-lookup"><span data-stu-id="72adb-104">ASP.NET Data Access Technologies, an Introduction to LINQ</span></span>
 
-<span data-ttu-id="38d3e-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="38d3e-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="72adb-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="72adb-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="38d3e-106">LINQ to deweloperów platformy ASP.NET preferowane mechanizm dostępu do danych.</span><span class="sxs-lookup"><span data-stu-id="38d3e-106">LINQ is the ASP.NET developers preferred Data Access Mechanism.</span></span> <span data-ttu-id="38d3e-107">Ten film stanowi wprowadzenie do programowania w języku LINQ i porównuje dostęp do prostego danych między ADO.NET i LINQ z punktu widzenia środowisko dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="38d3e-107">This video is an introduction to programming with LINQ and compares simple data access between ADO.NET and LINQ from a developer experience perspective.</span></span>
+<span data-ttu-id="72adb-106">LINQ to deweloperów platformy ASP.NET preferowane mechanizm dostępu do danych.</span><span class="sxs-lookup"><span data-stu-id="72adb-106">LINQ is the ASP.NET developers preferred Data Access Mechanism.</span></span> <span data-ttu-id="72adb-107">Ten film stanowi wprowadzenie do programowania w języku LINQ i porównuje dostęp do prostego danych między ADO.NET i LINQ z punktu widzenia środowisko dla deweloperów.</span><span class="sxs-lookup"><span data-stu-id="72adb-107">This video is an introduction to programming with LINQ and compares simple data access between ADO.NET and LINQ from a developer experience perspective.</span></span>
 
-[<span data-ttu-id="38d3e-108">&#9654;Obejrzyj film wideo (minuty 37)</span><span class="sxs-lookup"><span data-stu-id="38d3e-108">&#9654; Watch video (37 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-data-access-technologies-an-introduction-to-linq)
+[<span data-ttu-id="72adb-108">&#9654;Obejrzyj film wideo (minuty 37)</span><span class="sxs-lookup"><span data-stu-id="72adb-108">&#9654; Watch video (37 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-data-access-technologies-an-introduction-to-linq)
