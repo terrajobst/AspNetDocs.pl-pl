@@ -12,7 +12,7 @@ ms.openlocfilehash: ef5447b3aa2abfca4df1580756a38a3807b6893f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395059"
 ---
 # <a name="aspnet-web-api-videos"></a>ASP.NET Web API, filmy wideo
@@ -20,9 +20,9 @@ ms.locfileid: "59395059"
 - [Omówienie i wprowadzenie](getting-started/index.md)
 
     - [ASP.NET Web API](getting-started/aspnet-web-api.md)
-    - [ASP.NET Web API, część 1: Twój pierwszy internetowy interfejs API](getting-started/your-first-web-api.md)
-    - [ASP.NET Web API, część 2: pobieranie danych](getting-started/getting-data.md)
-    - [ASP.NET Web API, część 3: usuwanie i aktualizowanie](getting-started/delete-and-update.md)
-    - [ASP.NET Web API, część 4: stronicowanie i wykonywanie zapytań](getting-started/paging-and-querying.md)
-    - [ASP.NET Web API, część 5: walidacja niestandardowa](getting-started/custom-validation.md)
+    - [ASP.NET Web API, część 1: Twój pierwszy interfejs Web API](getting-started/your-first-web-api.md)
+    - [ASP.NET Web API, część 2: Pobieranie danych](getting-started/getting-data.md)
+    - [ASP.NET Web API, część 3: Usuwanie i aktualizowanie](getting-started/delete-and-update.md)
+    - [ASP.NET Web API, część 4: Stronicowanie i zapytania](getting-started/paging-and-querying.md)
+    - [ASP.NET Web API, część 5: Niestandardowego sprawdzania poprawności](getting-started/custom-validation.md)
     - [ASP.NET Web API, część 6: Autoryzacja](getting-started/authorization.md)

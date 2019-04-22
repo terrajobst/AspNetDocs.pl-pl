@@ -12,7 +12,7 @@ ms.openlocfilehash: bec31c6d45701e2a27c38cea066fec0d0dc908c8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378810"
 ---
 # <a name="lesson-7-databinding-to-user-interface-controls"></a>[Lekcja 7:] Powiązanie danych z kontrolkami interfejsu użytkownika

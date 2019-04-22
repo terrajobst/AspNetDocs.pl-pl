@@ -11,7 +11,7 @@ ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384724"
 ---
 <!-- markdownlint-disable MD033 -->
@@ -147,8 +147,8 @@ ms.locfileid: "59384724"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtworzenie dokumentacji platformy ASP.NET Core i przykłady</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź programu Visual Studio w wersji 2015/pliku Project.JSON dokumentacji</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję dokumentacji Visual Studio 2015/project.json</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -279,8 +279,8 @@ ms.locfileid: "59384724"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtworzenie dokumentacji platformy ASP.NET Core i przykłady</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź programu Visual Studio w wersji 2015/pliku Project.JSON dokumentacji</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -434,13 +434,13 @@ ms.locfileid: "59384724"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Przyczynia się do platformy ASP.NET, dokumentację i przykłady</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET</a></p>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_framework">Struktury</a>
+                        <a href="#aspnet_framework">Platformy</a>
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -563,7 +563,7 @@ ms.locfileid: "59384724"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Przyczynia się do platformy ASP.NET, dokumentację i przykłady</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -696,7 +696,7 @@ ms.locfileid: "59384724"
                             </li>
                             <li class="fullSpan">
                                 <div class="container footer">
-                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Przyczynia się do platformy ASP.NET, dokumentację i przykłady</a></p>
+                                    <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET</a></p>
                                 </div>
                             </li>
                         </ul>

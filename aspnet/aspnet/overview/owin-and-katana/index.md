@@ -12,7 +12,7 @@ ms.openlocfilehash: a8ba1ca6b54ae58c23e51981cedebc636fba679e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385595"
 ---
 # <a name="owin-and-katana"></a>OWIN i Katana
@@ -21,10 +21,10 @@ ms.locfileid: "59385595"
 
 
 - [Omówienie projektu Katana](an-overview-of-project-katana.md)
-- [Wprowadzenie do korzystania z interfejsu OWIN i projektu Katana](getting-started-with-owin-and-katana.md)
-- [Przykłady projektu Katana](katana-samples.md)
-- [Wykrywanie klasy początkowej interfejsu OWIN](owin-startup-class-detection.md)
+- [Wprowadzenie do korzystania z OWIN i Katana](getting-started-with-owin-and-katana.md)
+- [Przykłady Katana](katana-samples.md)
+- [Wykrywanie klasy początkowej OWIN](owin-startup-class-detection.md)
 - [Włączanie uwierzytelniania systemu Windows w projekcie Katana](enabling-windows-authentication-in-katana.md)
 - [Oprogramowanie pośredniczące OWIN w zintegrowanym potoku usług IIS](owin-middleware-in-the-iis-integrated-pipeline.md)
-- [Serwer autoryzacji OAuth 2.0 interfejsu OWIN](owin-oauth-20-authorization-server.md)
-- [Hostowanie interfejsu OWIN w roli procesu roboczego platformy Azure](host-owin-in-an-azure-worker-role.md)
+- [Serwer autoryzacji OAuth 2.0 OWIN](owin-oauth-20-authorization-server.md)
+- [Hostowanie OWIN w roli procesu roboczego platformy Azure](host-owin-in-an-azure-worker-role.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 12dd89632f9ec9ebfb16bcefbd37e7311adfff08
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422827"
 ---
 # <a name="getting-started-with-aspnet-web-forms"></a>Wprowadzenie do wzorca ASP.NET Web Forms
@@ -35,8 +35,8 @@ ms.locfileid: "59422827"
 - [Tworzenie podstawowej strony modelu Web Forms w programie Visual Studio 2013](creating-a-basic-web-forms-page.md)
 - [Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013](code-editing-in-web-forms-pages.md)
 - [Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project.md)
-- [Ćwiczenia praktyczne programu Visual Studio 2012](hands-on-labs/index.md)
+- [Warsztaty programu Visual Studio 2012](hands-on-labs/index.md)
 
-    - [Co nowego w platformie ASP.NET i w programowaniu dla Internetu w programie Visual Studio 2012](hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
-    - [Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5](hands-on-labs/whats-new-in-web-forms-in-aspnet-45.md)
+    - [Co nowego na platformie ASP.NET i opracowywaniu aplikacji internetowych w programie Visual Studio 2012](hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
+    - [Nowości we wzorcu Web Forms na platformie ASP.NET 4.5](hands-on-labs/whats-new-in-web-forms-in-aspnet-45.md)
     - [Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012](hands-on-labs/using-page-inspector-in-visual-studio-2012.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: e4dfbdedad2211d94610966e3f390b23681b658f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419291"
 ---
 # <a name="how-do-i-linq-to-sql-querying-the-database"></a>[Jak mogę] LINQ do SQL: wykonywanie zapytania w bazie danych

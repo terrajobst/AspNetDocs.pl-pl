@@ -12,7 +12,7 @@ ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396567"
 ---
 # <a name="using-page-inspector-in-visual-studio-2012"></a>Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012

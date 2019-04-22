@@ -12,7 +12,7 @@ ms.openlocfilehash: 8a2af69592d3839ace1ec1975a67eccb055c1652
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378825"
 ---
 # <a name="aspnet-signalr-videos"></a>Wideo dotyczące usługi SignalR na platformie ASP.NET
@@ -20,4 +20,4 @@ ms.locfileid: "59378825"
 > Te zapewniają wideo możesz w tle oraz przykłady aplikacji za pomocą oprogramowania SignalR, aby dodać funkcje w czasie rzeczywistym do aplikacji sieci web.
 
 
-- [Usługa SignalR i elementy WebSocket](signalr-and-web-sockets.md)
+- [SignalR i elementy Web Socket](signalr-and-web-sockets.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 029234cf9a28a80c487504e4e0980c214e45f53a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381968"
 ---
 # <a name="adding-a-column-to-the-model"></a>Dodawanie kolumny do modelu
@@ -28,11 +28,11 @@ Dodajmy "Ocena" kolumny do tabeli filmu. Wróć do IDE, a następnie kliknij poz
 
 Dodaj kolumnę "Ocena", jak pokazano poniżej. Ponieważ firma Microsoft nie mają teraz wszystkie klasyfikacje kolumny można zezwolić na wartości null. Kliknij pozycję Zapisz.
 
-[![Edytowanie tabeli filmy](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
+[![Edytowanie tabel filmy](getting-started-with-mvc-part8/_static/image2.png)](getting-started-with-mvc-part8/_static/image1.png)
 
 Następnie wróć do Eksploratora rozwiązań i Otwórz plik Movies.edmx (która znajduje się w folderze \Models). Kliknij prawym przyciskiem myszy na powierzchni projektowej (białego obszaru) i wybierz Model aktualizacji z bazy danych.
 
-[![Movies — Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
+[![Filmy — Microsoft Visual Web Developer 2010 Express (11)](getting-started-with-mvc-part8/_static/image4.png)](getting-started-with-mvc-part8/_static/image3.png)
 
 Spowoduje to uruchomienie kreatora"aktualizacji". Kliknij kartę odświeżania w nim, a następnie kliknij przycisk Zakończ. Klasa modelu nasz film zostaną zaktualizowane przy użyciu nowej kolumny.
 
@@ -40,7 +40,7 @@ Spowoduje to uruchomienie kreatora"aktualizacji". Kliknij kartę odświeżania w
 
 Po kliknięciu przycisku Zakończ, zobaczysz, że nowa kolumna Ocena został dodany do jednostki filmu w naszym modelu.
 
-[![Movie jednostki](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
+[![Jednostki filmu](getting-started-with-mvc-part8/_static/image7.png)](getting-started-with-mvc-part8/_static/image6.png)
 
 Dodaliśmy kolumny w modelu bazy danych, ale widoków nie wiadomo o nim.
 
@@ -66,11 +66,11 @@ Nasze ostateczny szablon Create.aspx będzie wyglądać następująco, a Zmieńm
 
 Uruchom aplikację, a teraz masz nowe pole w bazie danych zostały dodane do tworzenia strony. Dodaj nowy film — tym razem z oceną — i kliknij przycisk Utwórz.
 
-[![CTwórz filmu — Windows Internet Explorer](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
+[![Utwórz film — Windows Internet Explorer](getting-started-with-mvc-part8/_static/image9.png)](getting-started-with-mvc-part8/_static/image8.png)
 
 Po kliknięciu pozycji Utwórz nastąpiło do strony indeksu w przypadku, gdy użytkownik nowego filmu znajduje się nowa kolumna oceny w bazie danych
 
-[![Movie lista — Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
+[![Lista filmu — Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
 
 W tym samouczku podstawowe stało się ułatwiające rozpoczęcie pracy, dzięki czemu kontrolerów, skojarzenie ich z widoków i przekazanie wokół zakodowanych danych. Następnie możemy utworzone i przeznaczone do bazy danych niektóre dane umieszczane w. Firma Microsoft może pobrać dane z bazy danych i on wyświetlany w tabeli HTML. Następnie dodaliśmy Utwórz formularz, który umożliwia użytkownikowi dodawanie danych do bazy danych samodzielnie z poziomu aplikacji sieci Web. Możemy dodać sprawdzanie poprawności, a następnie wykonywane sprawdzanie poprawności używany język JavaScript po stronie klienta. Na koniec możemy zmienić bazę danych, aby uwzględnić nową kolumnę danych, a następnie zaktualizowane nasze dwie strony, aby utworzyć i wyświetlić te nowe dane.
 

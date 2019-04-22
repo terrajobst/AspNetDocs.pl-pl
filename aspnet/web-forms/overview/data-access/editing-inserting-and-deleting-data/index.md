@@ -12,7 +12,7 @@ ms.openlocfilehash: 206b0537b0c4355f919694bc05b3f7d6922f8272
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378400"
 ---
 # <a name="editing-inserting-and-deleting-data"></a>Edytowanie, wstawianie i usuwanie danych
@@ -23,7 +23,7 @@ ms.locfileid: "59378400"
 - [Omówienie wstawiania, aktualizowania i usuwania danych (C#)](an-overview-of-inserting-updating-and-deleting-data-cs.md)
 - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (C#)](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
 - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (C#)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
-- [Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (C#)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+- [Dodawanie kontrolek weryfikacji do interfejsów edycji i wstawiania (C#)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
 - [Dostosowywanie interfejsu modyfikacji danych (C#)](customizing-the-data-modification-interface-cs.md)
 - [Implementowanie optymistycznej współbieżności (C#)](implementing-optimistic-concurrency-cs.md)
 - [Dodawanie potwierdzenia po stronie klienta podczas usuwania (C#)](adding-client-side-confirmation-when-deleting-cs.md)
@@ -31,7 +31,7 @@ ms.locfileid: "59378400"
 - [Omówienie wstawiania, aktualizowania i usuwania danych (VB)](an-overview-of-inserting-updating-and-deleting-data-vb.md)
 - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (VB)](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
 - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (VB)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
-- [Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (VB)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+- [Dodawanie kontrolek weryfikacji do interfejsów edycji i wstawiania (VB)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
 - [Dostosowywanie interfejsu modyfikacji danych (VB)](customizing-the-data-modification-interface-vb.md)
 - [Implementowanie optymistycznej współbieżności (VB)](implementing-optimistic-concurrency-vb.md)
 - [Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB)](adding-client-side-confirmation-when-deleting-vb.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: fed55a4bf01e82af5167018f03e28a6274fcda78
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382202"
 ---
 # <a name="containment-in-odata-v4-using-web-api-22"></a>Zawieranie w protokole OData v4 używanie składnika Web API 2.2

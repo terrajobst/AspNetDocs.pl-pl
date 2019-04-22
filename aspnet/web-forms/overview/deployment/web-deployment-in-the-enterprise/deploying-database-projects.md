@@ -12,7 +12,7 @@ ms.openlocfilehash: f5b7cecdd1a8dbd9be1bd781cec31c53c9096546
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383229"
 ---
 # <a name="deploying-database-projects"></a>Wdrażanie projektów baz danych
@@ -71,9 +71,9 @@ W tym omówieniu znajdują się za pomocą VSDBCMD za pomocą narzędzia MSBuild
 | --- | --- | --- | --- |
 | Obsługuje zdalnego wdrażania? | Yes | Yes | Tak |
 | Obsługiwane są aktualizacje przyrostowe? | Yes | Nie | Tak |
-| Obsługuje skrypty przed/po-deployment? | Yes | Yes | Tak |
+| Obsługuje skrypty przed/po-deployment? | Yes | Yes | Yes |
 | Obsługuje wdrażanie wielośrodowiskowego? | Ograniczone | Ograniczone | Tak |
-| Obsługuje inicjowanych przez skrypty wdrażania? | Ograniczone | Yes | Tak |
+| Obsługuje inicjowanych przez skrypty wdrażania? | Ograniczone | Tak | Tak |
 
 W pozostałej części tego tematu opisano użycie VSDBCMD za pomocą narzędzia MSBuild wdrażania projektów bazy danych.
 

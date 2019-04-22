@@ -12,7 +12,7 @@ ms.openlocfilehash: 8e4fa3f87f09d8872dd4ccc1797c05c229768224
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388286"
 ---
 # <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
@@ -20,13 +20,13 @@ ms.locfileid: "59388286"
 > Problemy z bezpieczeństwem dotyczące interfejsu API sieci Web.
 
 
-- [Uwierzytelnianie i autoryzacja we wzorcu Web API](authentication-and-authorization-in-aspnet-web-api.md)
-- [Zabezpieczanie wzorca Web API za pomocą indywidualnych kont we wzorcu Web API 2.2](individual-accounts-in-web-api.md)
-- [Zewnętrzne usługi uwierzytelniania dla wzorca Web API (C#)](external-authentication-services.md)
-- [Zapobieganie atakom polegającym na fałszerstwie żądań międzywitrynowych we wzorcu Web API](preventing-cross-site-request-forgery-csrf-attacks.md)
-- [Włączanie żądań Cross-Origin we wzorcu Web API 2](enabling-cross-origin-requests-in-web-api.md)
-- [Filtry uwierzytelniania we wzorcu Web API 2](authentication-filters.md)
-- [Uwierzytelnianie podstawowe we wzorcu Web API](basic-authentication.md)
-- [Uwierzytelnianie formularzy we wzorcu Web API](forms-authentication.md)
+- [Uwierzytelnianie i autoryzacja w interfejsie Web API](authentication-and-authorization-in-aspnet-web-api.md)
+- [Zabezpieczanie interfejsu Web API za pomocą indywidualnych kont w interfejsie Web API 2.2](individual-accounts-in-web-api.md)
+- [Zewnętrzne usługi uwierzytelniania dla interfejsu Web API (C#)](external-authentication-services.md)
+- [Zapobieganie atakom polegającym na fałszowaniu żądań międzywitrynowych w interfejsie Web API](preventing-cross-site-request-forgery-csrf-attacks.md)
+- [Włączanie żądań Cross-Origin w interfejsie Web API 2](enabling-cross-origin-requests-in-web-api.md)
+- [Filtry uwierzytelniania w interfejsie Web API 2](authentication-filters.md)
+- [Uwierzytelnianie podstawowe w interfejsie Web API](basic-authentication.md)
+- [Uwierzytelnianie formularzy w interfejsie Web API](forms-authentication.md)
 - [Zintegrowane uwierzytelnianie systemu Windows](integrated-windows-authentication.md)
 - [Praca z protokołem SSL](working-with-ssl-in-web-api.md)

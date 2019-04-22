@@ -12,7 +12,7 @@ ms.openlocfilehash: b991227a452bf07505207a7d8d079210488c407f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407851"
 ---
 # <a name="aspnet-35---ajax"></a>ASP.NET 3.5 — AJAX
@@ -22,7 +22,7 @@ ms.locfileid: "59407851"
 
 - [Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX](understanding-partial-page-updates-with-asp-net-ajax.md)
 - [Objaśnienie wyzwalaczy UpdatePanel ASP.NET AJAX](understanding-asp-net-ajax-updatepanel-triggers.md)
-- [Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+- [Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX ](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
 - [Objaśnienie lokalizacji kodu ASP.NET AJAX](understanding-asp-net-ajax-localization.md)
 - [Objaśnienie usług internetowych ASP.NET AJAX](understanding-asp-net-ajax-web-services.md)
 - [Objaśnienie możliwości debugowania kodu ASP.NET AJAX](understanding-asp-net-ajax-debugging-capabilities.md)

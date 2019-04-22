@@ -12,7 +12,7 @@ ms.openlocfilehash: ed54ba79635877faa3da774214057e7804432f65
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391887"
 ---
 # <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Tworzenie niestandardowego dostawcy map witryn opartych na bazie danych (VB)
@@ -31,7 +31,7 @@ Program ASP.NET 2.0 funkcji mapy witryny s temu deweloper strony do definiowania
 Dostawcy mapy witryny opartego na języku XML domyślne działa dobrze, jeśli struktura s mapy witryny jest stosunkowo statycznych, takich jak potrzeby tych samouczków. W wielu scenariuszach jednak bardziej dynamiczne mapy witryny jest wymagany. Należy wziąć pod uwagę Mapa witryny, przedstawionej na rysunku 1, w którym każdej kategorii i produktu są wyświetlane jako sekcje w strukturze s witryny sieci Web. Za pomocą tej mapy witryny odwiedzając stronę sieci web, odpowiadający węzeł główny może wyświetlić listę wszystkich kategorii, odwiedzając stronę sieci web określonej kategorii s zwróciłaby listę produktów s tej kategorii i wyświetlania strony sieci web określonym produktem s pokazywałaby produktu szczegóły s.
 
 
-[![TKategorie HE i produktów korzeń s mapy witryny struktury](building-a-custom-database-driven-site-map-provider-vb/_static/image1.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image1.png)
+[![Kategorie i produktów w skład struktury s mapy witryny](building-a-custom-database-driven-site-map-provider-vb/_static/image1.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image1.png)
 
 **Rysunek 1**: Kategorie i produkty korzeń s mapy witryny struktury ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image2.png))
 
@@ -84,12 +84,12 @@ Aby rozpocząć musimy utworzyć `Default.aspx`, `ProductsByCategory.aspx`, i `P
 Otwórz `Default.aspx` strony w `SiteMapProvider` folder i przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` do `Categories`. Za pomocą tagu inteligentnego s GridView powiązać go do nowego elementu ObjectDataSource, o nazwie `CategoriesDataSource` i skonfiguruj ją tak, pobiera jego dane za pomocą `CategoriesBLL` klasy s `GetCategories` metody. Ponieważ ten GridView po prostu Wyświetla kategorie i nie zapewnia możliwości modyfikacji danych, zestawu list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
 
 
-[![Configuruj ObjectDataSource, aby zwrócić kategorii przy użyciu metody GetCategories](building-a-custom-database-driven-site-map-provider-vb/_static/image4.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image3.png)
+[![Konfigurowanie kontrolki ObjectDataSource do zwrócenia kategorii przy użyciu metody GetCategories](building-a-custom-database-driven-site-map-provider-vb/_static/image4.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image3.png)
 
 **Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource powrócić za pomocą kategorii `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image4.png))
 
 
-[![Set list rozwijanych w aktualizacji, WSTAWIANIA i usuwania karty (Brak)](building-a-custom-database-driven-site-map-provider-vb/_static/image5.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image5.png)
+[![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](building-a-custom-database-driven-site-map-provider-vb/_static/image5.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image5.png)
 
 **Rysunek 5**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image6.png))
 
@@ -112,7 +112,7 @@ Po utworzeniu kontrolki ObjectDataSource i dostosowywanie pól s GridView, dwie 
 Rysunek nr 7 przedstawia `Default.aspx` podczas wyświetlania za pośrednictwem przeglądarki. Kliknięcie kategorii s Wyświetl produkty link umożliwia przejście do `ProductsByCategory.aspx?CategoryID=categoryID`, który utworzymy w kroku 3.
 
 
-[![Estacje kategorii jest wyświetlane wraz z Linkiem umożliwiającym wyświetlanie produktów](building-a-custom-database-driven-site-map-provider-vb/_static/image7.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image7.png)
+[![Każda kategoria jest wyświetlane wraz z Linkiem umożliwiającym wyświetlanie produktów](building-a-custom-database-driven-site-map-provider-vb/_static/image7.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image7.png)
 
 **Rysunek 7**: Każda kategoria jest wyświetlane wraz z Linkiem umożliwiającym wyświetlanie produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image8.png))
 
@@ -122,7 +122,7 @@ Rysunek nr 7 przedstawia `Default.aspx` podczas wyświetlania za pośrednictwem 
 Otwórz `ProductsByCategory.aspx` strony, a następnie dodaj GridView nadawania mu nazwy `ProductsByCategory`. W tagu inteligentnego, należy powiązać widoku GridView nowe kontrolki ObjectDataSource, o nazwie `ProductsByCategoryDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody i zestaw z listy rozwijanej listy (Brak) na kartach UPDATE, INSERT i DELETE.
 
 
-[![UKlasa ProductsBLL s GetProductsByCategoryID(categoryID) metoda SE](building-a-custom-database-driven-site-map-provider-vb/_static/image8.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image9.png)
+[![Użyj metody GetProductsByCategoryID(categoryID) s ProductsBLL, klasa](building-a-custom-database-driven-site-map-provider-vb/_static/image8.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image9.png)
 
 **Rysunek 8**: Użyj `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image10.png))
 
@@ -130,7 +130,7 @@ Otwórz `ProductsByCategory.aspx` strony, a następnie dodaj GridView nadawania 
 Ostatni krok w Kreatorze konfigurowania źródła danych, który wyświetla monit dotyczący źródło parametru *categoryID*. Ponieważ te informacje są przesyłane za pośrednictwem pole querystring `CategoryID`, z listy rozwijanej wybierz QueryString i wprowadź w polu tekstowym vlastnost QueryStringField CategoryID, jak pokazano na rysunku 9. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![USE pole Querystring categoryID parametru CategoryID](building-a-custom-database-driven-site-map-provider-vb/_static/image9.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image11.png)
+[![Na użytek pole Querystring CategoryID categoryID parametru](building-a-custom-database-driven-site-map-provider-vb/_static/image9.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image11.png)
 
 **Rysunek 9**: Użyj `CategoryID` pole Querystring *categoryID* parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image12.png))
 
@@ -153,7 +153,7 @@ Po wykonaniu tych dostosowań, kontrolkami GridView i kontrolki ObjectDataSource
 Wróć do wyświetlania `Default.aspx` za pośrednictwem przeglądarki i kliknij przycisk Wyświetl produkty łączy dla Beverages. Spowoduje to przejście do `ProductsByCategory.aspx?CategoryID=1`, wyświetlanie nazw, cen i dostawców produktów w bazie danych Northwind, które należą do kategorii Beverages (zobacz rysunek 11). Możesz rozszerzyć tę stronę, aby uwzględnić łącze do zwrócenia użytkowników na stronę listy kategorii (`Default.aspx`) i DetailsView lub FormView formant, który wyświetla wybraną kategorię s nazwę i opis.
 
 
-[![Tsą wyświetlane nazwy Beverages HE, ceny i dostawców](building-a-custom-database-driven-site-map-provider-vb/_static/image11.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image13.png)
+[![Są wyświetlane nazwy Beverages, ceny i dostawcami](building-a-custom-database-driven-site-map-provider-vb/_static/image11.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image13.png)
 
 **Rysunek 11**: Są wyświetlane nazwy Beverages, ceny i dostawców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image14.png))
 
@@ -163,7 +163,7 @@ Wróć do wyświetlania `Default.aspx` za pośrednictwem przeglądarki i kliknij
 Strony końcowe `ProductDetails.aspx`, są wyświetlane szczegóły wybranych produktów. Otwórz `ProductDetails.aspx` i przeciągnij element DetailsView z przybornika do projektanta. Ustaw DetailsView s `ID` właściwości `ProductInfo` i wyczyszczenie jego `Height` i `Width` wartości właściwości. W tagu inteligentnego, należy powiązać DetailsView nowe kontrolki ObjectDataSource, o nazwie `ProductDataSource`, konfigurowanie kontrolki ObjectDataSource swoich danych z `ProductsBLL` klasy s `GetProductByProductID(productID)` metody. Podobnie jak w przypadku poprzednich stron sieci web utworzonych w krokach 2 i 3 zestawu list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
 
 
-[![Configuruj ObjectDataSource przy użyciu metody GetProductByProductID(productID)](building-a-custom-database-driven-site-map-provider-vb/_static/image12.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.png)
+[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductByProductID(productID)](building-a-custom-database-driven-site-map-provider-vb/_static/image12.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.png)
 
 **Rysunek 12**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetProductByProductID(productID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image16.png))
 
@@ -171,7 +171,7 @@ Strony końcowe `ProductDetails.aspx`, są wyświetlane szczegóły wybranych pr
 Ostatni krok w Kreatorze konfigurowania źródła danych, który wyświetla monit dotyczący źródła *productID* parametru. Ponieważ te dane przechodzą przez pole querystring `ProductID`, ustaw listy rozwijanej na ciąg zapytania i pole tekstowe vlastnost QueryStringField do elementu ProductID. Na koniec kliknij przycisk Zakończ, aby zakończyć pracę kreatora.
 
 
-[![Configuruj productID parametru, aby ściągnąć jego wartość z pola Querystring ProductID](building-a-custom-database-driven-site-map-provider-vb/_static/image13.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image17.png)
+[![Konfigurowanie productID parametru, aby ściągnąć jego wartość z pola Querystring ProductID](building-a-custom-database-driven-site-map-provider-vb/_static/image13.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image17.png)
 
 **Rysunek 13**: Konfigurowanie *productID* parametru, aby ściągnąć jego wartość z `ProductID` pole Querystring ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image18.png))
 
@@ -184,7 +184,7 @@ Po zakończeniu pracy kreatora Konfigurowanie źródła danych, Visual Studio ut
 Aby przetestować tę stronę, wróć do `Default.aspx` i kliknij pozycję Wyświetl produkty dla kategorii Beverages. Z listy spożywczy produktów, kliknij link Wyświetl szczegóły Chai herbaty. Spowoduje to przejście do `ProductDetails.aspx?ProductID=1`, który wskazuje s herbaty Chai więcej (zobacz rysunek 14).
 
 
-[![Chai herbaty s dostawca, kategoria, ceny i inne informacje są wyświetlane](building-a-custom-database-driven-site-map-provider-vb/_static/image14.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image19.png)
+[![Jest wyświetlana herbaty Chai s dostawca, kategoria, ceny i inne informacje](building-a-custom-database-driven-site-map-provider-vb/_static/image14.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image19.png)
 
 **Rysunek 14**: Jest wyświetlana herbaty Chai s dostawca, kategoria, ceny i inne informacje ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image20.png))
 
@@ -196,7 +196,7 @@ Mapa witryny jest reprezentowana w pamięci serwera s sieci web jako kolekcja `S
 Rysunek 15 przedstawia witrynę ogólną strukturę mapy z rysunku 1, ale przy użyciu szczegółów implementacji określiła bardziej szczegółowo.
 
 
-[![Estacje SiteMapNode ma właściwości, takie jak tytuł, adres Url, klucz i tak dalej](building-a-custom-database-driven-site-map-provider-vb/_static/image16.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.gif)
+[![Każdy SiteMapNode ma właściwości, takie jak tytuł, adres Url, klucz itd.](building-a-custom-database-driven-site-map-provider-vb/_static/image16.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image15.gif)
 
 **Rysunek 15**: Każdy `SiteMapNode` ma właściwości takich jak `Title`, `Url`, `Key`i tak dalej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image17.gif))
 
@@ -280,7 +280,7 @@ Po zaktualizowaniu `Web.config`, Poświęć chwilę, aby wyświetlić wszystkie 
 Przy użyciu niestandardowej witryny dostawcy mapy utworzony i zarejestrowany w `Web.config`, możemy ponownie gotowy do dodawania formantów nawigacji do `Default.aspx`, `ProductsByCategory.aspx`, i `ProductDetails.aspx` stron w `SiteMapProvider` folderu. Zacznij od otwarcia `Default.aspx` strony, a następnie przeciągnij `SiteMapPath` z przybornika do projektanta. Kontrolki ścieżki mapy witryny znajduje się w sekcji nawigacji przybornika.
 
 
-[![Add SiteMapPath na Default.aspx](building-a-custom-database-driven-site-map-provider-vb/_static/image19.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image18.gif)
+[![Dodaj ścieżki mapy witryny do Default.aspx](building-a-custom-database-driven-site-map-provider-vb/_static/image19.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image18.gif)
 
 **Rysunek 16**: Dodaj SiteMapPath do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image20.gif))
 
@@ -290,7 +290,7 @@ Kontrolki ścieżki mapy witryny Wyświetla ślad, wskazujący bieżącą lokali
 Poświęć chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki. SiteMapPath dodane w rysunek 16 używa domyślnego dostawcy mapy witryny, ściąganie danych z `Web.sitemap`. W związku z tym, linków do stron nadrzędnych strona główna pokazuje &gt; Dostosowywanie mapy witryny, podobnie jak nawigacji w prawym górnym rogu.
 
 
-[![Tłącza do stron nadrzędnych używa dostawcy mapy witryny domyślnej](building-a-custom-database-driven-site-map-provider-vb/_static/image22.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.gif)
+[![Łącza do stron nadrzędnych używa domyślnego dostawcy mapy witryny](building-a-custom-database-driven-site-map-provider-vb/_static/image22.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.gif)
 
 **Rysunek 17**: Łącza do stron nadrzędnych używa dostawcy mapy witryny domyślnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image23.gif))
 
@@ -298,7 +298,7 @@ Poświęć chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki
 Aby SiteMapPath dodane w rysunek 16, użyć niestandardowego dostawcy mapy witryny utworzonego w kroku 6, ustaw jego [ `SiteMapProvider` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemappath.sitemapprovider.aspx) do Northwind, przypisaną nazwę, firma Microsoft `NorthwindSiteMapProvider` w `Web.config`. Niestety Projektant będzie później nadal używać domyślnego dostawcy mapy witryny, ale jeśli odwiedź stronę za pośrednictwem przeglądarki po wprowadzeniu tej zmiany właściwości zobaczysz, że łączy do stron nadrzędnych teraz używa niestandardowego dostawcy mapy witryny.
 
 
-[![TUżywa on łączy do stron nadrzędnych teraz NorthwindSiteMapProvider dostawcy mapy witryny niestandardowe](building-a-custom-database-driven-site-map-provider-vb/_static/image25.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image24.gif)
+[![Łącza do stron nadrzędnych używa teraz NorthwindSiteMapProvider dostawcy mapy witryny niestandardowej](building-a-custom-database-driven-site-map-provider-vb/_static/image25.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image24.gif)
 
 **Rysunek 18**: Łącza do stron nadrzędnych korzysta z dostawcy mapy witryny niestandardowe `NorthwindSiteMapProvider` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image26.gif))
 
@@ -306,7 +306,7 @@ Aby SiteMapPath dodane w rysunek 16, użyć niestandardowego dostawcy mapy witry
 Kontrolki ścieżki mapy witryny przedstawia bardziej funkcjonalnego interfejsu użytkownika w `ProductsByCategory.aspx` i `ProductDetails.aspx` stron. Dodaj ścieżki mapy witryny z tymi stronami, ustawienie `SiteMapProvider` właściwość zarówno do Northwind. Z `Default.aspx` kliknij łącze Wyświetl produkty dla Beverages, a następnie łącze Wyświetl szczegóły dla Chai herbaty. Jak pokazano na rysunku 19, linków do stron nadrzędnych obejmuje bieżącej lokacji mapy (Chai herbaty) i jego elementów nadrzędnych: I wszystkich kategorii beverages.
 
 
-[![TUżywa on łączy do stron nadrzędnych teraz NorthwindSiteMapProvider dostawcy mapy witryny niestandardowe](building-a-custom-database-driven-site-map-provider-vb/_static/image27.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.png)
+[![Łącza do stron nadrzędnych używa teraz NorthwindSiteMapProvider dostawcy mapy witryny niestandardowej](building-a-custom-database-driven-site-map-provider-vb/_static/image27.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image21.png)
 
 **Rysunek 19**: Łącza do stron nadrzędnych korzysta z dostawcy mapy witryny niestandardowe `NorthwindSiteMapProvider` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image22.png))
 
@@ -314,7 +314,7 @@ Kontrolki ścieżki mapy witryny przedstawia bardziej funkcjonalnego interfejsu 
 Inne elementy interfejsu użytkownika nawigacji służy oprócz SiteMapPath, takich jak kontrolki Menu i widoku drzewa. `Default.aspx`, `ProductsByCategory.aspx`, I `ProductDetails.aspx` stron do pobrania na potrzeby tego samouczka, na przykład, obejmują formanty Menu (patrz rysunek 20). Zobacz [s badanie ASP.NET 2.0 funkcji nawigacji w witrynie](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx) i [za pomocą kontrolki witryny](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/navigation/sitenavcontrols.aspx) części [przewodników Szybki Start platformy ASP.NET 2.0](https://quickstarts.asp.net/QuickStartv20/aspnet/) dla bardziej szczegółowo poznać kontrolki i system mapy witryny ASP.NET w wersji 2.0.
 
 
-[![TZawiera on formant Menu listę kategorii i produktów](building-a-custom-database-driven-site-map-provider-vb/_static/image29.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image28.gif)
+[![Formant Menu zawiera listę kategorii i produkty](building-a-custom-database-driven-site-map-provider-vb/_static/image29.gif)](building-a-custom-database-driven-site-map-provider-vb/_static/image28.gif)
 
 **Rysunek 20**: Menu Kontrola Wyświetla każdej kategorii i produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-a-custom-database-driven-site-map-provider-vb/_static/image30.gif))
 

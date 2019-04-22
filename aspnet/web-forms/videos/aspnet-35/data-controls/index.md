@@ -12,7 +12,7 @@ ms.openlocfilehash: 17ec29cb24d0cd6943a821190d5cbabee69a58d2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397386"
 ---
 # <a name="data-controls"></a>Kontrolki danych
@@ -20,5 +20,5 @@ ms.locfileid: "59397386"
 > Ten zestaw filmów wideo przedstawiono, jak nowe funkcje kontroli danych za pomocą programu ASP.NET 3.5
 
 
-- [ListView — Formant](the-listview-control.md)
-- [DataPager, kontrolka](the-datapager-control.md)
+- [Kontrolka ListView](the-listview-control.md)
+- [Kontrolka DataPager](the-datapager-control.md)

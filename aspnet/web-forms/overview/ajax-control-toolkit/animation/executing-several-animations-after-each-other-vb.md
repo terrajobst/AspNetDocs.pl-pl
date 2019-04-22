@@ -12,7 +12,7 @@ ms.openlocfilehash: 53984f03cf01caab859f44fdc018b1598ed62def
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383047"
 ---
 # <a name="executing-several-animations-after-each-other-vb"></a>Wykonywanie kilku animacji jedna po drugiej (VB)
@@ -53,12 +53,12 @@ W ramach `<Animations>` węzła, użyj `<OnLoad>` do uruchamiania animacji, po c
 Po uruchomieniu tego skryptu panelu otrzymuje szerszy i następnie mniejsze.
 
 
-[![Fzwiększa się erwszy szerokość](executing-several-animations-after-each-other-vb/_static/image2.png)](executing-several-animations-after-each-other-vb/_static/image1.png)
+[![Najpierw jest zwiększana szerokość](executing-several-animations-after-each-other-vb/_static/image2.png)](executing-several-animations-after-each-other-vb/_static/image1.png)
 
 Najpierw jest zwiększana szerokość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-vb/_static/image3.png))
 
 
-[![TGD wysokość jest zmniejszenie](executing-several-animations-after-each-other-vb/_static/image5.png)](executing-several-animations-after-each-other-vb/_static/image4.png)
+[![Zmniejszy wysokość](executing-several-animations-after-each-other-vb/_static/image5.png)](executing-several-animations-after-each-other-vb/_static/image4.png)
 
 Następnie zmniejszyła się wysokość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-vb/_static/image6.png))
 

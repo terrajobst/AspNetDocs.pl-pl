@@ -12,7 +12,7 @@ ms.openlocfilehash: d6a787206862b88f915859d4a8fc4dd3c3166293
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389599"
 ---
 # <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurowanie ustawień na poziomie połączenia i poleceń warstwy dostępu do danych (C#)
@@ -51,7 +51,7 @@ Z wyjątkiem [opakowywanie modyfikacji bazy danych w ramach transakcji](../worki
 Każda klasa TableAdapter ma `Connection` właściwość, która określa informacje o połączeniu z bazą danych. Ten typ danych właściwości s i `ConnectionString` wartości są określane przez wybrane w Kreatorze konfiguracji TableAdapter. Pamiętaj, że po dodaniu najpierw TableAdapter z zestawem danych wpisane ten kreator zapyta, nam dla bazy danych źródła (patrz rysunek 1). Listy rozwijanej w pierwszym kroku dotyczy tych baz danych, określone w pliku konfiguracji, a także innych baz danych w Eksploratorze serwera s połączeń danych. Jeśli bazy danych, które firma Microsoft nie istnieje na liście rozwijanej, można określić nowego połączenia z bazą danych, klikając przycisk nowe połączenie oraz udostępniając informacje o połączeniu potrzebne.
 
 
-[![Ton pierwszy krok kreatora konfiguracji TableAdapter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
+[![Pierwszym krokiem, który Kreator konfiguracji TableAdapter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
 
 **Rysunek 1**: Pierwszym krokiem, który Kreator konfiguracji TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image3.png))
 
@@ -109,7 +109,7 @@ Ta klasa częściowa udostępnia tylko jedną właściwość obiektu bazowego po
 Otwórz `Northwind` zestawu danych, kliknij pozycję `ProductsTableAdapter` w projektancie, a następnie przejdź do okna właściwości. Zobaczysz `ConnectionModifier` ustawiony na wartość domyślną `Assembly`. Aby `Connection` dostępne spoza zestawu s wpisana zestawu danych, zmień właściwość `ConnectionModifier` właściwość `Public`.
 
 
-[![Ton właściwości połączenia s poziom dostępności można skonfigurować za pomocą właściwości ConnectionModifier](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
+[![Poziom dostępności s właściwości połączenia można skonfigurować za pomocą właściwości ConnectionModifier](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
 
 **Rysunek 4**: `Connection` Właściwości ułatwień dostępu można skonfigurować poziom s za pośrednictwem `ConnectionModifier` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image8.png))
 

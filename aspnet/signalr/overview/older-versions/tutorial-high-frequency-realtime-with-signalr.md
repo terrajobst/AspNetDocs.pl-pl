@@ -12,7 +12,7 @@ ms.openlocfilehash: 179f6dd3a60f8c49770ee34af93d54defad0adc4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379419"
 ---
 # <a name="high-frequency-realtime-with-signalr-1x"></a>Wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu usługi SignalR 1.x
@@ -45,7 +45,7 @@ Gdy aplikacja będzie działać, przy użyciu tej metody, nie jest zalecany mode
 Ten samouczek zawiera następujące sekcje:
 
 - [Wymagania wstępne](#prerequisites)
-- [Utwórz projekt](#createtheproject)
+- [Tworzenie projektu](#createtheproject)
 - [Dodaj pakiety JQuery.UI NuGet i biblioteki SignalR platformy ASP.NET](#nugetpackages)
 - [Tworzenie podstawowej aplikacji](#baseapp)
 - [Dodaj pętlę klienta](#clientloop)

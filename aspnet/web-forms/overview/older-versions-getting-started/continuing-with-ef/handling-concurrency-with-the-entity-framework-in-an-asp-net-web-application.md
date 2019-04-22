@@ -12,7 +12,7 @@ ms.openlocfilehash: fc9ce539005bce1790c726dfb859305f4ff78a6b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422567"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Obsługa współbieżności przy użyciu programu Entity Framework 4.0 w aplikacji ASP.NET sieci Web 4

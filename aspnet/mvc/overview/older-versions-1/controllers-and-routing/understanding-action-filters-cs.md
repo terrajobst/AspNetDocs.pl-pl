@@ -12,7 +12,7 @@ ms.openlocfilehash: 8264b48388ee4a6b51515aa2b897ece3b2f3972a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380876"
 ---
 # <a name="understanding-action-filters-c"></a>Objaśnienie filtrów akcji (C#)
@@ -49,7 +49,7 @@ Na przykład kontroler danych w ofercie 1 udostępnia akcję o nazwie `Index()` 
 Jeśli wywołujesz wielokrotnie `Index()` akcję, wprowadzając adres URL/Data/indeksu w pasku adresu przeglądarki i naciskanie klawisza odświeżania przycisk wiele razy, w tym samym czasie będzie widocznych 10 sekund. Dane wyjściowe `Index()` akcji jest buforowana przez 10 sekund (patrz rysunek 1).
 
 
-[![Cczas ached](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
+[![Czas pamięci podręcznej](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
 
 **Rysunek 01**: Buforowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-action-filters-cs/_static/image3.png))
 
@@ -107,7 +107,7 @@ Aby zilustrować, jak tworzyć filtru akcji niestandardowej, utworzymy filtru ak
 W ofercie 2 `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`, i `OnResultExecuted()` wywołania metody `Log()` metody. Nazwa metody i bieżące dane trasy jest przekazywany do `Log()` metody. `Log()` Metoda zapisuje komunikat w oknie programu Visual Studio danych wyjściowych (patrz rysunek 2).
 
 
-[![Writing do okna wyjściowego usługi Visual Studio](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
+[![Zapisywanie w oknie programu Visual Studio danych wyjściowych.](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
 
 **Rysunek 02**: Zapisywanie w oknie programu Visual Studio danych wyjściowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-action-filters-cs/_static/image6.png))
 

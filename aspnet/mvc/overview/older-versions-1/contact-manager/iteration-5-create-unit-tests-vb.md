@@ -12,7 +12,7 @@ ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380668"
 ---
 # <a name="iteration-5--create-unit-tests-vb"></a>Iteracja #5 — Tworzenie testów jednostkowych (VB)
@@ -116,12 +116,12 @@ Zanim użyjesz Moq, należy wykonać następujące czynności:
 4. Dodaj odwołanie do zestawu Moq do projektu testu, wybierając opcję menu **projektu, Dodaj odwołanie** otworzyć **Dodaj odwołanie** okna dialogowego. Na karcie przeglądania przejdź do folderu, w którym rozpakowano Moq i wybierz zestaw Moq.dll. Kliknij przycisk **OK** przycisku (patrz rysunek 2).
 
 
-[![Unblocking Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
+[![Odblokowywanie Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **Rysunek 01**: Odblokowywanie Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image2.png))
 
 
-[![Rodwołania po dodaniu Moq](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
+[![Odwołania po dodaniu Moq](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **Rysunek 02**: Odwołania po dodaniu Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image4.png))
 
@@ -154,7 +154,7 @@ Pierwszy test sprawdza, prawidłowy kontakt nie generuje błąd sprawdzania popr
 
 Kod dla tych testów znajduje się w ofercie 1.
 
-**Wyświetlanie listy 1 - Models\ContactManagerServiceTest.vb**
+**Listing 1 - Models\ContactManagerServiceTest.vb**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
@@ -184,7 +184,7 @@ Pozostałe testy Sprawdź, czy gdy wywoływana jest metoda CreateContact(), z ni
 Można uruchomić testy jednostkowe w ofercie 1, wybierając opcję menu **, przebieg testu, wszystkie testy w rozwiązaniu (CTRL + R, A)**. Wyniki testów są wyświetlane w oknie wyników testu (zobacz rysunek 4).
 
 
-[![TWyniki EST](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
+[![Test Results](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **Rysunek 04**: Wyniki testu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image8.png))
 

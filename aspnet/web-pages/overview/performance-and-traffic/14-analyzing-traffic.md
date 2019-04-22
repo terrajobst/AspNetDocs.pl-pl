@@ -12,7 +12,7 @@ ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390223"
 ---
 # <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Obiekt odwiedzający informacji (analiza) witrynie ASP.NET Web Pages (Razor) ze śledzenia
@@ -85,6 +85,6 @@ W tej procedurze utworzysz stronę układu, który używa `GetGoogleHtml` pomocn
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Google Analytics site](https://www.google.com/analytics/)
+- [Witryna usługi Google Analytics](https://www.google.com/analytics/)
 - [Yahoo! Analiza witrynę sieci Web](http://help.yahoo.com/l/us/yahoo/ywa/)
 - [StatCounter lokacji](http://statcounter.com/)

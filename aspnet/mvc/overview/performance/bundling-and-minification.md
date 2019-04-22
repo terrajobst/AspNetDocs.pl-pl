@@ -12,7 +12,7 @@ ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383840"
 ---
 # <a name="bundling-and-minification"></a>Tworzenie pakietów i minifikacja
@@ -62,10 +62,10 @@ Oprócz usuwanie komentarzy i niepotrzebnych odstępów, następujących paramet
 
 W poniższej tabeli przedstawiono kilka istotnych różnic między ofercie wszystkie zasoby pojedynczo i tworzenie pakietów i minimalizowanie (B/M) w programie próbki.
 
-|  | **Za pomocą B/M** | **Bez B/M** | **Zmiana** |
+|  | **Za pomocą B/M** | **Bez B/M** | **Change** |
 | --- | --- | --- | --- |
 | **Żądań plików** | 9 | 34 | 256% |
-| **KB wysłane** | 3.26 | 11.92 | 266% |
+| **KB Sent** | 3.26 | 11.92 | 266% |
 | **Odebrano KB** | 388.51 | 530 | 36% |
 | **Czas ładowania** | 510 MS | 780 MS | 53% |
 
@@ -165,7 +165,7 @@ Za pomocą następujących plików JavaScript, należy wziąć pod uwagę projek
 
 W poniższej tabeli przedstawiono pliki dodane do pakietu za pomocą symbolu wieloznacznego, jak pokazano:
 
-| **Wywołania** | **Pliki dodane lub zgłoszony wyjątek** |
+| **Call** | **Pliki dodane lub zgłoszony wyjątek** |
 | --- | --- |
 | Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wzorzec wyjątek. Symbol wieloznaczny jest dozwolona tylko na prefiksu lub sufiksu. |

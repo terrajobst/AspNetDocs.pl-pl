@@ -12,7 +12,7 @@ ms.openlocfilehash: ac872869f97aab679384c7cda9f6c8399cd966a3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59384708"
 ---
 # <a name="aspnet-mvc-for-the-rest-of-us-part-1"></a>Wzorzec ASP.NET MVC dla każdego: Część 1

@@ -12,7 +12,7 @@ ms.openlocfilehash: 27823e6b65dda80391d494af6f8d8da539bc3334
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393213"
 ---
 # <a name="dynamically-adding-an-accordion-pane-vb"></a>Dynamiczne dodawanie okienka kontrolki Accordion (VB)
@@ -55,7 +55,7 @@ Aby zakończyć w przykładzie, dwóch klas CSS, do którego odwołuje się kont
 [!code-css[Main](dynamically-adding-an-accordion-pane-vb/samples/sample6.css)]
 
 
-[![Tzostał on dane w właściwości accordion dynamicznie dodany przez kod po stronie serwera](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
+[![Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
 
 Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-adding-an-accordion-pane-vb/_static/image3.png))
 

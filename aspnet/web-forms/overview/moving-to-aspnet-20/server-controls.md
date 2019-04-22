@@ -12,7 +12,7 @@ ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420760"
 ---
 # <a name="server-controls"></a>Kontrolki serwera
@@ -193,7 +193,7 @@ W programie ASP.NET 2.0 atrybut requestLengthDiskThreshold elementu httpRuntime 
 
 Jest to dość często występują deweloperów platformy ASP.NET się próby zebrania informacji z serii "strony" przy użyciu paneli, lub przez przeniesienie między stronami. Więcej często niż nie pozwala jest irytujące i jest czasochłonne. Nowy formant kreatora rozwiązuje problemy, umożliwiając dla liniowych i nieliniowych kroków interfejs kreatora, który zna użytkowników. Formant Kreator przedstawia wejściowych formularzy w serii kroków. Każdy krok jest określonego typu określonego przez właściwość StepType formantu. Typy kroku dostępne są następujące:
 
-| **Typ kroku** | **Wyjaśnienie** |
+| **Typ kroku** | **Explanation** |
 | --- | --- |
 | Auto | Kreator automatycznie określi typ kroku, w zależności od jego pozycja w ramach hierarchii kroku. |
 | Uruchamianie | Pierwszym krokiem, często używany do wyświetlania zawartości instrukcji wprowadzających. |
@@ -218,7 +218,7 @@ To wideo jest przewodnik formantu kreatora.
 
 Kontrolka Lokalizuj przypomina formancie Literal. Jednak formant Lokalizuj ma **tryb** właściwość, która określa sposób renderowania kodu znaczników, który jest dodawany do niego. Właściwość trybu obsługuje następujące wartości:
 
-| **Tryb** | **Wyjaśnienie** |
+| **Tryb** | **Explanation** |
 | --- | --- |
 | Transformacja | Kod znaczników jest przekształcane zgodnie z protokołem przeglądarki wysyłającego żądanie. |
 | Przekazywanie | Kod znaczników jest renderowane jako-to. |

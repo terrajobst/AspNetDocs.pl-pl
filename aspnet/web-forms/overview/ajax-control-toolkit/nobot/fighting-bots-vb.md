@@ -12,7 +12,7 @@ ms.openlocfilehash: 6baf5447d31d00b89cb7ddf526553456fecbbf6e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409476"
 ---
 # <a name="fighting-bots-vb"></a>Zwalczanie botów (VB)
@@ -65,7 +65,7 @@ Na koniec należy formularza w celu przesyłania i elementu label, aby wyprowadz
 Uruchom ten skrypt, a dezaktywować JavaScript lub Prześlij formularz w ciągu pierwszych dwóch sekund lub Prześlij formularz siedem razy w ciągu 30 sekund, zostanie wyświetlony komunikat o błędzie. Jednak należy uważnie użyć tej kontrolki, ponieważ tylko około 90-95% użytkownicy mają JavaScript aktywowany, w związku z tym 5 – 10% użytkowników zakończy się niepowodzeniem `NoBot`użytkownika testu.
 
 
-[![Tjego komunikat o błędzie może być spowodowane przez robota](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
+[![Ten komunikat o błędzie może być spowodowane przez robota](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
 
 Ten komunikat o błędzie może być spowodowane przez robota ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](fighting-bots-vb/_static/image3.png))
 

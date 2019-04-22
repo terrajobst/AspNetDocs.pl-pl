@@ -12,7 +12,7 @@ ms.openlocfilehash: 11e70493478d6810d63ba6b3ac813e32f03052eb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381331"
 ---
 # <a name="understanding-aspnet-ajax-localization"></a>Objaśnienie lokalizacji kodu ASP.NET AJAX
@@ -32,13 +32,13 @@ Lokalizacja funkcji Microsoft AJAX Framework i biblioteki skryptów AJAX firmy M
 
 Ten dokument jest oparty na wersji Beta 2 programu Microsoft Visual Studio 2008. Tym oficjalnym dokumencie przyjęto założenie, będzie on pracować przy użyciu programu Visual Studio 2008, nie Visual Web Developer Express, i zapewnia wskazówki, zgodnie z interfejsu użytkownika programu Visual Studio. Przykłady kodu będzie korzystać z szablonów projektów, które mogą być niedostępne w Visual Web Developer Express.
 
-## *<a name="the-need-for-localization"></a>Potrzebę lokalizacji*
+## <a name="the-need-for-localization"></a>*Potrzebę lokalizacji*
 
 Szczególnie w przypadku deweloperom aplikacji dla przedsiębiorstw i deweloperów składników możliwość tworzenia narzędzia, które mogą być świadome różnice między języków i kultur stał się koniecznością. Projektowanie składników z możliwością dostosowania ustawień regionalnych klienta zwiększa wydajność deweloperów i pozwala na zmniejszenie ilości pracy wymaganej dla dostosowania składnika działać globalnie.
 
 Lokalizacja to proces projektowania i integracji pomocy technicznej dla określonego języka i kultury aplikacji lub składnika aplikacji. Platformy Microsoft ASP.NET oferuje zaawansowaną obsługę dla lokalizacji dla standardowych aplikacji ASP.NET, integrując standardowy model lokalizacji .NET; Microsoft AJAX Framework wykorzystać zintegrowane modelu do obsługi różnych scenariuszy, w których mogą być wykonywane lokalizacji. Za pomocą oprogramowania Microsoft AJAX Framework skryptów albo może być lokalizowana wdrażane w zestawy satelit lub przy użyciu struktury systemu plików statycznych.
 
-## *<a name="embedding-scripts-with-satellite-assemblies"></a>Osadzanie skryptów za pomocą zestawów satelickich*
+## <a name="embedding-scripts-with-satellite-assemblies"></a>*Osadzanie skryptów za pomocą zestawów satelickich*
 
 Zgodnie z standardowa strategii .NET Framework w lokalizacji, zasoby mogą być dołączane w zestawach satelickich. Zestawy satelickie mają kilka zalet za pośrednictwem tradycyjnych zasobów dopuszczenia plików binarnych - dowolnej podanej lokalizacji można zaktualizować bez aktualizowania większy obraz, można wdrożyć dodatkowe lokalizacje poprzez instalowanie zestawów satelickich na folder projektu, a zestawy satelickie można wdrożyć bez powodowania załadowanie zestawu głównego projektu. Szczególnie w projektach programu ASP.NET to jest korzystne, ponieważ jego mogą znacznie zmniejszyć ilość zasobów systemowych, które posługują się aktualizacje przyrostowe i co najmniej zakłóca użycia witryny sieci Web w środowisku produkcyjnym.
 
@@ -118,7 +118,7 @@ Dla osób, które są nieznane przy użyciu składni wyrażeń regularnych języ
 
 Należy zauważyć, że istnieje kilka zmian w ramach tego przewodnika. Na przykład skrypty może być zarejestrowany za pomocą formantu ScriptManager programowo podczas ładowania strony.
 
-## *<a name="including-a-static-script-file-structure"></a>W tym struktury plików statycznych skryptów*
+## <a name="including-a-static-script-file-structure"></a>*W tym struktury plików statycznych skryptów*
 
 Używając plików statycznych skryptów dla wdrożenia, utratę niektórych korzyści z używania nieprzerwaną pracę programu .NET w lokalizacji. Przede wszystkim widoczny jest utraty automatyczne typ wygenerowany na podstawie łącznie z plikami zasobów skryptu; w instruktażu powyżej na przykład zasoby zostały ujawnione przez typ generowane automatycznie, o nazwie wiadomości z formantu ScriptManager.
 
@@ -128,7 +128,7 @@ Firma Microsoft zaleca, unikając problem kontroli wersji przez automatyczne gen
 
 Ponieważ nie są zasoby do uwzględnienia w sposób deklaratywny, statycznych skryptów, które pliki powinny być przywoływane przez dodanie `<asp:ScriptElement>` elementów jako element podrzędny elementu `<Scripts>` tagu formantu ScriptManager lub programowo dodając `ScriptReference` obiektów Aby `Scripts` właściwość `ScriptManager` kontrolki na stronie w czasie wykonywania.
 
-## *<a name="the-scriptmanager-and-its-role-in-localization"></a>Funkcja ScriptManager i jego rolę w lokalizacji*
+## <a name="the-scriptmanager-and-its-role-in-localization"></a>*Funkcja ScriptManager i jego rolę w lokalizacji*
 
 Funkcja ScriptManager umożliwia automatyczne zachowaniami w przypadku zlokalizowanych aplikacji:
 
@@ -146,7 +146,7 @@ Jak powiększać aplikacji sieci web, aby dotrzeć do większej liczby osób, tr
 
 Program .NET Framework obsługuje wewnętrznie framework sformatowanego lokalizacji, wykorzystując zestawy satelickie i pliki zasobów (.resx) XML, aby przedstawić w jednolity sposób, w celu wyszukania zasobów ciągów i obrazów. Rozszerzenia AJAX programu ASP.NET, w tym Microsoft AJAX Framework i biblioteki skryptów AJAX firmy Microsoft, zapewniają obsługę ten model programowania do kodu po stronie klienta, umożliwiając łatwe zasobu ciągu wyszukiwania. Zestawy satelickie obsługuje automatyczne włączenie skryptu zasobów (pliki .js rzeczywiste) za pośrednictwem ScriptResource.axd tak długo, jak nazwy plików postępuj zgodnie z danym schemat nazewnictwa. Dzięki temu rozszerzenia AJAX programu ASP.NET uprościć skrypty lokalizacji i globalizacji aplikacji.
 
-## *<a name="bio"></a>Biografia*
+## <a name="bio"></a>*Bio*
 
 Scott Cate pracował nad przy użyciu technologii Microsoft Web od 1997 r i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacji koncentruje się na rozwiązania programowe wiedzy opartych na. Scott można się skontaktować za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blog znajduje się na [ScottCate.com](http://ScottCate.com)
 

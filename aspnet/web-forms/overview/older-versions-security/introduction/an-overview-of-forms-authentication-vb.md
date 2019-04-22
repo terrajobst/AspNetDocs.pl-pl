@@ -12,7 +12,7 @@ ms.openlocfilehash: 84b1c4c562603eddc5b82500700957bc78f236f4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386455"
 ---
 # <a name="an-overview-of-forms-authentication-vb"></a>Omówienie uwierzytelniania formularzy (VB)
@@ -48,7 +48,7 @@ FormsAuthenticationModule podejmuje próbę uwierzytelnienia użytkownika przed 
 Odpowiedzialność strony logowania jest ustalić, czy poświadczenia użytkownika są prawidłowe, i jeśli tak, utworzyć bilet uwierzytelniania formularzy i przekieruje użytkownika z powrotem do strony one próba odwiedź stronę. Bilet uwierzytelniania znajduje się w kolejnych żądań do stron w witrynie sieci Web, która FormsAuthenticationModule używa do identyfikacji użytkownika.
 
 
-[![TADAM przepływ pracy uwierzytelniania formularzy](an-overview-of-forms-authentication-vb/_static/image2.png)](an-overview-of-forms-authentication-vb/_static/image1.png)
+[![Przepływ pracy uwierzytelniania formularzy](an-overview-of-forms-authentication-vb/_static/image2.png)](an-overview-of-forms-authentication-vb/_static/image1.png)
 
 **Rysunek 01**: Przepływ pracy uwierzytelniania formularzy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image3.png))
 
@@ -85,7 +85,7 @@ Zanim można skonfigurować uwierzytelnianie formularzy, najpierw należy w witr
 > Program Visual Studio obsługuje dwa tryby zarządzania projektem: Projektów witryny sieci Web i projektów aplikacji sieci Web. Projektów witryny sieci Web brakuje pliku projektu, a Web Application Projects naśladować architektury projektu w Visual Studio .NET 2002/2003 — Dołącz plik projektu i skompilować kod źródłowy projektu do jednego zestawu, który jest umieszczony w folderze/bin. Visual Studio 2005 projektów początkowo tylko obsługiwane witryny sieci Web, mimo że modelu projektu aplikacji sieci Web została przywrócona z dodatkiem Service Pack 1; Program Visual Studio 2008 oferuje oba modele projektu. Visual Web Developer 2005 i wersji 2008, ale obsługują tylko projektów witryny sieci Web. Czy mogę używać modelu projektu witryny sieci Web. Jeśli używasz wersji non-Express i chcesz użyć [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) zamiast tego możesz to zrobić, ale należy pamiętać, że może istnieć pewne rozbieżności między wyświetlanych na ekranie oraz czynności należy wykonać w porównaniu z zrzuty ekranu pokazano, jak i instrukcje podane w tych samouczkach.
 
 
-[![Ctwórz witryny sieci Web New File System-Based](an-overview-of-forms-authentication-vb/_static/image5.png)](an-overview-of-forms-authentication-vb/_static/image4.png)
+[![Tworzenie nowego pliku w oparciu o System witryny sieci Web](an-overview-of-forms-authentication-vb/_static/image5.png)](an-overview-of-forms-authentication-vb/_static/image4.png)
 
 **Rysunek 02**: Tworzenie witryny sieci Web New File System-Based ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image6.png))
 
@@ -95,7 +95,7 @@ Zanim można skonfigurować uwierzytelnianie formularzy, najpierw należy w witr
 Następnie dodaj nową stronę wzorcową do lokacji w katalogu głównym o nazwie Site.master. [Strony wzorcowe](https://msdn.microsoft.com/library/wtxbf3hh.aspx) włączyć projektanta strony zdefiniować szablon całej lokacji, które mogą być stosowane do strony ASP.NET. Główną zaletą stron wzorcowych to, że ogólnego wyglądu witryny można zdefiniować w obrębie jednej lokalizacji, co ułatwia aktualizacji lub dostosować układ strony.
 
 
-[![Add Master strony o nazwie Site.master do witryny sieci Web](an-overview-of-forms-authentication-vb/_static/image8.png)](an-overview-of-forms-authentication-vb/_static/image7.png)
+[![Dodaj stronę wzorcową o nazwie Site.master do witryny sieci Web](an-overview-of-forms-authentication-vb/_static/image8.png)](an-overview-of-forms-authentication-vb/_static/image7.png)
 
 **Rysunek 03**: Dodaj Site.master o nazwie Master strony do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image9.png))
 
@@ -109,7 +109,7 @@ Strona wzorcowa definiuje układ stron statycznych i regiony, które mogą być 
 Ze znacznikami podanymi powyżej przełączanie do widoku projektu zawiera układ strony wzorcowej. Wszystkie strony ASP.NET, które używają tej strony wzorcowej mają ten jednolity układ i możliwość określenia znaczników dla regionu MainContent.
 
 
-[![Ton strony wzorcowej, podczas wyświetlania za pośrednictwem widoku Projekt](an-overview-of-forms-authentication-vb/_static/image11.png)](an-overview-of-forms-authentication-vb/_static/image10.png)
+[![Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu](an-overview-of-forms-authentication-vb/_static/image11.png)](an-overview-of-forms-authentication-vb/_static/image10.png)
 
 **Rysunek 04**: strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image12.png))
 
@@ -121,12 +121,12 @@ W tym momencie mamy strony Default.aspx w naszej witryny sieci Web, ale nie uży
 Następnie kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz dodać nowy formularz sieci Web o nazwie Default.aspx. Ten czas, zaznacz pole wyboru, wybierz stronę wzorcową i wybierz stronę wzorcową Site.master z listy.
 
 
-[![Add, nowej Default.aspx strona wybór opcji wybierz stronę wzorcową](an-overview-of-forms-authentication-vb/_static/image14.png)](an-overview-of-forms-authentication-vb/_static/image13.png)
+[![Dodawanie nowej strony Default.aspx, wybierając pozycję Wybierz stronę wzorcową](an-overview-of-forms-authentication-vb/_static/image14.png)](an-overview-of-forms-authentication-vb/_static/image13.png)
 
 **Rysunek 05**: Dodaj nowe Default.aspx strona wybór opcji wybierz stronę wzorcową ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image15.png))
 
 
-[![UStrona wzorcowa Site.master SE](an-overview-of-forms-authentication-vb/_static/image17.png)](an-overview-of-forms-authentication-vb/_static/image16.png)
+[![Użyj strony wzorcowej Site.master](an-overview-of-forms-authentication-vb/_static/image17.png)](an-overview-of-forms-authentication-vb/_static/image16.png)
 
 **Rysunek 06**: Użyj strony wzorcowej Site.master ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image18.png))
 
@@ -159,7 +159,7 @@ Domyślnie aplikacje ASP.NET uwierzytelnianie Windows. Aby zmienić typ uwierzyt
 Jeśli projekt nie zawiera jeszcze pliku Web.config, należy dodać jeden teraz przez kliknięcie prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, wybierając Dodaj nowy element, a następnie dodanie pliku konfiguracji sieci Web.
 
 
-[![If projektu nie jest jeszcze obejmują pliku Web.config, czy dodać ją teraz](an-overview-of-forms-authentication-vb/_static/image20.png)](an-overview-of-forms-authentication-vb/_static/image19.png)
+[![Jeśli projekt nie zawiera jeszcze pliku Web.config, dodaj je teraz](an-overview-of-forms-authentication-vb/_static/image20.png)](an-overview-of-forms-authentication-vb/_static/image19.png)
 
 **Rysunek 07**: Jeśli Twój projekt jest nie jeszcze dołączyć plik Web.config, Dodaj teraz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image21.png))
 
@@ -191,7 +191,7 @@ Strona logowania ma trzy obowiązki:
 Zacznijmy od pierwszego zadania. Dodawanie nowej strony programu ASP.NET do katalogu głównego witryny o nazwie Login.aspx i skojarz go ze stroną wzorcową Site.master.
 
 
-[![ADodaj nowy ASP.NET strony o nazwie Login.aspx](an-overview-of-forms-authentication-vb/_static/image23.png)](an-overview-of-forms-authentication-vb/_static/image22.png)
+[![Dodawanie nowej strony programu ASP.NET o nazwie Login.aspx](an-overview-of-forms-authentication-vb/_static/image23.png)](an-overview-of-forms-authentication-vb/_static/image22.png)
 
 **Rysunek 08**: Dodaj nowy ASP.NET strony o nazwie Login.aspx ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image24.png))
 
@@ -205,7 +205,7 @@ W tym momencie ekran powinien wyglądać podobnie do ekranu zrzut na rysunku 9, 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample4.aspx)]
 
 
-[![TADAM logowania strona zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę](an-overview-of-forms-authentication-vb/_static/image26.png)](an-overview-of-forms-authentication-vb/_static/image25.png)
+[![Na stronie logowania zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę](an-overview-of-forms-authentication-vb/_static/image26.png)](an-overview-of-forms-authentication-vb/_static/image25.png)
 
 **Rysunek 09**: Logowania strona zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image27.png))
 
@@ -251,7 +251,7 @@ Podczas tworzenia biletu uwierzytelniania formularzy używamy właściwości tek
 Aby przetestować stronę logowania, odwiedź stronę w przeglądarce. Rozpocznij, wprowadzając nieprawidłowe poświadczenia, takie jak nazwa Nope i hasło problem. Po kliknięciu przycisku logowania. nastąpi odświeżenie strony i będzie wyświetlana etykieta InvalidCredentialsMessage.
 
 
-[![TInvalidCredentialsMessage etykieta jest wyświetlana po wprowadzeniu nieprawidłowe poświadczenia](an-overview-of-forms-authentication-vb/_static/image29.png)](an-overview-of-forms-authentication-vb/_static/image28.png)
+[![Etykieta InvalidCredentialsMessage jest wyświetlany po wprowadzeniu nieprawidłowe poświadczenia](an-overview-of-forms-authentication-vb/_static/image29.png)](an-overview-of-forms-authentication-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Etykieta InvalidCredentialsMessage jest wyświetlany po wprowadzeniu nieprawidłowych poświadczeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image30.png))
 
@@ -287,12 +287,12 @@ Jak ma prawdopodobnie złamać, przeprowadzona, w tym miejscu chodzi o to mają 
 Przy użyciu tego kodu w miejscu odwiedź stronę Default.aspx za pośrednictwem przeglądarki. Przy założeniu, że masz jeszcze się zalogować, zostanie wyświetlony link do strony logowania (zobacz rysunek 11). Kliknij ten link i zaloguj się do witryny. Jak widzieliśmy w kroku 3, po wprowadzeniu poświadczeń nastąpi powrót do Default.aspx, ale tym razem na stronie znajdują się Witamy z powrotem! komunikat (zobacz rysunek 12).
 
 
-[![WGD odwiedzający anonimowo i Linkiem w dzienniku jest wyświetlana](an-overview-of-forms-authentication-vb/_static/image32.png)](an-overview-of-forms-authentication-vb/_static/image31.png)
+[![Gdy, odwiedzając anonimowo, w dzienniku łącza zostanie wyświetlona](an-overview-of-forms-authentication-vb/_static/image32.png)](an-overview-of-forms-authentication-vb/_static/image31.png)
 
 **Rysunek 11**: Podczas odwiedzania anonimowo, jest wyświetlany w dzienniku Link ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image33.png))
 
 
-[![AUżytkownicy otrzymują uthenticated Witamy z powrotem! Komunikat](an-overview-of-forms-authentication-vb/_static/image35.png)](an-overview-of-forms-authentication-vb/_static/image34.png)
+[![Uwierzytelnieni użytkownicy są wyświetlane Witamy z powrotem! Komunikat](an-overview-of-forms-authentication-vb/_static/image35.png)](an-overview-of-forms-authentication-vb/_static/image34.png)
 
 **Rysunek 12**: Uwierzytelnieni użytkownicy są wyświetlane Witamy z powrotem! Komunikat ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image36.png))
 
@@ -325,7 +325,7 @@ WelcomeBackMessage.Text = "Witaj ponownie," &amp; User.Identity.Name &amp; "!"
 Rysunek 13 przedstawiono wpływ tej zmiany (po zalogowaniu się jako użytkownik Scott).
 
 
-[![TPowitalna wiadomość zawiera on obecnie rejestrowane w nazwy użytkownika](an-overview-of-forms-authentication-vb/_static/image38.png)](an-overview-of-forms-authentication-vb/_static/image37.png)
+[![Wiadomość powitalna obejmuje aktualnie zarejestrowane nazwy użytkownika](an-overview-of-forms-authentication-vb/_static/image38.png)](an-overview-of-forms-authentication-vb/_static/image37.png)
 
 **Rysunek 13**: Wiadomość powitalna zawiera nazwę obecnie rejestrowane w użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image39.png))
 
@@ -354,7 +354,7 @@ Następnie dodaj kontrolki widoku logowania LoginContent ContentPlaceHolder. Zaw
 Widoku logowania i inne kontrolki skojarzone z logowaniem znajdują się w karcie logowania przybornika.
 
 
-[![TADAM kontrolki widoku logowania w przyborniku](an-overview-of-forms-authentication-vb/_static/image41.png)](an-overview-of-forms-authentication-vb/_static/image40.png)
+[![Kontrolki widoku logowania w przyborniku](an-overview-of-forms-authentication-vb/_static/image41.png)](an-overview-of-forms-authentication-vb/_static/image40.png)
 
 **Rysunek 14**: Kontrolki widoku logowania w przyborniku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image42.png))
 
@@ -374,7 +374,7 @@ Po wprowadzeniu te dodatki do szablonów widoku logowania, znaczników powinien 
 Z tym dodatkiem strony wzorcowej Site.master każda strona w naszej witryny sieci Web zostanie wyświetlony komunikat różne w zależności od tego, czy użytkownik jest uwierzytelniony. Rysunek 15 pokazuje strony Default.aspx po odwiedzeniu za pośrednictwem przeglądarki przez użytkownika Jisun. Witamy ponownie, Jisun wiadomości jest powtórzony dwa razy: jeden raz w sekcji nawigacji strony wzorcowej po lewej stronie (za pomocą kontrolki widoku logowania właśnie dodaliśmy) i jeden raz w Default.aspx zawartość obszaru (za pomocą kontrolki Panel i logiki programowej).
 
 
-[![TADAM widoku logowania kontrolka Wyświetla Witamy z powrotem, Jisun.](an-overview-of-forms-authentication-vb/_static/image44.png)](an-overview-of-forms-authentication-vb/_static/image43.png)
+[![Zapraszamy Wyświetla kontrolki widoku logowania ponownie Jisun.](an-overview-of-forms-authentication-vb/_static/image44.png)](an-overview-of-forms-authentication-vb/_static/image43.png)
 
 **Rysunek 15**: Zapraszamy Wyświetla kontrolki widoku logowania ponownie Jisun. ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image45.png))
 
@@ -382,7 +382,7 @@ Z tym dodatkiem strony wzorcowej Site.master każda strona w naszej witryny siec
 Ponieważ dodaliśmy widoku logowania na stronie wzorcowej może znajdować się w każdej strony w naszej witrynie. Jednak mogą istnieć stron sieci web gdy nie chcemy pokazuj tego komunikatu. Jedna takie strona jest strony logowania, ponieważ link do strony logowania jest prawdopodobnie poza ma miejsce. Ponieważ firma Microsoft umieszczone kontrolki widoku logowania w ContentPlaceHolder na stronie głównej, firma Microsoft można zastąpić ten kod znaczników domyślne na naszej stronie zawartości. Otwórz Login.aspx i przejdź do projektanta. Ponieważ firma Microsoft nie został jawnie zdefiniowany kontrolkę zawartości w Login.aspx dla LoginContent ContentPlaceHolder na stronie głównej, na stronie logowania będzie wyświetlana znaczników domyślnej strony wzorcowej dla tego elementu ContentPlaceHolder. Widać to za pomocą projektanta - LoginContent ContentPlaceHolder Pokazuje znaczniki domyślne (kontrolki widoku logowania).
 
 
-[![TZawiera on strony logowania domyślnej zawartości dla strony wzorcowej LoginContent ContentPlaceHolder](an-overview-of-forms-authentication-vb/_static/image47.png)](an-overview-of-forms-authentication-vb/_static/image46.png)
+[![Na stronie logowania przedstawiono domyślne zawartości dla strony wzorcowej LoginContent ContentPlaceHolder](an-overview-of-forms-authentication-vb/_static/image47.png)](an-overview-of-forms-authentication-vb/_static/image46.png)
 
 **Rysunek 16**: Na stronie logowania znajdują się domyślne zawartości dla strony wzorcowej LoginContent ContentPlaceHolder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image48.png))
 
@@ -396,7 +396,7 @@ Aby zastąpić domyślne znaczniki dla LoginContent ContentPlaceHolder, kliknij 
 Rysunek 17 pokazuje strony Login.aspx po odwiedzeniu z poziomu przeglądarki po wprowadzeniu tej zmiany. Należy pamiętać, że nie Witaj, osoba nieznana lub Witamy z powrotem *username* wiadomości w lewym panelu nawigacyjnym &lt;div&gt; się podczas odwiedzania Default.aspx.
 
 
-[![TUkrywa on strony logowania znaczników domyślnych LoginContent ContentPlaceHolder firmy](an-overview-of-forms-authentication-vb/_static/image50.png)](an-overview-of-forms-authentication-vb/_static/image49.png)
+[![Na stronie logowania ukrywa znaczników LoginContent ContentPlaceHolder domyślne](an-overview-of-forms-authentication-vb/_static/image50.png)](an-overview-of-forms-authentication-vb/_static/image49.png)
 
 **Rysunek 17**: Na stronie logowania ukrywa znaczników domyślnych LoginContent ContentPlaceHolder firmy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image51.png))
 
@@ -432,7 +432,7 @@ Rysunek 18 pokazuje Default.aspx, gdy odwiedza Jisun. Należy pamiętać, że ko
 **Rysunek 18**: Default.aspx pokazuje Zapraszamy ponownie, Jisun wraz z LinkButton wylogowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image54.png))
 
 
-[![LPokazuje — Zapraszamy obcej osoby wraz z LinkButton logowania ogout.aspx](an-overview-of-forms-authentication-vb/_static/image56.png)](an-overview-of-forms-authentication-vb/_static/image55.png)
+[![Logout.aspx pokazuje — Zapraszamy obcej osoby wraz z LinkButton logowania](an-overview-of-forms-authentication-vb/_static/image56.png)](an-overview-of-forms-authentication-vb/_static/image55.png)
 
 **Rysunek 19**: Logout.aspx pokazuje — Zapraszamy obcej osoby wraz z LinkButton logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image57.png))
 

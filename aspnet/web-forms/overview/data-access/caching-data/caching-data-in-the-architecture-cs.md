@@ -12,7 +12,7 @@ ms.openlocfilehash: 7637e23678af80ae037292fd3f89ef74167c8242
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419252"
 ---
 # <a name="caching-data-in-the-architecture-c"></a>Buforowanie danych w architekturze (C#)
@@ -159,7 +159,7 @@ Za pomocą tej modyfikacji `AddCacheItem(key, value)`, invaliding pamięć podr�
 Pamięć podręczna warstwy s klas i metod może służyć do pracy z danymi za pomocą technik możemy ve badany w całym tych samouczków. Aby zilustrować pracy przy użyciu danych z pamięci podręcznej, zapisać zmiany w `ProductsCL` klasy, a następnie otwórz `FromTheArchitecture.aspx` strony w `Caching` folderze i Dodaj GridView. W tagu inteligentnego s GridView należy utworzyć nowe kontrolki ObjectDataSource. W pierwszym kroku s kreator powinien zostać wyświetlony `ProductsCL` klasy jako jedną z opcji z listy rozwijanej.
 
 
-[![TADAM klasy ProductsCL znajduje się na liście rozwijanej obiektów biznesowych](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
+[![Klasa ProductsCL znajduje się na liście rozwijanej obiektów biznesowych](caching-data-in-the-architecture-cs/_static/image5.png)](caching-data-in-the-architecture-cs/_static/image4.png)
 
 **Rysunek 4**: `ProductsCL` Klasa znajduje się na liście rozwijanej obiektów Business ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-in-the-architecture-cs/_static/image6.png))
 
@@ -167,7 +167,7 @@ Pamięć podręczna warstwy s klas i metod może służyć do pracy z danymi za 
 Po wybraniu `ProductsCL`, kliknij przycisk Dalej. Listy rozwijanej wybierz karta ma dwa elementy — `GetProducts()` i `GetProductsByCategoryID(categoryID)` i na karcie aktualizacji ma jedyny `UpdateProduct` przeciążenia. Wybierz `GetProducts()` metody z wybierz kartę i `UpdateProducts` metody z karty aktualizacji i kliknij przycisk Zakończ.
 
 
-[![TADAM, które metody s ProductsCL klasy są wymienione w listy rozwijanej](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
+[![Metody klasy ProductsCL s są wymienione w listy rozwijane](caching-data-in-the-architecture-cs/_static/image8.png)](caching-data-in-the-architecture-cs/_static/image7.png)
 
 **Rysunek 5**: `ProductsCL` Metod klasy s są wymienione w listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-in-the-architecture-cs/_static/image9.png))
 

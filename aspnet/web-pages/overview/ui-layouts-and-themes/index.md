@@ -12,7 +12,7 @@ ms.openlocfilehash: d1b0a8bb4cd9758af4f77526584e3b1198c70e01
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399050"
 ---
 # <a name="ui-layouts-and-themes"></a>Interfejs użytkownika, układy i motywy
@@ -21,7 +21,7 @@ ms.locfileid: "59399050"
 
 
 - [Praca z formularzami](4-working-with-forms.md)
-- [Walidacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](validating-user-input-in-aspnet-web-pages-sites.md)
+- [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](validating-user-input-in-aspnet-web-pages-sites.md)
 - [Tworzenie spójnego wyglądu](3-creating-a-consistent-look.md)
 - [Dostosowywanie zachowania dla całej witryny](18-customizing-site-wide-behavior.md)
 - [Praca z obrazami](9-working-with-images.md)

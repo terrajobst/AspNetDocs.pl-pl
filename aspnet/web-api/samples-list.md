@@ -13,7 +13,7 @@ ms.openlocfilehash: 673ed803f65ece1f3cd7181a48f6c9debf88bf9e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390171"
 ---
 # <a name="web-api-samples-list"></a>Lista przykładów wzorca Web API
@@ -119,6 +119,6 @@ Pokazuje, jak użyć atrybutów sprawdzania poprawności na modeli w ASP.NET Web
 
 Pokazuje klasy ApiController dodane do projektu formularzy sieci Web.
 
-**[Przykładowe RestBugs](https://github.com/howarddierking/RestBugs)**
+**[RestBugs Sample](https://github.com/howarddierking/RestBugs)**
 
 RestBugs jest to prosty błąd, aplikacja, która pokazuje, jak używać interfejsu API sieci Web platformy ASP.NET i Nowa biblioteka klienta HTTP do tworzenia opartych na hipermediach systemu śledzenia. Przykład zawiera implementacje klienta i serwera przy użyciu interfejsu API sieci Web platformy ASP.NET. Serwer używa niestandardowego elementu formatującego Razor, można wygenerować reprezentacji zasobu. Przykład zawiera również serwer środowiska node.js w celu zilustrowania korzyści, które pochodzą z projektu hipermediach w celu oddzielenia klientów i serwerów.

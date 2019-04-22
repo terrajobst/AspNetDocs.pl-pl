@@ -12,7 +12,7 @@ ms.openlocfilehash: cead55311660a630ca5fe906e1afe8767c75aa7f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394536"
 ---
 # <a name="creating-a-site-with-iis7-manager"></a>Tworzenie witryny za pomocą Menedżera usług IIS7

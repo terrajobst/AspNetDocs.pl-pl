@@ -12,7 +12,7 @@ ms.openlocfilehash: d1e01c7693cc5d59b32019dfef1663863e7978c4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379849"
 ---
 # <a name="querying-data-with-the-sqldatasource-control-vb"></a>Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (VB)
@@ -79,7 +79,7 @@ Zanim zaczniemy, eksplorowanie sposób pracy bezpośrednio z bazy danych, przy u
 Podobnie jak w przypadku innych folderów `Default.aspx` w `SqlDataSource` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
+[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
 
 **Rysunek 4**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image6.gif))
 
@@ -155,7 +155,7 @@ Jak za pomocą kontrolki ObjectDataSource, Kreator s SqlDataSource jedynie przyp
 Po skonfigurowaniu SqlDataSource może być powiązana z danymi formantu sieci Web, takich jak GridView lub DetailsView. W tym samouczku umożliwiają wyświetlanie danych w kontrolce GridView s. Z przybornika przeciągnij GridView na stronę, który należy powiązać `ProductsDataSource` SqlDataSource, wybierając źródło danych z listy rozwijanej w tagu inteligentnego s GridView.
 
 
-[![Add GridView i powiązać ją z kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
+[![Dodaj GridView i powiązać kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
 
 **Na rysunku nr 10**: Dodaj GridView i powiązać kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image14.gif))
 
@@ -170,7 +170,7 @@ Poświęć chwilę, aby skonfigurować s GridView trzech BoundFields. Zmiana `Pr
 Odwiedź tę stronę za pośrednictwem przeglądarki. Jak pokazano na ilustracji 11, widoku GridView wyświetla każdy produkt s `ProductID`, `ProductName`, i `UnitPrice` wartości.
 
 
-[![TPrzedstawia on GridView każdego produktu s ProductID, ProductName i wartości UnitPrice](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
+[![Kontrolki GridView Wyświetla każdego produktu s ProductID ProductName wartości i cena jednostkowa](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
 
 **Rysunek 11**: S GridView wyświetla każdy produkt `ProductID`, `ProductName`, i `UnitPrice` wartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image17.gif))
 
@@ -228,7 +228,7 @@ Po ukończeniu kreatora, widoku GridView będzie mieć trzy BoundFields dodawany
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample5.aspx)]
 
 
-[![TPrzedstawia on GridView identyfikator, nazwę i skojarzone nazwy kategorii każdego produktu s](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
+[![Każdy identyfikator produktu s Nazwa kategorii nazwę i skojarzonych pokazuje, widoku GridView](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
 
 **Rysunek 15**: Identyfikator kontrolki GridView pokazuje każdego produktu, nazwę i skojarzone nazwy kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif))
 

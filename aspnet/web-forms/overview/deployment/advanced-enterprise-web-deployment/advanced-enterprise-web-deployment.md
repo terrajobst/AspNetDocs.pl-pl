@@ -12,7 +12,7 @@ ms.openlocfilehash: 2f27e9436f246e3da2fbb129bbcd2d80e39b5f28
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385322"
 ---
 # <a name="advanced-enterprise-web-deployment"></a>Zaawansowane wdrażanie w Internecie w przedsiębiorstwie

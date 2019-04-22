@@ -12,7 +12,7 @@ ms.openlocfilehash: abff97e5cc2663465fdf61f41ff69d17104fe8b6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379472"
 ---
 # <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Implementowanie interfejsu użytkownika typu lista/szczegóły przy użyciu kontrolerów i widoków
@@ -95,7 +95,7 @@ Poniżej znajduje się tabela, która pokazuje, jak różne adresy URL są zamap
 | --- | --- | --- | --- |
 | */ Kolacji/szczegóły/2* | DinnersController | Details(ID) | id=2 |
 | */ Kolacji/Edit/5* | DinnersController | Edit(ID) | id=5 |
-| */ Kolacji/tworzenia* | DinnersController | Create() | Brak |
+| */Dinners/Create* | DinnersController | Create() | Brak |
 | */ Kolacji* | DinnersController | Index() | Brak |
 | *Domowych* | HomeController | Index() | Brak |
 | */* | HomeController | Index() | Brak |

@@ -12,7 +12,7 @@ ms.openlocfilehash: b8ec246c2f35f3d7fa5bcf67aa6f157195028176
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59379524"
 ---
 # <a name="configuring-a-website-that-uses-application-services-vb"></a>Konfigurowanie witryny internetowej, która korzysta z usług aplikacji (VB)
@@ -106,7 +106,7 @@ Pozwól s, zobacz, jak dodać obiekty z bazy danych do bazy danych produkcyjnych
 Uruchamia narzędzie, wyświetlając ekran powitalny wyjaśniające, jego przeznaczenie. Kliknij obok Zaawansowane na ekranie "Wybieranie opcji konfiguracji", który jest pokazany na rysunku 1. W tym miejscu można dodać usługi aplikacji obiektów bazy danych lub usunięcie ich z bazy danych. Ponieważ chcemy dodać te obiekty do produkcyjnej bazy danych, wybierz opcję "Configure SQL Server dla usług aplikacji", a następnie kliknij przycisk Dalej.
 
 
-[![Cbierz do konfigurowania programu SQL Server dla usług aplikacji](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
+[![Wybierz opcję konfigurowania programu SQL Server dla usług aplikacji](configuring-a-website-that-uses-application-services-vb/_static/image2.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image1.jpg)
 
 **Rysunek 1**: Możliwość konfigurowania programu SQL Server dla usług aplikacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-vb/_static/image3.jpg))
 
@@ -117,7 +117,7 @@ W "Wybierz serwer i baza danych" ekranu monituje o podanie informacji do łącze
 > Po wprowadzeniu serwera bazy danych i poświadczeń może wystąpi błąd podczas rozwijania listy rozwijanej bazy danych. `aspnet_regsql.exe` Narzędzia zapytań `sysdatabases` tabeli systemowej można pobrać listy baz danych na serwerze, ale niektóre hostingu firmy blokowanie ich serwerów baz danych, aby te informacje nie są publicznie dostępne w sieci web. Jeśli ten błąd można wpisać nazwę bazy danych bezpośrednio na liście rozwijanej.
 
 
-[![Supply s Narzędzie za pomocą usługi bazy danych informacji o połączeniu](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
+[![Podaj narzędzia z informacjami o połączeniu s bazy danych](configuring-a-website-that-uses-application-services-vb/_static/image5.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image4.jpg)
 
 **Rysunek 2**: Podaj s Narzędzie za pomocą usługi bazy danych informacji o połączeniu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-vb/_static/image6.jpg))
 
@@ -125,7 +125,7 @@ W "Wybierz serwer i baza danych" ekranu monituje o podanie informacji do łącze
 Kolejne ekranu zawiera podsumowanie działań, które mają zostać wykonane, a mianowicie który obiekty bazy danych usług aplikacji ma zostać dodany do określonej bazy danych. Kliknij przycisk Dalej, aby ukończyć tę akcję. Po kilku chwilach ekran końcowy jest wyświetlany, biorąc pod uwagę, że obiekty bazy danych zostały dodane (zobacz rysunek 3).
 
 
-[![Success! Obiekty bazy danych usług aplikacji zostały dodane do produkcyjnej bazy danych](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
+[![SUKCES! Obiekty bazy danych usług aplikacji zostały dodane do produkcyjnej bazy danych](configuring-a-website-that-uses-application-services-vb/_static/image8.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image7.jpg)
 
 **Rysunek 3**: SUKCES! Aplikacja usługi bazy danych obiekty zostały dodane do produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-vb/_static/image9.jpg))
 
@@ -133,7 +133,7 @@ Kolejne ekranu zawiera podsumowanie działań, które mają zostać wykonane, a 
 Aby sprawdzić, czy obiekty bazy danych usług aplikacji zostały pomyślnie dodane do produkcyjnej bazy danych, Otwórz program SQL Server Management Studio i połączyć do produkcyjnej bazy danych. Jak pokazano na rysunku 4, powinien zostać wyświetlony tabel bazy danych usług aplikacji w bazie danych, `aspnet_Applications`, `aspnet_Membership`, `aspnet_Users`, i tak dalej.
 
 
-[![CPotwierdź, że obiekty bazy danych zostały dodane do produkcyjnej bazy danych](configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
+[![Upewnij się, że obiekty bazy danych zostały dodane do produkcyjnej bazy danych](configuring-a-website-that-uses-application-services-vb/_static/image11.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image10.jpg)
 
 **Rysunek 4**: Upewnij się, że obiekty bazy danych zostały dodane do produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-vb/_static/image12.jpg))
 
@@ -172,7 +172,7 @@ Pamiętaj, że wcześniej samouczek zaktualizowane książki przeglądy aplikacj
 > Aby więcej informacji na temat przy użyciu członkostwa i ról interfejsów API do formantów sieci Web platformy ASP.NET skojarzone z logowaniem, pamiętaj o przeczytaniu Moje [ *samouczki dotyczące zabezpieczeń witryny sieci Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md). Aby uzyskać więcej informacji na dostosowywanie formantu CreateUserWizard, zobacz [ *tworzenie kont użytkowników* ](../../older-versions-security/membership/creating-user-accounts-vb.md) i [ *przechowywanie dodatkowych informacji użytkownika* ](../../older-versions-security/membership/storing-additional-user-information-vb.md) samouczków lub wyewidencjonowanie [ *Erich Peterson* ](http://www.erichpeterson.com/) artykułu s [ *Dostosowywanie formantu CreateUserWizard* ](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx).
 
 
-[![AMożna tworzyć nowych kont użytkowników dministrators](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
+[![Administratorzy mogą tworzyć nowych kont użytkowników](configuring-a-website-that-uses-application-services-vb/_static/image14.jpg)](configuring-a-website-that-uses-application-services-vb/_static/image13.jpg)
 
 **Rysunek 5**: Administratorzy mogą tworzyć nowych kont użytkowników ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-vb/_static/image15.jpg))
 
@@ -189,7 +189,7 @@ Wszystkiego najlepszego programowania!
 
 Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [*Narzędzie do rejestracji serwera SQL platformy ASP.NET (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
+- [*ASP.NET SQL Server Registration Tool (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
 - [*Tworzenie bazy danych z usługi aplikacji dla programu SQL Server*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*Tworzenie schematu członkostwa w programie SQL Server*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md)
 - [*Badanie ASP.NET s członkostwo, role i profilu*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)

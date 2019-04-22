@@ -12,7 +12,7 @@ ms.openlocfilehash: fe19910d693a784b8dc207462591c9f4d51cec14
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382150"
 ---
 # <a name="determining-what-files-need-to-be-deployed-vb"></a>Określanie, które pliki muszą zostać wdrożone (VB)
@@ -93,7 +93,7 @@ Pobierania w tym samouczku obejmuje aplikacji programu ASP.NET o nazwie przeglą
 Rysunek 1 pokazuje zrzut ekranu, przeglądy książki witryny sieci Web podczas wyświetlania za pośrednictwem przeglądarki. W tym miejscu zostanie wyświetlona strona ~ / Tech/TYASP35.aspx, który przegląda książki *uczyć się ASP.NET 3.5 w ciągu 24 godzin*. Nawigacji, która obejmuje górnej części strony i w menu w lewej kolumnie są oparte na struktura mapy witryny, które są zdefiniowane w `Web.sitemap`. Obraz w prawym górnym rogu jest jednym z okładki książki obrazów znajdujących się w `Images` folderu. Witryny sieci Web wygląd i działanie są definiowane za pomocą kaskadowych reguły arkusza stylów, wskazane przez pliki CSS w `Styles` folderu, chociaż nadrzędna układ strony jest zdefiniowana na stronie głównej `Site.master`.
 
 
-[![TPrzeglądy książki witryny sieci Web, oferuje recenzje pewną liczbę tytułów](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
+[![Witryny sieci Web przeglądy książki oferuje recenzje pewną liczbę tytułów](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
 **Rysunek 1**: Witryny sieci Web przeglądy książki oferuje recenzje gamę tytuły ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](determining-what-files-need-to-be-deployed-vb/_static/image3.png))
 
@@ -116,7 +116,7 @@ Model projektu aplikacji sieci Web używa kompilację typu explicit — kodu źr
 Na rysunku 2 przedstawiono pliki, które tworzą projektu aplikacji sieci Web przeglądy książki.
 
 
-[![Ton Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
+[![Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
 
 **Rysunek 2**: Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web
 
@@ -147,7 +147,7 @@ Opcja menu kompilacji w programie Visual Studio jest obecny w projektach aplikac
 Rysunek 3 przedstawia pliki, które składają się projekt witryny sieci Web przeglądy książki.
 
 
-[![Ton Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
+[![Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
 
 **Rysunek 3**: Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web
 

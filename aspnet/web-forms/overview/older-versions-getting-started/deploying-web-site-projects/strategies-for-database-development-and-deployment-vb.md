@@ -12,7 +12,7 @@ ms.openlocfilehash: afd287836337d0f9411daac805c3e9bcbb2dbadb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385075"
 ---
 # <a name="strategies-for-database-development-and-deployment-vb"></a>Strategie projektowania i wdrażania baz danych (VB)
@@ -99,7 +99,7 @@ Istnieją różne narzędzia porównania bazy danych z innych firm oferowane prz
 Po uruchomieniu SQL Compare zostanie otwarte okno dialogowe projektów porównania, przedstawiający zapisanych SQL Compare projektów. Utwórz nowy projekt. Spowoduje to uruchomienie Kreatora konfiguracji projektu, który wyświetla monit dotyczący informacji na temat baz danych, aby porównać (patrz rysunek 1). Wprowadź informacje dla baz danych środowisku deweloperskim i produkcyjnym.
 
 
-[![CPorównaj rozwoju i produkcyjne bazy danych](strategies-for-database-development-and-deployment-vb/_static/image2.jpg)](strategies-for-database-development-and-deployment-vb/_static/image1.jpg)
+[![Porównaj programowania i produkcyjnych bazach danych](strategies-for-database-development-and-deployment-vb/_static/image2.jpg)](strategies-for-database-development-and-deployment-vb/_static/image1.jpg)
 
 **Rysunek 1**: Porównaj programowania i produkcyjnych bazach danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](strategies-for-database-development-and-deployment-vb/_static/image3.jpg))
 
@@ -116,7 +116,7 @@ Po wybraniu baz danych w celu porównania i przeglądając opcje porównywania, 
 > Zmiany danych w modelu w ramach tego samouczka zostały wykonane w celu zilustrowania przy użyciu narzędzia do porównywania bazy danych. Te zmiany w bazie danych nie będą dostępne w przyszłości samouczków.
 
 
-[![SPorównaj QL przedstawiono różnice między środowiskami deweloperskim i produkcyjne bazy danych](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
+[![SQL Compare przedstawiono różnice między środowiskami deweloperskim i produkcyjne bazy danych](strategies-for-database-development-and-deployment-vb/_static/image5.jpg)](strategies-for-database-development-and-deployment-vb/_static/image4.jpg)
 
 **Rysunek 2**: SQL Compare wyświetla różnice między programowania i produkcyjnych bazach danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](strategies-for-database-development-and-deployment-vb/_static/image6.jpg))
 
@@ -128,7 +128,7 @@ Wybieranie obiektu bazy danych wyświetla oknie różnice w języku SQL, które 
 Po przejrzeniu różnice i wybraniu obiekty, które chcesz synchronizować, następnym krokiem jest generowanie polecenia SQL wymagane do aktualizacji schematu s bazy danych w środowisku produkcyjnym, aby dopasować rozwoju bazy danych. Jest to realizowane za pośrednictwem Kreatora synchronizacji. Kreator synchronizacji potwierdza, jakie obiekty do synchronizowania, a także podsumowano akcji plan (zobacz rysunek 3). Możesz natychmiast zsynchronizować bazy danych lub generowania skryptu za pomocą poleceń SQL, które mogą być uruchamiane w wolnym czasie.
 
 
-[![UUżyj Kreatora synchronizacji, aby zsynchronizować Your schematy bazy danych](strategies-for-database-development-and-deployment-vb/_static/image8.jpg)](strategies-for-database-development-and-deployment-vb/_static/image7.jpg)
+[![Za pomocą Kreatora synchronizacji, aby zsynchronizować swoje schematy bazy danych](strategies-for-database-development-and-deployment-vb/_static/image8.jpg)](strategies-for-database-development-and-deployment-vb/_static/image7.jpg)
 
 **Rysunek 3**: Użyj Kreatora synchronizacji, aby zsynchronizować Your schematów baz danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](strategies-for-database-development-and-deployment-vb/_static/image9.jpg))
 

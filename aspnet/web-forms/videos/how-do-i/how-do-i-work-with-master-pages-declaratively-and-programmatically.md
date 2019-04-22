@@ -12,7 +12,7 @@ ms.openlocfilehash: 821ad2015d6cc040e219aec59d96792e715e2d7b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392225"
 ---
 # <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[Jak mogę] Praca ze stronami wzorcowymi w sposób deklaratywny i programowy

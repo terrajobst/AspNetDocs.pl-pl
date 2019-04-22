@@ -13,7 +13,7 @@ ms.openlocfilehash: fb0309af11910125943737ebb721b356b7bd08bc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418303"
 ---
 # <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: dane w formacie form-urlencoded
@@ -134,4 +134,4 @@ To samo podejście umożliwia wysyłanie tablicę typów prostych:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Część 2. przekazywanie plików i wieloczęściowa wiadomość MIME](sending-html-form-data-part-2.md)
+[Część 2. Przekazywanie pliku i wieloczęściowej wiadomości MIME](sending-html-form-data-part-2.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 93a0af00d9e32e044f408a1ca8a2cea73e906d66
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380291"
 ---
 # <a name="assigning-roles-to-users-c"></a>Przypisywanie ról do użytkowników (C#)
@@ -57,7 +57,7 @@ Następnie dodaj poniższą definicję klasy CSS do `Styles.css` arkusza stylów
 Ta definicja CSS powoduje, że przeglądarka do wyświetlania etykiet przy użyciu czcionki dużych, red. Rysunek 1 pokazuje, w tym celu za pomocą projektanta programu Visual Studio.
 
 
-[![TEtykieta HE CssClass właściwość skutkuje duże, czcionka Red](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
+[![Właściwość CssClass etykiety powoduje czcionki dużych, czerwony](assigning-roles-to-users-cs/_static/image2.png)](assigning-roles-to-users-cs/_static/image1.png)
 
 **Rysunek 1**: Etykiety `CssClass` właściwości powoduje duże, czcionka Red ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image3.png))
 
@@ -93,7 +93,7 @@ Na koniec należy wywołać te dwie metody, gdy strona jest ładowana jako pierw
 Przy użyciu tego kodu w miejscu Poświęć chwilę na stronę za pośrednictwem przeglądarki; ekran powinien wyglądać podobnie jak na rysunku 2. Wszystkie konta użytkowników zostaną wypełnione na liście rozwijanej, a poniżej, każda rola ma postać pola wyboru. Ponieważ ustawiliśmy `AutoPostBack` właściwości kontrolki DropDownList i pola wyboru o wartości True, zmiana wybranego użytkownika lub zaznaczenie lub usunięcie zaznaczenia roli powoduje odświeżenie strony. Jest wykonywana żadna akcja, jednak, ponieważ trzeba jeszcze napisać kod, aby obsługiwać te akcje. Firma Microsoft będzie czoła tych zadań w dwóch następnych sekcjach.
 
 
-[![TZawiera on strony, użytkownikami i rolami](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
+[![Zostanie wyświetlona strona użytkownikami i rolami](assigning-roles-to-users-cs/_static/image5.png)](assigning-roles-to-users-cs/_static/image4.png)
 
 **Rysunek 2**: Zostanie wyświetlona strona Użytkownicy i role ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image6.png))
 
@@ -135,7 +135,7 @@ Powyższy kod, który rozpoczyna się od programowe odwoływanie się do pola wy
 Poświęć chwilę, w celu przetestowania tej strony za pośrednictwem przeglądarki. Wybierz użytkownika Tito, a następnie dodaj Tito do ról administratorów i nadzorców.
 
 
-[![Tpawłowski została dodana do administratorów i ról nadzorców](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
+[![Tito została dodana do administratorów i ról nadzorcy](assigning-roles-to-users-cs/_static/image8.png)](assigning-roles-to-users-cs/_static/image7.png)
 
 **Rysunek 3**: Tito została dodana do administratorów i ról nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image9.png))
 
@@ -143,7 +143,7 @@ Poświęć chwilę, w celu przetestowania tej strony za pośrednictwem przegląd
 Następnie wybierz użytkownika Bruce z listy rozwijanej. Brak odświeżenie strony i pól wyboru Repeater są aktualizowane przy użyciu `CheckRolesForSelectedUser`. Ponieważ Bruce nie należy jeszcze do żadnej roli, dwa pola wyboru są nie zaznaczone. Następnie dodaj Bruce do roli nadzorców.
 
 
-[![Bruce został dodany do roli nadzorców](assigning-roles-to-users-cs/_static/image11.png)](assigning-roles-to-users-cs/_static/image10.png)
+[![Bruce został dodany do roli nadzorcy](assigning-roles-to-users-cs/_static/image11.png)](assigning-roles-to-users-cs/_static/image10.png)
 
 **Rysunek 4**: Bruce został dodany do roli nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image12.png))
 
@@ -167,7 +167,7 @@ Należy wypełnić `RoleList` DropDownList przy użyciu zestawu ról w systemie.
 Ostatnie dwa wiersze w `BindRolesToList` metody zostały dodane do zestawu ról, aby powiązać `RoleList` kontrolki DropDownList. Rysunek 5. pokazuje wynik końcowy podczas wyświetlania za pośrednictwem przeglądarki — listy rozwijanej, wypełnione z rolami systemu.
 
 
-[![TRole HE są wyświetlane w RoleList DropDownList](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
+[![Role są wyświetlane w RoleList DropDownList](assigning-roles-to-users-cs/_static/image14.png)](assigning-roles-to-users-cs/_static/image13.png)
 
 **Rysunek 5**: Role są wyświetlane w `RoleList` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image15.png))
 
@@ -187,7 +187,7 @@ Ta metoda musi zostać wywołana w dwóch przypadkach: podczas wczytywania stron
 Przy użyciu tego kodu w miejscu `RolesUserList` GridView powinien być wyświetlany użytkowników, którzy należą do wybranej roli. Jak pokazano na rysunku 6, rola nadzorców składa się z dwóch elementów: Bruce i Tito.
 
 
-[![Tzawiera on GridView listę użytkowników, którzy należą do tej roli systemu zaznaczone](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
+[![Kontrolki GridView zawiera listę użytkowników, którzy należą do wybranej roli](assigning-roles-to-users-cs/_static/image17.png)](assigning-roles-to-users-cs/_static/image16.png)
 
 **Rysunek 6**: GridView zawiera listę tych użytkowników, należy do wybrane roli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image18.png))
 
@@ -199,7 +199,7 @@ Możemy rozszerzyć `RolesUserList` przyciski GridView aby obejmowała kolumny "
 Rozpocznij, dodając pola przycisku usuwania do kontrolki GridView. Należy to pole, które są wyświetlane jako najbardziej zachowanej po lewej stronie i zmień jego `DeleteText` właściwość "Delete" (wartość domyślna) "Usuń".
 
 
-[![Add](assigning-roles-to-users-cs/_static/image20.png)](assigning-roles-to-users-cs/_static/image19.png)
+[![Dodaj](assigning-roles-to-users-cs/_static/image20.png)](assigning-roles-to-users-cs/_static/image19.png)
 
 **Rysunek 7**: Dodaj przycisk "Usuń" do kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image21.png))
 
@@ -217,7 +217,7 @@ Zaczyna się kod poprzez określenie nazwy wybranej roli. Następnie programowo 
 Rysunek 8 przedstawia stronę po użytkownik Tito został usunięty z grupy nadzorców.
 
 
-[![Alas, Tito nie jest już nadzorcy](assigning-roles-to-users-cs/_static/image23.png)](assigning-roles-to-users-cs/_static/image22.png)
+[![Niemniej Tito nie jest już nadzorcy](assigning-roles-to-users-cs/_static/image23.png)](assigning-roles-to-users-cs/_static/image22.png)
 
 **Rysunek 8**: Niemniej Tito nie jest już nadzorcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image24.png))
 
@@ -245,7 +245,7 @@ Większość kodu w `Click` programu obsługi zdarzeń wykonuje różne sprawdza
 Odwiedź stronę za pośrednictwem przeglądarki, a następnie wybierz rolę nadzorców z `RoleList` DropDownList. Spróbuj wprowadzić nieprawidłowej nazwy użytkownika — powinien zostać wyświetlony komunikat wyjaśniający, że użytkownik nie istnieje w systemie.
 
 
-[![Yjednostki organizacyjnej nie można dodać użytkownika nieistniejąca rolę](assigning-roles-to-users-cs/_static/image26.png)](assigning-roles-to-users-cs/_static/image25.png)
+[![Nie można dodać nieistniejącego użytkownika do roli](assigning-roles-to-users-cs/_static/image26.png)](assigning-roles-to-users-cs/_static/image25.png)
 
 **Rysunek 9**: Nie można dodać użytkownika nieistniejąca do roli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image27.png))
 
@@ -253,7 +253,7 @@ Odwiedź stronę za pośrednictwem przeglądarki, a następnie wybierz rolę nad
 Teraz należy spróbować dodać prawidłowego użytkownika. Przejdź dalej i ponownie dodać Tito do roli nadzorców.
 
 
-[![Tpawłowski to ponownie nadzorcy!](assigning-roles-to-users-cs/_static/image29.png)](assigning-roles-to-users-cs/_static/image28.png)
+[![Tito jest ponownie nadzorcy!](assigning-roles-to-users-cs/_static/image29.png)](assigning-roles-to-users-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Tito jest ponownie nadzorcy!  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image30.png))
 
@@ -290,7 +290,7 @@ Otwórz `CreateUserWizardWithRoles.aspx` strony, a następnie dodaj formancie Cr
 Następnie wybierz pozycję "Dodaj/Usuń `WizardSteps`..." w tagu inteligentnego CreateUserWizard i Dodaj nową `WizardStep`, ustawiając jego `ID` do `SpecifyRolesStep`. Przenieś `SpecifyRolesStep WizardStep` tak, aby nastąpi po wykonaniu kroku "Logowania konto nowego konta", ale przed wykonaniem kroku "Ukończony". Ustaw `WizardStep`firmy `Title` właściwość "Określ role", jego `StepType` właściwości `Step`i jego `AllowReturn` wartość False dla właściwości.
 
 
-[![Add](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
+[![Dodaj](assigning-roles-to-users-cs/_static/image32.png)](assigning-roles-to-users-cs/_static/image31.png)
 
 **Rysunek 11**: Dodaj "Określ role" `WizardStep` do CreateUserWizard ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image33.png))
 
@@ -318,7 +318,7 @@ Jeśli użytkownik po prostu osiągnął kroku "Completed", program obsługi zda
 Odwiedź tę stronę za pośrednictwem przeglądarki. Pierwszym etapem CreateUserWizard jest kroku "Logowania konto nowego konta" Standardowa monituje o podanie nazwy użytkownika nowego użytkownika, hasło, adres e-mail i inne informacje o kluczu. Wprowadź informacje, aby utworzyć nowego użytkownika o nazwie Wanda.
 
 
-[![CTwórz nowe Wanda o nazwie użytkownika](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
+[![Tworzenie nowego użytkownika o nazwie Wanda](assigning-roles-to-users-cs/_static/image35.png)](assigning-roles-to-users-cs/_static/image34.png)
 
 **Rysunek 12**: Tworzenie nowego Wanda o nazwie użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image36.png))
 
@@ -326,7 +326,7 @@ Odwiedź tę stronę za pośrednictwem przeglądarki. Pierwszym etapem CreateUse
 Kliknij przycisk "Create User". Wywołuje wewnętrznie CreateUserWizard `Membership.CreateUser` metody tworzenia nowego konta użytkownika, a następnie następuje przejście do następnego kroku "Określ role." W tym miejscu są wyświetlane role systemu. Zaznacz pole wyboru Nadzorcom i kliknij przycisk Dalej.
 
 
-[![MOznacz Wanda członkiem roli nadzorców](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
+[![Wprowadzić Wanda jako członka roli nadzorcy](assigning-roles-to-users-cs/_static/image38.png)](assigning-roles-to-users-cs/_static/image37.png)
 
 **Rysunek 13**: Wprowadzić Wanda jako członka roli nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image39.png))
 
@@ -334,7 +334,7 @@ Kliknij przycisk "Create User". Wywołuje wewnętrznie CreateUserWizard `Members
 Jeśli klikniesz pozycję dalej powoduje odświeżenie strony i aktualizacje `ActiveStep` do kroku "Zakończono". W `ActiveStepChanged` ostatnio utworzone konto programu obsługi zdarzeń jest przypisywana rola nadzorców. Aby to sprawdzić, wróć do `UsersAndRoles.aspx` strony i wybierz nadzorców z `RoleList` DropDownList. Jak pokazano na rysunku 14, nadzorców teraz składają się z trzech użytkowników: Bruce Tito i Wanda.
 
 
-[![Bruce Tito i Wanda są wszystkie nadzorców](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
+[![Bruce, Tito i Wanda są wszystkie nadzorcy](assigning-roles-to-users-cs/_static/image41.png)](assigning-roles-to-users-cs/_static/image40.png)
 
 **Rysunek 14**: Bruce, Tito i Wanda są wszystkie nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-cs/_static/image42.png))
 

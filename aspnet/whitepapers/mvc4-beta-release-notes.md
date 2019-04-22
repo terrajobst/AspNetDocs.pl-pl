@@ -12,7 +12,7 @@ ms.openlocfilehash: b7722d5c282f07b35dd18d08911fa562dae6afc2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387935"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
@@ -26,7 +26,7 @@ ms.locfileid: "59387935"
 - [Uwagi dotyczące instalacji](#_Toc303253802)
 - [Dokumentacja](#_Toc303253803)
 - [Pomoc techniczna](#_Toc303253804)
-- [Wymagania programowe](#_Toc303253805)
+- [Wymagania dotyczące oprogramowania](#_Toc303253805)
 - [Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4](#_Toc303253806)
 - [Nowe funkcje w wersji Beta programu ASP.NET MVC 4](#_Toc303253807)
 
@@ -38,7 +38,7 @@ ms.locfileid: "59387935"
     - [jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki](#_Toc303253811)
     - [Rozwiązania na potrzeby generowania kodu w programie Visual Studio](#_Toc303253812)
     - [Zadanie obsługi asynchronicznego kontrolerów](#_Toc303253813)
-    - [Azure SDK](#_Toc303253814)
+    - [Zestaw Azure SDK](#_Toc303253814)
     - [Znane problemy i fundamentalne zmiany](#_Toc303253815)
 
 <a id="_Toc303253802"></a>

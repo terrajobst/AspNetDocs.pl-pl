@@ -12,7 +12,7 @@ ms.openlocfilehash: 8ebbd7a8e8fa4adb9835cea9560797beee2b86fa
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383922"
 ---
 # <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: kompilowanie aplikacji ASP.NET

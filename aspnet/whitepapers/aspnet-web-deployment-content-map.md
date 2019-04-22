@@ -12,7 +12,7 @@ ms.openlocfilehash: 3f36f0c504678e1e8b40aef99db81ab99101568b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383939"
 ---
 # <a name="aspnet-web-deployment---recommended-resources"></a>Wdrożenie internetowe na platformie ASP.NET — zalecane zasoby
@@ -65,7 +65,7 @@ Ten temat zawiera następujące sekcje:
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>Wyszukiwanie dostawcy usług dla aplikacji ASP.NET hosta
 
-- [Hostingu platformy ASP.NET](https://asp.net/hosting)
+- [ASP.NET Hosting](https://asp.net/hosting)
 
 
 <a id="fromvs"></a>

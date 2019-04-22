@@ -12,7 +12,7 @@ ms.openlocfilehash: 1e1b6407dfff4513416869404a9565ed225b5e14
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392251"
 ---
 # <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Przyciski niestandardowe w kontrolkach DataList i Repeater (VB)
@@ -31,7 +31,7 @@ W poprzednich samouczkach siedemnastu DataList i Repeater firma Microsoft ve utw
 Ponadto do edytowania i usuwania przyciski, kontrolek DataList i Repeater mogą również obejmować przycisków, LinkButtons lub ImageButtons, po kliknięciu wykonania niestandardowej logiki biznesowej po stronie serwera. W tym samouczku utworzymy interfejs, który używa Repeater, aby wyświetlić listę kategorii w systemie. Dla każdej kategorii powtarzanego będzie zawierać przycisku, aby wyświetlał kategorii produktów związane za pomocą kontroli BulletedList (patrz rysunek 1).
 
 
-[![Clicking Wyświetla Pokaż łącza produktów kategorii s produktów na liście punktowanej](custom-buttons-in-the-datalist-and-repeater-vb/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image1.png)
+[![Kliknięcie przycisku Wyświetla łącze produktów pokaz produktów s kategorii na liście punktowanej](custom-buttons-in-the-datalist-and-repeater-vb/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image1.png)
 
 **Rysunek 1**: Kliknięcie przycisku Wyświetla Pokaż łącza produktów kategorii s produktów na liście punktowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-vb/_static/image3.png))
 
@@ -52,7 +52,7 @@ Zanim przyjrzymy się jak dodać niestandardowy przycisk, chętnie s najpierw Po
 Podobnie jak w przypadku innych folderów `Default.aspx` w `CustomButtonsDataListRepeater` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. Ten formant użytkownika, aby dodać `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](custom-buttons-in-the-datalist-and-repeater-vb/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image5.png)
+[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](custom-buttons-in-the-datalist-and-repeater-vb/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image5.png)
 
 **Rysunek 3**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-vb/_static/image7.png))
 
@@ -75,7 +75,7 @@ Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę 
 W tym samouczku należy utworzyć Repeater zawierającego wszystkie kategorie wraz z Pokaż element LinkButton produktów, kliknięcie spowoduje wyświetlenie produktów kategorii skojarzona s na liście punktowanej. Pozwól, s, najpierw Utwórz prostą elementu powtarzanego, który wyświetla listę kategorii w systemie. Zacznij od otwarcia `CustomButtons.aspx` stronie `CustomButtonsDataListRepeater` folderu. Przeciągnij Repeater z przybornika do projektanta i ustaw jego `ID` właściwość `Categories`. Następnie utwórz nowy formant źródła danych za pomocą tagu inteligentnego s elementu powtarzanego. Dokładniej mówiąc, Utwórz nowy kontrolka ObjectDataSource, o nazwie `CategoriesDataSource` który wybiera dane z `CategoriesBLL` klasy s `GetCategories()` metody.
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy CategoriesBLL s GetCategories() metoda](custom-buttons-in-the-datalist-and-repeater-vb/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image9.png)
+[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody klasy CategoriesBLL GetCategories() s](custom-buttons-in-the-datalist-and-repeater-vb/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image9.png)
 
 **Rysunek 5**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy s `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-vb/_static/image11.png))
 
@@ -90,7 +90,7 @@ Kliknij na karcie Źródło w lewym dolnym rogu, a następnie dodaj `ItemTemplat
 Rysunek 6 przedstawia stronę po wyświetleniu za pośrednictwem przeglądarki. Każda nazwa i opis kategorii znajduje się. Pokaż produktów po kliknięciu przycisku, powoduje odświeżenie strony, ale jeszcze nie wykonuje żadnych działań.
 
 
-[![Estacje kategorii s nazwę i opis jest wyświetlany wraz z Pokaż element LinkButton produktów](custom-buttons-in-the-datalist-and-repeater-vb/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image12.png)
+[![Każda kategoria s Nazwa i opis jest wyświetlany, oraz wyświetlić element LinkButton produktów](custom-buttons-in-the-datalist-and-repeater-vb/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image12.png)
 
 **Rysunek 6**: Każda kategoria s Nazwa i opis jest wyświetlany, oraz wyświetlić element LinkButton produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-vb/_static/image14.png))
 
@@ -146,7 +146,7 @@ Po zakończeniu `ItemCommand` procedura obsługi zdarzeń, Poświęć chwilę, w
 > Jeśli chcesz zmienić zachowanie tego raportu, taki sposób, że produkty tylko jedną kategorię s są wymienione w danym momencie, wystarczy ustawić dla formant BulletedList s `EnableViewState` właściwość `False`.
 
 
-[![A BulletedList jest używana do wyświetlania produktów wybranej kategorii](custom-buttons-in-the-datalist-and-repeater-vb/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image15.png)
+[![BulletedList służy do wyświetlania produktów wybranej kategorii](custom-buttons-in-the-datalist-and-repeater-vb/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-vb/_static/image15.png)
 
 **Rysunek 7**: BulletedList służy do wyświetlania produktów wybranej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-vb/_static/image17.png))
 

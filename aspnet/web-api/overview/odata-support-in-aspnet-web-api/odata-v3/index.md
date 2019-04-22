@@ -12,7 +12,7 @@ ms.openlocfilehash: fe82cbd43cf374439675ad811586282a1a79f488
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409489"
 ---
 # <a name="supporting-odata-v3-in-aspnet-web-api"></a>Obsługa protokołu OData v3 we wzorcu ASP.NET Web API
@@ -20,7 +20,7 @@ ms.locfileid: "59409489"
 > Umożliwia tworzenie punktów końcowych, które obsługują OData w wersji 3 interfejsu API sieci Web platformy ASP.NET.
 
 
-- [Tworzenie punktu końcowego OData 3](creating-an-odata-endpoint.md)
-- [Obsługa relacji jednostek w protokole OData 3](working-with-entity-relations.md)
-- [Akcje protokołu OData we wzorcu Web API 2](odata-actions.md)
+- [Tworzenie punktu końcowego OData v3](creating-an-odata-endpoint.md)
+- [Obsługa relacji jednostek w protokole OData v3](working-with-entity-relations.md)
+- [Akcje protokołu OData w interfejsie Web API 2](odata-actions.md)
 - [Wywoływanie usługi protokołu OData z klienta .NET (C#)](calling-an-odata-service-from-a-net-client.md)

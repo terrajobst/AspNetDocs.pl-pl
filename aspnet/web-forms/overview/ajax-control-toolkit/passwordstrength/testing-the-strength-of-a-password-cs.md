@@ -12,7 +12,7 @@ ms.openlocfilehash: d8ac50874d0325ed9583a16e1b4e19b3becabb99
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391523"
 ---
 # <a name="testing-the-strength-of-a-password-c"></a>Testowanie siły hasła (C#)
@@ -44,7 +44,7 @@ Hasła są wymagane praktycznie dowolnym miejscu, tak aby użytkownicy z opóźn
 Uruchom stronę i natychmiast wpisz: Tylko wtedy, gdy wprowadzono, małe litery, wielkie litery, cyfry i symbole, hasło jest uznawany za jako podzielenie.
 
 
-[![NPokaż hasło jest dobre (dość)](testing-the-strength-of-a-password-cs/_static/image2.png)](testing-the-strength-of-a-password-cs/_static/image1.png)
+[![Hasło jest dobre (dość)](testing-the-strength-of-a-password-cs/_static/image2.png)](testing-the-strength-of-a-password-cs/_static/image1.png)
 
 Hasło jest dobre (dość) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](testing-the-strength-of-a-password-cs/_static/image3.png))
 

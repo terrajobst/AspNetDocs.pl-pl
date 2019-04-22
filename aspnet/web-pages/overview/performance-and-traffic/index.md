@@ -12,7 +12,7 @@ ms.openlocfilehash: 36cfc3435a832eaf8a6aeb24ff91fa03b99f2e39
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385608"
 ---
 # <a name="performance"></a>Wydajność
@@ -20,6 +20,6 @@ ms.locfileid: "59385608"
 > Jak buforowanie zawartości, aby zwiększyć wydajność i sposób mierzenia ruchu w witrynie.
 
 
-- [Buforowanie w celu poprawienia wydajności witryny internetowej](15-caching-to-improve-the-performance-of-your-website.md)
+- [Buforowanie w celu poprawienia wydajności witryny](15-caching-to-improve-the-performance-of-your-website.md)
 - [Analizowanie ruchu](14-analyzing-traffic.md)
 - [Tworzenie pakietów i minifikacja zasobów w witrynie ASP.NET Web Pages (Razor)](bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)

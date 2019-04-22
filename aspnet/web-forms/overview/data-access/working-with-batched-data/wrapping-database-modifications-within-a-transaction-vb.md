@@ -12,7 +12,7 @@ ms.openlocfilehash: 2fc7ba3d62d41685c234756709707ff14f81b316
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380317"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-vb"></a>Opakowywanie modyfikacji bazy danych w ramach transakcji (VB)
@@ -83,7 +83,7 @@ Zanim zaczniemy, eksplorowanie sposób rozszerzyć warstwę DAL do obsługi tran
 Podobnie jak w przypadku innych folderów `Default.aspx` użyje `SectionLevelTutorialListing.ascx` kontrolki użytkownika, aby wyświetlić listę samouczków w obrębie sekcji. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](wrapping-database-modifications-within-a-transaction-vb/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image1.png)
+[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](wrapping-database-modifications-within-a-transaction-vb/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image1.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image2.png))
 
@@ -168,12 +168,12 @@ Aby zilustrować wpływ transakcji podczas aktualizowania partii rekordów, umo�
 Zacznij od otwarcia `Transactions.aspx` stronie `BatchData` folder i przeciągnij GridView z przybornika do projektanta. Ustaw jego `ID` do `Products` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource swoich danych z `ProductsBLL` klasy s `GetProducts` metody. Zostanie można GridView tylko do odczytu, więc zestawu list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak) i kliknij przycisk Zakończ.
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLL s GetProducts metoda](wrapping-database-modifications-within-a-transaction-vb/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image3.png)
+[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProducts ProductsBLL klasy s](wrapping-database-modifications-within-a-transaction-vb/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image3.png)
 
 **Rysunek 5**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy s `GetProducts` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image4.png))
 
 
-[![Set list rozwijanych w aktualizacji, WSTAWIANIA i usuwania karty (Brak)](wrapping-database-modifications-within-a-transaction-vb/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image5.png)
+[![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](wrapping-database-modifications-within-a-transaction-vb/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image5.png)
 
 **Rysunek 6**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image6.png))
 
@@ -191,7 +191,7 @@ Następnie dodaj trzy kontrolki przycisku w sieci Web powyżej widoku GridView. 
 W tym momencie widok projektu w programie Visual Studio, powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 7.
 
 
-[![TZawiera on strony GridView i trzech przycisków umieszczonych w sieci Web](wrapping-database-modifications-within-a-transaction-vb/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image7.png)
+[![Ta strona zawiera GridView i trzech przycisków umieszczonych w sieci Web](wrapping-database-modifications-within-a-transaction-vb/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image7.png)
 
 **Rysunek 7**: Ta strona zawiera GridView i trzy kontrolki sieci Web przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image8.png))
 
@@ -210,12 +210,12 @@ Trzeci `Click` programu obsługi zdarzeń aktualizacji produktów `CategoryID` s
 Aby zademonstrować to zachowanie, odwiedź tę stronę za pośrednictwem przeglądarki. Początkowo pierwszej strony danych powinny Zobacz, jak pokazano na rysunku 8. Następnie kliknij przycisk zmodyfikować kategorie (przy użyciu transakcji). Spowoduje to powoduje odświeżenie strony i próba aktualizacji wszystkich produktów `CategoryID` wartości, ale będą powodować naruszenie ograniczenia klucza obcego (patrz rysunek 9).
 
 
-[![TProduktów są wyświetlane w stronicowanej GridView](wrapping-database-modifications-within-a-transaction-vb/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image9.png)
+[![Produkty są wyświetlane w stronicowanej widoku GridView](wrapping-database-modifications-within-a-transaction-vb/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image9.png)
 
 **Rysunek 8**: Produkty są wyświetlane w stronicowanej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image10.png))
 
 
-[![Reassigning kategorie skutkuje naruszenie ograniczenia klucza obcego](wrapping-database-modifications-within-a-transaction-vb/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image11.png)
+[![Ponowne przypisywanie kategorii skutkuje naruszenie ograniczenia klucza obcego](wrapping-database-modifications-within-a-transaction-vb/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image11.png)
 
 **Rysunek 9**: Ponowne przypisywanie kategorii skutkuje naruszenie ograniczenia klucza obcego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image12.png))
 
@@ -225,7 +225,7 @@ Teraz, kliknij przycisk Wstecz Twojej przeglądarki s, a następnie kliknij przy
 Teraz spróbuj, kliknięcie przycisku Modyfikuj kategorii (bez transakcji). Spowoduje to ten sam błąd naruszenie ograniczenia klucza obcego (patrz rysunek 9), ale tym razem tych produktów którego `CategoryID` wartości zostały zmienione na prawnych i wartość będą nie można wycofać. Wprowadzam polecenie przeglądarki s przycisku Wstecz, a następnie przycisk Odśwież siatki. Jak pokazano na rysunku nr 10, `CategoryID` ponownie przypisane s produktów pierwsze osiem. Na przykład na rysunku 8 zmian centralnych miał `CategoryID` 1, ale w rysunek 10 it s przypisane do 2.
 
 
-[![Sniektó produktów CategoryID wartości zostały zaktualizowane podczas gdy inne osoby zostały nie](wrapping-database-modifications-within-a-transaction-vb/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image13.png)
+[![Niektóre wartości CategoryID produktów zostały zaktualizowane podczas gdy inne osoby zostały nie](wrapping-database-modifications-within-a-transaction-vb/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-vb/_static/image13.png)
 
 **Na rysunku nr 10**: Niektóre produkty `CategoryID` wartości zostały zaktualizowane podczas gdy inne osoby zostały nie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-vb/_static/image14.png))
 

@@ -13,14 +13,14 @@ ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381357"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD we wzorcu ASP.NET Web API 1
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
 > W tym samouczku pokazano, jak do obsługi operacji CRUD w usłudze HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET dla platformy ASP.NET 4.x.
 > 

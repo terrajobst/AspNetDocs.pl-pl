@@ -12,7 +12,7 @@ ms.openlocfilehash: 03eb0f69428c4f4f48487f8eefe91c33f9f1ebbd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378817"
 ---
 # <a name="aspnet-4---continuing-with-entity-framework-4-and-web-forms"></a>ASP.NET 4 — kontynuowanie pracy z programem Entity Framework 4 i wzorcem Web Forms
@@ -20,9 +20,9 @@ ms.locfileid: "59378817"
 > Jak utworzyć aplikację Contoso U jako aplikacji n warstwowa przy użyciu formantu ObjectDataSource oraz sposób obsługi współbieżności i zmaksymalizować wydajność.
 
 
-- [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-- [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: dodawanie warstwy logiki biznesowej i testów jednostkowych](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-- [Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: sortowanie i filtrowanie](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+- [Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+- [Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+- [Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: Sortowanie i filtrowanie](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
 - [Obsługa współbieżności przy użyciu programu Entity Framework 4.0 na platformie ASP.NET 4](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
 - [Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 na platformie ASP.NET 4](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
 - [Co nowego w programie Entity Framework 4.0](what-s-new-in-the-entity-framework-4.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 632db5152c84eb463ddc7bd5f5734a9fb3ae135c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59382987"
 ---
 # <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB)
@@ -31,7 +31,7 @@ W przykładach DataList możemy ve występuje w ciągu ostatnich dwóch samouczk
 Możemy dostosować układ DataList s za pośrednictwem jego `RepeatColumns` i `RepeatDirection` właściwości, które odpowiednio wskazać liczbę kolumn są renderowane i czy te elementy są ułożone w pionie lub poziomie. Rysunek 1, na przykład pokazuje DataList, który wyświetla informacje o produkcie w tabeli zawierającej trzy kolumny.
 
 
-[![TADAM DataList pokazuje trzy produkty każdego wiersza](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image1.png)
+[![Kontrolki DataList pokazuje trzy produkty na wiersz](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image1.png)
 
 **Rysunek 1**: DataList pokazuje trzy produkty poszczególnych wierszy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image3.png))
 
@@ -57,7 +57,7 @@ Zwróć uwagę, ve uwzględnione specyfikatora formatu w `Eval` składnia wiąza
 Poświęć chwilę, aby odwiedzić stronę w przeglądarce. Jak pokazano na rysunku 2, kontrolki DataList renderowany jako tabelę jednokolumnową, wielowierszowych produktów.
 
 
-[![BDomyślnie y, renderuje DataList jako tabelę jednokolumnową, wielowierszowych](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image4.png)
+[![Domyślnie renderuje DataList jako tabelę jednokolumnową, wielowierszowych](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image4.png)
 
 **Rysunek 2**: Domyślnie przez kontrolki DataList renderowany jako jedną kolumną, wielowierszowych tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image6.png))
 
@@ -69,7 +69,7 @@ Podczas domyślne zachowanie dla kontrolki DataList jest układ elementy w pioni
 Zmieniając `RepeatDirection` właściwość `Vertical` do `Horizontal`, jego rekordów w jednym wierszu, powoduje wyświetlenie elementu DataList tworzenia jedną kolumnę na element źródła danych. Aby zilustrować ten efekt, kliknij DataList w projektancie, a następnie w oknie Właściwości zmień `RepeatDirection` właściwość `Vertical` do `Horizontal`. Natychmiast po wykonaniu tej czynności projektanta dostosowuje układ DataList s tworzenia z pojedynczy wiersz tabeli wielokolumnowej interfejsu (zobacz rysunek 3).
 
 
-[![Ton RepeatDirection właściwości połączenia z opisywanym jak kierunek DataList s elementy są określone w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)
+[![Elementy RepeatDirection właściwości połączenia z opisywanym jak kierunek DataList s są określone w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)
 
 **Rysunek 3**: `RepeatDirection` Właściwość określa, jak elementy kierunku DataList s są określone w poziomie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image9.png))
 
@@ -77,7 +77,7 @@ Zmieniając `RepeatDirection` właściwość `Vertical` do `Horizontal`, jego re
 Podczas wyświetlania małe ilości danych, pojedynczy wiersz wielokolumnowej tabeli może być to idealny sposób na powierzchnię ekranu. Dla większych ilości danych jednak pojedynczego wiersza będzie wymagać wiele kolumn, które wypchnięć te elementy tego t może mieści się na ekranie wyłączona po prawej stronie. Rysunek 4 przedstawia produktów podczas renderowania w DataList pojedynczy wiersz tabeli. Ponieważ wiele produktów (ponad 80), użytkownik będzie musiał przewiń daleko w prawo, aby wyświetlić informacje o poszczególnych produktów.
 
 
-[![Flub źródeł danych wystarczająco duże, DataList jednokolumnową będzie wymagać przewijanie w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image10.png)
+[![W przypadku źródeł danych wystarczająco dużą DataList jednokolumnową będzie wymagać przewijanie w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image10.png)
 
 **Rysunek 4**: Wystarczająco dużą źródeł danych, jednej kolumny DataList będzie wymagać przewijanie w poziomie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image12.png))
 
@@ -89,7 +89,7 @@ Aby utworzyć DataList wielokolumnowych, wielowierszowych, musimy [ `RepeatColum
 W tym przykładzie umożliwiają s wyświetlane trzy produkty każdego wiersza tabeli. W związku z tym, ustaw `RepeatColumns` właściwości do 3. Po wprowadzeniu tej zmiany, Poświęć chwilę, aby wyświetlić wyniki w przeglądarce. Jak pokazano na rysunku 5, produkty są teraz wymienione w tabeli trzy kolumny, z wieloma wierszami.
 
 
-[![Ttrzy produkty są wyświetlane w wierszu](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image13.png)
+[![Trzy produkty są wyświetlane w wierszu](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image13.png)
 
 **Rysunek 5**: Trzy produkty są wyświetlane w wierszu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image15.png))
 
@@ -97,7 +97,7 @@ W tym przykładzie umożliwiają s wyświetlane trzy produkty każdego wiersza t
 `RepeatDirection` Właściwość ma wpływ na sposób są układane elementów w kontrolce DataList. Rysunek 5. pokazuje wyniki z `RepeatDirection` właściwością `Horizontal`. Należy zauważyć, że pierwsze trzy produkty Chai, zmian centralnych i Syrop anyżowy są ułożone od lewej do prawej i od góry do dołu. Następne trzy produkty (począwszy od programu Chef Jacka s Cajun Seasoning) są wyświetlane w wiersz pod pierwsze trzy. Zmiana `RepeatDirection` właściwości z powrotem do `Vertical`, jednak decydujących o tych produktów, od góry do dołu i od lewej do prawej, tak jak pokazano na rysunku 6.
 
 
-[![Here produkty są ustanowione się pionowo](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image16.png)
+[![W tym miejscu produkty są ustanowione Out w pionie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image16.png)
 
 **Rysunek 6**: W tym miejscu produkty są ustanowione się pionowo ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image18.png))
 

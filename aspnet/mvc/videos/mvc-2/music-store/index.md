@@ -12,7 +12,7 @@ ms.openlocfilehash: 1fdf6d7ab19354b0079add99c3e6930c60f772cf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381981"
 ---
 # <a name="music-store"></a>Music Store
@@ -20,6 +20,6 @@ ms.locfileid: "59381981"
 > Tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store
 
 
-- [Sklep MVC Music Store — część 1: wprowadzenie, narzędzia i struktura projektu](mvc-music-store-part-1-intro-tools-and-project-structure.md)
-- [Sklep MVC Music Store — część 2: Kontrolery](mvc-music-store-part-2-controllers.md)
-- [Sklep MVC Music Store — część 3: widoki i modele widoków](mvc-music-store-part-3-views-and-viewmodels.md)
+- [MVC Music Store część 1: Wprowadzenie, narzędzia i struktura projektu](mvc-music-store-part-1-intro-tools-and-project-structure.md)
+- [MVC Music Store część 2: Kontrolery](mvc-music-store-part-2-controllers.md)
+- [MVC Music Store część 3: Widoki i modele widoków](mvc-music-store-part-3-views-and-viewmodels.md)

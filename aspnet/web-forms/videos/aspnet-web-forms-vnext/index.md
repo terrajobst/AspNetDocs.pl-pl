@@ -12,7 +12,7 @@ ms.openlocfilehash: 3b3efb3d5356d6009b86b93405de2cd8d8cddd43
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404237"
 ---
 # <a name="aspnet-45"></a>ASP.NET 4.5
@@ -28,4 +28,4 @@ ms.locfileid: "59404237"
 - [Silnie typizowane kontrolki danych wzorca ASP.NET 4.5 Web Forms](aspnet-45-web-forms-strong-typed-data-controls.md)
 - [Tworzenie pakietów i minifikacja](aspnet-vnext-videos-bundling-and-minification.md)
 - [Wprowadzenie do następnej wersji platformy ASP.NET](getting-started-with-the-next-version-of-aspnet.md)
-- [ASP.NET and Web Tools 2012.2](aspnet-and-web-tools-20122.md)
+- [ASP.NET i Web Tools 2012.2](aspnet-and-web-tools-20122.md)

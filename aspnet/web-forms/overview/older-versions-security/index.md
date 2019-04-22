@@ -12,7 +12,7 @@ ms.openlocfilehash: afd786a25c8dc23eba1bbf6ed3f6512c64f2e72d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59378578"
 ---
 # <a name="older-versions---security"></a>Starsze wersje — zabezpieczenia
@@ -32,12 +32,12 @@ ms.locfileid: "59378578"
 
     - [Tworzenie schematu członkostwa w programie SQL Server (C#)](membership/creating-the-membership-schema-in-sql-server-cs.md)
     - [Tworzenie kont użytkowników (C#)](membership/creating-user-accounts-cs.md)
-    - [Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (C#)](membership/validating-user-credentials-against-the-membership-user-store-cs.md)
+    - [Weryfikowanie poświadczeń użytkownika względem magazynu użytkowników struktury członkostwa (C#)](membership/validating-user-credentials-against-the-membership-user-store-cs.md)
     - [Autoryzacja oparta na użytkownikach (C#)](membership/user-based-authorization-cs.md)
     - [Przechowywanie dodatkowych informacji dotyczących użytkowników (C#)](membership/storing-additional-user-information-cs.md)
     - [Tworzenie schematu członkostwa w programie SQL Server (VB)](membership/creating-the-membership-schema-in-sql-server-vb.md)
     - [Tworzenie kont użytkowników (VB)](membership/creating-user-accounts-vb.md)
-    - [Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (VB)](membership/validating-user-credentials-against-the-membership-user-store-vb.md)
+    - [Weryfikowanie poświadczeń użytkownika względem magazynu użytkowników struktury członkostwa (VB)](membership/validating-user-credentials-against-the-membership-user-store-vb.md)
     - [Autoryzacja oparta na użytkownikach (VB)](membership/user-based-authorization-vb.md)
     - [Przechowywanie dodatkowych informacji dotyczących użytkowników (VB)](membership/storing-additional-user-information-vb.md)
 - [ASP.NET 3.5 — role](roles/index.md)
@@ -50,9 +50,9 @@ ms.locfileid: "59378578"
     - [Autoryzacja oparta na rolach (VB)](roles/role-based-authorization-vb.md)
 - [ASP.NET 3.5 — administrowanie zabezpieczeniami](admin/index.md)
 
-    - [Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)](admin/building-an-interface-to-select-one-user-account-from-many-cs.md)
+    - [Kompilowanie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)](admin/building-an-interface-to-select-one-user-account-from-many-cs.md)
     - [Odzyskiwanie i zmienianie haseł (C#)](admin/recovering-and-changing-passwords-cs.md)
     - [Odblokowywanie i zatwierdzanie kont użytkowników (C#)](admin/unlocking-and-approving-user-accounts-cs.md)
-    - [Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)](admin/building-an-interface-to-select-one-user-account-from-many-vb.md)
+    - [Kompilowanie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)](admin/building-an-interface-to-select-one-user-account-from-many-vb.md)
     - [Odzyskiwanie i zmienianie haseł (VB)](admin/recovering-and-changing-passwords-vb.md)
     - [Odblokowywanie i zatwierdzanie kont użytkowników (VB)](admin/unlocking-and-approving-user-accounts-vb.md)

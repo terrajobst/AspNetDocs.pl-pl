@@ -12,7 +12,7 @@ ms.openlocfilehash: 3bf4b8fe85780135c821fbb7fcceefd326dce656
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381345"
 ---
 # <a name="manipulating-dropshadow-properties-from-client-code-c"></a>Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (C#)
@@ -55,7 +55,7 @@ Funkcja języka JavaScript `changeOpacity()` następnie musi najpierw odnaleźć
 [!code-html[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample6.html)]
 
 
-[![Tnieprzezroczystość HE zostanie zmieniony po stronie klienta](manipulating-dropshadow-properties-from-client-code-cs/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-cs/_static/image1.png)
+[![Nieprzezroczystość zostanie zmieniony po stronie klienta](manipulating-dropshadow-properties-from-client-code-cs/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-cs/_static/image1.png)
 
 Nieprzezroczystość zostanie zmieniony po stronie klienta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](manipulating-dropshadow-properties-from-client-code-cs/_static/image3.png))
 

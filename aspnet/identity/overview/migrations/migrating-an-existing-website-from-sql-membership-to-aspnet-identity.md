@@ -13,7 +13,7 @@ ms.openlocfilehash: f205dfd8692bc946ca2124655bf8bcefbdbd1779
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394535"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity
@@ -99,7 +99,7 @@ Dla produktu ASP.NET Identity klas do pracy z usługą danych istniejących uży
 
 Musimy mieć tabel dla każdej z tych modeli z kolumnami odpowiadające właściwości. Mapowanie między klasami i tabelami jest zdefiniowany w `OnModelCreating` metody `IdentityDBContext`. Jest to określane jako metoda interfejsu API fluent, konfiguracji i więcej informacji można znaleźć [tutaj](https://msdn.microsoft.com/data/jj591617.aspx). Konfiguracja dla klasy jest zagadnień wymienionych poniżej.
 
-| **Class** | **tabela** | **Klucz podstawowy** | **Klucz obcy** |
+| **Class** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Id |  |
 | IdentityRole | AspnetRoles | Id |  |

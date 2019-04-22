@@ -12,7 +12,7 @@ ms.openlocfilehash: 0d0aa2c52df284bae48907d0c0c1e5d4587c1b9e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421423"
 ---
 # <a name="nested-data-web-controls-vb"></a>Zagnieżdżone kontrolki internetowe danych (VB)
@@ -35,7 +35,7 @@ Szablony mogą również zawierać inne dane kontrolki sieci Web. Oznacza to, ż
 W tym samouczku, który przeanalizujemy sposób używania Repeater zagnieżdżone wewnątrz innego elementu powtarzanego. Zewnętrzne elementu powtarzanego będzie zawierać element dla każdej kategorii w bazie danych, wyświetlanie kategorii s nazwę i opis. Każdy element kategorii s wewnętrzny elementu powtarzanego wyświetlane są informacje dotyczące poszczególnych produktów należących do tej kategorii (patrz rysunek 1) na liście punktowanej. Nasze przykłady przedstawiają sposobu wypełniania wewnętrzny elementu powtarzanego w sposób deklaratywny i programowy.
 
 
-[![Estacje kategorii, wraz z jej produktów są wymienione](nested-data-web-controls-vb/_static/image2.png)](nested-data-web-controls-vb/_static/image1.png)
+[![Każdej kategorii, wraz z jej produktów są wyświetlane.](nested-data-web-controls-vb/_static/image2.png)](nested-data-web-controls-vb/_static/image1.png)
 
 **Rysunek 1**: Są wyświetlane w każdej kategorii, wraz z jej produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-vb/_static/image3.png))
 
@@ -47,7 +47,7 @@ Podczas tworzenia stron, która używa zagnieżdżone kontrolki internetowe dany
 Zacznij od otwarcia `NestedControls.aspx` strony w `DataListRepeaterBasics` folderu i Dodaj kontrolką elementu powtarzanego do strony, ustawiając jego `ID` właściwość `CategoryList`. Za pomocą tagu inteligentnego Repeater s zdecydować się na utworzenie nowego elementu ObjectDataSource, o nazwie `CategoriesDataSource`.
 
 
-[![NNazwa nowego ObjectDataSource CategoriesDataSource](nested-data-web-controls-vb/_static/image5.png)](nested-data-web-controls-vb/_static/image4.png)
+[![Nazwa nowego ObjectDataSource CategoriesDataSource](nested-data-web-controls-vb/_static/image5.png)](nested-data-web-controls-vb/_static/image4.png)
 
 **Rysunek 2**: Nadaj nazwę nowej kontrolki ObjectDataSource `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-vb/_static/image6.png))
 
@@ -55,7 +55,7 @@ Zacznij od otwarcia `NestedControls.aspx` strony w `DataListRepeaterBasics` fold
 Skonfigurować kontrolki ObjectDataSource ściągania danych z `CategoriesBLL` klasy s `GetCategories` metody.
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy CategoriesBLL s GetCategories metoda](nested-data-web-controls-vb/_static/image8.png)](nested-data-web-controls-vb/_static/image7.png)
+[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetCategories CategoriesBLL klasy s](nested-data-web-controls-vb/_static/image8.png)](nested-data-web-controls-vb/_static/image7.png)
 
 **Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy s `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-vb/_static/image9.png))
 
@@ -68,7 +68,7 @@ Aby określić szablon elementu powtarzanego s zawartości należy przejść do 
 Rysunek 4 pokazuje nasz postęp, podczas wyświetlania za pośrednictwem przeglądarki.
 
 
-[![Estacje kategorii s nazwę i opis ma na liście, oddzielone linii poziomej](nested-data-web-controls-vb/_static/image11.png)](nested-data-web-controls-vb/_static/image10.png)
+[![Każda kategoria s Nazwa i opis ma na liście, oddzielone linia pozioma](nested-data-web-controls-vb/_static/image11.png)](nested-data-web-controls-vb/_static/image10.png)
 
 **Rysunek 4**: Każda kategoria s Nazwa i opis ma na liście, oddzielone linii poziomej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-vb/_static/image12.png))
 
@@ -116,7 +116,7 @@ Ta procedura obsługi zdarzeń uruchamia, zapewniając, że możemy ponownie rad
 Z tej obsługi zdarzeń `ProductsByCategoryList` Repeater w każdym `RepeaterItem` jest powiązany z tych produktów w `RepeaterItem` kategorii s. Rysunek 5. pokazuje zrzut ekranu: dane wyjściowe.
 
 
-[![TZawiera on Repeater zewnętrzne każdej kategorii; Jeden wewnętrzny zawiera listę produktów dla tej kategorii](nested-data-web-controls-vb/_static/image14.png)](nested-data-web-controls-vb/_static/image13.png)
+[![Zewnętrzne powtarzanego Wyświetla każdej kategorii; Jeden wewnętrzny zawiera listę produktów dla tej kategorii](nested-data-web-controls-vb/_static/image14.png)](nested-data-web-controls-vb/_static/image13.png)
 
 **Rysunek 5**: Zewnętrzne powtarzanego Wyświetla każdej kategorii; Wyświetla jeden wewnętrzny produktów dla tej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-vb/_static/image15.png))
 

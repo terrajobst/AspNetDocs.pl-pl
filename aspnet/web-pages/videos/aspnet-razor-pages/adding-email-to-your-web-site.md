@@ -12,7 +12,7 @@ ms.openlocfilehash: 72605a131095570390d64fd458ce821ee0f99fbc
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386635"
 ---
 # <a name="adding-email-to-your-web-site"></a>Dodawanie funkcji e-mail do witryny internetowej

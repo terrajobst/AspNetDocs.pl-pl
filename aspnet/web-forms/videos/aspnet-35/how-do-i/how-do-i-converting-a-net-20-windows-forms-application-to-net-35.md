@@ -12,7 +12,7 @@ ms.openlocfilehash: 673e15d247c50a0ae5dccdee5d962d6af36988a1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388039"
 ---
 # <a name="how-do-i-converting-a-net-20-windows-forms-application-to-net-35"></a>[Jak mogę] Konwertowanie aplikacji programu .NET 2.0 Windows Forms na .NET 3.5

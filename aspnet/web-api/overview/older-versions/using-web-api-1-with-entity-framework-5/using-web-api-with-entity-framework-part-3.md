@@ -12,14 +12,14 @@ ms.openlocfilehash: de4bb063d2a6c1bdb4aeffdadb161ef19efd2b78
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390951"
 ---
 # <a name="part-3-creating-an-admin-controller"></a>Część 3. Tworzenie kontrolera administratora
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-controller"></a>Dodawanie kontrolera administratora
 

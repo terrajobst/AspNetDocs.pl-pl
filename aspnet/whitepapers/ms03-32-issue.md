@@ -12,7 +12,7 @@ ms.openlocfilehash: faad1530a499fd3f46a6a6c6e7c194ba6c55fa6c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386297"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Poprawka rozwiązująca problem powodujący błąd „Aplikacja serwera niedostępna” po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer
@@ -62,7 +62,7 @@ Tabela poniżej szczegółowo platformy i wersje dotyczy ten problem.
 | --- | --- | --- |
 | W wersji 1.0 | Windows 2000 Professional | Nie |
 | W wersji 1.0 | Windows 2000 Server | Nie |
-| W wersji 1.0 | Windows XP Professional | Tak |
+| W wersji 1.0 | Windows XP Professional | Yes |
 | W wersji 1.0 | Windows Server 2003 | Nie |
 | W wersji 1.0 | Windows XP Home z Cassini | Nie |
 | W wersji 1.1 | Windows 2000 Professional | Nie |
