@@ -12,18 +12,18 @@ ms.openlocfilehash: 6dac810a2bcef49807d2c9eb605e50a15f742449
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394483"
 ---
-# <a name="introduction-to-testing-web-applications-with-team-system"></a><span data-ttu-id="2f91f-103">Wprowadzenie do testowania aplikacji internetowych w programie Team System</span><span class="sxs-lookup"><span data-stu-id="2f91f-103">Introduction to Testing Web Applications with Team System</span></span>
+# <a name="introduction-to-testing-web-applications-with-team-system"></a><span data-ttu-id="f55ac-103">Wprowadzenie do testowania aplikacji internetowych w programie Team System</span><span class="sxs-lookup"><span data-stu-id="f55ac-103">Introduction to Testing Web Applications with Team System</span></span>
 
-<span data-ttu-id="2f91f-104">przez Eric Lee</span><span class="sxs-lookup"><span data-stu-id="2f91f-104">by Eric Lee</span></span>
+<span data-ttu-id="f55ac-104">przez Eric Lee</span><span class="sxs-lookup"><span data-stu-id="f55ac-104">by Eric Lee</span></span>
 
-<span data-ttu-id="2f91f-105">W tym filmie pokazano zobaczymy, jak zautomatyzować testowanie aplikacji sieci web za pomocą funkcji Visual Studio Team System testowania sieci web.</span><span class="sxs-lookup"><span data-stu-id="2f91f-105">In this video we see how you can automate testing of your web applications using the web testing features of Visual Studio Team System.</span></span>
+<span data-ttu-id="f55ac-105">W tym filmie pokazano zobaczymy, jak zautomatyzować testowanie aplikacji sieci web za pomocą funkcji Visual Studio Team System testowania sieci web.</span><span class="sxs-lookup"><span data-stu-id="f55ac-105">In this video we see how you can automate testing of your web applications using the web testing features of Visual Studio Team System.</span></span>
 
-[<span data-ttu-id="2f91f-106">&#9654;Obejrzyj film wideo (9 min)</span><span class="sxs-lookup"><span data-stu-id="2f91f-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-testing-web-applications-with-team-system)
+[<span data-ttu-id="f55ac-106">&#9654;Obejrzyj film wideo (9 min)</span><span class="sxs-lookup"><span data-stu-id="f55ac-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-testing-web-applications-with-team-system)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="2f91f-107">[Poprzednie](introduction-to-unit-testing-with-team-system.md)
-> [dalej](introduction-to-load-testing-web-applications-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="2f91f-107">[Previous](introduction-to-unit-testing-with-team-system.md)
+> <span data-ttu-id="f55ac-107">[Poprzednie](introduction-to-unit-testing-with-team-system.md)
+> [dalej](introduction-to-load-testing-web-applications-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="f55ac-107">[Previous](introduction-to-unit-testing-with-team-system.md)
 [Next](introduction-to-load-testing-web-applications-with-team-system.md)</span></span>
