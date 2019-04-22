@@ -12,7 +12,7 @@ ms.openlocfilehash: fedd1013c036ebdb85877a868aaaa172733e5b8a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394708"
 ---
 # <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Praca z obrazami w witrynie ASP.NET Web Pages (Razor)
@@ -74,7 +74,7 @@ Procedura w tej sekcji przedstawiono sposób wyświetlania obrazu na bieżąco, 
 
     W kodzie, można uzyskać wybranych przez użytkownika (innymi słowy, nazwa pliku obrazu) z listy, czytając `Request["photoChoice"]`. Należy najpierw sprawdzić, czy zaznaczenie na wszystkich. Jeśli, możesz zbudować ścieżki dla obrazu, który składa się z nazwy folderu obrazów i nazwa pliku obrazu użytkownika. (Jeśli próbowano zbudować ścieżki, ale żadne w `Request["photoChoice"]`, będzie wyświetlany komunikat o błędzie.) Skutkuje to ścieżka względna następująco:
 
-    *obrazy/Photo1.jpg*
+    *images/Photo1.jpg*
 
     Ścieżka jest przechowywany w zmiennej o nazwie `imagePath` będą potrzebne w dalszej części strony.
 

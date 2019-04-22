@@ -12,7 +12,7 @@ ms.openlocfilehash: 94fe435acbf1d51db0e65e63d012aa2afac7c6b1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393759"
 ---
 # <a name="read-write-and-delete-cookies-in-aspnet"></a>Odczyt, zapis i usuwanie plików cookie na platformie ASP.NET

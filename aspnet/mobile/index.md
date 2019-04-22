@@ -12,11 +12,11 @@ ms.openlocfilehash: 5f803209562d6d50bee4aa35306c8b01394237de
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387103"
 ---
 # <a name="mobile-apps--sites-with-aspnet"></a>Aplikacje mobilne & witryny za pomocą platformy ASP.NET
 
 - [Urządzenia przenośne](overview.md)
 - [Urządzenia przenośne przetestowane dla kontrolek urządzeń przenośnych ASP.NET](tested-devices.md)
-- [Symulowanie popularnych urządzeń przenośnych na potrzeby testowania](device-simulators.md)
+- [Symulowanie testowanie popularnych urządzeń przenośnych na potrzeby testowania](device-simulators.md)

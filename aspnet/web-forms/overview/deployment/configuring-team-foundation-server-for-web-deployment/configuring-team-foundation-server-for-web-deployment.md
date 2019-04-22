@@ -12,7 +12,7 @@ ms.openlocfilehash: 188ab63dd84be5559d5a3646eb95caa77ab01bd1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392004"
 ---
 # <a name="configuring-team-foundation-server-for-web-deployment"></a>Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie

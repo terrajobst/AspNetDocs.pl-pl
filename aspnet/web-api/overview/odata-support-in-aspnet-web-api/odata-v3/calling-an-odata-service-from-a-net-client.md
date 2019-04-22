@@ -12,14 +12,14 @@ ms.openlocfilehash: d35c0057f5c29e399e45d0a58467de7f106d9994
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389976"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>Wywoływanie usługi protokołu OData z klienta .NET (C#)
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > W tym samouczku pokazano, jak wywołać usługę OData z poziomu aplikacji klienckiej języka C#.
 >
@@ -43,7 +43,7 @@ Następujące artykuły zawierają instrukcje dotyczące wdrażania usługi ODat
 
 - [Tworzenie punktu końcowego OData w interfejsie Web API 2](creating-an-odata-endpoint.md)
 - [Relacje jednostek OData w interfejsie Web API 2](working-with-entity-relations.md)
-- [Akcje protokołu OData we wzorcu Web API 2](odata-actions.md)
+- [Akcje protokołu OData w interfejsie Web API 2](odata-actions.md)
 
 ## <a name="generate-the-service-proxy"></a>Generowanie usługi serwera Proxy
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 442d8349e0b4d8f57923625533cebecac53c586a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394851"
 ---
 # <a name="signalr-guide-to-the-api"></a>Przewodnik po interfejsie API SignalR
@@ -22,7 +22,7 @@ ms.locfileid: "59394851"
 
 - [Podręcznik interfejsu API centrów — serwer (C#)](hubs-api-guide-server.md)
 - [Podręcznik interfejsu API centrów — klient JavaScript](hubs-api-guide-javascript-client.md)
-- [Podręcznik interfejsu API centrów — klient .NET (C#)](hubs-api-guide-net-client.md)
-- [Objaśnienie i obsługa zdarzeń okresu istnienia połączenia w usłudze SignalR](handling-connection-lifetime-events.md)
-- [Praca z grupami w usłudze SignalR](working-with-groups.md)
-- [Mapowanie użytkowników usługi SignalR na połączenia](mapping-users-to-connections.md)
+- [Podręcznik interfejsu API centrów — klient modelu .NET (C#)](hubs-api-guide-net-client.md)
+- [Objaśnienie i obsługa zdarzeń okresu istnienia połączenia w SignalR](handling-connection-lifetime-events.md)
+- [Praca z grupami w SignalR](working-with-groups.md)
+- [Mapowanie użytkowników SignalR na połączenia](mapping-users-to-connections.md)

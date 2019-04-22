@@ -12,7 +12,7 @@ ms.openlocfilehash: b75057f3128662a9bbdd641dc0a7c1ba09fbbe87
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388195"
 ---
 # <a name="creating-a-database"></a>Tworzenie bazy danych
@@ -32,11 +32,11 @@ W oknie dialogowym Wybierz źródło danych wybierz program Microsoft SQL Server
 
 W oknie dialogowym Dodaj połączenie, wprowadź ". \SQLEXPRESS" dla nazwy serwera, a następnie wprowadź "Filmy" jako nazwę nowej bazy danych.
 
-[![Aokno dialogowe połączenia dd](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
+[![Dodaj okno dialogowe połączenia](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
 
 Kliknij przycisk OK, a użytkownik zostanie zapytany, jeśli chcesz utworzyć tę bazę danych. Kliknij przycisk Tak.
 
-[![CTwórz filmy?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
+[![Utwórz filmy?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
 
 Teraz masz pustej bazy danych w Eksploratorze serwera.
 
@@ -44,7 +44,7 @@ Teraz masz pustej bazy danych w Eksploratorze serwera.
 
 Kliknij prawym przyciskiem myszy w tabelach, a następnie kliknij przycisk Dodaj tabelę. Pojawi się okno projektanta tabel. Dodaj kolumny Identyfikator, tytuł, ReleaseDate, gatunku i ceny. Kliknij prawym przyciskiem myszy kolumny Identyfikatora, a następnie kliknij polecenie Ustaw klucz podstawowy. Oto mój projekt obszary wygląda podobnie.
 
-[![DEdytor tabel danyc](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
+[![Edytor tabel bazy danych](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
 
 Ponadto wybierz kolumny identyfikatora, a w obszarze poniżej właściwości kolumny zmiany "Specyfikacja tożsamości", "Yes".
 
@@ -52,11 +52,11 @@ Ponadto wybierz kolumny identyfikatora, a w obszarze poniżej właściwości kol
 
 Jeśli właśnie tak zrobić, kliknij ikonę Zapisz na pasku narzędzi lub wybierz plik | Zapisz z menu, a nazwa tabeli "**filmu**" (pojedynczą). Gdy mamy już bazę danych i tabelę!
 
-[![Cbierz nazwy](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
+[![Wybierz nazwę](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
 
 Wróć do Eksploratora serwera i kliknij prawym przyciskiem myszy tabelę filmu, a następnie wybierz opcję "Pokaż dane tabeli". Wprowadź kilka filmów, więc niektóre dane nie naszej bazie danych.
 
-[![DEdytowanie w tabeli danyc](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
+[![Edytowanie tabel bazy danych](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
 ## <a name="creating-a-model"></a>Tworzenie modelu
 
@@ -72,11 +72,11 @@ Kliknij przycisk "Dodaj". Spowoduje to uruchomienie "Kreator modelu danych jedno
 
 W oknie dialogowym Nowy, które się pojawi wybierz pozycję Generuj z bazy danych. Ponieważ właśnie wprowadziliśmy bazę danych, będziemy potrzebować tylko mówić Entity Framework na temat naszej nowej bazy danych i jego tabeli. Kliknij obok pozycji Zapisz naszych połączenia z bazą danych w konfiguracji naszej aplikacji sieci web. Sprawdź tabele i film pole wyboru, a następnie kliknij przycisk Zakończ.
 
-[![Entity Kreator modelu danych](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
+[![Kreator modelu Entity Data Model](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
 
 Teraz możemy Zobacz naszej nowej tabeli filmu w Entity Framework Designer i uzyskać do niego dostęp z poziomu kodu.
 
-[![Movies — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
+[![Filmy — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
 
 Na powierzchni projektowej widać klasy "Filmu". Ta klasa jest mapowany do tabeli "Filmu" w naszej bazie danych i każdej właściwości w nim mapuje kolumną z tabeli. Każde wystąpienie klasy "Filmu" odpowiada wiersz w tabeli "Filmu".
 

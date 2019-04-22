@@ -12,7 +12,7 @@ ms.openlocfilehash: 9e2cd1beca03b81140b9d58c5e43dbf7c6b8808b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393057"
 ---
 # <a name="create-the-project"></a>Tworzenie projektu
@@ -70,7 +70,7 @@ Możesz przełączać się między **projektowania** widoku i **źródła** wido
 > 
 > Program ASP.NET oferuje cztery podstawowego rozwoju platform:
 > 
-> - [Formularze sieci Web ASP.NET](../../../index.md)  
+> - [ASP.NET Web Forms](../../../index.md)  
 >  Środowiska formularzy sieci Web jest przeznaczony dla deweloperów, którzy wolą opartych na kontroli i deklaratywne programowania, takich jak Microsoft Windows Forms (WinForms) i WPF/XAML/Silverlight. Oferuje ona modelem WYSIWYG projektowania opartego na projektanta, więc popularne wśród deweloperów szukających środowisko projektowe (RAD) szybkie aplikacji służące do tworzenia aplikacji sieci web. Jeśli rozpoczynasz programowanie sieci web i zapoznać się z tradycyjnych narzędzi deweloperskich klienta RAD firmy Microsoft (na przykład w przypadku języka Visual Basic i Visual C#), można szybko zbudować aplikację sieci web bez doświadczenia w kodzie HTML i JavaScript.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
 >  ASP.NET MVC jest przeznaczony dla deweloperów, którzy są zainteresowani wzorców i zasad, takich jak programowania sterowanego testami, separacji Inwersja kontroli (IoC) i wstrzykiwanie zależności (DI). Ta struktura zachęca oddzielenie warstwy logiki biznesowej aplikacji sieci web od jej warstwy prezentacji.
@@ -154,7 +154,7 @@ Gdy serwer sieci Web odbiera żądanie dla strony, jego znajduje stronę, przetw
 > 
 > Szablony projektu Visual Studio 2013 korzystają [Bootstrap](http://getbootstrap.com/), układ i motywów framework, utworzone przez usługi Twitter. Usługa ładowania początkowego używa CSS3, aby zapewnić elastyczne, co oznacza, że układy dynamicznie dostosowują się do innej przeglądarki rozmiary okna. Można również użyć funkcji motywów Bootstrap firmy, można łatwo dokonać zmian w aplikacji wyglądu i działania. Domyślnie szablon aplikacji sieci Web ASP.NET w programie Visual Studio 2013 zawiera narzędzia Bootstrap jako pakiet NuGet.
 > 
-> **Pakiety NuGet**
+> **NuGet Packages**
 > 
 > Szablon aplikacji formularzy sieci Web ASP.NET zawiera zbiór [NuGet](http://www.nuget.org/) pakietów. Te pakiety oferuje składającej w formularzu, narzędzi i bibliotek typu open source. Istnieje szereg pakietów, aby ułatwić tworzenie i testowanie aplikacji. Program Visual Studio ułatwia dodawanie, usuwanie i aktualizowanie pakietów NuGet. Deweloperzy mogą tworzyć i dodawać pakiety NuGet także.
 > 

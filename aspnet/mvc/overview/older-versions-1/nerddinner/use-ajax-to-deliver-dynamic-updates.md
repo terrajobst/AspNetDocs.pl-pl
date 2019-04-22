@@ -12,7 +12,7 @@ ms.openlocfilehash: 56ebc40aa500b62811bac0a5041fa9aa4f91f4ae
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391055"
 ---
 # <a name="use-ajax-to-deliver-dynamic-updates"></a>Korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych

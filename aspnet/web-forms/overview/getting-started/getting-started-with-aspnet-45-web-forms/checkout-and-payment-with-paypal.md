@@ -12,7 +12,7 @@ ms.openlocfilehash: a0895c2246bc08f50645a865ce2dfffecfbb56a6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391159"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>Finalizacja zakupu i płatność w systemie PayPal
@@ -309,9 +309,9 @@ Spowoduje umieszczenie większość kodu PayPal w jednej klasie. Ta klasa zawier
 
 Klasa NVPAPICaller zawiera obsługę większości funkcji PayPal. Kod w klasie zapewnia metody potrzebne do dokonywania zakupów w środowisku testowym PayPal testu. Następujące trzy funkcje PayPal są używane do robienia zakupów:
 
-- `SetExpressCheckout`  — funkcja
-- `GetExpressCheckoutDetails`  — funkcja
-- `DoExpressCheckoutPayment`  — funkcja
+- `SetExpressCheckout` — Funkcja
+- `GetExpressCheckoutDetails` — Funkcja
+- `DoExpressCheckoutPayment` — Funkcja
 
 `ShortcutExpressCheckout` Metoda zbiera szczegóły informacji i produktu zakupu testu z koszyka zakupów i wywołania `SetExpressCheckout` funkcji PayPal. `GetCheckoutDetails` Metoda potwierdza szczegóły zakupu i wywołania `GetExpressCheckoutDetails` funkcji PayPal przed dokonaniem zakupu testu. `DoCheckoutPayment` Ukończeniu metody zakupu testów w środowisku testowym, wywołując `DoExpressCheckoutPayment` funkcji PayPal. Pozostały kod obsługuje metody płatności PayPal i procesu, takie jak kodowanie ciągów, dekodowania ciągów, przetwarzanie tablic i określanie poświadczeń.
 

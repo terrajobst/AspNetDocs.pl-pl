@@ -12,7 +12,7 @@ ms.openlocfilehash: 35fcf02c20e3d20f9cb75f6a25aeb1ddac016b4e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393772"
 ---
 # <a name="urls-in-master-pages-vb"></a>Adresy URL na stronach wzorcowych (VB)
@@ -92,7 +92,7 @@ Aby rozwiązać problem, uszkodzony obraz pokazano na rysunku 2, musimy zaktuali
 Poświęć chwilę, aby zaktualizować `<img>` elementu `src` atrybutu bezwzględny adres URL przy użyciu jednej formy pokazanych powyżej, a następnie odwiedź `~/Admin/Default.aspx` strony za pośrednictwem przeglądarki. Tym razem przeglądarki zostaną prawidłowo znaleźć i wyświetlić `PoweredByASPNET.gif` pliku obrazu (zobacz rysunek 3).
 
 
-[![TObraz PoweredByASPNET.gif jest teraz wyświetlana](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
+[![Obraz PoweredByASPNET.gif jest teraz wyświetlana](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
 
 **Rysunek 03**: `PoweredByASPNET.gif` Obraz jest teraz wyświetlany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](urls-in-master-pages-vb/_static/image7.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: a0ddad2ccd6babcde2b9a565591969745d8c85d0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387304"
 ---
 # <a name="how-do-i-precompile-an-aspnet-website"></a>[Jak mogę] Prekompilowanie witryny internetowej ASP.NET

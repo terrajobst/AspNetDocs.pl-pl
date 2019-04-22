@@ -12,7 +12,7 @@ ms.openlocfilehash: 34a182278cfa57369643ab151492532bc92bd623
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393499"
 ---
 # <a name="creating-a-customized-sorting-user-interface-c"></a>Tworzenie dostosowanego interfejsu użytkownika sortowania (C#)
@@ -31,7 +31,7 @@ Podczas wyświetlania długą listę posortowanych danych w przypadku zaledwie k
 Aby wyróżnić granice między grupami posortowany, wiele witryn sieci Web używają interfejsu użytkownika, który dodaje znak oddzielający takich grup. Separatory, jak w powyższym przedstawionej na rysunku 1 umożliwia użytkownikowi szybciej znaleźć określonej grupy i zidentyfikować jego granice, a także upewnić się, jakie różne grupy istnieje w danych.
 
 
-[![Estacje grupy kategorii są jasno określone](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
+[![Każda kategoria grupa jest jasno określone](creating-a-customized-sorting-user-interface-cs/_static/image2.png)](creating-a-customized-sorting-user-interface-cs/_static/image1.png)
 
 **Rysunek 1**: Każda kategoria grupa jest jasno określone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-cs/_static/image3.png))
 
@@ -50,7 +50,7 @@ Następnie skonfiguruj widoku GridView w taki sposób, że zawiera on tylko `Pro
 Poświęć chwilę, aby wyświetlić nasz postęp tej pory w przeglądarce. Rysunek 2 przedstawia sortowanie GridView po jego dane są sortowane według kategorii w kolejności alfabetycznej.
 
 
-[![Tjest on s GridView Sortowalna Data uporządkowane według kategorii](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
+[![S GridView Sortowalna Data są uporządkowane według kategorii](creating-a-customized-sorting-user-interface-cs/_static/image5.png)](creating-a-customized-sorting-user-interface-cs/_static/image4.png)
 
 **Rysunek 2**: S GridView można sortować dane są uporządkowane według kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-cs/_static/image6.png))
 
@@ -100,7 +100,7 @@ Zamiast wiadomości dane przed wiążące go do widoku GridView, możemy dodać 
 Aby dodać separator wierszy między poszczególnymi grupami sortowania, firma Microsoft bezpośrednio manipulować tej hierarchii kontroli po jego utworzeniu. Firma Microsoft mieć pewność, że utworzono hierarchii kontroli s GridView po raz ostatni przez razem, gdy strona jest renderowany. W związku z tym, ta metoda zastępuje `Page` klasy s `Render` metody, w tym momencie hierarchii kontroli końcowego s GridView została zaktualizowana do wymaganych separatora wierszy. Rysunek 4 przedstawia ten proces.
 
 
-[![An technika alternatywne manipuluje hierarchii kontroli GridView s](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
+[![Technikę alternatywne manipuluje hierarchii kontroli s GridView](creating-a-customized-sorting-user-interface-cs/_static/image9.png)](creating-a-customized-sorting-user-interface-cs/_static/image8.png)
 
 **Rysunek 4**: Technikę alternatywne manipuluje s GridView hierarchii kontroli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-cs/_static/image10.png))
 
@@ -156,12 +156,12 @@ Klasy CSS, używany do formatowania sortowania wiersz nagłówka grupy `SortHead
 Przy użyciu bieżącego kodu interfejsu sortowania dodaje nagłówków grup sortowania, gdy sortowanie według dowolnego elementu BoundField (zobacz rysunek 5, która zawiera zrzut ekranu podczas sortowania przez dostawcę). Jednak podczas sortowania przez inny typ pola (na przykład CheckBoxField lub TemplateField) sortowania grupy nagłówki są nigdzie nie można odnaleźć (patrz rysunek 6).
 
 
-[![TADAM sortowanie interfejsu obejmuje sortowania grupy nagłówki sortowanie według BoundFields](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
+[![Interfejs sortowania zawiera nagłówki Sortuj i Grupuj, gdy sortowanie według BoundFields](creating-a-customized-sorting-user-interface-cs/_static/image12.png)](creating-a-customized-sorting-user-interface-cs/_static/image11.png)
 
 **Rysunek 5**: Sortowanie interfejsu obejmuje sortowania grupy nagłówków podczas sortowania przez BoundFields ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-cs/_static/image13.png))
 
 
-[![THE sortowania grupy nagłówki są Brak podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
+[![Nagłówki grupy sortowania są, Brak podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-cs/_static/image15.png)](creating-a-customized-sorting-user-interface-cs/_static/image14.png)
 
 **Rysunek 6**: Nagłówki grupy sortowania są, Brak podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-cs/_static/image16.png))
 
@@ -178,7 +178,7 @@ Ten kod sprawdza, czy kolumna posortowanego `TableCell` dla bieżącego wiersza 
 Dodając kod powyżej, nagłówków grup sortowania są teraz, gdy sortowanie według CheckBoxField zakończona (zobacz rysunek 7).
 
 
-[![THE sortowania grupy nagłówki są teraz obecny podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
+[![Nagłówki grupy sortowania są teraz obecny podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-cs/_static/image18.png)](creating-a-customized-sorting-user-interface-cs/_static/image17.png)
 
 **Rysunek 7**: Nagłówki grupy sortowania są teraz obecny podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-cs/_static/image19.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: f648e0cb53dd410105adc22401f19a5a15f9e8c1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380811"
 ---
 # <a name="adding-a-create-method-and-create-view"></a>Dodawanie metody Create i tworzenie widoku
@@ -38,7 +38,7 @@ Przejdźmy teraz wdrożyć szablon Utwórz widok, który użyjemy, aby wyświetl
 
 Wybierzemy, firma Microsoft zamierza przekazać Wyświetl szablon "Filmu" jako klasą danych widoku i wskazują, że chcemy "tworzenia szkieletu" szablon "Utwórz".
 
-[![ADodaj widok](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
+[![Dodawanie widoku](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
 Po kliknięciu przycisku Dodaj zostanie utworzony szablon widoku \Movies\Create.aspx dla Ciebie. Ponieważ Wybraliśmy "Utwórz" z menu rozwijanego "Wyświetl zawartość" okno dialogowe dodawania widoku automatycznie "szkieletu" niektóre domyślnej zawartości dla nas. Szkieletu utworzone HTML &lt;formularza&gt;, miejsce na błąd sprawdzania poprawności wiadomości do i od tworzenia szkieletów obsługującemu filmów, dla każdej właściwości klasy Nasze go utworzone etykiety i pola.
 
@@ -48,7 +48,7 @@ Ponieważ identyfikator naszej bazie danych automatycznie daje filmu, usuńmy ty
 
 Załóżmy teraz utworzyć nowy film i dodać go do bazy danych. Utworzymy to zrobić, uruchamiając ponownie aplikację i odwiedź stronę "/ filmy" adres URL i kliknij przycisk "Utwórz" link można dodać nowy film.
 
-[![CTwórz — Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Tworzenie — Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
 Po kliknięciu przycisku Utwórz, firma Microsoft będzie można księgowania Wstecz (za pośrednictwem protokołu HTTP POST) danych w tym formularzu metodę /Movies/Create, który właśnie utworzyliśmy. Podobnie jak podczas systemu trwało parametr "numTimes" i "name" spoza adres URL i automatycznie mechanizmowi parametrów dla metody wcześniej system będzie automatycznie umieść pola formularza z WPIS i mapować je do obiektu. W tym przypadku wartości z pól w formacie HTML, takich jak "ReleaseDate" i "Title", będą automatycznie umieszczone prawidłowe właściwości nowe wystąpienie klasy filmu.
 
@@ -58,7 +58,7 @@ Przyjrzyjmy się druga metoda tworzenia z naszych MoviesController ponownie. Zwr
 
 Ten obiekt filmu następnie został przekazany do naszych Utwórz metody akcji w wersji [HttpPost], a firma Microsoft zapisany w bazie danych, a następnie przekierowanie użytkownika z powrotem do metody akcji indeks(), z którym będą wyświetlane zapisany wynik na liście filmów:
 
-[![Movie lista — Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 Firma Microsoft nie są ewidencjonowane nasze filmy są poprawne, jednak i bazy danych nie pozwalają na zapisywanie filmu przy użyciu bez tytułu. Dobrze byłoby, jeśli firma Microsoft może Monituj użytkownika, że przed bazy danych Zgłoszono błąd. Robimy to dalej przez dodanie obsługi sprawdzania poprawności do naszej aplikacji.
 

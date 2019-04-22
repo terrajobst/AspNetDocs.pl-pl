@@ -12,7 +12,7 @@ ms.openlocfilehash: 1ef796dc61cc65b6ca5205a5f8baf4dcc4ba05ae
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389170"
 ---
 # <a name="deploying-your-site-using-an-ftp-client-c"></a>Wdrażanie witryny przy użyciu klienta FTP (C#)
@@ -69,7 +69,7 @@ Rysunek 1 pokazuje FileZilla po niezbędne pliki zostały skopiowane. FileZilla 
 > Jak są one ignorowane nie powoduje żadnych problemów, że w plikach kodu źródłowego na serwerze produkcyjnym. ASP.NET zabrania żądania HTTP do plików kodu źródłowego domyślnie, tak aby nawet, jeśli pliki kodu źródłowego są obecne na serwerze produkcyjnym są niedostępne dla odwiedzający witrynę sieci Web. (To znaczy, jeśli użytkownik próbuje znaleźć `http://www.yoursite.com/Default.aspx.cs` otrzymają one stronę błędu, który objaśnia, że te typy plików — `.cs` plików — jest zabronione.)
 
 
-[![USE klienta FTP do skopiowania niezbędne pliki swój pulpit na serwerze sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
+[![Klient FTP umożliwia skopiuj niezbędne pliki z komputera z serwerem sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
 
 **Rysunek 1**: Używany klient FTP do skopiowania niezbędne pliki swój pulpit na serwerze sieci Web u dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image3.png))
 
@@ -82,7 +82,7 @@ Rysunek 2 przedstawia witrynę wdrożoną przeglądy książki. Należy pamięta
 > Jeśli wystąpi błąd podczas wyświetlania aplikacji Poświęć chwilę, aby upewnić się, że Ci się wdrożyć poprawny zestaw plików. Następnie sprawdź komunikat o błędzie, aby zobaczyć, jeśli go, co spowoduje wyświetlenie wszelkie wskazówki dotyczące problemu. Poniżej można włączyć do działu pomocy technicznej Twojej firmy hosta sieci web lub opublikuj swoje pytanie na forum odpowiednie [fora ASP.NET](https://forums.asp.net/).
 
 
-[![TWitryna przeglądy książki jest teraz dostępny dla każdego, kto połączenie z Internetem](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
+[![Witryna przeglądy książki jest teraz dostępny dla każdego, kto połączenie z Internetem](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
 
 **Rysunek 2**: Witryna przeglądy książki jest teraz dostępny dla każdego, kto połączenie z Internetem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image6.png))
 
@@ -124,7 +124,7 @@ Po pomyślnym utworzeniu projektu, umożliwia klienta FTP skopiuj następujące 
 Rysunek 3 przedstawia FileZilla po skopiowaniu zapasowej wymaganych plików. Jak widać, platformy ASP.NET pliki kodów źródłowych, takich jak `About.aspx.cs`, znajdują się na komputerze lokalnym (środowisko programistyczne) i dostawcy hosta sieci web (środowisko produkcyjne), ponieważ pliki kodu, które muszą zostać wdrożone w przypadku korzystania z automatycznego Kompilacja.
 
 
-[![USE klienta FTP do skopiowania niezbędne pliki swój pulpit na serwerze sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
+[![Klient FTP umożliwia skopiuj niezbędne pliki z komputera z serwerem sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
 
 **Rysunek 3**: Używany klient FTP do skopiowania niezbędne pliki swój pulpit na serwerze sieci Web u dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image9.png))
 

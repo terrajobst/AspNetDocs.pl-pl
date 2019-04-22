@@ -12,7 +12,7 @@ ms.openlocfilehash: 055142be60257f0917eb22bc08471c0bec54ca2e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387181"
 ---
 # <a name="getting-started-with-aspnet-mvc-5"></a>Wprowadzenie do korzystania z wzorca ASP.NET MVC 5
@@ -27,10 +27,10 @@ W tej serii samouczków następujące obejmuje platformy ASP.NET MVC: Źródło 
 - [Dodawanie kontrolera](adding-a-controller.md)
 - [Dodawanie widoku](adding-a-view.md)
 - [Dodawanie modelu](adding-a-model.md)
-- [Tworzenie parametrów połączenia i praca z bazą danych SQL Server LocalDB](creating-a-connection-string.md)
+- [Tworzenie parametrów połączenia i praca z SQL Server LocalDB](creating-a-connection-string.md)
 - [Uzyskiwanie dostępu do danych modelu za pomocą kontrolera](accessing-your-models-data-from-a-controller.md)
 - [Badanie metod edycji i widoku edycji](examining-the-edit-methods-and-edit-view.md)
 - [Dodawanie wyszukiwania](adding-search.md)
 - [Dodanie nowego pola](adding-a-new-field.md)
-- [Dodawanie walidacji](adding-validation.md)
+- [Dodawanie weryfikacji](adding-validation.md)
 - [Badanie metod Details i Delete](examining-the-details-and-delete-methods.md)

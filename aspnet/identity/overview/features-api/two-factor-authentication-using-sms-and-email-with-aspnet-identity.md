@@ -13,7 +13,7 @@ ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395294"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity
@@ -282,6 +282,6 @@ Mimo że można ustawić blokady konta na niepowodzenia próby logowania do has�
 - [MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowanie jednokrotne](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) także przedstawiono sposób dodawania informacji o profilu z tabelą użytkowników.
 - [ASP.NET MVC i tożsamości w wersji 2.0: Opis podstawowych funkcji](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) przez Atten Jan.
 - [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity](account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Wprowadzenie do systemu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
+- [Wprowadzenie do produktu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Ogłoszenie RTM produktu ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) przez autorem jest Pranav Rastogi.
 - [ASP.NET Identity 2.0: Sprawdzanie poprawności konta i autoryzacji Two-Factor Authentication](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) przez Atten Jan.

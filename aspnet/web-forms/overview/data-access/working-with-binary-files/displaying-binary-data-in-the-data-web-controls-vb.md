@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f8207d1b25882b2cef269b64b43500d14c32976
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394292"
 ---
 # <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Wyświetlanie danych binarnych w kontrolkach internetowych danych (VB)
@@ -41,7 +41,7 @@ Jak używać kontrolki FileUpload widzieliśmy w poprzednim samouczku. W związk
 W tym samouczku s znajdziesz siedem broszura pliki PDF `~/Brochures` folderu, po jednym dla każdej kategorii, z wyjątkiem owoce morza. Czy mogę celowo pominięty, dodawanie broszura owoce morza, aby zilustrować procedurę do obsługi scenariuszy, w którym nie wszystkie rekordy są skojarzone dane binarne. Aby zaktualizować `Categories` tabeli z tymi wartościami, kliknij prawym przyciskiem myszy `Categories` węzła z poziomu Eksploratora serwera i wybierz polecenie Pokaż dane tabeli. Następnie wprowadź wirtualnej ścieżki do plików broszura dla każdej kategorii, która ma brochure, tak jak pokazano na rysunku 1. Ponieważ nie ma żadnych innej kategorii owoce morza, pozostaw swoją `BrochurePath` wartość kolumny s jako `NULL`.
 
 
-[![Mręcznie wprowadź wartości dla tabeli Kategorie s BrochurePath kolumny](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.png)
+[![Ręcznie wprowadź wartości dla kolumny BrochurePath tabeli s kategorie](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image1.png)
 
 **Rysunek 1**: Ręcznie wprowadź wartości dla `Categories` tabeli s `BrochurePath` kolumny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.png))
 
@@ -53,17 +53,17 @@ Za pomocą `BrochurePath` wartości podanych dla `Categories` tabeli, możemy po
 Rozpocznij, przeciągając je z przybornika do projektanta w kontrolce GridView `DisplayOrDownloadData.aspx` stronie `BinaryData` folderu. Ustaw GridView s `ID` do `Categories` i za pośrednictwem tagu inteligentnego s GridView wybierz powiązać go z nowego źródła danych. W szczególności powiązać kontrolki ObjectDataSource o nazwie `CategoriesDataSource` , który pobiera dane przy użyciu `CategoriesBLL` obiektu s `GetCategories()` metody.
 
 
-[![CTwórz nowe CategoriesDataSource o nazwie elementu ObjectDataSource](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.png)
+[![Tworzenie nowego elementu ObjectDataSource, o nazwie CategoriesDataSource](displaying-binary-data-in-the-data-web-controls-vb/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.png)
 
 **Rysunek 2**: Utwórz nowy o nazwie elementu ObjectDataSource `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.png))
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy CategoriesBLL](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.png)
+[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy CategoriesBLL](displaying-binary-data-in-the-data-web-controls-vb/_static/image3.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.png)
 
 **Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image6.png))
 
 
-[![Robierz listy z kategorii przy użyciu metody GetCategories()](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.png)
+[![Pobieranie listy kategorii przy użyciu metody GetCategories()](displaying-binary-data-in-the-data-web-controls-vb/_static/image4.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.png)
 
 **Rysunek 4**: Pobieranie listy z kategorii przy użyciu `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.png))
 
@@ -76,7 +76,7 @@ Po zakończeniu pracy kreatora Konfigurowanie źródła danych, program Visual S
 Wyświetl tę stronę za pośrednictwem przeglądarki (zobacz rysunek 5). Każda z tych kategorii osiem jest wymieniony. Siedem kategorii z `BrochurePath` wartości mają `BrochurePath` wartość wyświetloną w odpowiedniej elementu BoundField. Owoce morza, która ma `NULL` wartość jego `BrochurePath`, wyświetla pustą komórkę.
 
 
-[![Estacje kategorii s nazwę, opis i wartość BrochurePath znajduje się na liście](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.png)
+[![Każda kategoria s nazwa, opis i wartość BrochurePath znajduje się na liście](displaying-binary-data-in-the-data-web-controls-vb/_static/image5.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image9.png)
 
 **Rysunek 5**: Każda kategoria s nazwa, opis, a `BrochurePath` wartość znajduje się na liście ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.png))
 
@@ -92,12 +92,12 @@ Zamiast wyświetlania tekstu `BrochurePath` kolumny, chcemy, aby utworzyć łąc
 Kolumna łącza spowoduje to dodanie do kontrolki GridView, jak pokazano na rysunku 7. Kliknięcie łącza broszura widok będzie wyświetlić pliku PDF bezpośrednio w przeglądarce lub monitować użytkownika o pobranie pliku, w zależności od tego, czy zainstalowano czytnik plików PDF oraz ustawienia przeglądarki s.
 
 
-[![A Broszura kategorii s można wyświetlić, klikając łącze Wyświetl Broszura](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.png)
+[![Broszura s kategorii można wyświetlić, klikając łącze Wyświetl broszura](displaying-binary-data-in-the-data-web-controls-vb/_static/image7.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.png)
 
 **Rysunek 7**: Kategoria s broszura można wyświetlić, klikając łącze Wyświetl broszura ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image12.png))
 
 
-[![Ton s kategorii broszura PDF jest wyświetlany](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.png)
+[![Kategoria s broszura PDF jest wyświetlana.](displaying-binary-data-in-the-data-web-controls-vb/_static/image8.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.png)
 
 **Rysunek 8**: Kategoria s broszura PDF jest wyświetlany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image14.png))
 
@@ -131,7 +131,7 @@ Ta metoda określa, czy przekazywany do `Object` wartość jest bazą danych `NU
 Na rysunku nr 10 przedstawiono strony, po zastosowaniu tych zmian. Należy pamiętać, że kategorii owoce morza s `BrochurePath` pole zawiera teraz dostępne broszura bez tekstu.
 
 
-[![TWyświetlane są on tekst nie broszura dostępne dla tych kategorii bez Broszura](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image15.png)
+[![Tekst nie broszura dostępne będą wyświetlane te kategorie bez broszura](displaying-binary-data-in-the-data-web-controls-vb/_static/image10.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image15.png)
 
 **Na rysunku nr 10**: Tekst nie broszura dostępne będą wyświetlane te kategorie bez broszura ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image16.png))
 
@@ -168,7 +168,7 @@ Ten kod uruchamia przez wczytanie `CategoryID` wartości querystring w zmiennej 
 Z tą stroną, utworzony obraz określoną kategorię s mogą być wyświetlane, odwiedzając stronę `DisplayCategoryPicture.aspx?CategoryID=categoryID`. Na ilustracji 11 pokazano obrazu s kategorii Beverages, co mogą być wyświetlane z `DisplayCategoryPicture.aspx?CategoryID=1`.
 
 
-[![TADAM s do kategorii Beverages obraz jest wyświetlany](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image17.png)
+[![S należące do kategorii, który jest wyświetlany obraz](displaying-binary-data-in-the-data-web-controls-vb/_static/image11.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image17.png)
 
 **Rysunek 11**: Do kategorii Beverages s, zostanie wyświetlony obraz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image18.png))
 
@@ -208,7 +208,7 @@ Po dodaniu ImageField, składni deklaratywnej s GridView powinien wyglądać soo
 Poświęć chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki. Należy pamiętać o tym, jak każdy rekord zawiera teraz obraz dla kategorii.
 
 
-[![Tjest on s kategorii obraz wyświetlany dla każdego wiersza](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image19.png)
+[![Kategoria s obraz jest wyświetlany dla każdego wiersza](displaying-binary-data-in-the-data-web-controls-vb/_static/image13.gif)](displaying-binary-data-in-the-data-web-controls-vb/_static/image19.png)
 
 **Rysunek 13**: Kategoria s obraz jest wyświetlany dla każdego wiersza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-binary-data-in-the-data-web-controls-vb/_static/image20.png))
 

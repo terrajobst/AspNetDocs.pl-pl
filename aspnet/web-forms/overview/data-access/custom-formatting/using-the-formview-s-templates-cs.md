@@ -12,7 +12,7 @@ ms.openlocfilehash: d275e3b154ca3397294d6cd0924cb6a50bbcef9a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395540"
 ---
 # <a name="using-the-formviews-templates-c"></a>Przy użyciu szablony widoku FormView (C#)
@@ -40,7 +40,7 @@ W odróżnieniu od DetailsView FormView nie składa się z pól. Nie można doda
 W tym samouczku zajmiemy się przy użyciu kontrolki FormView do przedstawienia mniej sztywne wyświetlania produktów. Zamiast pola nazwy, kategorii, dostawcy i tak dalej, FormView firmy `ItemTemplate` wyświetli te wartości przy użyciu kombinacji header element i `<table>` (patrz rysunek 1).
 
 
-[![THE FormView dzieli z układu Grid-Like widoczne w widoku DetailsView](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
+[![FormView dzieli układu siatki w DetailsView](using-the-formview-s-templates-cs/_static/image2.png)](using-the-formview-s-templates-cs/_static/image1.png)
 
 **Rysunek 1**: FormView podziały poza widoczne Grid-Like układu w DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-formview-s-templates-cs/_static/image3.png))
 
@@ -50,7 +50,7 @@ W tym samouczku zajmiemy się przy użyciu kontrolki FormView do przedstawienia 
 Otwórz `FormView.aspx` strony, a następnie przeciągnij kontrolce FormView z przybornika do projektanta. Najpierw dodaj FormView jest wyświetlana jako szarego pola, które poinstruowanie nam, `ItemTemplate` jest wymagana.
 
 
-[![TADAM FormView nie może być renderowana w projektancie, dopóki nie podano właściwości ItemTemplate](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
+[![Nie można renderować widoku FormView w projektancie, dopóki nie podano właściwości ItemTemplate](using-the-formview-s-templates-cs/_static/image5.png)](using-the-formview-s-templates-cs/_static/image4.png)
 
 **Rysunek 2**: FormView, nie może być renderowany w Projektancie aż `ItemTemplate` podano ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-formview-s-templates-cs/_static/image6.png))
 
@@ -88,12 +88,12 @@ Ponieważ istnieją CheckBoxFields nie udostępniono FormView, aby pokazać `Dis
 Za pomocą `ItemTemplate` kompletne, informacje o produkcie jest wyświetlany w sposób bardziej płynny. Porównaj dane wyjściowe DetailsView ostatni samouczek (rysunek 3) z danych wyjściowych generowanych przez FormView w tym samouczku (rysunek 4).
 
 
-[![TADAM sztywne DetailsView dane wyjściowe](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
+[![Sztywnych dane wyjściowe DetailsView](using-the-formview-s-templates-cs/_static/image8.png)](using-the-formview-s-templates-cs/_static/image7.png)
 
 **Rysunek 3**: Sztywnych dane wyjściowe DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-formview-s-templates-cs/_static/image9.png))
 
 
-[![TADAM dynamiki FormView wyjściowy](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
+[![Płynne FormView danych wyjściowych](using-the-formview-s-templates-cs/_static/image11.png)](using-the-formview-s-templates-cs/_static/image10.png)
 
 **Rysunek 4**: Dane wyjściowe dynamiki FormView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-formview-s-templates-cs/_static/image12.png))
 

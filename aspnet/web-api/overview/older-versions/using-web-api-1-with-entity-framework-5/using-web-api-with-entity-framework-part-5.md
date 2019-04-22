@@ -12,14 +12,14 @@ ms.openlocfilehash: b06f738d821d78f74069c3bf0f6c0880796195d2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393291"
 ---
 # <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Część 5. Tworzenie dynamicznego interfejsu użytkownika z użyciem biblioteki Knockout.js
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-a-dynamic-ui-with-knockoutjs"></a>Tworzenie dynamicznego interfejsu użytkownika z użyciem biblioteki Knockout.js
 

@@ -13,7 +13,7 @@ ms.openlocfilehash: f4fb7ccaf9e6fbecf414d1bdfe7b4cae3218de4b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389924"
 ---
 # <a name="aspnet-mvc-deployment"></a>ASP.NET MVC Deployment
@@ -24,7 +24,7 @@ ms.locfileid: "59389924"
 - [Migrowanie aplikacji ASP.NET MVC do kontenerów systemu Windows](docker-aspnetmvc.md)
 - [Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
 - [Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../../../web-forms/overview/deployment/visual-studio-web-deployment/index.md)
-- [ASP.NET4 - wprowadzenie do wdrożenia w przedsiębiorstwie](../../../web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
+- [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](../../../web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](../../../web-forms/overview/deployment/web-deployment-in-the-enterprise/index.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 2: konfigurowanie serwerów](../../../web-forms/overview/deployment/configuring-server-environments-for-web-deployment/index.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 3: konfigurowanie serwera TFS](../../../web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/index.md)

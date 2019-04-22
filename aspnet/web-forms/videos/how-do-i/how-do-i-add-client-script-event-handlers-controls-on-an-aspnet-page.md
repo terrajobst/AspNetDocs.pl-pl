@@ -12,7 +12,7 @@ ms.openlocfilehash: dc6bee1714d79ab0092a49d787dbde9119c04b66
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391360"
 ---
 # <a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a>[Jak]: Dodawanie kontrolek programów obsługi zdarzeń skryptu klienta na stronie ASP.NET?

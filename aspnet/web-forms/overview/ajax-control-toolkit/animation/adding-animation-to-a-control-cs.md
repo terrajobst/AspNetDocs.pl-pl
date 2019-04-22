@@ -12,7 +12,7 @@ ms.openlocfilehash: e4c6bfe1884d3e066c7b27e07e3a069943793bdd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392290"
 ---
 # <a name="adding-animation-to-a-control-c"></a>Dodawanie animacji do kontrolki (C#)
@@ -72,7 +72,7 @@ W tym przykładzie panelu są zanikanie. Animacja podejmują 1,5 s (`Duration` a
 Po uruchomieniu tego skryptu, panel jest wyświetlany i stopniowo zmniejsza się w ciągu półtora sekund.
 
 
-[![Twygaszanie panelu HE](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
+[![Panel jest Ściemnianie](adding-animation-to-a-control-cs/_static/image2.png)](adding-animation-to-a-control-cs/_static/image1.png)
 
 Panel jest wygaszanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-animation-to-a-control-cs/_static/image3.png))
 

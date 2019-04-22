@@ -12,7 +12,7 @@ ms.openlocfilehash: d83fb53ddb40a31013bc724909fa149ce2e4c713
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59387383"
 ---
 # <a name="using-textboxwatermark-with-validation-controls-vb"></a>Używanie kontrolki TextBoxWatermark z kontrolkami walidacji (VB)
@@ -49,7 +49,7 @@ Na koniec należy dodać kod po stronie serwera w danych wyjściowych tekst w po
 [!code-aspx[Main](using-textboxwatermark-with-validation-controls-vb/samples/sample4.aspx)]
 
 
-[![TModuł sprawdzania poprawności HE narzeka o tym, że nie ma żadnego tekstu w polu](using-textboxwatermark-with-validation-controls-vb/_static/image2.png)](using-textboxwatermark-with-validation-controls-vb/_static/image1.png)
+[![Moduł weryfikacji narzeka, że nie ma żadnego tekstu w polu](using-textboxwatermark-with-validation-controls-vb/_static/image2.png)](using-textboxwatermark-with-validation-controls-vb/_static/image1.png)
 
 Moduł weryfikacji narzeka, że nie ma żadnego tekstu w polu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-textboxwatermark-with-validation-controls-vb/_static/image3.png))
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 1291417755e3fa4fb030bc6ba3089c38c4719c71
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389669"
 ---
 # <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages (Razor)
@@ -262,7 +262,7 @@ Aby zarządzać rolami, można użyć [role](https://msdn.microsoft.com/library/
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Dostosowywanie zachowania dla całej witryny](https://go.microsoft.com/fwlink/?LinkId=202906)
-- [Securing Web Communications: Certyfikaty SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660)
+- [Zabezpieczanie komunikacji w sieci Web: Certyfikaty SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [Najbardziej podstawową metodą, aby zaimplementować zabezpieczenia ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) i [przy użyciu funkcji potwierdzenia zabezpieczeń stron ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Są to wpisy w blogu, które opisują sposób implementowania członkostwa programu ASP.NET bez używania **witryny początkowej** szablonu.
 - [Włączanie logowania z zewnętrznych witryn w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251969)
 - [Dokumentacja interfejsu API klasy WebSecurity](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)

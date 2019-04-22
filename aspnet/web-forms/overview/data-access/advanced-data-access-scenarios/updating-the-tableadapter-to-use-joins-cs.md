@@ -12,7 +12,7 @@ ms.openlocfilehash: 297496e590caf9c8ded83cb16b5fef1dfc542dc7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59381396"
 ---
 # <a name="updating-the-tableadapter-to-use-joins-c"></a>Aktualizowanie elementu TableAdapter w celu używania sprzężeń JOIN (C#)
@@ -64,7 +64,7 @@ Aby poznać tego braku, Utwórz tymczasowe wpisana zestawu danych w `~/App_Code/
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-cs/samples/sample3.sql)]
 
 
-[![EWprowadź główny zapytanie, że sprzężenia zawiera](updating-the-tableadapter-to-use-joins-cs/_static/image2.png)](updating-the-tableadapter-to-use-joins-cs/_static/image1.png)
+[![Wprowadź główne zapytanie, która zawiera sprzężenia](updating-the-tableadapter-to-use-joins-cs/_static/image2.png)](updating-the-tableadapter-to-use-joins-cs/_static/image1.png)
 
 **Rysunek 1**: Wprowadź kwerendę Main zawierający `JOIN` s ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image3.png))
 
@@ -88,7 +88,7 @@ Kliknij przycisk Zakończ, aby zakończyć działanie kreatora. W tym momencie u
 Chociaż DataTable ma odpowiednie kolumny, TableAdapter nie ma wartości dla swojej `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości. Można to potwierdzić, kliknij na obiekt TableAdapter w projektancie, a następnie przejdź do okna właściwości. Będzie informacja, że `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości są ustawione na (Brak).
 
 
-[![Ton element InsertCommand elementu UpdateCommand i właściwości elementu DeleteCommand są ustawione na (Brak)](updating-the-tableadapter-to-use-joins-cs/_static/image7.png)](updating-the-tableadapter-to-use-joins-cs/_static/image6.png)
+[![Element InsertCommand elementu UpdateCommand i właściwości elementu DeleteCommand są ustawione na (Brak)](updating-the-tableadapter-to-use-joins-cs/_static/image7.png)](updating-the-tableadapter-to-use-joins-cs/_static/image6.png)
 
 **Rysunek 4**: `InsertCommand`, `UpdateCommand`, I `DeleteCommand` właściwości są ustawione na (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image8.png))
 
@@ -108,7 +108,7 @@ W tym samouczku dodamy TableAdapter i silnie typizowaną klasę DataTable `Emplo
 Zacznij od otwarcia `NorthwindWithSprocs` zestawu danych w `~/App_Code/DAL` folderu. Kliknij prawym przyciskiem myszy w projektancie, wybierz opcję Dodaj menu kontekstowe i wybierz element menu TableAdapter. Spowoduje to uruchomienie Kreatora konfiguracji TableAdapter. Jak przedstawiono na rysunku 5, należy za pomocą kreatora, Utwórz nowe procedury składowane, a następnie kliknij przycisk Dalej. Dla przypomnienia informacji na temat tworzenia nowych procedur składowanych z Kreatora s TableAdapter, zapoznaj się [tworzenie nowych procedur składowanych dla s wpisany zestaw danych TableAdapters](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) samouczka.
 
 
-[![SWybiera Utwórz nowe procedury składowane opcji](updating-the-tableadapter-to-use-joins-cs/_static/image10.png)](updating-the-tableadapter-to-use-joins-cs/_static/image9.png)
+[![Wybierz pozycję Utwórz nowe procedury składowane opcji](updating-the-tableadapter-to-use-joins-cs/_static/image10.png)](updating-the-tableadapter-to-use-joins-cs/_static/image9.png)
 
 **Rysunek 5**: Wybierz pozycję Utwórz nowe procedury składowane opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image11.png))
 
@@ -123,7 +123,7 @@ Ponieważ to zapytanie nie zawiera żadnych `JOIN` s, TableAdapter Kreator autom
 Następny krok pozwala nam nazwę procedury przechowywane s TableAdapter. Użyj nazw `Employees_Select`, `Employees_Insert`, `Employees_Update`, i `Employees_Delete`, jak pokazano na rysunku 6.
 
 
-[![NNazwa TableAdapter s składowane](updating-the-tableadapter-to-use-joins-cs/_static/image13.png)](updating-the-tableadapter-to-use-joins-cs/_static/image12.png)
+[![Nazwa procedury przechowywane s TableAdapter](updating-the-tableadapter-to-use-joins-cs/_static/image13.png)](updating-the-tableadapter-to-use-joins-cs/_static/image12.png)
 
 **Rysunek 6**: Nadaj nazwę procedur składowanych s TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image14.png))
 
@@ -131,7 +131,7 @@ Następny krok pozwala nam nazwę procedury przechowywane s TableAdapter. Użyj 
 Ostatnim krokiem monituje o nas nazwę metody s TableAdapter. Użyj `Fill` i `GetEmployees` jako nazwy metody. Należy także pozostawić Utwórz metody służące do wysyłania aktualizacji bezpośrednio do bazy danych (GenerateDBDirectMethods) zaznacz pole wyboru zaznaczone.
 
 
-[![NNazwa s TableAdapter metody Fill i GetEmployees](updating-the-tableadapter-to-use-joins-cs/_static/image16.png)](updating-the-tableadapter-to-use-joins-cs/_static/image15.png)
+[![Nazwa metody wypełnienie s TableAdapter i GetEmployees](updating-the-tableadapter-to-use-joins-cs/_static/image16.png)](updating-the-tableadapter-to-use-joins-cs/_static/image15.png)
 
 **Rysunek 7**: Nazwa s TableAdapter metody `Fill` i `GetEmployees` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image17.png))
 
@@ -139,7 +139,7 @@ Ostatnim krokiem monituje o nas nazwę metody s TableAdapter. Użyj `Fill` i `Ge
 Po ukończeniu kreatora, Poświęć chwilę, aby zbadać procedur składowanych w bazie danych. Powinny zostać wyświetlone cztery nowe: `Employees_Select`, `Employees_Insert`, `Employees_Update`, i `Employees_Delete`. Następnie sprawdź `EmployeesDataTable` i `EmployeesTableAdapter` właśnie utworzony. DataTable zawiera kolumnę dla każdego pola, zwrócony przez główne zapytanie. Kliknij w metodzie TableAdapter, a następnie przejdź do okna właściwości. Będzie informacja, że `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości są prawidłowo skonfigurowane do wywoływania odpowiednich procedur składowanych.
 
 
-[![Ton TableAdapter obejmuje Insert, Update i usuwanie możliwości](updating-the-tableadapter-to-use-joins-cs/_static/image19.png)](updating-the-tableadapter-to-use-joins-cs/_static/image18.png)
+[![TableAdapter obejmuje Insert, Update i usuwanie funkcji](updating-the-tableadapter-to-use-joins-cs/_static/image19.png)](updating-the-tableadapter-to-use-joins-cs/_static/image18.png)
 
 **Rysunek 8**: TableAdapter obejmuje Insert, Update i usuwanie możliwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image20.png))
 
@@ -156,7 +156,7 @@ Początek, przechodząc do Eksploratora serwera, przechodzenie do szczegółów 
 Po zaktualizowaniu `SELECT` instrukcji, Zapisz zmiany, przechodząc do menu Plik i wybierając pozycję Zapisz `Employees_Select`. Alternatywnie możesz kliknij ikonę Zapisz na pasku narzędzi lub naciśnij klawisze Ctrl + S. Po zapisaniu zmian, kliknij prawym przyciskiem myszy `Employees_Select` procedurę składowaną w Eksploratorze serwera i wybierz polecenie Execute. Spowoduje to uruchomienie procedury składowanej i wyświetlić wyniki w oknie danych wyjściowych (patrz rysunek 9).
 
 
-[![THE przechowywane procedury wyniki są wyświetlane w oknie danych wyjściowych](updating-the-tableadapter-to-use-joins-cs/_static/image22.png)](updating-the-tableadapter-to-use-joins-cs/_static/image21.png)
+[![Wyniki procedury przechowywane są wyświetlane w oknie danych wyjściowych](updating-the-tableadapter-to-use-joins-cs/_static/image22.png)](updating-the-tableadapter-to-use-joins-cs/_static/image21.png)
 
 **Rysunek 9**: Wyniki procedury przechowywane są wyświetlane w oknie danych wyjściowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image23.png))
 
@@ -173,7 +173,7 @@ Rozważyliśmy ręcznego dodawania kolumn tabeli DataTable w poprzednich samoucz
 Rozpocznij, klikając prawym przyciskiem myszy `EmployeesTableAdapter` i wybierając pozycję Konfiguruj, z menu kontekstowego. Otwarte Kreatora konfiguracji TableAdapter, który zawiera listę procedur składowanych, umożliwiający wybranie, wstawianie, aktualizowanie i usuwanie wraz z ich wartości zwracane i parametry (jeśli istnieje). Na rysunku nr 10 przedstawiono tego kreatora. W tym miejscu można widzimy, że `Employees_Select` przechowywane procedury teraz zwraca `ManagerFirstName` i `ManagerLastName` pola.
 
 
-[![TKreator pokazuje listy kolumn zaktualizowane dla procedury składowanej Employees_Select](updating-the-tableadapter-to-use-joins-cs/_static/image25.png)](updating-the-tableadapter-to-use-joins-cs/_static/image24.png)
+[![Kreator pokazuje listy kolumn zaktualizowane dla Employees_Select procedury składowanej](updating-the-tableadapter-to-use-joins-cs/_static/image25.png)](updating-the-tableadapter-to-use-joins-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Kreator pokazuje listy kolumn zaktualizowane dla `Employees_Select` Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image26.png))
 
@@ -181,7 +181,7 @@ Rozpocznij, klikając prawym przyciskiem myszy `EmployeesTableAdapter` i wybiera
 Ukończ pracę kreatora, klikając przycisk Zakończ. Po powrocie do Projektanta obiektów DataSet `EmployeesDataTable` zawiera dwa dodatkowe kolumny: `ManagerFirstName` i `ManagerLastName`.
 
 
-[![TADAM EmployeesDataTable zawiera dwie nowe kolumny](updating-the-tableadapter-to-use-joins-cs/_static/image28.png)](updating-the-tableadapter-to-use-joins-cs/_static/image27.png)
+[![EmployeesDataTable zawiera dwie nowe kolumny](updating-the-tableadapter-to-use-joins-cs/_static/image28.png)](updating-the-tableadapter-to-use-joins-cs/_static/image27.png)
 
 **Rysunek 11**: `EmployeesDataTable` Zawiera dwie nowe kolumny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image29.png))
 
@@ -204,12 +204,12 @@ Za pomocą `EmployeesBLLWithSprocs` klasy kompletne, możemy ponownie gotowe do 
 Konfigurowanie kontrolki ObjectDataSource używać `EmployeesBLLWithSprocs` klasy, a następnie z karty Wybierz i Usuń, upewnij się, że `GetEmployees` i `DeleteEmployee` metody są wybrane z listy rozwijanej. Kliknij przycisk Zakończ, aby zakończyć konfigurowanie s ObjectDataSource.
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy EmployeesBLLWithSprocs](updating-the-tableadapter-to-use-joins-cs/_static/image31.png)](updating-the-tableadapter-to-use-joins-cs/_static/image30.png)
+[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy EmployeesBLLWithSprocs](updating-the-tableadapter-to-use-joins-cs/_static/image31.png)](updating-the-tableadapter-to-use-joins-cs/_static/image30.png)
 
 **Rysunek 12**: Konfigurowanie kontrolki ObjectDataSource do użycia `EmployeesBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image32.png))
 
 
-[![HZapisz kontrolki ObjectDataSource Użyj GetEmployees i metod DeleteEmployee](updating-the-tableadapter-to-use-joins-cs/_static/image34.png)](updating-the-tableadapter-to-use-joins-cs/_static/image33.png)
+[![Mogą używać kontrolki ObjectDataSource GetEmployees i metod DeleteEmployee](updating-the-tableadapter-to-use-joins-cs/_static/image34.png)](updating-the-tableadapter-to-use-joins-cs/_static/image33.png)
 
 **Rysunek 13**: Mogą używać kontrolki ObjectDataSource `GetEmployees` i `DeleteEmployee` metody ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image35.png))
 
@@ -224,7 +224,7 @@ Aby zezwolić użytkownikom na usuwanie pracowników z tej strony, musimy wykona
 Przetestowania strony, odwiedzając za pośrednictwem przeglądarki. Jak pokazano na rysunku 14, strony wyświetli listę każdego pracownika i Menedżera s imienia (przy założeniu, że mają one).
 
 
-[![TSPRZĘŻENIA w procedurze składowanej Employees_Select powraca Menedżera s nazwy](updating-the-tableadapter-to-use-joins-cs/_static/image37.png)](updating-the-tableadapter-to-use-joins-cs/_static/image36.png)
+[![SPRZĘŻENIA w Employees_Select przechowywane procedury zwraca nazwę s Menedżera](updating-the-tableadapter-to-use-joins-cs/_static/image37.png)](updating-the-tableadapter-to-use-joins-cs/_static/image36.png)
 
 **Rysunek 14**: `JOIN` w `Employees_Select` procedury składowanej zwraca Menedżera s Nazwa ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image38.png))
 
@@ -232,7 +232,7 @@ Przetestowania strony, odwiedzając za pośrednictwem przeglądarki. Jak pokazan
 Kliknięcie przycisku Usuń rozpoczyna się usuwanie przepływu pracy, którą culminates w trakcie wykonania `Employees_Delete` procedury składowanej. Jednak próba dokonania `DELETE` instrukcji w procedurze składowanej zakończy się niepowodzeniem z powodu naruszenia ograniczenia klucza obcego (zobacz rysunek 15). W szczególności każdy pracownik ma co najmniej jednego rekordu `Orders` tabeli, co powoduje usunięcie nie powiedzie się.
 
 
-[![Deleting pracownika, który ma odpowiadające im wyniki zamówienia w naruszenie ograniczenia klucza obcego](updating-the-tableadapter-to-use-joins-cs/_static/image40.png)](updating-the-tableadapter-to-use-joins-cs/_static/image39.png)
+[![Trwa usuwanie pracownika, który ma odpowiadające im wyniki zamówienia w naruszenie ograniczenia klucza obcego](updating-the-tableadapter-to-use-joins-cs/_static/image40.png)](updating-the-tableadapter-to-use-joins-cs/_static/image39.png)
 
 **Rysunek 15**: Trwa usuwanie pracownika, który ma odpowiadające im wyniki zamówienia w naruszenie ograniczenia klucza obcego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](updating-the-tableadapter-to-use-joins-cs/_static/image41.png))
 

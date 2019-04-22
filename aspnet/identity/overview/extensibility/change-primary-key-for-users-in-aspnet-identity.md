@@ -13,7 +13,7 @@ ms.openlocfilehash: 212b07494381d13f6ded96a41b846dcdf7e8ff16
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393746"
 ---
 # <a name="change-primary-key-for-users-in-aspnet-identity"></a>Zmiana klucza podstawowego dla użytkowników w systemie ASP.NET Identity
@@ -210,7 +210,7 @@ Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 Formularze sieci Web z aktualizacją Update 2 należy zmienić na następujących stronach.
 
-**Confirm.aspx.CX**
+**Confirm.aspx.cx**
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample30.cs?highlight=8)]
 
@@ -229,7 +229,7 @@ Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 Formularze sieci Web z aktualizacją Update 3 należy zmienić na następujących stronach.
 
-**Confirm.aspx.CX**
+**Confirm.aspx.cx**
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample33.cs?highlight=8)]
 
@@ -273,7 +273,7 @@ Jeśli wcześniej utworzono produktu ASP.NET Identity tabel przy użyciu innego 
 <a id="other"></a>
 ## <a name="other-resources"></a>Inne zasoby
 
-- [Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 - [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 - [Przykładowa aplikacja](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) przy użyciu zmienionego klucz podstawowy

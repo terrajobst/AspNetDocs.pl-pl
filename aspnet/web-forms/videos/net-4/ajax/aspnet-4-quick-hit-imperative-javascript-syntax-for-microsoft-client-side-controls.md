@@ -12,7 +12,7 @@ ms.openlocfilehash: 8e2aa1d2bbef02ddf26f252150121897383f1772
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391289"
 ---
 # <a name="aspnet-4-quick-hit---imperative-javascript-syntax-for-microsoft-client-side-controls"></a>Określa "Szybkie strzał" - Imperatywna składnia języka JavaScript po stronie klienta Microsoft ASP.NET 4

@@ -12,14 +12,14 @@ ms.openlocfilehash: 1af29955e8040c34840d4c77fc2006f59d2324dd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59395280"
 ---
 # <a name="create-data-transfer-objects-dtos"></a>Tworzenie obiektów transferu danych (DTO)
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 Po prawej stronie teraz nasz internetowy interfejs API jednostek bazy danych do klienta. Klient odbiera dane, które mapuje bezpośrednio na tabelach bazy danych. Jednakże, które nie zawsze jest dobrym pomysłem. Czasami trzeba zmienić kształt danych, który można wysłać do klienta. Na przykład możesz chcieć:
 

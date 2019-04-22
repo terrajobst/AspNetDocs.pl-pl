@@ -12,7 +12,7 @@ ms.openlocfilehash: 96f6ebb47af38c77cba11a92c883700730324226
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389235"
 ---
 # <a name="specifying-the-master-page-programmatically-vb"></a>Programowe określanie strony wzorcowej (VB)
@@ -42,7 +42,7 @@ Zawsze, gdy żądanie dociera do serwera sieci web dla strony ASP.NET, która je
 Rysunek 1 przedstawia ten fusion. Krok 1 na rysunku 1 przedstawiono oryginalnej zawartości i hierarchii kontroli strony wzorcowej. Na końcu tail etapu PreInit zawartość kontrolki na stronie są dodawane do odpowiednich kontrolek ContentPlaceHolder na stronie głównej (krok 2). Po tym fusion strony wzorcowej służy jako katalog główny hierarchii kolei kontroli. Tego zespolone kontroli jest następnie dodawana do strony Aby wygenerować hierarchii kontroli ukończone (krok 3). Wynikiem jest, że hierarchii kontroli strony zawiera hierarchii kolei kontroli.
 
 
-[![Ton strony wzorcowej i hierarchii kontroli zawartości strony są zespolone razem na etapie PreInit](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
+[![Strona wzorcowa i hierarchii kontroli zawartości strony są zespolone ze sobą, na etapie PreInit](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
 
 **Rysunek 01**: Strona wzorcowa i hierarchii kontroli zawartości strony są zespolone ze sobą, na etapie PreInit ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image3.png))
 
@@ -83,7 +83,7 @@ Czy `MasterPageFile` zostaje ustalona za pośrednictwem `@Page` dyrektywy lub pr
 Krótko mówiąc, należy pozostawić `MasterPageFile` atrybutu w `@Page` dyrektywy zaawansowane środowisko czasu projektowania w programie Visual Studio.
 
 
-[![VVisual Studio używa @Page atrybut MasterPageFile dyrektywy do renderowania widoku Projekt](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
+[![Program Visual Studio używa @Page atrybut MasterPageFile dyrektywy do renderowania widoku projektu](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
 
 **Rysunek 02**: Visual Studio korzysta z `@Page` dyrektywy `MasterPageFile` atrybutu do renderowania widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image6.png))
 
@@ -97,7 +97,7 @@ Przeanalizujmy dynamicznie ładowanie strony wzorcowej w czasie wykonywania na p
 Tworzenie nowej strony wzorcowej w folderze głównym o nazwie `Alternate.master`. Również dodać nowy arkusz stylów do witryny sieci Web o nazwie `AlternateStyles.css`.
 
 
-[![Add innej strony wzorcowej i pliku CSS do witryny sieci Web](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
+[![Dodaj kolejną stronę wzorcową i arkusze CSS plik do witryny sieci Web](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
 
 **Rysunek 03**: Dodawanie innej strony wzorcowej i pliku CSS do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image9.png))
 
@@ -108,7 +108,7 @@ Czy mogę zaprojektowania `Alternate.master` stronę wzorcową, która znajduje 
 > Program ASP.NET zawiera możliwość definiowania *motywy*. Motyw jest kolekcją, obrazy, pliki CSS i stylu związane sieci Web kontroli ustawień właściwości, które mogą być stosowane do strony w czasie wykonywania. Motywy to sposób Jeśli układy witryny różnią się tylko w przypadku obrazów wyświetlanych i ich reguły CSS. Jeśli układów różnią się w bardziej znacznie, takiej jak inne kontrolki sieci Web lub mieć znacznie inny układ, następnie konieczne będzie używać osobnych stron wzorcowych. Na końcu tego samouczka, aby uzyskać więcej informacji dotyczących tematów można znaleźć w sekcji dalsze informacje.
 
 
-[![OStrony z zawartością mogą teraz używać nowego wyglądu i sposobu działania](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
+[![Nasze strony zawartości można teraz używać nowego wyglądu i działania](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
 
 **Rysunek 04**: Nasze strony zawartości można teraz używać nowego wyglądu i sposobu działania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image12.png))
 
@@ -206,7 +206,7 @@ Utwórz stronę sieci web, która umożliwia użytkownikowi określenie, które 
 > Ponieważ `Site.master` i `Alternate.master` mają ten sam zestaw kontrolek ContentPlaceHolder nieważne, jakiego stronę wzorcową, możesz wybrać, tworząc nową stronę zawartości. W celu zapewnienia spójności I moglibyśmy przy użyciu `Site.master`.
 
 
-[![ADodaj nową stronę zawartości do witryny sieci Web](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
+[![Dodaj nową stronę zawartości do witryny sieci Web](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
 
 **Rysunek 05**: Dodaj nową stronę zawartości do witryny internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image15.png))
 
@@ -251,12 +251,12 @@ Za pomocą `ChooseMasterPage.aspx` strona kompletna naszych ostatnim zadaniem je
 Przy użyciu tego kodu w miejscu, odwiedź stronę `ChooseMasterPage.aspx` strony. Początkowo `Site.master` strony wzorcowej jest wybrane (patrz rysunek 6), ale użytkownik może wybrać innej strony wzorcowej, z listy rozwijanej.
 
 
-[![Czostaną wyświetlone strony zawartości, używający strony wzorcowej Site.master](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
+[![Zawartość strony są wyświetlane przy użyciu strony wzorcowej Site.master](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
 
 **Rysunek 06**: Zawartość strony są wyświetlane przy użyciu `Site.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image18.png))
 
 
-[![Czacje zawartości strony są teraz wyświetlane przy użyciu strony wzorcowej Alternate.master](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
+[![Strony z zawartością są teraz wyświetlane przy użyciu strony wzorcowej Alternate.master](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
 
 **Rysunek 07**: Zawartość strony są teraz wyświetlane przy użyciu `Alternate.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image21.png))
 

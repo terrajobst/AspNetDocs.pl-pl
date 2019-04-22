@@ -12,7 +12,7 @@ ms.openlocfilehash: 3c12f2a3d253df1ed9d8b25001edf13a04da26f5
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59394890"
 ---
 # <a name="authenticating-users-with-windows-authentication-c"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (C#)

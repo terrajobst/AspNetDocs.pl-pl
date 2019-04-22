@@ -12,7 +12,7 @@ ms.openlocfilehash: b242803a1f5d7db519314dc9349f8b4f6b1d0c6a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393187"
 ---
 # <a name="editing-and-deleting-data-through-the-datalist"></a>Edytowanie i usuwanie danych za pośrednictwem kontrolki DataList
@@ -23,10 +23,10 @@ ms.locfileid: "59393187"
 - [Omówienie edytowania i usuwania danych w elemencie DataList (C#)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
 - [Wykonywanie aktualizacji wsadowych (C#)](performing-batch-updates-cs.md)
 - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (C#)](handling-bll-and-dal-level-exceptions-cs.md)
-- [Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (C#)](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
+- [Dodawanie kontrolek weryfikacji do interfejsu edycji kontrolki DataList (C#)](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
 - [Dostosowywanie interfejsu edycji kontrolki DataList (C#)](customizing-the-datalist-s-editing-interface-cs.md)
 - [Omówienie edytowania i usuwania danych w kontrolce DataList (VB)](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
 - [Wykonywanie aktualizacji wsadowych (VB)](performing-batch-updates-vb.md)
 - [Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (VB)](handling-bll-and-dal-level-exceptions-vb.md)
-- [Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (VB)](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
+- [Dodawanie kontrolek weryfikacji do interfejsu edycji kontrolki DataList (VB)](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
 - [Dostosowywanie interfejsu edycji kontrolki DataList (VB)](customizing-the-datalist-s-editing-interface-vb.md)

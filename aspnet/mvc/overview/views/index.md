@@ -12,7 +12,7 @@ ms.openlocfilehash: 737c15b4657ce8a67224c116bcad196020c45710
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388247"
 ---
 # <a name="aspnet-mvc-ui-layouts-and-themes"></a>ASP.NET MVC interfejsu użytkownika, układy i motywy
@@ -21,4 +21,4 @@ ms.locfileid: "59388247"
 
 
 - [Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC](using-page-inspector-in-aspnet-mvc.md)
-- [Dynamiczne a silnie typizowane widoki](dynamic-v-strongly-typed-views.md)
+- [Dynamic v. — silnie typizowane widoki](dynamic-v-strongly-typed-views.md)

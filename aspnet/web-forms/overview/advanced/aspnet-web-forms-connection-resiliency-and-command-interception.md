@@ -12,7 +12,7 @@ ms.openlocfilehash: 2b8cae61347f00712aba18fe6a2e91bc207cb9f3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59380044"
 ---
 # <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Odporność połączeń wzorca ASP.NET Web Forms i przejmowanie poleceń
@@ -160,7 +160,7 @@ Kodzie symulacji błędu przejściowego napisanych w taki sposób, że można sp
 6. Zatrzymaj projekt i przyjrzyj się programu Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Możesz znaleźć **dane wyjściowe** okna, wybierając **debugowania**  - &gt; **Windows**  - &gt;  **Dane wyjściowe**. Może być konieczne przewiń ekran za kilka innych dzienników napisany przez użytkownika rejestratora.  
   
    Zwróć uwagę, możliwość wyświetlenia rzeczywiste zapytania SQL wysyłane do bazy danych. Zobaczysz niektóre początkowej zapytań i poleceń, które obsługuje platformy Entity Framework, aby rozpocząć pracę, sprawdzania tabeli historii wersji i migracji bazy danych.   
-    ![Okno wyniku](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
+    ![Okno Dane wyjściowe](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
    Należy pamiętać, że nie Powtórz ten test, chyba że Zatrzymaj aplikację i uruchom go ponownie. Jeśli chcesz testować elastyczność połączenia wiele razy w jednym przebiegu aplikacji, można napisać kod, aby zresetować licznik błędów w `InterceptorTransientErrors` .
 7. Aby zobaczyć różnicę strategii wykonywania (zasady ponawiania) sprawia, że, komentarz `SetExecutionStrategy` linię *WingtipToysConfiguration.cs* w pliku *logiki* folder, uruchom **administratora**  strony w trybie debugowania, a następnie Dodaj produkt o nazwie &quot;Throw&quot; ponownie.  
   

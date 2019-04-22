@@ -12,14 +12,14 @@ ms.openlocfilehash: 3f48c5ad73ceb9a4873fbbb621b518553a498966
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389053"
 ---
 # <a name="display-item-details"></a>Wyświetlanie szczegółów elementu
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 W tej sekcji dodasz możliwości, aby wyświetlić szczegóły dotyczące każdej książki. W app.js Dodaj poniższy kod do modelu widoku:
 

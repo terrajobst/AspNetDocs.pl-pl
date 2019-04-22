@@ -12,7 +12,7 @@ ms.openlocfilehash: 82eb7bc744561b36b23e5cb90410710b6ca45e17
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391328"
 ---
 # <a name="how-do-i--simple-file-uploads-in-aspnet"></a>[Jak mogę]  Proste operacje przekazywania plików na platformie ASP.NET

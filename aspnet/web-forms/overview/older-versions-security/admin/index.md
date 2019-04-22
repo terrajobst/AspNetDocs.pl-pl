@@ -12,7 +12,7 @@ ms.openlocfilehash: c89da16bf4783198d2b4c173eba1b7a7191257a0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59383118"
 ---
 # <a name="aspnet-35---security-administration"></a>ASP.NET 3.5 — administrowanie zabezpieczeniami
@@ -20,9 +20,9 @@ ms.locfileid: "59383118"
 > W tej serii samouczków pokazano jeden ze sposobów tworzenia strony administracji, które umożliwiają zarządzanie użytkownikami i rolami.
 
 
-- [Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)](building-an-interface-to-select-one-user-account-from-many-cs.md)
+- [Kompilowanie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (C#)](building-an-interface-to-select-one-user-account-from-many-cs.md)
 - [Odzyskiwanie i zmienianie haseł (C#)](recovering-and-changing-passwords-cs.md)
 - [Odblokowywanie i zatwierdzanie kont użytkowników (C#)](unlocking-and-approving-user-accounts-cs.md)
-- [Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)](building-an-interface-to-select-one-user-account-from-many-vb.md)
+- [Kompilowanie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)](building-an-interface-to-select-one-user-account-from-many-vb.md)
 - [Odzyskiwanie i zmienianie haseł (VB)](recovering-and-changing-passwords-vb.md)
 - [Odblokowywanie i zatwierdzanie kont użytkowników (VB)](unlocking-and-approving-user-accounts-vb.md)

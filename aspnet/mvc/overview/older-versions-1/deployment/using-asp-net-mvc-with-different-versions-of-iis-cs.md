@@ -12,7 +12,7 @@ ms.openlocfilehash: 0ca34f670202a35c627a514d3394fa430f5d8f26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59396346"
 ---
 # <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>Używanie wzorca ASP.NET MVC z różnymi wersjami usług IIS (C#)
@@ -53,7 +53,7 @@ Tryb przetwarzania żądania jest określana przez pulę aplikacji. Można okre�
 
 Domyślnie program IIS jest skonfigurowany do obsługi dwóch pul aplikacji: **Domyślna pula aplikacji** i **pulę aplikacji klasycznych .NET**. Jeśli domyślna pula aplikacji jest zaznaczone, aplikacja jest uruchomiona w trybie zintegrowanym żądania przetwarzania. Jeśli wybrano klasyczne .NET pulę aplikacji, Twoja aplikacja jest uruchomiona w trybie klasycznym żądania przetwarzania.
 
-[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.png)
+[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image1.png)
 
 **Rysunek 1**: Wykrywanie trybu przetwarzania żądania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image2.png))
 
@@ -92,7 +92,7 @@ Trasa domyślna skonfigurowane w ofercie 1 umożliwia tras adresów URL, które 
 
 Niestety starsze wersje usług IIS nie będzie przekazywać te żądania do struktury ASP.NET. W związku z tym te żądania nie uzyskać kierowane do kontrolera. Na przykład jeśli wykonasz żądanie typu przeglądarki dla adresu URL /Home/indeksu następnie otrzymasz strony błędu na rysunku 2.
 
-[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.png)
+[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image2.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.png)
 
 **Rysunek 2**: Odbieranie błąd 404 Nie znaleziono ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image4.png))
 
@@ -162,7 +162,7 @@ Poniżej przedstawiono, jak włączyć wieloznaczną mapę skryptu dla usług II
 6. Wprowadź nazwę MVC
 7. Kliknij przycisk **OK** przycisku
 
-[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.png)
+[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image3.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.png)
 
 **Rysunek 3**: Tworzenie wieloznaczną mapę skryptu za pomocą usług IIS 7.0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image6.png))
 
@@ -177,13 +177,13 @@ Wykonaj następujące kroki, aby utworzyć wieloznaczną mapę skryptu za pomoc�
 7. Usuń zaznaczenie pola wyboru **Sprawdź, czy plik istnieje**
 8. Kliknij przycisk **OK** przycisku
 
-[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image7.png)
+[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image4.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image7.png)
 
 **Rysunek 4**: Tworzenie wieloznaczną mapę skryptu za pomocą usług IIS 6.0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image8.png))
 
 Po włączeniu mapowania skryptów symboli wieloznacznych, należy zmodyfikować tabeli tras w pliku Global.asax, aby obejmowała główny trasy. W przeciwnym razie otrzymasz strony błędu na rysunku 5 podczas przesyłania żądania do strony głównej aplikacji. Można użyć zmodyfikowany plik Global.asax w ofercie 4.
 
-[![Tokno dialogowe Nowy projekt HE](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image9.png)
+[![Okno dialogowe Nowy projekt](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image5.jpg)](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image9.png)
 
 **Rysunek 5**: Główny trasy błąd braku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-asp-net-mvc-with-different-versions-of-iis-cs/_static/image10.png))
 

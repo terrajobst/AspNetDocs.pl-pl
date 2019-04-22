@@ -12,7 +12,7 @@ ms.openlocfilehash: 608eb755b00e1e5c9ff4323732ca39c629bc6e30
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59390028"
 ---
 # <a name="aspnet-mvc-guidance"></a>ASP.NET MVC Guidance
@@ -20,7 +20,7 @@ ms.locfileid: "59390028"
 - [Wprowadzenie](getting-started/index.md)
 - [Interfejs użytkownika, układy i motywy](views/index.md)
 - [Zabezpieczenia, uwierzytelnianie i autoryzacja](security/index.md)
-- [wdrażania](deployment/index.md)
+- [Wdrażanie](deployment/index.md)
 - [Wydajność](performance/index.md)
 - [Internacjonalizacja i tematy zaawansowane](advanced/index.md)
 - [Wydania](releases/index.md)

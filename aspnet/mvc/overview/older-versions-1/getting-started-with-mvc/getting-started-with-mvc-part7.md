@@ -12,7 +12,7 @@ ms.openlocfilehash: 3db6947f36eb51b41d929f8c7d8835a95db8ea75
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392355"
 ---
 # <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
@@ -61,11 +61,11 @@ Ponadto Dodaj pojedynczy wiersz powyżej Html.BeginForm:
 
 Poniżej przedstawiono kod przedstawiony w środowisku IDE.
 
-[![Movies — Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
+[![Filmy — Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
 
 Uruchom aplikację ponownie odwiedzić /Movies/Create i kliknij przycisk Utwórz, bez konieczności wprowadzania żadnych danych. Komunikaty o błędach pojawiają się natychmiast bez flash, że powiązane z wysyłania danych strony aż do serwera. Jest tak, ponieważ platformy ASP.NET MVC jest teraz Walidacja danych wejściowych, zarówno klienta (przy użyciu języka JavaScript) i na serwerze.
 
-[![CTwórz — Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
+[![Tworzenie — Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
 To jest dobra wydajność! Teraz Dodajmy jedną dodatkową kolumnę w bazie danych.
 

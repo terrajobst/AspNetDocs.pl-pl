@@ -12,7 +12,7 @@ ms.openlocfilehash: ca47f6fe6d55153354d38fcf1ba5e844215279b2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389040"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 — tworzenie szkieletu i migracje platformy Entity Framework
@@ -110,7 +110,7 @@ W tym ćwiczeniu dowiesz się, jak za pomocą tworzenia szkieletu ASP.NET MVC 4 
 
     ![Tworzenie aplikacji](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "Kompilowanie aplikacji")
 
-    *Kompilowanie aplikacji*
+    *Tworzenie aplikacji*
 7. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolerów, a następnie wybierz **Dodaj | Kontroler**.
 8. Nazwa kontrolera *PersonController* i ukończyć **opcji tworzenia szkieletu** z następującymi wartościami.
 
@@ -231,7 +231,7 @@ To zadanie zaktualizuje bazy danych, korzystając z migracją architektury jedno
 
     ![Aktualizowanie bazy danych](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image17.png "zaktualizowanie bazy danych")
 
-    *aktualizowanie bazy danych*
+    *Aktualizowanie bazy danych*
 
     Spowoduje to dodanie **MiddleName** kolumny w **osób** tabelę do dopasowania bieżącej definicji **osoby** klasy.
 9. Po zaktualizowaniu bazy danych, kliknij prawym przyciskiem myszy folder kontrolera i wybierz **Dodaj | Kontroler** Aby dodać osobę kontrolera ponownie (Zakończ z wartości). Spowoduje to zaktualizowanie istniejących metod i widoki, dodawanie nowego atrybutu.

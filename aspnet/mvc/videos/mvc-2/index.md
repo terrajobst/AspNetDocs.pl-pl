@@ -12,7 +12,7 @@ ms.openlocfilehash: aa713d30ad09152155e0834d40d5d757b1fecf78
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59386024"
 ---
 # <a name="aspnet-mvc-2"></a>ASP.NET MVC 2
@@ -32,12 +32,12 @@ ms.locfileid: "59386024"
     - [Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript](how-do-i/preventing-javascript-injection-attacks.md)
     - [Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC](how-do-i/creating-unit-tests-for-aspnet-mvc-applications.md)
     - [Tworzenie niestandardowych pomocników HTML](how-do-i/creating-custom-html-helpers.md)
-    - [Tworzenie klas modeli za pomocą modelu LINQ to SQL](how-do-i/creating-model-classes-with-linq-to-sql.md)
+    - [Tworzenie klas modelu za pomocą modelu LINQ to SQL](how-do-i/creating-model-classes-with-linq-to-sql.md)
     - [Wyświetlanie tabeli danych bazy danych](how-do-i/displaying-a-table-of-database-data.md)
     - [Co to jest ASP.NET MVC — 80-minutowy film techniczny dla deweloperów (tworzenie aplikacji NerdDinner)](how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
-    - [Dlaczego warto wybrać wzorzec ASP.NET MVC — 3-minutowa prezentacja wideo dla osób podejmujących decyzje](how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
+    - [Dlaczego warto wybrać ASP.NET MVC — 3-minutowa prezentacja wideo dla osób podejmujących decyzje](how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
     - [ASP.NET MVC: 10-minutowe wideo techniczne dla deweloperów](how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
-    - [Zwracanie danych w formacie JSON na potrzeby wywoływania AJAX w aplikacji internetowej ASP.NET MVC](how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
+    - [Zwracanie danych w formacie JSON na potrzeby wywoływania rozszerzeń AJAX w aplikacji internetowej ASP.NET MVC](how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
     - [Praca z danymi w widokach częściowych ASP.NET MVC](how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
     - [Implementowanie modeli widoków do zarządzania danymi dla widoków ASP.NET MVC](how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
     - [Tworzenie niestandardowego pomocnika HTML dla aplikacji MVC](how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
@@ -51,14 +51,14 @@ ms.locfileid: "59386024"
     - [ASP.NET MVC 2 — akcja renderowania](how-do-i/aspnet-mvc-2-render-action.md)
     - [Pięciominutowe wprowadzenie do wzorca ASP.NET MVC](how-do-i/5-minute-introduction-to-aspnet-mvc.md)
     - [Poznaj wzorzec ASP.NET MVC](how-do-i/how-to-best-learn-asp-net-mvc.md)
-- [Wzorzec ASP.NET MVC dla każdego](aspnet-mvc-for-the-rest-of-us/index.md)
+- [ASP.NET MVC dla każdego](aspnet-mvc-for-the-rest-of-us/index.md)
 
-    - [Wzorzec ASP.NET MVC dla każdego: Część 1](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
-    - [Wzorzec ASP.NET MVC dla każdego: Część 2](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
-    - [Wzorzec ASP.NET MVC dla każdego: Część 3](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
-    - [Wzorzec ASP.NET MVC dla każdego: Część 4](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
+    - [ASP.NET MVC dla każdego: Część 1](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md)
+    - [ASP.NET MVC dla każdego: Część 2](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md)
+    - [ASP.NET MVC dla każdego: Część 3](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md)
+    - [ASP.NET MVC dla każdego: Część 4](aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md)
 - [Music Store](music-store/index.md)
 
-    - [Sklep MVC Music Store — część 1: wprowadzenie, narzędzia i struktura projektu](music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
-    - [Sklep MVC Music Store — część 2: Kontrolery](music-store/mvc-music-store-part-2-controllers.md)
-    - [Sklep MVC Music Store — część 3: widoki i modele widoków](music-store/mvc-music-store-part-3-views-and-viewmodels.md)
+    - [MVC Music Store część 1: Wprowadzenie, narzędzia i struktura projektu](music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md)
+    - [MVC Music Store część 2: Kontrolery](music-store/mvc-music-store-part-2-controllers.md)
+    - [MVC Music Store część 3: Widoki i modele widoków](music-store/mvc-music-store-part-3-views-and-viewmodels.md)

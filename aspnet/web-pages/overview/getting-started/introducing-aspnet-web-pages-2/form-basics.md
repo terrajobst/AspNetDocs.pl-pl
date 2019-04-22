@@ -12,7 +12,7 @@ ms.openlocfilehash: f88f7a31551abda029bee0ec16aa35ce2ef5d2f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59385959"
 ---
 # <a name="introducing-aspnet-web-pages---html-form-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy formularzy HTML
@@ -88,7 +88,7 @@ Większość elementów wejściowych użytkownika są HTML `<input>` elementów.
 - Pole tekstowe: `<input type="text">`
 - Pole wyboru: `<input type="check">`
 - Przycisk radiowy: `<input type="radio">`
-- Button: `<input type="button">`
+- Przycisk: `<input type="button">`
 - Przycisk Prześlij: `<input type="submit">`
 
 Można również użyć `<textarea>` elementu do utworzenia wielowierszowego pola tekstowego i `<select>` elementu do utworzenia listy rozwijanej lub przewijaną listę. (Aby uzyskać więcej informacji na temat HTML tworzą elementy, zobacz [formularzy HTML i dane wejściowe](http://www.w3schools.com/html/html_forms.asp) witrynie W3Schools.)

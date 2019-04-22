@@ -12,7 +12,7 @@ ms.openlocfilehash: ef40d71828237a3d086c7c1bb05de56e0770f588
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59391276"
 ---
 # <a name="using-cascadingdropdown-with-a-database-c"></a>Używanie kontrolki CascadingDropDown z bazą danych (C#)
@@ -86,12 +86,12 @@ Pozostała część metody jest dość proste, następnie. Identyfikator dostawc
 Ładowanie strony ASP.NET, a po krótkiej chwili lista dostawców jest wypełniany 25 wpisów. Wybierz jeden wpis i zwróć uwagę, jak na drugiej liście rozwijanej jest wypełniany danymi.
 
 
-[![TPierwsza lista he jest wypełniane automatycznie](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
+[![Pierwsza lista jest wypełniana automatycznie](using-cascadingdropdown-with-a-database-cs/_static/image2.png)](using-cascadingdropdown-with-a-database-cs/_static/image1.png)
 
 Pierwsza lista jest wypełniana automatycznie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-cascadingdropdown-with-a-database-cs/_static/image3.png))
 
 
-[![Tdruga lista he jest wypełniana zgodnie z wyborem na pierwszej liście](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
+[![Druga lista jest wypełniana zgodnie z wyborem na pierwszej liście](using-cascadingdropdown-with-a-database-cs/_static/image5.png)](using-cascadingdropdown-with-a-database-cs/_static/image4.png)
 
 Druga lista jest wypełniana zgodnie z wyborem na pierwszej liście ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-cascadingdropdown-with-a-database-cs/_static/image6.png))
 

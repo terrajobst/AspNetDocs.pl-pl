@@ -12,7 +12,7 @@ ms.openlocfilehash: 2d954cbc001a62f021f942f1ff44522a2769f516
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389586"
 ---
 # <a name="preventing-javascript-injection-attacks-c"></a>Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (C#)
@@ -33,7 +33,7 @@ Zawsze, gdy użytkownik akceptuje dane wejściowe użytkownika i ponownie wyświ
 Wyobraź sobie, że utworzono witrynę sieci Web opinii klientów (patrz rysunek 1). Klienci mogą odwiedź witrynę internetową i wprowadź informacje zwrotne o swoich doświadczeniach z używania produktów. Gdy klient wyśle ich opinie, opinii, zostanie wyświetlony ponownie na stronie opinii.
 
 
-[![Cwca opinii witryny sieci Web](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
+[![Opinie klientów witryny sieci Web](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
 
 **Rysunek 01**: Opinie klientów witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-cs/_static/image3.png))
 
@@ -65,7 +65,7 @@ Wyobraź sobie, wprowadź następujący tekst do formularza opinii klientów:
 Ten tekst reprezentuje skryptu JavaScript, która wyświetla okno komunikatu alertu. Po trafi tego skryptu do opinii formularzu komunikat <em>coś!</em> pojawi się w każdym przypadku, gdy każdy użytkownik odwiedza witrynę sieci Web z opinii klientów w przyszłości (patrz rysunek 2).
 
 
-[![JavaScript iniekcji](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
+[![Iniekcja kodu JavaScript](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
 
 **Rysunek 02**: Iniekcja kodu JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-cs/_static/image6.png))
 
@@ -93,7 +93,7 @@ Należy zauważyć, że wartość `feedback.Message` ma format HTML zakodowane p
 Jaki jest średnia w formacie HTML kodowanie ciągu? Podczas HTML kodowania ciągu, niebezpiecznych znaków takich jak `<` i `>` są zastępowane przez odwołań do jednostek kodu HTML, takich jak `&lt;` i `&gt;`. W takim przypadku ciąg `<script>alert("Boo!")</script>` ma format HTML zakodowane, jego są konwertowane na `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Zakodowany ciąg nie jest już wykonuje jako skrypt JavaScript, gdy interpretowany przez przeglądarkę. Zamiast tego możesz pobrać nieszkodliwe strony na rysunku 3.
 
 
-[![Defeated ataku JavaScript](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
+[![Bezcelowe ataku JavaScript](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
 
 **Rysunek 03**: Udaremnione ataku JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-cs/_static/image9.png))
 

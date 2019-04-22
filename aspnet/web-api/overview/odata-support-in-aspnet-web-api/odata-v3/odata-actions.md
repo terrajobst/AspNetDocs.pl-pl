@@ -12,14 +12,14 @@ ms.openlocfilehash: 62ac526a9b0861af73ab17e9714bde1266a86221
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59392368"
 ---
 # <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>Obsługa akcji OData we wzorcu ASP.NET Web API 2
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > W protokole OData *akcje* to sposób, aby dodać zachowania po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach. Do niektórych zastosowań akcje obejmują:
 > 

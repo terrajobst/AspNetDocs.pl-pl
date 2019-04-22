@@ -12,7 +12,7 @@ ms.openlocfilehash: 10c877e072d5caf23e78f49ebc71387fde20393d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59393616"
 ---
 # <a name="using-textboxwatermark-in-a-formview-c"></a>Używanie kontrolki TextBoxWatermark w kontrolce FormView (C#)
@@ -49,7 +49,7 @@ Zapamiętaj nazwę (`ID`) źródła danych, ponieważ będzie on używany w `Dat
 Teraz, gdy użytkownik zmieni do trybu wstawiania `FormView` kontrolować, pole tekstowe dla nowego dostawcy jest wstępnie dzięki `TextBoxWatermarkExtender` kontroli. Kliknij wewnątrz pola tekstowego umożliwia tekstu wypełniacza zniknąć.
 
 
-[![Tznak wodny HE, w polu pochodzi z urządzenia extender](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
+[![Znak wodny w polu pochodzi z urządzenia extender](using-textboxwatermark-in-a-formview-cs/_static/image2.png)](using-textboxwatermark-in-a-formview-cs/_static/image1.png)
 
 Znak wodny w polu pochodzi z urządzenia extender ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-textboxwatermark-in-a-formview-cs/_static/image3.png))
 

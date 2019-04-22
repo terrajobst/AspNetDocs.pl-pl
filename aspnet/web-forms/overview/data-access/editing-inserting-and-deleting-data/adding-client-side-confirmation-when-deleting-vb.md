@@ -12,7 +12,7 @@ ms.openlocfilehash: fc5c99ce6c5da7d004b95462a3338aefbed31b36
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59388715"
 ---
 # <a name="adding-client-side-confirmation-when-deleting-vb"></a>Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB)
@@ -65,7 +65,7 @@ Ponieważ powiązano kontrolka ObjectDataSource, który obsługuje tylko usunię
 Za pomocą tych zmian zostały w pełni funkcjonalne strony sieci web, który umożliwia użytkownikowi przełączać się między produktami, co w czasie, z możliwością Usuń produkt, wystarczy kliknąć przycisk Usuń. Na rysunku 2 przedstawiono zrzut ekranu: nasz postęp tej pory, podczas wyświetlania za pośrednictwem przeglądarki.
 
 
-[![TADAM FormView zawiera informacje dotyczące jednego produktu](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
+[![FormView informacjami na temat jednego produktu](adding-client-side-confirmation-when-deleting-vb/_static/image3.png)](adding-client-side-confirmation-when-deleting-vb/_static/image2.png)
 
 **Rysunek 2**: FormView przedstawia informacje o jednym produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-client-side-confirmation-when-deleting-vb/_static/image4.png))
 
@@ -85,7 +85,7 @@ Wszystkie dostępne tego s jest! Rysunek 3 przedstawia zrzut ekranu to potwierdz
 > Ciąg przekazany do `confirm(string)` rozdzielana funkcji języka JavaScript przy użyciu apostrofy (zamiast znaki cudzysłowu). W języku JavaScript można ograniczać ciągi przy użyciu dowolnego znaku. Możemy użyć apostrofów tutaj, aby ograniczników ciągu przekazany do `confirm(string)` powstanie niejednoznaczności z ogranicznikami umożliwiający `OnClientClick` wartości właściwości.
 
 
-[![A Potwierdzenie jest teraz wyświetlany po kliknięciu przycisku przycisk usuwania](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
+[![Potwierdzenie jest teraz wyświetlany po kliknięciu przycisku przycisk Usuń](adding-client-side-confirmation-when-deleting-vb/_static/image6.png)](adding-client-side-confirmation-when-deleting-vb/_static/image5.png)
 
 **Rysunek 3**: Potwierdzenie jest teraz wyświetlany po kliknięciu przycisku przycisk Usuń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-client-side-confirmation-when-deleting-vb/_static/image7.png))
 
@@ -127,7 +127,7 @@ Za pomocą tych zmian ukończyć, klikając przycisk Usuń w Wyświetla GridView
 > Tej techniki można również uzyskać programowy dostęp do przycisk Usuń w CommandField w DetailsView. Dla DetailsView, jednak d utworzyć program obsługi zdarzeń dla `DataBound` zdarzenie, ponieważ nie ma DetailsView `RowDataBound` zdarzeń.
 
 
-[![Clicking s GridView Wyświetla przycisk Usuń dostosowane okno dialogowe potwierdzenia](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
+[![Kliknięcie przycisku Usuń s GridView wyświetlane jest okno dialogowe potwierdzenia niestandardowe](adding-client-side-confirmation-when-deleting-vb/_static/image9.png)](adding-client-side-confirmation-when-deleting-vb/_static/image8.png)
 
 **Rysunek 4**: Klikając s GridView przycisk Usuń przedstawia dostosowane okno dialogowe potwierdzenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-client-side-confirmation-when-deleting-vb/_static/image10.png))
 
