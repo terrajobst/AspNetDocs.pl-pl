@@ -12,7 +12,7 @@ ms.openlocfilehash: b59cd34036c733579e678eab78097d3393f3e671
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421085"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
@@ -306,7 +306,7 @@ Publikowania zakończy się niepowodzeniem z powodu błędu, który oznacza, że
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli wiesz, że domyślne uprawnienia dla folderów witrynie są prawidłowe oraz że nie należy ustawić, możesz wyłączyć to zachowanie, dodając ** &lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli wiesz, że domyślne uprawnienia dla folderów witrynie są prawidłowe oraz że nie należy ustawić, możesz wyłączyć to zachowanie, dodając **&lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Błędy odmowy dostępu, gdy aplikacja próbuje zapisać do folderu aplikacji
 
@@ -316,7 +316,7 @@ Błędy aplikacji podczas próby tworzenia lub edytowania pliku w jednym z folde
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli aplikacja wymaga dostęp do zapisu do podfolderu, jak pokazano ustawianie uprawnień folderów i wdrażane w tej serii samouczków środowiska produkcyjnego można ustawić uprawnienia dla tego folderu. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym lokacji, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając ** &lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt; ** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Domyślnie, Visual Studio, zestawy uprawnień w folderze głównym lokacji uprawnienia odczytu i zapisu w aplikacji\_folderu danych. Jeśli aplikacja wymaga dostęp do zapisu do podfolderu, jak pokazano ustawianie uprawnień folderów i wdrażane w tej serii samouczków środowiska produkcyjnego można ustawić uprawnienia dla tego folderu. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym lokacji, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając **&lt;docelowy IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** plik profilu publikowania (mieć wpływ na jeden profil) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o tym, jak edytowanie tych plików, zobacz [jak: Edytuj ustawienia wdrażania w plikach profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
