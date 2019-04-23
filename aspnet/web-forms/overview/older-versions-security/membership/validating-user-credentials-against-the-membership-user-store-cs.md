@@ -12,7 +12,7 @@ ms.openlocfilehash: d962036213d779f73e5d837af1de42a01f08a329
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59389222"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (C#)
@@ -43,7 +43,7 @@ Aby sprawdzić użytkownika względem framework członkostwa, należy użyć `Me
 Zaktualizujmy naszą stronę logowania (~ /`Login.aspx`) tak, aby sprawdza poprawność podanych poświadczeń względem magazynu użytkowników struktury członkostwa. Utworzyliśmy tę stronę logowania w <a id="Tutorial02"> </a> [ *omówienie uwierzytelniania formularzy* ](../introduction/an-overview-of-forms-authentication-cs.md) samouczek, Tworzenie interfejsu z dwóch pól tekstowych dla nazwy użytkownika i hasła, Zapamiętaj mnie pole wyboru i przycisku logowania (patrz rysunek 1). Kod sprawdza poprawność wprowadzone poświadczenia z ustaloną listą par nazwa użytkownika i hasło (Scott/hasła, Jisun/hasło i hasła/Sam). W <a id="Tutorial03"> </a> [ *Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) samouczek Zaktualizowaliśmy kodu strony logowania do przechowywania dodatkowych informacji w formularzach bilet uwierzytelnienia `UserData` właściwości.
 
 
-[![TStrona logowania HE interfejs zawiera dwa pola tekstowe, elementu CheckBoxList i przycisku](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
+[![Interfejs strony logowania zawiera dwa pola tekstowe, elementu CheckBoxList i przycisku](validating-user-credentials-against-the-membership-user-store-cs/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image1.png)
 
 **Rysunek 1**: Na stronie logowania interfejsu zawiera dwa pola tekstowe, elementu CheckBoxList i przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image3.png))
 
@@ -86,7 +86,7 @@ Niestety nie ma wbudowanego narzędzia odblokowywania konta użytkownika. Aby od
 Zaktualizujmy `Login.aspx`, zastępując utworzonych ręcznie interfejsu i kodu za pomocą kontrolki logowania. Start, usuwając istniejący kod znaczników i kodu w `Login.aspx`. Możesz usunąć ją od razu wykupić lub po prostu komentarz dotyczący działanie. Aby przekształcić w komentarz oznaczeniu deklaracyjnym, należy ująć ją za pomocą `<%--` i `--%>` ograniczników. Ograniczniki te można wprowadzić ręcznie lub, jak pokazano na rysunku 2, możesz wybrać tekst, który ma komentarz, a następnie kliknij przycisk Komentarz zaznaczonych wierszach ikonę na pasku narzędzi. Podobnie umożliwia komentarz ikonę wybranych wierszy w komentarz zaznaczony kod w klasie CodeBehind.
 
 
-[![Centarz się istniejących deklaratywne znaczników i kodu źródłowego w Login.aspx](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
+[![Komentarz istniejące deklaratywne znaczników i kodu źródłowego w Login.aspx](validating-user-credentials-against-the-membership-user-store-cs/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image4.png)
 
 **Rysunek 2**: Komentarz się istniejących deklaratywne znaczników i kodu źródłowego w `Login.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image6.png))
 
@@ -98,7 +98,7 @@ Zaktualizujmy `Login.aspx`, zastępując utworzonych ręcznie interfejsu i kodu 
 Następnie przeciągnij formant logowania z przybornika do strony i ustaw jego `ID` właściwość `myLogin`. W tym momencie ekran powinien wyglądać podobnie do rysunek 3. Należy pamiętać, że kontrolka Login domyślny interfejs zawiera kontrolki TextBox dla nazwy użytkownika i hasło, Pamiętaj mnie przy następnym pole wyboru i przycisk w dzienniku. Dostępne są także `RequiredFieldValidator` kontrolki dla dwóch pól tekstowych.
 
 
-[![ADodaj formant do strony logowania](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
+[![Dodaj kontrolkę logowanie do strony](validating-user-credentials-against-the-membership-user-store-cs/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image7.png)
 
 **Rysunek 3**: Dodaj kontrolkę logowanie do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image9.png))
 
@@ -115,7 +115,7 @@ Kontrolka Login używa czterech czynników do określenia odpowiedniej strony do
 Rysunek 4 przedstawia, jak kontrolka Login korzysta z tych czterech parametrów na decyzję odpowiedniej strony.
 
 
-[![ADodaj formant do strony logowania](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
+[![Dodaj kontrolkę logowanie do strony](validating-user-credentials-against-the-membership-user-store-cs/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image10.png)
 
 **Rysunek 4**: Dodaj kontrolkę logowanie do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image12.png))
 
@@ -145,7 +145,7 @@ Podsumowanie ustawień właściwości kontrolki logowania, ustawiając [ `Create
 Po wprowadzeniu tych zmian właściwości oznaczeniu deklaracyjnym i wyglądu kontrolki logowania powinien wyglądać podobnie do przedstawionego na rysunku 5.
 
 
-[![TKontrolka Login HE właściwości wartości dyktowanie jego wygląd](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
+[![Wartości właściwości kontrolek logowania dyktowanie jego wygląd](validating-user-credentials-against-the-membership-user-store-cs/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image13.png)
 
 **Rysunek 5**: Właściwości kontrolek logowania wartości dyktowanie jego wygląd ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image15.png))
 
@@ -164,7 +164,7 @@ Aby wykonać pierwsze zadanie, musimy przekonwertować kontrolki logowania na sz
 Zaktualizujmy kontrolki logowania, który monituje użytkowników o ich nazwy użytkownika, hasło i adres e-mail i uwierzytelnia użytkownika tylko wtedy, jeśli podany adres e-mail jest zgodny adres e-mail użytkownika w pliku. Najpierw musimy przekonwertować interfejsu kontroli Zaloguj się do szablonu. Kontrolka Login tagu inteligentnego Wybierz Konwertuj do opcji szablonu.
 
 
-[![CKonwertuj kontrolki logowania do szablonu](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
+[![Konwertuj kontrolkę Zaloguj się do szablonu](validating-user-credentials-against-the-membership-user-store-cs/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image16.png)
 
 **Rysunek 6**: Konwertuj kontrolkę Zaloguj się do szablonu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image18.png))
 
@@ -176,7 +176,7 @@ Zaktualizujmy kontrolki logowania, który monituje użytkowników o ich nazwy u�
 Konwertowanie szablonu kontrolki logowania dodaje `LayoutTemplate` do formantu w oznaczeniu deklaracyjnym za pomocą elementów kodu HTML i formantów sieci Web, definiowanie interfejsu użytkownika. Jak pokazano na rysunku 7, konwertowania formant z szablonem usuwa wiele właściwości w oknie właściwości, takie jak `TitleText`, `CreateUserUrl`, i tak dalej, ponieważ wartości tych właściwości są ignorowane, gdy przy użyciu szablonu.
 
 
-[![FWłaściwości ewer są dostępne podczas logowania kontrolny została przeniesiona do szablonu](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
+[![Mniej właściwości są dostępne podczas logowania kontrolny została przeniesiona do szablonu](validating-user-credentials-against-the-membership-user-store-cs/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image19.png)
 
 **Rysunek 7**: Mniej właściwości są dostępne podczas logowania kontrolny jest konwertowana na szablon ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image21.png))
 
@@ -190,7 +190,7 @@ Aby zebrać adres e-mail osoby odwiedzającej, należy dodać pole tekstowe do s
 Po dodaniu `Email` pola tekstowego, odwiedź stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 8, interfejs użytkownika kontrolki logowania zawiera teraz trzecie pole tekstowe.
 
 
-[![TZawiera on kontrolka Login teraz pole tekstowe adresu E-mail użytkownika](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
+[![Kontrolka Login teraz zawiera pole tekstowe dla adresu E-mail użytkownika](validating-user-credentials-against-the-membership-user-store-cs/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image22.png)
 
 **Rysunek 8**: Kontrolka Login teraz zawiera pole tekstowe dla adresu E-mail użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image24.png))
 
@@ -208,7 +208,7 @@ Jeśli podane poświadczenia są prawidłowe, a następnie zostanie utworzony bi
 Rysunek 9 oferuje jest blokowy przepływu pracy uwierzytelniania.
 
 
-[![TKontrolka Login HE przepływu pracy uwierzytelniania](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
+[![Przepływ pracy uwierzytelniania kontrolki logowania](validating-user-credentials-against-the-membership-user-store-cs/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image25.png)
 
 **Rysunek 9**: Przepływ pracy uwierzytelniania kontrolka Login ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image27.png))
 
@@ -247,7 +247,7 @@ Poniższy kod implementuje tych dwóch kontroli. Jeśli oba zakończy się pomy�
 Przy użyciu tego kodu w miejscu spróbuj zalogować się jako prawidłowego użytkownika, wprowadzając prawidłową nazwę użytkownika, hasło i adres e-mail. Spróbuj ponownie, ale tym razem użyj celowo nieprawidłowy adres e-mail (zobacz rysunek 10). Na koniec Wypróbuj raz trzeci przy użyciu nazwy użytkownika nie istnieje. W pierwszym przypadku należy pomyślnie zalogowanie się do witryny, ale w dwóch ostatnich przypadkach powinien zostać wyświetlony komunikat nieprawidłowe poświadczenia kontrolka Login.
 
 
-[![Tpawłowski nie można zalogować się w przypadku określenia niepoprawny adres E-mail](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
+[![Tito nie można zalogować się w przypadku określenia nieprawidłowy adres E-mail](validating-user-credentials-against-the-membership-user-store-cs/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Tito nie dziennika w przypadku dostarczenie niepoprawny adres E-mail ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image30.png))
 
@@ -280,7 +280,7 @@ Powyższy kod, który rozpoczyna się przez ustawienie kontrolki logowania `Fail
 Aby przetestować ten kod, celowo próbować zalogować się jako istniejącego użytkownika, ale użyć niepoprawnego hasła. Wykonaj tym pięć razy pod rząd w przedziale czasu wynoszącym 10 minut, a konto zostanie zablokowane. Jak przedstawia rysunek 11, logowanie kolejnych prób będzie zawsze się nie powieść (nawet w przypadku prawidłowego hasła), ale będą teraz wyświetlane bardziej opisowe Twoje konto zostało zablokowane z powodu zbyt wielu nieudanych prób logowania. Skontaktuj się z administratorem i poproś wiadomości odblokować konto.
 
 
-[![Tpawłowski wykonywane zbyt wiele nieprawidłowych prób logowania ma został zablokowany do edycji i](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
+[![Tito wykonana zbyt wiele nieudanych prób logowania, a zostało zablokowane](validating-user-credentials-against-the-membership-user-store-cs/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-cs/_static/image31.png)
 
 **Rysunek 11**: Tito wykonywane zbyt wiele nieprawidłowych prób logowania ma został zablokowany do edycji i ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-cs/_static/image33.png))
 

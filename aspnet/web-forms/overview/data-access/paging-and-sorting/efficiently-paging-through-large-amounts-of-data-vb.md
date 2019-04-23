@@ -12,7 +12,7 @@ ms.openlocfilehash: 20ea33efbd1db657a03b20a665a041ecf3a6d248
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399557"
 ---
 # <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Efektywne stronicowanie dużych ilości danych (VB)
@@ -191,7 +191,7 @@ Po utworzeniu procedury składowanej, Poświęć chwilę, aby przetestować dzia
 Po wybierając te wprowadzanie wartości parametrów, w oknie danych wyjściowych zostaną wyświetlone wyniki. Rysunek 8 przedstawia wyniki podczas przekazywania w 10 dla obu `@startRowIndex` i `@maximumRows` parametrów.
 
 
-[![TZwracane są on rekordów, pojawią się w drugiej strony danych](efficiently-paging-through-large-amounts-of-data-vb/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-vb/_static/image8.png)
+[![Zwracane są rekordy, zostanie wyświetlony w drugiej strony danych](efficiently-paging-through-large-amounts-of-data-vb/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-vb/_static/image8.png)
 
 **Rysunek 8**: Zwracane są rekordy, zostanie wyświetlony w drugiej strony danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](efficiently-paging-through-large-amounts-of-data-vb/_static/image10.png))
 
@@ -293,7 +293,7 @@ Należy pamiętać, że `EnablePaging` i `SelectCountMethod` zostały ustawione 
 Po wprowadzeniu tych zmian, odwiedź tę stronę za pośrednictwem przeglądarki. Powinien zostać wyświetlony 10 z wymienionych poniżej produktów, uporządkowana w kolejności alfabetycznej. Poświęć chwilę, aby przejść przez jedną stronę danych w czasie. W trakcie Brak visual różnicy z perspektywy użytkownika końcowego s stronicowania domyślne i niestandardowe stronicowania niestandardowe wydajniej stronicowania między stronami w ramach dużych ilości danych, ponieważ pobiera tylko te rekordy, które muszą być wyświetlany dla danej strony.
 
 
-[![THE danych uporządkowanych według produktu s nazwa jest stronicowania niestandardowe stronicowanej przy użyciu](efficiently-paging-through-large-amounts-of-data-vb/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-vb/_static/image19.png)
+[![Dane, Zamówione według produktu s nazwa, jest stronicowania niestandardowe stronicowanej przy użyciu](efficiently-paging-through-large-amounts-of-data-vb/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-vb/_static/image19.png)
 
 **Rysunek 17**: Dane, Zamówione według produktu s nazwa, jest stronicowania niestandardowe stronicowanej przy użyciu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](efficiently-paging-through-large-amounts-of-data-vb/_static/image21.png))
 
@@ -309,7 +309,7 @@ Klikając łącze do strony ostatnich powoduje odświeżenie strony i powoduje, 
 Nasz bieżący implementację niestandardową stronicowania wymaga kolejności za pomocą którego dane są stronicowane za pośrednictwem statycznie podczas tworzenia `GetProductsPaged` procedury składowanej. Jednak użytkownik może zostały zanotowane czy tagu inteligentnego s GridView zawiera włączyć sortowanie pola wyboru oprócz opcję włączenia stronicowania. Niestety dodanie obsługi sortowania w kontrolce GridView o naszej bieżącej niestandardowych implementacji stronicowania tylko będzie posortować rekordy na aktualnie otwartą strony danych. Na przykład jeśli konfigurujesz kontrolki GridView do obsługują także stronicowania, a następnie, podczas wyświetlania na pierwszej stronie danych, posortuj według nazwy produktu w kolejności malejącej, jej będzie odwrócić kolejność produktów na stronie 1. Jak pokazano na rysunku 18, takie miało tygrysy Carnarvon produktów pierwsze podczas sortowania w odwrotnej kolejności alfabetycznej, co powoduje ignorowanie 71 innych produktów, które pochodzą tygrysy Carnarvon alfabetycznie; tylko te rekordy, na pierwszej stronie zostaną uwzględnione podczas sortowania.
 
 
-[![Osą sortowane dane wyświetlane na bieżącej stronie tylko do odczytu](efficiently-paging-through-large-amounts-of-data-vb/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-vb/_static/image22.png)
+[![Tylko dane wyświetlane na bieżącej stronie jest sortowana](efficiently-paging-through-large-amounts-of-data-vb/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-vb/_static/image22.png)
 
 **Rysunek 18**: Tylko dane wyświetlane na bieżącej stronie jest sortowana ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](efficiently-paging-through-large-amounts-of-data-vb/_static/image24.png))
 
@@ -356,8 +356,8 @@ Artykuł min, [stronicowania niestandardowe w programie ASP.NET 2.0 przy użyciu
 | --- | --- | --- |
 | **Domyślne stronicowania SQL Profiler** | 1.411 | 383 |
 | **Niestandardowe stronicowania SQL Profiler** | 0.002 | 29 |
-| **Domyślne stronicowania danych śledzenia ASP.NET** | 2.379 | *Brak* |
-| **Niestandardowe śledzenia ASP.NET stronicowania** | 0.029 | *Brak* |
+| **Domyślne stronicowania danych śledzenia ASP.NET** | 2.379 | *N/D* |
+| **Niestandardowe śledzenia ASP.NET stronicowania** | 0.029 | *N/D* |
 
 
 Jak widać, podczas pobierania określonej strony danych średnio wymagane 354 mniej operacji odczytu i ukończyć w zaledwie ułamku czasu. Na stronie ASP.NET niestandardowe strony był w stanie renderowane w pobliżu 1/100<sup>th</sup> czasu, jaki zajęło podczas korzystania z domyślnej stronicowania. Zobacz [Moje artykułu](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx) Aby uzyskać więcej informacji na temat tych wyników, wraz z kodem i bazę danych można pobrać w celu odtworzenia te testy we własnym środowisku.

@@ -12,7 +12,7 @@ ms.openlocfilehash: b1660c0d20b76d97ee00acf1080c3eca1f596be2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412674"
 ---
 # <a name="using-sql-cache-dependencies-vb"></a>Używanie zależności pamięci podręcznej SQL (VB)
@@ -87,7 +87,7 @@ Rozpocznij od zamknięcia programu Visual Studio. Następnie otwórz program SQL
 Po nawiązaniu połączenia z serwerem Management Studio Pokaż serwera i podfoldery dla baz danych, zabezpieczeń i tak dalej. Kliknij prawym przyciskiem myszy na folder baz danych i wybierz opcję Dołącz. Zostanie wyświetlone okno dialogowe dołączanie bazy danych (zobacz rysunek 2). Kliknij przycisk Dodaj, a następnie wybierz pozycję `NORTHWND.MDF` folder bazy danych w sieci web aplikacji s `App_Data` folderu.
 
 
-[![ADołą NORTHWND. Baza danych MDF z folderu App_Data](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
+[![Dołącz NORTHWND. MDF bazy danych, z folderu App_Data](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
 
 **Rysunek 2**: Dołącz `NORTHWND.MDF` bazy danych z `App_Data` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image2.png))
 
@@ -143,7 +143,7 @@ W krokach 1 – 4 przyjrzeliśmy się instrukcje konfiguracji infrastruktury nie
 Aby zademonstrować, używanie zależności pamięci podręcznej SQL w sposób deklaratywny, otwórz `SqlCacheDependencies.aspx` stronie `Caching` folder i przeciągnij GridView z przybornika do projektanta. Ustaw GridView s `ID` do `ProductsDeclarative` i z jego tag inteligentny chcesz powiązać nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSourceDeclarative`.
 
 
-[![CTwórz nowe ProductsDataSourceDeclarative o nazwie elementu ObjectDataSource](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
+[![Tworzenie nowego elementu ObjectDataSource, o nazwie ProductsDataSourceDeclarative](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
 
 **Rysunek 5**: Utwórz nowy o nazwie elementu ObjectDataSource `ProductsDataSourceDeclarative` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image4.png))
 
@@ -151,12 +151,12 @@ Aby zademonstrować, używanie zależności pamięci podręcznej SQL w sposób d
 Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy i zmień wartość na liście rozwijanej na karcie Wybierz `GetProducts()`. Na karcie aktualizacji, wybierz opcję `UpdateProduct` przeciążenia z trzema parametrami wejściowymi - `productName`, `unitPrice`, i `productID`. Ustaw list rozwijanych (Brak), znajdujące się na kartach INSERT i DELETE.
 
 
-[![USE UpdateProduct przeciążenia z trzech parametrów danych wejściowych](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
+[![Użyj przeciążenia UpdateProduct trzech parametrów wejściowych](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
 
 **Rysunek 6**: Trzy parametry wejściowe za pomocą przeciążenia UpdateProduct ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image6.png))
 
 
-[![Set listy rozwijanej (Brak), WSTAWIANIA i usuwania karty](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
+[![Zmień wartość na liście rozwijanej na (Brak) do WSTAWIANIA i usuwania karty](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
 
 **Rysunek 7**: Zmień wartość na liście rozwijanej na (Brak) dla Wstawianie i usuwanie kart ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image8.png))
 
@@ -178,7 +178,7 @@ Pamiętamy ObjectDataSource s `Selecting` zdarzeń jest uruchamiana tylko wtedy,
 Teraz odwiedź tę stronę za pośrednictwem przeglądarki. Ponieważ firma Microsoft ve jeszcze w celu implementacji wszelkich buforowania, każdym razem, strony, sortowanie lub edytowanie strony siatki powinien być wyświetlany tekst, wybranie event uruchamiane, jak pokazano na rysunku 8.
 
 
-[![Ton s ObjectDataSource wybranie Event uruchamia każdego czasu stronicowanej widoku GridView, edytować, lub posortowane](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
+[![S ObjectDataSource wybranie Event uruchamia każdego czasu stronicowanej widoku GridView, edytować, lub posortowane](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
 
 **Rysunek 8**: ObjectDataSource s `Selecting` czas każdej generowane zdarzenia jest stronicowanej widoku GridView, edytowana lub posortowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image10.png))
 
@@ -197,7 +197,7 @@ Gdzie *databaseName* to nazwa bazy danych, jak to określono w `name` atrybutu `
 GridView w `SqlCacheDependencies.aspx` wyświetla dane z dwóch tabel - `Products` i `Categories` (produkt s `CategoryName` pola są pobierane za pośrednictwem `JOIN` na `Categories`). W związku z tym chcemy określić dwie zależności pamięci podręcznej SQL: NorthwindDB:Products;NorthwindDB:Categories .
 
 
-[![Configuruj ObjectDataSource do obsługi pamięci podręcznej przy użyciu pamięci podręcznej zależności SQL na temat produktów i kategorie](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
+[![Konfigurowanie kontrolki ObjectDataSource do obsługi pamięci podręcznej używanie zależności pamięci podręcznej SQL na temat produktów i kategorii](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
 
 **Rysunek 9**: Konfigurowanie kontrolki ObjectDataSource do obsługi pamięci podręcznej przy użyciu pamięci podręcznej zależności SQL na `Products` i `Categories` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image12.png))
 
@@ -207,7 +207,7 @@ Po skonfigurowaniu ObjectDataSource do obsługi pamięci podręcznej, należy po
 Po stronicowanie siatki i zapisując braku zdarzeń wybranie wyzwolone tekst, Otwórz nowe okno przeglądarki i przejdź do samouczka podstawy w edytowanie, wstawianie i usuwanie sekcji (`~/EditInsertDelete/Basics.aspx`). Zaktualizuj nazwę lub cena produktu. Następnie z pierwszego okna przeglądarki, Wyświetl innej strony danych, sortowania siatki lub kliknij przycisk Edytuj wiersz s. Tym razem wybranie zdarzenia wywoływane powinno się ponownie, podstawowej bazy danych, których dane zostały zmienione (zobacz rysunek 10). Jeśli tekst nie jest widoczny, poczekaj chwilę i spróbuj ponownie. Należy pamiętać, że usługa sondowania sprawdza zmiany `Products` tabeli co `pollTime` milisekund, więc istnieje opóźnienie między po zaktualizowaniu danych bazowych i kiedy zostanie wykluczony dane w pamięci podręcznej.
 
 
-[![Modifying wyklucza tabeli Produkty mogą dane buforowane produktu](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
+[![Modyfikowanie tabeli Produkty wyklucza mogą dane buforowane produktu](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
 
 **Na rysunku nr 10**: Modyfikowanie tabeli Produkty wyklucza mogą danych produktu pamięci podręcznej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image14.png))
 
@@ -241,17 +241,17 @@ Zaktualizuj kod w celu użycia `SqlCacheDependency` zamiast obiektu `MasterCache
 Aby przetestować tę funkcję, należy dodać GridView do strony poniżej istniejącego `ProductsDeclarative` GridView. Ustaw ten nowy s GridView `ID` do `ProductsProgrammatic` i za pośrednictwem tagu inteligentnego powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSourceProgrammatic`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsCL` klasy, listy rozwijane w polu Wybierz i aktualizacji karty, aby `GetProducts` i `UpdateProduct`, odpowiednio.
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy ProductsCL](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
+[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsCL](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
 
 **Rysunek 11**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsCL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image16.png))
 
 
-[![Sz listy rozwijanej s Wybierz kartę, należy wybrać metodę GetProducts](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
+[![Wybierz metodę GetProducts z listy rozwijanej wybierz kartę s](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
 
 **Rysunek 12**: Wybierz `GetProducts` metodę z listy rozwijanej s Wybierz kartę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image18.png))
 
 
-[![Cbierz metodę UpdateProduct z listy rozwijanej s aktualizacji karty](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
+[![Wybierz metodę UpdateProduct z listy rozwijanej s kartę aktualizacji](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
 
 **Rysunek 13**: Wybierz metodę UpdateProduct s kartę aktualizacji listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image20.png))
 
