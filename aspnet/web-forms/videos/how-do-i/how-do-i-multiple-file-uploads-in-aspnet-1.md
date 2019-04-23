@@ -12,13 +12,13 @@ ms.openlocfilehash: 4bd192e76d07d1ab7b7fd000f2bf90d96cc91b1c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420591"
 ---
-# <a name="how-do-i--multiple-file-uploads-in-aspnet1"></a><span data-ttu-id="fc75a-103">[Jak mogę]  Operacje przekazywania wielu plików na platformie ASP.NET 1</span><span class="sxs-lookup"><span data-stu-id="fc75a-103">[How Do I:]  Multiple File Uploads in ASP.NET 1</span></span>
+# <a name="how-do-i--multiple-file-uploads-in-aspnet1"></a><span data-ttu-id="1d9de-103">[Jak mogę]  Operacje przekazywania wielu plików na platformie ASP.NET 1</span><span class="sxs-lookup"><span data-stu-id="1d9de-103">[How Do I:]  Multiple File Uploads in ASP.NET 1</span></span>
 
-<span data-ttu-id="fc75a-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="fc75a-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="1d9de-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="1d9de-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="fc75a-105">W tym filmie wideo I opracuje dotyczące przekazywania wielu plików do aplikacji ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="fc75a-105">In this video I will elaborate on uploading multiple files to an ASP.NET application.</span></span>
+<span data-ttu-id="1d9de-105">W tym filmie wideo I opracuje dotyczące przekazywania wielu plików do aplikacji ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="1d9de-105">In this video I will elaborate on uploading multiple files to an ASP.NET application.</span></span>
 
-[<span data-ttu-id="fc75a-106">&#9654;Obejrzyj film wideo (15 minut)</span><span class="sxs-lookup"><span data-stu-id="fc75a-106">&#9654; Watch video (15 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-multiple-file-uploads-in-aspnet-1)
+[<span data-ttu-id="1d9de-106">&#9654;Obejrzyj film wideo (15 minut)</span><span class="sxs-lookup"><span data-stu-id="1d9de-106">&#9654; Watch video (15 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-multiple-file-uploads-in-aspnet-1)
