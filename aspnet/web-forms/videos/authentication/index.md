@@ -12,7 +12,7 @@ ms.openlocfilehash: 68c1acdaaf1e6674f4dc3bcca0557382407ca147
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400116"
 ---
 # <a name="authentication"></a>Uwierzytelnianie
@@ -32,11 +32,11 @@ ms.locfileid: "59400116"
 - [Modyfikowanie ustawień członkostwa w domyślnym schemacie członkostwa](changing-membership-settings-in-the-default-membership-schema.md)
 - [Tworzenie kont użytkowników za pomocą Kreatora tworzenia użytkownika](creating-user-accounts-with-the-create-user-wizard.md)
 - [Programowe tworzenie kont użytkowników](creating-user-accounts-programmatically.md)
-- [Ręczna walidacja użytkowników](validating-users-manually.md)
-- [Walidacja użytkowników za pomocą kontrolki logowania](validating-users-with-the-login-control.md)
+- [Ręczne weryfikowanie użytkowników](validating-users-manually.md)
+- [Weryfikowanie użytkowników za pomocą kontrolki logowania](validating-users-with-the-login-control.md)
 - [Dodawanie użytkowników do systemu członkostwa](adding-users-to-your-membership-system.md)
 - [Rejestrowanie użytkowników w systemie członkostwa](logging-users-into-your-membership-system.md)
 - [Implementowanie wzorca weryfikacji rejestracji](implement-the-registration-verification-pattern.md)
 - [Proste uwierzytelnianie usługi internetowej](simple-web-service-authentication.md)
 - [Tworzenie nieaktywnych użytkowników](creating-inactive-users.md)
-- [Obrona przed wstrzyknięciem kodu SQL](sql-injection-defense.md)
+- [Obrona przed iniekcją kodu SQL](sql-injection-defense.md)

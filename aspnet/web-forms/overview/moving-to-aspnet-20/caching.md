@@ -12,7 +12,7 @@ ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400207"
 ---
 # <a name="caching"></a>Buforowanie
@@ -213,7 +213,7 @@ Wprowadzono kilka zmian w konfiguracji buforowania programu ASP.NET 2.0. &lt;Buf
 
 | **Element** | **Opis** |
 | --- | --- |
-| **pamięć podręczna** | Element opcjonalny. Definiuje ustawienia powiązane z aplikacji globalnej pamięci podręcznej. |
+| **cache** | Element opcjonalny. Definiuje ustawienia powiązane z aplikacji globalnej pamięci podręcznej. |
 | **outputCache** | Element opcjonalny. Określa ustawienia pamięci podręcznej danych wyjściowych w całej aplikacji. |
 | **outputCacheSettings** | Element opcjonalny. Określa ustawienia pamięci podręcznej danych wyjściowych, które mogą być stosowane do stron w aplikacji. |
 | **sqlCacheDependency** | Element opcjonalny. Konfiguruje zależności pamięci podręcznej SQL dla aplikacji ASP.NET. |

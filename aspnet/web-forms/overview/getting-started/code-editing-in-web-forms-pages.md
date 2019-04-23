@@ -12,7 +12,7 @@ ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397373"
 ---
 # <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013

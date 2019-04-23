@@ -12,10 +12,10 @@ ms.openlocfilehash: 7a73b6657e6f074cac5e63c907924a8cae68e60e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397191"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
 
-- [Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010](overview.md)
-- [Zmiany powodujące niezgodność w platformie ASP.NET 4](breaking-changes.md)
+- [Omówienie projektowania aplikacji internetowych na platformie ASP.NET 4 i w programie Visual Studio 2010](overview.md)
+- [Fundamentalne zmiany na platformie ASP.NET 4](breaking-changes.md)

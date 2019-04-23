@@ -12,7 +12,7 @@ ms.openlocfilehash: 90285eac8e45d542c4ccca3e3db00493546aac57
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398452"
 ---
 # <a name="aspnet-hosting-options-c"></a>Opcje hostingu platformy ASP.NET (C#)

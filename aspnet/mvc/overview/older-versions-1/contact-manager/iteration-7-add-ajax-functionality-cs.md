@@ -12,7 +12,7 @@ ms.openlocfilehash: 34fce0bef5163ba0423ea00cf4b7507947c45c68
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398075"
 ---
 # <a name="iteration-7--add-ajax-functionality-c"></a>Iteracja #7 — dodawanie funkcji Ajax (C#)
@@ -93,7 +93,7 @@ Dodaj następujący kod JavaScript obejmuje wewnątrz &lt;head&gt; tag strony wz
 Pozwól s start modyfikując naszych widoku indeksu, tak, że kliknięcie skontaktuj się z grupy aktualizuje tylko regionu widoku, który wyświetla kontaktów. Czerwone pola na rysunku 1 zawiera region, który chcesz zaktualizować.
 
 
-[![Ukontakty tylko ualizacja](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
+[![Aktualizowanie tylko kontakty](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
 
 **Rysunek 01**: Aktualizowanie tylko kontakty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-7-add-ajax-functionality-cs/_static/image2.png))
 
@@ -193,7 +193,7 @@ Gdy użytkownik trafi w przeglądarce wstecz lub przycisk Prześlij dalej, navig
 Obecnie, aby możliwe było usunięcie kontakt, należy kliknąć łącze Usuń, a następnie kliknij przycisk Usuń, wyświetlany na stronie Potwierdzenie usuwania (patrz rysunek 2). Prawdopodobnie wiele żądań strony, aby zrobić coś prostego, takich jak usunięcie rekordu bazy danych.
 
 
-[![TStrona potwierdzenia on delete](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
+[![Strona potwierdzenia usunięcia](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
 
 **Rysunek 02**: Strona potwierdzenia usunięcia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-7-add-ajax-functionality-cs/_static/image4.png))
 

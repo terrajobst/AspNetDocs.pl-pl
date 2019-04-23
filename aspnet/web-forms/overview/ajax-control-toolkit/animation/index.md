@@ -12,7 +12,7 @@ ms.openlocfilehash: 728d56583fb4192d87d01febf512668068256150
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59398049"
 ---
 # <a name="animation"></a>Animacja
@@ -24,7 +24,7 @@ ms.locfileid: "59398049"
 - [Wykonywanie kilku animacji w tym samym czasie (C#)](executing-several-animations-at-the-same-time-cs.md)
 - [Wykonywanie kilku animacji jedna po drugiej (C#)](executing-several-animations-after-each-other-cs.md)
 - [Animacja w zależności od warunku (C#)](animation-depending-on-a-condition-cs.md)
-- [Wybieranie jednej animacji z listy (C#)](picking-one-animation-out-of-a-list-cs.md)
+- [Wybieranie jednej animacji spoza listy (C#)](picking-one-animation-out-of-a-list-cs.md)
 - [Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (C#)](animating-in-response-to-user-interaction-cs.md)
 - [Wyłączanie akcji podczas animacji (C#)](disabling-actions-during-animation-cs.md)
 - [Wyzwalanie animacji w innej kontrolce (C#)](triggering-an-animation-in-another-control-cs.md)
@@ -37,7 +37,7 @@ ms.locfileid: "59398049"
 - [Wykonywanie kilku animacji w tym samym czasie (VB)](executing-several-animations-at-the-same-time-vb.md)
 - [Wykonywanie kilku animacji jedna po drugiej (VB)](executing-several-animations-after-each-other-vb.md)
 - [Animacja w zależności od warunku (VB)](animation-depending-on-a-condition-vb.md)
-- [Wybieranie jednej animacji z listy (VB)](picking-one-animation-out-of-a-list-vb.md)
+- [Wybieranie jednej animacji spoza listy (VB)](picking-one-animation-out-of-a-list-vb.md)
 - [Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (VB)](animating-in-response-to-user-interaction-vb.md)
 - [Wyłączanie akcji podczas animacji (VB)](disabling-actions-during-animation-vb.md)
 - [Wyzwalanie animacji w innej kontrolce (VB)](triggering-an-animation-in-another-control-vb.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: e3e70c0d43c2f2db13180342730156728fa03cc2
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399973"
 ---
 # <a name="how-do-i-get-started-with-aspnet-ajax"></a>[Jak mogę] Rozpoczynanie pracy przy użyciu rozszerzeń ASP.NET AJAX?

@@ -12,7 +12,7 @@ ms.openlocfilehash: 9dbaf1cbf7eb89a47c1e7e388c4dc35b9900b97d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399115"
 ---
 # <a name="getting-started-with-aspnet-mvc-3-vbnet"></a>Wprowadzenie do korzystania ze wzorca ASP.NET MVC 3 (VB.NET)
@@ -27,5 +27,5 @@ ms.locfileid: "59399115"
 - [Uzyskiwanie dostępu do danych modelu za pomocą kontrolera (VB)](accessing-your-models-data-from-a-controller.md)
 - [Badanie metod edycji i widoku edycji (VB)](examining-the-edit-methods-and-edit-view.md)
 - [Dodawanie nowego pola do modelu Movie i tabeli bazy danych (VB)](adding-a-new-field.md)
-- [Dodawanie walidacji do modelu (VB)](adding-validation-to-the-model.md)
+- [Dodawanie weryfikacji do modelu (VB)](adding-validation-to-the-model.md)
 - [Ulepszanie metod Details i Delete (VB)](improving-the-details-and-delete-methods.md)

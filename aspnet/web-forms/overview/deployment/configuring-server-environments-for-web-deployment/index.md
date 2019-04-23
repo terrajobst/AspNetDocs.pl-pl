@@ -12,7 +12,7 @@ ms.openlocfilehash: 63ffb6fa3c32c91508a12ed4545de08767c6200c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397971"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 2: konfigurowanie serwerów
@@ -22,12 +22,12 @@ ms.locfileid: "59397971"
 
 - [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment.md)
 - [Wybieranie właściwego podejścia do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md)
-- [Scenariusz: konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](scenario-configuring-a-test-environment-for-web-deployment.md)
-- [Scenariusz: konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](scenario-configuring-a-staging-environment-for-web-deployment.md)
-- [Scenariusz: konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](scenario-configuring-a-production-environment-for-web-deployment.md)
-- [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (agent zdalny)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-- [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (procedura obsługi narzędzia Web Deploy)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-- [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+- [Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](scenario-configuring-a-test-environment-for-web-deployment.md)
+- [Scenariusz: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](scenario-configuring-a-staging-environment-for-web-deployment.md)
+- [Scenariusz: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](scenario-configuring-a-production-environment-for-web-deployment.md)
+- [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (agent zdalny)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+- [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (program obsługi narzędzia Web Deploy)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+- [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
 - [Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy](configuring-a-database-server-for-web-deploy-publishing.md)
 - [Tworzenie farmy serwerów za pomocą rozwiązania Web Farm Framework](creating-a-server-farm-with-the-web-farm-framework.md)
 - [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](configuring-deployment-properties-for-a-target-environment.md)

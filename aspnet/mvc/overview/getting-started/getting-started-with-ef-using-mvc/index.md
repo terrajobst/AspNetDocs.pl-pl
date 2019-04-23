@@ -12,7 +12,7 @@ ms.openlocfilehash: 34fd3fb357c7a6c33b3a551b0cda7029e807da2c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399063"
 ---
 # <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Wprowadzenie do podejścia Code First w programie Entity Framework 6 z wykorzystaniem MVC 5
@@ -23,7 +23,7 @@ ms.locfileid: "59399063"
 - [Tworzenie modelu danych programu Entity Framework](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 - [Implementowanie podstawowych funkcji CRUD](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
 - [Sortowanie, filtrowanie i stronicowanie](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-- [Odporność połączeń i przejmowanie poleceń](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+- [Elastyczność połączeń i przejmowanie poleceń](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 - [Migracje Code First i wdrażanie](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 - [Tworzenie bardziej złożonego modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
 - [Odczytywanie powiązanych danych](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

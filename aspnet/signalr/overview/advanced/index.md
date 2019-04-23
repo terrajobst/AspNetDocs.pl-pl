@@ -12,7 +12,7 @@ ms.openlocfilehash: 63df5e45c817c90957a5818bd9f43c4d3162c679
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397880"
 ---
 # <a name="signalr-advanced-topics"></a>SignalR Tematy zaawansowane
@@ -20,4 +20,4 @@ ms.locfileid: "59397880"
 > Dokumentacja biblioteki SignalR — Tematy zaawansowane.
 
 
-- [Wstrzykiwanie zależności w usłudze SignalR](dependency-injection.md)
+- [Wstrzykiwanie zależności w SignalR](dependency-injection.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 1dadbdb6fa1dc58b855402f1d6f18e8af861f756
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399362"
 ---
 # <a name="enabling-signalr-tracing"></a>Włączanie śledzenia usługi SignalR
@@ -64,7 +64,7 @@ Włącz śledzenie na serwerze w pliku konfiguracji aplikacji (App.config lub We
 
 Kategorie zdarzeń serwera obejmują następujące rodzaje komunikatów:
 
-| Źródło | Komunikaty |
+| Source | Komunikaty |
 | --- | --- |
 | SignalR.SqlMessageBus | Instalacji dostawcy usługi SQL magistrali komunikatów skalowania w poziomie, operacji bazy danych, błędów i zdarzeń limitu czasu |
 | SignalR.ServiceBusMessageBus | Tworzenie tematu dostawcy usługi Service bus ze skalowaniem i subskrypcji, błędów i zdarzeń komunikatów |

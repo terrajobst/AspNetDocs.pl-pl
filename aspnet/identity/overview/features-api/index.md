@@ -13,7 +13,7 @@ ms.openlocfilehash: 5634a5d766cdceffc509962d80b0aaa8880d2f8b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397100"
 ---
 # <a name="aspnet-4x-identity-features--api"></a>Funkcje programu ASP.NET 4.x tożsamość i interfejs API
@@ -21,6 +21,6 @@ ms.locfileid: "59397100"
 > Funkcje i interfejs API
 
 
-- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i w usłudze Azure App Service](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
-- [Potwierdzanie konta i odzyskiwanie hasła w systemie ASP.NET Identity (C#)](account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w systemie ASP.NET Identity](two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych na platformie ASP.NET i w usłudze Azure App Service](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+- [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity (C#)](account-confirmation-and-password-recovery-with-aspnet-identity.md)
+- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)

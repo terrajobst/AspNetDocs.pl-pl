@@ -12,7 +12,7 @@ ms.openlocfilehash: 6b989e384612f2d663afd431e8daa3afd17f6e6b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59399784"
 ---
 # <a name="adonet-data-services"></a>ADO.NET Data Services
@@ -21,5 +21,5 @@ ms.locfileid: "59399784"
 
 
 - [Warstwy dostępu do danych w aplikacjach ASP.NET](data-access-layers-in-aspnet-applications.md)
-- [Ręczne wiązanie zestawu danych z elementem Datagrid](how-to-manually-bind-a-dataset-to-a-datagrid.md)
+- [Ręczne powiązanie zestawu danych z elementem Datagrid](how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [Praca z zestawami danych i filtrami w aplikacji ASP](how-to-work-with-datasets-and-filters-from-an-asp-application.md)
