@@ -12,7 +12,7 @@ ms.openlocfilehash: 55ee67150d1567a0334988a06ff0fcca8a89bbd4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404055"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-vb"></a>Uruchamianie modalnego okna podręcznego z kodu serwera (VB)
@@ -65,7 +65,7 @@ Zadaniem `launchModal()` jest wyświetlanie ModalPopup. `launchModal()` Funkcja 
 `$find()` Funkcji szuka nazwanego elementu na stronie i oczekuje, że identyfikator po stronie serwera, jako parametr. W związku z tym `$find("mpe")` zwraca reprezentację klienta kontrolki ModalPopup; jej `show()` metoda umożliwia wyskakujące okienko wyświetlane.
 
 
-[![THE modalnego okna podręcznego, pojawia się, gdy jeden z przycisków kliknięciu](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
+[![Modalnego okna podręcznego, pojawia się, gdy kliknięto opcję przycisków](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
 
 Modalnego okna podręcznego, pojawia się, gdy jeden z przycisków kliknięciu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))
 

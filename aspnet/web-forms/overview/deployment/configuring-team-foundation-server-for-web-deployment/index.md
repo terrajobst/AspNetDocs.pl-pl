@@ -12,7 +12,7 @@ ms.openlocfilehash: 3226039ad399fb43c82c98331be41450f6f679bd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405212"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 3: konfigurowanie serwera TFS
@@ -20,10 +20,10 @@ ms.locfileid: "59405212"
 > Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web w różnych środowiskach docelowych.
 
 
-- [Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment.md)
-- [Tworzenie projektu zespołowego na serwerze TFS](creating-a-team-project-in-tfs.md)
+- [Konfigurowanie programu Team Foundation Server dla wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment.md)
+- [Tworzenie projektu zespołowego w programie TFS](creating-a-team-project-in-tfs.md)
 - [Dodawanie zawartości do kontroli źródła](adding-content-to-source-control.md)
-- [Konfigurowanie serwera kompilacji TFS na potrzeby wdrażania w Internecie](configuring-a-tfs-build-server-for-web-deployment.md)
+- [Konfigurowanie serwera kompilacji TFS dla wdrażania w Internecie](configuring-a-tfs-build-server-for-web-deployment.md)
 - [Tworzenie definicji kompilacji, która obsługuje wdrożenie](creating-a-build-definition-that-supports-deployment.md)
 - [Wdrażanie określonej kompilacji](deploying-a-specific-build.md)
 - [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołowej](configuring-permissions-for-team-build-deployment.md)

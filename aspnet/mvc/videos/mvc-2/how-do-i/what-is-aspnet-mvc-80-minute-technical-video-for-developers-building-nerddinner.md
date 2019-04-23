@@ -12,7 +12,7 @@ ms.openlocfilehash: bcaf596af8c78cf0765eb407c5a06854d2031b2d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405641"
 ---
 # <a name="what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner"></a>Co to jest ASP.NET MVC? 80 minutę film techniczny dla deweloperów, tworzenie NerdDinner

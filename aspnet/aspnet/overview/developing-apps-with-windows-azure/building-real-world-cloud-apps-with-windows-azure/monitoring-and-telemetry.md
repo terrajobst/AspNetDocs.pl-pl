@@ -12,7 +12,7 @@ ms.openlocfilehash: 48a66eea839f7f48899040ad20bbfee95b9a1902
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403912"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i Telemetria (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
@@ -72,7 +72,7 @@ Wdrażanie aplikacji na platformie Azure i rozpocząć korzystanie z niej. Utwó
 
 Następnie wróć do **usługi New Relic** strony w **dodatki** w portalu, a następnie kliknij na karcie **Zarządzaj**. Portal wysyła do portalu zarządzania usługi New Relic przy użyciu logowania jednokrotnego do uwierzytelniania, aby nie musieli wprowadzać poświadczeń ponownie. Na stronie Przegląd przedstawia informacje o różnych statystyk wydajności. (Kliknij obraz, aby zobaczyć pełny rozmiar strony Przegląd).
 
-[![Nfolder monitorowanie Relic tab](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
+[![Nowa karta Relic monitorowania](monitoring-and-telemetry/_static/image9.png)](monitoring-and-telemetry/_static/image8.png)
 
 Poniżej przedstawiono kilka statystyk, które można zobaczyć:
 

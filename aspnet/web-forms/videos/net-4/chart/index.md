@@ -12,7 +12,7 @@ ms.openlocfilehash: c3b2a46119873baf18e953a2d221d544feccbc26
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407305"
 ---
 # <a name="chart"></a>Wykres
@@ -20,5 +20,5 @@ ms.locfileid: "59407305"
 > Ten zbiór wideo pokazuje, jak używać formantu wykresu programu ASP.NET w celu utworzenia atrakcyjnych wizualnie wyświetlania danych.
 
 
-- [Formant wykresu](aspnet-4-quick-hit-chart-control.md)
-- [Wprowadzenie nowej kontrolki wykresu w programie Visual Studio 2010](aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)
+- [Kontrolka wykresu](aspnet-4-quick-hit-chart-control.md)
+- [Wprowadzenie do nowej kontrolki wykresu w programie Visual Studio 2010](aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010.md)

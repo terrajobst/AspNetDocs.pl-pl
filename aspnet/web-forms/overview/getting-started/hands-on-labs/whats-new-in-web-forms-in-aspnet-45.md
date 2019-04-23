@@ -12,7 +12,7 @@ ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401746"
 ---
 # <a name="whats-new-in-web-forms-in-aspnet-45"></a>Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5
@@ -396,7 +396,7 @@ Program ASP.NET 4.5 wprowadza weryfikacji adnotacji danych w formularzach sieci 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5 ma rozszerzyć istniejącą kolekcję adnotacji danych. Poniżej przedstawiono niektóre adnotacje danych, możesz użyć: [CreditCard], [Phone] [EmailAddress], [zakres], [porównać], [Url] [FileExtensions], [wymagane] [klucz], [wyrażenia regularnego].
+    > .NET framework 4.5 ma rozszerzyć istniejącą kolekcję adnotacji danych. Poniżej przedstawiono niektóre adnotacje danych, możesz użyć: [CreditCard], [Phone] [EmailAddress], [zakres], [porównać], [Url] [FileExtensions], [wymagane] [Key], [wyrażenia regularnego].
     > 
     > Niektóre przykłady użycia:
     > 

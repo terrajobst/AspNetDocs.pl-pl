@@ -12,7 +12,7 @@ ms.openlocfilehash: 863fe772a1d79201b83da8498bf7e981acf7fd0e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401078"
 ---
 # <a name="passing-data-to-view-master-pages-c"></a>Przekazywanie danych do stron wzorcowych widoku (C#)
@@ -33,7 +33,7 @@ Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontroler
 Wyobraź sobie, że tworzysz aplikacji bazy danych filmów i mają być wyświetlane na liście kategorii filmu na każdej stronie w aplikacji (patrz rysunek 1). Wyobraź sobie, co więcej, że na liście kategorii filmu są przechowywane w tabeli bazy danych. W takiej sytuacji sensowne będzie do pobrania kategorii z bazy danych i renderowania na liście kategorii filmu w obrębie strony wzorcowej widoku.
 
 
-[![Dkategorie filmu isplaying strony wzorcowej widoku](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
+[![Wyświetlanie kategorii filmu w widoku strony wzorcowej](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
 
 **Rysunek 01**: Wyświetlanie kategorii filmu w widoku strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-cs/_static/image3.png))
 
@@ -59,7 +59,7 @@ Należy zauważyć, że indeks() i akcje Details() dodać dwa elementy, aby wyś
 Akcja Details() również dodaje dwa klucze o nazwie kategorie i filmy. Klucz kategorie reprezentuje jeszcze raz na liście kategorii filmu wyświetlane przez strony wzorcowej widoku. Klucz filmy reprezentuje listę filmów w określonej kategorii wyświetlanych przez strony widoku szczegółów (patrz rysunek 2).
 
 
-[![TWidok szczegółów HE](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
+[![Widok szczegółów](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
 
 **Rysunek 02**: Widok szczegółów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-cs/_static/image6.png))
 

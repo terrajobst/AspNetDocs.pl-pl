@@ -12,7 +12,7 @@ ms.openlocfilehash: b1473a1ec4a565f6d40d77b51875caf723133de7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400636"
 ---
 # <a name="aspnet-4---getting-started-with-entity-framework-4-and-web-forms"></a>ASP.NET 4 — wprowadzenie do programu Entity Framework 4 i wzorca Web Forms

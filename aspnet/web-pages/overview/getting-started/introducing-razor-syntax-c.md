@@ -12,7 +12,7 @@ ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407357"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (C#)
@@ -342,7 +342,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
 
 :::row:::
     :::column:::
-    <strong>Metoda</strong>
+    <strong>— Metoda</strong>
     :::column-end:::
     :::column:::
     <strong>Opis</strong>
@@ -639,7 +639,7 @@ Oto przykład, aby lepiej zrozumieć różnice:
 | Pełny adres URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nazwa serwera | *mycompanyserver* |
-| Ścieżka wirtualna | */HumanResources/CompanyPolicy.htm* |
+| Ścieżka wirtualna | */humanresources/CompanyPolicy.htm* |
 | Ścieżka fizyczna | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Wirtualny katalog główny jest /, podobnie jak głównego C: dysku \. (Folder wirtualny ścieżki zawsze używać ukośników.) Ścieżka wirtualna folderu nie musi mieć taką samą nazwę jak folder fizycznych; może być aliasem. (Na serwerach produkcyjnych, ścieżka wirtualna rzadko odpowiada dokładnej ścieżki fizycznej.)
@@ -844,7 +844,7 @@ Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut 
 **Programowanie za pomocą języka Visual Basic**
 
 
-[Załącznik: Język Visual Basic i składnia](https://go.microsoft.com/fwlink/?LinkId=202908)
+[Dodatek: Język Visual Basic i składnia](https://go.microsoft.com/fwlink/?LinkId=202908)
 
 
 **Dokumentacja referencyjna**
@@ -852,4 +852,4 @@ Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut 
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[Język C#](https://msdn.microsoft.com/library/kx37x362.aspx)
+[W języku C#](https://msdn.microsoft.com/library/kx37x362.aspx)

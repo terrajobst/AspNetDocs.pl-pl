@@ -12,7 +12,7 @@ ms.openlocfilehash: f7731570a3c96f579c4717a0ab2b5e0d742457f7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403509"
 ---
 # <a name="deploying-a-database-vb"></a>Wdrażanie bazy danych (VB)
@@ -47,7 +47,7 @@ Zaktualizowano przeglądy książki sieci web używa aplikacji [programu SQL Ser
 Rysunek 1 zawiera diagram ER te cztery tabele.
 
 
-[![Tjest on s aplikacji sieci Web przeglądy książki bazy danych składa się z czterema tabelami](deploying-a-database-vb/_static/image2.jpg)](deploying-a-database-vb/_static/image1.jpg) 
+[![S aplikacji sieci Web przeglądy książki bazy danych jest składa się z czterech tabel](deploying-a-database-vb/_static/image2.jpg)](deploying-a-database-vb/_static/image1.jpg) 
 
 **Rysunek 1**: S aplikacji sieci Web przeglądy książki bazy danych jest składa się z czterech tabel ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image3.jpg))
 
@@ -57,12 +57,12 @@ Poprzedniej wersji witryny sieci Web, książki, przeglądy ma osobnej strony AS
 Dane 2 i 3 show `Genre.aspx` i `Review.aspx` stron w działaniu. Zanotuj adres URL na pasku adresu dla każdej strony. W elemencie rysunek 2 it s Genre.aspx? ID = c 85d164ba 1123 4 47-82a0-c8ec75de7e0e. Ponieważ 85d164ba-1123-4c47-82a0-c8ec75de7e0e `GenreId` wartość gatunku technologii i odczytuje nagłówek strony s "Technologii przeglądy" listy punktowanej wylicza przeglądy w witrynie, mieszczące się w ramach tego gatunku.
 
 
-[![Ton strony gatunku technologii](deploying-a-database-vb/_static/image5.jpg)](deploying-a-database-vb/_static/image4.jpg) 
+[![Na stronie gatunku technologii](deploying-a-database-vb/_static/image5.jpg)](deploying-a-database-vb/_static/image4.jpg) 
 
 **Rysunek 2**: Na stronie gatunku technologii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image6.jpg))
 
 
-[![TPrzejrzyj i uczyć się ASP.NET 3.5 w ciągu 24 godzin](deploying-a-database-vb/_static/image8.jpg)](deploying-a-database-vb/_static/image7.jpg) 
+[![Przegląd dla prowadzenia ASP.NET 3.5 w 24 godziny](deploying-a-database-vb/_static/image8.jpg)](deploying-a-database-vb/_static/image7.jpg) 
 
 **Rysunek 3**: Przegląd dla *uczyć się ASP.NET 3.5 w ciągu 24 godzin* ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image9.jpg))
 
@@ -96,7 +96,7 @@ Pozwól s przeprowadzenie wdrażania bazy danych przeglądy książki w środowi
 Otwórz program Visual Studio i przejdź do `Reviews.mdf` bazy danych. Jeśli używasz Visual Web Developer, przejdź do Eksploratora bazy danych; Jeśli używasz programu Visual Studio, skorzystaj z Eksploratora serwera. Rysunek 4 przedstawia `Reviews.mdf` bazy danych w Eksploratorze bazy danych w Visual Web Developer. Jak pokazano na rysunku 4, `Reviews.mdf` bazy danych składa się z czterech tabel, trzech procedur składowanych i funkcji zdefiniowanych przez użytkownika.
 
 
-[![Locate bazy danych w Eksploratorze bazy danych lub w Eksploratorze serwera](deploying-a-database-vb/_static/image11.jpg)](deploying-a-database-vb/_static/image10.jpg) 
+[![Zlokalizuj bazę danych w Eksploratorze bazy danych lub w Eksploratorze serwera](deploying-a-database-vb/_static/image11.jpg)](deploying-a-database-vb/_static/image10.jpg) 
 
 **Rysunek 4**: Zlokalizuj bazę danych w Eksploratorze bazy danych lub w Eksploratorze serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image12.jpg))
 
@@ -104,7 +104,7 @@ Otwórz program Visual Studio i przejdź do `Reviews.mdf` bazy danych. Jeśli u�
 Kliknij prawym przyciskiem myszy nazwę bazy danych, a następnie wybierz opcję "Publikuj do dostawcy" z menu kontekstowego. Spowoduje to uruchomienie Kreatora publikowania bazy danych (zobacz rysunek 5). Kliknij obok wcześniejszym ekran powitalny.
 
 
-[![TADAM ekran powitalny Kreatora publikowania bazy danych](deploying-a-database-vb/_static/image14.jpg)](deploying-a-database-vb/_static/image13.jpg) 
+[![Ekran powitalny Kreatora publikowania bazy danych](deploying-a-database-vb/_static/image14.jpg)](deploying-a-database-vb/_static/image13.jpg) 
 
 **Rysunek 5**: Ekran powitalny Kreatora publikowania bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image15.jpg))
 
@@ -115,7 +115,7 @@ Drugi ekran kreatora zawiera listę baz danych dostępne dla Kreatora publikowan
 > Jeśli zostanie wyświetlony błąd "nie ma żadnych obiektów w bazie danych *databaseName* typów za pomocą skryptów przez tego kreatora" po kliknięciu przycisku Dalej na ekranie pokazano na rysunku 6, upewnij się, że ścieżka do pliku bazy danych nie jest zbyt długa. Jak wspomniano w [ten element dyskusji](http://www.codeplex.com/sqlhost/Thread/View.aspx?ThreadId=11014) na stronie projektu Kreator publikowania bazy danych, ten błąd może wystąpić, jeśli ścieżka do pliku bazy danych jest za długa.
 
 
-[![TADAM ekran powitalny Kreatora publikowania bazy danych](deploying-a-database-vb/_static/image17.jpg)](deploying-a-database-vb/_static/image16.jpg) 
+[![Ekran powitalny Kreatora publikowania bazy danych](deploying-a-database-vb/_static/image17.jpg)](deploying-a-database-vb/_static/image16.jpg) 
 
 **Rysunek 6**: Ekran powitalny Kreatora publikowania bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image18.jpg))
 
@@ -123,7 +123,7 @@ Drugi ekran kreatora zawiera listę baz danych dostępne dla Kreatora publikowan
 Z następnego ekranu można wygenerować plik skryptu lub, jeśli hosta sieci web obsługuje, opublikować bazę danych bezpośrednio na serwerze sieci web hosta dostawcy s bazy danych. Jak pokazano na rysunku 7, mam skryptu zapisywane w pliku `C:\REVIEWS.MDF.sql`.
 
 
-[![Skryptu bazy danych do pliku lub opublikować ją bezpośrednio na Twój dostawca hosta sieci Web](deploying-a-database-vb/_static/image20.jpg)](deploying-a-database-vb/_static/image19.jpg) 
+[![Skrypt bazy danych do pliku lub opublikować ją bezpośrednio na Twój dostawca hosta sieci Web](deploying-a-database-vb/_static/image20.jpg)](deploying-a-database-vb/_static/image19.jpg) 
 
 **Rysunek 7**: Skrypt bazy danych do pliku lub opublikować ją bezpośrednio na Twój dostawca hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image21.jpg))
 
@@ -133,7 +133,7 @@ Kolejne ekran jest wyświetlany monit dla różnych opcji obsługi skryptów. Mo
 Tak jak pokazano w rysunek 8 I ve stało się Kreator skonfigurowany tak, aby porzucić istniejące obiekty bazy danych, można wygenerować skryptu dla bazy danych programu SQL Server 2008 i opublikować schematu i danych.
 
 
-[![SOkreśl opcje publikowania](deploying-a-database-vb/_static/image23.jpg)](deploying-a-database-vb/_static/image22.jpg) 
+[![Podczas publikowania Określ opcje](deploying-a-database-vb/_static/image23.jpg)](deploying-a-database-vb/_static/image22.jpg) 
 
 **Rysunek 8**: Określ opcje publikowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image24.jpg))
 
@@ -149,7 +149,7 @@ Lepszym rozwiązaniem jest aby bezpośrednio połączyć się z serwera bazy dan
 Uruchom program SSMS i nawiązać połączenie z serwerem bazy danych s hosta sieci web korzystając z informacji podanych przez dostawcę hosta sieci web.
 
 
-[![CNawiąż połączenie z usługi sieci Web hosta dostawcy s serwera bazy danych](deploying-a-database-vb/_static/image26.jpg)](deploying-a-database-vb/_static/image25.jpg) 
+[![Łączenie się z serwerem sieci Web hosta dostawcy s bazy danych](deploying-a-database-vb/_static/image26.jpg)](deploying-a-database-vb/_static/image25.jpg) 
 
 **Rysunek 9**: Połączyć się z usługi sieci Web hosta dostawcy s serwera bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image27.jpg))
 
@@ -157,7 +157,7 @@ Uruchom program SSMS i nawiązać połączenie z serwerem bazy danych s hosta si
 Rozwiń kartę baz danych i Znajdź bazy danych. Kliknij przycisk Nowe zapytanie w lewym górnym rogu paska narzędzi, Wklej poleceń SQL z pliku skryptu, tworzone przez Kreatora publikowania bazy danych i kliknij przycisk Execute, do uruchamiania tych poleceń na serwerze bazy danych w środowisku produkcyjnym. Jeśli plik skryptu jest szczególnie dużych go może potrwać kilka minut można wykonać polecenia.
 
 
-[![CNawiąż połączenie z usługi sieci Web hosta dostawcy s serwera bazy danych](deploying-a-database-vb/_static/image29.jpg)](deploying-a-database-vb/_static/image28.jpg) 
+[![Łączenie się z serwerem sieci Web hosta dostawcy s bazy danych](deploying-a-database-vb/_static/image29.jpg)](deploying-a-database-vb/_static/image28.jpg) 
 
 **Na rysunku nr 10**: Połączyć się z usługi sieci Web hosta dostawcy s serwera bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image30.jpg))
 
@@ -165,12 +165,12 @@ Rozwiń kartę baz danych i Znajdź bazy danych. Kliknij przycisk Nowe zapytanie
 Wszystkie dostępne tego s jest! W tym momencie rozwoju bazy danych został zduplikowany w środowisku produkcyjnym. Jeśli odświeżanie bazy danych w programie SSMS powinny pojawić się nowe obiekty bazy danych. Na ilustracji 11 pokazano tabel bazy danych s produkcyjnych, procedur składowanych i funkcji zdefiniowanych przez użytkownika, które takie same jak stosowane w bazie danych rozwoju. A ponieważ możemy nakazał Kreator publikowania bazy danych, aby opublikować dane, tabele s produkcyjne bazy danych ma te same dane jako tabele s rozwoju bazy danych w czasie, który został wykonany przez kreatora. Rysunek 12 pokazuje dane w `Books` tabeli w bazie danych produkcyjnych.
 
 
-[![TUżytkownik bazy danych obiektów został zduplikowany w produkcyjnej bazy danych](deploying-a-database-vb/_static/image32.jpg)](deploying-a-database-vb/_static/image31.jpg) 
+[![Obiekty bazy danych ma został zduplikowany w produkcyjnej bazy danych](deploying-a-database-vb/_static/image32.jpg)](deploying-a-database-vb/_static/image31.jpg) 
 
 **Rysunek 11**: Bazy danych obiekty mają został zduplikowany w produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image33.jpg))
 
 
-[![Ton produkcyjnej bazy danych zawiera te Same dane ponieważ w bazie danych rozwoju](deploying-a-database-vb/_static/image35.jpg)](deploying-a-database-vb/_static/image34.jpg) 
+[![Produkcyjnej bazy danych zawiera te Same dane co w rozwoju bazy danych](deploying-a-database-vb/_static/image35.jpg)](deploying-a-database-vb/_static/image34.jpg) 
 
 **Rysunek 12**: Produkcyjnej bazy danych zawiera te Same dane ponieważ w bazie danych rozwoju ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-vb/_static/image36.jpg))
 

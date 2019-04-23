@@ -12,7 +12,7 @@ ms.openlocfilehash: b2547e11225ba4d89b2907efa9f65646db2f0eb4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400753"
 ---
 # <a name="enhancing-the-gridview"></a>Udoskonalanie widoku GridView

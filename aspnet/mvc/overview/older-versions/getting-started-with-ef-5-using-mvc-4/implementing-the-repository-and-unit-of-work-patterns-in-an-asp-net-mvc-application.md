@@ -12,14 +12,14 @@ ms.openlocfilehash: 71ff3c269c5d1ed43a67d19442eda8e9d4728295
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405706"
 ---
 # <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Wdrażanie z repozytorium i jednostki pracy w aplikacji ASP.NET MVC (9, 10)
 
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Można uruchomić tej serii samouczka od początku lub [pobrać projekt startowy w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
 > 
@@ -123,7 +123,7 @@ W pierwotnej wersji kodu `students` jest `IQueryable` obiektu. Zapytanie nie jes
 
 > [!TIP]
 > 
-> **Element IQueryable programu vs. Interfejs IEnumerable**
+> **Element IQueryable programu vs. IEnumerable**
 > 
 > Po zaimplementowaniu repozytorium jak pokazano poniżej, nawet wtedy, gdy element wprowadź **wyszukiwania** okno zapytania wysyłane do programu SQL Server zwraca wszystkie wiersze dla uczniów, ponieważ nie zawiera kryteria wyszukiwania:
 > 

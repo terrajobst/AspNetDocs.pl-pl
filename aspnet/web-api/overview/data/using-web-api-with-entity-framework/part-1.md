@@ -12,13 +12,13 @@ ms.openlocfilehash: c681415920bb0bfb4bc1c012e42fb5a528db93ca
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406837"
 ---
 # <a name="using-web-api-2-with-entity-framework-6"></a>Używanie wzorca Web API 2 z programem Entity Framework 6
 
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 > W tym samouczku dowiesz się, że zaplecze podstawy tworzenia aplikacji sieci web za pomocą interfejsu API sieci Web platformy ASP.NET. W samouczku Entity Framework 6 dla warstwy danych i użyciem Knockout.js dla aplikacji JavaScript po stronie klienta. Samouczek przedstawia również sposób wdrażania aplikacji w usłudze Azure App Service Web Apps.
 >

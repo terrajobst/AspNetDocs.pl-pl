@@ -12,18 +12,18 @@ ms.openlocfilehash: 36bc314c6709c34863d86158419257be99f4084f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407110"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
 - [Omówienie](#overview)
 - [Uwagi dotyczące instalacji](#installation-notes)
-- [Wymagania programowe](#software-requirements)
+- [Wymagania dotyczące oprogramowania](#software-requirements)
 - [Dokumentacja](#documentation)
 - [Pomoc techniczna](#support)
 - [Uaktualnianie projektu ASP.NET MVC 2 do wzorca ASP.NET MVC 3 Tools Update](#upgrading)
-- [Program ASP.NET MVC 3 Tools Update (12 kwietnia 2011)](#tu-changes)
+- [ASP.NET MVC 3 Tools Update (April 12, 2011)](#tu-changes)
 
     - [Okno dialogowe "Dodaj kontroler" można teraz tworzenia szkieletu kontrolerów z kodem dostępu do widoków i danych](#tu-AddControllerDialog)
     - [Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" okno dialogowe](#tu-ImprovementsNewDialogBox)
@@ -32,7 +32,7 @@ ms.locfileid: "59407110"
     - [Szablony projektów obejmują teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet](#tu-EF)
     - [Szablony projektów zawierają biblioteki JavaScript jako wstępnie zainstalowanych pakietów NuGet](#tu-JavaScriptLibsNuget)
     - [Znane problemy](#tu-KI)
-- [Program ASP.NET MVC 3 RTM (13 stycznia 2011)](#MVC3RTM)
+- [ASP.NET MVC 3 RTM (January 13, 2011)](#MVC3RTM)
 
     - [Zmiana: Zaktualizowana wersja interfejs użytkownika jQuery w celu 1.8.7](#RTM-1)
     - [Zmiana: Zmieniono domyślny ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider](#RTM-2)
@@ -60,7 +60,7 @@ ms.locfileid: "59407110"
 - [ASP.NET MVC 3 Release Candidate (Nov 9, 2010)](#TOC_ASP_NET_3_RC)
 
     - [Nowe funkcje w wersji RC platformy ASP.NET MVC 3](#_Toc276711785)
-    - [Menedżer pakietów NuGet](#_Toc276711786)
+    - [NuGet Package Manager](#_Toc276711786)
     - [Ulepszone "Nowego projektu" okno dialogowe](#_Toc276711787)
     - [Bezsesyjne kontrolerów](#_Toc276711788)
     - [Nowe atrybuty weryfikacji](#_Toc276711789)

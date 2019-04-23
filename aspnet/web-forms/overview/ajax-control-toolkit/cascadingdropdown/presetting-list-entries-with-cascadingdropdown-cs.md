@@ -12,7 +12,7 @@ ms.openlocfilehash: 188f98d013707178e50858f8ea26d8cf2af06bea
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406018"
 ---
 # <a name="presetting-list-entries-with-cascadingdropdown-c"></a>Wstępne ustawianie pozycji listy przy użyciu kontrolki CascadingDropDown (C#)
@@ -53,7 +53,7 @@ Metoda zwraca tablicę typu kontrolki CascadingDropDown wartość. Konstruktor t
 Ładowanie strony w przeglądarce spowoduje wypełnienie listy rozwijanej przy użyciu trzech dostawców drugi są wstępnie wybrane.
 
 
-[![Twypełnione i automatycznie wstępnie wybrane listy HE](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)
+[![Lista jest wypełniana i wstępnie wybrane automatycznie](presetting-list-entries-with-cascadingdropdown-cs/_static/image2.png)](presetting-list-entries-with-cascadingdropdown-cs/_static/image1.png)
 
 Lista jest wypełniana i wstępnie wybrane automatycznie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](presetting-list-entries-with-cascadingdropdown-cs/_static/image3.png))
 

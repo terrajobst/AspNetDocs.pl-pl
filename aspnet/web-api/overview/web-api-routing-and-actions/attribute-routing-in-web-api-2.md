@@ -12,7 +12,7 @@ ms.openlocfilehash: 65e2268418501f89a77a0ba20f7960a618c2e9b7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405460"
 ---
 # <a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu we wzorcu ASP.NET Web API 2
@@ -50,7 +50,7 @@ Za pomocą atrybutu routingu jest prosta, aby zdefiniować trasę dla tego ident
 
 Poniżej przedstawiono niektóre wzorce, które atrybutu routingu powoduje, że łatwo.
 
-**Obsługa wersji interfejsu API**
+**Przechowywanie wersji interfejsu API**
 
 W tym przykładzie "/ api/v1/produktów" byłaby przekierowane do innego kontrolera niż "/ api/2/produktów".
 

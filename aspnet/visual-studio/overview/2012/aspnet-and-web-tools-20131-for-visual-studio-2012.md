@@ -12,7 +12,7 @@ ms.openlocfilehash: 17315dbbbdc08412e4e928256783c221a8a2cb20
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406811"
 ---
 # <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Informacje o wersji rozszerzenia ASP.NET and Web Tools 2013.1 dla programu Visual Studio 2012
@@ -25,7 +25,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 ## <a name="contents"></a>Spis treści
 
 - [Uwagi dotyczące instalacji](#install)
-- [Wymagania programowe](#requirements)
+- [Wymagania dotyczące oprogramowania](#requirements)
 - Nowe funkcje w ASP.NET and Web Tools 2013.1 dla programu Visual Studio 2012
 
     - [Bootstrap](#bootstrap)
@@ -35,12 +35,12 @@ przez [firmy Microsoft](https://github.com/microsoft)
         - [Szablon sieci Web API 2 platformy ASP.NET](#apitemplate)
         - [Szablony elementów](#itemtemplate)
     - [Entity Framework 6](#ef6)
-    - [Funkcja tworzenia szkieletu ASP.NET](#scaffold)
+    - [ASP.NET Scaffolding](#scaffold)
     - [Razor Editor](#razor)
     - [NuGet 2.7](#nuget)
 - Znane problemy i fundamentalne zmiany
 
-    - [Funkcja tworzenia szkieletu ASP.NET](#issuescaffolding)
+    - [ASP.NET Scaffolding](#issuescaffolding)
 
         - [MVC i Web interfejsu API tworzenia szkieletów - HTTP 404 Nie znaleziono błąd](#404issue)
         - [Visual Studio Express 2012 for Web przestaje działać po Dodawanie elementu szkieletu](#expressissue)

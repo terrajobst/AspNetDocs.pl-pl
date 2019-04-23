@@ -13,7 +13,7 @@ ms.openlocfilehash: bfb23aafb814010e8651965dad91ca20a37fd786
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404627"
 ---
 # <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hostowanie wzorca ASP.NET Web API 2 w roli procesu roboczego platformy Azure

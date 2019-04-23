@@ -12,7 +12,7 @@ ms.openlocfilehash: 86b90a21f59ee0ad52a3e6f7db19d4714282105c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401143"
 ---
 # <a name="videos"></a>Wideo
@@ -36,7 +36,7 @@ ms.locfileid: "59401143"
 - [Strony Razor programu ASP.NET](aspnet-razor-pages/index.md)
 
     - [Wprowadzenie do programu WebMatrix i wzorca ASP.NET Web Pages](aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
-    - [Wprowadzenie do składni Razor programowania dla Internetu na platformie ASP.NET](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+    - [Wprowadzenie do składni Razor programowania z użyciem wzorca ASP.NET Web Pages](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
     - [Tworzenie spójnego wyglądu (część 1)](aspnet-razor-pages/creating-a-consistent-look-part-1.md)
     - [Tworzenie spójnego wyglądu (część 2)](aspnet-razor-pages/creating-a-consistent-look-part-2.md)
     - [Praca z formularzami (część 1)](aspnet-razor-pages/working-with-forms-part-1.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 91c96cc413e63ad2fc160ffbb473c4f3e1ada3e4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401065"
 ---
 # <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Tworzenie aplikacji MVC 3 ze składnią Razor i dyskretnym kodem JavaScript
@@ -36,7 +36,7 @@ Można ściągnąć projekt ukończone VB i C# [tutaj](https://code.msdn.microso
 
 Aby uruchomić tego samouczka, Otwórz program Visual Studio 2010, a następnie utwórz nowy projekt za pomocą *aplikacji sieci Web programu ASP.NET MVC 3* szablonu. Nazwij aplikację &quot;Mvc3Razor&quot;.
 
-[![Nfolder projektu MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
+[![Nowy projekt MVC 3](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image3.png)](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image2.png)
 
 W **nowego projektu programu ASP.NET MVC 3** okno dialogowe, wybierz opcję **aplikacji internetowej**wybierz aparatu widoku Razor, a następnie kliknij przycisk **OK**.
 

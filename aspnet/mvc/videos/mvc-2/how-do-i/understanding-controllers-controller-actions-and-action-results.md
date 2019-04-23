@@ -12,7 +12,7 @@ ms.openlocfilehash: b638565cdaf4b16d5f7a4649b7b1cccd880200d1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407383"
 ---
 # <a name="understanding-controllers-controller-actions-and-action-results"></a>Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji

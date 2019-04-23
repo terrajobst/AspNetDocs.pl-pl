@@ -12,7 +12,7 @@ ms.openlocfilehash: d774a8e13e108d1be4c39e1e909d3d9683968a0d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404926"
 ---
 # <a name="understanding-the-project-file"></a>Objaśnienie pliku projektu

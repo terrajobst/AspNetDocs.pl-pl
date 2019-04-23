@@ -12,7 +12,7 @@ ms.openlocfilehash: 9d3016d98fa6c3a55359c6dab0737407b29925f1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403834"
 ---
 # <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>Włączanie żądań cross-origin w programie ASP.NET Web API 2
@@ -191,13 +191,13 @@ Aby włączyć mechanizm CORS dla jednej akcji, należy ustawić **[EnableCors]*
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample10.cs)]
 
-**Każdy kontroler**
+**Per Controller**
 
 Jeśli ustawisz **[EnableCors]** klasy kontrolera ma zastosowanie do wszystkich akcji w kontrolerze. Aby wyłączyć CORS dla akcji, należy dodać **[DisableCors]** atrybutu akcji. Poniższy przykład umożliwia CORS dla każdej metody, z wyjątkiem `PutItem`.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample11.cs)]
 
-**Globalnie**
+**Globally**
 
 Aby włączyć mechanizm CORS dla wszystkich kontrolerów składnika Web API w aplikacji, należy przekazać **EnableCorsAttribute** wystąpienia do **EnableCors** metody:
 

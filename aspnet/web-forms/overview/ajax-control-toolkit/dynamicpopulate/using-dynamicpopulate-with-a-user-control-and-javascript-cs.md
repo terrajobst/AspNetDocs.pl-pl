@@ -12,7 +12,7 @@ ms.openlocfilehash: 0462d8357d83115e751a818d3c9feb4b4274e212
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402547"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodem JavaScript (C#)
@@ -67,7 +67,7 @@ Na koniec Dodaj formant użytkownika do strony. Musisz ustawić jego `ID` atrybu
 I to wszystko! Strona zachowuje się zgodnie z oczekiwaniami: Użytkownik kliknie na jeden z przycisków radiowych, formant w zestawie narzędzi wywołuje usługę sieci web i wyświetla bieżącą datę w wybranym formacie.
 
 
-[![Tprzyciski radiowe HE znajdują się w kontrolce użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
+[![Przyciski radiowe znajdują się w kontrolce użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 
 Przyciski radiowe znajdują się w kontrolce użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 

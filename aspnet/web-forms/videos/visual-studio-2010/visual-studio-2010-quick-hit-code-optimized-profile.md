@@ -12,7 +12,7 @@ ms.openlocfilehash: fb468493127326947166d68eff6d3ee11e673e61
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404757"
 ---
 # <a name="visual-studio-2010-quick-hit---code-optimized-profile"></a>Profil zoptymalizowany pod kątem programu Visual Studio 2010 "Szybkie strzał" — Kod

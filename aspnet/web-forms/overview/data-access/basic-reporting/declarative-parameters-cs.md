@@ -12,7 +12,7 @@ ms.openlocfilehash: b3bdb44a0e3dc274c056bcadae3dcf90ab3c5507
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401442"
 ---
 # <a name="declarative-parameters-c"></a>Parametry deklaratywne (C#)
@@ -37,7 +37,7 @@ W tym samouczku Zacznijmy od pokazujący, jak użyć ustaloną wartość paramet
 Pierwszy przykład: Rozpocznij, dodając kontrolki widoku szczegółów do `DeclarativeParams.aspx` stronie `BasicReporting` folderu. W tagu inteligentnego DetailsView, wybierz &lt;nowe źródło danych&gt; z listy rozwijanej i wybierz polecenie dodać kontrolki ObjectDataSource.
 
 
-[![Add ObjectDataSource do strony](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
+[![Dodawanie kontrolki ObjectDataSource do strony](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
 
 **Rysunek 1**: Na stronie Dodaj kontrolki ObjectDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image3.png))
 
@@ -45,7 +45,7 @@ Pierwszy przykład: Rozpocznij, dodając kontrolki widoku szczegółów do `Decl
 Spowoduje to automatyczne uruchomienie kreatora wybierz źródło danych formantu ObjectDataSource. Wybierz `ProductsBLL` klasy na pierwszym ekranie kreatora.
 
 
-[![SWybiera klasę ProductsBLL](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
+[![Wybierz klasę ProductsBLL](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
 
 **Rysunek 2**: Wybierz `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image6.png))
 
@@ -53,7 +53,7 @@ Spowoduje to automatyczne uruchomienie kreatora wybierz źródło danych formant
 Ponieważ chcemy wyświetlić informacje dotyczące konkretnego produktu chcemy do użycia `GetProductByProductID(productID)` metody.
 
 
-[![Cbierz metodę GetProductByProductID(productID)](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
+[![Wybierz metodę GetProductByProductID(productID)](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
 
 **Rysunek 3**: Wybierz `GetProductByProductID(productID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image9.png))
 
@@ -61,7 +61,7 @@ Ponieważ chcemy wyświetlić informacje dotyczące konkretnego produktu chcemy 
 Ponieważ metoda, który Wybraliśmy zawiera parametr, istnieje jeden ekran więcej dla kreatora, w którym możemy się prośba o definiujące wartość ma być używany dla parametru. Na liście po lewej stronie pokazuje wszystkie parametry dla wybranej metody. Aby uzyskać `GetProductByProductID(productID)` jest tylko jedna `productID`. Po prawej stronie można określić wartość dla wybranego parametru. Listy rozwijanej źródła parametru wylicza różnych możliwych źródeł wartości parametru. Ponieważ chcemy określić ustaloną wartość 5 `productID` parametr, pozostaw źródło parametru None i wprowadź 5 w polu tekstowym DefaultValue.
 
 
-[![A Zakodowanych parametrów z 5 zostanie użyta wartość dla elementu productID parametr](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
+[![Hard-Coded parametru z 5 zostanie użyta wartość dla elementu productID parametru](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
 
 **Rysunek 4**: Hard-Coded parametru z 5 zostanie użyta wartość dla `productID` parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image12.png))
 
@@ -77,7 +77,7 @@ Po zakończeniu pracy kreatora skonfiguruj źródło danych zawiera formantu Obj
 Gdy użytkownik odwiedzi tę stronę, dane formantu sieci Web będzie wywoływać ObjectDataSource `Select` metody, która będzie wywoływać `ProductsBLL` klasy `GetProductByProductID(productID)` metody przy użyciu ustaloną wartość 5 `productID` parametr wejściowy. Metoda zwraca silnie typizowanego `ProductDataTable` obiekt, który zawiera pojedynczy wiersz z informacjami o Jacka Chef Gumbo mieszanego (produktu, zapewniając `ProductID` 5).
 
 
-[![IWyświetlane są informacje o wersji dotyczące programu Chef Jacka Gumbo mieszanego](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
+[![Wyświetlane są informacje o Chef Jacka Gumbo mieszanego](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
 
 **Rysunek 5**: Wyświetlane są informacje o Chef Jacka Gumbo mieszanego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image15.png))
 
@@ -87,7 +87,7 @@ Gdy użytkownik odwiedzi tę stronę, dane formantu sieci Web będzie wywoływa�
 Parametr ObjectDataSource, którego wartości można również ustawić na podstawie wartości kontrolki na stronie sieci Web. Na przykład Przyjrzyjmy się GridView, który zawiera listę wszystkich dostawców, które znajdują się w kraju, określone przez użytkownika. Aby osiągnąć ten start przez dodanie pola tekstowego do strony, do którego użytkownik może wprowadzić nazwę kraju. Ustaw ten formant TextBox `ID` właściwość `CountryName`. Również dodać kontrolkę przycisku w sieci Web.
 
 
-[![ADodaj pole tekstowe do strony zawierającej identyfikator CountryName](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
+[![Dodawanie pola tekstowego do strony zawierającej identyfikator CountryName](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
 
 **Rysunek 6**: Dodawanie pola tekstowego do strony zawierającej `ID` `CountryName` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image18.png))
 
@@ -95,7 +95,7 @@ Parametr ObjectDataSource, którego wartości można również ustawić na podst
 Następnie dodaj GridView do strony i za pomocą tagu inteligentnego, wybierz można dodać nowego elementu ObjectDataSource. Ponieważ chcemy wyświetlić wybierz informacje o dostawcy `SuppliersBLL` klasy z pierwszym ekranie kreatora. Na drugim ekranie Wybierz `GetSuppliersByCountry(country)` metody.
 
 
-[![Cbierz metodę GetSuppliersByCountry(country)](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
+[![Wybierz metodę GetSuppliersByCountry(country)](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
 
 **Rysunek 7**: Wybierz `GetSuppliersByCountry(country)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image21.png))
 
@@ -103,7 +103,7 @@ Następnie dodaj GridView do strony i za pomocą tagu inteligentnego, wybierz mo
 Ponieważ `GetSuppliersByCountry(country)` metoda ma parametr wejściowy, w kreatorze są dostępne ponownie ekran końcowy dotyczące wybierania wartości parametru. Tym razem Ustaw źródło parametru do formantu. Spowoduje to wypełnienie listy rozwijanej ControlID o nazwach formantów na stronie; Wybierz `CountryName` kontrolki z listy. Po pierwsze odwiedzenia strony `CountryName` pole tekstowe jest puste, dzięki czemu żadne wyniki nie są zwracane i będą wyświetlane żadne informacje. Jeśli chcesz wyświetlać pewnych wyników domyślnie, należy odpowiednio ustawić pole tekstowe DefaultValue.
 
 
-[![SWartość tego parametru wartość kontrolki CountryName et](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
+[![Ustaw wartość parametru wartości kontrolki CountryName](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
 
 **Rysunek 8**: Ustaw wartość parametru `CountryName` wartości formantu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image24.png))
 
@@ -117,7 +117,7 @@ Podczas wyświetlania strony po raz pierwszy `CountryName` pole tekstowe jest pu
 Po użytkownik przechodzi w kraju, jednak i klika przycisk Pokaż dostawców powoduje odświeżenie strony, kontrolki ObjectDataSource firmy `Select` ponowieniu metody, przekazując w formancie TextBox `Text` wartość jako `country` parametru.
 
 
-[![Twąż dostawców z Kanady są pokazywane](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
+[![Tych dostawców z Kanady są wyświetlane.](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
 
 **Rysunek 9**: Są wyświetlane w tych dostawców z Kanady ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image27.png))
 
@@ -139,7 +139,7 @@ Zmiana `GetSuppliersByCountry(country)` method in Class metoda `SuppliersBLL` kl
 Dzięki tej zmianie `DeclarativeParams.aspx` stronie znajdują się wszyscy dostawcy, po raz pierwszy odwiedzony (lub gdy `CountryName` pole tekstowe jest puste).
 
 
-[![ADostawców LL są teraz wyświetlane domyślnie](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
+[![Wszystkich dostawców są teraz wyświetlane domyślnie](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Wszystkich dostawców są teraz wyświetlane domyślnie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image30.png))
 

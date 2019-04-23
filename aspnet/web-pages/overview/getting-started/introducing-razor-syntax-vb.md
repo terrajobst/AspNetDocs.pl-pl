@@ -12,7 +12,7 @@ ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406772"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (Visual Basic)
@@ -544,7 +544,7 @@ Oto przykład, aby lepiej zrozumieć różnice:
 | Pełny adres URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nazwa serwera | *mycompanyserver* |
-| Ścieżka wirtualna | */HumanResources/CompanyPolicy.htm* |
+| Ścieżka wirtualna | */humanresources/CompanyPolicy.htm* |
 | Ścieżka fizyczna | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Wirtualny katalog główny jest /, podobnie jak głównego C: dysku \. (Folder wirtualny ścieżki zawsze używać ukośników.) Ścieżka wirtualna folderu nie musi mieć taką samą nazwę jak folder fizycznych; może być aliasem. (Na serwerach produkcyjnych, ścieżka wirtualna rzadko odpowiada dokładnej ścieżki fizycznej.)

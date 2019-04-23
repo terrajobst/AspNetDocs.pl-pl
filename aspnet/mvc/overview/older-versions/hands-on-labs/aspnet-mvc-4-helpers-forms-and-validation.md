@@ -12,7 +12,7 @@ ms.openlocfilehash: 639a8e0e5fd9557221c95aee1bef0294df047ae8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406317"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 — pomocnicy, formularze i walidacja
@@ -84,7 +84,7 @@ Następujące ćwiczeń składają się tym warsztatów:
 3. [Tworzenie widoku edycji](#Exercise3)
 4. [Dodawanie widoku Create](#Exercise4)
 5. [Usuwanie obsługi](#Exercise5)
-6. [Dodawanie walidacji](#Exercise6)
+6. [Dodawanie weryfikacji](#Exercise6)
 7. [Przy użyciu jQuery dyskretny kod po stronie klienta](#Exercise7)
 
 > [!NOTE]

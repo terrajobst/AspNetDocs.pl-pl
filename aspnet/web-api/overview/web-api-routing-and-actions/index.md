@@ -12,7 +12,7 @@ ms.openlocfilehash: 41ee7a14c26c10fb693eb3b5bf590f92a4caf3a3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405966"
 ---
 # <a name="web-api-routing"></a>Internetowy interfejs API routingu
@@ -20,7 +20,7 @@ ms.locfileid: "59405966"
 > ASP.NET Web API kierowanie żądań HTTP do kontrolerów i akcji.
 
 
-- [Routing we wzorcu Web API 2](routing-in-aspnet-web-api.md)
-- [Routing i wybieranie akcji we wzorcu Web API](routing-and-action-selection.md)
-- [Routing atrybutów we wzorcu Web API 2](attribute-routing-in-web-api-2.md)
-- [Tworzenie interfejsu API REST z routingiem atrybutów we wzorcu Web API 2](create-a-rest-api-with-attribute-routing.md)
+- [Routing w interfejsie Web API 2](routing-in-aspnet-web-api.md)
+- [Routing i wybieranie akcji w interfejsie Web API](routing-and-action-selection.md)
+- [Routing atrybutów w interfejsie Web API 2](attribute-routing-in-web-api-2.md)
+- [Tworzenie interfejsu API REST z routingiem atrybutów w interfejsie Web API 2](create-a-rest-api-with-attribute-routing.md)

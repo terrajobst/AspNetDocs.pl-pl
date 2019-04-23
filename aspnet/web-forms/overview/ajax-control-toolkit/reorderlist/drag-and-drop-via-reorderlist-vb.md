@@ -12,7 +12,7 @@ ms.openlocfilehash: 1b955c43a0fc95bda87843fc4a5c9e56aef3dfc6
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401000"
 ---
 # <a name="drag-and-drop-via-reorderlist-vb"></a>Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (VB)
@@ -44,7 +44,7 @@ W tej bazie danych, Utwórz nową tabelę o nazwie `AJAX` następujące cztery k
 - `position` (int, NULL)
 
 
-[![TUkład HE tabeli AJAX](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
+[![Układ tabeli AJAX](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
 
 Układ tabeli AJAX ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](drag-and-drop-via-reorderlist-vb/_static/image3.png))
 
@@ -52,7 +52,7 @@ Układ tabeli AJAX ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](drag-a
 Następnie wypełnij tabelę przy użyciu kilku wartości. Należy pamiętać, że `position` kolumna zawiera kolejność sortowania elementów.
 
 
-[![THE początkowe dane w tabeli AJAX](drag-and-drop-via-reorderlist-vb/_static/image5.png)](drag-and-drop-via-reorderlist-vb/_static/image4.png)
+[![Początkowe dane w tabeli AJAX](drag-and-drop-via-reorderlist-vb/_static/image5.png)](drag-and-drop-via-reorderlist-vb/_static/image4.png)
 
 Początkowe dane w tabeli AJAX ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](drag-and-drop-via-reorderlist-vb/_static/image6.png))
 
@@ -83,7 +83,7 @@ Na koniec `ScriptManager` kontroli inicjuje ASP.NET AJAX dla strony:
 Uruchomić ten przykład w przeglądarce i nieco zmienić kolejność elementów listy. Następnie ponownie załaduj stronę i/lub przyjrzenie się firmie bazy danych. Zmieniony pozycji została zachowana, a także są odzwierciedlane według wartości w `position` kolumny w bazie danych, które wszystko to bez żadnego kodu tylko za pomocą znaczników.
 
 
-[![Ton dane zmian w bazie danych zgodnie z nowego elementu listy.](drag-and-drop-via-reorderlist-vb/_static/image8.png)](drag-and-drop-via-reorderlist-vb/_static/image7.png)
+[![Dane w kolejności nowy element listy zmian w bazie danych](drag-and-drop-via-reorderlist-vb/_static/image8.png)](drag-and-drop-via-reorderlist-vb/_static/image7.png)
 
 Dane w zmian w bazie danych zgodnie z listą nowych elementów zamówienia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](drag-and-drop-via-reorderlist-vb/_static/image9.png))
 

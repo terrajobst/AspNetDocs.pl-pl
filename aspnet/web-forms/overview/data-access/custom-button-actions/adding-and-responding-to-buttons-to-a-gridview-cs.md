@@ -12,7 +12,7 @@ ms.openlocfilehash: a8cc1d98c0574145b0b74b64d53772bd50517067
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59404198"
 ---
 # <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Dodawanie przycisków i reagowanie na nie w kontrolce GridView (C#)
@@ -31,7 +31,7 @@ Chociaż wiele scenariuszy raportowania obejmują dostęp tylko do odczytu do da
 Ponadto można edytować i usuwać przycisków kontrolki GridView, DetailsView i FormView kontrolki mogą również obejmować przycisków, LinkButtons lub ImageButtons, po kliknięciu wykonania niestandardowej logiki biznesowej po stronie serwera. W tym samouczku omówimy sposób dodawania niestandardowych przycisków do szablonu i pola formantu GridView lub DetailsView. W szczególności utworzymy interfejs, który ma FormView, która pozwala użytkownikowi na stronie za pośrednictwem dostawców. Dla danego dostawcy FormView wyświetli informacje o dostawcy wraz z formantu sieci Web przycisk, który, po kliknięciu spowoduje oznaczenie wszystkich ich skojarzone produkty jak wycofana. Ponadto GridView zawiera listę tych produktów, dostarczone przez wybranego dostawcę, przy czym każdy wiersz zawierający zwiększyć ceny i rabatów cena przyciski, kliknięciu zwiększyć lub zmniejszyć produktu `UnitPrice` przy 10% (patrz rysunek 1).
 
 
-[![BINN FormView i GridView zawiera przyciski, wykonywać akcje niestandardowe](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image2.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image1.png)
+[![FormView i GridView zawiera przyciski umożliwiające wykonywanie akcji niestandardowych](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image2.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image1.png)
 
 **Rysunek 1**: FormView i GridView zawiera przyciski, wykonywać akcje niestandardowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image3.png))
 
@@ -52,7 +52,7 @@ Zanim przyjrzymy się jak dodać niestandardowe przyciski, najpierw poświęćmy
 Podobnie jak w przypadku innych folderów `Default.aspx` w `CustomButtons` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań do widoku projektu.
 
 
-[![ADodaj formant użytkownika SectionLevelTutorialListing.ascx Default.aspx](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image6.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image5.png)
+[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image6.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image5.png)
 
 **Rysunek 3**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image7.png))
 
@@ -76,7 +76,7 @@ Zacznijmy od tego samouczka, dodając FormView, zawierającego dostawców. Tak j
 Zacznij od otwarcia `CustomButtons.aspx` stronie `CustomButtons` folderu. Na stronie Dodaj kontrolce FormView, przeciągając go z przybornika do projektanta i ustaw jego `ID` właściwość `Suppliers`. Z FormView tagu inteligentnego, wybrać opcję utworzenia nowego elementu ObjectDataSource, o nazwie `SuppliersDataSource`.
 
 
-[![CTwórz nowe SuppliersDataSource o nazwie elementu ObjectDataSource](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image9.png)
+[![Tworzenie nowego elementu ObjectDataSource, o nazwie SuppliersDataSource](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image9.png)
 
 **Rysunek 5**: Utwórz nowy o nazwie elementu ObjectDataSource `SuppliersDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image11.png))
 
@@ -84,7 +84,7 @@ Zacznij od otwarcia `CustomButtons.aspx` stronie `CustomButtons` folderu. Na str
 Konfigurowanie tej nowej kontrolki ObjectDataSource w taki sposób, że wysyła zapytanie z `SuppliersBLL` klasy `GetSuppliers()` — metoda (patrz rysunek 6). Ponieważ ta FormView nie zapewnia interfejs do aktualizacji dostawcy informacje, wybierz opcję (Brak) z listy rozwijanej na karcie aktualizacji.
 
 
-[![Configuruj źródła danych, aby użyć klasy SuppliersBLL s GetSuppliers() metoda](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image13.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image12.png)
+[![Konfigurowanie źródła danych, aby użyć klasy SuppliersBLL s GetSuppliers() — metoda](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image13.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image12.png)
 
 **Rysunek 6**: Konfigurowanie źródła danych, aby użyć `SuppliersBLL` klasy `GetSuppliers()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image14.png))
 
@@ -96,7 +96,7 @@ Po skonfigurowaniu kontrolki ObjectDataSource, program Visual Studio wygeneruje 
 Rysunek nr 7 przedstawia stronę CustomButtons.aspx podczas wyświetlania za pośrednictwem przeglądarki.
 
 
-[![TZawiera on FormView NazwaFirmy i pola Telefon z aktualnie wybrany dostawca](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image16.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image15.png)
+[![FormView wyświetla pola CompanyName i telefonu z aktualnie wybranego dostawcy](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image16.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image15.png)
 
 **Rysunek 7**: Wyświetla FormView `CompanyName` i `Phone` pola z aktualnie wybrany dostawca ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image17.png))
 
@@ -106,7 +106,7 @@ Rysunek nr 7 przedstawia stronę CustomButtons.aspx podczas wyświetlania za po�
 Zanim przycisk przerwanie wszystkich produktów możemy dodać do szablonu FormView, najpierw Dodajmy GridView poniżej FormView, który zawiera listę produktów, dostarczone przez wybranego dostawcę. Aby to osiągnąć, dodać GridView do strony, ustaw jego `ID` właściwości `SuppliersProducts`, i dodać nowe kontrolki ObjectDataSource, o nazwie `SuppliersProductsDataSource`.
 
 
-[![CTwórz nowe SuppliersProductsDataSource o nazwie elementu ObjectDataSource](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image19.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image18.png)
+[![Tworzenie nowego elementu ObjectDataSource, o nazwie SuppliersProductsDataSource](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image19.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image18.png)
 
 **Rysunek 8**: Utwórz nowy o nazwie elementu ObjectDataSource `SuppliersProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image20.png))
 
@@ -114,7 +114,7 @@ Zanim przycisk przerwanie wszystkich produktów możemy dodać do szablonu FormV
 Konfigurowanie tej kontrolki ObjectDataSource, aby użyć klasy ProductsBLL `GetProductsBySupplierID(supplierID)` — metoda (patrz rysunek 9). Podczas tego widoku GridView będzie zezwalał dla cena produktu do skorygowania, nie będzie korzystać z wbudowanych, edytowanie lub usuwanie funkcji z kontrolki GridView. Firma Microsoft w związku z tym, ustaw listy rozwijanej (Brak), dla kontrolki ObjectDataSource użytkownika UPDATE, INSERT i usuwanie kart.
 
 
-[![Configuruj źródła danych, aby użyć klasy ProductsBLL s GetProductsBySupplierID(supplierID) metoda](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image21.png)
+[![Konfigurowanie źródła danych, aby użyć klasy ProductsBLL s GetProductsBySupplierID(supplierID) — metoda](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image22.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image21.png)
 
 **Rysunek 9**: Konfigurowanie źródła danych, aby użyć `ProductsBLL` klasy `GetProductsBySupplierID(supplierID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image23.png))
 
@@ -122,7 +122,7 @@ Konfigurowanie tej kontrolki ObjectDataSource, aby użyć klasy ProductsBLL `Get
 Ponieważ `GetProductsBySupplierID(supplierID)` metoda akceptuje parametr wejściowy, monituje Kreator ObjectDataSource nam źródła wartości tego parametru. Aby przekazać `SupplierID` z FormView wartości, zmień wartość na liście rozwijanej źródła parametru do kontroli i listy rozwijanej ControlID do `Suppliers` (identyfikator FormView utworzony w kroku 2).
 
 
-[![Indicate, który IDDostawcy parametr powinien pochodzić z kontrolą FormView dostawcy](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image24.png)
+[![Wskazuje, że IDDostawcy parametr, powinien pochodzić z kontrolą FormView dostawcy](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Wskazują, że *`supplierID`* parametr powinien pochodzić z `Suppliers` kontrolki widoku FormView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
 
@@ -134,7 +134,7 @@ Po zakończeniu pracy Kreatora ObjectDataSource widoku GridView będzie zawiera�
 Na tym etapie Nasz samouczek dotyczący wyświetla raport wzorzec/szczegół, umożliwiając użytkownikowi wybrać dostawcę z FormView u góry i Wyświetl produkty dostarczonych przez tego dostawcę przy użyciu GridView u dołu. Na ilustracji 11 pokazano zrzut ekranu strony podczas wybierania dostawcy handlowców Tokio z FormView.
 
 
-[![Ton wybrany dostawca s, które produkty są wyświetlane w widoku GridView](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image28.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image27.png)
+[![Produkty s wybrany dostawca są wyświetlane w widoku GridView](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image28.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image27.png)
 
 **Rysunek 11**: Dostawca wybrane produkty są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image29.png))
 
@@ -146,7 +146,7 @@ Zanim firma Microsoft może dodać przycisk do FormView, po kliknięciu zaprzest
 Jak wykonaliśmy w naszych poprzednich samouczkach użyjemy podejście od dołu do góry, począwszy od tworzenia metody DAL, a następnie metoda LOGIKI i na koniec wdrażanie funkcji na stronie ASP.NET. Otwórz `Northwind.xsd` wpisana zestawu danych w `App_Code/DAL` folderze i Dodaj nową metodę `ProductsTableAdapter` (kliknij prawym przyciskiem myszy `ProductsTableAdapter` i wybierz polecenie Dodaj zapytanie). Ten sposób pojawi się Kreator konfiguracji zapytania TableAdapter, który przedstawia nam historię proces dodawania nowej metody. Rozpocznij, wskazując, że metoda nasze warstwy DAL będzie używać instrukcji SQL zapytań ad-hoc.
 
 
-[![CTwórz przy użyciu metody DAL instrukcji SQL zapytań Ad-Hoc](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image31.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image30.png)
+[![Utwórz metodę DAL przy użyciu instrukcji SQL zapytań Ad-Hoc](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image31.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image30.png)
 
 **Rysunek 12**: Tworzenie przy użyciu metody DAL instrukcji SQL zapytań Ad-Hoc ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image32.png))
 
@@ -154,7 +154,7 @@ Jak wykonaliśmy w naszych poprzednich samouczkach użyjemy podejście od dołu 
 Następnie kreator wyświetli nam tego rodzaju zapytanie w celu utworzenia. Ponieważ `DiscontinueAllProductsForSupplier(supplierID)` metody będą musieli zaktualizować `Products` tabeli bazy danych, ustawienie `Discontinued` pola na wartość 1 dla wszystkich produktów, dostarczone przez określony *`supplierID`*, należy utworzyć kwerendę, która aktualizuje dane.
 
 
-[![CWybierz typ zapytania aktualizacji](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image33.png)
+[![Wybierz typ zapytania aktualizacji](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image33.png)
 
 **Rysunek 13**: Wybierz typ zapytania aktualizacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image35.png))
 
@@ -166,7 +166,7 @@ Na następnym ekranie kreatora zapewnia istniejącej TableAdapter `UPDATE` instr
 Po wprowadzeniu tego zapytania i kliknięciu przycisku Dalej, ostatnim ekranie Kreator poprosi o podanie Użyj nazwy nowej metody `DiscontinueAllProductsForSupplier`. Ukończ pracę kreatora, klikając przycisk Zakończ. Po powrocie do Projektanta obiektów DataSet powinna zostać wyświetlona nowa metoda w `ProductsTableAdapter` o nazwie `DiscontinueAllProductsForSupplier(@SupplierID)`.
 
 
-[![NNazwa nowego DiscontinueAllProductsForSupplier metoda DAL](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image37.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image36.png)
+[![Nazwa nowego DiscontinueAllProductsForSupplier DAL — metoda](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image37.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image36.png)
 
 **Rysunek 14**: Nadaj nazwę nowej metody DAL `DiscontinueAllProductsForSupplier` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image38.png))
 
@@ -186,7 +186,7 @@ Ta metoda po prostu wywołuje w dół do `DiscontinueAllProductsForSupplier(supp
 Za pomocą `DiscontinueAllProductsForSupplier(supplierID)` metody LOGIKI i warstwy DAL pełną, ostatnim krokiem dodawania możliwość przerwanie wszystkich produktów dla wybranego dostawcy jest dodać kontrolkę przycisku w sieci Web do FormView `ItemTemplate`. Dodajmy przycisku poniżej numer telefonu dostawcy tekstem przycisku przerwanie wszystkich produktów i `ID` wartość właściwości `DiscontinueAllProductsForSupplier`. Można dodać tej kontrolki przycisku w sieci Web za pomocą projektanta, klikając link Edytuj szablony w tagu inteligentnego FormView (zobacz rysunek 15), lub bezpośrednio za pomocą składni deklaratywnej.
 
 
-[![Add a przerwanie wszystkich produktów w sieci Web formant przycisku s FormView właściwości ItemTemplate](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image40.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image39.png)
+[![Dodaj przerwanie wszystkich kontrolki sieci Web do właściwości ItemTemplate s FormView produktów przycisku](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image40.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image39.png)
 
 **Rysunek 15**: Dodaj przerwanie wszystkich produktów w sieci Web kontrolkę przycisku do FormView `ItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image41.png))
 
@@ -222,7 +222,7 @@ Po kliknięciu przycisku OK w oknie dialogowym po stronie klienta Potwierdź prz
 Wyłączenie stan widoku GridView widoku GridView jest on odbitych źródłowy magazyn danych na każdy odświeżenie strony i w związku z tym zostanie natychmiast zaktualizowany, aby odzwierciedlić, że te dwa produkty są już obsługiwany (zobacz rysunek 17). Jeśli jednak nie wyłączono stan widoku w widoku GridView, należy ręcznie ponownie powiązać dane do widoku GridView po wprowadzeniu tej zmiany. W tym celu po prostu wywołania GridView `DataBind()` metoda natychmiast po wywołaniu `DiscontinueAllProductsForSupplier(supplierID)` metody.
 
 
-[![Aa tekstem przycisku przerwanie wszystkich produktów, produkty dostawcy s są aktualizowane w związku z tym](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image46.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image45.png)
+[![Po kliknięciu przycisku przerwanie wszystkich produktów produkty dostawcy s są odpowiednio aktualizowane](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image46.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image45.png)
 
 **Rysunek 17**: Po kliknięciu przycisku przerwanie wszystkich produktów produkty dostawcy są aktualizowane w związku z tym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image47.png))
 
@@ -276,12 +276,12 @@ Jako za pomocą przycisku przerwanie wszystkich produktów, wyłączenie stan wi
 Rysunek 20 wyświetla stronę, podczas wyświetlania produktów, dostarczone przez Homestead Kelly babcia. Rysunek 21 przedstawiono wyniki po cenie 10% kliknięto przycisk dwa razy dla firmy babcia Boysenberry rozwijania i przycisku % cenę -10 raz dla Northwoods Cranberry sos.
 
 
-[![THE cena obejmuje GridView 10% i Cena -10% przyciski](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image51.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image50.png)
+[![Kontrolki GridView zawiera cenę 10% i Cena -10% przycisków](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image51.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image50.png)
 
 **Rysunek 20**: Cena obejmuje GridView 10% i Cena -10% przycisków ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image52.png))
 
 
-[![TADAM ceny w pierwszy i trzeci produktu zostały zaktualizowane przy użyciu Cena 10% i Cena -10% przyciski](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image54.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image53.png)
+[![Ceny dla produktu pierwszy i trzeci zostały zaktualizowane przy użyciu Cena 10% i Cena -10% przycisków](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image54.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image53.png)
 
 **Rysunek 21**: Ceny w pierwszy i trzeci produktu zostały zaktualizowane przy użyciu Cena 10% i Cena -10% przycisków ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image55.png))
 

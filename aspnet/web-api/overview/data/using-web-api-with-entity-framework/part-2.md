@@ -12,14 +12,14 @@ ms.openlocfilehash: 57dacda421968f341284d89c9a3ad80040c16e25
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405082"
 ---
 # <a name="add-models-and-controllers"></a>Dodawanie modeli i kontrolerów
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 W tej sekcji dodasz klasy modeli, które definiują jednostek bazy danych. Następnie dodasz kontrolerów internetowych interfejsów API, które wykonują operacje CRUD na tych jednostkach.
 

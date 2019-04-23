@@ -12,7 +12,7 @@ ms.openlocfilehash: 9e6b0b3b86839efa393659531d8b74770226f383
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401468"
 ---
 # <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Objaśnienie i obsługa zdarzeń okresu istnienia połączenia w usłudze SignalR
@@ -254,7 +254,7 @@ SignalR w wersji 2 nie ma wbudowanego serwera interfejsu API dla rozłączanie k
 
 SignalR 2.1 dodaje przeciążenia do serwera `OnDisconnect` zdarzenie wskazujące, jeśli klient celowo odłączony, a nie z przekroczeniem limitu czasu. `StopCalled` Parametr ma wartość true, jeśli klient jawnie zamknął połączenie. W języku JavaScript, jeśli błąd serwera prowadzone klienta, aby odłączyć, informacje o błędzie zostanie przekazany do klienta jako `$.connection.hub.lastError`.
 
-**C#Kod serwera: `stopCalled` parametru**
+**Kod serwera w języku C#: `stopCalled` parametru**
 
 [!code-csharp[Main](handling-connection-lifetime-events/samples/sample7.cs?highlight=1,3)]
 

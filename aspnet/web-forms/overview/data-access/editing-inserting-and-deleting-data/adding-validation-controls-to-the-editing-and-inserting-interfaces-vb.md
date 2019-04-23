@@ -12,7 +12,7 @@ ms.openlocfilehash: c5dd64cd3b60f7c231be8ce1c464af1582f23f5d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402709"
 ---
 # <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Dodawanie kontrolek walidacji do interfejsów edycji i wstawiania (VB)
@@ -39,7 +39,7 @@ W tym samouczku zobaczymy, jak łatwo jest dodawanie kontrolek weryfikacji do Te
 W [badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) samouczka utworzona strona, która wymienione nazwy i ceny produktów w edycji kontrolki GridView. Ponadto strona ujęte DetailsView którego `DefaultMode` właściwość `Insert`, a tym samym zawsze renderowanie w trybie wstawiania. Z tym DetailsView użytkownik może wprowadź nazwę i cena dla nowych produktów, kliknij przycisk Wstaw i jest dodawane do systemu (patrz rysunek 1).
 
 
-[![TADAM poprzedniego przykładu umożliwia użytkownikom dodawanie nowych produktów i edytować istniejące](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image1.png)
+[![Poprzedni przykład umożliwia użytkownikom dodawanie nowych produktów i edytować istniejące zadania](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image2.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image1.png)
 
 **Rysunek 1**: Poprzedniego przykładu umożliwia użytkownikom dodawanie nowych produktów i edytować istniejące ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image3.png))
 
@@ -57,7 +57,7 @@ Zanim można przyjrzymy się rozszerzając poprzedniego przykładu, aby uwzględ
 3. Kopiuj tekst w obrębie `<asp:Content>` i `</asp:Content>` tagi (linie 3 – 44), jak pokazano na rysunku 2.
 
 
-[![CKopiuj tekst w &lt;asp: Content&gt; kontroli](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image5.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image4.png)
+[![Kopiuj tekst w &lt;asp: Content&gt; kontroli](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image5.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image4.png)
 
 **Rysunek 2**: Kopiuj tekst w `<asp:Content>` kontroli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image6.png))
 
@@ -75,7 +75,7 @@ Po przeniesieniu za pośrednictwem treści i kodu z `DataModificationEvents.aspx
 Aby dodać kontrolek weryfikacji do interfejsów edycji i wstawianie, BoundFields używany przez formanty DetailsView i GridView muszą zostać przekonwertowane do kontrolek TemplateField. Aby to osiągnąć, kliknij linki Edytuj kolumny i Edytuj pola w kontrolkami GridView i DetailsView tagów inteligentnych, odpowiednio. Istnieje, zaznacz wszystkie BoundFields, a następnie kliknij link "Konwertuj to pole na TemplateField".
 
 
-[![CKonwertuj każdego DetailsView i GridView BoundFields do kontrolek TemplateField](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image7.png)
+[![Konwertowanie każdego BoundFields DetailsView i GridView kontrolek TemplateField](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image8.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image7.png)
 
 **Rysunek 3**: Konwertuj każdego DetailsView i GridView BoundFields do kontrolek TemplateField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image9.png))
 
@@ -117,7 +117,7 @@ W naszym samouczku musimy użyć RequiredFieldValidator w DetailsView i GridView
 Zacznijmy od Dodawanie kontrolek weryfikacji niezbędne, aby `EditItemTemplate` s w kontrolek TemplateField w kontrolce GridView. Aby to zrobić, kliknij link Edytuj szablony z GridView tagu inteligentnego, aby wyświetlić interfejs edytowania szablonu. W tym miejscu można wybrać szablon, który do edycji z listy rozwijanej. Ponieważ chcemy rozszerzyć interfejs edytowania, musimy dodać kontrolek weryfikacji do `ProductName` i `UnitPrice`firmy `EditItemTemplate` s.
 
 
-[![We należy rozszerzyć właściwościami ProductName i EditItemTemplates firmy UnitPrice](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image11.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image10.png)
+[![Należy rozszerzyć właściwościami ProductName i EditItemTemplates UnitPrice firmy](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image11.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image10.png)
 
 **Rysunek 4**: Musimy Rozszerz `ProductName` i `UnitPrice`firmy `EditItemTemplate` s ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image12.png))
 
@@ -125,7 +125,7 @@ Zacznijmy od Dodawanie kontrolek weryfikacji niezbędne, aby `EditItemTemplate` 
 W `ProductName` `EditItemTemplate`, Dodaj RequiredFieldValidator, przeciągając go z przybornika do interfejsu edycji szablonu, umieszczając za pole tekstowe.
 
 
-[![Add RequiredFieldValidator do ProductName EditItemTemplate](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image14.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image13.png)
+[![Dodaj RequiredFieldValidator do ProductName EditItemTemplate](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image14.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image13.png)
 
 **Rysunek 5**: Dodaj RequiredFieldValidator do `ProductName` `EditItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image15.png))
 
@@ -133,7 +133,7 @@ W `ProductName` `EditItemTemplate`, Dodaj RequiredFieldValidator, przeciągając
 Wszystkie formanty sprawdzania poprawności działa, sprawdzając poprawność danych wejściowych z jednego formantu sieci Web platformy ASP.NET. W związku z tym, należy wskazać, że RequiredFieldValidator właśnie dodaliśmy, należy przeprowadzić walidacji względem pola tekstowego w `EditItemTemplate`; jest to realizowane przez ustawienie formant sprawdzania poprawności [Właściwość ControlToValidate elementu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) do `ID` właściwej kontroli sieci Web. Pole tekstowe ma obecnie zamiast nieopisane `ID` z `TextBox1`, ale możemy zmienić ją na coś bardziej odpowiedniego. Kliknij w polu tekstowym w szablonie, a następnie w oknie Właściwości zmień `ID` z `TextBox1` do `EditProductName`.
 
 
-[![CZmień pole tekstowe identyfikator EditProductName](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
+[![Zmiana Identyfikatora pole tekstowe do EditProductName](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
 
 **Rysunek 6**: Zmień pole tekstowe `ID` do `EditProductName` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image18.png))
 
@@ -143,7 +143,7 @@ Następnym etapem jest skonfigurowanie RequiredFieldValidator `ControlToValidate
 Po ustawieniu tych trzech właściwości RequiredFieldValidator, ekran powinien wyglądać podobnie jak rysunek 7.
 
 
-[![Ste właściwości tekstu, komunikat o błędzie i elementu ControlToValidate RequiredFieldValidator](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image19.png)
+[![Ustawianie właściwości tekstu, komunikat o błędzie i ControlToValidate elementu RequiredFieldValidator](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image20.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image19.png)
 
 **Rysunek 7**: Ustaw RequiredFieldValidator `ControlToValidate`, `ErrorMessage`, i `Text` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image21.png))
 
@@ -162,7 +162,7 @@ Po wprowadzeniu tych zmian, otwórz stronę w przeglądarce. Jeśli użytkownik 
 > Pamiętaj, że w *wydarzeń związanych z Wstawianie, aktualizowanie i usuwanie* samouczku ustawimy elementu BoundField `DataFormatString` właściwość `{0:c}` Aby sformatować je jako walutę. Ponadto możemy ustawić `ApplyFormatInEditMode` właściwości na wartość true, powodując widoku GridView przez edytowanie interfejsu do sformatowania `UnitPrice` jako walutę. Podczas konwertowania elementu BoundField na TemplateField w Visual Studio wymienionych te ustawienia i sformatowane pole tekstowe `Text` właściwość jako walutę przy użyciu składni wiązania danych `<%# Bind("UnitPrice", "{0:c}") %>`.
 
 
-[![AGwiazdka n pojawia się obok pola tekstowe z nieprawidłowe dane wejściowe](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image22.png)
+[![Gwiazdka pojawia się obok pola tekstowe z nieprawidłowe dane wejściowe](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image23.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image22.png)
 
 **Rysunek 8**: Gwiazdka pojawia się obok pola tekstowe z nieprawidłowe dane wejściowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image24.png))
 
@@ -176,12 +176,12 @@ Podczas sprawdzania poprawności działania — jest, użytkownik będzie musia�
 Użyjmy opcja #1 na potrzeby tego ćwiczenia. Obecnie `UnitPrice` są sformatowane jako walutę z powodu wyrażenia wiązania danych dla pola tekstowego w `EditItemTemplate`: `<%# Bind("UnitPrice", "{0:c}") %>`. Zmień instrukcję powiązania `Bind("UnitPrice", "{0:n2}")`, która formatuje wynik jako liczbę z dwoma cyframi precyzji. Można to zrobić bezpośrednio za pomocą składni deklaratywnej lub klikając łącze edycji powiązania danych z `EditUnitPrice` polu tekstowym w `UnitPrice` firmy TemplateField `EditItemTemplate` (patrz rysunki 9 i 10).
 
 
-[![CKliknij pozycję Link Edytuj powiązania danych pole tekstowe](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image25.png)
+[![Kliknij link Edytuj powiązania danych, pole tekstowe](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image26.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image25.png)
 
 **Rysunek 9**: Kliknij link Edytuj powiązania danych w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image27.png))
 
 
-[![SOkreśl specyfikatora formatu w instrukcji powiązać](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image28.png)
+[![Określ specyfikatora formatu w instrukcji powiązania](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image29.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Określ specyfikatora formatu w `Bind` — instrukcja ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image30.png))
 
@@ -199,7 +199,7 @@ Oprócz pięciu sprawdzania poprawności formantów, program ASP.NET zawiera [ko
 Aby to zrobić, przeciągnij kontrolki podsumowania walidacji z przybornika do projektanta. Położenie formantu sprawdzania poprawności nie ma znaczenia, ponieważ będziemy skonfigurować tak, aby tylko wyświetlić podsumowanie jako komunikat messagebox. Po dodaniu kontrolki, ustaw jego [właściwość ShowSummary](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) do `False` i jego [właściwość ShowMessageBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) do `True`. Dodając ten wszelkie błędy sprawdzania poprawności są podsumowane w messagebox po stronie klienta.
 
 
-[![TBłędy sprawdzania poprawności HE są podsumowane w Messagebox po stronie klienta](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)
+[![Błędy sprawdzania poprawności są podsumowane w Messagebox po stronie klienta](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)
 
 **Rysunek 11**: Błędy sprawdzania poprawności są podsumowane w Messagebox po stronie klienta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image33.png))
 
@@ -215,7 +215,7 @@ Ponieważ `UnitPrice` jest wymagany dla tej strony, podczas dodawania nowego rek
 Po dodaniu tych kontrolek walidacji, nowy produkt nie dodawane do systemu, jeśli nie podano nazwy lub jej miesięczna cena jest liczbą ujemną lub nielegalny sformatowany.
 
 
-[![Validation logiki został dodany do interfejsu Wstawianie DetailsView](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image34.png)
+[![Dodano logikę walidacji interfejsu Wstawianie DetailsView](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image35.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image34.png)
 
 **Rysunek 12**: Dodano logikę walidacji interfejsu Wstawianie DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image36.png))
 
@@ -225,7 +225,7 @@ Po dodaniu tych kontrolek walidacji, nowy produkt nie dodawane do systemu, jeśl
 Naszą stronę składa się z dwóch zestawów logicznie różnych kontrolek weryfikacji: te, które odnoszą się do widoku GridView przez edytowanie interfejsu i te, które odpowiadają DetailsView użytkownika wstawiania interfejsu. Domyślnie, gdy wystąpi ogłaszania zwrotnego *wszystkich* sprawdzania poprawności formantów na stronie są sprawdzane. Jednak podczas edytowania rekordu nie chcemy DetailsView interfejsu Wstawianie kontrolek weryfikacji do sprawdzania poprawności. Rysunek 13 przedstawiono nasze bieżące dilemma po użytkownik edytuje produktu przy użyciu wartości doskonale prawne, klikając aktualizacja powoduje błąd sprawdzania poprawności, ponieważ wartości nazwy i ceny, wstawianie interfejsu są puste.
 
 
-[![Uualizacja produktu powoduje, że interfejs Wstawianie kontrolek weryfikacji do uruchomienia](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image37.png)
+[![Aktualizowanie produktu powoduje, że interfejs Wstawianie kontrolek weryfikacji do uruchomienia](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image38.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image37.png)
 
 **Rysunek 13**: Aktualizowanie produktu powoduje, że interfejs Wstawianie kontrolek weryfikacji do uruchomienia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image39.png))
 
@@ -235,7 +235,7 @@ Formanty sprawdzania poprawności w programie ASP.NET 2.0 można podzielić na p
 Oprócz sprawdzania poprawności formantów, przycisk i formanty przycisku w programie ASP.NET 2.0 również obejmować `ValidationGroup` właściwości. Grupy sprawdzania poprawności modułów sprawdzania poprawności są sprawdzane ważności tylko, gdy ogłaszania zwrotnego wywołane przez przycisk, który ma taką samą `ValidationGroup` ustawienie właściwości. Na przykład, w kolejności DetailsView przycisk Wstaw wyzwolić `InsertValidationControls` grupy sprawdzania poprawności, musimy CommandField `ValidationGroup` właściwość `InsertValidationControls` (zobacz rysunek 14). Ponadto, ustawić GridView firmy CommandField `ValidationGroup` właściwość `EditValidationControls`.
 
 
-[![Set DetailsView właściwość ValidationGroup firmy CommandField InsertValidationControls](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image40.png)
+[![Zestaw DetailsView przez właściwość ValidationGroup firmy CommandField InsertValidationControls](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image41.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image40.png)
 
 **Rysunek 14**: Ustaw DetailsView firmy CommandField `ValidationGroup` właściwości `InsertValidationControls` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image42.png))
 

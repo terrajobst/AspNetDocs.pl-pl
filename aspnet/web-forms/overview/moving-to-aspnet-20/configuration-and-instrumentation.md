@@ -12,7 +12,7 @@ ms.openlocfilehash: b06f105b16087f97788e0ab360af41f538d2c1ac
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59400805"
 ---
 # <a name="configuration-and-instrumentation"></a>Konfiguracja i instrumentacja
@@ -241,7 +241,7 @@ Istnieje kilka narzędzi wiersza polecenia, aby ułatwić konfigurację programu
 
 Dostępne są następujące narzędzia wiersza polecenia:
 
-| **Narzędzie** | **Zastosowanie** |
+| **Narzędzie** | **Korzystanie** |
 | --- | --- |
 | **aspnet\_regiis.exe** | Umożliwia rejestracji programu ASP.NET w usługach IIS. Istnieją dwie wersje tego narzędzia dostarczonymi za pomocą programu ASP.NET 2.0, jeden dla systemów 32-bitowych (w folderze Framework) i jeden dla 64-bitowych systemach (w folderze Framework64.) Nie można zainstalowana wersja 64-bitowego na 32-bitowych systemach operacyjnych. |
 | **aspnet\_regsql.exe** | Narzędzie rejestracji serwera SQL programu ASP.NET umożliwia utworzyć bazę danych programu Microsoft SQL Server do użytku przez dostawców programu SQL Server w programie ASP.NET lub dodawanie lub usuwanie opcji z istniejącej bazy danych. Aspnet\_regsql.exe plik znajduje się w [drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber folder na serwerze sieci Web. |
@@ -288,7 +288,7 @@ Ponieważ aplikacja nie odczytuje plik .config za każdym razem, gdy wymaga info
 
 Dostępne są następujące opcje, podczas uruchamiania aspnet\_regbrowser.exe:
 
-| **Opcja** | **Opis** |
+| **Option** | **Opis** |
 | --- | --- |
 | **-?** | Wyświetla Aspnet\_regbbrowsers.exe tekst pomocy w oknie wiersza polecenia. |
 | **-i** | Tworzy zestaw funkcji środowiska uruchomieniowego przeglądarki i instaluje je w globalnej pamięci podręcznej. |
@@ -298,7 +298,7 @@ Dostępne są następujące opcje, podczas uruchamiania aspnet\_regbrowser.exe:
 
 Narzędzie kompilacji platformy ASP.NET może być używane na dwa sposoby ogólne: kompilacja w miejscu i kompilacji dla wdrożenia, gdy jest określony katalog wyjściowy docelowego.
 
-### [<a name="compiling-an-application-in-place"></a>Kompilowanie aplikacji w miejscu](https://msdn.microsoft.com/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Kompilowanie aplikacji w miejscu](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Narzędzia kompilacji platformy ASP.NET można kompilować aplikacje w miejscu, czyli naśladuje zachowanie wysyłania wielu żądań do aplikacji, powodując regularnych kompilacji. Użytkownicy wstępnie skompilowanej witryny nie doświadczy opóźnienia spowodowane przez kompilowanie strony na pierwsze żądanie.
 
@@ -314,7 +314,7 @@ Można także ponownie skompilować aplikację w miejscu po dodaniu nowych plik�
 > Kompilacją aplikacji, który zawiera zagnieżdżony aplikacji nie można skompilować aplikacji zagnieżdżonych. Zagnieżdżone aplikacji muszą być skompilowane oddzielnie.
 
 
-### [<a name="compiling-an-application-for-deployment"></a>Kompilowanie aplikacji dla wdrożenia](https://msdn.microsoft.com/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Kompilowanie aplikacji dla wdrożenia](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Określenie parametru targetDir kompilowania aplikacji dla wdrożenia (kompilacja do lokalizacji docelowej). TargetDir może być lokalizacji końcowej dla aplikacji sieci Web lub skompilowaną aplikację można wdrożyć więcej. Za pomocą **-u** opcji kompilacją aplikacji w taki sposób, że możesz wprowadzić zmiany do niektórych plików w skompilowanej aplikacji bez konieczności ponownego kompilowania. ASPNET\_compiler.exe rozróżnia między typami plików statycznych i dynamicznych i obsługuje je inaczej, tworząc wynikłej aplikacji.
 
@@ -351,11 +351,11 @@ W poniższej tabeli opisano, jak inny plik obsługuje narzędzia kompilacji plat
 | pliki .skin w aplikacji\_podkatalogu motywów | Motywy kompilowania do zestawów i umieszczane w katalogu Bin. Pliki szczątkowe są tworzone dla plików .skin i umieszczane w odpowiedniej katalogu wyjściowego. Pliki statyczne (na przykład .css) są kopiowane do katalogów danych wyjściowych. |
 | .Browser pliku Web.config statyczne typy zestawów już istnieje w katalogu Bin | Te pliki są kopiowane, ponieważ jest do katalogu wyjściowego. |
 
-### [<a name="fixed-assembly-names"></a>Nazwy zestawów stałej](https://msdn.microsoft.com/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Nazwy zestawów stałej](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 Niektóre scenariusze, takie jak wdrażanie aplikacji sieci Web, za pomocą pliku MSI Instalatora Windows, korzystają z nazw plików spójne i zawartość, a także struktur katalogów spójne do identyfikowania zestawów lub ustawienia konfiguracji dla aktualizacji. W takich przypadkach można użyć **- fixednames** opcję, aby określić, czy zestaw powinien kompilować się narzędzia kompilacji platformy ASP.NET dla każdego pliku źródłowego zamiast where wielu stronach są kompilowane do zestawów. Może to prowadzić do dużej liczby zestawów, więc chcąc ze skalowalnością tej opcji należy używać ostrożnie.
 
-### [<a name="strong-name-compilation"></a>Kompilacja silnej nazwy](https://msdn.microsoft.com/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Strong-Name Compilation](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 **- Aptca**, **- delaysign**, **- keycontainer** i **- keyfile** opcje znajdują się tak, aby można było używać Aspnet\_ Compiler.exe do tworzenia silnie nazwanych zestawów bez użycia [narzędzie silnych nazw (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx) oddzielnie. Te opcje odpowiadają odpowiednio do **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**i  **AssemblyKeyFileAttribute**.
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: 026a8405e0d2078e7dc1dada4ed0185daefd86d7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406943"
 ---
 # <a name="web-application-projects--web-deployment-projects"></a>Projekty aplikacji internetowych i projekty wdrażania w Internecie

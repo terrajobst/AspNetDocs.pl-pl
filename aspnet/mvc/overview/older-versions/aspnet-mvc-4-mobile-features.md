@@ -12,7 +12,7 @@ ms.openlocfilehash: de65e01b888d9ed15da3903f086b40c49b32b9fb
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402417"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 — funkcje mobilne
@@ -134,7 +134,7 @@ Kopiuj *Views\Home\AllTags.cshtml* plik *Views\Home\AllTags.Mobile.cshtml*. Otw�
 
 Przejdź na stronę tagów za pomocą przeglądarki na komputerze i za pomocą emulatora w przeglądarce dla urządzeń przenośnych. Emulator przeglądarce dla urządzeń przenośnych zawiera dwa wprowadzone zmiany.
 
-[![p2m_layoutTags.Mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
+[![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
 Z kolei Monitor nie zmienił się.
 

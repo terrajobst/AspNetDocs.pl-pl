@@ -12,7 +12,7 @@ ms.openlocfilehash: e0b540c030bf600def9b9efad4c73f055a343851
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402833"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
@@ -26,7 +26,7 @@ W tej sekcji użyjemy Utwórz nową klasę MoviesController i pisanie kodu, któ
 
 Kliknij prawym przyciskiem folder kontrolery i upewnij MoviesController nowe.
 
-[![Add Controller](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Dodawanie kontrolera](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 Spowoduje to utworzenie nowego pliku "MoviesController.cs" poniżej naszej folder \Controllers w projekcie. Zaktualizujmy MovieController można pobrać listy filmów z naszym nowo wypełniania bazy danych.
 
@@ -42,11 +42,11 @@ Należy pamiętać, że jeśli masz utworzony nowej klasy, należy skompilować 
 
 Kliknij przycisk Dodaj, a system automatycznie wygeneruje kod dla widoku dla nas wyświetlanych z naszej listy filmów. Jest to dobry moment, aby zmienić &lt;h2&gt; nagłówek na wartość podobną "Moja lista filmu", takie jak były wykonywane wcześniej przy użyciu widoku Hello World.
 
-[![Movies — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![Filmy — Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
 Uruchom aplikację, a następnie odwiedź /Movies na pasku adresu. Firma Microsoft została teraz pobierane są dane z bazy danych przy użyciu podstawowego zapytania wewnątrz kontrolera i zwrócone dane do widoku, który zna filmy. Ten widok, a następnie uruchamia się za pośrednictwem listy filmów i tworzy tabelę danych dla nas.
 
-[![Movie lista — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 Firma Microsoft nie będzie zaimplementowana funkcji edycji, szczegółów i usuwania, z tą aplikacją — więc nie potrzebujemy łącza domyślny szablon szkieletu utworzony dla nas. Otwórz plik /Movies/Index.aspx i usuń je.
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono kod źródłowy dla naszych zaktualizowany szablon widoku
 
 Łączy, które firma Microsoft nie będzie już konieczne, która zostanie utworzona, więc usuniemy je w tym przykładzie Zostanie zachowana, aby nasze Utwórz nowe łącze, ponieważ to jest dalej! Oto jak wygląda naszą aplikację z tej kolumny usunięte.
 
-[![Movie lista — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 W efekcie powstał prostą listę danych filmu. Jednak po kliknięciu przycisku "Utwórz nowy" link przejdziemy błąd, ponieważ nie jest podłączany! Przejdźmy implementuje metody tworzenia akcji i umożliwić użytkownikowi wprowadzanie nowych filmów w naszej bazie danych.
 

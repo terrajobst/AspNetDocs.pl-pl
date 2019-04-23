@@ -12,7 +12,7 @@ ms.openlocfilehash: 78e4d3aedd183e8ec91a8c833e4b60894ae214ec
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401195"
 ---
 # <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Program WebMatrix i model Web Pages — szkolenie wideo w witrynie Pluralsight
@@ -29,7 +29,7 @@ ms.locfileid: "59401195"
 - [Praca z dokumentami standardowe sieci Web](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m4&mode=live&clip=0&course=webmatrix-introduction)
 - [ASP.NET Web Pages](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m5&mode=live&clip=0&course=webmatrix-introduction)
 - [Raportowanie i wdrożenia](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m8&mode=live&clip=0&course=webmatrix-introduction)
-- [Kontrola źródła](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m9&mode=live&clip=0&course=webmatrix-introduction)
+- [Kontrola kodu źródłowego](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m9&mode=live&clip=0&course=webmatrix-introduction)
 - [Przenośne witryn sieci Web](https://pluralsight.com/training/Player?author=matt-milner&name=webmatrix-introduction-m10&mode=live&clip=0&course=webmatrix-introduction)
 
 

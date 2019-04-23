@@ -13,7 +13,7 @@ ms.openlocfilehash: 36933f42806b82437f0ba8e59ad1c90024ed6b9e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401234"
 ---
 # <a name="getting-started-with-aspnet-identity"></a>Wprowadzenie do korzystania z systemu ASP.NET Identity
@@ -21,8 +21,8 @@ ms.locfileid: "59401234"
 > System produktu ASP.NET Identity zaprojektowano w celu zastąpienia starszych systemów członkostwa ASP.NET i członkostwa prostego. Obejmuje obsługę profilu, integracja uwierzytelniania OAuth, działa z oprogramowaniem OWIN i znajduje się za pomocą szablonów ASP.NET dostarczane z programem Visual Studio 2013.
 
 
-- [Wprowadzenie do systemu ASP.NET Identity](introduction-to-aspnet-identity.md)
+- [Wprowadzenie do produktu ASP.NET Identity](introduction-to-aspnet-identity.md)
 - [ASP.NET Identity — zalecane zasoby](aspnet-identity-recommended-resources.md)
-- [Dodawanie systemu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 - [Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory](developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [ASP.NET Identity: używanie usługi MySQL Storage z dostawcą MySQL programu EntityFramework (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+- [ASP.NET Identity: Używanie usługi MySQL Storage przy użyciu dostawcy MySQL programu EntityFramework (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)

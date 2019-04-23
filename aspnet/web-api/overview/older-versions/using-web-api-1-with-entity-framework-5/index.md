@@ -12,7 +12,7 @@ ms.openlocfilehash: be7322bae8f3d343866aae6e1c91ccce73ea6fd7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405654"
 ---
 # <a name="using-aspnet-web-api-1-with-entity-framework-5"></a>Używanie wzorca ASP.NET Web API 1 z programem Entity Framework 5
@@ -24,6 +24,6 @@ ms.locfileid: "59405654"
 - [Tworzenie modeli domeny](using-web-api-with-entity-framework-part-2.md)
 - [Tworzenie kontrolera administratora](using-web-api-with-entity-framework-part-3.md)
 - [Dodawanie widoku administratora](using-web-api-with-entity-framework-part-4.md)
-- [Tworzenie dynamicznego interfejsu użytkownika z użyciem biblioteki Knockout.js](using-web-api-with-entity-framework-part-5.md)
+- [Tworzenie dynamicznego interfejsu użytkownika z użyciem Knockout.js](using-web-api-with-entity-framework-part-5.md)
 - [Tworzenie kontrolerów produktów i zamówień](using-web-api-with-entity-framework-part-6.md)
 - [Tworzenie strony głównej](using-web-api-with-entity-framework-part-7.md)

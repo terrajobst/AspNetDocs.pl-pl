@@ -12,7 +12,7 @@ ms.openlocfilehash: 2ebd9162f81f5270c92c6b8d55e2d2dad4660701
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403431"
 ---
 # <a name="how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page"></a>[Jak mogę] Zastąp HTML na stronie ASP.NET za pomocą właściwości Reponse.Filter

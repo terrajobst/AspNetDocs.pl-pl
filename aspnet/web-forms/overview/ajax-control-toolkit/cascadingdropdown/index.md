@@ -12,7 +12,7 @@ ms.openlocfilehash: b4e8dfe9deaf8ee4196d327d94d9b99f568bd11d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59405771"
 ---
 # <a name="cascadingdropdown"></a>CascadingDropdown
@@ -27,4 +27,4 @@ ms.locfileid: "59405771"
 - [Wypełnianie listy przy użyciu kontrolki CascadingDropDown (VB)](filling-a-list-using-cascadingdropdown-vb.md)
 - [Używanie kontrolki CascadingDropDown z bazą danych (VB)](using-cascadingdropdown-with-a-database-vb.md)
 - [Wstępne ustawianie pozycji listy przy użyciu kontrolki CascadingDropDown (VB)](presetting-list-entries-with-cascadingdropdown-vb.md)
-- [Używanie automatycznego ogłaszania zwrotnego za pomocą kontrolki CascadingDropDown (VB)](using-auto-postback-with-cascadingdropdown-vb.md)
+- [Przy użyciu automatycznego odświeżania z CascadingDropDown (VB)](using-auto-postback-with-cascadingdropdown-vb.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403587"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: emisje serwera z użyciem wzorca ASP.NET SignalR 1.x
@@ -43,12 +43,12 @@ Okresowo serwer losowo cen akcji aktualizacji i wypychania aktualizacji do wszys
 Ten samouczek zawiera następujące sekcje:
 
 - [Wymagania wstępne](#prerequisites)
-- [Utwórz projekt](#createproject)
+- [Tworzenie projektu](#createproject)
 - [Dodaj pakiety NuGet biblioteki SignalR](#nugetpackages)
 - [Konfigurowanie kodu serwera](#server)
 - [Ustaw kod klienta](#client)
 - [Testowanie aplikacji](#test)
-- [Włącz rejestrowanie](#enablelogging)
+- [Włączanie rejestrowania](#enablelogging)
 - [Instalowanie i przejrzeć pełny przykład StockTicker](#fullsample)
 - [Następne kroki](#nextsteps)
 

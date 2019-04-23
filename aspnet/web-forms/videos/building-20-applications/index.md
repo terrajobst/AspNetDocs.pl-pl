@@ -12,7 +12,7 @@ ms.openlocfilehash: a5ed87b1b4fb09d61ca10c40e13efbcad1904a5a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59406226"
 ---
 # <a name="building-20-applications"></a>Kompilowanie aplikacji w wersji 2.0

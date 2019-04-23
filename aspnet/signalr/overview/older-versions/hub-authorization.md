@@ -12,7 +12,7 @@ ms.openlocfilehash: af97ff2488841b2d65e50122691736603be2a686
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59401416"
 ---
 # <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>Uwierzytelnianie i autoryzacja centrów usługi SignalR (SignalR 1.x)
@@ -35,7 +35,7 @@ Ten temat zawiera następujące sekcje:
 - [Opcje uwierzytelniania dla klientów programu .NET](#authoptions)
 
     - [Plik cookie uwierzytelniania formularzy](#cookie)
-    - [Uwierzytelnianie systemu Windows](#windows)
+    - [Uwierzytelnianie Windows](#windows)
     - [Nagłówek połączenia](#header)
     - [Certyfikat](#certificate)
 

@@ -12,7 +12,7 @@ ms.openlocfilehash: b6a2450dd824396e1540b52395022f48e41aab70
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59403054"
 ---
 # <a name="batch-deleting-vb"></a>Usuwanie w partiach (VB)
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 Każdy, kto został użyty w kliencie poczty e-mail w trybie online jest już znane z jednym z najbardziej typowych partii usuwanie interfejsów: pole wyboru w każdym wierszu w siatce z odpowiedniego Usuń wszystkie zaznaczone elementy przycisku (patrz rysunek 1). W tym samouczku jest raczej krótkie ponieważ możemy ve ustanowionego wszystkie trudną pracę w poprzednich samouczkach w tworzeniu interfejsu opartego na sieci web i metodę, aby usunąć serii rekordów w jednej niepodzielnej operacji. W [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md) samouczku utworzyliśmy GridView z kolumny pól wyboru, a w polu [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-vb.md) samouczku utworzyliśmy metody w LOGIKI, która będzie używać transakcji można usunąć `List<T>` z `ProductID` wartości. W tym samouczku Zapoznamy bazują na i scalić naszych doświadczeń poprzedniej, aby utworzyć instancję pracy usuwania przykład.
 
 
-[![Estacje wiersz zawiera pola wyboru](batch-deleting-vb/_static/image1.gif)](batch-deleting-vb/_static/image1.png)
+[![Każdy wiersz zawiera pola wyboru](batch-deleting-vb/_static/image1.gif)](batch-deleting-vb/_static/image1.png)
 
 **Rysunek 1**: Każdy wiersz zawiera pola wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-vb/_static/image2.png))
 
@@ -41,7 +41,7 @@ Każdy, kto został użyty w kliencie poczty e-mail w trybie online jest już zn
 Ponieważ utworzyliśmy partii Usuwanie interfejsu w [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md) samouczek, możemy po prostu skopiować go do `BatchDelete.aspx` zamiast go utworzyć od podstaw. Zacznij od otwarcia `BatchDelete.aspx` strony w `BatchData` folder i `CheckBoxField.aspx` stronie `EnhancedGridView` folderu. Z `CheckBoxField.aspx` strony, przejdź do widoku źródła i skopiuj znaczników między `<asp:Content>` tagów, jak pokazano na rysunku 2.
 
 
-[![CKopiuj deklaratywne znaczników CheckBoxField.aspx do Schowka](batch-deleting-vb/_static/image2.gif)](batch-deleting-vb/_static/image3.png)
+[![Skopiuj oznaczeniu deklaracyjnym CheckBoxField.aspx do Schowka](batch-deleting-vb/_static/image2.gif)](batch-deleting-vb/_static/image3.png)
 
 **Rysunek 2**: Skopiuj oznaczeniu deklaracyjnym `CheckBoxField.aspx` do Schowka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-vb/_static/image4.png))
 
@@ -54,7 +54,7 @@ Następnie przejdź do widoku źródła `BatchDelete.aspx` i Wklej zawartość S
 Po skopiowaniu w oznaczeniu deklaracyjnym i kod źródłowy, Poświęć chwilę na testowanie `BatchDelete.aspx` , wyświetlając go za pośrednictwem przeglądarki. Powinien zostać wyświetlony GridView zawierającą listę pierwszych dziesięciu produktów w GridView, przy czym każdy wiersz ofercie nazwa produktu s, kategorii i cenę wraz z pola wyboru. Powinny być trzy przyciski: Zaznacz wszystko, usuń zaznaczenie wszystkich i Usuń wybranych produktów. Kliknięcie przycisku Sprawdź wszystkie wybiera wszystkie pola wyboru, podczas gdy Usuń zaznaczenie wszystkich czyści wszystkie pola wyboru. Klikając polecenie Usuń wybrane produkty wyświetla komunikat, który zawiera listę `ProductID` wartości wybranych produktów, ale faktycznie nie usuwa produktów.
 
 
-[![Ton interfejsu CheckBoxField.aspx została przeniesiona do BatchDeleting.aspx](batch-deleting-vb/_static/image3.gif)](batch-deleting-vb/_static/image5.png)
+[![Interfejs z CheckBoxField.aspx została przeniesiona do BatchDeleting.aspx](batch-deleting-vb/_static/image3.gif)](batch-deleting-vb/_static/image5.png)
 
 **Rysunek 3**: Interfejs z `CheckBoxField.aspx` została przeniesiona do `BatchDeleting.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-vb/_static/image6.png))
 
@@ -82,12 +82,12 @@ Zaktualizowano kod tworzy `List(Of T)` typu `Integer` (`productIDsToDelete`) i w
 Rysunek 4 przedstawia widoku GridView po liczbę wierszy zostały wybrane do usunięcia. Rysunek 5. pokazuje ekranu natychmiast, po kliknięciu przycisku Usuń wybrane produkty. Należy pamiętać, że na rysunku 5 `ProductID` wartości usunięte rekordy są wyświetlane w etykiecie poniżej kontrolki GridView i tych wierszy nie są już w widoku GridView.
 
 
-[![Ton wybrane produkty zostaną usunięte](batch-deleting-vb/_static/image4.gif)](batch-deleting-vb/_static/image7.png)
+[![Wybrane produkty zostaną usunięte.](batch-deleting-vb/_static/image4.gif)](batch-deleting-vb/_static/image7.png)
 
 **Rysunek 4**: Wybrane produkty zostaną usunięte ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-vb/_static/image8.png))
 
 
-[![TUsunięto wartości HE ProductID produktów są wymienione poniżej GridView](batch-deleting-vb/_static/image5.gif)](batch-deleting-vb/_static/image9.png)
+[![Wartości usunięte ProductID produkty są wymienione poniżej GridView](batch-deleting-vb/_static/image5.gif)](batch-deleting-vb/_static/image9.png)
 
 **Rysunek 5**: Usunięto produktów `ProductID` wartości są wymienione poniżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-vb/_static/image10.png))
 

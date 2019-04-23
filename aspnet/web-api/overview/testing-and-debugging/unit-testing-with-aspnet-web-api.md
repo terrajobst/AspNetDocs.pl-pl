@@ -12,14 +12,14 @@ ms.openlocfilehash: f2d60b977475e048a3a74aabff4adc768ee22baf
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59402651"
 ---
 # <a name="unit-testing-aspnet-web-api-2"></a>ASP.NET Web API 2 testy jednostkowe
 
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-[Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych proste dla aplikacji sieci Web API 2. W tym samouczku pokazano, jak do uwzględnienia projekt testów jednostkowych w rozwiązaniu, a następnie zapisać metody testowe, sprawdzające wartości zwracane przez metodę kontrolera.
 >
