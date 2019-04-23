@@ -12,10 +12,10 @@ ms.openlocfilehash: 7a73b6657e6f074cac5e63c907924a8cae68e60e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59397191"
 ---
-# <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="9f16a-103">Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010</span><span class="sxs-lookup"><span data-stu-id="9f16a-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
+# <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="26456-103">Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010</span><span class="sxs-lookup"><span data-stu-id="26456-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
 
-- [<span data-ttu-id="9f16a-104">Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010</span><span class="sxs-lookup"><span data-stu-id="9f16a-104">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>](overview.md)
-- [<span data-ttu-id="9f16a-105">Zmiany powodujące niezgodność w platformie ASP.NET 4</span><span class="sxs-lookup"><span data-stu-id="9f16a-105">ASP.NET 4 Breaking Changes</span></span>](breaking-changes.md)
+- [<span data-ttu-id="26456-104">Omówienie projektowania aplikacji internetowych na platformie ASP.NET 4 i w programie Visual Studio 2010</span><span class="sxs-lookup"><span data-stu-id="26456-104">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>](overview.md)
+- [<span data-ttu-id="26456-105">Fundamentalne zmiany na platformie ASP.NET 4</span><span class="sxs-lookup"><span data-stu-id="26456-105">ASP.NET 4 Breaking Changes</span></span>](breaking-changes.md)
