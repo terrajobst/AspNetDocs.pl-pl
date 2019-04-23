@@ -12,18 +12,18 @@ ms.openlocfilehash: 3e720dd895c609d5b35848dbc4d4a6989028ff7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418758"
 ---
-# <a name="signalr-getting-started"></a><span data-ttu-id="5d15a-104">Wprowadzenie do SignalR</span><span class="sxs-lookup"><span data-stu-id="5d15a-104">SignalR Getting Started</span></span>
+# <a name="signalr-getting-started"></a><span data-ttu-id="48193-104">Wprowadzenie do SignalR</span><span class="sxs-lookup"><span data-stu-id="48193-104">SignalR Getting Started</span></span>
 
-> <span data-ttu-id="5d15a-105">SignalR nowości, platformy, na których ono działa i jak rozpocząć pracę.</span><span class="sxs-lookup"><span data-stu-id="5d15a-105">What SignalR is, platforms it runs on, and how to get started.</span></span>
+> <span data-ttu-id="48193-105">SignalR nowości, platformy, na których ono działa i jak rozpocząć pracę.</span><span class="sxs-lookup"><span data-stu-id="48193-105">What SignalR is, platforms it runs on, and how to get started.</span></span>
 
 
-- [<span data-ttu-id="5d15a-106">Wprowadzenie do usługi SignalR</span><span class="sxs-lookup"><span data-stu-id="5d15a-106">Introduction to SignalR</span></span>](introduction-to-signalr.md)
-- [<span data-ttu-id="5d15a-107">Obsługiwane platformy</span><span class="sxs-lookup"><span data-stu-id="5d15a-107">Supported Platforms</span></span>](supported-platforms.md)
-- [<span data-ttu-id="5d15a-108">Samouczek: Wprowadzenie do korzystania z SignalR 2</span><span class="sxs-lookup"><span data-stu-id="5d15a-108">Tutorial: Getting Started with SignalR 2</span></span>](tutorial-getting-started-with-signalr.md)
-- [<span data-ttu-id="5d15a-109">Samouczek: Wprowadzenie do SignalR 2 i MVC 5</span><span class="sxs-lookup"><span data-stu-id="5d15a-109">Tutorial: Getting Started with SignalR 2 and MVC 5</span></span>](tutorial-getting-started-with-signalr-and-mvc.md)
-- [<span data-ttu-id="5d15a-110">Samouczek: Wysoka częstotliwość Realtime z SignalR 2</span><span class="sxs-lookup"><span data-stu-id="5d15a-110">Tutorial: High-Frequency Realtime with SignalR 2</span></span>](tutorial-high-frequency-realtime-with-signalr.md)
-- [<span data-ttu-id="5d15a-111">Samouczek: Emisje serwera z użyciem usługi SignalR 2</span><span class="sxs-lookup"><span data-stu-id="5d15a-111">Tutorial: Server Broadcast with SignalR 2</span></span>](tutorial-server-broadcast-with-signalr.md)
-- [<span data-ttu-id="5d15a-112">Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR</span><span class="sxs-lookup"><span data-stu-id="5d15a-112">Hands On Lab: Real-Time Web Applications with SignalR</span></span>](real-time-web-applications-with-signalr.md)
+- [<span data-ttu-id="48193-106">Wprowadzenie do SignalR</span><span class="sxs-lookup"><span data-stu-id="48193-106">Introduction to SignalR</span></span>](introduction-to-signalr.md)
+- [<span data-ttu-id="48193-107">Obsługiwane platformy</span><span class="sxs-lookup"><span data-stu-id="48193-107">Supported Platforms</span></span>](supported-platforms.md)
+- [<span data-ttu-id="48193-108">Samouczek: Wprowadzenie do SignalR 2</span><span class="sxs-lookup"><span data-stu-id="48193-108">Tutorial: Getting Started with SignalR 2</span></span>](tutorial-getting-started-with-signalr.md)
+- [<span data-ttu-id="48193-109">Samouczek: Wprowadzenie do SignalR 2 i MVC 5</span><span class="sxs-lookup"><span data-stu-id="48193-109">Tutorial: Getting Started with SignalR 2 and MVC 5</span></span>](tutorial-getting-started-with-signalr-and-mvc.md)
+- [<span data-ttu-id="48193-110">Samouczek: Wysoka częstotliwość Realtime z SignalR 2</span><span class="sxs-lookup"><span data-stu-id="48193-110">Tutorial: High-Frequency Realtime with SignalR 2</span></span>](tutorial-high-frequency-realtime-with-signalr.md)
+- [<span data-ttu-id="48193-111">Samouczek: Emisje serwera z użyciem SignalR 2</span><span class="sxs-lookup"><span data-stu-id="48193-111">Tutorial: Server Broadcast with SignalR 2</span></span>](tutorial-server-broadcast-with-signalr.md)
+- [<span data-ttu-id="48193-112">Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR</span><span class="sxs-lookup"><span data-stu-id="48193-112">Hands On Lab: Real-Time Web Applications with SignalR</span></span>](real-time-web-applications-with-signalr.md)
