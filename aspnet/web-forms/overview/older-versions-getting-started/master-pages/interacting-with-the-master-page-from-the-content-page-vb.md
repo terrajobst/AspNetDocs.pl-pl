@@ -12,7 +12,7 @@ ms.openlocfilehash: 1326d5453f205201af850a30c17f509645e15cb9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422203"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Interakcja ze stroną wzorcową z poziomu strony zawartości (VB)
@@ -61,7 +61,7 @@ Krok 1 przeszukiwania poprzez wyświetlanie pięć ostatnio dodane produktów w 
 Otwórz stronę wzorcową Site.master i Dodaj etykietę i kontrolki widoku siatki do `leftContent` `<div>`. Czyści etykiety `Text` właściwość, ustaw jego `EnableViewState` właściwości `False`i jego `ID` właściwości `GridMessage`; Ustaw GridView `ID` właściwość `RecentProducts`. Następnie przy użyciu projektanta, rozwiń GridView tagu inteligentnego i wybierz opcję powiązać go z nowego źródła danych. Spowoduje to uruchomienie Kreatora konfiguracji źródła danych. Ponieważ bazy danych Northwind `App_Data` folderu jest bazą danych programu Microsoft SQL Server Utwórz SqlDataSource, wybierając (patrz rysunek 1); nazwa SqlDataSource `RecentProductsDataSource`.
 
 
-[![BZnajdź GridView z kontrolką SqlDataSource o nazwie RecentProductsDataSource](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
+[![Powiąż widoku GridView z kontrolką SqlDataSource o nazwie RecentProductsDataSource](interacting-with-the-master-page-from-the-content-page-vb/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image1.png)
 
 **Rysunek 01**: Powiązywanie kontrolki SqlDataSource o nazwie GridView `RecentProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image3.png))
 
@@ -69,7 +69,7 @@ Otwórz stronę wzorcową Site.master i Dodaj etykietę i kontrolki widoku siatk
 Następnym krokiem pyta, czy NAS, aby określić, co bazy danych, aby nawiązać połączenie. Wybierz `NORTHWIND.MDF` pliku z listy rozwijanej bazy danych, a następnie kliknij przycisk Dalej. Ponieważ ta baza danych była używana po raz pierwszy, Kreator będzie oferować przechowywać parametry połączenia w `Web.config`. Jest przechowywanie parametrów połączenia przy użyciu nazwy `NorthwindConnectionString`.
 
 
-[![CPołącz z bazą danych Northwind](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
+[![Połączenia z bazą danych Northwind](interacting-with-the-master-page-from-the-content-page-vb/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image4.png)
 
 **Rysunek 02**: Połączenia z bazą danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image6.png))
 
@@ -87,7 +87,7 @@ Ponieważ chcemy zwracać tylko pięć ostatnio dodany produktów, należy okre�
 `TOP 5` — Słowo kluczowe zwraca pierwsze pięć rekordów z zapytania. `Products` Klucza podstawowego tabeli, `ProductID`, jest `IDENTITY` kolumny, która zapewnia nam, że każdy nowy produkt dodawane do tabeli wartości większej niż poprzedniej pozycji. W związku z tym, sortowanie wyników według `ProductID` zwraca produkty, począwszy od ostatniego utworzonymi w w kolejności malejącej.
 
 
-[![Rowróć pięć najbardziej niedawno dodano produktów](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
+[![Zwróć pięciu produktach ostatnio dodane](interacting-with-the-master-page-from-the-content-page-vb/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image7.png)
 
 **Rysunek 03**: Zwróć pięć najbardziej niedawno dodano produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image9.png))
 
@@ -102,7 +102,7 @@ Jak widać, zawiera znaczniki: formant etykiety w sieci Web (`GridMessage`); wid
 Dzięki temu GridView utworzone i skonfigurowane, jego użyciu kontrolki SqlDataSource, odwiedź witrynę sieci Web za pośrednictwem przeglądarki. Jak pokazano na rysunku 4, zobaczysz, że siatki w lewym dolnym rogu, który zawiera pięć ostatnio dodany produktów.
 
 
-[![TADAM GridView przedstawia pięć najbardziej niedawno dodano produktów](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
+[![Kontrolki GridView Wyświetla pięć ostatnio dodane produktów](interacting-with-the-master-page-from-the-content-page-vb/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image10.png)
 
 **Rysunek 04**: Kontrolki GridView przedstawia pięć najbardziej niedawno dodano produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image12.png))
 
@@ -116,7 +116,7 @@ Dzięki temu GridView utworzone i skonfigurowane, jego użyciu kontrolki SqlData
 Naszym kolejnym krokiem jest utworzenie strony zawartości, w którym użytkownik może dodać nowy produkt do `Products` tabeli. Dodaj nową stronę zawartości do `Admin` folder o nazwie `AddProduct.aspx`i powiązać `Site.master` strony wzorcowej. Rysunek 5. Pokazuje Eksplorator rozwiązań po tej strony została dodana do witryny sieci Web.
 
 
-[![ADodaj nową stronę programu ASP.NET do folderu administratora](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
+[![Dodawanie nowej strony programu ASP.NET do folderu administratora](interacting-with-the-master-page-from-the-content-page-vb/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image13.png)
 
 **Rysunek 05**: Dodawanie nowej strony programu ASP.NET do `Admin` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image15.png))
 
@@ -145,7 +145,7 @@ Po zakończeniu pracy kreatora przejdź do DetailsView tagu inteligentnego, a na
 To wszystko. Umożliwia testowanie tej strony. Odwiedź stronę `AddProduct.aspx` za pośrednictwem przeglądarki, wprowadź nazwę i cena (patrz rysunek 6).
 
 
-[![ADodaj nowy produkt do bazy danych](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
+[![Dodaj nowy produkt do bazy danych](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)
 
 **Rysunek 06**: Dodaj nowy produkt do bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image18.png))
 
@@ -199,7 +199,7 @@ Wszystkie strony sieci web platformy ASP.NET muszą pochodzić od `Page` klasy, 
 Skoro mamy już rzutować typowaniem luźnym `Page.Master` właściwość typowi witryny firma Microsoft może odwoływać się do właściwości i metod specyficzne dla lokacji. Jak pokazano na rysunku 7, właściwość publiczna `GridMessageText` pojawia się na liście rozwijanej funkcji IntelliSense.
 
 
-[![IntelliSense pokazuje właściwości publiczne i metod nasze strony wzorcowej](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
+[![Funkcja IntelliSense wyświetla właściwości publiczne i metod nasze strony wzorcowej](interacting-with-the-master-page-from-the-content-page-vb/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image19.png)
 
 **Rysunek 07**: Funkcja IntelliSense wyświetla właściwości publiczne i metod nasze strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image21.png))
 
@@ -237,7 +237,7 @@ Powyższy kod korzysta z obu typowaniem luźnym `Page.Master` właściwość i �
 Rysunek 8 przedstawia `AddProduct.aspx` strony natychmiast po nowych produktów — Scotta Soda — został dodany do bazy danych. Należy pamiętać, że nazwa produktu po prostu dodać została przedstawiona w Etykieta strony wzorcowej i odświeżeniu widoku GridView obejmujący produktu, a jego ceną.
 
 
-[![TStrona wzorcowa HE etykiety i GridView Pokaż produktu Just-Added](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
+[![Etykieta i Pokaż GridView produktu po prostu dodać strony wzorcowej](interacting-with-the-master-page-from-the-content-page-vb/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image22.png)
 
 **Rysunek 08**: Strona wzorcowa etykiety i GridView Pokaż produktu Just-Added ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))
 
@@ -258,7 +258,7 @@ Więcej informacji na tematów omówionych w tym samouczku można znaleźć w na
 
 - [Uzyskiwanie dostępu do i aktualizowanie danych w programie ASP.NET:](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
 - [Stron wzorcowych platformy ASP.NET: Porady, sztuczki i pułapki](http://www.odetocode.com/articles/450.aspx)
-- [`@MasterType` in ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
+- [`@MasterType` w programie ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
 - [Przekazywanie informacji między zawartości i stronami wzorcowymi](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [Praca z danymi w samouczki platformy ASP.NET](../../data-access/index.md)
 

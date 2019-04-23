@@ -12,7 +12,7 @@ ms.openlocfilehash: 22d4d4afd6963f23d6cfef1745a859c20b69d599
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422996"
 ---
 # <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools 2013.2 dla programu Visual Studio 2013 — informacje o wersji
@@ -42,9 +42,9 @@ W poniższych sekcjach opisano funkcje, które zostały wprowadzone w wersji.
 - [Obsługa usługi Azure App Service Web Apps w programie Visual Studio](#waws)
 - [Utwórz zasoby zdalne platformy Azure, podczas tworzenia nowego projektu sieci Web](#AzureResources)
 - [Web Publish ulepszenia](#webpublish)
-- [Funkcja tworzenia szkieletu ASP.NET](#scaffolding)
+- [ASP.NET Scaffolding](#scaffolding)
 - [NuGet 2.8.1](#nuget)
-- [Formularze sieci Web ASP.NET](#webforms)
+- [ASP.NET Web Forms](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
 - [ASP.NET Web API 2.1.2](#webapi)
 - [ASP.NET Web Pages 3.1.2](#webpages)

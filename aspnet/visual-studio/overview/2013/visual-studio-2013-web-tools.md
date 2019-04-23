@@ -12,7 +12,7 @@ ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421072"
 ---
 # <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Ćwiczenia praktyczne: Narzędzia Visual Studio 2013 Web Tools
@@ -324,7 +324,7 @@ W tym zadaniu użyje Browser Link **trybu projektowania** funkcji do edycji obie
 
     ![Okno listy błędów](visual-studio-2013-web-tools/_static/image32.png "okno Lista błędów")
 
-    *okno listy błędów*
+    *Okno listy błędów*
 3. W **Web Essentials** okno dialogowe, kliknij przycisk **tak** do wstawienia opis &lt;meta&gt; tagu.
 
     ![Okno dialogowe usługi sieci Web Essentials](visual-studio-2013-web-tools/_static/image33.png "Web Essentials, okno dialogowe")

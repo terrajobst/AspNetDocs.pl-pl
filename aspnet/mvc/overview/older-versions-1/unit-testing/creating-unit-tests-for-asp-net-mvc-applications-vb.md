@@ -12,7 +12,7 @@ ms.openlocfilehash: 47d42b8017837f15e0d56dfb3565257164c97bbe
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421033"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (VB)
@@ -59,12 +59,12 @@ Ta akcja kontroler zwraca również wartość widoku o nazwie `Details`. Jednak 
 Możesz uruchomić test jednostki w ofercie 2, wprowadzając kombinacja klawiszy **Ctrl-R, A** lub przez kliknięcie przycisku **Uruchom wszystkie testy w rozwiązaniu** przycisku (patrz rysunek 1). Jeśli test zakończy się pomyślnie, zostanie wyświetlone okno wyników testu na rysunku 2.
 
 
-[![RUruchom wszystkie testy w rozwiązaniu](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
+[![Uruchom wszystkie testy w rozwiązaniu](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image1.png)
 
 **Rysunek 01**: Uruchom wszystkie testy w rozwiązaniu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image3.png))
 
 
-[![Success!](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
+[![SUKCES!](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image4.png)
 
 **Rysunek 02**: SUKCES! ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-vb/_static/image6.png))
 

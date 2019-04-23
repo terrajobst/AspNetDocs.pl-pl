@@ -12,7 +12,7 @@ ms.openlocfilehash: 2d337aa2e0658692e1af213085b262daaed05a18
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421917"
 ---
 # <a name="customizing-the-data-modification-interface-vb"></a>Dostosowywanie interfejsu modyfikacji danych (VB)
@@ -31,7 +31,7 @@ BoundFields i używane przez kontrolki GridView i DetailsView CheckBoxFields upr
 W [poprzedni Samouczek](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) widzieliśmy sposobu dostosowywania interfejsy modyfikacji danych, dodając formanty Web sprawdzania poprawności. W tym samouczku Zapoznamy się jak dostosować kontrolki sieci Web kolekcji rzeczywiste dane elementu BoundField i firmy CheckBoxField standardowego pola tekstowego i formantów CheckBox przy użyciu alternatywnych kontrolek wejściowych w sieci Web. W szczególności utworzymy GridView można edytować, umożliwiająca produktu nazwy, kategorii, dostawcy i stan nieobsługiwane do zaktualizowania. Podczas edytowania określonego wiersza, pola kategorii i dostawcy będą renderowane jako kontrolek DropDownList, zawierającą zestaw dostępnych kategorii i dostawców do wyboru. Ponadto firma Microsoft będzie Zastąp domyślne CheckBoxField pola wyboru formant RadioButtonList, który oferuje dwie opcje: "Aktywny" i "Zakończona".
 
 
-[![TGridView używane do edycji kontrolek DROPDOWNLIST obejmuje interfejs i przyciski radiowe](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
+[![Interfejsu edycji kontrolki GridView obejmuje kontrolek DROPDOWNLIST i przyciski radiowe](customizing-the-data-modification-interface-vb/_static/image2.png)](customizing-the-data-modification-interface-vb/_static/image1.png)
 
 **Rysunek 1**: Edytowanie kontrolek DROPDOWNLIST obejmuje interfejs i przyciski radiowe GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image3.png))
 
@@ -56,7 +56,7 @@ Poniższy kod przedstawia nową `UpdateProduct` przeciążenia w `ProductsBLL` k
 Za pomocą `UpdateProduct` dodano przeciążenia, możemy przystąpić do tworzenia naszej edytowalne GridView. Otwórz `CustomizedUI.aspx` stronie `EditInsertDelete` folder i dodać kontrolki widoku siatki do projektanta. Następnie należy utworzyć nowe kontrolki ObjectDataSource z GridView tagu inteligentnego. Konfigurowanie kontrolki ObjectDataSource można pobrać informacji o produkcie za pośrednictwem `ProductBLL` klasy `GetProducts()` metody i aktualizowanie danych za pomocą produktu `UpdateProduct` przeciążenia, którą właśnie utworzyliśmy. Z karty Wstawianie i usuwanie wybierz z listy rozwijanej (Brak).
 
 
-[![Configuruj ObjectDataSource używać UpdateProduct przeciążenia właśnie utworzony](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
+[![Konfigurowanie kontrolki ObjectDataSource do użycia przeciążenia UpdateProduct właśnie utworzony](customizing-the-data-modification-interface-vb/_static/image5.png)](customizing-the-data-modification-interface-vb/_static/image4.png)
 
 **Rysunek 2**: Konfigurowanie kontrolki ObjectDataSource do użycia `UpdateProduct` przeciążenia właśnie utworzony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image6.png))
 
@@ -80,7 +80,7 @@ Gdy kontrolki ObjectDataSource jest skonfigurowany do aktualizacji tylko podzbi�
 Po wprowadzeniu tych zmian Projektant będzie wyglądać podobnie do rysunku 3, za pomocą składni deklaratywnej GridView, pokazano poniżej.
 
 
-[![RUsuń zbędne pola można z kontrolki GridView](customizing-the-data-modification-interface-vb/_static/image8.png)](customizing-the-data-modification-interface-vb/_static/image7.png)
+[![Usuń niepotrzebne pola z widoku GridView](customizing-the-data-modification-interface-vb/_static/image8.png)](customizing-the-data-modification-interface-vb/_static/image7.png)
 
 **Rysunek 3**: Usuń niepotrzebne pola z kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image9.png))
 
@@ -90,7 +90,7 @@ Po wprowadzeniu tych zmian Projektant będzie wyglądać podobnie do rysunku 3, 
 W tym momencie GridView zachowanie tylko do odczytu zostało ukończone. Podczas przeglądania danych, jest renderowany jako wiersz w widoku GridView przedstawiający nazwę produktu, kategorii, dostawcy i wycofane stan każdego produktu.
 
 
-[![TGridView używane tylko do odczytu interfejsu zakończeniu](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
+[![Interfejs tylko do odczytu w widoku GridView zostało ukończone](customizing-the-data-modification-interface-vb/_static/image11.png)](customizing-the-data-modification-interface-vb/_static/image10.png)
 
 **Rysunek 4**: Interfejs tylko do odczytu w widoku GridView to Complete ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image12.png))
 
@@ -124,7 +124,7 @@ Ponieważ elementu BoundField została oznaczona jako tylko do odczytu, zarówno
 Jak widzieliśmy w poprzednich samouczkach szablonu można edytować za pomocą projektanta lub bezpośrednio z poziomu składni deklaratywnej. Aby edytować go za pomocą projektanta, kliknij link Edytuj szablony z tagu inteligentnego GridView i pracy za pomocą pola kategorii `EditItemTemplate`. Usuń kontrolka etykiety w sieci Web i zastąp go przy użyciu kontrolki DropDownList, ustawienie dla właściwości identyfikator DropDownList `Categories`.
 
 
-[![RUsuń TexBox i Dodaj do EditItemTemplate kontrolki DropDownList](customizing-the-data-modification-interface-vb/_static/image14.png)](customizing-the-data-modification-interface-vb/_static/image13.png)
+[![Usuń TexBox i Dodaj kontrolki DropDownList do EditItemTemplate](customizing-the-data-modification-interface-vb/_static/image14.png)](customizing-the-data-modification-interface-vb/_static/image13.png)
 
 **Rysunek 5**: Usuń TexBox i Dodaj do kontrolki DropDownList `EditItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image15.png))
 
@@ -132,7 +132,7 @@ Jak widzieliśmy w poprzednich samouczkach szablonu można edytować za pomocą 
 Następnie należy wypełnić DropDownList z dostępnych kategorii. Kliknij Link wybierz źródło danych z kontrolki DropDownList tagu inteligentnego, a następnie wybrać opcję utworzenia nowego elementu ObjectDataSource, o nazwie `CategoriesDataSource`.
 
 
-[![CTwórz nowe kontrolki ObjectDataSource formantu o nazwie CategoriesDataSource](customizing-the-data-modification-interface-vb/_static/image17.png)](customizing-the-data-modification-interface-vb/_static/image16.png)
+[![Tworzenie formantu ObjectDataSource o nazwie CategoriesDataSource](customizing-the-data-modification-interface-vb/_static/image17.png)](customizing-the-data-modification-interface-vb/_static/image16.png)
 
 **Rysunek 6**: Utwórz nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image18.png))
 
@@ -140,7 +140,7 @@ Następnie należy wypełnić DropDownList z dostępnych kategorii. Kliknij Link
 Aby to ObjectDataSource zwrócić wszystkie kategorie, powiązać `CategoriesBLL` klasy `GetCategories()` metody.
 
 
-[![BZnajdź ObjectDataSource CategoriesBLL GetCategories() metody](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
+[![Powiązanie kontrolki ObjectDataSource metodą GetCategories() CategoriesBLL](customizing-the-data-modification-interface-vb/_static/image20.png)](customizing-the-data-modification-interface-vb/_static/image19.png)
 
 **Rysunek 7**: Powiązania elementu ObjectDataSource do `CategoriesBLL`firmy `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image21.png))
 
@@ -148,7 +148,7 @@ Aby to ObjectDataSource zwrócić wszystkie kategorie, powiązać `CategoriesBLL
 Na koniec Skonfiguruj ustawienia DropDownList tak, aby `CategoryName` pole jest wyświetlane w każdej metody DropDownList `ListItem` z `CategoryID` używana jako wartość pola.
 
 
-[![HZapisz wyświetlone pole CategoryName i CategoryID używana jako wartość](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
+[![Pole CategoryName wyświetlane i CategoryID używana jako wartość](customizing-the-data-modification-interface-vb/_static/image23.png)](customizing-the-data-modification-interface-vb/_static/image22.png)
 
 **Rysunek 8**: Masz `CategoryName` pole wyświetlane i `CategoryID` używana jako wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image24.png))
 
@@ -167,7 +167,7 @@ Powtórz te kroki, aby dodać kontrolki DropDownList o nazwie `Suppliers` do `Su
 Po dodaniu kontrolek DROPDOWNLIST do dwóch `EditItemTemplate` s, ładowania strony w przeglądarce i kliknij przycisk Edytuj Jacka Chef Cajun Seasoning produktu. Jak pokazano na rysunku nr 9, kolumn kategorii i dostawcy, produktu są renderowane jako listy rozwijanej zawierające dostępne kategorie i dostawców do wyboru. Jednak należy pamiętać, że *pierwszy* elementów w obu list rozwijanych są domyślnie zaznaczone (Beverages kategorii) i egzotycznych płynów jako dostawcę, mimo że Seasoning Cajun Jacka Chef jest dostarczane przez nowy Orlean Cajun przyprawa Radości.
 
 
-[![TDomyślnie jest wybrana on pierwszy element listy rozwijane](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
+[![Pierwszy element listy rozwijanej jest domyślnie zaznaczone](customizing-the-data-modification-interface-vb/_static/image26.png)](customizing-the-data-modification-interface-vb/_static/image25.png)
 
 **Rysunek 9**: Pierwszy element listy rozwijanej jest domyślnie zaznaczone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image27.png))
 
@@ -181,7 +181,7 @@ Aby kategorii produktu edytowany i dostawcy list rozwijanych Ustaw odpowiednie w
 Alternatywnie można ustawić DropDownList powiązania danych edytowanie szablonu za pomocą projektanta i klikając link Edytuj powiązania danych z kontrolki DropDownList tagu inteligentnego. Następnie należy wskazać, że `SelectedValue` właściwość powinna być powiązana z `CategoryID` pola przy użyciu dwukierunkowego wiązania danych (zobacz rysunek 10). Powtórz zaznacza deklaratywne lub projektanta procedurę można powiązać `SupplierID` pole danych, aby `Suppliers` DropDownList.
 
 
-[![BZnajdź CategoryID właściwości SelectedValue DropDownList przy użyciu dwukierunkowego wiązania danych](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
+[![Powiązywanie CategoryID właściwości SelectedValue DropDownList przy użyciu dwukierunkowego wiązania danych](customizing-the-data-modification-interface-vb/_static/image29.png)](customizing-the-data-modification-interface-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Powiąż `CategoryID` do metody DropDownList `SelectedValue` Databinding dwustronny przy użyciu właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image30.png))
 
@@ -189,7 +189,7 @@ Alternatywnie można ustawić DropDownList powiązania danych edytowanie szablon
 Po zastosowaniu powiązania w celu `SelectedValue` właściwości dwóch kontrolek DropDownList, edytowany produktu kolumny kategorii i dostawcy będą domyślnie wartości bieżącego produktu. Po kliknięciu aktualizacji `CategoryID` i `SupplierID` wartości elementu wybranej liście rozwijanej zostaną przekazane do `UpdateProduct` metody. Na ilustracji 11 pokazano samouczka po dodaniu instrukcji wiązania danych; należy pamiętać o tym, jak elementy wybranej listy rozwijanej dla Seasoning Cajun Jacka Chef są poprawnie przyprawa i nowy Orlean Cajun radości.
 
 
-[![TDomyślnie wybrane są bieżącej kategorii i dostawca wartości HE edytować produktu](customizing-the-data-modification-interface-vb/_static/image32.png)](customizing-the-data-modification-interface-vb/_static/image31.png)
+[![Domyślnie wybrane są bieżącej kategorii produktu edytować i dostawca wartości](customizing-the-data-modification-interface-vb/_static/image32.png)](customizing-the-data-modification-interface-vb/_static/image31.png)
 
 **Rysunek 11**: Domyślnie wybrane są bieżącej kategorii produktu edytować i dostawca wartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image33.png))
 
@@ -219,7 +219,7 @@ Powtórz te czynności dla metody DropDownList dostawców.
 Dzięki temu dodatkowe `ListItem`, interfejs edytowania można teraz przypisywać `NULL` wartości z produktem `CategoryID` i `SupplierID` pola, jak pokazano na rysunku 12.
 
 
-[![Cbierz (Brak), aby przypisać wartość NULL dla kategorii produktu lub dostawcy](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
+[![Wybierz (Brak) można przypisać wartości NULL dla kategorii produktu lub dostawcy](customizing-the-data-modification-interface-vb/_static/image35.png)](customizing-the-data-modification-interface-vb/_static/image34.png)
 
 **Rysunek 12**: Wybierz (Brak) do przypisania `NULL` wartości kategorii produktu lub dostawcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image36.png))
 
@@ -233,7 +233,7 @@ Rozpocznij od konwertowanie `Discontinued` CheckBoxField do TemplateField, któr
 Zastąp pole wyboru w obu `ItemTemplate` i `EditItemTemplate` z kontrolką RadioButtonList ustawienie oba RadioButtonLists `ID` właściwości `DiscontinuedChoice`. Następnie wskazuje, że RadioButtonLists powinien każdego zawierają dwa przyciski radiowe, jedną etykietą "aktywny" o wartości "False" i jednym z etykietą "Zakończona" o wartości "True". Można wprowadzić w tym celu `<asp:ListItem>` elementów bezpośrednio za pomocą składni deklaratywnej lub użyj `ListItem` — Edytor kolekcji przy użyciu projektanta. Przedstawia rysunek 13 `ListItem` — Edytor kolekcji po dwóch radiowy opcji przycisku, które zostały określone.
 
 
-[![Add aktywny i wycofane funkcje umożliwiające RadioButtonList](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
+[![Dodaj aktywnych i nieobsługiwane opcje do RadioButtonList](customizing-the-data-modification-interface-vb/_static/image38.png)](customizing-the-data-modification-interface-vb/_static/image37.png)
 
 **Rysunek 13**: Dodaj aktywnych i opcje wycofane do RadioButtonList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image39.png))
 
@@ -250,7 +250,7 @@ Po dodaniu dwóch RadioButtonLists i konfigurowania ich, `Discontinued` Template
 Za pomocą tych zmian `Discontinued` kolumna została przekształcona z listy pól wyboru do listy par przycisku radiowego (zobacz rysunek 14). Podczas edytowania produktu, odpowiedni przycisk radiowy jest zaznaczone, a stan nieobsługiwane produktu mogą być aktualizowane, wybierając przycisk radiowy i klikając aktualizacji.
 
 
-[![Ton wycofany pola wyboru zostały zastąpione przez pary przycisk radiowy](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
+[![Nieobsługiwane pola wyboru zostały zastąpione przez pary przycisku radiowego](customizing-the-data-modification-interface-vb/_static/image41.png)](customizing-the-data-modification-interface-vb/_static/image40.png)
 
 **Rysunek 14**: Wycofane pola wyboru zostały zastąpione przez pary przycisku radiowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](customizing-the-data-modification-interface-vb/_static/image42.png))
 

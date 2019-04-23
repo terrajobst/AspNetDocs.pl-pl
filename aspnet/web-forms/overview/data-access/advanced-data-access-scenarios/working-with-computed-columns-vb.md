@@ -12,7 +12,7 @@ ms.openlocfilehash: 9ded6526a2c4f1063843f3448ba3a2023686f529
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421176"
 ---
 # <a name="working-with-computed-columns-vb"></a>Praca z kolumnami obliczanymi (VB)
@@ -54,7 +54,7 @@ Należy pamiętać, że ciągi mogą być łączone w języku SQL przy użyciu `
 Po dodaniu tę kolumnę obliczaną ekran powinien wyglądać jak ekran zrzut na rysunku 1.
 
 
-[![Add a obliczane kolumny o nazwie FullContactName do tabeli dostawcy](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
+[![Dodaj kolumnę obliczaną, o nazwie FullContactName do tabeli dostawcy](working-with-computed-columns-vb/_static/image2.png)](working-with-computed-columns-vb/_static/image1.png)
 
 **Rysunek 1**: Dodaj obliczane kolumny o nazwie `FullContactName` do `Suppliers` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image3.png))
 
@@ -79,7 +79,7 @@ Zanim zaczniemy pracę w warstwie dostępu do danych umożliwiają s potrwać ch
 Jak pokazano na rysunku 2, wyniki obejmują `FullContactName`, które zawiera listę `CompanyName`, `ContactName`, i `ContactTitle` kolumn przy użyciu formatu `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-[![TUżywa on FullContactName ContactName formatu (StanowiskoPrzedstawiciela, NazwaFirmy)](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
+[![FullContactName używa formatu ContactName (StanowiskoPrzedstawiciela, nazwa firmy)](working-with-computed-columns-vb/_static/image5.png)](working-with-computed-columns-vb/_static/image4.png)
 
 **Rysunek 2**: `FullContactName` Używa formatu `ContactName` (`ContactTitle`, `CompanyName`) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image6.png))
 
@@ -97,7 +97,7 @@ Na potrzeby tego samouczka należy zezwolić s, Dodaj nowy obiekt TableAdapter i
 Zacznij od otwarcia `NorthwindWithSprocs` zestawu danych w `~/App_Code/DAL` folderu. Kliknij prawym przyciskiem myszy w projektancie, a następnie z menu kontekstowego wybierz dodać nowy obiekt TableAdapter. Spowoduje to uruchomienie Kreatora konfiguracji TableAdapter. Określ bazę danych do zapytania o dane z (`NORTHWNDConnectionString` z `Web.config`) i kliknij przycisk Dalej. Ponieważ mamy jeszcze nie utworzono żadnych procedur składowanych do wykonywania zapytań i modyfikowania `Suppliers` tabeli, wybierz pozycję Utwórz nowe procedury składowane opcję Tak, aby Kreator utworzone dla nas i kliknij przycisk Dalej.
 
 
-[![Cbierz Utwórz nowe procedury składowane opcji](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
+[![Wybierz pozycję Utwórz nowe procedury składowane opcji](working-with-computed-columns-vb/_static/image8.png)](working-with-computed-columns-vb/_static/image7.png)
 
 **Rysunek 3**: Wybierz pozycję Utwórz nowe procedury składowane opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image9.png))
 
@@ -110,7 +110,7 @@ Kolejny krok nam monituje o podanie główne zapytanie. Wprowadź następujące 
 Po wprowadzeniu główne zapytanie i klikając przycisk Dalej, Kreator pozwala nam nazwy czterech procedur składowanych, który zostanie wygenerowany. Nazwy tych procedurach składowanych `Suppliers_Select`, `Suppliers_Insert`, `Suppliers_Update`, i `Suppliers_Delete`, tak jak pokazano na rysunku 4.
 
 
-[![CDostosuj nazwy procedur składowanych wygenerowanej](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
+[![Dostosowywanie nazw automatycznego generowania procedur składowanych](working-with-computed-columns-vb/_static/image11.png)](working-with-computed-columns-vb/_static/image10.png)
 
 **Rysunek 4**: Dostosowywanie nazw procedur składowanych wygenerowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image12.png))
 
@@ -118,7 +118,7 @@ Po wprowadzeniu główne zapytanie i klikając przycisk Dalej, Kreator pozwala n
 Następny krok kreatora pozwala nam nazwy metody TableAdapter s i określ wzorce umożliwiają dostęp i aktualizują dane. Pozostaw zaznaczone wszystkie trzy pola wyboru, ale Zmień nazwę `GetData` metody `GetSuppliers`. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![RZmień nazwę metody GetData do GetSuppliers](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
+[![Zmień nazwę metody GetData GetSuppliers](working-with-computed-columns-vb/_static/image14.png)](working-with-computed-columns-vb/_static/image13.png)
 
 **Rysunek 5**: Zmień nazwę `GetData` metody `GetSuppliers` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image15.png))
 
@@ -142,7 +142,7 @@ Zapisz zmiany do procedury składowanej, klikając ikonę Zapisz na pasku narzę
 Następnie wróć do Projektanta obiektów DataSet, kliknij prawym przyciskiem myszy `SuppliersTableAdapter`i wybierz pozycję z menu kontekstowego. Należy pamiętać, że `Suppliers_Select` zawiera teraz kolumny `FullContactName` kolumny w jego kolekcja kolumn danych.
 
 
-[![RUruchom Kreatora konfiguracji TableAdapter s, można zaktualizować kolumn tabeli DataTable s](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
+[![Uruchom Kreatora konfiguracji TableAdapter s, można zaktualizować kolumn s DataTable](working-with-computed-columns-vb/_static/image17.png)](working-with-computed-columns-vb/_static/image16.png)
 
 **Rysunek 6**: Uruchom s TableAdapter Kreator konfiguracji można zaktualizować elementu DataTable s kolumn ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image18.png))
 
@@ -150,7 +150,7 @@ Następnie wróć do Projektanta obiektów DataSet, kliknij prawym przyciskiem m
 Kliknij przycisk Zakończ, aby zakończyć działanie kreatora. To spowoduje automatyczne dodanie odpowiadającej mu kolumny do `SuppliersDataTable`. Kreator Obiekt TableAdapter jest inteligentnego wykryć, że `FullContactName` kolumna jest kolumną obliczaną, a więc tylko do odczytu. W związku z tym, ustawia kolumny s `ReadOnly` właściwość `true`. Aby to sprawdzić, wybierz kolumnę z `SuppliersDataTable` , a następnie przejdź do okna właściwości (zobacz rysunek 7). Należy pamiętać, że `FullContactName` kolumny s `DataType` i `MaxLength` właściwości również są odpowiednio ustawiane.
 
 
-[![Tjest on kolumny FullContactName oznaczony jako tylko do odczytu](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
+[![Kolumna FullContactName została oznaczona jako tylko do odczytu](working-with-computed-columns-vb/_static/image20.png)](working-with-computed-columns-vb/_static/image19.png)
 
 **Rysunek 7**: `FullContactName` Kolumna została oznaczona jako tylko do odczytu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image21.png))
 
@@ -162,7 +162,7 @@ W tym samouczku zostanie utworzona strona ASP.NET, która wyświetla dostawców 
 Kliknij prawym przyciskiem myszy `SuppliersTableAdapter` w projekcie zestawu danych i wybierz opcję Dodaj zapytanie z menu kontekstowego. Ile My mieliśmy w kroku 3 umożliwiają kreatora wygenerować nową procedurę składowaną dla nas, wybierając opcję tworzenia nowej procedury składowanej (odnoszą się do rysunku 3 dla tego kroku w Kreatorze zrzut ekranu). Ponieważ ta metoda zwraca rekord z wielu kolumn, należy wskazać, że chcemy korzystać z zapytania SQL, który jest SELECT, która zwraca wiersze, a następnie kliknij przycisk Dalej.
 
 
-[![Cbierz SELECT, która zwraca wiersze, w opcji](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
+[![Wybierz pozycję Wybierz, która zwraca wiersze — opcja](working-with-computed-columns-vb/_static/image23.png)](working-with-computed-columns-vb/_static/image22.png)
 
 **Rysunek 8**: Wybierz pozycję Wybierz, która zwraca wiersze opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image24.png))
 
@@ -175,7 +175,7 @@ Kolejny krok monituje o nas dla zapytania, aby użyć tej metody. Wprowadź nast
 Następny ekran pyta, czy nam Nazwa procedury składowanej, który ma być generowane automatycznie. Nazwa tej procedury składowanej `Suppliers_SelectBySupplierID` i kliknij przycisk Dalej.
 
 
-[![NNazwa Suppliers_SelectBySupplierID procedury składowanej](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
+[![Nazwa Suppliers_SelectBySupplierID procedury składowanej](working-with-computed-columns-vb/_static/image26.png)](working-with-computed-columns-vb/_static/image25.png)
 
 **Rysunek 9**: Nazwa procedury składowanej `Suppliers_SelectBySupplierID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image27.png))
 
@@ -183,7 +183,7 @@ Następny ekran pyta, czy nam Nazwa procedury składowanej, który ma być gener
 Na koniec z poleceniami kreatora nam dane dostępu wzorców i nazwy metod na potrzeby TableAdapter. Pozostaw oba pola wyboru zaznaczone, ale Zmień nazwę `FillBy` i `GetDataBy` metody `FillBySupplierID` i `GetSupplierBySupplierID`, odpowiednio.
 
 
-[![NNazwa FillBySupplierID metod TableAdapter i GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
+[![Nazwa FillBySupplierID metod TableAdapter i GetSupplierBySupplierID](working-with-computed-columns-vb/_static/image29.png)](working-with-computed-columns-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Nazwa metody TableAdapter `FillBySupplierID` i `GetSupplierBySupplierID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image30.png))
 
@@ -210,7 +210,7 @@ Inne klasy LOGIKI, takich jak `SuppliersBLLWithSprocs` ma `Protected` `Adapter` 
 Z kolumną obliczaną, dodane do `Suppliers` tabeli i warstwy DAL i LOGIKI odpowiednio aktualizowane, możemy przystąpić do zbudowania strony ASP.NET, która współdziała z `FullContactName` kolumny obliczanej. Zacznij od otwarcia `ComputedColumns.aspx` stronie `AdvancedDAL` folder i przeciągnij GridView z przybornika do projektanta. Ustaw GridView s `ID` właściwości `Suppliers` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `SuppliersDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `SuppliersBLLWithSprocs` klasy dodaliśmy z powrotem w kroku 6 i kliknij przycisk Dalej.
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy SuppliersBLLWithSprocs](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
+[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy SuppliersBLLWithSprocs](working-with-computed-columns-vb/_static/image32.png)](working-with-computed-columns-vb/_static/image31.png)
 
 **Rysunek 11**: Konfigurowanie kontrolki ObjectDataSource do użycia `SuppliersBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image33.png))
 
@@ -229,7 +229,7 @@ Po wprowadzeniu tych zmian do kontrolki GridView i kontrolki ObjectDataSource, i
 Następnie odwiedź tę stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 12, każdy dostawca znajduje się w siatce, która obejmuje `FullContactName` kolumny, której wartość jest po prostu łączenie trzy kolumny sformatowane jako `ContactName` (`ContactTitle`, `CompanyName`).
 
 
-[![Estacje, które dostawcy znajduje się w siatce](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
+[![Każdy dostawca znajduje się w siatce](working-with-computed-columns-vb/_static/image35.png)](working-with-computed-columns-vb/_static/image34.png)
 
 **Rysunek 12**: Każdy dostawca znajduje się w siatce ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image36.png))
 
@@ -237,7 +237,7 @@ Następnie odwiedź tę stronę za pośrednictwem przeglądarki. Jak pokazano na
 Klikając przycisk Edytuj, dla określonego dostawcę powoduje odświeżenie strony i ma ten wiersz, renderowane przy użyciu jego edytowania interfejsu (zobacz rysunek 13). Pierwsze trzy kolumny renderowane w swojej domyślnej edycji interfejsu — formant pola tekstowego, którego `Text` właściwość jest ustawiona na wartość pola danych. `FullContactName` Kolumny, jednak pozostaje jako tekst. Gdy BoundFields zostały dodane do kontrolki GridView po ukończeniu działania Kreatora konfiguracji źródła danych, `FullContactName` s elementu BoundField `ReadOnly` właściwość `True` ponieważ odpowiednich `FullContactName` kolumny w `SuppliersDataTable` ma jego `ReadOnly` właściwością `True`. Jak wspomniano w kroku 4 `FullContactName` s `ReadOnly` właściwość `True` ponieważ TableAdapter wykrył, że kolumny jest kolumną obliczaną.
 
 
-[![Tjest on FullContactName kolumny nie można edytować](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
+[![Kolumna FullContactName jest niedostępne do edycji](working-with-computed-columns-vb/_static/image38.png)](working-with-computed-columns-vb/_static/image37.png)
 
 **Rysunek 13**: `FullContactName` Kolumna jest nie można edytować ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](working-with-computed-columns-vb/_static/image39.png))
 

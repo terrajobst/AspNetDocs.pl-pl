@@ -12,7 +12,7 @@ ms.openlocfilehash: 4a4627bdce8b8f2085150aa08cdc4c1271e09e09
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422008"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metod edycji i widoku edycji

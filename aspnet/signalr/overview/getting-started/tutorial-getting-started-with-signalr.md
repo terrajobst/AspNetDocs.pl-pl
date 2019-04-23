@@ -9,12 +9,12 @@ ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: b1e8b6b1b300665f6cd2466766e9adcff52733da
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ecc235454d4b95ce660a4373387f44720826b076
+ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59422918"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59905647"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2"></a>Samouczek: Rozmowa w czasie rzeczywistym przy użyciu usługi SignalR 2
 
@@ -60,6 +60,10 @@ W tej sekcji pokazano, jak utworzyć pustą aplikację sieci web platformy ASP.N
 1. W **Dodaj nowy element - SignalRChat** wybierz **zainstalowane** > **Visual C#**   >  **Web** a Wybierz **klasy początkowej OWIN**.
 
 1. Nazwa klasy *uruchamiania* i dodaj go do projektu.
+
+1. Zastąp kod domyślne *uruchamiania* klasy przy użyciu tego kodu:
+
+    [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **strony HTML**.
 
@@ -165,7 +169,7 @@ Kod uruchamia połączenie i przekazuje go po funkcji do obsługi zdarzenia clic
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

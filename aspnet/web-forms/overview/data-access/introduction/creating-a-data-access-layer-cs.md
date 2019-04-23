@@ -12,7 +12,7 @@ ms.openlocfilehash: 4d8afd13fc693c828850bec53664a4db7d91dede
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420604"
 ---
 # <a name="creating-a-data-access-layer-c"></a>Tworzenie warstwy dostępu do danych (C#)
@@ -37,7 +37,7 @@ W tym samouczku utworzymy zacząć od samego początku wymuszał i tworzenie dan
 Zanim będziemy mogli utworzyć nasze warstwy dostępu do danych (DAL), najpierw należy utworzyć witrynę sieci web i skonfigurować w naszej bazie danych. Rozpocznij od utworzenia nowego pliku w oparciu o system ASP.NET witryny sieci web. Aby to zrobić, przejdź do menu Plik, a następnie wybierz nową witrynę sieci Web w celu wyświetlania okna dialogowego nową witrynę sieci Web. Wybierz szablon witryny sieci Web platformy ASP.NET, zmień wartość na liście rozwijanej lokalizacji w systemie plików, wybierz folder do umieszczenia w witrynie sieci web i ustaw języka C#.
 
 
-[![Ctwórz witryny sieci Web New File System-Based](creating-a-data-access-layer-cs/_static/image2.png)](creating-a-data-access-layer-cs/_static/image1.png)
+[![Tworzenie nowego pliku w oparciu o System witryny sieci Web](creating-a-data-access-layer-cs/_static/image2.png)](creating-a-data-access-layer-cs/_static/image1.png)
 
 **Rysunek 1**: Tworzenie witryny sieci Web New File System-Based ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image3.png))
 
@@ -92,7 +92,7 @@ Aby przywrócić silnie typizowanych obiektów, deweloperzy mogą tworzenie wła
 Użyjemy silnie typizowane zestawy danych dla tych samouczków architektury. Rysunek 3 ilustruje przepływ pracy między różne warstwy aplikacji, która używa wpisanych zestawów danych.
 
 
-[![ALL, którego kod dostępu do danych jest były odpowiedzialne z warstwą dal](creating-a-data-access-layer-cs/_static/image6.png)](creating-a-data-access-layer-cs/_static/image5.png)
+[![Cały kod dostępu do danych jest były odpowiedzialne warstwy DAL](creating-a-data-access-layer-cs/_static/image6.png)](creating-a-data-access-layer-cs/_static/image5.png)
 
 **Rysunek 3**: Cały kod dostępu do danych jest były odpowiedzialne z warstwą dal ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image7.png))
 
@@ -102,7 +102,7 @@ Użyjemy silnie typizowane zestawy danych dla tych samouczków architektury. Rys
 Aby rozpocząć tworzenie naszej DAL, Zaczniemy od Dodawanie wpisany zestaw danych do naszego projektu. W tym celu kliknij prawym przyciskiem myszy węzeł projektu w Eksploratorze rozwiązań i wybierz pozycję Dodaj nowy element. Wybierz opcję zestaw danych z listy szablonów, a następnie nadaj mu nazwę **Northwind.xsd**.
 
 
-[![CWybierz, aby dodać nowy zestaw danych do projektu](creating-a-data-access-layer-cs/_static/image9.png)](creating-a-data-access-layer-cs/_static/image8.png)
+[![Wybierz dodać nowy zestaw danych do projektu](creating-a-data-access-layer-cs/_static/image9.png)](creating-a-data-access-layer-cs/_static/image8.png)
 
 **Rysunek 4**: Wybierz dodać nowy zestaw danych do projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image10.png))
 
@@ -116,7 +116,7 @@ Należy pamiętać o tym, silnie typizowane DataTable nie dołączaj żadnych in
 Kreator konfiguracji TableAdapter rozpoczyna się od monit wybierz bazę danych, które chcesz pracować. Na liście rozwijanej przedstawiono tych baz danych w Eksploratorze serwera. Jeśli bazy danych Northwind nie zostały dodane do Eksploratora serwera, możesz kliknąć przycisk nowe połączenie, w tej chwili, aby to zrobić.
 
 
-[![CWybierz z listy rozwijanej bazy danych Northwind](creating-a-data-access-layer-cs/_static/image12.png)](creating-a-data-access-layer-cs/_static/image11.png)
+[![Z listy rozwijanej wybierz opcję bazy danych Northwind](creating-a-data-access-layer-cs/_static/image12.png)](creating-a-data-access-layer-cs/_static/image11.png)
 
 **Rysunek 5**: Z listy rozwijanej wybierz opcję bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image13.png))
 
@@ -124,7 +124,7 @@ Kreator konfiguracji TableAdapter rozpoczyna się od monit wybierz bazę danych,
 Po wybraniu bazy danych, a następnie klikając przycisk Dalej, użytkownik zostanie zapytany, czy chcesz zapisać parametry połączenia w **Web.config** pliku. Zapisując parametry połączenia można będzie uniknąć go twardych kodowane w klasach TableAdapter, która upraszcza czynności, jeśli informacje o parametrach połączenia zmieni się w przyszłości. Jeśli wybierzesz opcję Zapisz parametry połączenia w pliku konfiguracji jest umieszczany w **&lt;connectionStrings&gt;** sekcję, co może być [opcjonalnie zaszyfrowanych](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) na lepsze zabezpieczeń lub zmodyfikowany później przy użyciu nowej strony właściwości w wersji 2.0 programu ASP.NET w narzędziu administracyjnym usług IIS graficznego interfejsu użytkownika, co jest bardziej idealnym rozwiązaniem dla administratorów.
 
 
-[![SZapisz parametry połączenia do pliku Web.config](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
+[![Zapisz parametry połączenia do pliku Web.config](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
 
 **Rysunek 6**: Zapisz ciąg połączeń do **Web.config** ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image16.png))
 
@@ -134,7 +134,7 @@ Następnie należy zdefiniować schemat dla pierwszego elementu DataTable silnie
 Aby rozpocząć pracę, definiując kwerendy SQL musi najpierw wskazaliśmy jak chcemy TableAdapter do wysyłania kwerendy. Możemy użyć instrukcji SQL zapytań ad-hoc, Utwórz nową procedurę składowaną lub użyj istniejącą procedurę składowaną. Dla tych samouczkach użyjemy instrukcji SQL zapytań ad-hoc. Zapoznaj się [NieTak Brian](http://briannoyes.net/)użytkownika artykuł [Tworzenie warstwy dostępu do danych, za pomocą Projektanta obiektów DataSet 2005 Visual Studio](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner) na przykład za pomocą procedur składowanych.
 
 
-[![QPrzykładowe dane za pomocą instrukcji SQL zapytań Ad-Hoc](creating-a-data-access-layer-cs/_static/image18.png)](creating-a-data-access-layer-cs/_static/image17.png)
+[![Wykonywanie zapytań o dane za pomocą instrukcji SQL zapytań Ad-Hoc](creating-a-data-access-layer-cs/_static/image18.png)](creating-a-data-access-layer-cs/_static/image17.png)
 
 **Rysunek 7**: Wykonywanie zapytań o dane za pomocą instrukcji SQL zapytań Ad-Hoc ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image19.png))
 
@@ -142,7 +142,7 @@ Aby rozpocząć pracę, definiując kwerendy SQL musi najpierw wskazaliśmy jak 
 W tym momencie możemy można wpisać w kwerendzie SQL ręcznie. Podczas tworzenia pierwszej metody w metodzie TableAdapter ma zazwyczaj kwerenda zwraca te kolumny, które muszą być wyrażone w odpowiedni DataTable. Możemy to zrobić, tworząc zapytania zwracającego wszystkie kolumny i wszystkie wiersze z **produktów** tabeli:
 
 
-[![ESQL zapytań w polu tekstowym wprowadź](creating-a-data-access-layer-cs/_static/image21.png)](creating-a-data-access-layer-cs/_static/image20.png)
+[![Wprowadź zapytanie SQL do kontrolki Textbox](creating-a-data-access-layer-cs/_static/image21.png)](creating-a-data-access-layer-cs/_static/image20.png)
 
 **Rysunek 8**: Wprowadź SQL zapytań w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image22.png))
 
@@ -150,7 +150,7 @@ W tym momencie możemy można wpisać w kwerendzie SQL ręcznie. Podczas tworzen
 Alternatywnie użyj konstruktora zapytań i graficznie konstruowania zapytania, jak pokazano na rysunku 9.
 
 
-[![CTwórz zapytania graficznie, za pomocą edytora zapytań](creating-a-data-access-layer-cs/_static/image24.png)](creating-a-data-access-layer-cs/_static/image23.png)
+[![Utwórz zapytanie w formie graficznej, za pomocą edytora zapytań](creating-a-data-access-layer-cs/_static/image24.png)](creating-a-data-access-layer-cs/_static/image23.png)
 
 **Rysunek 9**: Utwórz zapytanie graficznie, za pomocą edytora zapytań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image25.png))
 
@@ -158,7 +158,7 @@ Alternatywnie użyj konstruktora zapytań i graficznie konstruowania zapytania, 
 Po utworzeniu zapytania, ale przed przejściem do następnego ekranu kliknij przycisk Opcje zaawansowane. W projektach witryny sieci Web "Generuj Insert, Update i Delete instrukcji" jest jedyną zaawansowana opcja jest zaznaczona domyślnie; Po uruchomieniu tego kreatora z biblioteki klas lub projektu Windows również zostanie wybrana opcja "Użyj optymistycznej współbieżności". Zaznaczaj opcji "Użyj optymistycznej współbieżności" teraz. W samouczkach przyszłych zajmiemy się optymistycznej współbieżności.
 
 
-[![Swybiera tylko generowanie Insert, Update i Delete instrukcje opcji](creating-a-data-access-layer-cs/_static/image27.png)](creating-a-data-access-layer-cs/_static/image26.png)
+[![Wybierz tylko generowanie Insert, Update i Delete instrukcje opcji](creating-a-data-access-layer-cs/_static/image27.png)](creating-a-data-access-layer-cs/_static/image26.png)
 
 **Na rysunku nr 10**: Wybierz tylko generowanie Insert, Update i Delete instrukcje opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image28.png))
 
@@ -173,7 +173,7 @@ Może mieć TableAdapter, zaimplementuj jeden lub oba te wzorce. Można równie�
 Jeśli zaznaczone, tworzy końcowej pola wyboru "GenerateDBDirectMethods," **Insert()**, **Update()**, i **Delete()** metody TableAdapter. Jeśli zaznaczaj tej opcji wszystkie aktualizacje należy wykonać za pomocą TableAdapter jedynej **Update()** metody, która przyjmuje wpisany zestaw danych, DataTable, pojedynczego elementu DataRow lub tablicę wierszy danych. (Jeśli masz unchecked "Generuj Insert, Update i Delete instrukcje" w opcji Zaawansowane właściwości na rysunku 9 to pole wyboru ustawienia odniesie żadnego skutku.) Teraz należy pozostawić zaznaczone pole wyboru.
 
 
-[![CZmień nazwę metody GetData do GetProducts](creating-a-data-access-layer-cs/_static/image30.png)](creating-a-data-access-layer-cs/_static/image29.png)
+[![Zmień nazwę metody z GetData GetProducts](creating-a-data-access-layer-cs/_static/image30.png)](creating-a-data-access-layer-cs/_static/image29.png)
 
 **Rysunek 11**: Zmień nazwę metody **GetData** do **GetProducts** ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image31.png))
 
@@ -181,7 +181,7 @@ Jeśli zaznaczone, tworzy końcowej pola wyboru "GenerateDBDirectMethods," **Ins
 Ukończ pracę kreatora, klikając przycisk Zakończ. Po zamknięciu kreatora możemy są zwracane do Projektanta obiektów DataSet, w której przedstawiono DataTable, którą właśnie utworzyliśmy. Można wyświetlić listę kolumn w **produktów** DataTable (**ProductID**, **ProductName**i tak dalej), a także metody  **ProductsTableAdapter** (**Fill()** i **GetProducts()**).
 
 
-[![Ton DataTable produktów i ProductsTableAdapter zostały dodane do zestawu danych wpisane](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
+[![DataTable produktów i ProductsTableAdapter zostały dodane do wpisana zestawu danych](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
 
 **Rysunek 12**: **Produktów** DataTable i **ProductsTableAdapter** zostały dodane do zestawu danych wpisane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image34.png))
 
@@ -203,7 +203,7 @@ AllProducts.aspx.cs
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample3.cs)]
 
 
-[![TADAM lista produktów są wyświetlane w widoku GridView](creating-a-data-access-layer-cs/_static/image36.png)](creating-a-data-access-layer-cs/_static/image35.png)
+[![Lista produktów są wyświetlane w widoku GridView](creating-a-data-access-layer-cs/_static/image36.png)](creating-a-data-access-layer-cs/_static/image35.png)
 
 **Rysunek 13**: Lista produktów jest wyświetlany w kontrolce GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image37.png))
 
@@ -225,7 +225,7 @@ Dodajmy **GetProductsByCategoryID (*categoryID*)** metody. Aby dodać nową meto
 Firma Microsoft są najpierw pojawi się monit dotyczący tego, czy ma dostęp do bazy danych za pomocą instrukcji SQL zapytań ad-hoc lub nowej lub istniejącej procedury składowanej. Wybierzmy użyć instrukcji SQL zapytań ad-hoc ponownie. Są następnie proszeni jakiego typu zapytania SQL prosimy o poświęcenie do użycia. Ponieważ chcemy zwrócić wszystkie produkty, które należą do określonej kategorii, chcemy napisać **wybierz** instrukcji, która zwraca wiersze.
 
 
-[![CWybierz, aby utworzyć wybierz instrukcji która zwraca wiersze](creating-a-data-access-layer-cs/_static/image40.png)](creating-a-data-access-layer-cs/_static/image39.png)
+[![Utwórz instrukcję SELECT, która zwraca wiersze](creating-a-data-access-layer-cs/_static/image40.png)](creating-a-data-access-layer-cs/_static/image39.png)
 
 **Rysunek 15**: Możliwość tworzenia **wybierz** instrukcji która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image41.png))
 
@@ -233,7 +233,7 @@ Firma Microsoft są najpierw pojawi się monit dotyczący tego, czy ma dostęp d
 Następnym krokiem jest określenie zapytania SQL używany do uzyskania dostępu do danych. Ponieważ chcemy zwracać tylko te produkty, które należą do określonej kategorii, czy mogę używać tego samego <strong>wybierz</strong> instrukcji z <strong>GetProducts()</strong>, Dodaj następujący kod, ale <strong>gdzie</strong> Klauzula: <strong>GDZIE CategoryID = @CategoryID</strong> . <strong>@CategoryID</strong> Parametr wskazuje kreatora TableAdapter, że metoda tworzymy będą wymagały parametr wejściowy odpowiedniego typu (to znaczy, integer dopuszczającego wartość null).
 
 
-[![EWprowadź kwerendę, aby tylko zwrócić produktów w określonej kategorii](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
+[![Wprowadź zapytanie, aby zwracać tylko produktów w określonej kategorii](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
 
 **Rysunek 16**: Wprowadź kwerendę tylko zwrócić produktów w określonej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image44.png))
 
@@ -241,7 +241,7 @@ Następnym krokiem jest określenie zapytania SQL używany do uzyskania dostępu
 W ostatnim kroku możemy wybrać który wzorce do użycia, a także dostosować nazwy metody generowane dostępu do danych. Deseń wypełnienia zmienimy nazwę aby <strong>FillByCategoryID</strong> i dotyczące zwracania DataTable zwracają wzorca ( <strong>uzyskać*X</strong>*  metod), użyjemy  <strong>GetProductsByCategoryID</strong>.
 
 
-[![Cbierz nazwy dla metody TableAdapter](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
+[![Wybierz nazwy dla metody TableAdapter](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
 
 **Rysunek 17**: Wybierz nazwy dla metody TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image47.png))
 
@@ -259,7 +259,7 @@ Poświęć chwilę, aby dodać **GetProductByProductID (*productID*)** metody pr
 Można przetestować te zapytania parametrycznego bezpośrednio w Projektancie obiektów DataSet. Kliknij prawym przyciskiem myszy na metodzie, w metodzie TableAdapter, a następnie wybierz Podgląd danych. Następnie wprowadź wartości dla parametrów i kliknij przycisk (wersja zapoznawcza).
 
 
-[![Twąż produkty należące do kategorii Beverages są pokazywane](creating-a-data-access-layer-cs/_static/image50.png)](creating-a-data-access-layer-cs/_static/image49.png)
+[![Te należące produktów do kategorii Beverages są wyświetlane.](creating-a-data-access-layer-cs/_static/image50.png)](creating-a-data-access-layer-cs/_static/image49.png)
 
 **Rysunek 19**: Są wyświetlane te należące produktów do kategorii Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image51.png))
 
@@ -275,7 +275,7 @@ Beverages.aspx.CS
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample5.cs)]
 
 
-[![Twąż produkty należące do tej kategorii są wyświetlane](creating-a-data-access-layer-cs/_static/image53.png)](creating-a-data-access-layer-cs/_static/image52.png)
+[![Tych produktów w należące do tej kategorii są wyświetlane.](creating-a-data-access-layer-cs/_static/image53.png)](creating-a-data-access-layer-cs/_static/image52.png)
 
 **Rysunek 20**: Tych produktów w należące do tej kategorii są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image54.png))
 
@@ -285,7 +285,7 @@ Beverages.aspx.CS
 Istnieją dwa wzorce często używane do wstawiania, aktualizowania i usuwania danych. Pierwszy wzorzec będzie wywoływany wzorzec bezpośrednie bazy danych obejmuje tworzenie metod, które po wywołaniu, problem **Wstaw**, **aktualizacji**, lub **Usuń** polecenia Baza danych, która operuje na rekord pojedynczej bazy danych. Takie metody zwykle są przekazywane w serii wartości skalarnych (liczby całkowite, ciągi, wartości logicznych, Data/Godzina i tak dalej), które odpowiadają wartościom do wstawiania, aktualizacji lub usuwania. Na przykład, w ramach tego wzorca dla **produktów** tabeli metodę delete zajmie się parametru liczby całkowitej wskazujący **ProductID** rekordu, aby usunąć, gdy metoda Wstaw zajęłoby ciąg dla **ProductName**, dziesiętny dla **UnitPrice**, liczbę całkowitą dla **UnitsOnStock**i tak dalej.
 
 
-[![Estacje Insert, Update i Usuń żądania są wysyłane do bazy danych natychmiast](creating-a-data-access-layer-cs/_static/image56.png)](creating-a-data-access-layer-cs/_static/image55.png)
+[![Każdy Insert, Update i Usuń żądania, które są wysyłane do bazy danych natychmiast](creating-a-data-access-layer-cs/_static/image56.png)](creating-a-data-access-layer-cs/_static/image55.png)
 
 **Rysunek 21**: Każdy Insert, Update i Usuń żądania, które są wysyłane do bazy danych od razu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image57.png))
 
@@ -293,7 +293,7 @@ Istnieją dwa wzorce często używane do wstawiania, aktualizowania i usuwania d
 Inne wzorzec, który mogę odnosić się do w partii aktualizacji wzorzec, jest aktualizacji całego zestawu danych, DataTable lub Kolekcja wierszy danych w jednego wywołania metody. W ramach tego wzorca Deweloper usuwa, wstawia modyfikuje wierszy danych w elemencie DataTable i następnie przekazuje do metody aktualizacji tych wierszy danych ani objekt DataTable. Ta metoda następnie wylicza dotyczy to również utworzeń przekazanej, określa, czy są już został zmodyfikowany, dodane lub usunięty (za pośrednictwem elementu DataRow [właściwość RowState](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) wartość) i wystawia żądanie odpowiednią bazę danych dla każdego rekordu.
 
 
-[![Awszystkie zmiany są zsynchronizowane z bazy danych podczas aktualizacji metodą jest wywoływany](creating-a-data-access-layer-cs/_static/image59.png)](creating-a-data-access-layer-cs/_static/image58.png)
+[![Wszystkie zmiany są synchronizowane z bazą danych, gdy wywoływana jest metoda aktualizacji](creating-a-data-access-layer-cs/_static/image59.png)](creating-a-data-access-layer-cs/_static/image58.png)
 
 **Rysunek 22**: Wszystkie zmiany są synchronizowane z bazą danych, gdy wywoływana jest metoda aktualizacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image60.png))
 
@@ -303,7 +303,7 @@ TableAdapter domyślnie używa wzorca aktualizacji usługi batch, ale także obs
 Obu wzorców modyfikacji danych użyj TableAdapter **element InsertCommand**, **elementu UpdateCommand**, i **elementu DeleteCommand** właściwości do wysyłania ich **INSERT** , **Aktualizacji**, i **Usuń** poleceń w bazie danych. Możesz sprawdzić i modyfikować **element InsertCommand**, **elementu UpdateCommand**, i **elementu DeleteCommand** właściwości, klikając na obiekt TableAdapter w Projektancie obiektów DataSet, a następnie przechodząc w oknie właściwości. (Pamiętaj, że wybrano TableAdapter oraz że **ProductsTableAdapter** obiekt jest zaznaczony na liście rozwijanej w oknie dialogowym właściwości.)
 
 
-[![TObiekt TableAdapter ma element InsertCommand, elementu UpdateCommand i właściwości elementu DeleteCommand](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
+[![TableAdapter ma element InsertCommand, elementu UpdateCommand i właściwości elementu DeleteCommand](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
 **Ilustracja 23**: TableAdapter ma **element InsertCommand**, **elementu UpdateCommand**, i **elementu DeleteCommand** właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image63.png))
 
@@ -311,7 +311,7 @@ Obu wzorców modyfikacji danych użyj TableAdapter **element InsertCommand**, **
 Aby przejrzeć lub zmodyfikować dowolne z tych właściwości polecenia bazy danych, kliknij pozycję **CommandText** właściwości podrzędnej, co umożliwi wyświetlenie konstruktora zapytań.
 
 
-[![Configuruj INSERT, UPDATE i usuwania instrukcji w Konstruktorze zapytań](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
+[![Konfigurowanie INSERT, UPDATE i DELETE instrukcji w Konstruktorze zapytań](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
 **Rysunek 24**: Konfigurowanie **Wstaw**, **aktualizacji**, i **Usuń** instrukcji w Konstruktorze zapytań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image66.png))
 
@@ -331,7 +331,7 @@ Poniższy kod ilustruje sposób użyć wzorca bezpośrednie DB programowo usuną
 Aby utworzyć niestandardową metodę, wróć do Projektanta obiektów DataSet. Kliknij prawym przyciskiem myszy na obiekt TableAdapter i wybierz polecenie Dodaj zapytanie powrotu do kreatora TableAdapter. Na drugim ekranie firma Microsoft może wskazywać typ zapytanie w celu utworzenia. Utwórzmy metodę, która dodaje nowy produkt, a następnie zwraca wartość nowo dodanego rekordu **ProductID**. W związku z tym, wybrać opcję utworzenia **Wstaw** zapytania.
 
 
-[![CUtwórz metodę, aby dodać nowy wiersz do tabeli Produkty](creating-a-data-access-layer-cs/_static/image68.png)](creating-a-data-access-layer-cs/_static/image67.png)
+[![Utwórz metodę, aby dodać nowy wiersz do tabeli Produkty](creating-a-data-access-layer-cs/_static/image68.png)](creating-a-data-access-layer-cs/_static/image67.png)
 
 **Rysunek 25**: Utwórz metodę, aby dodać nowy wiersz do **produktów** tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image69.png))
 
@@ -339,7 +339,7 @@ Aby utworzyć niestandardową metodę, wróć do Projektanta obiektów DataSet. 
 Na następnym ekranie **element InsertCommand**firmy **CommandText** pojawia się. Rozszerzaj tego zapytania, dodając **wybierz zakres\_IDENTITY()** na końcu zapytania, co spowoduje zwrócenie ostatnią wartość tożsamości wstawiony **tożsamości** kolumny w tym samym zakresie. (Zobacz [dokumentacji technicznej](https://msdn.microsoft.com/library/ms190315.aspx) Aby uzyskać więcej informacji na temat **zakres\_IDENTITY()** i dlaczego warto [Użyj zakresu\_IDENTITY() proceduralny @ @IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Upewnij się, że końcowy **Wstaw** instrukcji za pomocą średnika przed dodaniem **wybierz** instrukcji.
 
 
-[![AZapytanie, aby zwrócić wartość SCOPE_IDENTITY() ugment](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
+[![Zapytanie, aby zwrócić wartość SCOPE_IDENTITY() rozszerzyć](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
 
 **Rysunek 26**: Rozszerzyć zapytania do zwrócenia **zakres\_IDENTITY()** wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image72.png))
 
@@ -347,7 +347,7 @@ Na następnym ekranie **element InsertCommand**firmy **CommandText** pojawia si�
 Na koniec, nadaj nazwę nowej metody **InsertProduct**.
 
 
-[![SNowa nazwa metody do InsertProduct et](creating-a-data-access-layer-cs/_static/image74.png)](creating-a-data-access-layer-cs/_static/image73.png)
+[![Ustaw nową nazwę metody InsertProduct](creating-a-data-access-layer-cs/_static/image74.png)](creating-a-data-access-layer-cs/_static/image73.png)
 
 **Rysunek 27**: Ustaw nową nazwę metody **InsertProduct** ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image75.png))
 
@@ -357,7 +357,7 @@ Po powrocie do Projektanta obiektów DataSet, zobaczysz **ProductsTableAdapter**
 Domyślnie Wstaw metody problem niebędącą zapytaniem metod, co oznacza, że zwracają one liczbę wierszy dotyczy. Jednakże, chcemy **InsertProduct** metodę, aby zwrócić wartości zwracanej przez zapytanie, nie liczbę uwzględnionych wierszy. Aby to osiągnąć, należy dostosować **InsertProduct** metody **tryb ExecuteMode** właściwości **skalarną**.
 
 
-[![CZmień tryb ExecuteMode właściwość skalarną](creating-a-data-access-layer-cs/_static/image77.png)](creating-a-data-access-layer-cs/_static/image76.png)
+[![Zmień tryb ExecuteMode właściwość skalarną](creating-a-data-access-layer-cs/_static/image77.png)](creating-a-data-access-layer-cs/_static/image76.png)
 
 **Rysunek 28**: Zmiana **tryb ExecuteMode** właściwości **skalarną** ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image78.png))
 
@@ -375,7 +375,7 @@ Może to spowodować problem, jednak jako metody TableAdapter do wstawiania, akt
 [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample9.sql)]
 
 
-[![UAktualizuj instrukcji SELECT w metodzie GetProducts()](creating-a-data-access-layer-cs/_static/image80.png)](creating-a-data-access-layer-cs/_static/image79.png)
+[![Aktualizacja instrukcji SELECT w metodzie GetProducts()](creating-a-data-access-layer-cs/_static/image80.png)](creating-a-data-access-layer-cs/_static/image79.png)
 
 **Rysunek 29**: Aktualizacja **wybierz** poufności informacji dotyczące **GetProducts()** — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image81.png))
 
@@ -444,7 +444,7 @@ Potrwać kilka minut, aby utworzyć następujące TableAdapters i metod za pomoc
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
 
-[![TADAM, zestaw danych projektanta po czterech TableAdapters dodano](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
+[![Projektant obiektów DataSet, po dodaniu cztery TableAdapters](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
 
 **Rysunek 31**: Zestaw danych projektanta po czterech TableAdapters dodano ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image85.png))
 
@@ -454,7 +454,7 @@ Potrwać kilka minut, aby utworzyć następujące TableAdapters i metod za pomoc
 TableAdapters i dodane do obiektu DataSet wpisane DataTable są wyrażane jako plik definicji schematu XML (**Northwind.xsd**). Te informacje schematu można wyświetlić, klikając prawym przyciskiem myszy **Northwind.xsd** plików w Eksploratorze rozwiązań i wybierając polecenie Pokaż kod.
 
 
-[![TADAM pliku definicji schematu XML (XSD) dla zestawu Northwinds wpisanych danych](creating-a-data-access-layer-cs/_static/image87.png)](creating-a-data-access-layer-cs/_static/image86.png)
+[![Plik (XSD) definicji schematu XML dla Northwinds Typizowany zestaw danych](creating-a-data-access-layer-cs/_static/image87.png)](creating-a-data-access-layer-cs/_static/image86.png)
 
 **Ilustracja 32**: Plik definicji schematu XML (XSD) dla zestawu danych wpisane Northwinds ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image88.png))
 
@@ -501,7 +501,7 @@ SuppliersAndProducts.aspx.cs
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample25.cs)]
 
 
-[![TNazwa firmy HE dostawcy jest wyświetlana w kolumnie po lewej stronie, a ich produktów w prawo](creating-a-data-access-layer-cs/_static/image92.png)](creating-a-data-access-layer-cs/_static/image91.png)
+[![Nazwa firmy dostawcy jest wyświetlana w kolumnie po lewej stronie, a ich produktów w prawo](creating-a-data-access-layer-cs/_static/image92.png)](creating-a-data-access-layer-cs/_static/image91.png)
 
 **Ilustracja 35**: Nazwa firmy dostawcy jest wyświetlana w kolumnie po lewej stronie, a ich produktów w prawo ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image93.png))
 

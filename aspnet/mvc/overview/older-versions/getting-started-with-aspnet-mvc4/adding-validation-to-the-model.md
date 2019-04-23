@@ -12,7 +12,7 @@ ms.openlocfilehash: 266d2e3fda54a9e584622ccd595e41229c96e6b0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420747"
 ---
 # <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
@@ -49,7 +49,7 @@ Teraz zaktualizować `Movie` klasy, aby skorzystać z wbudowanych [ `Required` ]
 
 Uruchom aplikację i ponownie zostanie wyświetlony następujący błąd w czasie wykonywania:
 
-***Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First w aktualizacji bazy danych ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).)).***
+***Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First w aktualizacji bazy danych ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).***
 
 Firma Microsoft użyje migracji do zaktualizowania schematu. Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** okna i wprowadź następujące polecenia:
 

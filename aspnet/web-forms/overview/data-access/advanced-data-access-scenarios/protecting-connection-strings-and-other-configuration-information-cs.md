@@ -12,7 +12,7 @@ ms.openlocfilehash: eab1ad6cd4636ab3d35988ec8dc762c8a8f51ef4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421137"
 ---
 # <a name="protecting-connection-strings-and-other-configuration-information-c"></a>Ochrona parametrów połączeń i innych informacji o konfiguracji (C#)
@@ -31,7 +31,7 @@ Informacje o konfiguracji dla aplikacji ASP.NET jest zazwyczaj przechowywane w p
 Ponieważ `Web.config` mogą zawierać poufne dane, takie jak parametry połączeń, ważne jest, zawartość `Web.config` bezpieczne i ukrytych z nieautoryzowanych osób przeglądających. Domyślnie wszystkie żądania HTTP do pliku za pomocą `.config` rozszerzenia odbywa się przez aparat programu ASP.NET, która zwraca *nie jest obsługiwany przez ten typ strony* komunikat przedstawionej na rysunku 1. Oznacza to, że goście nie można wyświetlić swoje `Web.config` zawartość s pliku po prostu wpisując http://www.YourServer.com/Web.config do ich paska adresu przeglądarki s.
 
 
-[![Visiting Web.config za pośrednictwem przeglądarki zwraca typ to strona nie jest obsługiwane wiadomości](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
+[![Odwiedzający Web.config za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony, wiadomości](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
 
 **Rysunek 1**: Odwiedzający `Web.config` za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony, komunikat ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image3.png))
 
@@ -83,7 +83,7 @@ Poniżej pola tekstowego, należy dodać dwie kontrolki przycisku o nazwie `Encr
 W tym momencie ekran powinien wyglądać podobnie jak na rysunku 2.
 
 
-[![ADodaj pole tekstowe i dwóch formantów sieci Web przycisku do strony](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
+[![Na stronie Dodaj pole tekstowe oraz dwóch przycisków umieszczonych w sieci Web](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
 
 **Rysunek 2**: Na stronie Dodaj pole tekstowe oraz dwie kontrolki sieci Web przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image6.png))
 
@@ -111,7 +111,7 @@ Po wywołaniu `ProtectSection(provider)` lub `UnprotectSection` metody, należy 
 Po wprowadzeniu powyższego kodu, możesz go przetestować, przechodząc `EncryptingConfigSections.aspx` strony za pośrednictwem przeglądarki. Początkowo wyświetlony strona, która wyświetla zawartość `Web.config` z `<connectionStrings>` sekcji wyświetlane w postaci zwykłego tekstu (zobacz rysunek 3).
 
 
-[![ADodaj pole tekstowe i dwóch formantów sieci Web przycisku do strony](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
+[![Na stronie Dodaj pole tekstowe oraz dwóch przycisków umieszczonych w sieci Web](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
 
 **Rysunek 3**: Na stronie Dodaj pole tekstowe oraz dwie kontrolki sieci Web przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image9.png))
 
@@ -126,7 +126,7 @@ Aby uzyskać więcej informacji na temat weryfikacji żądań, jego przeznaczeni
 Po wyłączeniu weryfikację żądań dla strony, spróbuj ponowne kliknięcie przycisku Szyfruj parametry połączenia. Na odświeżenie strony, będzie dostępna w pliku konfiguracji i jego `<connectionStrings>` sekcji szyfrowane przy użyciu dostawcy DPAPI. Pole tekstowe jest następnie zaktualizowany i będzie pokazywał nowe `Web.config` zawartości. Jak pokazano na rysunku 4, `<connectionStrings>` informacje są teraz szyfrowane.
 
 
-[![Clicking szyfrowanie połączenia ciągi przycisk szyfruje &lt;connectionString&gt; sekcji](protecting-connection-strings-and-other-configuration-information-cs/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image10.png)
+[![Kliknięcie przycisku Szyfruj połączenie ciągów przycisk szyfruje &lt;connectionString&gt; sekcji](protecting-connection-strings-and-other-configuration-information-cs/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image10.png)
 
 **Rysunek 4**: Kliknięcie przycisku Szyfruj połączenie ciągów przycisk szyfruje `<connectionString>` sekcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image12.png))
 
@@ -143,7 +143,7 @@ Wybrany zaszyfrowany `<connectionStrings>` poniżej sekcji generowane na tym kom
 Gdy informacje o parametrach połączenia jest dostępny z `Web.config` — za pomocą kodu pisania, z kontrolki SqlDataSource lub automatycznie wygenerowany kod z TableAdapters w naszym wpisanych zestawów danych — jest automatycznie odszyfrowany. Krótko mówiąc, nie musimy dodać dowolnego dodatkowego kodu lub logiki można odszyfrować zaszyfrowanego `<connectionString>` sekcji. Aby to wykazać, można znaleźć w jednym z samouczków wcześniej w tej chwili, takich jak samouczek proste wyświetlana w sekcji podstawowe Raportowanie (`~/BasicReporting/SimpleDisplay.aspx`). Jak pokazano na rysunku 5, samouczek działa dokładnie tak, czy oczekujemy, wskazujący, że informacje o parametrach połączenia szyfrowanego jest automatycznie odszyfrowywany przez strony ASP.NET.
 
 
-[![Tinformacje o parametrach połączenia warstwy dostępu do danych i automatycznie odszyfrowuje](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
+[![Warstwa dostępu do danych automatycznie odszyfrowuje informacje o parametrach połączenia](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
 
 **Rysunek 5**: Warstwa dostępu do danych automatycznie odszyfrowuje informacje o parametrach połączenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image15.png))
 

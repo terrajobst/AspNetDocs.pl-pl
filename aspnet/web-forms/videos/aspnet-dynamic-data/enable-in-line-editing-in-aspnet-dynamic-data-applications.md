@@ -12,7 +12,7 @@ ms.openlocfilehash: 6bf91d546341eefc401149d47d6fa70b2c8522d4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421527"
 ---
 # <a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a>Włączanie wbudowanego edytowania w aplikacjach ASP.NET Dynamic Data

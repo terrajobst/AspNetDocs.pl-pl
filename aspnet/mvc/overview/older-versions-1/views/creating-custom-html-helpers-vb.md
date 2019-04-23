@@ -12,7 +12,7 @@ ms.openlocfilehash: 1f36bffeda49c1777e964dc5330cbb473b01c1a9
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421566"
 ---
 # <a name="creating-custom-html-helpers-vb"></a>Tworzenie niestandardowych pomocników HTML (VB)
@@ -49,7 +49,7 @@ Platforma ASP.NET MVC zawiera następujący zestaw standardowych pomocników HTM
 Rozważmy na przykład formularz w ofercie 1. Ta forma jest renderowany przy pomocy dwóch standardowa pomocników HTML (patrz rysunek 1). Ten formularz używa `Html.BeginForm()` i `Html.TextBox()` metody pomocnika.
 
 
-[![Pwiek, renderowane przy użyciu pomocników HTML](creating-custom-html-helpers-vb/_static/image2.png)](creating-custom-html-helpers-vb/_static/image1.png)
+[![Strony renderowane przy użyciu pomocników HTML](creating-custom-html-helpers-vb/_static/image2.png)](creating-custom-html-helpers-vb/_static/image1.png)
 
 **Rysunek 01**: Strony renderowane przy użyciu pomocników HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-vb/_static/image3.png))
 
@@ -104,7 +104,7 @@ Po drugie, zwróć uwagę, że pierwszy parametr `Label()` metody reprezentując
 Po utworzeniu metodę rozszerzenia, a następnie skompilować aplikację pomyślnym, metoda rozszerzenia pojawia się w Visual Studio technologii Intellisense, podobnie jak wszystkie inne metody klasy (patrz rysunek 2). Jedyną różnicą jest to rozszerzenie, które metody są wyświetlane z symbolem specjalne obok nich (ikona strzałki w dół).
 
 
-[![USING — metoda rozszerzenia Html.Label()](creating-custom-html-helpers-vb/_static/image5.png)](creating-custom-html-helpers-vb/_static/image4.png)
+[![Przy użyciu metody rozszerzenia Html.Label()](creating-custom-html-helpers-vb/_static/image5.png)](creating-custom-html-helpers-vb/_static/image4.png)
 
 **Rysunek 02**: Przy użyciu metody rozszerzenia Html.Label() ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-vb/_static/image6.png))
 

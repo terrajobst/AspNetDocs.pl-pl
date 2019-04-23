@@ -12,14 +12,14 @@ ms.openlocfilehash: 257bd06848adb949330856cc71eeb3d685e9d036
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59421670"
 ---
 # <a name="use-code-first-migrations-to-seed-the-database"></a>Użyć migracje Code First na inicjowanie bazy danych
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 W tej sekcji użyjesz [migracje Code First](https://msdn.microsoft.com/data/jj591621) w programie EF w celu umieszczenia w bazie danych testowych.
 

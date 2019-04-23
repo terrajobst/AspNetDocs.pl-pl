@@ -12,7 +12,7 @@ ms.openlocfilehash: 157a486af3d11dfbd7431680b6c9fe4f0e262892
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59422398"
 ---
 # <a name="collapsing-and-expanding-a-panel-from-javascript-c"></a>Rozwijanie i zwijanie panelu z poziomu języka JavaScript (C#)
@@ -65,7 +65,7 @@ Trzeci przycisk Włącza/wyłącza stan panelu: od zwinięte do rozwinięta i na
 [!code-javascript[Main](collapsing-and-expanding-a-panel-from-javascript-cs/samples/sample8.js)]
 
 
-[![Ttrzeci przycisk HE zmienia stan panelu: od zwinięte rozwinięte i Wstecz](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image1.png)
+[![Trzeci przycisk zmienia stan panelu: od zwinięte rozwinięte i Wstecz](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image1.png)
 
 Trzeci przycisk zmienia stan panelu: od zwinięte rozwinięte i Wstecz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](collapsing-and-expanding-a-panel-from-javascript-cs/_static/image3.png))
 
