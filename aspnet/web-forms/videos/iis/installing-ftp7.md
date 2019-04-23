@@ -12,18 +12,18 @@ ms.openlocfilehash: 7bf4d99754dbc5c7a5d7e5ef1ea7f0063b512780
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412219"
 ---
-# <a name="installing-ftp7"></a><span data-ttu-id="bb522-104">Instalowanie FTP7</span><span class="sxs-lookup"><span data-stu-id="bb522-104">Installing FTP7</span></span>
+# <a name="installing-ftp7"></a><span data-ttu-id="4885f-104">Instalowanie FTP7</span><span class="sxs-lookup"><span data-stu-id="4885f-104">Installing FTP7</span></span>
 
-<span data-ttu-id="bb522-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="bb522-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="4885f-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4885f-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="bb522-106">FTP7 jest nowe i zaawansowane.</span><span class="sxs-lookup"><span data-stu-id="bb522-106">FTP7 is new and powerful.</span></span> <span data-ttu-id="bb522-107">To wideo pokazuje, jak przygotować działanie!</span><span class="sxs-lookup"><span data-stu-id="bb522-107">This video shows you how to get it up and running!</span></span>
+<span data-ttu-id="4885f-106">FTP7 jest nowe i zaawansowane.</span><span class="sxs-lookup"><span data-stu-id="4885f-106">FTP7 is new and powerful.</span></span> <span data-ttu-id="4885f-107">To wideo pokazuje, jak przygotować działanie!</span><span class="sxs-lookup"><span data-stu-id="4885f-107">This video shows you how to get it up and running!</span></span>
 
-[<span data-ttu-id="bb522-108">&#9654;Obejrzyj film wideo (8 minut)</span><span class="sxs-lookup"><span data-stu-id="bb522-108">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/installing-ftp7)
+[<span data-ttu-id="4885f-108">&#9654;Obejrzyj film wideo (8 minut)</span><span class="sxs-lookup"><span data-stu-id="4885f-108">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/installing-ftp7)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="bb522-109">[Poprzednie](creating-a-site-with-iis7-manager.md)
-> [dalej](bit-rate-throttling.md)</span><span class="sxs-lookup"><span data-stu-id="bb522-109">[Previous](creating-a-site-with-iis7-manager.md)
+> <span data-ttu-id="4885f-109">[Poprzednie](creating-a-site-with-iis7-manager.md)
+> [dalej](bit-rate-throttling.md)</span><span class="sxs-lookup"><span data-stu-id="4885f-109">[Previous](creating-a-site-with-iis7-manager.md)
 [Next](bit-rate-throttling.md)</span></span>

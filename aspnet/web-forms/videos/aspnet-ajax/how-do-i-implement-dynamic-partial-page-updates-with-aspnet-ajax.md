@@ -12,18 +12,18 @@ ms.openlocfilehash: c032609a440ea8cb0d6e11759994581011daf70c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410204"
 ---
-# <a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a><span data-ttu-id="529d8-105">[Jak mogę] Implementowanie dynamicznych aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="529d8-105">[How Do I:] Implement Dynamic Partial-Page Updates with ASP.NET AJAX?</span></span>
+# <a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a><span data-ttu-id="74bb1-105">[Jak mogę] Implementowanie dynamicznych aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="74bb1-105">[How Do I:] Implement Dynamic Partial-Page Updates with ASP.NET AJAX?</span></span>
 
-<span data-ttu-id="529d8-106">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="529d8-106">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="74bb1-106">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="74bb1-106">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="529d8-107">W tym filmie wideo dowiesz się, jak dodać dynamicznych aktualizacji stron częściowych do aplikacji platformy ASP.NET za pomocą programu Microsoft ASP.NET AJAX.</span><span class="sxs-lookup"><span data-stu-id="529d8-107">In this video you will learn how to add dynamic partial-page updates to your ASP.NET application using Microsoft ASP.NET AJAX.</span></span> <span data-ttu-id="529d8-108">W szczególności zostanie Zobacz, jak zarządzać częstotliwość wywołań zwrotnych AJAX przy użyciu TimerControl.</span><span class="sxs-lookup"><span data-stu-id="529d8-108">In particular, you will see how to use the TimerControl to manage the frequency of the AJAX callbacks.</span></span>
+<span data-ttu-id="74bb1-107">W tym filmie wideo dowiesz się, jak dodać dynamicznych aktualizacji stron częściowych do aplikacji platformy ASP.NET za pomocą programu Microsoft ASP.NET AJAX.</span><span class="sxs-lookup"><span data-stu-id="74bb1-107">In this video you will learn how to add dynamic partial-page updates to your ASP.NET application using Microsoft ASP.NET AJAX.</span></span> <span data-ttu-id="74bb1-108">W szczególności zostanie Zobacz, jak zarządzać częstotliwość wywołań zwrotnych AJAX przy użyciu TimerControl.</span><span class="sxs-lookup"><span data-stu-id="74bb1-108">In particular, you will see how to use the TimerControl to manage the frequency of the AJAX callbacks.</span></span>
 
-[<span data-ttu-id="529d8-109">&#9654;Obejrzyj film wideo (12 minut)</span><span class="sxs-lookup"><span data-stu-id="529d8-109">&#9654; Watch video (12 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax)
+[<span data-ttu-id="74bb1-109">&#9654;Obejrzyj film wideo (12 minut)</span><span class="sxs-lookup"><span data-stu-id="74bb1-109">&#9654; Watch video (12 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="529d8-110">[Poprzednie](how-do-i-get-started-with-aspnet-ajax.md)
-> [dalej](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="529d8-110">[Previous](how-do-i-get-started-with-aspnet-ajax.md)
+> <span data-ttu-id="74bb1-110">[Poprzednie](how-do-i-get-started-with-aspnet-ajax.md)
+> [dalej](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md)</span><span class="sxs-lookup"><span data-stu-id="74bb1-110">[Previous](how-do-i-get-started-with-aspnet-ajax.md)
 [Next](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md)</span></span>
