@@ -12,7 +12,7 @@ ms.openlocfilehash: dde3d60f82bb5f32fdd8b6b5cf8a0e1accebd1a7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408930"
 ---
 # <a name="databinding-to-an-accordion-vb"></a>Powiązanie danych z kontrolką Accordion (VB)
@@ -59,7 +59,7 @@ Zawierania, w tym przykładzie, należy zdefiniować dwie klasy CSS, które są 
 [!code-css[Main](databinding-to-an-accordion-vb/samples/sample6.css)]
 
 
-[![Tdane w właściwości accordion przybywa bezpośrednio ze źródła danych](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
+[![Dane w właściwości accordion pochodzą bezpośrednio ze źródła danych](databinding-to-an-accordion-vb/_static/image2.png)](databinding-to-an-accordion-vb/_static/image1.png)
 
 Dane w właściwości accordion pochodzą bezpośrednio ze źródła danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](databinding-to-an-accordion-vb/_static/image3.png))
 

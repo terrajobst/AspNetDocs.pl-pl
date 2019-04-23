@@ -13,7 +13,7 @@ ms.openlocfilehash: 725e66b6fc926d2466469f8455a3a0b949988dc4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416171"
 ---
 # <a name="migrating-to-aspnet-identity"></a>Migrowanie do produktu ASP.NET Identity
@@ -21,7 +21,7 @@ ms.locfileid: "59416171"
 > Migracja do produktu ASP.NET Identity od innych dostawców członkostwa
 
 
-- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do systemu ASP.NET Identity (C#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity (C#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 
 [!INCLUDE[](../../../includes/identity/alter-command-exception.md)]

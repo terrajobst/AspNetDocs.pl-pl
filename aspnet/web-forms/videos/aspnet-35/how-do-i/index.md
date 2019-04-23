@@ -12,7 +12,7 @@ ms.openlocfilehash: 8a7251971410ef2539e3957039de33af6e74371c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415456"
 ---
 # <a name="how-do-i"></a>Jak to zrobić
@@ -26,8 +26,8 @@ ms.locfileid: "59415456"
 - [Praca z programem .NET Framework w programie Visual Studio 2008](how-do-i-working-with-visual-studio-2008-net-framework.md)
 - [Dodawanie elementów do pliku CSS i tworzenie nowego pliku CSS na bieżąco](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
 - [Zaawansowane funkcje kaskadowego arkusza stylów i zarządzania](how-do-i-advance-cascading-style-sheet-features-and-management.md)
-- [Konwertowanie aplikacji Windows Forms .NET 2.0 do wersji .NET 3.5](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
+- [Konwertowanie aplikacji Windows Forms .NET 2.0 na .NET 3.5](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)
 - [Wprowadzenie do programu Entity Framework](how-do-i-get-started-with-the-entity-framework.md)
 - [Używanie nowego źródła danych jednostki](how-do-i-use-the-new-entity-data-source.md)
-- [Serializacja grafu za pomocą programu Entity Framework](how-do-i-serialize-a-graph-with-the-entity-framework.md)
+- [Serializacja wykresu za pomocą programu Entity Framework](how-do-i-serialize-a-graph-with-the-entity-framework.md)
 - [Automatyzacja narzędzi ASP.NET Compiler i Merge przy użyciu programu MSBuild](how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities.md)

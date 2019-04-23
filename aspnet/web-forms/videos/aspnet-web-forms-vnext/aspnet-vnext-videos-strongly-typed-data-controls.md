@@ -12,7 +12,7 @@ ms.openlocfilehash: 6abea51944c6babceda1ec22c96d72d6cefc492f
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412570"
 ---
 # <a name="aspnet-vnext-videos-strongly-typed-data-controls"></a>Środowiska ASP.NET vNext wideo: Silnie typizowane kontrolki danych

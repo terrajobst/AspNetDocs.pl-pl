@@ -12,7 +12,7 @@ ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409723"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
@@ -22,7 +22,7 @@ ms.locfileid: "59409723"
 > [Pobierz ten oficjalny dokument](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
 
 
-**Spis treści**
+**Zawartość**
 
 **[Core Services](#0.2__Toc253429238 "_Toc253429238")**  
 [Plik Web.config, Refaktoryzacja](#0.2__Toc253429239 "_Toc253429239")  
@@ -37,7 +37,7 @@ ms.locfileid: "59409723"
 [Monitorowanie wydajności dla poszczególnych aplikacji w procesie roboczym pojedynczego](#0.2__Toc253429248 "_Toc253429248")  
 [Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
-**[AJAX](#0.2__Toc253429250 "_Toc253429250")**  
+**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
 [Uwzględnione za pomocą MVC i formularzy sieci Web w technologii jQuery](#0.2__Toc253429251 "_Toc253429251")  
 [Obsługa sieci dostarczania zawartości](#0.2__Toc253429252 "_Toc253429252")  
 [Skrypty jawne ScriptManager](#0.2__Toc253429253 "_Toc253429253")
@@ -443,15 +443,15 @@ ASP.NET określa możliwości przeglądarki, który użytkownik używa do przegl
 
 Na poniższej liście przedstawiono Nowa przeglądarka plików definicji:
 
-- *Blackberry.Browser*
-- *Chrome.Browser*
-- *Default.Browser*
-- *Firefox.Browser*
-- *Gateway.Browser*
-- *Generic.Browser*
-- *IE.Browser*
-- *iemobile.Browser*
-- *iPhone.Browser*
+- *blackberry.browser*
+- *chrome.browser*
+- *Default.browser*
+- *firefox.browser*
+- *gateway.browser*
+- *generic.browser*
+- *ie.browser*
+- *iemobile.browser*
+- *iphone.browser*
 - *opera.browser*
 - *safari.browser*
 

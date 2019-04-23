@@ -12,7 +12,7 @@ ms.openlocfilehash: ea526ce8abdf6f7013e8dd832824c21448878e0b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416847"
 ---
 # <a name="dynamically-adding-an-accordion-pane-c"></a>Dynamiczne dodawanie okienka kontrolki Accordion (C#)
@@ -55,7 +55,7 @@ Aby zakończyć w przykładzie, dwóch klas CSS, do którego odwołuje się kont
 [!code-css[Main](dynamically-adding-an-accordion-pane-cs/samples/sample6.css)]
 
 
-[![Tzostał on dane w właściwości accordion dynamicznie dodany przez kod po stronie serwera](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
+[![Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
 
 Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-adding-an-accordion-pane-cs/_static/image3.png))
 

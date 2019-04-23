@@ -12,7 +12,7 @@ ms.openlocfilehash: 2001378588db72103292be963af6c26277147c44
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409645"
 ---
 # <a name="master-pages-and-site-navigation-c"></a>Strony wzorcowe i nawigacja po witrynie (C#)
@@ -33,7 +33,7 @@ Jedną wspólną cechą witryn sieci Web, przyjazny dla użytkownika jest, że s
 Aby zilustrować te pojęcia i naszej witryny sieci Web samouczki bardziej użyteczne, Poświęć w tej lekcji Definiowanie układu strony obejmujące całą lokację, implementowanie mapy witryny sieci Web i dodawanie nawigacji interfejsu użytkownika. Do końca tego samouczka odpowiemy na projekt dopracowane witryny sieci Web do tworzenia Nasz samouczek stron sieci web.
 
 
-[![Tużytkownik końcowy wynik z ten samouczek](master-pages-and-site-navigation-cs/_static/image2.png)](master-pages-and-site-navigation-cs/_static/image1.png)
+[![Wynik końcowy po ukończeniu tego samouczka](master-pages-and-site-navigation-cs/_static/image2.png)](master-pages-and-site-navigation-cs/_static/image1.png)
 
 **Rysunek 1**: Końcowy wynik z tego samouczka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image3.png))
 
@@ -51,7 +51,7 @@ Pierwszym krokiem jest utworzenie strony wzorcowej dla tej witryny. Teraz naszej
 Aby utworzyć stronę wzorcową, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element. Następnie wybierz typ strony wzorcowej, z listy szablonów i nadaj mu nazwę `Site.master`.
 
 
-[![ADodaj nową stronę wzorcową witryny sieci Web](master-pages-and-site-navigation-cs/_static/image6.png)](master-pages-and-site-navigation-cs/_static/image5.png)
+[![Dodaj nową stronę wzorcową do witryny sieci Web](master-pages-and-site-navigation-cs/_static/image6.png)](master-pages-and-site-navigation-cs/_static/image5.png)
 
 **Rysunek 3**: Dodaj nową stronę wzorcową do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image7.png))
 
@@ -68,7 +68,7 @@ Strona wzorcowa definiuje układ stron statycznych i regiony, które mogą być 
 Ze znacznikami podanymi powyżej przełączanie do widoku projektu zawiera układ strony wzorcowej. Wszystkie strony ASP.NET, które używają tej strony wzorcowej będzie miał ten jednolity układ i możliwość określenia znaczniki dla `MainContent` regionu.
 
 
-[![Ton strony wzorcowej, podczas wyświetlania za pośrednictwem widoku Projekt](master-pages-and-site-navigation-cs/_static/image9.png)](master-pages-and-site-navigation-cs/_static/image8.png)
+[![Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu](master-pages-and-site-navigation-cs/_static/image9.png)](master-pages-and-site-navigation-cs/_static/image8.png)
 
 **Rysunek 4**: Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image10.png))
 
@@ -78,7 +78,7 @@ Ze znacznikami podanymi powyżej przełączanie do widoku projektu zawiera ukła
 Ze stroną wzorcową zdefiniowane możemy przystąpić do dodawania stron ASP.NET dla witryny sieci Web. Zacznijmy od dodania `Default.aspx`, strony głównej naszej witryny sieci Web. Kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element. Wybierz opcję formularz sieci Web z listy szablonów, a nazwa pliku `Default.aspx`. Ponadto zaznacz pole wyboru "Wybierz stronę wzorcową".
 
 
-[![Add nowego formularza sieci Web, sprawdzanie, zaznacz pole wyboru strony wzorcowej](master-pages-and-site-navigation-cs/_static/image12.png)](master-pages-and-site-navigation-cs/_static/image11.png)
+[![Dodaj nowy formularz sieci Web, sprawdzanie, zaznacz pole wyboru strony wzorcowej](master-pages-and-site-navigation-cs/_static/image12.png)](master-pages-and-site-navigation-cs/_static/image11.png)
 
 **Rysunek 5**: Dodaj nowy formularz sieci Web, sprawdzanie, zaznacz pole wyboru strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image13.png))
 
@@ -86,7 +86,7 @@ Ze stroną wzorcową zdefiniowane możemy przystąpić do dodawania stron ASP.NE
 Po kliknięciu przycisku OK, firma Microsoft jest wyświetlony monit o wybranie jakie strony wzorcowej, skorzystaj z tej nowej strony programu ASP.NET. Kiedy masz wiele stron wzorcowych w projekcie, mamy tylko jeden.
 
 
-[![Cbierz strony wzorcowej, to zastosowanie powinien strony ASP.NET](master-pages-and-site-navigation-cs/_static/image15.png)](master-pages-and-site-navigation-cs/_static/image14.png)
+[![Wybierz stronę wzorzec, do której należy używać tej strony ASP.NET](master-pages-and-site-navigation-cs/_static/image15.png)](master-pages-and-site-navigation-cs/_static/image14.png)
 
 **Rysunek 6**: Wybierz na stronie wzorcowej to zastosowanie powinien strony ASP.NET ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image16.png))
 
@@ -110,7 +110,7 @@ Default.aspx
 Przełączanie do widoku projektu, że okaże się, jak wygląda naszą stronę w przeglądarce. Należy zauważyć, że w projekcie wyświetlania dla strony ASP.NET, czy można edytować tylko zawartości edytowalnych znaczników ContentPlaceHolder innego niż zdefiniowane w strony wzorcowej jest wyszarzona.
 
 
-[![Ton widok projektu ASP.NET strony zawiera zarówno edytowalna i regiony bez edytowalna](master-pages-and-site-navigation-cs/_static/image18.png)](master-pages-and-site-navigation-cs/_static/image17.png)
+[![Widok projektu strony ASP.NET zawiera edytowalne i nieedytowalne regionów](master-pages-and-site-navigation-cs/_static/image18.png)](master-pages-and-site-navigation-cs/_static/image17.png)
 
 **Rysunek 7**: Widok projektu ASP.NET strony zawiera zarówno edytowalna i regiony bez edytowalna ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image19.png))
 
@@ -142,7 +142,7 @@ System nawigacji witryny ASP.NET w wersji 2.0 zapewnia środek dewelopera do def
 W tym samouczku, użyjemy dostawcy mapy witryny domyślnej, który jest dostarczany za pomocą programu ASP.NET 2.0. Do tworzenia mapy witryny, po prostu kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, wybierz pozycję Dodaj nowy element i wybierz opcję mapy witryny. Pozostaw nazwę `Web.sitemap` i kliknij przycisk Dodaj.
 
 
-[![Add mapy witryny sieci Web do projektu](master-pages-and-site-navigation-cs/_static/image22.png)](master-pages-and-site-navigation-cs/_static/image21.png)
+[![Dodawanie mapy witryny sieci Web do projektu](master-pages-and-site-navigation-cs/_static/image22.png)](master-pages-and-site-navigation-cs/_static/image21.png)
 
 **Rysunek 9**: Dodawanie mapy witryny sieci Web do projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image23.png))
 
@@ -159,7 +159,7 @@ Web.sitemap
 Mapa witryny definiuje struktury nawigacyjnej witryny sieci Web, czyli hierarchii, w tym artykule opisano różne sekcje witryny. Każdy `<siteMapNode>` element `Web.sitemap` reprezentuje sekcję w strukturze nawigacji strony.
 
 
-[![TMapa witryny reprezentuje hierarchicznej struktury nawigacyjnej](master-pages-and-site-navigation-cs/_static/image25.png)](master-pages-and-site-navigation-cs/_static/image24.png)
+[![Mapa witryny reprezentuje hierarchicznej struktury nawigacyjnej](master-pages-and-site-navigation-cs/_static/image25.png)](master-pages-and-site-navigation-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Mapa witryny reprezentuje hierarchicznej struktury nawigacyjnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image26.png))
 
@@ -252,7 +252,7 @@ Samouczki w naszej witrynie są podzielone na różne kategorie podstawowe rapor
 Umożliwia wyświetlanie nieuporządkowaną listę przy użyciu Repeater ponownie, ale tym razem będzie wyświetlana tytuł i opis samouczków. Ponieważ znaczników i kodu, aby osiągnąć ten należy powtórzyć dla każdego `Default.aspx` stronie mamy hermetyzacji logika interfejsu użytkownika w [kontrolki użytkownika](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Utwórz folder w witrynie sieci Web o nazwie `UserControls` i Dodaj do tego nowego elementu typu kontrolka użytkownika sieci Web o nazwie `SectionLevelTutorialListing.ascx`i Dodaj następujący kod:
 
 
-[![ADodaj nową kontrolkę użytkownika sieci Web do folderu je](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
+[![Dodaj nową kontrolkę użytkownika sieci Web do folderu elementy kontrolki użytkownika](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
 
 **Rysunek 13**: Dodaj nową kontrolkę użytkownika sieci Web do `UserControls` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image31.png))
 
@@ -272,12 +272,12 @@ W poprzednim przykładzie Repeater możemy powiązać `SiteMap` danych powtarzan
 Po utworzeniu tego elementu powtarzanego Otwórz `Default.aspx` strony we wszystkich folderach, przejdź do widoku projektu i po prostu przeciągnij formant użytkownika za pomocą Eksploratora rozwiązań na powierzchnię projektową miejscu listy samouczków, są wyświetlane.
 
 
-[![Tma on kontrolki użytkownika, zostały dodane do Default.aspx](master-pages-and-site-navigation-cs/_static/image33.png)](master-pages-and-site-navigation-cs/_static/image32.png)
+[![Formant użytkownika ma została dodana do Default.aspx](master-pages-and-site-navigation-cs/_static/image33.png)](master-pages-and-site-navigation-cs/_static/image32.png)
 
 **Rysunek 14**: Formant użytkownika ma została dodana do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image34.png))
 
 
-[![TSamouczki HE podstawowe raportowanie należą](master-pages-and-site-navigation-cs/_static/image36.png)](master-pages-and-site-navigation-cs/_static/image35.png)
+[![Podstawowe raportowanie samouczki są wyświetlane.](master-pages-and-site-navigation-cs/_static/image36.png)](master-pages-and-site-navigation-cs/_static/image35.png)
 
 **Rysunek 15**: Wymieniono podstawowe samouczki raportowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image37.png))
 
@@ -296,7 +296,7 @@ Więcej informacji na tematów omówionych w tym samouczku można znaleźć w na
 
 - [Omówienie stron wzorcową platformy ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Strony wzorcowe na platformie ASP.NET 2.0](http://odetocode.com/Articles/419.aspx)
-- [Szablony projektów 2.0 platformy ASP.NET](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
+- [ASP.NET 2.0 Design Templates](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
 - [Przegląd Nawigacja witryny ASP.NET](https://msdn.microsoft.com/library/e468hxky.aspx)
 - [Badanie programu ASP.NET 2.0 w nawigacji po witrynie](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [Funkcje nawigacji 2.0 witryny ASP.NET](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)

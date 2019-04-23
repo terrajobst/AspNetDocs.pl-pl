@@ -12,7 +12,7 @@ ms.openlocfilehash: bf9cf1f5be22a5b97ec964277c11ae21066676f0
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412414"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure
@@ -100,7 +100,7 @@ Ta książka elektroniczna wyjaśnia trzunastu zalecana wzorce projektowania apl
     - Włączyć wysoką dostępność i zwiększanie skalowalności przez luźno sprzężenia warstw web i proces roboczy.
     - Pokaz: Kolejki usługi Azure storage w aplikacji naprawić.
 - [Więcej w chmurze aplikacji wzorce i wskazówki](more-patterns-and-guidance.md).
-- [Załącznik: przykładowa aplikacja Fix It](the-fix-it-sample-application.md)
+- [Dodatek: Poprawka go przykładowej aplikacji](the-fix-it-sample-application.md)
 
     - Znane problemy
     - Najlepsze praktyki

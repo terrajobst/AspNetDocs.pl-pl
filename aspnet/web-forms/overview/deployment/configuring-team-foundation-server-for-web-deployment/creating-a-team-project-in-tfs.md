@@ -12,7 +12,7 @@ ms.openlocfilehash: 1e727e8124e1f045f8ef25ab7a3d4efbafd4290a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411218"
 ---
 # <a name="creating-a-team-project-in-tfs"></a>Tworzenie projektu zespołowego na serwerze TFS
@@ -106,8 +106,7 @@ Następnie należy przyznać uprawnienia użytkownika do tworzenia nowych witryn
 
    > [!NOTE]
    > Może pojawić się <strong>HTTP 404 Nie znaleziono</strong> błąd z powodu podwójnego kodowania błędów HTTP. W takim przypadku należy zastąpić adres URL to:   
-   > `[site_collection_URL]/_layouts/permsetup.aspx`
-   > Na przykład:  
+   > `[site_collection_URL]/_layouts/permsetup.aspx` Na przykład:  
    > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
 8. Na **Konfigurowanie grup dla tej witryny** Dodaj użytkownika, który spowoduje utworzenie projektów zespołowych pod kątem **właścicieli** grupy, a następnie kliknij przycisk **OK**.
 

@@ -12,12 +12,12 @@ ms.openlocfilehash: db8f336f3fd9a88dfb32f99510fc53cd7b4a5178
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415989"
 ---
 # <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Instrukcje: dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms/MVC
 
-> **Dotyczy:**
+> **Dotyczy**
 > 
 > - Formularze sieci Web platformy ASP.NET w wersji 4.0
 > - ASP.NET MVC w wersji 3.0 lub nowszej

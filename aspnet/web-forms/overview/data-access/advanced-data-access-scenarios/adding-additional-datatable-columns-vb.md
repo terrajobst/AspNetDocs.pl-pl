@@ -12,7 +12,7 @@ ms.openlocfilehash: 985e052abbe1065ba2d6816911f686cb61c85a6d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416470"
 ---
 # <a name="adding-additional-datatable-columns-vb"></a>Dodawanie dodatkowych kolumn tabeli DataTable (VB)
@@ -49,7 +49,7 @@ W tym samouczku umożliwiają s Dodaj metodę, która `ProductsTableAdapter` o n
 Otwórz `NorthwindWithSprocs` zestawu danych i kliknij prawym przyciskiem myszy `ProductsDataTable`. Z menu kontekstowego wybierz polecenie Dodaj, a następnie wybierz kolumnę.
 
 
-[![ADodaj nową kolumnę, aby ProductsDataTable](adding-additional-datatable-columns-vb/_static/image2.png)](adding-additional-datatable-columns-vb/_static/image1.png)
+[![Dodaj nową kolumnę do ProductsDataTable](adding-additional-datatable-columns-vb/_static/image2.png)](adding-additional-datatable-columns-vb/_static/image1.png)
 
 **Rysunek 1**: Dodaj nową kolumnę, aby `ProductsDataTable` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image3.png))
 
@@ -57,7 +57,7 @@ Otwórz `NorthwindWithSprocs` zestawu danych i kliknij prawym przyciskiem myszy 
 Spowoduje to dodanie nowej kolumny do DataTable o nazwie Kolumna1 typu `System.String`. Należy zaktualizować nazwę tej kolumny s PriceQuartile i jej typ `System.Int32` ponieważ będą używane do przechowywania liczbą z przedziału od 1 do 4. Wybierz kolumnę nowo dodane w `ProductsDataTable` i w oknie właściwości ustaw `Name` właściwości PriceQuartile i `DataType` właściwość `System.Int32`.
 
 
-[![STyp danych właściwości i et Nazwa nowej kolumny s](adding-additional-datatable-columns-vb/_static/image5.png)](adding-additional-datatable-columns-vb/_static/image4.png)
+[![Ustaw nową nazwę s kolumny i właściwości typu danych](adding-additional-datatable-columns-vb/_static/image5.png)](adding-additional-datatable-columns-vb/_static/image4.png)
 
 **Rysunek 2**: Ustaw s nową kolumnę `Name` i `DataType` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image6.png))
 
@@ -69,7 +69,7 @@ Jak pokazano na rysunku 2, istnieją dodatkowe właściwości, które można ust
 Teraz, gdy `ProductsDataTable` został zaktualizowany w celu uwzględnienia `PriceQuartile` kolumny, możemy przystąpić do tworzenia `GetProductsWithPriceQuartile` metody. Rozpocznij, klikając prawym przyciskiem myszy na obiekt TableAdapter i wybierając pozycję Dodaj zapytanie, z menu kontekstowego. Otwarte Kreatora konfiguracji zapytania TableAdapter najpierw żąda nam do tego, czy chcemy użyć instrukcji SQL zapytań ad-hoc lub nowej lub istniejącej procedury składowanej. Ponieważ firma Microsoft don t jeszcze mają procedury przechowywanej, która zwraca dane kwartyl ceny, umożliwiają s Zezwalaj TableAdapter utworzyć tę procedurę składowaną dla nas. Wybierz opcję tworzenia nowej procedury składowanej, a następnie kliknij przycisk Dalej.
 
 
-[![Instruct kreatora TableAdapter w celu utworzenia przechowywane procedury dla nas](adding-additional-datatable-columns-vb/_static/image8.png)](adding-additional-datatable-columns-vb/_static/image7.png)
+[![Poinstruuj kreatora TableAdapter, aby utworzyć procedurę składowaną dla nas](adding-additional-datatable-columns-vb/_static/image8.png)](adding-additional-datatable-columns-vb/_static/image7.png)
 
 **Rysunek 3**: Poinstruuj kreatora TableAdapter w celu utworzenia przechowywane procedury dla nas ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image9.png))
 
@@ -77,7 +77,7 @@ Teraz, gdy `ProductsDataTable` został zaktualizowany w celu uwzględnienia `Pri
 Kolejne na ekranie pokazano na rysunku 4 Kreator zapyta, nam jakiego typu zapytania do dodania. Ponieważ `GetProductsWithPriceQuartile` metoda zwróci wszystkie kolumny i rekordy z `Products` tabeli, wybierz pozycję, która zwraca wiersze opcji, a następnie kliknij przycisk Dalej.
 
 
-[![OZapytanie będzie instrukcję SELECT tego zwraca wiele wierszy](adding-additional-datatable-columns-vb/_static/image11.png)](adding-additional-datatable-columns-vb/_static/image10.png)
+[![Zapytanie będzie instrukcję SELECT tego zwraca wiele wierszy](adding-additional-datatable-columns-vb/_static/image11.png)](adding-additional-datatable-columns-vb/_static/image10.png)
 
 **Rysunek 4**: Nasze zapytania będą `SELECT` instrukcji tego zwraca wiele wierszy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image12.png))
 
@@ -98,7 +98,7 @@ Niestety, Konstruktor kwerend nie wie jak przeanalizować `OVER` — słowo kluc
 Po wprowadzeniu `SELECT` zapytań i kliknięciu przycisku Dalej, Kreator zapyta nam podać nazwę dla procedury składowanej, zostanie utworzony. Nadaj nazwę nowej procedury składowanej `Products_SelectWithPriceQuartile` i kliknij przycisk Dalej.
 
 
-[![NNazwa Products_SelectWithPriceQuartile procedury składowanej](adding-additional-datatable-columns-vb/_static/image14.png)](adding-additional-datatable-columns-vb/_static/image13.png)
+[![Nazwa Products_SelectWithPriceQuartile procedury składowanej](adding-additional-datatable-columns-vb/_static/image14.png)](adding-additional-datatable-columns-vb/_static/image13.png)
 
 **Rysunek 5**: Nazwa procedury składowanej `Products_SelectWithPriceQuartile` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image15.png))
 
@@ -106,7 +106,7 @@ Po wprowadzeniu `SELECT` zapytań i kliknięciu przycisku Dalej, Kreator zapyta 
 Ponadto firma Microsoft jest monit o podanie nazwy metody TableAdapter. Pozostaw zarówno wypełnienia DataTable i zwraca DataTable pól wyboru zaznaczone i nazwę metody `FillWithPriceQuartile` i `GetProductsWithPriceQuartile`.
 
 
-[![NNazwa TableAdapter s metody i kliknij przycisk Zakończ](adding-additional-datatable-columns-vb/_static/image17.png)](adding-additional-datatable-columns-vb/_static/image16.png)
+[![Nazwa TableAdapter s metody i kliknij przycisk Zakończ](adding-additional-datatable-columns-vb/_static/image17.png)](adding-additional-datatable-columns-vb/_static/image16.png)
 
 **Rysunek 6**: Nazwa metody s TableAdapter, a następnie kliknij przycisk Zakończ ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image18.png))
 
@@ -121,7 +121,7 @@ Po ukończeniu kreatora, powinien zawierać TableAdapter `FillWithPriceQuartile`
 **Rysunek 7**: Sprawdź, czy nowa metoda został dodany do elementu TableAdapter
 
 
-[![Eczy baza danych zawiera procedury składowanej Products_SelectWithPriceQuartile nsure](adding-additional-datatable-columns-vb/_static/image21.png)](adding-additional-datatable-columns-vb/_static/image20.png)
+[![Upewnij się, że baza danych zawiera Products_SelectWithPriceQuartile procedury składowanej](adding-additional-datatable-columns-vb/_static/image21.png)](adding-additional-datatable-columns-vb/_static/image20.png)
 
 **Rysunek 8**: Upewnij się, że baza danych zawiera `Products_SelectWithPriceQuartile` Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image22.png))
 
@@ -150,12 +150,12 @@ Inne pobierania danych, metody, takie jak `ProductsBLLWithSprocs`, `GetProductsW
 Dodając LOGIKI ukończyć możemy ponownie gotowe do tworzenia strony ASP.NET, która pokazuje kwartyl cena dla każdego produktu. Otwórz `AddingColumns.aspx` strony w `AdvancedDAL` folder i przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` właściwość `Products`. Za pomocą tagu inteligentnego s GridView powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLLWithSprocs` klasy s `GetProductsWithPriceQuartile` metody. Ponieważ są to siatki tylko do odczytu zestawu list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
 
 
-[![Configuruj ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](adding-additional-datatable-columns-vb/_static/image24.png)](adding-additional-datatable-columns-vb/_static/image23.png)
+[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](adding-additional-datatable-columns-vb/_static/image24.png)](adding-additional-datatable-columns-vb/_static/image23.png)
 
 **Rysunek 9**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image25.png))
 
 
-[![Rinformacje o produkcie z metody GetProductsWithPriceQuartile obierz](adding-additional-datatable-columns-vb/_static/image27.png)](adding-additional-datatable-columns-vb/_static/image26.png)
+[![Pobieranie informacji o produkcie z metody GetProductsWithPriceQuartile](adding-additional-datatable-columns-vb/_static/image27.png)](adding-additional-datatable-columns-vb/_static/image26.png)
 
 **Na rysunku nr 10**: Pobieranie informacji o produkcie z `GetProductsWithPriceQuartile` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image28.png))
 
@@ -172,12 +172,12 @@ Po tych zmian kontrolkami GridView i kontrolki ObjectDataSource s oznaczeniu dek
 Na ilustracji 11 pokazano tej strony po odwiedzeniu za pośrednictwem przeglądarki. Należy pamiętać, że początkowo produkty są uporządkowane według ich ceny w kolejności malejącej w poszczególnych produktach przypisaną odpowiednią `PriceQuartile` wartość. Oczywiście te dane można sortować według innych kryteriów z wartością kolumny kwartyl cena nadal odzwierciedlający klasyfikacji produktu s względem cen (zobacz rysunek 12).
 
 
-[![TProduktów są uporządkowane według ich ceny](adding-additional-datatable-columns-vb/_static/image30.png)](adding-additional-datatable-columns-vb/_static/image29.png)
+[![Produkty są uporządkowane według ich cen.](adding-additional-datatable-columns-vb/_static/image30.png)](adding-additional-datatable-columns-vb/_static/image29.png)
 
 **Rysunek 11**: Produkty są uporządkowane według ich ceny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image31.png))
 
 
-[![TProduktów są uporządkowane według ich nazw](adding-additional-datatable-columns-vb/_static/image33.png)](adding-additional-datatable-columns-vb/_static/image32.png)
+[![Produkty są uporządkowane według ich nazw](adding-additional-datatable-columns-vb/_static/image33.png)](adding-additional-datatable-columns-vb/_static/image32.png)
 
 **Rysunek 12**: Produkty są uporządkowane według ich nazw ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-vb/_static/image34.png))
 

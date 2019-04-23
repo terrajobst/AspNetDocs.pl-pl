@@ -12,7 +12,7 @@ ms.openlocfilehash: 7d7d157e7c525ae7b1499405032392280d04cab3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408657"
 ---
 # <a name="how-do-i-implement-url-rewriting"></a>[Jak mogę] Implementowanie ponownego zapisywania adresów URL?

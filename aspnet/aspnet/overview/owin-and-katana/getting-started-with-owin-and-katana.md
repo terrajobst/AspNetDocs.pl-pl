@@ -12,7 +12,7 @@ ms.openlocfilehash: 5b5ecfcc7561e3e7bc13e1c8819a548e73ae1ab3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408098"
 ---
 # <a name="getting-started-with-owin-and-katana"></a>Wprowadzenie do korzystania z interfejsu OWIN i projektu Katana
@@ -105,6 +105,6 @@ Teraz należy używać CTRL + F5, aby uruchomić aplikację bez debugowania, tak
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wykrywanie klasy początkowej interfejsu OWIN](owin-startup-class-detection.md)
+- [Wykrywanie klasy początkowej OWIN](owin-startup-class-detection.md)
 - [Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web platformy ASP.NET](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [Korzystanie z OWIN na potrzeby samodzielnego hostowania SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408189"
 ---
 # <a name="membership"></a>Członkostwo
@@ -74,7 +74,7 @@ Interfejs sieci Web można uruchomić, klikając przycisk Konfiguracja platformy
 
 Spowoduje to uruchomienie narzędzie Administratorskie witryny sieci Web ASP.NET, pokazano poniżej. Administrowanie witryną sieci Web platformy ASP.NET to interfejs cztery karty, która ułatwia zarządzanie ustawieniami aplikacji. Dostępne są następujące karty:
 
-- **Home**
+- **Strona główna**
 - **Zabezpieczenia** użytkowników, ról i dostępu.
 - **Aplikacja** konfigurowania ustawień aplikacji.
 - **Dostawca** Konfiguracja i testowanie aplikacji dostawcy członkostwa.

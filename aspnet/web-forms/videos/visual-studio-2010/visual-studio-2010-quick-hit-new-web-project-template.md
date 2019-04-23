@@ -12,7 +12,7 @@ ms.openlocfilehash: aa3939f5514dd3c7c99c9b3f8362291d8e3ed06a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416938"
 ---
 # <a name="visual-studio-2010-quick-hit---new-web-project-template"></a>Program Visual Studio 2010 "Strzał szybkiego" - nowy szablon projektów internetowych

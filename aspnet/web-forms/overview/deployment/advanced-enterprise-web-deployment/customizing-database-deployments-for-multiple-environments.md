@@ -12,7 +12,7 @@ ms.openlocfilehash: 865e901618b48bc4bfdc6d7a3ca4e8868d4cb46b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412986"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>Dostosowywanie wdrożeń bazy danych dla wielu środowisk
@@ -68,7 +68,7 @@ W poniższej tabeli przedstawiono typowe wdrożenie ustawienia w środowiskach r
 
 |  | Testowanie dla deweloperów | Etap przejściowy/integracji | Produkcji |
 | --- | --- | --- | --- |
-| **Sortowanie porównanie wdrożenia** | Źródło | Cel | Cel |
+| **Sortowanie porównanie wdrożenia** | Source | Cel | Cel |
 | **Wdrażanie właściwości bazy danych** | Prawda | Tylko po raz pierwszy | Tylko po raz pierwszy |
 | **Zawsze ponownie utworzyć bazę danych** | Prawda | False | False |
 | **Zablokować wdrożenie przyrostowe, gdy może wystąpić utrata danych** | False | Być może | Prawda |

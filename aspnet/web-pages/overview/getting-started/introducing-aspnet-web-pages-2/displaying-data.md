@@ -12,7 +12,7 @@ ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412180"
 ---
 # <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wyświetlanie danych
@@ -214,7 +214,7 @@ Na tym etapie bazy danych został otwarty, trafiła do Ciebie dane chcesz i przy
 
 > [!TIP] 
 > 
-> **Structured Query Language (SQL)**
+> **Język Structured Query Language (SQL)**
 > 
 > SQL jest językiem, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia umożliwiające pobieranie danych i zaktualizować go i umożliwiające tworzenie, modyfikowanie i zarządzanie danymi w tabelach bazy danych. SQL różni się od języka programowania (takich jak C#). Przy użyciu języka SQL Poinformuj bazy danych należy, i jest zadanie bazy danych, aby dowiedzieć się, jak można pobrać dane lub wykonać zadanie. Poniżej przedstawiono przykłady niektórych poleceń SQL oraz ich działania:
 > 

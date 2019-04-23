@@ -12,7 +12,7 @@ ms.openlocfilehash: d0d9bb0f6471acd996530eab76a97cda2667dabd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413389"
 ---
 # <a name="creating-inactive-users"></a>Tworzenie nieaktywnych użytkowników

@@ -12,7 +12,7 @@ ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409736"
 ---
 # <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem
@@ -58,7 +58,7 @@ W tym praktyczne laboratorium dowiesz się jak:
 Do ukończenia tego laboratorium praktycznego niezbędne jest, następujące elementy:
 
 - [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/) or greater
-- [Zestaw Azure SDK dla platformy .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
+- [Azure SDK for .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
 - [System kontroli wersji GIT](http://git-scm.com/download)
 - Subskrypcja Microsoft Azure
 
@@ -625,7 +625,7 @@ W tym zadaniu użyjesz okno Eksploratora serwera w programie Visual Studio do ł
 
     ![Łączenie z platformą Windows Azure](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
-    *Nawiązywanie połączenia z usługą Azure*
+    *Łączenie z platformą Azure*
 4. Rozwiń **Azure** węzła, kliknij prawym przyciskiem myszy **magazynu** i wybierz **dołączanie zewnętrznej usługi Storage...** .
 5. W **dodać nowe konto magazynu** okna dialogowego wprowadź **nazwa konta** i **klucz konta** uzyskanego w poprzednim zadaniu i kliknij **OK**.
 

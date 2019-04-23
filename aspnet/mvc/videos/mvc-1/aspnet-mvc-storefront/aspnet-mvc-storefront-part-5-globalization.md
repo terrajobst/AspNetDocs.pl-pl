@@ -12,7 +12,7 @@ ms.openlocfilehash: ae94433a1eae82a37e230266d06eb3ee483725cd
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410083"
 ---
 # <a name="aspnet-mvc-storefront-part-5-globalization"></a>ASP.NET MVC Storefront — część 5: Globalizacja

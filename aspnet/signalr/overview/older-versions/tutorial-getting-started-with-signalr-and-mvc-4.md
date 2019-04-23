@@ -12,7 +12,7 @@ ms.openlocfilehash: abedf2dbf6fbc632b1857bf447f70aeb8f826d81
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410828"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: wprowadzenie do usługi SignalR 1.x i wzorca MVC 4

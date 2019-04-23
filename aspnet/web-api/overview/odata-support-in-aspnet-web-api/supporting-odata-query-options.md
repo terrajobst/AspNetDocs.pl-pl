@@ -13,7 +13,7 @@ ms.openlocfilehash: 428e4942e42436585049c1e84cd7b07a4a79c0d1
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411569"
 ---
 # <a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>Obsługa opcji zapytań protokołu OData we wzorcu ASP.NET Web API 2
@@ -81,7 +81,7 @@ Opcja $top zapewnia maksymalną liczbę zwracanych pozycji, a opcja $skip zapewn
 
 Opcja $filter umożliwia klientowi filtrowanie wyników za pomocą wyrażenia logicznego. Wyrażenia filtru są bardzo wydajny; obejmują one operatory logiczne i arytmetyczne, parametry funkcji i funkcji daty.
 
-| Zwróć wszystkie produkty z kategorii jest równa "Zabawki". | `http://localhost/Products?$filter=Category` eq 'Toys' |
+| Zwróć wszystkie produkty z kategorii jest równa "Zabawki". | `http://localhost/Products?$filter=Category` EQ "Zabawki" |
 | --- | --- |
 | Zwróć wszystkie produkty z ceną mniej niż 10. | `http://localhost/Products?$filter=Price` lt 10 |
 | Operatory logiczne: Zwróć wszystkie produkty których cena > = 5, a cena < = 15. | `http://localhost/Products?$filter=Price` GE 5 i le ceny 15 |

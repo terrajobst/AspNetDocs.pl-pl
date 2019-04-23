@@ -12,7 +12,7 @@ ms.openlocfilehash: 91523180501f1d1eb67586bf97649ad6226ec565
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413233"
 ---
 # <a name="creating-a-rating-control-vb"></a>Tworzenie kontrolki Rating (VB)
@@ -66,7 +66,7 @@ W kodzie po stronie serwera, dostępu do kontrolki oceny za pośrednictwem jego 
 Zapisz stronę i załadować je bezpośrednio w przeglądarce. Po najechaniu kursorem na elementy klasyfikacji (początkowo pusta), występuje efekt JavaScript: Zmiany klasyfikacji. Po kliknięciu zestaw gwiazdek bieżąca ocena są zachowywane. Na koniec po przesłaniu formularza danych wyjściowych wybranej klasyfikacji kodu po stronie serwera.
 
 
-[![Cworzenie systemem klasyfikacji z minimalną ilością kodu](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
+[![Tworzenie systemu klasyfikacji za pomocą minimalnej ilości kodu](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
 
 Tworzenie systemu klasyfikacji za pomocą minimalnej ilości kodu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-rating-control-vb/_static/image3.png))
 

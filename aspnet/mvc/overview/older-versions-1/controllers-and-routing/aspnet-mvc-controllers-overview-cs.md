@@ -12,7 +12,7 @@ ms.openlocfilehash: 21891a022885f7a4fae6d7fe3276587abf59986d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414299"
 ---
 # <a name="aspnet-mvc-controller-overview-c"></a>Omówienie kontrolera ASP.NET MVC (C#)
@@ -72,7 +72,7 @@ Wszystkie te wyniki akcji dziedziczą z klasy bazowej ActionResult.
 
 W większości przypadków akcji kontrolera zwraca ViewResult. Na przykład akcji kontrolera indeksu w ofercie 2 zwraca ViewResult.
 
-**Wyświetlanie listy 2 - Controllers\BookController.cs**
+**Listing 2 - Controllers\BookController.cs**
 
 [!code-csharp[Main](aspnet-mvc-controllers-overview-cs/samples/sample2.cs)]
 

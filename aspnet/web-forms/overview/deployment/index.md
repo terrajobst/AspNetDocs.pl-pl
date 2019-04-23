@@ -12,7 +12,7 @@ ms.openlocfilehash: 8536c771e5e343bd545b6824bec6f8b85489a7d4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59416535"
 ---
 # <a name="deployment"></a>wdrażania
@@ -34,11 +34,11 @@ ms.locfileid: "59416535"
     - [Wdrażanie z wiersza polecenia](visual-studio-web-deployment/command-line-deployment.md)
     - [Wdrażanie dodatkowych plików](visual-studio-web-deployment/deploying-extra-files.md)
     - [Rozwiązywanie problemów](visual-studio-web-deployment/troubleshooting.md)
-- [ASP.NET4 - wprowadzenie do wdrożenia w przedsiębiorstwie](deploying-web-applications-in-enterprise-scenarios/index.md)
+- [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](deploying-web-applications-in-enterprise-scenarios/index.md)
 
     - [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-    - [Wdrażanie w Internecie w przedsiębiorstwie: omówienie scenariusza](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-    - [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+    - [Enterprise Web Deployment: Omówienie scenariusza](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+    - [Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](web-deployment-in-the-enterprise/index.md)
 
     - [Wdrażanie w Internecie w przedsiębiorstwie](web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -56,21 +56,21 @@ ms.locfileid: "59416535"
 
     - [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
     - [Wybieranie właściwego podejścia do wdrażania w Internecie](configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-    - [Scenariusz: konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-    - [Scenariusz: konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-    - [Scenariusz: konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
-    - [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (agent zdalny)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-    - [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (procedura obsługi narzędzia Web Deploy)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-    - [Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+    - [Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+    - [Scenariusz: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+    - [Scenariusz: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+    - [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (agent zdalny)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+    - [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (program obsługi narzędzia Web Deploy)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+    - [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
     - [Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy](configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)
     - [Tworzenie farmy serwerów za pomocą rozwiązania Web Farm Framework](configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md)
     - [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 3: konfigurowanie serwera TFS](configuring-team-foundation-server-for-web-deployment/index.md)
 
-    - [Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)
-    - [Tworzenie projektu zespołowego na serwerze TFS](configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md)
+    - [Konfigurowanie programu Team Foundation Server dla wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)
+    - [Tworzenie projektu zespołowego w programie TFS](configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md)
     - [Dodawanie zawartości do kontroli źródła](configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control.md)
-    - [Konfigurowanie serwera kompilacji TFS na potrzeby wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment.md)
+    - [Konfigurowanie serwera kompilacji TFS dla wdrażania w Internecie](configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment.md)
     - [Tworzenie definicji kompilacji, która obsługuje wdrożenie](configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)
     - [Wdrażanie określonej kompilacji](configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md)
     - [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołowej](configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment.md)
@@ -82,6 +82,6 @@ ms.locfileid: "59416535"
     - [Wdrażanie członkostw ról bazy danych w środowiskach testowych](advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)
     - [Wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)
     - [Wykluczanie plików i folderów z wdrożenia](advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md)
-    - [Przełączanie aplikacji internetowych w tryb offline za pomocą narzędzia Web Deploy](advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy.md)
+    - [Przełączanie aplikacji internetowej w tryb offline za pomocą narzędzia Web Deploy](advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy.md)
     - [Uruchamianie skryptów programu Windows PowerShell z poziomu plików projektów programu MSBuild](advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files.md)
     - [Rozwiązywanie problemów z procesem tworzenia pakietów](advanced-enterprise-web-deployment/troubleshooting-the-packaging-process.md)

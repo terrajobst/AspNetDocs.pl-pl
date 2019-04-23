@@ -12,7 +12,7 @@ ms.openlocfilehash: 69e2cc716a50c64ae5edf38a499abf4d80d75d3d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414962"
 ---
 # <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>Otwórz typy w protokole OData v4 Web API platformy ASP.NET

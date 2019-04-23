@@ -13,7 +13,7 @@ ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408280"
 ---
 # <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON i serializacji XML we wzorcu ASP.NET Web API
@@ -38,7 +38,7 @@ Internetowy interfejs API udostępnia programy formatujące typy nośnika dla fo
     - [Wcięcia](#json_indenting)
     - [Camelcase](#json_camelcasing)
     - [Anonimowy i ze słabą kontrolą typów obiektów](#json_anon)
-- [Element formatujący typu nośnika XML](#xml_media_type_formatter)
+- [XML Media-Type Formatter](#xml_media_type_formatter)
 
     - [Właściwości tylko do odczytu](#xml_readonly)
     - [Daty](#xml_dates)

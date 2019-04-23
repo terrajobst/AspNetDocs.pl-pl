@@ -12,7 +12,7 @@ ms.openlocfilehash: 5baa7e432c77643196deb321e8bfd99a1adec833
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59408410"
 ---
 # <a name="set-up-your-development-environment-for-aspnet-20"></a>Konfigurowanie środowiska tworzenia aplikacji pod kątem platformy ASP.NET 2.0

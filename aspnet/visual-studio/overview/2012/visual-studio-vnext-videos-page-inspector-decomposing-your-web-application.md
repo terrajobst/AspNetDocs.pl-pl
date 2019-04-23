@@ -12,7 +12,7 @@ ms.openlocfilehash: e89bcaf7379574b0d5979c899f83b466b4ee99af
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413870"
 ---
 # <a name="visual-studio-vnext-videos-page-inspector---decomposing-your-web-application"></a>Visual Studio vNext wideo: Page Inspector — dekomponowanie aplikacji internetowej

@@ -12,7 +12,7 @@ ms.openlocfilehash: 4da291af4042e6e09c6917703b160ca717eecd15
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59407994"
 ---
 # <a name="excluding-files-and-folders-from-deployment"></a>Wykluczanie plików i folderów z wdrożenia
@@ -47,7 +47,7 @@ Po wybraniu **tylko pliki potrzebne do uruchomienia tej aplikacji**, potok WPP p
 
 > [!NOTE]
 > Logikę, która określa, które pliki do uwzględnienia znajduje się w tym pliku:   
-> *%ProgramFiles%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
+> *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
 
 
 ## <a name="excluding-specific-files-and-folders"></a>Wykluczenie określonych plików i folderów

@@ -12,7 +12,7 @@ ms.openlocfilehash: 5f50721b6f263b9cb025f5fa57c923dadeddcd28
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410594"
 ---
 # <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>Co nowego w platformie ASP.NET 4.5 i programie Visual Studio 2012
@@ -42,7 +42,7 @@ ms.locfileid: "59410594"
         - [Szybsze uruchamianie przy użyciu wielordzeniowych kompilacja JIT](#_Toc_perf_4)
         - [Dostrajanie wyrzucania elementów bezużytecznych zoptymalizowane pod kątem pamięci](#_Toc_perf_5)
         - [Trwa pobieranie z wyprzedzeniem dla aplikacji sieci web](#_Toc_perf_6)
-- [Formularze sieci Web ASP.NET](#_Toc318097385)
+- [ASP.NET Web Forms](#_Toc318097385)
 
     - [Silnie typizowane kontrolki danych](#_Toc318097386)
     - [Wiązanie modelu](#_Toc318097387)
@@ -71,7 +71,7 @@ ms.locfileid: "59410594"
         - [Generowanie programów obsługi zdarzeń](#_Toc318097404)
         - [Inteligentne wcięcie](#_Toc318097405)
         - [Zmniejsz automatyczne uzupełnianie instrukcji](#_Toc318097406)
-    - [JavaScript — Edytor](#_Toc318097407)
+    - [JavaScript Editor](#_Toc318097407)
 
         - [Zwijanie kodu](#_Toc318097408)
         - [Parowanie nawiasów klamrowych](#_Toc318097409)
@@ -88,14 +88,14 @@ ms.locfileid: "59410594"
         - [Schematy określonego dostawcy (- moz-, - webkit)](#_Toc318097419)
         - [Komentowania i Trwa usuwanie komentarza do pomocy technicznej](#_Toc318097420)
         - [Selektor kolorów](#_Toc318097421)
-        - [Fragmenty kodu](#_Toc318097422)
+        - [Wstawki kodu](#_Toc318097422)
         - [Niestandardowe regionów](#_Toc318097423)
-    - [Inspektor strony](#_Toc318097424)
+    - [Narzędzie Page Inspector](#_Toc318097424)
     - [Publikowanie](#_Toc318097425)
 
         - [Profile publikowania](#_Toc318097426)
         - [Wstępnej kompilacji platformy ASP.NET i scalania](#_Toc318097427)
-- [IIS Express](#_Toc318097428)
+- [Usługi IIS Express](#_Toc318097428)
 - [Zrzeczenie odpowiedzialności](#_Toc318097429)
 
 <a id="_Toc318097372"></a>
@@ -631,7 +631,7 @@ Na przykład *roli* atrybut ma teraz pełną obsługą technologii IntelliSense:
 
 Standardowa Poczeka ARIA wprowadza również atrybuty, które mają prefiks *aria -* umożliwiające dodawanie semantyki do dokumentu HTML5. Program Visual Studio obsługuje również w pełni tych *aria -* atrybuty:
 
-![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png) ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
+![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png)![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
 
 <a id="_Toc318097400"></a>
 #### <a name="new-html5-snippets"></a>Nowe fragmenty HTML5

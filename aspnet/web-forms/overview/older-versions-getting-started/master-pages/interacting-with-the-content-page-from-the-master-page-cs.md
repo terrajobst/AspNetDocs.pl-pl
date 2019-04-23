@@ -12,7 +12,7 @@ ms.openlocfilehash: a2b6d3a5ceb66c14a78b02182f49d76c72becbd4
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413649"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interakcja ze stroną zawartości z poziomu strony wzorcowej (C#)
@@ -51,7 +51,7 @@ Ta pozostałej części tego samouczka implementuje przykładzie opisano we wpro
 Naszym pierwszym zadaniem biznesowym polega na utworzeniu strony zawartości, która zawiera listę produktów z bazy danych Northwind. (Dodaliśmy do projektu bazy danych Northwind w poprzednim samouczku [ *interakcja ze stroną wzorcową z poziomu strony zawartości*](interacting-with-the-master-page-from-the-content-page-cs.md).) Rozpocznij od dodania nowej strony programu ASP.NET do `~/Admin` folder o nazwie `Products.aspx`i powiązać `Site.master` strony wzorcowej. Rysunek 1 Pokazuje Eksplorator rozwiązań po tej strony została dodana do witryny sieci Web.
 
 
-[![ADodaj nową stronę programu ASP.NET do folderu administratora](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
+[![Dodawanie nowej strony programu ASP.NET do folderu administratora](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
 
 **Rysunek 01**: Dodawanie nowej strony programu ASP.NET do `Admin` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))
 
@@ -68,7 +68,7 @@ Dodanie tego `<siteMapNode>` element jest widoczny w lekcji listy (zobacz rysune
 Wróć do `Products.aspx`. W formancie zawartości dla `MainContent`, dodawanie kontrolki GridView i nadaj mu nazwę `ProductsGrid`. Powiąż widoku GridView z kontrolką SqlDataSource o nazwie `ProductsDataSource`.
 
 
-[![BZnajdź GridView do nowej kontrolki SqlDataSource](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
+[![Nowe kontrolki SqlDataSource powiązać widoku GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
 
 **Rysunek 02**: Powiązywanie kontrolki GridView nowej kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))
 
@@ -76,7 +76,7 @@ Wróć do `Products.aspx`. W formancie zawartości dla `MainContent`, dodawanie 
 Skonfiguruj kreatora, tak aby używał bazy danych Northwind. Jeśli pracy za pomocą poprzedniego samouczka, to konto powinno mieć już parametrów połączenia o nazwie `NorthwindConnectionString` w `Web.config`. Wybierz te parametry połączenia z listy rozwijanej, jak pokazano na rysunku 3.
 
 
-[![Configuruj SqlDataSource do korzystania z bazy danych Northwind](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
+[![Konfigurowanie SqlDataSource do korzystania z bazy danych Northwind](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
 
 **Rysunek 03**: Konfigurowanie SqlDataSource do korzystania z bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))
 
@@ -84,7 +84,7 @@ Skonfiguruj kreatora, tak aby używał bazy danych Northwind. Jeśli pracy za po
 Następnie określ kontroli źródła danych `SELECT` instrukcji przez wybranie tabeli Produkty z listy rozwijanej i zwracanie `ProductName` i `UnitPrice` kolumny (patrz rysunek 4). Kliknij przycisk Dalej, a następnie Zakończ, aby zakończyć działanie kreatora Konfigurowanie źródła danych.
 
 
-[![RCena jednostkowa pól z tabeli Produkty i owróć ProductName](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
+[![Zwracanie ProductName i UnitPrice pola z tabeli Produkty](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
 
 **Rysunek 04**: Zwróć `ProductName` i `UnitPrice` pola z `Products` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))
 
@@ -95,7 +95,7 @@ To wszystko. Po zakończeniu pracy Kreatora programu Visual Studio dodaje dwa Bo
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample2.aspx)]
 
 
-[![Estacje produktu, a jego ceną znajduje się w widoku GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
+[![Każdy produkt, a jego ceną znajduje się w widoku GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
 
 **Rysunek 05**: Każdy produkt, a jego ceną znajduje się w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))
 
@@ -111,7 +111,7 @@ Naszym kolejnym krokiem jest, aby dodać kontrolkę przycisku w sieci Web do poz
 Następnie dodaj kontrolki SqlDataSource strony wzorcowej, nadając mu nazwę `DoublePricesDataSource`. Ta SqlDataSource będzie służyć do wykonywania `UPDATE` instrukcję, aby wszystkie ceny dwukrotnie. W szczególności należy ustawić jego `ConnectionString` i `UpdateCommand` właściwości na ciąg połączenia i `UPDATE` instrukcji. Następnie należy wywołać tej kontrolki SqlDataSource `Update` metody podczas `DoublePrice` przycisku. Aby ustawić `ConnectionString` i `UpdateCommand` właściwości, wybierz kontrolkę kontrolką SqlDataSource, a następnie przejdź do okna właściwości. `ConnectionString` Listy właściwości tych parametrów połączenia przechowywanych już w `Web.config` na liście rozwijanej; wybierz opcję `NorthwindConnectionString` opcji, jak pokazano na rysunku 6.
 
 
-[![Configuruj SqlDataSource używać NorthwindConnectionString](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
+[![Konfigurowanie SqlDataSource używać NorthwindConnectionString](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
 
 **Rysunek 06**: Konfigurowanie SqlDataSource do użycia `NorthwindConnectionString` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))
 
@@ -124,7 +124,7 @@ Aby ustawić `UpdateCommand` właściwości, znajdź opcję UpdateQuery w oknie 
 Po wykonaniu tej instrukcji zostanie dwukrotnie `UnitPrice` wartość dla każdego rekordu w `Products` tabeli.
 
 
-[![Ste właściwości elementu UpdateCommand firmy SqlDataSource](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
+[![Ustaw właściwość elementu UpdateCommand SqlDataSource firmy](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
 
 **Rysunek 07**: Ustaw jego SqlDataSource `UpdateCommand` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))
 
@@ -225,12 +225,12 @@ Przy użyciu tego kodu w miejscu GridView na stronie zawartości są odświeżan
 Rysunki 8 i 9 pokazują to zachowanie. Rysunek 8 przedstawia stronę po raz pierwszy odwiedzony. Należy zauważyć, że cena wartości w obu `RecentProducts` kontrolki GridView (w lewej kolumnie strony wzorcowej) i `ProductsGrid` kontrolki GridView (w stronę zawartości). Przedstawia rysunek 9 takie same ekranu natychmiast po `DoublePrice` został kliknięty przycisk. Jak widać, nowe ceny są natychmiast odzwierciedlane w obu GridViews.
 
 
-[![TADAM początkowej wartości cen](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
+[![Wartości początkowej cen](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
 
 **Rysunek 08**: Początkowe wartości cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))
 
 
-[![TCeny Just-Doubled HE są wyświetlane w GridViews](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
+[![Ceny Just-Doubled są wyświetlane w GridViews](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
 
 **Rysunek 09**: Ceny Just-Doubled są wyświetlane w GridViews ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))
 

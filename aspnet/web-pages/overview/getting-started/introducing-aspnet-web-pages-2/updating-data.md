@@ -12,7 +12,7 @@ ms.openlocfilehash: 4542ad3ac3e321629bb4de3cd4df12c22ff6cb20
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414624"
 ---
 # <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — aktualizowanie danych bazy danych

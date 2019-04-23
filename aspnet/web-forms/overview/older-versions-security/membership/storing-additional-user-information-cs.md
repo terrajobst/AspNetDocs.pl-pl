@@ -12,7 +12,7 @@ ms.openlocfilehash: 08b2e71553d9c1c8158debd05e19a3d1b146b319
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412362"
 ---
 # <a name="storing-additional-user-information-c"></a>Przechowywanie dodatkowych informacji dotyczących użytkowników (C#)
@@ -45,7 +45,7 @@ Aby przechwycić komentarze księgi gości, należy utworzyć tabelę bazy danyc
 Aby dodać w tej tabeli do naszych bazy danych, przejdź do Eksploratora bazy danych w programie Visual Studio i przejść do szczegółów `SecurityTutorials` bazy danych. Kliknij prawym przyciskiem myszy w folderze tabel i wybierz polecenie Dodaj nową tabelę. Wywołuje interfejs, który pozwala na określenie kolumny w nowej tabeli.
 
 
-[![ADodaj nową tabelę w bazie danych SecurityTutorials](storing-additional-user-information-cs/_static/image2.png)](storing-additional-user-information-cs/_static/image1.png)
+[![Dodaj nową tabelę w bazie danych SecurityTutorials](storing-additional-user-information-cs/_static/image2.png)](storing-additional-user-information-cs/_static/image1.png)
 
 **Rysunek 1**: Dodaj nową tabelę do `SecurityTutorials` bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image3.png))
 
@@ -53,7 +53,7 @@ Aby dodać w tej tabeli do naszych bazy danych, przejdź do Eksploratora bazy da
 Następnie zdefiniuj `GuestbookComments`firmy kolumn. Rozpocznij, dodając kolumnę o nazwie `CommentId` typu `uniqueidentifier`. Ta kolumna będzie jednoznacznie identyfikują każdego komentarza w księdze gości, więc nie zezwalaj na `NULL` s i oznacz go jako klucza podstawowego tabeli. Zamiast podanie wartości dla `CommentId` pola w każdym `INSERT`, firma Microsoft może wskazać, że nowy `uniqueidentifier` wartości powinny być generowane automatycznie dla tego pola na `INSERT` ustawiając wartość domyślna w kolumnie `NEWID()`. Po dodaniu tego pierwszego pola, oznaczając je jako klucz podstawowy i ustawienia jej wartości domyślnej ekran powinien wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 2.
 
 
-[![Add głównej CommentId o nazwie kolumny](storing-additional-user-information-cs/_static/image5.png)](storing-additional-user-information-cs/_static/image4.png)
+[![Dodaj kolumnę głównej o nazwie CommentId](storing-additional-user-information-cs/_static/image5.png)](storing-additional-user-information-cs/_static/image4.png)
 
 **Rysunek 2**: Dodaj podstawowy kolumna o nazwie `CommentId` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image6.png))
 
@@ -73,7 +73,7 @@ Mamy jeden problem ostatniego zająć się za pomocą `GuestbookComments` tabeli
 Kliknij przycisk Dodaj, w lewym dolnym rogu okna dialogowego relacje klucza obcego. Spowoduje to dodanie nowego ograniczenia klucza obcego, mimo że wciąż potrzebujemy do definiowania tabel, które uczestniczą w relacji.
 
 
-[![USE obcego okno dialogowe relacje klucza do zarządzania ograniczeń klucza obcego dla tabeli](storing-additional-user-information-cs/_static/image8.png)](storing-additional-user-information-cs/_static/image7.png)
+[![Umożliwia zarządzanie ograniczeń klucza obcego z tabeli przez okno dialogowe relacje klucza obcego](storing-additional-user-information-cs/_static/image8.png)](storing-additional-user-information-cs/_static/image7.png)
 
 **Rysunek 3**: Okno dialogowe relacje klucza obcego umożliwia zarządzanie ograniczeń klucza obcego dla tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image9.png))
 
@@ -81,7 +81,7 @@ Kliknij przycisk Dodaj, w lewym dolnym rogu okna dialogowego relacje klucza obce
 Następnie kliknij ikonę elipsy, w wierszu "Tabel i kolumn specyfikacji" po prawej stronie. Spowoduje to uruchomienie okno dialogowe tabele i kolumny, z której można określić tabeli klucza podstawowego i kolumny i kolumny klucza obcego z `GuestbookComments` tabeli. W szczególności należy wybrać `aspnet_Users` i `UserId` jako tabeli klucza podstawowego i kolumny, a `UserId` z `GuestbookComments` tabeli jako kolumna klucza obcego (zobacz rysunek 4). Po zdefiniowaniu podstawowe i obce klucza tabele i kolumny, kliknij przycisk OK, aby powrócić do okna dialogowego relacje klucza obcego.
 
 
-[![Establish obcego klucza ograniczenie między aspnet_Users i tabele GuesbookComments](storing-additional-user-information-cs/_static/image11.png)](storing-additional-user-information-cs/_static/image10.png)
+[![Ustanów i obcego klucza ograniczenie między aspnet_Users GuesbookComments tabel](storing-additional-user-information-cs/_static/image11.png)](storing-additional-user-information-cs/_static/image10.png)
 
 **Rysunek 4**: Ustanowić obcego klucza ograniczenie między `aspnet_Users` i `GuesbookComments` tabel ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image12.png))
 
@@ -91,7 +91,7 @@ W tym momencie została ustanowiona ograniczenie klucza obcego. Obecność tego 
 Ograniczenia klucza obcego można skonfigurować do automatycznego usuwania rekordów podrzędnych, po usunięciu rekordu nadrzędnego. Innymi słowy firma Microsoft można skonfigurować tego ograniczenia klucza obcego tak, aby wpisów księgi gości są automatycznie usuwane po usunięciu jego konta użytkownika. Aby to osiągnąć, rozwiń sekcję "INSERT i UPDATE Specyfikacja" i ustawić dla właściwości "Usuń regułę" Cascade.
 
 
-[![COgraniczenie klucza obcego w celu kaskadowe onfiguruj](storing-additional-user-information-cs/_static/image14.png)](storing-additional-user-information-cs/_static/image13.png)
+[![Skonfiguruj ograniczenia klucza obcego się kaskadowo](storing-additional-user-information-cs/_static/image14.png)](storing-additional-user-information-cs/_static/image13.png)
 
 **Rysunek 5**: Konfiguruj ograniczenie klucza obcego w celu kaskadowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image15.png))
 
@@ -115,7 +115,7 @@ Teraz musisz skojarzyć trzy kolumny z każdego konta użytkownika, do przechowy
 Utworzymy nową tabelę o nazwie `UserProfiles` można zapisać macierzystego miejscowości, strony głównej i podpisu dla każdego użytkownika. Kliknij prawym przyciskiem myszy w folderze tabelami w oknie Eksplorator bazy danych i wybrać opcję utworzenia nowej tabeli. Nazwa pierwszej kolumny `UserId` i ustaw jej typ `uniqueidentifier`. Nie zezwalaj na `NULL` wartości i oznacz kolumnę jako klucz podstawowy. Następnie dodaj kolumn o nazwach: `HomeTown` typu `nvarchar(50)`; `HomepageUrl` typu `nvarchar(100)`; i podpis typu `nvarchar(500)`. Każda z tych trzech kolumn może akceptować `NULL` wartość.
 
 
-[![CUtwórz tabelę UserProfiles](storing-additional-user-information-cs/_static/image17.png)](storing-additional-user-information-cs/_static/image16.png)
+[![Utwórz tabelę UserProfiles](storing-additional-user-information-cs/_static/image17.png)](storing-additional-user-information-cs/_static/image16.png)
 
 **Rysunek 6**: Tworzenie `UserProfiles` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image18.png))
 
@@ -133,7 +133,7 @@ Ponieważ w tej serii samouczków skupia się na uwierzytelnianie formularzy, au
 Otwórz `AdditionalUserInfo.aspx` strony w `Membership` folder i dodać kontrolki widoku szczegółów do strony, ustawiając jego `ID` właściwości `UserProfile` i wyczyszczenie jego `Width` i `Height` właściwości. Rozwiń DetailsView tagu inteligentnego, a następnie wybierz powiązać formant źródła danych. Spowoduje to uruchomienie Kreatora konfiguracji źródła danych (zobacz rysunek 7). Pierwszym krokiem pyta, aby określić typ źródła danych. Ponieważ firma Microsoft zamierza łącz się bezpośrednio z `SecurityTutorials` bazy danych, wybierz ikonę bazy danych, określając `ID` jako `UserProfileDataSource`.
 
 
-[![ADodaj nowe SqlDataSource formantu o nazwie UserProfileDataSource](storing-additional-user-information-cs/_static/image20.png)](storing-additional-user-information-cs/_static/image19.png)
+[![Dodaj kontrolkę kontrolką SqlDataSource o nazwie UserProfileDataSource](storing-additional-user-information-cs/_static/image20.png)](storing-additional-user-information-cs/_static/image19.png)
 
 **Rysunek 7**: Dodaj nowe kontrolki SqlDataSource, o nazwie `UserProfileDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image21.png))
 
@@ -141,7 +141,7 @@ Otwórz `AdditionalUserInfo.aspx` strony w `Membership` folder i dodać kontrolk
 Następny ekran wyświetla monit dotyczący bazy danych do użycia. Firma Microsoft już zdefiniowane parametry połączenia w `Web.config` dla `SecurityTutorials` bazy danych. Ta nazwa parametrów połączenia — `SecurityTutorialsConnectionString` — powinien znajdować się na liście rozwijanej. Wybierz tę opcję, a następnie kliknij przycisk Dalej.
 
 
-[![Cbierz SecurityTutorialsConnectionString z listy rozwijanej](storing-additional-user-information-cs/_static/image23.png)](storing-additional-user-information-cs/_static/image22.png)
+[![Z listy rozwijanej wybierz SecurityTutorialsConnectionString](storing-additional-user-information-cs/_static/image23.png)](storing-additional-user-information-cs/_static/image22.png)
 
 **Rysunek 8**: Wybierz `SecurityTutorialsConnectionString` z listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image24.png))
 
@@ -149,7 +149,7 @@ Następny ekran wyświetla monit dotyczący bazy danych do użycia. Firma Micros
 Kolejne ekranu pyta, czy nam określić tabeli i kolumn do zapytań. Wybierz `UserProfiles` tabeli z listy rozwijanej i zaznacz wszystkie kolumny.
 
 
-[![BWykonaj kopię wszystkich kolumn z tabeli UserProfiles pierścienia](storing-additional-user-information-cs/_static/image26.png)](storing-additional-user-information-cs/_static/image25.png)
+[![Przenieś kopii wszystkich kolumn z tabeli UserProfiles](storing-additional-user-information-cs/_static/image26.png)](storing-additional-user-information-cs/_static/image25.png)
 
 **Rysunek 9**: Przełącz ponownie wszystkich kolumn z `UserProfiles` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image27.png))
 
@@ -159,7 +159,7 @@ Bieżące zapytanie zwraca rysunek 9 *wszystkich* rekordów w `UserProfiles`, al
 Niestety nie istnieje źródło wbudowanych parametru do zwrócenia aktualnie zalogowanego użytkownika `UserId` wartość. Konieczne będzie programowo uzyskać tę wartość. W związku z tym Ustaw listy rozwijanej źródła na "None," kliknij pozycję Dodaj przycisk, aby dodać parametr, a następnie kliknij przycisk OK.
 
 
-[![ADodaj parametr filtru w kolumnie Nazwa użytkownika](storing-additional-user-information-cs/_static/image29.png)](storing-additional-user-information-cs/_static/image28.png)
+[![Dodaj parametr filtru w kolumnie Nazwa użytkownika](storing-additional-user-information-cs/_static/image29.png)](storing-additional-user-information-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Dodaj parametr filtru na `UserId` kolumny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image30.png))
 
@@ -187,7 +187,7 @@ W przypadku odwiedzenia `AdditionalUserInfo.aspx` strony za pośrednictwem przeg
 Przejdź do Eksploratora bazy danych w programie Visual Studio, a następnie rozwiń folder tabel. Kliknij prawym przyciskiem myszy `aspnet_Users` tabeli i wybierz pozycję "Pokaż dane tabeli" Aby wyświetlić rekordy w tabeli; zrobić to samo `UserProfiles` tabeli. Na ilustracji 11 pokazano tych wyników, gdy sąsiadująco w pionie. W bazie danych istnieją obecnie `aspnet_Users` rekordy Bruce Fred i Tito, ale nie rekordów w `UserProfiles` tabeli.
 
 
-[![Tzostaną wyświetlone zawartość HE aspnet_Users i tabele UserProfiles](storing-additional-user-information-cs/_static/image32.png)](storing-additional-user-information-cs/_static/image31.png)
+[![Zawartość aspnet_Users i UserProfiles tabele są wyświetlane.](storing-additional-user-information-cs/_static/image32.png)](storing-additional-user-information-cs/_static/image31.png)
 
 **Rysunek 11**: Zawartość `aspnet_Users` i `UserProfiles` tabele są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image33.png))
 
@@ -195,7 +195,7 @@ Przejdź do Eksploratora bazy danych w programie Visual Studio, a następnie roz
 Dodaj nowy rekord do `UserProfiles` tabeli ręcznie wpisując wartości dla `HomeTown`, `HomepageUrl`, i `Signature` pola. Najprostszym sposobem, aby uzyskać prawidłową `UserId` wartość w nowym `UserProfiles` rekordu jest wybranie `UserId` pola z określonego konta użytkownika w `aspnet_Users` tabeli i skopiuj i wklej go do `UserId` pole `UserProfiles`. Przedstawia rysunek 12 `UserProfiles` tabeli po dodaniu nowego rekordu dla Bruce.
 
 
-[![A Rekord został dodany do UserProfiles dla Bruce](storing-additional-user-information-cs/_static/image35.png)](storing-additional-user-information-cs/_static/image34.png)
+[![Rekord został dodany do UserProfiles dla Bruce](storing-additional-user-information-cs/_static/image35.png)](storing-additional-user-information-cs/_static/image34.png)
 
 **Rysunek 12**: Rekord został dodany do `UserProfiles` dla Bruce ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image36.png))
 
@@ -203,7 +203,7 @@ Dodaj nowy rekord do `UserProfiles` tabeli ręcznie wpisując wartości dla `Hom
 Wróć do `AdditionalUserInfo.aspx` strony i zalogować się jako Bruce. Jak pokazano na rysunku 13, zostaną wyświetlone ustawienia Bruce firmy.
 
 
-[![TObecnie użytkownik odwiedzający jest wyświetlany jego ustawienia](storing-additional-user-information-cs/_static/image38.png)](storing-additional-user-information-cs/_static/image37.png)
+[![Obecnie odwiedzający użytkownik, jest wyświetlany jego ustawienia](storing-additional-user-information-cs/_static/image38.png)](storing-additional-user-information-cs/_static/image37.png)
 
 **Rysunek 13**: Obecnie odwiedzający użytkownik, jest wyświetlany jego ustawienia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image39.png))
 
@@ -223,7 +223,7 @@ Najpierw musimy to dodanie `UpdateCommand` dla SqlDataSource, określając `UPDA
 Następnie kliknij przycisk "Odśwież parametry", który zostanie utworzony parametr w kontrolki SqlDataSource `UpdateParameters` kolekcji dla każdego z parametrów w `UPDATE` instrukcji. Pozostaw źródła dla każdego zestawu parametrów None, a następnie kliknij przycisk OK, aby wypełnić okno dialogowe.
 
 
-[![SOkreśl elementu UpdateCommand i UpdateParameters SqlDataSource](storing-additional-user-information-cs/_static/image41.png)](storing-additional-user-information-cs/_static/image40.png)
+[![Określ elementu UpdateCommand i UpdateParameters SqlDataSource](storing-additional-user-information-cs/_static/image41.png)](storing-additional-user-information-cs/_static/image40.png)
 
 **Rysunek 14**: Określ SqlDataSource `UpdateCommand` i `UpdateParameters` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image42.png))
 
@@ -239,7 +239,7 @@ Należy pamiętać, dodanie CommandField i `DefaultMode` właściwości.
 Przejdź dalej i przetestować tę stronę za pośrednictwem przeglądarki. Gdy użytkownik odwiedzi z użytkownikiem, który ma odpowiedni rekord w `UserProfiles`, ustawienia użytkownika są wyświetlane w interfejsie można edytować.
 
 
-[![TRenderuje on DetailsView interfejsu można edytować](storing-additional-user-information-cs/_static/image44.png)](storing-additional-user-information-cs/_static/image43.png)
+[![DetailsView renderuje interfejsu można edytować](storing-additional-user-information-cs/_static/image44.png)](storing-additional-user-information-cs/_static/image43.png)
 
 **Rysunek 15**: DetailsView renderuje interfejsu można edytować ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image45.png))
 
@@ -257,7 +257,7 @@ Potrzebujemy wyświetlić `SettingsUpdatedMessage` etykiety przy każdej aktuali
 Wróć do `AdditionalUserInfo.aspx` strony za pośrednictwem przeglądarki i zaktualizować dane. Tym razem jest wyświetlany komunikat o stanie pomocne.
 
 
-[![A Krótką wiadomość jest wyświetlana podczas aktualizowanie ustawień](storing-additional-user-information-cs/_static/image47.png)](storing-additional-user-information-cs/_static/image46.png)
+[![Krótką wiadomość jest wyświetlana podczas ustawienia zostały zaktualizowane](storing-additional-user-information-cs/_static/image47.png)](storing-additional-user-information-cs/_static/image46.png)
 
 **Rysunek 16**: Krótką wiadomość jest wyświetlana, gdy ustawienia są aktualne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image48.png))
 
@@ -309,7 +309,7 @@ Po kliknięciu przycisku `PostCommentButton` przycisk nie jest brak wizualną op
 Rysunek 17 pokazuje zawartość `GuestbookComments` tabeli po dwóch komentarze zostały wystawione.
 
 
-[![Yjednostki organizacyjnej może wyświetlać komentarze księgi gości w tabeli GuestbookComments](storing-additional-user-information-cs/_static/image50.png)](storing-additional-user-information-cs/_static/image49.png)
+[![Może wyświetlać komentarze księgi gości w tabeli GuestbookComments](storing-additional-user-information-cs/_static/image50.png)](storing-additional-user-information-cs/_static/image49.png)
 
 **Rysunek 17**: Może wyświetlać komentarze księgi gości w `GuestbookComments` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image51.png))
 
@@ -335,7 +335,7 @@ Spowoduje to wyświetlenie na ekranie "Zdefiniować niestandardowe instrukcji lu
 Pozostaje tylko określone kolumny do zwrócenia. Z `GuestbookComments` tabeli wybierz `Subject`, `Body`, i `CommentDate` kolumny; return `HomeTown`, `HomepageUrl`, i `Signature` kolumny z `UserProfiles` tabeli; i zwracają `UserName` z `aspnet_Users`. Ponadto Dodaj "`ORDER BY CommentDate DESC`" na końcu `SELECT` zapytanie tak, aby najpierw zwracane są najnowsze wpisy. Po wprowadzeniu tych opcji, interfejsu konstruktora zapytań powinna wyglądać zrzut na rysunku 18 ekranu.
 
 
-[![TŁączy on zapytania zbudowanych GuestbookComments UserProfiles i tabele aspnet_Users](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
+[![Zapytanie zbudowanych sprzęga GuestbookComments UserProfiles i aspnet_Users tabel](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
 
 **Rysunek 18**: Zapytanie wykonane `JOIN` s `GuestbookComments`, `UserProfiles`, i `aspnet_Users` tabel ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image54.png))
 
@@ -355,7 +355,7 @@ Moje `ItemTemplate` temat każdy komentarz księgi gości w `<h4>` element z tre
 Poświęć chwilę, aby wyświetlić stronę za pośrednictwem przeglądarki. Powinien zostać wyświetlony komentarze, które zostały dodane do księgi gości w kroku 5 wyświetlane w tym miejscu.
 
 
-[![Guestbook.aspx wyświetli teraz komentarze księgi gości](storing-additional-user-information-cs/_static/image56.png)](storing-additional-user-information-cs/_static/image55.png)
+[![Teraz Guestbook.aspx Wyświetla komentarze księgi gości](storing-additional-user-information-cs/_static/image56.png)](storing-additional-user-information-cs/_static/image55.png)
 
 **Rysunek 19**: `Guestbook.aspx` Komentarze księgi gości są obecnie wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image57.png))
 
@@ -402,7 +402,7 @@ Następnie parametry połączenia są pobierane z `Web.config` i `INSERT` okreś
 Odwiedź stronę `EnhancedCreateUserWizard.aspx` strony za pośrednictwem przeglądarki, a następnie utwórz nowe konto użytkownika. Po wykonaniu tej czynności, wróć do programu Visual Studio i sprawdź zawartość `aspnet_Users` i `UserProfiles` tabele (takich jak Robiliśmy to ponownie rysunek 12). Powinien zostać wyświetlony nowemu kontu użytkownika w `aspnet_Users` i odpowiadający mu `UserProfiles` wiersza (przy użyciu `NULL` wartości `HomeTown`, `HomepageUrl`, i `Signature`).
 
 
-[![A Dodano nowe konto użytkownika i rejestrowanie UserProfiles](storing-additional-user-information-cs/_static/image59.png)](storing-additional-user-information-cs/_static/image58.png)
+[![Dodano nowe konto użytkownika i UserProfiles rekordu](storing-additional-user-information-cs/_static/image59.png)](storing-additional-user-information-cs/_static/image58.png)
 
 **Rysunek 20**: Nowe konto użytkownika i `UserProfiles` dodano rekord ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image60.png))
 
@@ -438,7 +438,7 @@ Podczas dodawania niestandardowego `WizardStep` do kontroli CreateUserWizard, ab
 21 rysunku przedstawiono przepływ pracy po dodany `WizardStep` poprzedza `CreateUserWizardStep`. Ponieważ informacje o użytkowniku dodatkowe został zebrany przez czas `CreatedUser` generowane zdarzenie, wszystkie musimy to zrobić to aktualizacja `CreatedUser` programu obsługi zdarzeń w celu pobrania tych danych wejściowych i je wykorzystać do `INSERT` wartości parametrów instrukcji (zamiast `DBNull.Value`).
 
 
-[![TADAM CreateUserWizard przepływu pracy, gdy dodatkowe WizardStep poprzedza element CreateUserWizardStep](storing-additional-user-information-cs/_static/image62.png)](storing-additional-user-information-cs/_static/image61.png)
+[![CreateUserWizard przepływu pracy, gdy dodatkowe WizardStep poprzedza element CreateUserWizardStep](storing-additional-user-information-cs/_static/image62.png)](storing-additional-user-information-cs/_static/image61.png)
 
 **Rysunek 21**: CreateUserWizard przepływu pracy podczas dodatkowy `WizardStep` Precedes `CreateUserWizardStep` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image63.png))
 
@@ -446,7 +446,7 @@ Podczas dodawania niestandardowego `WizardStep` do kontroli CreateUserWizard, ab
 Jeśli niestandardowa `WizardStep` jest umieszczany *po* `CreateUserWizardStep`, jednak proces tworzenia konta użytkownika występuje przed użytkownika miała szansę, wprowadź jej głównego miejscowości, strony głównej lub podpisu. W takim przypadku są to informacje dodatkowe musi zostać wstawiony do bazy danych po utworzeniu konta użytkownika, tak jak pokazano na rysunku 22.
 
 
-[![TADAM CreateUserWizard przepływu pracy podczas dodatkowe WizardStep pochodzi od element CreateUserWizardStep](storing-additional-user-information-cs/_static/image65.png)](storing-additional-user-information-cs/_static/image64.png)
+[![CreateUserWizard przepływu pracy, gdy po element CreateUserWizardStep dodatkowe WizardStep](storing-additional-user-information-cs/_static/image65.png)](storing-additional-user-information-cs/_static/image64.png)
 
 **Rysunek 22**: CreateUserWizard przepływu pracy podczas dodatkowy `WizardStep` pochodzi od `CreateUserWizardStep` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image66.png))
 
@@ -458,7 +458,7 @@ W tym samouczku utworzymy nową `WizardStep` występuje po `CreateUserWizardStep
 Z tagu inteligentnego sterowania CreateUserWizard, wybierz opcję "Dodaj lub usuń `WizardStep` s", co spowoduje uruchomienie `WizardStep` okno dialogowe Edytor kolekcji. Dodaj nową `WizardStep`, ustawiając jego `ID` do `UserSettings`, jego `Title` do "Your Settings" i jego `StepType` do `Step`. Umieść ją tak, aby nastąpi po `CreateUserWizardStep` ("Utwórz konto dla nowego konta"), a przed `CompleteWizardStep` ("ukończony"), jak pokazano na rysunku 23.
 
 
-[![ADodaj nowe WizardStep do kontroli CreateUserWizard](storing-additional-user-information-cs/_static/image68.png)](storing-additional-user-information-cs/_static/image67.png)
+[![Dodaj nowy element WizardStep do kontroli CreateUserWizard](storing-additional-user-information-cs/_static/image68.png)](storing-additional-user-information-cs/_static/image67.png)
 
 **Ilustracja 23**: Dodaj nowy `WizardStep` do kontroli CreateUserWizard ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](storing-additional-user-information-cs/_static/image69.png))
 

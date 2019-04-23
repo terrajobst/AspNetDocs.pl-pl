@@ -13,7 +13,7 @@ ms.openlocfilehash: 71201e9d91080855350349b966fe7916ce21a909
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411270"
 ---
 # <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity
@@ -215,7 +215,7 @@ Poniższy przykład przedstawia klasę magazynu ról. Parametr ogólny element T
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
-- **Interfejs IRoleStore&lt;element TRole&gt;**  
+- **IRoleStore&lt;TRole&gt;**  
   [Interfejs IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfejs definiuje metody służące do zaimplementowania w klasie magazynu ról. Zawiera ona metody tworzenia, aktualizowania, usuwania i pobierania ról.
 - **RoleStore&lt;TRole&gt;**  
   Aby dostosować elemencie RoleStore, należy utworzyć klasę, która implementuje interfejs interfejs IRoleStore. Musisz zaimplementować tę klasę, jeśli chcesz użyć ról w Twoim systemie. Konstruktor, który przyjmuje parametr o nazwie *bazy danych* typu ExampleDatabase jest ilustruje sposób przekazywania w klasie dostępu do danych. Na przykład w implementacji MySQL, ten konstruktor przyjmuje parametr typu MySQLDatabase.  

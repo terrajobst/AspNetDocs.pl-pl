@@ -12,7 +12,7 @@ ms.openlocfilehash: 242665b3ba2e2ad2157abbe2c44ae207f15e72ce
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59410867"
 ---
 # <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Włączanie obsługi operacji CRUD (tworzenia, odczytu, aktualizacji i usuwania) w formularzach danych
@@ -49,7 +49,7 @@ Firma Microsoft będzie obsługiwać interakcje czasownik HTTP GET i POST protok
 | --- | --- | --- |
 | */Dinners/edit / [id]* | GET | Wyświetlanie edytowalnego formularza HTML wypełniony danymi obiad. |
 | POST | Zapisywanie zmian w formularzu na obiad z nich do bazy danych. |
-| */ Kolacji/tworzenia* | GET | Wyświetlanie pustego formularza HTML, który pozwala użytkownikom na definiowanie nowych kolacji. |
+| */Dinners/Create* | GET | Wyświetlanie pustego formularza HTML, który pozwala użytkownikom na definiowanie nowych kolacji. |
 | POST | Utwórz nowy obiad i zapisz go w bazie danych. |
 | */Dinners/delete / [id]* | GET | Wyświetl usuwanie ekran potwierdzenia. |
 | POST | Usuwa określony obiad z bazy danych. |

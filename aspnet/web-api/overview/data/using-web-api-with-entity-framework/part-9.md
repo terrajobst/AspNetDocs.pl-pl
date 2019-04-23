@@ -12,14 +12,14 @@ ms.openlocfilehash: 692269a2c11e529af78f24feca74bba704b5b54b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415157"
 ---
 # <a name="add-a-new-item-to-the-database"></a>Dodawanie nowego elementu do bazy danych
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 W tej sekcji dodasz możliwości dla użytkowników w celu utworzenia nowej książki. W app.js Dodaj następujący kod do modelu widoku:
 

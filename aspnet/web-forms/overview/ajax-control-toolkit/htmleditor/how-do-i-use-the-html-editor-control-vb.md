@@ -12,7 +12,7 @@ ms.openlocfilehash: 5fa19ef52c4538f0db427eaa9a79b074c85001ac
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415872"
 ---
 # <a name="how-do-i-use-the-html-editor-control-vb"></a>Jak używać kontrolka edytora HTML? (VB)
@@ -25,7 +25,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 Celem tego samouczka jest zapewnienie Przegląd kontrolka edytora HTML dołączone do zestawu narzędzi AJAX Control Toolkit. Edytor HTML zawiera opcje zmiany rozmiaru czcionki, wybierając czcionki, zmiana koloru tła, modyfikując kolor pierwszego planu dodawania łączy, dodawanie obrazów, zmiana wyrównania tekstu i wykonywanie wycinania, kopiowania i wklejania operacje (zobacz rysunek 1).
 
 
-[![The HTML Editor](how-do-i-use-the-html-editor-control-vb/_static/image1.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image1.png)
+[![Edytor HTML](how-do-i-use-the-html-editor-control-vb/_static/image1.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image1.png)
 
 **Rysunek 01**: Edytor HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-html-editor-control-vb/_static/image2.png))
 
@@ -33,7 +33,7 @@ Celem tego samouczka jest zapewnienie Przegląd kontrolka edytora HTML dołączo
 Edytor HTML umożliwia wprowadzanie zawartości przy użyciu trybu projektowania lub możesz wprowadzić HTML bezpośrednio. Możesz również znajdują się z opcją zawartości HTML w wersji zapoznawczej (patrz rysunek 2).
 
 
-[![DWID, HTML, w celu sprawdzenia, przyciski](how-do-i-use-the-html-editor-control-vb/_static/image2.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image3.png)
+[![Projektowanie, HTML i w wersji zapoznawczej przycisków](how-do-i-use-the-html-editor-control-vb/_static/image2.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image3.png)
 
 **Rysunek 02**: Projektowanie, HTML i w wersji zapoznawczej przycisków ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-html-editor-control-vb/_static/image4.png))
 
@@ -49,7 +49,7 @@ W górnej części strony przed wszystkie inne formanty na stronie należy umie�
 Kontrolka edytora HTML znajduje się w przyborniku z pozostałą częścią kontrolki zestawu narzędzi AJAX Control Toolkit. Jest on nazwany kontrolka edytora (zobacz rysunek 3).
 
 
-[![TADAM kontrolka edytora HTML](how-do-i-use-the-html-editor-control-vb/_static/image3.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image5.png)
+[![Kontrolka edytora HTML](how-do-i-use-the-html-editor-control-vb/_static/image3.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image5.png)
 
 **Rysunek 03**: Kontrolka edytora HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-html-editor-control-vb/_static/image6.png))
 
@@ -63,7 +63,7 @@ Po przeciągnięciu edytora HTML na stronie można ustawić jego właściwości 
 Na stronie w ofercie 1 zawiera kontrolka edytora HTML, formant przycisku i formant literału. Po kliknięciu przycisku, zawartość edytora HTML jest wyświetlana w formancie Literal (zobacz rysunek 4).
 
 
-[![Submitting formularza za pomocą edytora HTML](how-do-i-use-the-html-editor-control-vb/_static/image4.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image7.png)
+[![Przesyłanie formularza za pomocą edytora HTML](how-do-i-use-the-html-editor-control-vb/_static/image4.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image7.png)
 
 **Rysunek 04**: Przesyłanie formularza za pomocą edytora HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-html-editor-control-vb/_static/image8.png))
 
@@ -75,7 +75,7 @@ Zawartość edytora HTML jest używana do pobierania zawartości HTML wprowadzon
 Można dostosować dokładnie przyciski, które pojawiają się w edytorze. Na przykład można usunąć karta HTML, aby uniemożliwić użytkownikom przełączanie edytora HTML w trybie HTML. Lub możesz chcieć usunąć listę rozwijaną rozmiar czcionki, tak aby uniemożliwić użytkownikom tworzenie zbyt duże pole tekstowe wśród wątków forum Księguj message, (zobacz rysunek 5).
 
 
-[![A niestandardowy edytor HTML](how-do-i-use-the-html-editor-control-vb/_static/image5.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image9.png)
+[![Niestandardowy edytor HTML](how-do-i-use-the-html-editor-control-vb/_static/image5.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image9.png)
 
 **Rysunek 05**: A dostosowany edytora HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](how-do-i-use-the-html-editor-control-vb/_static/image10.png))
 

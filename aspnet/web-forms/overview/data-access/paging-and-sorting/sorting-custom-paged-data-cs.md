@@ -12,7 +12,7 @@ ms.openlocfilehash: a65fe60dc44eb40591733ba9371e409f690fea52
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409242"
 ---
 # <a name="sorting-custom-paged-data-c"></a>Sortowanie niestandardowo stronicowanych danych (C#)
@@ -71,7 +71,7 @@ Poświęć chwilę, aby przetestować tę procedurę składowaną z różnymi wa
 **Rysunek 1**: Wypróbuj różne wartości dla parametrów procedury składowanej s trzech danych wejściowych
 
 
-[![Ts procedury składowanej HE wyniki są wyświetlane w oknie danych wyjściowych](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
+[![S procedury składowanej wyniki są wyświetlane w oknie danych wyjściowych](sorting-custom-paged-data-cs/_static/image3.png)](sorting-custom-paged-data-cs/_static/image2.png)
 
 **Rysunek 2**: S procedury składowanej w oknie danych wyjściowych wyświetlanych wyników ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-cs/_static/image4.png))
 
@@ -145,7 +145,7 @@ Aby włączyć sortowanie w widoku GridView, po prostu zaznacz pole wyboru Włą
 Rysunek nr 7 przedstawia pierwszej strony wyniki, gdy są sortowane według `UnitPrice` w kolejności rosnącej.
 
 
-[![THE wyniki są sortowane według UnitPrice](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
+[![Wyniki są sortowane według UnitPrice](sorting-custom-paged-data-cs/_static/image10.png)](sorting-custom-paged-data-cs/_static/image9.png)
 
 **Rysunek 7**: Wyniki są sortowane według UnitPrice ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-cs/_static/image11.png))
 
@@ -166,7 +166,7 @@ Ten wyjątek występuje, ponieważ `SortExpression` s GridView `SupplierName` el
 **Rysunek 9**: Zmień SortExpression s elementu BoundField NazwaDostawcy CompanyName
 
 
-[![TTeraz można sortować wyniki używane przez dostawcę](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
+[![Teraz można posortować wyników według dostawcy](sorting-custom-paged-data-cs/_static/image15.png)](sorting-custom-paged-data-cs/_static/image14.png)
 
 **Na rysunku nr 10**: Można teraz można posortować wyników według dostawcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-cs/_static/image16.png))
 

@@ -12,14 +12,14 @@ ms.openlocfilehash: e4c0f3fe596471921c174762c83d1f013b42fb3e
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59415014"
 ---
 # <a name="part-2-creating-the-domain-models"></a>Część 2. Tworzenie modeli domeny
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-models"></a>Dodawanie modeli
 

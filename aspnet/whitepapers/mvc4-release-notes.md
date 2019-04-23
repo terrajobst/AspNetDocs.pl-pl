@@ -12,7 +12,7 @@ ms.openlocfilehash: 0f9b4e2ba0514df4c017a192f3c2136a7eec60c7
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59413259"
 ---
 # <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
@@ -23,7 +23,7 @@ ms.locfileid: "59413259"
 - [Uwagi dotyczące instalacji](#_Toc303253802)
 - [Dokumentacja](#_Toc303253803)
 - [Pomoc techniczna](#_Toc303253804)
-- [Wymagania programowe](#_Toc303253805)
+- [Wymagania dotyczące oprogramowania](#_Toc303253805)
 - [Nowe funkcje we wzorcu ASP.NET MVC 4](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
@@ -32,14 +32,14 @@ ms.locfileid: "59413259"
     - [Tryby wyświetlania](#_Toc303253810)
     - [jQuery Mobile, przełącznikiem widoku i zastępowanie przeglądarki](#_Toc303253811)
     - [Zadanie obsługi asynchronicznego kontrolerów](#_Toc303253813)
-    - [Azure SDK](#_Toc303253814)
+    - [Zestaw Azure SDK](#_Toc303253814)
     - [Migracje baz danych](#_Toc303253818)
     - [Szablonu pusty projekt](#_Toc303253819)
     - [Dodawanie kontrolera do dowolnego folderu projektu](#_Toc303253820)
     - [Tworzenie pakietów i minifikacja](#_Toc303253821)
     - [Włączanie logowania do usług Facebook i innych lokacji za pomocą protokołu OAuth i OpenID](#_Toc303253822)
 - [Uaktualnianie projektu ASP.NET MVC 3 do ASP.NET MVC 4](#_Toc303253806)
-- [Changes from ASP.NET MVC 4 Release Candidate](#_Toc303253817)
+- [Zmiany w porównaniu z platformy ASP.NET MVC 4 w wersji Release Candidate](#_Toc303253817)
 - [Znane problemy i fundamentalne zmiany](#_Toc303253815)
 
 <a id="_Toc303253802"></a>

@@ -12,7 +12,7 @@ ms.openlocfilehash: 1b6675a933f04b3eb7f5111b2ccd16c44baab7ba
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59414351"
 ---
 # <a name="security-basics-and-aspnet-support-vb"></a>Podstawy zabezpieczeń i obsługa platformy ASP.NET (VB)
@@ -139,7 +139,7 @@ Microsoft jest dostarczany dwie klasy dostawcy członkostwa w programie .NET Fra
 W tej serii samouczków skupia się wyłącznie na SqlMembershipProvider.
 
 
-[![TADAM dostawcy modelu umożliwia różnych implementacji w celu można bezproblemowo podłączone do Framework](security-basics-and-asp-net-support-vb/_static/image4.png)](security-basics-and-asp-net-support-vb/_static/image3.png)
+[![Dostawca modelu umożliwia różne implementacje się bezproblemowo podłączone do Framework](security-basics-and-asp-net-support-vb/_static/image4.png)](security-basics-and-asp-net-support-vb/_static/image3.png)
 
 **Rysunek 03**: Dostawca modelu umożliwia różne implementacje się bezproblemowo podłączone w ramach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](security-basics-and-asp-net-support-vb/_static/image5.png))
 

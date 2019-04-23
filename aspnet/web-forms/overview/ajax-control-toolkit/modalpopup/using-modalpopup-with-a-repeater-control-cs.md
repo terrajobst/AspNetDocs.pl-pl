@@ -12,7 +12,7 @@ ms.openlocfilehash: 91758b7c329b78bcb3a3ab301650d6da6164d1a3
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411192"
 ---
 # <a name="using-modalpopup-with-a-repeater-control-c"></a>Używanie kontrolki ModalPopup z kontrolką elementu powtarzanego (C#)
@@ -49,7 +49,7 @@ Przed okna podręcznego, pracując w elemencie powtarzanym, `ModalPopupExtender`
 Następnie każdy element w źródle danych jest wyświetlany obok niej przycisk wyzwalającego modalnego okna podręcznego.
 
 
-[![Tmodalne okno podręczne HE mogą być wywoływane dla każdego wpisu źródła danych](using-modalpopup-with-a-repeater-control-cs/_static/image2.png)](using-modalpopup-with-a-repeater-control-cs/_static/image1.png)
+[![Modalne okno podręczne mogą być wywoływane dla każdego wpisu źródła danych](using-modalpopup-with-a-repeater-control-cs/_static/image2.png)](using-modalpopup-with-a-repeater-control-cs/_static/image1.png)
 
 Modalne okno podręczne mogą być wywoływane dla każdego wpisu źródła danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-modalpopup-with-a-repeater-control-cs/_static/image3.png))
 

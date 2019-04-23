@@ -12,7 +12,7 @@ ms.openlocfilehash: 69548e637a35c4fd5d0f3356e279f1f0370fad39
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59409450"
 ---
 # <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>Wyświetlanie informacji podsumowania w stopce kontrolki GridView (VB)
@@ -37,7 +37,7 @@ To zadanie przedstawia nam trzy wyzwania:
 W tym samouczku opisano sposób przezwyciężyć te wyzwania. W szczególności utworzymy strona, która wyświetla listę kategorii z listy rozwijanej z wybranej kategorii produktów, wyświetlany w kontrolce GridView. Kontrolki GridView będzie zawierać wiersz stopki, który przedstawia średnią cenę i całkowita liczba jednostek w magazynie i na produkty z tej kategorii.
 
 
-[![Sumowanie, które informacje są wyświetlane w wierszu stopce kontrolki GridView](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image2.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image1.png)
+[![Informacje podsumowania jest wyświetlany w wierszu stopce kontrolki GridView](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image2.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image1.png)
 
 **Rysunek 1**: Informacje podsumowania jest wyświetlany w wierszu stopce kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image3.png))
 
@@ -51,12 +51,12 @@ Przed dotyczących osoby z podsumowania informacje dodane w stopce kontrolki Gri
 Zacznij od otwarcia `SummaryDataInFooter.aspx` stronie `CustomFormatting` folderu. Dodaj formant DropDownList i ustaw jego `ID` do `Categories`. Następnie kliknij łącze Wybierz źródło danych z kontrolki DropDownList tagów inteligentnych i zoptymalizowany pod kątem, aby dodać nowe kontrolki ObjectDataSource, o nazwie `CategoriesDataSource` wywołującej `CategoriesBLL` klasy `GetCategories()` metody.
 
 
-[![ADodaj nowe CategoriesDataSource o nazwie elementu ObjectDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image4.png)
+[![Dodawanie nowego elementu ObjectDataSource, o nazwie CategoriesDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image5.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image4.png)
 
 **Rysunek 2**: Dodaj nazwę nowej kontrolki ObjectDataSource `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image6.png))
 
 
-[![HZapisz kontrolki ObjectDataSource Wywołaj metodę GetCategories() klasy CategoriesBLL](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image7.png)
+[![Masz ObjectDataSource, wywołaj metodę GetCategories() klasy CategoriesBLL](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image8.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image7.png)
 
 **Rysunek 3**: Masz wywołania elementu ObjectDataSource `CategoriesBLL` klasy `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image9.png))
 
@@ -64,7 +64,7 @@ Zacznij od otwarcia `SummaryDataInFooter.aspx` stronie `CustomFormatting` folder
 Po skonfigurowaniu kontrolki ObjectDataSource, Kreator wyświetli nam konfiguracji źródła danych DropDownList kreatora, w którym trzeba określić wartości pola danych, które powinny być wyświetlane, i który z nich powinien odpowiadać wartości metody DropDownList firmy `ListItem` s. Masz `CategoryName` wyświetlanemu polu i użyj `CategoryID` jako wartość.
 
 
-[![USE CategoryName i CategoryID pól jako tekstu i wartości ListItems, odpowiednio](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
+[![Użyj CategoryName i pola CategoryID jako tekst i wartość ListItems, odpowiednio](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
 
 **Rysunek 4**: Użyj `CategoryName` i `CategoryID` pól jako `Text` i `Value` dla `ListItem` s, odpowiednio ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image12.png))
 
@@ -72,7 +72,7 @@ Po skonfigurowaniu kontrolki ObjectDataSource, Kreator wyświetli nam konfigurac
 W tym momencie mamy kontrolki DropDownList (`Categories`), wyświetla listę kategorii w systemie. Teraz należy dodać w kontrolce GridView, który zawiera listę tych produktów, które należą do wybranej kategorii. Zanim przejdziemy, jednak przyjrzeć zaznacz pole wyboru włączenia automatycznego ogłaszania zwrotnego w DropDownList tagu inteligentnego. Zgodnie z opisem w *wzorzec/szczegół filtrowanie przy użyciu kontrolki DropDownList* samouczków, ustawiając DropDownList `AutoPostBack` właściwość `True` strony zostanie opublikowany ponownie każdorazowo DropDownList wartość zostanie zmieniona. Spowoduje to GridView zostanie odświeżona, wyświetlanie tych produktów w nowo wybranej kategorii. Jeśli `AutoPostBack` właściwość jest ustawiona na `False` (ustawienie domyślne), zmieniając kategorii nie powoduje odświeżenie strony i w związku z tym nie będzie aktualizacji listy produktów.
 
 
-[![CZaznacz pole wyboru Włącz AutoPostBack w tagu inteligentnego DropDownList](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image13.png)
+[![Zaznacz pole wyboru AutoPostBack Włącz w tagu inteligentnego DropDownList](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image14.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image13.png)
 
 **Rysunek 5**: Zaznacz pole wyboru Włącz automatycznego ogłaszania zwrotnego w tagu inteligentnego DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image15.png))
 
@@ -80,7 +80,7 @@ W tym momencie mamy kontrolki DropDownList (`Categories`), wyświetla listę kat
 Dodawanie kontrolki widoku siatki do strony w celu wyświetlania produktów dla wybranej kategorii. Ustaw GridView `ID` do `ProductsInCategory` i powiązać ją z nowego elementu ObjectDataSource, o nazwie `ProductsInCategoryDataSource`.
 
 
-[![ADodaj nowe ProductsInCategoryDataSource o nazwie elementu ObjectDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image16.png)
+[![Dodawanie nowego elementu ObjectDataSource, o nazwie ProductsInCategoryDataSource](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image17.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image16.png)
 
 **Rysunek 6**: Dodaj nazwę nowej kontrolki ObjectDataSource `ProductsInCategoryDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image18.png))
 
@@ -88,7 +88,7 @@ Dodawanie kontrolki widoku siatki do strony w celu wyświetlania produktów dla 
 Skonfigurować kontrolki ObjectDataSource wywołuje `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody.
 
 
-[![HZapisz ObjectDataSource Wywołaj metodę GetProductsByCategoryID(categoryID)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image20.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image19.png)
+[![Masz ObjectDataSource, wywołaj metodę GetProductsByCategoryID(categoryID)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image20.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image19.png)
 
 **Rysunek 7**: Masz wywołania elementu ObjectDataSource `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image21.png))
 
@@ -96,7 +96,7 @@ Skonfigurować kontrolki ObjectDataSource wywołuje `ProductsBLL` klasy `GetProd
 Ponieważ `GetProductsByCategoryID(categoryID)` metoda przyjmuje parametr wejściowy w ostatnim kroku kreatora można określić źródło wartości parametru. Aby wyświetlić te produkty z wybranej kategorii, ma parametr pobierane z `Categories` DropDownList.
 
 
-[![Get categoryID wartość parametru metody DropDownList wybrane kategorie](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
+[![Uzyskiwanie categoryID wartość parametru metody DropDownList wybrane kategorie](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
 **Rysunek 8**: Pobierz *`categoryID`* wartość parametru metody DropDownList wybrane kategorie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
@@ -109,7 +109,7 @@ Po zakończeniu pracy kreatora widoku GridView mają elementu BoundField dla ka�
 W tym momencie mamy pełnej funkcjonalności raportu wzorzec/szczegół, który zawiera nazwę, cenę jednostkową, jednostek w magazynie i jednostek w kolejności dla tych produktów, które należą do wybranej kategorii.
 
 
-[![Get categoryID wartość parametru metody DropDownList wybrane kategorie](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
+[![Uzyskiwanie categoryID wartość parametru metody DropDownList wybrane kategorie](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
 **Rysunek 9**: Pobierz *`categoryID`* wartość parametru metody DropDownList wybrane kategorie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
@@ -119,7 +119,7 @@ W tym momencie mamy pełnej funkcjonalności raportu wzorzec/szczegół, który 
 W kontrolce GridView można wyświetlić nagłówek i stopka wiersza. Te wiersze są wyświetlane w zależności od wartości `ShowHeader` i `ShowFooter` właściwości, za pomocą `ShowHeader` przyjęty `True` i `ShowFooter` do `False`. Aby dołączyć stopce kontrolki GridView po prostu ustaw jego `ShowFooter` właściwość `True`.
 
 
-[![Set GridView ShowFooter właściwości na wartość True](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image29.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image28.png)
+[![Wartość True właściwości ShowFooter GridView](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image29.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Ustaw GridView `ShowFooter` właściwości `True` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image30.png))
 
@@ -127,7 +127,7 @@ W kontrolce GridView można wyświetlić nagłówek i stopka wiersza. Te wiersze
 Wiersz stopki ma komórki dla każdego z pól zdefiniowanych w kontrolce GridView; Jednak te komórki są domyślnie puste. Poświęć chwilę, aby wyświetlić postępach w przeglądarce. Za pomocą `ShowFooter` teraz właściwością `True`, widoku GridView zawiera stopkę pusty wiersz.
 
 
-[![TZawiera on GridView teraz wiersz stopki](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image32.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image31.png)
+[![Teraz GridView zawiera wiersz stopki](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image32.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image31.png)
 
 **Rysunek 11**: Kontrolki GridView zawiera teraz wiersz stopki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image33.png))
 
@@ -149,7 +149,7 @@ Następnie, aby skojarzyć ten klasę CSS z stopce kontrolki GridView, co, otwó
 Jak zrzucie ekranu poniżej przedstawiono, ta zmiana powoduje stopki wyraźnie więcej.
 
 
-[![TWiersz stopki HE GridView ma teraz czerwonawego kolor tła](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image35.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image34.png)
+[![Kolor tła czerwonawego ma teraz wiersz stopce kontrolki GridView](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image35.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image34.png)
 
 **Rysunek 12**: Wiersz stopki GridView ma teraz czerwonawego kolor tła ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image36.png))
 
@@ -203,7 +203,7 @@ Aby wyświetlić tekst w komórce stopki określonego, użyj `e.Row.Cells(index)
 Rysunek 13 zawiera raport, po dodaniu tego kodu. Uwaga jak `ToString("c")` powoduje, że średnia cena informacje podsumowujące do być sformatowane następująco walutę.
 
 
-[![TWiersz stopki HE GridView ma teraz czerwonawego kolor tła](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image38.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image37.png)
+[![Kolor tła czerwonawego ma teraz wiersz stopce kontrolki GridView](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image38.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image37.png)
 
 **Rysunek 13**: Wiersz stopki GridView ma teraz czerwonawego kolor tła ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image39.png))
 

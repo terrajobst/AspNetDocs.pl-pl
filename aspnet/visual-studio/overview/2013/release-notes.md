@@ -12,7 +12,7 @@ ms.openlocfilehash: 8234bd1b7eb74d9b03e507f00d9ad937314288be
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59411283"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Rozszerzenie ASP.NET and Web Tools dla programu Visual Studio 2013 — informacje o wersji
@@ -26,19 +26,19 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 - [Uwagi dotyczące instalacji](#TOC1)
 - [Dokumentacja](#TOC2)
-- [Wymagania programowe](#TOC4)
+- [Wymagania dotyczące oprogramowania](#TOC4)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>Nowe funkcje w ASP.NET and Web Tools for Visual Studio 2013
 
 - [One ASP.NET](#TOC6)
 - [Nowe środowisko projektu sieci Web](#newproj)
-- [Funkcja tworzenia szkieletu ASP.NET](#scaffold)
+- [ASP.NET Scaffolding](#scaffold)
 - [Łączność z przeglądarkami](#browser-link)
 - [Ulepszenia edytora sieci Web programu Visual Studio](#web-editor)
 - [Obsługa aplikacji sieci Web usługi Azure App Service w programie Visual Studio](#waws)
 - [Web Publish ulepszenia](#publish)
 - [NuGet 2.7](#nuget)
-- [Formularze sieci Web ASP.NET](#TOC9)
+- [ASP.NET Web Forms](#TOC9)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [ASP.NET SignalR](#TOC13)

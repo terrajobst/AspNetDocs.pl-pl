@@ -12,7 +12,7 @@ ms.openlocfilehash: 6b415480fc3f1d86f74e5845eedb35d284806284
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59412284"
 ---
 # <a name="web-development-best-practices"></a>Najlepsze praktyki programowania dla Internetu
@@ -21,4 +21,4 @@ ms.locfileid: "59412284"
 - [Czego nie robić na platformie ASP.NET i co zrobić zamiast tego](what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Async i Await](async-and-await.md)
 - [Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure](../developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/index.md)
-- [Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)
+- [Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: Zarządzanie zmianami i skalowaniem](../developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md)
