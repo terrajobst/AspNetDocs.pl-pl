@@ -12,7 +12,7 @@ ms.openlocfilehash: c85db4289698988ead44afd452da17054bab9f07
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59417211"
 ---
 # <a name="create-a-new-aspnet-mvc-project"></a>Tworzenie nowego projektu ASP.NET MVC
@@ -60,14 +60,14 @@ Po utworzeniu nowej aplikacji platformy ASP.NET MVC z programem Visual Studio au
 
 Projekty programu ASP.NET MVC domyślnie mają sześć katalogów najwyższego poziomu:
 
-| **Katalog** | **Cel** |
+| **Directory** | **Cel** |
 | --- | --- |
 | **/ Kontrolerów** | Gdzie umieścić klasy kontrolera, które obsługuje adres URL żądania |
-| **/Models** | Gdzie umieścić klas, które reprezentują i manipulowanie danymi |
+| **/ Modeli** | Gdzie umieścić klas, które reprezentują i manipulowanie danymi |
 | **/ Widoków** | Gdzie umieścić pliki szablonów interfejsu użytkownika, które są odpowiedzialne za renderowaniem w danych wyjściowych |
 | **/ Skryptów** | Gdzie umieścić pliki biblioteki JavaScript i skrypty (js) |
-| **/ Zawartości** | Gdzie umieścić CSS i pliki obrazów i innej zawartości innego niż dynamic/inne niż JavaScript |
-| **/App\_Data** | W przypadku, gdy są przechowywane pliki danych chcesz odczytu/zapisu. |
+| **/Content** | Gdzie umieścić CSS i pliki obrazów i innej zawartości innego niż dynamic/inne niż JavaScript |
+| **/ Aplikacji\_danych** | W przypadku, gdy są przechowywane pliki danych chcesz odczytu/zapisu. |
 
 ASP.NET MVC nie wymaga tej struktury. W rzeczywistości deweloperzy pracujący nad dużych aplikacji będzie zazwyczaj partycji aplikacji się w wielu projektach umożliwiają łatwiejsze w zarządzaniu (na przykład: klasy modelu danych często go w projekcie osobnej klasy biblioteki z aplikacji sieci web). Jednak domyślnej struktury projektu, zapewniają nieuprzywilejowany domyślnej konwencji katalogu, który możemy użyć, aby zachować czyste starannością aplikacji.
 

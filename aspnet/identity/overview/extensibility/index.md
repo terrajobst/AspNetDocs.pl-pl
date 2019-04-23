@@ -13,7 +13,7 @@ ms.openlocfilehash: d8340509484ab3f5ad241534bd0756545c5be84c
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419330"
 ---
 # <a name="aspnet-identity-extensibility"></a>Rozszerzalność produktu ASP.NET Identity
@@ -21,6 +21,6 @@ ms.locfileid: "59419330"
 > Rozszerzalność
 
 
-- [Omówienie niestandardowych dostawców magazynu dla systemu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [Implementowanie niestandardowego dostawcy magazynu MySQL dla systemu ASP.NET Identity](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-- [Zmiana klucza podstawowego dla użytkowników w systemie ASP.NET Identity](change-primary-key-for-users-in-aspnet-identity.md)
+- [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Implementowanie niestandardowego dostawcy magazynu MySQL dla produktu ASP.NET Identity](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+- [Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity](change-primary-key-for-users-in-aspnet-identity.md)

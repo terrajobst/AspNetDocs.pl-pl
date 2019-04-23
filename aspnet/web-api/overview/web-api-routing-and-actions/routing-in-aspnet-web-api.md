@@ -12,7 +12,7 @@ ms.openlocfilehash: 85862c094cc54365267b1f21e68d235a15519cda
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419239"
 ---
 # <a name="routing-in-aspnet-web-api"></a>Routingu we wzorcu ASP.NET Web API

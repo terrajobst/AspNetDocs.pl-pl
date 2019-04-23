@@ -12,7 +12,7 @@ ms.openlocfilehash: 3833e3f3c6c49ff2b317ad04aff33c9119cb1f41
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420214"
 ---
 # <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Co nowego w platformie ASP.NET i w programowaniu dla Internetu w programie Visual Studio 2012
@@ -63,7 +63,7 @@ Ta sesja hands on lab obejmuje następujących czynnościach:
 1. [Ćwiczenie 1: Co nowego w edytorze CSS](#Exercise1)
 2. [Ćwiczenie 2: Co nowego w edytorze HTML](#Exercise2)
 3. [Ćwiczenie 3: What's New in Edytor kodu JavaScript](#Exercise3)
-4. [Ćwiczenie 4: Tworzenie pakietów i minifikacja](#Exercise4)
+4. [Ćwiczenie 4: Tworzenie pakietów i minimalizowanie](#Exercise4)
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**.
 
@@ -578,7 +578,7 @@ W tym zadaniu dowiesz się, jak włączyć i powiązane i zminimalizowany plikó
 
     ![Bundled JavaScript files](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image53.png "Bundled JavaScript files")
 
-    *Powiązane pliki JavaScript*
+    *Bundled JavaScript files*
 
     Włączanie kompresji dla plików CSS i JS była dużo bardziej skomplikowany w poprzedniej wersji programu ASP.NET. Teraz, jak wiesz już, wystarczy dodać jeden wiersz w *Global.asax* pliku umożliwia tworzenie pakietów, a następnie Odwołaj pliki w pakiecie z witryny.
 

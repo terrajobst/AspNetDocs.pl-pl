@@ -12,7 +12,7 @@ ms.openlocfilehash: 63d85ec5f1f2fbadd92fd0210e67332df30aab5a
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59419603"
 ---
 # <a name="part-1-overview-and-file-new-project"></a>Część 1. Omówienie i Plik->Nowy projekt
@@ -116,8 +116,8 @@ ASP.NET MVC sprawia, że użycie niektóre podstawowe konwencje nazewnictwa dla 
 | --- | --- |
 | **/ Kontrolerów** | Kontrolery odpowiedzieć na dane wejściowe z przeglądarki, podejmowania decyzji o korzystają z nich, a następnie zwraca odpowiedź do użytkownika. |
 | **/ Widoków** | Widoki przechowywania nasze szablony interfejsu użytkownika |
-| **/Models** | Modele przechowywania i manipulowanie danymi |
-| **/ Zawartości** | Ten folder przechowuje nasze obrazy, CSS i innej zawartości statycznej |
+| **/ Modeli** | Modele przechowywania i manipulowanie danymi |
+| **/Content** | Ten folder przechowuje nasze obrazy, CSS i innej zawartości statycznej |
 | **/ Skryptów** | Ten folder zawiera nasz plików JavaScript |
 
 Te foldery znajdują się nawet w przypadku aplikacji pusty ASP.NET MVC, ponieważ platforma ASP.NET MVC, domyślnie korzysta z metody "Konwencji za pośrednictwem konfiguracji" i zakłada pewne domyślne oparte na konwencjach nazewnictwa folderów. Na przykład kontrolery szukają widoków w folderze Widoki domyślnie bez konieczności jawnego określania to w kodzie. Wyobrazić przy użyciu domyślnych Konwencji zmniejsza ilość kodu, należy napisać, i może również ułatwić innym deweloperom zrozumienie projektu. Wyjaśnimy tych konwencji więcej, jak możemy tworzyć naszej aplikacji.

@@ -12,7 +12,7 @@ ms.openlocfilehash: 3e720dd895c609d5b35848dbc4d4a6989028ff7d
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418758"
 ---
 # <a name="signalr-getting-started"></a>Wprowadzenie do SignalR
@@ -20,10 +20,10 @@ ms.locfileid: "59418758"
 > SignalR nowości, platformy, na których ono działa i jak rozpocząć pracę.
 
 
-- [Wprowadzenie do usługi SignalR](introduction-to-signalr.md)
+- [Wprowadzenie do SignalR](introduction-to-signalr.md)
 - [Obsługiwane platformy](supported-platforms.md)
-- [Samouczek: Wprowadzenie do korzystania z SignalR 2](tutorial-getting-started-with-signalr.md)
+- [Samouczek: Wprowadzenie do SignalR 2](tutorial-getting-started-with-signalr.md)
 - [Samouczek: Wprowadzenie do SignalR 2 i MVC 5](tutorial-getting-started-with-signalr-and-mvc.md)
 - [Samouczek: Wysoka częstotliwość Realtime z SignalR 2](tutorial-high-frequency-realtime-with-signalr.md)
-- [Samouczek: Emisje serwera z użyciem usługi SignalR 2](tutorial-server-broadcast-with-signalr.md)
-- [Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR](real-time-web-applications-with-signalr.md)
+- [Samouczek: Emisje serwera z użyciem SignalR 2](tutorial-server-broadcast-with-signalr.md)
+- [Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR](real-time-web-applications-with-signalr.md)

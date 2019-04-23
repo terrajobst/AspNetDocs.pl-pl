@@ -12,7 +12,7 @@ ms.openlocfilehash: 149312e2ddf0a5023a4a12f5b05852f7da6b18f8
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418173"
 ---
 # <a name="aspnet-mvc-overview"></a>ASP.NET MVC — omówienie
@@ -29,7 +29,7 @@ MVC to standardowy wzorzec projektowania, wielu programistów, którzy znają. N
 Struktura MVC obejmuje następujące składniki:
 
 
-[![Invoking akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
+[![Wywołanie akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
 
 **Rysunek 01**: Wywołanie akcji kontrolera, który oczekuje, że wartość parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-overview/_static/image2.png))
 

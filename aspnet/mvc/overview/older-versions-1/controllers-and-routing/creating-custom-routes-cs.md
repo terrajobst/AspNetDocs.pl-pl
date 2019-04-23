@@ -12,7 +12,7 @@ ms.openlocfilehash: 7b7324c9e0518697c0978b96b0123cb44133722b
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418940"
 ---
 # <a name="creating-custom-routes-c"></a>Tworzenie tras niestandardowych (C#)
@@ -61,7 +61,7 @@ Należy zauważyć, że metoda Entry() w ofercie 2 akceptuje parametr typu Data/
 **Rysunek 1. Błąd konwersji parametru**
 
 
-[![Tokno dialogowe Nowy projekt HE](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
+[![Okno dialogowe Nowy projekt](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
 
 **Rysunek 01**: Błąd konwersji parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-routes-cs/_static/image2.png))
 

@@ -12,11 +12,11 @@ ms.openlocfilehash: fa8fbdd7ed83f2953bf2dd1b8799fed51587d338
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59418719"
 ---
 # <a name="aspnet-signalr-videos"></a>Wideo dotyczące usługi SignalR na platformie ASP.NET
 
-- [Wideo dotyczące usługi SignalR na platformie ASP.NET](getting-started/index.md)
+- [Filmy wideo dotyczące SignalR w ASP.NET](getting-started/index.md)
 
-    - [Usługa SignalR i elementy WebSocket](getting-started/signalr-and-web-sockets.md)
+    - [SignalR i elementy Web Socket](getting-started/signalr-and-web-sockets.md)

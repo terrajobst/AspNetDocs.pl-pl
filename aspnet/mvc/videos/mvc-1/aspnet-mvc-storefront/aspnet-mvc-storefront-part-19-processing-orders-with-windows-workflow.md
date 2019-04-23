@@ -12,7 +12,7 @@ ms.openlocfilehash: 17cdc46ec0605180bb7d98d0fa3796fde28ba686
 ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59420006"
 ---
 # <a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a>ASP.NET MVC StoreFront — część 19: przetwarzanie zamówień za pomocą programu Windows Workflow
