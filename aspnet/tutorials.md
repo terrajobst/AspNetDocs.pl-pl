@@ -6,12 +6,12 @@ description: Lista przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
-ms.openlocfilehash: 240260a496ee797556ca5dbd2c8faec79d23ac64
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: 106b4b88d2e7de90900b7a73570ecd6140e2db66
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905673"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113192"
 ---
 # <a name="aspnet-tutorials"></a>Samouczki platformy ASP.NET
 
@@ -81,7 +81,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Wysyłanie danych formularza HTML w interfejsie Web API: Dane zakodowane](web-api/overview/advanced/sending-html-form-data-part-1.md)
 * [Wysyłanie danych formularza HTML w interfejsie Web API: Przekazywanie pliku i wieloczęściowej wiadomości MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
 
-
 ## <a name="web-pages"></a>Model Web Pages
 
 * [Programowanie przy użyciu wzorca ASP.NET Web Pages w programie Visual Studio](web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio.md)
@@ -111,7 +110,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Analizowanie ruchu](web-pages/overview/performance-and-traffic/14-analyzing-traffic.md)
 * [Tworzenie pakietów i minifikacja zasobów w witrynie ASP.NET Web Pages (Razor)](web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
 
-
 ## <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 * [Samouczek: Wprowadzenie do SignalR 2](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
@@ -129,7 +127,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Samouczek: Host samodzielny SignalR](signalr/overview/deployment/tutorial-signalr-self-host.md)
 * [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
-
 ## <a name="aspnet-identity"></a>ASP.NET Identity
 
 * [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
@@ -141,7 +138,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity](identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity.md)
 * [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 * [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity (C#)](identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
-
 
 ## <a name="owin-and-katana"></a>OWIN i Katana
 

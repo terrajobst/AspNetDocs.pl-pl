@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: fb0309af11910125943737ebb721b356b7bd08bc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7243069dbd8051b1374ed6e0112c273b8fe26f61
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418303"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115470"
 ---
 # <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML we wzorcu ASP.NET Web API: dane w formacie form-urlencoded
 
@@ -31,7 +31,6 @@ W tym artykule pokazano, jak publikować dane zakodowane w kontrolerze interfejs
 
 > [!NOTE]
 > [Pobieranie ukończone projektu](https://code.msdn.microsoft.com/ASPNET-Web-API-Sending-a6f9d007).
-
 
 <a id="overview_of_html_forms"></a>
 ## <a name="overview-of-html-forms"></a>Przegląd formularzy HTML
@@ -62,7 +61,6 @@ Poniżej przedstawiono kontroler internetowego interfejsu API, który akceptuje 
 
 > [!NOTE]
 > Korzysta z tego kontrolera [routing oparty na akcję](../web-api-routing-and-actions/routing-in-aspnet-web-api.md#routing_by_action_name), więc szablon trasy jest &quot;interfejsu api / {controller} / {action} / {id}&quot;. Klient będzie wysyłania danych do &quot;/api/updates/complex&quot;.
-
 
 Teraz napiszmy formularza HTML służący do przesyłania aktualizacji stanu.
 
@@ -101,7 +99,6 @@ W poprzednich sekcjach wysłaliśmy typ złożony, który internetowego interfej
 > [!NOTE]
 > Przed wysłaniem typu prostego, należy wziąć pod uwagę zamiast zawijania wartość w typie złożonym. Zapewnia korzyści wynikające z weryfikacją modelu po stronie serwera i ułatwia Rozszerzanie modelu, jeśli to konieczne.
 
-
 Podstawowe kroki, aby wysłać typu prostego są takie same, ale istnieją dwa drobne różnice. Najpierw na kontrolerze musi dekorowania nazwy parametru z **FromBody** atrybutu.
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample7.cs?highlight=3)]
@@ -110,7 +107,6 @@ Domyślnie interfejs API sieci Web próbuje uzyskać proste typy z identyfikator
 
 > [!NOTE]
 > Interfejs API sieci Web odczytuje treść odpowiedzi co najwyżej jeden raz, dlatego tylko jeden parametr akcji mogą pochodzić z treści żądania. Jeśli musisz pobrać wiele wartości z treści żądania, należy zdefiniować typ złożony.
-
 
 Po drugie klient musi wysyłać wartość w następującym formacie:
 

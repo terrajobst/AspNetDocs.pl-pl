@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: faad1530a499fd3f46a6a6c6e7c194ba6c55fa6c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e0b6776cbfe22e341ac7105f03daac5074b480fc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386297"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121545"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Poprawka rozwiązująca problem powodujący błąd „Aplikacja serwera niedostępna” po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer
 
 > W tym dokumencie opisano poprawkę, która rozwiązuje problem z MS03 32 Aktualizacja zabezpieczeń programu Internet Explorer, która ma wpływ na aplikacje programu ASP.NET w wersji 1.0, systemem Windows XP Professional.
 > 
 > Stosuje się do platformy ASP.NET w wersji 1.0 i Windows XP Professional.
-
 
 Firma Microsoft znalazła wystąpił problem z MS03 32 aktualizacji zabezpieczeń dla poziomu poprawki zabezpieczeń programu Internet Explorer i ASP.NET 1.0 w systemie Windows XP. Ta poprawka można zainstalować ręcznie lub za pomocą uzyskiwanie najnowszych aktualizacji krytycznych z witryny Windows Update.
 
@@ -62,7 +61,7 @@ Tabela poniżej szczegółowo platformy i wersje dotyczy ten problem.
 | --- | --- | --- |
 | W wersji 1.0 | Windows 2000 Professional | Nie |
 | W wersji 1.0 | Windows 2000 Server | Nie |
-| W wersji 1.0 | Windows XP Professional | Yes |
+| W wersji 1.0 | Windows XP Professional | Tak |
 | W wersji 1.0 | Windows Server 2003 | Nie |
 | W wersji 1.0 | Windows XP Home z Cassini | Nie |
 | W wersji 1.1 | Windows 2000 Professional | Nie |

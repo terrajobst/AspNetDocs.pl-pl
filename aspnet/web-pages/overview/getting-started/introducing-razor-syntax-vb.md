@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e6b63afb9492e810e19999c7c7ffe074ad510bda
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2be57655b8c9b76b94e1d9a7ae5fbee27545a0a9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406772"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113090"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (Visual Basic)
 
@@ -36,12 +36,10 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
 
-
 Większość przykładów przy użyciu stron ASP.NET Web Pages o składni Razor używaj języka C#. Ale języka Visual Basic obsługuje również składni Razor. Programowanie na stronie sieci web platformy ASP.NET w języku Visual Basic, utworzyć stronę sieci web w taki sposób, przy użyciu *.vbhtml* rozszerzenie nazwy pliku, a następnie dodać kod języka Visual Basic. Ten artykuł zawiera omówienie pracy z języka Visual Basic i składnię tworzenia stron sieci Web ASP.NET.
 
 > [!NOTE]
 > Domyślne szablony witryny sieci Web programu Microsoft WebMatrix (**dla piekarni**, **Galeria fotografii**, i **witryny początkowej**, itp.) są dostępne w wersjach C# i Visual Basic. Szablony programu Visual Basic, można zainstalować jako pakiety NuGet. Szablonów sieci Web są zainstalowane w folderze głównym lokacji w folderze o nazwie *Templates firmy Microsoft*.
-
 
 ## <a name="the-top-8-programming-tips"></a>Najważniejsze 8 porady dotyczące programowania
 
@@ -66,7 +64,6 @@ Wynik jest wyświetlany w przeglądarce:
 > Jeśli dowiesz się, jak dane wyjściowe kod znaczników HTML, który renderuje tagi jako kod znaczników (na przykład `<p></p>` akapitu lub `<em></em>` aby wyróżnić tekst), zobacz sekcję [łączenie tekstu, znaczników i kodu w blokach kodu](#BM_CombiningTextMarkupAndCode) w dalszej części tego artykułu.
 > 
 > Możesz dowiedzieć się więcej o kodowanie HTML w [Praca z formularzami HTML w witrynach stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202892).
-
 
 ### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2. Umieść bloki kodu przy użyciu kodu... Kod zakończenia
 
@@ -151,7 +148,6 @@ Wynik wyświetlany w przeglądarce (po kliknięciu przycisku **przesyłania**):
 > Protokół używany dla stron sieci web (HTTP) obsługuje bardzo ograniczona liczba metod (&quot;zleceń&quot;) które są używane, aby wysyłać żądania do serwera. Dwie najbardziej typowe to GET, który służy do odczytu strony i WPIS, który jest używany do przesyłania strony. Ogólnie rzecz biorąc po raz pierwszy użytkownik zgłasza żądanie strony, strony jest przesyłane przy użyciu GET. Jeśli użytkownik wypełnia formularz, a następnie klika przycisk **przesyłania**, przeglądarce wysyła żądanie POST do serwera.
 > 
 > W programowanie dla sieci web jest często grupowaniu można sprawdzić, czy strona jest wymagana jako GET lub POST, aby znać sposób przetwarzania tej strony. W składniku ASP.NET Web Pages można użyć `IsPost` właściwość, aby sprawdzić, czy żądanie GET lub POST. Jeśli żądanie jest żądaniem POST `IsPost` właściwość zostanie zwrócona wartość PRAWDA, a można wykonywać takie czynności, takich jak odczyt wartości pola tekstowe w formularzu. Wiele przykładów zobaczysz pokazują, jak można przetworzyć strony inaczej w zależności od wartości `IsPost`.
-
 
 ## <a name="a-simple-code-example"></a>Prosty przykład kodu
 
@@ -272,7 +268,6 @@ Aby przekonwertować wartości liczb całkowitych, należy wywołać `AsInt` met
 
 Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmiennych.
 
-
 :::row:::
     :::column:::
         <strong>Method</strong>
@@ -369,11 +364,9 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
     :::column-end:::
 :::row-end:::
 
-
 ## <a name="operators"></a>Operatory
 
 Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. Visual Basic obsługuje wiele operatorów, ale musisz rozpoznać kilka, aby rozpocząć wdrażanie stron ASP.NET web pages. Poniższa tabela zawiera podsumowanie najbardziej typowych operatorów.
-
 
 :::row:::
     :::column:::
@@ -732,7 +725,6 @@ W sytuacjach, w którym kod może wystąpić wyjątki i w celu uniknięcia komun
 
 > [!NOTE]
 > Firma Microsoft zaleca, unikaj używania `Response.Redirect` method in Class metoda `Try/Catch` instrukcji, ponieważ może to spowodować wyjątek na stronie.
-
 
 Poniższy przykład pokazuje stronę, która tworzy plik tekstowy na pierwsze żądanie, a następnie wyświetla przycisk, który umożliwia użytkownikowi, otwórz plik. W przykładzie użyto celowo Zła nazwa pliku, tak aby spowoduje wyjątek. Kod zawiera `Catch` instrukcji dla dwóch możliwych wyjątków: `FileNotFoundException`, który występuje, jeśli nazwa pliku jest nieprawidłowa, i `DirectoryNotFoundException`, który występuje, gdy program ASP.NET nawet nie można odnaleźć folderu. (Aby zobaczyć, jak działa, gdy wszystko będzie działać prawidłowo można komentarz do instrukcji w tym przykładzie).
 

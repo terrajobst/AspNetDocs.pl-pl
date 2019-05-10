@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 37947d79-ab1e-4ba9-9017-52e7a2757414
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f738d1c0b3cd99bb6df5f8b24dca907fa0b31f4d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f04ace98d81a33053b10cab7e40dbd75a6c0992c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413103"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108726"
 ---
 # <a name="configuring-parameters-for-web-package-deployment"></a>Konfigurowanie parametrów na potrzeby wdrożenia pakietu internetowego
 
@@ -23,7 +23,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 
 > W tym temacie opisano sposób ustawiania wartości parametrów, takich jak nazwy aplikacji sieci web usług Internet Information Services (IIS), parametry połączenia i punkty końcowe usługi podczas wdrażania pakietu sieci web do zdalnego serwera sieci web usług IIS.
 
-
 Podczas kompilowania projektu aplikacji sieci web, kompilacji i proces pakowania generuje trzy pliki klucza:
 
 - A *zip [Nazwa projektu]* pliku. To jest pakiet wdrażania sieci web dla projektu aplikacji sieci web. Ten pakiet zawiera wszystkie zestawy, pliki, skrypty bazy danych i zasobów potrzebnych do ponowne utworzenie aplikacji sieci web, na zdalnym serwerze sieci web usług IIS.
@@ -32,7 +31,6 @@ Podczas kompilowania projektu aplikacji sieci web, kompilacji i proces pakowania
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia i przetwarzania pakietu, zobacz [budowanie i projektów aplikacji sieci Web pakietu](building-and-packaging-web-application-projects.md).
-
 
 *SetParameters.xml* pliku jest generowana dynamicznie z pliku projektu aplikacji sieci web i wszystkie pliki konfiguracji w obrębie projektu. Podczas kompilowania i pakietów projektu sieci Web potok publikowania (WPP) automatycznie wykrywa wiele zmiennych, które mogą się zmieniać między środowiskach wdrożeniowych, takich jak docelowej aplikacji sieci web usług IIS i wszelkie parametry połączenia bazy danych. Te wartości są automatycznie sparametryzowany w pakiecie wdrożeniowym sieci web i dodawane do *SetParameters.xml* pliku. Na przykład dodaj ciąg połączenia *web.config* pliku w projekcie aplikacji sieci web, proces kompilacji wykryje tę zmianę i doda wpis do *SetParameters.xml* pliku w związku z tym.
 
@@ -48,9 +46,7 @@ Gdy kompilujesz i pakietów aplikacji sieci web, aby potok WPP automatycznie zde
 
 Na przykład, jeśli utworzysz i spakujesz [Contact Manager](the-contact-manager-solution.md) przykładowe rozwiązanie bez dotykania procesu parametryzacji w jakikolwiek sposób potok WPP wygeneruje to *ContactManager.Mvc.SetParameters.xml* pliku:
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample1.xml)]
-
 
 W takim przypadku:
 
@@ -73,15 +69,11 @@ Najprostszym sposobem parametryzacja tych właściwości jest dodanie *parameter
 
 Po otwarciu tego pliku, zobaczysz, że zawiera on pojedynczy **parametru** wpisu. Zapis używa zapytania języka ścieżki XML (XPath) do lokalizowania i parametryzacja URL punktu końcowego usługi ContactService Windows Communication Foundation (WCF) w *web.config* pliku.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample2.xml)]
-
 
 Oprócz parametryzacja adres URL punktu końcowego w pakiecie wdrożeniowym, potok WPP dodaje również odpowiadający mu wpis do *SetParameters.xml* pliku, który pobiera wygenerowany wraz z pakietu wdrożeniowego.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample3.xml)]
-
 
 Jeśli ręcznie zainstalować pakiet wdrożeniowy Menedżera usług IIS wyświetli monit o adres punktu końcowego usługi obok właściwości, które zostały automatycznie sparametryzowany. Po zainstalowaniu pakietu wdrożeniowego, uruchamiając *. pliku deploy.cmd* pliku, można edytować *SetParameters.xml* plik, aby podać wartość dla adresu punktu końcowego usługi wraz z wartości właściwości, które zostały automatycznie sparametryzowany.
 
@@ -96,22 +88,16 @@ Jeśli planujesz wdrożyć pakiet aplikacji sieci web ręcznie&#x2014;albo uruch
 > [!NOTE]
 > Omówienie szerszej model pliku projektu w przykładowym rozwiązaniu i zapoznać się z wprowadzeniem do projektu niestandardowych plików ogólnie rzecz biorąc, zobacz [objaśnienie pliku projektu](understanding-the-project-file.md) i [objaśnienie procesu kompilacji](understanding-the-build-process.md).
 
-
 Najpierw wartości parametrów zainteresowania są definiowane jako właściwość w pliku projektu specyficznego dla środowiska (na przykład *Env Dev.proj*).
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample4.xml)]
-
 
 > [!NOTE]
 > Aby uzyskać wskazówki dotyczące dostosowywania pliki projektu specyficznego dla środowiska dla środowisk serwera, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-
 Następnie *Publish.proj* plik importuje te właściwości. Ponieważ każdy *SetParameters.xml* plik jest skojarzony z *. pliku deploy.cmd* pliku, a firma Microsoft ma ostatecznie plik projektu do każdego wywołania *. pliku deploy.cmd* pliku projektu Plik tworzy MSBuild *elementu* dla każdego *. pliku deploy.cmd* pliku i definiuje właściwości zainteresowania jako *metadanych elementu*.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample5.xml)]
-
 
 W takim przypadku:
 
@@ -122,9 +108,7 @@ W takim przypadku:
 
 Na koniec w *Publish.proj* pliku **PublishWebPackages** docelowy używa **xmlpoke —** zadanie, aby zmodyfikować te wartości w *SetParameters.xml* pliku.
 
-
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample6.xml)]
-
 
 Należy zauważyć, że każdy **xmlpoke —** zadanie określa cztery wartości atrybutów:
 

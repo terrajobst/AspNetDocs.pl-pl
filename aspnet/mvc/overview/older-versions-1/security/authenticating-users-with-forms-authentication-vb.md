@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 4341f5b1-6fe5-44c5-8b8a-18fa84f80177
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a4e8dc3ce5764c6b2ec59c7e3f507064f8a8cb5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a2c2140631d59a7f8b21aa73613a92ea5c7a91d0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422164"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122088"
 ---
 # <a name="authenticating-users-with-forms-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (VB)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak używać atrybutu [Authorize] do hasła ochrony konkretnych stron w aplikacji MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia i zarządzania użytkownikami i rolami. Poznasz również sposób konfigurowania przechowywania informacji o kontach i roli użytkownika.
-
 
 Celem tego samouczka jest wyjaśniają, jak można użyć formy uwierzytelniania do hasła ochrony widoków w aplikacjach ASP.NET MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia użytkowników i ról. Poznasz również sposób zapobiegania nieautoryzowanemu dostępowi wywołanie akcji kontrolera. Na koniec dowiesz się, jak skonfigurować, gdzie są przechowywane nazwy użytkowników i hasła.
 
@@ -117,7 +116,6 @@ Kreator instalacji serwera SQL programu ASP.NET umożliwia wybierz bazę danych 
 > 
 > 
 > C:\Windows\Microsoft.NET\Framework\v2.0.50727
-
 
 Po utworzeniu niezbędne obiekty bazy danych, musisz zmodyfikować połączenie z bazą danych używanych przez aplikację MVC. Zmodyfikuj ApplicationServices parametry połączenia w pliku konfiguracji (web.config) w sieci web, które wskazuje w produkcyjnej bazie danych. Na przykład połączenie zmodyfikowane w ofercie 3 wskazuje bazę danych o nazwie MyProductionDB (oryginalny ciąg połączenia ApplicationServices została ujęta w poziomie).
 

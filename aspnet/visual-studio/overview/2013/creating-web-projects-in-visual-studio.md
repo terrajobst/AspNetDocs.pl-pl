@@ -8,12 +8,12 @@ ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: a62c821159cd097507019d5efb29e01958ec9fba
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3a446be8e2dff2ac66e2432c51b2d9f43bcb817d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398107"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113182"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów internetowych ASP.NET w programie Visual Studio 2013
 
@@ -29,7 +29,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > - Nowe funkcje dla formularzy sieci Web, używany do oferowana tylko w przypadku MVC, takie jak [tworzenie projektów testów automatycznych](#testproj) i [szablonu witryny intranetowej](#winauth).
 > 
 > Aby uzyskać informacje o sposobie tworzenia projektów sieci web dla usług Azure Cloud Services lub usług Azure Mobile Services, zobacz [rozpoczęcie korzystania z usług Azure Cloud Services i platformy ASP.NET](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/) i [tworzenie aplikacji tablicy wyników za pomocą usługi Azure Mobile Services platformy .NET Zaplecze](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
-
 
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -350,7 +349,6 @@ Jeśli chcesz wypróbować jedną z opcji usługi Azure AD, ale nie masz jeszcze
 > Jeśli zostanie wybrana jedna z opcji usługi Azure AD, Twój projekt wymaga bazy danych i trzeba zalogować się do konta administratora globalnego dla dzierżawy usługi Azure AD. Wprowadź nazwę i hasło dla konta organizacji (na przykład admin@contoso.onmicrosoft.com), ma uprawnienia administratora dla dzierżawy usługi Azure AD.
 > 
 > **Nie należy wprowadzić poświadczenia dla konta Microsoft (na przykład contoso@hotmail.com) w oknie dialogowym logowania.**
-
 
 <a id="orgauthsingle"></a>
 ### <a name="cloud---single-organization-authentication"></a>Chmura — uwierzytelnianie jednej organizacji

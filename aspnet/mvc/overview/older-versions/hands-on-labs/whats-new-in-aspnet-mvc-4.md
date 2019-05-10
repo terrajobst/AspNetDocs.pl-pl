@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: b9da2522cfaed324a23f43265d4e234ebb4950bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: adb6e990d0ca98df38c47adf8c37fdffeb6d3d73
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411127"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112997"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co nowego we wzorcu ASP.NET MVC 4
 
@@ -82,7 +82,6 @@ To ćwiczenie praktyczne obejmuje następujących czynnościach:
 
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
-
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**.
 
@@ -223,7 +222,6 @@ ASP.NET MVC 4 ułatwia tworzenie witryn sieci Web dla urządzeń przenośnych i 
 8. Nowy szablon używa również **okienka ekranu metatag**. Przeglądarki dla większości urządzeń przenośnych zdefiniować szerokość okna przeglądarki wirtualnej lub &quot;okienka ekranu&quot;, którego rozmiar jest większy niż rzeczywista szerokość urządzenia przenośnego. Dzięki temu przeglądarek urządzeń przenośnych wyświetlić całą stronę sieci web wewnątrz wirtualnych wyświetlania. **Okienka ekranu metatag** umożliwia deweloperom sieci web ustawić szerokość, wysokość i skalowania obszarze przeglądarki na urządzeniach przenośnych **.** Szablon platformy ASP.NET MVC 4 dla aplikacji mobilnych Ustawia szerokość urządzenia okienka ekranu (&quot;szerokość = szerokość urządzenia&quot;) w szablonie układu (*Views\Shared\_Layout.cshtml*), dzięki czemu wszystkie strony będą mieć ich okienka ekranu, Ustaw szerokość ekranu urządzenia. Zwróć uwagę, czy okienko ekranu metatag nie zmieni się domyślny widok przeglądarki.
 9. Otwórz  **\_Layout.cshtml**, który znajduje się w **widoków | Udostępnione** folder i komentarzy metatagów okienka ekranu. Uruchomienia aplikacji, w przeciwnym razie już otwarty i zapoznaj się z różnic.
 
-
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
 ![Witryna po komentowania metatag okienka ekranu](whats-new-in-aspnet-mvc-4/_static/image15.png "lokacji po komentowania metatag okienka ekranu")
@@ -231,7 +229,6 @@ ASP.NET MVC 4 ułatwia tworzenie witryn sieci Web dla urządzeń przenośnych i 
 *Witryna po komentowania metatag okienka ekranu*
 10. W programie Visual Studio, naciśnij klawisz **SHIFT** + **F5** Aby zatrzymać debugowanie aplikacji.
 11. Usuń znaczniki komentarza metatag okienka ekranu.
-
 
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
 
@@ -249,7 +246,6 @@ Za pomocą techniki adaptacyjne renderowania, zostanie wyświetlona witryna **wy
 > [!NOTE]
 > Podstawowy format zapytanie o multimedia to: @media \[Zakres: wszystkie | urządzenia przenośnego | Drukuj | Projekcja | ekran\] ([właściwość: wartość] i... [właściwość: wartość])
 
-
 Przykłady z zapytaniami multimediów: &gt;  **@media wszystkie i (maksymalna szerokość: 1000px) i (minimalna szerokość: 700px) {}:** Aby uzyskać wszystkie rozwiązania między 700px i 1000px.
 
 > **@media ekran i (minimalna szerokość: 400 piks.) i (maksymalna szerokość: 700px) {…}:** Tylko dla ekranów. Rozwiązanie musi wynosić od 400 do 700px.
@@ -257,7 +253,6 @@ Przykłady z zapytaniami multimediów: &gt;  **@media wszystkie i (maksymalna sz
 > **@media urządzenia przenośnego i (minimalna szerokość: 20em) ekranu i (minimalna szerokość: 20em) {…}:** Ekranu i urządzenia (mobile i urządzenia). Minimalna szerokość musi być większa niż 20em.
 > 
 > Więcej informacji na ten temat można znaleźć na [lokacji W3C](http://www.w3.org/TR/css3-mediaqueries/).
-
 
 Możesz teraz przedstawimy działania adaptacyjne renderowania, poprawa czytelności platformy ASP.NET MVC 4 domyślny szablon witryny sieci Web.
 
@@ -584,7 +579,6 @@ Po uruchomieniu tego kodu, gdy przeglądarka iPhone generuje żądanie, aplikacj
 5. Otwórz  **\_Layout.iPhone.cshtml** utworzonego w poprzednim kroku.
 6. Znajdź div element z atrybutem roli danych równa **strony** i zmień **data-theme** atrybutu &quot; **a**&quot;.
 
-
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
 Masz teraz układy 3 w aplikacji ASP.NET MVC 4:
@@ -696,7 +690,6 @@ Metody asynchroniczne akcji, które zwracają wystąpień zadań może również
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację do witryny sieci Web systemu Windows Azure następujące [Appendix D: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixD).
-
 
 <a id="Summary"></a>
 

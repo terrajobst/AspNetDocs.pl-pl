@@ -8,19 +8,18 @@ ms.date: 05/12/2009
 ms.assetid: 18b29834-c991-4e0c-b533-44d358fbfc9c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8336fecf60296c44ebcf6cbd6010f9d5daed2923
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0849fa6c13679e0cd01bb20a4067a097acbce298
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415963"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112947"
 ---
 # <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Tworzenie niestandardowego rozszerzenia kontrolki zestawu narzędzi AJAX Control Toolkit (VB)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Niestandardowe rozszerzenia umożliwiają dostosowywanie i rozszerzanie możliwości kontrolek ASP.NET bez konieczności tworzenia nowych klas.
-
 
 W tym samouczku dowiesz się, jak utworzyć niestandardowego rozszerzenia kontrolki zestawu narzędzi AJAX Control Toolkit. Utworzymy prostą, ale przydatne, nowych rozszerzeń, który zmienia stan przycisku z wyłączonego na włączony podczas wpisywania tekstu w polu tekstowym. Po przeczytaniu tego samouczka, można rozszerzyć z zestawu narzędzi AJAX ASP.NET przy użyciu własnych rozszerzeń.
 
@@ -36,19 +35,15 @@ Nasze nowe rozszerzenie kontrolki nosi nazwę rozszerzenia DisabledButton. Tego 
 
 Utworzenie punktu zaczepienia extender DisabledButton do kontrolki pola tekstowego i przycisku. Przed wpisaniem tekstu przycisk jest wyłączony i pole tekstowe i przycisk wyglądać następująco:
 
-
 [![](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image2.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image1.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image3.png))
 
-
 Po rozpoczęciu wpisywania tekstu, ten przycisk jest włączony, i pole tekstowe i przycisk wyglądać następująco:
-
 
 [![](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image5.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image4.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image6.png))
-
 
 Aby utworzyć naszego rozszerzenia kontrolki zestawu narzędzi, musimy utworzyć trzy następujące pliki:
 
@@ -78,11 +73,9 @@ Następnie należy utworzyć projekt biblioteki klas, który będzie zawierał k
 
 Po wykonaniu tych kroków, z okna Eksploratora rozwiązań powinien wyglądać jak rysunek 1.
 
-
 [![Rozwiązanie z witryny sieci Web i klasy projektu biblioteki](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image8.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image7.png)
 
 **Rysunek 01**: Rozwiązanie z witryny sieci Web i klasy projektu biblioteki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image9.png))
-
 
 Następnie należy dodać wszystkich niezbędnych odwołań do zestawu do projektu biblioteki klas:
 
@@ -99,11 +92,9 @@ Następnie należy dodać wszystkich niezbędnych odwołań do zestawu do projek
 
 Możesz sprawdzić, że dodane zostały wszystkie odpowiednie odwołania, klikając prawym przyciskiem myszy projekt, wybierając właściwości i klikając kartę odwołania (zobacz rysunek 2).
 
-
 [![Folder odwołania z odwołaniami wymagane](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image11.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image10.png)
 
 **Rysunek 02**: Folder odwołania z odwołaniami wymagane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image12.png))
-
 
 ## <a name="creating-the-custom-control-extender"></a>Tworzenie rozszerzeń kontrolki niestandardowej
 
@@ -122,9 +113,7 @@ Następnie zwróć uwagę, że klasa zawiera następujące atrybuty dotyczą skr
 
 Atrybut widok jest używany do osadzania plik MyControlBehavior.js JavaScript do zestawu podczas kompilowania rozszerzeń niestandardowych. Atrybut ClientScriptResource jest używany do pobierania skryptu MyControlBehavior.js z zestawu, stosowania niestandardowego rozszerzenia na stronie sieci web.
 
-
 Aby widok i ClientScriptResource atrybuty do pracy należy skompilować pliku JavaScript jako zasobu osadzonego. Zaznacz ten plik w oknie Eksploratora rozwiązań, otwórz arkusz właściwości i przypisz wartość *zasób osadzony* do **Build Action** właściwości.
-
 
 Zwróć uwagę, że rozszerzenie kontrolki także atrybutu element TargetControlType. Ten atrybut służy do określania typu formantu, który został rozszerzony przez rozszerzenie kontrolki. W przypadku wyświetlania listy 1 rozszerzenia kontrolki zestawu narzędzi umożliwia rozszerzanie pole tekstowe.
 
@@ -154,11 +143,9 @@ Metodę initialize() kojarzy keyup obsługi zdarzenia z elementem docelowym zach
 
 Należy pamiętać, że należy skompilować pliku JavaScript w ofercie 3 jako zasobu osadzonego. Zaznacz ten plik w oknie Eksploratora rozwiązań, otwórz arkusz właściwości i przypisz wartość *zasób osadzony* do **Build Action** właściwości (zobacz rysunek 3). Ta opcja jest dostępna w programie Visual Studio i Visual Web Developer.
 
-
 [![Dodawanie pliku JavaScript jako zasobu osadzonego](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image14.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image13.png)
 
 **Rysunek 03**: Dodawanie pliku JavaScript jako zasobu osadzonego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image15.png))
-
 
 ## <a name="creating-the-custom-extender-designer"></a>Tworzenie niestandardowego rozszerzenia projektanta
 
@@ -183,11 +170,9 @@ Teraz, gdy firma Microsoft została zakończona, Tworzenie rozszerzeń kontrolki
 
 Po wykonaniu tych kroków rozszerzenie kontrolki DisabledButton powinna zostać wyświetlona w przyborniku (zobacz rysunek 4).
 
-
 [![DisabledButton w przyborniku](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image17.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image16.png)
 
 **Rysunek 04**: DisabledButton w przyborniku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image18.png))
-
 
 Następnie należy utworzyć nową stronę programu ASP.NET. Wykonaj następujące kroki:
 
@@ -196,7 +181,6 @@ Następnie należy utworzyć nową stronę programu ASP.NET. Wykonaj następują
 3. Przeciągnij formant TextBox na stronie.
 4. Przeciągnij formant przycisku na stronie.
 5. W oknie Właściwości zmień wartość właściwości identyfikator przycisku na wartość <em>btnSave</em> i właściwość tekst na wartość *Zapisz\**.
-  
 
 Utworzyliśmy strony z formantu standardowego ASP.NET pole tekstowe i przycisk.
 
@@ -205,11 +189,9 @@ Następnie należy rozszerzyć formant pola tekstowego przy użyciu rozszerzeń 
 1. Wybierz **Dodaj Extender** zadań opcję, aby otworzyć okno dialogowe Kreator rozszerzeń (zobacz rysunek 5). Należy zauważyć, że okno dialogowe zawiera nasz niestandardowego rozszerzenia DisabledButton.
 2. Wybierz rozszerzenie DisabledButton, a następnie kliknij przycisk **OK** przycisku.
 
-
 [![Okno dialogowe Kreator rozszerzeń](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image20.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image19.png)
 
 **Rysunek 05**: Okno dialogowe Kreator rozszerzeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image21.png))
-
 
 Ponadto firma Microsoft można ustawić właściwości rozszerzenia, które ma DisabledButton. Można zmodyfikować właściwości rozszerzenia, które ma DisabledButton, modyfikując właściwości formant pola tekstowego:
 
@@ -217,19 +199,15 @@ Ponadto firma Microsoft można ustawić właściwości rozszerzenia, które ma D
 2. W oknie właściwości rozwiń węzeł rozszerzeń (patrz rysunek 6).
 3. Przypisz wartość *Zapisz* DisabledText właściwości i wartość *btnSave* właściwości TargetButtonID.
 
-
 [![Ustawianie właściwości rozszerzenia](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image23.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image22.png)
 
 **Rysunek 06**: Ustawianie właściwości rozszerzenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image24.png))
 
-
 Po uruchomieniu strony (przez naciskać klawisz F5), formant przycisku jest początkowo wyłączone. Zaraz po jego uruchomieniu, wprowadzając tekst w polu tekstowym, przycisk kontrolka jest włączona (zobacz rysunek 7).
-
 
 [![Rozszerzenie DisabledButton w działaniu](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image26.png)](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image25.png)
 
 **Rysunek 07**: Rozszerzenie DisabledButton w akcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-custom-ajax-control-toolkit-control-extender-vb/_static/image27.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

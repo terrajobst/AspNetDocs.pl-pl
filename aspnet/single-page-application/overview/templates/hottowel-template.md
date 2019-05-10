@@ -8,12 +8,12 @@ ms.date: 02/09/2013
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: 017f550e2caffe1b20823e9b1880cbb4e968005a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f3457840d1597d06c1a1b1ec2a865dd70726446c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379940"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113329"
 ---
 # <a name="hot-towel-template"></a>Szablon Hot Towel
 
@@ -30,13 +30,11 @@ przez [: Mads Kristensen](https://github.com/madskristensen)
 > 
 > Hot Towel: Ponieważ nie chcesz przejść do SPA bez ani jednego!
 
-
 Chcesz tworzyć SPA, ale nie można zdecydować, gdzie zacząć? Użyj Hot Towel i w ciągu kilku sekund będziesz mieć SPA i wszystkie narzędzia potrzebne do tworzenia na nim!
 
 Hot Towel tworzy doskonałe punkt początkowy do tworzenia pojedynczej strony aplikacji (SPA) za pomocą platformy ASP.NET. Gotowych użytkownik udostępnia modularna struktura do kodu, nawigacji w widoku, powiązanie danych, zarządzania zaawansowanych danych i style proste, ale elegancki. Hot Towel zawiera wszystko, czego potrzebujesz do tworzenia SPA, dzięki czemu możesz skupić się na aplikacji, a nie podstawami.
 
 > Dowiedz się więcej o tworzeniu SPA z [filmów wideo i samouczki John Papa, a także kursów Pluralsight](http://johnpapa.net/spa?vsix).
-
 
 ## <a name="application-structure"></a>Struktury aplikacji
 

@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 451f9f2698780650c32e453b78b11f6babed88de
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f987cb9e09a960054bdd15e086f01c4e68f20dda
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114618"
 ---
 # <a name="masterdetail-filtering-across-two-pages-c"></a>Filtrowanie rekordu głównego/szczegółów na dwóch stronach (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_9_CS.exe) lub [Pobierz plik PDF](master-detail-filtering-across-two-pages-cs/_static/datatutorial09cs1.pdf)
 
 > W tym samouczku będziesz wdrażamy tego wzorca przy użyciu GridView, aby wyświetlić listę dostawców w bazie danych. Każdy wiersz dostawcy w widoku GridView będzie zawierać link Wyświetl produkty, po kliknięciu spowoduje przejście użytkownikowi na osobnej stronie, zawiera listę tych produktów dla wybranego dostawcy.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -36,53 +35,42 @@ Podczas definiowania układu strony w to trzeci samouczek dodaliśmy wiele stron
 
 Podczas tworzenia tych dwóch nowych stron pewni skojarzyć je z `Site.master` strony wzorcowej.
 
-
 ![Dodaj SupplierListMaster.aspx i stron ProductsForSupplierDetails.aspx do filtrowania folderu](master-detail-filtering-across-two-pages-cs/_static/image1.png)
 
 **Rysunek 1**: Dodaj `SupplierListMaster.aspx` i `ProductsForSupplierDetails.aspx` strony do `Filtering` folderu
 
-
 Podczas dodawania nowych stron do projektu, upewnij się również zaktualizować plik mapy witryny `Web.sitemap`, odpowiednio. Na potrzeby tego samouczka wystarczy dodać `SupplierListMaster.aspx` strony do mapy witryny przy użyciu następującej zawartości XML jako element podrzędny filtrowanie raportów `<siteMapNode>` elementu:
-
 
 [!code-xml[Main](master-detail-filtering-across-two-pages-cs/samples/sample1.xml)]
 
 > [!NOTE]
 > Możesz pomóc zautomatyzować proces aktualizowania pliku mapy witryny, podczas dodawania nowych ASP.NET strony za pomocą [K. Scott Allen](http://odetocode.com/Blogs/scott/)użytkownika bezpłatnego programu Visual Studio [makra mapy witryny](http://odetocode.com/Blogs/scott/archive/2005/11/29/2537.aspx).
 
-
 ## <a name="step-2-displaying-the-supplier-list-insupplierlistmasteraspx"></a>Krok 2. Wyświetlanie listy dostawcy w`SupplierListMaster.aspx`
 
 Za pomocą `SupplierListMaster.aspx` i `ProductsForSupplierDetails.aspx` stron utworzonych, naszym kolejnym krokiem jest utworzenie GridView dostawców w `SupplierListMaster.aspx`. Na stronie Dodaj GridView i powiązać ją z nowego elementu ObjectDataSource. Należy użyć tej kontrolki ObjectDataSource `SuppliersBLL` klasy `GetSuppliers()` metody do zwrócenia wszystkich dostawców.
-
 
 [![Wybierz klasę SuppliersBLL](master-detail-filtering-across-two-pages-cs/_static/image3.png)](master-detail-filtering-across-two-pages-cs/_static/image2.png)
 
 **Rysunek 2**: Wybierz `SuppliersBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image4.png))
 
-
 [![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetSuppliers()](master-detail-filtering-across-two-pages-cs/_static/image6.png)](master-detail-filtering-across-two-pages-cs/_static/image5.png)
 
 **Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetSuppliers()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image7.png))
-
 
 Musimy uwzględnić łącze pod tytułem Wyświetl produkty w każdym wierszu GridView, kliknięcie powoduje otwarcie `ProductsForSupplierDetails.aspx` przekazywania w zaznaczonym wierszu `SupplierID` korzyści dzięki ciąg zapytania. Na przykład, jeśli użytkownik kliknie link Wyświetl produkty dostawcy handlowców Tokio (który ma `SupplierID` wartość 4), powinny być przesyłane do `ProductsForSupplierDetails.aspx?SupplierID=4`.
 
 Aby to zrobić, należy dodać [pole hiperłącza HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) do kontrolki GridView, która dodaje hiperłącze do każdego wiersza w widoku GridView. Rozpocznij, klikając link Edytowanie kolumn z GridView tagu inteligentnego. Następnie wybierz pole hiperłącza HyperLinkField z listy w lewym górnym rogu i kliknij przycisk Dodaj, aby uwzględnić pole hiperłącza HyperLinkField na liście pól w widoku GridView.
 
-
 [![Dodaj pole hiperłącza HyperLinkField do widoku GridView](master-detail-filtering-across-two-pages-cs/_static/image9.png)](master-detail-filtering-across-two-pages-cs/_static/image8.png)
 
 **Rysunek 4**: Dodaj pole hiperłącza HyperLinkField do kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image10.png))
 
-
 Pole hiperłącza HyperLinkField można skonfigurować do używania tego samego tekstu lub adres URL wartości łącze w każdym wierszu GridView lub można oprzeć te wartości na podstawie wartości danych powiązany z każdego określonego wiersza. Aby określić statyczny wartości we wszystkich wierszach Użyj pole hiperłącza HyperLinkField `Text` lub `NavigateUrl` właściwości. Ponieważ chcemy, aby tekst łącza być takie same we wszystkich wierszach, ustaw pole hiperłącza HyperLinkField `Text` właściwości Wyświetl produkty.
-
 
 [![Ustawienie właściwości Text pole hiperłącza HyperLinkField Wyświetl produkty](master-detail-filtering-across-two-pages-cs/_static/image12.png)](master-detail-filtering-across-two-pages-cs/_static/image11.png)
 
 **Rysunek 5**: Ustaw pole hiperłącza HyperLinkField `Text` właściwości Wyświetl produkty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image13.png))
-
 
 Aby ustawić tekst lub wartości adresu URL być oparte na danych bazowych, powiązany z wiersza w widoku GridView, określ dane pola, tekst lub wartości adresu URL powinny być ściągane z w `DataTextField` lub `DataNavigateUrlFields` właściwości. `DataTextField` można ustawić tylko na jedno pole danych; `DataNavigateUrlFields`, jednak może być równa rozdzielana przecinkami lista pól danych. Musimy często tekstu lub adres URL na kombinacji wartości pola danych bieżący wiersz i niektóre statyczne znaczników. W tym samouczku, na przykład chcemy, aby adres URL łącza pole hiperłącza HyperLinkField można `ProductsForSupplierDetails.aspx?SupplierID=supplierID`, gdzie *`supplierID`* wiersz każdego GridView `SupplierID` wartość. Zwróć uwagę, że potrzebujemy statycznych i opartych na danych wartości w tym miejscu: `ProductsForSupplierDetails.aspx?SupplierID=` część adresu URL łącza jest statyczna, natomiast *`supplierID`* część jest oparte na danych jako jej wartość jest każdy wiersz na własnych `SupplierID` wartość.
 
@@ -90,60 +78,47 @@ Aby określić kombinacji wartości statyczne i opartych na danych, należy uży
 
 Zastosowanie do naszego samouczka, musimy `DataNavigateUrlFields` właściwości `SupplierID`, ponieważ pole danych, którego wartość należy dostosować na podstawie na wiersz i `DataNavigateUrlFormatString` właściwość `ProductsForSupplierDetails.aspx?SupplierID={0}`.
 
-
 [![Konfigurowanie pole hiperłącza HyperLinkField w celu uwzględnienia prawidłowego adresu URL łącza na podstawie IDDostawcy](master-detail-filtering-across-two-pages-cs/_static/image15.png)](master-detail-filtering-across-two-pages-cs/_static/image14.png)
 
 **Rysunek 6**: Konfigurowanie pole hiperłącza HyperLinkField, aby dołączyć odpowiednie łącze adres URL oparty na `SupplierID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image16.png))
 
-
 Po dodaniu pole hiperłącza HyperLinkField, możesz dostosować i zmienianie kolejności pól w widoku GridView. Następujący kod przedstawia widoku GridView po przeze mnie niektóre niewielkich dostosowań na poziomie pola.
-
 
 [!code-aspx[Main](master-detail-filtering-across-two-pages-cs/samples/sample2.aspx)]
 
 Poświęć chwilę, aby wyświetlić `SupplierListMaster.aspx` strony za pośrednictwem przeglądarki. Jak pokazano na rysunku 7, strony obecnie zawiera listę wszystkich dostawców, w tym link Wyświetl produkty. Kliknięcie na Wyświetl produkty łącza spowoduje przejście do `ProductsForSupplierDetails.aspx`, przekazując u dostawcy `SupplierID` w zmiennej querystring.
 
-
 [![Każdy wiersz dostawcy zawiera łącze Wyświetl produkty](master-detail-filtering-across-two-pages-cs/_static/image18.png)](master-detail-filtering-across-two-pages-cs/_static/image17.png)
 
 **Rysunek 7**: Każdy wiersz dostawcy zawiera łącze Wyświetl produkty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image19.png))
-
 
 ## <a name="step-3-listing-the-suppliers-products-inproductsforsupplierdetailsaspx"></a>Krok 3. Wyświetlanie listy produktów dostawcy`ProductsForSupplierDetails.aspx`
 
 W tym momencie `SupplierListMaster.aspx` strony wysyła użytkownikowi `ProductsForSupplierDetails.aspx`, przekazując wybranego dostawcy `SupplierID` w zmiennej querystring. Ostatnim krokiem tego samouczka jest wyświetlanie produktów w GridView w `ProductsForSupplierDetails.aspx` którego `SupplierID` jest równa `SupplierID` przekazany ciąg zapytania. Aby osiągnąć ten start, dodając GridView do `ProductsForSupplierDetails.aspx` stronę, korzystając z nowego formantu ObjectDataSource o nazwie `ProductsBySupplierDataSource` wywołującej `GetProductsBySupplierID(supplierID)` metody z `ProductsBLL` klasy.
 
-
 [![Dodawanie nowego elementu ObjectDataSource, o nazwie ProductsBySupplierDataSource](master-detail-filtering-across-two-pages-cs/_static/image21.png)](master-detail-filtering-across-two-pages-cs/_static/image20.png)
 
 **Rysunek 8**: Dodaj nazwę nowej kontrolki ObjectDataSource `ProductsBySupplierDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image22.png))
-
 
 [![Wybierz klasę ProductsBLL](master-detail-filtering-across-two-pages-cs/_static/image24.png)](master-detail-filtering-across-two-pages-cs/_static/image23.png)
 
 **Rysunek 9**: Wybierz `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image25.png))
 
-
 [![Masz ObjectDataSource, wywołaj metodę GetProductsBySupplierID(supplierID)](master-detail-filtering-across-two-pages-cs/_static/image27.png)](master-detail-filtering-across-two-pages-cs/_static/image26.png)
 
 **Na rysunku nr 10**: Masz wywołania elementu ObjectDataSource `GetProductsBySupplierID(supplierID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image28.png))
 
-
 Ostatnim krokiem w Kreatorze konfigurowania źródła danych prosi nam zapewnić źródło `GetProductsBySupplierID(supplierID)` metody *`supplierID`* parametru. Aby użyć wartości querystring, ustaw źródło parametru QueryString, a następnie wprowadź nazwę wartości querystring w do użycia w polu tekstowym vlastnost QueryStringField (`SupplierID`).
-
 
 [![Wypełnij IDDostawcy wartości parametru z wartości Querystring w IDDostawcy](master-detail-filtering-across-two-pages-cs/_static/image30.png)](master-detail-filtering-across-two-pages-cs/_static/image29.png)
 
 **Rysunek 11**: Wypełnij *`supplierID`* wartość parametru `SupplierID` wartości Querystring ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image31.png))
 
-
 To wszystko. Przedstawia rysunek 12 `ProductsForSupplierDetails.aspx` stronie podczas odwiedzania, klikając link handlowców Tokio z `SupplierListMaster.aspx`.
-
 
 [![Produkty dostarczane przez podmioty Tokio są wyświetlane.](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
 
 **Rysunek 12**: Przedstawiono produkty dostarczane przez podmioty Tokio ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image34.png))
-
 
 ## <a name="displaying-supplier-information-inproductsforsupplierdetailsaspx"></a>Wyświetlanie informacji o dostawcy w`ProductsForSupplierDetails.aspx`
 
@@ -151,59 +126,47 @@ Jak pokazano na rysunku 12, `ProductsForSupplierDetails.aspx` strona po prostu z
 
 Rozpocznij, dodając FormView powyżej produktów GridView. Tworzenie formantu ObjectDataSource o nazwie `SuppliersDataSource` wywołującej `SuppliersBLL` klasy `GetSupplierBySupplierID(supplierID)` metody.
 
-
 [![Wybierz klasę SuppliersBLL](master-detail-filtering-across-two-pages-cs/_static/image36.png)](master-detail-filtering-across-two-pages-cs/_static/image35.png)
 
 **Rysunek 13**: Wybierz `SuppliersBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image37.png))
-
 
 [![Masz ObjectDataSource, wywołaj metodę GetSupplierBySupplierID(supplierID)](master-detail-filtering-across-two-pages-cs/_static/image39.png)](master-detail-filtering-across-two-pages-cs/_static/image38.png)
 
 **Rysunek 14**: Masz wywołania elementu ObjectDataSource `GetSupplierBySupplierID(supplierID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image40.png))
 
-
 Podobnie jak w przypadku `ProductsBySupplierDataSource`, mają *`supplierID`* parametru przypisana wartość `SupplierID` wartości querystring.
-
 
 [![Wypełnij IDDostawcy wartości parametru z wartości Querystring w IDDostawcy](master-detail-filtering-across-two-pages-cs/_static/image42.png)](master-detail-filtering-across-two-pages-cs/_static/image41.png)
 
 **Rysunek 15**: Wypełnij *`supplierID`* wartość parametru `SupplierID` wartości Querystring ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image43.png))
 
-
 Podczas tworzenia wiązania FormView do kontrolki ObjectDataSource w widoku Projekt, Visual Studio automatycznie utworzy FormView `ItemTemplate`, `InsertItemTemplate`, i `EditItemTemplate` za pomocą kontrolki etykiety i pole tekstowe w sieci Web dla każdego pola danych zwracane przez Kontrolki ObjectDataSource. Ponieważ chcemy wyświetlić dostawcy informacji możesz usunąć tylko `InsertItemTemplate` i `EditItemTemplate`. Następnie edytuj właściwości ItemTemplate tak, aby wyświetlał dostawcy nazwy firmy w `<h3>` elementu i adres, Miasto, kraj i numer telefonu, pod nazwą firmy. Alternatywnie, można ręcznie ustawić FormView `DataSourceID` i utworzyć `ItemTemplate` znaczników, ile My mieliśmy w "[wyświetlanie danych za pomocą kontrolki ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)" samouczek.
 
 Po te operacje edycji FormView oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](master-detail-filtering-across-two-pages-cs/samples/sample3.aspx)]
 
 Zrzut ekranu pokazuje, rysunek 16 `ProductsForSupplierDetails.aspx` strony po dodano informacje o dostawcach szczegóły przedstawiono powyżej.
 
-
 [![Lista produktów zawiera podsumowanie dotyczące dostawcy](master-detail-filtering-across-two-pages-cs/_static/image45.png)](master-detail-filtering-across-two-pages-cs/_static/image44.png)
 
 **Rysunek 16**: Lista produktów zawiera podsumowanie dotyczące dostawcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image46.png))
-
 
 ## <a name="applying-the-final-touches-for-theproductsforsupplierdetailsaspxui"></a>Stosowanie końcowe dotyka dla`ProductsForSupplierDetails.aspx`interfejsu użytkownika
 
 Aby poprawić użytkownika środowisko dla tego raportu kilka dodatki firma powinna dokonać `ProductsForSupplierDetails.aspx` strony. Obecnie jedynym sposobem użytkownik może przejść od `ProductsForSupplierDetails.aspx` strony, powrót do listy dostawców jest kliknij przycisk Wstecz w swojej przeglądarce. Dodajmy kontrolkę Hiperlinku do `ProductsForSupplierDetails.aspx` strony z linkiem do `SupplierListMaster.aspx`, zapewniając dla użytkownika powrócić do listy wzorca w inny sposób.
 
-
 [![Dodaj kontrolkę Hiperlinku, aby odzyskać użytkownika do SupplierListMaster.aspx](master-detail-filtering-across-two-pages-cs/_static/image48.png)](master-detail-filtering-across-two-pages-cs/_static/image47.png)
 
 **Rysunek 17**: Dodaj kontrolkę Hiperlinku, aby odzyskać użytkownika do `SupplierListMaster.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image49.png))
-
 
 Jeśli użytkownik kliknie łącze Wyświetl produkty dla dostawcy, który nie ma żadnych produktów `ProductsBySupplierDataSource` ObjectDataSource w `ProductsForSupplierDetails.aspx` nie zwraca żadnych wyników. GridView powiązany z kontrolki ObjectDataSource nie są renderowane marżę skutkuje puste regionu na stronie w przeglądarce użytkownika. Komunikują się z bardziej precyzyjnie użytkownika brak produktów skojarzone z wybranego dostawcy możemy ustawić GridView `EmptyDataText` właściwości wiadomości, firma Microsoft mają być wyświetlane w przypadku wystąpienia takich sytuacji. Czy mogę ustawiono tę właściwość na "Brak produktów dostarczonych przez tego dostawcę"
 
 Domyślnie przez wszystkich dostawców w bazie danych Northwinds Podaj co najmniej jeden produkt. Jednak na potrzeby tego samouczka I zostały ręcznie zmodyfikowane `Products` tabeli, aby dostawca Escargots Nouveaux nie jest już skojarzony z żadnym z produktów. Rysunek 18 zawiera strony szczegółów Escargots Nouveaux po dokonaniu tej zmiany.
 
-
 [![Użytkownicy otrzymują, że dostawca nie udostępnia żadnych produktów](master-detail-filtering-across-two-pages-cs/_static/image51.png)](master-detail-filtering-across-two-pages-cs/_static/image50.png)
 
 **Rysunek 18**: Użytkownicy otrzymują, że dostawca nie udostępnia żadnych produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-across-two-pages-cs/_static/image52.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
-ms.openlocfilehash: 74fc0f4cb7d3ed7d1ef091cdb8fa829091af5a7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9742be7d718384c1b108d5f2c0c43e8e8d4fe8a9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108675"
 ---
 # <a name="configuring-deployment-properties-for-a-target-environment"></a>Konfigurowanie właściwości wdrożenia dla środowiska docelowego
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób konfigurowania właściwości specyficzne dla środowiska, aby wdrożyć przykładowe rozwiązanie Contact Manager do danego środowiska docelowego.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) rozwiązania&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -64,7 +63,6 @@ Aby wdrożyć rozwiązanie Contact Manager w środowisku docelowym, można dosto
 
 Poniższa tabela zawiera opis przeznaczenia każdej właściwości w przykładowym pliku projektu specyficznego dla środowiska *Env Dev.proj*i zawiera pewne wskazówki dotyczące wartości, należy podać.
 
-
 |                                                        Nazwa właściwości                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Szczegóły                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |              <strong>MSDeployComputerName</strong> nazwę docelowej sieci web lub serwer punktu końcowego.               |                                                                                                                                                                                                                                              Jeśli wdrażana usługa agenta zdalnego na docelowym serwerze sieci web, można określić nazwy komputera docelowego (na przykład <strong>TESTWEB1</strong> lub <strong>TESTWEB1.fabrikam.net</strong>), albo określić zdalne Agent endpoint (na przykład `http://TESTWEB1/MSDEPLOYAGENTSERVICE`). Wdrożenie działa tak samo w każdym przypadku. Jeśli wdrażasz do obsługi wdrażania sieci Web na serwerze docelowym, należy określić punkt końcowy usługi i należy dołączyć nazwę witryny sieci Web usług IIS jako parametr ciągu zapytania (na przykład `https://STAGEWEB1:8172/MSDeploy.axd?site=DemoSite`).                                                                                                                                                                                                                                              |
@@ -87,9 +85,7 @@ W tym przykładzie:
 - W przypadku poinstruowanie, Web Deploy w celu korzystania z uwierzytelniania NTLM. Narzędzie Web Deploy zostanie uruchomiony przy użyciu poświadczeń, którego użyto do wywołania aparatu Microsoft Build Engine (MSBuild).
 - Za pomocą uwierzytelniania zintegrowanego wdrażanie **ContactManager** TESTDB1 bazy danych. Baza danych zostanie wdrożony przy użyciu poświadczeń, których użyto do wywołania programu MSBuild.
 
-
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample1.xml)]
-
 
 ### <a name="example-2x2014deployment-to-the-web-deploy-handler-endpoint"></a>Przykład 2&#x2014;wdrażania w sieci Web wdrażanie obsługi punktu końcowego
 
@@ -100,9 +96,7 @@ W tym przykładzie:
 - Określasz, że narzędzie Web Deploy należy Personifikuj konto FABRIKAM\stagingdeployer na komputerze zdalnym.
 - Używasz uwierzytelniania programu SQL Server, aby wdrożyć **ContactManager** STAGEDB1 bazy danych.
 
-
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample2.xml)]
-
 
 ## <a name="conclusion"></a>Wniosek
 

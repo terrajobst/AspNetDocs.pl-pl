@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 778c4e58-4372-4d25-bab9-aec4a8d8e38d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/9-working-with-images
 msc.type: authoredcontent
-ms.openlocfilehash: fedd1013c036ebdb85877a868aaaa172733e5b8a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 53514b3c314fc182a43c82974ffcfa8158a636a1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394708"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114387"
 ---
 # <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Praca z obrazami w witrynie ASP.NET Web Pages (Razor)
 
@@ -44,7 +44,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > W tym samouczku współpracuje również z programu WebMatrix 3.
-
 
 <a id="Adding_an_Image"></a>
 ## <a name="adding-an-image-to-a-web-page-dynamically"></a>Dynamiczne dodawanie obrazu do strony sieci Web
@@ -133,7 +132,6 @@ W poprzednim przykładzie pokazano sposób wyświetlania obrazu dynamicznie, ale
 > 
 > Identyfikator GUID (globalnie unikatowy identyfikator) jest identyfikatorem, który zazwyczaj jest wyświetlana w formacie następująco: `936DA01F-9ABD-4d9d-80C7-02AF85C822A8`. Cyfry i litery (od A do F) różnią się dla każdego identyfikatora GUID, ale wszystkie one oparte na wzorcu przy użyciu grup 8-4-4-4-12 znaków. (Z technicznego punktu widzenia identyfikator GUID jest liczbą 16-bajtowy/128-bitowy). Gdy będziesz potrzebować identyfikatora GUID, można wywołać wyspecjalizowany kod, który generuje identyfikator GUID dla Ciebie. Idei identyfikatorów GUID jest fakt, że między inwestują rozmiar liczby (3.4 x 10<sup>38</sup>) i algorytm generującego go, wynikowa liczba praktycznie musi być jednym z rodzajem. Identyfikatory GUID są w związku z tym dobrym sposobem na potrzeby generowania nazw, w przypadku elementów, gdy musisz gwarantować, że nie używasz tej samej nazwie dwa razy. Wadą jest oczywiście, że identyfikatory GUID nie są szczególnie przyjazny dla użytkownika i tak często ma być używany, gdy nazwa jest używana tylko w przypadku kodu.
 
-
 <a id="Resizing_an_Image"></a>
 ## <a name="resizing-an-image"></a>Zmiana rozmiaru obrazu
 
@@ -218,7 +216,6 @@ Zamiast przy użyciu tekstu dla limitu, możesz użyć innego obrazu. Osoby czas
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-
 
 [Praca z plikami w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202896)
 

@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: a47d428830fa6c43bcb9ce797d65b73891b44618
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ef5402da1e97d2c5e5d98ff2d04dadca1180453b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112323"
 ---
 # <a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych na platformie ASP.NET 4.5
 
@@ -32,7 +32,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > 
 > Pełny przykład znajduje się w tym samouczku w  
 > [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/) na [GitHub](https://github.com/) lokacji.
-
 
 Strony sieci Web platformy ASP.NET 4.5 w połączeniu [.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx) umożliwia rejestrowanie metod asynchronicznych, które zwracają obiekt typu [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). .NET Framework 4 wprowadzono asynchronicznego koncepcji programowania, nazywane [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) i obsługuje ASP.NET 4.5 [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Zadania są reprezentowane przez **zadań** typu i powiązanych typów [System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx) przestrzeni nazw. .NET Framework 4.5 jest oparta na tej asynchronicznej obsługi za pomocą [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych, które ułatwić pracę z [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) obiektów znacznie mniej złożone niż wcześniejsza metody asynchroniczne. [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe jest syntaktycznych skrótem wskazująca, że fragment kodu asynchronicznego powinien zaczekać na inne części kodu. [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) — słowo kluczowe reprezentuje wskazówkę, która służy do oznaczania metod jako opartego na zadaniach asynchronicznej metody. Kombinacja **await**, **async**i **zadań** obiektu ułatwia pisanie kodu asynchronicznego w .NET 4.5. Nowy model, w przypadku metod asynchronicznych jest nazywany *wzorca asynchronicznego opartego na zadaniach* (**NACIŚNIJ**). W tym samouczku założono, masz pewną znajomość asynchroniczne przy użyciu programistyczne [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) przestrzeni nazw.
 

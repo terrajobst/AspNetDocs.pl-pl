@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: b8283698-7b82-42a8-8d83-3aeb18ca7fcc
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 1f2dc0fea9eeca64b9389881470353c5cca473e0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bc7bb676a71af4ec3451aa3adf3c03ce3b5200d5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114768"
 ---
 # <a name="web-deployment-in-the-enterprise"></a>Wdrażanie w Internecie w przedsiębiorstwie
 
@@ -24,7 +24,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > W tym samouczku opisano sposób spełnia wiele wyzwań, które będą występować w przypadku zarządzać wdrażaniem aplikacji sieci web w skali korporacyjnej dla środowisk programowania, testowania, przemieszczania i produkcji. Samouczek obejmuje rozwiązanie odniesienia wraz z kombinacji koncepcyjne i zadań zawartości przeprowadzenie Cię przez proces różnych typowych zadań i procedur.
 > 
 > Włoska tłumaczenia w tych samouczkach, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
-
 
 ## <a name="enterprise-deployment-challenges"></a>Wyzwania związane z wdrożeniem w przedsiębiorstwie
 

@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: b75057f3128662a9bbdd641dc0a7c1ba09fbbe87
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 995db714ce6365415d06dc458aee84a31c7c8fd6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388195"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117680"
 ---
 # <a name="creating-a-database"></a>Tworzenie bazy danych
 
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
-
 
 W tej sekcji użyjemy do utworzenia nowego programu SQL Express bazy danych, która użyjemy do przechowywania i pobierania danych filmu. Z poziomu programu Visual Web Developer środowiska IDE, wybierz widok | Eksploratora serwera. Kliknij prawym przyciskiem myszy połączeń danych, a następnie kliknij przycisk Dodaj połączenie...
 

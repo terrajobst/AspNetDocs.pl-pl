@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3e8fa3fe62ee2f58cd5cfbd32d17a3613cf80c12
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 596414748365c440ca50453c3e905ba6edb43de8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114977"
 ---
 # <a name="caching-data-with-the-objectdatasource-c"></a>Buforowanie danych za pomocą kontrolki ObjectDataSource (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_58_CS.exe) lub [Pobierz plik PDF](caching-data-with-the-objectdatasource-cs/_static/datatutorial58cs1.pdf)
 
 > Buforowanie może oznaczać różnicę między wolnej i szybkie aplikacji sieci Web. Ten samouczek to pierwsza z czterema, które Przyjrzyj się szczegółowe buforowania w programie ASP.NET. Dowiedz się, kluczowe założenia buforowania i jak stosować buforowania do warstwy prezentacji za pomocą kontrolki ObjectDataSource.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -57,32 +56,25 @@ Zanim zaczniemy naszych eksploracji funkcji buforowania s ObjectDataSource, umo�
 - `AtApplicationStartup.aspx`
 - `SqlCacheDependencies.aspx`
 
-
 ![Dodawanie stron ASP.NET samouczki dotyczące buforowania](caching-data-with-the-objectdatasource-cs/_static/image1.png)
 
 **Rysunek 1**: Dodawanie stron ASP.NET samouczki dotyczące buforowania
 
-
 Podobnie jak w przypadku innych folderów `Default.aspx` w `Caching` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
-
 
 [![Rysunek 2: Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](caching-data-with-the-objectdatasource-cs/_static/image3.png)](caching-data-with-the-objectdatasource-cs/_static/image2.png)
 
 **Rysunek 2**: Rysunek 2: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image4.png))
 
-
 Wreszcie, Dodaj te strony jako wpisy, aby `Web.sitemap` pliku. W szczególności należy dodać następujące znaczniki po zakończeniu pracy z danymi binarnymi `<siteMapNode>`:
-
 
 [!code-xml[Main](caching-data-with-the-objectdatasource-cs/samples/sample1.xml)]
 
 Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web w samouczkach, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementy samouczki buforowania.
 
-
 ![Mapa witryny zawiera teraz wpisy pamięci podręcznej samouczki](caching-data-with-the-objectdatasource-cs/_static/image5.png)
 
 **Rysunek 3**: Mapa witryny zawiera teraz wpisy pamięci podręcznej samouczki
-
 
 ## <a name="step-2-displaying-a-list-of-products-in-a-web-page"></a>Krok 2. Wyświetlanie listy produktów na stronie sieci Web
 
@@ -90,19 +82,15 @@ W tym samouczku przedstawiono sposób użycia ObjectDataSource kontroli s wbudow
 
 Zacznij od otwarcia `ObjectDataSource.aspx` stronie `Caching` folderu. Przeciągnij GridView z przybornika w projektancie, ustaw jego `ID` właściwości `Products`i w tagu inteligentnego, chcesz powiązać kontrolkę ObjectDataSource o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource do pracy z `ProductsBLL` klasy.
 
-
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLL](caching-data-with-the-objectdatasource-cs/_static/image7.png)](caching-data-with-the-objectdatasource-cs/_static/image6.png)
 
 **Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image8.png))
 
-
 Na tej stronie umożliwiają s Utwórz GridView można edytować, aby można sprawdzić, co się stanie po zmodyfikowaniu dane buforowane w kontrolki ObjectDataSource za pośrednictwem interfejsu s GridView. Należy pozostawić listy rozwijanej wybierz OPCJĘ karty ustawiona na wartość domyślną `GetProducts()`, ale zmienić wybrany element na karcie aktualizacji `UpdateProduct` przeciążenie, które akceptuje `productName`, `unitPrice`, i `productID` jako jego parametry wejściowe.
-
 
 [![Ustawianie listy rozwijanej aktualizacji karty s przeciążenia UpdateProduct odpowiednie](caching-data-with-the-objectdatasource-cs/_static/image10.png)](caching-data-with-the-objectdatasource-cs/_static/image9.png)
 
 **Rysunek 5**: Ustaw s kartę aktualizacji listy rozwijanej zastosowanie `UpdateProduct` przeciążenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image11.png))
-
 
 Na koniec Ustaw list rozwijanych w kartach INSERT i DELETE (Brak) i kliknij przycisk Zakończ. Po ukończeniu pracy kreatora Konfigurowanie źródła danych, program Visual Studio ustawia ObjectDataSource s `OldValuesParameterFormatString` właściwość `original_{0}`. Zgodnie z opisem w [Przegląd Wstawianie, aktualizowanie i usuwanie danych](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) samouczek, ta właściwość musi zostać usunięte z składni deklaratywnej albo powraca do wartości domyślnej, `{0}`, w kolejności dla przepływu pracy przez naszych aktualizacji Kontynuuj bez błędów.
 
@@ -113,24 +101,19 @@ Należy widoku GridView można edytować, zaznaczając pole wyboru Włącz edyto
 > [!NOTE]
 > Potrzebujesz przeglądu sposobu dostosowywania interfejsu edycji kontrolki GridView s? Jeśli tak, odwołaj się do [Dostosowywanie interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) samouczka.
 
-
 [![Włącz obsługę GridView do edycji, sortowania i stronicowania](caching-data-with-the-objectdatasource-cs/_static/image13.png)](caching-data-with-the-objectdatasource-cs/_static/image12.png)
 
 **Rysunek 6**: Włącz obsługę GridView do edycji, sortowania i stronicowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image14.png))
 
-
 Po wprowadzeniu tych zmian GridView, kontrolkami GridView i kontrolki ObjectDataSource s oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](caching-data-with-the-objectdatasource-cs/samples/sample2.aspx)]
 
 Jak pokazano na rysunku 7, wyświetla listę GridView można edytować nazwy, kategorii i cenę każdego z produktów w bazie danych. Poświęć chwilę, w celu przetestowania sortowania funkcji strony s wyniki strony za pomocą ich i edytować rekord.
 
-
 [![Każdy produkt s nazwy, kategorii i cena znajduje się w sortowanie, Pageable, można edytować kontrolki GridView](caching-data-with-the-objectdatasource-cs/_static/image16.png)](caching-data-with-the-objectdatasource-cs/_static/image15.png)
 
 **Rysunek 7**: Każdy produkt s nazwy, kategorii i cena znajduje się w sortowanie, Pageable, można edytować kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image17.png))
-
 
 ## <a name="step-3-examining-when-the-objectdatasource-is-requesting-data"></a>Krok 3. Badanie podczas ObjectDataSource jest żądanie danych
 
@@ -140,14 +123,11 @@ Następująca sekwencja zdarzeń odbywa się z każdym razem, gdy widoku GridVie
 
 Aby w pełni docenić częstotliwość, z jaką dane są pobierane z bazy danych, umożliwiają s wyświetlić komunikat wskazujący, gdy dane są ponownie pobierane. Dodaj kontrolkę etykieta Web powyżej GridView o nazwie `ODSEvents`. Czyści jej `Text` właściwości i ustaw jego `EnableViewState` właściwość `false`. Poniżej etykiety, Dodaj kontrolkę przycisku w sieci Web, a następnie ustaw jego `Text` właściwość zwrotu.
 
-
 [![Dodaj etykietę i przycisk do strony powyżej widoku GridView](caching-data-with-the-objectdatasource-cs/_static/image19.png)](caching-data-with-the-objectdatasource-cs/_static/image18.png)
 
 **Rysunek 8**: Dodaj etykietę i przycisk do strony powyżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image20.png))
 
-
 Podczas przepływ dostępu do danych, ObjectDataSource s `Selecting` uruchamiany zdarzeń przed utworzeniem obiektu źródłowego i jego skonfigurowana metoda wywoływana. Utwórz procedurę obsługi zdarzeń dla tego zdarzenia, a następnie dodaj następujący kod:
-
 
 [!code-csharp[Main](caching-data-with-the-objectdatasource-cs/samples/sample3.cs)]
 
@@ -155,16 +135,13 @@ Każdorazowo, gdy kontrolki ObjectDataSource kieruje żądanie do architektury d
 
 Odwiedź tę stronę w przeglądarce. Po pierwsze odwiedzenia strony, zdarzenie Zaznaczanie tekstu, uruchamiane jest wyświetlany. Kliknij przycisk ogłaszania wstecznego i należy pamiętać, że tekst znika (przy założeniu, że GridView s `EnableViewState` właściwość jest ustawiona na `true`, wartość domyślna). To dlatego, na odświeżenie strony, widoku GridView jest odtworzone swój stan widoku i w związku z tym t sięgają ObjectDataSource dla swoich danych. Sortowanie, stronicowanie i edytowanie danych, jednak powoduje, że GridView ponownie powiązać ze swoim źródłem danych i w związku z tym zdarzenie wybranie uruchamiane wyświetleniu tekstu.
 
-
 [![Po każdym widoku GridView jest odbitych ze swoim źródłem danych, wybranie event uruchamiany jest wyświetlana](caching-data-with-the-objectdatasource-cs/_static/image22.png)](caching-data-with-the-objectdatasource-cs/_static/image21.png)
 
 **Rysunek 9**: Po każdym widoku GridView jest odbitych ze swoim źródłem danych, wybranie event uruchamiany jest wyświetlany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image23.png))
 
-
 [![Kliknięcie powoduje odświeżenie strony przycisk GridView, aby zostać odtworzone swój stan widoku](caching-data-with-the-objectdatasource-cs/_static/image25.png)](caching-data-with-the-objectdatasource-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Kliknięcie przycisku zwrotu powoduje, że GridView zostać odtworzone swój stan widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image26.png))
-
 
 Może się to wydawać marnotrawstwa można pobrać za każdym razem danych jest stronicowanej za pośrednictwem lub posortowanych danych w bazie danych. Ponieważ możemy ponownie przy użyciu domyślnego stronicowania kontrolki ObjectDataSource pobierze wszystkie rekordy przy wyświetlaniu pierwszej strony. Nawet wtedy, gdy widoku GridView nie dostarcza, sortowanie i stronicowanie pomocy technicznej, dane muszą pobierane z bazy danych, każdym razem, gdy strony najpierw jest kontrolowane przez żadnego użytkownika (i na każdy zwrotu, jeśli stan widoku jest wyłączone). Ale jeśli widoku GridView są wyświetlane te same dane dla wszystkich użytkowników, tych żądań dodatkowych bazy danych są zbędne. Dlaczego nie pamięci podręcznej wyniki zwrócone z `GetProducts()` metody i powiązania GridView do tych buforowanych wyników?
 
@@ -179,11 +156,9 @@ Wystarczy ustawić kilka właściwości, można skonfigurować kontrolki ObjectD
 
 Umożliwiają konfigurowanie s `ProductsDataSource` ObjectDataSource do jego dane z pamięci podręcznej przez 30 sekund na skalę bezwzględną. Ustaw ObjectDataSource s `EnableCaching` właściwości `true` i jego `CacheDuration` właściwości do 30. Pozostaw `CacheExpirationPolicy` właściwość ustawioną na wartość domyślną `Absolute`.
 
-
 [![Konfigurowanie kontrolki ObjectDataSource buforować dane przez 30 sekund](caching-data-with-the-objectdatasource-cs/_static/image28.png)](caching-data-with-the-objectdatasource-cs/_static/image27.png)
 
 **Rysunek 11**: Konfigurowanie kontrolki ObjectDataSource buforować dane przez 30 sekund ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-with-the-objectdatasource-cs/_static/image29.png))
-
 
 Zapisz zmiany i ponownie tę stronę w przeglądarce. Zaznaczanie tekstu zdarzenia wywoływane będą wyświetlane, gdy najpierw odwiedź stronę, jako początkowo dane nie są w pamięci podręcznej. Ale kolejne ogłaszania zwrotnego wyzwolone przez kliknięcie przycisku zwrotu, sortowanie, stronicowanie lub naciskać przycisków edycji, lub przycisk Anuluj *nie* ponowne wyświetlanie zdarzeń wybranie wyzwolone tekstu. Jest to spowodowane `Selecting` zdarzenia generowane tylko, gdy kontrolki ObjectDataSource dane są pobierane z jego obiektu podstawowego; `Selecting` zdarzeń nie jest wyzwalana, jeśli dane są pobierane z pamięci podręcznej danych.
 
@@ -192,14 +167,11 @@ Po 30 sekundach danych zostanie wykluczona z pamięci podręcznej. Dane równie�
 > [!NOTE]
 > Jeśli widzisz często Zaznaczanie tekstu zdarzenia wywoływane, nawet w przypadku, gdy spodziewasz się ObjectDataSource z dane w pamięci podręcznej, może to być spowodowane ograniczenia pamięci. Jeśli nie jest wystarczająca ilość wolnej pamięci, dane dodane do pamięci podręcznej przez kontrolki ObjectDataSource może został oczyszczana. Jeśli t ObjectDataSource wydają się być poprawnie buforowania danych lub tylko pamięci podręczne danych sporadycznie, Zamknij niektóre aplikacje, aby zwolnić pamięć i spróbuj ponownie.
 
-
 Rysunek 12 przedstawiono s ObjectDataSource buforowania przepływu pracy. Gdy zdarzenie wybranie uruchamiane tekst jest wyświetlany na ekranie, ponieważ dane nie znajdowała się w pamięci podręcznej i musiały być pobierane z obiektu źródłowego. Jeśli brakuje ten tekst jednak go s, ponieważ dane były dostępne z pamięci podręcznej. Gdy dane są zwracane z pamięci podręcznej miejsca s wykonywać Brak wywołania do bazowego obiektu i w związku z tym, bez określenia zapytania bazy danych.
-
 
 ![Magazyny ObjectDataSource i pobiera dane z pamięci podręcznej danych](caching-data-with-the-objectdatasource-cs/_static/image30.png)
 
 **Rysunek 12**: Magazyny ObjectDataSource i pobiera dane z pamięci podręcznej danych
-
 
 Każda aplikacja ASP.NET ma swoje własne wystąpienie tego s współużytkowane przez wszystkie strony i osoby odwiedzające pamięci podręcznej danych. Oznacza to, że dane przechowywane w pamięci podręcznej danych przez kontrolki ObjectDataSource podobnie jest współużytkowany przez wszystkich użytkowników, którzy znajduje się na stronie. Aby to sprawdzić, otwórz `ObjectDataSource.aspx` strony w przeglądarce. Po pierwsze, odwiedzając stronę, Zaznaczanie tekstu zdarzenia wywoływane pojawi się (przy założeniu, że dane dodane do pamięci podręcznej przez poprzednie testy w razie został wykluczony). Otwórz drugie wystąpienie przeglądarki i skopiuj i wklej adres URL z pierwszego wystąpienia przeglądarki do drugiego. W drugim wystąpieniu przeglądarki Zaznaczanie tekstu zdarzenia wywoływane jest nie wyświetlany, ponieważ jego s, korzystając z tych samych danych, jak pierwsza w pamięci podręcznej.
 

@@ -8,12 +8,12 @@ ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: db8f336f3fd9a88dfb32f99510fc53cd7b4a5178
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 63c555358d06a9506bb5c8c993800c3307108192
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415989"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114445"
 ---
 # <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Instrukcje: dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms/MVC
 
@@ -25,7 +25,6 @@ ms.locfileid: "59415989"
 > **Podsumowanie**
 > 
 > Ten sposób można w tym artykule opisano różne sposoby, aby obsługiwać strony zoptymalizowane pod kątem urządzeń przenośnych z formularzy sieci Web platformy ASP.NET / aplikacji MVC i sugeruje architektury i projektowania kwestie do rozważenia przy przeznaczeniu szerokiej gamy urządzeń. W tym dokumencie wyjaśniono również, dlaczego formantów mobilnych ASP.NET z programu ASP.NET 2.0 3.5 są już nieaktualne, a w tym artykule omówiono niektóre nowoczesnych rozwiązań alternatywnych.
-
 
 ## <a name="contents"></a>Spis treści
 
@@ -158,7 +157,6 @@ Twoje stron dla urządzeń przenośnych mogą udostępniać typowe zasoby statyc
 
 > [!NOTE]
 > Ponieważ takie podejście zazwyczaj polega na niektórych duplikatów kodu (stron dla urządzeń przenośnych prawdopodobnie może udostępnić pewne podobieństwa stron pulpitu), ważne jest, aby współczynnik żadnych wspólnych firm logiki lub dane kod dostępu do udostępnionej warstwy podstawowej lub usługi. W przeciwnym razie będziesz double nakład pracy podczas tworzenia i obsługi aplikacji.
-
 
 #### <a name="redirecting-mobile-visitors-to-your-mobile-pages"></a>Przekierowywanie odwiedziny na urządzeniach mobilnych do usługi stron dla urządzeń przenośnych
 
@@ -310,7 +308,6 @@ Aby uzyskać więcej informacji, zobacz [51degrees.mobi dokumentacji Foundation]
 
 > [!NOTE]
 > Możesz *można* Foundation 51Degrees.mobi Użyj funkcji Przekierowanie na aplikacje programu ASP.NET MVC, ale należy zdefiniować konfigurację przekierowania pod względem zwykły adresów URL, nie w zakresie routingu parametrów lub poprzez umieszczenie filtrów platformy MVC w akcji. Jest to spowodowane (w momencie pisania) nie może rozpoznać 51Degrees.mobi Foundation filtry lub routingu.
-
 
 ### <a name="disabling-transcoders-and-proxy-servers"></a>Wyłączanie Transkoderów i serwerów Proxy
 

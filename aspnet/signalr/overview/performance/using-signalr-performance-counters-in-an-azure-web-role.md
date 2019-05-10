@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 8e17e945bc144731dd149bd7ddfc9e29160eaf0b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 969a2ce43a7cb8d649555daf282f900401c0c914
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073406"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113593"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure
 
@@ -88,7 +88,6 @@ Liczniki wydajności SignalR są używane do monitorowania wydajności aplikacji
     ![Ustaw Kopiuj do katalogu wyjściowego, aby zawsze Kopiuj](using-signalr-performance-counters-in-an-azure-web-role/_static/image8.png)
 
 15. Powtórz poprzedni krok dla *SignalRPerfCounterInstall.cmd* pliku.
-
 
 16. Kliknij prawym przyciskiem myszy *SignalRPerfCounterInstall.cmd* plik i wybierz **Otwórz za pomocą**. W wyświetlonym oknie dialogowym wybierz **Edytor plików binarnych** i wybierz **OK**.
 

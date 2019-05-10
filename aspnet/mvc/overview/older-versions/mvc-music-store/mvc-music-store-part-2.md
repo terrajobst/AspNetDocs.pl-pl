@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b452c59f16107be6d356f86e6c313ba3229dbce6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9dc2226f4951d4bed122df37d35bbb94730a00ad
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392758"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112413"
 ---
 # <a name="part-2-controllers"></a>Część 2. Kontrolery
 
@@ -24,7 +24,6 @@ przez [Galloway'em Jon](https://github.com/jongalloway)
 > MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
 > W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 2 obejmuje kontrolerów.
-
 
 Za pomocą platform sieci web tradycyjnych przychodzących adresów URL są zwykle mapowane na pliki na dysku. Na przykład: żądania dla adresu URL, takich jak "/ Products.aspx" lub "/ Products.php" mogą być przetwarzane przez plik "Products.aspx" lub "Products.php".
 
@@ -136,7 +135,6 @@ Przypomnijmy przedstawiające wprowadzone aktualizacje do tej pory:
 - Nauczyliśmy się sposobu uruchamiania naszej witryny sieci Web za pomocą programu ASP.NET Development Server
 - Utworzyliśmy dwie klasy kontrolera: HomeController i StoreController
 - Dodaliśmy metod akcji do naszych kontrolery, które odpowiadają na żądania adres URL i zwracają tekst w przeglądarce
-
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-1.md)

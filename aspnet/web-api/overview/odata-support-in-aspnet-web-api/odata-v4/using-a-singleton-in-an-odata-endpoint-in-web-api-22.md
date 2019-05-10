@@ -8,19 +8,18 @@ ms.date: 06/27/2014
 ms.assetid: 4064ab14-26ee-4d5c-ae58-1bdda525ad06
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 935448a1f9770e1f11460c95997aa778c4208c9f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 218449c18759b306e425c55f8e7b573d837b4658
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403340"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113131"
 ---
 # <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Tworzenie pojedynczego wystąpienia w protokole OData v4 używanie składnika Web API 2.2
 
 przez Zoe Luo
 
 > Tradycyjnie z jednostki może oceniony jedynie go zostały hermetyzowany wewnątrz zestawu jednostek. Jednak protokół OData 4 udostępnia dwie dodatkowe opcje pojedyncze i zawierania, które obsługuje WebAPI 2.2.
-
 
 W tym artykule przedstawiono sposób definiowania wzorzec singleton w punktu końcowego OData w sieci Web API 2.2. Aby uzyskać informacji o jakie pojedyncze wystąpienie znajduje i jakie korzyści z korzystania z niego, zobacz [przy użyciu pojedynczego do definiowania jednostka specjalne](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx). Aby utworzyć punkt końcowy protokołu OData V4 w interfejsie API sieci Web, zobacz [tworzenia protokołu OData v4 punktu końcowego Używanie wzorca ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md). 
 

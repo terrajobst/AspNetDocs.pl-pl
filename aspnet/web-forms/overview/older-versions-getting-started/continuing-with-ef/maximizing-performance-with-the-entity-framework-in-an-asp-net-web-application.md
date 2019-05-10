@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: 4e43455e-dfa1-42db-83cb-c987703f04b5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 116c557ad0d6c158f983da75668e634c9eb9747c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5630200a1ad1d30f6d89b38e15179f15b699fa9f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379595"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108587"
 ---
 # <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 w aplikacji ASP.NET sieci Web 4
 
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 > W tej serii samouczków jest oparta na Contoso University aplikacji sieci web, który jest tworzony przez [rozpoczęcie korzystania z programu Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serii samouczków. Jeśli nie została ukończona wcześniej samouczki, jako punkt początkowy na potrzeby tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie serii samouczków. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
-
 
 W poprzednim samouczku pokazano, jak obsługa konfliktów współbieżności. Ten samouczek przedstawia opcje poprawę wydajności aplikacji sieci web platformy ASP.NET, która używa programu Entity Framework. Poznasz kilka metod przeznaczonych do maksymalizacji wydajności, lub do diagnozowania problemów z wydajnością.
 
@@ -43,7 +42,6 @@ Informacje przedstawione w poniższej sekcji jest potencjalnie przydatne w przyp
 > Wydajność aplikacji sieci Web wpływa wiele czynników, takich jak elementów, takich jak rozmiar danych żądań i odpowiedzi, szybkość zapytań do bazy danych, jak wiele żądań, że serwer można kolejkować i jak szybko może obsłużyć, a nawet efektywności dowolnego biblioteki skryptu klienta, który może być używany. Jeśli wydajność ma kluczowe znaczenie dla aplikacji lub testowania lub obsługi pokazuje, że wydajność aplikacji nie jest zadowalające, należy przestrzegać normalne protokołu dotyczące dostosowywania wydajności. Miar do określenia, gdzie występują wąskie gardła wydajności, a następnie adresować obszary, które mają największy wpływ na wydajność aplikacji ogólnej.
 > 
 > Ten temat koncentruje się głównie na sposób, w którym może potencjalnie podnieść wydajność specjalnie programu Entity Framework na platformie ASP.NET. Sugestie, w tym miejscu są przydatne, jeśli okaże się, że dostęp do danych jest jednym z wąskich gardeł wydajności w aplikacji. Z tym, jak wspomniano, metody opisane w tym miejscu nie należy uznać za &quot;najlepsze praktyki&quot; ogólnie rzecz biorąc — wiele z nich jest odpowiednie tylko w sytuacjach wyjątkowych lub adres bardzo konkretnych rodzajów wąskich gardeł wydajności.
-
 
 Uruchom samouczek, uruchom program Visual Studio i otwarcie aplikacji sieci web firmy Contoso University pracowano w poprzednim samouczku.
 
@@ -179,7 +177,6 @@ Jako alternatywę funkcji IntelliTrace w programie Visual Studio Ultimate zapewn
 > [!NOTE]
 > Poniższych procedur można wykonywać tylko wtedy, gdy masz programu Visual Studio Ultimate.
 
-
 Przywrócić oryginalny kod w `GetDepartmentsByName` metody, a następnie uruchom *Departments.aspx* strony w debugerze.
 
 W programie Visual Studio, wybierz **debugowania** menu, a następnie **IntelliTrace**, a następnie **zdarzenia IntelliTrace**.
@@ -219,14 +216,12 @@ Zapytanie z działów stał się prostej `Select` zapytania bez `Join` klauzuli,
 > [!NOTE]
 > Pozostawienie powolne ładowanie włączone, wzorzec, widocznej w tym miejscu, za pomocą tego samego zapytania powtarzać wiele razy, mogą być wynikiem powolne ładowanie. Wzorzec, który chcesz uniknąć zwykle jest powolne ładowanie powiązanych danych dla każdego wiersza w tabeli podstawowej. Chyba, że gdy masz pewność, że pojedynczy kwerendy jest zbyt złożona, aby były skuteczne, zazwyczaj będzie można poprawić wydajność w takich sytuacjach, zmieniając podstawowego zapytania, aby użyć wczesne ładowanie.
 
-
 ## <a name="pre-generating-views"></a>Wstępnie generowanie widoków
 
 Gdy `ObjectContext` najpierw tworzony jest obiekt w nowej domeny aplikacji, platformy Entity Framework generuje zestaw klas używanych do dostępu do bazy danych. Te klasy są nazywane *widoków*, i w przypadku modelu bardzo dużej ilości danych generowanie tych widoków można opóźnić witryny sieci web odpowiedzi na pierwsze żądanie strony po zainicjowaniu nowej domeny aplikacji. Tworząc widoki, w czasie kompilacji, a nie w czasie wykonywania, można zmniejszyć to opóźnienie pierwszego żądania.
 
 > [!NOTE]
 > Jeśli aplikacja nie ma modelu bardzo dużych ilości danych lub jeśli niesie ze sobą modelu dużych ilości danych, ale nie ma zajmującym się problem z wydajnością, który wpływa na tylko pierwsze żądanie strony po recyklingu usług IIS, można pominąć tę sekcję. Wyświetl tworzenia nie jest realizowane za każdym razem, gdy tworzenia wystąpienia `ObjectContext` obiektu, ponieważ opinie są buforowane w domenie aplikacji. W związku z tym chyba że są często odtwarzanie aplikacji w usługach IIS, bardzo mało żądań strony używającym wstępnie wygenerowanych widoków.
-
 
 Można wstępnie wygenerować widoków przy użyciu *EdmGen.exe* narzędzia wiersza polecenia lub przy użyciu *Toolkit przekształcania szablonu tekstu* szablonu (T4). W tym samouczku użyjesz szablon T4.
 

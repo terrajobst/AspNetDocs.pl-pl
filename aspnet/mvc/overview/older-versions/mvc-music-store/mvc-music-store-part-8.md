@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 2ba210d8c541c6c330dda74706470fa73a81474a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 89897ad41b217764cbd17317d4bf5d6a5c5d488f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379485"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112905"
 ---
 # <a name="part-8-shopping-cart-with-ajax-updates"></a>Część 8. Koszyk z aktualizacjami AJAX
 
@@ -24,7 +24,6 @@ przez [Galloway'em Jon](https://github.com/jongalloway)
 > MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
 > W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 8 obejmuje koszyk z aktualizacjami Ajax.
-
 
 Firma Microsoft będzie Zezwalaj użytkownikom na umieszczenie albumów w ich koszyka bez rejestrowania, ale należy zarejestrować się jako goście zakończyć proces realizacji transakcji. Proces zakupów i wyewidencjonowywania będą można podzielić na dwa kontrolery: kontroler ShoppingCart, co pozwala anonimowo Dodawanie elementów do koszyka i kontroler wyewidencjonowania, która obsługuje rozpoczęcie procesu realizowania zamówienia. Firma Microsoft będzie rozpoczynać koszyka w tej sekcji, a następnie tworzenie rozpoczęcie procesu realizowania zamówienia w poniższej sekcji.
 
@@ -156,7 +155,6 @@ Po załadowaniu usługi koszyka, możesz kliknąć Usuń z koszyka łącza w cel
 ![](mvc-music-store-part-8/_static/image8.png)
 
 Utworzyliśmy się działającego koszyk, co pozwala niezarejestrowanym użytkownikom dodać elementy do ich koszyka. W poniższej sekcji firma Microsoft będzie zezwolić im na rejestrowanie i ukończenie procesu realizowania zamówienia.
-
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-7.md)

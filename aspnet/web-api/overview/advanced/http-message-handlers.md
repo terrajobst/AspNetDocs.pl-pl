@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 9002018b-3aa3-4358-bb1c-fbb5bc751d01
 msc.legacyurl: /web-api/overview/advanced/http-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: 308d2e3dd21917e7656f7ffe889dc965d9275d74
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a8e6f1da8df4802e1acf7779a2fc75bfe8ab876f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59392109"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115548"
 ---
 # <a name="http-message-handlers-in-aspnet-web-api"></a>Programy obsługi komunikatów HTTP we wzorcu ASP.NET Web API
 
@@ -47,7 +47,6 @@ Ten diagram przedstawia dwa niestandardowe programy obsługi dodaje do potoku:
 > [!NOTE]
 > Po stronie klienta HttpClient używa także procedury obsługi komunikatów. Aby uzyskać więcej informacji, zobacz [programy obsługi komunikatów HttpClient](httpclient-message-handlers.md).
 
-
 ## <a name="custom-message-handlers"></a>Programy obsługi komunikatów niestandardowych
 
 Aby napisać program obsługi komunikatów niestandardowych, pochodzi od **System.Net.Http.DelegatingHandler** i zastąpić **SendAsync** metody. Ta metoda ma następujący podpis:
@@ -67,7 +66,6 @@ Oto przykład prosta:
 
 > [!NOTE]
 > Wywołanie `base.SendAsync` jest asynchroniczna. Jeśli program obsługi ma wszelkie prace po tym wywołaniu, użyj **await** — słowo kluczowe, jak pokazano.
-
 
 Obsługi delegowania można również pominąć wewnętrznym programem obsługi i bezpośrednio tworzyć odpowiedzi:
 
@@ -131,7 +129,6 @@ Jeśli żądanie nie ma prawidłowego klucza, program obsługi tworzy komunikat 
 
 > [!NOTE]
 > Jeśli klucz interfejsu API ma zastosowanie tylko do określonych akcji kontrolera, należy wziąć pod uwagę przy użyciu filtru akcji zamiast programu obsługi komunikatów. Filtry akcji uruchamiania routingu identyfikator URI zostanie wykonane.
-
 
 ## <a name="per-route-message-handlers"></a>Programy obsługi komunikatów Route
 

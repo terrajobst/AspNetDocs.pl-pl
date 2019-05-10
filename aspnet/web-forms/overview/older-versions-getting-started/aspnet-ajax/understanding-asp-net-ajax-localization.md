@@ -8,12 +8,12 @@ ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 11e70493478d6810d63ba6b3ac813e32f03052eb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ef4ee57496337fb13b4d1c09c058e89e04eb3138
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381331"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114591"
 ---
 # <a name="understanding-aspnet-ajax-localization"></a>Objaśnienie lokalizacji kodu ASP.NET AJAX
 
@@ -22,7 +22,6 @@ przez [Scott Cate](https://github.com/scottcate)
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
 > Lokalizacja to proces projektowania i integracji pomocy technicznej dla określonego języka i kultury aplikacji lub składnika aplikacji. Platformy Microsoft ASP.NET oferuje zaawansowaną obsługę dla lokalizacji dla standardowych aplikacji ASP.NET, integrując standardowy model lokalizacji .NET; Microsoft AJAX Framework wykorzystać zintegrowane modelu do obsługi różnych scenariuszy, w których mogą być wykonywane lokalizacji.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -105,16 +104,13 @@ Dla osób, które są nieznane przy użyciu składni wyrażeń regularnych języ
 1. Naciśnij F5. Jeśli zostanie wyświetlony monit, Włącz debugowanie. Po załadowaniu strony, kliknij przycisk Usuń. Należy pamiętać, że monit w języku angielskim (chyba że komputer jest domyślnie preferowanie zasoby języka hiszpańskiego) o potwierdzenie.
 2. Zamknij okno przeglądarki i wróć do default.aspx. W @Page dyrektywy nagłówka, automatycznego zamieniania Culture i UICulture z es-ES. Naciśnij klawisz F5, aby uruchomić ponownie aplikację sieci web w przeglądarce. Monit usunąć plik w języku hiszpańskim w tej chwili należy zwrócić uwagę:
 
-
 [![](understanding-asp-net-ajax-localization/_static/image2.png)](understanding-asp-net-ajax-localization/_static/image1.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-localization/_static/image3.png))
 
-
 [![](understanding-asp-net-ajax-localization/_static/image5.png)](understanding-asp-net-ajax-localization/_static/image4.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-localization/_static/image6.png))
-
 
 Należy zauważyć, że istnieje kilka zmian w ramach tego przewodnika. Na przykład skrypty może być zarejestrowany za pomocą formantu ScriptManager programowo podczas ładowania strony.
 

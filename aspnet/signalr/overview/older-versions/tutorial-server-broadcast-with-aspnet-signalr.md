@@ -8,12 +8,12 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a63bca69f137a4d4765db6a4925ff027c9d8bf7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68908be34f6b010e512677fe5f5e31bfdefab592
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403587"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116068"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: emisje serwera z użyciem wzorca ASP.NET SignalR 1.x
 
@@ -26,7 +26,6 @@ przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gi
 > Aplikacja, którą utworzysz w tym samouczku symuluje giełdowej typowy scenariusz emisji funkcje serwera.
 > 
 > Zapraszamy są komentarze dotyczące tego samouczka. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -54,7 +53,6 @@ Ten samouczek zawiera następujące sekcje:
 
 > [!NOTE]
 > Jeśli nie chcesz pracować, kolejne kroki tworzenia aplikacji, można zainstalować pakiet SignalR.Sample w nowym **pusta aplikacja sieci Web platformy ASP.NET** projektu i zapoznaj się z artykułem te kroki, aby uzyskać objaśnienia dotyczące kodu. Pierwszej części samouczka obejmuje podzbiór kodu SignalR.Sample, a drugiej części opisano najważniejsze funkcje dodatkowe funkcje w pakiecie SignalR.Sample.
-
 
 <a id="prerequisites"></a>
 

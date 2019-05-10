@@ -8,12 +8,12 @@ ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: bb8a7da1080dc325c0479b337d114b8dcdf6e102
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 901e039fbb81651ed18d560c99745b7e7f716e01
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59390067"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116086"
 ---
 # <a name="signalr-connection-density-testing-with-crank"></a>Testowanie gęstości połączenia usługi SignalR za pomocą funkcji Crank
 
@@ -22,7 +22,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym artykule opisano sposób użycia narzędzia węzłówką do testowania aplikacji przy użyciu wielu symulowanych klientów.
-
 
 Gdy aplikacja jest uruchomiona w środowisku hostingu (albo usługi Azure web rolę, usługi IIS, lub może być samodzielnie hostowane przy użyciu Owin), należy przetestować wysoką gęstość połączenia przy użyciu narzędzia węzłówką odpowiedzi aplikacji. Środowisko hostingu może być serwer Internet Information Services (IIS), hosta Owin lub roli usługi sieci web platformy Azure. (Uwaga: Liczniki wydajności nie są dostępne w usłudze Azure App Service Web Apps, dlatego nie można uzyskać dane dotyczące wydajności z test gęstość połączenia.)
 

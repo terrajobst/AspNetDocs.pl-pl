@@ -8,12 +8,12 @@ ms.date: 03/12/2008
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: e3821eee8c7bf2c2f9b45ea75ade2bd5b3b8ef19
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c61d10c28ba3975cb6fbadc6eda1f7a3c9406dfc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114612"
 ---
 # <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Objaśnienie wyzwalaczy UpdatePanel ASP.NET AJAX
 
@@ -22,7 +22,6 @@ przez [Scott Cate](https://github.com/scottcate)
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
 > Podczas pracy w edytorze znaczników w programie Visual Studio, można zauważyć (z funkcji IntelliSense), istnieją dwa typy elementów podrzędnych kontrolki UpdatePanel. Jednym z nich jest element wyzwalaczy, który określa formanty na stronie (lub kontrolki użytkownika, jeśli używana jest jedna) który spowoduje wyzwolenie częściowe renderowanie kontrolki UpdatePanel, w której znajduje się element.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -76,11 +75,9 @@ Podobnie `<asp:PostBackTrigger>` element może być użyty do renderowania stron
 
 1. Naciśnij klawisz F5, aby skompilować i uruchomić projekt. Należy pamiętać, że po kliknięciu aktualizacji zarówno paneli, zarówno etykiety zmienić tekst; Jednak po kliknięciu tego panelu aktualizacji, tylko Label1 aktualizacji.
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image2.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image1.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
-
 
 ## <a name="under-the-hood"></a>*Kulisy*
 
@@ -90,11 +87,9 @@ Kontrola kodu źródłowego strony pokazuje prawie nie trzeba wykonywać żadnyc
 
 Kliknij przycisk aktualizacji tego panelu i zwróć uwagę, że najważniejsze UpdatePanel zostanie zaktualizowane o bieżący czas serwera. W FireBug wybierz kartę konsoli, dzięki czemu można sprawdzić żądanie. Najpierw sprawdź parametry żądania POST:
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image5.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image4.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image6.png))
-
 
 Należy pamiętać, że kontrolki UpdatePanel wskazuje kodu AJAX po stronie serwera dokładnie drzewo kontroli, które zostało wywołane za pomocą parametru ScriptManager1: `Button1` z `UpdatePanel1` kontroli. Teraz kliknij przycisk aktualizacji zarówno paneli. Następnie badanie odpowiedzi, widzimy rozdzielonych potoku serii zestaw zmiennych w ciąg. w szczególności widzimy najważniejsze UpdatePanel `UpdatePanel1`, ma materiałami jego HTML wysyłany do przeglądarki. Skrypt biblioteki klienckiej AJAX zastępuje UpdatePanel oryginalna zawartość HTML z nowej zawartości za pośrednictwem `.innerHTML` właściwości, a zatem serwer wysyła zmieniona zawartość z serwera w formacie HTML.
 
@@ -104,11 +99,9 @@ Jak widać, ponieważ żaden specjalny kod służy do wykonywania ogłaszania zw
 
 Na przykład należy wziąć pod uwagę formantu CheckBox; Sprawdź dezasemblacji klasy w odblaskowego .NET. Aby to zrobić, upewnij się, że zestawu System.Web został otwarty, a następnie przejdź do `System.Web.UI.WebControls.CheckBox` klasy, otwierając `RenderInputTag` metody. Wyszukaj warunkowych, która sprawdza `AutoPostBack` właściwości:
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image8.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image7.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image9.png))
-
 
 Po włączeniu automatycznego ogłaszania zwrotnego `CheckBox` Sterowanie (za pośrednictwem właściwości AutoPostBack o wartości true), wynikowe `<input>` tagu w związku z tym jest renderowany przy użyciu zdarzenia platformy ASP.NET, obsługa skryptów w jego `onclick` atrybutu. Przejmowanie przesyłania formularza, następnie umożliwia ASP.NET AJAX ich wstrzyknięcie do strony nonintrusively, pomaga uniknąć wszelkich potencjalnych przełomowe zmiany, które mogą wystąpić przy użyciu zastąpienia prawdopodobnie nieprecyzyjną ciągu. Ponadto, dzięki temu *wszelkie* niestandardowy formant ASP.NET korzystanie z możliwości technologii ASP.NET AJAX bez konieczności wprowadzania dodatkowego kodu do obsługi jej użycie w kontenerze kontrolki UpdatePanel.
 
@@ -128,11 +121,9 @@ A Oto nowe kodem:
 
 Idei ta strona jest listy rozwijanej wybiera jeden z trzech kolorów, aby pokazać drugiej etykiety, że pole wyboru określa, czy jest pogrubiony i wyświetlanie etykiet na datę, a także czas. Pole wyboru nie powinno powodować aktualizacji interfejsu AJAX, ale powinny listy rozwijanej, nawet jeśli nie mieści się w obrębie UpdatePanel.
 
-
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image11.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image10.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image12.png))
-
 
 Jest widoczny na powyższym zrzucie ekranu, można kliknąć przycisk najnowszych był prawy przycisk aktualizacji tego panelu, aktualizowane niezależnie od czasu najważniejsze czasu dolnej. Data została również przełączyć je między kliknięciami, ponieważ data jest widoczna w dolną etykietę. Na koniec zainteresowań jest kolor dolną etykietę: Zaktualizowano niedawno tekst etykiety, który pokazuje, że stan formantu jest ważne, a użytkownicy mogą być zachowywane ogłaszania zwrotnego AJAX. *Jednak*, czas nie został zaktualizowany. Czas został automatycznie ponownie umieszczone za pośrednictwem trwałości \_ \_pole stanu WIDOKU strony interpretowane przez środowisko uruchomieniowe programu ASP.NET, gdy kontrolka została ponownie renderowany na serwerze. Kod serwera ASP.NET AJAX nie rozpoznaje, w której metody formanty zmieniają stan; ją po prostu repopulates ze stanu widoku, a następnie uruchamia zdarzenia, które są odpowiednie.
 

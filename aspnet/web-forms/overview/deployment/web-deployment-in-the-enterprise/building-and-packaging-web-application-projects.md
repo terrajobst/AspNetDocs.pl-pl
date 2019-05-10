@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 82134b8da7ab5ca49fef8e769128db9010fd231f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1d0ee0264ce6461d7b0159f1a44de4de31e2d079
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114665"
 ---
 # <a name="building-and-packaging-web-application-projects"></a>Kompilowanie i tworzenie pakietów projektów aplikacji internetowych
 
@@ -27,7 +27,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > - Jak narzędzie Internet Information Services (IIS) Web Deployment (Web Deploy) włącza aplikację sieci web do pakietu wdrożeniowego.
 > - Sposobu działania procesu kompilacji i tworzenie pakietów i jakie pliki są tworzone.
 
-
 W programie Visual Studio 2010 proces kompilowania i wdrażania projektów aplikacji sieci web jest obsługiwana przez potok WPP. Potok WPP zawiera zestaw elementów docelowych aparatu Microsoft Build Engine (MSBuild), które rozszerzają funkcjonalność programu MSBuild i włącz ją zintegrować z narzędzia Web Deploy. W programie Visual Studio zostaną wyświetlone to rozszerzoną funkcjonalność na stronach właściwości projektu aplikacji sieci web. **Pakowaniu/publikowaniu Web** strony wraz z **Pakuj/Publikuj SQL** stronie umożliwia skonfigurowanie sposobu spakowane projektu aplikacji sieci web wdrożenia po zakończeniu procesu kompilacji.
 
 ![](building-and-packaging-web-application-projects/_static/image1.png)
@@ -36,17 +35,13 @@ W programie Visual Studio 2010 proces kompilowania i wdrażania projektów aplik
 
 Jeśli zapoznaj się z pliku projektu dla języka C# — projekt aplikacji oparte na sieci web, możesz zobaczyć importuje dwa pliki .targets.
 
-
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample1.xml)]
-
 
 Pierwszy **importu** instrukcja jest wspólne dla wszystkich projektów języka Visual C#. Ten plik *Microsoft.CSharp.targets*, zawiera elementy docelowe i zadania, które są określone w Visual C#. Na przykład, kompilator C# (**Csc**) zadanie jest wywoływane w tym miejscu. *Microsoft.CSharp.targets* pliku z osobna Importy *Microsoft.Common.targets* pliku. Określa elementy docelowe, które są wspólne dla wszystkich projektów, takie jak **kompilacji**, **odbudować**, **Uruchom**, **skompilować**, i **wyczyść** . Drugi **importu** instrukcja jest specyficzne dla projektów aplikacji sieci web. *Microsoft.WebApplication.targets* pliku z osobna Importy *Microsoft.Web.Publishing.targets* pliku. *Microsoft.Web.Publishing.targets* pliku zasadniczo *jest* potok WPP. Definiuje obiekty docelowe, takie jak **pakietu** i **MSDeployPublish**, który wywoływanie narzędzia Web Deploy wykonywanie różnych zadań wdrażania.
 
 Aby dowiedzieć się, jak są używane te dodatkowe obiekty docelowe, w przykładowym rozwiązaniu Contact Manager Otwórz *Publish.proj* plik i przyjrzyj się **BuildProjects** docelowej.
 
-
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample2.xml)]
-
 
 Ten element docelowy używa **MSBuild** zadań do tworzenia różnych projektów. Zwróć uwagę **DeployOnBuild** i **DeployTarget** właściwości:
 
@@ -58,7 +53,6 @@ Ten element docelowy używa **MSBuild** zadań do tworzenia różnych projektów
 > [!NOTE]
 > Aby wyświetlić plik projektu (na przykład <em>ContactManager.Mvc.csproj</em>) w programie Visual Studio 2010, należy najpierw Cofnij ładowanie projektu z rozwiązania. W <strong>Eksploratora rozwiązań</strong> , kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk <strong>Zwolnij projekt</strong>. Ponownie kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk <strong>Edytuj</strong><em>[plik projektu]</em>). Plik projektu zostanie otwarty w nieprzetworzonej postaci XML. Pamiętaj, aby ponownie załadować projekt, gdy wszystko będzie gotowe.  
 > Aby uzyskać więcej informacji na temat elementów docelowych MSBuild, zadań, a <strong>importu</strong> instrukcje, zobacz [objaśnienie pliku projektu](understanding-the-project-file.md). Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i potok WPP, zobacz [wewnątrz aparatu Microsoft Build Engine: Przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i William Bartholomew, ISBN: 978-0-7356-4524-0.
-
 
 ## <a name="what-is-a-web-deployment-package"></a>Co to jest pakiet wdrażania sieci Web?
 
@@ -87,7 +81,6 @@ Wraz z pakietu wdrożeniowego sieci web proces kompilacji generuje dwa pliki, kt
 
 > [!NOTE]
 > W programie Visual Studio 2010 potok WPP nie obsługuje prekompilowanie stron w aplikacji sieci web przed pakowania. Następna wersja programu Visual Studio i potok WPP obejmuje możliwość wstępnej kompilacji aplikacji sieci web jako opcja tworzenia pakietów.
-
 
 ## <a name="conclusion"></a>Wniosek
 
