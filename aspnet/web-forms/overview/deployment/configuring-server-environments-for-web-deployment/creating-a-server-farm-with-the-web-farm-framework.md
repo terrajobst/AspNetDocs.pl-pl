@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 656dd06d-806c-467c-863d-9fc45e5ba3ab
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 19c061e83257e118aee74c9373a627b8c56defe3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 204996514bed336e60ab77f184a923f04e7e2bba
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421241"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106908"
 ---
 # <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Tworzenie farmy serwerów za pomocą rozwiązania Web Farm Framework
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano, jak utworzyć i skonfigurować farmę serwerów sieci web z kolekcji serwerów za pomocą sieci Web farmy Framework (WFF) w wersji 2.0.
-
 
 WFF umożliwia synchronizowanie produktów platformy sieci web i komponentów, aplikacji sieci web, witryn sieci Web i ustawienia konfiguracji wielu serwerów sieci web z równoważeniem obciążenia. W scenariuszach, gdzie potrzebujesz więcej niż jeden serwer sieci web, np. środowiskach przejściowych i produkcyjnych to znacznie upraszczają proces wdrażania i konfiguracji. Możesz wdrożyć aplikację sieci web, na jednym serwerze&#x2014; *serwera podstawowego*&#x2014;i WFF będą automatycznie replikowane tej aplikacji sieci web na wszystkich pozostałych serwerach sieci web w farmie serwerów.
 
@@ -63,7 +62,6 @@ Zadania i wskazówki, w tym temacie założono, że zaczynasz z kompilacjami czy
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [łączenie komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
-
 
 ## <a name="create-the-wff-controller-server"></a>Tworzenie serwera Kontroler WFF
 
@@ -185,7 +183,6 @@ WFF został zaprojektowany do integrowania ściśle, za pomocą usług IIS w mod
 
 > [!NOTE]
 > Nie musisz za pomocą WFF; za pomocą funkcji ARR można skonfigurować WFF do pracy z rozwiązań do równoważenia obciążenia innej firmy. Aby uzyskać więcej informacji, zobacz [omówienie 2.0 Framework kolektywu serwerów sieci Web dla usług IIS 7](https://go.microsoft.com/?linkid=9805126).
-
 
 Równoważenia obciążenia za pomocą funkcji ARR jest złożoną kwestią, najbardziej, w których wykracza poza zakres tego samouczka. Jednak dalej procedura służy do zainstalowania modułu ARR i rozpoczynanie pracy z usługą równoważenia obciążenia.
 

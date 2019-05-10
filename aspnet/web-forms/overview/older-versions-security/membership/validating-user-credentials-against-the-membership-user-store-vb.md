@@ -8,12 +8,12 @@ ms.date: 01/18/2008
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 98869574adb8ac85a2b6dad8db2a583e013150fe
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 98c13d076e20f8f57fc551cbcffe140d42c652da
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393180"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108387"
 ---
 # <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Walidacja poświadczeń użytkownika względem magazynu użytkowników członkostwa (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_06_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial06_LoggingIn_vb.pdf)
 
 > W tym samouczku zostanie omówiony sposób sprawdzania poprawności poświadczeń użytkownika względem magazynu użytkowników członkostwa przy użyciu zarówno programowy sposób, jak i kontrolka Login. Również przyjrzymy się jak dostosować wygląd i zachowanie kontrolki logowania.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -42,11 +41,9 @@ Aby sprawdzić użytkownika względem framework członkostwa, należy użyć `Me
 
 Zaktualizujmy naszą stronę logowania (~ /`Login.aspx`) tak, aby sprawdza poprawność podanych poświadczeń względem magazynu użytkowników struktury członkostwa. Utworzyliśmy tę stronę logowania w <a id="Tutorial02"> </a> [ *omówienie uwierzytelniania formularzy* ](../introduction/an-overview-of-forms-authentication-vb.md) samouczek, Tworzenie interfejsu z dwóch pól tekstowych dla nazwy użytkownika i hasła, Zapamiętaj mnie pole wyboru i przycisku logowania (patrz rysunek 1). Kod sprawdza poprawność wprowadzone poświadczenia z ustaloną listą par nazwa użytkownika i hasło (Scott/hasła, Jisun/hasło i hasła/Sam). W <a id="Tutorial03"> </a> [ *Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane* ](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md) samouczek Zaktualizowaliśmy kodu strony logowania do przechowywania dodatkowych informacji w formularzach bilet uwierzytelnienia `UserData` właściwości.
 
-
 [![Interfejs strony logowania zawiera dwa pola tekstowe, elementu CheckBoxList i przycisku](validating-user-credentials-against-the-membership-user-store-vb/_static/image2.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image1.png)
 
 **Rysunek 1**: Na stronie logowania interfejsu zawiera dwa pola tekstowe, elementu CheckBoxList i przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image3.png))
-
 
 Interfejs użytkownika na stronie logowania może pozostać bez zmian, ale musimy Zastąp przycisk logowania `Click` programu obsługi zdarzeń z kodem, który sprawdza poprawność użytkownika względem magazynu użytkowników struktury członkostwa. Aktualizacja programu obsługi zdarzeń, aby jego kod wygląda następująco:
 
@@ -60,7 +57,6 @@ Aby sprawdzić, czy strony logowania działa zgodnie z oczekiwaniami, spróbuj z
 
 > [!NOTE]
 > Gdy użytkownik wprowadzi swoje poświadczenia i przesyła formularz strony logowania, poświadczenia, w tym jej hasła są przesyłane przez Internet do serwera sieci web w *zwykły tekst*. Oznacza to, że wszelkie haker wykrywanie ruchu sieciowego można zobaczyć, nazwę użytkownika i hasło. Aby temu zapobiec, jest niezbędne do szyfrowania ruchu sieciowego przy użyciu [gniazda warstwy SSL (Secure)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer). Pozwoli to zagwarantować, są zaszyfrowane poświadczenia (a także kod znaczników HTML całą stronę) od momentu jego opuszczają przeglądarki otrzymanie przez serwer sieci web.
-
 
 ### <a name="how-the-membership-framework-handles-invalid-login-attempts"></a>Sposób obsługi nieudanych prób logowania w ramach członkostwa
 
@@ -78,30 +74,24 @@ Niestety nie ma wbudowanego narzędzia odblokowywania konta użytkownika. Aby od
 > [!NOTE]
 > Jednym z minusów `ValidateUser` metodą jest, że gdy podane poświadczenia są nieprawidłowe, nie zapewnia żadnych wyjaśnienie, dlaczego. Poświadczenia mogą być nieprawidłowe, ponieważ nie istnieje żadne pasującą parę nazwy użytkownika i hasła w magazynie użytkownika lub ponieważ użytkownik nie ma jeszcze zatwierdzone lub użytkownik został zablokowany. W kroku 4 zobaczymy sposób wyświetlania bardziej szczegółowy komunikat dla użytkownika, gdy ich próba logowania nie powiedzie się.
 
-
 ## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>Krok 2. Zbieranie poświadczeń za pomocą kontrolki sieci Web logowania
 
 [Formantu sieci Web logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) powoduje wyświetlenie domyślnego interfejsu użytkownika jest bardzo podobne do przedstawionego utworzyliśmy w <a id="Tutorial02"> </a> [ *omówienie uwierzytelniania formularzy* ](../introduction/an-overview-of-forms-authentication-vb.md) samouczka. Za pomocą kontrolki logowania zapisuje NAS Praca z konieczności tworzenia interfejsu do zbierania poświadczeń odwiedzającego. Ponadto kontrolki logowania automatycznie zaloguje użytkowników (przy założeniu, że przesłane poświadczenia są poprawne), a tym samym zapisywanie nam od konieczności pisania kodu.
 
 Zaktualizujmy `Login.aspx`, zastępując utworzonych ręcznie interfejsu i kodu za pomocą kontrolki logowania. Start, usuwając istniejący kod znaczników i kodu w `Login.aspx`. Możesz usunąć ją od razu wykupić lub po prostu komentarz dotyczący działanie. Aby przekształcić w komentarz oznaczeniu deklaracyjnym, należy ująć ją za pomocą `<%--` i `--%>` ograniczników. Ograniczniki te można wprowadzić ręcznie lub, jak pokazano na rysunku 2, możesz wybrać tekst, który ma komentarz, a następnie kliknij przycisk Komentarz zaznaczonych wierszach ikonę na pasku narzędzi. Podobnie umożliwia komentarz ikonę wybranych wierszy w komentarz zaznaczony kod w klasie CodeBehind.
 
-
 [![Komentarz istniejące deklaratywne znaczników i kodu źródłowego w Login.aspx](validating-user-credentials-against-the-membership-user-store-vb/_static/image5.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image4.png)
 
 **Rysunek 2**: Komentarz się istniejących deklaratywne znaczników i kodu źródłowego w Login.aspx ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image6.png))
 
-
 > [!NOTE]
 > Komentarz ikonę wybranych wierszy nie jest dostępna podczas wyświetlania oznaczeniu deklaracyjnym w programie Visual Studio 2005. Jeśli nie używasz programu Visual Studio 2008 należy ręcznie dodać `<%--` i `--%>` ograniczników.
 
-
 Następnie przeciągnij formant logowania z przybornika do strony i ustaw jego `ID` właściwość `myLogin`. W tym momencie ekran powinien wyglądać podobnie do rysunek 3. Należy pamiętać, że kontrolka Login domyślny interfejs zawiera kontrolki TextBox dla nazwy użytkownika i hasło, Pamiętaj mnie przy następnym pole wyboru i przycisk w dzienniku. Dostępne są także `RequiredFieldValidator` kontrolki dla dwóch pól tekstowych.
-
 
 [![Dodaj kontrolkę logowanie do strony](validating-user-credentials-against-the-membership-user-store-vb/_static/image8.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image7.png)
 
 **Rysunek 3**: Dodaj kontrolkę logowanie do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image9.png))
-
 
 I wszystko jest gotowe! Po kliknięciu przycisk Zaloguj kontrolki logowania nastąpi odświeżenie strony i kontrolki logowania będzie wywoływać `Membership.ValidateUser` metody, przekazując wprowadzić nazwę użytkownika i hasło. Jeśli poświadczenia są nieprawidłowe, kontrolka Login wyświetla komunikat informujący, np. Jeśli jednak poświadczenia są prawidłowe, kontrolka Login tworzy bilet uwierzytelniania formularzy i przekierowuje użytkownika do odpowiedniej strony.
 
@@ -114,11 +104,9 @@ Kontrolka Login używa czterech czynników do określenia odpowiedniej strony do
 
 Rysunek 4 przedstawia, jak kontrolka Login korzysta z tych czterech parametrów na decyzję odpowiedniej strony.
 
-
 [![Dodaj kontrolkę logowanie do strony](validating-user-credentials-against-the-membership-user-store-vb/_static/image11.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image10.png)
 
 **Rysunek 4**: Dodaj kontrolkę logowanie do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image12.png))
-
 
 Poświęć chwilę, w celu przetestowania kontrolki logowania, odwiedzając witrynę za pośrednictwem przeglądarki i logując się jako istniejącego użytkownika w ramach członkostwa.
 
@@ -139,16 +127,13 @@ Kontrolka Login oferuje dwie właściwości dostosowania układu jej kontrolek i
 > [!NOTE]
 > W następnej sekcji konfigurowania układu kontrolki logowania przyjrzymy się przy użyciu szablonów definiują dokładny układ elementy interfejsu użytkownika formantu układu.
 
-
 Podsumowanie ustawień właściwości kontrolki logowania, ustawiając [ `CreateUserText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx) i [ `CreateUserUrl` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx) do nie zarejestrowano jeszcze? Tworzenie konta usługi! i `~/Membership/CreatingUserAccounts.aspx`, odpowiednio. Spowoduje to dodanie hiperłącze interfejsu kontrolka Login wskazuje stronę utworzonego w <a id="Tutorial05"> </a> [poprzedni Samouczek](creating-user-accounts-vb.md). Kontrolka Login [ `HelpPageText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx) i [ `HelpPageUrl` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx) i [ `PasswordRecoveryText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx) i [ `PasswordRecoveryUrl` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx) działają w taki sam sposób renderowania łączy do strony pomocy i strona odzyskiwania hasła.
 
 Po wprowadzeniu tych zmian właściwości oznaczeniu deklaracyjnym i wyglądu kontrolki logowania powinien wyglądać podobnie do przedstawionego na rysunku 5.
 
-
 [![Wartości właściwości kontrolek logowania dyktowanie jego wygląd](validating-user-credentials-against-the-membership-user-store-vb/_static/image14.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image13.png)
 
 **Rysunek 5**: Właściwości kontrolek logowania wartości dyktowanie jego wygląd ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image15.png))
-
 
 ### <a name="configuring-the-login-controls-layout"></a>Konfigurowanie układu kontrolki logowania
 
@@ -163,23 +148,18 @@ Aby wykonać pierwsze zadanie, musimy przekonwertować kontrolki logowania na sz
 
 Zaktualizujmy kontrolki logowania, który monituje użytkowników o ich nazwy użytkownika, hasło i adres e-mail i uwierzytelnia użytkownika tylko wtedy, jeśli podany adres e-mail jest zgodny adres e-mail użytkownika w pliku. Najpierw musimy przekonwertować interfejsu kontroli Zaloguj się do szablonu. Kontrolka Login tagu inteligentnego Wybierz Konwertuj do opcji szablonu.
 
-
 [![Konwertuj kontrolkę Zaloguj się do szablonu](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
 
 **Rysunek 6**: Konwertuj kontrolkę Zaloguj się do szablonu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
 
-
 > [!NOTE]
 > Aby cofnąć kontrolka Login wstępnie template wersji, kliknij link resetowania z tagu kontrolki.
 
-
 Konwertowanie szablonu kontrolki logowania dodaje `LayoutTemplate` do formantu w oznaczeniu deklaracyjnym za pomocą elementów kodu HTML i formantów sieci Web, definiowanie interfejsu użytkownika. Jak pokazano na rysunku 7, konwertowania formant z szablonem usuwa wiele właściwości w oknie właściwości, takie jak `TitleText`, `CreateUserUrl`, i tak dalej, ponieważ wartości tych właściwości są ignorowane, gdy przy użyciu szablonu.
-
 
 [![Mniej właściwości są dostępne podczas logowania kontrolny została przeniesiona do szablonu](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
 
 **Rysunek 7**: Mniej właściwości są dostępne podczas logowania kontrolny jest konwertowana na szablon ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))
-
 
 Kod znaczników HTML w `LayoutTemplate` może być modyfikowany. Podobnie możesz dodać żadnych nowych formantów sieci Web do szablonu. Jednak ważne jest, kontrolki sieci Web core tej kontrolki logowania pozostają w szablonie i zachować przypisanych do nich `ID` wartości. W szczególności nie zostaje usunięte ani zmienić nazwy `UserName` lub `Password` pola tekstowe, `RememberMe` zaznacz pole wyboru `LoginButton` przycisku `FailureText` etykietę, lub `RequiredFieldValidator` kontrolki.
 
@@ -189,11 +169,9 @@ Aby zebrać adres e-mail osoby odwiedzającej, należy dodać pole tekstowe do s
 
 Po dodaniu `Email` pola tekstowego, odwiedź stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 8, interfejs użytkownika kontrolki logowania zawiera teraz trzecie pole tekstowe.
 
-
 [![Kontrolka Login teraz zawiera pole tekstowe dla adresu E-mail użytkownika](validating-user-credentials-against-the-membership-user-store-vb/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image22.png)
 
 **Rysunek 8**: Kontrolka Login teraz zawiera pole tekstowe dla adresu E-mail użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image24.png))
-
 
 Na tym etapie kontrolka Login jest nadal przy użyciu `Membership.ValidateUser` metodę, aby sprawdzić poprawność podanych poświadczeń. Odpowiednio wartość zawierana `Email` pole tekstowe nie ma żadnego wpływu na tego, czy użytkownik może zalogować się. W kroku 3 przedstawiony zostanie sposób zastąpienia kontrolka Login logiki uwierzytelniania, dzięki czemu poświadczenia tylko są uznawane za ważne, jeśli nazwa użytkownika i hasło są prawidłowe, a podany adres e-mail jest zgodny za pomocą adresu e-mail w pliku.
 
@@ -207,15 +185,12 @@ Jeśli podane poświadczenia są prawidłowe, a następnie zostanie utworzony bi
 
 Rysunek 9 oferuje jest blokowy przepływu pracy uwierzytelniania.
 
-
 [![Przepływ pracy uwierzytelniania kontrolki logowania](validating-user-credentials-against-the-membership-user-store-vb/_static/image26.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image25.png)
 
 **Rysunek 9**: Przepływ pracy uwierzytelniania kontrolka Login ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image27.png))
 
-
 > [!NOTE]
 > Jeśli zastanawiasz zastosowania `FailureAction`firmy `RedirectToLogin` Strona opcji, należy rozważyć następujący scenariusz. Obecnie nasz `Site.master` strony wzorcowej ma obecnie tekst Witaj, stranger wyświetlana w kolumnie po lewej stronie, gdy odwiedzanych przez użytkownika anonimowego, ale Wyobraź sobie, że Chcieliśmy, aby zastąpić ten tekst za pomocą kontrolki logowania. Pozwoliłoby to użytkownik anonimowy zalogować się na dowolnej stronie w witrynie, nie wymagając od nich bezpośrednio odwiedź stronę logowania. Jednak jeśli użytkownik nie może zalogować się za pomocą kontrolki logowania renderowany przez stronę wzorcową, sensowne przekierowywania ich do strony logowania (`Login.aspx`), ponieważ tej strony, prawdopodobnie zawiera dodatkowe informacje, łącza i innych pomoc — np. linki w celu utworzenia nowe konto lub pobrać utraty hasła —, które nie zostały dodane do strony wzorcowej.
-
 
 ### <a name="creating-theauthenticateevent-handler"></a>Tworzenie`Authenticate`program obsługi zdarzeń
 
@@ -246,15 +221,12 @@ Poniższy kod implementuje tych dwóch kontroli. Jeśli oba zakończy się pomy�
 
 Przy użyciu tego kodu w miejscu spróbuj zalogować się jako prawidłowego użytkownika, wprowadzając prawidłową nazwę użytkownika, hasło i adres e-mail. Spróbuj ponownie, ale tym razem użyj celowo nieprawidłowy adres e-mail (zobacz rysunek 10). Na koniec Wypróbuj raz trzeci przy użyciu nazwy użytkownika nie istnieje. W pierwszym przypadku należy pomyślnie zalogowanie się do witryny, ale w dwóch ostatnich przypadkach powinien zostać wyświetlony komunikat nieprawidłowe poświadczenia kontrolka Login.
 
-
 [![Tito nie można zalogować się w przypadku określenia nieprawidłowy adres E-mail](validating-user-credentials-against-the-membership-user-store-vb/_static/image29.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Tito nie dziennika w przypadku dostarczenie niepoprawny adres E-mail ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image30.png))
 
-
 > [!NOTE]
 > Zgodnie z opisem w sekcji jak członkostwa Framework obsługuje nieprawidłowych prób logowania w kroku 1, gdy `Membership.ValidateUser` metoda jest nazywana i przekazywana nieprawidłowe poświadczenia, jego śledzi Nieprawidłowa próba logowania i blokuje się użytkownika, jeśli określony przekraczają Próg nieudanych prób podania w określonym przedziale czasu. Od naszych wywołania logiki uwierzytelniania niestandardowego `ValidateUser` metody niepoprawnego hasła dla prawidłowej nazwy użytkownika powoduje zwiększenie licznika próba nieprawidłowego logowania, ale ten licznik nie jest zwiększany w przypadku, gdy nazwa użytkownika i hasło są prawidłowe, ale adres e-mail jest nieprawidłowy. To, to zachowanie jest odpowiedni, ponieważ jest mało prawdopodobne, że haker będzie znać nazwę użytkownika i hasło, ale ma używanie atak siłowy techniki, aby określić adres e-mail użytkownika.
-
 
 ## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>Krok 4. Poprawa kontrolka Login nieprawidłowymi poświadczeniami komunikatu
 
@@ -279,11 +251,9 @@ Powyższy kod, który rozpoczyna się przez ustawienie kontrolki logowania `Fail
 
 Aby przetestować ten kod, celowo próbować zalogować się jako istniejącego użytkownika, ale użyć niepoprawnego hasła. Wykonaj tym pięć razy pod rząd w przedziale czasu wynoszącym 10 minut, a konto zostanie zablokowane. Jak przedstawia rysunek 11, logowanie kolejnych prób będzie zawsze się nie powieść (nawet w przypadku prawidłowego hasła), ale będą teraz wyświetlane bardziej opisowe Twoje konto zostało zablokowane z powodu zbyt wielu nieudanych prób logowania. Skontaktuj się z administratorem i poproś wiadomości odblokować konto.
 
-
 [![Tito wykonana zbyt wiele nieudanych prób logowania, a zostało zablokowane](validating-user-credentials-against-the-membership-user-store-vb/_static/image32.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image31.png)
 
 **Rysunek 11**: Tito wykonywane zbyt wiele nieprawidłowych prób logowania ma został zablokowany do edycji i ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-user-credentials-against-the-membership-user-store-vb/_static/image33.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

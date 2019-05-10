@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 18c31709-3f9d-4d93-8b01-f1356bf610b4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4850493e7a16aa9364396d1bbd3fe3e0db0f47db
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 026426d4dec61433bfa9edc66f934fa3ef6146c3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388104"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108827"
 ---
 # <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Używanie kontrolki ConfirmButton w elemencie powtarzanym (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/8/6/d/86dea6c6-bb92-4fa6-aa14-f8c0f82100f5/ConfirmButton1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/confirmbutton1VB.pdf)
 
 > Rozszerzenie ConfirmButton w zestawu narzędzi AJAX Control Toolkit tworzy tak/nie okna podręcznego, gdy użytkownik kliknie przycisk (w tym kontroli LinkButton). Tylko tak, po kliknięciu przycisku akcja jest wykonywana, w przeciwnym razie anulowane. Ponadto jest to możliwe w elemencie powtarzanym.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -45,7 +44,6 @@ Następnie źródło danych jest wymagana. Dla uproszczenia są pobierane tylko 
 Następnie można używać tego źródła danych w elemencie powtarzanym. Jak zwykle `DataBinder.Eval()` metoda pobiera dane ze źródła danych. `ConfirmButtonExtender` Kontrolki musi zostać następnie umieszczony w obrębie `<ItemTemplate>` części elementu powtarzanego, tak aby pojawił się dla każdego wpisu w źródle danych.
 
 [!code-aspx[Main](using-a-confirmbutton-in-a-repeater-vb/samples/sample3.aspx)]
-
 
 [![Przycisk Potwierdź pojawia się obok każdego wpisu, ze źródła danych](using-a-confirmbutton-in-a-repeater-vb/_static/image2.png)](using-a-confirmbutton-in-a-repeater-vb/_static/image1.png)
 

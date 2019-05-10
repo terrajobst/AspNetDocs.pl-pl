@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 0f982827-f8f9-420d-b36b-57b23f5aa519
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13538e5e2f60745d338b87ba4ea08c21ae997424
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6c6c4d6176dc87007346791dcf665e5288e4d6cc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409125"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108240"
 ---
 # <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Formularz typu rekord główny/szczegóły korzystający z kontrolki GridView umożliwiającej wybór rekordu głównego z kontrolką DetailView szczegółów (C#)
 
@@ -23,16 +23,13 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > W tym samouczku zostaną GridView, w której wiersze zawierają nazwę i cenę każdego produktu oraz wybierz służącymi. Kliknięcie przycisku Wybierz dla konkretnego produktu spowoduje, że jego szczegółowe informacje do wyświetlenia w kontrolce DetailsView na tej samej stronie.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 W [poprzedniego samouczka](master-detail-filtering-across-two-pages-cs.md) widzieliśmy sposób tworzenia raportu wzorzec/szczegół za pomocą dwóch stron sieci web: "główną" strony sieci web, z którego możemy wyświetlonej listy dostawców; i strony sieci web "szczegóły", którego tych produktów, dostarczone przez wybrany na liście Dostawca. Ten format raportu dwie strony może być zmniejszone do jedną stronę. W tym samouczku zostaną GridView, w której wiersze zawierają nazwę i cenę każdego produktu oraz wybierz służącymi. Kliknięcie przycisku Wybierz dla konkretnego produktu spowoduje, że jego szczegółowe informacje do wyświetlenia w kontrolce DetailsView na tej samej stronie.
 
-
 [![Kliknięcie przycisku Wybierz Wyświetla szczegółowe informacje o produkcie](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image2.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image1.png)
 
 **Rysunek 1**: Kliknięcie przycisku Wybierz Wyświetla szczegóły produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image3.png))
-
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>Krok 1. Tworzenie Wybieralna widoku GridView
 
@@ -40,45 +37,35 @@ Odwołania, który dwustronicowy wzorzec/szczegół zgłosić, że każdy rekord
 
 Rozpocznij od dodania kontrolki widoku siatki do `DetailsBySelecting.aspx` strony w `Filtering` folderu, ustawianie jego `ID` właściwość `ProductsGrid`. Następnie dodaj nowe kontrolki ObjectDataSource, o nazwie `AllProductsDataSource` wywołującej `ProductsBLL` klasy `GetProducts()` metody.
 
-
 [![Tworzenie kontrolki ObjectDataSource o nazwie AllProductsDataSource](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image5.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image4.png)
 
 **Rysunek 2**: Tworzenie kontrolki ObjectDataSource o nazwie `AllProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image6.png))
-
 
 [![Korzystanie z klasy ProductsBLL](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image8.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image7.png)
 
 **Rysunek 3**: Użyj `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image9.png))
 
-
 [![Konfigurowanie kontrolki ObjectDataSource można wywołać metody GetProducts()](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image11.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image10.png)
 
 **Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource do Invoke `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image12.png))
 
-
 Upravit pole prvku GridView usuwanie wszystkie elementy oprócz `ProductName` i `UnitPrice` BoundFields. Ponadto możesz dostosować te BoundFields zgodnie z potrzebami, takie jak formatowanie `UnitPrice` elementu BoundField jako walutę i zmieniając `HeaderText` właściwości BoundFields. Te kroki można osiągnąć graficznie, klikając łącze Edytowanie kolumn z tagu inteligentnego GridView lub skonfigurować ręcznie składni deklaratywnej.
-
 
 [![Usuń wszystkie oprócz ProductName i UnitPrice BoundFields](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image14.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image13.png)
 
 **Rysunek 5**: Usuń wszystkie, ale `ProductName` i `UnitPrice` BoundFields ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image15.png))
 
-
 Jest ostateczny znaczniki dla widoku GridView:
-
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample1.aspx)]
 
 Następnie należy oznaczyć widoku GridView jako możliwy, która doda wybierz służącymi do każdego wiersza. W tym celu po prostu zaznacz pole wyboru Włącz zaznaczanie w tagu inteligentnego GridView.
 
-
 [![Przyszłego zaznaczania wierszy w widoku GridView](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image17.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image16.png)
 
 **Rysunek 6**: Przyszłego zaznaczania wierszy w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image18.png))
 
-
 Opcje umożliwiające wybór sprawdzania dodaje CommandField do `ProductsGrid` GridView z jego `ShowSelectButton` właściwość ustawioną na wartość True. Skutkuje to przycisku Wybierz dla każdego wiersza w widoku GridView, tak jak pokazano na rysunku 6. Domyślnie, wybierz przyciski są renderowane jako LinkButtons, ale można użyć przycisków lub ImageButtons zamiast za pośrednictwem CommandField `ButtonType` właściwości.
-
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample2.aspx)]
 
@@ -90,11 +77,9 @@ Po kliknięciu przycisku Wybierz wierszu elementu GridView ensues odświeżenie 
 
 Teraz wyświetlić postępach dotychczasowych za pośrednictwem przeglądarki. Należy pamiętać, że widoku GridView Wyświetla nazwy i ceny dla wszystkich produktów oraz element LinkButton wybierz. Kliknięcie przycisku Wybierz powoduje odświeżenie strony. W kroku 2 zobaczymy jak odpowiada DetailsView, aby to odświeżenie strony, wyświetlając szczegółowe informacje dotyczące wybranego produktu.
 
-
 [![Każdy wiersz produktu zawiera wybierz element LinkButton](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image20.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image19.png)
 
 **Rysunek 7**: Każdy wiersz produktu zawiera element LinkButton wybierz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image21.png))
-
 
 ### <a name="highlighting-the-selected-row"></a>Wyróżnianie wybranego wiersza
 
@@ -102,52 +87,41 @@ Teraz wyświetlić postępach dotychczasowych za pośrednictwem przeglądarki. N
 
 Podobnie jak w przypadku samouczków wcześniej Przyjrzyjmy wszelkich starań, aby zachować ustawienia estetycznych powiązane zdefiniowany jako klas CSS. W związku z tym, Utwórz nową klasę CSS w `Styles.css` o nazwie `SelectedRowStyle`.
 
-
 [!code-css[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample3.css)]
 
 Do zastosowania tej klasy CSS, aby `SelectedRowStyle` właściwość *wszystkich* GridViews w naszej serii samouczków, Edytuj `GridView.skin` skórki w `DataWebControls` motywu, aby uwzględnić `SelectedRowStyle` ustawień, jak pokazano poniżej:
-
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample4.aspx)]
 
 Dodając ten wybranego wiersza w widoku GridView zostanie wyróżniony kolorem żółtym tłem.
 
-
 [![Dostosowywanie wyglądu wybranego wiersza przy użyciu właściwości SelectedRowStyle GridView](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image23.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image22.png)
 
 **Rysunek 8**: Dostosowywanie za pomocą wygląd zaznaczony wiersz w widoku GridView `SelectedRowStyle` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image24.png))
-
 
 ## <a name="step-2-displaying-the-selected-products-details-in-a-detailsview"></a>Krok 2. Wyświetlanie szczegółów wybranego produktu w DetailsView
 
 Za pomocą `ProductsGrid` GridView zakończeniu wszystko, co pozostanie, jest dodanie DetailsView, który wyświetla informacje dotyczące konkretnego produktu wybrane. Dodawanie kontrolki widoku szczegółów powyżej widoku GridView i utworzyć nowe kontrolki ObjectDataSource, o nazwie `ProductDetailsDataSource`. Ponieważ chcemy, aby ten DetailsView, aby wyświetlić określoną informacje dotyczące wybranego produktu, należy skonfigurować `ProductDetailsDataSource` używać `ProductsBLL` klasy `GetProductByProductID(productID)` metody.
 
-
 [![Wywoływanie metody GetProductByProductID(productID) klasy ProductsBLL](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image26.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image25.png)
 
 **Rysunek 9**: Wywoływanie `ProductsBLL` klasy `GetProductByProductID(productID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image27.png))
 
-
 Masz *`productID`* wartość parametru uzyskane z kontrolki GridView `SelectedValue` właściwości. Jak wspomniano wcześniej, GridView `SelectedValue` właściwość zwraca pierwsze dane klucza dla wybranego wiersza. W związku z tym, należy bezwzględnie, GridView `DataKeyNames` właściwość jest ustawiona na `ProductID`, dzięki czemu wybranego wiersza `ProductID` wartość jest zwracana przez `SelectedValue`.
-
 
 [![Wartość elementu productID parametru właściwości SelectedValue GridView](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Ustaw *`productID`* parametr GridView `SelectedValue` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image30.png))
 
-
 Raz `productDetailsDataSource` ObjectDataSource został poprawnie skonfigurowany i powiązane z DetailsView, w tym samouczku została zakończona! Po pierwsze odwiedzenia strony żaden wiersz nie jest zaznaczone, więc GridView `SelectedValue` właściwość zwraca `null`. Ponieważ brak produktów z `NULL` `ProductID` wartości, żadne rekordy nie są zwracane przez `GetProductByProductID(productID)` metody, co oznacza, że nie jest wyświetlana DetailsView (zobacz rysunek 11). Po kliknięciu przycisku Wybierz wierszu elementu GridView ensues odświeżenie strony i DetailsView są odświeżane. Tym razem GridView `SelectedValue` właściwość zwraca `ProductID` wybranego wiersza `GetProductByProductID(productID)` metoda zwraca `ProductsDataTable` z informacjami dotyczącymi tego konkretnego produktu i DetailsView przedstawia te informacje (zobacz rysunek 12).
-
 
 [![Gdy zostanie wyświetlona pierwszy odwiedzony tylko GridView](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image32.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image31.png)
 
 **Rysunek 11**: Po raz pierwszy odwiedzony, jest wyświetlany tylko kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image33.png))
 
-
 [![Po wybraniu wiersz, są wyświetlane szczegóły produktu](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image35.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image34.png)
 
 **Rysunek 12**: Po wybraniu wiersz, są wyświetlane szczegóły produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image36.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

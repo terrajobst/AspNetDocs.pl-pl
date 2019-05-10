@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 44a22ac7-1fc7-4174-b946-c6129fb6a19b
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7ea8c74a6621200e3a0d52a7c37fed6b5eeff4e5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d580e550f2461837f0e8a4e477273348b49cb53e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391627"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132400"
 ---
 # <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Scenariusz: konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano scenariusz wdrażania web typowe dla dewelopera lub środowisk testowych i opisano zadania, które należy wykonać, aby można było skonfigurować podobnie środowisko.
-
 
 Gdy deweloperzy pracują w aplikacjach sieci web, często mają one dostęp do środowiska serwera, który może służyć do testowania zmian w aplikacjach w ustawieniu realistyczne. Tego rodzaju środowiska deweloperskie lub testowe zazwyczaj ma następujące cechy:
 
@@ -47,7 +46,6 @@ Jako praca postępów i liczby deweloperów, Dołącz do zespołu, Contact Manag
 
 > [!NOTE]
 > Można także użyć [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("temp agent"). Jest to podobne do metody zdalnego agenta pod kątem wymagań i ograniczeń.
-
 
 W tym przypadku deweloperzy mają uprawnienia administratora na serwerach docelowych, a środowisko testowe nie podlega ograniczenia ścisłymi zasadami kontrolnymi zabezpieczeń, więc logicznym wyborem jest skonfigurowanie serwera sieci web test do obsługi wdrożenia przy użyciu agenta zdalnego. Jest to mniej skomplikowane i wymaga mniej początkowej konfiguracji niż podejście program obsługi wdrażania w sieci Web. Należy również skonfigurować serwer bazy danych do obsługi dostępu zdalnego i wdrażania.
 

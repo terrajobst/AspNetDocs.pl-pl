@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: 85554606-47cb-4e4f-9848-eed9da579056
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fd3bf46394f562462c561bf06370d2f372e47d0a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c0278841b7b0701f09b2de5115e06da87aed49cf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415266"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109037"
 ---
 # <a name="creating-a-business-logic-layer-c"></a>Tworzenie warstwy logiki biznesowej (C#)
 
@@ -23,18 +23,15 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > W tym samouczku opisano jak centralizować własne reguły biznesowe do Business Logic warstwy (LOGIKI) służąca jako pośrednik wymianę danych między warstwą prezentacji i warstwy DAL.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Warstwa dostępu do danych (DAL) utworzone w [pierwszego samouczka dotyczącego](creating-a-data-access-layer-cs.md) klarownie oddziela dane dostępu logiki od logiki prezentacji. Jednak gdy warstwy DAL nie pozostawia żadnych śladów oddziela szczegóły dostępu do danych z warstwy prezentacji, nie wymusza żadnych reguł biznesowych, które mogą mieć zastosowanie. Na przykład dla naszej aplikacji warto nie zezwalaj na `CategoryID` lub `SupplierID` pola `Products` tabeli do zmodyfikowania kiedy `Discontinued` pole ma wartość 1 lub firma Microsoft może chcieć wymuszania reguł związanych ze stażem pracy zabronienia sytuacje, w których Pracownik jest zarządzana przez kogoś, kto został zatrudniony po nich. Inny typowy scenariusz polega autoryzacji może być tylko użytkownicy w określonej roli można usunąć produktów lub zmienić `UnitPrice` wartość.
 
 W tym samouczku opisano jak centralizować tych reguł biznesowych do Business Logic warstwy (LOGIKI) służąca jako pośrednik wymianę danych między warstwą prezentacji i warstwy DAL. W przypadku aplikacji rzeczywistych LOGIKI powinny zostać wdrożone jako oddzielny projekt biblioteki klas; Jednakże potrzeby tych samouczków firma Microsoft będzie implementowana LOGIKI jako szereg klas w naszym `App_Code` folder w celu uproszczenia struktury projektu. Rysunek 1 przedstawia architektury relacje Warstwa prezentacji, LOGIKI i warstwy DAL.
 
-
 ![LOGIKI warstwy prezentacji są oddzielone od warstwy dostępu do danych i nakłada reguły biznesowe](creating-a-business-logic-layer-cs/_static/image1.png)
 
 **Rysunek 1**: LOGIKI warstwy prezentacji są oddzielone od warstwy dostępu do danych i nakłada reguły biznesowe
-
 
 ## <a name="step-1-creating-the-bll-classes"></a>Krok 1. Tworzenie klas LOGIKI
 
@@ -44,17 +41,14 @@ Aby bardziej klarownie należy oddzielić klasy związane z warstwy DAL i LOGIKI
 
 Następnie należy utworzyć cztery pliki klasy LOGIKI w `BLL` podfolderu. W tym celu kliknij prawym przyciskiem myszy `BLL` podfolder, wybierz pozycję Dodaj nowy element, a następnie wybierz szablon klasy. Nazwa klasy cztery `ProductsBLL`, `CategoriesBLL`, `SuppliersBLL`, i `EmployeesBLL`.
 
-
 ![Dodanie czterech nowych klas w folderze App_Code](creating-a-business-logic-layer-cs/_static/image2.png)
 
 **Rysunek 2**: Dodanie czterech nowych klas do `App_Code` folderu
-
 
 Następnie Dodajmy metody do każdej klasy, po prostu opakowywać metody zdefiniowane dla elementów TableAdapter z pierwszego samouczka. Na razie metody te po prostu wywoła bezpośrednio do warstwy DAL; zostanie zwrócona nowszej, aby dodać wszelka logika biznesowa potrzebne.
 
 > [!NOTE]
 > Jeśli używasz programu Visual Studio, Standard Edition lub nowszy (oznacza to, że jesteś *nie* przy użyciu programu Visual Web Developer), opcjonalnie można zaprojektować wizualnie przy użyciu klas [projektanta klas](https://msdn.microsoft.com/library/default.asp?url=/library/dv_vstechart/html/clssdsgnr.asp). Zapoznaj się [blogu Projektant klasy](https://blogs.msdn.com/classdesigner/default.aspx) Aby uzyskać więcej informacji na temat tej nowej funkcji w programie Visual Studio.
-
 
 Aby uzyskać `ProductsBLL` musimy dodać daje w sumie siedmiu metod klasy:
 
@@ -67,7 +61,6 @@ Aby uzyskać `ProductsBLL` musimy dodać daje w sumie siedmiu metod klasy:
 - `DeleteProduct(productID)` Usuwa określony produkt z bazy danych
 
 ProductsBLL.cs
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample1.cs)]
 
@@ -107,7 +100,6 @@ Za pomocą `ProductsBLL` klasy pełną, nadal należy dodać do klas do pracy z 
 
 Jedną z metod warte odnotowania jest `SuppliersBLL` klasy `UpdateSupplierAddress` metody. Ta metoda zapewnia interfejs do aktualizowania po prostu dostawcy informacje o adresie. Wewnętrznie ta metoda odczytuje w `SupplierDataRow` obiektu dla określonego `supplierID` (przy użyciu `GetSupplierBySupplierID`), ustawia jego właściwości związanych z adresem, a następnie wywołuje się w dół, do `SupplierDataTable`firmy `Update` metody. `UpdateSupplierAddress` Następujące metody:
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample2.cs)]
 
 Można znaleźć w tym artykule do pobrania dla mojego pełną implementację klasy LOGIKI.
@@ -116,21 +108,17 @@ Można znaleźć w tym artykule do pobrania dla mojego pełną implementację kl
 
 W pierwszym samouczku widzieliśmy przykłady bezpośredniej pracy z kontrolą typów w zestawie danych programowo, ale dodając naszych zajęć LOGIKI warstwy prezentacji powinien działać w przypadku LOGIKI zamiast tego. W `AllProducts.aspx` przykład z pierwszego samouczka dotyczącego `ProductsTableAdapter` zostało użyte do utworzenia powiązania z listą produktów programu w kontrolce GridView, jak pokazano w poniższym kodzie:
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample3.cs)]
 
 Do korzystania z nowej LOGIKI klas, wszystkie, które muszą być zmienione się pierwszy wiersz kodu po prostu zastąpić `ProductsTableAdapter` obiekt z `ProductBLL` obiektu:
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample4.cs)]
 
 Klasy LOGIKI również możliwy deklaratywne (jak wpisane w zestawie danych) za pomocą kontrolki ObjectDataSource. Omawiane będą ObjectDataSource bardziej szczegółowo w ramach następujących samouczków.
 
-
 [![Lista produktów są wyświetlane w widoku GridView](creating-a-business-logic-layer-cs/_static/image4.png)](creating-a-business-logic-layer-cs/_static/image3.png)
 
 **Rysunek 3**: Lista produktów jest wyświetlany w kontrolce GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-business-logic-layer-cs/_static/image5.png))
-
 
 ## <a name="step-3-adding-field-level-validation-to-the-datarow-classes"></a>Krok 3. Dodawanie walidacji na poziomie pola do klasy DataRow
 
@@ -145,24 +133,19 @@ Te reguły można i powinien zostać przedstawiony na poziomie bazy danych. Limi
 
 Oprócz Wymuszanie tych zasad w bazie danych są powinien również są wymuszane na poziomie zestawu danych. W rzeczywistości długość pola i tego, czy wartość jest wymagane lub opcjonalne są już przechwytywane dla każdego elementu DataTable zestawu elementach DataColumns. Aby wyświetlić istniejące weryfikacji na poziomie pola dostarczana automatycznie, przejdź do Projektanta obiektów DataSet, wybierz jedną z DataTables pola, a następnie przejdź do okna właściwości. Jak pokazano na rysunku 4, `QuantityPerUnit` DataColumn w `ProductsDataTable` może się składać maksymalnie 20 znaków i umożliwić `NULL` wartości. Jeśli firma Microsoft podejmie próbę ustaw `ProductsDataRow`firmy `QuantityPerUnit` właściwości na wartość ciągu jest dłuższa niż 20 znaków `ArgumentException` zostanie zgłoszony.
 
-
 [![DataColumn zapewnia podstawową walidację na poziomie pola](creating-a-business-logic-layer-cs/_static/image7.png)](creating-a-business-logic-layer-cs/_static/image6.png)
 
 **Rysunek 4**: DataColumn zapewnia podstawowe pole weryfikacji na poziomie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-business-logic-layer-cs/_static/image8.png))
 
-
 Niestety, firma Microsoft nie można określić granice kontroli, takie jak `UnitPrice` wartość musi być większa lub równa zero, w oknie właściwości. Aby udostępnić ten typ weryfikacji na poziomie pola musimy utworzyć program obsługi zdarzeń dla tabeli DataTable [columnchanging —](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx) zdarzeń. Jak wspomniano w [poprzedni Samouczek](creating-a-data-access-layer-cs.md), obiektów DataSet, DataTable i DataRow, utworzonych przez wpisany zestaw danych można rozszerzyć za pomocą klasy częściowe. Ta technika, możemy utworzyć `ColumnChanging` program obsługi zdarzeń dla `ProductsDataTable` klasy. Rozpocznij od utworzenia klasy w `App_Code` folder o nazwie `ProductsDataTable.ColumnChanging.cs`.
-
 
 [![Dodaj nową klasę w folderze App_Code](creating-a-business-logic-layer-cs/_static/image10.png)](creating-a-business-logic-layer-cs/_static/image9.png)
 
 **Rysunek 5**: Dodaj nową klasę do `App_Code` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-business-logic-layer-cs/_static/image11.png))
 
-
 Następnie należy utworzyć program obsługi zdarzeń dla `ColumnChanging` zdarzenia, które zapewnia, że `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, i `ReorderLevel` wartości w kolumnie (w przeciwnym razie `NULL`) są większe niż lub równa zero. Jeśli takie kolumny jest poza zakresem, throw `ArgumentException`.
 
 ProductsDataTable.ColumnChanging.cs
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample5.cs)]
 
@@ -180,13 +163,11 @@ Wyobraź sobie, reguły biznesowe określają, że produktu nie można oznaczyć
 
 Aby wymuszają tę regułę biznesową w `UpdateProducts` Zaczniemy przez sprawdzenie, czy metoda `Discontinued` została ustawiona na `true` i, jeśli tak, możemy wywołać `GetProductsBySupplierID` ustalenie, jak wiele produktów, firma Microsoft zakupić od dostawcy tego produktu. Jeśli tylko jeden produkt zakupu od dostawcy, firma Microsoft throw `ApplicationException`.
 
-
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample6.cs)]
 
 ## <a name="responding-to-validation-errors-in-the-presentation-tier"></a>Odpowiadanie na błędy sprawdzania poprawności w warstwie prezentacji
 
 Podczas wywoływania LOGIKI z warstwą prezentacji możemy zdecydować, czy próba obsługi wszystkich wyjątków, które może zostać wywołane, lub pozwól, aby je będą się pojawiać do platformy ASP.NET (który zgłosi `HttpApplication`firmy `Error` zdarzeń). Do obsługi wyjątku, pracując z LOGIKI programowo, możemy użyć [try... catch](https://msdn.microsoft.com/library/0yd65esw.aspx) bloku, co ilustruje poniższy przykład:
-
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample7.cs)]
 

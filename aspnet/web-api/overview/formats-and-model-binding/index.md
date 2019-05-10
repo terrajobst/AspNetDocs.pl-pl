@@ -9,17 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 2d520763-3860-4b3f-8b99-ac71fb01cf37
 msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
-ms.openlocfilehash: 9d5b58871147b84cb4d8bde73d3139655e4cd3e6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4b746140c00456a51c0ca2942b62f11d4dcbc4a0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388741"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112807"
 ---
 # <a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serializacja i powiązanie modelu we wzorcu ASP.NET Web API
 
 > Jak ASP.NET Web API wiąże wiadomości HTTP modeli domeny i sposób pracy z multimediami formatuje w interfejsie API sieci Web.
-
 
 - [Programy formatujące multimedia w interfejsie Web API 2](media-formatters.md)
 - [Serializacja formatów JSON i XML w interfejsie Web API](json-and-xml-serialization.md)

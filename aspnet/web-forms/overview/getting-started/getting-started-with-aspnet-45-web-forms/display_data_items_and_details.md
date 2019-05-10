@@ -8,12 +8,12 @@ ms.date: 1/04/2019
 ms.assetid: 64a491a8-0ed6-4c2f-9c1c-412962eb6006
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 54896da5565c9383f13fc352da26bbdc3cb63a76
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 130c9ffd29df612dac5bb954830a2eb9b738aaf0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405368"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109625"
 ---
 # <a name="display-data-items-and-details"></a>Wyświetlanie elementów danych i szczegóły
 
@@ -97,7 +97,6 @@ Ten kod zawiera `GetProducts` metody, **ListView** kontrolki `ItemType` odwołuj
 
 Jeśli prawidłową kategorię jest przekazywany jako ciąg zapytania do strony, wyniki zapytania są ograniczone do tych produktów w bazie danych, które odpowiadają `categoryId` wartość. Na przykład jeśli *ProductsList.aspx* to jest adres URL strony:
 
-
 [!code-console[Main](display_data_items_and_details/samples/sample4.cmd)]
 
 Na stronie są wyświetlane tylko produkty gdzie `categoryId` jest równa `1`.
@@ -164,7 +163,6 @@ Teraz można uruchomić aplikacji, aby zobaczyć indywidualnych produktów, wyś
     ![Wyświetlanie danych elementów i szczegóły — produkty](display_data_items_and_details/_static/image4.png)
     
 4. Zamknij przeglądarkę.
-
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

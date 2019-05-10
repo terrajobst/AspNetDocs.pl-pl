@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: 83e3d759-82b8-41e6-8d62-f0f4b3edec41
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7ea11f436d8f0455621d22c4d5a5b4d6b6ece68f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00ae512a23b9097d1077ae572b4e4377e322882f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386427"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108412"
 ---
 # <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>Formatowanie elementów DataList i Repeater na podstawie danych (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_30_CS.exe) lub [Pobierz plik PDF](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/datatutorial30cs1.pdf)
 
 > W tym samouczku będziemy czynności przykładów jak możemy formatowanie wyglądu kontrolki DataList i Repeater, za pomocą funkcji formatowania w szablonach lub dzięki obsłudze zdarzeń powiązanych z danymi.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -60,7 +59,6 @@ Powiązanie danych z kontrolką elementu powtarzanego, jej postępu przy użyciu
 > [!NOTE]
 > Uważni czytnika, być może zauważono nieznaczne anomalii między sekwencję czynności, które orzeczona podczas DataList i Repeater są powiązane z danymi, a gdy widoku GridView jest powiązana z danymi. Na końcu tail proces wiązania danych, zgłasza widoku GridView `DataBound` zdarzenia; jednak kontrolki DataList ani elementu powtarzanego mają takie zdarzenie. Jest to spowodowane kontrolek DataList i Repeater zostały utworzone w przedziale czasu 1.x ASP.NET, zanim wzorzec procedury obsługi zdarzeń przed i po poziomu stało się typowe.
 
-
 Tak, jak przy użyciu GridView, jedną z opcji formatowania, na podstawie danych jest utworzenie zdarzenia obsługi dla `ItemDataBound` zdarzeń. Ta procedura obsługi zdarzeń może sprawdzić dane, które było po prostu została powiązana z `DataListItem` lub `RepeaterItem` i wpływają na formatowanie kontrolki, zgodnie z potrzebami.
 
 Kontrolki DataList zmiany formatowania dla całego elementu można zaimplementować przy użyciu `DataListItem` s stylu związane właściwości, które zawierają standardowe `Font`, `ForeColor`, `BackColor`, `CssClass`i tak dalej. Wpływ na formatowanie określonej kontrolki sieci Web w szablonie s DataList, musimy programowo uzyskać dostęp i zmodyfikować styl te kontrolki sieci Web. Widzieliśmy sposób wykonania tego ponownie w *niestandardowe formatowanie oparte na danych* samouczka. Kontrolce elementu powtarzanego, takich jak `RepeaterItem` klasa nie ma stylu związane właściwości; w związku z tym, wszystkie zmiany dotyczące stylu wprowadzone `RepeaterItem` w `ItemDataBound` programu obsługi zdarzeń musi odbywać się przez programowo dostęp i aktualizowanie formantów sieci Web w ciągu szablon.
@@ -73,11 +71,9 @@ Zanim będziemy zajmować formatowania, umożliwiają s najpierw utworzyć stron
 
 Gdy zostały zreplikowane funkcji kontrolek DataList i kontrolki ObjectDataSource `Basics.aspx` do `Formatting.aspx`, Poświęć chwilę, aby zmienić DataList s `ID` właściwość `DataList1` na bardziej opisową `ItemDataBoundFormattingExample`. Następnie Wyświetl kontrolki DataList w przeglądarce. Jak pokazano na rysunku 1, formatowania jedyną różnicą między każdego produktu jest, że kolor tła alternatywne.
 
-
 [![Produkty są wymienione w kontrolce DataList](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image1.png)
 
 **Rysunek 1**: Produkty są wymienione w kontrolce DataList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image3.png))
-
 
 W tym samouczku umożliwiają s formatowanie kontrolki DataList w taki sposób, że wszystkie produkty z ceną mniejszą niż 20,00 USD za będą mieć zarówno jego nazwy i Jednostka ceny wyróżniony żółtym.
 
@@ -86,7 +82,6 @@ W tym samouczku umożliwiają s formatowanie kontrolki DataList w taki sposób, 
 Ponieważ tylko te produkty z ceną w obszarze 20,00 USD za będą mieć niestandardowe formatowanie zastosowane, firma Microsoft musi być możliwe ustalenie, w każdej cenie s produktu. Podczas wiązania danych z kontrolką DataList, kontrolki DataList wylicza rekordy źródła danych i dla każdego rekordu tworzy `DataListItem` wystąpienia rekordu źródła danych do powiązania `DataListItem`. Po określonemu rekordowi s danych została powiązana z bieżącego `DataListItem` obiektu DataList s `ItemDataBound` jest wyzwalane zdarzenie. Można utworzyć program obsługi zdarzeń dla tego zdarzenia sprawdzić wartości danych dla bieżącego `DataListItem` i na podstawie tych wartości, wprowadź niezbędne zmiany formatowania.
 
 Utwórz `ItemDataBound` zdarzenia dla kontrolki DataList i Dodaj następujący kod:
-
 
 [!code-csharp[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample1.cs)]
 
@@ -111,28 +106,22 @@ Gdy wiemy, że cena produktu s jest mniejsza niż 20,00 USD za pozostaje aby wyr
 
 Aby zastosować formatowanie, wystarczy ustawić dwóch formantów Web etykiety `CssClass` właściwości `AffordablePriceEmphasis`, jak pokazano w poniższym kodzie:
 
-
 [!code-csharp[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample2.cs)]
 
 Za pomocą `ItemDataBound` zakończona programu obsługi zdarzeń, ponownie `Formatting.aspx` strony w przeglądarce. Tak jak pokazano na rysunku 2, tych produktów z ceną w obszarze 20,00 USD za ma ich nazwy i ceny wyróżnione.
-
 
 [![Te produkty mniej niż 20,00 USD za wyróżniono](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image4.png)
 
 **Rysunek 2**: Te produkty mniej niż 20,00 USD za wyróżniono ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image6.png))
 
-
 > [!NOTE]
 > Ponieważ kontrolki DataList jest renderowany jako kod HTML `<table>`, jego `DataListItem` wystąpienia mają właściwości stylu związane, które można ustawić dotyczą konkretnego stylu cały element. Załóżmy, że Chcieliśmy, aby wyróżnić *całego* elementu żółty, gdy jej miesięczna cena był mniejszy niż 20,00 USD za, firma Microsoft może zastąpiono kod, do której odwołanie etykiety i ustaw ich `CssClass` właściwości za pomocą następującego kodu: `e.Item.CssClass = "AffordablePriceEmphasis"` (patrz rysunek 3).
 
-
 `RepeaterItem` S, wchodzące w skład kontrolce elementu powtarzanego jednak don t oferują takie właściwości stylu. W związku z tym stosując formatowanie niestandardowe do powtarzanego wymaga od aplikacji ponownego obliczenia właściwości stylu kontrolki sieci Web w szablonach Repeater s, tak samo, jak zrobiliśmy na rysunku 2.
-
 
 [![Cały element produktu jest wyróżniona na produkty w ramach 20,00 USD za](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image7.png)
 
 **Rysunek 3**: Cały element produktu jest wyróżniona na produkty w ramach 20,00 USD za ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image9.png))
-
 
 ## <a name="using-formatting-functions-from-within-the-template"></a>Za pomocą funkcji formatowania w szablonie
 
@@ -140,23 +129,19 @@ W *za pomocą kontrolek TemplateField w kontrolce GridView* samouczek widzieliś
 
 Aby zademonstrować funkcje formatowania, umożliwiają s ma informacje o produkcie, które zawierają tekst [WYCOFANY] obok nazwy produktu s, jeśli jego s wycofane. Umożliwiają s są także jeśli żółty wyróżnione cena go s mniejszą niż 20,00 USD za (jak robiliśmy `ItemDataBound` przykład program obsługi zdarzeń); Jeśli cena jest 20,00 USD za lub nowszej, który pozwala s nie wyświetlają rzeczywista cena, ale zamiast tego tekstu, należy wywołać dla oferty ceny. Rysunek 4 przedstawiono zrzut ekranu produktów, wyświetlanie za te reguły formatowania, które zostały zastosowane.
 
-
 [![Kosztowne produktów cena zostanie zastąpiony tekst, wywołaj oferty cen](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image10.png)
 
 **Rysunek 4**: Kosztowne produktów, cena zostanie zastąpiony tekst, wywołaj oferty cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image12.png))
 
-
 ## <a name="step-1-create-the-formatting-functions"></a>Krok 1. Tworzenie funkcji formatowania
 
 W tym przykładzie potrzebujemy dwóch funkcji formatowania, taki, który wyświetla nazwę produktu, wraz z tekstu [WYCOFANY], jeśli to konieczne i innym wyświetlającą wyróżnione ceny, jeśli jego s mniejszej niż 20,00 USD za lub tekstu, wywołaj oferty cen, w przeciwnym razie. Pozwól s tworzenia tych funkcji w klasie CodeBehind strony s ASP.NET i nazwij je `DisplayProductNameAndDiscontinuedStatus` i `DisplayPrice`. Obie metody musi zwracać HTML do renderowania jako ciąg i oba muszą być oznaczone `Protected` (lub `Public`) w celu można wywołać z część składni deklaratywnej strony ASP.NET. Następujący kod dla tych dwóch metod:
-
 
 [!code-csharp[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample3.cs)]
 
 Należy pamiętać, że `DisplayProductNameAndDiscontinuedStatus` metoda akceptuje wartości `productName` i `discontinued` danych pól jako wartości skalarnych, natomiast `DisplayPrice` metoda przyjmuje `ProductsRow` wystąpienia (zamiast `unitPrice` wartość skalarna). Każda z tych metod będzie działać; Jednak jeśli przy użyciu wartości skalarnych, które mogą zawierać bazy danych działa funkcja formatowania `NULL` wartości (takie jak `UnitPrice`; ani `ProductName` ani `Discontinued` Zezwalaj na `NULL` wartości), specjalne należy zachować ostrożność podczas obsługi tych dane wejściowe skalarne.
 
 W szczególności, parametr wejściowy musi być typu `Object` ponieważ przychodzące wartość może być `DBNull` wystąpieniem, a nie oczekiwany typ danych. Ponadto należy sprawdzić, aby ustalić, czy wartość przychodzącego jest bazą danych `NULL` wartość. Oznacza to jeśli Chcieliśmy `DisplayPrice` metodę, aby akceptować cena jako wartość skalarną, możemy d trzeba użyć następującego kodu:
-
 
 [!code-csharp[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample4.cs)]
 
@@ -166,26 +151,21 @@ Należy pamiętać, że `unitPrice` parametr wejściowy jest typu `Object` oraz 
 
 Za pomocą funkcji formatowania, dodany do naszych ASP.NET strony s osobna klasa kodu pozostaje tylko do wywołania funkcji z DataList s formatowania `ItemTemplate`. Aby wywołać funkcję formatowania z szablonu, Umieść wywołanie funkcji w ramach składnia wiązania z danymi:
 
-
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample5.aspx)]
 
 W elemencie DataList s `ItemTemplate` `ProductNameLabel` formant etykiety w sieci Web obecnie Wyświetla nazwę produktu s, przypisując jej `Text` właściwości wyniku z `<%# Eval("ProductName") %>`. W celu jej służy do wyświetlania nazwy oraz tekst [WYCOFANY], jeśli to konieczne, zaktualizuj składni deklaratywnej tak, aby zamiast tego przypisuje `Text` wartości właściwości z `DisplayProductNameAndDiscontinuedStatus` metody. Po wykonaniu tej czynności firma Microsoft musi przekazać nazwę produktu s i nieobsługiwane wartości za pomocą `Eval("columnName")` składni. `Eval` Zwraca wartość typu `Object`, ale `DisplayProductNameAndDiscontinuedStatus` metoda oczekuje parametrów wejściowych typu `String` i `Boolean`; w związku z tym, firma Microsoft rzutować wartości zwracanych przez `Eval` metodę, aby typy oczekiwanym parametrem wejściowym, w następujący sposób:
-
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample6.aspx)]
 
 Aby wyświetlić ceny, możemy po prostu ustaw `UnitPriceLabel` etykiety s `Text` właściwości do wartości zwracanej przez `DisplayPrice` metodę, tak samo, jak firma Microsoft została do wyświetlania nazwy produktu s i [WYCOFANE] tekstu. Jednak zamiast w `UnitPrice` jako skalarna parametr wejściowy, zamiast tego przekazanie całego `ProductsRow` wystąpienie:
 
-
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample7.aspx)]
 
 Przy użyciu wywołania do funkcji formatowania w miejscu Poświęć chwilę, aby wyświetlić postępach w przeglądarce. Ekran powinien wyglądać podobnie jak rysunek 5 za pomocą uwzględniałyby produkty, łącznie z tekstem [WYCOFANY] i tych produktów wyceny ponad 20,00 USD za posiadające ich ceny zastąpione tekstem, wywołanie oferty ceny.
 
-
 [![Kosztowne produktów cena zostanie zastąpiony tekst, wywołaj oferty cen](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image13.png)
 
 **Rysunek 5**: Kosztowne produktów, cena zostanie zastąpiony tekst, wywołaj oferty cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](formatting-the-datalist-and-repeater-based-upon-data-cs/_static/image15.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

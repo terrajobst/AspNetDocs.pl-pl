@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 0991ce5c866aa9e31ef23812e953d9ee10dda3d1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fbbb9e2ef6ce540f0ab422d2b80e4a5409076c83
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409723"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132924"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
 
 > Ten dokument zawiera omówienie wiele nowych funkcji dla platformy ASP.NET, które są uwzględnione w ramach platformy.NET Framework 4 i w programie Visual Studio 2010.
 > 
 > [Pobierz ten oficjalny dokument](https://download.microsoft.com/download/7/1/A/71A105A9-89D6-4201-9CC5-AD6A3B7E2F22/ASP_NET_4_and_Visual_Studio_2010_Web_Development_Overview.pdf)
-
 
 **Zawartość**
 
@@ -145,7 +144,6 @@ Nowa funkcja skalowania o nazwie *auto-start* , bezpośrednio adresy ten scenari
 > 
 > Aby uzyskać więcej informacji, zobacz [zwiększanie gotowości aplikacji](https://www.iis.net/extensions/applicationwarmup%20on%20the%20IIS.net) witrynie IIS.net w sieci Web. Aby uzyskać wskazówki, który ilustruje sposób użycia funkcji rozgrzewania, zobacz [rozpoczęcie korzystania z modułu rozgrzewania aplikacji usług IIS 7.5](https://www.iis.net/learn/manage) witrynie IIS.net w sieci Web.
 
-
 Aby korzystać z funkcji automatycznego uruchamiania, administrator usług IIS Ustawia pulę aplikacji w IIS 7.5 ma zostać automatycznie uruchomiony przy użyciu następującej konfiguracji w `applicationHost.config` pliku:
 
 [!code-xml[Main](overview/samples/sample5.xml)]
@@ -206,7 +204,6 @@ Domyślnie *requestPathInvalidChars* atrybut definiuje osiem znaków jako niepra
 
 > [!NOTE]
 > Należy pamiętać, platformy ASP.NET 4 zawsze odrzuca ścieżki adresu URL, zawierających znaki w zakresie ASCII od 0x00 do 0x1F, ponieważ te są nieprawidłowe znaki adresu URL, zgodnie z definicją w dokumencie RFC 2396 IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). W wersjach systemu Windows Server z systemem usług IIS 6 lub nowszego, sterownik http.sys protokołu urządzenia automatycznie odrzuca adresy URL z tych znaków.
-
 
 <a id="0.2__Toc253429245"></a><a id="0.2__Toc243304619"></a>
 
@@ -270,7 +267,6 @@ ASP.NET 4 korzysta z nowych funkcji monitorowania zasobów wprowadzone przez śr
 
 > [!NOTE]
 > Uwaga `aspnet.config` pliku znajduje się w katalogu, w którym jest zainstalowany .NET Framework. Nie jest `Web.config` pliku.
-
 
 Gdy *appdomainresourcemonitoring —* funkcja została włączona, dwie nowe liczniki wydajności są dostępne w kategorii wydajności "Aplikacji ASP.NET": *% czasu procesora zarządzane* i  *Zarządzana pamięć używana*. Nowa funkcja zarządzania zasobów domen aplikacji CLR oba te liczniki wydajności służy do śledzenia, szacowany czas procesora CPU i użycie pamięci zarządzanej przez poszczególne aplikacje platformy ASP.NET. W rezultacie za pomocą programu ASP.NET 4 Administratorzy mają teraz bardziej szczegółowy wgląd w zużycia zasobów przez poszczególne aplikacje uruchomione w procesie pojedynczego procesu roboczego.
 
@@ -678,7 +674,6 @@ W tym przykładzie *ClientIDMode* właściwość jest ustawiona na *statyczne* d
 > [!NOTE]
 > Należy pamiętać, że do Ciebie, aby upewnić się, że identyfikatory renderowanych kontrolki są unikatowe. Jeśli nie są one żadnej funkcji, która wymaga unikatowych identyfikatorów dla poszczególnych elementów kodu HTML, takich jak klient może przerwać *document.getElementById* funkcji.
 
-
 #### <a name="creating-predictable-client-ids-in-data-bound-controls"></a>Tworzenie przewidywalne identyfikatory klienta w formantach powiązanych z danymi
 
 *ClientID* wartości, które są generowane dla kontrolek w kontrolce listy powiązanych z danymi, starszego algorytmu może być długi i nie są naprawdę przewidywalne. *ClientIDMode* funkcjonalność może pomóc w mieć większą kontrolę nad jak te identyfikatory są generowane.
@@ -1004,12 +999,10 @@ Poprzedni przykład renderuje następujące dane wyjściowe bez *tabeli*, *tr*, 
 
 > Zawartość
 
-
 To ulepszenie może ułatwić styl zawartość kontrolki z CSS, ponieważ brak tagów nieoczekiwany są renderowane przez kontrolkę.
 
 > [!NOTE]
 > Uwaga Ta zmiana wyłącza obsługę funkcji automatycznego formatowania w Projektancie Visual Studio 2010, ponieważ nie ma już *tabeli* element, który może obsługiwać atrybuty stylu, które są generowane przez opcję automatycznego formatowania.
-
 
 <a id="0.2__Toc253429270"></a><a id="0.2__Toc243304644"></a>
 
@@ -1057,7 +1050,6 @@ Poprzedni kod znaczników generuje poniższy kod HTML:
 
 > [!NOTE]
 > Należy pamiętać, jeśli ustawisz *RepeatLayout* do *OrderedList* lub *UnorderedList*, *RepeatDirection* właściwości nie można używać i będzie Jeśli właściwość została ustawiona w ramach Twojej znaczników lub innego kodu, należy zgłosić wyjątek w czasie wykonywania. Właściwość będzie mieć żadnej wartości, ponieważ układ wizualizacji tych formantów jest zdefiniowany w zamian CSS.
-
 
 <a id="0.2__Toc253429272"></a><a id="0.2__Toc243304646"></a>
 
@@ -1146,7 +1138,6 @@ Dane dynamiczne została wprowadzona w wersji .NET Framework 3.5 SP1 w połowie 
 
 > [!NOTE]
 > Należy pamiętać, aby uzyskać więcej informacji, zobacz [dokumentacji dane dynamiczne](https://msdn.microsoft.com/library/cc488545.aspx) w bibliotece MSDN.
-
 
 Dla platformy ASP.NET 4 danych dynamicznych zostało rozszerzone, aby zaoferować deweloperom jeszcze większe możliwości szybkiego tworzenia witryn internetowych opartych na danych.
 

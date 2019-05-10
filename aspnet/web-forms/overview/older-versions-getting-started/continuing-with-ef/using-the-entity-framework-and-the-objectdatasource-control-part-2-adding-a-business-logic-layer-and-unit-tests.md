@@ -8,19 +8,18 @@ ms.date: 01/26/2011
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 4d436b0e5d605027cfcf5243f615f9ac167c5888
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 24344cc33d7c26d7c408db26c0530ef2c708a7d3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388052"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133449"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Korzystanie z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: dodawanie warstwy logiki biznesowej i testów jednostkowych
 
 przez [Tom Dykstra](https://github.com/tdykstra)
 
 > W tej serii samouczków jest oparta na Contoso University aplikacji sieci web, który jest tworzony przez [rozpoczęcie korzystania z programu Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serii samouczków. Jeśli nie została ukończona wcześniej samouczki, jako punkt początkowy na potrzeby tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie serii samouczków. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
-
 
 W poprzednim samouczku utworzono n warstwową aplikację internetową przy użyciu platformy Entity Framework i `ObjectDataSource` kontroli. W tym samouczku pokazano, jak dodawać logikę biznesową, przy zachowaniu oddzielne warstwy logiki biznesowej (LOGIKI) i warstwy dostępu do danych (DAL) i przedstawia sposób tworzenia zautomatyzowanych testów jednostek dla LOGIKI.
 
@@ -72,7 +71,6 @@ Metody CRUD, które wywołują, klasę repozytorium i dwa konstruktory umożliwi
 
 > [!NOTE]
 > Technicznie rzecz biorąc, obiekty jednostki są nadal nie trwałości zakresu, ponieważ są one tworzone z klas dziedziczących z programu Entity Framework `EntityObject` klasy. Nieznajomości pełną trwałości, można użyć *zwykłych starych obiektów CLR*, lub *POCOs*, zamiast obiektów, które dziedziczą z `EntityObject` klasy. Za pomocą POCOs wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji, zobacz [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) w witrynie MSDN.)
-
 
 Teraz możesz łączyć `ObjectDataSource` kontrolek z logiką biznesową klasy zamiast do repozytorium i sprawdź, czy wszystko działa tak jak poprzednio.
 

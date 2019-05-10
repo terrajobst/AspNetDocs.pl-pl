@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 639a8e0e5fd9557221c95aee1bef0294df047ae8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0e2605a4188eaf814f6ab0ebfeaabed4457bcfa3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406317"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112503"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 — pomocnicy, formularze i walidacja
 
@@ -89,7 +89,6 @@ Następujące ćwiczeń składają się tym warsztatów:
 
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
-
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**
 
@@ -177,7 +176,6 @@ W tym zadaniu zostanie dostosowana prostego szablonu Widok utworzony za pomocą 
 > [!NOTE]
 > **Tworzenia szkieletów** wsparcie w ramach platformy ASP.NET MVC wygeneruje prostego szablonu widoku, który wyświetla listę wszystkich pól w modelu albumu. **Tworzenia szkieletów** umożliwia szybkie rozpoczęcie pracy nad silnie typizowanego widoku: zamiast ręcznie napisać szablon widoku, tworzenia szkieletów szybko generuje domyślny szablon, a następnie można zmodyfikować wygenerowany kod.
 
-
 1. Przejrzyj kod utworzony. Wygenerowany Lista pól będzie częścią następujących tabeli HTML, który **tworzenia szkieletów** używanej do wyświetlania danych tabelarycznych.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
@@ -224,7 +222,6 @@ W tym zadaniu zostanie Dodaj nową metodę **Truncate** do **HTML** obiektu ujaw
 
 > [!NOTE]
 > Aby dowiedzieć się więcej o **metody rozszerzenia**, można znaleźć w tym artykule w witrynie msdn. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
-
 
 1. Otwórz **rozpocząć** rozwiązania znajdujący się w **źródło/Ex2-AddingAnHTMLHelper/rozpoczęcia/** folderu. W przeciwnym razie będziesz nadal korzystać z **zakończenia** rozwiązania uzyskać, wykonując poprzednim ćwiczeniu.
 
@@ -665,7 +662,6 @@ W tym ćwiczeniu dowiesz się, jak włączyć dotyczącą weryfikacji jQuery MVC
 
 > [!NOTE]
 > Dyskretnego kodu jQuery używa prefiksu danych ajax JavaScript do wywołania metody akcji, na serwerze, a nie intrusively emitowanie wbudowanych skryptach klienta.
-
 
 <a id="Ex7Task1"></a>
 

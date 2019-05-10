@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 3e8b0627-3eb7-488e-807e-067cba7cec05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3951ab4562e2c172f418c74136d511f0f9f50454
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7efdb13ae67c8485fc35bf759901fec85c31669c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415846"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109273"
 ---
 # <a name="strategies-for-database-development-and-deployment-c"></a>Strategie projektowania i wdrażania baz danych (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz plik PDF](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial10_DBDevel_cs.pdf)
 
 > Podczas wdrażania aplikacji opartych na danych po raz pierwszy może skutkować nieświadomym skopiować bazę danych w środowisku programistycznym do środowiska produkcyjnego. Ale wykonywanie blind kopiowania w przypadku kolejnych wdrożeń zastąpią wszelkie dane wprowadzane do produkcyjnej bazy danych. Zamiast tego wdrażania bazy danych polega na stosowaniu zmiany wprowadzone do tworzenia bazy danych od czasu ostatniego wdrażania na produkcyjną bazę danych. W tym samouczku sprawdza, czy te problemy i oferuje różne strategie uzyskanymi chronicling i stosowanie zmian wprowadzonych w bazie danych od czasu ostatniego wdrożenia.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -54,13 +53,11 @@ Najprostszym sposobem Obsługa dziennika zmian do modelu danych w fazie opracowy
 
 <a id="0.4_table01"></a>
 
-
 | **Data zmiany** | **Szczegóły zmiany** |
 | --- | --- |
 | 2009-02-03: | Dodana kolumna `DepartmentID` (`int`, NOT NULL) do `Employees` tabeli. Dodane ograniczenie klucza obcego z `Departments.DepartmentID` do `Employees.DepartmentID`. |
 | 2009-02-05: | Usunięto kolumny `TotalWeight` z `Orders` tabeli. Skojarzone dane już przechwycone w `OrderDetails` rekordów. |
 | 2009-02-12: | Utworzone `ProductCategories` tabeli. Istnieją trzy kolumny: `ProductCategoryID` (`int`, `IDENTITY`, `NOT NULL`), `CategoryName` (`nvarchar(50)`, `NOT NULL`), a `Active` (`bit`, `NOT NULL`). Ograniczenia klucza podstawowego można dodać `ProductCategoryID`oraz domyślną wartość 1, aby `Active`. |
-
 
 Brak liczby wad tego podejścia. Po pierwsze nie ma żadnych mamy nadzieję, że w przypadku usługi automation. Dowolnym te zmiany, należy zastosować do bazy danych — np. gdy aplikacja jest wdrażana — Deweloper ręcznie musi implementować każdy zmienić, pojedynczo. Ponadto jeśli musisz odtworzyć konkretnej wersji bazy danych z linii bazowej, za pomocą dziennika zmian spowoduje więc potrwa coraz więcej wraz ze wzrostem natężenia rozmiar dziennika. Inny wadą tej metody jest, przejrzystości i poziomie szczegółowości każdego wpisu dziennika zmian pozostało do osoby, rejestrując zmiany. W zespole przy użyciu wielu deweloperów niektóre mogą mieć bardziej szczegółowe bardziej czytelne i bardziej precyzyjne wpisy niż inne. Inne dane dotyczące człowieka wpis błędów są możliwe.
 
@@ -70,7 +67,6 @@ Utrzymywanie dziennika zmian w prozie jest niewątpliwie, nie bardzo zaawansowan
 
 > [!NOTE]
 > Informacje przedstawione w dzienniku zmian jest technicznie rzecz biorąc, tylko potrzebne do wdrożenia — czasu I zalecamy przechowywanie historii zmian. Jednak zamiast utrzymania pojedynczej, nigdy nie rośnie pliku dziennika zmian, należy rozważyć utworzenie inny plik dziennika dla każdej wersji bazy danych. Zazwyczaj należy do wersji bazy danych każdorazowo, gdy jest wdrożony. Poprzez utrzymywanie dziennika zmian dzienników można zaczynając od linii bazowej, odtworzyć dowolnej wersji bazy danych, wykonując skrypty dziennika zmian, począwszy od wersji 1 i kontynuowanie aż do wersji należy ponownie utworzyć.
-
 
 ## <a name="recording-the-sql-change-statements"></a>Rejestrowanie oświadczeń zmian SQL
 
@@ -95,18 +91,14 @@ Istnieją różne narzędzia porównania bazy danych z innych firm oferowane prz
 > [!NOTE]
 > W momencie pisania tego dokumentu bieżącej wersji programu SQL Compare była w wersji 7.1, wersji Standard Edition wyceny 395 $. Możesz kontynuować pracę przez pobranie z bezpłatnej wersji próbnej 14-dniowego.
 
-
 Po uruchomieniu SQL Compare zostanie otwarte okno dialogowe projektów porównania, przedstawiający zapisanych SQL Compare projektów. Utwórz nowy projekt. Spowoduje to uruchomienie Kreatora konfiguracji projektu, który wyświetla monit dotyczący informacji na temat baz danych, aby porównać (patrz rysunek 1). Wprowadź informacje dla baz danych środowisku deweloperskim i produkcyjnym.
-
 
 [![Porównaj programowania i produkcyjnych bazach danych](strategies-for-database-development-and-deployment-cs/_static/image2.jpg)](strategies-for-database-development-and-deployment-cs/_static/image1.jpg)
 
 **Rysunek 1**: Porównaj programowania i produkcyjnych bazach danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](strategies-for-database-development-and-deployment-cs/_static/image3.jpg))
 
-
 > [!NOTE]
 > Jeśli bazy danych środowiska projektowania jest plikiem bazy danych programu SQL Express Edition w `App_Data` folderu witryny sieci Web, musisz zarejestrować bazy danych na serwerze bazy danych programu SQL Server Express, aby móc wybrać go z okna dialogowego przedstawionej na rysunku 1. W tym celu najłatwiej Otwórz program SQL Server Management Studio (SSMS), połączyć się z serwerem bazy danych programu SQL Server Express i dołączyć bazy danych. Jeśli nie masz zainstalowany na komputerze programu SSMS możesz pobrać i zainstaluj bezpłatną [ *wersji programu SQL Server 2008 Management Studio Basic*](https://www.microsoft.com/downloads/details.aspx?FamilyId=7522A683-4CB2-454E-B908-E805E9BD4E28&amp;displaylang=en).
-
 
 Wybierz opcję bazy danych do porównania, można również określić różne ustawienia porównania na karcie Opcje. Jedną z opcji, które chcesz włączyć jest "Ignoruj ograniczenie i indeks nazwy." Pamiętaj, że w poprzednim samouczku dodana aplikacja usługi obiektów bazy danych do baz danych deweloperskim i produkcyjnym. Jeśli użyto `aspnet_regsql.exe` narzędzia do tworzenia tych obiektów w bazie danych produkcyjnych, a następnie można zauważyć, że klucz podstawowy i ograniczenie unikatowe nazwy różnią się między deweloperskich i produkcyjnych baz danych. W związku z tym SQL Compare będzie Flaga wszystkie tabele usług aplikacji jako różne. Można pozostawić "Ignoruj ograniczenie indeksu nazwy i" niezaznaczone i synchronizować nazwy ograniczenia, ale można też SQL Compare ignoruje te różnice.
 
@@ -115,11 +107,9 @@ Po wybraniu baz danych w celu porównania i przeglądając opcje porównywania, 
 > [!NOTE]
 > Zmiany danych w modelu w ramach tego samouczka zostały wykonane w celu zilustrowania przy użyciu narzędzia do porównywania bazy danych. Te zmiany w bazie danych nie będą dostępne w przyszłości samouczków.
 
-
 [![SQL Compare przedstawiono różnice między środowiskami deweloperskim i produkcyjne bazy danych](strategies-for-database-development-and-deployment-cs/_static/image5.jpg)](strategies-for-database-development-and-deployment-cs/_static/image4.jpg)
 
 **Rysunek 2**: SQL Compare wyświetla różnice między programowania i produkcyjnych bazach danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](strategies-for-database-development-and-deployment-cs/_static/image6.jpg))
-
 
 SQL Compare dzieli obiekty bazy danych w grupach, szybkie wyświetlanie obiektów, które istnieją w obu bazach danych, ale są różne, obiekty istniejące w jednej bazie danych, ale nie drugiej, a obiekty, które są identyczne. Jak widać, istnieją dwa obiekty, które istnieją w obu bazach danych, ale różnią się: `Authors` tabeli, która ma kolumny dodane, a `Books` tabeli, która ma jeden usunięty. Jest jeden obiekt, który istnieje tylko w przypadku tworzenia bazy danych, czyli nowo utworzony `Ratings` tabeli. Wiąże się 117 obiektów, które są takie same w obu bazach danych.
 
@@ -127,17 +117,14 @@ Wybieranie obiektu bazy danych wyświetla oknie różnice w języku SQL, które 
 
 Po przejrzeniu różnice i wybraniu obiekty, które chcesz synchronizować, następnym krokiem jest generowanie polecenia SQL wymagane do aktualizacji schematu s bazy danych w środowisku produkcyjnym, aby dopasować rozwoju bazy danych. Jest to realizowane za pośrednictwem Kreatora synchronizacji. Kreator synchronizacji potwierdza, jakie obiekty do synchronizowania, a także podsumowano akcji plan (zobacz rysunek 3). Możesz natychmiast zsynchronizować bazy danych lub generowania skryptu za pomocą poleceń SQL, które mogą być uruchamiane w wolnym czasie.
 
-
 [![Za pomocą Kreatora synchronizacji, aby zsynchronizować swoje schematy bazy danych](strategies-for-database-development-and-deployment-cs/_static/image8.jpg)](strategies-for-database-development-and-deployment-cs/_static/image7.jpg)
 
 **Rysunek 3**: Użyj Kreatora synchronizacji, aby zsynchronizować Your schematów baz danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](strategies-for-database-development-and-deployment-cs/_static/image9.jpg))
-
 
 Narzędzia do porównywania bazy danych, takich jak Red bramy oprogramowania s SQL Compare upewnij się, zastosowanie zmiany schematu bazy danych jest rozwoju tak łatwe, jak wskazanie i kliknięcie w produkcyjnej bazie danych.
 
 > [!NOTE]
 > SQL Compare porównuje i dwie bazy danych synchronizuje *schematów*. Niestety nie porównania i synchronizowanie danych w tabelach dwie bazy danych. Czerwony bramy oprogramowania oferują produkt o nazwie [ *porównywania danych SQL* ](http://www.red-gate.com/products/SQL_Data_Compare/) , porównuje i synchronizuje dane między dwiema bazami danych, ale jest oddzielny produkt od SQL Compare i koszty innego $395.
-
 
 ## <a name="taking-the-application-offline-during-deployment"></a>Przełączania aplikacji w trybie Offline podczas wdrażania
 

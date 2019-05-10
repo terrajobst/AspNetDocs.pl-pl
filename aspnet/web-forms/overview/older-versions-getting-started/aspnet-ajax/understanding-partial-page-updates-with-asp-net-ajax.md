@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: d2d7982a4e0175824ffede965dc8206219485df2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: aa842aeb228abc763540d8ca8dafdfdca0b8b395
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109010"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX
 
@@ -22,7 +22,6 @@ przez [Scott Cate](https://github.com/scottcate)
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
 > Może być najbardziej widoczne funkcji rozszerzenia AJAX programu ASP.NET jest zdolność przeprowadzania aktualizacji strony częściowego lub przyrostowe bez wykonania tej czynności pełny zwrot do serwera, bez wprowadzania zmian w kodzie i zmianami znaczników minimalny. Zalety są obszerne — stan multimediach (takich jak Adobe Flash lub Windows Media) pozostaje niezmieniony, są obniżone koszty przepustowości i klienta nie występują migotania związanych zazwyczaj ze ogłaszania zwrotnego.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -48,7 +47,6 @@ Możliwość integracji renderowania stron częściowych jest integrowany ASP.NE
 
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Przewodnik: Integrowanie częściowe renderowanie istniejący projekt
 
-
 1. W programie Microsoft Visual Studio 2008, należy utworzyć nowy projekt witryny sieci Web platformy ASP.NET, przechodząc do <em>pliku</em>  <em>- &gt; New</em>  <em>- &gt; witryny sieci Web</em> i wybierając pozycję witryny sieci Web platformy ASP.NET z poziomu okna dialogowego. Można określić nazwę wedle uznania i może zainstalować ją w systemie plików lub do programu Internet Information Services (IIS).
 2. Zostaną wyświetlone z pustą domyślną stroną z podstawowych znaczników ASP.NET (formularza po stronie serwera i `@Page` dyrektywy). Usunąć etykietę o nazwie `Label1` oraz przycisk o nazwie `Button1` na stronę w elemencie formularza. Może ustawiać ich właściwości tekstu, wedle uznania.
 3. W widoku Projekt, kliknij dwukrotnie `Button1` do generowania obsługi zdarzenia związanego z kodem. W ramach tego programu obsługi zdarzeń, należy ustawić `Label1.Text` do kliknięto przycisk! .
@@ -64,11 +62,9 @@ Możliwość integracji renderowania stron częściowych jest integrowany ASP.NE
 1. Naciśnij klawisz F5, aby uruchomić witryny sieci web. Program Visual Studio wyświetli monit o dodanie pliku web.config w celu włączenia debugowania. to zrobić. Po kliknięciu przycisku, zwróć uwagę, że odświeżona do zmiany tekstu w etykiecie, a ma krótki migotania odświeżeniu strony.
 2. Po zamknięciu okna przeglądarki, wróć do programu Visual Studio, jak i do strony znaczników. Przewiń w dół w przyborniku programu Visual Studio i Znajdź kartę rozszerzenia AJAX. (Jeśli nie masz na tej karcie, ponieważ używasz starszej wersji rozszerzeń AJAX lub Atlas, zapoznaj się przewodnik rejestracji rozszerzenia AJAX elementów przybornika w dalszej części tego dokumentu, lub zainstaluj bieżącą wersję za pomocą Instalatora Windows do pobrania z witryny sieci Web).
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image2.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image1.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
-
 
 1. <em>Znany problem:</em>po zainstalowaniu programu Visual Studio 2008 na komputerze, na którym jest już zainstalowany za pomocą rozszerzenia AJAX programu ASP.NET w wersji 2.0 programu Visual Studio 2005, Visual Studio 2008 zostaną zaimportowane elementy przybornika rozszerzenia AJAX. Można określić, czy jest to możliwe, sprawdzając etykietka narzędzia składników; powinny one Załóżmy, że wersja 3.5.0.0. Jeśli podają wersji 2.0.0.0 lub nowszej, następnie zaimportowano starych elementów przybornika i należy ręcznie zaimportować je za pomocą okna dialogowego Wybierz elementy paska narzędzi w programie Visual Studio. Nie można dodać kontrolki w wersji 2 przy użyciu narzędzia Projektant.
 
@@ -76,11 +72,9 @@ Możliwość integracji renderowania stron częściowych jest integrowany ASP.NE
 3. Przeciągnij zamykającym `</asp:UpdatePanel>` tag poza końcem Button element tak, aby element jest poprawnie sformułowanym z formantami etykiet i przycisk opakowana.
 4. Po otwarciu `<asp:UpdatePanel>` tag, rozpoczęcie nowego tagu początkowego. Należy pamiętać, że funkcja IntelliSense wyświetli monit o dwie opcje. W takim przypadku utworzyć `<ContentTemplate>` tagu. Pamiętaj zawinięte ten tag wokół Twoje etykiety i przycisk znaczników jest poprawnie sformułowany.
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
-
 
 1. W dowolnym miejscu `<form>` elementu, obejmują formantu ScriptManager przez dwukrotne kliknięcie `ScriptManager` w przyborniku.
 2. Edytuj `<asp:ScriptManager>` tag, aby obejmowała atrybut `EnablePartialRendering= true`.
@@ -93,11 +87,9 @@ Możliwość integracji renderowania stron częściowych jest integrowany ASP.NE
 
 1. Co nowego w programie Visual Studio 2008: Plik web.config, dostarczanego z witryna sieci Web ASP.NET szablonów projektu automatycznie obejmuje wszystkie niezbędne odwołania do rozszerzenia AJAX programu ASP.NET i zawiera oznaczone jako części informacji o konfiguracji, które mogą być niezaznaczone komentarze, aby włączyć dodatkowe funkcje. Visual Studio 2005 wcześniejszego podobne szablony zostały zainstalowane rozszerzenia AJAX programu ASP.NET 2.0. W programie Visual Studio 2008, rozszerzenia AJAX są jednak zrezygnować domyślnie (oznacza to, że ich są określone przez domyślny, ale można usuwać odwołania).
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
-
 
 1. Naciśnij klawisz F5, aby uruchomić witryny sieci Web. Należy zauważyć, jak zmiany kodu źródłowego, nie były wymagane do obsługi częściowe renderowanie — tylko znaczników został zmieniony.
 
@@ -233,16 +225,13 @@ Kontrolki UpdatePanel działa jako coś czarnej, zawijanie ogłaszania zwrotnego
 
 Należy wziąć pod uwagę zawierającej, między innymi, kod pocztowy pola tekstowego, który ma wypełnić pole Miejscowość i województwo formularza lub formantu formularza. Ten formularz, ostatecznie zbiera informacje o członkostwie, w tym nazwę, adres i informacje kontaktowe. Istnieje wiele zagadnienia dotyczące projektowania, aby wziąć pod uwagę w oparciu o wymagania określonego projektu.
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image11.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image10.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image14.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image13.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
-
 
 W oryginalnym iteracji tej aplikacji kontrolki została opracowana sprzężone materiałami dane rejestracyjne użytkownika, w tym kod pocztowy, miasta i stanu. Opakowane w ramach UpdatePanel i upuszczone na formularz sieci Web całego kontrolki. Po wprowadzeniu przez użytkownika kod pocztowy UpdatePanel wykrywa zdarzenia (odpowiednie zdarzenie textchanged w zaplecza, określając wyzwalaczy lub przy użyciu zestawu ChildrenAsTriggers właściwości na wartość true). AJAX publikuje wszystkie pola w ramach kontrolki UpdatePanel, jak przechwycone przez FireBug (zobacz diagram po prawej stronie).
 
@@ -252,11 +241,9 @@ Może to być również interesujące, aby zobaczyć, jak ASP.NET AJAX aktualizu
 
 Ponowne generowanie modelu DOM wyzwala szereg dodatkowych problemów:
 
-
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image17.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image16.png)
 
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
-
 
 - Jeśli w UpdatePanel wąsko zdefiniowany element HTML, utraci fokus. Dlatego dla użytkowników, którzy naciśnięty klawisz Tab aby zamknąć pole tekstowe kod pocztowy, miejsca docelowego następnego byłby pole tekstowe miasta. Jednak po odświeżeniu wyświetlania kontrolki UpdatePanel formularza nie jest już musiałaby fokus i klawisza Tab czy uruchomiono wyróżniania elementów fokus (np. linków).
 - Jeśli dowolnego typu niestandardowego skryptu po stronie klienta jest używany, uzyskuje dostęp do elementów DOM, odwołania utrwalone przez funkcje może przestać unieczynnienia po odświeżeniu strony częściowe.

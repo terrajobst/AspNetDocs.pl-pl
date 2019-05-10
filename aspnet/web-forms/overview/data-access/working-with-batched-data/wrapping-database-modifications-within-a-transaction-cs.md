@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: b45fede3-c53a-4ea1-824b-20200808dbae
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bbc54a39ba6ca3771acd7c4da37795a23e8ee2df
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c174b824595f2d85eef97f467ff99082cfeb6d3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383385"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108293"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-c"></a>Opakowywanie modyfikacji bazy danych w ramach transakcji (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_63_CS.zip) lub [Pobierz plik PDF](wrapping-database-modifications-within-a-transaction-cs/_static/datatutorial63cs1.pdf)
 
 > Ten samouczek jest pierwszą czterech, który sprawdza, aktualizowanie, usuwanie i wstawianie partie danych. W tym samouczku dowie się, jak zezwolić zmian usługi batch należy przeprowadzić jako operacją niepodzielną gwarantuje, że wszystkie kroki powodzenie lub niepowodzenie wszystkich kroków w transakcji bazy danych.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -38,7 +37,6 @@ W tym samouczku Zapoznamy się jak rozszerzyć warstwę DAL, aby móc używać t
 
 > [!NOTE]
 > Podczas modyfikowania danych w transakcji usługi batch, niepodzielność nie jest zawsze potrzebny. W niektórych scenariuszach może być możliwe do zaakceptowania mają pewne modyfikacje danych powiodło się i inni użytkownicy w tej samej partii nie powiedzie się, takie jak czas usuwania zestawu wiadomości e-mail z klienta e-mail opartego na sieci web. Jeśli występują s midway błąd bazy danych, poprzez usunięcie procesu jej s prawdopodobnie dopuszczalne usunięto pozostawienie tych rekordów przetwarzania bez błędów. W takich przypadkach warstwy DAL nie musi zostać zmodyfikowane w celu obsługi transakcji bazy danych. Brak innych operacji scenariuszach wsadowych, jednak gdzie niepodzielność jest istotne. Jeśli klient jej środków jest przenoszony z jednego konta bankowego do innego, należy wykonać dwie operacje: środków należy odjąć od pierwszego konta i następnie dodawane do drugiego. Bank może nie mieć nic przeciwko po pierwszym krokiem powiedzie się, ale drugi etap się nie powieść, swoim klientom understandably byłaby zła, ponieważ. Zachęcam Cię do pracy za pomocą tego samouczka i wdrożenie rozszerzenia z warstwą dal do obsługi transakcji bazy danych, nawet jeśli nie planujesz używania ich w partii, wstawianie, aktualizowanie i usuwanie interfejsów, które będziemy tworzyć w następujących trzech samouczków.
-
 
 ## <a name="an-overview-of-transactions"></a>Przegląd transakcji
 
@@ -56,9 +54,7 @@ Instrukcje SQL używane do tworzenia, zatwierdzania i wycofać transakcji, możn
 > [!NOTE]
 > [ `TransactionScope` Klasy](https://msdn.microsoft.com/library/system.transactions.transactionscope.aspx) w `System.Transactions` przestrzeń nazw umożliwia deweloperom programowo zawinąć serię instrukcji w zakresie transakcji i obejmuje obsługę złożonych transakcji, które obejmują wiele źródeł, takich jak dwóch różnych bazach danych lub nawet heterogenicznych typów magazynów danych, takich jak bazy danych programu Microsoft SQL Server, Oracle database oraz usługi sieci Web. Czy mogę ve zdecydowała się na potrzeby tego samouczka, a nie przy użyciu transakcji ADO.NET `TransactionScope` klasy ADO.NET jest bardziej szczegółowe dla transakcji bazy danych, a w wielu przypadkach jest znacznie mniej dużej ilości zasobów. Ponadto w pewnych scenariuszach `TransactionScope` klasa używa transakcji Koordynator MSDTC (Microsoft Distributed). Problemy konfiguracji, wdrażania i wydajności otaczającego MSDTC sprawia, że zamiast wyspecjalizowanych i zaawansowane tematu i poza zakres tego samouczka.
 
-
 Podczas pracy z dostawcy SqlClient w ADO.NET, transakcje są inicjowane za pomocą wywołania [ `SqlConnection` klasy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) s [ `BeginTransaction` metoda](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.begintransaction.aspx), co powoduje zwrócenie [ `SqlTransaction` obiektu](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.aspx). Instrukcje modyfikacji danych, które korzeń transakcji są umieszczane w ramach `try...catch` bloku. Jeśli wystąpi błąd w instrukcji w `try` block przenosi wykonanie do `catch` bloku, w którym transakcji można wycofać za pośrednictwem `SqlTransaction` obiektu s [ `Rollback` metoda](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.rollback.aspx). Jeśli wszystkie instrukcje zakończy się pomyślnie, wywołanie `SqlTransaction` obiektu s [ `Commit` metoda](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.commit.aspx) na końcu `try` bloku zatwierdzeń transakcji. Poniższy fragment kodu ilustruje ten wzorzec. Zobacz [utrzymania spójności bazy danych z transakcjami](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx) dodatkowej składni i przykłady za pomocą transakcji za pomocą narzędzia ADO.NET.
-
 
 [!code-csharp[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample1.cs)]
 
@@ -74,32 +70,25 @@ Zanim zaczniemy, eksplorowanie sposób rozszerzyć warstwę DAL do obsługi tran
 - `BatchDelete.aspx`
 - `BatchInsert.aspx`
 
-
 ![Dodawanie stron ASP.NET związane z kontrolką SqlDataSource samouczki](wrapping-database-modifications-within-a-transaction-cs/_static/image1.gif)
 
 **Rysunek 1**: Dodawanie stron ASP.NET związane z kontrolką SqlDataSource samouczki
 
-
 Podobnie jak w przypadku innych folderów `Default.aspx` użyje `SectionLevelTutorialListing.ascx` kontrolki użytkownika, aby wyświetlić listę samouczków w obrębie sekcji. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
-
 
 [![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](wrapping-database-modifications-within-a-transaction-cs/_static/image2.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image1.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image2.png))
 
-
 Wreszcie, Dodaj te cztery strony jako wpisy, aby `Web.sitemap` pliku. W szczególności należy dodać następujące znaczniki po Dostosowywanie mapy witryny `<siteMapNode>`:
-
 
 [!code-xml[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample2.xml)]
 
 Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web w samouczkach, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementów do pracy z samouczkami partiami danych.
 
-
 ![Mapa witryny zawiera teraz wpisy dotyczące pracy z samouczkami partiami danych](wrapping-database-modifications-within-a-transaction-cs/_static/image3.gif)
 
 **Rysunek 3**: Mapa witryny zawiera teraz wpisy dotyczące pracy z samouczkami partiami danych
-
 
 ## <a name="step-2-updating-the-data-access-layer-to-support-database-transactions"></a>Krok 2. Aktualizowanie warstwy dostępu do danych do obsługi transakcji bazy danych
 
@@ -111,14 +100,11 @@ W niektórych scenariuszach chcemy zapewnić niepodzielność w szereg zmian. Fi
 
 Wpisany zestaw danych `Northwind.xsd` znajduje się w `App_Code` folderu s `DAL` podfolderu. Utwórz podfolder w `DAL` folder o nazwie `TransactionSupport` i Dodaj plik klasy o nazwie `ProductsTableAdapter.TransactionSupport.cs` (zobacz rysunek 4). Ten plik będzie zawierać wdrożony częściowo `ProductsTableAdapter` zawierającej metody służące do wykonywania modyfikacji danych przy użyciu transakcji.
 
-
 ![Dodaj Folder o nazwie TransactionSupport i plik klasy o nazwie ProductsTableAdapter.TransactionSupport.cs](wrapping-database-modifications-within-a-transaction-cs/_static/image4.gif)
 
 **Rysunek 4**: Dodaj Folder o nazwie `TransactionSupport` i plik klasy o nazwie `ProductsTableAdapter.TransactionSupport.cs`
 
-
 Wprowadź następujący kod do `ProductsTableAdapter.TransactionSupport.cs` pliku:
-
 
 [!code-csharp[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample3.cs)]
 
@@ -130,13 +116,11 @@ Metody te zapewniają bloki konstrukcyjne potrzebne do uruchomienia, wycofywania
 
 Za pomocą tych metod pełną, możemy ponownie gotowa do Dodaj metody do `ProductsDataTable` lub LOGIKI, które wykonują serię poleceń w obszarze parasola transakcji. Poniższa metoda używa wzorca aktualizacji usługi Batch do aktualizacji `ProductsDataTable` przy użyciu transakcji. Rozpoczyna transakcji wywoływania `BeginTransaction` metody, a następnie używa `try...catch` bloku, aby wydać instrukcji modyfikacji danych. Jeśli wywołanie `Adapter` obiektu s `Update` wykonanie metody powoduje wyjątek, zostaną przeniesione do `catch` blok, gdy transakcja zostanie wycofana i ponownie zgłoszony wyjątek. Pamiętamy `Update` metoda implementuje wzorzec aktualizacji usługi Batch, wyliczając wiersze podane `ProductsDataTable` i wykonując niezbędne `InsertCommand`, `UpdateCommand`, i `DeleteCommand` s. Jeśli jeden z tych poleceń będzie skutkowało błędem, transakcja zostanie wycofana, cofnięcie wcześniejszych zmian wprowadzonych w okresie istnienia s transakcji. Należy `Update` instrukcji zakończenia bez błędów, transakcja zostaje zatwierdzona w całości.
 
-
 [!code-csharp[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample4.cs)]
 
 Dodaj `UpdateWithTransaction` metody `ProductsTableAdapter` klasy do klasy częściowej w `ProductsTableAdapter.TransactionSupport.cs`. Alternatywnie, można dodać tej metody w s warstwy logiki biznesowej `ProductsBLL` klasy za pomocą kilku drobne zmiany syntaktyczne. To znaczy, słowo kluczowe w `this.BeginTransaction()`, `this.CommitTransaction()`, i `this.RollbackTransaction()` musi zostać zamieniona `Adapter` (pamiętamy `Adapter` jest nazwą właściwości w `ProductsBLL` typu `ProductsTableAdapter`).
 
 `UpdateWithTransaction` Metoda używa wzorca aktualizacji usługi Batch, ale może również służyć szereg wywołań bazy danych bezpośrednio w zakresie transakcji, co pokazuje poniższa metoda. `DeleteProductsWithTransaction` Metoda przyjmuje jako dane wejściowe `List<T>` typu `int`, które są `ProductID` s do usunięcia. Metoda inicjuje transakcji za pośrednictwem wywołania `BeginTransaction` a następnie w `try` zablokować, iterację na liście podany wzorzec DB bezpośrednie wywołanie `Delete` metody dla każdego `ProductID` wartość. Jeśli dowolny z wywołania `Delete` zakończy się niepowodzeniem, kontrola jest przekazywana do `catch` blok, gdy transakcja zostanie wycofana i ponownie zgłoszony wyjątek. Jeśli wszystkie wywołania `Delete` powiedzie się, a następnie transakcja została zatwierdzona. Dodaj tę metodę w celu `ProductsBLL` klasy.
-
 
 [!code-csharp[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample5.cs)]
 
@@ -154,12 +138,10 @@ W kroku 3 dodaliśmy `UpdateWithTransaction` metody `ProductsTableAdapter` w war
 
 Otwórz `ProductsBLL` klasy plików i Dodaj metodę o nazwie `UpdateWithTransaction` który po prostu wywołuje metodę do odpowiedniej metody warstwy DAL. Teraz należy dwóch nowych metod w `ProductsBLL`: `UpdateWithTransaction`, który właśnie został dodany, i `DeleteProductsWithTransaction`, który został dodany w kroku 3.
 
-
 [!code-csharp[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample6.cs)]
 
 > [!NOTE]
 > Te metody nie obejmują `DataObjectMethodAttribute` atrybut przypisany do większości metod w `ProductsBLL` klasy, ponieważ firma Microsoft będzie wywoływanie tych metod bezpośrednio z klasy CodeBehind stron ASP.NET. Pamiętamy `DataObjectMethodAttribute` służy do flagi, jakie metody powinna zostać wyświetlona na ObjectDataSource s Konfigurowanie źródła danych pracę kreatora i jakie karcie (SELECT, UPDATE, INSERT lub DELETE). Ponieważ w widoku GridView nie posiada wbudowanej pomocy technicznej dla usługi batch, edytowania lub usuwania, będziemy musieli wywoływanie tych metod programowo, zamiast używać podejścia deklaratywnego niekorzystające z kodu.
-
 
 ## <a name="step-5-atomically-updating-database-data-from-the-presentation-layer"></a>Krok 5. Niepodzielnie aktualizowanie danych bazy danych z warstwy prezentacji
 
@@ -167,37 +149,29 @@ Aby zilustrować wpływ transakcji podczas aktualizowania partii rekordów, umo�
 
 Zacznij od otwarcia `Transactions.aspx` stronie `BatchData` folder i przeciągnij GridView z przybornika do projektanta. Ustaw jego `ID` do `Products` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource swoich danych z `ProductsBLL` klasy s `GetProducts` metody. Zostanie można GridView tylko do odczytu, więc zestawu list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak) i kliknij przycisk Zakończ.
 
-
 [![Rysunek 5: Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProducts ProductsBLL klasy s](wrapping-database-modifications-within-a-transaction-cs/_static/image5.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image3.png)
 
 **Rysunek 5**: Rysunek 5: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy s `GetProducts` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image4.png))
-
 
 [![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](wrapping-database-modifications-within-a-transaction-cs/_static/image6.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image5.png)
 
 **Rysunek 6**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image6.png))
 
-
 Po zakończeniu pracy kreatora Konfigurowanie źródła danych, program Visual Studio utworzy BoundFields i CheckBoxField dla pól danych produktu. Usuń wszystkie te pola z wyjątkiem `ProductID`, `ProductName`, `CategoryID`, i `CategoryName` i Zmień nazwę `ProductName` i `CategoryName` BoundFields `HeaderText` właściwości do produktu i kategorii, odpowiednio. Za pomocą tagu inteligentnego zaznacz opcję włączenia stronicowania. Po wprowadzeniu tych zmian, kontrolkami GridView i kontrolki ObjectDataSource s oznaczeniu deklaracyjnym powinien wyglądać następująco:
-
 
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample7.aspx)]
 
 Następnie dodaj trzy kontrolki przycisku w sieci Web powyżej widoku GridView. Wartość pierwszy przycisk s właściwości Text Odśwież siatki, drugi s, aby zmodyfikować kategorie (przy użyciu transakcji), a trzeci jeden s, aby zmodyfikować kategorie (bez transakcji).
 
-
 [!code-aspx[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample8.aspx)]
 
 W tym momencie widok projektu w programie Visual Studio, powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 7.
-
 
 [![Ta strona zawiera GridView i trzech przycisków umieszczonych w sieci Web](wrapping-database-modifications-within-a-transaction-cs/_static/image7.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image7.png)
 
 **Rysunek 7**: Ta strona zawiera GridView i trzy kontrolki sieci Web przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image8.png))
 
-
 Tworzenie obsługi zdarzeń dla każdego z trzech przycisk s `Click` zdarzenia i użyj następującego kodu:
-
 
 [!code-csharp[Main](wrapping-database-modifications-within-a-transaction-cs/samples/sample9.cs)]
 
@@ -209,26 +183,21 @@ Trzeci `Click` programu obsługi zdarzeń aktualizacji produktów `CategoryID` s
 
 Aby zademonstrować to zachowanie, odwiedź tę stronę za pośrednictwem przeglądarki. Początkowo pierwszej strony danych powinny Zobacz, jak pokazano na rysunku 8. Następnie kliknij przycisk zmodyfikować kategorie (przy użyciu transakcji). Spowoduje to powoduje odświeżenie strony i próba aktualizacji wszystkich produktów `CategoryID` wartości, ale będą powodować naruszenie ograniczenia klucza obcego (patrz rysunek 9).
 
-
 [![Produkty są wyświetlane w stronicowanej widoku GridView](wrapping-database-modifications-within-a-transaction-cs/_static/image8.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image9.png)
 
 **Rysunek 8**: Produkty są wyświetlane w stronicowanej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image10.png))
-
 
 [![Ponowne przypisywanie kategorii skutkuje naruszenie ograniczenia klucza obcego](wrapping-database-modifications-within-a-transaction-cs/_static/image9.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image11.png)
 
 **Rysunek 9**: Ponowne przypisywanie kategorii skutkuje naruszenie ograniczenia klucza obcego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image12.png))
 
-
 Teraz, kliknij przycisk Wstecz Twojej przeglądarki s, a następnie kliknij przycisk Odśwież siatki. Po odświeżeniu danych powinny być widoczne dokładnie ten sam wynik, jak pokazano na rysunku 8. Oznacza to, nawet jeśli niektóre produkty `CategoryID` s zostały zmienione na prawne wartości i zaktualizowane w bazie danych, ich zostały wycofane po wystąpiło naruszenie ograniczenia klucza obcego.
 
 Teraz spróbuj, kliknięcie przycisku Modyfikuj kategorii (bez transakcji). Spowoduje to ten sam błąd naruszenie ograniczenia klucza obcego (patrz rysunek 9), ale tym razem tych produktów którego `CategoryID` wartości zostały zmienione na prawnych i wartość będą nie można wycofać. Wprowadzam polecenie przeglądarki s przycisku Wstecz, a następnie przycisk Odśwież siatki. Jak pokazano na rysunku nr 10, `CategoryID` ponownie przypisane s produktów pierwsze osiem. Na przykład na rysunku 8 zmian centralnych miał `CategoryID` 1, ale w rysunek 10 it s przypisane do 2.
 
-
 [![Niektóre wartości CategoryID produktów zostały zaktualizowane podczas gdy inne osoby zostały nie](wrapping-database-modifications-within-a-transaction-cs/_static/image10.gif)](wrapping-database-modifications-within-a-transaction-cs/_static/image13.png)
 
 **Na rysunku nr 10**: Niektóre produkty `CategoryID` wartości zostały zaktualizowane podczas gdy inne osoby zostały nie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](wrapping-database-modifications-within-a-transaction-cs/_static/image14.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

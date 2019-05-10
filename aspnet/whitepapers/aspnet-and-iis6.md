@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: 5a5537bf-2aaa-49e7-839f-9e6522b829d8
 msc.legacyurl: /whitepapers/aspnet-and-iis6
 msc.type: content
-ms.openlocfilehash: dbdf6d2815a05465b0ffb7bb322c9f80af13a251
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2e7812f34481afe9a71927c0d9ba2a9abc9632e4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59405160"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106805"
 ---
 # <a name="running-aspnet-11-with-iis-60"></a>Uruchamianie platformy ASP.NET 1.1 z usługami IIS 6.0
 
 > Gdy system Windows Server 2003 obejmuje zarówno usług IIS 6.0 i ASP.NET 1.1, składniki te są domyślnie wyłączone. Ten oficjalny dokument, w tym artykule opisano sposób włączania usług IIS 6.0 i ASP.NET 1.1 i zaleca kilka ustawień konfiguracji, aby uzyskać optymalną wydajność usług IIS i platformy ASP.NET.
 > 
 > Stosuje się do platformy ASP.NET 1.1 oraz IIS 6.0.
-
 
 Platformy ASP.NET 1.1 jest dostarczany z programem Windows Server 2003, która zawiera też najnowszą wersję programu Internet Information Server (IIS) w wersji 6.0. Usługi IIS 6.0 i ASP.NET 1.1 są przeznaczone do bezproblemowo integrują się i platformy ASP.NET teraz wartością domyślną jest nowy model proces roboczy usług IIS 6.0.
 

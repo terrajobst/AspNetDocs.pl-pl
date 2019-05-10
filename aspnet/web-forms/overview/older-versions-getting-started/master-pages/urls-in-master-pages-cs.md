@@ -8,12 +8,12 @@ ms.date: 06/10/2008
 ms.assetid: 48b58a18-5ea4-468c-b326-f35331b3e1e9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a218dffb3d23ca95e9864fb7b272bc6a004386c4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2679429a6c32e53705905cc234ec92314c7de124
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132028"
 ---
 # <a name="urls-in-master-pages-c"></a>Adresy URL na stronach wzorcowych (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_CS.pdf)
 
 > Rozwiązuje, jak adresy URL na stronie głównej może przerwać ze względu na plik strony głównej, są w innym katalogu względne niż strony zawartość. Patrzy na zmienianie bazy adresy URL za pośrednictwem ~ w składni deklaratywnej i programowo przy użyciu ResolveUrl i ResolveClientUrl. (Także zapoznać się
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -36,13 +35,11 @@ Adres URL, na stronie sieci web jest nazywany *względnym adresem URL* Jeśli lo
 
 Na przykład naszej witryny sieci Web ma `~/Images/` folderu z plikiem pojedynczy obraz `PoweredByASPNET.gif`. Plik strony głównej `Site.master` ma `<img>` element `footerContent` region następującym kodem:
 
-
 [!code-html[Main](urls-in-master-pages-cs/samples/sample1.html)]
 
 `src` Wartość atrybutu `<img>` element jest względny adres URL, ponieważ nie zaczyna się od `/` lub `http://`. Krótko mówiąc `src` informuje przeglądarkę do przeszukania, wartość atrybutu `Images` podfolder dla pliku o nazwie `PoweredByASPNET.gif`.
 
 Podczas wyświetlania strony zawartości, powyżej znaczników są wysyłane bezpośrednio do przeglądarki. Poświęć chwilę, aby odwiedzić `About.aspx` i wyświetlić źródło HTML wysyłany do przeglądarki. Można zauważyć, że dokładnie ten sam kod znaczników na stronie głównej był wysyłany do przeglądarki.
-
 
 [!code-html[Main](urls-in-master-pages-cs/samples/sample2.html)]
 
@@ -51,17 +48,13 @@ Jeśli strona zawartości znajduje się w folderze głównym (ponieważ jest `Ab
 > [!NOTE]
 > W [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) samouczek tworzenia niestandardowej strony podstawowej klasy o nazwie `BasePage` , automatycznie Ustaw tytuł strony zawartości (jeśli go nie została jawnie przypisana). Nie należy zapominać nowo utworzony strony osobna klasa kodu pochodzić od `BasePage` tak, aby go mogą korzystać z tej funkcji.
 
-
 Po utworzeniu tej strony zawartości, Eksploratorze rozwiązań powinien wyglądać podobnie do rysunku 1.
-
 
 ![Nowy Folder i strona platformy ASP.NET zostały dodane do projektu](urls-in-master-pages-cs/_static/image1.png)
 
 **Rysunek 01**: Nowy Folder i strona platformy ASP.NET zostały dodane do projektu
 
-
 Następnie zaktualizuj `Web.sitemap` pliku, aby uwzględnić nowe `<siteMapNode>` wpis dla tej lekcji. Następujący kody XML pokazuje pełną `Web.sitemap` znaczników, który teraz zawiera dodaniu trzeciego `<siteMapNode>` elementu.
-
 
 [!code-xml[Main](urls-in-master-pages-cs/samples/sample3.xml)]
 
@@ -69,16 +62,13 @@ Nowo utworzony `Default.aspx` strona powinna mieć cztery formanty zawartości o
 
 `~/Admin/Default.aspx` Strony zawartości są wysyłane na ten sam kod HTML `footerContent` region, ponieważ był `About.aspx` strony:
 
-
 [!code-html[Main](urls-in-master-pages-cs/samples/sample4.html)]
 
 Ponieważ `<img>` elementu `src` atrybut jest względny adres URL, przeglądarka prób do wyszukania `Images` folderu względem lokalizacji folderu strony sieci web. Innymi słowy, przeglądarka szuka pliku obrazu `Admin/Images/PoweredByASPNET.gif`.
 
-
 [![The PoweredByASPNET.gif Image File Cannot Be Found](urls-in-master-pages-cs/_static/image3.png)](urls-in-master-pages-cs/_static/image2.png)
 
 **Rysunek 02**: `PoweredByASPNET.gif` Obraz nie można odnaleźć pliku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](urls-in-master-pages-cs/_static/image4.png))
-
 
 ### <a name="replacing-relative-urls-with-absolute-urls"></a>Zastępowanie względnych adresów URL przy użyciu bezwzględnych adresów URL
 
@@ -91,11 +81,9 @@ Aby rozwiązać problem, uszkodzony obraz pokazano na rysunku 2, musimy zaktuali
 
 Poświęć chwilę, aby zaktualizować `<img>` elementu `src` atrybutu bezwzględny adres URL przy użyciu jednej formy pokazanych powyżej, a następnie odwiedź `~/Admin/Default.aspx` strony za pośrednictwem przeglądarki. Tym razem przeglądarki zostaną prawidłowo znaleźć i wyświetlić `PoweredByASPNET.gif` pliku obrazu (zobacz rysunek 3).
 
-
 [![Obraz PoweredByASPNET.gif jest teraz wyświetlana](urls-in-master-pages-cs/_static/image6.png)](urls-in-master-pages-cs/_static/image5.png)
 
 **Rysunek 03**: `PoweredByASPNET.gif` Obraz jest teraz wyświetlany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](urls-in-master-pages-cs/_static/image7.png))
-
 
 Natomiast twardych kodowanie przy użyciu programu bezwzględny adres URL działa ściśle couples HTML do serwera witryny sieci Web i lokalizacji folderu, która może ulec zmianie. Za pomocą bezwzględny adres URL formularza `http://localhost:3908/...` jest elementem wrażliwym ponieważ poprzedni numer portu `localhost` jest automatycznie wybierany każdorazowo programu Visual Studio wbudowanych ASP.NET serwera wdrożeniowego sieci Web jest uruchomiona. Podobnie `http://localhost` część jest prawidłowy tylko podczas testowania lokalnie. Gdy kod jest wdrażany na serwerze produkcyjnym, podstawowy adres URL zmieni się czymś innym, takie jak `http://www.yourserver.com`. Bezwzględny adres URL w postaci `/ASPNET_MasterPages_Tutorial_04_CS/...` również odczuwa kruchości na tym samym, ponieważ często tej ścieżki aplikacji różni się między serwerami deweloperskim i produkcyjnym.
 
@@ -110,7 +98,6 @@ Raczej niż ciężko kod bezwzględny adres URL, ASP.NET umożliwia strony użyc
 > [!NOTE]
 > Ponieważ dziedziczyć wszystkie formanty serwera ASP.NET `Control` klasy, wszystkie formanty serwera mają dostęp do `ResolveClientUrl` metody. Nawet `Page` klasa pochodzi od `Control` klasy, co oznacza, że można użyć tej metody, bezpośrednio z klasy CodeBehind strony ASP.NET.
 
-
 ### <a name="usingin-the-declarative-markup"></a>Za pomocą`~`w oznaczeniu deklaracyjnym
 
 Kilka formantów ASP.NET sieci Web obejmują właściwości dotyczące adresu URL: kontrolkę Hiperlinku `NavigateUrl` właściwości; obraz kontrolkę `ImageUrl` właściwości; i tak dalej. Po zakończeniu renderowania tych kontrolek przekazania wartości właściwości związane z adresu URL, aby `ResolveClientUrl`. W związku z tym jeśli zawierają te właściwości `~` wskazujący katalog główny aplikacji sieci web, adres URL zostaną zmodyfikowane i prawidłowym względnym adresem URL.
@@ -119,29 +106,24 @@ Należy pamiętać o tym, tylko formanty serwera ASP.NET przekształcający `~` 
 
 Aby rozwiązać problem z kodu znaczników obrazu w `Site.master`, Zastąp istniejące `<img>` elementu z kontrolką obrazu platformy ASP.NET w sieci Web. Ustawianie kontroli obrazu w sieci Web `ID` do `PoweredByImage`, jego `ImageUrl` właściwości `~/Images/PoweredByASPNET.gif`i jego `AlternateText` właściwość "Powered by ASP.NET!"
 
-
 [!code-aspx[Main](urls-in-master-pages-cs/samples/sample5.aspx)]
 
 Po wprowadzeniu tej zmiany strony wzorcowej, ponownie `~/Admin/Default.aspx` strony. Tym razem `PoweredByASPNET.gif` plik obrazu, który pojawia się na stronie (zobacz rysunek 3). Gdy obraz sieci Web, formant jest czyniło je wykorzystuje `ResolveClientUrl` metodę, aby rozpoznać jego `ImageUrl` wartości właściwości. W `~/Admin/Default.aspx` `ImageUrl` jest konwertowana na odpowiednie względny adres URL, jak poniższy fragment przedstawia źródła HTML:
-
 
 [!code-html[Main](urls-in-master-pages-cs/samples/sample6.html)]
 
 > [!NOTE]
 > Oprócz używany we właściwościach formantu opartego na adresach URL sieci Web, `~` może również służyć podczas wywoływania `Response.Redirect` i `Server.MapPath` metod, między innymi. Ponadto `ResolveClientUrl` metody mogą być wywoływane bezpośrednio z programu ASP.NET lub oznaczeniu deklaracyjnym strony wzorcowej, jeśli to konieczne; zobacz [przenikanie Fritz](https://www.pluralsight.com/blogs/fritz/)firmy wpis w blogu [Using `ResolveClientUrl` w znaczniku](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx).
 
-
 ## <a name="fixing-the-master-pages-remaining-relative-urls"></a>Naprawianie strony wzorcowej pozostałe względnych adresów URL
 
 Oprócz `<img>` element `footerContent` czy po prostu naprawiliśmy, strona główna zawiera jeden bardziej względny adres URL, który wymaga naszej uwagi. `topContent` Region zawiera łącze "Master strony samouczki," wskazujący `Default.aspx`.
-
 
 [!code-html[Main](urls-in-master-pages-cs/samples/sample7.html)]
 
 Ponieważ ten adres URL jest względny, wyśle użytkownikowi `Default.aspx` strony w folderze odwiedzają stronę zawartość. Do tego linku, zawsze wskazywać `Default.aspx` w folderze głównym, należy zastąpić `<a>` element z sieci Web hiperłącze sterowania, co możemy użyć `~` notacji.
 
 Usuń `<a>` znaczników i Dodaj kontrolkę Hiperlinku w tym miejscu. Ustaw hiperłącze `ID` do `lnkHome`, jego `NavigateUrl` właściwości `~/Default.aspx`i jego `Text` właściwość "Samouczki stron wzorca".
-
 
 [!code-aspx[Main](urls-in-master-pages-cs/samples/sample8.aspx)]
 
@@ -151,13 +133,11 @@ To wszystko! W tym momencie wszystkie adresy URL z naszej strony wzorcowej prawi
 
 W [ *tworzenia całej witryny układu za pomocą stron wzorcowych* ](creating-a-site-wide-layout-using-master-pages-cs.md) samouczek dodaliśmy `<link>` do `Styles.css` w pliku `<head>` regionu:
 
-
 [!code-aspx[Main](urls-in-master-pages-cs/samples/sample9.aspx)]
 
 Gdy `<link>` elementu `href` atrybut jest względna, jest automatycznie konwertowany na odpowiednią ścieżkę w czasie wykonywania. Tak jak Omówiliśmy to w [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) samouczku `<head>` region jest faktycznie kontrolkę po stronie serwera i umożliwia modyfikowanie zawartość jego wewnętrzny formantów, gdy jest on renderowany.
 
 Aby to sprawdzić, ponownie `~/Admin/Default.aspx` strony i wyświetlić źródło HTML wysyłany do przeglądarki. Tak jak pokazano w poniższym fragmencie kodu, `<link>` elementu `href` atrybut została automatycznie zmodyfikowana, aby odpowiednie względny adres URL, `../Styles.css`.
-
 
 [!code-html[Main](urls-in-master-pages-cs/samples/sample10.html)]
 

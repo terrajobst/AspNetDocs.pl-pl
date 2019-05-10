@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: c6a4aa4eb563fd77d5afd9248175d5f5b7984d19
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 81d134cbd3231b9a0d5537ccbd1bbfe6419254af
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57071417"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108712"
 ---
 # <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>Tworzenie punktu końcowego OData v4 przy użyciu wzorca ASP.NET Web API 
 
@@ -45,8 +45,6 @@ Rozwiń **zainstalowane** &gt; **Visual C#**  &gt; **Web**i wybierz **aplikacji 
 
 Kliknij przycisk **OK**.
 
-
-
 [![](create-an-odata-v4-endpoint/_static/image8.png)](create-an-odata-v4-endpoint/_static/image8.png)
 
 Wybierz **pusty** szablonu. W obszarze **. Dodaj foldery i podstawowe odwołania dla:**, wybierz opcję **interfejsu API sieci Web**. Kliknij przycisk **OK**.
@@ -70,7 +68,6 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder Modele. Z me
 > [!NOTE]
 > Zgodnie z Konwencją klasy modelu są umieszczane w folderze modeli, ale nie musisz przestrzegać tej Konwencji we własnych projektach.
 
-
 Nazwa klasy `Product`. W pliku Product.cs Zastąp standardowy kod następujących czynności:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample2.cs)]
@@ -83,7 +80,6 @@ W tym samouczku użyjemy Entity Framework (EF) Code First platformy do utworzeni
 
 > [!NOTE]
 > Web API OData nie wymaga EF. Użyj dowolnej warstwy dostępu do danych, która może dokonywać translacji jednostek bazy danych modeli.
-
 
 Najpierw zainstaluj pakiet NuGet dla platformy EF. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** &gt; **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz polecenie:
 
@@ -130,7 +126,6 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolerów
 
 > [!NOTE]
 > Wersja tego samouczka dla protokołu OData v3 używa **Dodaj kontroler** tworzenia szkieletów. Obecnie nie ma żadnych funkcją szkieletów dla protokołu OData v4.
-
 
 Zamień schematyczny kod w ProductsController.cs poniżej.
 

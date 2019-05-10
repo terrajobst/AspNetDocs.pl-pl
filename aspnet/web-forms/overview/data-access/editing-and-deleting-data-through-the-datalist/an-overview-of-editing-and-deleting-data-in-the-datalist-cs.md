@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: c3b0c86e-fe98-41ee-b26f-ca38cddaa75e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e29ae36b81b08df2b6f52e0f6d9e1a10d9b6f19
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a1ea830bc2fe5a88bc80416375e7bfd7959b667e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384937"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108377"
 ---
 # <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>Omówienie edytowania i usuwania danych w kontrolce DataList (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_36_CS.exe) lub [Pobierz plik PDF](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/datatutorial36cs1.pdf)
 
 > Gdy kontrolki DataList nie ma wbudowanego edytowania i usuwania funkcji, w tym samouczku zobaczymy sposób tworzenia DataList, obsługującego edytowania i usuwania swoich danych bazowych.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -34,7 +33,6 @@ W tym samouczku opisano sposób tworzenia DataList, obsługującego edytowania i
 
 > [!NOTE]
 > Jak DataList kontrolce elementu powtarzanego brakuje poza funkcjonalność pola do wstawiania, aktualizowania lub usuwania. Chociaż można dodawać funkcjonalność, kontrolki DataList obejmuje właściwości i zdarzenia nie można odnaleźć w elemencie powtarzanym, które upraszczają dodawanie tych funkcji. W związku z tym w tym samouczku i wszystkie następne, które Przyjrzyj się edytowania i usuwania koncentruje się wyłącznie na elemencie DataList.
-
 
 ## <a name="step-1-creating-the-editing-and-deleting-tutorials-web-pages"></a>Krok 1. Tworzenie stron sieci Web samouczki edytowania i usuwania
 
@@ -50,32 +48,25 @@ Zanim zaczniemy, eksplorowanie jak aktualizować i usuwać dane z kontrolką Dat
 - `ConfirmationOnDelete.aspx`
 - `UserLevelAccess.aspx`
 
-
 ![Dodawanie stron ASP.NET samouczki](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image1.png)
 
 **Rysunek 1**: Dodawanie stron ASP.NET samouczki
 
-
 Podobnie jak w przypadku innych folderów `Default.aspx` w `EditDeleteDataList` folder zawiera listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
-
 
 [![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image3.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image2.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image4.png))
 
-
 Na koniec Dodaj strony jako wpisy, aby `Web.sitemap` pliku. Ściślej mówiąc, Dodaj następujący kod po raporty wzorzec/szczegół za pomocą kontrolek DataList i Repeater `<siteMapNode>`:
-
 
 [!code-xml[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample1.xml)]
 
 Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web w samouczkach, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementów dla DataList, edytowania i usuwania samouczków.
 
-
 ![Mapa witryny zawiera teraz wpisy dla DataList, edytowania i usuwania samouczki](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image5.png)
 
 **Rysunek 3**: Mapa witryny zawiera teraz wpisy dla DataList, edytowania i usuwania samouczki
-
 
 ## <a name="step-2-examining-techniques-for-updating-and-deleting-data"></a>Krok 2. Badanie metod aktualizowania i usuwania danych
 
@@ -106,49 +97,39 @@ W tym samouczku utworzymy DataList, który zawiera informacje o produkcie i dla 
 
 Zacznij od otwarcia `Basics.aspx` stronie `EditDeleteDataList` folder i w widoku Projekt, dodać kontrolką DataList do strony. Następnie należy utworzyć nowe kontrolki ObjectDataSource z tagu inteligentnego s DataList. Ponieważ pracujemy z danymi produktów, należy skonfigurować tak, aby użyć `ProductsBLL` klasy. Można pobrać *wszystkich* wybierz produkty, `GetProducts()` metody w karcie Wybierz.
 
-
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLL](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image7.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image6.png)
 
 **Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image8.png))
-
 
 [![Zwraca informacje o produkcie przy użyciu metody GetProducts()](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image10.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image9.png)
 
 **Rysunek 5**: Zwraca informacje o produkt za pomocą `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image11.png))
 
-
 DataList, takich jak GridView, nie jest przeznaczona do wstawiania nowych danych; w związku z tym, wybierz opcję (Brak) z listy rozwijanej na karcie Wstawianie. Też (Brak) dla karty aktualizacji i usuwania, ponieważ aktualizacji i usuwania będą wykonywane programowo przy użyciu LOGIKI.
-
 
 [![Upewnij się, że listy rozwijane w s ObjectDataSource WSTAWIANIA, aktualizacji i usuwania karty są ustawione na (Brak)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image13.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image12.png)
 
 **Rysunek 6**: Upewnij się, że listy rozwijane w s WSTAWIANIA, aktualizacji i usuwania karty ObjectDataSource są ustawione na (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image14.png))
-
 
 Po skonfigurowaniu kontrolki ObjectDataSource, kliknij przycisk Zakończ, wracając do projektanta. Ponieważ ve widoczne w poprzednich przykładach podczas kończenia konfiguracji elementu ObjectDataSource, Visual Studio automatycznie tworzy `ItemTemplate` DropDownList, wyświetlanie wszystkich pól danych. Zastąp to `ItemTemplate` o taki, który wyświetla tylko nazwę produktu s i ceny. Ponadto należy ustawić `RepeatColumns` właściwość 2.
 
 > [!NOTE]
 > Zgodnie z opisem w *Przegląd Wstawianie, aktualizowanie i usuwanie danych* samouczek, w przypadku modyfikowania danych za pomocą kontrolki ObjectDataSource Nasza architektura wymaga, że możemy usunąć `OldValuesParameterFormatString` właściwość z elementu ObjectDataSource s oznaczeniu deklaracyjnym (lub zresetować je do swojej wartości domyślnej `{0}`). W tym samouczku jednak użyto kontrolki ObjectDataSource tylko w przypadku pobierania danych. W związku z tym, nie należy modyfikować ObjectDataSource s `OldValuesParameterFormatString` wartość właściwości (mimo że jego t pogarszać Aby to zrobić).
 
-
 Po zastąpieniu domyślne DataList `ItemTemplate` przy użyciu dostosowanych jeden oznaczeniu deklaracyjnym na stronie powinien wyglądać podobnie do następujących:
-
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample2.aspx)]
 
 Poświęć chwilę, aby wyświetlić postępach za pośrednictwem przeglądarki. Jak pokazano na rysunku 7, kontrolki DataList wyświetlana jest cena nazwy i jednostki produktu dla każdego produktu w dwóch kolumnach.
 
-
 [![Produkty, nazwy i ceny są wyświetlane w DataList dwie kolumny](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image16.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image15.png)
 
 **Rysunek 7**: Produkty, nazwy i ceny są wyświetlane w DataList dwie kolumny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image17.png))
-
 
 > [!NOTE]
 > Kontrolki DataList ma wiele właściwości, które są wymagane przez proces aktualizowania i usuwania, a te wartości są przechowywane w widoku stanu. W związku z tym gdy kompilowanie kontrolką DataList, która obsługuje edytowania lub usuwania danych, jest niezbędne, można włączyć stan widoku s DataList.  
 >   
 > Uważni czytnika może pamiętasz, że możemy wyłączyć stan widoku, tworząc edytowalne GridViews DetailsViews i FormViews. Jest to spowodowane formantów sieci Web ASP.NET 2.0 mogą obejmować *kontrolowany stan*, który jest stan zachowywany ogłaszania zwrotnego, takich jak stan widoku, ale zakładany niezbędne.
-
 
 Wyłączanie widok stanu, w widoku GridView jedynie pomija informacje o stanie prosta, ale zachowuje stan formantu (w tym stanie niezbędne do edytowania i usuwania). DataList, jakby został utworzony w przedziale czasu 1.x ASP.NET, nie używa stan formantu i dlatego musi mieć stan widoku włączone. Zobacz [vs stan kontrolki. Wyświetl stan](https://msdn.microsoft.com/library/1whwt1k7.aspx) uzyskać więcej informacji dotyczących przeznaczenia stan formantu i czym różni się ona od stanu widoku.
 
@@ -160,30 +141,24 @@ DataList, z drugiej strony, powoduje wyświetlenie jego elementów za pomocą sz
 
 `EditItemTemplate` Można utworzyć deklaratywne lub za pomocą projektanta (przez wybranie opcji Edytuj szablony z tagu inteligentnego DataList s). Aby użyć opcji Edytuj szablony, najpierw kliknij link Edytuj szablony w tagu inteligentnego, a następnie wybierz pozycję `EditItemTemplate` elementu z listy rozwijanej.
 
-
 [![Zoptymalizowany pod kątem do pracy za pomocą kontrolek DataList EditItemTemplate s](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image19.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image18.png)
 
 **Rysunek 8**: Zoptymalizowany pod kątem pracy z DataList s `EditItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image20.png))
 
-
 Następnie wpisz w polu Nazwa produktu: i cena:, a następnie przeciągnij dwie kontrolki TextBox z przybornika do `EditItemTemplate` interfejsu w projektancie. Ustawianie pól tekstowych `ID` właściwości `ProductName` i `UnitPrice`.
-
 
 [![Dodaj pole tekstowe Nazwa s produktu i cenę](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image22.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image21.png)
 
 **Rysunek 9**: Dodaj pole tekstowe dla produktu s Nazwa i cena ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image23.png))
-
 
 Należy powiązać odpowiedniego produktu pola wartości danych `Text` właściwości dwóch pól tekstowych. Z tagów inteligentnych pól tekstowych, kliknij link Edytuj powiązania danych, a następnie skojarzyć pola odpowiednie dane za pomocą `Text` właściwości, jak pokazano na rysunku nr 10.
 
 > [!NOTE]
 > Podczas tworzenia powiązania `UnitPrice` pola danych do ceny TextBox s `Text` pola, można formatować je jako wartość waluty (`{0:C}`), ogólne numer (`{0:N}`), lub pozostaw to pole niesformatowany.
 
-
 ![Powiązywanie właściwości Text pól tekstowych ProductName i pola danych UnitPrice](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Powiąż `ProductName` i `UnitPrice` polom danych `Text` właściwości pól tekstowych
-
 
 Zwróć uwagę, jak odbywa się okno dialogowe Edytuj powiązania danych na rysunku nr 10 *nie* obejmują wyboru dwukierunkowego wiązania danych, który jest obecny podczas edytowania TemplateField w kontrolce GridView lub DetailsView lub szablonu w widoku FormView. Funkcja dwukierunkowego wiązania danych dozwolona wartość wprowadzoną w danych wejściowych kontrolki sieci Web ma być automatycznie przypisane do odpowiednich s ObjectDataSource `InsertParameters` lub `UpdateParameters` podczas wstawiania lub aktualizowania danych. Kontrolki DataList nie obsługuje dwukierunkowego wiązania danych, ponieważ zobaczymy później w tym samouczku po sprawia, że użytkownik jej zmiany i jest gotowy do aktualizacji danych, trzeba uzyskać programowy dostęp do tych pól tekstowych `Text` właściwości i przekaż ich wartości odpowiednie `UpdateProduct` method in Class metoda `ProductsBLL` klasy.
 
@@ -197,14 +172,11 @@ Należy pamiętać, że te zdarzenia są wywoływane *oprócz* `ItemCommand` zda
 
 Dodaj do `EditItemTemplate` dwie kontrolki przycisku w sieci Web, po jednym którego `CommandName` jest ustawiona na aktualizację i inne zasoby, ustaw opcję Anuluj. Po dodaniu tych dwóch formantów Web przycisk projektanta powinien wyglądać podobnie do poniższej:
 
-
 [![Dodawanie aktualizacji i przyciski do EditItemTemplate "Anuluj"](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image26.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image25.png)
 
 **Rysunek 11**: Dodawanie aktualizacji i przyciski Anuluj, aby `EditItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image27.png))
 
-
 Za pomocą `EditItemTemplate` pełną znaczników deklaratywne DataList s powinien wyglądać podobnie do następującego:
-
 
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample3.aspx)]
 
@@ -214,11 +186,9 @@ W tym momencie nasze DataList ma interfejs edycji zdefiniowanych za pomocą jego
 
 Po dodaniu tego przycisku edycji potrwać chwilę, aby wyświetlić stronę za pośrednictwem przeglądarki. Dodając każda lista produktów powinny zawierać dostępny przycisk Edytuj.
 
-
 [![Dodawanie aktualizacji i przyciski do EditItemTemplate "Anuluj"](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image29.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image28.png)
 
 **Rysunek 12**: Dodawanie aktualizacji i przyciski Anuluj, aby `EditItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image30.png))
-
 
 Kliknięcie przycisku powoduje odświeżenie strony, ale *nie* Przenieś produkty do trybu edycji. Umożliwiają produktu można edytować, należy:
 
@@ -227,18 +197,15 @@ Kliknięcie przycisku powoduje odświeżenie strony, ale *nie* Przenieś produkt
 
 Ponieważ DataList s `EditCommand` zdarzenie jest wywoływane, gdy kliknięto przycisk Edytuj, Utwórz `EditCommand` programu obsługi zdarzeń z następującym kodem:
 
-
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample4.cs)]
 
 `EditCommand` Programu obsługi zdarzeń jest przekazywany obiekt typu `DataListCommandEventArgs` jako drugi parametr wejściowy, który zawiera odwołanie do `DataListItem` został kliknięty przycisk Edytuj, którego (`e.Item`). Program obsługi zdarzeń najpierw ustawia DataList s `EditItemIndex` do `ItemIndex` z edytowalne `DataListItem` i następnie rebinds danych do kontrolki DataList przez wywołanie metody DataList s `DataBind()` metody.
 
 Po dodaniu tej obsługi zdarzeń, ponownie stronę w przeglądarce. Teraz kliknięcie przycisku Edytuj sprawia, że można edytować kliknięto produktu (patrz rysunek 13).
 
-
 [![Klikając przycisk edycji przycisk sprawia, że można edytować produktu](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image32.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image31.png)
 
 **Rysunek 13**: Klikając przycisk Edytuj sprawia, że edytowalne produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image33.png))
-
 
 ## <a name="step-6-saving-the-user-s-changes"></a>Krok 6. Zapisywanie zmian s użytkownika
 
@@ -250,7 +217,6 @@ Aby DataList renderowania, wszystkie jego elementy w trybie tylko do odczytu, na
 2. Ponownie powiązać dane do kontrolki DataList. Ponieważ nie `DataListItem` `ItemIndex` es odpowiadają DataList s `EditItemIndex`, cały DataList będą renderowane w trybie tylko do odczytu.
 
 Te kroki można osiągnąć przy użyciu następującego kodu programu obsługi zdarzeń:
-
 
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample5.cs)]
 
@@ -269,7 +235,6 @@ Aby uzyskać nazwę zaktualizowanego produktu i cenę, musimy użyć `FindContro
 
 Poniższy kod implementuje cztery kroki:
 
-
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample6.cs)]
 
 Program obsługi zdarzeń uruchamia, czytając w produkcie edytowanych s `ProductID` z `DataKeys` kolekcji. Następnie dwóch pól tekstowych w `EditItemTemplate` są określone i ich `Text` właściwości przechowywane w zmiennych lokalnych `productNameValue` i `unitPriceValue`. Używamy `Decimal.Parse()` metodę, aby odczytać wartości z `UnitPrice` pola tekstowego, tak że jeśli wartość wprowadzona zawiera symbol waluty, nadal poprawnie konwersji do `Decimal` wartości.
@@ -277,26 +242,21 @@ Program obsługi zdarzeń uruchamia, czytając w produkcie edytowanych s `Produc
 > [!NOTE]
 > Wartości z `ProductName` i `UnitPrice` pola tekstowe są przypisane tylko do zmiennych productNameValue i unitPriceValue, jeśli określona wartość właściwości tekstu pola tekstowe. W przeciwnym razie wartość `Nothing` służy do zmiennych, która powoduje aktualizowanie danych za pomocą bazy danych `NULL` wartość. Oznacza to, że nasz kod traktuje konwertuje puste ciągi do bazy danych `NULL` wartości, które jest to domyślne zachowanie interfejsu edycji, z kontrolki GridView DetailsView i FormView.
 
-
 Po przeczytaniu wartości, `ProductsBLL` klasy s `UpdateProduct` metoda jest wywoływana, przekazując nazwę produktu s, ceny i `ProductID`. Program obsługi zdarzeń kończy się, zwracając kontrolki DataList stan wstępnie edycji przy użyciu dokładnie tę samą logikę, podobnie jak w `CancelCommand` programu obsługi zdarzeń.
 
 Za pomocą `EditCommand`, `CancelCommand`, i `UpdateCommand` zakończenia procedury obsługi zdarzeń, obiekt odwiedzający można edytować nazwę i cena produktu. Rysunki 14-16 wyświetlenie tego edycji przepływu pracy w działaniu.
-
 
 [![Po pierwsze, odwiedzając stronę, wszystkie produkty są w trybie tylko do odczytu](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image35.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image34.png)
 
 **Rysunek 14**: Po pierwsze, odwiedzając stronę, wszystkie produkty są w trybie tylko do odczytu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image36.png))
 
-
 [![Aktualizacja produktu, nazwa lub cen, kliknij przycisk Edytuj](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image38.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image37.png)
 
 **Rysunek 15**: Aby zaktualizować produkt s nazwy ani ceny, kliknij przycisk Edytuj ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image39.png))
 
-
 [![Po zmianie wartości, kliknij przycisk Aktualizuj, aby powrócić do trybu tylko do odczytu](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image41.png)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image40.png)
 
 **Rysunek 16**: Po zmianie wartości, kliknij polecenie Aktualizuj, aby powrócić do trybu tylko do odczytu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/_static/image42.png))
-
 
 ## <a name="step-7-adding-delete-capabilities"></a>Krok 7. Dodawanie funkcji Delete
 
@@ -312,11 +272,9 @@ Po kliknięciu przycisku którego `CommandName` jest Edycja, Update, lub Anuluj 
 
 Dodaj przycisk usuwania obok przycisku edycji w `ItemTemplate`, ustawiając jego `CommandName` właściwości do usunięcia. Po dodaniu tego przycisku sterowania listy DataList s `ItemTemplate` składni deklaratywnej powinien wyglądać następująco:
 
-
 [!code-aspx[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample7.aspx)]
 
 Następnie należy utworzyć procedurę obsługi zdarzeń dla kontrolek DataList s `DeleteCommand` zdarzeń, używając następującego kodu:
-
 
 [!code-csharp[Main](an-overview-of-editing-and-deleting-data-in-the-datalist-cs/samples/sample8.cs)]
 

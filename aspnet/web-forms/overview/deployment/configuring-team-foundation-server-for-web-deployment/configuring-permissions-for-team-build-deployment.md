@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62e5c5622743447e1119141469c894dc905e6b43
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5699f72af6b8d7f18d1a2c631dfdedd63c66e1e6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381058"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133855"
 ---
 # <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurowanie uprawnień dla wdrożenia kompilacji zespołowej
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób konfigurowania uprawnień, aby włączyć serwer kompilacji do wdrażania zawartości serwerów sieci web i serwery baz danych w ramach zautomatyzowanego procesu kompilacji.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -36,7 +35,6 @@ Wszystkie zadania wdrażania, które wymagają uwierzytelniania Windows i planuj
 
 > [!NOTE]
 > Konto Usługa sieciowa używa konta komputera do uwierzytelniania na innych komputerach. Konta komputerów mieć postać * [nazwa domeny]\[nazwa komputera] ***$**&#x2014;na przykład **FABRIKAM\TFSBUILD$**. Jako takie swoją usługę kompilacji jest uruchamiany, za pomocą tożsamości usługi sieciowej, należy udzielić wszystkie uprawnienia wymagane do tożsamość konta komputera dla serwera kompilacji.
-
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurowanie uprawnień serwera sieci Web
 

@@ -8,12 +8,12 @@ ms.date: 06/01/2015
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: b59cd34036c733579e678eab78097d3393f3e671
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 652ed86826616dec5a4d1900dd57d7e6fd43a4e7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421085"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108879"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
 
@@ -22,7 +22,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
-
 
 Ta strona zawiera opis niektórych typowych problemów, które mogą wystąpić podczas wdrażania aplikacji sieci web ASP.NET za pomocą programu Visual Studio. Dla każdego z nich znajdują się możliwe przyczyny i odpowiednie rozwiązania.
 

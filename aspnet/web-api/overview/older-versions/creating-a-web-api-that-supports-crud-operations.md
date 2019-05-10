@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: 855c3fa35d82173c87d13adb51e10fd13698ade5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3c2a41482b7f9b60a8864b853df23ab5991b6da7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108745"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD we wzorcu ASP.NET Web API 1
 
@@ -29,7 +29,6 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - Visual Studio 2012
 > - Składnik Web API 1 (dotyczy również Web API 2)
-
 
 Oznacza CRUD &quot;tworzenia, odczytu, aktualizacji i usuwania,&quot; służą do czterech operacji podstawowej bazy danych. Wiele usług HTTP również model operacji CRUD, za pośrednictwem REST lub interfejsów API REST podobne.
 
@@ -136,7 +135,6 @@ W **Dodaj kontroler** kreatora, nazwy kontrolera &quot;ProductsController&quot;.
 > [!NOTE]
 > Nie jest konieczne kontrolerach należy umieścić w folderze o nazwie kontrolerów. Nazwa folderu nie jest ważna; jest po prostu wygodny sposób organizowania plików źródłowych.
 
-
 **Dodaj kontroler** Kreator utworzy plik o nazwie ProductsController.cs w folderze kontrolerów. Jeśli ten plik nie jest jeszcze otwarty, kliknij dwukrotnie, aby go otworzyć. Dodaj następujący kod **przy użyciu** instrukcji:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
@@ -147,7 +145,6 @@ Dodaj pola zawierające **IProductRepository** wystąpienia.
 
 > [!NOTE]
 > Wywoływanie `new ProductRepository()` w kontrolerze nie jest najlepszy projekt, ponieważ wiąże kontroler konkretnej implementacji `IProductRepository`. Aby uzyskać lepszym rozwiązaniem, zobacz [za pomocą mechanizmu rozpoznawania zależności dla interfejsu API sieci Web](../advanced/dependency-injection.md).
-
 
 ## <a name="getting-a-resource"></a>Wprowadzenie do zasobu
 
@@ -205,7 +202,6 @@ Należy zauważyć, że typ zwracany metody jest teraz **obiektu HttpResponseMes
 
 > [!NOTE]
 > Nie można zweryfikować w tym przykładzie `Product`. Aby uzyskać informacji o weryfikacji modelu, zobacz [weryfikacji modelu programu ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
-
 
 ## <a name="updating-a-resource"></a>Aktualizowanie zasobu
 

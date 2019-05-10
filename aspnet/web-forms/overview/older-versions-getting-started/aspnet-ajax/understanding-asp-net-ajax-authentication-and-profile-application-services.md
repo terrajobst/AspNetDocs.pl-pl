@@ -8,12 +8,12 @@ ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 18056c917b32680678c536229e8e26d5cc7db161
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1087d9120411e51fd61d073169a88cac6cdaf15b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395137"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109489"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX
 
@@ -22,7 +22,6 @@ przez [Scott Cate](https://github.com/scottcate)
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
 > Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu odbierania pliku cookie uwierzytelniania i usługi bramy, aby umożliwić profilów użytkownika niestandardowego jest dostarczane przez platformę ASP.NET. Korzystanie z usługi Uwierzytelnianie ASP.NET AJAX jest zgodny z standardowe uwierzytelnianie formularzy programu ASP.NET, dzięki czemu aplikacje, które obecnie z uwierzytelniania formularzy (na przykład za pomocą identyfikatora logowania kontrolować) będzie nie podzielony przez uaktualnienie do usługi uwierzytelniania AJAX.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -63,7 +62,7 @@ Metoda: login() rozpoczyna żądanie uwierzytelnienia poświadczeń użytkownika
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
 | userName | Wymagana. Nazwa użytkownika do uwierzytelniania. |
-| hasło | Atrybut opcjonalny (wartość domyślna to null). Hasło użytkownika. |
+| password | Atrybut opcjonalny (wartość domyślna to null). Hasło użytkownika. |
 | isPersistent | Atrybut opcjonalny (wartość domyślna to false). Czy plik cookie uwierzytelniania użytkownika ma utrwalić między sesjami. W przypadku wartości FAŁSZ użytkownika powoduje wylogowanie, gdy nastąpi zamknięcie okna przeglądarki lub ważności sesji. |
 | redirectUrl | Atrybut opcjonalny (wartość domyślna to null). Adres URL do przekierowania wyszukiwarki na pomyślne uwierzytelnienie. Jeśli ten parametr ma wartość null lub pusty ciąg, przekierowanie nie występuje. |
 | customInfo | Atrybut opcjonalny (wartość domyślna to null). Ten parametr jest aktualnie używana i jest zarezerwowany do użytku w przyszłości. |

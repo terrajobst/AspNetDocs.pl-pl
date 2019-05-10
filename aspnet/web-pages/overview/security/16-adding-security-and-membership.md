@@ -8,12 +8,12 @@ ms.date: 02/24/2014
 ms.assetid: 7a77c2c0-deea-4290-a9c3-97958891758e
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: 1291417755e3fa4fb030bc6ba3089c38c4719c71
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0be3e767a42939a3c343f6d4a730eb1d9a6b367c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389669"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112377"
 ---
 # <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages (Razor)
 
@@ -42,7 +42,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web Pages (Razor) 2
 > - Program WebMatrix 3
 > - Bibliotekę pomocników platformy ASP.NET w sieci Web
-
 
 Można skonfigurować witryny sieci Web, dzięki czemu użytkownicy mogą zalogować się do niej &#8212; oznacza to, aby lokacja obsługuje *członkostwa*. Może to być przydatne w wielu powodów. Na przykład witryna może być stron, które powinny być dostępne tylko do elementów członkowskich. W niektórych przypadkach może wymagać, aby użytkownicy logowali się, aby wyrażać opinie lub Dodaj komentarz.
 
