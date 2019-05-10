@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91948b1b997b083606a53e6e02bc00d2c58cb791
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 17a176b8bf3b1de8a0ff9145ab6f5f26cf210503
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59418147"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120863"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 
@@ -57,12 +57,10 @@ Uruchom aplikację, a następnie kliknij pozycję **filmu MVC** łącza (lub prz
 
 Wybierz **Utwórz nowy** łącza. Wprowadź informacje na temat filmów, a następnie kliknij przycisk **Utwórz** przycisku.
 
-
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
 > Nie można wprowadzić w polu Cena kropki i przecinki. do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty inne niż angielski, należy wprowadzić *globalize.js* i konkretne  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i języka JavaScript, aby użyć `Globalize.parseFloat`. Czy mogę pokazano, jak to zrobić w następnym samouczku. Teraz po prostu wprowadź liczbami całkowitymi, takich jak 10.
-
 
 Klikając **Utwórz** przycisku powoduje, że formularz do opublikowania na serwerze, gdzie informacje filmu są zapisywane w bazie danych. Użytkownik jest następnie przekierowywane do */Movies* adresu URL, w którym można zobaczyć nowo utworzoną filmu na liście.
 

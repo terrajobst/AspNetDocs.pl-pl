@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: c39e1cf42fde382a9e74d7f865f0dac1aa62ddc8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c165bbea505b4cb8eae1312cdd587f4ed36541a0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384243"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127945"
 ---
 # <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Korzystanie z narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms
 
@@ -43,7 +43,6 @@ przez Tim Ammann
 > 
 > [Za pomocą selektora kolorów CSS](#css_color_picker)
 
-
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -52,7 +51,6 @@ przez Tim Ammann
 
 > [!NOTE]
 > Aby uzyskać najnowszą wersję narzędzia Page Inspector, użyj [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) do zainstalowania zestawu Azure SDK dla platformy .NET w wersji 2.0.
-
 
 Narzędzie Page Inspector jest umieszczany w pakietach za pomocą narzędzia Microsoft Web Developer Tools. Najnowsza wersja to 1.3. Aby sprawdzić, która wersja mają, uruchom program Visual Studio i wybierz **Microsoft Visual Studio** z **pomocy** menu.
 
@@ -190,7 +188,6 @@ Ponownie zaznacz pole wyboru, a następnie kliknij dwukrotnie wartość właści
 
 > [!NOTE]
 > Ta funkcja wymaga w wersji 1.3 narzędzia Page Inspector.
-
 
 Funkcja automatycznej synchronizacji CSS służy do bezpośredniego edytowania pliku CSS i zobaczyć zmiany bezpośrednio w przeglądarce narzędzia Page Inspector.
 

@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b01913b3ad3291d90bdf9455c3d35bb7b36b3f28
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f56087b1e94653d2a6a06f915191db6ec5e358a2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415248"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116964"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>Dostosowywanie indeksu Z kontrolki DropShadow (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)
 
 > Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Jednak to w tle czasami jest w konflikcie z innymi formantami, na przykład formant Menu platformy ASP.NET. Gdy wpis menu pojawia się, prawdopodobnie za cienia.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -55,11 +54,9 @@ Po uruchomieniu tego skryptu, elementy menu wyświetlane w obszarze panelu. Jedn
 
 Następnie `DropShadowExtender` formantu nie powoduje już konfliktu z formant Menu.
 
-
 [![Przed: Wpis menu nie jest widoczny](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)
 
 Przed: Wpis menu nie jest widoczny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))
-
 
 [![Po: Pojawi się wpis menu](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)
 

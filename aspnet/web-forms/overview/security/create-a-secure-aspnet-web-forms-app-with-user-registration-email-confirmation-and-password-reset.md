@@ -8,19 +8,18 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 3df728891103de9c8e461ab9507237c9b14e8251
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: af3653bc164810126bc3bf8f1b1794d75642d807
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390691"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133802"
 ---
 # <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji ASP.NET Web Forms z rejestracją użytkownika, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
 
 przez [Erik Reitan](https://github.com/Erikre)
 
 > W tym samouczku przedstawiono sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą rejestracji użytkowników, potwierdzenie adresu e-mail i resetowania haseł za pomocą systemu członkostwa ASP.NET Identity. W tym samouczku został oparty na Rick Anderson [samouczek MVC](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md).
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -43,7 +42,6 @@ Rozpocznij od instalowania i uruchamiania [Visual Studio Express 2013 for Web](h
 
 > [!NOTE]
 > Ostrzeżenie: Należy zainstalować [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465) lub nowszej, aby ukończyć ten samouczek.
-
 
 1. Utwórz nowy projekt (**pliku**  - &gt; **nowy projekt**) i wybierz **aplikacji sieci Web ASP.NET** szablonu i najnowszej wersji .NET Framework wersja z **nowy projekt** okno dialogowe.
 2. Z **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **formularzy sieci Web** szablonu. Pozostaw domyślne uwierzytelnianie jako **indywidualne konta użytkowników**. Jeśli chcesz hostować aplikację na platformie Azure, należy pozostawić **Hostuj w chmurze** pole wyboru zaznaczone.   
@@ -95,7 +93,6 @@ Chociaż ten samouczek przedstawia tylko sposób dodawania powiadomienie e-mail 
 ### <a name="enable-email-confirmation"></a>Włącz potwierdzenie adresu E-mail
 
  Aby włączyć e-mail z potwierdzeniem, zmodyfikujesz kod rejestracyjny, wykonując następujące kroki.  
- 
 
 1. W *konta* folder, otwórz *Register.aspx.cs* związanym z kodem i zaktualizuj `CreateUser_Click` metodę umożliwiającą włączenie wyróżnione następujące zmiany: 
 

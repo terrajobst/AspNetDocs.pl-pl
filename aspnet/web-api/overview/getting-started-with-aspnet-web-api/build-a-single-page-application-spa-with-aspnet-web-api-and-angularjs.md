@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f093e348216750cbadb6e52f524e5edd4d6c498
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 86833a890da759e489dd11dc9afb128a9b7a75e3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390275"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125258"
 ---
 # <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Ćwiczenia praktyczne: tworzenie aplikacji jednostronicowej przy użyciu wzorca ASP.NET Web API i platformy Angular.js
 
@@ -34,7 +34,6 @@ W aplikacji sieci web tradycyjnych klienta (przeglądarki) inicjuje komunikację
 > 
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -66,7 +65,6 @@ Aby można było uruchomić ćwiczeń opisanych w tym praktyczne laboratorium, n
 > [!NOTE]
 > Upewnij się, że wszystkie zależności w tym środowisku laboratoryjnym sprawdzeniu przed uruchomieniem Instalatora.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Za pomocą fragmentów kodu
 
@@ -74,7 +72,6 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 
 > [!NOTE]
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
-
 
 ---
 
@@ -90,7 +87,6 @@ Szacowany czas do ukończenia tego laboratorium: **60 minut**
 
 > [!NOTE]
 > Przy pierwszym uruchomieniu programu Visual Studio, należy wybrać jedną z kolekcji wstępnie zdefiniowanych ustawień. Każda kolekcja wstępnie zdefiniowanych służy do dopasowywania style rozwoju i określa układy okna, zachowanie edytora, fragmenty kodu IntelliSense i opcje w oknach dialogowych. Procedury przedstawione w tym środowisku laboratoryjnym opisano czynności niezbędnych do wykonywania danego zadania w programie Visual Studio, korzystając z **ogólnych ustawieniach projektowych** kolekcji. Jeśli wybierzesz kolekcji różne ustawienia dla swojego środowiska programowania, może być różnice w krokach, które należy wziąć pod uwagę.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-creating-a-web-api"></a>Ćwiczenie 1: Tworzenie internetowego interfejsu API
@@ -251,7 +247,6 @@ W tym zadaniu zostanie zweryfikowana, czy usługi interfejsu API sieci Web, któ
 > 
 > ![Internet Explorer option](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image9.png)
 
-
 1. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie. **Zaloguj** strony powinna zostać wyświetlona w przeglądarce.
 
     > [!NOTE]
@@ -309,7 +304,6 @@ Rozpocznie się od zainstalowania moduł AngularJS z konsoli Menedżera pakietó
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat AngularJS dotyczą [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
-
 
 1. Otwórz **Visual Studio Express 2013 for Web** , a następnie otwórz **GeekQuiz.sln** rozwiązanie znajduje się w **/Ex2-CreatingASPAInterface/początkowy w źródle** folderu. Alternatywnie można kontynuować z rozwiązaniem uzyskanym w poprzednim ćwiczeniu.
 2. Otwórz **Konsola Menedżera pakietów** z **narzędzia** > **Menedżera pakietów NuGet**. Wpisz następujące polecenie, aby zainstalować **AngularJS.Core** pakietu NuGet.

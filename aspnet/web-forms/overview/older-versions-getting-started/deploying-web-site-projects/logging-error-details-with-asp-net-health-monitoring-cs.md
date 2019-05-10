@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: b1abb452-642a-4ff3-8504-37b85590ff79
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 52b1aec577634dfb9fec7753e4f9b8bf46d159f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6b444de67f3bce3d09dd8c3c172895cf07f58df8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416262"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134413"
 ---
 # <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Rejestrowanie szczegółów błędu za pomocą monitorowania kondycji ASP.NET (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_13_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial13_HealthMonitoring_cs.pdf)
 
 > System monitorowania kondycji przez firmę Microsoft umożliwia łatwe i możliwe do dostosowania do rejestrowania różnych zdarzeń w sieci web, łącznie z nieobsługiwanych wyjątków. W tym samouczku przedstawiono konfigurowanie kondycji systemu monitorowania, rejestrowania nieobsługiwanych wyjątków z bazą danych i deweloperom za pośrednictwem wiadomości e-mail powiadamiania.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -67,7 +66,6 @@ Kondycja monitorowania konfiguracji domyślnego systemu można dostosować na po
 > [!NOTE]
 > `aspnet_regsql.exe` Narzędzie została omówiona w [ *Konfigurowanie witryny sieci Web, korzysta z usługi aplikacji* samouczek](configuring-a-website-that-uses-application-services-cs.md) po Dodaliśmy obsługę dla stron ASP. Usługi aplikacji w sieci. W związku z tym, przeglądy książki witryny internetowej baza danych zawiera już `aspnet_WebEvent_LogEvent` procedurą składowaną, która przechowuje informacje o zdarzeniu do tabeli o nazwie `aspnet_WebEvent_Events`.
 
-
 Po utworzeniu niezbędnych procedur składowanych i tabela dodawane do bazy danych pozostaje nakazać kondycji monitorowania, aby rejestrować wszystkie nieobsłużone wyjątki w bazie danych. To osiągnąć, dodając następujący kod do witryny sieci Web `Web.config` pliku:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample2.xml)]
@@ -82,7 +80,6 @@ Te informacje o konfiguracji powoduje, że monitorowania systemu, aby rejestrowa
 
 > [!NOTE]
 > `WebBaseErrorEvent` Zdarzenie jest zgłaszane tylko w błędów serwera; nie jest inicjowane dla błędów HTTP, takich jak żądania dla zasobu ASP.NET, które nie zostało odnalezione. To różni się od zachowania `HttpApplication` klasy `Error` zdarzenie, które jest wywoływane dla serwera i błędów HTTP.
-
 
 Aby wyświetlić kondycję systemu w działaniu monitorowania, odwiedź witrynę internetową i wygenerować błąd w czasie wykonywania, odwiedzając stronę `Genre.aspx?ID=foo`. Zobaczyć stronę odpowiedni komunikat o błędzie — wyjątek szczegóły żółty ekranem śmierci (gdy użytkownik odwiedzi lokalnie) lub niestandardowej strony błędu (podczas odwiedzania witryn w środowisku produkcyjnym). Za kulisami kondycji systemu monitorującego rejestrowane informacje o błędzie do bazy danych. Należy do jednego rekordu w `aspnet_WebEvent_Events` tabeli (zobacz **rys.1**); ten rekord zawiera informacje o błąd w czasie wykonywania, który właśnie wykonana.
 
@@ -99,7 +96,6 @@ Jeśli tworzysz takiej strony, upewnij się, że należy wykonać czynności, ab
 
 > [!NOTE]
 > W tym samouczku kolejnych przedstawiono alternatywnych Błąd rejestrowania i powiadomień systemu o nazwie ELMAH. ELMAH zawiera wbudowany mechanizm, aby wyświetlić dziennik błędów, ze strony sieci web oraz jako źródła danych RSS.
-
 
 ## <a name="logging-events-to-email"></a>Rejestrowanie zdarzeń do poczty E-mail
 

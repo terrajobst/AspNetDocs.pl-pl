@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 2dcb44a4-5cbf-4d62-b363-718104082d86
 msc.legacyurl: /mvc/overview/older-versions-1/overview/asp-net-mvc-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 149312e2ddf0a5023a4a12f5b05852f7da6b18f8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 73965c71f37de13e3813df089a253fde528ea7ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418173"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128222"
 ---
 # <a name="aspnet-mvc-overview"></a>ASP.NET MVC — omówienie
 
@@ -21,18 +21,15 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się więcej o różnicach między aplikacją platformy ASP.NET MVC i aplikacji formularzy sieci Web programu ASP.NET. Dowiedz się, jak i decyzji dotyczącej tworzenia aplikacji ASP.NET MVC.
 
-
 Wzorzec architektury Model-View-Controller (MVC) dzieli aplikację na trzy główne składniki: model, widok i kontroler. Platforma ASP.NET MVC stanowi alternatywę dla wzorca ASP.NET Web Forms do tworzenia aplikacji sieci Web opartej na MVC. Platforma ASP.NET MVC to struktura prezentacji niewielka, wysoce testowalna która (tak jak aplikacje oparte na formularzach sieci Web) jest zintegrowana z istniejących funkcji programu ASP.NET, takich jak strony wzorcowe i uwierzytelnianie oparte na członkostwie. Struktura MVC jest zdefiniowana w **System.Web.Mvc** przestrzeni nazw i jest częścią podstawowych, obsługiwanych **System.Web** przestrzeni nazw.   
   
 MVC to standardowy wzorzec projektowania, wielu programistów, którzy znają. Niektóre rodzaje aplikacji sieci Web będą mogli korzystać z struktura MVC. Inne osoby będą nadal korzystać z tradycyjnego wzorca aplikacji ASP.NET, która opiera się na formularzach sieci Web i odświeżaniu strony. Innych typów aplikacji sieci Web będą łączone dwa podejścia; nie wyklucza drugiego.   
   
 Struktura MVC obejmuje następujące składniki:
 
-
 [![Wywołanie akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-overview/_static/image1.jpg)](asp-net-mvc-overview/_static/image1.png)
 
 **Rysunek 01**: Wywołanie akcji kontrolera, który oczekuje, że wartość parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-overview/_static/image2.png))
-
 
 - **Modele**. Obiekty modelu są częściami aplikacji, które implementują logikę domeny danych aplikacji s. Często obiekty modelu pobierania i przechowywania stanu modelu w bazie danych. Na przykład obiekt produktu mogą pobierać informacje z bazy danych, wykonywać na nich operacje i następnie zapisywać zaktualizowane informacje do tabeli Produkty w programie SQL Server.
 

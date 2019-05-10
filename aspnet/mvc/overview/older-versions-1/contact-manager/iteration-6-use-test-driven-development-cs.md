@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 94885984ebad90523369dcf5771d0f77a753008f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: aee0ff9d8d7f17e8a00dab12467bd3a3457fbe18
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405667"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117755"
 ---
 # <a name="iteration-6--use-test-driven-development-c"></a>Iteracja #6 — korzystanie z projektowania opartego na testach (C#)
 
@@ -23,9 +23,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (C#)
-  
 
 W tej serii samouczków wbudowujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazwy, numerów telefonów i adresów e-mail — lista osób.
 
@@ -73,7 +71,6 @@ Na koniec programowania sterowanego testami wymusza pisanie testów jednostkowyc
 > 
 > Aby dowiedzieć się więcej na temat programowania sterowanego testami, I zaleca się przeczytanie książki Michael Feathers **działa wydajnie z kodem Legacy**.
 
-
 W tym iteracji dodamy nową funkcję do naszej aplikacji Contact Manager. Dodajemy obsługę skontaktuj się z grup. Można użyć, skontaktuj się z grup w celu zorganizowania kontaktów na kategorie, takie jak firmy i grupy Friend.
 
 Dodamy tej nowej funkcji do naszej aplikacji postępując zgodnie z procesem programowania sterowanego testami. Nasze testy jednostkowe będziemy pisać najpierw oboje będziemy pisać wszystkich naszych kodować te testy.
@@ -112,11 +109,9 @@ Nasz pierwszy Historia użytkownika jest, czy użytkownik powinien móc wyświet
 
 Tworzenie nowego testu jednostkowego, klikając prawym przyciskiem myszy folder kontrolerów w projekcie ContactManager.Tests wybierając **Dodaj, testowanie nowych**i wybierając polecenie **testów jednostkowych** szablonu (patrz rysunek 1). Nazwa nowej jednostki testowania GroupControllerTest.cs i kliknij przycisk **OK** przycisku.
 
-
 [![Dodawanie testu jednostkowego GroupControllerTest](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
 
 **Rysunek 01**: Dodawanie testu jednostkowego GroupControllerTest ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image2.png))
-
 
 Pierwszy test jednostki znajduje się w ofercie 1. Ten test sprawdza, czy metoda indeks() kontrolera grupy zwraca zbiór grup. Ten test sprawdza, czy zbiór grup jest zwracany w widoku danych.
 
@@ -140,11 +135,9 @@ Klasa kontrolera grupy w ofercie 2 zawiera absolutnego minimum wymagane do przek
 
 Po dodamy klasy GroupController i grupy do naszego projektu pierwszy test jednostki zakończy się pomyślnie (patrz rysunek 2). Wykonaliśmy minimalne pracę wymaganą do przekazania do testu. Nadszedł czas na Świętuj.
 
-
 [![SUKCES!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
 
 **Rysunek 02**: SUKCES! ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image4.png))
-
 
 ## <a name="creating-contact-groups"></a>Tworzenie grup kontaktów
 
@@ -220,7 +213,6 @@ Modyfikowanie IContactManagerRepository wymaga interfejsu przy użyciu metody Cr
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample12.cs)]
 
-
 Na koniec te zmiany w naszej aplikacji wymagać wprowadzenie pewnych zmian do naszych testów jednostkowych przez firmę Microsoft. Teraz musisz użyć FakeContactManagerRepository podczas przeprowadzania testów jednostkowych. Zaktualizowano klasy GroupControllerTest znajduje się w ofercie 12.
 
 **Wyświetlanie listy 12 - Controllers\GroupControllerTest.cs**
@@ -242,12 +234,10 @@ Należy utworzyć nową tabelę bazy danych grupy. Wykonaj następujące kroki:
 
 <a id="0.11_table01"></a>
 
-
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
 | Id | int | False |
 | Nazwa | nvarchar(50) | False |
-
 
 Następnie należy usunąć wszystkie dane z tabeli kontaktów (w przeciwnym razie firma Microsoft nie będzie można utworzyć relacji między tabelami kontaktów i grup). Wykonaj następujące kroki:
 
@@ -266,16 +256,13 @@ Następnie należy zdefiniować relacje między grupami tabeli bazy danych i ist
 8. Kliknij przycisk Zamknij, aby zamknąć okno dialogowe relacje klucza obcego.
 9. Kliknij przycisk Zapisz, aby zapisać zmiany do tabeli kontaktów.
 
-
 [![Tworzenie relacji tabeli bazy danych](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
 
 **Rysunek 03**: Tworzenie relacji tabeli bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image6.png))
 
-
 [![Określanie relacji między tabelami](iteration-6-use-test-driven-development-cs/_static/image4.jpg)](iteration-6-use-test-driven-development-cs/_static/image7.png)
 
 **Rysunek 04**: Określanie relacji między tabelami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image8.png))
-
 
 ### <a name="updating-our-data-model"></a>Aktualizowanie nasz Model danych
 
@@ -287,19 +274,15 @@ Następnie należy zaktualizować nasz model danych do reprezentowania nowej tab
 4. Kliknij prawym przyciskiem myszy jednostkę grupy, a następnie wybierz opcję menu **Zmień nazwę**. Zmień nazwę *grup* jednostki do *grupy* (pojedynczą).
 5. Kliknij prawym przyciskiem myszy właściwość nawigacji grupy, która pojawia się w dolnej części jednostki Contact. Zmień nazwę *grup* właściwość nawigacji do *grupy* (pojedynczą).
 
-
 [![Aktualizowanie modelu Entity Framework z bazy danych](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
 
 **Rysunek 05**: Aktualizowanie modelu Entity Framework z bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image10.png))
 
-
 Po wykonaniu tych kroków, od modelu danych będzie reprezentować tabel kontaktów i grup. W Projektancie jednostki powinny być widoczne oba jednostki (patrz rysunek 6).
-
 
 [![Projektant ekranu, wyświetlania grupy i skontaktuj się z](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
 
 **Rysunek 06**: Projektant ekranu, wyświetlania grupy i skontaktuj się z pomocą ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image12.png))
-
 
 ### <a name="creating-our-repository-classes"></a>Tworzenie klas w naszym repozytorium
 
@@ -328,11 +311,9 @@ Należy utworzyć następujące nowych widoków do zarządzania grupami kontaktu
 - Views\Group\Index.aspx — Wyświetla listę grup kontaktów
 - Views\Group\Delete.aspx - Wyświetla formularz potwierdzenia związanych z usuwaniem grup kontaktu
 
-
 [![Wyświetl indeks grupy](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
 
 **Rysunek 07**: Widok grupy indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image14.png))
-
 
 Należy zmodyfikować następujące istniejących widoków, aby zawierały grup kontaktów:
 
@@ -342,11 +323,9 @@ Należy zmodyfikować następujące istniejących widoków, aby zawierały grup 
 
 Możesz zobaczyć zmodyfikowanych widoków, analizując aplikacji programu Visual Studio, który towarzyszy w tym samouczku. Na przykład rysunek 8 przedstawia widok skontaktuj się z indeksu.
 
-
 [![Widok indeksu kontaktów](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
 
 **Rysunek 08**: Widok indeksu kontaktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image16.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

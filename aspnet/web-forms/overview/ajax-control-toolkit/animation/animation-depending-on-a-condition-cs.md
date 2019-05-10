@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: b7a28c0d-efb9-443a-80a4-1a5ee54671cd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c05f0976a135615f7a272b8057eb4c56677e5117
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c5de6541b49495ce4cb1bb7c50e7089a35d50ace
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412427"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133931"
 ---
 # <a name="animation-depending-on-a-condition-c"></a>Animacja w zależności od warunku (C#)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)
 
 > Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Czy animacji jest uruchomiony lub nie może także zależeć od warunku w postaci kodu JavaScript.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -51,7 +50,6 @@ W ramach `<Animations>` węzła, użyj `<OnLoad>` do uruchamiania animacji, po c
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample5.aspx)]
 
 Należy pamiętać, że znak mniejszości (`<`) w `ConditionScript` atrybut musi być o zmienionym znaczeniu (). Po uruchomieniu tego skryptu, albo brak uruchomień animacji jest jednym z dwóch lub oba są.
-
 
 [![Panel jest wygaszanie bez zmiany rozmiaru, więc drugiego uruchomienia animacji, pierwszy z nich nie](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
 

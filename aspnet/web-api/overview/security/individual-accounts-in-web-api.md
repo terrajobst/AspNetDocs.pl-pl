@@ -8,12 +8,12 @@ ms.date: 10/15/2014
 ms.assetid: 92c84846-f0ea-4b5e-94b6-5004874eb060
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 29c3670ad7ab93acb0be878e5bd961d0ea446eee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7492c4aa4c2a0a8aeed64c3462bda8fc51f35a6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396235"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134313"
 ---
 # <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Zabezpieczanie interfejsu API sieci Web za pomocą indywidualnych kont i logowania lokalnego we wzorcu ASP.NET Web API 2.2
 
@@ -29,7 +29,6 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 > - [Visual Studio 2013 Update 3](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - [Składnik Web API 2.2](../releases/whats-new-in-aspnet-web-api-22.md)
 > - [ASP.NET Identity 2.1](../../../identity/index.md)
-
 
 W programie Visual Studio 2013 szablon projektu interfejsu API sieci Web udostępnia trzy metody uwierzytelniania:
 
@@ -239,7 +238,6 @@ W `WebApiConfig.Register` metody, poniższy kod ustawia uwierzytelniania dla pot
 
 > [!NOTE]
 > W szczególności MVC części aplikacji może użyć uwierzytelniania formularzy, w której są przechowywane poświadczenia w pliku cookie. Na podstawie plików cookie uwierzytelniania wymagane jest użycie tokenów zabezpieczających przed sfałszowaniem, aby zapobiec atakom CSRF. To problemem w przypadku internetowych interfejsów API, ponieważ nie istnieje żadne wygodny sposób dla interfejsu API sieci web wysyła do klienta, token zabezpieczający przed sfałszowaniem. (Aby uzyskać więcej ogólnych informacji na ten problem, zobacz [zapobieganie atakom CSRF w interfejsie API sieci Web](preventing-cross-site-request-forgery-csrf-attacks.md).) Wywoływanie **SuppressDefaultHostAuthentication** gwarantuje, że interfejs API sieci Web nie jest narażony na ataki CSRF z poświadczeniami przechowywanymi w plikach cookie.
-
 
 Gdy klient żąda zasobu chronionego, Oto, co się dzieje w potok składnika Web API:
 

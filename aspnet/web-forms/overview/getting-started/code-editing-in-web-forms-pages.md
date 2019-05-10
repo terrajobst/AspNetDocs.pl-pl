@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 328dc6fb61ac562131b11b36b40f574ca5a53866
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3473ad476fbbebc58e12586334b4600f57cf17ed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397373"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134238"
 ---
 # <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013
 
@@ -31,7 +31,6 @@ Z tego instruktażu dowiesz się jak:
 - Wstawianie wstawek kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
 
 Aby ukończyć ten przewodnik, potrzebne są:
 
@@ -65,14 +64,11 @@ W tej części instruktażu spowoduje utworzenie projektu aplikacji sieci Web i 
 
     Program Visual Studio tworzy nowy projekt, który zawiera funkcje wstępnie utworzone na podstawie szablonu formularzy sieci Web.
 
-
 ## <a name="creating-a-new-aspnet-web-forms-page"></a>Tworzenie nowej strony formularzy sieci Web platformy ASP.NET
-
 
 Podczas tworzenia nowej aplikacji formularzy sieci Web, za pomocą **aplikacji sieci Web ASP.NET** szablon projektu Visual Studio dodaje strony ASP.NET (strony formularzy sieci Web) o nazwie *Default.aspx*, jak również jako kilka innych plików i foldery. Możesz użyć *Default.aspx* strony jako stronę główną dla aplikacji sieci Web. Jednak w tym przewodniku utworzysz i pracować z nowej strony.
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Aby dodać stronę do aplikacji sieci Web
-
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nazwę aplikacji sieci Web (w tym samouczku Nazwa aplikacji jest **BasicWebSite**), a następnie kliknij przycisk **Dodaj**  - &gt; **Nowy element**.   
 **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
@@ -82,14 +78,11 @@ Podczas tworzenia nowej aplikacji formularzy sieci Web, za pomocą **aplikacji s
  Visual Studio tworzy nową stronę i otwiera go.
 4. Następnie można ustawić tej nowej strony jako stronę startową domyślne. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nową stronę o nazwie *FirstWebPage.aspx* i wybierz **Ustaw jako stronę startową**. Podczas następnego uruchomienia tej aplikacji, aby przetestować nasze postępy automatycznie zobaczą tej nowej strony w przeglądarce.
 
-
 ## <a name="correcting-inline-coding-errors"></a>Poprawianie wbudowane błędy kodowania
-
 
 Edytor kodu w programie Visual Studio pomaga uniknąć błędów, jak napisać kod, a jeśli utworzono błąd, Edytor kodu umożliwia użytkownikom do naprawienia błędu. W tej części instruktażu pisania wiersza kodu, które ilustrują funkcje korekcji błędów w edytorze.
 
 ### <a name="to-correct-simple-coding-errors-in-visual-studio"></a>Aby poprawić proste błędów kodowania w programie Visual Studio
-
 
 1. W **projektowania** wyświetlić, kliknij dwukrotnie pustą stronę, aby utworzyć program obsługi **obciążenia** zdarzeń dla strony.   
    Używasz programu obsługi zdarzeń tylko jako miejsce do napisania kodu.
@@ -109,7 +102,6 @@ Edytor kodu w programie Visual Studio pomaga uniknąć błędów, jak napisać k
     > [!NOTE] 
     > 
     > Możesz wyświetlić bieżący kod formatowania ustawień w programie Visual Studio, wybierając **narzędzia**  - &gt; **opcje**  - &gt; **czcionek i Kolory**.
-
 
 ## <a name="refactoring-and-renaming"></a>Refaktoryzacja i zmiana nazwy
 
@@ -156,7 +148,6 @@ Podczas pracy z zmienne, a także obiekty, można zmienić ich nazwy, po istniej
 
 ### <a name="to-use-refactoring-to-rename-a-variable"></a>Na potrzeby Refaktoryzacja zmiany nazwy zmiennej
 
-
 1. W **kliknij** procedura obsługi zdarzeń, znajdź następujący wiersz:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
@@ -173,7 +164,6 @@ Podczas pracy z zmienne, a także obiekty, można zmienić ich nazwy, po istniej
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample7.cs)]
 
     Zmienna `alist` w danym wierszu nie została zmieniona, ponieważ nie reprezentuje tę samą wartość jak zmienna `alist` którego nazwa została zmieniona. Zmienna `alist` w `DisplayArray` deklaracja jest zmienną lokalną dla tej metody. Obrazuje to, że za pomocą refaktoryzacji można zmienić nazwy zmiennych różni się od po prostu wykonywania działań Znajdź i Zamień w edytorze; Refaktoryzacja zmiany nazw zmienne przy zachowaniu wiedzy o semantykę zmiennej, która pracuje się z.
-
 
 ## <a name="inserting-snippets"></a>Wstawianie fragmentów kodu
 

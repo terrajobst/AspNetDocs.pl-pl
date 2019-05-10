@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e858fe4c1f8e93f6e6fa30b33f5682945d03c32
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d0fff78885ed90825f3e3a612f1582c004b317e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403080"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119743"
 ---
 # <a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz plik PDF](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
 
 > W dowolnej aplikacji sieci Web niektórych danych często posłuży, a niektóre dane będą rzadko używane. Firma Microsoft może zwiększyć wydajność naszej aplikacji ASP.NET, ładując wcześniej często używane dane, to technika, znana jako. Ten samouczek przedstawia jedno z podejść do aktywnego ładowania, która umożliwia ładowanie danych do pamięci podręcznej podczas uruchamiania aplikacji.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -35,18 +34,15 @@ Inną wersję aktywne ładowanie i typu, w których firma Microsoft będzie eksp
 > [!NOTE]
 > Więcej informacji na temat przyjrzeć różnice między proaktywne i reaktywne ładowanie, a także listę informatykami, wadach i zalecenia dotyczące wdrożenia, można znaleźć [Zarządzanie zawartość pamięci podręcznej](https://msdn.microsoft.com/library/ms978503.aspx) części [ Buforowanie w aplikacjach .NET Framework w Przewodniku dotyczącym architektury](https://msdn.microsoft.com/library/ms978498.aspx).
 
-
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>Krok 1. Określenie, jakie dane do pamięci podręcznej podczas uruchamiania aplikacji
 
 Przykłady buforowania przy użyciu ładowania reaktywne zbadaliśmy poprzedniego pracy dwóch samouczki dobrze z danymi, które okresowo mogą ulec zmianie, a nie długo exorbitantly do wygenerowania. Ale jeśli nigdy nie zmieni się dane w pamięci podręcznej, po upływie posługują się ładowanie reaktywne jest zbędny. Podobnie jeśli dane są buforowane przyjmuje nadmiernie dużo czasu, aby wygenerować, następnie tych użytkowników, których żądania Znajdź pustą pamięć podręczna będzie musiał zmieścić długiego oczekiwania podczas danych bazowych są pobierane. Należy wziąć pod uwagę buforowanie danych statycznych i danych, która przyjmuje wyjątkowo dużo czasu, można wygenerować przy uruchamianiu aplikacji.
 
 Gdy bazy danych mają wiele dynamiczny, często Zmienianie wartości większość również mieć ilość danych statycznych. Na przykład praktycznie wszystkich modeli danych może mieć jedną lub więcej kolumn zawierających określoną wartość z zakresu od stały zestaw opcji. A `Patients` tabeli bazy danych może być `PrimaryLanguage` kolumny, w których zestaw wartości może być język angielski, hiszpański, francuski, rosyjski, japoński i tak dalej. Często, następujące typy kolumn są implementowane za pomocą *tabel odnośników*. Zamiast przechowywania ciągu angielski lub francuski w `Patients` tabeli drugiej tabeli zostanie utworzone, zwykle dwóch kolumn — Unikatowy identyfikator i opis ciągu — przy użyciu rekordu dla wszystkich możliwych wartości. `PrimaryLanguage` Kolumny w `Patients` odpowiedni identyfikator unikatowy w tabeli są przechowywane w tabeli odnośników. Na rysunku 1 pacjenta Jan Nowak podstawowy język jest angielski, podczas Ed Johnson rosyjski.
 
-
 ![Tabela językach znajduje się tabela odnośników używana w tabeli pacjentów](caching-data-at-application-startup-cs/_static/image1.png)
 
 **Rysunek 1**: `Languages` Tabela znajduje się tabela odnośników używane przez `Patients` tabeli
-
 
 Interfejs użytkownika do edytowania lub tworzenia nowego pacjenta obejmuje listę rozwijaną listę języków dopuszczalny rozmiar, wypełniony przez rekordów w `Languages` tabeli. Bez buforowania, każdym razem, ten interfejs jest odwiedzone system musi wykonać zapytanie `Languages` tabeli. Jest to marnotrawstwa i niepotrzebnych ponieważ wartości tabeli odnośników zmianie w bardzo rzadko, jeśli kiedykolwiek.
 
@@ -60,13 +56,11 @@ Informacje mogą być buforowane programowo w aplikacji ASP.NET przy użyciu ró
 
 Podczas pracy z klasą, zazwyczaj należy najpierw można utworzyć wystąpienia klasy przed jej składowych jest możliwy. Na przykład aby można było wywołać metodę z jednej z klas w naszym warstwy logiki biznesowej, firma Microsoft musi najpierw utworzyć wystąpienia klasy:
 
-
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample1.cs)]
 
 Zanim firma Microsoft może wywołać *SomeMethod* i pracować z *SomeProperty*, firma Microsoft musi najpierw utworzyć wystąpienie klasy przy użyciu `new` — słowo kluczowe. *SomeMethod* i *SomeProperty* są skojarzone z określonym wystąpieniem. Okres istnienia tych elementów członkowskich jest powiązany z okresem istnienia ich skojarzonego obiektu. *Statyczne elementy członkowskie*, z drugiej strony są zmiennych, właściwości i metod, które są współużytkowane przez *wszystkich* wystąpienia klasy i w związku z tym, mają tak długo, jak klasa okres istnienia. Statyczne elementy członkowskie są oznaczone przez słowo kluczowe `static`.
 
 Oprócz statycznych składowych danych mogą być buforowane, przy użyciu stanu aplikacji. Każda aplikacja ASP.NET obsługuje kolekcji nazwa/wartość, który jest współużytkowany przez wszystkich użytkowników i stron aplikacji. Ta kolekcja jest możliwy za pomocą [ `HttpContext` klasy](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)firmy [ `Application` właściwość](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)i użyty z komputera na stronie ASP.NET osobna klasa kodu w następujący sposób:
-
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
 
@@ -78,14 +72,11 @@ Northwind bazy danych tabel, firma Microsoft ve zaimplementowane data nie zawier
 
 Aby rozpocząć, Utwórz nową klasę o nazwie `StaticCache.cs` w `CL` folderu.
 
-
 ![Utwórz klasę StaticCache.cs w folderze CL](caching-data-at-application-startup-cs/_static/image2.png)
 
 **Rysunek 2**: Tworzenie `StaticCache.cs` klasy w `CL` folderu
 
-
 Musimy dodać metodę, która służy do ładowania danych przy uruchamianiu w magazynie odpowiedniej pamięci podręcznej, a także metody, które zwracają dane z tej pamięci podręcznej.
-
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample3.cs)]
 
@@ -93,13 +84,11 @@ Powyższy kod używa zmienną statyczną składową `suppliers`, do przechowywan
 
 Zamiast używania zmienną statycznej składowej jako magazynu pamięci podręcznej, można też użyliśmy stan aplikacji lub pamięci podręcznej danych. Poniższy kod pokazuje klasy retooled do wartości stanu aplikacji:
 
-
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample4.cs)]
 
 W `LoadStaticCache()`, informacji o dostawcy jest przechowywany w zmiennej aplikacji *klucz*. Jest zwracany jako odpowiedniego typu (`Northwind.SuppliersDataTable`) z `GetSuppliers()`. Gdy stan aplikacji jest możliwy w klasach związanym z kodem stron programu ASP.NET przy użyciu `Application["key"]`, w ramach architektury, trzeba użyć `HttpContext.Current.Application["key"]` Aby uzyskać bieżącą `HttpContext`.
 
 Podobnie pamięć podręczną danych może służyć do przechowywania w pamięci podręcznej, co ilustruje poniższy kod:
-
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
@@ -107,7 +96,6 @@ Aby dodać element do pamięci podręcznej danych przez nieograniczony czas na p
 
 > [!NOTE]
 > W tym samouczku, Pobierz implementuje `StaticCache` klasy przy użyciu podejścia zmiennej członka statycznego. Kod technik pamięci podręcznej stanu i danych aplikacji jest dostępna w komentarzach w pliku klasy.
-
 
 ## <a name="step-4-executing-code-at-application-startup"></a>Krok 4. Wykonywanie kodu przy uruchamianiu aplikacji
 
@@ -118,11 +106,9 @@ Dodaj `Global.asax` plik do katalogu głównego aplikacji sieci web, kliknij pra
 > [!NOTE]
 > Jeśli masz już `Global.asax` plik w projekcie, globalna klasa aplikacji typu elementu nie będzie wyświetlane w oknie dialogowym Dodaj nowy element.
 
-
 [![Dodaj plik Global.asax do katalogu głównego aplikacji sieci Web](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
 **Rysunek 3**: Dodaj `Global.asax` plik w katalogu głównym Twojej aplikacji sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image5.png))
-
 
 Wartość domyślna `Global.asax` szablon pliku zawiera pięć metod, w ramach po stronie serwera `<script>` tag:
 
@@ -136,20 +122,16 @@ Wartość domyślna `Global.asax` szablon pliku zawiera pięć metod, w ramach p
 
 Te samouczki tylko musimy dodać kod, aby `Application_Start` metody, więc możesz usunąć pozostałe. W `Application_Start`, wystarczy wywołać `StaticCache` klasy `LoadStaticCache()` metody, która będzie załadować i buforowania informacji o dostawcy:
 
-
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
 To wszystko. Przy uruchamianiu aplikacji `LoadStaticCache()` metoda pobrania informacji o dostawcy z LOGIKI i go przechowywać w zmiennej członka statycznego (lub niezależnie od pamięci podręcznej przechowywanie możesz zakończył się przy użyciu w `StaticCache` klasy). Aby sprawdzić to zachowanie, ustaw punkt przerwania `Application_Start` metody i uruchomić aplikację. Należy pamiętać, że punkt przerwania zostaje trafiony po uruchomieniu aplikacji. Kolejne żądania, jednak nie powodują `Application_Start` wykonać metodę.
-
 
 [![Użyj punkt przerwania, aby Sprawdź, czy program obsługi zdarzeń Application_Start jest wykonywana.](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
 **Rysunek 4**: Użyj punkt przerwania, aby upewnij się, `Application_Start` procedura obsługi zdarzeń jest wykonywane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image8.png))
 
-
 > [!NOTE]
 > Jeśli nie zostanie osiągnięty `Application_Start` przerwania podczas uruchamiania debugowania, oznacza to, że aplikacja została już uruchomiona. Wymuś ponowne uruchomienie, modyfikując swoje `Global.asax` lub `Web.config` pliki, a następnie spróbuj ponownie. Można po prostu Dodaj (lub usuń) pusty wiersz na końcu jednego z tych plików, aby szybko uruchomić ponownie aplikację.
-
 
 ## <a name="step-5-displaying-the-cached-data"></a>Krok 5. Wyświetlanie danych pamięci podręcznej
 
@@ -157,29 +139,23 @@ W tym momencie `StaticCache` klasa ma wersję dostawcy danych, pamięci podręcz
 
 Zacznij od otwarcia `AtApplicationStartup.aspx` stronie `Caching` folderu. Przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` właściwość `Suppliers`. Następnie z tagu inteligentnego GridView zdecydować się na utworzenie nowego elementu ObjectDataSource, o nazwie `SuppliersCachedDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `StaticCache` klasy `GetSuppliers()` metody.
 
-
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy StaticCache](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
 
 **Rysunek 5**: Konfigurowanie kontrolki ObjectDataSource używać `StaticCache` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image11.png))
-
 
 [![Pobieranie danych dostawcy pamięci podręcznej przy użyciu metody GetSuppliers()](caching-data-at-application-startup-cs/_static/image13.png)](caching-data-at-application-startup-cs/_static/image12.png)
 
 **Rysunek 6**: Użyj `GetSuppliers()` metody do pobierania danych dostawcy pamięci podręcznej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image14.png))
 
-
 Po zakończeniu działania kreatora programu Visual Studio automatycznie doda BoundFields dla każdego pola danych w `SuppliersDataTable`. Z kontrolkami GridView i ObjectDataSource oznaczeniu deklaracyjnym powinien wyglądać podobnie do następującego:
-
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample7.aspx)]
 
 Rysunek nr 7 przedstawia stronę po wyświetleniu za pośrednictwem przeglądarki. Dane wyjściowe są, taka sama miał możemy ściągnąć dane od LOGIKI `SuppliersBLL` klasy, ale przy użyciu `StaticCache` klasy zwraca dane dostawcy jako pamięci podręcznej podczas uruchamiania aplikacji. Możesz ustawić punkty przerwania w `StaticCache` klasy `GetSuppliers()` metodę, aby sprawdzić to zachowanie.
 
-
 [![Dane dostawcy pamięci podręcznej są wyświetlane w widoku GridView](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
 
 **Rysunek 7**: Dane dostawcy pamięci podręcznej są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image17.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

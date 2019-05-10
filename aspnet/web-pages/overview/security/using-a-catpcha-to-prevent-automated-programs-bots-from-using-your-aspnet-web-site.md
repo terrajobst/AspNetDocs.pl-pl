@@ -8,12 +8,12 @@ ms.date: 05/21/2012
 ms.assetid: 2b381a41-2cb3-40c0-8545-1d393e22877f
 msc.legacyurl: /web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: e7baafda8c5b6de4ab0de46948f969a6f0cc21ad
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2647a3155893a3dfb3214795a5f9cf1e8931fa91
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128454"
 ---
 # <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Korzystanie z mechanizmu CAPTCHA, aby uniemożliwić Boty przy użyciu usługi sieci Web platformy ASP.NET Razor) lokacji
 
@@ -31,7 +31,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 > 
 > > [!NOTE]
 > > Informacje przedstawione w tym artykule dotyczy 1.0 stron sieci Web platformy ASP.NET i Web Pages 2.
-
 
 ## <a name="about-captchas"></a>Temat CAPTCHAs
 
@@ -67,10 +66,8 @@ Na stronach ASP.NET, można użyć `ReCaptcha` element pomocniczy służący do 
 > 
 > [!code-xml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample3.xml)]
 
-
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-
 
 - [Dostosowywanie zachowania dla całej witryny dla witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [ReCaptcha lokacji](https://www.google.com/recaptcha)

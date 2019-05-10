@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: fe47a018-f6d0-4979-80e7-5b1fa75a5865
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 97a60274d9306ea0ee332fcc1ab9e487355dbedb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e11c91a824446572aaf0b3bc6954b9b8ffb4eaff
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384945"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133957"
 ---
 # <a name="creating-a-build-definition-that-supports-deployment"></a>Tworzenie definicji kompilacji, która obsługuje wdrożenie
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Jeśli chcesz wykonywać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, należy utworzyć definicję kompilacji w projekcie zespołowym. W tym temacie opisano sposób tworzenia nowej definicji kompilacji w programie TFS i sposobie kontrolowania wdrażania w Internecie jako część procesu kompilacji w kompilacji zespołu.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -40,7 +39,6 @@ Definicja kompilacji jest mechanizm, który kontroluje, jak i kiedy kompilacje m
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat definicji kompilacji, zobacz [zdefiniować proces kompilacji](https://msdn.microsoft.com/library/ms181715.aspx).
-
 
 W tym temacie pokazano sposób tworzenia definicji kompilacji, który używa ciągłej integracji, tak aby kompilacja zostaje wyzwolona, gdy deweloper wprowadza nową zawartość. Jeśli kompilacja zakończy się powodzeniem, usługa kompilacji jest uruchamiany pliku niestandardowego projektu, aby wdrożyć to rozwiązanie w środowisku testowym.
 
@@ -60,7 +58,6 @@ Następnej sekcji opisano sposób wykonania tego procesu, tworząc nową definic
 
 > [!NOTE]
 > Ta procedura&#x2014;w której automatycznego jednego procesu kompilacji, testów i wdraża to rozwiązanie&#x2014;może być najbardziej nadaje się do wdrożenia do środowisk testowych. W przypadku środowisk przemieszczania i produkcji możesz znacznie bardziej prawdopodobne, aby wdrożyć zawartość z poprzedniej kompilacji, która została już zweryfikowana i sprawdzone w środowisku testowym. Takie podejście jest opisane w następnym temacie [wdrażanie określonej kompilacji](deploying-a-specific-build.md).
-
 
 ### <a name="who-performs-this-procedure"></a>Ta procedura osób wykonujących?
 
@@ -142,7 +139,6 @@ Rozwiązywanie problemów z kompilacji nie powiodło się i rozwiązać wszelkie
 
 > [!NOTE]
 > Kompilacje, które są wykonywane logiki wdrożenia prawdopodobnie może zakończyć się niepowodzeniem, dopóki serwer kompilacji udzielono wszystkie uprawnienia wymagane w środowisku docelowym. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołu](configuring-permissions-for-team-build-deployment.md).
-
 
 ## <a name="monitor-the-build-process"></a>Monitorowanie procesu kompilacji
 

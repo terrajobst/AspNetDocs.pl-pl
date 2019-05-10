@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: d6e758b6-6571-484d-a132-34ee6c47747a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 99b18de33e266adb626f4ab53ff20b1f52102900
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c5ee59873468b4928b45ec586386e28cbe94c728
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417588"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122436"
 ---
 # <a name="displaying-a-table-of-database-data-c"></a>Wyświetlanie tabeli danych bazy danych (C#)
 
@@ -23,7 +23,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym samouczku pokazują I, wyświetlany jest zestaw rekordów bazy danych na dwa sposoby. Czy mogę wyświetlić dwie metody formatowania zestaw rekordów bazy danych w tabeli HTML. Po pierwsze I pokazują, jak można sformatować rekordów bazy danych bezpośrednio z poziomu widoku. Następnie I pokazują, jak można korzystać z zalet częściowych podczas formatowania rekordów bazy danych.
 
-
 Celem tego samouczka jest wyjaśniają, jak można wyświetlić tabeli HTML danych bazy danych w aplikacji ASP.NET MVC. Po pierwsze dowiesz się, jak używać narzędzia do tworzenia szkieletów zawarte w Visual Studio do generowania widoku, który automatycznie wyświetla zestaw rekordów. Następnie dowiesz się, jak używać częściowym jako szablon, podczas formatowania rekordów bazy danych.
 
 ## <a name="create-the-model-classes"></a>Tworzenie klas modelu
@@ -32,7 +31,6 @@ Firma Microsoft zamierza wyświetlić zestaw rekordów z tabeli bazy danych film
 
 <a id="0.3_table01"></a>
 
-
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
 | Id | int | False |
@@ -40,13 +38,11 @@ Firma Microsoft zamierza wyświetlić zestaw rekordów z tabeli bazy danych film
 | Dyrektor ds. | NVarchar(50) | False |
 | DateReleased | DataGodzina | False |
 
-
 Aby móc przedstawić w tabeli filmów w naszej aplikacji ASP.NET MVC, należy utworzyć klasę modelu. W tym samouczku używamy Microsoft Entity Framework do tworzenia klas w naszym modelu.
 
 > [!NOTE] 
 > 
 > W tym samouczku używamy Microsoft Entity Framework. Jednak ważne jest zrozumienie, czy można użyć szereg różnych technologie do interakcji z bazą danych z aplikacji ASP.NET MVC, w tym LINQ to SQL i NHibernate, ADO.NET.
-
 
 Wykonaj następujące kroki, aby uruchomić Kreator modelu danych jednostki:
 
@@ -60,19 +56,15 @@ Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator modelu Entity Data 
 2. W **wybierz połączenie danych** kroku, należy użyć *MoviesDB.mdf* połączenia danych i nazwę *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **dalej** przycisku.
 3. W **wybierz obiekty bazy danych** kroku, rozwiń węzeł tabele, wybierz tabelę filmów. Wprowadź przestrzeń nazw *modeli* i kliknij przycisk **Zakończ** przycisku.
 
-
 [![Tworzenie zapytań LINQ do klas SQL](displaying-a-table-of-database-data-cs/_static/image1.jpg)](displaying-a-table-of-database-data-cs/_static/image1.png)
 
 **Rysunek 01**: Tworzenie zapytań LINQ do klas SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image2.png))
 
-
 Po zakończeniu działania Kreator modelu Entity Data Model, zostanie otwarty projektant modelu danych jednostki. Projektant powinien być wyświetlany jednostki filmy (patrz rysunek 2).
-
 
 [![Projektant modelu danych jednostki](displaying-a-table-of-database-data-cs/_static/image2.jpg)](displaying-a-table-of-database-data-cs/_static/image3.png)
 
 **Rysunek 02**: Projektant modelu danych jednostki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image4.png))
-
 
 Należy wprowadzić zmianę jeden, przed kontynuowaniem. Kreator modelu Entity Data generuje klasę modelu o nazwie *filmy* reprezentujący tabelę bazy danych filmów. Ponieważ będziemy korzystać do reprezentowania filmu konkretnej klasy filmy, należy zmodyfikować nazwę klasy, która ma być *filmu* zamiast *filmy* (pojedynczej zamiast liczba mnoga).
 
@@ -82,19 +74,15 @@ Kliknij dwukrotnie nazwę klasy na powierzchni projektowej i Zmień nazwę klasy
 
 Teraz, gdy mamy już sposobem reprezentowania naszych danych bazy danych, możemy utworzyć kontroler, który zwraca kolekcję filmów. W oknie Eksploratora rozwiązań w usłudze Visual Studio kliknij prawym przyciskiem myszy folder kontrolerów, a następnie wybierz opcję menu **Dodaj, kontroler** (zobacz rysunek 3).
 
-
 [![Dodawanie kontrolera Menu](displaying-a-table-of-database-data-cs/_static/image3.jpg)](displaying-a-table-of-database-data-cs/_static/image5.png)
 
 **Rysunek 03**: Dodawanie kontrolera Menu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image6.png))
 
-
 Gdy **Dodaj kontroler** zostanie wyświetlone okno dialogowe, wprowadź nazwę kontrolera MovieController (zobacz rysunek 4). Kliknij przycisk **Dodaj** przycisk, aby dodać nowy kontroler.
-
 
 [![Okno dialogowe Dodawanie kontrolera](displaying-a-table-of-database-data-cs/_static/image4.jpg)](displaying-a-table-of-database-data-cs/_static/image7.png)
 
 **Rysunek 04**: Okno dialogowe Dodawanie kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image8.png))
-
 
 Należy zmodyfikować akcję indeks() udostępnianych przez kontroler filmu, tak aby zwraca zestaw rekordów bazy danych. Tak, aby wyglądało kontrolera w ofercie 1, należy zmodyfikować kontrolera.
 
@@ -116,19 +104,15 @@ Kompiluj aplikację, wybierając opcję menu **twórz, Kompiluj rozwiązanie**. 
 
 Kliknij prawym przyciskiem myszy działanie indeks() i wybierz opcję menu **Dodaj widok** (zobacz rysunek 5).
 
-
 [![Dodawanie widoku](displaying-a-table-of-database-data-cs/_static/image5.jpg)](displaying-a-table-of-database-data-cs/_static/image9.png)
 
 **Rysunek 05**: Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image10.png))
 
-
 W **Dodaj widok** okno dialogowe, zaznacz pola wyboru **utworzyć widok silnie typizowane**. Wybierz klasę filmu jako **wyświetlić klasy danych**. Wybierz *listy* jako **wyświetlanie zawartości** (patrz rysunek 6). Zaznaczenie tych opcji spowoduje wygenerowanie silnie typizowane widoku, który wyświetla listę filmów.
-
 
 [![Okno dialogowe dodawania widoku](displaying-a-table-of-database-data-cs/_static/image6.jpg)](displaying-a-table-of-database-data-cs/_static/image11.png)
 
 **Rysunek 06**: Okno dialogowe Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image12.png))
-
 
 Po kliknięciu **Dodaj** przycisk, widok w ofercie 2 jest generowany automatycznie. Ten widok zawiera kod wymagany do iterowania po kolekcji filmów i wyświetlane poszczególne właściwości filmu.
 
@@ -138,11 +122,9 @@ Po kliknięciu **Dodaj** przycisk, widok w ofercie 2 jest generowany automatyczn
 
 Możesz uruchomić aplikację, wybierając opcję menu **debugowania i Rozpocznij debugowanie** (lub naciskając klawisz F5). Uruchomiona jest aplikacja uruchomi program Internet Explorer. Jeśli przejdziesz do adresu URL /Movie, a następnie zobaczysz stronę na rysunku 7.
 
-
 [![Tabelę filmy](displaying-a-table-of-database-data-cs/_static/image7.jpg)](displaying-a-table-of-database-data-cs/_static/image13.png)
 
 **Rysunek 07**: Tabela filmów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-cs/_static/image14.png))
-
 
 Jeśli nie potrzebujesz nic o wyglądzie siatki rekordów bazy danych na rysunku 7 można po prostu zmodyfikuj widok indeksu. Na przykład można zmienić *DateReleased* nagłówka do *Data wydania* przez zmodyfikowanie widoku indeksu.
 
@@ -178,9 +160,7 @@ Widok w ofercie 4 zawiera pętlę foreach, która wykonuje iterację przez wszys
 
 Zmodyfikowany widok indeksu powoduje wyświetlenie tej samej tabeli HTML rekordów bazy danych. Jednak widok został znacznie uproszczony.
 
-
 Metoda RenderPartial() jest inne niż większość pozostałych metod pomocniczych, ponieważ nie zwraca ciąg. W związku z tym, należy wywołać przy użyciu metody RenderPartial() &lt;% Html.RenderPartial(); %&gt; zamiast &lt;% = Html.RenderPartial(); %&gt;.
-
 
 ## <a name="summary"></a>Podsumowanie
 

@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ae53e23dda3ac63e26590edab692188bb44e9f65
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 838ee5b3620c50ca5f29ff8cb2c2ac876d3041d8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133309"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio: Wprowadzenie — 1 z 12
 
@@ -30,7 +30,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > Samouczki przyjęto założenie, że wiesz, jak pracować z programem ASP.NET w programie Visual Studio. Jeśli nie istnieje, jest dobrym miejscem do rozpoczęcia [podstawowego samouczka formularzy sieci Web platformy ASP.NET](../tailspin-spyworks/tailspin-spyworks-part-1.md) lub [podstawowego samouczka MVC ASP.NET](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md).
 > 
 > Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum wdrażania ASP.NET](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment).
-
 
 ## <a name="overview"></a>Omówienie
 

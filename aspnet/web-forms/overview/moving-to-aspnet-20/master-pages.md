@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 348e28778e0e7d96230534df1d61386ed39f8f11
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 36f2caf7c2c9bcafd22c8f6681c1d6b19fe5078a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381149"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131068"
 ---
 # <a name="master-pages"></a>Strony wzorcowe
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Jednym z kluczowych składników do pomyślnego witryny sieci Web jest spójny wygląd i zachowanie. W programie ASP.NET: 1.x, deweloperzy umożliwia kontrolki użytkownika replikować wspólnych elementów strony w aplikacji sieci Web. Chociaż to oczywiście zwiększą rozwiązania, za pomocą kontrolki użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmian na wielu stronach w lokacji. Formanty użytkownika również nie są renderowane w widoku Projekt po wstawiane na stronie.
-
 
 Jednym z kluczowych składników do pomyślnego witryny sieci Web jest spójny wygląd i zachowanie. W programie ASP.NET: 1.x, deweloperzy umożliwia kontrolki użytkownika replikować wspólnych elementów strony w aplikacji sieci Web. Chociaż to oczywiście zwiększą rozwiązania, za pomocą kontrolki użytkownika ma pewne wady. Na przykład zmiana położenia kontrolki użytkownika wymaga zmian na wielu stronach w lokacji. Formanty użytkownika również nie są renderowane w widoku Projekt po wstawiane na stronie.
 
@@ -47,14 +46,11 @@ Strona wzorcowa może zawierać dowolną liczbę kontrolek ContentPlaceHolder (l
 > [!NOTE]
 > Często otrzymasz od osób, które opisują strony wzorcowe, jako klasę bazową dla innych stron. Thats faktycznie nie jest wartość true. Relacja między stron wzorcowych i stronach zawartości nie jest jednym z dziedziczenia.
 
-
 **Rysunek 1** pokazuje stronę wzorcową i skojarzonej strony zawartości, w jakiej występują w programie Visual Studio 2005. Możesz zobaczyć kontrolki ContentPlaceHolder na stronie wzorcowej i odpowiedni zawartości kontrolki na stronie zawartości. Należy zauważyć, że zawartość strony wzorcowe, która jest poza ContentPlaceHolder jest widoczne, ale są wygaszone się na stronie zawartości. Tylko zawartość wewnątrz ContentPlaceHolder można supplanted przez strony zawartości. Cała zawartość, która pochodzi z strony wzorcowej jest niezmienny.
-
 
 ![Strona wzorcowa i skojarzone z nią zawartości strony](master-pages/_static/image1.jpg)
 
 **Rysunek 1**: Strona wzorcowa i skojarzone z nią zawartości strony
-
 
 ## <a name="creating-a-master-page"></a>Tworzenie strony wzorcowej
 
@@ -65,11 +61,9 @@ Aby utworzyć nową stronę wzorcową:
 3. Wybierz plik głównej z poziomu okna dialogowego Dodawanie nowego elementu, jak pokazano na **rysunek 2.**.
 4. Kliknij przycisk Dodaj.
 
-
 ![Tworzenie nowej strony wzorcowej](master-pages/_static/image2.jpg)
 
 **Rysunek 2**: Tworzenie nowej strony wzorcowej
-
 
 Należy zauważyć, że plik ma rozszerzenie dla strony wzorcowej *.master*. Jest jednym ze sposobów, które strony wzorcowej różni się od zwykłej strony. Główną różnicą jest to, że proceduralny @Page dyrektywy, zawiera strony wzorcowej @Master dyrektywy. Przejdź do widoku źródłowego dla głównego strony właśnie został utworzony i przeglądać kod.
 
@@ -86,29 +80,23 @@ W tym środowisku laboratoryjnym utworzysz nową stronę wzorcową i zdefiniuj t
     3. Zaznacz formant ContentPlaceHolder, klikając przyciemnione krawędzi górnego obramowania kontrolki, a następnie usuń ją, naciskając klawisz DEL na klawiaturze.
     4. Wstawianie nowej tabeli za pomocą *nagłówek i po stronie* szablonu, jak pokazano na rysunku 3. Zmień szerokość i wysokość do 90%, tak, aby cała tabela jest widoczne w projektancie.
 
-
 ![](master-pages/_static/image3.jpg)
 
 **Rysunek 3.**
-
 
 1. Umieść kursor w każdej komórce tabeli i ustaw *dopasowanie w pionie* właściwości *górnej*.
 2. Z przybornika Wstawianie formantu ContentPlaceHolder górnej komórki tabeli (komórki nagłówka.)
 3. Podczas wstawiania tego formantu ContentPlaceHolder można zauważyć, że wiersze o nierównej wysokości zajmuje prawie całej strony, jak pokazano na rysunku 4. Nie przejmuj się o tym w tym momencie.
 
-
 ![Puste miejsce znajduje się w tej samej komórki jako ContentPlaceHolder](master-pages/_static/image1.gif)
 
 **Rysunek 4**: Puste miejsce znajduje się w tej samej komórki jako ContentPlaceHolder
 
-
 1. Umieść kontroli ContentPlaceHolder w innych komórek. Po wstawieniu innych kontrolek ContentPlaceHolder rozmiaru komórek tabeli należy, jak można oczekiwać. Strona powinna teraz wyglądać strona wyświetlona w **rysunek 5**.
-
 
 ![Głównego przy użyciu wszystkich kontrolek ContentPlaceHolder. Zauważ, że wysokość komórki dla komórki nagłówka teraz czymś co powinno być](master-pages/_static/image2.gif)
 
 **Rysunek 5**: Głównego przy użyciu wszystkich kontrolek ContentPlaceHolder. Zauważ, że wysokość komórki dla komórki nagłówka teraz czymś co powinno być
-
 
 1. Wprowadź jakiś tekst wybranego do każdego z trzech kontrolek ContentPlaceHolder.
 2. Zapisz stronę wzorcową jako exercise1.master.
@@ -117,11 +105,9 @@ W tym środowisku laboratoryjnym utworzysz nową stronę wzorcową i zdefiniuj t
 5. Wybierz **formularz sieci Web** w oknie dialogowym Dodaj nowy element.
 6. Upewnij się, że zaznaczone jest pole wyboru Wybierz stronę wzorcową, jak pokazano na rysunku 6.
 
-
 ![Dodawanie nowej strony zawartości](master-pages/_static/image3.gif)
 
 **Rysunek 6**: Dodawanie nowej strony zawartości
-
 
 1. Kliknij przycisk Dodaj.
 2. Wybierz exercise1.master wybierz w oknie dialogowym strona wzorcowa jak pokazano na rysunku 7.
@@ -129,11 +115,9 @@ W tym środowisku laboratoryjnym utworzysz nową stronę wzorcową i zdefiniuj t
 
 Z jednym formantem zawartości dla każdego formantu ContentPlaceHolder na stronie wzorcowej w programie Visual Studio zostanie wyświetlona nowa strona zawartości. Domyślnie formanty zawartości są puste, aby dodać własną zawartość. Jeśli chcesz używać zawartości z formantu ContentPlaceHolder strony wzorcowej, po prostu kliknij symbol tagu inteligentnego (małe czarną strzałkę w prawym górnym rogu formantu) i wybierz polecenie *domyślną zawartość wzorców* za pomocą tagu inteligentnego, jak pokazano na **rysunek 8**. Jeśli tak zrobisz, element menu zmienia się na *Utwórz niestandardowe zawartość*. W tym momencie klikając polecenie usuwa zawartość z strony wzorcowej, umożliwiając Definiowanie niestandardowej zawartości dla tego określonego formantu zawartości.
 
-
 ![Ustawienia formantu zawartości domyślne, aby zawartość strony główne](master-pages/_static/image4.gif)
 
 **Rysunek 7**: Ustawienia formantu zawartości domyślne, aby zawartość strony główne
-
 
 ## <a name="connecting-master-page-and-content-pages"></a>Łączenie z strony wzorcowej oraz strony z zawartością
 
@@ -183,15 +167,11 @@ Należy pamiętać, że w tym scenariuszu wzorzec podrzędne również strony za
 > [!NOTE]
 > Obsługa projektanta nie jest dostępna dla zagnieżdżone strony wzorcowe. Gdy jest tworzona przy użyciu zagnieżdżonych wzorców, należy użyć widoku źródła.
 
-
 Ten film pokazuje Przewodnik po użyciu zagnieżdżone strony wzorcowe.
-
 
 ![](master-pages/_static/image1.png)
 
-
 [Otwórz wideo pełnego ekranu](master-pages/_static/nested1.wmv)
-
 
 ![Wybieranie strony wzorcowej](master-pages/_static/image4.jpg)
 

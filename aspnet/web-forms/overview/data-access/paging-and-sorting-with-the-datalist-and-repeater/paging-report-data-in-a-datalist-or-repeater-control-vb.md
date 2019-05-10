@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69a6843783dad3d8fcd8a5b93c9d8a31f9bb8ec0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f51c720290e59e0f79d105bc9412c19db1870278
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383242"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133972"
 ---
 # <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Stronicowanie danych raportu w kontrolce DataList lub Repeater (VB)
 
@@ -23,7 +23,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > Gdy oferta DataList ani elementu powtarzanego automatyczne, stronicowanie i sortowanie pomocy technicznej, w tym samouczku pokazano, jak dodać obsługę stronicowania do DataList lub Repeater, co pozwala znacznie bardziej elastyczne stronicowania i dane wyświetlania interfejsów.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Stronicowanie i sortowanie są dwie funkcje bardzo często, gdy wyświetlanie danych w aplikacji online. Na przykład podczas szukania ASP.NET książki w księgarni online, mogą istnieć setki takich książki, ale raport z listą wyników wyszukiwania zawiera maksymalnie dziesięciu dopasowań na każdej stronie. Ponadto można posortować wyników według tytułu, ceny, liczbę stron, imię i nazwisko autora i tak dalej. Tak jak Omówiliśmy to w [stronicowanie i sortowanie danych raportu](../paging-and-sorting/paging-and-sorting-report-data-vb.md) — samouczek, kontrolki GridView DetailsView i FormView oferować wbudowanej obsługi stronicowania, który może być włączone znaczników pola wyboru. Kontrolki GridView obejmuje również sortowanie pomocy technicznej.
@@ -32,7 +31,6 @@ Niestety DataList ani elementu powtarzanego oferują automatyczne stronicowanie 
 
 > [!NOTE]
 > Ten samouczek koncentruje się wyłącznie na stronicowania. W następnym samouczku firma Microsoft będzie włączyć naszej uwagi do dodawania funkcji sortowania.
-
 
 ## <a name="step-1-adding-the-paging-and-sorting-tutorial-web-pages"></a>Krok 1. Dodawanie stronicowania i sortowania Samouczek stron sieci Web
 
@@ -44,30 +42,23 @@ Zanim zaczniemy, w tym samouczku, umożliwiają najpierw Poświęć chwilę, aby
 - `SortingWithDefaultPaging.aspx`
 - `SortingWithCustomPaging.aspx`
 
-
 ![Utwórz PagingSortingDataListRepeater Folder i dodawanie stron samouczek platformy ASP.NET](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image1.png)
 
 **Rysunek 1**: Utwórz `PagingSortingDataListRepeater` Folder i dodawanie stron samouczek platformy ASP.NET
 
-
 Następnie otwórz `Default.aspx` strony, a następnie przeciągnij `SectionLevelTutorialListing.ascx` kontrolki użytkownika od `UserControls` folder na powierzchnię projektu. Ten formant użytkownika, które utworzyliśmy w [strony wzorcowe i nawigacja w witrynie](../introduction/master-pages-and-site-navigation-vb.md) samouczek, wylicza mapy witryny i wyświetla te samouczki w bieżącej sekcji na liście punktowanej.
-
 
 [![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image3.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image2.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image4.png))
 
-
 Aby ma na liście punktowanej wyświetlić stronicowanie i sortowanie samouczków, z którymi firma utworzona, należy dodać je do mapy witryny. Otwórz `Web.sitemap` pliku i Dodaj następujący kod po edycji i usuwania ze znacznikami węzeł mapy witryny DataList:
 
-
 [!code-xml[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample1.xml)]
-
 
 ![Aktualizacja mapy witryny, aby uwzględnić nowe strony ASP.NET](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image5.png)
 
 **Rysunek 3**: Aktualizacja mapy witryny, aby uwzględnić nowe strony ASP.NET
-
 
 ## <a name="a-review-of-paging"></a>Przegląd stronicowania
 
@@ -79,11 +70,9 @@ Ponieważ domyślne stronicowania zażąda ponownie wszystkie rekordy na każdej
 
 Aby zaimplementować domyślne stronicowania w kontrolkach DataList lub Repeater, możemy użyć [ `PagedDataSource` klasy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) opakowanie `ProductsDataTable` których zawartość jest on stronicowanej. `PagedDataSource` Klasa ma `DataSource` właściwość, którą można przypisać do dowolnego obiektu wyliczalny i [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) i [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) właściwości, które wskazują, jak wiele rekordów Pokaż na jednej stronie i indeks bieżącej strony. Po ustawieniu tych właściwości `PagedDataSource` może służyć jako źródło danych dowolnych danych formantu sieci Web. `PagedDataSource`, Gdy wyliczenia, zostanie tylko zwrócenia odpowiedniego podzestawu rekordów jego wewnętrzny `DataSource` na podstawie `PageSize` i `CurrentPageIndex` właściwości. Rysunek 4 przedstawia funkcje `PagedDataSource` klasy.
 
-
 ![PagedDataSource otacza obiekt Wyliczalny z interfejsem stronicowanej](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image6.png)
 
 **Rysunek 4**: `PagedDataSource` Otacza obiekt Wyliczalny z interfejsem stronicowanej
-
 
 `PagedDataSource` Obiekt może być tworzone i konfigurowane bezpośrednio z warstwy logiki biznesowej i powiązane z DataList lub Repeater za pomocą kontrolki ObjectDataSource, lub można można tworzyć i konfigurować bezpośrednio w klasie CodeBehind strony ASP.NET. Jeśli drugie podejście jest używany, firma Microsoft zrezygnujesz z używania kontrolki ObjectDataSource, a zamiast tego powiązać stronicowanych danych DataList lub Repeater programowo.
 
@@ -102,26 +91,21 @@ Dodaj metodę, która `ProductsBLL` klasę o nazwie `GetProductsAsPagedDataSourc
 
 `GetProductsAsPagedDataSource` rozpoczyna się poprzez pobranie *wszystkich* rekordy z `GetProducts()`. Następnie tworzy `PagedDataSource` obiektu, ustawiając jego `CurrentPageIndex` i `PageSize` właściwości do wartości przekazane do `pageIndex` i `pageSize` parametrów. Metoda stwierdza, zwracając skonfigurowania tej `PagedDataSource`:
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample2.vb)]
 
 ## <a name="step-3-displaying-product-information-in-a-datalist-using-default-paging"></a>Krok 3. Wyświetlanie informacji o produkcie w kontrolką DataList przy użyciu domyślnego stronicowania
 
 Za pomocą `GetProductsAsPagedDataSource` dodane do metody `ProductsBLL` klasy, można teraz utworzyć DataList lub Repeater zapewniająca stronicowania domyślne. Zacznij od otwarcia `Paging.aspx` strony w `PagingSortingDataListRepeater` folder i przeciągnij kontrolką DataList z przybornika w projektancie, ustawienie DataList s `ID` właściwość `ProductsDefaultPaging`. Za pomocą kontrolek DataList s tagu inteligentnego, należy utworzyć nowe kontrolki ObjectDataSource, o nazwie `ProductsDefaultPagingDataSource` i skonfiguruj ją tak, pobiera dane przy użyciu `GetProductsAsPagedDataSource` metody.
 
-
 [![Tworzenie kontrolki ObjectDataSource i skonfigurować go do używania () GetProductsAsPagedDataSource — metoda](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image8.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image7.png)
 
 **Rysunek 5**: Tworzenie kontrolki ObjectDataSource i skonfigurować go do użycia `GetProductsAsPagedDataSource` `()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image9.png))
 
-
 Ustawianie list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
-
 
 [![Ustaw listy rozwijane w ramach aktualizacji, WSTAWIANIA i usuwania karty (Brak)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image11.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image10.png)
 
 **Rysunek 6**: Ustaw listy rozwijane w ramach aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image12.png))
-
 
 Ponieważ `GetProductsAsPagedDataSource` metoda oczekuje dwóch parametrów wejściowych, Kreator wyświetli nam źródła te wartości parametrów.
 
@@ -129,38 +113,30 @@ Indeks strony i wartości rozmiaru strony należy pamiętać różnych ogłaszan
 
 W szczególności użyj pageIndex pola querystring i pageSize dla `pageIndex` i `pageSize` parametrów, odpowiednio (zobacz rysunek 7). Poświęć chwilę, aby ustawić wartości domyślne dla tych parametrów, jako wartości querystring nie być obecna, gdy użytkownik najpierw odwiedzi tę stronę. Aby uzyskać `pageIndex`, ustawianie wartości domyślnej 0 (co spowoduje wyświetlenie pierwszej strony danych) i `pageSize` s domyślną wartość 4.
 
-
 [![Używanie ciąg zapytania jako źródła dla parametrów pageIndex i pageSize](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image14.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image13.png)
 
 **Rysunek 7**: Użyj ciąg zapytania jako źródło dla `pageIndex` i `pageSize` parametrów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image15.png))
 
-
 Po skonfigurowaniu kontrolki ObjectDataSource, program Visual Studio automatycznie tworzy `ItemTemplate` dla kontrolki DataList. Dostosowywanie `ItemTemplate` aby pokazać tylko nazwy produktu s, kategorii i dostawcy. Również ustawić DataList s `RepeatColumns` właściwość 2, jego `Width` do 100% i jego `ItemStyle` s `Width` do 50%. Te ustawienia szerokość zapewni równe odstępy dla dwóch kolumn.
 
 Po wprowadzeniu tych zmian, znaczników s DataList i kontrolki ObjectDataSource powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample3.aspx)]
 
 > [!NOTE]
 > Ponieważ firma Microsoft nie wykonuje żadnych aktualizacji lub usuwania funkcji w ramach tego samouczka, możesz wyłączyć stan widoku DataList s, aby zmniejszyć rozmiar renderowanej strony.
 
-
 Podczas początkowego wizyt u klientów tę stronę za pośrednictwem przeglądarki, ani `pageIndex` ani `pageSize` znajdują się parametry querystring. W związku z tym są używane wartości domyślne, od 0 do 4. Jak pokazano na rysunku 8, powoduje to DataList, który wyświetla produktów pierwsze cztery.
-
 
 [![Pierwsze cztery produkty są wymienione.](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image17.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image16.png)
 
 **Rysunek 8**: Pierwsze cztery produkty są wymienione ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image18.png))
 
-
 Bez interfejsu stronicowania, tam aktualnie nie jest prostym s oznacza, że dla użytkownika przejść do drugiej strony danych. Utworzymy interfejsu stronicowania w kroku 4. Na razie jednak stronicowania można wykonywać tylko bezpośrednio określając kryteria stronicowania w zmiennej querystring. Na przykład, aby wyświetlić drugiej strony, zmienić adres URL w pasku adresu przeglądarki s `Paging.aspx` do `Paging.aspx?pageIndex=2` i naciśnij klawisz Enter. Powoduje to, że drugiej strony danych do wyświetlenia (patrz rysunek 9).
-
 
 [![Druga strona dane są wyświetlane](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image20.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image19.png)
 
 **Rysunek 9**: Druga strona dane są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image21.png))
-
 
 ## <a name="step-4-creating-the-paging-interface"></a>Krok 4. Tworzenie interfejsu stronicowania
 
@@ -174,7 +150,6 @@ Istnieje szereg różnych interfejsów stronicowania, które można zaimplemento
 Dla kontrolek DataList i Repeater odpowiadamy za decydowanie o interfejsu stronicowanie i realizowania. Obejmuje to tworzenie wymaganych formantów sieci Web na tej stronie i wyświetlanie żądanej strony, kliknięcie określonego przycisku interfejsu stronicowania. Ponadto niektóre formanty interfejsu stronicowania może być konieczne można wyłączyć. Na przykład podczas wyświetlania na pierwszej stronie danych za pomocą następnego, Previous, najpierw ostatnio interfejsu, będzie można wyłączyć przyciski pierwszą i Wstecz.
 
 W tym samouczku s pozwalają stosować dalej, Previous, najpierw ostatnio interfejsu. Dodaj cztery kontrolki przycisku w sieci Web do strony i ustaw ich `ID` s `FirstPage`, `PrevPage`, `NextPage`, i `LastPage`. Ustaw `Text` właściwości &lt; &lt; najpierw &lt; Wstecz, obok &gt;i ostatnie &gt; &gt; .
-
 
 [!code-aspx[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample4.aspx)]
 
@@ -191,11 +166,9 @@ Liczba wyświetleń stron jest obliczany limitu łącznej liczby wierszy podziel
 
 Jeśli interfejs stronicowania zawiera ostatni przycisk, konieczne jest, całkowita liczba rekordów, które są stronicowane za pośrednictwem zapamiętane między ogłaszania zwrotnego tak, aby po kliknięciu przycisku ostatniego określimy, której ostatni indeks strony. Aby ułatwić to zadanie, należy utworzyć `TotalRowCount` właściwości w klasie CodeBehind strony s ASP.NET, która będzie się powtarzać, jego wartość, aby wyświetlić stan:
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample5.vb)]
 
 Oprócz `TotalRowCount`potrwać chwilę, aby utworzyć prosty sposób uzyskiwania dostępu do strony indeksu, rozmiar strony tylko do odczytu właściwości na poziomie strony oraz liczba stron:
-
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample6.vb)]
 
@@ -205,7 +178,6 @@ Oprócz `TotalRowCount`potrwać chwilę, aby utworzyć prosty sposób uzyskiwani
 
 W tym celu należy utworzyć program obsługi zdarzeń dla ObjectDataSource s `Selected` zdarzeń. W `Selected` programu obsługi zdarzeń, które mamy dostęp do wartość zwracaną ObjectDataSource s `Select()` metody w tym przypadku `PagedDataSource`.
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample7.vb)]
 
 ## <a name="displaying-the-requested-page-of-data"></a>Wyświetlanie żądanej strony danych
@@ -213,7 +185,6 @@ W tym celu należy utworzyć program obsługi zdarzeń dla ObjectDataSource s `S
 Gdy użytkownik kliknie jeden z przycisków w interfejsie stronicowania, należy wyświetlić żądanej strony danych. Ponieważ określono parametry stronicowanie za pośrednictwem ciąg zapytania, aby wyświetlić żądanej strony użycie danych `Response.Redirect(url)` mieć użytkownik s przeglądarki ponownie zażądać `Paging.aspx` strony z odpowiednimi parametrami stronicowania. Na przykład, aby wyświetlić drugiej strony danych, firma Microsoft przekierowania użytkownika `Paging.aspx?pageIndex=1`.
 
 Aby ułatwić to zadanie, należy utworzyć `RedirectUser(sendUserToPageIndex)` metodę, która przekierowuje użytkownika do `Paging.aspx?pageIndex=sendUserToPageIndex`. Następnie należy wywołać tę metodę, przy użyciu czterech przycisku `Click` procedury obsługi zdarzeń. W `FirstPage` `Click` programu obsługi zdarzeń, wywołanie `RedirectUser(0)`, aby wysłać je do pierwszej strony; w `PrevPage` `Click` programu obsługi zdarzeń, użyj `PageIndex - 1` jako indeks strony; i tak dalej.
-
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample8.vb)]
 
@@ -225,32 +196,26 @@ Obecnie wszystkie cztery przyciski są włączone, bez względu na wyświetlanej
 
 Dodaj następujący kod do ObjectDataSource s `Selected` program obsługi zdarzeń:
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample9.vb)]
 
 Dodając ten przyciski pierwszy i poprzedni zostanie wyłączona podczas przeglądania pierwszej strony, podczas gdy przyciski następnej i ostatnio zostanie wyłączona podczas przeglądania na ostatniej stronie.
 
 Umożliwiają s wykonaj interfejsu stronicowania, informujący użytkownika, co stronie one ponownie obecnie oglądany, i istnieje ile łączna liczba stron. Dodaj kontrolkę etykieta w sieci Web do strony i ustaw jego `ID` właściwość `CurrentPageNumber`. Ustaw jego `Text` właściwości kontrolki ObjectDataSource s wybrany program obsługi zdarzeń takich zawiera bieżącą stronę przeglądany (`PageIndex + 1`) oraz łączną liczbę stron (`PageCount`).
 
-
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample10.vb)]
 
 Na rysunku nr 10 przedstawiono `Paging.aspx` po raz pierwszy odwiedzony. Ponieważ ciąg zapytania jest pusta, kontrolki DataList domyślnie przedstawia produktów pierwsze cztery; Pierwszy i poprzedni przyciski są wyłączone. Jeśli klikniesz pozycję dalej Wyświetla następnych czterech rekordy (zobacz rysunek 11); Pierwszy i poprzedni przyciski są teraz włączone.
-
 
 [![Strona pierwszego dane są wyświetlane](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image22.png)
 
 **Na rysunku nr 10**: Strona pierwszego dane są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image24.png))
 
-
 [![Druga strona dane są wyświetlane](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image25.png)
 
 **Rysunek 11**: Druga strona dane są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image27.png))
 
-
 > [!NOTE]
 > Interfejs stronicowania może zostać poprawione dalsze, umożliwiając użytkownikowi na określenie, ile strony, aby wyświetlić na stronie. Na przykład kontrolki DropDownList można dodać opcje rozmiaru strony listy, takich jak 5, 10, 25, 50 i wszystkie. Po wybraniu rozmiar strony, użytkownik musi zostać przekierowany z powrotem do `Paging.aspx?pageIndex=0&pageSize=selectedPageSize`. Opuścić implementacja to rozszerzenie w charakterze ćwiczenia dla czytnika.
-
 
 ## <a name="using-custom-paging"></a>Przy użyciu niestandardowych stronicowania
 

@@ -8,12 +8,12 @@ ms.date: 08/19/2008
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2d954cbc001a62f021f942f1ff44522a2769f516
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e7294be63ac06dbf548df9d99c07503d4bfff55f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389586"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125506"
 ---
 # <a name="preventing-javascript-injection-attacks-c"></a>Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (C#)
 
@@ -23,7 +23,6 @@ przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Zapobiec atakom iniekcji JavaScript i atakami skryptów między witrynami dla Ciebie. W tym samouczku Walther Autor: Stephen wyjaśnia, jak łatwo można pokonać tego rodzaju ataki przeprowadzane przez kodowania zawartości HTML.
 
-
 Celem tego samouczka jest wyjaśniają, jak można zapobiec wstrzyknięciu kodu JavaScript w aplikacjach ASP.NET MVC. W tym samouczku omówiono dwa podejścia do obrony przed ataku polegającego na iniekcji JavaScript witryny sieci Web. Dowiesz się, jak zapobiegającą wstrzyknięciu kodu JavaScript, przez kodowanie danych, którą można wyświetlać. Poznasz również sposób zapobiegającą wstrzyknięciu kodu JavaScript przez kodowanie danych, który oznacza akceptację.
 
 ## <a name="what-is-a-javascript-injection-attack"></a>Co to jest ataku polegającego na iniekcji JavaScript?
@@ -32,11 +31,9 @@ Zawsze, gdy użytkownik akceptuje dane wejściowe użytkownika i ponownie wyświ
 
 Wyobraź sobie, że utworzono witrynę sieci Web opinii klientów (patrz rysunek 1). Klienci mogą odwiedź witrynę internetową i wprowadź informacje zwrotne o swoich doświadczeniach z używania produktów. Gdy klient wyśle ich opinie, opinii, zostanie wyświetlony ponownie na stronie opinii.
 
-
 [![Opinie klientów witryny sieci Web](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
 
 **Rysunek 01**: Opinie klientów witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-cs/_static/image3.png))
-
 
 Witryna internetowa opinii klientów używa `controller` w ofercie 1. To `controller` zawiera dwa działania o nazwie `Index()` i `Create()`.
 
@@ -64,11 +61,9 @@ Wyobraź sobie, wprowadź następujący tekst do formularza opinii klientów:
 
 Ten tekst reprezentuje skryptu JavaScript, która wyświetla okno komunikatu alertu. Po trafi tego skryptu do opinii formularzu komunikat <em>coś!</em> pojawi się w każdym przypadku, gdy każdy użytkownik odwiedza witrynę sieci Web z opinii klientów w przyszłości (patrz rysunek 2).
 
-
 [![Iniekcja kodu JavaScript](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
 
 **Rysunek 02**: Iniekcja kodu JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-cs/_static/image6.png))
-
 
 Teraz Twoje pierwszą odpowiedzią na wstrzyknięciu kodu JavaScript może być apathy. Może się wydawać, że wstrzyknięciu kodu JavaScript są po prostu rodzaj *wystarcza* ataku. Może być uważa, że nikt Akcja naprawdę nic przez zatwierdzenie ataku polegającego na iniekcji JavaScript.
 
@@ -92,11 +87,9 @@ Należy zauważyć, że wartość `feedback.Message` ma format HTML zakodowane p
 
 Jaki jest średnia w formacie HTML kodowanie ciągu? Podczas HTML kodowania ciągu, niebezpiecznych znaków takich jak `<` i `>` są zastępowane przez odwołań do jednostek kodu HTML, takich jak `&lt;` i `&gt;`. W takim przypadku ciąg `<script>alert("Boo!")</script>` ma format HTML zakodowane, jego są konwertowane na `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Zakodowany ciąg nie jest już wykonuje jako skrypt JavaScript, gdy interpretowany przez przeglądarkę. Zamiast tego możesz pobrać nieszkodliwe strony na rysunku 3.
 
-
 [![Bezcelowe ataku JavaScript](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
 
 **Rysunek 03**: Udaremnione ataku JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-cs/_static/image9.png))
-
 
 Należy zauważyć, że w `Index` tylko wartości przeglądać w ofercie 3 `feedback.Message` jest zaszyfrowana. Wartość `feedback.EntryDate` nie jest zaszyfrowana. Należy zakodować dane wprowadzane przez użytkownika. Ponieważ wartość EntryDate został wygenerowany w kontrolerze, nie należy do formatu HTML kodowania tę wartość.
 

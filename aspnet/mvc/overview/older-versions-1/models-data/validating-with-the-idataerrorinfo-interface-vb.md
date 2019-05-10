@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: 3a8a9d9f-82dd-4959-b7c6-960e9ce95df1
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c64e1ea1562c3a0cfe4fb33f1c3033bb9c31bd2c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ff3adc5db8114dcca2c66d937e1706f0bac0d30
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402742"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117548"
 ---
 # <a name="validating-with-the-idataerrorinfo-interface-vb"></a>Walidacja z użyciem interfejsu IDataErrorInfo (VB)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Autor: Stephen Walther dowiesz się, jak wyświetlać komunikaty o błędach niestandardowego sprawdzania poprawności poprzez implementację interfejsu IDataErrorInfo w klasie modelu.
-
 
 Celem tego samouczka jest wyjaśnić jedno z podejść do przeprowadzania weryfikacji w aplikacji ASP.NET MVC. Dowiesz się, jak zapobiec ktoś przesyłania formularza HTML bez podawania wartości wymaganych pól formularza. W tym samouczku dowiesz się, jak przeprowadzić weryfikacji za pomocą interfejsu IErrorDataInfo.
 
@@ -30,7 +29,6 @@ W tym samouczku czy mogę użyć MoviesDB bazy danych i tabeli bazy danych film�
 
 <a id="0.6_table01"></a>
 
-
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
 | Id | int | False |
@@ -38,19 +36,15 @@ W tym samouczku czy mogę użyć MoviesDB bazy danych i tabeli bazy danych film�
 | Dyrektor ds. | Nvarchar(100) | False |
 | DateReleased | DataGodzina | False |
 
-
 W tym samouczku używam Microsoft Entity Framework do generowania klasy modelu mojej bazy danych. Klasa filmu generowane przez program Entity Framework jest wyświetlany na rysunku 1.
-
 
 [![Jednostki filmu](validating-with-the-idataerrorinfo-interface-vb/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image1.png)
 
 **Rysunek 01**: Jednostki Movie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-vb/_static/image2.png))
 
-
 > [!NOTE] 
 > 
 > Aby dowiedzieć się więcej o korzystaniu z programu Entity Framework do generowania klasy modelu z bazy danych, zobacz temat zatytułowany Moje samouczek: Tworzenie klas modelu za pomocą programu Entity Framework.
-
 
 ## <a name="the-controller-class"></a>Klasa kontrolera
 
@@ -72,11 +66,9 @@ Właściwość IsValid zwraca wartość false, gdy występuje błąd weryfikacji
 
 Klasa film jest generowany przez program Entity Framework. Widać kod klasy filmu, jeśli Rozwiń plik MoviesDBModel.edmx w oknie Eksploratora rozwiązań i Otwórz plik MoviesDBModel.Designer.vb w edytorze kodu (patrz rysunek 2).
 
-
 [![Kod dla jednostki filmu](validating-with-the-idataerrorinfo-interface-vb/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image3.png)
 
 **Rysunek 02**: Kod dla jednostki Movie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-vb/_static/image4.png))
-
 
 Klasa film jest klasy częściowej. Oznacza to, że możemy dodać innej klasy częściowej o takiej samej nazwie, aby rozszerzyć funkcjonalność klasy filmu. Dodamy naszych logikę walidacji do nowej klasy częściowej.
 
@@ -110,7 +102,6 @@ Możesz korzystać z zalet tych metod częściowych, aby dodać logikę walidacj
 > [!NOTE] 
 > 
 > Metoda częściowa jest metoda zdefiniowana w klasie, które nie są wymagane do wdrożenia. Jeśli nie implementować metodę częściową kompilator usuwa podpis metody i wszystkie wywołania do metody, więc są bez kosztów czasu wykonywania skojarzony z metody częściowej. W edytorze programu Visual Studio Code można dodać metody częściowej, wpisując słowa kluczowego *częściowe* następuje spacja, aby wyświetlić listę częściowych do zaimplementowania.
-
 
 **Wyświetlanie listy 3 - Models\Movie.vb**
 
@@ -146,11 +137,9 @@ W ofercie 4, sprawdza właściwości indeksatora \_kolekcji błędów, aby zobac
 
 Nie potrzebujesz zmodyfikować kontrolera głównego w jakikolwiek sposób, aby użyć zmodyfikowane klasy filmu. Strona wyświetlona na rysunku 3 przedstawiono, co się stanie, gdy została wprowadzona żadna wartość dla pola formularza tytuł lub dyrektor ds.
 
-
 [![Automatyczne tworzenie metod akcji](validating-with-the-idataerrorinfo-interface-vb/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-vb/_static/image5.png)
 
 **Rysunek 03**: Formularz z brakującymi wartościami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](validating-with-the-idataerrorinfo-interface-vb/_static/image6.png))
-
 
 Zwróć uwagę, że wartość DateReleased jest automatycznie wykonane sprawdzanie poprawności. Ponieważ właściwość DateReleased nie akceptuje wartości NULL, DefaultModelBinder generuje błąd sprawdzania poprawności dla tej właściwości automatycznie, gdy nie ma wartości. Jeśli chcesz zmodyfikować komunikat o błędzie dla właściwości DateReleased, a następnie należy utworzyć niestandardowego integratora modelu.
 

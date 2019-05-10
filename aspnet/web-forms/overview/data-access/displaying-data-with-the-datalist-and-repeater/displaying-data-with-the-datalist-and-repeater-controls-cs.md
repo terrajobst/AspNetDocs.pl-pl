@@ -8,12 +8,12 @@ ms.date: 09/13/2006
 ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bf9930a3704d4ae6f0cb012a1512e23b29435f76
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a8930b9c5c25b40f667817a254a4ec4b6a19928a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400194"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134542"
 ---
 # <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>Wyświetlanie danych za pomocą kontrolek DataList i Repeater (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_29_CS.exe) lub [Pobierz plik PDF](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/datatutorial29cs1.pdf)
 
 > W poprzednich samouczkach użyliśmy kontrolki GridView do wyświetlania danych. Począwszy od w tym samouczku przyjrzymy się tworzenia typowych wzorców raportowania za pomocą kontrolek DataList i Repeater, począwszy od podstawy wyświetlanie danych za pomocą tych kontrolek.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -42,88 +41,69 @@ Zanim zaczniemy, w tym samouczku, umożliwiają najpierw Poświęć chwilę, aby
 - `RepeatColumnAndDirection.aspx`
 - `NestedControls.aspx`
 
-
 ![Utwórz DataListRepeaterBasics Folder i dodawanie stron samouczek platformy ASP.NET](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image1.png)
 
 **Rysunek 1**: Utwórz `DataListRepeaterBasics` Folder i dodawanie stron samouczek platformy ASP.NET
 
-
 Otwórz `Default.aspx` strony, a następnie przeciągnij `SectionLevelTutorialListing.ascx` kontrolki użytkownika od `UserControls` folder na powierzchnię projektu. Ten formant użytkownika, które utworzyliśmy w [strony wzorcowe i nawigacja w witrynie](../introduction/master-pages-and-site-navigation-cs.md) samouczek, wylicza mapy witryny i wyświetla samouczków z bieżącej sekcji na liście punktowanej.
-
 
 [![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image2.png)
 
 **Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image4.png))
 
-
 W celu wyświetlania listy punktowanej DataList i Repeater samouczków, firma Microsoft będzie tworzony, należy dodać je do mapy witryny. Otwórz `Web.sitemap` pliku i Dodaj następujący kod po znaczników węzeł mapy witryny dodawania przycisków niestandardowych:
 
-
 [!code-xml[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample1.xml)]
-
 
 ![Aktualizacja mapy witryny, aby uwzględnić nowe strony ASP.NET](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image5.png)
 
 **Rysunek 3**: Aktualizacja mapy witryny, aby uwzględnić nowe strony ASP.NET
 
-
 ## <a name="step-2-displaying-product-information-with-the-datalist"></a>Krok 2. Wyświetlanie informacji o produkcie za pomocą kontrolki DataList
 
 Podobnie jak w widoku FormView, kontrolki DataList s renderowania danych wyjściowych zależy od szablonów zamiast BoundFields, CheckBoxFields i tak dalej. W odróżnieniu od FormView kontrolki DataList jest przeznaczony do wyświetlania zestawu rekordów zamiast solitary jeden. Pozwól s rozpocząć w tym samouczku przy użyciu przyjrzeć się powiązanie — informacje o produkcie z kontrolką DataList. Zacznij od otwarcia `Basics.aspx` stronie `DataListRepeaterBasics` folderu. Następnie przeciągnij kontrolką DataList z przybornika do projektanta. Jak rysunek 4 przedstawia przed określeniem szablonów DataList s, Projektant wyświetla je jako szary prostokąt.
-
 
 [![Przeciągnij kontrolki DataList z przybornika do projektanta](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image6.png)
 
 **Rysunek 4**: Przeciągnij DataList z przybornika do projektanta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image8.png))
 
-
 Z DataList s tagów inteligentnych, dodać nowe kontrolki ObjectDataSource i skonfigurować go do używania `ProductsBLL` klasy s `GetProducts` metody. Ponieważ ponowne tworzenie DataList tylko do odczytu, w tym samouczku ustawimy listy rozwijanej (Brak) w Kreatorze s Wstawianie, AKTUALIZOWANIE i usuwanie kart.
-
 
 [![Wybrać opcję utworzenia nowego elementu ObjectDataSource](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image10.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image9.png)
 
 **Rysunek 5**: Zoptymalizowany pod kątem do utworzenia nowego elementu ObjectDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image11.png))
 
-
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLL](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image12.png)
 
 **Rysunek 6**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image14.png))
-
 
 [![Pobierz informacje o wszystkich produktów za pomocą metody GetProducts](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image15.png)
 
 **Rysunek 7**: Pobieranie informacji o wszystkich produktów za pomocą `GetProducts` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image17.png))
 
-
 Po skonfigurowaniu kontrolki ObjectDataSource i kojarząc ją z DataList za pośrednictwem jego tagu inteligentnego, Visual Studio będzie automatycznie tworzył `ItemTemplate` w elemencie DataList, który wyświetla nazwę i wartość każdego pola danych zwróconych przez źródło danych (zobacz Kod znaczników poniżej). To ustawienie domyślne `ItemTemplate` wygląd jest taka sama jak w przypadku szablonów tworzone automatycznie podczas tworzenia wiązania źródła danych do FormView za pomocą projektanta.
-
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample2.aspx)]
 
 > [!NOTE]
 > Pamiętaj, że powiązań źródła danych w kontrolce FormView za pośrednictwem tagu inteligentnego s FormView, Visual Studio stworzył `ItemTemplate`, `InsertItemTemplate`, i `EditItemTemplate`. Za pomocą kontrolek DataList, jednak tylko `ItemTemplate` zostanie utworzony. Jest to spowodowane kontrolki DataList nie ma tych samych wbudowanych, edycji i wstawiania obsługę oferowaną przez FormView. Kontrolki DataList zawierają informacje o zdarzeniach powiązanych edycji i usuwania i edytowania i usuwania pomocy technicznej można dodać z znacznej liczby kod, ale występują s nie out-of--box prosta jako przy użyciu widoku FormView. Zobaczymy, jak dołączyć, edytowania i usuwania pomocy technicznej za pomocą kontrolki DataList w przyszłości zapoznać się z samouczkiem.
 
-
 Pozwól, s, Poświęć chwilę, aby poprawić wygląd tego szablonu. Zamiast wyświetlić wszystkie pola danych, niech s Wyświetl tylko nazwy s produktu, dostawca, kategorii, ilość na jednostkę oraz ceny jednostkowej. Ponadto umożliwiają s wyświetlania nazwy w `<h4>` nagłówka oraz pozostałe pola, przy użyciu układu `<table>` pod nagłówkiem.
 
 Aby wprowadzić te zmiany, możesz albo szablon funkcji w Projektancie z DataList s inteligentnych tagów kliknij link Edytuj szablony lub można zmodyfikować szablon ręcznie za pomocą składni deklaratywnej s strona edycji. Jeśli używasz opcji Edytuj szablony w Projektancie znaczników wynikowy może nie odpowiadać następującym dokładnie, ale oglądany przez przeglądarkę powinna wyglądać bardzo podobne do ekranu zrzut, jak pokazano na rysunku 8.
-
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample3.aspx)]
 
 > [!NOTE]
 > Określa etykietę w sieci Web przykładzie powyżej używa, którego `Text` właściwość jest przypisywana wartość składni wiązania danych. Alternatywnie można pominięto etykiet, wpisując składnię wiązania danych. Oznacza to, że zamiast `<asp:Label ID="CategoryNameLabel" runat="server" Text='<%# Eval("CategoryName") %>' />` mogliśmy zamiast tego użyć składni deklaratywnej `<%# Eval("CategoryName") %>`.
 
-
 Jednak pozostawienie w kontrolkach internetowych etykiety, oferuje dwie korzyści. Po pierwsze zapewnia łatwiejsze oznacza, że formatowanie danych na podstawie danych, jak opisano w następnym samouczku. Po drugie opcja Edytuj szablony w Projektancie t wyświetlania deklaratywne wiązania danych składni, pojawia się poza niektóre kontrolki sieci Web. Zamiast tego interfejs Edytuj szablony zaprojektowano w celu ułatwienia pracy z znaczników statycznych i sieci Web kontroluje i przyjęto założenie, że wszystkie wiązania danych zostanie wykonane za pomocą okna dialogowego Edycja powiązania danych, który jest dostępny z tagów inteligentnych formantów sieci Web.
 
 W związku z tym podczas pracy z DataList, który zapewnia możliwość edytowania szablonów za pomocą projektanta, chcę użyć kontrolki etykiety w sieci Web, więc, że zawartość jest dostępna za pośrednictwem interfejsu Edytuj szablony. Jak zajmiemy się wkrótce, powtarzanego wymaga, że zawartość s szablonu można edytować z poziomu widoku źródła. W związku z tym podczas tworzenia szablonów s Repeater I będzie często pominąć etykiety w sieci Web kontroluje, o ile nie wiem, że potrzebuję sformatować wygląd danych powiązane tekst oparty na logiki.
 
-
 [![Każdy produkt s danych wyjściowych jest renderowany przy użyciu DataList s właściwości ItemTemplate](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image18.png)
 
 **Rysunek 8**: Jest renderowany przy użyciu DataList s wyjściowy każdego produktu s `ItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image20.png))
-
 
 ## <a name="step-3-improving-the-appearance-of-the-datalist"></a>Krok 3. Poprawa wyglądu kontrolki DataList
 
@@ -133,14 +113,11 @@ Zgodnie z opisem w [wyświetlanie danych za pomocą kontrolki ObjectDataSource](
 
 Aby dodać plik Skin, kliknij prawym przyciskiem myszy `App_Themes/DataWebControls` folder, kliknij przycisk Dodaj nowy element i wybierz opcję Plik Skin z listy. Nadaj plikowi nazwę `DataList.skin`.
 
-
 [![Utwórz nowy plik Skin o nazwie DataList.skin](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
 
 **Rysunek 9**: Utwórz nowy plik Skin, o nazwie `DataList.skin` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image23.png))
 
-
 Użyj następujące kodu znaczników dla `DataList.skin` pliku:
-
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample4.aspx)]
 
@@ -148,11 +125,9 @@ Te ustawienia przypisywać tej samej klasy CSS do odpowiedniej właściwości Da
 
 Dodając ten plik Skin wygląd s DataList jest aktualizowana w projektanta (może być konieczne odświeżenie widoku projektanta, aby zobaczyć skutki nowy plik Skin; z menu Widok, wybierz opcję odświeżania). Jak pokazano na rysunku nr 10, każdy produkt przemienne ma jasny różowy kolor tła.
 
-
 [![Utwórz nowy plik Skin o nazwie DataList.skin](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image25.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image24.png)
 
 **Na rysunku nr 10**: Utwórz nowy plik Skin, o nazwie `DataList.skin` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image26.png))
-
 
 ## <a name="step-4-exploring-the-datalist-s-other-templates"></a>Krok 4. Eksplorowanie DataList s innych szablonów
 
@@ -170,36 +145,28 @@ Podczas określania `HeaderTemplate` lub `FooterTemplate`, kontrolki DataList do
 > [!NOTE]
 > Jak widzieliśmy w [wyświetlanie informacji podsumowania w kontrolce GridView s stopki](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs.md) samouczek, podczas gdy don wierszy w nagłówku i stopce składni t do wiązania danych pomocy technicznej, informacje specyficzne dla danych może zostać wprowadzona bezpośrednio do tych wierszy z GridView s `RowDataBound` programu obsługi zdarzeń. Ta technika może być używany do obu uruchomionych obliczeń lub inne informacje z danych powiązane z formantem a także przypisać te informacje do stopki. Tę samą koncepcję można zastosować do kontrolek DataList i Repeater Jedyną różnicą jest to, że na kontrolkach DataList i Repeater utworzyć program obsługi zdarzeń dla `ItemDataBound` zdarzeń (a nie dla `RowDataBound` zdarzeń).
 
-
 W tym przykładzie umożliwiają s ma tytuł wyświetlany u góry s DataList skutkuje informacje o produkcie `<h3>` nagłówka. Aby to zrobić, należy dodać `HeaderTemplate` za pomocą odpowiedniego znacznika. Przy użyciu projektanta, można to zrobić przez kliknięcie linku Edytuj szablony w tagu inteligentnego DataList s, wybierając szablon nagłówka z listy rozwijanej i wpisując tekst po wybraniu opcji Nagłówek 3 ze stylu listy rozwijanej liście (patrz rysunek 11).
-
 
 [![Dodaj HeaderTemplate przy użyciu informacji o produkcie tekstu](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image27.png)
 
 **Rysunek 11**: Dodaj `HeaderTemplate` przy użyciu informacji o produkcie tekstu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image29.png))
 
-
 Alternatywnie, to można dodać deklaratywne, wprowadzając następujące znaczniki w ramach `<asp:DataList>` tagi:
-
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample5.html)]
 
 Aby dodać znacznej liczby odstęp między każdym lista produktów, umożliwić s Dodaj `SeparatorTemplate` zawierającej linię między każdej sekcji. Tag linia pozioma (`<hr>`), dodaje pasek podziału. Utwórz `SeparatorTemplate` tak, aby miało następujące znaczniki:
-
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample6.html)]
 
 > [!NOTE]
 > Podobnie jak `HeaderTemplate` i `FooterTemplates`, `SeparatorTemplate` nie jest powiązany z dowolny rekord ze źródła danych i w związku z tym nie może mieć bezpośredniego dostępu do rekordów powiązany z kontrolki DataList źródła danych.
 
-
 Po wprowadzeniu tego dodatku, podczas wyświetlania strony za pośrednictwem przeglądarki powinien wyglądać podobnie do rysunek 12. Należy pamiętać, wiersz nagłówka i wiersz między każdym lista produktów.
-
 
 [![Kontrolki DataList zawiera wiersz nagłówka i linii poziomej między każdym lista produktów](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image30.png)
 
 **Rysunek 12**: Kontrolki DataList zawiera wiersz nagłówka i poziomy reguły między każdej listy produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image32.png))
-
 
 ## <a name="step-5-rendering-specific-markup-with-the-repeater-control"></a>Krok 5. Renderowanie znaczników określonych kontrolką elementu powtarzanego
 
@@ -221,54 +188,43 @@ W programie ASP.NET: 1.x i Repeater kontroli często był używany do wyświetla
 > [!NOTE]
 > ASP.NET 2.0 wprowadzono nowe [kontroli BulletedList](https://msdn.microsoft.com/library/ms228101.aspx), który może być powiązana z kontroli źródła danych w celu wyświetlenia prostej listy punktowanej. Za pomocą kontrolki BulletedList firma Microsoft nie trzeba określić dowolną HTML związane z listy; Zamiast tego po prostu wskazaliśmy pole danych, aby wyświetlić jako tekst dla każdego elementu listy.
 
-
 Powtarzanego służy jako bloku catch, wszystkie dane formantu sieci Web. Jeśli nie ma istniejącej kontrolki, która generuje potrzebne znaczników, może służyć w kontrolce elementu powtarzanego. Aby zilustrować, za pomocą powtarzanego, niech s ma na liście kategorii wyświetlane powyżej kontrolki DataList informacji produktu, które zostały utworzone w kroku 2. W szczególności umożliwiają s ma kategorie wyświetlane w formacie HTML pojedynczy wiersz tabeli `<table>` z każdej kategorii wyświetlane jako kolumny w tabeli.
 
 W tym celu należy uruchomić, przeciągając kontrolką elementu powtarzanego z przybornika w projektancie, powyżej DataList informacje o produkcie. Podobnie jak w przypadku DataList powtarzanego początkowo wyświetlane są jako szare pole do momentu jego szablony zostały zdefiniowane.
-
 
 [![Dodaj Repeater do projektanta](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
 
 **Rysunek 13**: Dodaj Repeater do projektanta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image35.png))
 
-
 Istnieje tylko jedna opcja s w elemencie powtarzanym s tagów inteligentnych: Wybierz źródło danych. Zoptymalizowany pod kątem, aby utworzyć nowe kontrolki ObjectDataSource i skonfigurować go do korzystania ze `CategoriesBLL` klasy s `GetCategories` metody.
-
 
 [![Tworzenie nowego elementu ObjectDataSource](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image36.png)
 
 **Rysunek 14**: Tworzenie nowego elementu ObjectDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image38.png))
 
-
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy CategoriesBLL](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image39.png)
 
 **Rysunek 15**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image41.png))
-
 
 [![Pobierz informacje o wszystkich kategorii przy użyciu metody GetCategories](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image42.png)
 
 **Rysunek 16**: Pobieranie informacji o wszystkich kategorii przy użyciu `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image44.png))
 
-
 W przeciwieństwie do kontrolki DataList Visual Studio nie tworzy automatycznie ItemTemplate dla powtarzanego po powiązaniu go ze źródłem danych. Ponadto Repeater szablony s nie można skonfigurować za pomocą projektanta i musi być określona w sposób deklaratywny.
 
 Aby wyświetlić kategorie jako pojedynczy wiersz `<table>` kolumnę dla każdej kategorii, potrzebujemy powtarzanego do emitowania znaczników podobny do następującego:
-
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample7.html)]
 
 Ponieważ `<td>Category X</td>` tekst jest fragment, który jest powtarzany, pojawi się w elemencie powtarzanym s właściwości ItemTemplate. Kod znaczników, który pojawia się przed — `<table><tr>` — zostaną umieszczone w `HeaderTemplate` podczas końcowy znaczników - `</tr></table>` -zostaną umieszczone w `FooterTemplate`. Aby wprowadzić te ustawienia szablonu, przejdź do deklaratywne części strony ASP.NET, klikając przycisk źródła, w lewym dolnym rogu i wpisz następującej składni:
 
-
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample8.aspx)]
 
 Powtarzanego emituje dokładne znaczników określony przez jego szablony, nic więcej, nic nie mniej. Rysunek 17 pokazuje elementu powtarzanego s danych wyjściowych po wyświetleniu za pośrednictwem przeglądarki.
 
-
 [![Pojedynczy wiersz tabeli HTML &lt;tabeli&gt; Wyświetla każdej kategorii w oddzielnych kolumnach](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
 
 **Rysunek 17**: Pojedynczy wiersz tabeli HTML `<table>` Wyświetla każdej kategorii w oddzielnych kolumnach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image47.png))
-
 
 ## <a name="step-6-improving-the-appearance-of-the-repeater"></a>Krok 6. Poprawa wyglądu powtarzanego
 
@@ -276,26 +232,21 @@ Ponieważ powtarzanego emituje dokładnie znaczników, określony przez jego sza
 
 W tym przykładzie umożliwiają s kolumnach kategorii alternatywny kolory tła, takich jak za pomocą przemiennych wierszy w elemencie DataList. Aby to osiągnąć, należy przypisać `RowStyle` klasy CSS do każdego elementu powtarzanego i `AlternatingRowStyle` klasy CSS do każdego przemienne elementu powtarzanego za pośrednictwem `ItemTemplate` i `AlternatingItemTemplate` szablony, w następujący sposób:
 
-
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample9.aspx)]
 
 Umożliwiają także dodać wiersz nagłówka w danych wyjściowych z tekstem kategorie produktów s. Ponieważ firma Microsoft don wiem liczbę kolumn naszych wynikające `<table>` będzie składał się z dwóch, jest użycie to najprostszy sposób generowania wiersz nagłówka, która może obejmować wszystkie kolumny *dwóch* `<table>` s. Pierwszy `<table>` będzie zawierać dwa wiersze, wiersz nagłówka i wiersza, który będzie zawierać drugi pojedynczy wiersz `<table>` kolumnę dla każdej kategorii, która ma w systemie. Oznacza to chcemy emitować następujące znaczniki:
-
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample10.html)]
 
 Następujące `HeaderTemplate` i `FooterTemplate` spowodować żądaną znaczników:
 
-
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample11.aspx)]
 
 Rysunek 18 pokazuje powtarzanego po tych zmian.
 
-
 [![Kolumny kategorii Alternatywny kolor tła i zawiera wiersz nagłówka](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image48.png)
 
 **Rysunek 18**: Kategoria kolumn Alternatywny kolor tła i zawiera wiersz nagłówka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image50.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

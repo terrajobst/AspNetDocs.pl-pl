@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: 8aa371f8-913c-4ed2-98b0-f76abf15669d
 msc.legacyurl: /web-forms/videos/tailspin-spyworks
 msc.type: chapter
-ms.openlocfilehash: d30dc8906a72a35d87db40701070fe8c8f71c174
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 715ba4530604805faf9023e3606608b9d73b323e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394123"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133726"
 ---
 # <a name="tailspin-spyworks"></a>Tailspin Spyworks
 
 > Jak korzystać z nowych funkcji programu ASP.NET 4, Tworzenie sklepu internetowego, w tym zakupów, finalizacja zakupu i Administracja.
-
 
 - [Tailspin Spyworks — tworzenie i używanie kontrolki Popularne produkty](tailspin-spyworks-creating-and-using-the-popular-products-control.md)
 - [Tailspin Spyworks — implementowanie i używanie kontrolki Również zakupione](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)

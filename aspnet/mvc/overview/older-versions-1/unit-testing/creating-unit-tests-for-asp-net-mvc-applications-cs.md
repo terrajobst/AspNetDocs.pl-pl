@@ -8,12 +8,12 @@ ms.date: 08/19/2008
 ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1193d7dc6fc29dfdac5637c9391a82f9f3566073
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 633e28a100937c5d40d62fe5cc151e613171cc8f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407734"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126878"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (C#)
 
@@ -22,7 +22,6 @@ przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 [Pobierz plik PDF](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
 
 > Informacje o sposobie tworzenia testów jednostkowych dla akcji kontrolera. W tym samouczku Walther Autor: Stephen pokazuje, jak sprawdzić, czy akcji kontrolera zwraca określonego widoku, zwraca wartość określonego zestawu danych lub zwraca inny typ wyniku akcji.
-
 
 Celem tego samouczka jest pokazują, jak pisać testy jednostkowe dla kontrolerów w Twojej aplikacji ASP.NET MVC aplikacji. Będziemy omawiać sposób tworzenia trzech różnych rodzajów testów jednostkowych. Dowiesz się, jak Podgląd zwróconej przez akcję kontrolera testów, jak dane widoku, zwrócone przez akcji kontrolera testów i jak sprawdzić, czy jedna akcja kontrolera przekieruje Cię do drugiej akcji kontrolera.
 
@@ -58,16 +57,13 @@ Ta akcja kontroler zwraca również wartość widoku o nazwie `Details`. Jednak 
 
 Możesz uruchomić test jednostki w ofercie 2, wprowadzając kombinacja klawiszy **Ctrl-R, A** lub przez kliknięcie przycisku **Uruchom wszystkie testy w rozwiązaniu** przycisku (patrz rysunek 1). Jeśli test zakończy się pomyślnie, zostanie wyświetlone okno wyników testu na rysunku 2.
 
-
 [![Uruchom wszystkie testy w rozwiązaniu](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
 
 **Rysunek 01**: Uruchom wszystkie testy w rozwiązaniu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
 
-
 [![SUKCES!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
 
 **Rysunek 02**: SUKCES! ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
-
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a>Testowanie dane zwracane przez kontroler
 

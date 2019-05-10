@@ -8,17 +8,16 @@ ms.date: 05/16/2012
 ms.assetid: 489b414b-2322-4385-8638-04e08c0b6c90
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 63ffb6fa3c32c91508a12ed4545de08767c6200c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 382ed4a919418dc862caeb7d7e476690a155a4ea
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397971"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125877"
 ---
 # <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a>ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 2: konfigurowanie serwerów
 
 > Ten samouczek przedstawia sposób konfigurowania środowisk serwera na potrzeby obsługi jednym kliknięciem i automatycznych, wdrożenia witryny sieci Web i publikowania w różnych scenariuszach różnych.
-
 
 - [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](configuring-server-environments-for-web-deployment.md)
 - [Wybieranie właściwego podejścia do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md)

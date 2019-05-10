@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5415913626eb063a4cb1013ba03857c130487f42
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e665ca8dd064c23a8b8bd3593014969d0c3da48
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412180"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128514"
 ---
 # <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wyświetlanie danych
 
@@ -34,7 +34,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - Narzędzia graficzne bazy danych programu WebMatrix.
 > - `WebGrid` Pomocnik.
-
 
 ## <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
@@ -96,7 +95,6 @@ Kartę **— typ danych** i wybierz polecenie **int**. Ta wartość określa, ż
 
 > [!NOTE]
 > Nie będzie nazywamy je jakąkolwiek więcej informacji znajdziesz tutaj (znacznie), ale standardowa gestów klawiatury Windows można użyć do nawigacji w tej siatce. Na przykład ustawić tabulator między polami, można po prostu zacznij pisać, aby wybrać element na liście i tak dalej.
-
 
 Karta ostatnie **wartości domyślnej** pole (oznacza to, pozostaw to pole puste). Kartę **jest kluczem podstawowym** pole wyboru, a następnie wybierz ją. Ta opcja nakazuje bazy danych *identyfikator* kolumna będzie zawierać dane, który identyfikuje poszczególne wiersze. (Czyli każdy wiersz będą mieć unikatową wartość w kolumnie identyfikator, która umożliwia znalezienie tego wiersza.)
 
@@ -177,7 +175,6 @@ Aby uruchomić siatki, musisz napisać kilka wierszy kodu. Te wiersze kilka będ
 > [!NOTE]
 > Masz naprawdę wiele opcji do wyświetlania danych na stronie; `WebGrid` pomocy jest tylko jeden. Wybraliśmy ją na potrzeby tego samouczka, ponieważ jest najprostszym sposobem wyświetlania danych i jest jest elastyczny. W zestawie następnego samouczka pojawi się, jak używać więcej "manual" nowy sposób pracy z danymi na stronie, co daje więcej bezpośrednią kontrolę nad sposób wyświetlania danych.
 
-
 W okienku po lewej stronie w programie WebMatrix, kliknij przycisk **pliki** obszaru roboczego.
 
 Nowe utworzona baza danych znajduje się w *aplikacji\_danych* folderu. Jeśli folder już nie istnieje, program WebMatrix utworzony dla nowej bazy danych. (Folder może występować Jeśli wcześniej została zainstalowana pomocników.)
@@ -241,7 +238,6 @@ Na tym etapie bazy danych został otwarty, trafiła do Ciebie dane chcesz i przy
 > W przypadku niektórych z tych operacji (takich jak wstawianie i usuwanie rekordów) proces, który żąda operacji musi mieć odpowiednie uprawnienia w bazie danych. To dlatego produkcyjnych baz danych, często musisz podać nazwę użytkownika i hasło, po nawiązaniu połączenia z bazą danych.
 > 
 > Istnieją dziesiątek poleceń SQL, ale wszystkie one wykonać wzorca, takich jak polecenia widocznej w tym miejscu. Można użyć poleceń SQL do tworzenia tabel bazy danych, liczby rekordów w tabeli, Oblicz ceny i wykonuje wiele więcej operacji.
-
 
 ### <a name="adding-markup-to-display-the-data"></a>Dodawanie znaczników do wyświetlania danych
 

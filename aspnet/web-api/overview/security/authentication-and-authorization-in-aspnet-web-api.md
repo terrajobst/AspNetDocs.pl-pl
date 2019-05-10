@@ -8,12 +8,12 @@ ms.date: 11/27/2012
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 5dc4471039938a429a85c891594c3a6651c6ef9d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 368d2b9456d12b2bb4063a23333e5c8837faa3b8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59388533"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134717"
 ---
 # <a name="authentication-and-authorization-in-aspnet-web-api"></a>Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
 
@@ -28,7 +28,6 @@ Pierwszy artykuł z serii zapewnia ogólne omówienie uwierzytelniania i autoryz
 
 > [!NOTE]
 > Dzięki gotowej do osób, które w tej serii przeglądu i udostępniane opinii: Rick Anderson Levi Broderick, Barry Dorrans, Tom Dykstra, Hongmei Ge, David Matson, Daniel Roth, Tim Teebken.
-
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
@@ -101,7 +100,6 @@ W poprzednich przykładach filtr zezwala każdemu uwierzytelnionemu użytkowniko
 
 > [!NOTE]
 > **Klasy AuthorizeAttribute** filtr dla kontrolerów internetowych interfejsów API znajduje się w **System.Web.Http** przestrzeni nazw. Ma podobnych filtru dla kontrolerów MVC w **System.Web.Mvc** przestrzeń nazw, która nie jest zgodny z kontrolerów internetowych interfejsów API.
-
 
 ### <a name="custom-authorization-filters"></a>Filtry autoryzacji niestandardowej
 

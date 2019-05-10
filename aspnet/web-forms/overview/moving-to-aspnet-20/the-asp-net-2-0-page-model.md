@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 09f8389a04c5600ca9ee8365a9dc5a0d607c0a4d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bcb71b2b5a484e8756406867e08e8aa699a9024d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403925"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127915"
 ---
 # <a name="the-aspnet-20-page-model"></a>Modelu programu ASP.NET 2.0 strony
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W programie ASP.NET: 1.x, deweloperzy ma wybór między wbudowany model kodu i model kodu związanego z kodem. Związane z kodem można zaimplementować przy użyciu atrybutu Src lub atrybut CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają możliwość wyboru między wbudowany kod i związane z kodem, ale zostały znaczne ulepszenia do modelu związanym z kodem.
-
 
 W programie ASP.NET: 1.x, deweloperzy ma wybór między wbudowany model kodu i model kodu związanego z kodem. Związane z kodem można zaimplementować przy użyciu atrybutu Src lub atrybut CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają możliwość wyboru między wbudowany kod i związane z kodem, ale zostały znaczne ulepszenia do modelu związanym z kodem.
 
@@ -47,12 +46,10 @@ Definicję typowej klasy w pliku związanym z kodem programu ASP.NET 2.0 może w
 > [!NOTE]
 > C# i Visual Basic są tylko języki zarządzane, obsługujące klas częściowych. W związku z tym deweloperzy korzystający z języka J# nie będzie do korzystania z modelu związanym z kodem w programie ASP.NET 2.0.
 
-
 Nowy model zwiększa modelu związanym z kodem, ponieważ deweloperzy będą teraz mieć plików kodu, które zawierają tylko kod, który zostały one utworzone. Zapewnia także true separacja kodu i zawartości, ponieważ nie ma żadnych wystąpienia deklaracji zmiennych w pliku związanym z kodem.
 
 > [!NOTE]
 > Częściowe klasy dla strony ASPX jest, gdzie odbywa się powiązanie zdarzeń, deweloperów programu Visual Basic można weź pod uwagę wzrost niewielkim wzroście wydajności przy użyciu słowa kluczowego uchwytów w związanym z kodem można powiązać zdarzenia. C# ma nie równoważne słowa kluczowego.
-
 
 ## <a name="new--page-directive-attributes"></a>Nowe atrybuty @ Page — dyrektywa
 
@@ -128,12 +125,9 @@ Kolejna nowa możliwość dyrektywy @ Page w programie ASP.NET 2.0 jest możliwo
 
 **SomeText** atrybutu dyrektywy @ Page ustawia początkowe wartości właściwości SomeText w klasie bazowej, aby *Hello!*. Poniższy klip wideo jest wskazówki dotyczące ustawiania wartości początkowej właściwość publiczna w klasie bazowej, przy użyciu dyrektywy @ Page.
 
-
 ![](the-asp-net-2-0-page-model/_static/image1.png)
 
-
 [Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/setprop1.wmv)
-
 
 ## <a name="new-public-properties-of-the-page-class"></a>Nowe właściwości publicznej klasy strony
 
@@ -365,12 +359,9 @@ Gdy strona jest przesyłana z powrotem, Strona która inicjuje odświeżenie str
 
 Poniższy klip wideo jest przewodnik ogłaszania zwrotnego między stronami.
 
-
 ![](the-asp-net-2-0-page-model/_static/image2.png)
 
-
 [Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/xpage1.wmv)
-
 
 ## <a name="more-details-on-cross-page-postbacks"></a>Szczegółowe informacje na temat ogłaszania zwrotnego między stronami
 
@@ -423,16 +414,12 @@ Następnym krokiem jest wywołać metodę AddOnPreRenderCompleteAsync w punkcie 
 
 Poniższy film jest przewodnik żądania asynchroniczne strony.
 
-
 ![](the-asp-net-2-0-page-model/_static/image3.png)
-
 
 [Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/async1.wmv)
 
-
 > [!NOTE]
 > Na stronie async nie renderowane w przeglądarce, dopóki nie zakończy się EndEventHandler. Bez wątpienia, ale niektórzy deweloperzy będą traktować żądań asynchronicznych jako zbliżone do wywołania zwrotne async. Należy weź pod uwagę, że nie są one. Korzyścią dla żądań asynchronicznych jest, że pierwszym wątku roboczego mogą być zwrócone do puli wątków do obsługi nowych żądań, zmniejszając w ten sposób rywalizacji o zasoby z powodu trwa operacji We/Wy, powiązany, etc.
-
 
 ## <a name="script-callbacks-in-aspnet-20"></a>Wywołania zwrotne skryptu, na platformie ASP.NET 2.0
 
@@ -459,14 +446,12 @@ Jak wspomniano wcześniej, wywołanie XMLHttp jest hermetyzowany w obsłudze Web
 > [!NOTE]
 > \_\_doPostBack była nadal renderowana do strony w przypadku wywołania zwrotnego skryptu klienta. Nie jest on jednak używany wywołania zwrotnego.
 
-
 Argumenty dla formularza sieci Web\_DoCallback, funkcja po stronie klienta są udostępniane za pośrednictwem funkcji po stronie serwera GetCallbackEventReference, która zwykle będzie wywoływana na stronie\_obciążenia. Typowe wywołanie GetCallbackEventReference może wyglądać następująco:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample12.cs)]
 
 > [!NOTE]
 > W tym przypadku cm jest wystąpieniem ClientScriptManager. Klasa ClientScriptManager zostały omówione w dalszej części tego modułu.
-
 
 Istnieje kilka przeciążone wersje GetCallbackEventReference. W tym przypadku argumenty są następujące:
 
@@ -522,12 +507,9 @@ ICallbackEventHandler zawiera dwie metody, które są potrzebne do zaimplementow
 
 Po wykonaniu powyższych czynności można przystąpić do wykonania skryptu wywołania zwrotnego w programie ASP.NET 2.0.
 
-
 ![](the-asp-net-2-0-page-model/_static/image4.png)
 
-
 [Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/callback1.wmv)
-
 
 Wywołania zwrotne skryptu, na platformie ASP.NET są obsługiwane w dowolnej przeglądarki obsługującej wprowadzania wywołania XMLHttp. Obejmuje to wszystkie nowoczesne przeglądarki używana już dziś. Program Internet Explorer używa obiektu XMLHttp ActiveX, podczas gdy inne nowoczesnych przeglądarek (w tym nadchodzących programu Internet Explorer 7) używają wewnętrzne obiektu XMLHttp. Aby programowo określić, jeśli przeglądarka obsługuje wywołania zwrotne, możesz użyć **Request.Browser.SupportCallback** właściwości. Właściwość ta zwróci **true** Jeśli żądanie klienta obsługuje wywołania zwrotne skryptu.
 
@@ -537,7 +519,6 @@ Skrypty klienta w programie ASP.NET 2.0 są zarządzane przez użycie klasy Clie
 
 > [!NOTE]
 > Po skrypt został pomyślnie zarejestrowany na stronie, żadne kolejne próby, aby zarejestrować ten sam skrypt powoduje po prostu skrypt nie jest zarejestrowany po raz drugi. Nie zduplikowane skryptów są dodawane, a nie wystąpi wyjątek. Aby uniknąć niepotrzebnych obliczeń, istnieją metody, które można użyć w celu ustalenia, czy skrypt został już zarejestrowany, tak aby nie należy go zarejestrować więcej niż jeden raz.
-
 
 Metody ClientScriptManager powinny być znane wszystkie bieżące deweloperów platformy ASP.NET:
 
@@ -580,7 +561,6 @@ Ten kod tworzy następujący kod na renderowanej stronie:
 > [!NOTE]
 > Blok skryptu jest renderowany w dolnej części strony.
 
-
 Należy użyć metody IsClientScriptIncludeRegistered, aby określić, jeśli skrypt został już zarejestrowany. Dzięki temu można uniknąć próba ponownego zarejestrowania skrypt.
 
 ## <a name="registerstartupscript"></a>RegisterStartupScript
@@ -590,13 +570,11 @@ Metoda RegisterStartupScript przyjmuje te same argumenty co metoda RegisterClien
 > [!NOTE]
 > Jeśli zarejestrowane przez funkcję RegisterStartupScript, tej funkcji nie będą wykonywane, dopóki nie zostanie jawnie wywołana w kodzie po stronie klienta.
 
-
 Aby określić, jeśli skrypt został już zarejestrowany i uniknąć próba ponownego zarejestrowania skrypt, należy użyć metody IsStartupScriptRegistered.
 
 ## <a name="other-clientscriptmanager-methods"></a>Inne metody ClientScriptManager
 
 Poniżej przedstawiono niektóre inne użyteczne metody klasy ClientScriptManager.
-
 
 |  <strong>GetCallbackEventReference</strong>   |                                                 Zobacz wywołania zwrotne skryptu, we wcześniejszej części tego modułu.                                                 |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -606,4 +584,3 @@ Poniżej przedstawiono niektóre inne użyteczne metody klasy ClientScriptManage
 | <strong>RegisterClientScriptResource</strong> |     Rejestruje zasobu sieci Web ze stroną. Są to zasoby osadzone w zestawie i obsługiwane przez nowy program obsługi WebResource.axd.      |
 |     <strong>RegisterHiddenField</strong>      |                                                 Rejestruje ukryte pole formularza ze stroną.                                                 |
 |  <strong>RegisterOnSubmitStatement</strong>   |                                  Rejestruje kod po stronie klienta, który jest wykonywany po przesłaniu formularza HTML.                                   |
-

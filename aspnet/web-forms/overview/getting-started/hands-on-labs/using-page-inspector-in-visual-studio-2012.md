@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: d85fab0aeec86013761fc07ada1789b7719b24d9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f42b1be2697ba7d1145b3e334fe8f4ebf019cd12
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396567"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133552"
 ---
 # <a name="using-page-inspector-in-visual-studio-2012"></a>Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012
 
@@ -36,7 +36,6 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > W tym laboratorium przeprowadzi Cię przez ulepszeń i nowych funkcji, które opisano wcześniej, stosując drobne zmiany do przykładowej aplikacji sieci Web, pod warunkiem w folderze źródłowym.
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 
@@ -73,7 +72,6 @@ To ćwiczenie praktyczne obejmuje następujących czynnościach:
 
 > [!NOTE]
 > Każdy wykonywania towarzyszy początkowy rozwiązania, znajdującego się w folderze rozpoczęcia wykonywania, umożliwiający wykonanie każdego wykonywania niezależnie od innych. Wewnątrz kodu źródłowego dla ćwiczenia można również znaleźć folderu zakończenia, zawierającego rozwiązanie programu Visual Studio z kodem, powstałego w wykonaniu tych kroków, wykonując odpowiednie. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
-
 
 Szacowany czas do ukończenia tego laboratorium: **30 minut**.
 

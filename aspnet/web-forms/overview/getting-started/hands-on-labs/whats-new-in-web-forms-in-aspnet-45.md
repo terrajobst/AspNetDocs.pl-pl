@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 52f6ec17fb21019e93ebf2795e95d5b27e4edbe6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 301af8ed877b58624e419c04f605c41f27dbdd0c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401746"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132087"
 ---
 # <a name="whats-new-in-web-forms-in-aspnet-45"></a>Co nowego we wzorcu Web Forms na platformie ASP.NET 4.5
 
@@ -40,7 +40,6 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > W portalu oficjalne platformy ASP.NET można znaleźć więcej przykładów dotyczących nowych funkcji w programie ASP.NET 4.5 formularzy sieci Web: [Co nowego na platformie ASP.NET 4.5 i w programie Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
@@ -82,7 +81,6 @@ To ćwiczenie praktyczne obejmuje następujących czynnościach:
 
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
-
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**.
 
@@ -610,7 +608,6 @@ Czas operacji w witrynie sieci web są doskonałymi kandydatami dla programowani
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację do platformy Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
-
 
 ---
 

@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 61644169-e8b1-45dd-bf96-9c2301b69879
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 29f7dded2f6fc2e8ce588dab2949b59ddb6f1fc4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2e0e365c287fc455015d237ea466301335805d14
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388910"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122447"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-c"></a>Tworzenie klas modeli za pomocą programu Entity Framework (C#)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym samouczku dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. Dowiesz się, jak używać Kreator modelu Entity do tworzenia modelu danych jednostki ADO.NET. W trakcie tego samouczka firma Microsoft tworzenie aplikacji sieci web, który ilustruje sposób Wybierz, Wstaw, Aktualizuj i usunąć dane z bazy danych za pomocą programu Entity Framework.
-
 
 Celem tego samouczka jest wyjaśniono sposób tworzenia klas dostępu do danych za pomocą programu Microsoft Entity Framework, podczas tworzenia aplikacji ASP.NET MVC. Ten samouczek zakłada się nie wcześniejsza wiedza Microsoft Entity Framework. Do końca tego samouczka będziesz zrozumieć, jak używać programu Entity Framework wybierz, wstawianie, aktualizowanie i usuwanie rekordów bazy danych.
 
@@ -32,11 +31,9 @@ Ten samouczek zakłada, że masz program Visual Studio 2008 lub Visual Web Devel
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
-
 > [!NOTE] 
 > 
 > Nie ma zasadnicze połączenia między platformy ASP.NET MVC i Microsoft Entity Framework. Istnieje kilka rozwiązań alternatywnych, w programie Entity Framework, który za pomocą platformy ASP.NET MVC. Można na przykład, utworzyć przy użyciu innych narzędzi Obiektowo, takich jak Microsoft LINQ to SQL i NHibernate, SubSonic klasach modeli MVC.
-
 
 ## <a name="creating-the-movie-sample-database"></a>Tworzenie przykładowej bazy danych filmów
 
@@ -108,9 +105,7 @@ Jeśli chcesz zmienić nazwę klasy jednostki, możesz kliknij dwukrotnie nazwę
 
 Pamiętaj, aby zapisać modelu Entity Data Model po wprowadzeniu zmiany przez kliknięcie przycisku Zapisz (ikona dysku). W tle w Projektancie jednostki generuje zestaw klas języka C#. Te klasy można wyświetlić, otwierając plik MoviesDBModel.Designer.cs z okna Eksploratora rozwiązań.
 
-
 Nie należy modyfikować kodu w pliku Designer.cs narzędzie, ponieważ zmiany zostaną zastąpione podczas następnego używany jest Projektant jednostki. Jeśli chcesz rozszerzyć funkcjonalność klasy jednostek zdefiniowane w pliku Designer.cs narzędzie, a następnie można utworzyć *klas częściowych* w oddzielnych plikach.
-
 
 #### <a name="selecting-database-records-with-the-entity-framework"></a>Wybieranie rekordów bazy danych za pomocą programu Entity Framework
 
@@ -122,9 +117,7 @@ Zacznijmy od tworzenia aplikacji bazy danych filmów, tworząc strony, który wy
 
 Zwróć uwagę, że kontroler w ofercie 1 konstruktora. Konstruktor inicjuje poziomie klasa pole o nazwie \_bazy danych. \_Jednostek bazy danych generowanych przez Microsoft Entity Framework reprezentuje pole bazy danych. \_Pole bazy danych jest wystąpieniem klasy MoviesDBEntities, który został wygenerowany przez Projektanta obiektów.
 
-
 Aby można było używać klasy theMoviesDBEntities w kontrolerze główną, należy zaimportować MovieEntityApp.Models przestrzeni nazw (*MVCProjectName*. Modele).
-
 
 \_Db pole jest używane w ramach akcji indeks() można pobrać rekordów z tabeli bazy danych filmów. Wyrażenie \_bazy danych. MovieSet reprezentuje wszystkie rekordy z tabeli bazy danych filmów. Metoda ToList() jest używana do przekonwertowania zbiór filmy na ogólnych kolekcji obiektów filmu (lista&lt;filmu&gt;).
 
@@ -162,9 +155,7 @@ Należy zauważyć, że drugiej akcji Add() zostanie nadany atrybut AcceptVerbs.
 
 Drugiej akcji Add() tworzy nowe wystąpienie klasy Entity Framework filmu przy pomocy metody ASP.NET MVC TryUpdateModel(). Metoda TryUpdateModel() przyjmuje pól w FormCollection przekazywany do metody Add() i przypisuje wartości pól formularza HTML do klasy filmu.
 
-
 Korzystając z programu Entity Framework, należy podać "białą listę" właściwości, korzystając z metody TryUpdateModel lub UpdateModel można zaktualizować właściwości klasy jednostki.
-
 
 Następnie akcji Add() przeprowadza weryfikację niektóre prosty formularz. Akcja sprawdza, czy tytuł i dyrektor ds. właściwości mają wartości. Jeśli występuje błąd sprawdzania poprawności, komunikat o błędzie weryfikacji jest dodawany do ModelState.
 

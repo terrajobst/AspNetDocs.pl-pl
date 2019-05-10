@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 6e66c03a4521f339f0ee9c7c0e7b8129f241113c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 36d1575808925de38b909d6816e46bb6cb69cf72
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379414"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134250"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kodu
 
@@ -22,7 +22,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
-
 
 ## <a name="overview"></a>Omówienie
 

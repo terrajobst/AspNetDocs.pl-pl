@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 19cda45ce1b425462ec491bcc86b7a0b76dec162
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9c4a4d035c78b4f4c53942219ccfa3048c7a82b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409801"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133819"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
 
@@ -22,7 +22,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -41,7 +40,6 @@ Jeśli nie masz jeszcze konta platformy Azure, możesz utworzyć bezpłatne kont
 > [!NOTE]
 > Ponieważ w tym samouczku został napisany, usłudze Azure App Service dodano nową funkcję umożliwiającą zautomatyzowanie wielu procesów tworzenia środowiskach przejściowych i produkcyjnych. Zobacz [Konfigurowanie środowiska tymczasowego dla aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
-
 Jak wyjaśniono w [Wdróż do samouczka środowisko testowe](deploying-to-iis.md), najbardziej środowiska testowego niezawodne to witryna sieci web u dostawcy hostingu, który ma podobnie jak w przypadku witryny sieci web w środowisku produkcyjnym. U wielu dostawców hostingu należy porównać zalety to względem znaczące dodatkowych kosztów, ale na platformie Azure możesz utworzyć dodatkowe bezpłatna aplikacja internetowa jako tymczasowe aplikacji. Należy również bazę danych, a dodatkowe koszty, w tym nad pieniędzy produkcyjnej bazy danych będzie mieć wartość Brak najwyżej minimalnych. Na platformie Azure płacisz ilości magazynu bazy danych, którego używasz, a nie dla każdej bazy danych, a ilość dodatkowego magazynu, które będą używane w środowisku tymczasowym jest minimalny.
 
 Jak wyjaśniono w [Wdróż do samouczka dotyczącego środowiska testowego](deploying-to-iis.md)wśród środowisk przejściowych i produkcyjnych, które zamierzasz wdrożyć dwóch baz danych w jednej bazie danych. Jeśli chcesz zachować oddzielne, proces będzie taki sam poza tym, że należy utworzyć dodatkowej bazy danych dla każdego środowiska i ciąg odpowiedniego miejsca docelowego dla każdej bazy danych należy wybrać podczas tworzenia profilu publikowania.
@@ -50,7 +48,6 @@ W tej części samouczka utworzysz aplikację sieci web i bazy danych na potrzeb
 
 > [!NOTE]
 > Poniższe kroki pokazują jak utworzyć aplikację sieci web w usłudze Azure App Service przy użyciu portalu zarządzania systemu Azure. W najnowszej wersji zestawu Azure SDK można również w tym bez opuszczania programu Visual Studio za pomocą Eksploratora serwera. W programie Visual Studio 2013 można również utworzyć aplikację sieci web bezpośrednio z poziomu okna dialogowego publikowania. Aby uzyskać więcej informacji, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
-
 
 1. W [portalu zarządzania systemu Azure](https://manage.windowsazure.com/), kliknij przycisk **witryn sieci Web**, a następnie kliknij przycisk **New**.
 2. Kliknij przycisk **witryny sieci Web**, a następnie kliknij przycisk **tworzenie niestandardowe**.
@@ -97,7 +94,6 @@ Teraz, gdy utworzono aplikację sieci web i bazy danych w środowisku przejścio
 
 > [!NOTE]
 > Te instrukcje przedstawiają sposób tworzenia profilu publikowania, pobierając *.publishsettings* pliku, który działa nie tylko na platformie Azure ale także w przypadku innych dostawców hostingu. Najnowszy zestaw Azure SDK umożliwia także łączenia bezpośrednio na platformie Azure w programie Visual Studio, a następnie wybierz z listy aplikacji internetowych, które mają na koncie platformy Azure. W programie Visual Studio 2013, możesz zalogować się do platformy Azure — Konferencja **Web Publish** okna dialogowego lub **Eksploratora serwera** okna. Aby uzyskać więcej informacji, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
-
 
 ### <a name="download-the-publishsettings-file"></a>Pobierz plik .publishsettings
 
@@ -165,7 +161,6 @@ Teraz, gdy utworzono aplikację sieci web i bazy danych w środowisku przejścio
 
 > [!NOTE]
 > W tej sekcji pokazano, jak skonfigurować przekształcenia pliku Web.config dla wskaźnika środowiska. Ponieważ wskaźnik jest w `<appSettings>` elementu, masz inną alternatywą do określania przekształcenie, podczas wdrażania w usłudze Azure App Service. Aby uzyskać więcej informacji, zobacz [określenie ustawienia pliku Web.config na platformie Azure](web-config-transformations.md#watransforms).
-
 
 1. W **Eksploratora rozwiązań**, rozwiń węzeł **właściwości**, a następnie rozwiń węzeł **PublishProfiles**.
 2. Kliknij prawym przyciskiem myszy *Staging.pubxml*, a następnie kliknij przycisk **Dodaj przekształcenia konfiguracji**.

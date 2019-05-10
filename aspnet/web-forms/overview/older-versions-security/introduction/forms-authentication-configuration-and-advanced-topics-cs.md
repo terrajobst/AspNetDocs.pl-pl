@@ -8,12 +8,12 @@ ms.date: 01/14/2008
 ms.assetid: b9c29865-a34e-48bb-92c0-c443a72cb860
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9665dafb23b885fdf9e4ea5f1a515a0c6dcc9a9a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 75e7da4c993bc59a2ff34c2838f36312e1571668
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410633"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134390"
 ---
 # <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguracja uwierzytelniania formularzy i tematy zaawansowane (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_03_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial03_AuthAdvanced_cs.pdf)
 
 > W tym samouczku Zapoznamy zbadania różnych ustawień uwierzytelniania formularzy i dowiedzieć się, jak ich modyfikacji przez element formularzy. Wiąże się to szczegółowe omówienie na dostosowywanie biletu uwierzytelniania formularzy, wartość limitu czasu, za pomocą strony logowania za pomocą niestandardowego adresu URL (na przykład SignIn.aspx zamiast Login.aspx) i biletów uwierzytelniania formularzy cookieless.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -37,7 +36,6 @@ System uwierzytelniania formularzy w programie ASP.NET udostępnia wiele ustawie
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample1.xml)]
 
 Tabela 1 zawiera podsumowanie właściwości, które można dostosowywać za pomocą &lt;formularzy&gt; elementu. Ponieważ plik Web.config jest plikiem XML, nazwy atrybutów w lewej kolumnie jest rozróżniana wielkość liter.
-
 
 | <strong>Atrybut</strong> |                                                                                                                                                                                                                                     <strong>Opis</strong>                                                                                                                                                                                                                                      |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +58,6 @@ W programie ASP.NET 2.0 i ponad wartość domyślną wartości uwierzytelniania 
 > [!NOTE]
 > Kilka ustawień uwierzytelniania formularzy, takie jak limit czasu, domeny i ścieżki, określ szczegóły wynikowego pliku cookie biletu uwierzytelniania formularzy. Aby uzyskać więcej informacji na temat plików cookie, jak działają i ich właściwości, przeczytaj [w tym samouczku pliki cookie](http://www.quirksmode.org/js/cookies.html).
 
-
 ### <a name="specifying-the-tickets-timeout-value"></a>Określając wartość limitu czasu biletu
 
 Bilet uwierzytelniania formularzy jest token reprezentujący tożsamości. Biletów uwierzytelniania na podstawie plików cookie token ten jest przechowywany w postaci pliku cookie i wysyłane do serwera sieci web na każde żądanie. Posiadanie tokenu, w zasadzie deklaruje, jestem *username*, już logowali się i jest używany, aby tożsamości użytkowników należy pamiętać, między odwiedzin strony.
@@ -72,7 +69,6 @@ Jest jeden bit takich informacji znajdujących się w bilecie *wygaśnięcia*, c
 > [!NOTE]
 > Krok 3 szczegółów innych technik używane przez system uwierzytelniania formularzy do ochrony biletu uwierzytelniania.
 
-
 Podczas tworzenia biletu uwierzytelniania, systemem uwierzytelniania formularzy określa jego wygaśnięcia, sprawdzając ustawienia limitu czasu. Jak wspomniano w tabeli 1, limit czasu ustawień domyślnych do 30 minut, co oznacza, że po utworzeniu biletu uwierzytelniania formularzy jej wygaśnięcia jest ustawiona na datę i godzinę w przyszłości 30 minut.
 
 Po upływie definiuje bezwzględny czas w przyszłości wygaśnięcia biletu uwierzytelniania formularzy. Jednak zazwyczaj deweloperów do zaimplementowania wygaśnięcia przewijania, taki, który jest resetowany za każdym razem, gdy użytkownik powraca do lokacji. To zachowanie zależy od ustawień slidingExpiration. Jeśli ma wartość true (domyślnie), każdorazowo FormsAuthenticationModule użytkownik zostanie uwierzytelniony, aktualizuje wygaśnięcia biletu. Jeśli ma wartość false, po upływie nie zostaną zaktualizowane na każde żądanie, co powoduje--ticket wygaśnie dokładnie limitu czasu liczba minut po pełnej po raz pierwszy--ticket utworzony.
@@ -80,28 +76,22 @@ Po upływie definiuje bezwzględny czas w przyszłości wygaśnięcia biletu uwi
 > [!NOTE]
 > Po upływie przechowywane w biletu uwierzytelniania jest bezwzględna wartość daty i godziny, takich jak 2 sierpień 2008 11:34:00. Ponadto daty i godziny są względem czasu lokalnego serwera sieci web. Ta decyzja projektowa może mieć kilka interesujących efekty uboczne wokół czasu letniego (DST), czyli gdy zegary w Stanach Zjednoczonych zostaną przeniesione wyprzedzeniem godzinę (przy założeniu, że serwer sieci web jest hostowana w ustawieniach regionalnych, gdy zostanie wykryty czas letni). Należy wziąć pod uwagę, co się stanie, witryny sieci Web programu ASP.NET o wygaśnięciu 30-minutowy w zbliżonym czasie, który rozpoczyna czasu letniego (czyli o 2:00). Załóżmy, że użytkownik loguje się do witryny 11 marca 2008 o 1:55. Spowoduje to wygenerowanie biletu uwierzytelniania formularzy, który upływa 11 marca 2008 o 2:25 (30 minut w przyszłości). Jednak po 2:00 AM toczy się wokół, zegar przechodzi do 3:00 z powodu czasu letniego. Po użytkownik załadowaniu nowej strony sześciu minut po zalogowaniu się (na 3:01:00), FormsAuthenticationModule zauważa, że bilet wygasł i przekierowuje użytkownika do strony logowania. Bardziej szczegółowe omówienie dotyczące tego i innych oddities limitu czasu biletu uwierzytelniania, jak również rozwiązania problemu, wybierz kopię Stefan Schackow *Professional programu ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami* (ISBN: 978-0-7645-9698-8).
 
-
 Rysunek 1 przedstawia przepływ pracy, gdy slidingExpiration będzie miał ustawioną na wartość false, a limit czasu jest ustawiona na 30. Należy pamiętać, że bilet uwierzytelniania, wygenerowany przy logowaniu zawiera datę wygaśnięcia, a ta wartość nie jest aktualizowana podczas kolejnych żądań. Jeśli FormsAuthenticationModule wykryje, że bilet wygasł, odrzuci ją i traktuje żądania jako użytkownik anonimowy.
-
 
 [![Graficzna reprezentacja biletu uwierzytelniania formularzy, po upływie slidingExpiration ma wartość false](forms-authentication-configuration-and-advanced-topics-cs/_static/image2.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image1.png)
 
 **Rysunek 01**: Graficzna reprezentacja biletu uwierzytelniania formularzy, po upływie slidingExpiration ma wartość false ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image3.png))
 
-
 Na rysunku 2 przedstawiono przepływ pracy, gdy slidingExpiration będzie miał ustawioną wartość PRAWDA, a limit czasu jest ustawiona na 30. Po odebraniu uwierzytelnionego żądania (z biletem wygasła) jej wygaśnięcia jest aktualizowany do limitu liczby minut w przyszłości.
-
 
 [![Graficzna reprezentacja biletu uwierzytelniania formularzy po slidingExpiration ma wartość true](forms-authentication-configuration-and-advanced-topics-cs/_static/image5.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image4.png)
 
 **Rysunek 02**: Graficzna reprezentacja biletu uwierzytelniania formularzy po slidingExpiration ma wartość true ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image6.png))
 
-
 Korzystając z biletów na podstawie plików cookie uwierzytelniania (ustawienie domyślne), staje się tej dyskusji z nieco bardziej skomplikowane, ponieważ pliki cookie może też mieć własne expiries określony. Plik cookie wygaśnięcia (lub ich brak) powoduje, że przeglądarka podczas należy zniszczyć plik cookie. Jeśli plik cookie nie ma wygaśnięcia, jest niszczony, podczas zamykania przeglądarki. Jeśli występuje wygaśnięcia jednak plik cookie pozostają zapisane na komputerze użytkownika aż do daty i czas określony w wygaśnięcia został przekazany. Jeśli plik cookie zostanie zniszczony przez przeglądarkę, już nie są wysyłane do serwera sieci web. W związku ze zniszczeniem plik cookie jest analogiczne do użytkownika wylogować się w witrynie.
 
 > [!NOTE]
 > Oczywiście użytkownik aktywnie usunąć pliki cookie przechowywane na swoim komputerze. W programie Internet Explorer 7 będzie przejdź do lokalizacji narzędzia, opcje i kliknij przycisk Usuń w sekcji Historia przeglądania. W tym miejscu przycisk usuwania plików cookie.
-
 
 System uwierzytelniania formularzy tworzy oparte na sesji lub ważności na podstawie plików cookie w zależności od wartości przekazanej w celu *persistCookie* parametru. Odwołania, która metod GetAuthCookie, SetAuthCookie i RedirectFromLoginPage klasy uwierzytelniania formularzy w dwóch parametrów wejściowych: *username* i *persistCookie*. Na stronie logowania, utworzonego w poprzednim samouczku uwzględnione Pamiętaj mnie pole wyboru, które ustalić, czy trwały plik cookie został utworzony. Trwałe pliki cookie są oparte na wygaśnięcia; trwałe pliki cookie są oparte na sesji.
 
@@ -137,7 +127,6 @@ Zależą od ustawień Autowykrywanie i UseDeviceProfile *profilu urządzenia* w 
 > [!NOTE]
 > Tej bazy danych z możliwości urządzenia są przechowywane w wielu plikach XML stosować się do [schematu plik definicji przeglądarki](https://msdn.microsoft.com/library/ms228122.aspx). Domyślne pliki profilu urządzenia znajdują się w lokalizacji % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers. Można również dodać niestandardowe pliki do aplikacji App\_folderu przeglądarki. Aby uzyskać więcej informacji, zobacz [How to: Wykryj typy przeglądarki we wzorcu ASP.NET Web Pages](https://msdn.microsoft.com/library/3yekbd5b.aspx).
 
-
 Ustawieniem domyślnym jest UseDeviceProfile, biletów uwierzytelniania formularzy cookieless będzie używany, gdy witryna jest kontrolowane przez urządzenie, którego profil zgłasza, że nie obsługuje pliki cookie.
 
 ### <a name="encoding-the-authentication-ticket-in-the-url"></a>Kodowanie biletu uwierzytelniania w adresie URL
@@ -169,7 +158,6 @@ SomePage.aspx adres URL linku został automatycznie przekonwertowany do adresu U
 > [!NOTE]
 > Biletów uwierzytelniania formularzy cookieless stosować się do tych samych zasad limitu czasu jako biletów uwierzytelniania na podstawie plików cookie. Jednak biletów uwierzytelniania cookieless są bardziej podatne na ataki, ponieważ biletu uwierzytelniania jest osadzony bezpośrednio w adresie URL. Wyobraź sobie użytkownik odwiedza witrynę sieci Web, loguje się i następnie wklejenie adresu URL w wiadomości e-mail do współpracownika. Jeśli współpracownik kliknie ten link przed wygaśnięciem, ich będą rejestrowane w jako użytkownik, który wysłano wiadomość e-mail!
 
-
 ## <a name="step-3-securing-the-authentication-ticket"></a>Krok 3. Zabezpieczanie biletu uwierzytelniania
 
 Bilet uwierzytelniania formularzy jest przesyłane przez sieć w pliku cookie lub osadzonego bezpośrednio w adresie URL. Oprócz informacji o tożsamości biletu uwierzytelniania mogą również obejmować dane użytkownika (jak zobaczymy w kroku 4). W związku z tym, ważne jest, że biletu dane są szyfrowane z wścibskimi Ty masz dostęp oraz (nawet co ważniejsze) czy systemem uwierzytelniania formularzy, co umożliwiłoby zagwarantowanie--ticket nie został zmodyfikowany z.
@@ -180,11 +168,9 @@ Zagwarantowanie autentyczności biletu, muszą się systemem uwierzytelniania fo
 
 Podczas tworzenia (lub modyfikowania) bilet, a systemem uwierzytelniania formularzy tworzy komputera MAC i dołącza je do danych biletu. Po odebraniu kolejne żądanie systemem uwierzytelniania formularzy porównuje dane systemów MAC i biletu umożliwia sprawdzenie oryginalności dane biletu. Rysunek 3 ilustruje ten przepływ pracy w formie graficznej.
 
-
 [![Autentyczności biletu jest zapewniony przez komputer MAC](forms-authentication-configuration-and-advanced-topics-cs/_static/image8.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image7.png)
 
 **Rysunek 03**: Zapewniony autentyczności biletu do komputera MAC ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image9.png))
-
 
 Jakie środki zabezpieczeń są stosowane do biletu uwierzytelniania zależy od ustawienia ochrony w &lt;formularzy&gt; elementu. Ustawienie ochrony może być przypisana do jednego z trzech następujących wartości:
 
@@ -226,7 +212,6 @@ Aby uzyskać więcej informacji, zapoznaj się z [How to: Konfigurowanie element
 > [!NOTE]
 > Wartości decryptionKey i validationKey zostały pobrane z [Steve Gibson](http://www.grc.com/stevegibson.htm)firmy [strony sieci web doskonałe haseł](https://www.grc.com/passwords.htm), generująca 64 losowo wybranych znaków szesnastkowych na każdej wizyty strony. Aby zmniejszyć prawdopodobieństwo te klucze, dzięki czemu swoją drogę do aplikacji produkcyjnych, zachęcamy do Zastąp powyższe klucze losowo generowany z nich ze strony doskonałe hasła.
 
-
 ## <a name="step-4-storing-additional-user-data-in-the-ticket"></a>Krok 4. Przechowywanie danych dodatkowych użytkowników w bilecie
 
 Wiele aplikacji sieci web wyświetlić informacje o lub utworzyć wyświetlania strony na aktualnie zalogowanego użytkownika. Na przykład strony sieci web może wyświetlać nazwę użytkownika i daty, których ona ostatniego zalogowania w prawym górnym rogu każdej strony. Bilet uwierzytelniania formularzy przechowuje nazwy użytkownika aktualnie zalogowanego użytkownika, ale w razie wszelkie inne informacje strony musi przejść w magazynie użytkownika — zwykle bazy danych — do wyszukiwania informacji nie są przechowywane w biletu uwierzytelniania.
@@ -237,11 +222,9 @@ W celu przechowywania danych użytkownika w biletu uwierzytelniania, należy nap
 
 Zawsze, gdy będziemy musieli uzyskiwać dostęp do danych przechowywanych w--ticket, możemy to zrobić przez Przechwytywanie FormsAuthenticationTicket bieżącego żądania i deserializacja właściwości danych użytkownika. W przypadku daty urodzenia i pracodawca przykładowe nazwy firma Microsoft będzie podzielić ciąg UserData dwóch podciągów w oparciu o ogranicznika (|).
 
-
 [![Dodatkowe informacje dotyczące użytkownika mogą być przechowywane w biletu uwierzytelniania](forms-authentication-configuration-and-advanced-topics-cs/_static/image11.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image10.png)
 
 **Rysunek 04**: Dodatkowe użytkownika informacje mogą być przechowywane w biletu uwierzytelniania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image12.png))
-
 
 ### <a name="writing-information-to-userdata"></a>Wpisywania informacji do danych użytkownika
 
@@ -288,7 +271,6 @@ Wszystkie tego kodu jest potrzebna, ponieważ właściwość UserData jest tylko
 > [!NOTE]
 > Kod, który właśnie sprawdzane są przechowywane informacje specyficzne dla użytkownika w biletu uwierzytelniania na podstawie plików cookie. Klasy odpowiedzialny za serializacji biletu uwierzytelniania formularzy do adresu URL są wewnętrzne programu .NET Framework. Długi tekst krótki, nie można zapisać danych użytkownika w biletu uwierzytelniania formularzy cookieless.
 
-
 ### <a name="accessing-the-userdata-information"></a>Uzyskiwanie informacji o danych użytkownika
 
 W tym momencie nazwy firmy i tytuł każdego użytkownika są przechowywane w biletu uwierzytelniania formularzy UserData właściwości podczas logowania. Te informacje są dostępne z biletu uwierzytelniania, na dowolnej stronie usługi bez konieczności podróży w magazynie użytkownika. Aby zilustrować, jak te informacje można pobrać z właściwości UserData, zaktualizujmy Default.aspx, dzięki czemu jego komunikat powitalny obejmuje nie tylko nazwę użytkownika, ale również firmy, które pracują w i stanowiska.
@@ -301,15 +283,12 @@ Jeśli Request.IsAuthenticated ma wartość true, a następnie WelcomeBackMessag
 
 Rysunek 5. pokazuje zrzut ekranu przedstawiający tego ekranu w działaniu. Logowanie trybie Scott wyświetla komunikat powitalny Wstecz, obejmującą Scotta firmy i tytuł.
 
-
 [![Firmy i tytuł aktualnie zalogowany na użytkownika są wyświetlane](forms-authentication-configuration-and-advanced-topics-cs/_static/image14.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image13.png)
 
 **Rysunek 05**: Firmy i tytuł aktualnie zalogowany na użytkownika są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image15.png))
 
-
 > [!NOTE]
 > Właściwość UserData biletu uwierzytelniania służy jako pamięci podręcznej dla użytkownika. Podobnie jak wszelkie pamięci podręcznej musi ona być aktualizowane po zmodyfikowaniu danych bazowych. Na przykład jeśli strony sieci web, z którego użytkownicy mogą zaktualizować swój profil, pola pamięci podręcznej we właściwości danych użytkownika musi zostać odświeżona w celu odzwierciedlenia zmian wprowadzonych przez użytkownika.
-
 
 ## <a name="step-5-using-a-custom-principal"></a>Krok 5. Za pomocą jednostki niestandardowe
 
@@ -322,7 +301,6 @@ Klasy obiektów GenericPrincipal spełnia potrzeby w przypadku większości scen
 > [!NOTE]
 > Jak widać w przyszłości samouczki, gdy ASP. Framework ról w sieci jest włączone tworzy niestandardowy obiekt jednostki typu [RolePrincipal](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx) i zastępuje obiekt obiektów GenericPrincipal utworzone uwierzytelniania formularzy. Dzieje się tak, aby dostosować metody IsInRole podmiotu zabezpieczeń do interfejsu z interfejsem API w ramach ról.
 
-
 Ponieważ firma Microsoft ma nie dotyczy osoby z rolami jeszcze, jedyny przypadek, które mamy do tworzenia jednostki niestandardowej w tym momencie mogłoby być skojarzyć niestandardowy obiekt IIdentity do jednostki. W kroku 4 przyjrzeliśmy się przechowywanie dodatkowych informacji dotyczących użytkowników we właściwości UserData biletu uwierzytelniania, w szczególności, nazwy firmy użytkownika i stanowiska. Informacje UserData jest jednak tylko za pośrednictwem biletu uwierzytelniania i następnie tylko jako ciąg serializacji, co oznacza, że w dowolnym czasie chcemy, aby wyświetlić informacje o użytkownikach, przechowywane w bilecie należy przeanalizować właściwości UserData.
 
 Firma Microsoft może poprawić środowisko programistyczne, tworząc klasę, która implementuje IIdentity i zawiera właściwości CompanyName i tytuł. Dzięki temu deweloper mają dostęp do aktualnie zalogowanego użytkownika, nazwę firmy i tytuł bezpośrednio za pomocą właściwości CompanyName i tytuł bez potrzebne wiedzieć, jak można przeanalizować właściwości UserData.
@@ -334,14 +312,11 @@ W tym samouczku utworzymy niestandardowe obiekty jednostki i tożsamości w apli
 > [!NOTE]
 > Aplikacja\_katalogu z kodem należy używać tylko, gdy zarządzania projektem za pomocą modelu projektu witryny sieci Web. Jeśli używasz [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/asp.net/Aa336618.aspx), tworzenie folderu standardowego i Dodaj klasy do tego. Na przykład można dodać nowy folder o nazwie klasy, a istnieje umieść swój kod.
 
-
 Następnie dodaj dwa nowe pliki klasy aplikacji\_katalogu z kodem, jeden o nazwie CustomIdentity.cs i jedną o nazwie CustomPrincipal.cs.
-
 
 [![Dodawanie klasy CustomPrincipal i CustomIdentity do projektu](forms-authentication-configuration-and-advanced-topics-cs/_static/image17.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image16.png)
 
 **Rysunek 06**: Dodawanie CustomIdentity i CustomPrincipal klas do projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image18.png))
-
 
 Klasa CustomIdentity jest odpowiedzialny za implementującej interfejs IIdentity, który definiuje typ AuthenticationType, właściwości i nazwę właściwości. Oprócz tych wymaganych właściwości przypadku interesuje NAS ujawnienia podstawowych biletu uwierzytelniania formularzy oraz właściwości dla użytkownika nazwa firmy i tytuł. Wprowadź następujący kod do klasy CustomIdentity.
 
@@ -361,19 +336,15 @@ Potoku platformy ASP.NET przyjmuje żądanie przychodzące i przetwarza je za po
 
 Po wystąpieniu zdarzenia AuthenticateRequest potoku platformy ASP.NET zgłasza [zdarzeń PostAuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), który jest, gdzie można zastąpić obiekt obiektów GenericPrincipal utworzony przez FormsAuthenticationModule z wystąpieniem klasy Nasze Obiekcie CustomPrincipal. Rysunek 7 przedstawia ten przepływ pracy.
 
-
 [![Genericprincipal — zastępuje CustomPrincipal w zdarzeniu PostAuthenticationRequest](forms-authentication-configuration-and-advanced-topics-cs/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image19.png)
 
 **Rysunek 07**: Genericprincipal — zastępuje CustomPrincipal w zdarzeniu PostAuthenticationRequest ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image21.png))
 
-
 Aby można było wykonać kod w odpowiedzi na zdarzenie potoku platformy ASP.NET, możemy utworzyć programu obsługi zdarzeń odpowiednie w pliku Global.asax lub utworzyć własną moduł HTTP. W tym samouczku utworzymy programu obsługi zdarzeń w pliku Global.asax. Rozpocznij, dodając Global.asax do swojej witryny sieci Web. Kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i Dodaj element typu globalna klasa aplikacji o nazwie pliku Global.asax.
-
 
 [![Dodaj plik Global.asax do swojej witryny sieci Web](forms-authentication-configuration-and-advanced-topics-cs/_static/image23.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image22.png)
 
 **Rysunek 08**: Dodaj plik Global.asax do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image24.png))
-
 
 Domyślny szablon Global.asax zawiera procedury obsługi zdarzeń dla liczby zdarzenia potoku platformy ASP.NET, w tym rozpoczęcia, zakończenia i [zdarzenie błędu](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx), między innymi. Możesz usunąć te procedury obsługi zdarzeń, jak firma Microsoft nie są potrzebne dla tej aplikacji. Zdarzenie, które jesteśmy zainteresowani jest PostAuthenticateRequest. Zaktualizuj plik Global.asax, dzięki czemu jego znaczników wygląda podobnie do następującego:
 

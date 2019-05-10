@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f4cc2d40-6a78-429b-b06f-07d000d4caad
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 4da291af4042e6e09c6917703b160ca717eecd15
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a262ce43d7199fb1015d54d0b7c213857c360946
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407994"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133895"
 ---
 # <a name="excluding-files-and-folders-from-deployment"></a>Wykluczanie plików i folderów z wdrożenia
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano, jak można wykluczyć pliki i foldery z pakietu wdrożeniowego sieci web podczas kompilacji i pakietów projektu aplikacji sieci web.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -48,7 +47,6 @@ Po wybraniu **tylko pliki potrzebne do uruchomienia tej aplikacji**, potok WPP p
 > [!NOTE]
 > Logikę, która określa, które pliki do uwzględnienia znajduje się w tym pliku:   
 > *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
-
 
 ## <a name="excluding-specific-files-and-folders"></a>Wykluczenie określonych plików i folderów
 
@@ -77,9 +75,7 @@ Chociaż można manipulować plików projektu, które mają zostać wykluczone z
 
 Jest to podstawowa struktura *. wpp.targets* pliku:
 
-
 [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample1.xml)]
-
 
 Należy pamiętać, że każdy element zawiera element metadanych jednostki o nazwie **FromTarget**. Jest to opcjonalna wartość, która nie ma wpływu na proces kompilacji; Służy ona po prostu wskaż, dlaczego zostały pominięte określone pliki lub foldery, jeśli ktoś przegląda dzienniki kompilacji.
 

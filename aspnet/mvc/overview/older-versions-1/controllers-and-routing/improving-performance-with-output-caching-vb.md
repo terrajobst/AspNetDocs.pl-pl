@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f824bd5e080d42a9df3525ca47b87bcef407f7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b713b56e149f196794b3223ba88e3b41bf3e34c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405628"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123370"
 ---
 # <a name="improving-performance-with-output-caching-vb"></a>Poprawa wydajności dzięki buforowaniu danych wyjściowych (VB)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym samouczku dowiesz się, jak można znacznie zwiększyć wydajność aplikacji sieci web platformy ASP.NET MVC, korzystając z buforowania danych wyjściowych. Dowiesz się, jak wyniki zwrócone z akcji kontrolera, tak aby taką samą zawartość nie muszą zostać utworzone czasu każdy nowy użytkownik wywołuje akcję w pamięci podręcznej.
-
 
 Celem tego samouczka jest wyjaśniają, jak można znacznie zwiększyć wydajność aplikacji ASP.NET MVC, wykorzystując wyjściowej pamięci podręcznej. Wyjściowej pamięci podręcznej umożliwia buforowanie zawartości zwróconej przez akcję kontrolera. W ten sposób tej samej zawartości nie trzeba wygenerować każdym razem, gdy jest wywoływana w tej samej akcji kontrolera.
 
@@ -36,9 +35,7 @@ Możesz włączyć buforowanie danych wyjściowych, dodając &lt;OutputCache&gt;
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample1.vb)]
 
-
 W wersji Beta programu ASP.NET MVC, buforowanie danych wyjściowych nie działa dla danego adresu URL, takich jak [ http://www.MySite.com/ ](http://www.mysite.com/). Zamiast tego musisz wprowadzić adres URL podobny [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index).
-
 
 W ofercie 1 danych wyjściowych akcji indeks() jest buforowana przez 10 sekund. Jeśli wolisz, możesz określić znacznie dłuższy czas trwania pamięci podręcznej. Na przykład, jeśli chcesz buforować dane wyjściowe akcji kontrolera, przez jeden dzień następnie można określić czas trwania pamięci podręcznej 86400 sekund (60 sekund \* 60 minut \* 24 godziny).
 
@@ -79,7 +76,6 @@ Można ustawić właściwość lokalizacji do jednej z następujących wartości
 > · Brak
 > 
 > · ServerAndClient
-
 
 Domyślnie właściwość Location określono wartość Any. Istnieją jednak sytuacje, w których możesz chcieć pamięci podręcznej tylko w przeglądarce lub tylko na serwerze. Na przykład jeśli są buforowania informacje, które jest spersonalizowane dla każdego użytkownika, następnie można powinna nie buforowanie tych informacji na serwerze. W przypadku wyświetlania różnych informacji do różnych użytkowników powinny pamięci podręcznej informacje tylko na komputerze klienckim.
 
@@ -136,7 +132,6 @@ Właściwość VaryByParam można ustawić następujące wartości:
 > Brak = Nigdy tworzyć różne wersje pamięci podręcznej
 > 
 > Średnikami listę parametrów = tworzenie różnych wersji pamięci podręcznej w każdym przypadku, gdy zmienia się dowolny z parametrów ciągu formularza lub kwerendy, na liście
-
 
 #### <a name="creating-a-cache-profile"></a>Tworzenie profilu pamięci podręcznej
 

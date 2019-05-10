@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: bf3336c2467553ba3714bbd4fbb41a35a0490768
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 80254135d2d363ea151e2ea70aeca988b33b0d4d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410607"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134663"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Tworzenie podstawowego strony formularzy sieci Web 4.5 programu ASP.NET przy użyciu programu Visual Studio 2013
 # 
@@ -45,7 +45,6 @@ Aby ukończyć ten przewodnik, potrzebne są:
     >   
     > Jeśli używasz programu Visual Studio, tym przewodniku przyjęto założenie, że wybrana **programowania dla sieci Web** zbiór ustawień podczas pierwszego uruchomienia programu Visual Studio. Aby uzyskać więcej informacji, zobacz [jak: Wybierz ustawienia środowiska programowania dla sieci Web](https://msdn.microsoft.com/library/ff521558.aspx).
 
-
 ## <a name="creating-a-web-application-project-and-a-page"></a>Tworzenie projektu aplikacji sieci Web i strony
 
 <a id="sectionToggle0"></a>
@@ -69,16 +68,13 @@ W tej części instruktażu spowoduje utworzenie projektu aplikacji sieci Web i 
     Program Visual Studio tworzy nowy projekt, który zawiera funkcje wstępnie utworzone na podstawie szablonu formularzy sieci Web. Nie tylko zapewnia użytkownikowi *Home.aspx* stronie *About.aspx* stronie *Contact.aspx* strony, ale oferuje także funkcjonalności członkostwa, który rejestruje użytkowników i zapisuje swoje poświadczenia, aby ich zalogować się do witryny sieci Web. Po utworzeniu nowej strony domyślnie Visual Studio zostanie wyświetlona strona w **źródła** widok, w którym można zobaczyć elementy HTML strony. Na poniższej ilustracji przedstawiono, jakie powinny zostać wyświetlone **źródła** wyświetlić, jeśli utworzono nową stronę sieci Web o nazwie *BasicWebApp.aspx*.  
     ![Widok źródła](creating-a-basic-web-forms-page/_static/image4.png)
 
-
 ### <a name="a-tour-of-the-visual-studio-web-development-environment"></a>Przewodnik po środowisku programowania Visual Studio w sieci Web
-
 
 Przed kontynuowaniem, modyfikując na stronie, warto zapoznać się z środowiska programistycznego Visual Studio. Na poniższej ilustracji przedstawiono okna i narzędzia, które są dostępne w programie Visual Studio i Visual Studio Express for Web.
 
 > [!NOTE] 
 > 
 > Ten diagram przedstawia domyślne systemu windows i położenia okien. **Widoku** menu pozwala na wyświetlanie dodatkowych okien i rozmieszczanie i zmienianie rozmiaru windows zgodnie z preferencjami użytkownika. Układ okna już wprowadzono zmiany, zostanie wyświetlony nie będą zgodne ilustracji.
-
 
  W środowisku Visual Studio
 
@@ -96,14 +92,11 @@ Sprawdź powyższej ilustracji i tekst na poniższej liście opisano najczęści
 - **Przybornik**. Zawiera formanty i elementy HTML, które można przeciągnąć na stronę. **Przybornik** elementy są pogrupowane według wspólnych funkcji.
 - S **erwer Explorer**. Wyświetla połączenia z bazą danych. Jeśli Eksplorator serwera nie jest widoczny, w menu Widok, kliknij Eksploratora serwera.
 
-
 ### <a name="creating-a-new-aspnet-web-forms-page"></a>Tworzenie nowej strony formularzy sieci Web platformy ASP.NET
-
 
 Podczas tworzenia nowej aplikacji formularzy sieci Web, za pomocą **aplikacji sieci Web ASP.NET** szablon projektu Visual Studio dodaje strony ASP.NET (strony formularzy sieci Web) o nazwie *Default.aspx*, jak również jako kilka innych plików i foldery. Możesz użyć *Default.aspx* strony jako stronę główną dla aplikacji sieci Web. Jednak w tym przewodniku utworzysz i pracować z nowej strony.
 
 ### <a name="to-add-a-page-to-the-web-application"></a>Aby dodać stronę do aplikacji sieci Web
-
 
 1. Zamknij *Default.aspx* strony. Aby to zrobić, kliknij kartę która wyświetla nazwę pliku, a następnie kliknij opcję zamykania.
 2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nazwę aplikacji sieci Web (w tym samouczku Nazwa aplikacji jest **BasicWebSite**), a następnie kliknij przycisk **Dodaj**  - &gt; **Nowy element**.   
@@ -113,14 +106,11 @@ Podczas tworzenia nowej aplikacji formularzy sieci Web, za pomocą **aplikacji s
 4. Kliknij przycisk **Dodaj** można dodać strony sieci web do projektu.  
 Visual Studio tworzy nową stronę i otwiera go.
 
-
 ### <a name="adding-html-to-the-page"></a>Dodawanie HTML do strony
-
 
 W tej części instruktażu jakiś tekst statyczny doda do strony.
 
 ### <a name="to-add-text-to-the-page"></a>Aby dodać tekst do strony
-
 
 1. W dolnej części okna dokumentu kliknij **projektowania** kartę, aby przełączyć się do **projektowania** widoku.
 
@@ -136,14 +126,11 @@ W tej części instruktażu jakiś tekst statyczny doda do strony.
     Możesz zobaczyć HTML w **źródła** widoku, który został utworzony po wpisaniu w **projektowania** widoku.  
     ![Strony sieci Web za pomocą tekst statyczny](creating-a-basic-web-forms-page/_static/image8.png)
 
-
 ### <a name="running-the-page"></a>Uruchomienie strony
-
 
 Przed kontynuowaniem poprzez dodawanie formantów do strony należy najpierw uruchomić ją.
 
 ### <a name="to-run-the-page"></a>Aby uruchomić stronę
-
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *FirstWebPage.aspx* i wybierz **Ustaw jako strona startowa**.
 2. Naciśnij klawisz **kombinację klawiszy CTRL + F5** do uruchomienia strony.
@@ -153,9 +140,7 @@ Przed kontynuowaniem poprzez dodawanie formantów do strony należy najpierw uru
     Aby wyświetlić stronę w przeglądarce możesz można również prawym przyciskiem myszy na stronie w **Eksploratora rozwiązań** i wybierz **Pokaż w przeglądarce**.
 3. Zamknij przeglądarkę, aby zatrzymać aplikację sieci Web.
 
-
 ## <a name="adding-and-programming-controls"></a>Dodawanie i programowanie kontrolek
-
 
 <a id="sectionToggle1"></a>
 
@@ -164,7 +149,6 @@ Na stronie będzie teraz Dodaj formanty serwera. Formanty serwera, takie jak prz
 Spowoduje dodanie [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontrolki, [TextBox](https://msdn.microsoft.com/library/system.web.ui.webcontrols.textbox.aspx) kontroli i [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) do strony oraz napisz kod obsługujący [kliknij](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) zdarzenia dla [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontroli.
 
 ### <a name="to-add-controls-to-the-page"></a>Aby dodać formanty do strony
-
 
 1. Kliknij przycisk **projektowania** kartę, aby przełączyć się do **projektowania** widoku.
 2. Umieść kursor na końcu **Visual Web Developer — Zapraszamy** tekst i naciśnij klawisz **ENTER** pięć lub więcej razy, aby pomieścić w **div** pola elementu.
@@ -179,14 +163,11 @@ Należy zauważyć, że trzeba zwiększyć **przybornika** oknie po lewej stroni
 
     ![Trzy kontrolki w widoku Projekt](creating-a-basic-web-forms-page/_static/image9.png "trzy kontrolki w widoku projektu")
 
-
 ### <a name="setting-control-properties"></a>Ustawianie właściwości formantu
-
 
 Visual Studio oferuje różne sposoby, aby ustawić właściwości formantów na stronie. W tej części instruktażu będzie ustawić właściwości zarówno **projektowania** widoku i **źródła** widoku.
 
 ### <a name="to-set-control-properties"></a>Aby ustawić właściwości kontrolki
-
 
 1. Najpierw wyświetl **właściwości** systemu windows, wybierając z **widoku** menu —&gt; **Windows inne**  - &gt; **Okno właściwości**. Można też wybrać opcję **F4** do wyświetlenia **właściwości** okna.
 2. Wybierz [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontroli, a następnie w polu **właściwości** okna, ustaw wartość **tekstu** do **nazwę wyświetlaną**. Wprowadzony tekst jest wyświetlany przycisk w projektancie, jak pokazano na poniższej ilustracji.
@@ -217,14 +198,11 @@ Visual Studio oferuje różne sposoby, aby ustawić właściwości formantów na
 
     **ForeColor** atrybutów zostało zakończone z kolor, który wybrano, łącznie z cudzysłowu zamykającego.
 
-
 ### <a name="programming-the-button-control"></a>Kontrolka przycisku programowania
-
 
 W tym przewodniku dajemy Ci szansę napisania kod, który odczytuje nazwę, że użytkownik wprowadzi w polu tekstowym, a następnie wyświetla nazwę w [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) kontroli.
 
 ### <a name="add-a-default-button-event-handler"></a>Dodaj domyślny program obsługi zdarzeń przycisku
-
 
 1. Przełącz się do **projektowania** widoku.
 2. Kliknij dwukrotnie [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontroli.
@@ -252,14 +230,11 @@ W tym przewodniku dajemy Ci szansę napisania kod, który odczytuje nazwę, że 
 
     Metody obsługi zdarzeń może mieć dowolną nazwę; zostanie wyświetlona nazwa jest domyślna nazwa utworzone przez program Visual Studio. Istotną kwestią jest to, że nazwa używana dla **OnClick** atrybutu w kodzie HTML musi pasować do nazwy metody zdefiniowane w związanym z kodem.
 
-
 ### <a name="running-the-page"></a>Uruchomienie strony
-
 
 Teraz możesz przetestować formantów serwera na stronie.
 
 ### <a name="to-run-the-page"></a>Aby uruchomić stronę
-
 
 1. Naciśnij klawisz **kombinację klawiszy CTRL + F5** do uruchomienia strony w przeglądarce. Jeśli wystąpi błąd, sprawdź ponownie powyższe kroki.
 2. Wprowadź nazwę w polu tekstowym, a następnie kliknij przycisk **nazwę wyświetlaną** przycisku.
@@ -270,7 +245,6 @@ Teraz możesz przetestować formantów serwera na stronie.
     W kodzie źródłowym strony widać HTML bez konieczności wprowadzania kodu serwera. W szczególności nie ma **&lt;asp:&gt;** elementy, które pracowano w **źródła** widoku. Po uruchomieniu strony ASP.NET przetwarza formantów serwera i renderowania elementów HTML do strony, które wykonują funkcje, które reprezentują formantu. Na przykład **&lt;asp: Button&gt;** kontroli jest renderowany jako kod HTML **&lt;typu danych wejściowych =&quot;przesłać&quot; &gt;** element.
 4. Zamknij przeglądarkę.
 
-
 ## <a name="working-with-additional-controls"></a>Praca z dodatkowych funkcji kontroli
 
 <a id="sectionToggle2"></a>
@@ -280,7 +254,6 @@ W tej części instruktażu będą działać z [kalendarza](https://msdn.microso
 W tej sekcji dodasz [System.Web.UI.WebControls.Calendar](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) do strony i sformatować je.
 
 ### <a name="to-add-a-calendar-control"></a>Aby dodać formant kalendarza
-
 
 1. W programie Visual Studio, przejdź do **projektowania** widoku.
 2. Z **standardowa** części **przybornika**, przeciągnij [kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) kontroli na stronę i upuść je poniżej **div** element, zawiera inne kontrolki.
@@ -300,14 +273,11 @@ W tej sekcji dodasz [System.Web.UI.WebControls.Calendar](https://msdn.microsoft.
 
     ![Kontrolki w widoku źródła kalendarza](creating-a-basic-web-forms-page/_static/image15.png "formantu w widoku źródła kalendarza")
 
-
 ### <a name="programming-the-calendar-control"></a>Programowanie kontrolki kalendarza
-
 
 W tej sekcji zostanie program [kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) formantu, aby wyświetlić aktualnie wybranej daty.
 
 ### <a name="to-program-the-calendar-control"></a>Program kontrolki kalendarza
-
 
 1. W **projektowania** wyświetlić, kliknij dwukrotnie [kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) kontroli.
 
@@ -316,19 +286,15 @@ W tej sekcji zostanie program [kalendarza](https://msdn.microsoft.com/library/sy
 
     [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
-
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
 
     Powyższy kod ustawia tekst kontrolki etykiety do wybranego dnia kontrolki kalendarza.
 
-
 ### <a name="running-the-page"></a>Uruchomienie strony
-
 
 Teraz możesz przetestować kalendarza.
 
 ### <a name="to-run-the-page"></a>Aby uruchomić stronę
-
 
 1. Naciśnij klawisz **kombinację klawiszy CTRL + F5** do uruchomienia strony w przeglądarce.
 2. Kliknij datę w kalendarzu.
@@ -339,9 +305,7 @@ Teraz możesz przetestować kalendarza.
     Należy pamiętać, że [kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) na tej stronie, co zostało wyrenderowane kontroli **tabeli**, z każdego dnia, jak **td** elementu.
 4. Zamknij przeglądarkę.
 
-
 ## <a name="next-steps"></a>Następne kroki
-
 
 <a id="nextStepsToggle"></a>
 

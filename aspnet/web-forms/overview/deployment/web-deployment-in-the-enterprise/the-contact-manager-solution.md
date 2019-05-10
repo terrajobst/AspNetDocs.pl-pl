@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: 7998b5bb2983410479123514661a4ddb67afc8c6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 12ed7827f7392e559e04121386f7cd045de8462b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398374"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130932"
 ---
 # <a name="the-contact-manager-solution"></a>Rozwiązanie Contact Manager
 
@@ -24,7 +24,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > To [serii samouczków](web-deployment-in-the-enterprise.md) używa rozwiązania przykładowe&#x2014;rozwiązania Contact Manager&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa przy użyciu realistycznej stopień złożoności. W tym temacie przedstawiono rozwiązanie Contact Manager, w tym artykule opisano najważniejsze składniki rozwiązania i identyfikuje wyzwania we wdrażaniu tego rodzaju aplikacji na różnych platformach docelowy w środowisku przedsiębiorstwa.
 > 
 > Podczas pracy z tematami w tych samouczkach, można użyć rozwiązania Contact Manager jako implementację referencyjną, który demonstruje, jak spełniasz specyficznych trudności związanych w scenariuszach wdrażania w przedsiębiorstwie. Następny temat [ustawienie zapasowej rozwiązania Contact Manager](setting-up-the-contact-manager-solution.md), w tym artykule opisano sposób pobierania i uruchom rozwiązanie na stacji roboczej dewelopera.
-
 
 ## <a name="solution-overview"></a>Omówienie rozwiązania
 
@@ -45,7 +44,6 @@ Na poziomie koncepcyjny rozwiązania wzajemne dopasowanie składników następuj
 
 > [!NOTE]
 > Gdy aplikacja sieci web ASP.NET MVC 3 używa dostawcy członkostwa platformy ASP.NET, wszystkich stron w aplikacji sieci web zezwala na dostęp anonimowy. To wyraźnie nie jest realistyczne konfiguracji. Jednak rozwiązanie jest skonfigurowana tak, w ten sposób, aby ułatwić wdrażanie i testowanie rozwiązania bez konieczności konfigurowania kont użytkowników i ról.
-
 
 ## <a name="deployment-challenges"></a>Wyzwania związane z wdrożeniem
 

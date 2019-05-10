@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: 3bb8eb15-b518-44f5-a67d-a27e051aedc6
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: de9b64e6c582059ec66ab352f60773f50af7b1ff
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: b2571552a3f8040ff42bfa0a9fa48981f71a1e4b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57078143"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133570"
 ---
 # <a name="external-authentication-services-with-aspnet-web-api-c"></a>Zewnętrznych usług uwierzytelniania przy użyciu interfejsu API sieci Web platformy ASP.NET (C#)
 
@@ -72,7 +72,6 @@ W przykładach w tym przewodniku pokazano, jak skonfigurować każdej z obsługi
 
 > [!NOTE]
 > Jeśli to konieczne, może być konieczne dodanie Twojej nazwy FQDN do ustawienia usługi uwierzytelniania zewnętrznego. Wymóg ten jest oparty na ograniczenia zabezpieczeń w przypadku niektórych usług uwierzytelniania zewnętrznego, które wymagają nazwy FQDN w ustawieniach aplikacji dopasować nazwę FQDN, który jest używany przez klientów. (Kroki opisane w tym się znacznie różnić dla poszczególnych usług uwierzytelniania zewnętrznego, należy skontaktować się z dokumentacją poszczególnych usług uwierzytelniania zewnętrznego, aby zobaczyć, jeśli jest to wymagane i sposobie konfigurowania tych ustawień.) Jeśli potrzebujesz do skonfigurowania usług IIS Express do używania nazwy FQDN, w tym środowisku testowym, zobacz [konfigurowania usług IIS Express do użycia w pełni kwalifikowaną nazwę domeny](#FQDN) sekcję w dalszej części tego przewodnika.
-
 
 <a id="SAMPLE"></a>
 ## <a name="create-a-sample-web-application"></a>Tworzenie przykładowej aplikacji sieci Web
@@ -139,7 +138,6 @@ Po uzyskaniu swojego Identyfikatora aplikacji i klucz tajny, wykonaj następują
 ## <a name="enabling-google-authentication"></a>Włączanie uwierzytelniania serwisu Google
 
 Za pomocą Google uwierzytelniania, musisz utworzyć konto dewelopera Google, a projekt będzie wymagać Identyfikatora aplikacji i klucza tajnego z usługi Google aby funkcjonować. Aby uzyskać informacje o tworzeniu konta dewelopera Google i uzyskania Twojej aplikacji, identyfikator i klucz tajny, zobacz [ https://developers.google.com ](https://developers.google.com).
-
 
 Aby włączyć uwierzytelnianie serwisu Google dla aplikacji sieci web, użyj następujących kroków:
 

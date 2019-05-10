@@ -8,17 +8,16 @@ ms.date: 09/15/2011
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
-ms.openlocfilehash: 84c626764573108969fec51a2cba028e463b1962
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7c2fd0d57cdd6775eb027c0dc9b360443bacbfed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380889"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120526"
 ---
 # <a name="how-do-i"></a>Jak to zrobić
 
 > Filmy wideo w tej sekcji obejmują ASP.NET MVC, w tym jak utworzyć "Storefront" - aplikacji całego handlu elektronicznego od początku, aby zakończyć.
-
 
 - [Tworzenie aplikacji Tasklist przy użyciu wzorca ASP.NET MVC](creating-a-tasklist-application-with-aspnet-mvc.md)
 - [Tworzenie aplikacji bazy danych filmów w ciągu 15 minut przy użyciu wzorca ASP.NET MVC](creating-a-movie-database-application-in-15-minutes-with-aspnet-mvc.md)

@@ -8,15 +8,14 @@ ms.date: 01/15/2019
 ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 473c8dd14d639fb9f4ff9e11a4c3ffa2b1a3a81e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 122e918287a21f8f511e91ced03bbb2878dda01d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396034"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119706"
 ---
 # <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient modelu .NET (C#)
-
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
@@ -102,7 +101,6 @@ Zanim usługa może nawiązać połączenie, należy utworzyć `HubConnection` o
 
 > [!NOTE]
 > W przypadku klientów JavaScript należy zarejestrować co najmniej jeden program obsługi zdarzeń przed wywołaniem `Start` metodę, aby nawiązać połączenie. To nie jest wymagane dla klientów programu .NET. Dla klientów JavaScript wygenerowany serwer proxy automatycznie tworzy kod serwery proxy do wszystkich centrów znajdujące się na serwerze i rejestrowania procedury obsługi jest wskazuje, które koncentratorów klienta zamierza użyć. Ale dla klienta programu .NET utworzyć serwery proxy Centrum ręcznie, więc SignalR przyjęto założenie, że będziesz używać dowolne utworzonego serwera proxy dla Centrum.
-
 
 Przykładowy kod używa domyślnej "/ signalr" adres URL, aby nawiązać połączenie z usługą SignalR. Aby uzyskać informacje o sposobie określania innego podstawowego adresu URL, zobacz [Podręcznik interfejsu API centrów SignalR platformy ASP.NET - Server - /signalr URL](hubs-api-guide-server.md#signalrurl).
 

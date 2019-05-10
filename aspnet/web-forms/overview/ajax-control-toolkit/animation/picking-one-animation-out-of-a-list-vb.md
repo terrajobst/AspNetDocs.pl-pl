@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 81ba9116-d485-40c0-8ff6-7e9ae23e0a0c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7d8807962e5cf668358e03821d5fd3bf755a0e7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1df265f8eaaf32d42342d39594dbba940cab0793
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418888"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128129"
 ---
 # <a name="picking-one-animation-out-of-a-list-vb"></a>Wybieranie jednej animacji z listy (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation5.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation5VB.pdf)
 
 > Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Struktura umożliwia także programisty do pobrania jednej animacji spoza listy animacji, w zależności od oceny kodu JavaScript.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -51,7 +50,6 @@ W ramach `<Animations>` węzła, użyj `<OnLoad>` do uruchamiania animacji, po c
 Następujące znaczniki definiuje trzy subanimations: Zmiana rozmiaru szerokość, wysokość rozmiaru i wygaszanie. Kod JavaScript (`Math.floor(3 * Math.random())`) następnie wybiera liczbą z zakresu od 0 do 2, tak, aby jeden z trzech animacji uruchomieniu:
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-vb/samples/sample5.aspx)]
-
 
 [![Jeden z trzech możliwych animacji: Poszerzania panelu](picking-one-animation-out-of-a-list-vb/_static/image2.png)](picking-one-animation-out-of-a-list-vb/_static/image1.png)
 

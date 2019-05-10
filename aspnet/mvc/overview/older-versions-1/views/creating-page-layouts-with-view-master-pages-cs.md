@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: dff54fcb-68b1-4488-89a2-ca97532d6a4c
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d09a38c2bea9e8beb91e322ed7e4a9d337fa0843
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 45349dd3c3063c1c6d0b5c78297df46b42fcf725
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412635"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126577"
 ---
 # <a name="creating-page-layouts-with-view-master-pages-c"></a>Tworzenie układów stron za pomocą stron wzorcowych widoku (C#)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz plik PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_12_CS.pdf)
 
 > W tym samouczku dowiesz się, jak utworzyć wspólne układ strony dla wielu stron w aplikacji, korzystając z widoku strony wzorcowe. Wyświetl stronę wzorcową, można użyć na przykład, aby zdefiniować układ strony dwie kolumny i użyj układu dwie kolumny dla wszystkich stron w aplikacji sieci web.
-
 
 ## <a name="creating-page-layouts-with-view-master-pages"></a>Tworzenie układów strony za pomocą stron wzorcowych widoku
 
@@ -36,11 +35,9 @@ W tym samouczku dowiesz się, jak tworzyć nowe strony wzorcowej widoku i utworz
 
 Zacznijmy od utworzenia widoku strony wzorcowej, który definiuje układ dwie kolumny. Można dodać nowej strony wzorcowej widoku do projektu MVC przez kliknięcie prawym przyciskiem myszy Views\Shared folder wybranie opcji menu **Dodaj, nowy element**i wybierając polecenie **strony wzorcowej widoku MVC** szablonu (patrz rysunek 1).
 
-
 [![Dodawanie widoku strony wzorcowej](creating-page-layouts-with-view-master-pages-cs/_static/image2.png)](creating-page-layouts-with-view-master-pages-cs/_static/image1.png)
 
 **Rysunek 01**: Dodawanie widoku strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-cs/_static/image3.png))
-
 
 W aplikacji, można utworzyć więcej niż jednej strony wzorcowej widoku. Każdej strony wzorcowej widoku można zdefiniować układ innej strony. Można na przykład, niektóre strony, aby układ dwie kolumny i innych stron na układ trzy kolumny.
 
@@ -54,29 +51,23 @@ Na przykład strony wzorcowej widoku w ofercie 1 definiuje układ dwie kolumny. 
 
 Treść widoku strony wzorcowej w ofercie 1 zawiera dwa `<div>` tagi, które odpowiadają dwie kolumny. Klasa kolumny kaskadowy arkusz stylów jest stosowana do obu `<div>` tagów. Ta klasa jest zdefiniowana w arkuszu stylów zadeklarować w górnej części strony wzorcowej. Możesz obejrzeć, jak strony wzorcowej widoku będzie renderowany przez przełączanie do widoku projektu. Kliknij kartę projekt, w lewym dolnym rogu Edytor kodu źródłowego (patrz rysunek 2).
 
-
 [![Podgląd strony wzorcowej w Projektancie](creating-page-layouts-with-view-master-pages-cs/_static/image5.png)](creating-page-layouts-with-view-master-pages-cs/_static/image4.png)
 
 **Rysunek 02**: Podgląd strony wzorcowej w Projektancie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-cs/_static/image6.png))
-
 
 ### <a name="creating-a-view-content-page"></a>Tworzenie widoku strony zawartości
 
 Po utworzeniu strony wzorcowej widoku, można utworzyć co najmniej jeden widok zawartości stron w oparciu o strony wzorcowej widoku. Na przykład można utworzyć stronę zawartości widoku indeksu dla kontrolera głównego, klikając prawym przyciskiem myszy Views\Home folder, wybierając **Dodaj, nowy element**, wybierając opcję **strona zawartości widoku składnika MVC** szablonu, wprowadzając Nazwa Index.aspx i klikając **Dodaj** przycisku (zobacz rysunek 3).
 
-
 [![Dodawanie strony zawartości widoku](creating-page-layouts-with-view-master-pages-cs/_static/image8.png)](creating-page-layouts-with-view-master-pages-cs/_static/image7.png)
 
 **Rysunek 03**: Dodawanie widoku strony zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-cs/_static/image9.png))
 
-
 Po kliknięciu przycisku Dodaj nowe zostanie wyświetlone okno dialogowe umożliwia wybranie do skojarzenia z poziomu strony zawartości widoku strony wzorcowej widoku (zobacz rysunek 4). Możesz przejść do strony wzorcowej widoku Site.master, które zostały utworzone w poprzedniej sekcji.
-
 
 [![Wybieranie strony wzorcowej](creating-page-layouts-with-view-master-pages-cs/_static/image11.png)](creating-page-layouts-with-view-master-pages-cs/_static/image10.png)
 
 **Rysunek 04**: Wybieranie strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-cs/_static/image12.png))
-
 
 Po utworzeniu nowej strony zawartości widoku na podstawie strony wzorcowej Site.master, można pobrać pliku w ofercie 2.
 
@@ -100,11 +91,9 @@ Na przykład zmodyfikowanego widoku indeksu w ofercie 3 zawiera tylko dwa `<asp:
 
 Zażądano widoku w ofercie 3 powoduje wyświetlenie strony na rysunku 5. Należy zauważyć, że widok renderuje stronę zawierającą dwie kolumny. Zwróć uwagę, co więcej, że zawartość z poziomu strony zawartości widoku jest scalany z zawartości z strony wzorcowej widoku
 
-
 [![Strona zawartości widoku indeksu](creating-page-layouts-with-view-master-pages-cs/_static/image14.png)](creating-page-layouts-with-view-master-pages-cs/_static/image13.png)
 
 **Rysunek 05**: Strona zawartości widoku indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-page-layouts-with-view-master-pages-cs/_static/image15.png))
-
 
 ### <a name="modifying-view-master-page-content"></a>Modyfikowanie zawartości stron wzorcowych widoku
 
@@ -116,9 +105,7 @@ Istnieją dwa sposoby, które można modyfikować tytuł wyświetlanych przez st
 
 Podczas renderowania widoku indeksu do przeglądarki, żądany tytuł jest wyświetlany na pasku tytułu w przeglądarce:
 
-
 [![Pasek tytułu w przeglądarce](creating-page-layouts-with-view-master-pages-cs/_static/image17.png)](creating-page-layouts-with-view-master-pages-cs/_static/image16.png)
-
 
 Istnieje jeden ważny zapotrzebowania, które strony wzorcowej widoku musi spełniać, aby atrybut tytułu do pracy. Musi zawierać strony wzorcowej widoku `<head runat="server">` tag zamiast normalnego `<head>` tag w przypadku jej nagłówek. Jeśli `<head>` tagu nie zawiera runat = atrybut "server", a następnie tytuł nie będą wyświetlane. Domyślny widok strony wzorcowej obejmuje wymagana `<head runat="server">` tagu.
 

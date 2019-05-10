@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ccb1a737fdfc3cf2ffdcc22131650e1b79cd2cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f56241a6a3d1d54f917d366b08edb4a1a43bbce8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407227"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134444"
 ---
 # <a name="displaying-a-custom-error-page-c"></a>Wyświetlanie niestandardowej strony błędu (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_cs.pdf)
 
 > Co to użytkownik widział gdy wystąpi błąd środowiska uruchomieniowego w aplikacji sieci web ASP.NET? Odpowiedź zależy od jak witryny sieci Web &lt;customErrors&gt; konfiguracji. Domyślnie użytkownicy otrzymują ciemniejszego ekranu żółty, proclaiming, że wystąpił błąd w czasie wykonywania. W tym samouczku pokazano, jak dostosować te ustawienia mają być aesthetically atrakcyjne Wyświetlanie niestandardowej strony błędu odpowiadający Twojej witryny wygląd i działanie.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -47,7 +46,6 @@ Deweloperzy strony błędu są najbardziej znanych jest YSOD szczegóły wyjątk
 > [!NOTE]
 > Aby odtworzyć ten błąd wystąpił w demonstracyjnej aplikacji internetowej dostępne do pobrania można albo odwiedź `Genre.aspx?ID=foo` bezpośrednio lub kliknij łącze "Generowanie błąd środowiska uruchomieniowego" w `Default.aspx`.
 
-
 Należy pamiętać, informacje o wyjątku, przedstawione **rys.1**. Komunikat o wyjątku, "Konwersja nie powiodła się podczas konwertowania ciągu znaków na wartość uniqueidentifier" jest obecny w górnej części strony. Typ wyjątku, `System.Data.SqlClient.SqlException`, znajduje się, jak również. Również znajduje się ślad stosu.
 
 [![](displaying-a-custom-error-page-cs/_static/image2.png)](displaying-a-custom-error-page-cs/_static/image1.png)
@@ -61,7 +59,6 @@ Domyślnie YSOD błąd środowiska uruchomieniowego jest wyświetlana dla użytk
 
 > [!NOTE]
 > Jeśli postępujesz zgodnie z i używają DiscountASP.NET jako hosta sieci web, można zauważyć, że YSOD błąd środowiska uruchomieniowego nie są wyświetlane podczas przeglądania witryny na żywo. Jest to spowodowane DiscountASP.NET ma swoje serwery domyślnie skonfigurowana do wyświetlenia YSOD szczegóły wyjątków. Dobra wiadomość jest taka, możesz to zachowanie domyślne można przesłonić, dodając `<customErrors>` sekcję usługi `Web.config` pliku. Sprawdza, czy w sekcji "Konfigurowanie którego strony zostanie wyświetlony błąd" `<customErrors>` sekcji szczegółowo.
-
 
 [![](displaying-a-custom-error-page-cs/_static/image5.png)](displaying-a-custom-error-page-cs/_static/image4.png)
 
@@ -140,7 +137,6 @@ Dzięki tej zmianie w miejscu zawsze wtedy, gdy użytkownik odwiedzający zdalni
 > [!NOTE]
 > Zapoznaj się z [404 stron błędów, jeden raz z bardziej](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) wskazówki dotyczące tworzenia skutecznych stron powodujących błąd 404.
 
-
 [![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Rysunek 7**: Strony błędu niestandardowego 404 wyświetla komunikat bardziej precyzyjnie niż `Oops.aspx`  
  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-cs/_static/image20.png)) 
 
@@ -148,7 +144,6 @@ Ponieważ wiadomo, że `404.aspx` strony jest osiągany dopiero po użytkownik w
 
 > [!NOTE]
 > Tylko zostanie wyświetlona strona błędu niestandardowego, po wysłaniu żądania do zasobu, obsługiwane przez aparat programu ASP.NET. Tak jak Omówiliśmy to w [podstawowe różnice między usług IIS i programem ASP.NET Development Server](core-differences-between-iis-and-the-asp-net-development-server-cs.md) samouczków, serwer sieci web mogą obsługiwać niektórych żądań sam. Domyślnie usługi IIS żądania sieci web serwera procesów dla zawartości statycznej, takich jak obrazy i pliki HTML bez wywoływania aparatu programu ASP.NET. W związku z tym jeśli użytkownik zażąda pliku obrazu nieistniejącej otrzymają one ponownie komunikat błędu 404 domyślny usług IIS, a nie ASP. Strona błędu skonfigurowany w sieci.
-
 
 ## <a name="summary"></a>Podsumowanie
 

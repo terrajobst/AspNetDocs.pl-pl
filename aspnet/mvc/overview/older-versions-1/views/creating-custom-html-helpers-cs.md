@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 23741d7974713102e6ccb46ced5d62ec202505e8
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 41306a7f09b830e0ee88135326a48beaadcfb28c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400857"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126648"
 ---
 # <a name="creating-custom-html-helpers-c"></a>Tworzenie niestandardowych pomocników HTML (C#)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz plik PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_CS.pdf)
 
 > Celem tego samouczka jest pokazują sposób tworzenia niestandardowych pomocników HTML używanego w ramach widoków MVC. Dzięki wykorzystaniu pomocników HTML, można zmniejszyć ilość tedious wpisywania tagów HTML, czy należy wykonać, aby utworzyć standardowej strony HTML.
-
 
 Celem tego samouczka jest pokazują sposób tworzenia niestandardowych pomocników HTML używanego w ramach widoków MVC. Dzięki wykorzystaniu pomocników HTML, można zmniejszyć ilość tedious wpisywania tagów HTML, czy należy wykonać, aby utworzyć standardowej strony HTML.
 
@@ -48,11 +47,9 @@ Platforma ASP.NET MVC zawiera następujący zestaw standardowych pomocników HTM
 
 Rozważmy na przykład formularz w ofercie 1. Ta forma jest renderowany przy pomocy dwóch standardowa pomocników HTML (patrz rysunek 1). Ten formularz używa `Html.BeginForm()` i `Html.TextBox()` metody pomocnika do renderowania prostego formularza HTML.
 
-
 [![Strony renderowane przy użyciu pomocników HTML](creating-custom-html-helpers-cs/_static/image2.png)](creating-custom-html-helpers-cs/_static/image1.png)
 
 **Rysunek 01**: Strony renderowane przy użyciu pomocników HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-cs/_static/image3.png))
-
 
 **1 — Lista `Views\Home\Index.aspx`**
 
@@ -103,11 +100,9 @@ Po drugie, zwróć uwagę, że pierwszy parametr `Label()` metody jest poprzedzo
 
 Po utworzeniu metodę rozszerzenia, a następnie skompilować aplikację pomyślnym, metoda rozszerzenia pojawia się w Visual Studio technologii Intellisense, podobnie jak wszystkie inne metody klasy (patrz rysunek 2). Jedyną różnicą jest to rozszerzenie, które metody są wyświetlane z symbolem specjalne obok nich (ikona strzałki w dół).
 
-
 [![Przy użyciu metody rozszerzenia Html.Label()](creating-custom-html-helpers-cs/_static/image5.png)](creating-custom-html-helpers-cs/_static/image4.png)
 
 **Rysunek 02**: Przy użyciu metody rozszerzenia Html.Label() ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-cs/_static/image6.png))
-
 
 Zmodyfikowany widok indeksu w ofercie 4 używa Html.Label() metody rozszerzenia do renderowania, wszystkie jego `<label>` tagów.
 

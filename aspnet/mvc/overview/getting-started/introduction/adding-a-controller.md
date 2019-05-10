@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: cc764f3b-6921-486a-8f44-c6ccd1249acd
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: ad5f32a08270ce318c03e1b29acd74d12bbb3d3b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da914986ff020879dfe634967b39b32250cbf43b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394058"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120850"
 ---
 # <a name="adding-a-controller"></a>Dodawanie kontrolera
 
@@ -34,13 +34,11 @@ Firma Microsoft będzie obejmujące wszystkie te pojęcia w tej serii samouczkó
 
 Zacznijmy od utworzenia klasy kontrolera. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folder, a następnie kliknij przycisk **Dodaj**, następnie **kontrolera**.
 
-
 ![](adding-a-controller/_static/image1.png)
 
 W **Dodawanie szkieletu** okno dialogowe, kliknij przycisk **kontroler MVC 5 — pusty**, a następnie kliknij przycisk **Dodaj**.
 
 ![](adding-a-controller/_static/image2.png)  
- 
 
 Nadaj nowemu kontrolerowi nazwę "HelloWorldController", a następnie kliknij przycisk **Dodaj**.
 
@@ -80,7 +78,6 @@ Zmodyfikujmy przykład nieco tak, aby przekazać niektóre informacje o parametr
 
 > [!NOTE]
 > Uwaga dotycząca zabezpieczeń: Kod powyżej używa [HttpUtility.HtmlEncode](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx) chronić aplikację przed złośliwe dane wejściowe (to znaczy JavaScript). Aby uzyskać więcej informacji, zobacz [jak: Ochronę przed lukami w zabezpieczeniach skrypt w aplikacji sieci Web, stosując kodowanie HTML do ciągów](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx).
-
 
  Uruchom aplikację, a następnie przejdź do przykładowego adresu URL (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`). Możesz spróbować różne wartości `name` i `numtimes` w adresie URL. [System powiązań modelu ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) automatycznie mapuje parametry nazwane z ciągu zapytania w pasku adresu do parametrów w metodzie.
 

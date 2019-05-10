@@ -8,12 +8,12 @@ ms.date: 06/26/2007
 ms.assetid: cf025e08-48fc-4385-b176-8610aa7b5565
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 49bdb8e6429449417f2a5ecb2a00101928e3c82e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4588502622a3e48013e3e714e82929294b1833fc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401026"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116903"
 ---
 # <a name="batch-inserting-c"></a>Wstawianie w partiach (C#)
 
@@ -23,7 +23,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > Dowiedz się, jak wstawić wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika możemy rozszerzyć GridView, aby umożliwić użytkownikowi wprowadzanie wielu nowych rekordów. W warstwie dostępu do danych Firma opakować wiele operacji wstawiania w ramach transakcji, aby upewnić się, że wszystkie wstawienia powiedzie się lub wstawienia wszystkie zostaną wycofane.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 W [aktualizowania wsadowego](batch-updating-cs.md) samouczek przyjrzeliśmy się Dostosowywanie formantu GridView prezentować interfejs, gdzie zostały można edytować wiele rekordów. Użytkownik, odwiedzając stronę może wprowadzić serię zmian i następnie za pomocą kliknięcia jednego przycisku, należy wykonać aktualizację usługi batch. W sytuacjach, w którym użytkownicy często aktualizować wielu rekordów w jednym z rzeczywistym użyciem, taki interfejs można zapisać niezliczone kliknięć i przełączeń kontekstu Mysz klawiatury, w porównaniu do domyślnego — w wierszu funkcje edycji, które zostały najpierw przedstawione w [ Omówienie Wstawianie, aktualizowanie i usuwanie danych](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) samouczka.
@@ -32,11 +31,9 @@ Takie podejście również będą stosowane, podczas dodawania rekordów. Załó
 
 Z niewielką ilością pracy możemy utworzyć partię Wstawianie interfejs, który umożliwia użytkownikowi określenie, dostawcy i kategorii raz, wprowadź szereg nazw produktów i cenę jednostkową, a następnie kliknij przycisk służący do dodawania nowych produktów w bazie danych (patrz rysunek 1). Po dodaniu każdego produktu, jego `ProductName` i `UnitPrice` pól danych są przypisane wartości wprowadzone w tych polach tekstowych podczas jego `CategoryID` i `SupplierID` wartości są przypisane wartości z kontrolek DROPDOWNLIST w górnym fo formularza. `Discontinued` i `UnitsOnOrder` wartości są ustawiane na wartości ustaloną `false` i 0, odpowiednio.
 
-
 [![Interfejs wstawiania wsadowego](batch-inserting-cs/_static/image2.png)](batch-inserting-cs/_static/image1.png)
 
 **Rysunek 1**: Interfejs wstawiania wsadowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image3.png))
-
 
 W tym samouczku zostanie utworzona strona, która implementuje usługi batch, wstawianie interfejsu przedstawionej na rysunku 1. Jako przy użyciu dwóch poprzednich samouczków, firma Microsoft będzie zawijany wstawienia w zakresie transakcji w celu zapewnienia niepodzielność. Rozpocznij pracę dzięki s!
 
@@ -48,29 +45,23 @@ Podczas tworzenia strony, która ma dwa interfejsy, z których tylko jedna jest 
 
 Zacznij od otwarcia `BatchInsert.aspx` stronie `BatchData` folder i przeciągnij panelu z przybornika do konstruktora (patrz rysunek 2). Ustawianie panelu s `ID` właściwość `DisplayInterface`. Podczas dodawania panelu do projektanta, jego `Height` i `Width` właściwości są ustawione na 50 pikseli i 125px, odpowiednio. Czyści wartości tych właściwości w oknie właściwości.
 
-
 [![Przeciąganie panelu z przybornika do projektanta](batch-inserting-cs/_static/image5.png)](batch-inserting-cs/_static/image4.png)
 
 **Rysunek 2**: Przeciąganie panelu z przybornika do projektanta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image6.png))
 
-
 Następnie przeciągnij formant przycisku i GridView do panelu. Ustaw s `ID` właściwości `ProcessShipment` i jego `Text` właściwości wydania produktu procesu. Ustaw GridView s `ID` właściwości `ProductsGrid` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource swoich danych z `ProductsBLL` klasy s `GetProducts` metody. Ponieważ GridView ten jest używany tylko do wyświetlania danych, ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak). Kliknij przycisk Zakończ, aby zakończyć działanie kreatora Konfigurowanie źródła danych.
-
 
 [![Wyświetl dane zwrócone z metody GetProducts ProductsBLL klasy s](batch-inserting-cs/_static/image8.png)](batch-inserting-cs/_static/image7.png)
 
 **Rysunek 3**: Wyświetl dane zwrócone z `ProductsBLL` klasy s `GetProducts` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image9.png))
 
-
 [![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](batch-inserting-cs/_static/image11.png)](batch-inserting-cs/_static/image10.png)
 
 **Rysunek 4**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image12.png))
 
-
 Po zakończeniu pracy Kreatora ObjectDataSource, Visual Studio doda BoundFields i CheckBoxField dla pól danych produktu. Usuń wszystkie elementy oprócz `ProductName`, `CategoryName`, `SupplierName`, `UnitPrice`, i `Discontinued` pola. Możesz wprowadzić dowolne dostosowania estetycznych. Czy zdecydowała się formatowania `UnitPrice` pola jako wartość waluty zmieniana pola, zmienić nazwę i kilka pól `HeaderText` wartości. Również skonfigurować GridView obejmujący stronicowanie i sortowanie pomocy technicznej przez zaznaczenie pola wyboru Włączanie stronicowania i włączyć sortowanie w tagu inteligentnego s GridView.
 
 Po dodaniu kontrolki Panel, przycisk, GridView i kontrolki ObjectDataSource i dostosowywanie pól s GridView, Twoje oznaczeniu deklaracyjnym strony s powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](batch-inserting-cs/samples/sample1.aspx)]
 
@@ -78,11 +69,9 @@ Należy zauważyć, że kod znaczników dla przycisku i GridView pojawiają się
 
 Poświęć chwilę, aby wyświetlić postępach za pośrednictwem przeglądarki. Jak pokazano na rysunku 5, powinien zostać wyświetlony przycisk wydania produktu procesu powyżej GridView zawierającego produkty dziesięciu w danym momencie.
 
-
 [![Kontrolki GridView zawiera listę produktów oraz oferuje sortowanie i stronicowanie możliwości](batch-inserting-cs/_static/image14.png)](batch-inserting-cs/_static/image13.png)
 
 **Rysunek 5**: Kontrolki GridView zawiera listę produktów i oferuje sortowania i stronicowania możliwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image15.png))
-
 
 ## <a name="step-2-creating-the-inserting-interface"></a>Krok 2. Tworzenie interfejsu Wstawianie
 
@@ -95,52 +84,41 @@ Następnie należy utworzyć Wstawianie interfejs, który został wyświetlony w
 > [!NOTE]
 > Podczas wprowadzania kodu znaczników HTML `<table>` elementów, chcę użyć widoku źródła. Gdy program Visual Studio są narzędzia umożliwiające dodawanie `<table>` elementów za pomocą projektanta, projektanta jest prawdopodobnie wszystko za chęć wstrzyknąć nieproszony dla `style` ustawienia do znaczników. Po użytkownik utworzył `<table>` znaczników, zwykle wrócić do projektanta Aby dodać kontrolki sieci Web i ustawiać ich właściwości. Podczas tworzenia tabel z wstępnie ustaloną kolumnami i wierszami wolę używać Statycznych, a nie od [formantu sieci Web tabeli](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) ponieważ wszystkie formanty Web umieszczone wewnątrz formantu sieci Web tabeli są dostępne wyłącznie przy użyciu `FindControl("controlID")` wzorzec. Jednak używam formantów sieci Web tabeli dla dynamicznie wielkości tabel (tymi którego wierszy lub kolumn, które są oparte na niektóre bazy danych lub kryteria określone przez użytkownika), od sieci Web tabeli kontroli można skonstruować programowo.
 
-
 Wprowadź następujący kod w ramach `<asp:Panel>` tagi `InsertingInterface` panelu:
-
 
 [!code-html[Main](batch-inserting-cs/samples/sample2.html)]
 
 To `<table>` znaczników nie zawiera żadnych formantów sieci Web, ale dodamy te chwilowo. Należy pamiętać, że każdy `<tr>` element zawiera konkretnego ustawienia klasy CSS: `BatchInsertHeaderRow` dla wiersza nagłówka, gdy zaczną dostawcy i kategorii kontrolek DROPDOWNLIST; `BatchInsertFooterRow` wiersz stopki, gdy zaczną się Dodaj produkty z wydania i przyciski Anuluj; i przełączanie `BatchInsertRow` i `BatchInsertAlternatingRow` wartości wierszy zawierających produktu i jednostki cena kontrolki pola tekstowego. Czy mogę ve utworzone odpowiednich klas CSS w `Styles.css` plik, aby nadać Wstawianie interfejsu z interfejsem podobnym do kontrolki GridView i DetailsView kontroluje, firma Microsoft ve używane w tych samouczkach. Poniżej przedstawiono te klasy CSS.
 
-
 [!code-css[Main](batch-inserting-cs/samples/sample3.css)]
 
 Za pomocą tego wprowadzony kod znaczników wróć do widoku projektu. To `<table>` powinien być wyświetlony jako cztery kolumny, siedem wiersz tabeli w projektancie, tak jak pokazano na rysunku 6.
-
 
 [![Wstawianie interfejsu składa się z cztery kolumny, tabeli Wiersz 7](batch-inserting-cs/_static/image17.png)](batch-inserting-cs/_static/image16.png)
 
 **Rysunek 6**: Wstawianie interfejsu składa się z cztery kolumny, tabeli Wiersz 7 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image18.png))
 
-
 Możemy ponownie teraz gotowy do dodawania formantów sieci Web do Wstawianie interfejsu. Przeciągnij dwóch kontrolek DROPDOWNLIST z przybornika do komórek w tabeli, jeden dla dostawcy i jeden dla kategorii.
 
 Ustaw dostawcy DropDownList s `ID` właściwości `Suppliers` i powiązać ją z nowego elementu ObjectDataSource, o nazwie `SuppliersDataSource`. Konfigurowanie nowego elementu ObjectDataSource można pobrać danych z `SuppliersBLL` klasy s `GetSuppliers` metody i zestaw aktualizacji karty listy rozwijanej s (Brak). Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
-
 
 [![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetSuppliers SuppliersBLL klasy s](batch-inserting-cs/_static/image20.png)](batch-inserting-cs/_static/image19.png)
 
 **Rysunek 7**: Konfigurowanie kontrolki ObjectDataSource do użycia `SuppliersBLL` klasy s `GetSuppliers` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image21.png))
 
-
 Ma `Suppliers` wyświetlania kontrolki DropDownList `CompanyName` pola danych i użyj `SupplierID` pole danych jako jej `ListItem` wartości s.
-
 
 [![Wyświetlanie pola dane CompanyName i użyj IDdostawcy jako wartości](batch-inserting-cs/_static/image23.png)](batch-inserting-cs/_static/image22.png)
 
 **Rysunek 8**: Wyświetlanie `CompanyName` pola danych i użyj `SupplierID` jako wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image24.png))
 
-
 Nadaj nazwę drugiej kontrolki DropDownList `Categories` i powiązać ją z nowego elementu ObjectDataSource, o nazwie `CategoriesDataSource`. Konfigurowanie `CategoriesDataSource` ObjectDataSource używać `CategoriesBLL` klasy s `GetCategories` metody; zestaw z listy rozwijanej wyświetla karty aktualizacji i usuwania (Brak) i kliknij przycisk Zakończ, aby zakończyć pracę kreatora. Na koniec mają wyświetlania kontrolki DropDownList `CategoryName` pola danych i użyj `CategoryID` jako wartość.
 
 Po dodaniu tych dwóch kontrolek DROPDOWNLIST i powiązane z ObjectDataSources odpowiednio skonfigurowany, ekran powinien wyglądać podobnie jak rysunek 9.
 
-
 [![Wiersz nagłówka zawiera teraz dostawców i kontrolek DROPDOWNLIST kategorii](batch-inserting-cs/_static/image26.png)](batch-inserting-cs/_static/image25.png)
 
 **Rysunek 9**: Nagłówek wiersza zawiera teraz `Suppliers` i `Categories` kontrolek DROPDOWNLIST ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image27.png))
-
 
 Teraz musimy utworzyć pola tekstowe, aby zbierać nazwy i ceny dla każdego nowego produktu. Przeciągnij formant TextBox z przybornika do projektanta dla każdego produktu pięć wierszy nazwy i ceny. Ustaw `ID` właściwości pola tekstowe do `ProductName1`, `UnitPrice1`, `ProductName2`, `UnitPrice2`, `ProductName3`, `UnitPrice3`i tak dalej.
 
@@ -149,18 +127,15 @@ Dodaj CompareValidator po każdym poleceniu ceny jednostkowej pola tekstowe, ust
 > [!NOTE]
 > Wstawianie interfejsu nawet jeśli nie ma wszystkie formanty RequiredFieldValidator `ProductName` pole `Products` tabeli bazy danych nie zezwala na `NULL` wartości. Jest to spowodowane chcemy umożliwić użytkownikowi wprowadź maksymalnie pięć produktów. Na przykład gdyby użytkownik Podaj nazwę i jednostkę cena produktu dla pierwszych trzech wierszy, pozostawiając puste, ostatnie dwa wiersze d po prostu dodamy trzy nowe produkty do systemu. Ponieważ `ProductName` jest wymagane, jednak firma Microsoft będzie należy programowo upewnij się, aby upewnić się, że jeśli cena jednostkowa jest wpisany podano odpowiednie wartości nazwy produktu. Firma Microsoft będzie czoła tym wyboru w kroku 4.
 
-
 Podczas sprawdzania poprawności danych wejściowych użytkownika s, CompareValidator raporty nieprawidłowe dane, jeśli wartość zawiera symbol waluty. Dodaj $ przed każdego cena jednostkowa pól tekstowych, która będzie służyć jako wskazówką wizualną, która instruuje użytkownika, aby pominąć symbol waluty, podczas wprowadzania cenę.
 
 Na koniec Dodaj kontrolki podsumowania walidacji `InsertingInterface` panelu ustawienia jego `ShowMessageBox` właściwości `true` i jego `ShowSummary` właściwość `false`. Przy użyciu tych ustawień Jeśli użytkownik wprowadzi wartość ceny nieprawidłową jednostkę, gwiazdką pojawi się obok naruszającym kontrolki pola tekstowego i podsumowania walidacji wyświetli komunikat messagebox po stronie klienta, który pokazuje komunikat o błędzie, który wcześniej określonej.
 
 W tym momencie ekran powinien wyglądać podobnie jak na rysunku nr 10.
 
-
 [![Wstawianie interfejs zawiera teraz pola tekstowe dla produktów nazwy i ceny](batch-inserting-cs/_static/image29.png)](batch-inserting-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Wstawianie interfejsu teraz obejmuje pól tekstowych nazw produktów i ceny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image30.png))
-
 
 Następnie musimy dodać Dodaj produkty z przycisków wydania i Anuluj do wiersza stopki. Przeciągnij dwa formanty przycisków z przybornika w stopce Wstawianie interfejsu ustawienie przyciski `ID` właściwości `AddProducts` i `CancelButton` i `Text` właściwości, aby dodać produkty z wydania i anulowania, odpowiednio. Dodatkowo, ustawienia `CancelButton` formantu s `CausesValidation` właściwość `false`.
 
@@ -170,11 +145,9 @@ Przeciągnij formant etykiety w sieci Web z przybornika do górnej części stro
 
 Na ilustracji 11 pokazano projektanta programu Visual Studio po etykieta została dodana i skonfigurowane.
 
-
 [![Formant StatusLabel powyżej dwóch kontrolek panelu](batch-inserting-cs/_static/image32.png)](batch-inserting-cs/_static/image31.png)
 
 **Rysunek 11**: Miejsce `StatusLabel` kontroli nad dwa formanty panelu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image33.png))
-
 
 ## <a name="step-3-switching-between-the-display-and-inserting-interfaces"></a>Krok 3. Przełączanie między Wyświetlanie interfejsów i wstawiania
 
@@ -187,7 +160,6 @@ Obecnie interfejs wyświetlana jest widoczna, ale interfejs Wstawianie jest ukry
 
 Chcemy przenieść z interfejsu wyświetlania interfejsu Wstawianie po kliknięciu przycisku wydania produktu procesu. W związku z tym, utworzyć program obsługi zdarzeń dla przycisku s `Click` zdarzenia, które zawiera następujący kod:
 
-
 [!code-csharp[Main](batch-inserting-cs/samples/sample4.cs)]
 
 Ten kod po prostu ukrywa `DisplayInterface` panelu i pokazuje `InsertingInterface` panelu.
@@ -196,7 +168,6 @@ Następnie należy utworzyć procedury obsługi zdarzeń dla Dodaj produkty z fo
 
 > [!NOTE]
 > Należy wziąć pod uwagę, co może się zdarzyć, jeśli firma Microsoft nie zwróciła formanty do stanu wstępnie edycji przed zwróceniem do wyświetlania interfejsu. Użytkownik może kliknij przycisk wydania produktu procesu, wprowadź produkty z wydanie a następnie kliknij Dodaj produkty z wydania. Spowoduje to Dodaj produkty i powrót użytkownika do wyświetlania interfejsu. W tym momencie użytkownik może chcieć dodać inny wydania. Po kliknięciu przycisku wydania produktu procesu, które zwracają interfejs Wstawianie, ale metody DropDownList wybrane opcje i wartości pola tekstowego nadal będzie wypełniana przy użyciu ich poprzedniej wartości.
-
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample5.cs)]
 
@@ -207,18 +178,15 @@ Poświęć chwilę, w celu przetestowania tej strony w przeglądarce. Po raz pie
 > [!NOTE]
 > Podczas wyświetlania Wstawianie interfejsu, Poświęć chwilę, przetestowaniu CompareValidators na cenę jednostkową pól tekstowych. Powinien zostać wyświetlony komunikat messagebox po stronie klienta ostrzeżenie po kliknięciu przycisku Dodaj produkty z przycisku wydania przy użyciu wartości waluty nieprawidłowe lub ceny o wartości mniejszej niż zero.
 
-
 [![Wstawianie interfejs jest wyświetlany po kliknięciu przycisku procesu wydania produktu](batch-inserting-cs/_static/image35.png)](batch-inserting-cs/_static/image34.png)
 
 **Rysunek 12**: Wstawianie interfejs jest wyświetlany po kliknięciu przycisku procesu wydania produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image36.png))
-
 
 ## <a name="step-4-adding-the-products"></a>Krok 4. Dodawanie produktów
 
 Wszystko, który pozostaje w tym samouczku to można zapisać produktów w bazie danych w produktach Dodaj przycisk wydania s `Click` program obsługi zdarzeń. Można to osiągnąć, tworząc `ProductsDataTable` i dodawanie `ProductsRow` wystąpienia dla każdego z podanych nazw produktów. Po tych `ProductsRow` s dodano podejmiemy wywołanie `ProductsBLL` klasy s `UpdateWithTransaction` metody, przekazując `ProductsDataTable`. Pamiętamy `UpdateWithTransaction` metody, która została utworzona w [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md) samouczków, przekazuje `ProductsDataTable` do `ProductsTableAdapter` s `UpdateWithTransaction` metody. Z tego miejsca pracy jest transakcja ADO.NET i problemów TableAdapter `INSERT` instrukcji do bazy danych dla każdego dodano `ProductsRow` w elemencie DataTable. Przy założeniu, że wszystkie produkty są dodawane bez błędów, transakcja została zatwierdzona, w przeciwnym razie jego jest wycofywana.
 
 W kodzie Dodaj produkty z przycisku wydania s `Click` program obsługi zdarzeń musi także wykonać nieco sprawdzania błędów. Ponieważ nie ma żadnych RequiredFieldValidators używany w interfejsie Wstawianie, użytkownik może podać dla produktu pomijając jego nazwę. Ponieważ nazwa produktu s jest wymagany, jeśli taki warunek rozwoju musimy ostrzegać użytkowników i operacje wstawiania nie kontynuować. Pełne `Click` następuje kod procedury obsługi zdarzeń:
-
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample6.cs)]
 
@@ -236,25 +204,20 @@ Jeśli produkty nie zostały wprowadzone, wstawianie interfejsu nadal jest wyśw
 
 S rysunku 13, 14 oraz 15 Pokaż, wstawianie i wyświetlić interfejsy w działaniu. Na rysunku 13 użytkownik wpisze wartość Cena jednostki bez odpowiedniej nazwy produktu. Rysunek 14 pokazuje interfejsu wyświetlaną po trzy nowe produkty zostały dodane pomyślnie, rysunek 15 znajdują się dwa produkty nowo dodanych w kontrolce GridView (trzeci znajduje się na poprzedniej stronie).
 
-
 [![Nazwa produktu jest wymagany po wprowadzeniu cena jednostkowa](batch-inserting-cs/_static/image38.png)](batch-inserting-cs/_static/image37.png)
 
 **Rysunek 13**: Nazwa produktu jest wymagany po wprowadzeniu cena jednostkowa ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image39.png))
-
 
 [![Zostały dodane trzy nowe Veggies dla dostawcy Mayumi s](batch-inserting-cs/_static/image41.png)](batch-inserting-cs/_static/image40.png)
 
 **Rysunek 14**: Trzy nowe Veggies dodano s Mayumi dostawcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image42.png))
 
-
 [![Nowe produkty znajduje się na ostatniej stronie widoku GridView](batch-inserting-cs/_static/image44.png)](batch-inserting-cs/_static/image43.png)
 
 **Rysunek 15**: Nowe produkty znajdują się na ostatniej stronie kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-inserting-cs/_static/image45.png))
 
-
 > [!NOTE]
 > Batch Wstawianie logikę używaną w tym samouczku opakowuje operacje wstawiania w zakresie transakcji. Aby to sprawdzić, celowo wprowadzono błąd poziomu bazy danych. Na przykład, zamiast Przypisywanie nowego `ProductsRow` wystąpienia s `CategoryID` właściwości wybranej wartości w `Categories` DropDownList i przypisz ją do wartości, takich jak `i * 5`. W tym miejscu `i` indeksatora pętli i ma wartości z zakresu od 1 do 5. W związku z tym, podczas dodawania dwóch lub więcej produktów w usłudze batch wstawić pierwszy produkt będzie zawierać prawidłowy `CategoryID` będzie miał wartość [5], ale kolejne produktów `CategoryID` wartości, które nie pasują do `CategoryID` wartości w `Categories` tabeli. Netto jest to, że podczas pierwszego `INSERT` zakończy się powodzeniem, kolejne zakończy się niepowodzeniem z naruszenie ograniczenia klucza obcego. Ponieważ wstawianie wsadowe są niepodzielne, pierwszy `INSERT` zostanie wycofana, zwracanie rozpoczął się bazy danych do stanu przed proces usługi batch.
-
 
 ## <a name="summary"></a>Podsumowanie
 

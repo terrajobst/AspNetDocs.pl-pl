@@ -9,12 +9,12 @@ ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: c41fc06ad98665f7d48efde030c1341b06e49dd0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ca9c141b0b48acf2c775a083398d3fb66b51cc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121424"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity
 
@@ -23,7 +23,6 @@ przez [Hao Kung](https://github.com/HaoK), [autorem jest Pranav Rastogi](https:/
 > Ten samouczek przedstawia sposób konfigurowania uwierzytelniania dwuskładnikowego (2FA) za pomocą wiadomości SMS i wiadomości e-mail.
 > 
 > W tym artykule został napisany przez Rick Anderson ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), autorem jest Pranav Rastogi ([@rustd](https://twitter.com/rustd)), Hao Kung i Suhas Joshi. Przykład NuGet został napisany głównie przez Hao Kung.
-
 
 W tym temacie omówiono następujące czynności:
 
@@ -43,7 +42,6 @@ W tej sekcji użyjesz NuGet do pobrania próbki, firma Microsoft będzie działa
 > [!NOTE]
 > Ostrzeżenie: Należy zainstalować program Visual Studio [2013 Update 2](https://go.microsoft.com/fwlink/?LinkId=390521) do ukończenia tego samouczka.
 
-
 1. Utwórz nową ***pusty*** projektu sieci Web ASP.NET.
 2. W konsoli Menedżera pakietów wprowadź następujące polecenia:  
   
@@ -58,7 +56,6 @@ W tej sekcji użyjesz NuGet do pobrania próbki, firma Microsoft będzie działa
 
 > [!NOTE]
 > Ostrzeżenie: W przypadku zmiany ustawień zabezpieczeń, w tym przykładzie produkcji aplikacji będzie musiała zostać poddane inspekcji zabezpieczeń, który jawnie wywołuje się zmian.
-
 
 <a id="SMS"></a>
 
@@ -212,7 +209,6 @@ Możesz dodać więcej dostawców uwierzytelniania 2FA, takie jak generatory kod
 
 > [!NOTE]
 > Kody uwierzytelniania 2FA są generowane przy użyciu [oparte na czasie algorytm hasła jednorazowego](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) i kody są ważne przez 6 minut. Jeśli nie podejmiesz więcej niż sześciu minut w celu wprowadzenia kodu, otrzymasz komunikat o błędzie nieprawidłowego kodu.
-
 
 <a id="combine"></a>
 

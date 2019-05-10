@@ -8,12 +8,12 @@ ms.date: 10/07/2008
 ms.assetid: f84b4a16-e8bb-49e8-87a0-1832879a3501
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d1895b03a2aa877bfd279995dc5647c5efefade6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e81575a05a24c60ffb16c4a6688f6cfdc5a19f30
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414208"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122712"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-c"></a>Tworzenie klas modeli za pomocą modelu LINQ to SQL (C#)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz plik PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_CS.pdf)
 
 > Celem tego samouczka jest aby wyjaśnić, jedną z metod Tworzenie klas modelu dla aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak tworzenie klas modelu i wykonywać dostępu do bazy danych, wykorzystując Microsoft LINQ to SQL.
-
 
 Celem tego samouczka jest aby wyjaśnić, jedną z metod Tworzenie klas modelu dla aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak tworzenie klas modelu i wykonywać dostępu do bazy danych, wykorzystując Microsoft LINQ to SQL
 
@@ -42,29 +41,23 @@ W tym samouczku używam programu LINQ to SQL do wykonywania zapytań i aktualiza
 
 W tym samouczku — aby zilustrować Tworzenie klas modelu — możemy utworzyć prostą aplikację bazy danych filmów. Pierwszym krokiem jest utworzenie nowej bazy danych. Kliknij prawym przyciskiem myszy aplikację\_folderu danych w oknie Eksploratora rozwiązań i wybierz opcję menu **Dodaj, nowy element**. Wybierz **bazy danych SQL Server** szablonu, nadaj mu nazwę MoviesDB.mdf, a następnie kliknij przycisk **Dodaj** przycisku (patrz rysunek 1).
 
-
 [![Dodawanie nowej bazy danych serwera SQL](creating-model-classes-with-linq-to-sql-cs/_static/image2.png)](creating-model-classes-with-linq-to-sql-cs/_static/image1.png)
 
 **Rysunek 01**: Dodawanie nowej bazy danych serwera SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image3.png))
-
 
 Po utworzeniu nowej bazy danych, można otworzyć bazy danych, klikając dwukrotnie plik MoviesDB.mdf w aplikacji\_folderu danych. Dwukrotne kliknięcie pliku MoviesDB.mdf zostanie otwarte okno Eksplorator serwera (zobacz rysunek 2).
 
 Okno Eksploratora serwera jest wywoływana okno Eksplorator bazy danych, korzystając z programu Visual Web Developer.
 
-
 [![W oknie Eksploratora serwera](creating-model-classes-with-linq-to-sql-cs/_static/image5.png)](creating-model-classes-with-linq-to-sql-cs/_static/image4.png)
 
 **Rysunek 02**: W oknie Eksploratora serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image6.png))
 
-
 Musimy dodać jednej tabeli do naszych bazy danych, która reprezentuje nasze filmy. Kliknij prawym przyciskiem myszy folder Tabele i wybierz opcję menu **Dodaj nową tabelę**. Wybranie tej opcji menu zostanie otwarty projektant tabel (zobacz rysunek 3).
-
 
 [![W oknie Eksploratora serwera](creating-model-classes-with-linq-to-sql-cs/_static/image8.png)](creating-model-classes-with-linq-to-sql-cs/_static/image7.png)
 
 **Rysunek 03**: Projektant tabel ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image9.png))
-
 
 Należy dodać następujące kolumny do tabeli bazy danych:
 
@@ -82,19 +75,15 @@ Następnie należy oznaczyć kolumna identyfikatora jako kolumnę tożsamości, 
 
 Nasz model MVC będzie zawierać LINQ do klas SQL, które reprezentują tblMovie tabeli bazy danych. Najprostszym sposobem utworzenia te klasy programu LINQ to SQL ma kliknij prawym przyciskiem myszy folderu modeli, wybierz **Dodaj, nowy element**, wybierz LINQ do klas SQL szablonu, nazwę klasy Movie.dbml, a następnie kliknij przycisk **Dodaj**przycisku (zobacz rysunek 4).
 
-
 [![Tworzenie zapytań LINQ do klas SQL](creating-model-classes-with-linq-to-sql-cs/_static/image11.png)](creating-model-classes-with-linq-to-sql-cs/_static/image10.png)
 
 **Rysunek 04**: Tworzenie zapytań LINQ do klas SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image12.png))
 
-
 Bezpośrednio po utworzeniu filmu klasy programu LINQ to SQL, zostanie wyświetlony Object Relational Designer. Można przeciągnąć tabele bazy danych z okna Eksploratora serwera na Object Relational Designer, aby tworzyć LINQ do klas SQL, które reprezentują tabele określonej bazy danych. Musimy dodać tabelę bazy danych tblMovie na Object Relational Designer (zobacz rysunek 5).
-
 
 [![Za pomocą Object Relational Designer](creating-model-classes-with-linq-to-sql-cs/_static/image14.png)](creating-model-classes-with-linq-to-sql-cs/_static/image13.png)
 
 **Rysunek 05**: Za pomocą Object Relational Designer ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image15.png))
-
 
 Domyślnie Object Relational Designer tworzy klasę o nazwie bardzo identycznej z nazwą tabeli bazy danych, która została przeciągnięta na projektanta. Jednak firma Microsoft nie chcesz wywołać klasy nasze `tblMovie`. W związku z tym kliknij nazwę klasy w Projektancie i Zmień nazwę klasy do filmu.
 
@@ -130,19 +119,15 @@ Po uruchomieniu aplikacji po zmodyfikowaniu `HomeController` klasy i indeksu w w
 
 Aby można było dodać rekordy `tblMovies` bazy danych tabeli, kliknij prawym przyciskiem myszy `tblMovies` bazy danych tabeli w oknie Eksploratora serwera (Okno Eksplorator bazy danych w Visual Web Developer) i wybierz opcję menu Pokaż dane tabeli. Możesz wstawić `movie` rekordów przy użyciu siatki, która pojawia się (patrz rysunek 6).
 
-
 [![Wstawianie filmów](creating-model-classes-with-linq-to-sql-cs/_static/image17.png)](creating-model-classes-with-linq-to-sql-cs/_static/image16.png)
 
 **Rysunek 06**: Wstawianie filmów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image18.png))
 
-
 Po dodaniu kilka rekordów bazy danych, aby `tblMovies` tabeli i uruchomić aplikację, więc zostanie wyświetlona strona na rysunku 7. Wszystkie rekordy bazy danych filmów są wyświetlane na liście punktowanej.
-
 
 [![Wyświetlanie filmów z widoku indeksu](creating-model-classes-with-linq-to-sql-cs/_static/image20.png)](creating-model-classes-with-linq-to-sql-cs/_static/image19.png)
 
 **Rysunek 07**: Wyświetlanie filmów z widoku indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-model-classes-with-linq-to-sql-cs/_static/image21.png))
-
 
 ## <a name="using-the-repository-pattern"></a>Przy użyciu wzorca repozytorium
 

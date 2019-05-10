@@ -8,12 +8,12 @@ ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 238efd312a73e2452ca5f679f2b8f5ed1336c4dc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 62114e56fb29e80c93b82dcb78ce2bc2a123a83b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385881"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133654"
 ---
 # <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing i wybieranie akcji we wzorcu ASP.NET Web API
 
@@ -23,7 +23,6 @@ W tym artykule opisano, jak ASP.NET Web API kieruje żądania HTTP do określone
 
 > [!NOTE]
 > Aby uzyskać ogólne omówienie routingu, zobacz [routingu ASP.NET Web API](routing-in-aspnet-web-api.md).
-
 
 W tym artykule przedstawiono szczegółowych informacji dotyczących procesu routingu. Jeśli podczas tworzenia projektu składnika Web API okaże się, że niektóre żądania nie uzyskasz kierowane sposób, w których oczekujesz, miejmy nadzieję ten artykuł pomoże.
 
@@ -135,7 +134,6 @@ Proste typy obejmują wszystkie [pierwotnych typów programu .NET Framework](htt
 
 > [!NOTE]
 > Istnieje możliwość zastąpić domyślne reguły powiązania. Zobacz [wiązanie parametru WebAPI kulisy](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
-
 
 W tle Oto algorytm wybór akcji.
 

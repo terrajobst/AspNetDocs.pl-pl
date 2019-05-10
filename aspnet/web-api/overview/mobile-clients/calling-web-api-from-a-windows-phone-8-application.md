@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: a5c7804c2336e91dc171b5da52819436472e81cf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c5da14a6856f551343b6fb14f0aedc659e792f6b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59412453"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122083"
 ---
 # <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Wywoływanie wzorca Web API z aplikacji Windows Phone 8 (C#)
 
@@ -40,7 +40,6 @@ W tym samouczku end-to-end dowiesz się, jak używać interfejsu API sieci Web d
 > [!NOTE]
 > Jeśli użytkownik chce przetestować łączność między interfejsu API sieci Web i projektów Windows Phone 8 w systemie lokalnym, konieczne będzie postępuj zgodnie z instrukcjami w *[nawiązywania połączenia aplikacji interfejsu API sieci Web na lokalnym Emulator Windows Phone 8 Komputer](https://go.microsoft.com/fwlink/?LinkId=324014)* artykuł, aby skonfigurować środowiska testowego.
 
-
 <a id="STEP1"></a>
 ### <a name="step-1-creating-the-web-api-bookstore-project"></a>Krok 1. Tworzenie projektu księgarni interfejsu API sieci Web
 
@@ -50,20 +49,16 @@ Pierwszym krokiem w tym samouczku end-to-end jest utworzenie projektu składnika
 2. Kliknij przycisk **pliku**, następnie **nowe**, a następnie **projektu**.
 3. Gdy **nowy projekt** zostanie wyświetlone okno dialogowe, rozwiń **zainstalowane**, następnie **szablony**, następnie **Visual C#**, a następnie **Web**.
 
-
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
    |-----------------------------------------------------------------------------------------------------------------------------------------------------|
    |                                                                Kliknij obraz, aby rozwinąć                                                                |
 
-
 4. Wyróżnij **aplikacji sieci Web ASP.NET**, wprowadź **księgarni** nazwę projektu, a następnie kliknij przycisk **OK**.
 5. Gdy **nowy projekt ASP.NET** zostanie wyświetlone okno dialogowe, wybierz **interfejsu API sieci Web** szablonu, a następnie kliknij **OK**.
-
 
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image4.png)](calling-web-api-from-a-windows-phone-8-application/_static/image3.png) |
    |-----------------------------------------------------------------------------------------------------------------------------------------------------|
    |                                                                Kliknij obraz, aby rozwinąć                                                                |
-
 
 6. Po otwarciu projektu składnika Web API, należy usunąć kontroler próbki z projektu:
 
@@ -195,8 +190,6 @@ Jeśli aplikacja nie może komunikować się z interfejsem API sieci Web, zostan
 
 Jeśli naciśniesz pozycję dotyczącą komunikatu o błędzie, będą wyświetlane dodatkowe szczegóły dotyczące błędu:
 
-
 | [![](calling-web-api-from-a-windows-phone-8-application/_static/image16.png)](calling-web-api-from-a-windows-phone-8-application/_static/image15.png) |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                                 Kliknij obraz, aby rozwinąć                                                                 |
-

@@ -8,17 +8,16 @@ ms.date: 09/08/2014
 ms.assetid: d7ec6e8a-3e05-4c0d-9207-d17a49f9a64d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes
 msc.type: chapter
-ms.openlocfilehash: d1b0a8bb4cd9758af4f77526584e3b1198c70e01
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ae3e20f24f2d1bef39ff44ff15bdab212583310
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399050"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133949"
 ---
 # <a name="ui-layouts-and-themes"></a>Interfejs użytkownika, układy i motywy
 
 > Jak dostosować interfejs użytkownika witryny w aplikacji ASP.NET Web Pages.
-
 
 - [Praca z formularzami](4-working-with-forms.md)
 - [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](validating-user-input-in-aspnet-web-pages-sites.md)

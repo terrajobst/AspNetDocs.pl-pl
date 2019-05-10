@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: a99ed5cc8875ef9f39234e3f394b46b5782d0bc1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 095a5572c755446e0661c052ca9de82d636429fd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390223"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134595"
 ---
 # <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Obiekt odwiedzający informacji (analiza) witrynie ASP.NET Web Pages (Razor) ze śledzenia
 
@@ -35,7 +35,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - ASP.NET Web Pages (Razor) 2
 > - Biblioteka pomocników sieci Web platformy ASP.NET (pakiet NuGet)
-
 
 Analiza jest ogólnym terminem dla technologii, która mierzy ruch w witrynie sieci Web, aby zrozumieć, jak użytkownicy korzystają z witryny. Wiele usług analizy są dostępne, łącznie z usługami Google, Yahoo, StatCounter i innych.
 
@@ -60,7 +59,6 @@ W tej procedurze utworzysz stronę układu, który używa `GetGoogleHtml` pomocn
 
 > [!NOTE]
 > Podczas tworzenia konta usługi analytics, możesz zarejestrować adres URL witryny, która ma być śledzenia. Jeśli testujesz wszystko na komputerze lokalnym, użytkownik nie będzie śledzenia rzeczywisty ruch (tylko ruch jest użytkownik), dzięki czemu nie będzie mógł rejestrowanie i wyświetlanie statystyk witryny. Ale w tej procedurze pokazano, jak dodać pomocnika analytics do strony. Podczas publikowania witryny działającej witryny będzie wysyłać informacje do dostawcy analiz.
-
 
 1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie został dodany.
 2. Utwórz konto za pomocą usługi Google Analytics i zapisać jego nazwę konta.

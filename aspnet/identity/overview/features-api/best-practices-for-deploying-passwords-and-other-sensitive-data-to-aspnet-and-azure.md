@@ -9,12 +9,12 @@ ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 2620d9e2eaf3c7719d9a289e42bb91270708ae79
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0e02df967df8acf346b9fcd1c75dbe304cc5407b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419447"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121544"
 ---
 # <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i w usłudze Azure App Service
 
@@ -25,7 +25,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Przykładowy kod jest prosta aplikacja konsoli zadań WebJob i aplikacji ASP.NET MVC, która wymaga dostępu do bazy danych połączenia ciąg hasła, Twilio, serwis Google czy SendGrid kluczy zabezpieczeń.
 > 
 > Lokalne ustawienia i PHP wymieniana jest także.
-
 
 - [Przy użyciu haseł w środowisku programistycznym](#pwd)
 - [Praca z parametrów połączenia w środowisku programistycznym](#con)
@@ -54,7 +53,6 @@ Znaczniki w pliku zewnętrznym (*AppSettingsSecrets.config* w tym przykładzie),
 > [!WARNING]
 > Zabezpieczenia — nie należy dodawać swoje *.config wpisów tajnych* plik do projektu lub sprawdź go do kontroli źródła. Domyślnie program Visual Studio ustawia `Build Action` do `Content`, co oznacza, że plik jest wdrożony. Aby uzyskać więcej informacji, zobacz [Dlaczego nie wszystkie pliki w folderze projektu wdrożony?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Chociaż można używać dowolnego rozszerzenia dla *.config wpisów tajnych* pliku, warto zachować *.config*, jak pliki konfiguracji nie są obsługiwane przez usługi IIS. Zauważ również, że *AppSettingsSecrets.config* plik znajduje się dwa poziomy katalogu w górę od *web.config* plików, dzięki czemu jest całkowicie poza katalog rozwiązania. Dzięki przeniesieniu pliku poza katalog rozwiązania &quot;git Dodaj \* &quot; nie będzie dodać go do repozytorium.
 
-
 <a id="con"></a>
 ## <a name="working-with-connection-strings-in-the-development-environment"></a>Praca z parametrów połączenia w środowisku programistycznym
 
@@ -67,14 +65,11 @@ Możesz użyć `configSource` atrybutu, aby zastąpić całą `<connectionString
 > [!NOTE]
 > Jeśli używasz `configSource` atrybutu, jak pokazano powyżej, aby przenieść parametry połączenia do pliku zewnętrznego i program Visual Studio Utwórz nową witrynę sieci web, nie będzie mógł wykryć korzystania z bazy danych i nie będzie dostępna opcja konfigurowania bazy danych po użytkownik pu Publikuj na platformie Azure z programu Visual Studio. Jeśli używasz `configSource` atrybut, można użyć programu PowerShell do tworzenia i wdrażania witryn sieci web i bazy danych lub można utworzyć witryny sieci web i bazy danych w portalu usługi przed opublikowaniem. [New AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) skrypt spowoduje utworzenie nowej witryny sieci web i bazy danych.
 
-
 > [!WARNING]
 > Zabezpieczenia — w przeciwieństwie do *AppSettingsSecrets.config* pliku, plik ciągów połączenia zewnętrznego musi być w tym samym katalogu głównym *web.config* plików, dlatego należy zachować środki ostrożności, aby zagwarantować, że nie zaznaczaj jej w repozytorium źródłowym.
 
-
 > [!NOTE]
 > **Ostrzeżenie o zabezpieczeniach w pliku wpisów tajnych:** Najlepszym rozwiązaniem jest nieużywanie tajemnice produkcji w projektowania i testowania. Korzystanie z haseł produkcji w testowym lub deweloperskim przeciek tych kluczy tajnych.
-
 
 <a id="wj"></a>
 ## <a name="webjobs-console-apps"></a>Aplikacje konsoli zadań Webjob
@@ -105,7 +100,6 @@ W skrypcie powyżej "Name" jest nazwą klucza tajnego, takie jak "&quot;platform
 > [!WARNING]
 > Zabezpieczenia — nie dołączaj hasła lub inne wpisy tajne w skrypcie programu PowerShell, wykonując tak zaprzeczenie celem wdrażania poufnych danych przy użyciu skryptu programu PowerShell. [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) polecenie cmdlet zapewnia mechanizm bezpiecznego można uzyskać hasło. Przy użyciu wiersza interfejsu użytkownika może uniemożliwić przeciek hasła.
 
-
 ### <a name="deploying-db-connection-strings"></a>Wdrażanie parametry połączenia bazy danych
 
 Parametry połączenia bazy danych są obsługiwane podobnie do ustawień aplikacji. W przypadku wdrożenia aplikacji sieci web w programie Visual Studio, parametry połączenia zostaną skonfigurowane dla Ciebie. Można to sprawdzić, w portalu. Jest to zalecany sposób ustawimy parametry połączenia przy użyciu programu PowerShell. Przykładowy skrypt programu PowerShell utworzy witryny sieci Web i bazy danych, a następnie ustawia parametry połączenia w witrynie sieci Web, Pobierz [New AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) z [biblioteki skryptów Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure).
@@ -125,6 +119,5 @@ Jeśli wdrażasz do serwerów sieci web w środowisku lokalnym, możesz pomóc b
 Na przykład programu PowerShell skrypt, który tworzy aplikacja sieci web i bazy danych, ustawia parametry połączenia i ustawienia aplikacji, Pobierz [New AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3) z [biblioteki skryptów Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure). 
 
 Zobacz Stefan Schackow [Windows Azure Web Sites: Sposób działania ciągów aplikacji i parametrów połączenia](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)
-
 
 Specjalne dzięki Barry Dorrans ( [ @blowdart ](https://twitter.com/blowdart) ) i Farre Carlos przeglądania.

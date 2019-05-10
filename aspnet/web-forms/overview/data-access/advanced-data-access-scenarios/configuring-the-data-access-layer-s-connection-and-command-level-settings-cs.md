@@ -8,12 +8,12 @@ ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6a787206862b88f915859d4a8fc4dd3c3166293
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 21b98ef4126c16054829d7183f59207de3e945f3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389599"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133356"
 ---
 # <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurowanie ustawień na poziomie połączenia i poleceń warstwy dostępu do danych (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_72_CS.zip) lub [Pobierz plik PDF](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/datatutorial72cs1.pdf)
 
 > TableAdapter w zestawie danych wpisane automatycznie zajmie się z bazą danych, wydawanie polecenia i wypełnianie obiektu DataTable z wyników. Istnieją sytuacje, ale jeśli chcemy zajmie się tymi szczegółowymi informacjami, osoby, a w tym samouczku będziemy Dowiedz się, jak uzyskać dostęp do ustawień połączenia i polecenia poziomu bazy danych w metodzie TableAdapter.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -50,24 +49,19 @@ Z wyjątkiem [opakowywanie modyfikacji bazy danych w ramach transakcji](../worki
 
 Każda klasa TableAdapter ma `Connection` właściwość, która określa informacje o połączeniu z bazą danych. Ten typ danych właściwości s i `ConnectionString` wartości są określane przez wybrane w Kreatorze konfiguracji TableAdapter. Pamiętaj, że po dodaniu najpierw TableAdapter z zestawem danych wpisane ten kreator zapyta, nam dla bazy danych źródła (patrz rysunek 1). Listy rozwijanej w pierwszym kroku dotyczy tych baz danych, określone w pliku konfiguracji, a także innych baz danych w Eksploratorze serwera s połączeń danych. Jeśli bazy danych, które firma Microsoft nie istnieje na liście rozwijanej, można określić nowego połączenia z bazą danych, klikając przycisk nowe połączenie oraz udostępniając informacje o połączeniu potrzebne.
 
-
 [![Pierwszym krokiem, który Kreator konfiguracji TableAdapter](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
 
 **Rysunek 1**: Pierwszym krokiem, który Kreator konfiguracji TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image3.png))
-
 
 Umożliwiają s Poświęć chwilę, aby sprawdzić kod TableAdapter s `Connection` właściwości. Jak wspomniano w [Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczek, możemy wyświetlić automatycznie wygenerowany kod TableAdapter, przechodząc do okna widoku klasy, wyświetlających odpowiedniej klasy, a następnie klikając dwukrotnie nazwę elementu członkowskiego.
 
 Przejdź do okna widoku klasy, przechodząc do menu widoku i wybierając pozycję Widok klas (lub wpisując Ctrl + Shift + C). W górnej połowie okna widoku klasy Drąż w dół do `NorthwindTableAdapters` przestrzeni nazw i wybierz `ProductsTableAdapter` klasy. Spowoduje to wyświetlenie `ProductsTableAdapter` s członków w dolnej części widoku klas, jak pokazano na rysunku 2. Kliknij dwukrotnie `Connection` właściwości, aby wyświetlić jej kod.
 
-
 ![Kliknij dwukrotnie właściwości połączenia w widoku klas, aby wyświetlić jego automatycznego generowania kodu](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image4.png)
 
 **Rysunek 2**: Kliknij dwukrotnie właściwości połączenia w widoku klas, aby wyświetlić jego automatycznego generowania kodu
 
-
 TableAdapter s `Connection` właściwości i inne związane z połączeniem kod poniżej:
-
 
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample1.cs)]
 
@@ -84,17 +78,13 @@ Pozwól s rozszerzyć `ProductsTableAdapter` w `Northwind` zestawu danych, aby u
 > [!NOTE]
 > A *parametry połączenia* jest ciągiem, który określa informacje o połączeniu bazy danych, takiego jak dostawca, aby użyć lokalizacji bazy danych, poświadczenia uwierzytelniania i innych ustawień związanych z bazy danych. Aby uzyskać listę wzorców ciąg połączenia używany przez wiele magazynów danych i dostawców, zobacz [ConnectionStrings.com](http://www.connectionstrings.com/).
 
-
 Zgodnie z opisem w [Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczku klasy generowanych automatycznie s wpisana zestawu danych można rozszerzyć za pomocą klasy częściowe. Najpierw utwórz nowy podfolder w projekcie o nazwie `ConnectionAndCommandSettings` poniżej `~/App_Code/DAL` folderu.
-
 
 ![Dodaj podfolder o nazwie ConnectionAndCommandSettings](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image5.png)
 
 **Rysunek 3**: Dodaj podfolder o nazwie `ConnectionAndCommandSettings`
 
-
 Dodaj plik klasy o nazwie `ProductsTableAdapter.ConnectionAndCommandSettings.cs` i wprowadź następujący kod:
-
 
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample2.cs)]
 
@@ -108,11 +98,9 @@ Ta klasa częściowa udostępnia tylko jedną właściwość obiektu bazowego po
 
 Otwórz `Northwind` zestawu danych, kliknij pozycję `ProductsTableAdapter` w projektancie, a następnie przejdź do okna właściwości. Zobaczysz `ConnectionModifier` ustawiony na wartość domyślną `Assembly`. Aby `Connection` dostępne spoza zestawu s wpisana zestawu danych, zmień właściwość `ConnectionModifier` właściwość `Public`.
 
-
 [![Poziom dostępności s właściwości połączenia można skonfigurować za pomocą właściwości ConnectionModifier](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image7.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image6.png)
 
 **Rysunek 4**: `Connection` Właściwości ułatwień dostępu można skonfigurować poziom s za pośrednictwem `ConnectionModifier` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image8.png))
-
 
 Zapisz zestaw danych, a następnie wróć do `ProductsBLL` klasy. Jak wcześniej, przejdź do jednej z istniejących metod i wpisz w polu `Adapter` , a następnie naciśnij klucz okresu, aby wywołać funkcję IntelliSense. Lista powinna zawierać `Connection` właściwości, co oznacza, że można teraz programowo odczytu lub przypisać wszystkie ustawienia na poziomie połączenia od LOGIKI.
 
@@ -132,7 +120,6 @@ Oprócz jego główne zapytanie TableAdapter może zawierać zmienną liczbę me
 
 Umożliwiają s Poświęć chwilę, aby przyjrzeć się kod wygenerowany przez `ProductsTableAdapter` w `Northwind` zestawu danych, te dwie właściwości i ich obsługi zmiennych składowych i metody pomocnicze:
 
-
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample3.cs)]
 
 Kod `Adapter` i `CommandCollection` właściwości ścisłe naśladowanie z `Connection` właściwości. Brak zmiennych składowych, używane do przechowywania używanych przez właściwości obiektów. Właściwości `get` Akcesory początek sprawdzanie, czy odpowiednią zmienną elementu członkowskiego `null`. Jeśli tak, metodę inicjalizacji jest wywoływana, który tworzy wystąpienie zmiennej elementu członkowskiego i przypisuje podstawowe właściwości powiązanych z polecenia.
@@ -147,14 +134,12 @@ Na przykład Wyobraź sobie, że były niektórych zapytań w TableAdapter, któ
 
 Aby umożliwić `CommandTimeout` właściwość zostanie skorygowany LOGIKI, Dodaj następujący kod `public` metody `ProductsDataTable` przy użyciu pliku częściowej klasy utworzone w kroku 2 (`ProductsTableAdapter.ConnectionAndCommandSettings.cs`):
 
-
 [!code-csharp[Main](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/samples/sample4.cs)]
 
 Tej metody można wywołać z LOGIKI lub Warstwa prezentacji, aby ustawić limit czasu polecenia dotyczące wszystkich problemów z poleceń, przez to wystąpienie TableAdapter.
 
 > [!NOTE]
 > `Adapter` i `CommandCollection` właściwości są oznaczone jako `private`, co oznacza, są dostępne tylko w kodzie w metodzie TableAdapter. W odróżnieniu od `Connection` właściwości tych modyfikatorów dostępu nie są konfigurowalne. W związku z tym, jeśli musisz ujawnić właściwości na poziomie polecenia do innych warstw architektury należy użyć metody częściowej klasy omówione powyżej, aby zapewnić `public` metody lub właściwości, który odczytuje lub zapisuje `private` polecenia obiektów.
-
 
 ## <a name="summary"></a>Podsumowanie
 

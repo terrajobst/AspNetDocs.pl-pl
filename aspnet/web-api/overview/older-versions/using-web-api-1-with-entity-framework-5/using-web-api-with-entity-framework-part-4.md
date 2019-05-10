@@ -8,12 +8,12 @@ ms.date: 07/04/2012
 ms.assetid: 792f4513-a508-4d14-a0dd-1a2fe282c7bb
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 54b3afac9b19962b02336a35909b208c4e3f7504
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e045b17434d46fa1b6e7942db95ecad67c34a46
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400558"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134756"
 ---
 # <a name="part-4-adding-an-admin-view"></a>Część 4. Dodawanie widoku administratora
 
@@ -52,7 +52,6 @@ W Eksploratorze rozwiązań rozwiń folder widoki, a następnie rozwiń folder u
 > [!NOTE]
 > W przykładowym projekcie kilka innych kosmetycznych zmiany wprowadzone, takich jak zastępując ciąg "Twoje logo". Nie mają one wpływu na funkcjonalność aplikacji. Można pobrać projektu i porównywanie plików.
 
-
 Uruchom aplikację, a następnie kliknij link "Admin", który pojawia się w górnej części strony głównej. Strona administratora powinny wyglądać następująco:
 
 ![](using-web-api-with-entity-framework-part-4/_static/image3.png)
@@ -79,7 +78,6 @@ Otwórz plik AdminController.cs i Dodaj **Autoryzuj** atrybutu do całej `AdminC
 
 > [!NOTE]
 > MVC i internetowy interfejs API zarówno zdefiniować **Autoryzuj** atrybutów w różnych obszarach nazw. Używa MVC **System.Web.Mvc.AuthorizeAttribute**, podczas gdy interfejs API sieci Web używa **System.Web.Http.AuthorizeAttribute**.
-
 
 Tylko administratorzy mogą teraz wyświetlać strony administratora. Ponadto Jeśli wyślesz żądanie HTTP do kontrolera administratora żądanie musi zawierać plik cookie uwierzytelniania. Jeśli nie, serwer wysyła odpowiedź HTTP 401 (bez autoryzacji). Można to zobaczyć w narzędziu Fiddler, wysyłając żądanie GET w celu `http://localhost:*port*/api/admin`.
 

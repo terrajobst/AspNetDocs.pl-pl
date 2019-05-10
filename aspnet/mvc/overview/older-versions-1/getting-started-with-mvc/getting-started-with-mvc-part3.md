@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: e8f1515c-c277-47ff-a23e-224118f13f02
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 3eff3aceea302c51e6970bb13fbee3a8bf98a71d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 462b1210c45da67058899193afcea973f3daf122
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411985"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123044"
 ---
 # <a name="adding-a-view"></a>Dodawanie widoku
 
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
-
 
 W tej sekcji użyjemy Przyjrzyj się, jak firma Microsoft może mieć klasy Nasze HelloWorldController nie pozostawia żadnych śladów hermetyzacji Generowanie odpowiedzi HTML z powrotem do klienta przy użyciu pliku szablonu widoku.
 
@@ -99,7 +98,6 @@ Mimo że jest w wielu wierszach, nasze powitalnej metody jest w rzeczywistości 
 Teraz należy szablonu widoku Zapraszamy! W metodzie powitalnej kliknij prawym przyciskiem myszy i wybierz pozycję Dodaj widok. Tym razem utworzymy Sprawdź "Utwórz widok silnie typizowane" i wybierz klasy Nasze WelcomeViewModel z listy rozwijanej. Ten nowy widok będzie tylko wiedzieć o WelcomeViewModels i inne typy obiektów.
 
 > *UWAGA: Musisz mieć skompilowany raz po dodanie Twojego WelcomeViewModel dla pojawienie się na liście rozwijanej.*
-
 
 Oto jak powinien wyglądać Twoje okno dialogowe dodawania widoku. Kliknij przycisk Dodaj. ![Dodaj widok w kółkach](getting-started-with-mvc-part3/_static/image10.png)
 

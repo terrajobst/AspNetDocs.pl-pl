@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: ff55233a-e795-4007-a4fc-861fe1bb590b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 188ab63dd84be5559d5a3646eb95caa77ab01bd1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 638d696abbc5f05957c0ed2eb7ebb65fce7813ea
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392004"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133872"
 ---
 # <a name="configuring-team-foundation-server-for-web-deployment"></a>Konfigurowanie serwera Team Foundation Server na potrzeby wdrażania w Internecie
 
@@ -30,7 +30,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > - Jak skonfigurować uprawnienia dla automatycznego wdrażania.
 > 
 > Włoska tłumaczenia w tych samouczkach, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
-
 
 Ten samouczek zakłada, że zainstalowano TFS 2010 i utworzyć kolekcję projektów zespołowych w ramach procesu konfiguracji początkowej. [Team Foundation podręczniku instalacji programu Visual Studio 2010](https://go.microsoft.com/?linkid=9805132) zapewnia kompleksowe wskazówki na temat tych zadań.
 

@@ -8,12 +8,12 @@ ms.date: 02/14/2014
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: 10b853966ba80b673e1a6786987893f919369e7a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 01796d3ca699a6af5d9162b22a926551435c2040
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412908"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134579"
 ---
 # <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Buforowanie danych w witrynie ASP.NET Web Pages (Razor) w celu zapewnienia lepszej wydajności
 
@@ -38,7 +38,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
 
-
 Za każdym razem, gdy ktoś zgłasza żądanie strony z lokacji, serwer sieci web ma wykonania dodatkowych czynności w celu spełnienia żądania. W przypadku niektórych stron serwer może być konieczne przeprowadzenie zadań, które długo (stosunkowo), takie jak pobieranie danych z bazy danych. Nawet jeśli te zadania nie wykona długo w liczbach bezwzględnych, jeśli wiele ruchu witryny, całego szeregu poszczególnych żądań, które powodują serwer sieci web do wykonania zadania skomplikowany lub powolne możliwe jest dodanie do sporego nakładu pracy. Ostatecznie może to wpłynąć na wydajność lokacji.
 
 Jednym ze sposobów, aby zwiększyć wydajność witryny sieci Web w sytuacjach, takich jak to jest danych w pamięci podręcznej. Jeśli lokacji pobiera ponownych żądań tych samych informacji i informacji nie musi zostać zmodyfikowany dla każdej osoby, a nie jest to czas uwzględniana wielkość liter, zamiast ponownie podczas pobierania lub ponowne obliczanie, możesz pobrać dane jeden raz i następnie zapisać wyniki. Przy następnym dotrze żądanie, tym informacji, po prostu jego uzyskaniu z pamięci podręcznej.
@@ -47,7 +46,6 @@ Ogólnie rzecz biorąc należy w pamięci podręcznej informacje, które nie zmi
 
 > [!NOTE]
 > Wpisy w pamięci podręcznej mogą zostać usunięte powodów innych niż, po wygaśnięciu. Na przykład serwer sieci web może być tymczasowo brakować pamięci i jednym ze sposobów jej odzyskania pamięci jest zgłaszanie wpisów z pamięci podręcznej. Jak można zauważyć, nawet jeśli została utworzona informacje w pamięci podręcznej, masz upewnij się, że jest on jeszcze gdy ich potrzebujesz.
-
 
 Załóżmy, że witryna ma stronę, która zawiera aktualną temperaturę i prognozy pogody. Aby uzyskać informacje tego typu, może wysyłać żądania do usługi zewnętrznej. Ponieważ te informacje nie zmienia się wiele (w ciągu dwóch godzin okresu, na przykład), a ponieważ połączeniami zewnętrznymi wymaga czasu i przepustowość, jest dobrym kandydatem do buforowania.
 
@@ -77,7 +75,6 @@ Program ASP.NET zawiera `WebCache` pomocnika, która ułatwia dodawanie funkcji 
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-
 
 - [Wyświetlanie danych na wykresie](https://go.microsoft.com/fwlink/?LinkId=202895)
 - [Dokumentacja interfejsu API WebCache](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)

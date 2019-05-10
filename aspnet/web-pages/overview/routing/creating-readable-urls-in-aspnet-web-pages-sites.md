@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: a8aac1ac-89de-4415-afe0-97a41c6423d2
 msc.legacyurl: /web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: bfce6120b76d68a3f212639eafa6aa091d7e345d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 832db8e144cab730f16c78f67c12feb9b7c92c7c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59381786"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131768"
 ---
 # <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>Tworzenie adresów URL do odczytu w witrynach ASP.NET Web Pages (Razor)
 
@@ -33,7 +33,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
-
 
 ## <a name="about-routing"></a>Temat routingu
 
@@ -77,7 +76,6 @@ Jeśli wyszukiwanie znaleziono dokładne nie jest zgodna dla *.cshtml* pliki w i
 > [!NOTE]
 > Aby być niejasne, żądania dotyczące określonych stron (oznacza to, że te żądania, które obejmują *.cshtml* rozszerzenie nazwy pliku) działają tak samo, jak można oczekiwać. Żądanie, takie jak `http://www.contoso.com/a/b.cshtml` uruchomią się stronę *b.cshtml* porządku.
 
-
 Wewnątrz strony, można uzyskać informacji o ścieżce za pomocą strony `UrlData` właściwość, która jest słownikiem. Wyobraź sobie, że masz plik o nazwie *ViewCustomers.cshtml* i lokacji pobiera tego żądania:
 
 `http://mysite.com/myWebSite/ViewCustomers/1000`
@@ -88,7 +86,6 @@ Zgodnie z opisem w powyższych reguł, żądanie przejdzie do strony. Na stronie
 
 > [!NOTE]
 > Ponieważ routingu nie zawiera pełnej nazwy pliku, może istnieć niejednoznaczności w przypadku stron, które mają taką samą nazwę, ale inne rozszerzenia nazwy pliku (na przykład *MyPage.cshtml* i *MyPage.html*) . Aby uniknąć problemów z routingiem, najlepiej upewnij się, że nie masz strony w witrynie, których nazwy różnią się tylko w ich rozszerzenia.
-
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby

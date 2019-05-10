@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 874542305bd3f47066cfae595919285ed079aa53
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fb987dd9b26ad9f0e8a88fd881bde4505ec4148
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421072"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115895"
 ---
 # <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Ćwiczenia praktyczne: Narzędzia Visual Studio 2013 Web Tools
 
@@ -28,7 +28,6 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > Wszystkie te możliwości jest również dostępna dla rozszerzenia, dzięki czemu można łatwo rozszerzyć edytorów oraz zaawansowanych nowych funkcji, zgodnie z potrzebami. Web Essentials to kolekcja rozszerzeń programu Visual Studio (najczęściej) związane z sieci web. Zawiera on też wiele nowych uzupełnianiu IntelliSense (szczególnie w przypadku CSS), nowe funkcje łączność z przeglądarkami, automatyczne plików JSHint dla języka JavaScript, nowe ostrzeżenia dla HTML, CSS i wiele innych funkcji, które są niezbędne do tworzenia nowoczesnej sieci web.
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Omówienie
@@ -64,7 +63,6 @@ Aby można było uruchomić ćwiczeń opisanych w tym praktyczne laboratorium, n
 > [!NOTE]
 > Upewnij się, że wszystkie zależności w tym środowisku laboratoryjnym sprawdzeniu przed uruchomieniem Instalatora.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Za pomocą fragmentów kodu
 
@@ -72,7 +70,6 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 
 > [!NOTE]
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
-
 
 ---
 
@@ -86,7 +83,6 @@ To ćwiczenie praktyczne obejmuje następujących czynnościach:
 
 > [!NOTE]
 > Przy pierwszym uruchomieniu programu Visual Studio, należy wybrać jedną z kolekcji wstępnie zdefiniowanych ustawień. Każda kolekcja wstępnie zdefiniowanych służy do dopasowywania style rozwoju i określa układy okna, zachowanie edytora, fragmenty kodu IntelliSense i opcje w oknach dialogowych. Procedury przedstawione w tym środowisku laboratoryjnym opisano czynności niezbędnych do wykonywania danego zadania w programie Visual Studio, korzystając z **ogólnych ustawieniach projektowych** kolekcji. Jeśli wybierzesz kolekcji różne ustawienia dla swojego środowiska programowania, może być różnice w krokach, które należy wziąć pod uwagę.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-working-with-browser-link-and-web-essentials"></a>Ćwiczenie 1: Praca z przeglądarkami i Web Essentials

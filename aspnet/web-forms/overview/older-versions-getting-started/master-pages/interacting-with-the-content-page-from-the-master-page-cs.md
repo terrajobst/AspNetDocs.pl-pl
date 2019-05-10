@@ -8,12 +8,12 @@ ms.date: 07/11/2008
 ms.assetid: 3282df5e-516c-4972-8666-313828b90fb5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a2b6d3a5ceb66c14a78b02182f49d76c72becbd4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 341724253e9149724ff988232b0e312897756f58
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413649"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134376"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interakcja ze stroną zawartości z poziomu strony wzorcowej (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_CS.pdf)
 
 > Zbadamy, jak wywoływać metody, ustaw właściwości, itd. z poziomu strony zawartości z poziomu kodu na stronie wzorcowej.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -50,16 +49,13 @@ Ta pozostałej części tego samouczka implementuje przykładzie opisano we wpro
 
 Naszym pierwszym zadaniem biznesowym polega na utworzeniu strony zawartości, która zawiera listę produktów z bazy danych Northwind. (Dodaliśmy do projektu bazy danych Northwind w poprzednim samouczku [ *interakcja ze stroną wzorcową z poziomu strony zawartości*](interacting-with-the-master-page-from-the-content-page-cs.md).) Rozpocznij od dodania nowej strony programu ASP.NET do `~/Admin` folder o nazwie `Products.aspx`i powiązać `Site.master` strony wzorcowej. Rysunek 1 Pokazuje Eksplorator rozwiązań po tej strony została dodana do witryny sieci Web.
 
-
 [![Dodawanie nowej strony programu ASP.NET do folderu administratora](interacting-with-the-content-page-from-the-master-page-cs/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image1.png)
 
 **Rysunek 01**: Dodawanie nowej strony programu ASP.NET do `Admin` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image3.png))
 
-
 Pamiętaj, że w [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) samouczek tworzenia niestandardowej strony podstawowej klasy o nazwie `BasePage` generujący tytuł strony, jeśli nie jest jawnie ustawione. Przejdź do `Products.aspx` kodem strony klasy i jest pochodną `BasePage` (zamiast z `System.Web.UI.Page`).
 
 Na koniec zaktualizuj `Web.sitemap` plik, aby dołączyć wpis dla tej lekcji. Dodaj następujący kod pod `<siteMapNode>` zawartości do lekcji interakcji strony główne:
-
 
 [!code-xml[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample1.xml)]
 
@@ -67,42 +63,32 @@ Dodanie tego `<siteMapNode>` element jest widoczny w lekcji listy (zobacz rysune
 
 Wróć do `Products.aspx`. W formancie zawartości dla `MainContent`, dodawanie kontrolki GridView i nadaj mu nazwę `ProductsGrid`. Powiąż widoku GridView z kontrolką SqlDataSource o nazwie `ProductsDataSource`.
 
-
 [![Nowe kontrolki SqlDataSource powiązać widoku GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image4.png)
 
 **Rysunek 02**: Powiązywanie kontrolki GridView nowej kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image6.png))
 
-
 Skonfiguruj kreatora, tak aby używał bazy danych Northwind. Jeśli pracy za pomocą poprzedniego samouczka, to konto powinno mieć już parametrów połączenia o nazwie `NorthwindConnectionString` w `Web.config`. Wybierz te parametry połączenia z listy rozwijanej, jak pokazano na rysunku 3.
-
 
 [![Konfigurowanie SqlDataSource do korzystania z bazy danych Northwind](interacting-with-the-content-page-from-the-master-page-cs/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image7.png)
 
 **Rysunek 03**: Konfigurowanie SqlDataSource do korzystania z bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image9.png))
 
-
 Następnie określ kontroli źródła danych `SELECT` instrukcji przez wybranie tabeli Produkty z listy rozwijanej i zwracanie `ProductName` i `UnitPrice` kolumny (patrz rysunek 4). Kliknij przycisk Dalej, a następnie Zakończ, aby zakończyć działanie kreatora Konfigurowanie źródła danych.
-
 
 [![Zwracanie ProductName i UnitPrice pola z tabeli Produkty](interacting-with-the-content-page-from-the-master-page-cs/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image10.png)
 
 **Rysunek 04**: Zwróć `ProductName` i `UnitPrice` pola z `Products` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image12.png))
 
-
 To wszystko. Po zakończeniu pracy Kreatora programu Visual Studio dodaje dwa BoundFields GridView duplikatów dwa pola, które są zwracane przy użyciu kontrolki SqlDataSource. Poniżej kontrolki GridView i użyciu kontrolki SqlDataSource znaczników. Rysunek 5. pokazuje wyniki podczas wyświetlania za pośrednictwem przeglądarki.
 
-
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample2.aspx)]
-
 
 [![Każdy produkt, a jego ceną znajduje się w widoku GridView](interacting-with-the-content-page-from-the-master-page-cs/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image13.png)
 
 **Rysunek 05**: Każdy produkt, a jego ceną znajduje się w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image15.png))
 
-
 > [!NOTE]
 > Możesz wyczyścić wyglądu kontrolki GridView. Kilka sugestii obejmują formatowanie wyświetlaną wartość UnitPrice jako walutę i przy użyciu czcionki i kolory tła, aby poprawić wygląd siatki. Aby uzyskać więcej informacji na temat wyświetlania i formatowanie danych w programie ASP.NET, zobacz mój [Praca z serii samouczków danych](../../data-access/index.md).
-
 
 ## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>Krok 2. Dodawanie przycisku Double cen do strony wzorcowej
 
@@ -110,32 +96,25 @@ Naszym kolejnym krokiem jest, aby dodać kontrolkę przycisku w sieci Web do poz
 
 Następnie dodaj kontrolki SqlDataSource strony wzorcowej, nadając mu nazwę `DoublePricesDataSource`. Ta SqlDataSource będzie służyć do wykonywania `UPDATE` instrukcję, aby wszystkie ceny dwukrotnie. W szczególności należy ustawić jego `ConnectionString` i `UpdateCommand` właściwości na ciąg połączenia i `UPDATE` instrukcji. Następnie należy wywołać tej kontrolki SqlDataSource `Update` metody podczas `DoublePrice` przycisku. Aby ustawić `ConnectionString` i `UpdateCommand` właściwości, wybierz kontrolkę kontrolką SqlDataSource, a następnie przejdź do okna właściwości. `ConnectionString` Listy właściwości tych parametrów połączenia przechowywanych już w `Web.config` na liście rozwijanej; wybierz opcję `NorthwindConnectionString` opcji, jak pokazano na rysunku 6.
 
-
 [![Konfigurowanie SqlDataSource używać NorthwindConnectionString](interacting-with-the-content-page-from-the-master-page-cs/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image16.png)
 
 **Rysunek 06**: Konfigurowanie SqlDataSource do użycia `NorthwindConnectionString` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image18.png))
 
-
 Aby ustawić `UpdateCommand` właściwości, znajdź opcję UpdateQuery w oknie dialogowym właściwości. Tę właściwość, po wybraniu Wyświetla przycisk z wielokropkiem; Kliknij ten przycisk, aby wyświetlić okno dialogowe Edytor poleceń i parametrów pokazano na rysunku 7. Wpisz następujące polecenie `UPDATE` w polu tekstowym w oknie dialogowym instrukcji:
-
 
 [!code-sql[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample3.sql)]
 
 Po wykonaniu tej instrukcji zostanie dwukrotnie `UnitPrice` wartość dla każdego rekordu w `Products` tabeli.
 
-
 [![Ustaw właściwość elementu UpdateCommand SqlDataSource firmy](interacting-with-the-content-page-from-the-master-page-cs/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image19.png)
 
 **Rysunek 07**: Ustaw jego SqlDataSource `UpdateCommand` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image21.png))
 
-
 Po ustawieniu tych właściwości, przycisk i użyciu kontrolki SqlDataSource kontrolkom oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample4.aspx)]
 
 Pozostaje tylko do wywoływania jego `Update` metody podczas `DoublePrice` przycisku. Tworzenie `Click` program obsługi zdarzeń dla `DoublePrice` przycisku i Dodaj następujący kod:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample5.cs)]
 
@@ -157,26 +136,21 @@ Drugi parametr przekazany do procedury obsługi zdarzeń może zawierać dodatko
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia wywoływania i obsługi zdarzeń, zobacz [zdarzenia i delegatów](https://msdn.microsoft.com/library/17sde2xt.aspx) i [delegatów zdarzeń w języku angielskim — proste](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
-
 Aby zdefiniować zdarzenie, użyj następującej składni:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample6.cs)]
 
 Ponieważ musimy alert strony zawartości, gdy użytkownik kliknął `DoublePrice` przycisk i nie trzeba przekazać dodatkowe informacje, abyśmy delegata zdarzenia `EventHandler`, definiujący program obsługi zdarzeń, która akceptuje jako jego sekunda Parametr obiektu typu `System.EventArgs`. Aby utworzyć zdarzenie na stronie głównej, należy dodać następujący wiersz kodu do strony wzorcowej osobna klasa kodu:
 
-
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample7.cs)]
 
 Powyższy kod dodaje zdarzenie publiczne strony wzorcowej o nazwie `PricesDoubled`. Musimy teraz Zgłoś to zdarzenie po mają został podwojony ceny. Aby zgłosić zdarzenie, użyj następującej składni:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample8.cs)]
 
 Gdzie *nadawcy* i *eventArgs* wartości mają być przekazane do programu obsługi zdarzeń subskrybenta.
 
 Aktualizacja `DoublePrice` `Click` programu obsługi zdarzeń z następującym kodem:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample9.cs)]
 
@@ -188,11 +162,9 @@ W tym momencie strony wzorcowej wywołuje jego `PricesDoubled` zdarzenie zawsze 
 
 Rozpocznij od utworzenia programu obsługi zdarzeń o nazwie `Master_PricesDoubled`. Ze względu na sposób zdefiniowaliśmy `PricesDoubled` zdarzenie na stronie głównej dwóch parametrów wejściowych programu obsługi zdarzeń musi być typu `Object` i `EventArgs`, odpowiednio. W wywołaniu procedury obsługi zdarzeń `ProductsGrid` GridView `DataBind` metodę, aby ponownie powiązać dane do siatki.
 
-
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample10.cs)]
 
 Kod obsługi zdarzeń jest gotowy, ale zostały wykonane następujące kroki jeszcze na połączenie strony wzorcowej `PricesDoubled` zdarzenie, aby ten program obsługi zdarzeń. Subskrybent przewody zdarzenia do obsługi zdarzeń za pomocą następującej składni:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample11.cs)]
 
@@ -201,7 +173,6 @@ Kod obsługi zdarzeń jest gotowy, ale zostały wykonane następujące kroki jes
 Ten kod okablowania zdarzenia musi zostać wykonane w pierwszej wizyty strony i kolejne ogłaszania zwrotnego i powinny być wykonywane w punkcie w cyklu życia strony, poprzedzającym podczas zdarzenia mogą być wywoływane. Jest odpowiedni moment, aby dodać kod okablowania zdarzenia w etapie PreInit występuje bardzo wczesnym etapie cyklu życia strony.
 
 Otwórz `~/Admin/Products.aspx` i utworzyć `Page_PreInit` program obsługi zdarzeń:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample12.cs)]
 
@@ -212,11 +183,9 @@ Aby można było ukończyć ten kod okablowania potrzebujemy programowe odwołan
 
 Użyjmy drugie podejście. Dodaj następujący kod `@MasterType` dyrektywę na początku oznaczeniu deklaracyjnym strony:
 
-
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample13.aspx)]
 
 Następnie dodaj następujący kod okablowania zdarzeń w `Page_PreInit` programu obsługi zdarzeń:
-
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample14.cs)]
 
@@ -224,16 +193,13 @@ Przy użyciu tego kodu w miejscu GridView na stronie zawartości są odświeżan
 
 Rysunki 8 i 9 pokazują to zachowanie. Rysunek 8 przedstawia stronę po raz pierwszy odwiedzony. Należy zauważyć, że cena wartości w obu `RecentProducts` kontrolki GridView (w lewej kolumnie strony wzorcowej) i `ProductsGrid` kontrolki GridView (w stronę zawartości). Przedstawia rysunek 9 takie same ekranu natychmiast po `DoublePrice` został kliknięty przycisk. Jak widać, nowe ceny są natychmiast odzwierciedlane w obu GridViews.
 
-
 [![Wartości początkowej cen](interacting-with-the-content-page-from-the-master-page-cs/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image22.png)
 
 **Rysunek 08**: Początkowe wartości cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image24.png))
 
-
 [![Ceny Just-Doubled są wyświetlane w GridViews](interacting-with-the-content-page-from-the-master-page-cs/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-cs/_static/image25.png)
 
 **Rysunek 09**: Ceny Just-Doubled są wyświetlane w GridViews ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-cs/_static/image27.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

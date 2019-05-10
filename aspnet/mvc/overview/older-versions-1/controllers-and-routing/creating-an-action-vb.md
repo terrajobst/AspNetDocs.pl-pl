@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: c8d93e11-ef78-4a30-afbc-f30419000a60
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5f8eeeaa9bd77c0259f680198e57ade8d49cd06b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b1b53bea899deecef203551b23c087944e3990ab
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382624"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123451"
 ---
 # <a name="creating-an-action-vb"></a>Tworzenie akcji (VB)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak dodać nową akcję do Kontroler składnika ASP.NET MVC. Dowiedz się więcej o wymaganiach dotyczących metodę jako akcję.
-
 
 Celem tego samouczka jest wyjaśniają, jak można utworzyć nowej akcji kontrolera. Dowiesz się o wymagania dotyczące metody akcji. Poznasz również sposób zapobiec metody przed przypadkowym jako akcję.
 
@@ -55,7 +54,6 @@ Jeśli musisz utworzyć publiczną metodę w klasie kontrolera i nie chcesz ujaw
 [!code-vb[Main](creating-an-action-vb/samples/sample2.vb)]
 
 Jeśli użytkownik podejmie próbę wywołania akcji kontrolera CompanySecrets(), wpisując /Work/CompanySecrets na pasku adresu przeglądarki następnie otrzymasz komunikat o błędzie na rysunku 1.
-
 
 [![Wywoływanie metody NonAction](creating-an-action-vb/_static/image1.jpg)](creating-an-action-vb/_static/image1.png)
 

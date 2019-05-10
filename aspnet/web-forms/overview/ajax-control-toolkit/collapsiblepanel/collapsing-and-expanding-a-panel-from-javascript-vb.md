@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 298789b4-2964-49f5-a0a8-d4dbeb9ff2c2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b41423cb1e587df121828b1e57045cabfede7cb5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f9e279e8700024f28cf589581f09a4bbd95118de
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390834"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133544"
 ---
 # <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>Rozwijanie i zwijanie panelu z poziomu języka JavaScript (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/8/a/a/8aab3c3e-de6f-463f-805c-5fda567eef6e/CollapsiblePanel1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/collapsiblepanel1VB.pdf)
 
 > Kontrolka CollapsiblePanel w ASP.NET AJAX Control Toolkit rozszerza panelu i zapewnia możliwość Zwiń jego zawartość i rozwiń go ponownie. Te dwie akcje mogą być też wywoływane z niestandardowego kodu języka JavaScript.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -63,7 +62,6 @@ Zamykanie lub zwijanie panelu `_doClose()` metody musi być wykonywane. Zatem gd
 Trzeci przycisk Włącza/wyłącza stan panelu: od zwinięte do rozwinięta i na odwrót. `CollapsiblePanelExtender` Udostępnia `toggle()` metodę, która dokładnie tak: odwraca stan panelu. Jednak istnieje również inna metoda (który wewnętrznie jest używany przez `toggle()` metoda): `get_Collapsed()` Metody `CollapsiblePanelExtender()` informuje NAS, czy panel jest zwinięty. W zależności od wartość zwracaną z tej funkcji jest albo rozwinięte panelu (`_doOpen()` metoda) lub zwinięte (`_doClose()`) metody:
 
 [!code-javascript[Main](collapsing-and-expanding-a-panel-from-javascript-vb/samples/sample8.js)]
-
 
 [![Trzeci przycisk zmienia stan panelu: od zwinięte rozwinięte i Wstecz](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image2.png)](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image1.png)
 

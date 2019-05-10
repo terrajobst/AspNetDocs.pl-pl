@@ -8,12 +8,12 @@ ms.date: 05/22/2012
 ms.assetid: f889fd46-4dac-4ecb-83d8-60e64c22036e
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: f97f214abeaeb88634dd10aaebacc0d58e91ab84
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6dad67d4e3d38d57a761c567d937d714a3184ea9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422463"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133712"
 ---
 # <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>Wyświetlanie danych na wykresie przy użyciu wzorca ASP.NET Web Pages (Razor)
 
@@ -33,7 +33,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 > 
 > > [!NOTE]
 > > Informacje przedstawione w tym artykule dotyczy 1.0 stron sieci Web platformy ASP.NET i Web Pages 2.
-
 
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>Pomocnik wykresu
@@ -152,7 +151,6 @@ Trzecia opcja dla wykresów jest używany jest plik XML jako źródło danych dl
 > [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample8.cshtml)]
 > 
 > Możesz dodać `using` instrukcji dla żadnych innych .NET Framework przestrzenie nazw, które ma dotyczyć odwołanie. Jak wspomniano, nie będzie potrzebny, w tym celu często, ponieważ większość klas, którą będziesz pracować, które znajdują się w przestrzeni nazw, które są automatycznie importowane przez platformę ASP.NET do użycia w *.cshtml* i *.vbhtml* stron.
-
 
 <a id="Displaying_Charts"></a>
 ## <a name="displaying-charts-inside-a-web-page"></a>Wyświetlanie wykresów na stronie sieci Web

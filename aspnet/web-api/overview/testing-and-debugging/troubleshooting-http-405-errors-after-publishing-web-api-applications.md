@@ -8,12 +8,12 @@ ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: ce5b617cc1032d190cc2450aa554b462ea6f6156
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 336df47dd4bda813839913676f12a51b899c0cf9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121978"
 ---
 # <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Rozwiązywanie problemów z błędami HTTP 405 po opublikowaniu aplikacji interfejsu API sieci Web
 
@@ -24,7 +24,6 @@ ms.locfileid: "57066212"
 > 
 > - [Internet Information Services (IIS)](https://www.iis.net/) (w wersji 7 lub nowszy)
 > - [Interfejs Web API](../../index.md) 
-
 
 Aplikacje interfejsu API sieci Web zazwyczaj używają kilka typowych zleceń HTTP: GET, POST, PUT, DELETE, a czasami PATCH. Po uwzględnieniu deweloperzy mogą napotkać sytuacje, gdzie te polecenia są implementowane przez inny moduł usług IIS na serwerze produkcyjnym, co prowadzi do sytuacji, w których będzie zwracać kontroler internetowego interfejsu API, który działa prawidłowo w programie Visual Studio lub na serwerze rozwoju HTTP 405 błąd, gdy aplikacja jest wdrożona na serwerze produkcyjnym. Na szczęście jest łatwo rozwiązać ten problem, ale rozwiązanie gwarantuje wyjaśnienie, dlaczego występuje błąd.
 
@@ -58,18 +57,13 @@ Jednak gdy metoda HTTP jest skonfigurowana do użycia na serwerze, ale została 
 
 Następujące przykładowe żądanie HTTP i odpowiedzi przedstawiają sytuacji, w którym klient HTTP próbuje umieścić wartości do aplikacji interfejsu API sieci Web na serwerze sieci web, a serwer zwraca błąd HTTP, która stanów, które metody PUT nie jest dozwolona:
 
-
 Żądania HTTP:
-
 
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample1.cmd)]
 
-
 HTTP Response:
 
-
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample2.cmd)]
-
 
 W tym przykładzie klienta HTTP wysyłane prawidłowemu żądaniu JSON do adresu URL dla aplikacji interfejsu API sieci Web na serwerze sieci web, ale serwer zwrócił komunikat o błędzie HTTP 405, co oznacza, że metody PUT nie mógł dla adresu URL. Natomiast jeśli identyfikator URI żądania nie był zgodny trasę dla aplikacji interfejsu API sieci Web, serwer zwraca błąd HTTP 404 ***nie można odnaleźć*** błędu.
 

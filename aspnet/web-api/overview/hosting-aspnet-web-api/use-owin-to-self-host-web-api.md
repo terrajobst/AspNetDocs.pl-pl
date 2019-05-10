@@ -9,15 +9,14 @@ ms.custom: seoapril2019
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: a67db0bd061846af2db3599e0843ed7c6a22db1e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 872b931391a63ef82b96e5b264c070c0b5e9605d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386518"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131648"
 ---
 # <a name="use-owin-to-self-host-aspnet-web-api"></a>Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web platformy ASP.NET 
-
 
 > W tym samouczku pokazano, jak hostować interfejs API sieci Web platformy ASP.NET w aplikacji konsoli, za pomocą OWIN na potrzeby samodzielnego hostowania strukturę interfejsu API sieci Web.
 >
@@ -29,10 +28,8 @@ ms.locfileid: "59386518"
 > - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 
 > - Internetowy interfejs API 5.2.7
 
-
 > [!NOTE]
 > Możesz znaleźć pełnego kodu źródłowego w ramach tego samouczka w [github.com/aspnet/samples](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/OwinSelfhostSample).
-
 
 ## <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 198f8c907cf866bd0fd1ae67cf7169a63dda4bc9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7b09c07b8b7c2a61ca534f7a66a929593f3d04ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384707"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131557"
 ---
 # <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Uruchamianie skryptów programu Windows PowerShell z poziomu plików projektów programu MSBuild
 
@@ -35,7 +35,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > 
 > W tym temacie pokazują sposób uruchamiania skryptów programu Windows PowerShell, lokalnie i zdalnie z niestandardowe obiekty docelowe w pliku projektu aparatu Microsoft Build Engine (MSBuild).
 
-
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
 Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowana przez dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
@@ -55,15 +54,11 @@ W tym temacie pokazują sposób wykonania tych procedur. Zadania i wskazówki, w
 
 Zadania przedstawione w tym temacie Użyj przykładowy skrypt programu Windows PowerShell o nazwie **LogDeploy.ps1** ilustruje sposób uruchamiania skryptów z programu MSBuild. **LogDeploy.ps1** skrypt zawiera prostej funkcji, która zapisuje wpis jeden wiersz w pliku dziennika:
 
-
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
-
 
 **LogDeploy.ps1** skrypt akceptuje dwa parametry. Pierwszy parametr reprezentuje pełną ścieżkę do pliku dziennika, do którego chcesz dodać wpis, a drugi parametr reprezentuje miejsce docelowe wdrożenia, które mają być rejestrowane w pliku dziennika. Po uruchomieniu skryptu, dodaje wiersz do pliku dziennika w następującym formacie:
 
-
 [!code-html[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample2.html)]
-
 
 Aby **LogDeploy.ps1** skryptu dostępne dla programu MSBuild, należy:
 
@@ -82,21 +77,15 @@ W niektórych przypadkach warto uruchamiać skrypty programu Windows PowerShell 
 
 Pod względem składni jest taka sama jak uruchomienie skryptu programu Windows PowerShell z wiersza polecenia, regularne uruchamianie skryptu programu Windows PowerShell z pliku projektu programu MSBuild. Musisz wywołać powershell.exe pliku wykonywalnego i użyj **— polecenie** przełącznika, aby zapewnić polecenia, które mają programu Windows PowerShell do uruchamiania. (W programie Windows PowerShell w wersji 2 umożliwia także **— plik** przełącznika). Polecenie należy wykonać następujący format:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample3.cmd)]
-
 
 Na przykład:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample4.cmd)]
-
 
 Ścieżka do skryptu zawiera spacje, należy ująć ją w pliku w pojedynczym cudzysłowie poprzedzone handlowe "i". Nie można użyć podwójnych cudzysłowów, ponieważ został już użyty do należy wpisać polecenie:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample5.cmd)]
-
 
 Istnieje kilka dodatkowych kwestii dotyczących po wywołaniu tego polecenia z programu MSBuild. Po pierwsze należy uwzględnić **— NonInteractive** flagi, aby upewnić się, że skrypt wykonuje ciche. Następnie należy uwzględnić **-ExecutionPolicy** flagi z wartością odpowiedniego argumentu. To ustawienie określa zasady wykonywania, że program Windows PowerShell będzie miała zastosowanie do skryptu i pozwala zastąpić domyślne zasady wykonywania, które mogą uniemożliwić wykonywanie skryptu. Możesz wybrać spośród tych wartości argumentu:
 
@@ -114,15 +103,11 @@ Na koniec należy jako znak ucieczki dla wszelkich zarezerwowanych znaków XML, 
 
 - Po wprowadzeniu tych zmian, polecenie będzie wyglądać następująco:
 
-
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample6.cmd)]
-
 
 W ramach Twojego niestandardowego pliku projektu MSBuild, można utworzyć nowy obiekt docelowy i użyć **Exec** zadania do uruchomienia tego polecenia:
 
-
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample7.xml)]
-
 
 W tym przykładzie należy zauważyć, że:
 
@@ -139,34 +124,24 @@ Programu Windows PowerShell jest możliwe uruchamianie skryptów na komputerach 
 > [!NOTE]
 > Przed użyciem **Invoke-Command** polecenia cmdlet programu Windows PowerShell do wykonywania skryptów na komputerze zdalnym, należy skonfigurować odbiornik usługi WinRM do akceptowania wiadomości zdalne. Można to zrobić, uruchamiając polecenie **winrm quickconfig** na komputerze zdalnym. Aby uzyskać więcej informacji, zobacz [instalacji i konfiguracji dla Windows zdalne zarządzanie](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
-
 W oknie programu Windows PowerShell, ta składnia będzie używane do uruchamiania **LogDeploy.ps1** skryptu na komputerze zdalnym:
 
-
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample8.ps1)]
-
 
 > [!NOTE]
 > Istnieją różne sposoby korzystania z **Invoke-Command** do uruchamiania skryptu pliku, ale ta metoda jest najbardziej proste kiedy trzeba będzie podać wartości parametrów i zarządzanie nimi ścieżki zawierające spacje.
 
-
 Po uruchomieniu tego z poziomu wiersza polecenia, musisz wywołać z programu Windows PowerShell pliku wykonywalnego i użyj **— polecenie** parametru, aby dołączyć instrukcje:
-
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample9.cmd)]
 
-
 Jak wcześniej, musisz podać kilka dodatkowych przełączników i znak ucieczki znaków zarezerwowanych XML, po uruchomieniu polecenia z programu MSBuild:
-
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample10.cmd)]
 
-
 Na koniec, tak jak poprzednio, możesz użyć **Exec** zadanie w ramach niestandardowy cel programu MSBuild do wykonania polecenia:
 
-
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample11.xml)]
-
 
 Po wykonaniu ten element docelowy jako część procesu kompilacji programu Windows PowerShell uruchomić skrypt na komputerze określonym w **– computername** argumentu.
 

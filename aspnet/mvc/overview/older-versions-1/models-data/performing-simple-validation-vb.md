@@ -8,12 +8,12 @@ ms.date: 03/02/2009
 ms.assetid: df6cf4b7-0bb3-4c4e-b17a-bd78a759a6bc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7a1b9e82defaae71f0a911e5e4321f6e15ad8bf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 46925f22b7dfc23f2bb89b8d2fff0cbd8ae49062
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422619"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122490"
 ---
 # <a name="performing-simple-validation-vb"></a>Wykonywanie prostej walidacji (VB)
 
@@ -21,16 +21,13 @@ przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Informacje o sposobie przeprowadzania weryfikacji w aplikacji ASP.NET MVC. W tym samouczku Walther Autor: Stephen wprowadza do stanu modelu i pomocników HTML sprawdzania poprawności.
 
-
 Celem tego samouczka jest wyjaśniają, jak można wykonywać sprawdzanie poprawności w aplikacji ASP.NET MVC. Na przykład dowiesz się, jak zapobiec ktoś przesyłania formularza, który nie zawiera wartości dla wymaganego pola. Dowiesz się, jak używać stan modelu i sprawdzania poprawności pomocników HTML.
 
 ## <a name="understanding-model-state"></a>Opis stanu modelu
 
 Umożliwia stan modelu — lub dokładniej, ze słownika stanu modelu — reprezentują błędy sprawdzania poprawności. Na przykład akcja Create() w ofercie 1 sprawdza właściwości klasy produktu przed dodaniem klasy produktu do bazy danych.
 
-
 Nie jestem I zalecania dodać logikę weryfikacji lub bazy danych do kontrolera. Kontroler może zawierać tylko logiki powiązane do sterowania działaniem aplikacji. Podejmujemy skrótów, aby zachować ich prostotę.
-
 
 **Wyświetlanie listy 1 - Controllers\ProductController.vb**
 
@@ -52,19 +49,15 @@ Pomocnicy Html.ValidationMessage() i Html.ValidationSummary() są używane w two
 4. Z **wyświetlanie zawartości** listy rozwijanej, wybierz pozycję Utwórz.
 5. Kliknij przycisk **Dodaj**.
 
-
 Upewnij się, czy kompilujesz aplikację przed dodaniem widoku. W przeciwnym razie lista klas nie będzie wyświetlane w **wyświetlić klasy danych** listy rozwijanej.
-
 
 [![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
 
 **Rysunek 01**: Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image2.png))
 
-
 [![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
 
 **Rysunek 02**: Tworzenie widoku silnie typizowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image4.png))
-
 
 Po wykonaniu tych kroków, uzyskasz widoku Utwórz w ofercie 2.
 
@@ -78,11 +71,9 @@ Pomocnik Html.ValidationMessage() nazywa się obok każdego pola formularza HTML
 
 Strona na rysunku 3 przedstawiono komunikaty o błędach renderowany przez pomocników sprawdzania poprawności, gdy formularz zostanie przesłany z polami brakujących i nieprawidłowych wartości.
 
-
 [![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
 **Rysunek 03**: Utwórz widok przesłane z problemami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image6.png))
-
 
 Należy zauważyć, że pola również są modyfikowane, gdy występuje błąd weryfikacji danych wejściowych wygląd elementu HTML. Renderuje pomocnika Html.TextBox() *klasy = "danych wejściowych błędzie sprawdzania poprawności"* atrybutu, gdy występuje błąd weryfikacji skojarzony z właściwością renderowany przez pomocnika Html.TextBox().
 
@@ -98,16 +89,13 @@ Możesz zmodyfikować te kaskadowych klasy arkusza stylów i w związku z tym zm
 > 
 > Klasa HtmlHelper obejmuje statycznych właściwości tylko do odczytu dla pobierania nazw weryfikacji powiązanych CSS klasy. Te właściwości statyczne są nazywane ValidationInputCssClassName ValidationFieldCssClassName i ValidationSummaryCssClassName.
 
-
 ## <a name="prebinding-validation-and-postbinding-validation"></a>Prebinding weryfikacji i sprawdzania poprawności Postbinding
 
 Jeśli przesyłanie formularza HTML do tworzenia produktu i wprowadź nieprawidłową wartość dla pola Cena i bez wartości dla pola UnitsInStock, następnie otrzymasz komunikatów weryfikacji wyświetlanych na rysunku 4. Skąd pochodzą te komunikaty o błędach weryfikacji?
 
-
 [![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
 
 **Rysunek 04**: Prebinding błędy sprawdzania poprawności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image8.png))
-
 
 Istnieją faktycznie dwa typy komunikatów o błędach weryfikacji - wygenerowanymi przed pola formularza HTML są powiązane z klasą i te wygenerowane po pól formularza jest powiązana z tej klasy. Innymi słowy, istnieją prebinding błędy sprawdzania poprawności i postbinding błędy sprawdzania poprawności.
 

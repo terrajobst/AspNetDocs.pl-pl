@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: 5b39d2d5-4bf9-4d04-94c7-81b84dfeeb31
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2f2246e2126bd6e648f861bcb296fab62a748bb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5e1155ca676e7a25b5bfc63e251c6387a010eb34
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380109"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123658"
 ---
 # <a name="aspnet-mvc-routing-overview-c"></a>Omówienie routingu we wzorcu ASP.NET MVC (C#)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > W tym samouczku Walther Autor: Stephen pokazuje, jak platforma ASP.NET MVC mapuje żądania przeglądarki do akcji kontrolera.
-
 
 W tym samouczku zostały wprowadzone do ważną funkcją każda aplikacja platformy ASP.NET MVC wywołuje *routingu platformy ASP.NET*. Moduł routingu platformy ASP.NET jest odpowiedzialny za mapowanie żądań przychodzących przeglądarki do określonej akcji kontrolera MVC. Do końca tego samouczka wiesz jak tabela tras standardowa mapuje żądania do akcji kontrolera.
 
@@ -94,11 +93,9 @@ Na koniec wywołania metody indeks() w ofercie 5 /Home adres URL powoduje wyjąt
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample5.cs)]
 
-
 [![Wywołanie akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
 
 **Rysunek 01**: Wywołanie akcji kontrolera, który oczekuje, że wartość parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-routing-overview-cs/_static/image2.png))
-
 
 Adres URL /Home/indeksu/3 z drugiej strony, nadaje tylko przy użyciu akcji kontrolera indeksu w ofercie 5. /Home/Index/3 żądanie spowoduje, że metoda indeks() nelze volat parametru Id, który ma wartość 3.
 

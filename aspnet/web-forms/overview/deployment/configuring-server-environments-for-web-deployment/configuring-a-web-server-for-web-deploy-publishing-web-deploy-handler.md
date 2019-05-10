@@ -8,12 +8,12 @@ ms.date: 01/29/2017
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: cf18a8860d34daa23f61e3dde13c2c79c6c0d4a5
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 51a8fdf44199b5a4735e0e00657639b191f51255
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073079"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125981"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (procedura obsługi narzędzia Web Deploy)
 
@@ -28,7 +28,6 @@ ms.locfileid: "57073079"
 > - Użyj *wdrożenie w trybie offline*. Takie podejście wymaga co najmniej konfiguracji serwera sieci web, ale administrator serwera, należy ręcznie skopiować pakiet sieci web na serwerze i zaimportuj go za pomocą Menedżera usług IIS.
 > 
 > Aby uzyskać więcej informacji na temat kluczowych funkcji, zalety i wady tych metod, zobacz [Wybieranie podejścia prawo do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md).
-
 
 Tak, jeśli chcesz umożliwić użytkownikom bez uprawnień administratora do wdrażania zawartości do określonych witryn internetowych usług IIS. Ta metoda jest często pożądane w tego rodzaju scenariuszy:
 
@@ -64,7 +63,6 @@ W tym temacie pokazują sposób wykonywania każdego z tych procedur. Zadania i 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [łączenie komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
-
 ## <a name="install-products-and-components"></a>Zainstaluj produkty i składniki
 
 Ta sekcja przeprowadzi Cię przez zainstalowanie wymaganych produktów i składników na serwerze sieci web. Przed przystąpieniem do wykonywania, dobrym rozwiązaniem jest uruchamianie Windows Update, aby upewnić się, że serwer jest w pełni bądź na bieżąco.
@@ -80,7 +78,6 @@ W takim przypadku należy zainstalować te rzeczy:
 
 > [!NOTE]
 > W tym przewodniku opisano użycie Instalatora platformy sieci Web do zainstalowania i skonfigurowania różnych składników. Mimo że nie musisz użyć Instalatora platformy sieci Web, upraszcza proces instalacji przez automatyczne wykrywanie zależności i zapewnienie zawsze uzyskać najnowsze wersje produktów. Aby uzyskać więcej informacji, zobacz [Instalatora platformy sieci Web firmy Microsoft](https://go.microsoft.com/?linkid=9805118).
-
 
 **Aby zainstalować wymagane produktów i składników**
 
@@ -239,7 +236,6 @@ Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\
 > [!NOTE]
 > Aby uzyskać więcej informacji o tożsamości puli aplikacji w usługach IIS 7.5, zobacz [tożsamości puli aplikacji](https://go.microsoft.com/?linkid=9805123).
 
-
 **Aby skonfigurować uprawnienia do folderu witryny sieci Web usług IIS**
 
 1. W Eksploratorze Windows przejdź do lokalizacji folderu lokalnego.
@@ -281,7 +277,6 @@ Domyślnie usługa zarządzania usługami IIS sieci Web nasłuchuje na porcie TC
 | --- | --- | --- | --- |
 | Dla ruchu przychodzącego | Dowolne | 8172 | TCP |
 | Wychodzące | 8172 | Dowolne | TCP |
-  
 
 Aby uzyskać więcej informacji na temat konfigurowania reguł zapory Windows, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Zapory innych firm należy zapoznać się z dokumentacją produktu.
 

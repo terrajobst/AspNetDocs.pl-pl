@@ -8,19 +8,18 @@ ms.date: 08/19/2008
 ms.assetid: 87313792-0a96-4caf-89fc-1457d54e5c1e
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8c57345c510ad0afccaabf377fda35afbfc05e17
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 57dc82d02d38adc2514aa2c02c6f156ed0fb88a6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383411"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122054"
 ---
 # <a name="understanding-models-views-and-controllers-c"></a>Objaśnienie modeli, widoków i kontrolerów (C#)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Masz wątpliwości dotyczące modeli, widoków i kontrolerów? W tym samouczku Walther Autor: Stephen poznasz różne części aplikacji ASP.NET MVC.
-
 
 Ten samouczek umożliwia ogólne omówienie platformy ASP.NET MVC modeli, widoków i kontrolerów. Innymi słowy, wyjaśniono M ", V", a C "we wzorcu ASP.NET MVC.
 
@@ -32,47 +31,37 @@ Domyślny szablon programu Visual Studio do tworzenia aplikacji sieci Web progra
 
 Tworzenie nowej aplikacji platformy ASP.NET MVC za pomocą szablonu MVC, uruchamiając program Visual Studio 2008 i wybranie opcji menu Plik, nowy projekt (patrz rysunek 1). W oknie dialogowym Nowy projekt, wybierz ulubionym języku programowania w ramach typów projektu (Visual Basic lub C#) i ustaw **aplikacji sieci Web programu ASP.NET MVC** w obszarze Szablony. Kliknij przycisk OK.
 
-
 [![Okno dialogowe nowego projektu](understanding-models-views-and-controllers-cs/_static/image1.jpg)](understanding-models-views-and-controllers-cs/_static/image1.png)
 
 **Rysunek 01**: Okno dialogowe nowego projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-cs/_static/image2.png))
 
-
 Podczas tworzenia nowej aplikacji platformy ASP.NET MVC, **Tworzenie projektu testu jednostkowego** zostanie wyświetlone okno dialogowe (patrz rysunek 2). To okno dialogowe umożliwia utworzenie oddzielnego projektu w rozwiązaniu do testowania aplikacji ASP.NET MVC. Wybierz opcję **nie twórz projektu testu jednostkowego** i kliknij przycisk **OK** przycisku.
-
 
 [![Tworzenie testów jednostkowych w oknie dialogowym](understanding-models-views-and-controllers-cs/_static/image2.jpg)](understanding-models-views-and-controllers-cs/_static/image3.png)
 
 **Rysunek 02**: Tworzenie okna dialogowego testów jednostkowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-cs/_static/image4.png))
 
-
 Aplikacja zostanie utworzona po nowe platformy ASP.NET MVC. Pojawi się kilka folderów i plików w oknie Eksploratora rozwiązań. W szczególności zostaną wyświetlone trzy foldery o nazwie modeli, widoków i kontrolerów. Jak może odgadnięcia nazw folderów te foldery zawierają pliki dotyczące wdrażania modeli, widoków i kontrolerów.
 
 Po rozwinięciu folderze kontrolery powinien zostać wyświetlony plik o nazwie AccountController.cs i plik o nazwie HomeController.cs. Po rozwinięciu folderze Widoki powinny być widoczne trzy podfoldery o nazwie konto Home i udostępnione. Po rozwinięciu folderu macierzystego zobaczysz dwa dodatkowe pliki o nazwie About.aspx i Index.aspx (zobacz rysunek 3). Te pliki składają się przykładowa aplikacja uwzględniony przy użyciu domyślnego szablonu platformy ASP.NET MVC.
-
 
 [![Okno Eksploratora rozwiązań](understanding-models-views-and-controllers-cs/_static/image3.jpg)](understanding-models-views-and-controllers-cs/_static/image5.png)
 
 **Rysunek 03**: Okno Eksploratora rozwiązań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-cs/_static/image6.png))
 
-
 Można uruchomić przykładową aplikację, wybierając opcję menu **debugowania i Rozpocznij debugowanie**. Alternatywnie można naciśnij klawisz F5.
 
 Przy pierwszym uruchomieniu aplikacji ASP.NET, zostanie wyświetlone okno dialogowe na rysunku 4 zaleca, aby włączyć tryb debugowania. Kliknij przycisk OK, a aplikacja zostanie uruchomiona.
-
 
 [![Debugowanie nie jest włączone okna dialogowego](understanding-models-views-and-controllers-cs/_static/image4.jpg)](understanding-models-views-and-controllers-cs/_static/image7.png)
 
 **Rysunek 04**: Debugowanie nie jest włączone okna dialogowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-cs/_static/image8.png))
 
-
 Podczas uruchamiania aplikacji ASP.NET MVC programu Visual Studio uruchamia aplikację w przeglądarce sieci web. Przykładowa aplikacja składa się z tylko dwoma stronami: strony indeksu i na stronie informacje. Po pierwszym uruchomieniu aplikacji zostanie wyświetlona strona indeksu, (zobacz rysunek 5). Można przejść do strony informacje, klikając link menu w prawym górnym rogu aplikacji.
-
 
 [![Strony indeksu](understanding-models-views-and-controllers-cs/_static/image10.png)](understanding-models-views-and-controllers-cs/_static/image9.png)
 
 **Rysunek 05**: Na stronie indeksu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-models-views-and-controllers-cs/_static/image11.png))
-
 
 Zwróć uwagę, adresy URL w pasku adresu przeglądarki. Na przykład po kliknięciu łącza menu informacje, adres URL w pasku adresu przeglądarki zmienia się **/Home/About**.
 

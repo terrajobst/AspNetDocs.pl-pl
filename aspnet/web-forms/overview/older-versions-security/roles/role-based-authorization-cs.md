@@ -8,12 +8,12 @@ ms.date: 03/24/2008
 ms.assetid: 4d9b63fa-c3d4-4e85-82b1-26ae3ba3ca1c
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6dbfee1a1a05af7bdd82ad96b0ca52774274b1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d0c58bcbcc294fa6fc7d194864a3e7b67356cf2c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383138"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133828"
 ---
 # <a name="role-based-authorization-c"></a>Autoryzacja oparta na rolach (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.11.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial11_RoleAuth_cs.pdf)
 
 > Ten samouczek rozpoczyna się od przyjrzeć się jak w ramach ról kojarzy ról użytkownika z jego kontekstu zabezpieczeń. Następnie sprawdza, czy sposobu stosowania reguł autoryzacji adresów URL opartej na rolach. Po, przyjrzymy się przy użyciu środków deklaracyjne i programowe dla Zmienianie wyświetlanych danych i funkcje oferowane przez strony ASP.NET.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -46,11 +45,9 @@ Rysunek 1 przedstawia przepływu pracy trybu potokowego programu ASP.NET, podcza
 
 Jeśli użytkownik anonimowy odwiedza witryny, ani `FormsAuthenticationModule` ani `RoleManagerModule` tworzy obiekt podmiotu zabezpieczeń.
 
-
 [![Zdarzenia potoku platformy ASP.NET dla uwierzytelnionego użytkownika podczas korzystania z uwierzytelniania formularzy i w ramach ról](role-based-authorization-cs/_static/image2.png)](role-based-authorization-cs/_static/image1.png)
 
 **Rysunek 1**: Zdarzenia potoku platformy ASP.NET uwierzytelniony użytkownik podczas za pomocą uwierzytelniania formularzy i Framework role ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image3.png))
-
 
 ### <a name="caching-role-information-in-a-cookie"></a>Informacje o rolach w pliku Cookie do buforowania
 
@@ -58,17 +55,14 @@ Jeśli użytkownik anonimowy odwiedza witryny, ani `FormsAuthenticationModule` a
 
 Jeśli w ramach ról jest skonfigurowany do ról użytkownika w pliku cookie w pamięci podręcznej `RoleManagerModule` podczas potoku platformy ASP.NET tworzy plik cookie [ `EndRequest` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.endrequest.aspx). Ten plik cookie jest używany w kolejnych żądań w `PostAuthenticateRequest`, czyli kiedy `RolePrincipal` obiekt zostanie utworzony. Jeśli plik cookie jest prawidłowy i nie wygasł, dane w pliku cookie zostanie przeanalizowana i używanych do wypełniania ról użytkownika, oszczędzając `RolePrincipal` od konieczności wywoływania `Roles` klasę, aby określić role użytkownika. Rysunek 2 przedstawia ten przepływ pracy.
 
-
 [![Informacje o rolach użytkownika mogą być przechowywane w pliku Cookie w celu zwiększenia wydajności](role-based-authorization-cs/_static/image5.png)](role-based-authorization-cs/_static/image4.png)
 
 **Rysunek 2**: Użytkownika roli informacje mogą być przechowywane w pliku Cookie do poprawiania wydajności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image6.png))
-
 
 Domyślnie mechanizmu roli pamięci podręcznej plików cookie jest wyłączona. Można ją włączyć za pomocą `<roleManager>` znaczników konfiguracji w `Web.config`. Omówiliśmy przy użyciu [ `<roleManager>` elementu](https://msdn.microsoft.com/library/ms164660.aspx) do określenia dostawców ról w <a id="_msoanchor_4"> </a> [ *tworzenie i zarządzanie rolami* ](creating-and-managing-roles-cs.md) samouczka dlatego konto powinno mieć już ten element w Twojej aplikacji `Web.config` pliku. Ustawienia plików cookie w pamięci podręcznej roli są określane jako atrybuty `<roleManager>` elementu i są podsumowane w tabeli 1.
 
 > [!NOTE]
 > Ustawienia konfiguracji wymienione w tabeli 1 umożliwia określenie właściwości wynikowy cookie roli w pamięci podręcznej. Aby uzyskać więcej informacji na temat plików cookie, jak działają i ich właściwości, przeczytaj [w tym samouczku pliki cookie](http://www.quirksmode.org/js/cookies.html).
-
 
 | <strong>Property</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>Opis</strong>                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -96,7 +90,6 @@ To wszystko. Od tej pory w ramach ról będzie w pamięci podręcznej ról użyt
 > [!NOTE]
 > Wzorce firmy Microsoft &amp; zniechęca rozwiązania w zakresie grupy do przy użyciu roli trwałe pliki cookie z pamięci podręcznej. Ponieważ posiadanie pliku cookie z pamięci podręcznej roli jest wystarczające, aby udowodnić, że członkostwo w roli, jeśli haker jakiś sposób można uzyskać dostęp do prawidłowego użytkownika w pliku cookie on personifikacji tego użytkownika. Prawdopodobieństwo takich sytuacji zwiększa się, gdy plik cookie jest utrwalony w przeglądarce użytkownika. Aby uzyskać więcej informacji na temat tego zalecenia zabezpieczeń, jak również inne problemy dotyczące zabezpieczeń, zobacz [listy pytanie zabezpieczeń dla programu ASP.NET 2.0](https://msdn.microsoft.com/library/ms998375.aspx).
 
-
 ## <a name="step-1-defining-role-based-url-authorization-rules"></a>Krok 1. Definiowanie reguł autoryzacji opartej na rolach adresów URL
 
 Zgodnie z opisem w <a id="_msoanchor_6"> </a> [ *autoryzacja na podstawie użytkownika* ](../membership/user-based-authorization-cs.md) samouczek, Autoryzacja adresów URL oferuje sposób ograniczyć dostęp do zestawu stron na użytkownika na podstawie użytkownika lub roli roli Podstawa. Reguły autoryzacji adresów URL są zapisane w `Web.config` przy użyciu [ `<authorization>` elementu](https://msdn.microsoft.com/library/8d82143t.aspx) z `<allow>` i `<deny>` elementów podrzędnych. Oprócz reguł autoryzacji dotyczące użytkowników omówione w poprzednich samouczkach każdego `<allow>` i `<deny>` elementu podrzędnego może również obejmować:
@@ -114,11 +107,9 @@ Skonfigurujmy naszą aplikację tak, aby `ManageRoles.aspx`, `UsersAndRoles.aspx
 
 Aby to osiągnąć, Rozpocznij od dodania `Web.config` plik `Roles` folderu.
 
-
 [![Dodaj plik Web.config w katalogu ról](role-based-authorization-cs/_static/image8.png)](role-based-authorization-cs/_static/image7.png)
 
 **Rysunek 3**: Dodaj `Web.config` plik `Roles` katalogu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image9.png))
-
 
 Następnie dodaj następujące znaczniki konfiguracji w celu `Web.config`:
 
@@ -128,23 +119,18 @@ Następnie dodaj następujące znaczniki konfiguracji w celu `Web.config`:
 
 Po zapisaniu zmian do `Web.config`, zaloguj się jako użytkownik, który nie znajduje się w roli administratora, a następnie spróbuj odwiedzają jedną z chronionych stron. `UrlAuthorizationModule` Wykryje, że nie masz uprawnień, aby przejść do żądanego zasobu; w związku z tym, `FormsAuthenticationModule` nastąpi przekierowanie do strony logowania. Na stronie logowania następnie nastąpi przekierowanie do `UnauthorizedAccess.aspx` strony (zobacz rysunek 4). Końcowe przekierowanie ze strony logowania do `UnauthorizedAccess.aspx` występuje z powodu dodana do strony logowania w kroku 2 kodu <a id="_msoanchor_7"> </a> [ *autoryzacja na podstawie użytkownika* ](../membership/user-based-authorization-cs.md) samouczka. W szczególności, strony logowania automatycznie przekierowuje każdemu uwierzytelnionemu użytkownikowi na `UnauthorizedAccess.aspx` Jeśli ciąg zapytania zawiera `ReturnUrl` parametr, jako parametr wskazuje, że użytkownik dotarła do strony logowania po próbie wyświetlenia strony, nie miał uprawnienia do wyświetlenia.
 
-
 [![Tylko użytkownicy należący do roli Administratorzy mogą wyświetlać chronione stron](role-based-authorization-cs/_static/image11.png)](role-based-authorization-cs/_static/image10.png)
 
 **Rysunek 4**: Tylko użytkownicy w roli Administratorzy mogą wyświetlać strony chronione ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image12.png))
 
-
 Wyloguj się, a następnie zaloguj się jako użytkownik, który znajduje się w roli administratora. Teraz można wyświetlić trzy strony chronione.
-
 
 [![Tito mogą odwiedzić UsersAndRoles.aspx strony ponieważ jest on w roli administratora](role-based-authorization-cs/_static/image14.png)](role-based-authorization-cs/_static/image13.png)
 
 **Rysunek 5**: Można znaleźć Tito `UsersAndRoles.aspx` strony ponieważ jest on w roli administratora ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image15.png))
 
-
 > [!NOTE]
 > Podczas określania reguł autoryzacji adresów URL — dla ról lub użytkowników — należy pamiętać, że zasady są przeanalizowany pojedynczo, od góry w dół. Gdy tylko zostanie znalezione dopasowanie, użytkownik jest udzielić lub odmówić dostępu, w zależności od jeśli dopasowanie został znaleziony w `<allow>` lub `<deny>` elementu. **Jeśli nie zostanie znalezione dopasowanie, użytkownik uzyskuje dostęp.** W związku z tym, jeśli chcesz ograniczyć dostęp do co najmniej jednego konta użytkownika, konieczne jest użycie `<deny>` element jako po ostatnim elemencie w konfiguracji autoryzacja adresu URL. **Jeśli Twoje reguły autoryzacji adresów URL nie zawierają**`<deny>`**elementu, wszyscy użytkownicy zostanie przyznany dostęp.** Bardziej szczegółowe omówienie dotyczące jak reguły autoryzacji adresów URL są analizowane, odwołaj się do "przyjrzeć się jak `UrlAuthorizationModule` przy użyciu reguł autoryzacji udzielić lub odmówić dostępu" sekcji <a id="_msoanchor_8"> </a> [  *Autoryzacja oparta na użytkowniku* ](../membership/user-based-authorization-cs.md) samouczka.
-
 
 ## <a name="step-2-limiting-functionality-based-on-the-currently-logged-in-users-roles"></a>Krok 2. Ograniczanie funkcji oparte na aktualnie zalogowanego użytkownika ról
 
@@ -157,7 +143,6 @@ Utwórzmy strony zawierającej zestawienie wszystkich kont użytkowników w syst
 > [!NOTE]
 > Strony ASP.NET, który jesteśmy kompilacji używa kontrolki widoku siatki, aby wyświetlić konta użytkowników. Ponieważ ten samouczek, który seria skupia się na uwierzytelnianie formularzy, autoryzacji, konta użytkowników i ról nie chcę poświęcać zbyt dużo czasu, omawiając przebiega w kontrolce GridView. Chociaż ten samouczek zawiera określone instrukcje krok po kroku dotyczące konfigurowania tej strony, nie delve szczegóły Dlaczego wprowadzono niektórych opcji, lub w wyniku renderowania posiadane szczególne właściwości efektu. Dla głębszego zbadania kontrolki GridView, zapoznaj się z moich *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* serii samouczków.
 
-
 Zacznij od otwarcia `RoleBasedAuthorization.aspx` stronie `Roles` folderu. Przeciągnij GridView ze strony na projektanta, a następnie ustaw jego `ID` do `UserGrid`. Za chwilę napiszemy kod, który wywołuje `Membership.GetAllUsers` metody i wiąże wynikowy `MembershipUserCollection` obiekt do kontrolki GridView. `MembershipUserCollection` Zawiera `MembershipUser` obiekt dla każdego konta użytkownika w systemie; `MembershipUser` obiekty mają właściwości, takie jak `UserName`, `Email`, `LastLoginDate`, i tak dalej.
 
 Zanim napiszemy kod, który wiąże kont użytkowników do siatki, najpierw zdefiniujmy pola GridView. W widoku GridView tagu inteligentnego, kliknij link "Edytuj kolumny", aby uruchomić okna dialogowego pola (zobacz rysunek 6). W tym miejscu Usuń zaznaczenie pola wyboru "automatycznie Generuj fields" w lewym dolnym rogu. Ponieważ chcemy, aby ta GridView obejmują edytowania i usuwania możliwości dodawania CommandField i ustaw jego `ShowEditButton` i `ShowDeleteButton` właściwości na wartość True. Następnie dodaj cztery pola do wyświetlania `UserName`, `Email`, `LastLoginDate`, i `Comment` właściwości. Użyj elementu BoundField dwie właściwości tylko do odczytu (`UserName` i `LastLoginDate`) i kontrolek TemplateField dla dwóch pól edycji (`Email` i `Comment`).
@@ -166,11 +151,9 @@ Pierwszy ekran elementu BoundField mają `UserName` właściwości; ustaw jego `
 
 Ustaw `HeaderText` właściwości dwóch kontrolek TemplateField "Email" i "Comment".
 
-
 [![W widoku GridView pola można skonfigurować za pomocą okna dialogowego pola](role-based-authorization-cs/_static/image17.png)](role-based-authorization-cs/_static/image16.png)
 
 **Rysunek 6**: GridView pola może być skonfigurowany za pośrednictwem okno dialogowe pola ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image18.png))
-
 
 Teraz musisz zdefiniować `ItemTemplate` i `EditItemTemplate` kontrolek TemplateField "Comment" i "Email". Dodaj kontrolkę etykieta w sieci Web do każdego z `ItemTemplate` s i powiązania ich `Text` właściwości `Email` i `Comment` właściwości, odpowiednio.
 
@@ -192,15 +175,12 @@ Firma Microsoft została zakończona pomyślnie oznaczeniu deklaracyjnym tej str
 
 Przy użyciu tego kodu w miejscu odwiedź stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 7, powinien zostać wyświetlony GridView wyświetlanie informacji na temat poszczególnych kont użytkowników w systemie.
 
-
 [![UserGrid GridView Wyświetla informacje dotyczące poszczególnych użytkowników w systemie](role-based-authorization-cs/_static/image20.png)](role-based-authorization-cs/_static/image19.png)
 
 **Rysunek 7**: `UserGrid` GridView Wyświetla informacje dotyczące każdego użytkownika w systemie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image21.png))
 
-
 > [!NOTE]
 > `UserGrid` GridView Wyświetla listę wszystkich użytkowników w interfejsie zgodnym niestronicowanej. Ten interfejs prosta siatka nie jest przeznaczony do scenariuszy w przypadku, gdy istnieje kilka tuzinów lub większej liczby użytkowników. Jedną z opcji jest skonfigurować GridView w celu włączenia stronicowania. `Membership.GetAllUsers` Metoda ma dwa przeciążenia: jedną, która przyjmuje nie parametrów wejściowych i zwraca wszystkich użytkowników i taki, który przyjmuje wartości całkowitoliczbowe dla indeks strony i rozmiar strony, a następnie zwraca określony podzbiór użytkowników. Drugie przeciążenie może służyć do bardziej efektywnie strony za pomocą użytkowników, ponieważ zwraca ono tylko dokładne działu kont użytkowników zamiast *wszystkich* z nich. Jeśli masz tysiące konta użytkowników, warto wziąć pod uwagę interfejs na podstawie filtru, taki, który zawiera tylko tych użytkowników, których nazw zaczyna się od znaku wybranych dla wystąpienia. [ `Membership.FindUsersByName method` ](https://msdn.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) Jest idealnym rozwiązaniem umożliwiających tworzenie interfejsów użytkownika pracujących w filtru. Przyjrzymy się tworzenia takiego interfejsu w przyszłości zapoznać się z samouczkiem.
-
 
 W kontrolce GridView oferuje wbudowane edytowania i usuwania pomocy technicznej, gdy kontrolka jest powiązana z kontroli źródła danych prawidłowo skonfigurowane, takie jak SqlDataSource lub kontrolki ObjectDataSource. `UserGrid` GridView, jednak ma programowo powiązane dane; w związku z tym, firma Microsoft musi napisać kod, aby wykonać te dwa zadania. W szczególności, musimy utworzyć procedury obsługi zdarzeń dla GridView `RowEditing`, `RowCancelingEdit`, `RowUpdating`, i `RowDeleting` zdarzenia, które są wywoływane, gdy użytkownik kliknie GridView Edycja, anulowanie, aktualizacji lub usuwanie przycisków.
 
@@ -221,7 +201,6 @@ Powyższej procedury obsługi zdarzeń, który rozpoczyna się przez Przechwytyw
 > [!NOTE]
 > Przycisk Usuń nie wymaga dowolny rodzaj potwierdzenie od użytkownika przed usunięciem konta użytkownika. Zachęcam Cię dodać jakąś formę potwierdzenie użytkownika, aby zmniejszyć prawdopodobieństwo konta są przypadkowo usunięte. Jednym z najprostszych sposobów, aby potwierdzić akcję jest poprzez okno dialogowe Potwierdź po stronie klienta. Aby uzyskać więcej informacji na temat tej techniki, zobacz [dodawanie potwierdzenia po stronie klienta podczas usuwania](https://asp.net/learn/data-access/tutorial-42-cs.aspx).
 
-
 Upewnij się, że na tej stronie działa zgodnie z oczekiwaniami. Użytkownik powinien móc edytować adres e-mail użytkownika i komentarz, a także usunąć dowolne konto użytkownika. Ponieważ `RoleBasedAuthorization.aspx` strona jest dostępna dla wszystkich użytkowników, każdy użytkownik — nawet anonimowe osoby odwiedzające — tę stronę i edytować i usuwać konta użytkowników! Zaktualizujmy tę stronę, tak aby tylko użytkowników w rolach udostępniania Nadzorcom i Administratorzy mogą edytować adres e-mail użytkownika i komentarz, a tylko administratorzy mogą usunąć konto użytkownika.
 
 W sekcji "Za pomocą kontrolki widoku logowania" analizuje za pomocą kontrolki widoku logowania, aby wyświetlić instrukcje specyficzne dla roli użytkownika. Jeśli osobę w roli administratora wizyty na tej stronie, firma Microsoft zostaną wyświetlone instrukcje dotyczące sposobu edytowania i usuwania użytkowników. Jeśli użytkownik w roli nadzorców osiągnie tę stronę, firma Microsoft zostaną wyświetlone instrukcje na edytowanie użytkowników. A jeśli odwiedzający jest anonimowa lub nie znajduje się w roli nadzorców lub Administratorzy, zostanie on wyświetlony komunikat wyjaśniający, że nie można edytować ani usunąć informacje o koncie użytkownika. W sekcji "Programowo Ograniczanie funkcjonalności" napiszemy kod, który programowo pokazuje lub ukrywa przyciski edytowania i usuwania, na podstawie roli użytkownika.
@@ -238,11 +217,9 @@ Oprócz `AnonymousTemplate` i `LoggedInTemplate`, może zawierać kontrolki wido
 
 Aby zarządzać RoleGroups, kliknij link "Edytuj RoleGroups" z formantu tagu inteligentnego, aby wyświetlić się Edytor kolekcji RoleGroup. Dodaj dwa nowe RoleGroups. Ustaw pierwszą RoleGroup `Roles` właściwość "Administratorzy" i celu "Nadzorców" sekundy.
 
-
 [![Zarządzanie szablonami pełnionymi widoku logowania za pomocą edytora kolekcji RoleGroup](role-based-authorization-cs/_static/image23.png)](role-based-authorization-cs/_static/image22.png)
 
 **Rysunek 8**: Zarządzanie widoku logowania pełnionymi szablonów za pomocą RoleGroup — Edytor kolekcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image24.png))
-
 
 Kliknij przycisk OK, aby zamknąć Edytor kolekcji RoleGroup; Spowoduje to zaktualizowanie oznaczeniu deklaracyjnym widoku logowania, aby uwzględnić `<RoleGroups>` sekcji z `<asp:RoleGroup>` element podrzędny dla każdego RoleGroup zdefiniowane w edytorze RoleGroup w kolekcji. Ponadto listy rozwijanej "Widoki" w tagu inteligentnego widoku logowania — która początkowo jest wyświetlana tylko `AnonymousTemplate` i `LoggedInTemplate` — obejmuje teraz także dodano RoleGroups.
 
@@ -254,26 +231,21 @@ Po wprowadzeniu tych zmian, strony i można go znaleźć za pośrednictwem przeg
 
 Następnie zaloguj się jako użytkownik będący członkiem roli nadzorców. Teraz powinien zostać wyświetlony nadzorców pełnionymi komunikatu (patrz rysunek 9). A jeśli logujesz się jako użytkownik w administratorów roli Administratorzy pełnionymi powinien zostać wyświetlony komunikat (zobacz rysunek 10).
 
-
 [![Bruce jest wyświetlany komunikat pełnionymi nadzorców](role-based-authorization-cs/_static/image26.png)](role-based-authorization-cs/_static/image25.png)
 
 **Rysunek 9**: Bruce jest wyświetlany komunikat pełnionymi nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image27.png))
-
 
 [![Tito jest wyświetlany komunikat specyficzne dla ról administratorów](role-based-authorization-cs/_static/image29.png)](role-based-authorization-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Tito jest wyświetlany komunikat specyficzne dla ról administratorów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image30.png))
 
-
 Zrzuty ekranu w rysunku 9 i 10 show widoku logowania renderuje tylko jeden szablon, nawet wtedy, gdy zastosowanie wielu szablonów. Bruce i Tito są rejestrowane w użytkowników, ale widoku logowania powoduje wyświetlenie tylko pasujących RoleGroup i nie `LoggedInTemplate`. Ponadto Tito należy do administratorów i nadzorców ról, ale kontrolki widoku logowania powoduje wyświetlenie szablonu specyficzne dla ról administratorów zamiast nadzorców jeden.
 
 Rysunek 11 pokazano przepływu pracy, wykorzystywane przez kontrolki widoku logowania do określenia szablonu do renderowania. Należy pamiętać, że jeśli istnieje więcej niż jeden RoleGroup określona, szablon widoku logowania powoduje wyświetlenie *pierwszy* RoleGroup, który jest zgodny. Innymi słowy w przypadku możemy umieścił RoleGroup nadzorców jako pierwszy RoleGroup i Administratorzy jako drugi, następnie po Tito odwiedzi tę stronę on widział komunikat nadzorców.
 
-
 [![Określanie szablonu do renderowania kontrolki widoku logowania przepływ pracy](role-based-authorization-cs/_static/image32.png)](role-based-authorization-cs/_static/image31.png)
 
 **Rysunek 11**: Przepływ pracy Określanie co szablon do renderowania kontrolki widoku logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image33.png))
-
 
 ### <a name="programmatically-limiting-functionality"></a>Programowe ograniczanie funkcji
 
@@ -281,11 +253,9 @@ Podczas gdy kontrolki widoku logowania wyświetla różne instrukcje w zależno�
 
 Najprostszym sposobem programowo odwołują się do formantów w CommandField jest najpierw dokonać jego konwersji do szablonu. W tym celu kliknij link "Edytuj kolumny" w tagu inteligentnego GridView wybierać CommandField listę bieżących pól i kliknij link "Konwertuj to pole na TemplateField". To jest przekształcany CommandField TemplateField z `ItemTemplate` i `EditItemTemplate`. `ItemTemplate` Zawiera edycji i usuwania LinkButtons podczas `EditItemTemplate` przechowuje aktualizacji i anulować LinkButtons.
 
-
 [![Konwertowanie CommandField TemplateField](role-based-authorization-cs/_static/image35.png)](role-based-authorization-cs/_static/image34.png)
 
 **Rysunek 12**: Konwertuj CommandField do TemplateField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image36.png))
-
 
 Aktualizowanie edycji i usuwania LinkButtons w `ItemTemplate`, ustawiając ich `ID` właściwości do wartości `EditButton` i `DeleteButton`, odpowiednio.
 
@@ -304,7 +274,6 @@ Jeśli firma Microsoft mają do czynienia z wierszem danych, który nie jest w t
 > [!NOTE]
 > Mogliśmy użyć klasy ról bezpośrednio, zastępując wywołanie `User.IsInRole(roleName)` wywołaniem [ `Roles.IsUserInRole(roleName)` metoda](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx). I chcę korzystać z głównym przedmiotem `IsInRole(roleName)` metody w tym przykładzie ponieważ jest bardziej wydajne niż bezpośrednio za pomocą interfejsu API ról. Wcześniej w tym samouczku został skonfigurowany do roli menedżera role użytkownika w pliku cookie w pamięci podręcznej. To dane pliku cookie z pamięci podręcznej tylko jest wykorzystywany podczas podmiotu zabezpieczeń `IsInRole(roleName)` wywoływana jest metoda; bezpośrednie wywołania interfejsu API ról zawsze obejmują podróż magazynu ról. Nawet jeśli role nie są buforowane w pliku cookie, wywołanie głównym przedmiotem `IsInRole(roleName)` metoda jest zazwyczaj bardziej wydajne, ponieważ gdy jest wywoływana, aby po raz pierwszy dla żądania buforuje wyniki. Interfejs API ról, z drugiej strony, nie należy stosować buforowania. Ponieważ `RowCreated` zdarzenie jest uruchamiane jeden raz dla każdego wiersza w widoku GridView, za pomocą `User.IsInRole(roleName)` obejmuje tylko jeden podróży do magazynu ról, natomiast `Roles.IsUserInRole(roleName)` wymaga *N* podróży, gdzie *N* jest Liczba kont użytkowników, wyświetlane w siatce.
 
-
 Przycisk Edytuj `Visible` właściwość jest ustawiona na `true` Jeśli użytkownik odwiedzający na tej stronie znajduje się w roli administratorów lub nadzorców; w przeciwnym razie ustawiana jest na `false`. Przycisk Usuń `Visible` właściwość jest ustawiona na `true` tylko wtedy, gdy użytkownik znajduje się w roli administratora.
 
 Przetestuj tę stronę za pośrednictwem przeglądarki. W przypadku odwiedzenia strony jako użytkownik anonimowy lub użytkownika, który nie jest nadzorcy ani administratorem, CommandField jest pusta. jest nadal istnieje, ale jako alokowania elastycznego srebrny bez Edytuj lub usuń przyciski.
@@ -312,27 +281,21 @@ Przetestuj tę stronę za pośrednictwem przeglądarki. W przypadku odwiedzenia 
 > [!NOTE]
 > Istnieje możliwość ukryć CommandField całkowicie podczas bez przełożonego i użytkowników niebędących administratorami odwiedzania strony. Można pozostawić to w charakterze ćwiczenia dla czytnika.
 
-
 [![Edytuj i usuń przyciski są ukryte Non-Nadzorcom i użytkownicy niebędący administratorami](role-based-authorization-cs/_static/image38.png)](role-based-authorization-cs/_static/image37.png)
 
 **Rysunek 13**: Edytuj i usuń przyciski są ukryte Non-Nadzorcom i użytkownicy niebędący administratorami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image39.png))
 
-
 Jeśli użytkownik, który należy do roli nadzorców (ale nie do roli Administratorzy) odwiedza, widzi tylko przycisk Edytuj.
-
 
 [![Przycisk Edytuj jest dostępny do opiekunów, przycisk Usuń jest ukryta](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
 
 **Rysunek 14**: Przycisk Edytuj jest dostępny do opiekunów, przycisk Usuń jest ukryty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image42.png))
 
-
 A Jeśli Administrator odwiedza, ma ona dostęp do przyciski edytowania i usuwania.
-
 
 [![Edytuj i usuń przyciski są dostępne tylko wtedy dla administratorów](role-based-authorization-cs/_static/image44.png)](role-based-authorization-cs/_static/image43.png)
 
 **Rysunek 15**: Edytuj i usuń przyciski są dostępne tylko wtedy dla administratorów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image45.png))
-
 
 ## <a name="step-3-applying-role-based-authorization-rules-to-classes-and-methods"></a>Krok 3. Stosowanie reguł autoryzacji opartej na rolach do metod i klas
 
@@ -348,18 +311,14 @@ Zobaczmy, jak działają przy użyciu `PrincipalPermission` atrybutu GridView `R
 
 Atrybut `RowUpdating` programu obsługi zdarzeń mówią, tylko użytkownicy w roli administratorów lub nadzorców można wykonać obsługi zdarzeń, gdzie jako atrybut na `RowDeleting` program obsługi zdarzeń limitów wykonywania dla użytkowników w administratorów Rola.
 
-
 > [!NOTE]
 > `PrincipalPermission` Atrybutu jest reprezentowana jako klasa w `System.Security.Permissions` przestrzeni nazw. Pamiętaj dodać `using System.Security.Permissions` instrukcji w górnej części pliku klasy związane z kodem można zaimportować tej przestrzeni nazw.
 
-
 Jeśli jakiś sposób, użytkowników niebędących administratorami podejmuje próbę wykonania `RowDeleting` programu obsługi zdarzeń lub innych kierownik lub użytkowników niebędących administratorami prób wykonania `RowUpdating` programu obsługi zdarzeń środowiska uruchomieniowego .NET zgłosi `SecurityException`.
-
 
 [![Jeśli kontekst zabezpieczeń nie ma autoryzacji do wykonania metody, jest zgłaszany securityexception —](role-based-authorization-cs/_static/image47.png)](role-based-authorization-cs/_static/image46.png)
 
 **Rysunek 16**: Jeśli kontekst zabezpieczeń nie ma autoryzacji do wykonania metody `SecurityException` zgłaszany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](role-based-authorization-cs/_static/image48.png))
-
 
 Oprócz stron ASP.NET wiele aplikacji ma architekturę, która obejmuje różne warstwy, takie jak logiki biznesowej i warstwy dostępu do danych. Te warstwy są zwykle implementowane jako bibliotek klas i oferują klasy i metody służące do wykonywania funkcji powiązanych logiki i danych biznesowych. `PrincipalPermission` Atrybut jest przydatne w przypadku stosowania reguł autoryzacji do tych warstw, jak również.
 

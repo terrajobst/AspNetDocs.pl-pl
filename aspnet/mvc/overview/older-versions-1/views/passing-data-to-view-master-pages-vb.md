@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: 37a1ebae-8773-408f-8645-d21da7ff9ae1
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7de5a1545ee59e671058f09789ce69d5062d3655
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ebf670fc0d8cf2cfd7df01d07d4119122b61a6a1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380980"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130419"
 ---
 # <a name="passing-data-to-view-master-pages-vb"></a>Przekazywanie danych do stron wzorcowych widoku (VB)
 
@@ -23,7 +23,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontrolera widoku strony wzorcowej. Sprawdzamy pomocy dwóch strategii przekazywania danych do strony wzorcowej widoku. Po pierwsze omówimy prostemu rozwiązaniu, powstałego w aplikacji, która jest trudne w utrzymaniu. Następnie omówiony dużo lepszym rozwiązaniem, która wymaga nieco więcej pracy początkowej, ale wyniki w aplikacji będzie znacznie łatwiejszy w utrzymaniu.
 
-
 ## <a name="passing-data-to-view-master-pages"></a>Przekazywanie danych do stron wzorcowych widoku
 
 Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontrolera widoku strony wzorcowej. Sprawdzamy pomocy dwóch strategii przekazywania danych do strony wzorcowej widoku. Po pierwsze omówimy prostemu rozwiązaniu, powstałego w aplikacji, która jest trudne w utrzymaniu. Następnie omówiony dużo lepszym rozwiązaniem, która wymaga nieco więcej pracy początkowej, ale wyniki w aplikacji będzie znacznie łatwiejszy w utrzymaniu.
@@ -32,11 +31,9 @@ Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontroler
 
 Wyobraź sobie, że tworzysz aplikacji bazy danych filmów i mają być wyświetlane na liście kategorii filmu na każdej stronie w aplikacji (patrz rysunek 1). Wyobraź sobie, co więcej, że na liście kategorii filmu są przechowywane w tabeli bazy danych. W takiej sytuacji sensowne będzie do pobrania kategorii z bazy danych i renderowania na liście kategorii filmu w obrębie strony wzorcowej widoku.
 
-
 [![Wyświetlanie kategorii filmu w widoku strony wzorcowej](passing-data-to-view-master-pages-vb/_static/image2.png)](passing-data-to-view-master-pages-vb/_static/image1.png)
 
 **Rysunek 01**: Wyświetlanie kategorii filmu w widoku strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-vb/_static/image3.png))
-
 
 Poniżej przedstawiono ten problem. Sposób pobierania listy kategorii filmu na stronie głównej? Jest to wydawać się bezpośrednio wywoływać metod w klasach modeli strony wzorcowej. Innymi słowy jest kuszące Dołączanie kodu do pobierania danych z bazy danych po prawej stronie na stronie głównej. Jednak Twoja kontrolerów MVC, dostęp do bazy danych z pominięciem naruszyłoby czyste rozdzielenie problemów, które jest jednym z podstawowych zalet kompilowania aplikacji MVC.
 
@@ -58,11 +55,9 @@ Należy zauważyć, że zarówno `Index()` i `Details()` akcje dodania dwóch el
 
 `Details()` Akcja go dodaje również dwa klucze o nazwie kategorie i filmy. Klucz kategorie reprezentuje jeszcze raz na liście kategorii filmu wyświetlane przez strony wzorcowej widoku. Klucz filmy reprezentuje listę filmów w określonej kategorii wyświetlanych przez strony widoku szczegółów (patrz rysunek 2).
 
-
 [![Widok szczegółów](passing-data-to-view-master-pages-vb/_static/image5.png)](passing-data-to-view-master-pages-vb/_static/image4.png)
 
 **Rysunek 02**: Widok szczegółów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-vb/_static/image6.png))
-
 
 Widok indeksu są zawarte w ofercie 2. Iteruje po prostu listy filmów reprezentowanego przez element filmów w widoku danych.
 

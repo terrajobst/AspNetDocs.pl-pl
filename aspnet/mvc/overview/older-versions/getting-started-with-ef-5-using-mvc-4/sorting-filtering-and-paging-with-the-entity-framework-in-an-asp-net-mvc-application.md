@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 4220327388703b773011921bb206976b04b07e34
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9510eb8094a55346bec2e0dab2a15ee79d211c88
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397906"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126519"
 ---
 # <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sortowanie, filtrowanie i stronicowanie za pomocą programu Entity Framework w aplikacji ASP.NET MVC (3 10)
 
@@ -26,7 +26,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 W poprzednim samouczku wdrożono zestaw stron sieci web w przypadku podstawowych operacji CRUD dla `Student` jednostek. W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie funkcje **studentów** strony indeksu. Utworzysz też strony, która wykonuje prostą grupowania.
 
@@ -93,7 +92,6 @@ Po dodaniu `searchString` parametr `Index` metody. Możesz również zostały do
 
 > [!NOTE]
 > W wielu przypadkach można wywołać tej samej metody, zestaw jednostek platformy Entity Framework lub jako metodę rozszerzenia w kolekcji w pamięci. Wyniki są zazwyczaj takie same, ale w niektórych przypadkach może być inna. Na przykład implementacji .NET Framework z `Contains` metoda zwraca wszystkie wiersze, w przypadku przekazania pustego ciągu do niego, ale dostawcy środowiska Entity Framework dla programu SQL Server Compact 4.0 zwraca zero wierszy obecność pustych ciągów. W związku z tym kodem w przykładzie (umieszczanie `Where` instrukcji wewnątrz `if` instrukcji) zapewnia, że, Pobierz te same wyniki dla wszystkich wersji programu SQL Server. Ponadto wdrożenia programu .NET Framework z `Contains` metoda wykonuje porównania uwzględniającego wielkość liter, domyślnie, ale dostawcy programu Entity Framework SQL Server wykonania porównania bez uwzględniania wielkości liter, domyślnie. Dlatego wywołanie `ToUpper` metody testu jawnie bez uwzględniania wielkości liter zapewnia wyniki nie należy zmieniać po zmianie kodu później, aby korzystać z repozytorium, które zwróci `IEnumerable` zbiór zamiast `IQueryable` obiektu. (Gdy wywołujesz `Contains` metody `IEnumerable` kolekcji, możesz pobrać wdrożenia programu .NET Framework; Jeśli wywołasz ją na `IQueryable` obiektu, możesz uzyskać implementację dostawcy bazy danych.)
-
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Dodaj pole wyszukiwania do widoku indeksu dla uczniów
 
@@ -378,7 +376,6 @@ Można znaleźć wdrożonej wersji pliku Web.config na komputerze w *ContosoUniv
 
 > [!NOTE]
 > Aplikacja sieci web nie implementuje zabezpieczeń, dzięki czemu każda osoba, która znajdzie adres URL można zmieniać dane. Aby uzyskać instrukcje na temat sposobu zabezpieczenie witryny sieci web, zobacz [wdrażanie bezpiecznej aplikacji ASP.NET MVC z członkostwa, uwierzytelnianiem OAuth i bazy danych SQL Database to a Windows Azure Web Site](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Możesz uniemożliwić innym osobom za pomocą witryny przy użyciu portalu zarządzania pakietu Windows Azure lub **Eksploratora serwera** w programie Visual Studio, aby zatrzymać witrynę.
-
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image35.png)
 

@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 59c01998-9326-4ecb-9392-cb9615962140
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21f37dc1ffbcb7e8e15e4bed261b68ffc0388c21
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2031c8d43afbdcdae3110ce3d7c3ec9e88c7261a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388429"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133319"
 ---
 # <a name="efficiently-paging-through-large-amounts-of-data-c"></a>Efektywne stronicowanie dużych ilości danych (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_25_CS.exe) lub [Pobierz plik PDF](efficiently-paging-through-large-amounts-of-data-cs/_static/datatutorial25cs1.pdf)
 
 > Domyślna opcja stronicowania kontrolki prezentacji danych nie nadaje się podczas pracy z dużymi ilościami danych, zgodnie z jego podstawowej kontroli źródła danych pobiera wszystkie rekordy, mimo że jest wyświetlany tylko podzestaw danych. W takiej sytuacji firma Microsoft musi włączyć z niestandardowymi stronicowania.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -37,7 +36,6 @@ Wyzwanie stronicowania niestandardowego jest możliwość Napisz zapytanie, któ
 
 > [!NOTE]
 > Przyrost wydajności dokładnie ujawnione przez niestandardowe stronicowania zależy od łączną liczbą rekordów są stronicowane za pośrednictwem i obciążenia są umieszczone na serwerze bazy danych. Na końcu tego samouczka rozpatrzymy niektóre nierównej metryki, które pokazują korzyści w wydajności uzyskane za pośrednictwem stronicowania niestandardowego.
-
 
 ## <a name="step-1-understanding-the-custom-paging-process"></a>Krok 1. Informacje o procesie niestandardowym stronicowania
 
@@ -62,47 +60,37 @@ W dwóch następnych krokach zostaną omówione skrypt SQL niezbędne do odpowia
 
 Zanim omówiony sposób pobierania dokładne podzestaw rekordów dla strony są wyświetlane, chętnie s Pierwsze spojrzenie na sposób zwracania całkowita liczba rekordów, które są stronicowane za pośrednictwem. Te informacje są potrzebne, aby można było prawidłowo skonfigurować interfejs użytkownika stronicowania. Całkowita liczba rekordów zwróconych przez zapytanie SQL w szczególności można uzyskać za pomocą [ `COUNT` funkcję agregacji](https://msdn.microsoft.com/library/ms175997.aspx). Na przykład, aby określić, całkowita liczba rekordów w `Products` tabeli, możemy użyć następującej kwerendy:
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample1.sql)]
 
 Pozwól s dodać metodę do naszych DAL, która zwraca te informacje. W szczególności, utworzymy warstwę DAL metodę o nazwie `TotalNumberOfProducts()` , który jest wykonywany `SELECT` instrukcji przedstawionych powyżej.
 
 Zacznij od otwarcia `Northwind.xsd` wpisane plik zestawu danych w `App_Code/DAL` folderu. Następnie kliknij prawym przyciskiem myszy `ProductsTableAdapter` w Projektancie i wybierz polecenie Dodaj zapytanie. Ponieważ ve w poprzednich samouczkach to umożliwi nam Dodaj nową metodę z warstwą dal, po wywołaniu, wykona określoną instrukcję SQL lub procedury składowanej. Podobnie jak w przypadku naszej metody TableAdapter w poprzednich samouczkach, ten jeden zdecydować się na używanie instrukcji SQL zapytań ad-hoc.
 
-
 ![Używanie instrukcji SQL zapytań Ad-Hoc](efficiently-paging-through-large-amounts-of-data-cs/_static/image1.png)
 
 **Rysunek 1**: Używanie instrukcji SQL zapytań Ad-Hoc
 
-
 Na następnym ekranie możemy określić, jakiego rodzaju zapytanie w celu utworzenia. Ponieważ to zapytanie będzie zwracać wartość pojedynczą, skalarną, całkowita liczba rekordów w `Products` wybierz tabelę `SELECT` zwraca opcję wartość wystąpieniu.
-
 
 ![Konfigurowanie zapytania, aby użyć instrukcji SELECT, która zwraca pojedynczą wartość](efficiently-paging-through-large-amounts-of-data-cs/_static/image2.png)
 
 **Rysunek 2**: Konfigurowanie zapytania, aby użyć instrukcji SELECT, która zwraca pojedynczą wartość
 
-
 Po wskazujący typ zapytanie do użycia, możemy następnie określ zapytanie.
-
 
 ![Użyj wybierz COUNT(*) z kwerendy produktów](efficiently-paging-through-large-amounts-of-data-cs/_static/image3.png)
 
 **Rysunek 3**: Użyj wybierz liczby (\*) FROM produktów zapytania
 
-
 Na koniec należy określić nazwę metody. Jak wyżej, pozwól s Użyj `TotalNumberOfProducts`.
-
 
 ![Nadaj nazwę TotalNumberOfProducts DAL — metoda](efficiently-paging-through-large-amounts-of-data-cs/_static/image4.png)
 
 **Rysunek 4**: Nadaj nazwę TotalNumberOfProducts DAL — metoda
 
-
 Po kliknięciu przycisku Zakończ, Kreator doda `TotalNumberOfProducts` metody z warstwą dal. Skalarna zwracanych metody w warstwy DAL zwracają typy dopuszczające wartości null, w przypadku, gdy wynikiem zapytania SQL, który jest `NULL`. Nasze `COUNT` kwerendy, jednak zawsze zwróci innej niż`NULL` wartość; niezależnie od tego, metoda DAL zwraca liczbę całkowitą typu dopuszczającego wartość null.
 
 Oprócz metody DAL również należy do metody w LOGIKI. Otwórz `ProductsBLL` klasy plików i Dodaj `TotalNumberOfProducts` metodę, która po prostu wywołuje Widok s DAL `TotalNumberOfProducts` metody:
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample2.cs)]
 
@@ -127,41 +115,33 @@ W tym samouczku implementuje niestandardowe za pomocą stronicowania `ROW_NUMBER
 
 `ROW_NUMBER()` — Słowo kluczowe skojarzone klasyfikacji z każdego rekordu zwrócone w kolejności określonej przy użyciu następującej składni:
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample3.sql)]
 
 `ROW_NUMBER()` Zwraca wartość liczbową, która określa rangę dla każdego rekordu w odniesieniu do wskazanej kolejności. Na przykład aby zobaczyć rangi dla każdego produktu, uporządkowane od najbardziej kosztowne do najmniejszej, można Stosujemy następujące zapytanie:
-
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample4.sql)]
 
 Rysunek 5. Pokazuje to zapytanie s wyniki podczas uruchamiania w oknie zapytania w programie Visual Studio. Należy pamiętać, że produkty są uporządkowane według ceny, wraz z rangę cena dla każdego wiersza.
 
-
 ![Ranga cena znajduje się dla każdego rekordu zwracane](efficiently-paging-through-large-amounts-of-data-cs/_static/image5.png)
 
 **Rysunek 5**: Ranga cena znajduje się dla każdego rekordu zwracane
 
-
 > [!NOTE]
 > `ROW_NUMBER()` jest tylko jeden z wielu nowych funkcji Klasyfikacja dostępnych w programie SQL Server 2005. Aby uzyskać bardziej szczegółowe omówienie `ROW_NUMBER()`, wraz z innych funkcji Klasyfikacja, przeczytaj [zwracanie wyników randze spośród wszystkich dokumentów przy użyciu programu Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
-
 
 Gdy klasyfikacja wyniki wg określonego `ORDER BY` kolumny w `OVER` — klauzula (`UnitPrice`, w powyższym przykładzie), programu SQL Server należy sortować wyniki. To to szybka operacja, w przypadku indeksu klastrowanego za pośrednictwem kolumn na liście wyników są szeregowane, lub jeśli jest pokryciem indeksu, ale może być bardziej kosztowne inaczej. Aby poprawić wydajność zapytań wystarczająco duże, Rozważ dodanie indeksu nieklastrowanego dla kolumny, według której wyniki są uporządkowane według. Zobacz [funkcji Klasyfikacja i wydajności w programie SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) uzyskać bardziej szczegółowy widok zagadnienia związane z wydajnością.
 
 Informacje o klasyfikacji, zwrócone przez `ROW_NUMBER()` nie może być używany bezpośrednio `WHERE` klauzuli. Jednak tabeli pochodnej może służyć do zwrócenia `ROW_NUMBER()` wynik, który następnie może występować w `WHERE` klauzuli. Na przykład, następujące zapytanie używa tabeli pochodnej do zwrócenia z właściwościami ProductName i UnitPrice kolumny, wraz z `ROW_NUMBER()` wyników, a następnie używa `WHERE` klauzulę, aby zwracać tylko te produkty której pozycję cena jest między 11 i 20:
 
-
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample5.sql)]
 
 Rozszerzanie nieco dodatkowo to pojęcie, firma Microsoft mogą korzystać z tego podejścia do pobrania określonej strony danych podane odpowiednie wartości Rozpocznij indeks wiersza i maksymalna liczba wierszy:
-
 
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample6.html)]
 
 > [!NOTE]
 > Jak firma Microsoft zostanie wyświetlony później w tym samouczku *`StartRowIndex`* dostarczonych przez kontrolki ObjectDataSource są indeksowane począwszy od zera, natomiast `ROW_NUMBER()` wartości zwracanej przez program SQL Server 2005 są indeksowane począwszy od 1. W związku z tym `WHERE` klauzula zwraca te rekordy, których `PriceRank` jest większa niż *`StartRowIndex`* i mniejsza niż lub równa *`StartRowIndex`*  +  *`MaximumRows`*.
-
 
 Teraz tego możemy ve omówiono sposób `ROW_NUMBER()` mogą być używane do pobierania na danej stronie dane podane wartości Rozpocznij indeks wiersza i maksymalna liczba wierszy, teraz musisz zaimplementować tę logikę jako metody DAL i logiki warstwy Biznesowej.
 
@@ -169,67 +149,51 @@ Podczas tworzenia tego zapytania, że należy zdecydować, to porządkowanie za 
 
 W poprzedniej sekcji utworzyliśmy metoda DAL jako instrukcji SQL zapytań ad-hoc. Niestety, analizator składni języka T-SQL w programie Visual Studio używane przez t TableAdapter Kreator, takich jak `OVER` składnią używaną przez `ROW_NUMBER()` funkcji. W związku z tym jako procedurę przechowywaną, firma Microsoft należy utworzyć w tej metody warstwy DAL. Wybierz Server Explorer z menu Widok (lub trafień Ctrl + Alt + S) i rozwiń opcję `NORTHWND.MDF` węzła. Aby dodać nową procedurę składowaną, kliknij prawym przyciskiem myszy w węźle procedur składowanych, a następnie kliknij przycisk Dodaj nową procedurę przechowywaną (patrz rysunek 6).
 
-
 ![Dodaj nową procedurę składowaną dla stronicować produktów](efficiently-paging-through-large-amounts-of-data-cs/_static/image6.png)
 
 **Rysunek 6**: Dodaj nową procedurę składowaną dla stronicować produktów
 
-
 Tę procedurę składowaną, należy zaakceptować dwóch parametrów wejściowych integer - `@startRowIndex` i `@maximumRows` i użyj `ROW_NUMBER()` funkcja uporządkowane według `ProductName` pola, zwracanie tylko tych wierszy, które jest większa niż określona `@startRowIndex` i mniejsza niż lub równa `@startRowIndex`  +  `@maximumRow` s. Wprowadź następujący skrypt do nowej procedury składowanej, a następnie kliknij przycisk Zapisz, aby dodać procedurę składowaną w bazie danych.
-
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample7.sql)]
 
 Po utworzeniu procedury składowanej, Poświęć chwilę, aby przetestować działanie. Kliknij prawym przyciskiem myszy `GetProductsPaged` procedury składowanej nazwy w Eksploratorze serwera i wybierz opcję wykonania. Program Visual Studio wyświetlany jest monit dla parametrów wejściowych `@startRowIndex` i `@maximumRow` s (zobacz rysunek 7). Wypróbuj różne wartości i sprawdź wyniki.
 
-
 ![Wprowadź wartość w @startRowIndex i @maximumRows parametrów](efficiently-paging-through-large-amounts-of-data-cs/_static/image7.png)
 
 <strong>Rysunek 7</strong>: Wprowadź wartość w @startRowIndex i @maximumRows parametrów
 
-
 Po wybierając te wprowadzanie wartości parametrów, w oknie danych wyjściowych zostaną wyświetlone wyniki. Rysunek 8 przedstawia wyniki podczas przekazywania w 10 dla obu `@startRowIndex` i `@maximumRows` parametrów.
-
 
 [![Zwracane są rekordy, zostanie wyświetlony w drugiej strony danych](efficiently-paging-through-large-amounts-of-data-cs/_static/image9.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image8.png)
 
 **Rysunek 8**: Zwracane są rekordy, zostanie wyświetlony w drugiej strony danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](efficiently-paging-through-large-amounts-of-data-cs/_static/image10.png))
 
-
 Dzięki temu przechowywane procedury tworzenia, możemy ponownie gotowe do utworzenia `ProductsTableAdapter` metody. Otwórz `Northwind.xsd` wpisana zestawu danych, kliknij prawym przyciskiem myszy w `ProductsTableAdapter`, a następnie wybierz opcję Dodaj zapytanie. Zamiast tworzenia zapytania przy użyciu instrukcji SQL zapytań ad-hoc, utwórz ją za pomocą istniejącą procedurę składowaną.
-
 
 ![Utwórz metodę DAL przy użyciu istniejącą procedurę składowaną](efficiently-paging-through-large-amounts-of-data-cs/_static/image11.png)
 
 **Rysunek 9**: Utwórz metodę DAL przy użyciu istniejącą procedurę składowaną
 
-
 Następnie możemy monit wybierz procedurę składowaną do wywołania. Wybierz `GetProductsPaged` przechowywane procedury z listy rozwijanej.
-
 
 ![Wybierz GetProductsPaged przechowywane procedury z listy rozwijanej](efficiently-paging-through-large-amounts-of-data-cs/_static/image12.png)
 
 **Na rysunku nr 10**: Wybierz GetProductsPaged przechowywane procedury z listy rozwijanej
 
-
 Następny ekran następnie zapyta, jakiego rodzaju dane zwracane przez procedurę składowaną: dane tabelaryczne, pojedynczej wartości lub brak wartości. Ponieważ `GetProductsPaged` procedurę składowaną można zwrócić wiele rekordów, wskazują, że zwraca ona dane tabelaryczne.
-
 
 ![Wskazuje, że procedura składowana ma zwracać dane tabelaryczne](efficiently-paging-through-large-amounts-of-data-cs/_static/image13.png)
 
 **Rysunek 11**: Wskazuje, że procedura składowana ma zwracać dane tabelaryczne
 
-
 Na koniec nazwiskami metod, które zostały utworzone. Podobnie jak w przypadku naszej poprzednich samouczkach Przejdź dalej i tworzenie metod za pomocą obu wypełnienia DataTable i zwraca DataTable. Nazwa pierwszej metody `FillPaged` , a druga `GetProductsPaged`.
-
 
 ![Nazwa FillPaged metod i GetProductsPaged](efficiently-paging-through-large-amounts-of-data-cs/_static/image14.png)
 
 **Rysunek 12**: Nazwa FillPaged metod i GetProductsPaged
 
-
 Ponadto utworzyć metodę warstwy DAL do zwrócenia na danej stronie produktów, musimy również udostępniają takie funkcje, w LOGIKI. Podobna do metody DAL s LOGIKI metoda GetProductsPaged musi zaakceptować dwie liczby całkowitej danych wejściowych, Rozpocznij indeks wiersza i maksymalna liczba wierszy, a musi zwracać tylko te rekordy, które mieszczą się w określonym zakresie. Utwórz metodę LOGIKI w klasie ProductsBLL, że jedynie wywołaniami dół s DAL GetProductsPaged metody, w następujący sposób:
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample8.cs)]
 
@@ -239,34 +203,27 @@ Można użyć dowolnej nazwy parametrów wejściowych metody s LOGIKI, ale, jak 
 
 Za pomocą metod LOGIKI i warstwy DAL do uzyskiwania dostępu do konkretnego podzbioru rekordy pełne możemy ponownie gotowe do utworzenia w kontrolce GridView kontrolować tej strony za pomocą jego rekordy przy użyciu niestandardowych stronicowania. Zacznij od otwarcia `EfficientPaging.aspx` stronie `PagingAndSorting` folderu, na stronie Dodaj GridView i skonfigurować go do używania nowej kontrolki ObjectDataSource. W przeszłości materiały szkoleniowe, mieliśmy często skonfigurowane do używania kontrolki ObjectDataSource `ProductsBLL` klasy s `GetProducts` metody. Tym razem jednak chcemy do użycia `GetProductsPaged` metody zamiast tego należy od `GetProducts` metoda zwraca *wszystkich* produktów w bazie danych natomiast `GetProductsPaged` zwraca konkretnego podzestawu rekordów.
 
-
 ![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductsPaged ProductsBLL klasy s](efficiently-paging-through-large-amounts-of-data-cs/_static/image15.png)
 
 **Rysunek 13**: Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductsPaged ProductsBLL klasy s
-
 
 Ponieważ możemy ponownie tworzenie GridView tylko do odczytu Poświęć chwilę, aby ustawić listy rozwijanej metody INSERT, UPDATE i usuwanie kart (Brak).
 
 Następnie Kreator ObjectDataSource nam monituje o podanie źródła `GetProductsPaged` metoda s `startRowIndex` i `maximumRows` wprowadzanie wartości parametrów. Te parametry wejściowe zostaną rzeczywiście ustawione przez widoku GridView automatycznie więc po prostu pozostaw źródłowy zestaw None i kliknij przycisk Zakończ.
 
-
 ![Pozostaw źródła parametr wejściowy, jak None](efficiently-paging-through-large-amounts-of-data-cs/_static/image16.png)
 
 **Rysunek 14**: Pozostaw źródła parametr wejściowy, jak None
 
-
 Po zakończeniu pracy Kreatora ObjectDataSource widoku GridView będzie zawierać elementu BoundField lub CheckBoxField dla każdego pola danych produktu. Możesz dostosować wygląd s GridView, zgodnie z potrzebami. Czy mogę ve zgody, aby wyświetlić tylko `ProductName`, `CategoryName`, `SupplierName`, `QuantityPerUnit`, i `UnitPrice` BoundFields. Ponadto należy skonfigurować GridView do obsługi stronicowania, zaznaczając pole wyboru Włącz stronicowania w jego tagu inteligentnego. Po wprowadzeniu tych zmian oznaczeniu deklaracyjnym kontrolkami GridView i kontrolki ObjectDataSource powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample9.aspx)]
 
 W przypadku odwiedzenia strony za pośrednictwem przeglądarki widoku GridView jest jednak którego ma zostać odnaleziona.
 
-
 ![Kontrolki GridView jest niewidoczne](efficiently-paging-through-large-amounts-of-data-cs/_static/image17.png)
 
 **Rysunek 15**: Kontrolki GridView jest niewidoczne
-
 
 Kontrolki GridView brakuje ponieważ kontrolki ObjectDataSource jest obecnie używany przez 0 jako wartości dla obu `GetProductsPaged` `startRowIndex` i `maximumRows` parametrów wejściowych. W związku z tym wynikowe zapytanie SQL zwraca żadnych rekordów i w związku z tym nie jest wyświetlana widoku GridView.
 
@@ -279,28 +236,22 @@ Aby rozwiązać ten problem, należy skonfigurować ObjectDataSource do użycia 
 
 Po wprowadzeniu tych zmian, składni deklaratywnej s ObjectDataSource powinien wyglądać następująco:
 
-
 [!code-aspx[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample10.aspx)]
 
 Należy pamiętać, że `EnablePaging` i `SelectCountMethod` zostały ustawione właściwości i `<asp:Parameter>` elementy zostały usunięte. Rysunek 16 przedstawiono zrzut ekranu przedstawiający okno właściwości po tych zmian.
-
 
 ![Aby użyć niestandardowego stronicowania, należy skonfigurować formantu ObjectDataSource](efficiently-paging-through-large-amounts-of-data-cs/_static/image18.png)
 
 **Rysunek 16**: Aby użyć niestandardowego stronicowania, należy skonfigurować formantu ObjectDataSource
 
-
 Po wprowadzeniu tych zmian, odwiedź tę stronę za pośrednictwem przeglądarki. Powinien zostać wyświetlony 10 z wymienionych poniżej produktów, uporządkowana w kolejności alfabetycznej. Poświęć chwilę, aby przejść przez jedną stronę danych w czasie. W trakcie Brak visual różnicy z perspektywy użytkownika końcowego s stronicowania domyślne i niestandardowe stronicowania niestandardowe wydajniej stronicowania między stronami w ramach dużych ilości danych, ponieważ pobiera tylko te rekordy, które muszą być wyświetlany dla danej strony.
-
 
 [![Dane, Zamówione według produktu s nazwa, jest stronicowania niestandardowe stronicowanej przy użyciu](efficiently-paging-through-large-amounts-of-data-cs/_static/image20.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image19.png)
 
 **Rysunek 17**: Dane, Zamówione według produktu s nazwa, jest stronicowania niestandardowe stronicowanej przy użyciu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](efficiently-paging-through-large-amounts-of-data-cs/_static/image21.png))
 
-
 > [!NOTE]
 > Za pomocą niestandardowych stronicowania strony liczba wartości zwracanej przez ObjectDataSource s `SelectCountMethod` znajduje się w stanie widoku GridView s. Inne zmienne GridView `PageIndex`, `EditIndex`, `SelectedIndex`, `DataKeys` kolekcji i tak dalej, które są przechowywane w *kontrolowany stan*, który jest trwały bez względu na wartość GridView s `EnableViewState` Właściwość. Ponieważ `PageCount` wartość jest utrwalony między ogłaszania zwrotnego za pomocą stan widoku, korzystając z interfejsu stronicowania, który zawiera link umożliwiający przejście do ostatniej strony, konieczne jest włączenie stan widoku GridView s. (Jeśli interfejsu stronicowania nie zawiera bezpośredni link do ostatniej strony, a następnie możesz wyłączyć wyświetlanie stanu.)
-
 
 Klikając łącze do strony ostatnich powoduje odświeżenie strony i powoduje, że GridView, aby zaktualizować jego `PageIndex` właściwości. Po kliknięciu łącze do strony ostatnich widoku GridView przypisuje jej `PageIndex` właściwość z wartością, jeden mniejsza od jego `PageCount` właściwości. Widok stanu wyłączone `PageCount` wartości są tracone w ogłaszania zwrotnego i `PageIndex` zamiast tego przypisuje się wartość maksymalna liczba całkowita. Następnie próbuje określić początkowy indeks wiersza przez pomnożenie widoku GridView `PageSize` i `PageCount` właściwości. Skutkuje to `OverflowException` ponieważ produkt przekracza rozmiar maksymalny dozwolony liczby całkowitej.
 
@@ -308,11 +259,9 @@ Klikając łącze do strony ostatnich powoduje odświeżenie strony i powoduje, 
 
 Nasz bieżący implementację niestandardową stronicowania wymaga kolejności za pomocą którego dane są stronicowane za pośrednictwem statycznie podczas tworzenia `GetProductsPaged` procedury składowanej. Jednak użytkownik może zostały zanotowane czy tagu inteligentnego s GridView zawiera włączyć sortowanie pola wyboru oprócz opcję włączenia stronicowania. Niestety dodanie obsługi sortowania w kontrolce GridView o naszej bieżącej niestandardowych implementacji stronicowania tylko będzie posortować rekordy na aktualnie otwartą strony danych. Na przykład jeśli konfigurujesz kontrolki GridView do obsługują także stronicowania, a następnie, podczas wyświetlania na pierwszej stronie danych, posortuj według nazwy produktu w kolejności malejącej, jej będzie odwrócić kolejność produktów na stronie 1. Jak pokazano na rysunku 18, takie miało tygrysy Carnarvon produktów pierwsze podczas sortowania w odwrotnej kolejności alfabetycznej, co powoduje ignorowanie 71 innych produktów, które pochodzą tygrysy Carnarvon alfabetycznie; tylko te rekordy, na pierwszej stronie zostaną uwzględnione podczas sortowania.
 
-
 [![Tylko dane wyświetlane na bieżącej stronie jest sortowana](efficiently-paging-through-large-amounts-of-data-cs/_static/image23.png)](efficiently-paging-through-large-amounts-of-data-cs/_static/image22.png)
 
 **Rysunek 18**: Tylko dane wyświetlane na bieżącej stronie jest sortowana ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](efficiently-paging-through-large-amounts-of-data-cs/_static/image24.png))
-
 
 Sortowanie ma zastosowanie tylko do bieżącej strony dane ponieważ sortowanie jest wykonywane po pobraniu danych z s LOGIKI `GetProductsPaged` metody, a metoda ta zwraca tylko te rekordy, w poszukiwaniu konkretnej strony. Aby zaimplementować sortowanie poprawnie, musimy wyrażenie sortowania, aby przekazać `GetProductsPaged` metody, dzięki czemu dane można sklasyfikować odpowiednio przed zwróceniem określonej strony danych. Zobaczymy, jak to zrobić w naszym samouczku dalej.
 
@@ -333,11 +282,9 @@ Aby rozwiązać ten problem mamy dwie opcje. Pierwsza to aby utworzyć program o
 
 Ta metoda działa, ponieważ powoduje zaktualizowanie `PageIndex` po kroku 1, ale przed krok 2. W związku z tym w kroku 2, odpowiedni zestaw rekordów jest zwracana. W tym celu należy użyć kodu, jak pokazano poniżej:
 
-
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample11.cs)]
 
 Jeszcze inne obejście polega na utworzeniu program obsługi zdarzeń dla ObjectDataSource s `RowDeleted` zdarzenia i ustawić `AffectedRows` właściwości na wartość 1. Po usunięciu rekordu w kroku 1 (ale przed ponownym podczas pobierania danych w kroku 2), aktualizuje widoku GridView jego `PageIndex` właściwość, jeśli co najmniej jeden wiersz wpłynęła na operację. Jednak `AffectedRows` nie ustawiono właściwości według kontrolki ObjectDataSource i w związku z tym ten krok zostanie pominięty. Jednym ze sposobów, aby ten krok wykonywany jest ręcznie ustawić `AffectedRows` właściwości po pomyślnym ukończeniu operacji usuwania. Można to osiągnąć przy użyciu kodu, jak pokazano poniżej:
-
 
 [!code-csharp[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample12.cs)]
 
@@ -351,14 +298,12 @@ Niestety, występują s rozmiar jednego, nie pasuje do wszystkich odpowiedzi w t
 
 Artykuł min, [stronicowania niestandardowe w programie ASP.NET 2.0 przy użyciu programu SQL Server 2005](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx), zawiera pewne testy wydajności I zakończyło się różnice w wydajności między te dwie techniki stronicowania, gdy stronicowanie tabeli bazy danych przy użyciu następującej liczby etapów stwierdzono 50 000 rekordów. W tych testach I zbadać czasu można wykonać zapytania na poziomie serwera SQL (przy użyciu [SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)) i na stronie ASP.NET za pomocą [s śledzenia programu ASP.NET](https://msdn.microsoft.com/library/y13fw6we.aspx). Należy pamiętać, że te testy były uruchamiane na Moje pole rozwoju z żadnym użytkownikiem aktywne i w związku z tym są unscientific i nie imitują wzorców obciążenia typowe witryny sieci Web. Niezależnie od tego wyniki pokazują względne różnice w czasie wykonywania dla domyślnych i niestandardowych stronicowania, pracując z wystarczająco dużą ilością danych.
 
-
 |  | **Średni Czas trwania (s)** | **Odczytuje** |
 | --- | --- | --- |
 | **Domyślne stronicowania SQL Profiler** | 1.411 | 383 |
 | **Niestandardowe stronicowania SQL Profiler** | 0.002 | 29 |
 | **Domyślne stronicowania danych śledzenia ASP.NET** | 2.379 | *N/D* |
 | **Niestandardowe śledzenia ASP.NET stronicowania** | 0.029 | *N/D* |
-
 
 Jak widać, podczas pobierania określonej strony danych średnio wymagane 354 mniej operacji odczytu i ukończyć w zaledwie ułamku czasu. Na stronie ASP.NET niestandardowe strony był w stanie renderowane w pobliżu 1/100<sup>th</sup> czasu, jaki zajęło podczas korzystania z domyślnej stronicowania. Zobacz [Moje artykułu](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx) Aby uzyskać więcej informacji na temat tych wyników, wraz z kodem i bazę danych można pobrać w celu odtworzenia te testy we własnym środowisku.
 

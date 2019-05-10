@@ -8,12 +8,12 @@ ms.date: 11/13/2006
 ms.assetid: 1f42e332-78dc-438b-9e35-0c97aa0ad929
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5819dc3d62161fc4f31cf30c6c739654a64d86b3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ad3af89c34df4a71b6e658ba205aa4f645b4dedd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400415"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134027"
 ---
 # <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>Przyciski niestandardowe w kontrolkach DataList i Repeater (C#)
 
@@ -23,18 +23,15 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > W tym samouczku utworzymy interfejs, który używa Repeater listy zadań do kategorii w systemie, z każdej kategorii, zapewniając przycisku, aby wyświetlał jego skojarzone produkty za pomocą kontroli BulletedList.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 W poprzednich samouczkach siedemnastu DataList i Repeater firma Microsoft ve utworzone zarówno przykłady tylko do odczytu i edytowania i usuwania przykłady. W celu ułatwienia edycji i usuwania możliwości w ramach kontrolką DataList, dodaliśmy przycisków do kontrolki DataList s `ItemTemplate` , po kliknięciu spowodowała odświeżenie strony i zgłoszone zdarzenie DataList, odpowiadający przycisk s `CommandName` właściwości. Na przykład dodanie przycisku, aby `ItemTemplate` z `CommandName` DataList s powoduje, że wartość właściwości edycji `EditCommand` do uruchomienia podczas ogłaszania zwrotnego; z `CommandName` Usuń zgłasza `DeleteCommand`.
 
 Ponadto do edytowania i usuwania przyciski, kontrolek DataList i Repeater mogą również obejmować przycisków, LinkButtons lub ImageButtons, po kliknięciu wykonania niestandardowej logiki biznesowej po stronie serwera. W tym samouczku utworzymy interfejs, który używa Repeater, aby wyświetlić listę kategorii w systemie. Dla każdej kategorii powtarzanego będzie zawierać przycisku, aby wyświetlał kategorii produktów związane za pomocą kontroli BulletedList (patrz rysunek 1).
 
-
 [![Kliknięcie przycisku Wyświetla łącze produktów pokaz produktów s kategorii na liście punktowanej](custom-buttons-in-the-datalist-and-repeater-cs/_static/image2.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image1.png)
 
 **Rysunek 1**: Kliknięcie przycisku Wyświetla Pokaż łącza produktów kategorii s produktów na liście punktowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-cs/_static/image3.png))
-
 
 ## <a name="step-1-adding-the-custom-button-tutorial-web-pages"></a>Krok 1. Dodawanie stron sieci Web z samouczka niestandardowy przycisk
 
@@ -43,57 +40,45 @@ Zanim przyjrzymy się jak dodać niestandardowy przycisk, chętnie s najpierw Po
 - `Default.aspx`
 - `CustomButtons.aspx`
 
-
 ![Dodawanie stron ASP.NET niestandardowe samouczki dotyczące przycisków](custom-buttons-in-the-datalist-and-repeater-cs/_static/image4.png)
 
 **Rysunek 2**: Dodawanie stron ASP.NET niestandardowe samouczki dotyczące przycisków
 
-
 Podobnie jak w przypadku innych folderów `Default.aspx` w `CustomButtonsDataListRepeater` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. Ten formant użytkownika, aby dodać `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
-
 
 [![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](custom-buttons-in-the-datalist-and-repeater-cs/_static/image6.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image5.png)
 
 **Rysunek 3**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-cs/_static/image7.png))
 
-
 Na koniec Dodaj strony jako wpisy, aby `Web.sitemap` pliku. Ściślej mówiąc, Dodaj następujący kod po stronicowanie i sortowanie za pomocą kontrolek DataList i Repeater `<siteMapNode>`:
-
 
 [!code-xml[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample1.xml)]
 
 Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web w samouczkach, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementy edytowanie, wstawianie i usuwanie samouczków.
 
-
 ![Mapa witryny zawiera teraz wpis dla samouczka przyciski niestandardowe](custom-buttons-in-the-datalist-and-repeater-cs/_static/image8.png)
 
 **Rysunek 4**: Mapa witryny zawiera teraz wpis dla samouczka przyciski niestandardowe
-
 
 ## <a name="step-2-adding-the-list-of-categories"></a>Krok 2. Dodawanie listy kategorii
 
 W tym samouczku należy utworzyć Repeater zawierającego wszystkie kategorie wraz z Pokaż element LinkButton produktów, kliknięcie spowoduje wyświetlenie produktów kategorii skojarzona s na liście punktowanej. Pozwól, s, najpierw Utwórz prostą elementu powtarzanego, który wyświetla listę kategorii w systemie. Zacznij od otwarcia `CustomButtons.aspx` stronie `CustomButtonsDataListRepeater` folderu. Przeciągnij Repeater z przybornika do projektanta i ustaw jego `ID` właściwość `Categories`. Następnie utwórz nowy formant źródła danych za pomocą tagu inteligentnego s elementu powtarzanego. Dokładniej mówiąc, Utwórz nowy kontrolka ObjectDataSource, o nazwie `CategoriesDataSource` który wybiera dane z `CategoriesBLL` klasy s `GetCategories()` metody.
 
-
 [![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody klasy CategoriesBLL GetCategories() s](custom-buttons-in-the-datalist-and-repeater-cs/_static/image10.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image9.png)
 
 **Rysunek 5**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy s `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-cs/_static/image11.png))
-
 
 W przeciwieństwie do kontrolki DataList, dla których program Visual Studio tworzy domyślną `ItemTemplate` oparty na źródle danych, szablony elementu powtarzanego s należy zdefiniować ręcznie. Ponadto, szablony elementu powtarzanego s muszą być tworzone i edytować w sposób deklaratywny (czyli tam s nie Edytuj szablony opcji tagu inteligentnego w elemencie powtarzanym s).
 
 Kliknij na karcie Źródło w lewym dolnym rogu, a następnie dodaj `ItemTemplate` wyświetlającą nazwę kategorii s w `<h3>` elementu i jego opis, akapitu tag; uwzględnia `SeparatorTemplate` wyświetlającą linii poziomej (`<hr />`) między poszczególnymi Kategoria. Również dodać element LinkButton z jego `Text` właściwość ustawioną na wyświetlanie produktów. Po wykonaniu tych kroków, znaczniki deklaratywne s strony powinny wyglądać następująco:
 
-
 [!code-aspx[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample2.aspx)]
 
 Rysunek 6 przedstawia stronę po wyświetleniu za pośrednictwem przeglądarki. Każda nazwa i opis kategorii znajduje się. Pokaż produktów po kliknięciu przycisku, powoduje odświeżenie strony, ale jeszcze nie wykonuje żadnych działań.
 
-
 [![Każda kategoria s Nazwa i opis jest wyświetlany, oraz wyświetlić element LinkButton produktów](custom-buttons-in-the-datalist-and-repeater-cs/_static/image13.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image12.png)
 
 **Rysunek 6**: Każda kategoria s Nazwa i opis jest wyświetlany, oraz wyświetlić element LinkButton produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-cs/_static/image14.png))
-
 
 ## <a name="step-3-executing-server-side-logic-when-the-show-products-linkbutton-is-clicked"></a>Krok 3. Wykonywanie po stronie serwera logiki po Pokaż produktów LinkButton kliknięciu
 
@@ -105,7 +90,6 @@ Kliknięcie przycisku w kontrolkach DataList lub Repeater często musimy przekaz
 - `CommandArgument` często używane do przechowywania wartości niektóre pola danych, na przykład wartość klucza podstawowego
 
 W tym przykładzie należy ustawić LinkButton s `CommandName` właściwości ShowProducts i powiązania bieżącego rekordu s wartość klucza podstawowego `CategoryID` do `CommandArgument` właściwości przy użyciu składni wiązania danych `CategoryArgument='<%# Eval("CategoryID") %>'`. Po określeniu te dwie właściwości, składni deklaratywnej s LinkButton powinien wyglądać następująco:
-
 
 [!code-aspx[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample3.aspx)]
 
@@ -123,16 +107,13 @@ Od wybranej kategorii s `CategoryID` jest przekazywany za pośrednictwem `Comman
 > [!NOTE]
 > DataList s `ItemCommand` programu obsługi zdarzeń jest przekazywany obiekt typu [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), który oferuje te same właściwości cztery jako `RepeaterCommandEventArgs` klasy.
 
-
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>Krok 4. Wyświetlanie wybranej kategorii produktów s liście punktowanej we wcześniejszej
 
 Produkty wybranej kategorii s może być wyświetlana w elemencie powtarzanym s `ItemTemplate` przy użyciu dowolnej liczby kontrolek. Firma Microsoft może dodać zagnieżdżone innego elementu powtarzanego, kontrolką DataList, kontrolki DropDownList, GridView i tak dalej. Ponieważ chcemy wyświetlić produktów jako listy punktowane, jednak użyjemy kontroli BulletedList. Wracając do `CustomButtons.aspx` s oznaczeniu deklaracyjnym strony, należy dodać formant BulletedList do `ItemTemplate` po Pokaż element LinkButton produktów. Ustaw BulletedLists s `ID` do `ProductsInCategory`. BulletedList wyświetlana jest wartość pola danych określona za pomocą `DataTextField` właściwości; ponieważ ta kontrolka będzie miała informacje o produkcie powiązane z nim, ustaw `DataTextField` właściwość `ProductName`.
 
-
 [!code-aspx[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample4.aspx)]
 
 W `ItemCommand` programu obsługi zdarzeń odwoływać się do tego formantu przy użyciu `e.Item.FindControl("ProductsInCategory")` i powiązać ją z zestawu produkty powiązane z wybranej kategorii.
-
 
 [!code-csharp[Main](custom-buttons-in-the-datalist-and-repeater-cs/samples/sample5.cs)]
 
@@ -145,11 +126,9 @@ Po zakończeniu `ItemCommand` procedura obsługi zdarzeń, Poświęć chwilę, w
 > [!NOTE]
 > Jeśli chcesz zmienić zachowanie tego raportu, taki sposób, że produkty tylko jedną kategorię s są wymienione w danym momencie, wystarczy ustawić dla formant BulletedList s `EnableViewState` właściwość `False`.
 
-
 [![BulletedList służy do wyświetlania produktów wybranej kategorii](custom-buttons-in-the-datalist-and-repeater-cs/_static/image16.png)](custom-buttons-in-the-datalist-and-repeater-cs/_static/image15.png)
 
 **Rysunek 7**: BulletedList służy do wyświetlania produktów wybranej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-buttons-in-the-datalist-and-repeater-cs/_static/image17.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

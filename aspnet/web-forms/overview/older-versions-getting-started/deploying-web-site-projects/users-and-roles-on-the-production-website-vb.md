@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e97b66aed789cf6f2b2b503ae86e773ac03d74e0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: df863fc6740847101c9900750a3f257c19ced9fd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392940"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134204"
 ---
 # <a name="users-and-roles-on-the-production-website-vb"></a>Użytkownicy i role w produkcyjnej witrynie internetowej (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
 
 > ASP.NET witryny sieci Web Administracja narzędzia (WSAT) zapewnia interfejs użytkownika oparty na sieci web, do konfigurowania ustawień członkostwo i role oraz tworzenie, edytowanie i usuwanie użytkowników i ról. Niestety WSAT działa tylko po odwiedzeniu z hostem lokalnym, co oznacza, że narzędzie administracyjne w produkcyjnej witrynie internetowej nie może się połączyć za pośrednictwem przeglądarki. Dobra wiadomość jest istnieją obejścia, które umożliwiają zarządzanie użytkownikami i rolami w środowisku produkcyjnym. W tym samouczku patrzy na tego rodzaju obejścia i innym osobom.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -80,7 +79,6 @@ Nie możesz zalogować jako Sam w środowisku programistycznym, ponieważ inform
 
 > [!NOTE]
 > Nie zapomnij zmienić parametry połączenia w `databaseConnectionStrings.config` pliku w bazie danych rozwoju przez ciąg połączenia po zakończeniu pracy z WSAT, w przeciwnym razie będziesz pracować z danymi produkcyjnymi podczas testowania witryny za pomocą programowania środowisko. Należy pamiętać, że gdy technika, którą właśnie Omówiliśmy pozwala nam korzystać WSAT do zdalnego zarządzania użytkownikami i rolami, zmiany do dowolnych innych WSAT konfiguracji opcji (reguły dostępu, SMTP ustawienia, debugowanie oraz śledzenie ustawień i tak dalej) modyfikować `Web.config` pliku. W związku z tym wszelkie zmiany wprowadzone w ustawieniach się do środowiska deweloperskiego, a nie w środowisku produkcyjnym.
-
 
 ## <a name="creating-custom-user-and-role-management-web-pages"></a>Tworzenie niestandardowych użytkowników i stron sieci Web zarządzania ról
 

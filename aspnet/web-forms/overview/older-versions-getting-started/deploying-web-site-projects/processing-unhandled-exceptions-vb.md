@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d917982d5bd97bf1fa9d926e761c6fe847bb0574
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c28f520f710f77689548158e88d87d1051235d8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394201"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124233"
 ---
 # <a name="processing-unhandled-exceptions-vb"></a>Przetwarzanie nieobsługiwanych wyjątków (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples) ([sposobu pobierania](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Gdy wystąpi błąd środowiska uruchomieniowego w aplikacji sieci web w środowisku produkcyjnym należy do powiadamiania dla deweloperów i się błąd, dzięki czemu mogą być zdiagnozować w dowolnym momencie w czasie. Ten samouczek zawiera omówienie sposobu ASP.NET przetwarza błędy w czasie wykonywania i patrzy na jednym ze sposobów niestandardowy kod wykonywanie zawsze wtedy, gdy bąbelki nieobsługiwanego wyjątku do środowiska uruchomieniowego programu ASP.NET.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -34,7 +33,6 @@ W tym samouczku pokazano, jak uzyskiwać dostęp szczegóły nieobsługiwany wyj
 
 > [!NOTE]
 > Informacje w tym samouczku jest najbardziej użyteczna, jeśli potrzebujesz do przetwarzania nieobsługiwanych wyjątków w sposób unikatowy lub dostosowanych. W przypadkach, w których konieczne jest zarejestruje wyjątek i powiadamia dewelopera za pomocą biblioteki rejestrowanie błędów jest Zdajemy sobie. W dwóch następnych samouczków omówiono dwie biblioteki.
-
 
 ## <a name="executing-code-when-theerrorevent-is-raised"></a>Wykonywanie kodu, gdy`Error`zdarzenie jest zgłaszane w
 
@@ -56,7 +54,6 @@ Zawartość i struktura `Global.asax` plik utworzony przez program Visual Studio
 > [!NOTE]
 > W przypadku wdrażania aplikacji ASP.NET należy skopiować `Global.asax` pliku do środowiska produkcyjnego. `Global.asax.vb` Pliku, który zostanie utworzony w WAP, nie trzeba można skopiować do środowiska produkcyjnego, ponieważ ten kod jest kompilowany do zestawu projektu.
 
-
 Programy obsługi zdarzeń utworzonych przez szablon globalnej klasy aplikacji programu Visual Studio nie są wyczerpujące. Można dodać program obsługi zdarzeń dla każdego `HttpApplication` zdarzeń za pomocą nazw programu obsługi zdarzeń `Application_EventName`. Na przykład można dodać następujący kod, aby `Global.asax` pliku w celu utworzenia programu obsługi zdarzeń dla [ `AuthorizeRequest` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample1.vb)]
@@ -65,7 +62,6 @@ Podobnie należy usunąć wszystkie procedury obsługi zdarzeń utworzonych prze
 
 > [!NOTE]
 > *Moduły HTTP* oferują innym sposobem zdefiniowania procedury obsługi zdarzeń dla `HttpApplication` zdarzenia. Moduły HTTP są tworzone jako plik klasy, które mogą być umieszczane bezpośrednio w ramach projektu aplikacji sieci web lub oddzielone w bibliotece osobnej klasy. Ponieważ one być oddzielone w bibliotece klasy, moduły HTTP oferują bardziej elastyczne i wielokrotnego użytku modelu tworzenia `HttpApplication` procedury obsługi zdarzeń. Natomiast `Global.asax` zależy od plików do aplikacji sieci web, w którym znajduje się, można kompilować moduły HTTP do zestawów, w tym momencie Dodawanie modułu HTTP do witryny sieci Web jest tak proste, jak usunięcie zestawu `Bin` folder i rejestrowanie Moduł w `Web.config`. W tym samouczku nie znajduje się w tworzenie i używanie moduły HTTP, ale bibliotek dwóch rejestrowania błędów używanych w ramach następujących samouczków dwa są implementowane jako moduły HTTP. Aby uzyskać więcej ogólnych informacji o zaletach moduły HTTP dotyczą [modułów przy użyciu protokołu HTTP i procedury obsługi do tworzenia składników ASP.NET podłączanych](https://msdn.microsoft.com/library/aa479332.aspx).
-
 
 ## <a name="retrieving-information-about-the-unhandled-exception"></a>Trwa pobieranie informacji na temat nieobsługiwany wyjątek
 
@@ -92,7 +88,6 @@ Po wystąpieniu nieobsługiwanego wyjątku w środowisku produkcyjnym należy do
 > [!NOTE]
 > `<system.net>` Element zawiera ustawienia serwera SMTP, które są używane przez `SmtpClient` klasy podczas wysyłania wiadomości e-mail. Firmy mogą hostingu w sieci web ma serwera SMTP, który służy do wysyłania wiadomości e-mail z aplikacji. Informacje na temat ustawień serwera SMTP, którego należy używać w aplikacji sieci web na ten temat można znaleźć w sekcji Obsługa hosta sieci web.
 
-
 Dodaj następujący kod do `Application_Error` program obsługi zdarzeń, aby wysłać wiadomość e-mail dla deweloperów, gdy wystąpi błąd:
 
 [!code-vb[Main](processing-unhandled-exceptions-vb/samples/sample4.vb)]
@@ -105,7 +100,6 @@ Ostatnim krokiem jest wysyłanie `MailMessage`. Jest to realizowane przez utworz
 
 > [!NOTE]
 > Przed rozpoczęciem korzystania z tego kodu w aplikacji sieci web można zmienić wartości na `ToAddress` i `FromAddress` stałe od support@example.com do dowolnych wiadomości e-mail adres wiadomość e-mail z powiadomieniem błędu powinny być przesyłane do i pochodzą z. Należy także określić ustawienia serwera SMTP w `<system.net>` sekcji `Web.config`. Zapoznaj się z dostawcą hosta sieci web, aby określić ustawienia serwera SMTP do użycia.
-
 
 Przy użyciu tego kodu w miejscu przy każdym wystąpieniu błędu dewelopera jest wysyłana wiadomość e-mail zawiera podsumowanie błędu i zawiera YSOD. W poprzednim samouczku przedstawiono firma Microsoft błąd w czasie wykonywania, odwiedzając Genre.aspx i przekazując nieprawidłowy `ID` wartości za pomocą ciągu kwerendy, takie jak `Genre.aspx?ID=foo`. Odwiedź stronę z `Global.asax` miejscowej plików tworzy się tego samego środowiska użytkownika, jak w poprzednim samouczku — w środowisku programistycznym nadal będzie się wyjątek szczegóły żółty ekranem śmierci, podczas gdy w środowisku produkcyjnym należy zobacz stronę błędu niestandardowego. Oprócz tego istniejącego zachowania deweloper jest wysyłana wiadomość e-mail.
 

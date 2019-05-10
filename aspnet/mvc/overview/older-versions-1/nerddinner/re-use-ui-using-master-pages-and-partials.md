@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: d4243a4a-e91c-4116-9ae0-5c08e5285677
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
-ms.openlocfilehash: e50fb6edb175bd1651212ae6b3daf7b1bf605068
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0b17cb6ac14b7f187bf1f175097a37907689d46e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390145"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128356"
 ---
 # <a name="re-use-ui-using-master-pages-and-partials"></a>Ponowne używanie interfejsu użytkownika za pomocą stron wzorcowych i częściowych
 
@@ -26,7 +26,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 > Krok 7 analizuje sposób możemy zastosować "Zasadą susz" w ramach naszych szablonów widok, aby wyeliminować zduplikowania kodu, przy użyciu szablonów widok częściowy i stron wzorcowych.
 > 
 > Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
-
 
 ## <a name="nerddinner-step-7-partials-and-master-pages"></a>NerdDinner krok 7: Częściowe i stronami wzorcowymi
 

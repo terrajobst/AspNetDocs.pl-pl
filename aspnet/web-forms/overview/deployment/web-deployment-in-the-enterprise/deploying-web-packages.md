@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: c42fa327c324ac2b721268c56782a24755ec7225
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 91b99e6e250342851aea6860164b6f6af54818d1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391069"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119325"
 ---
 # <a name="deploying-web-packages"></a>Wdrażanie pakietów internetowych
 
@@ -37,7 +37,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > - Możesz już skompilowania i spakowania aplikację sieci web, zgodnie z opisem w [budowanie i projektów aplikacji sieci Web pakietu](building-and-packaging-web-application-projects.md).
 > - Zmodyfikowano *SetParameters.xml* plik, aby podać wartości parametrów odpowiednie dla danego środowiska docelowego, zgodnie z opisem w [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md).
 
-
 Uruchamianie [*Nazwa projektu*]*. pliku deploy.cmd* plik jest najprostszym sposobem wdrażania pakietu sieci web. W szczególności, za pomocą *. pliku deploy.cmd* pliku oferuje następujące korzyści za pośrednictwem bezpośrednio za pomocą MSDeploy.exe:
 
 - Nie potrzebujesz określić lokalizację pakietu wdrażania sieci web&#x2014; *. pliku deploy.cmd* pliku wie już, gdzie jest.
@@ -52,9 +51,7 @@ Przed użyciem *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, należ
 
 *. Pliku deploy.cmd* pliku obsługuje różne opcje wiersza polecenia. Po uruchomieniu pliku w wierszu polecenia, jest to podstawowa składnia:
 
-
 [!code-console[Main](deploying-web-packages/samples/sample1.cmd)]
-
 
 Należy określić **/t** flagi lub **/Y** flagi, aby wskazać, czy chcesz przeprowadzić wdrożenie na żywo lub próbnej odpowiednio (nie używaj obie flagi w tym samym poleceniu). Ta tabela zawiera wyjaśnienie przeznaczenia każdego z tych flag.
 
@@ -71,7 +68,6 @@ Należy określić **/t** flagi lub **/Y** flagi, aby wskazać, czy chcesz przep
 
 > [!NOTE]
 > Za każdym razem, gdy proces kompilacji tworzy pakiet sieci web, również tworzy plik o nazwie *[Nazwa projektu] .deploy-readme.txt* objaśniający te opcje wdrażania.
-
 
 Oprócz tych flag można określić ustawienia działania narzędzia Web Deploy jako dodatkowe *. pliku deploy.cmd* parametrów. Dodatkowe ustawienia, które określisz po prostu są przekazywane do źródłowej polecenie MSDeploy.exe. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [ustawienia operacji wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
@@ -94,9 +90,7 @@ W tym przykładzie:
 
 Aby zilustrować, jak przy użyciu *. pliku deploy.cmd* pliku upraszcza proces wdrażania, Przyjrzyj się polecenie MSDeploy.exe, który pobiera wygenerowany i wykonać po uruchomieniu *ContactManager.Mvc.deploy.cmd* przy użyciu opcji wymienionych powyżej.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
-
 
 Aby uzyskać więcej informacji na temat korzystania z *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, zobacz temat [jak: Zainstaluj pakiet wdrożeniowy, przy użyciu pliku pliku deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
@@ -152,13 +146,10 @@ W wielu scenariuszach dla przedsiębiorstw będzie można wdrożyć pakietów si
 
 W przykładowym rozwiązaniu Contact Manager, zapoznaj się z **PublishWebPackages** obiektów docelowych w systemie *Publish.proj* pliku. Ten element docelowy jest wykonywany jednokrotnie dla każdego *. pliku deploy.cmd* identyfikowane za pomocą listy elementów o nazwie pliku **PublishPackages**. Obiekt docelowy używa właściwości i metadanych elementu do utworzenia pełny zestaw wartości argumentu dla każdego *. pliku deploy.cmd* pliku, a następnie używa **Exec** zadania do uruchomienia polecenia.
 
-
 [!code-xml[Main](deploying-web-packages/samples/sample8.xml)]
-
 
 > [!NOTE]
 > Omówienie szerszej model pliku projektu w przykładowym rozwiązaniu i zapoznać się z wprowadzeniem do projektu niestandardowych plików ogólnie rzecz biorąc, zobacz [objaśnienie pliku projektu](understanding-the-project-file.md) i [objaśnienie procesu kompilacji](understanding-the-build-process.md).
-
 
 ## <a name="endpoint-considerations"></a>Zagadnienia dotyczące punktu końcowego
 
@@ -166,33 +157,24 @@ Niezależnie od tego, czy wdrożyć pakiet usługi sieci web, uruchamiając *. p
 
 Jeśli serwer sieci web docelowy jest skonfigurowany do wdrożenia przy użyciu usługi zdalnego agenta narzędzia Web Deploy, można określić docelowy adres URL usługi jako lokalizacji docelowej.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample9.cmd)]
-
 
 Alternatywnie można określić nazwę serwera, tylko jako lokalizacji docelowej i narzędzia Web Deploy wywnioskuje adres URL usługi agenta zdalnego.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample10.cmd)]
-
 
 Jeśli serwer sieci web docelowy został skonfigurowany do wdrożenia przy użyciu obsługi wdrażania sieci Web, należy określić adres punktu końcowego usługi zarządzania siecią Web usług IIS (WMSvc) jako lokalizacji docelowej. Domyślnie ta ma postać:
 
-
 [!code-console[Main](deploying-web-packages/samples/sample11.cmd)]
-
 
 Można wskazać dowolne z tych punktów końcowych przy użyciu *. pliku deploy.cmd* pliku lub bezpośrednio MSDeploy.exe. Jednakże jeśli chcesz wdrożyć program obsługi wdrażania sieci Web jako użytkownik bez uprawnień administratora, zgodnie z opisem w [Konfigurowanie serwera sieci Web dla wdrożenia publikowania w sieci Web (Web wdrażanie obsługi)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md), należy dodać ciąg zapytania do adresu punktu końcowego usługi.
 
-
 [!code-console[Main](deploying-web-packages/samples/sample12.cmd)]
-
 
 Jest to spowodowane użytkownik niebędący administratorem nie ma dostępu na poziomie serwera w usługach IIS; użytkownik ma dostęp tylko do określonej witryny sieci Web usług IIS. W czasie pisania, ze względu na usterkę w sieci Web potok publikowania (WPP), nie można uruchomić *. pliku deploy.cmd* plików przy użyciu adresu punktu końcowego, który zawiera ciąg zapytania. W tym scenariuszu należy wdrożyć pakiet usługi sieci web bezpośrednio za pomocą MSDeploy.exe.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat usługi zdalnego agenta narzędzia Web Deploy i obsługi wdrażania sieci Web, zobacz [Wybieranie podejścia prawo do wdrażania w Internecie](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md). Aby uzyskać wskazówki dotyczące sposobu konfigurowania plików projektu specyficznymi dla środowiska do wdrożenia z tymi punktami końcowymi, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
-
 
 ## <a name="authentication-considerations"></a>Zagadnienia dotyczące uwierzytelniania
 

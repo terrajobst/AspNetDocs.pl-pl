@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 243db2ec-8f67-4a5e-a382-4ddcec4b4164
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: cd6391582f05ab80c4bd45a455a2ce488d1186c1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ca26ff6776daa13bc4f8b06c2eba61afcfefba2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59418329"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126239"
 ---
 # <a name="http-cookies-in-aspnet-web-api"></a>Pliki cookie protokołu HTTP we wzorcu ASP.NET Web API
 
@@ -81,7 +81,6 @@ Wiele przeglądarek limit liczby plików cookie, będą one przechowywane&#8212;
 
 > [!NOTE]
 > RFC 6265 nie definiuje strukturę dane pliku cookie.
-
 
 Za pomocą **CookieHeaderValue** klasy, można przekazać listę par nazwa wartość, aby uzyskać dane pliku cookie. Te pary nazwa wartość są zakodowane jako dane zakodowane jako adres URL formularza do nagłówka Set-Cookie:
 

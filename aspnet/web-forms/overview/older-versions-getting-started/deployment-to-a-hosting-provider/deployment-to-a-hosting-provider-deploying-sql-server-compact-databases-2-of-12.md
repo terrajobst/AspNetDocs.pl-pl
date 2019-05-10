@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: cc8568847e050e868a3e7563b5fc1fc6fbf25d86
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b265d210ff3b1eeb8697a973cc245f6c97b3eb07
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405485"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134179"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Wdrażanie Compact baz danych SQL Server - 2 z 12
 
@@ -24,7 +24,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) ASP.NET projektu aplikacji sieci web, która zawiera bazę danych programu SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC for Web. Umożliwia także programu Visual Studio 2010 po zainstalowaniu aktualizacji publikowania w sieci Web. Aby zapoznać się z wprowadzeniem do serii, zobacz [pierwszym samouczku tej serii](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Aby uzyskać samouczek, który zawiera funkcje wdrażania wprowadzone po wersji RC programu Visual Studio 2012, pokazuje, jak wdrażać wersje programu SQL Server, innym niż SQL Server Compact i pokazuje, jak wdrożyć w usłudze Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET za pomocą programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -144,7 +143,6 @@ Ta opcja menu dodaje następujący kod do `using` instrukcji w górnej części 
 > 
 > W tym przykładzie pokazano dla w tym samouczku `AddOrUpdate` method in Class metoda `Seed` metody migracje Code First `Configuration` klasy. Kod wywołuje metodę migracji First `Seed` metody po każdej migracji, a ta metoda aktualizuje wierszy, które już zostały wstawione lub wstawia je, jeśli ich jeszcze nie istnieją. `AddOrUpdate` Metoda może być najlepszym wyborem dla danego scenariusza. Aby uzyskać więcej informacji, zobacz [powinien zachować ostrożność przy użyciu metody AddOrUpdate 4.3 EF](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) na blogu Julie Lerman.
 
-
 Naciśnij klawisze CTRL-SHIFT-B, aby skompilować projekt.
 
 Następnym krokiem jest utworzenie `DbMigration` klasy początkowej migracji. Chcesz, aby tej migracji, aby utworzyć nową bazę danych, więc trzeba będzie usunąć bazę danych, która już istnieje. Bazy danych programu SQL Server Compact są zawarte w *.sdf* pliki *aplikacji\_danych* folderu. W **Eksploratora rozwiązań**, rozwiń węzeł *aplikacji\_danych* w projekcie ContosoUniversity zobacz dwie bazy danych programu SQL Server Compact, które są reprezentowane przez *.sdf*plików.
@@ -187,7 +185,6 @@ Po raz pierwszy zostanie wdrożona lokacja, jest często większość lub wszyst
 
 > [!NOTE]
 > Skrót hasła do kont są przechowywane w bazie danych członkostwa. Aby wdrożyć kont z jednego komputera, należy upewnić się, czy procedury wyznaczania wartości skrótu nie Generuj różne skróty na serwerze docelowym niż na ich na komputerze źródłowym. One wygeneruje tych samych skrótów korzystając z dostawców uniwersalnych ASP.NET, tak długo, jak nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** elementu w pliku Web.config.
-
 
 Członkowskiej bazie danych nie jest obsługiwana przez migracje Code First i nie ma żadnego automatycznego inicjatora, który inicjowania inicjuje bazy danych za pomocą testu konta (ponieważ dla bazy danych School). W związku z tym aby zachować dane testowe dostępne wprowadzisz kopię bazy danych testów przed utworzeniem nowej.
 

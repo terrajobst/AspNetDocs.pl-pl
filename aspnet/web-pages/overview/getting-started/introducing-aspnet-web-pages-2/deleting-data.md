@@ -8,12 +8,12 @@ ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: e9ffe0ea3e2bf817675a4a771d3471ec6eb91133
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c8620fc1abc61d514bdc039c66f7a84e67e89abe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406746"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133499"
 ---
 # <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — usuwanie danych bazy danych
 
@@ -33,7 +33,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > - `WebGrid` Pomocnika.
 > - SQL `Delete` polecenia.
 > - `Database.Execute` Metodę, aby uruchomić SQL `Delete` polecenia.
-
 
 ## <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
@@ -86,7 +85,6 @@ Teraz możesz utworzyć stronę która będzie obiektem docelowym dla **Usuń** 
 > Gdy aplikacja umożliwia użytkownikom modyfikowania rekordu, masz użytkownik widzi rekordu do edytowania mimo to. Jednak może być kuszące, aby pominąć ten krok w przypadku usuwania rekordu. Nie jednak pominąć ten krok. (To również przydatne w przypadku użytkowników zobaczyć rekord i upewnij się, że są usuwane rekord, który one przeznaczone.)
 > 
 > W kolejnych zestawie samouczków pokazano, jak dodać funkcję logowania, dzięki czemu użytkownik będzie musiał zalogować się przed usunięciem rekordu.
-
 
 Utwórz stronę o nazwie *DeleteMovie.cshtml* i Zamień, co znajduje się w pliku następującym kodem:
 
