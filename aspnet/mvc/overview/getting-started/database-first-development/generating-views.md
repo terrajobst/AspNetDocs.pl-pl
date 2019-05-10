@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 7a56c0f9197a99427bcde6103ebc69d245e8ce63
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: e71e13e22d8a72e1699cfc70d4d93af603edba5b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066341"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121227"
 ---
 # <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Generowanie widoków dla platformy EF Database First w aplikacji ASP.NET MVC
 
@@ -51,7 +51,6 @@ Kliknij przycisk **Dodaj**.
 Jeśli otrzymasz komunikat o błędzie, może to być, ponieważ nie skompilowano projekt w poprzedniej sekcji. Jeśli tak, spróbuj skompilować projekt, a następnie ponownie Dodaj element szkieletowy.
 
 Po zakończeniu procedury generowania kodu zobaczysz nowy kontroler i widoków w swoim projekcie **kontrolerów** i **widoków** > **studentów** folderów .
-
 
 Ponownie wykonaj te same czynności, ale Dodaj szkielet dla **rejestracji** klasy. Po zakończeniu będziesz mieć **EnrollmentsController.cs** plików i folderów w obszarze **widoków** o nazwie **rejestracje** z widokami Create, Delete, szczegółowe informacje, edycji i indeksu.
 

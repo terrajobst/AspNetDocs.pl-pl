@@ -8,12 +8,12 @@ ms.date: 07/18/2007
 ms.assetid: 615f3361-f21f-4338-8bc1-fce8ae071de9
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1e1751c6969f1a278ee438c3bee6171644aacdbf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 931a918d51c1accec1757a9370c8e611a9a038ec
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406187"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124428"
 ---
 # <a name="adding-additional-datatable-columns-c"></a>Dodawanie dodatkowych kolumn tabeli DataTable (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_70_CS.zip) lub [Pobierz plik PDF](adding-additional-datatable-columns-cs/_static/datatutorial70cs1.pdf)
 
 > Podczas korzystania z Kreatora TableAdapter, aby utworzyć zestaw danych z kontrolą typów, odpowiedniego elementu DataTable zawiera kolumny zwracane przez zapytanie głównej bazy danych. Jednak istnieją sytuacje, gdy DataTable musi zawierać dodatkowe kolumny. W tym samouczku dowie się, dlaczego procedury składowane są zalecane, jeśli zaistnieje taka potrzeba dodatkowych kolumn tabeli DataTable.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -48,19 +47,15 @@ W tym samouczku umożliwiają s Dodaj metodę, która `ProductsTableAdapter` o n
 
 Otwórz `NorthwindWithSprocs` zestawu danych i kliknij prawym przyciskiem myszy `ProductsDataTable`. Z menu kontekstowego wybierz polecenie Dodaj, a następnie wybierz kolumnę.
 
-
 [![Dodaj nową kolumnę do ProductsDataTable](adding-additional-datatable-columns-cs/_static/image2.png)](adding-additional-datatable-columns-cs/_static/image1.png)
 
 **Rysunek 1**: Dodaj nową kolumnę, aby `ProductsDataTable` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image3.png))
 
-
 Spowoduje to dodanie nowej kolumny do DataTable o nazwie Kolumna1 typu `System.String`. Należy zaktualizować nazwę tej kolumny s PriceQuartile i jej typ `System.Int32` ponieważ będą używane do przechowywania liczbą z przedziału od 1 do 4. Wybierz kolumnę nowo dodane w `ProductsDataTable` i w oknie właściwości ustaw `Name` właściwości PriceQuartile i `DataType` właściwość `System.Int32`.
-
 
 [![Ustaw nową nazwę s kolumny i właściwości typu danych](adding-additional-datatable-columns-cs/_static/image5.png)](adding-additional-datatable-columns-cs/_static/image4.png)
 
 **Rysunek 2**: Ustaw s nową kolumnę `Name` i `DataType` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image6.png))
-
 
 Jak pokazano na rysunku 2, istnieją dodatkowe właściwości, które można ustawić, takie jak czy muszą być unikatowe, jeśli kolumna jest kolumną automatycznego przyrostu wartości w kolumnie, czy baza danych `NULL` wartości są dozwolone i tak dalej. Należy pozostawić te wartości ustawione na ich wartości domyślne.
 
@@ -68,22 +63,17 @@ Jak pokazano na rysunku 2, istnieją dodatkowe właściwości, które można ust
 
 Teraz, gdy `ProductsDataTable` został zaktualizowany w celu uwzględnienia `PriceQuartile` kolumny, możemy przystąpić do tworzenia `GetProductsWithPriceQuartile` metody. Rozpocznij, klikając prawym przyciskiem myszy na obiekt TableAdapter i wybierając pozycję Dodaj zapytanie, z menu kontekstowego. Otwarte Kreatora konfiguracji zapytania TableAdapter najpierw żąda nam do tego, czy chcemy użyć instrukcji SQL zapytań ad-hoc lub nowej lub istniejącej procedury składowanej. Ponieważ firma Microsoft don t jeszcze mają procedury przechowywanej, która zwraca dane kwartyl ceny, umożliwiają s Zezwalaj TableAdapter utworzyć tę procedurę składowaną dla nas. Wybierz opcję tworzenia nowej procedury składowanej, a następnie kliknij przycisk Dalej.
 
-
 [![Poinstruuj kreatora TableAdapter, aby utworzyć procedurę składowaną dla nas](adding-additional-datatable-columns-cs/_static/image8.png)](adding-additional-datatable-columns-cs/_static/image7.png)
 
 **Rysunek 3**: Poinstruuj kreatora TableAdapter w celu utworzenia przechowywane procedury dla nas ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image9.png))
 
-
 Kolejne na ekranie pokazano na rysunku 4 Kreator zapyta, nam jakiego typu zapytania do dodania. Ponieważ `GetProductsWithPriceQuartile` metoda zwróci wszystkie kolumny i rekordy z `Products` tabeli, wybierz pozycję, która zwraca wiersze opcji, a następnie kliknij przycisk Dalej.
-
 
 [![Zapytanie będzie instrukcję SELECT tego zwraca wiele wierszy](adding-additional-datatable-columns-cs/_static/image11.png)](adding-additional-datatable-columns-cs/_static/image10.png)
 
 **Rysunek 4**: Nasze zapytania będą `SELECT` instrukcji tego zwraca wiele wierszy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image12.png))
 
-
 Następnie możemy monit o podanie `SELECT` zapytania. W kreatorze, wprowadź następujące zapytanie:
-
 
 [!code-sql[Main](adding-additional-datatable-columns-cs/samples/sample1.sql)]
 
@@ -94,41 +84,32 @@ Niestety, Konstruktor kwerend nie wie jak przeanalizować `OVER` — słowo kluc
 > [!NOTE]
 > Więcej informacji na temat s NTILE i SQL Server 2005 innych funkcji klasyfikacji, zobacz [zwracanie wyników randze spośród wszystkich dokumentów przy użyciu programu Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) i [sekcji funkcji Klasyfikacja](https://msdn.microsoft.com/library/ms189798.aspx) z [SQL Server 2005 — książki Online](https://msdn.microsoft.com/library/ms189798.aspx).
 
-
 Po wprowadzeniu `SELECT` zapytań i kliknięciu przycisku Dalej, Kreator zapyta nam podać nazwę dla procedury składowanej, zostanie utworzony. Nadaj nazwę nowej procedury składowanej `Products_SelectWithPriceQuartile` i kliknij przycisk Dalej.
-
 
 [![Nazwa Products_SelectWithPriceQuartile procedury składowanej](adding-additional-datatable-columns-cs/_static/image14.png)](adding-additional-datatable-columns-cs/_static/image13.png)
 
 **Rysunek 5**: Nazwa procedury składowanej `Products_SelectWithPriceQuartile` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image15.png))
 
-
 Ponadto firma Microsoft jest monit o podanie nazwy metody TableAdapter. Pozostaw zarówno wypełnienia DataTable i zwraca DataTable pól wyboru zaznaczone i nazwę metody `FillWithPriceQuartile` i `GetProductsWithPriceQuartile`.
-
 
 [![Nazwa TableAdapter s metody i kliknij przycisk Zakończ](adding-additional-datatable-columns-cs/_static/image17.png)](adding-additional-datatable-columns-cs/_static/image16.png)
 
 **Rysunek 6**: Nazwa metody s TableAdapter, a następnie kliknij przycisk Zakończ ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image18.png))
 
-
 Za pomocą `SELECT` określone zapytanie i procedur składowanych i metody TableAdapter, nosi nazwę, kliknij przycisk Zakończ, aby zakończyć pracę kreatora. W tym momencie możesz otrzymać ostrzeżenie lub dwóch od kreatora informacją, że `OVER` instrukcji lub konstrukcji SQL nie jest obsługiwane. Można zignorować te ostrzeżenia.
 
 Po ukończeniu kreatora, powinien zawierać TableAdapter `FillWithPriceQuartile` i `GetProductsWithPriceQuartile` metod i baza danych powinna zawierać procedury składowanej o nazwie `Products_SelectWithPriceQuartile`. Poświęć chwilę, aby sprawdzić, że TableAdapter w rzeczywistości zawiera ta nowa metoda i czy procedura składowana została poprawnie dodane do bazy danych. Podczas sprawdzania bazy danych, jeśli nie widzisz procedury składowanej spróbuj kliknij prawym przyciskiem myszy folder procedur składowanych i wybieranie pozycji Odśwież.
-
 
 ![Sprawdź, czy nowa metoda został dodany do elementu TableAdapter](adding-additional-datatable-columns-cs/_static/image19.png)
 
 **Rysunek 7**: Sprawdź, czy nowa metoda został dodany do elementu TableAdapter
 
-
 [![Upewnij się, że baza danych zawiera Products_SelectWithPriceQuartile procedury składowanej](adding-additional-datatable-columns-cs/_static/image21.png)](adding-additional-datatable-columns-cs/_static/image20.png)
 
 **Rysunek 8**: Upewnij się, że baza danych zawiera `Products_SelectWithPriceQuartile` Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image22.png))
 
-
 > [!NOTE]
 > Jest jedną z zalet przy użyciu procedur składowanych zamiast instrukcji SQL zapytań ad-hoc, że ponowne uruchomienie Kreatora konfiguracji TableAdapter nie zmodyfikuje listę kolumn procedur składowanych. To sprawdzić przez kliknięcie prawym przyciskiem myszy na obiekt TableAdapter, wybranie opcji konfiguracji z menu kontekstowego, aby uruchomić kreatora, a następnie klikając Zakończ, aby go ukończyć. Następnie przejdź do bazy danych i widok `Products_SelectWithPriceQuartile` procedury składowanej. Należy pamiętać, że jego lista kolumn nie zostały zmodyfikowane. Miał zostały używamy instrukcji SQL zapytań ad-hoc, ponownego uruchamiania Kreatora konfiguracji TableAdapter będzie mieć przywrócono tej listy kolumny zapytania s odpowiada liście kolumn główne zapytanie, usuwając instrukcji NTILE z zapytania używanego przez `GetProductsWithPriceQuartile` metody.
-
 
 Gdy s warstwy dostępu do danych `GetProductsWithPriceQuartile` metoda jest wywoływana, wykonuje TableAdapter `Products_SelectWithPriceQuartile` procedury składowanej i dodaje wiersz, aby `ProductsDataTable` dla każdego zwrócił rekordu. Pola danych zwracane przez procedurę składowaną są mapowane do `ProductsDataTable` s kolumn. Ponieważ `PriceQuartile` pola danych zwracane z procedury składowanej, jego wartość jest przypisywana do `ProductsDataTable` s `PriceQuartile` kolumny.
 
@@ -140,7 +121,6 @@ Na tym etapie firma Microsoft wykonano czynności niezbędne do dodawania dodatk
 
 Zanim użyjemy nowy `GetProductsWithPriceQuartile` metody z warstwy prezentacji, należy najpierw dodamy odpowiedniej metody do LOGIKI. Otwórz `ProductsBLLWithSprocs` klasy plików i Dodaj następujący kod:
 
-
 [!code-csharp[Main](adding-additional-datatable-columns-cs/samples/sample2.cs)]
 
 Inne pobierania danych, metody, takie jak `ProductsBLLWithSprocs`, `GetProductsWithPriceQuartile` metoda po prostu wywołuje warstwę DAL odpowiadającego s `GetProductsWithPriceQuartile` metodę i zwraca wyniki.
@@ -149,16 +129,13 @@ Inne pobierania danych, metody, takie jak `ProductsBLLWithSprocs`, `GetProductsW
 
 Dodając LOGIKI ukończyć możemy ponownie gotowe do tworzenia strony ASP.NET, która pokazuje kwartyl cena dla każdego produktu. Otwórz `AddingColumns.aspx` strony w `AdvancedDAL` folder i przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` właściwość `Products`. Za pomocą tagu inteligentnego s GridView powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLLWithSprocs` klasy s `GetProductsWithPriceQuartile` metody. Ponieważ są to siatki tylko do odczytu zestawu list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
 
-
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](adding-additional-datatable-columns-cs/_static/image24.png)](adding-additional-datatable-columns-cs/_static/image23.png)
 
 **Rysunek 9**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image25.png))
 
-
 [![Pobieranie informacji o produkcie z metody GetProductsWithPriceQuartile](adding-additional-datatable-columns-cs/_static/image27.png)](adding-additional-datatable-columns-cs/_static/image26.png)
 
 **Na rysunku nr 10**: Pobieranie informacji o produkcie z `GetProductsWithPriceQuartile` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image28.png))
-
 
 Po zakończeniu pracy kreatora Konfigurowanie źródła danych, program Visual Studio automatycznie doda elementu BoundField lub CheckBoxField do kontrolki GridView dla każdego pola danych zwracany przez metodę. Jedno z tych pól danych jest `PriceQuartile`, czyli kolumny, dodaliśmy do `ProductsDataTable` w kroku 1.
 
@@ -166,25 +143,20 @@ Edytuj pola s GridView, usuwając wszystkie elementy oprócz `ProductName`, `Uni
 
 Po tych zmian kontrolkami GridView i kontrolki ObjectDataSource s oznaczeniu deklaracyjnym powinien wyglądać następująco:
 
-
 [!code-aspx[Main](adding-additional-datatable-columns-cs/samples/sample3.aspx)]
 
 Na ilustracji 11 pokazano tej strony po odwiedzeniu za pośrednictwem przeglądarki. Należy pamiętać, że początkowo produkty są uporządkowane według ich ceny w kolejności malejącej w poszczególnych produktach przypisaną odpowiednią `PriceQuartile` wartość. Oczywiście te dane można sortować według innych kryteriów z wartością kolumny kwartyl cena nadal odzwierciedlający klasyfikacji produktu s względem cen (zobacz rysunek 12).
-
 
 [![Produkty są uporządkowane według ich cen.](adding-additional-datatable-columns-cs/_static/image30.png)](adding-additional-datatable-columns-cs/_static/image29.png)
 
 **Rysunek 11**: Produkty są uporządkowane według ich ceny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image31.png))
 
-
 [![Produkty są uporządkowane według ich nazw](adding-additional-datatable-columns-cs/_static/image33.png)](adding-additional-datatable-columns-cs/_static/image32.png)
 
 **Rysunek 12**: Produkty są uporządkowane według ich nazw ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-additional-datatable-columns-cs/_static/image34.png))
 
-
 > [!NOTE]
 > Przy użyciu kilku wierszy kodu firma Microsoft może rozszerzyć widoku GridView tak, aby go pokolorowane wierszy produktów na podstawie ich `PriceQuartile` wartość. Firma Microsoft może kolor tych produktów w pierwszy kwartyl jasnozielony, w drugim kwartyl żółty światła i tak dalej. Zachęcam Cię do Poświęć chwilę, aby dodać tę funkcję. Jeśli potrzebujesz przypomnienia informacji na temat formatowania w kontrolce GridView, zapoznaj się z [niestandardowe formatowanie oparte na danych](../custom-formatting/custom-formatting-based-upon-data-cs.md) samouczka.
-
 
 ## <a name="an-alternative-approach---creating-another-tableadapter"></a>Alternatywnym podejściem — tworzenie innego TableAdapter
 

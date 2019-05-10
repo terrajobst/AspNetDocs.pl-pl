@@ -8,12 +8,12 @@ ms.date: 07/27/2010
 ms.assetid: adea836d-dbc2-4005-94ea-53aef09e9e34
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: ff12bc43ad68fdc4bbcd478624f47ea0d2774c2d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d9a0dba381b71755ac626f76d52bc5bcb434447
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399310"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125639"
 ---
 # <a name="implement-efficient-data-paging"></a>Implementowanie wydajnego stronicowania danych
 
@@ -26,7 +26,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 > Krok 8 pokazuje, jak dodać obsługę stronicowania do adresu URL /Dinners, tak aby zamiast 1000s kolacji jednocześnie, firma Microsoft będzie wyświetlić tylko 10 kolejnych kolacji naraz — oraz umożliwia użytkownikom końcowym na stronie Wstecz i przekazywać je za pośrednictwem całą listę, w sposób przyjazna optymalizacji dla aparatów wyszukiwania.
 > 
 > Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
-
 
 ## <a name="nerddinner-step-8-paging-support"></a>NerdDinner krok 8: Obsługa stronicowania
 

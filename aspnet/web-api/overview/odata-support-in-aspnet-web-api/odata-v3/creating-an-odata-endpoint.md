@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: fa0573738fee8f1decc13c9797f644002931e09d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e31bf3215155b4b45bcf2eb90dd6947caf99b7f8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381500"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125266"
 ---
 # <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Tworzenie punktu końcowego OData v3 z interfejsu Web API 2
 
@@ -35,7 +35,6 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 > - [Debugowanie serwera Proxy (opcjonalnie) w sieci Web programu fiddler](http://www.fiddler2.com)
 >
 > Obsługa protokołu OData interfejsu API sieci Web został dodany w [platformy ASP.NET i Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=282650). Jednak ten samouczek używa tworzenia szkieletu, który został dodany w programie Visual Studio 2013.
-
 
 W tym samouczku utworzysz prosty punkt końcowy OData, które klienci mogą wysyłać zapytania. Ponadto utworzysz klienta języka C# dla punktu końcowego. Po ukończeniu tego samouczka kolejny zbiór samouczki pokazują, jak dodać więcej funkcji, w tym relacji jednostek, akcje i wybierz Rozwiń $/ $.
 
@@ -77,7 +76,6 @@ W **Dodaj nowe** elementu okno dialogowe, określ nazwę klasy &quot;produktu&qu
 
 > [!NOTE]
 > Zgodnie z Konwencją klasy modelu są umieszczane w folderze modeli. Nie musisz przestrzegać tej Konwencji we własnych projektach, ale będziemy z niego korzystać na potrzeby tego samouczka.
-
 
 W pliku Product.cs Dodaj następującą definicję klasy:
 

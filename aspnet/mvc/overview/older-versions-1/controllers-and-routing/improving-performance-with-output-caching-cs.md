@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd5b96d0365c55cbbfa2dfe0856beda41f915e1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 548c5bea2e9cf26e0574e72d2c0ea204dbd90f9c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384769"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123385"
 ---
 # <a name="improving-performance-with-output-caching-c"></a>Poprawa wydajności dzięki buforowaniu danych wyjściowych (C#)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym samouczku dowiesz się, jak można znacznie zwiększyć wydajność aplikacji sieci web platformy ASP.NET MVC, korzystając z buforowania danych wyjściowych. Dowiesz się, jak wyniki zwrócone z akcji kontrolera, tak aby taką samą zawartość nie muszą zostać utworzone czasu każdy nowy użytkownik wywołuje akcję w pamięci podręcznej.
-
 
 Celem tego samouczka jest wyjaśniają, jak można znacznie zwiększyć wydajność aplikacji ASP.NET MVC, wykorzystując wyjściowej pamięci podręcznej. Wyjściowej pamięci podręcznej umożliwia buforowanie zawartości zwróconej przez akcję kontrolera. W ten sposób tej samej zawartości nie trzeba wygenerować każdym razem, gdy jest wywoływana w tej samej akcji kontrolera.
 
@@ -78,7 +77,6 @@ Można ustawić właściwość lokalizacji do jednej z następujących wartości
 > 
 > · ServerAndClient
 
-
 Domyślnie właściwość Location określono wartość Any. Istnieją jednak sytuacje, w których możesz chcieć pamięci podręcznej tylko w przeglądarce lub tylko na serwerze. Na przykład jeśli są buforowania informacje, które jest spersonalizowane dla każdego użytkownika, następnie można powinna nie buforowanie tych informacji na serwerze. W przypadku wyświetlania różnych informacji do różnych użytkowników powinny pamięci podręcznej informacje tylko na komputerze klienckim.
 
 Na przykład kontroler w ofercie 3 udostępnia akcję o nazwie GetName(), która zwraca bieżącą nazwę użytkownika. Jeśli wtyczka loguje się do witryny sieci Web i wywołuje akcję GetName() następnie akcji zwraca ciąg "Hi Jack". Jeśli później, Jill loguje się do witryny sieci Web i wywołuje akcję GetName() następnie ona również otrzyma ciąg "Hi Jack". Ten ciąg jest buforowana na serwerze sieci web dla wszystkich użytkowników po Jack początkowo wywołuje akcję kontrolera.
@@ -134,7 +132,6 @@ Właściwość VaryByParam można ustawić następujące wartości:
 > Brak = Nigdy tworzyć różne wersje pamięci podręcznej
 > 
 > Średnikami listę parametrów = tworzenie różnych wersji pamięci podręcznej w każdym przypadku, gdy zmienia się dowolny z parametrów ciągu formularza lub kwerendy, na liście
-
 
 ## <a name="creating-a-cache-profile"></a>Tworzenie profilu pamięci podręcznej
 

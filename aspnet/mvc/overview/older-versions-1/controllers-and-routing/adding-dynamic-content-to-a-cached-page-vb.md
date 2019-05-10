@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: 68acd884-fb57-4486-a1be-aaa93e380780
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0dae280dfa3028df5fda95c4366132c99a0dc3b7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f2f4372498e5a38bbfcb96d6e9f6338b0ef4df1f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409203"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123669"
 ---
 # <a name="adding-dynamic-content-to-a-cached-page-vb"></a>Dodawanie zawartości dynamicznej do buforowanej strony (VB)
 
@@ -21,16 +21,13 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak łączyć zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak Anonse transparentu lub elementy wiadomości, w ramach strony została wyjściowych w pamięci podręcznej.
 
-
 Korzystając z buforowania danych wyjściowych, można znacznie zwiększyć wydajność aplikacji ASP.NET MVC. Zamiast ponownego generowania strony razem każdym żądaniu strony, strony można generowane raz i są przechowywane w pamięci dla wielu użytkowników.
 
 Występuje problem. Co zrobić, jeśli należy wyświetlić zawartość dynamiczna na tej stronie? Załóżmy na przykład, chcesz wyświetlić anonsu banerze na stronie. Nie chcesz, aby anonsu transparent buforowane, dzięki czemu każdy użytkownik będzie widział tej samej anonsu. W takich sytuacjach przydałaby upewnij pieniędzy w ten sposób.
 
 Na szczęście jest prostemu rozwiązaniu. Możesz korzystać z zalet funkcji struktury programu ASP.NET o nazwie *po utworzeniu pamięci podręcznej podstawienia*. Podstawianie po pamięci podręcznej umożliwia Zastąp zawartość dynamiczna, na stronie, która ma w pamięci podręcznej.
 
-
 Zwykle podczas wyprowadzania pamięci podręcznej strony za pomocą &lt;OutputCache&gt; atrybutu, strona jest buforowana na serwera i klienta (przeglądarki sieci web). Gdy używasz podstawienia po pamięci podręcznej, jest ona buforowana tylko na serwerze.
-
 
 #### <a name="using-post-cache-substitution"></a>Using Post-Cache Substitution
 

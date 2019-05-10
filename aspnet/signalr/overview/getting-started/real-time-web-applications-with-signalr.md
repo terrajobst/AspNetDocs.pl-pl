@@ -8,15 +8,14 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 9904582450d4386ef8b8656078f6d40dbd1e10be
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9e39fd3f2fc9d4e791002450085215096c222fcd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412011"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120001"
 ---
 # <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR
-
 
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
@@ -66,7 +65,6 @@ Aby można było uruchomić ćwiczeń opisanych w tym praktyczne laboratorium, n
 > [!NOTE]
 > Upewnij się, że wszystkie zależności w tym środowisku laboratoryjnym sprawdzeniu przed uruchomieniem Instalatora.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Za pomocą fragmentów kodu
 
@@ -74,7 +72,6 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 
 > [!NOTE]
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
-
 
 ---
 
@@ -90,7 +87,6 @@ Szacowany czas do ukończenia tego laboratorium: **60 minut**
 
 > [!NOTE]
 > Przy pierwszym uruchomieniu programu Visual Studio, należy wybrać jedną z kolekcji wstępnie zdefiniowanych ustawień. Każda kolekcja wstępnie zdefiniowanych służy do dopasowywania style rozwoju i określa układy okna, zachowanie edytora, fragmenty kodu IntelliSense i opcje w oknach dialogowych. Procedury przedstawione w tym środowisku laboratoryjnym opisano czynności niezbędnych do wykonywania danego zadania w programie Visual Studio, korzystając z **ogólnych ustawieniach projektowych** kolekcji. Jeśli wybierzesz kolekcji różne ustawienia dla swojego środowiska programowania, może być różnice w krokach, które należy wziąć pod uwagę.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-working-with-real-time-data-using-signalr"></a>Ćwiczenie 1: Praca z danymi w czasie rzeczywistym przy użyciu biblioteki SignalR
@@ -274,7 +270,6 @@ Aby uzyskać więcej informacji na temat sposobu płyty montażowej SignalR dzia
 > - [Emisja serwera](tutorial-server-broadcast-with-signalr.md) (np. giełdowej): Montażowych działa dobrze sprawdza się w tym scenariuszu, ponieważ serwer kontroluje szybkość, z jaką komunikaty są wysyłane.
 > - [Klient — klient](tutorial-getting-started-with-signalr.md) (np. chat): W tym scenariuszu systemu backplane może być "wąskie gardło", jeśli liczba komunikatów jest skalowana o liczbie klientów. oznacza to jeśli liczba komunikatów rośnie dołączyć proporcjonalnie, ponieważ coraz więcej klientów.
 > - [O wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) (np. w czasie rzeczywistym gry): W tym scenariuszu nie zaleca się systemu backplane.
-
 
 W tym ćwiczeniu zostanie użyty **programu SQL Server** do dystrybucji wiadomości między **Quiz maniaków komputerowych** aplikacji. Te zadania będą uruchamiane na maszynie jeden test dowiesz się, jak ustawić konfigurację, ale w celu uzyskania pełnego wpływu, konieczne będzie wdrożenie aplikacji SignalR do co najmniej dwóch serwerów. SQL Server należy również zainstalować na jednym serwerze lub na oddzielnym serwerze dedykowanym.
 

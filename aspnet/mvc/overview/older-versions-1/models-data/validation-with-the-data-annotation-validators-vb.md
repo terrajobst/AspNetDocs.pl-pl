@@ -8,12 +8,12 @@ ms.date: 05/29/2009
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6893d1f2445452b1d802b89027b09d8294bdc5b7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00150575baabc659f7dd0c07349cde52105f6c8b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117573"
 ---
 # <a name="validation-with-the-data-annotation-validators-vb"></a>Walidacja przy użyciu modułów walidacji adnotacji danych (VB)
 
@@ -21,14 +21,11 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > Korzystaj z integratora modelu adnotacji danych do wykonywania sprawdzania poprawności w aplikacji ASP.NET MVC. Dowiedz się, jak używać różnych typów atrybutów modułu sprawdzania poprawności i pracować z nimi w programie Microsoft Entity Framework.
 
-
 W tym samouczku dowiesz się, jak używać modułów weryfikacji adnotacji danych do przeprowadzania weryfikacji w aplikacji ASP.NET MVC. Zaletą używania modułów weryfikacji adnotacji danych jest, czy umożliwiają one do wykonywania sprawdzania poprawności, po prostu dodając jeden lub więcej atrybutów — na przykład wymagane lub atrybut StringLength — do właściwości klasy.
 
 Zanim będzie można użyć modułów weryfikacji adnotacji danych, należy pobrać integratora modelu adnotacji danych. Próbka integratora modelu adnotacji danych można pobrać z witryny CodePlex, po kliknięciu [tutaj](http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=24471).
 
-
 Jest ważne dowiedzieć się, że integratora modelu adnotacji danych nie jest oficjalną częścią platformę Microsoft ASP.NET MVC. Mimo że integratora modelu adnotacji danych został utworzony przez zespół programu Microsoft ASP.NET MVC, Microsoft nie oferuje oficjalne pomocy technicznej dla integratora modelu adnotacji danych opisano i używanych w tym samouczku.
-
 
 ## <a name="using-the-data-annotation-model-binder"></a>Za pomocą integratora modelu adnotacji danych
 
@@ -40,9 +37,7 @@ Aby użyć integratora modelu adnotacji danych w aplikacji ASP.NET MVC, należy 
 
 Wybierz zestaw Microsoft.Web.Mvc.DataAnnotations.dll i zestawu System.ComponentModel.DataAnnotations.dll, a następnie kliknij przycisk **OK** przycisku.
 
-
 Nie można użyć zestawu System.ComponentModel.DataAnnotations.dll dołączone do programu .NET Framework z dodatkiem Service Pack 1 za pomocą integratora modelu adnotacji danych. Należy użyć wersji zestawu System.ComponentModel.DataAnnotations.dll dołączone do pobierania próbki integratora modelu adnotacji danych.
-
 
 Na koniec należy zarejestrować DataAnnotations integratora modelu w pliku Global.asax. Dodaj następujący wiersz kodu do aplikacji\_Start() obsługi zdarzeń, aby aplikacja\_metody Start() wygląda następująco:
 
@@ -64,7 +59,6 @@ Gdy używasz integratora modelu adnotacji danych, używasz modułu sprawdzania p
 > 
 > Jeśli Twoje potrzeby sprawdzania poprawności nie są spełnione przez żaden standardowych modułów weryfikacji następnie zawsze istnieje możliwość tworzenia atrybutu niestandardowego modułu weryfikacji przez dziedziczenie nowy atrybut weryfikacji z atrybutu podstawowego sprawdzania poprawności.
 
-
 Klasa produktu w **ofercie 1** ilustruje sposób użycia tych atrybutów modułu sprawdzania poprawności. Nazwa, opis i cena jednostkowa właściwości są oznaczone jako wymagane. Nazwa właściwości musi mieć długość ciągu, która jest mniejsza niż 10 znaków. Na koniec właściwość UnitPrice musi być zgodna z wzorcem wyrażenia regularnego, który reprezentuje kwotę w walucie.
 
 [!code-vb[Main](validation-with-the-data-annotation-validators-vb/samples/sample2.vb)]
@@ -76,7 +70,6 @@ Klasa produktu ilustruje sposób użycia jednego dodatkowego atrybutu: atrybut D
 > [!NOTE] 
 > 
 > Aby dostosować komunikat o błędzie wyświetlany przez moduł weryfikacji niestandardowy komunikat o błędzie można przypisać do właściwości komunikat o błędzie weryfikacji następująco: `<Required(ErrorMessage:="This field needs a value!")>`
-
 
 Można użyć klasy produktu w **ofercie 1** za pomocą akcji kontrolera Create() w **ofercie 2**. Ta akcja kontrolera zostanie ponownie Utwórz widok podczas stanu modelu zawiera błędy.
 
@@ -97,7 +90,6 @@ Na koniec możesz utworzyć widok w **ofercie 3** , kliknij prawym przyciskiem m
 > [!NOTE] 
 > 
 > Usuń pole identyfikatora formularza tworzenia generowane przez **Dodaj widok** opcji menu. Ponieważ pole identyfikatora odnosi się do kolumny tożsamości, nie chcesz zezwalać użytkownikom na wprowadzanie wartości dla tego pola.
-
 
 Jeśli prześlesz formularz dla tworzenia produktu i nie należy wprowadzać wartości dla wymaganych pól, a następnie komunikaty o błędach weryfikacji w **rysunek 3** są wyświetlane.
 
@@ -138,7 +130,6 @@ Atrybuty modułu sprawdzania poprawności są stosowane do właściwości klasy 
 > [!NOTE] 
 > 
 > Należy zauważyć, że właściwości serwera proxy w klasie MovieMetaData nie ma potrzeby reprezentują te same typy jako odpowiednie właściwości w klasie filmu. Na przykład właściwość Dyrektor jest właściwością ciągu w klasie film i właściwości obiektu w klasie MovieMetaData.
-
 
 Na stronie **rysunek 6** ilustruje komunikatów o błędach zwracanych podczas wprowadzania nieprawidłowe wartości dla właściwości filmu.
 

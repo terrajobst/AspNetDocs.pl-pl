@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0fb0a331a2a6e2af5c5097db8b57942525d24ffc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 25767303e3a8a3bfd9fc6c7c10cda32d73e9994d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118863"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
-
 
 Dwa pierwsze zaleca wzorce procesu programowania zostały [Automatyzowanie wszystkiego](automate-everything.md) i [kontroli źródła](source-control.md), i łączy je w trzecim wzorzec procesu. Ciągłą integrację (CI) oznacza, że zawsze wtedy, gdy programista zaewidencjonuje kodu do repozytorium źródłowego, kompilacja zostaje automatycznie wyzwolona. Ciągłe dostarczanie (CD) zajmuje to jeden krok dalej: po pomyślnej kompilacji i automatyczne testy jednostkowe, automatyczne wdrażanie aplikacji w środowisku, w których wykonują bardziej szczegółowe testowanie.
 
@@ -50,7 +49,6 @@ Usługom DevOps platformy Azure oferuje pewną liczbę funkcji, które ułatwiaj
 - Obsługuje testy obciążeniowe automatycznych. Testowanie obciążenia mają kluczowe znaczenie dla aplikacji w chmurze, ale często jest zaniedbania, dopóki nie jest za późno. Testowanie obciążeniowe symuluje intensywnie korzysta z aplikacji przez tysiące użytkowników, dzięki któremu można znaleźć wąskie gardła i poprawianie przepływności — przed publikacją aplikacji do środowiska produkcyjnego.
 - Obsługuje ona współpraca pokoju zespołu, który umożliwia współpracę w czasie rzeczywistym komunikacji i współpracy dla małych zespołów agile.
 - Obsługuje ona elastyczne zarządzanie projektami.
-
 
 Aby uzyskać więcej informacji na temat ciągłą integrację i ciągłe dostarczanie funkcji usługom DevOps platformy Azure, zobacz [dokumentacji usługi Azure DevOps](/azure/devops/index).
 

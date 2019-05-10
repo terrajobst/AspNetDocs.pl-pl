@@ -8,12 +8,12 @@ ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: d5c8262d48c79616ca3069c37077ba99ffafb650
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 6523d09e41fe10475d1bcb7fca06b2e0e2d3182c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58426054"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118203"
 ---
 # <a name="owin-oauth-20-authorization-server"></a>Serwer autoryzacji OAuth 2.0 interfejsu OWIN
 
@@ -34,7 +34,6 @@ ms.locfileid: "58426054"
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 >
 > Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je pod [projektu Katana w usłudze GitHub](https://github.com/aspnet/AspNetKatana/). Pytania i komentarze dotyczące tego samouczka, sama sekcja komentarze w dolnej części strony.
-
 
 [Framework OAuth 2.0](http://tools.ietf.org/html/rfc6749) umożliwia aplikacji innych firm uzyskać ograniczony dostęp do usługi HTTP. Zamiast używania poświadczenia właściciela zasobu, aby uzyskać dostęp do chronionego zasobu, klient uzyskuje token dostępu (czyli ciąg oznaczający określonego zakresu, okres istnienia i inne atrybuty dostępu). Tokeny dostępu są wydawane klienci firm przez serwer autoryzacji z zatwierdzeniem właściciela zasobów.
 
@@ -175,7 +174,6 @@ Poniżej przedstawiono przykładowe zastosowanie dla `Provider.GrantResourceOwne
 > [!NOTE]
 > Powyższy kod jest przeznaczony do wyjaśnienia tej części samouczka i nie należy używać w bezpiecznym lub aplikacje produkcyjne. Nie sprawdza poświadczenia właścicieli zasobu. Zakłada się, co poświadczeń jest prawidłowy i tworzy nową tożsamość. Nową tożsamość będzie służyć do generowania tokenu dostępu i token odświeżania. Zamień kod na Twój własny kod do zarządzania bezpiecznym kontem.
 
-
 ### <a name="client-credentials-grant"></a>Przydział poświadczeń klienta
 
 Zobacz organizację IETF protokołu OAuth 2 [przyznanie poświadczenia klienta](http://tools.ietf.org/html/rfc6749#section-4.4) sekcji teraz.
@@ -195,7 +193,6 @@ Poniżej przedstawiono przykładowe zastosowanie dla `Provider.GrantClientCreden
 
 > [!NOTE]
 > Powyższy kod jest przeznaczony do wyjaśnienia tej części samouczka i nie należy używać w bezpiecznym lub aplikacje produkcyjne. Zamień kod na własnych bezpiecznego zarządzania kod klienta.
-
 
 ### <a name="refresh-token"></a>Token odświeżania
 
@@ -274,7 +271,6 @@ Poniżej przedstawiono przykładowy kod z `HomeController` klienta.
 > [!WARNING]
 > Zabezpieczenia — nigdy nie wyłączenie protokołu SSL w aplikacji produkcyjnej. Poświadczenia logowania są teraz wysyłane w postaci zwykłego tekstu w sieci. Powyższy kod jest tylko przykładowe lokalne debugowanie i eksploracji.
 
-
 ### <a name="implicit-grant-client"></a>Niejawne przyznanie klienta
 
 Ten klient używa języka JavaScript, aby:
@@ -296,7 +292,6 @@ W tym miejscu to wywołanie zwrotne, Obsługa kodu w *SignIn.cshtml* pliku:
 
 > [!NOTE]
 > Najlepszym rozwiązaniem jest Przenieś kod JavaScript do pliku zewnętrznego i osadzaj je ze znacznikami Razor. W celu uproszczenia w tym przykładzie zostały one połączone.
-
 
 ### <a name="resource-owner-password-credentials-grant-client"></a>Hasło właściciela zasobu poświadczeń klienta przydział
 

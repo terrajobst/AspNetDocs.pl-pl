@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34fce0bef5163ba0423ea00cf4b7507947c45c68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7c8eb3d3688674dd2c220b4bd1b5982f2610d0eb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398075"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123844"
 ---
 # <a name="iteration-7--add-ajax-functionality-c"></a>Iteracja #7 — dodawanie funkcji Ajax (C#)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz program Code](iteration-7-add-ajax-functionality-cs/_static/contactmanager_7_cs1.zip)
 
 > W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (C#)
 
@@ -92,11 +91,9 @@ Dodaj następujący kod JavaScript obejmuje wewnątrz &lt;head&gt; tag strony wz
 
 Pozwól s start modyfikując naszych widoku indeksu, tak, że kliknięcie skontaktuj się z grupy aktualizuje tylko regionu widoku, który wyświetla kontaktów. Czerwone pola na rysunku 1 zawiera region, który chcesz zaktualizować.
 
-
 [![Aktualizowanie tylko kontakty](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
 
 **Rysunek 01**: Aktualizowanie tylko kontakty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-7-add-ajax-functionality-cs/_static/image2.png))
-
 
 Pierwszym krokiem jest, aby oddzielić część widok, który chcesz zaktualizować asynchronicznie w oddzielnym częściowe (kontrolka użytkownika widoku). Części widoku indeksu, która jest wyświetlana tabela kontaktów została przeniesiona do częściowego w ofercie 1.
 
@@ -132,9 +129,7 @@ Należy zauważyć, że akcja indeks() musi zwracać tak dużej ilości danych, 
 
 Nasze zmodyfikowany widok indeksu działa w przypadku zarówno wyższej, jak i niskiego poziomu. Jeśli kliknij grupę kontaktów i przeglądarka obsługuje język JavaScript, jest aktualizowany tylko regionu widok, który zawiera listy kontaktów. Jeśli z drugiej strony, przeglądarka nie obsługuje języka JavaScript, jest aktualizowana całego widoku.
 
-
 Nasze zaktualizowany widok indeksu ma jeden problem. Po kliknięciu skontaktuj się z grupy, nie zostanie on wyróżniony wybranej grupy. Ponieważ poza regionem, która jest aktualizowana podczas żądaniem Ajax zostanie wyświetlona lista grup, nie uzyskać wyróżnione odpowiedniej grupy. Naprawimy ten błąd w następnej sekcji.
-
 
 ## <a name="adding-jquery-animation-effects"></a>Dodawanie efektów animacji jQuery
 
@@ -192,11 +187,9 @@ Gdy użytkownik trafi w przeglądarce wstecz lub przycisk Prześlij dalej, navig
 
 Obecnie, aby możliwe było usunięcie kontakt, należy kliknąć łącze Usuń, a następnie kliknij przycisk Usuń, wyświetlany na stronie Potwierdzenie usuwania (patrz rysunek 2). Prawdopodobnie wiele żądań strony, aby zrobić coś prostego, takich jak usunięcie rekordu bazy danych.
 
-
 [![Strona potwierdzenia usunięcia](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
 
 **Rysunek 02**: Strona potwierdzenia usunięcia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-7-add-ajax-functionality-cs/_static/image4.png))
-
 
 Jest kuszące, aby pominąć strona potwierdzenia usunięcia i usuwanie kontaktu bezpośrednio z widoku indeksu. Ta możliwość przesłania należy unikać, ponieważ w ten sposób spowoduje otwarcie aplikacji luk w zabezpieczeniach. Ogólnie rzecz biorąc don t chcesz wykonać operację GET protokołu HTTP, podczas wywoływania akcji, która modyfikuje stan aplikacji sieci web. Podczas usuwania, należy wykonać metodę POST protokołu HTTP lub jeszcze lepiej operacją HTTP DELETE.
 
@@ -213,7 +206,6 @@ Jest kuszące, aby pominąć strona potwierdzenia usunięcia i usuwanie kontaktu
 > [!NOTE] 
 > 
 > Ajax.ImageActionLink() nie jest wchodzi w skład struktury ASP.NET MVC. Ajax.ImageActionLink() jest metod niestandardowego elementu pomocniczego, zawarty w projekcie Contact Manager.
-
 
 Parametr AjaxOptions ma dwie właściwości. Po pierwsze właściwość Potwierdź służy do wyświetlenia menu podręczne okno dialogowe potwierdzenia języka JavaScript. Po drugie HttpMethod jest używana do wykonywania operacji HTTP DELETE.
 

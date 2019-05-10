@@ -8,17 +8,16 @@ ms.date: 09/28/2011
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
-ms.openlocfilehash: bdd63889eacea1ef03686a65fc1144d16cd41353
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e4e4cce840d46ceceeb3ea77db91ad99d73ef483
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117590"
 ---
 # <a name="models-data"></a>Modele (dane)
 
 > W tej serii samouczków dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. W trakcie tego samouczka utworzysz aplikację internetową, która ilustruje sposób Wybierz, Wstaw, Aktualizuj i usunąć dane z bazy danych za pomocą programu Entity Framework.
-
 
 - [Tworzenie klas modelu za pomocą programu Entity Framework (C#)](creating-model-classes-with-the-entity-framework-cs.md)
 - [Tworzenie klas modelu za pomocą modelu LINQ to SQL (C#)](creating-model-classes-with-linq-to-sql-cs.md)

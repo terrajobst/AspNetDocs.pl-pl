@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 38aea3b3480dde6ec6182a45c4f61f44eea8e05e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 95e9b9f55b2080c0ed01dc34e3a32f9f1c905644
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380226"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117250"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 — podstawy
 
@@ -107,7 +107,6 @@ W tym laboratorium praktyczne składa się przez następujących czynnościach:
 
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
-
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**.
 
@@ -945,7 +944,6 @@ W tym ćwiczeniu zostanie Poznaj rozszerzenia w szablonach projektu ASP.NET MVC 
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację do witryny sieci Web systemu Windows Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
-
 
 ---
 

@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 4805e75a-7911-46e3-b11b-229a6eed245e
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e031417f2ee22533e7b5a606fc40526d7d911efc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 73b307f53875abe84b592c75b1ff614ffd9d8b82
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123983"
 ---
 # <a name="iteration-3--add-form-validation-vb"></a>Iteracja #3 — Dodawanie weryfikacji formularza (VB)
 
@@ -23,9 +23,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
 
-
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (VB)
-  
 
 W tej serii samouczków wbudowujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazwy, numerów telefonów i adresów e-mail — lista osób.
 
@@ -45,16 +43,13 @@ Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą it
 
 - Iteracja #7 — dodawanie funkcji Ajax. W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
 
-
 ## <a name="this-iteration"></a>Tej iteracji
 
 W drugiej iteracji aplikacji Contact Manager dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem kontaktu bez podawania wartości wymaganych pól formularza. Możemy zweryfikować numerów telefonów i adresów e-mail (patrz rysunek 1).
 
-
 [![Okno dialogowe Nowy projekt](iteration-3-add-form-validation-vb/_static/image1.jpg)](iteration-3-add-form-validation-vb/_static/image1.png)
 
 **Rysunek 01**: Formularz z weryfikacją ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-3-add-form-validation-vb/_static/image2.png))
-
 
 W tej iteracji możemy dodać logikę weryfikacji bezpośrednio do akcji kontrolera. Ogólnie rzecz biorąc to nie jest to zalecany sposób dodawania sprawdzania poprawności do aplikacji ASP.NET MVC. Lepszym rozwiązaniem jest umieszczenie logikę weryfikacji s aplikacji w osobnym [warstwy usług](http://martinfowler.com/eaaCatalog/serviceLayer.html). W następnej iteracji refaktoryzacji aplikacji Contact Manager, aby aplikacja będzie łatwiejszy w utrzymaniu.
 
@@ -76,7 +71,6 @@ Klasa błędzie sprawdzania poprawności pola jest używana do określenia stylu
 > 
 > Można zmodyfikować klasy arkusza stylów, które są opisane w tej sekcji, aby dostosować wygląd komunikatów o błędach weryfikacji.
 
-
 ## <a name="adding-validation-logic-to-the-create-action"></a>Dodawanie logikę walidacji do utworzenia akcji
 
 W tej chwili, widok Utwórz nigdy nie wyświetla komunikatów o błędach weryfikacji, ponieważ możemy niezapisania logiki można wygenerować wszystkie komunikaty. Aby wyświetlić komunikaty o błędach weryfikacji, należy dodać komunikaty o błędach do ModelState.
@@ -84,7 +78,6 @@ W tej chwili, widok Utwórz nigdy nie wyświetla komunikatów o błędach weryfi
 > [!NOTE] 
 > 
 > Metoda UpdateModel() komunikaty o błędach do ModelState automatycznie dodaje po błąd przypisywania wartości pola formularza do właściwości. Na przykład jeśli użytkownik spróbuje przypisać ciąg "apple" do właściwości daty urodzenia, która akceptuje wartości daty/godziny, metoda UpdateModel() dodaje błąd do ModelState.
-
 
 Modyfikowana Metoda Create() w ofercie 2 zawiera nową sekcję, która weryfikuje właściwości klasy skontaktuj się z przed jego miejsce nowego kontaktu są wstawiane do bazy danych.
 
@@ -106,7 +99,6 @@ Po reguł sprawdzania poprawności są wykonywane, właściwość IsValid ModelS
 > [!NOTE] 
 > 
 > Stało się wyrażeń regularnych do weryfikacji telefonu i adresu e-mail z repozytorium wyrażeń regularnych w [*http://regexlib.com*](http://regexlib.com)
-
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>Dodawanie logikę walidacji do akcji, Edytuj
 

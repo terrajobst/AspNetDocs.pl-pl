@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: da1136e085776c63886b6ac25533521fa1479d4f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8f6c23eb71ea323b6ab06943097f927f717a8099
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59406291"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118746"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
-
 
 Istnieje wiele problemów z zabezpieczeniami zastanowić się, gdy tworzysz aplikację w chmurze, ale w tej serii samouczków skupimy się na co najmniej jeden: logowanie jednokrotne. Pytanie, na które ludzie często pytają, to: "Czy jestem przede wszystkim tworzenia aplikacji dla pracowników firmy; jak obsługiwać te aplikacje w chmurze i włączyć je do korzystania z tego samego modelu zabezpieczeń, która Moje pracowników znasz i użyj w środowisku lokalnym, jeśli są one uruchamiane aplikacje, są hostowane wewnątrz zapory?" Jednym ze sposobów, możemy włączyć ten scenariusz jest nazywany usługi Azure Active Directory (Azure AD). Usługa Azure AD umożliwia udostępnienia enterprise line of business (LOB) aplikacji w Internecie i umożliwia udostępnienie tych aplikacji swoim partnerom.
 

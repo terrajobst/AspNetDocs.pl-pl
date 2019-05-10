@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: f5b7cecdd1a8dbd9be1bd781cec31c53c9096546
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 221808758492aedb8e8329364e511df28fd11105
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383229"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119319"
 ---
 # <a name="deploying-database-projects"></a>Wdrażanie projektów baz danych
 
@@ -23,7 +23,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 
 > [!NOTE]
 > W wielu scenariuszy wdrażania w przedsiębiorstwie niezbędna jest możliwość publikowania aktualizacji przyrostowych wdrożonej bazy danych. Alternatywą jest ponownie utworzyć bazę danych przy każdym wdrożeniu, co oznacza, że zostaną utracone dane w istniejącej bazie danych. Podczas pracy w programie Visual Studio 2010 przy użyciu VSDBCMD jest zalecane podejście do przyrostowe publikowanie bazy danych. Jednak w następnej wersji programu Visual Studio i Web potok publikowania (WPP) będzie zawierać narzędzia, które obsługuje przyrostowe publikowanie bezpośrednio.
-
 
 Jeśli otworzysz przykładowe rozwiązanie Contact Manager w programie Visual Studio 2010, zobaczysz, że projekt bazy danych zawiera folder właściwości, który zawiera cztery pliki.
 
@@ -69,11 +68,11 @@ W tym omówieniu znajdują się za pomocą VSDBCMD za pomocą narzędzia MSBuild
 
 |  | Visual Studio 2010 | Web Deploy 2.0 | VSDBCMD.exe |
 | --- | --- | --- | --- |
-| Obsługuje zdalnego wdrażania? | Yes | Yes | Tak |
-| Obsługiwane są aktualizacje przyrostowe? | Yes | Nie | Tak |
-| Obsługuje skrypty przed/po-deployment? | Yes | Yes | Yes |
-| Obsługuje wdrażanie wielośrodowiskowego? | Ograniczone | Ograniczone | Tak |
-| Obsługuje inicjowanych przez skrypty wdrażania? | Ograniczone | Tak | Tak |
+| Obsługuje zdalnego wdrażania? | Tak | Yes | Yes |
+| Obsługiwane są aktualizacje przyrostowe? | Yes | Nie | Yes |
+| Obsługuje skrypty przed/po-deployment? | Tak | Yes | Tak |
+| Obsługuje wdrażanie wielośrodowiskowego? | Ograniczone | Ograniczone | Yes |
+| Obsługuje inicjowanych przez skrypty wdrażania? | Ograniczone | Tak | Yes |
 
 W pozostałej części tego tematu opisano użycie VSDBCMD za pomocą narzędzia MSBuild wdrażania projektów bazy danych.
 
@@ -81,9 +80,7 @@ W pozostałej części tego tematu opisano użycie VSDBCMD za pomocą narzędzia
 
 Narzędzie VSDBCMD pozwala wdrożyć bazę danych przy użyciu schematu bazy danych (plik .dbschema) lub manifestu wdrażania (plik .deploymanifest). W praktyce prawie zawsze użyjesz manifest wdrożenia, ponieważ manifest wdrażania pozwala podać wartości domyślne dla różnych właściwości wdrożenia i zidentyfikować wszelkie przed wdrożeniem lub po wdrożeniu skrypty SQL, który chcesz uruchomić. Na przykład, to polecenie VSDBCMD służy do wdrażania **ContactManager** bazy danych do serwera bazy danych w środowisku testowym:
 
-
 [!code-console[Main](deploying-database-projects/samples/sample1.cmd)]
-
 
 W takim przypadku:
 
@@ -107,21 +104,17 @@ Zachowanie **/dd** lub **/DeployToDatabase** przełącznika zależy od tego, czy
 
 Jeśli używasz pliku .deploymanifest zachowanie jest o wiele bardziej skomplikowane. Jest to spowodowane plik .deploymanifest zawiera nazwę właściwości **DeployToDatabase** również określający, czy baza danych jest wdrożona.
 
-
 [!code-xml[Main](deploying-database-projects/samples/sample2.xml)]
-
 
 Ta właściwość ma wartość zgodnie z właściwości projektu bazy danych. Jeśli ustawisz **wdrażanie akcji** do **utworzyć skrypt wdrażania (.sql)**, wartość będzie **False**. Jeśli ustawisz **wdrażanie akcji** do **skryptu wdrażania (.sql) do tworzenia i wdrażania bazy danych**, wartość będzie **True**.
 
 > [!NOTE]
 > Te ustawienia są skojarzone z konfiguracją konkretnej kompilacji i platformy. Na przykład, jeśli konfigurujesz ustawienia **debugowania** konfiguracji, a następnie opublikować przy użyciu **wersji** konfiguracji, ustawienia nie będą używane.
 
-
 ![](deploying-database-projects/_static/image3.png)
 
 > [!NOTE]
 > W tym scenariuszu **wdrażanie akcji** powinna zawsze być ustawiona na **utworzyć skrypt wdrażania (.sql)**, ponieważ nie chcesz, aby program Visual Studio 2010 do wdrożenia bazy danych. Innymi słowy **DeployToDatabase** właściwość powinna zawsze być **False**.
-
 
 Gdy **DeployToDatabase** właściwość zostanie określona, **/dd** przełącznika spowoduje zastąpienie właściwości tylko, jeśli wartość właściwości jest **false**:
 

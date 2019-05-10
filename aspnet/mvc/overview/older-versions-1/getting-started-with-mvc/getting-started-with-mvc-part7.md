@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: aa7b3e8e-e23d-49f1-b160-f99a7f2982bd
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
-ms.openlocfilehash: 3db6947f36eb51b41d929f8c7d8835a95db8ea75
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9403be574324c34edf93bef1e0e4fd7ba68a3a9d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122774"
 ---
 # <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
 
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
-
 
 W tej sekcji użyjemy Obsługa niezbędne do obsługi sprawdzania poprawności danych wejściowych w naszej aplikacji. Firma Microsoft będzie zagwarantować, że naszej zawartości bazy danych zawsze jest poprawna i podaj komunikaty o błędach pomocne dla użytkowników końcowych, gdy próbują i wprowadź dane filmów, która jest nieprawidłowa. Rozpocznie się, dodając niewielką logikę walidacji do klas filmu.
 

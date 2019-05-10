@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 91523180501f1d1eb67586bf97649ad6226ec565
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 553eeaeedf20aee9217acb24786c0a587a409655
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413233"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125017"
 ---
 # <a name="creating-a-rating-control-vb"></a>Tworzenie kontrolki Rating (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)
 
 > Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności, oferują użytkownikom na szybkość artykuły lub elementów. Zwykle wymaga to pewnych wysiłków związanych z kodowaniem, ale musimy Toolkit kontroli naszych usuwania.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -64,7 +63,6 @@ W kodzie po stronie serwera, dostępu do kontrolki oceny za pośrednictwem jego 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample5.aspx)]
 
 Zapisz stronę i załadować je bezpośrednio w przeglądarce. Po najechaniu kursorem na elementy klasyfikacji (początkowo pusta), występuje efekt JavaScript: Zmiany klasyfikacji. Po kliknięciu zestaw gwiazdek bieżąca ocena są zachowywane. Na koniec po przesłaniu formularza danych wyjściowych wybranej klasyfikacji kodu po stronie serwera.
-
 
 [![Tworzenie systemu klasyfikacji za pomocą minimalnej ilości kodu](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
 

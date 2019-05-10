@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8caa88d928517e1c71210cbe55e3961d4baf461a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ce8e3c4ff8a59be9f2f572813db599604216119d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117791"
 ---
 # <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz program Code](iteration-4-make-the-application-loosely-coupled-cs/_static/contactmanager_4_cs1.zip)
 
 > W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (C#)
 
@@ -54,7 +53,6 @@ Obecnie wszystkie logika dostępu i sprawdzanie poprawności danych używanych p
 > 
 > (SRP), klasy nigdy nie powinny mieć więcej niż jednym z powodów zmiany. Mieszanie kontrolera, weryfikacji i logiki bazy danych jest ogromną naruszenie jednej zasady odpowiedzialności.
 
-
 Istnieje kilka przyczyn, które może być konieczne zmodyfikowanie aplikacji. Może być konieczne dodanie nowej funkcji do aplikacji, może być konieczne naprawienie usterki w aplikacji lub konieczne może się okazać zmodyfikowanie implementacji funkcji aplikacji. Aplikacje są rzadko statyczne. Charakteryzują się rozwijać i mutować wraz z upływem czasu.
 
 Wyobraź sobie, na przykład, możesz zdecydować zmienić sposób implementacji usługi warstwy dostępu do danych. Po prawej stronie, aplikacja Contact Manager używa teraz Microsoft Entity Framework dostęp do bazy danych. Jednak można zdecydować przeprowadzić migrację do technologii dostępu do nowych lub alternatywne danych, takich jak architektury ADO.NET Data Services lub NHibernate. Jednak ponieważ kod dostępu do danych nie jest odizolowana od kodu sprawdzania poprawności i kontroler, istnieje żaden sposób modyfikować kod dostępu do danych w aplikacji bez konieczności modyfikacji innego kodu, który nie jest bezpośrednio związane z dostępem do danych.
@@ -66,7 +64,6 @@ W tym iteracji możemy skorzystać z kilka wzorców projektowania oprogramowania
 > [!NOTE] 
 > 
 > Refaktoryzacja jest proces ponownego zapisywania aplikacji w taki sposób, że nie utracić wszelkie istniejące funkcje.
-
 
 ## <a name="using-the-repository-software-design-pattern"></a>Przy użyciu wzorca projektowego oprogramowania repozytorium
 
@@ -105,7 +102,6 @@ Programowanie w oparciu o interfejsy (abstrakcje) zamiast konkretnych klas spraw
 > 
 > Można szybko utworzyć interfejs z klasą konkretną z poziomu programu Visual Studio, wybierając opcję menu refaktoryzacji, Wyodrębnij interfejs. Na przykład można najpierw utworzyć klasy EntityContactManagerRepository, a następnie użyć do automatycznego wygenerowania interfejsu IContactManagerRepository Wyodrębnij interfejs.
 
-
 ## <a name="using-the-dependency-injection-software-design-pattern"></a>Przy użyciu wzorca projektowego oprogramowania wstrzykiwania zależności
 
 Teraz, gdy będziemy zostały przeniesione nasz kod dostępu do danych do osobnej klasy repozytorium, należy zmodyfikować kontroler naszych kontakt, aby użyć tej klasy. Firma Microsoft będzie korzystać z wzorzec projektowania oprogramowania o nazwie wstrzykiwanie zależności, aby użyć klasy repozytorium w kontrolera.
@@ -127,7 +123,6 @@ Wstrzykiwanie zależności Konstruktor sprawia, że klasa kontrolera skontaktuj 
 > [!NOTE] 
 > 
 > Jeśli chcesz całkowicie oddzielić klasy kontrolera kontaktu z określonej implementacji interfejsu IContactManagerRepository następnie możesz korzystać z zalet strukturę, która obsługuje wstrzykiwanie zależności, takie jak StructureMap lub firmy Microsoft Entity Framework (MEF). Dzięki wykorzystaniu framework wstrzykiwanie zależności nie będą już potrzebne do odwoływania się do konkretnej klasy w kodzie.
-
 
 ## <a name="creating-a-service-layer"></a>Tworzenie warstwy usług
 

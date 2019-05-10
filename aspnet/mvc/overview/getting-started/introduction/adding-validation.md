@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 2b5d2a355a27bfe9a3aa8b2fa4a2de79c7f74314
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6894d01af7cd142a5579f73ae5209ca13756ca52
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387129"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120747"
 ---
 # <a name="adding-validation"></a>Dodawanie walidacji
 
@@ -84,7 +84,6 @@ Kliknij przycisk **Utwórz nowy** łącze, aby dodać nowy film. Wypełnij formu
 > [!NOTE]
 > do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego, należy wprowadzić NuGet sprzedawać, jak opisano wcześniej w tym samouczku.
 
-
 Zwróć uwagę, jak formularz został automatycznie umożliwia kolorem czerwonym obramowaniem Wyróżnij tekst zawiera nieprawidłowe dane, które ma wysyłanego komunikatu o błędzie weryfikacji odpowiednich obok każdej z nich. Błędy są wymuszane, zarówno po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma Obsługa skryptów JavaScript wyłączona).
 
 Korzyści z rzeczywistych jest, nie należy zmieniać jednego wiersza kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu włączenia tej weryfikacji interfejsu użytkownika. Kontrolera i widoki utworzone wcześniej w tym samouczku automatycznie wybrany w górę sprawdzania poprawności reguły określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu. Walidacja testu za pomocą `Edit` metody akcji i tego samego sprawdzania poprawności jest stosowana.
@@ -135,9 +134,7 @@ Otwórz *Movie.cs* plików i zbadaj `Movie` klasy. [ `System.ComponentModel.Data
 
 `DisplayFormat` Atrybut jest używany jawnie określić format daty:
 
-
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
-
 
 `ApplyFormatInEditMode` Ustawienie określa, czy określony sposób formatowania powinien również będą stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Nie może być, w przypadku niektórych pól — na przykład dla wartości waluty może nie ma symbolu waluty, w polu tekstowym do edycji.)
 
@@ -155,7 +152,6 @@ Jeśli używasz `DataType` atrybutu z polem daty należy określić `DisplayForm
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
 > Należy wyłączyć sprawdzanie poprawności Data jQuery, aby użyć [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutem [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx). Ogólnie nie jest dobrą praktyką jest kompilowanie twardych dat w ramach modeli za pomocą [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx) jest niezalecane.
-
 
 Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
 

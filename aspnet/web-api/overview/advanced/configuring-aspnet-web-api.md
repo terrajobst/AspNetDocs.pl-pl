@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 9e10a700-8d91-4d2e-a31e-b8b569fe867c
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 39629ba404e536b29318db00bce8c4443a782497
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4f76728fa5e4602e35e1b7cb2d41b2245093cad8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411946"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115962"
 ---
 # <a name="configuring-aspnet-web-api-2"></a>Konfigurowanie wzorca ASP.NET Web API 2
 
@@ -45,7 +45,6 @@ Ustawienia konfiguracji interfejsu API sieci Web są definiowane w [HttpConfigur
 | **Właściwości** | Zbiór właściwości ogólnych. |
 | **Trasy** | Kolekcja tras. Zobacz [routingu we wzorcu ASP.NET Web API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md). |
 | **Usługi** | Kolekcja usług. Zobacz [usług](#services). |
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -91,11 +90,9 @@ Samouczek [Użyj OWIN do Self-Host wzorca ASP.NET Web API 2](../hosting-aspnet-w
 > [!NOTE]
 > **Usług** Kolekcja nie jest mechanizm ogólnego przeznaczenia iniekcji odnajdywania lub zależności usługi. Przechowuje tylko typy usług, które są znane w ramach interfejsu API sieci Web.
 
-
 **Usług** kolekcji jest inicjowany z domyślny zestaw usług i możesz podać własne niestandardowe implementacje. Wiele wystąpień jest obsługiwane w pewnych usługach, podczas gdy inne osoby mogą mieć tylko jedno wystąpienie. (Jednak możesz również podać usług na poziomie kontrolera; zobacz [konfiguracji poszczególnych kontrolerów](#percontrollerconfig).
 
 Jednym wystąpieniu usługi
-
 
 | Usługa | Opis |
 | --- | --- |
@@ -116,7 +113,6 @@ Jednym wystąpieniu usługi
 | **IModelValidatorCache** | Udostępnia pamięć podręczną modułów weryfikacji modelu. |
 
 Usługi z wieloma wystąpieniami
-
 
 |                 Usługa                 |                                                                                                              Opis                                                                                                               |
 |-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

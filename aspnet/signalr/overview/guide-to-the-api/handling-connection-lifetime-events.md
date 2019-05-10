@@ -8,15 +8,14 @@ ms.date: 01/15/2019
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 9e6b0b3b86839efa393659531d8b74770226f383
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5bdf20549fccab5d644e35fdf4ce351540c8620d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401468"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119882"
 ---
 # <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Objaśnienie i obsługa zdarzeń okresu istnienia połączenia w usłudze SignalR
-
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
@@ -148,7 +147,6 @@ Niektóre środowiska sieciowe celowo Zamknij bezczynnych połączeń, a inną f
 >
 > **Ważne**: Kolejność zdarzeń opisane w tym miejscu nie jest gwarantowana. SignalR sprawia, że każda próba zgłaszać zdarzenia okresu istnienia połączenia w sposób przewidywalny zgodnie z tym schemacie, ale istnieją wielu wariantów zdarzenia sieci i wiele sposobów, w których podstawowych struktur komunikacji, takich jak transportu interfejsy API z je obsłużyć. Na przykład `Reconnected` zdarzeń nie może zostać wywołane, gdy klient ponownie nawiąże połączenie, lub `OnConnected` obsługi na serwerze może być uruchomiony, gdy próba nawiązania połączenia zakończy się niepowodzeniem. W tym temacie opisano tylko efekty, zwykle produkcji przez niektórych typowych okolicznościach.
 
-
 <a id="clientdisconnect"></a>
 
 ### <a name="client-disconnection-scenarios"></a>Scenariusze rozłączenia klienta
@@ -247,7 +245,6 @@ SignalR w wersji 2 nie ma wbudowanego serwera interfejsu API dla rozłączanie k
 
 > [!WARNING]
 > Zabezpieczenia — ta metoda rozłączanie klientów ani proponowane wbudowanego interfejsu API pozwala sprostać scenariusza zaatakowanych przez hakerów klientów z systemem złośliwego kodu, ponieważ klientów można się ponownie lub może spowodować usunięcie kodu zaatakowanych przez hakerów `stopClient` metody lub zmian Poznaj możliwości. Właściwym miejscem do implementowania stanowych ochrony (DOS) typu "odmowa usługi" jest nie w ramach lub warstwa serwera, ale raczej w infrastrukturze frontonu.
-
 
 <a id="detectingreasonfordisconnection"></a>
 ## <a name="detecting-the-reason-for-a-disconnection"></a>Wykrywanie Przyczyna zakończenia połączenia

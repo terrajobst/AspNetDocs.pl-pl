@@ -8,19 +8,18 @@ ms.date: 02/16/2009
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: febba98be86f0151724af6d6c00fb14760ce1b91
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2330708cf4a28180ce8a05f4696bf7a7a32092d6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378952"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123405"
 ---
 # <a name="creating-a-custom-route-constraint-vb"></a>Tworzenie niestandardowego ograniczenia trasy (VB)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Autor: Stephen Walther pokazuje, jak można utworzyć ograniczenia trasy niestandardowej. Firma Microsoft zaimplementowania proste ograniczenie niestandardowych, które uniemożliwia trasy są dopasowywane, gdy żądanie przeglądarki na komputerze zdalnym.
-
 
 Celem tego samouczka jest pokazują, jak można utworzyć ograniczenia trasy niestandardowej. Ograniczenia trasy niestandardowej można uniemożliwić trasy są dopasowywane, chyba że jakiś warunek niestandardowy jest zgodny.
 

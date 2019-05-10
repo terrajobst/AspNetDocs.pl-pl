@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1043dce4cdd62f94ae9d2344a9301c1b03426f3d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: de154dde122886976054159ad745982669ca9315
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422268"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65121385"
 ---
 # <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do systemu ASP.NET Identity (C#)
 
@@ -22,14 +22,12 @@ przez [autorem jest Pranav Rastogi](https://github.com/rustd), [Rick Anderson]((
 
 > W tym samouczku opisano kroki, które są niezbędne przeprowadzić migrację użytkowników i dane roli i danych profilów użytkowników utworzone przy użyciu dostawców uniwersalnych istniejącej aplikacji do modelu tożsamości ASP.NET. Podejście wspomnianych tutaj, aby przeprowadzić migrację danych profilu użytkownika mogą być używane w aplikacji przy użyciu członkostwa SQL, jak również.
 
-
 Wraz z wydaniem programu Visual Studio 2013, zespół programu ASP.NET wprowadzono nowy system tożsamości ASP.NET, i możesz dowiedzieć się więcej o tej wersji [tutaj](../../index.md). Po tego artykułu, aby przeprowadzić migrację aplikacji sieci web z [członkostwa SQL do nowego systemu tożsamości](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md), w tym artykule przedstawiono kroki, aby migrować istniejące aplikacje, które należy wykonać model dostawców dla użytkownika i roli zarządzania do nowego modelu tożsamości. Celem tego samouczka będą się głównie na temat migracji danych profilu użytkownika, aby bezproblemowo podłączyć ją do nowego systemu. Migrowanie informacji o użytkowniku i roli jest podobny do członkostwa SQL. Podejście do migracji danych profilu może służyć w aplikacji za pomocą także członkostwa SQL.
 
 Na przykład Zaczniemy z aplikacją sieci web utworzonych za pomocą programu Visual Studio 2012, który używa modelu dostawców. Firma Microsoft będzie, a następnie dodać kod do zarządzania profilami, zarejestruj użytkownika, dodać dane profilowe dla użytkowników, migrować schemat bazy danych, a następnie zmień aplikacji do systemu tożsamości użytkownika i roli zarządzania. Jako test migracji użytkownicy utworzeni za pomocą dostawców uniwersalnych powinien móc zalogować się i nowych użytkowników powinny mieć możliwość rejestrowania.
 
 > [!NOTE]
 > Możesz znaleźć pełny przykład o [ https://github.com/suhasj/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
-
 
 ## <a name="profile-data-migration-summary"></a>Podsumowanie migracji danych profilu
 

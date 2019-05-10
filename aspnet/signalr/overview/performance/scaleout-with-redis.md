@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 78efe409ab59df17ae71c26d4e280cc9971a64d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 58a7affa1769523955adc76455a1c33be6f49751
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393254"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114314"
 ---
 # <a name="signalr-scaleout-with-redis"></a>SignalR — skalowanie w poziomie z użyciem pamięci podręcznej Redis
 
@@ -38,7 +38,6 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 >
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
-
 W tym samouczku użyjesz [Redis](http://redis.io/) aby dystrybuować komunikaty aplikacji SignalR, która została wdrożona w dwóch osobnych wystąpień usługi IIS.
 
 Redis jest przechowywanie par klucz wartość w pamięci. Obsługuje ona również system obsługi komunikatów za pomocą modelu publikowania/subskrybowania. Płyty montażowej Redis w SignalR używa funkcji publikowania/subskrybowania do przekazywania wiadomości na inne serwery.
@@ -57,7 +56,6 @@ Chociaż w tym samouczku korzysta z oficjalnego implementacja pamięci podręczn
 > [!NOTE]
 >
 > SignalR — skalowanie w poziomie przy użyciu usługi Redis nie obsługuje klastrów usługi Redis.
-
 
 ## <a name="overview"></a>Omówienie
 

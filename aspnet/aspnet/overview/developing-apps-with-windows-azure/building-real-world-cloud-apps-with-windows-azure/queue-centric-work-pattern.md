@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 0d6d8375425f3a0cb915c2f7844f6c5191ea4e95
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9081691207a1a8ccd58e1a93a0be06af15c0b2d0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59392017"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118704"
 ---
 # <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Wzorzec pracy skoncentrowany na kolejkach (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
-
 
 Wcześniej widzieliśmy, że przy użyciu wielu usług może spowodować "złożona" umowa SLA, gdzie jest umowa SLA skutecznych aplikacji *produktu* indywidualnych umów SLA. Na przykład aplikacji naprawić używa, Web Sites, Storage i bazy danych SQL. Jeśli dowolny z tych usług nie powiedzie się, aplikacja zwróci błąd do użytkownika.
 

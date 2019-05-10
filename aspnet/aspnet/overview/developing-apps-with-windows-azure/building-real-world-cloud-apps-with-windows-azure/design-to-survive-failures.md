@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: fbe618acfc70711933996f97657a4326d389b3dd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 54bfa40a7d853e29c42512ba375271587fb6f565
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59411244"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118828"
 ---
 # <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Projektowanie po awarii (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
-
 
 Jedną z rzeczy, o których należy przemyśleć podczas kompilowania dowolny typ aplikacji, ale szczególnie taki, który zostanie uruchomiony w chmurze, gdy wiele osób będą używać, jest sposób projektowania aplikacji, dzięki czemu mogą bezpiecznie obsługiwać awarie i w dalszym ciągu dostarczać wartość jak możliwe. Mając wystarczająco dużo czasu, przebieg procesu się nie udaje się w dowolnym środowisku lub w każdym systemie oprogramowania. Jak aplikację pod kątem obsługi tych sytuacji Określa, jak zły usługi klienci otrzymają oraz ile czasu trzeba poświęcić na analizowanie i rozwiązywanie problemów.
 

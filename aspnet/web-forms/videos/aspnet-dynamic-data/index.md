@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
-ms.openlocfilehash: 11fca6096a1ada5df95971f2c77c8e72660ad864
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 622f4c5243d094d1ab6b58a909795bc5230c62ce
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400155"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116398"
 ---
 # <a name="aspnet-dynamic-data"></a>Dane dynamiczne ASP.NET
 
 > Jak korzystać z ASP.NET Dynamic Data do tworzenia szkieletu aplikacji, które automatycznie uzyskać dostęp do danych.
-
 
 - [Tworzenie pierwszego szkieletu i dane dynamiczne](your-first-scaffold-and-what-is-dynamic-data.md)
 - [Włączanie wbudowanego edytowania w kontrolce GridView](how-do-i-enable-inline-gridview-editing.md)

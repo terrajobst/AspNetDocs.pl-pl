@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: d27c8c1910a79cea8ccdf4231d3bc2b80a20dc68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fd78385e563b7204b29beb4180b7bc932266bdec
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418368"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119018"
 ---
 # <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzowanie wszystkiego (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure)
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby zapoznać się z wprowadzeniem do e-book, zobacz [pierwszy rozdział](introduction.md).
-
 
 Pierwsze trzy wzorce, które omówimy faktycznie Zastosuj do każdego projektu rozwoju oprogramowania, ale szczególnie do projektów w chmurze. Ten wzorzec jest temat automatyzowania zadań programistycznych. Jest ważne tematu, ponieważ ręczne procesy są powolne i podatne na błędy; Automatyzowanie, jak najwięcej z nich jako możliwe pomaga skonfigurować szybkie, niezawodne i elastyczne przepływ pracy. Jest jednoznacznie ważne w przypadku projektowania aplikacji w chmurze, ponieważ łatwo można zautomatyzować wiele zadań, które są trudne lub niemożliwe do automatyzacji w środowisku lokalnym. Na przykład, możesz skonfigurować całego testu środowisk, w tym dla nowego serwera sieci web i maszyny wirtualne zaplecza, baz danych, blob storage (magazyn plików), kolejki itd.
 
@@ -58,10 +57,8 @@ Pierwszy skrypt przyjrzymy nosi nazwę *New AzureWebsiteEnv.ps1*. Tworzy środow
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-
 > [!NOTE]
 > Ta część rozdziale pokazano przykłady skryptów i poleceń, które należy wprowadzić, aby można było uruchomić je. Ten pokaz i nie zapewnia wszystko, co musisz wiedzieć, aby można było uruchamiać skrypty. Aby uzyskać instrukcje krok po kroku jak-to-it, zobacz [dodatku: Poprawka go Przykładowa aplikacja](the-fix-it-sample-application.md#deploybase).
-
 
 Do uruchomienia skryptu programu PowerShell, który zarządza usług platformy Azure musisz zainstalować konsolę programu Azure PowerShell i skonfigurować go do pracy z subskrypcją platformy Azure. Po skonfigurowaniu, napraw go środowisko tworzenia skryptu można uruchomić za pomocą polecenia podobny do poniższego:
 

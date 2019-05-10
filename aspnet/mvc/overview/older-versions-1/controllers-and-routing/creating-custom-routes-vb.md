@@ -8,19 +8,18 @@ ms.date: 02/16/2009
 ms.assetid: 6ac5758b-6199-42af-adcb-21954b864951
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a7b8b85ba1cf5c18e605eb8114a305272baf41a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 22b44e9e575c9d404881a23ee735bb0c8b7109e1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404874"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123340"
 ---
 # <a name="creating-custom-routes-vb"></a>Tworzenie tras niestandardowych (VB)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak dodać trasy niestandardowe do aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak zmodyfikować tabela routingu domyślnego w pliku Global.asax.
-
 
 W tym samouczku dowiesz się, jak dodać trasy niestandardowej do aplikacji ASP.NET MVC. Dowiesz się, jak zmodyfikować tabela routingu domyślnego w pliku Global.asax z tras niestandardowych.
 
@@ -60,11 +59,9 @@ Należy zauważyć, że metoda Entry() w ofercie 2 akceptuje parametr typu Data/
 
 **Rysunek 1. Błąd konwersji parametru**
 
-
 [![Okno dialogowe Nowy projekt](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
 **Rysunek 01**: Błąd konwersji parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-routes-vb/_static/image2.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

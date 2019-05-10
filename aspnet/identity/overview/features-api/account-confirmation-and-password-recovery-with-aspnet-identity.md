@@ -9,12 +9,12 @@ ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2e4cd21d66e69590fb1642d7974e4b7f82cba0cb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ded3a9d931cc4cd4b99c1cb5012469fe66209f76
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118022"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Konto odzyskiwania potwierdzenia i hasła w produkcie ASP.NET Identity (C#)
 
@@ -66,7 +66,6 @@ Wybieranie **resetowania** przycisk wyświetli monit o potwierdzenie zresetowano
 ## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci web ASP.NET
 
 Rozpocznij od instalowania i uruchamiania [programu Visual Studio 2017](https://visualstudio.microsoft.com/).
-
 
 1. Utwórz nowy projekt sieci Web platformy ASP.NET, a następnie wybierz szablon MVC. Formularze sieci Web obsługują także produktu ASP.NET Identity, dzięki czemu można wykonać podobne kroki w aplikacji formularzy sieci web.
 2. Zmienić uwierzytelnianie, aby **indywidualne konta użytkowników**.
@@ -153,7 +152,6 @@ W tej sekcji użyjesz NuGet można pobrać pełniejszy przykład, w których fir
 > [!WARNING]
 > W przypadku zmiany ustawień zabezpieczeń, w tym przykładzie produkcji aplikacji będzie musiała zostać poddane inspekcji zabezpieczeń, który jawnie wywołuje zmiany wprowadzone.
 
-
 ## <a name="examine-the-code-in-appstartidentityconfigcs"></a>Sprawdź kod w aplikacji\_Start\IdentityConfig.cs
 
 Przykład pokazuje, jak utworzyć konto i dodaj go do *administratora* roli. Za pomocą adresu e-mail, który będzie używany dla konta administratora, należy zastąpić poczty e-mail w próbce. Najprostszym sposobem teraz, aby utworzyć konto administratora jest Programując `Seed` metody. Mamy nadzieję, że w przyszłości narzędzia, która umożliwi Ci tworzyć i zarządzać nimi, użytkownikami i rolami. Przykładowy kod umożliwiają tworzenie i zarządzanie użytkownikami i rolami, ale musi najpierw mieć konta administratorów w taki sposób, aby uruchomić ról i strony administratora dla użytkownika. W tym przykładzie konto administratora jest tworzone, gdy baza danych jest zasilany.
@@ -184,14 +182,12 @@ Przejdź do [stronę rejestracji usługi SendGrid platformy Azure](https://azure
 > [!NOTE]
 > Klienci poczty e-mail często akceptuje tylko wiadomości tekstowych (bez kodu HTML). Należy podać komunikat w tekst i HTML. W powyższym przykładzie SendGrid odbywa się za pomocą `myMessage.Text` i `myMessage.Html` kodzie pokazanym powyżej.
 
-
 Poniższy kod przedstawia sposób wysłania wiadomości e-mail przy użyciu [MailMessage](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) klasy gdzie `message.Body` zwraca tylko łącze.
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
 > [!WARNING]
 > Zabezpieczenia — nigdy nie przechowywania danych poufnych w kodzie źródłowym. Konto i poświadczenia są przechowywane w appSetting. Na platformie Azure, możesz bezpiecznie przechowywać te wartości na **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** kartę w witrynie Azure portal. Zobacz [najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-
 
 Wprowadź swoje poświadczenia usługi SendGrid, uruchomić aplikację, zarejestruj się za pomocą aliasu adresu e-mail wybrać Potwierdź link w wiadomości e-mail. Aby zobaczyć, jak wykonać to za pomocą usługi [Outlook.com](http://outlook.com) konto e-mail, zobacz John Atten [ C# konfiguracja SMTP dla hosta SMTP Outlook.Com](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) i jego[tożsamości ASP.NET w wersji 2.0: Ustawienia weryfikacji konta i autoryzacji Two-Factor Authentication](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) wpisów.
 

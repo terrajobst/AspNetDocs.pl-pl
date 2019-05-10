@@ -8,19 +8,18 @@ ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b4c35761f9cd44c866242cfe6f4f2d924e81d754
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b3f44aa9654a2a718381eaf9c856ca3e15ed1e27
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421332"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117317"
 ---
 # <a name="aspnet-mvc-views-overview-c"></a>Omówienie widoków ASP.NET MVC (C#)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Co to jest widok ASP.NET MVC i jak różni się on ze strony HTML? W tym samouczku Walther Autor: Stephen stanowi wprowadzenie do widoków i pokazuje, jak możesz korzystać z zalet danych widoku i pomocników HTML w widoku.
-
 
 Celem tego samouczka jest zapewnienie krótkie wprowadzenie do widoków ASP.NET MVC, wyświetlanie danych i pomocników HTML. Do końca tego samouczka należy wiedzieć, jak tworzenie nowych widoków, przekazać dane z kontrolera do widoku i użyć pomocników HTML do generowania zawartości w widoku.
 
@@ -68,7 +67,6 @@ Po wykonaniu ten wiersz kodu widok jest zwracana z następującą ścieżkę:
 > 
 > Jeśli planujesz utworzenie testów jednostkowych dla aplikacji ASP.NET MVC jest dobry pomysł, aby była niejawna przy korzystaniu nazwy widoku. W ten sposób można utworzyć test jednostkowy, aby sprawdzić, czy oczekiwany widok został zwrócony przez akcji kontrolera.
 
-
 ## <a name="adding-content-to-a-view"></a>Dodawanie zawartości do widoku
 
 Widok jest standardowego (dokumentu HTML, który może zawierać skryptów X). Skrypty umożliwia dodawanie zawartości dynamicznej do widoku.
@@ -103,11 +101,9 @@ Na przykład widok w ofercie 4 wykorzystuje trzy pomocników HTML — pomocnicy 
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
-
 [![Okno dialogowe Nowy projekt](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
 **Rysunek 01**: Standardowa formularz logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-views-overview-cs/_static/image2.png))
-
 
 Wszystkie metody pomocników HTML są nazywane we właściwości Html widoku. Na przykład przez wywołanie metody Html.TextBox() renderowanie pole tekstowe.
 

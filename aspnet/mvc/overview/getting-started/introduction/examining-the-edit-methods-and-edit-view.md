@@ -8,12 +8,12 @@ ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4627bdce8b8f2085150aa08cdc4c1271e09e09
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c42ec77b5d5107f3ef70e13b779fc1bebef70a14
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422008"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120706"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metod edycji i widoku edycji
 
@@ -98,7 +98,6 @@ Wszystkie `HttpGet` metody wykonaj podobny wzorzec. Staną się obiekt filmu (lu
 ## <a name="jquery-validation-for-non-english-locales"></a>dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski
 
 Jeśli używasz komputera angielski, można pominąć tę sekcję i przejdź do następnego samouczka. Możesz pobrać wersję Globalize po ukończeniu tego samouczka [tutaj](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=16475). Doskonałe samouczek dwie części na internacjonalizacji, zobacz [firmy Nadeem platformy ASP.NET MVC 5 internacjonalizacji](http://afana.me/post/aspnet-mvc-internationalization.aspx).
-
 
 > [!NOTE]
 > do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty inne niż angielski, należy wprowadzić *globalize.js* i konkretne  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i języka JavaScript, aby użyć `Globalize.parseFloat`. Możesz uzyskać weryfikacji innej niż angielska jQuery z pakietów NuGet. (Nie należy instalować Globalize Jeśli używasz angielskie ustawienia regionalne.)

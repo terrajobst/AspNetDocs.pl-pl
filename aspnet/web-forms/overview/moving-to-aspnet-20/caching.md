@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 5e16415df5bd4203995bec943ffa682f7da82357
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 39f4eb7b0859cf52fe3ed2531e9c349b465b9327
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116855"
 ---
 # <a name="caching"></a>Buforowanie
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Zrozumienie buforowania jest ważne dla właściwie wykonanego aplikacji ASP.NET. ASP.NET 1.x oferowane trzy różne opcje do buforowania; buforowanie danych wyjściowych, buforowanie fragmentu i interfejsu API w pamięci podręcznej.
-
 
 Zrozumienie buforowania jest ważne dla właściwie wykonanego aplikacji ASP.NET. ASP.NET 1.x oferowane trzy różne opcje do buforowania; buforowanie danych wyjściowych, buforowanie fragmentu i interfejsu API w pamięci podręcznej. Platformy ASP.NET 2.0 udostępnia wszystkie te trzy metody, ale dodaje niektóre istotne dodatkowe funkcje. Istnieje kilka nowych zależności pamięci podręcznej i deweloperzy mają teraz opcję, aby utworzyć również zależności niestandardowej pamięci podręcznej. Konfiguracja buforowania została również ulepszona znacznie programu ASP.NET 2.0.
 
@@ -63,7 +62,6 @@ SQL Server 7 i 2000 na użytek model oparty na sondowanie zależności pamięci 
 > [!NOTE]
 > SQL Server 2005, można również użyć modelu opartego na sondowania, ale ponieważ model oparty na sondowanie nie jest najbardziej efektywny sposób modelu, zaleca się model oparty na zapytaniu (omówione w dalszej części) za pomocą programu SQL Server 2005.
 
-
 Zależności pamięci podręcznej SQL przy użyciu modelu opartego na sondowanie działała prawidłowo, tabele musi mieć włączone powiadomienia. Można to zrobić programowo przy użyciu klasy SqlCacheDependencyAdmin lub za pomocą aspnet\_regsql.exe narzędzia.
 
 Rejestruje następujące polecenie w wierszu tabeli Produkty bazy danych Northwind, znajduje się w wystąpieniu programu SQL Server o nazwie *dbase* SQL w pamięci podręcznej zależności.
@@ -84,12 +82,10 @@ Poniżej przedstawiono omówienie przełączników wiersza polecenia używane w 
 > [!NOTE]
 > Dostępne są inne przełączniki dla aspnet\_regsql.exe. Aby uzyskać pełną listę, należy uruchomić aspnet\_regsql.exe-? z poziomu wiersza polecenia.
 
-
 Po uruchomieniu tego polecenia następujące zmiany zostały wprowadzone do bazy danych programu SQL Server:
 
 - **AspNet\_SqlCacheTablesForChangeNotification** tabela zostanie dodana. Ta tabela zawiera jeden wiersz dla każdej tabeli w bazie danych, dla którego włączono zależności pamięci podręcznej SQL.
 - Następujące procedury przechowywane są tworzone wewnątrz bazy danych:
-
 
 | AspNet\_SqlCachePollingStoredProcedure | Wysyła kwerendę AspNet\_SqlCacheTablesForChangeNotification tabeli i zwraca wszystkie tabele, które są włączone dla zależności pamięci podręcznej SQL i wartość changeId dla każdej tabeli. Ta przechowywanej służy do sondowania w celu określenia, czy dane uległy zmianie. |
 | --- | --- |
@@ -97,7 +93,6 @@ Po uruchomieniu tego polecenia następujące zmiany zostały wprowadzone do bazy
 | AspNet\_SqlCacheRegisterTableStoredProcedure | Rejestruje tabeli dla zależności pamięci podręcznej SQL przez dodanie wymaganego wpisu w tabeli powiadomienia i dodaje wyzwalacza. |
 | AspNet\_SqlCacheUnRegisterTableStoredProcedure | Wyrejestrowuje tabeli dla zależności pamięci podręcznej SQL, usuwając wpis w tabeli powiadomień i usuwa wyzwalacz. |
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Aktualizuje tabelę powiadomień przez zwiększenie changeId zmienione tabeli. ASP.NET używa tej wartości, aby ustalić, czy dane uległy zmianie. Wyszczególnionych poniżej tej wartości przechowywanej jest wykonywana przez wyzwalacz utworzony po włączeniu tabeli. |
-
 
 - Wyzwalacz programu SQL Server o nazwie ***tabeli\_nazwa *\_AspNet\_SqlCacheNotification\_wyzwalacza** jest tworzony dla tabeli. Ten wyzwalacz jest wykonywany AspNet\_SqlCacheUpdateChangeIdStoredProcedure podczas wykonywania w tabeli INSERT, UPDATE lub DELETE.
 - Rola programu SQL Server o nazwie **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** zostanie dodany do bazy danych.
@@ -161,7 +156,6 @@ Można również określić wszystkie źródła danych włączenia dla zależno�
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat powiadomienia zapytań w programie SQL Server 2005 zobacz programu SQL Server — książki Online.
-
 
 Inną metodą konfigurowania zależności pamięci podręcznej na podstawie kwerendy SQL jest zrobić programowo przy użyciu klasy SqlCacheDependency. Poniższy przykładowy kod przedstawia, jak to zrobić.
 
@@ -233,7 +227,6 @@ Następujące atrybuty są dostępne w &lt;pamięci podręcznej&gt; elementu:
 ### <a name="the-ltoutputcachegt-element"></a>&lt;OutputCache&gt; — Element
 
 Następujące atrybuty są dostępne dla &lt;outputCache&gt; elementu.
-
 
 |       <strong>Atrybut</strong>        |                                                                                                                                                                                                                                                       <strong>Opis</strong>                                                                                                                                                                                                                                                       |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

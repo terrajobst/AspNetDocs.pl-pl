@@ -8,19 +8,18 @@ ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 484c01f19014639cc30244ed4f4d014794594aa2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bb1211de0a3fe876f5640538034ab5a58b3a070c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59391705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118224"
 ---
 # <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Oprogramowanie pośredniczące OWIN w zintegrowanym potoku usług IIS
 
 przez [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > W tym artykule przedstawiono sposób uruchamiania składników oprogramowania pośredniczącego OWIN (OMCs) w zintegrowanym potoku usług IIS i działa jak skonfigurować zdarzenie potoku OMC. Należy zapoznać się z [Omówienie projektu Katana](an-overview-of-project-katana.md) i [wykrywanie klasy początkowej OWIN](owin-startup-class-detection.md) przed odczytaniem w tym samouczku. Ten samouczek został napisany przez Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Chris Ross, Praburaj projektu i Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
-
 
 Mimo że [OWIN](an-overview-of-project-katana.md) składników oprogramowania pośredniczącego (OMCs) jest przeznaczony głównie do działania w potoku niezależny od serwera, można uruchomić OMC w zintegrowanym potoku usług IIS oraz (**trybu klasycznego jest *nie* obsługiwane**). OMC może również działać w zintegrowanym potoku usług IIS przez zainstalowanie następującego pakietu z konsoli Menedżera pakietów (PMC):
 

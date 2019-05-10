@@ -8,12 +8,12 @@ ms.date: 02/20/2007
 ms.assetid: 9128aaac-afe2-449f-84b2-bb1d035083c4
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7a6401e881fd66ab21b58fd7d86085e0bc228b6a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 34135c5cdcda5c49c9cdad14b26eb20992b6dcc8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410854"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124490"
 ---
 # <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>Używanie zapytań sparametryzowanych z kontrolką SqlDataSource (C#)
 
@@ -23,18 +23,15 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > W tym samouczku Będziemy nadal Zaktualizowaliśmy wygląd przy użyciu kontrolki SqlDataSource i Poznaj sposoby definiowania zapytań sparametryzowanych. Parametry można określić w sposób deklaratywny i programowy i mogą być ściągane z wielu lokalizacji na przykład ciąg zapytania, sesja stanu, innych formantów i innych.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Jak odbierać dane bezpośrednio z bazy danych przy użyciu kontrolki SqlDataSource widzieliśmy w poprzednim samouczku. Za pomocą Kreatora konfigurowania źródła danych, firma Microsoft może wybrać bazy danych, a następnie: Wybierz kolumny do zwrócenia z tabeli lub widoku. Wprowadź instrukcję SQL niestandardowych; lub użyj procedury składowanej. Czy wybranie kolumn z tabeli lub widoku lub wprowadzanie niestandardowych instrukcji SQL, SqlDataSource kontrolować s `SelectCommand` właściwość jest przypisana wynikowy SQL zapytań ad-hoc `SELECT` instrukcji i jest to `SELECT` instrukcję, która jest wykonywane, kiedy SqlDataSource s `Select()` metoda jest wywoływana (programowo lub automatycznie dane formantu sieci Web).
 
 SQL `SELECT` instrukcje używane w poprzednich pokazy samouczek s wykończenia `WHERE` klauzul. W `SELECT` instrukcji `WHERE` klauzuli może służyć do ograniczania wyników zwróconych. Na przykład aby wyświetlić nazwy produktów wyceny ponad 50,00 USD, możemy użyć następujące zapytanie:
 
-
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample1.sql)]
 
 Zazwyczaj z wartościami użytymi w `WHERE` klauzuli należy określić, przez zewnętrznego źródła, takie jak wartości querystring, zmiennej sesji lub dane wejściowe użytkownika z formantu sieci Web, na stronie. Najlepiej, jeśli takie dane wejściowe są określane za pośrednictwem *parametry*. Za pomocą programu Microsoft SQL Server, parametry są wskazywane za pomocą `@parameterName`, jak w:
-
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample2.sql)]
 
@@ -42,7 +39,6 @@ SqlDataSource obsługuje sparametryzowanych zapytań, zarówno dla `SELECT` inst
 
 > [!NOTE]
 > W poprzednim samouczku mamy porównywane ObjectDataSource, które zostało naszego narzędzia do wybranego przez najpierw 46 samouczki z kontrolką SqlDataSource, biorąc pod uwagę ich podobieństwa pojęciach. Te podobieństwa także rozszerzać do parametrów. Parametry s ObjectDataSource mapowany do parametrów wejściowych dla metod w warstwy logiki biznesowej. Dzięki użyciu kontrolki SqlDataSource parametry są definiowane bezpośrednio z poziomu zapytania SQL. Obie kontrolki zawiera kolekcji parametrów dla ich `Select()`, `Insert()`, `Update()`, i `Delete()` metody i jednocześnie może mieć następujące wartości parametrów wypełnione z wstępnie zdefiniowanych źródeł (querystring wartości, zmienne sesji i tak dalej ) lub przypisane programowo.
-
 
 ## <a name="creating-a-parameterized-query"></a>Tworzenie zapytania parametrycznego
 
@@ -60,43 +56,34 @@ Ponieważ tworzenie zapytania parametrycznego zależy SqlDataSource s `SelectCom
 
 Podczas wybierania danych do zwrócenia z bazy danych przy użyciu kontrolki SqlDataSource, Kreator konfigurowania źródła danych pozwala po prostu wybierz kolumny do zwrócenia z istniejącej tabeli lub wyświetlenia (patrz rysunek 1). Wykonując to automatycznie gromadzone SQL `SELECT` instrukcję, która jest, co jest wysyłane do bazy danych podczas SqlDataSource s `Select()` metoda jest wywoływana. Ile My mieliśmy w poprzednim samouczku wybierz tabelę produkty z listy rozwijanej i sprawdź `ProductID`, `ProductName`, i `UnitPrice` kolumn.
 
-
 [![Wybierz kolumny do zwrócenia z tabeli lub widoku](using-parameterized-queries-with-the-sqldatasource-cs/_static/image1.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image1.png)
 
 **Rysunek 1**: Wybierz kolumny do zwrócenia z tabeli lub widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image2.png))
-
 
 Obejmujący `WHERE` w klauzuli `SELECT` instrukcji, kliknij przycisk `WHERE` przycisk, który wywołuje polecenie Dodaj `WHERE` klauzuli dialogowego (patrz rysunek 2). Aby dodać parametr, aby ograniczyć wyniki zwrócone przez `SELECT` zapytania o dane, najpierw wybierz kolumnę, aby filtrować dane według. Następnie wybierz operator, który ma być używana w celu filtrowania (=, &lt;, &lt;= &gt;i tak dalej). Na koniec wybierz źródło wartość parametru s, takie jak ze stanu sesji lub ciąg zapytania. Po skonfigurowaniu parametr, kliknij przycisk Dodaj, aby uwzględnić go w `SELECT` zapytania.
 
 W tym przykładzie umożliwiają s zwracać tylko tych wyników, których `UnitPrice` wartość jest mniejsza niż lub równe 25,00. W związku z tym, wybierz `UnitPrice` z listy rozwijanej kolumny i &lt;= z listy rozwijanej operatora. Korzystając z wartości parametru ustaloną (na przykład 25,00) lub wartość parametru jest należy określić programowo, nie zaznaczaj niczego z listy rozwijanej źródeł. Następnie wprowadź wartość parametru zakodowane w polu tekstowym wartość 25,00 i ukończyć proces, klikając przycisk Dodaj.
 
-
 [![Ogranicz wyniki zwrócone z gdzie dodać klauzulę, okno dialogowe](using-parameterized-queries-with-the-sqldatasource-cs/_static/image2.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image3.png)
 
 **Rysunek 2**: Ogranicz wyniki zwracane z dodawania `WHERE` klauzuli, okno dialogowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image4.png))
 
-
 Po dodaniu parametru, kliknij przycisk OK, aby powrócić do kreatora Konfigurowanie źródła danych. `SELECT` Instrukcji w dolnej części kreatora powinny znajdować się teraz `WHERE` klauzuli za pomocą parametru o nazwie `@UnitPrice`:
-
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample3.sql)]
 
 > [!NOTE]
 > Jeśli określono wiele warunków w `WHERE` klauzuli z dodawania `WHERE` klauzuli okno dialogowe, Kreator łączy je z `AND` operatora. Jeśli konieczne jest uwzględnienie `OR` w `WHERE` klauzuli (takie jak `WHERE UnitPrice <= @UnitPrice OR Discontinued = 1`), a następnie musisz utworzyć `SELECT` instrukcji za pomocą niestandardowego ekranu instrukcji SQL.
 
-
 Ukończenie konfigurowania SqlDataSource (kliknij przycisk Dalej, następnie Zakończ), a następnie sprawdź s SqlDataSource o oznaczeniu deklaracyjnym. Zawiera teraz znaczników `<SelectParameters>` kolekcji opisujemy źródeł dla parametrów w `SelectCommand`.
-
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample4.aspx)]
 
 Gdy SqlDataSource s `Select()` metoda jest wywoływana, `UnitPrice` wartość parametru (25,00) jest stosowany do `@UnitPrice` parametru w `SelectCommand` przed wysłaniem ich do bazy danych. Wynikiem jest tylko tych produktów, które są mniejsze niż lub równe 25,00 są zwracane z `Products` tabeli. Aby potwierdzić, dodać GridView do strony, powiązać go z tym źródłem danych, a następnie wyświetlić stronę za pośrednictwem przeglądarki. Powinien być widoczny tylko tych produktów na liście, które są mniejsze niż lub równe 25,00, ponieważ potwierdza rysunek 3.
 
-
 [![Są wyświetlane tylko te produkty mniej niż lub równe 25,00](using-parameterized-queries-with-the-sqldatasource-cs/_static/image3.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image5.png)
 
 **Rysunek 3**: Wyświetlane są tylko te produkty mniejszą niż lub równe 25,00 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image6.png))
-
 
 ## <a name="step-2-adding-parameters-to-a-custom-sql-statement"></a>Krok 2. Dodawanie parametrów do instrukcji SQL niestandardowe
 
@@ -104,27 +91,21 @@ Podczas dodawania niestandardowej instrukcji SQL można wprowadzić `WHERE` klau
 
 Następnie przeciągnij GridView na stronie i w tagu inteligentnego zdecydować się na utworzenie nowego SqlDataSource, o nazwie `ProductsFilteredByPriceDataSource`. Za pomocą Kreatora konfigurowania źródła danych, przejdź do Określ niestandardową instrukcję SQL lub procedury składowanej ekranu (zobacz rysunek 4) i wprowadź następujące zapytanie:
 
-
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample5.sql)]
 
 Po wprowadzeniu zapytania (ręcznie lub za pośrednictwem konstruktora zapytań), kliknij przycisk Dalej.
-
 
 [![Zwraca tylko te produkty, mniejsza niż wartość parametru](using-parameterized-queries-with-the-sqldatasource-cs/_static/image4.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image7.png)
 
 **Rysunek 4**: Zwracane tylko te produkty mniejszą niż lub równa wartości parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image8.png))
 
-
 Ponieważ zapytanie zawiera parametry, następnym ekranie kreatora nam monituje o podanie źródła wartości parametrów. Wybierz formant z listy rozwijanej Źródło parametru i `MaxPrice` (formant pola tekstowego s `ID` wartość) z listy rozwijanej ControlID. Możesz też wprowadzić opcjonalną wartość domyślną do użycia w przypadku, gdy użytkownik nie wprowadził dowolny tekst w `MaxPrice` pola tekstowego. W chwili obecnej, nie należy wprowadzać wartości domyślnej.
-
 
 [![S MaxPrice w polu tekstowym właściwości tekst jest używany jako źródło parametru](using-parameterized-queries-with-the-sqldatasource-cs/_static/image5.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image9.png)
 
 **Rysunek 5**: `MaxPrice` TextBox s `Text` właściwość jest używana jako źródło parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image10.png))
 
-
 Ukończ pracę kreatora Konfigurowanie źródła danych, klikając przycisk Dalej, a następnie Zakończ. Oznaczeniu deklaracyjnym GridView, pole tekstowe i przycisk oraz SqlDataSource następujące czynności:
-
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample6.aspx)]
 
@@ -132,21 +113,17 @@ Należy pamiętać, że parametr w ramach SqlDataSource s `<SelectParameters>` s
 
 Potrwać chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki. Po pierwsze, odwiedzając stronę lub po każdym `MaxPrice` TextBox brakuje wartości żadne rekordy nie są wyświetlane w widoku GridView.
 
-
 [![Żadne rekordy nie są wyświetlane podczas MaxPrice pole tekstowe jest puste](using-parameterized-queries-with-the-sqldatasource-cs/_static/image6.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image11.png)
 
 **Rysunek 6**: Żadne rekordy nie są wyświetlane, gdy `MaxPrice` pole tekstowe jest puste ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image12.png))
-
 
 Jest przyczyna produkty nie są wyświetlane, ponieważ domyślnie pusty ciąg jako wartość parametru jest konwertowana na bazę danych `NULL` wartość. Ponieważ to funkcja porównania `[UnitPrice] <= NULL` zawsze jako FAŁSZ, są zwracane żadne wyniki.
 
 Wprowadź wartość w polu tekstowym, takich jak 5.00 i kliknij przycisk Wyświetl produkty dopasowania. Na odświeżenie strony SqlDataSource informuje, że zmieniło się GridView, że jedna z jej źródła. W związku z tym widoku GridView rebinds do SqlDataSource wyświetlania tych produktów mniejszą lub równą 5,00 zł.
 
-
 [![Produkty mniejszą niż lub równe $5.00 są wyświetlane.](using-parameterized-queries-with-the-sqldatasource-cs/_static/image7.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.png)
 
 **Rysunek 7**: Produkty mniejszą niż lub równe $5.00 są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image14.png))
-
 
 ## <a name="initially-displaying-all-products"></a>Początkowo wyświetlane wszystkie produkty
 
@@ -156,16 +133,13 @@ W poprzednich samouczkach - [parametry deklaratywne](../basic-reporting/declarat
 
 Niestety firma Microsoft obejścia architektury, korzystając z kontrolką SqlDataSource. Zamiast tego należy dostosować instrukcję SQL, aby inteligentnie Pobierz wszystkie rekordy, jeśli `@MaximumPrice` parametr jest `NULL` lub jakąś wartość zastrzeżone. Na potrzeby tego ćwiczenia umożliwiają s jest tak że jeśli `@MaximumPrice` parametr jest równy `-1.0`, następnie *wszystkich* rekordy mają zostać zwrócone (`-1.0` działa jako zastrzeżonej wartości, ponieważ brak produktu mogą mieć ujemnych `UnitPrice`wartości). W tym celu możemy użyć następującą instrukcję SQL:
 
-
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample7.sql)]
 
 To `WHERE` klauzula zwraca *wszystkich* rekordy Jeżeli `@MaximumPrice` parametr ma wartość `-1.0`. Jeśli wartość parametru jest `-1.0`, tylko te produkty którego `UnitPrice` jest mniejsza niż lub równa `@MaximumPrice` są zwracane wartości parametru. Ustawiając wartość domyślną `@MaximumPrice` parametr `-1.0`, przy pierwszym ładowaniu strony (lub zawsze, gdy `MaxPrice` pole tekstowe jest puste), `@MaximumPrice` będzie mieć wartość `-1.0` i wszystkie produkty zostaną wyświetlone.
 
-
 [![Teraz wszystkie produkty są wyświetlane po MaxPrice pole tekstowe jest puste](using-parameterized-queries-with-the-sqldatasource-cs/_static/image8.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image15.png)
 
 **Rysunek 8**: Teraz wszystkie produkty są wyświetlane, gdy `MaxPrice` pole tekstowe jest puste ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image16.png))
-
 
 Istnieje kilka ostrzeżenia, należy pamiętać, w przypadku tej metody. Najpierw należy pamiętać, że typ danych parametru s jest wnioskowany przez użycie w zapytaniu SQL. Jeśli zmienisz `WHERE` klauzuli z `@MaximumPrice = -1.0` do `@MaximumPrice = -1`, środowisko uruchomieniowe traktuje parametr jako liczba całkowita. Jeśli następnie spróbujesz przypisać `MaxPrice` polu tekstowym na wartość dziesiętną (na przykład 5,00), wystąpi błąd ponieważ 5.00 nie można przekonwertować na liczbę całkowitą. Aby rozwiązać ten problem, albo upewnij się, że używasz `@MaximumPrice = -1.0` w `WHERE` klauzuli lub lepszą jeszcze, ustaw `ControlParameter` obiektu s `Type` właściwości na wartość dziesiętną.
 
@@ -179,45 +153,35 @@ Aby zilustrować, przy użyciu procedur składowanych w użyciu kontrolki SqlDat
 
 Z `NORTHWND.MDF` bazy danych, kliknij prawym przyciskiem myszy w folderze procedur składowanych, wybierz pozycję Dodaj nową procedurę przechowywaną i wprowadź następującą składnię:
 
-
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample8.sql)]
 
 Kliknij przycisk Zapisz ikonę (lub Ctrl + S) można zapisać procedury składowanej. Kliknij prawym przyciskiem myszy w folderze procedur składowanych i wybierając polecenie wykonania, możesz przetestować procedurę składowaną. To spowoduje wyświetlenie monitu dla parametrów procedury składowanej s (`@CategoryID`, w tym wystąpieniu), po której wyniki zostaną wyświetlone w oknie danych wyjściowych.
-
 
 [![GetProductsByCategory przechowywane procedury, gdy wykonywane za pomocą @CategoryID 1](using-parameterized-queries-with-the-sqldatasource-cs/_static/image9.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image17.png)
 
 **Rysunek 9**: `GetProductsByCategory` Stored Procedure, gdy wykonywane za pomocą `@CategoryID` 1 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image18.png))
 
-
 Pozwól, s, użyć tej procedury składowanej, aby wyświetlić wszystkie produkty z kategorii Beverages w GridView. Na stronie Dodaj nowe kontrolki GridView i powiązać ją z nowego SqlDataSource, o nazwie `BeverageProductsDataSource`. W dalszym ciągu Określ niestandardową instrukcję SQL lub procedury składowanej ekranu, wybierz przycisk radiowy procedury składowanej i wybierz `GetProductsByCategory` przechowywane procedury z listy rozwijanej.
-
 
 [![Wybierz GetProductsByCategory przechowywane procedury z listy rozwijanej](using-parameterized-queries-with-the-sqldatasource-cs/_static/image10.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image19.png)
 
 **Na rysunku nr 10**: Wybierz `GetProductsByCategory` procedury składowanej z listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image20.png))
 
-
 Ponieważ procedury składowanej akceptuje parametr wejściowy (`@CategoryID`), jeśli klikniesz pozycję dalej monituje NAS, aby określić źródło dla wartości tego parametru s. Beverages `CategoryID` wynosi 1, więc pozostaw Brak listy rozwijanej źródła parametru i wprowadź wartość w polu tekstowym DefaultValue 1.
-
 
 [![Umożliwia powrót do produktów do kategorii Beverages przez ustaloną wartość 1](using-parameterized-queries-with-the-sqldatasource-cs/_static/image11.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image21.png)
 
 **Rysunek 11**: Użyj wartości Hard-Coded 1 do zwrócenia produkty z kategorii Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image22.png))
 
-
 Jak oznaczeniu deklaracyjnym pokazano, korzystając z procedury składowanej SqlDataSource s `SelectCommand` właściwość jest ustawiona na nazwę procedury składowanej i [ `SelectCommandType` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) ustawiono `StoredProcedure`oznaczający które `SelectCommand` jest nazwa procedury składowanej, a nie instrukcji SQL zapytań ad-hoc.
-
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample9.aspx)]
 
 Przetestuj stronę w przeglądarce. Wyświetlane są tylko te produkty, które należą do kategorii Beverages, mimo że *wszystkich* produktu pola są wyświetlane od `GetProductsByCategory` procedura składowana ma zwracać wszystkie kolumny z `Products` tabeli. Firma Microsoft może, oczywiście, ograniczenia lub dostosować pola wyświetlane w widoku GridView z okna dialogowego Edytowanie kolumn GridView s.
 
-
 [![Zostaną wyświetlone wszystkie Beverages](using-parameterized-queries-with-the-sqldatasource-cs/_static/image12.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image23.png)
 
 **Rysunek 12**: Zostaną wyświetlone wszystkie Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image24.png))
-
 
 ## <a name="step-4-programmatically-invoking-a-sqldatasource-sselectstatement"></a>Krok 4. Programowe wywoływania SqlDataSource s`Select()`— instrukcja
 
@@ -229,7 +193,6 @@ W tym celu należy dwie kontrolki SqlDataSource co do pobrania losowe kategorię
 
 Rozpocznij od dodania SqlDataSource do `ParameterizedQueries.aspx` i ustaw jego `ID` do `RandomCategoryDataSource`. Skonfiguruj go, tak aby używał następujące zapytanie SQL:
 
-
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample10.sql)]
 
 `ORDER BY NEWID()` Zwraca rekordy, sortować w kolejności losowej (zobacz [Using `NEWID()` losowo sortowanie rekordów](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1` Zwraca pierwszy rekord z zestawu wyników. Podsumowując, ta kwerenda zwraca `CategoryID` i `CategoryName` wartości kolumn z jednej, losowo wybranej kategorii.
@@ -240,20 +203,16 @@ Do wyświetlania kategorii s `CategoryName` wartości, Dodaj kontrolkę etykieta
 
 Poniższy kod ilustruje sposób pobierania rekordów z `RandomCategoryDataSource` SqlDataSource jako widoku danych oraz jak odczytać `CategoryName` wartość kolumny z pierwszego wiersza w widoku danych:
 
-
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample11.cs)]
 
 `randomCategoryView[0]` Zwraca pierwszy `DataRowView` w widoku danych. `randomCategoryView[0]["CategoryName"]` Zwraca wartość `CategoryName` kolumny w tym pierwszego wiersza. Należy pamiętać, że DataView typowaniem luźnym. Aby odwołać się do wartości określonej kolumny musimy przekazać nazwę kolumny w formie ciągu (w tym przypadku CategoryName). Rysunek 13 pokazuje komunikat wyświetlany w `CategoryNameLabel` podczas wyświetlania strony. Oczywiście kategorii rzeczywista nazwa wyświetlana jest wybierane losowo przez `RandomCategoryDataSource` SqlDataSource na każdej wizyty do strony (w tym ogłaszania zwrotnego).
-
 
 [![S losowo wybranej kategorii, którego nazwa jest wyświetlana](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image25.png)
 
 **Rysunek 13**: S losowo wybranej kategorii, nazwa jest wyświetlana ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image26.png))
 
-
 > [!NOTE]
 > Jeśli SqlDataSource kontrolować s `DataSourceMode` właściwość była równa `DataReader`, wartość zwrotną z elementu `Select()` wymagałby metody, można rzutować do `IDataReader`. Aby przeczytać `CategoryName` wartość kolumny z pierwszego wiersza, możemy d za pomocą kodu, takich jak:
-
 
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample12.cs)]
 
@@ -262,36 +221,29 @@ Dzięki użyciu kontrolki SqlDataSource losowo wybranie kategorii, możemy ponow
 > [!NOTE]
 > Zamiast używania formantu sieci Web etykiety, aby wyświetlić nazwę kategorii s, można dodaliśmy FormView lub DetailsView ze stroną powiązania jej z kontrolką SqlDataSource. Za pomocą etykiety, jednak umożliwiło nam Zbadaj, jak programowo wywołania SqlDataSource s `Select()` instrukcji i pracować z jego dane wynikowe w kodzie.
 
-
 ## <a name="step-5-assigning-parameter-values-programmatically"></a>Krok 5. Przypisywanie wartości parametrów programowe
 
 Wszystkie przykłady możemy ve do tej pory widoczne w tym samouczku użyto wartości parametru ustaloną lub jeden z jednego ze źródeł wstępnie zdefiniowanych parametrów (wartości querystring, formantu sieci Web, na stronie i tak dalej). Jednak parametry s kontrolki SqlDataSource można również ustawić programowo. Aby ukończyć naszym przykładzie bieżąca, potrzebujemy SqlDataSource, które zwraca wszystkie produkty należące do określonej kategorii. Będzie miał ten SqlDataSource `CategoryID` parametr, którego wartość należy ustawić na podstawie `CategoryID` wartość kolumny zwracane przez `RandomCategoryDataSource` SqlDataSource w `Page_Load` programu obsługi zdarzeń.
 
 Rozpocznij od dodania GridView do strony i powiązać ją z nowego SqlDataSource, o nazwie `ProductsByCategoryDataSource`. Podobnie jak zrobiliśmy w kroku 3, skonfiguruj SqlDataSource wywołuje `GetProductsByCategory` procedury składowanej. Pozostaw ustawiony listy rozwijanej źródła parametru na wartość None, ale nie należy wprowadzać wartości domyślnej, ponieważ firma Microsoft będzie programowo ustawić tę wartość domyślną.
 
-
 [![Nie określaj parametru źródła lub wartość domyślną](using-parameterized-queries-with-the-sqldatasource-cs/_static/image14.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image27.png)
 
 **Rysunek 14**: Czy określono parametr źródła lub wartości domyślnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image28.png))
 
-
 Po zakończeniu pracy Kreatora SqlDataSource wynikowy oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample13.aspx)]
 
 Firma Microsoft może przypisać `DefaultValue` z `CategoryID` programowo w parametrze `Page_Load` program obsługi zdarzeń:
 
-
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample14.cs)]
 
 To dodawanie strona zawierająca GridView, który pokazuje produkty powiązane z losowo wybranej kategorii.
 
-
 [![Nie określaj parametru źródła lub wartość domyślną](using-parameterized-queries-with-the-sqldatasource-cs/_static/image15.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image29.png)
 
 **Rysunek 15**: Czy określono parametr źródła lub wartości domyślnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-parameterized-queries-with-the-sqldatasource-cs/_static/image30.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

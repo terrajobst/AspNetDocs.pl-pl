@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 165343fd20b92becee1956c7a19870219323e073
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ebdae3f4d1261407feecd50ec81b3f329b2a3c0c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409398"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117131"
 ---
 # <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
 
@@ -23,7 +23,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > 
 > Ten samouczek został napisany przez [Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) ).
 
-
 <a id="createMvc"></a>
 ## <a name="create-an-aspnet-mvc-app"></a>Tworzenie aplikacji ASP.NET MVC
 
@@ -31,7 +30,6 @@ Rozpocznij od instalowania i uruchamiania [Visual Studio Express 2013 for Web](h
 
 > [!NOTE]
 > Ostrzeżenie: Należy zainstalować [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465) lub nowszej, aby ukończyć ten samouczek.
-
 
 1. Utwórz nowy projekt sieci Web platformy ASP.NET, a następnie wybierz szablon MVC. Formularze sieci Web obsługuje również produktu ASP.NET Identity, dzięki czemu można wykonać podobne kroki w aplikacji formularzy sieci web.  
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image1.png)
@@ -78,7 +76,6 @@ W celu uproszczenia w tym przykładzie będziemy przechowywać ustawienia aplika
 
 > [!WARNING]
 > Zabezpieczenia — nigdy nie przechowywania danych poufnych w kodzie źródłowym. Konto i poświadczenia są przechowywane w appSetting. Na platformie Azure, możesz bezpiecznie przechowywać te wartości na **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** kartę w witrynie Azure portal. Zobacz [najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-
 
 ### <a name="enable-email-confirmation-in-the-account-controller"></a>Włącz potwierdzenie adresu e-mail w kontrolerze konta
 

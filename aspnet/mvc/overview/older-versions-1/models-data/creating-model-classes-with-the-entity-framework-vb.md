@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b3c6726c2d08e2e6ac37501f2ab455e427df82bb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f6c896c6f5f6d898ac6f99d5998fb29cb73bcb10
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414059"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65117598"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-vb"></a>Tworzenie klas modeli za pomocą programu Entity Framework (VB)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > W tym samouczku dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. Dowiesz się, jak używać Kreator modelu Entity do tworzenia modelu danych jednostki ADO.NET. W trakcie tego samouczka firma Microsoft tworzenie aplikacji sieci web, który ilustruje sposób Wybierz, Wstaw, Aktualizuj i usunąć dane z bazy danych za pomocą programu Entity Framework.
-
 
 Celem tego samouczka jest wyjaśniono sposób tworzenia klas dostępu do danych za pomocą programu Microsoft Entity Framework, podczas tworzenia aplikacji ASP.NET MVC. Ten samouczek zakłada się nie wcześniejsza wiedza Microsoft Entity Framework. Do końca tego samouczka będziesz zrozumieć, jak używać programu Entity Framework wybierz, wstawianie, aktualizowanie i usuwanie rekordów bazy danych.
 
@@ -30,13 +29,11 @@ Microsoft Entity Framework to narzędzie obiektu relacyjne mapowanie (O/RM), kt�
 > 
 > Nie ma zasadnicze połączenia między platformy ASP.NET MVC i Microsoft Entity Framework. Istnieje kilka rozwiązań alternatywnych, w programie Entity Framework, który za pomocą platformy ASP.NET MVC. Można na przykład, utworzyć przy użyciu innych narzędzi Obiektowo, takich jak Microsoft LINQ to SQL i NHibernate, SubSonic klasach modeli MVC.
 
-
 Aby zilustrować, jak za pomocą programu Entity Framework Microsoft ASP.NET MVC, utworzymy prostą przykładowej aplikacji. Utworzymy aplikację baza danych filmów, która umożliwia wyświetlanie i edytowanie rekordów bazy danych filmów.
 
 Ten samouczek zakłada, że masz program Visual Studio 2008 lub Visual Web Developer 2008 z dodatkiem Service Pack 1. Z dodatkiem Service Pack 1 jest niezbędna, aby używać programu Entity Framework. Możesz pobrać program Visual Studio 2008 z dodatkiem Service Pack 1 lub Visual Web Developer z dodatkiem Service Pack 1 z następującego adresu:
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
-
 
 ## <a name="creating-the-movie-sample-database"></a>Tworzenie przykładowej bazy danych filmów
 
@@ -108,9 +105,7 @@ Jeśli chcesz zmienić nazwę klasy jednostki, możesz kliknij dwukrotnie nazwę
 
 Pamiętaj, aby zapisać modelu Entity Data Model po wprowadzeniu zmiany przez kliknięcie przycisku Zapisz (ikona dysku). W tle w Projektancie jednostki generuje zestaw klas w języku Visual Basic .NET. Te klasy można wyświetlić, otwierając plik MoviesDBModel.Designer.vb z okna Eksploratora rozwiązań.
 
-
 Nie należy modyfikować kodu w pliku Designer.vb, ponieważ zmiany zostaną zastąpione podczas następnego używany jest Projektant jednostki. Jeśli chcesz rozszerzyć funkcjonalność klasy jednostek zdefiniowane w pliku Designer.vb, a następnie można utworzyć *klas częściowych* w oddzielnych plikach.
-
 
 #### <a name="selecting-database-records-with-the-entity-framework"></a>Wybieranie rekordów bazy danych za pomocą programu Entity Framework
 
@@ -158,9 +153,7 @@ Należy zauważyć, że drugiej akcji Add() zostanie nadany atrybut AcceptVerbs.
 
 Drugiej akcji Add() tworzy nowe wystąpienie klasy Entity Framework filmu przy pomocy metody ASP.NET MVC TryUpdateModel(). Metoda TryUpdateModel() przyjmuje pól w FormCollection przekazywany do metody Add() i przypisuje wartości pól formularza HTML do klasy filmu.
 
-
 Korzystając z programu Entity Framework, należy podać "białą listę" właściwości, korzystając z metody TryUpdateModel lub UpdateModel można zaktualizować właściwości klasy jednostki.
-
 
 Następnie akcji Add() przeprowadza weryfikację niektóre prosty formularz. Akcja sprawdza, czy tytuł i dyrektor ds. właściwości mają wartości. Jeśli występuje błąd sprawdzania poprawności, komunikat o błędzie weryfikacji jest dodawany do ModelState.
 

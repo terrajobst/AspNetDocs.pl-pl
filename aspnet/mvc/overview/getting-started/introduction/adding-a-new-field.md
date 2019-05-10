@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: a5de73d93d0af21a3b59d6c21014810184292adb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 55e635c967e07e193dda0358b020638af46c688e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65120839"
 ---
 # <a name="adding-a-new-field"></a>Dodanie nowego pola
 
@@ -79,7 +79,6 @@ Spowoduje to dodanie następujących instrukcję using:
 > 
 > Aby uzyskać więcej informacji na temat [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metody, zobacz [powinien zachować ostrożność przy użyciu metody AddOrUpdate 4.3 EF](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
-
 **Naciśnij klawisze CTRL-SHIFT-B, aby skompilować projekt.** (Następujących kroków zakończy się niepowodzeniem, jeśli nie utworzysz w tym momencie.)
 
 Następnym krokiem jest utworzenie `DbMigration` klasy początkowej migracji. Tej migracji tworzy nową bazę danych, dlatego możesz usunąć *movie.mdf* pliku w poprzednim kroku.
@@ -138,13 +137,11 @@ Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia ba
 
 Widzisz ten błąd, ponieważ zaktualizowanego `Movie` klasy modelu w aplikacji teraz różni się od schematu `Movie` tabeli istniejącej bazy danych. (Brak nie `Rating` kolumny w tabeli bazy danych.)
 
-
 Istnieje kilka sposobów rozwiązania problemu:
 
 1. Ma automatycznie Porzuć i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu Entity Framework. To podejście jest bardzo wygodne na wczesnym etapie cyklu tworzenia oprogramowania, gdy robią active rozwoju w bazie danych testu; Umożliwia szybkie razem rozwijania schematu za jego modelu i bazie danych. Wadą jednak jest utraty istniejących danych w bazie danych — dzięki czemu możesz *nie* chcesz użyć tej metody w produkcyjnej bazie danych! Automatycznie zapełnić bazę danych przy użyciu danych testowych za pomocą inicjatora jest często produktywny sposób tworzenia aplikacji. Aby uzyskać więcej informacji na temat inicjatory bazy danych programu Entity Framework, zobacz [samouczek platformy ASP.NET MVC/Entity Framework](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 2. Jawnie zmodyfikować schemat istniejącej bazy danych, aby odpowiadały one klasy modelu. Zaletą tego podejścia jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych zmiana skryptu.
 3. Aby zaktualizować schemat bazy danych, należy użyć migracje Code First.
-
 
 W tym samouczku użyjemy migracje Code First.
 

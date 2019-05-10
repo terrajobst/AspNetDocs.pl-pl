@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: a3a90963-0286-4fa0-9b3d-c230cc18b0a3
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: f648e0cb53dd410105adc22401f19a5a15f9e8c1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 05a281720f76b107fe8d902ef60d5d2e72af3ef5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380811"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122899"
 ---
 # <a name="adding-a-create-method-and-create-view"></a>Dodawanie metody Create i tworzenie widoku
 
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
-
 
 W tej sekcji użyjemy do zaimplementowania obsługi, które są niezbędne umożliwić użytkownikom tworzenie nowych filmów w naszej bazie danych. Możemy to zrobić poprzez Implementowanie akcji filmy/tworzenia adresu URL.
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: c61560e9-9f6c-4985-834a-08a3eabf9c3c
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: cbad35c9ef83b41e9d3f9a48ff37672d22338e7e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f1477ff423e4898385066a35b42503f3c70dcc68
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65119461"
 ---
 # <a name="creating-and-running-a-deployment-command-file"></a>Tworzenie i uruchamianie pliku poleceń wdrażania
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób tworzenia pliku polecenia, które pozwoli uruchamiać wdrażania przy użyciu aparatu Microsoft Build Engine (MSBuild), pliki projektu jako pojedynczy krok, powtarzalnego procesu.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [Contact Manager](the-contact-manager-solution.md) rozwiązania&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -41,9 +40,7 @@ Zgodnie z opisem w [objaśnienie procesu kompilacji](understanding-the-build-pro
 
 *Publish.proj* plików używa **zaimportować** elementu, aby zaimportować plik projektu specyficznego dla danego środowiska.
 
-
 [!code-xml[Main](creating-and-running-a-deployment-command-file/samples/sample1.xml)]
-
 
 Jako takie korzystając z MSBuild.exe do tworzenia i wdrażania rozwiązania Contact Manager, należy:
 
@@ -52,19 +49,14 @@ Jako takie korzystając z MSBuild.exe do tworzenia i wdrażania rozwiązania Con
 
 Aby to zrobić, polecenia MSBuild powinien wyglądać następująco:
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample2.cmd)]
-
 
 W tym miejscu jest prostym kroku, aby przejść do wdrożenia powtarzalne, pojedynczy krok. Wszystko, co należy zrobić, jest dodanie polecenia MSBuild do pliku .cmd. W przypadku rozwiązania Contact Manager folderu publikowania zawiera plik o nazwie *Dev.cmd Publikuj* dokładnie ten wykonujący.
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample3.cmd)]
-
 
 > [!NOTE]
 > **/Fl** przełącznik powoduje, że program MSBuild utworzy plik dziennika o nazwie *msbuild.log* w katalogu roboczym, w której wywołano MSBuild.exe.
-
 
 W przypadku wdrażania lub ponownego wdrożenia rozwiązania Contact Manager, wszystko, czego potrzebujesz w celu uruchomienia *Dev.cmd Publikuj* pliku. Po uruchomieniu pliku MSBuild wykonują następujące czynności:
 
@@ -99,19 +91,14 @@ Po utworzeniu pliku poleceń w środowisku docelowym, należy wykonać całe wdr
 
 Tworzenie pliku poleceń, zawierający instrukcje MSBuild oferuje szybki i łatwy sposób tworzenia i wdrażania rozwiązania wielu projektów w środowisku określonego miejsca docelowego. Jeśli zachodzi potrzeba wielokrotnie wdrażać rozwiązania dla wielu środowisk docelowej, można utworzyć wiele plików poleceń. W każdym pliku polecenia polecenie MSBuild utworzy tego samego pliku projektu w wersji uniwersalnej, ale będą wpisywać, plik inny projekt specyficznymi dla środowiska. Na przykład pliku polecenia, aby opublikować z deweloperem lub środowiska testowego może zawierać tego polecenia programu MSBuild:
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample4.cmd)]
-
 
 Plik poleceń do publikowania w środowisku przejściowym może zawierać tego polecenia programu MSBuild:
 
-
 [!code-console[Main](creating-and-running-a-deployment-command-file/samples/sample5.cmd)]
-
 
 > [!NOTE]
 > Aby uzyskać wskazówki dotyczące dostosowywania pliki projektu specyficznego dla środowiska dla środowisk serwera, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
-
 
 Zastępowanie właściwości lub ustawiając różnych innymi przełącznikami w poleceniu programu MSBuild, można również dostosować proces kompilacji dla każdego środowiska. Aby uzyskać więcej informacji, zobacz [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311.aspx).
 

@@ -9,17 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 7404a0f1-52f7-410c-abd0-c96bab52d217
 msc.legacyurl: /web-api/overview/advanced
 msc.type: chapter
-ms.openlocfilehash: 2cec6138ffcd6019eae23c82abda2b96d7b0b625
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 546c7b0d868fcd7a3f3457d623b69eaefa646175
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383463"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126181"
 ---
 # <a name="advanced-topics-for-aspnet-web-api"></a>Tematy zaawansowane Web API platformy ASP.NET
 
 > Bardziej zaawansowane tematy dotyczące projektowania interfejsu API sieci Web platformy ASP.NET, gdy znasz podstawy.
-
 
 - [Konfigurowanie interfejsu Web API 2](configuring-aspnet-web-api.md)
 - [Wstrzykiwanie zależności w interfejsie Web API 2](dependency-injection.md)

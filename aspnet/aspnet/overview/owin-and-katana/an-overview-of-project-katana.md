@@ -8,19 +8,18 @@ ms.date: 08/30/2013
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 72f70faa151007558ecbb270143ecd5b37c2134d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1f28db822930cdfd2ebf4cf9bb27d173f4aa4201
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392576"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118293"
 ---
 # <a name="an-overview-of-project-katana"></a>Omówienie projektu Katana
 
 przez [Howard Dierking](https://github.com/howarddierking)
 
 > Środowiska ASP.NET Framework została wokół ponad dziesięć lat, a platformę włączył rozwoju niezliczonych witryn sieci Web i usług. Jak usprawniły strategie programowania aplikacji sieci Web, struktura została może podlegać ewolucji w kroku przy użyciu technologii, takich jak ASP.NET MVC i Web API platformy ASP.NET. Jak opracowywanie aplikacji sieci Web ma ewolucyjny następnego kroku w świecie chmury obliczeniowej, projekt [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET) zawiera podstawowy zestaw składników do aplikacji ASP.NET, co pozwala na elastyczne, przenośne, lekkie i zapewnić lepszą wydajność — innymi słowy, projektów [Katana](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET) chmury optymalizuje aplikacji ASP.NET.
-
 
 ## <a name="why-katana--why-now"></a>Dlaczego Katana — Dlaczego teraz?
 
@@ -214,7 +213,6 @@ Infrastruktury hostingu dla wersji biblioteki Katana 2.0 obejmuje zarówno Syste
 ## <a name="conclusion"></a>Wniosek
 
  Od jego początku celem projektu Katana nie był do tworzenia i tym samym wymusić deweloperów, aby dowiedzieć się kolejny struktury sieci Web. Zamiast celem została utworzyć abstrakcję, aby zaoferować deweloperom aplikacji sieci Web platformy .NET większy wybór, niż było wcześniej możliwe. Przez podzielenie warstwy logiczne typowe stosu aplikacji sieci Web na zestaw składników wymienne, projektu Katana umożliwia składników w całym stosie, aby poprawić w według stawki ma sens dla tych składników. Tworząc wszystkie składniki wokół proste abstrakcji OWIN, Katana umożliwia platformy i aplikacji korzystających z nich będzie działał na wielu różnych serwery i hosty. Umieszczając Deweloper w formancie stosu, Katana gwarantuje, że deweloper sprawia, że wybór ultimate o jak uproszczone lub jak bogate powinny być jej stosu sieci Web.  
-  
 
 ## <a name="for-more-information-about-katana"></a>Aby uzyskać więcej informacji na temat Katana
 

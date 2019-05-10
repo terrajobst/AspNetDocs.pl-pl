@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 0ad0b3c63741803e05274df4da3fcbe5481d32a4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 138ccb5800e801d382c11e3989ec3e3c074a79fe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391939"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115701"
 ---
 # <a name="dependency-injection-in-aspnet-web-api-2"></a>Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2
 
@@ -30,7 +30,6 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 > - Internetowy interfejs API 2
 > - [Blok aplikacji Unity](https://www.nuget.org/packages/Unity/)
 > - Entity Framework 6 (działa także w wersji 5)
-
 
 ## <a name="what-is-dependency-injection"></a>Co to jest wstrzykiwanie zależności?
 
@@ -88,7 +87,6 @@ Kontenera IoC jest składnikiem oprogramowania, który jest odpowiedzialny za za
 > [!NOTE]
 > "IoC" oznacza "Inwersja kontroli", który jest ogólny wzorzec gdzie struktura wywołuje kod aplikacji. Kontenera IoC tworzy obiekty, które zwykle przepływu sterowania "odwraca".
 
-
 W tym samouczku użyjemy [Unity](https://msdn.microsoft.com/library/ff647202.aspx) z Microsoft Patterns &amp; rozwiązania. (Obejmują innych popularnych bibliotek [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), i [StructureMap ](http://structuremap.github.io/documentation/).) Menedżer pakietów NuGet można użyć do zainstalowania aparatu Unity. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
@@ -99,7 +97,6 @@ Oto implementacja **elementu IDependencyResolver** wszystko w kontenerze aparatu
 
 > [!NOTE]
 > Jeśli **GetService** metody nie można rozpoznać typu, powinna zwrócić **null**. Jeśli **funkcji GetServices** metody nie można rozpoznać typu, powinien zostać zwrócony obiekt pustą kolekcję. Nie zgłaszają wyjątki dla nieznanego typu.
-
 
 ## <a name="configuring-the-dependency-resolver"></a>Konfigurowanie mechanizmu rozpoznawania zależności
 

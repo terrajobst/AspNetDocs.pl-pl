@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 418bb07e-f369-4119-b4b0-08f890f7abb2
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c12f2a3d253df1ed9d8b25001edf13a04da26f5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bb3909bff2791c15a8737fc12cac69f79b55733f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125441"
 ---
 # <a name="authenticating-users-with-windows-authentication-c"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (C#)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak używać uwierzytelniania Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie Windows w pliku konfiguracji sieci web aplikacji i jak skonfigurować uwierzytelnianie za pomocą programu IIS. Na koniec dowiesz się, jak używać atrybutu [Authorize] do ograniczania dostępu do akcji kontrolera do konkretnych użytkowników Windows lub grup.
-
 
 Celem tego samouczka jest wyjaśniają, jak możesz korzystać ze zabezpieczeń funkcji wbudowanych w Internet Information Services do hasła ochrony widoków w aplikacji MVC. Dowiesz się, jak umożliwić akcji kontrolera być przywoływane tylko przez określonych użytkowników Windows lub użytkowników, którzy są członkami określonej grupy Windows.
 
@@ -50,7 +49,6 @@ W produkcyjnej aplikacji internetowej strony, należy użyć usług IIS jako ser
 > 
 > Aby uzyskać bardziej szczegółowym omówieniem tych różnych typów uwierzytelniania, zobacz [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
-
 Aby włączyć określonego typu uwierzytelniania, można użyć Menedżera internetowych usług informacyjnych. Należy pamiętać, że wszystkie typy uwierzytelniania nie są dostępne w przypadku każdej wersji systemu operacyjnego. Ponadto jeśli używasz usług IIS 7.0, Windows Vista, należy włączyć różnych typów uwierzytelniania Windows zanim pojawią się w Menedżera internetowych usług informacyjnych. Otwórz **Panelu sterowania, programy, programy i funkcje, Windows, Włącz lub wyłącz funkcje**i rozwiń węzeł Internetowe usługi informacyjne (zobacz rysunek 2).
 
 **Rysunek 2 — funkcje usług IIS Windows włączenie**
@@ -76,7 +74,6 @@ Na przykład kontrolera głównego w ofercie 1 udostępnia trzy czynności o naz
 > [!NOTE] 
 > 
 > Ze względu na Windows (Kontrola konta), podczas pracy z usługą Windows Vista lub Windows Server 2008, do lokalnej grupy Administratorzy będą zachowywać się inaczej niż inne grupy. Atrybut [Authorize] poprawnie nie rozpozna członkiem lokalnej grupy administratorów, chyba że zmodyfikujesz ustawień funkcji Kontrola konta użytkownika na komputerze.
-
 
 Dokładnie co się stanie po użytkownik podejmie próbę wywołania akcji kontrolera, nie będąc odpowiednie uprawnienia, zależy od typu uwierzytelnianie jest włączone. Domyślnie, korzystając z programem ASP.NET Development Server po prostu pobrać pustą stronę. Strona jest obsługiwana przy użyciu **401 nieautoryzowane** stanu odpowiedzi HTTP.
 
