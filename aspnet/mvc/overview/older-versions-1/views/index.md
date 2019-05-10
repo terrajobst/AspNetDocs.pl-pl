@@ -8,17 +8,16 @@ ms.date: 09/28/2011
 ms.assetid: c2dea264-0d8c-4216-bbe5-70d2421597b0
 msc.legacyurl: /mvc/overview/older-versions-1/views
 msc.type: chapter
-ms.openlocfilehash: 3aff4defbfe7738e5f33c6f9d72aed8ac7e12116
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 10f4f418f340799660d53fac6eda87cb23ca1b7c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407682"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130225"
 ---
 # <a name="aspnet-mvc-views"></a>Widoki ASP.NET MVC
 
 > Tego zestawu samouczków zawiera krótkie wprowadzenie do widoków ASP.NET MVC, danych widoków i pomocników HTML.
-
 
 - [Omówienie widoków ASP.NET MVC (C#)](asp-net-mvc-views-overview-cs.md)
 - [Tworzenie niestandardowych pomocników HTML (C#)](creating-custom-html-helpers-cs.md)

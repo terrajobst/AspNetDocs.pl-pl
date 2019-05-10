@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 090e9205-52f3-4d72-ae31-44775b8b8421
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e156b15356b02c25ad3dbb082096fc41ee35e465
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6556935aafa954f83a9efafdf4e0850e7730a947
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403704"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127130"
 ---
 # <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>Podstawowe różnice między usługami IIS a programem ASP.NET Development Server (VB)
 
@@ -23,11 +23,9 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > Podczas testowania aplikacji programu ASP.NET w środowisku lokalnym, jest szansa, że używasz serwera sieci Web programu ASP.NET Development. Jednak produkcyjnej witrynie internetowej jest najprawdopodobniej zasilania usług IIS. Istnieją pewne różnice między jak te serwery sieci web obsługi żądań, a te różnice mogą mieć konsekwencje ważne. W tym samouczku przedstawiono niektóre różnice, bardziej istotnego.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Zawsze, gdy użytkownik odwiedzi aplikacji ASP.NET jego przeglądarce wysyła żądanie do witryny sieci Web. To żądanie jest pobierana przez oprogramowanie serwera sieci web, która koordynuje ze środowiskiem uruchomieniowym ASP.NET, aby wygenerować i zwrócić zawartość dla żądanego zasobu. [**I** ezpośredniego **I** informacje o wersji **S** ervices (IIS)](http://en.wikipedia.org/wiki/Internet_Information_Services) to pakiet usług, które zapewniają typowych funkcji internetowych dla Serwery Windows. Program IIS jest serwer sieci web najczęściej używane dla aplikacji ASP.NET w środowisku produkcyjnym; jest to najprawdopodobniej oprogramowanie serwera sieci web, które są używane przez dostawcę hosta sieci web do obsługi aplikacji programu ASP.NET. Usługi IIS można również jako oprogramowanie serwera sieci web w środowisku deweloperskim, mimo że to pociąga za sobą Instalowanie usług IIS i odpowiednio konfigurując go.
-
 
 ASP.NET Development Server jest opcją serwera sieci web alternatywny w środowisku deweloperskim; on dostarczany z programem i jest zintegrowana w programie Visual Studio. Chyba że aplikacja sieci web została skonfigurowana do używania usług IIS, ASP.NET Development Server jest uruchomiony i automatycznie używany jako serwer sieci web, odwiedź stronę sieci web z poziomu programu Visual Studio po raz pierwszy. Aplikacje sieci web pokaz utworzyliśmy w [ *określająca, które pliki muszą zostać wdrożone* ](determining-what-files-need-to-be-deployed-vb.md) samouczka zostały obie aplikacje sieci web opartych na systemie plików, które nie zostały skonfigurowane do używania usług IIS. W związku z tym gdy użytkownik odwiedzi jednej z tych witryn sieci Web z poziomu programu Visual Studio ASP.NET Development Server jest używany.
 
@@ -46,22 +44,17 @@ Do wyświetlenia tego typu błędu w działaniu w przeglądach książki witryny
 > [!NOTE]
 > [ `File.WriteAllText` Metoda](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx) tworzy nowy plik, jeśli nie istnieje, a następnie zapisuje określoną zawartość do niego. Jeśli plik już istnieje, jego istniejąca zawartość zostanie zastąpiony.
 
-
 Następnie odwiedź *uczyć się ASP.NET 3.5 w ciągu 24 godzin* strony przeglądu książki w środowisku programistycznym, przy użyciu serwera projektowego ASP.NET. Przy założeniu, że zalogowano się do komputera przy użyciu konta, które ma odpowiednie uprawnienia do tworzenia i modyfikowania pliku tekstowego w sieci web katalogu głównego aplikacji przejrzyj książki pojawi się taka sama jak przed, ale każdorazowo, gdy strona jest odwiedzone daty i godziny oraz użytkownika  Adres IP jest przechowywany w `LastTYASP35Access.txt` pliku. Wskazać w przeglądarce do tego pliku; powinien zostać wyświetlony komunikat podobny do przedstawionego na rysunku 1.
-
 
 [![Plik tekstowy zawiera Data i godzina ostatniej odwiedzono przeglądu książki&lt;](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image1.png)
 
 **Rysunek 1**: Plik tekstowy zawiera Data i godzina ostatniej odwiedzono przeglądu książki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image3.png))
 
-
 Wdrażanie aplikacji sieci web w środowisku produkcyjnym, a następnie odwiedź hostowanej *uczyć się ASP.NET 3.5 w ciągu 24 godzin* strony przeglądu książki. W tym momencie w albo powinna zostać wyświetlona strona przeglądu książki, jako normalny lub komunikat o błędzie pokazano na rysunku 2. Niektórych dostawców usług hosta sieci web przyznać uprawnienia do zapisu do anonimowych ASP.NET konta komputera w którym przypadku strony będzie działać bez błędów. Jeśli jednak dostawcą hosta sieci web nie zezwala na dostęp do zapisu dla konta anonimowego, a następnie [ `UnauthorizedAccessException` wyjątek](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) jest wywoływane, gdy `TYASP35.aspx` strona próbuje zapisać bieżącą datę i czas `LastTYASP35Access.txt` pliku.
-
 
 [![Domyślne konto komputera, używanego przez usługi IIS nie ma uprawnień do zapisu w systemie plików](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image4.png)
 
 **Rysunek 2**: Domyślnie maszyny konto używane przez usługi IIS jest nie mieć uprawnień do zapisu w systemie plików ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image6.png))
-
 
 Dobra wiadomość jest większość dostawców usług hosta sieci web jakieś narzędzie uprawnienia, które umożliwia określenie uprawnień systemu plików w witrynie sieci Web. Udzielanie anonimowego dostępu konta ASP.NET zapisu do katalogu głównego, a następnie ponownie na stronie przeglądu księgi. (Jeśli to konieczne, skontaktuj się z dostawcą sieci web hosta uzyskać pomoc na temat sposobu przyznawania uprawnień zapisu do domyślnego konta ASP.NET.) Tym razem strona, powinny zostać załadowane bez błędów i `LastTYASP35Access.txt` powinien on być utworzony pomyślnie.
 
@@ -75,7 +68,6 @@ Inny różnica core między usługami IIS a programem ASP.NET Development Server
 
 > [!NOTE]
 > Aby uzyskać dokładne badanie ASP. Uwierzytelnianie oparte na formularzach sieci firmy, Autoryzacja adresów URL i inne funkcje z związanych z kontem użytkownika, koniecznie zapoznaj się z moich [samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
-
 
 Należy wziąć pod uwagę witryny sieci Web, która obsługuje konta użytkowników przy użyciu autoryzacji opartej na formularzach i zawiera folder, który za pomocą Autoryzacja adresów URL jest skonfigurowane i umożliwiają tylko uwierzytelnionym użytkownikom. Wyobraź sobie, że ten folder zawiera strony ASP.NET i pliki PDF i że celem jest, że tylko uwierzytelnieni użytkownicy mogą wyświetlać te pliki PDF.
 
@@ -95,19 +87,15 @@ Przy użyciu serwera projektowego ASP.NET, odwiedź witrynę, a następnie wprow
 
 Wprowadź ten adres URL w pasku adresu powoduje, że przeglądarkę, aby wysłać żądanie do ASP.NET Development Server dla pliku. Sesje hands ASP.NET Development Server wniosek do środowiska uruchomieniowego programu ASP.NET do przetwarzania. Ponieważ firma Microsoft nie jeszcze logowali się i `Web.config` w `PrivateDocs` folderu skonfigurowano odmowę dostępu anonimowego, środowisko uruchomieniowe ASP.NET automatycznie przekierowuje nam do strony logowania `Login.aspx` (zobacz rysunek 3). Jeśli przekierowanie użytkownika do strony logowania, program ASP.NET zawiera `ReturnUrl` parametr querystring, która wskazuje stronę użytkownik próbował wyświetlić. Po pomyślnym zalogowaniu się użytkownika mogą być zwrócone do tej strony.
 
-
 [![Nieautoryzowani użytkownicy są automatycznie przekierowywane do strony logowania](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image7.png)
 
 **Rysunek 3**: Nieautoryzowani użytkownicy są automatycznie przekierowywane do strony logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image9.png))
 
-
 Teraz zobaczmy, jak to działa w środowisku produkcyjnym. Wdrażanie aplikacji, a następnie wprowadź bezpośredni adres URL do jednego z plików PDF w `PrivateDocs` folder w środowisku produkcyjnym. Wyświetla monit o przeglądarce wysyłanie żądań usług IIS dla pliku. Ponieważ pliku statycznego jest wymagane, usług IIS umożliwia pobranie i zwraca go bez wywoływania środowiska uruchomieniowego programu ASP.NET. W rezultacie wystąpił nie adres URL autoryzacji operacji sprawdzania; zawartość PDF funkcji rzekomo prywatne są dostępne dla każdego, kto zna bezpośredni adres URL do pliku.
-
 
 [![Użytkownicy anonimowi mogą pobierać pliki PDF prywatnego przy użyciu bezpośredniego adresu URL do pliku](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image10.png)
 
 **Rysunek 4**: Użytkownicy anonimowi można pobrać prywatnej PDF plików przez wprowadzanie bezpośredni adres URL do pliku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image12.png))
-
 
 ### <a name="performing-forms-based-authentication-and-url-authentication-on-static-files-with-iis-7"></a>Wykonywanie uwierzytelniania opartego na formularzach i adres URL uwierzytelniania na pliki statyczne z usługami IIS 7
 
@@ -121,7 +109,6 @@ Ten kod znaczników powoduje, że usługi IIS 7 używania modułów uwierzytelni
 
 > [!NOTE]
 > Jeśli Twój dostawca hosta sieci web nadal używa usług IIS 6 nie można użyć funkcji zintegrowanego potoku. Obejście jeden polega na umieszczeniu Twoje prywatne dokumenty w folderze, który uniemożliwia dostęp HTTP (taki jak `App_Data`), a następnie utworzyć stronę, aby obsługiwać te dokumenty. Ta strona może być wywoływana `GetPDF.aspx`i jest przekazywana nazwa pliku PDF, za pomocą parametru querystring. `GetPDF.aspx` Strony może najpierw sprawdzić, czy użytkownik ma uprawnienia do wyświetlania pliku, a jeśli tak, użyj [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx) metodę, aby wysłać zawartość żądany plik PDF do klienta wysyłającego żądanie. Ta technika również będzie działać dla usług IIS 7, jeśli nie ma włączone w zintegrowanym potoku.
-
 
 ## <a name="summary"></a>Podsumowanie
 

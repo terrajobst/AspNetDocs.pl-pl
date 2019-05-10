@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 65b77b016e02c2d9c8ff2b925b1567f26a6a05cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 13f784dd8e6404806104d56b026b3c41ca178892
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407916"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128483"
 ---
 # <a name="choosing-the-right-approach-to-web-deployment"></a>Wybieranie właściwego podejścia do wdrażania w Internecie
 
@@ -30,7 +30,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > 
 > Sposób konfigurowania serwerów sieci web docelowego będzie zależeć od których podejścia do wdrożenia, którego chcesz użyć. W tym temacie pomogą w podjęciu decyzji, które podejścia do wdrażania jest odpowiedni dla Ciebie.
 
-
 W poniższej tabeli przedstawiono główne zalety i wady każdej metody wdrożenia wraz z scenariusze, które najczęściej własnych każde podejście.
 
 | Podejście | Zalety | Wady | Typowe scenariusze |
@@ -39,35 +38,26 @@ W poniższej tabeli przedstawiono główne zalety i wady każdej metody wdrożen
 | Agent tymczasowego | Nie ma potrzeby instalowania narzędzia Web Deploy na komputerze docelowym. Najnowszą wersję narzędzia Web Deploy automatycznie jest używany. | Użytkownik musi być administratorem na serwerze docelowym. użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Środowiska testowe. |
 | Program obsługi narzędzia Web Deploy | Użytkownicy niebędący administratorami mogą wdrożyć zawartość. Nadaje się do regularnych aktualizacji zawartości i aplikacji sieci web. | Jest znacznie bardziej złożone, aby skonfigurować. | Środowiska przejściowe. Intranet środowisk produkcyjnych. Obsługiwanych środowiskach. |
 | Wdrożenie w trybie offline | Jest bardzo łatwe do skonfigurowania. Nadaje się do środowiska izolowanego. | Administrator serwera, należy ręcznie skopiować i zaimportować pakiet za każdym razem, gdy. | Połączone z Internetem środowisk produkcyjnych. Środowiska izolowane sieci. |
-  
 
 ## <a name="using-the-remote-agent"></a>Za pomocą agenta zdalnego
 
 Po zainstalowaniu narzędzia Web Deploy na serwerze docelowym przy użyciu ustawień domyślnych, Usługa agenta wdrażania sieci Web ("agent zdalny") jest zainstalowany i automatycznie pracę. Domyślnie zdalny agent uwidacznia punkt końcowy HTTP pod tym adresem:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample1.cmd)]
-
 
 > [!NOTE]
 > Możesz zastąpić [*serwera*] nazwą komputera serwera sieci web, adres IP serwera sieci web lub nazwy hosta, jest rozpoznawana jako serwer sieci web.
 
-
 Administratorzy serwera można wdrożyć pakietów sieci web z lokalizacji zdalnej, np. maszyny dewelopera lub serwer kompilacji, określając adres tego punktu końcowego. Na przykład załóżmy, że Matt Hink w firmie Fabrikam, Inc. opracowała projekt aplikacji sieci web ContactManager.Mvc na jego komputerze dewelopera. Proces kompilacji generuje pakiet sieci web, łącznie z *. pliku deploy.cmd* pliku, który zawiera polecenia, narzędzie Web Deploy wymagany do zainstalowania pakietu. Jeśli Matt jest kontem administratora na serwerze, na serwerze TESTWEB1, umożliwia wdrożenie aplikacji sieci web na serwerze sieci web test, uruchamiając poniższe polecenie na jego komputerze dewelopera:
-
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample2.cmd)]
 
-
 W rzeczywistości plik wykonywalny narzędzia Web Deploy może wywnioskować adres punktu końcowego zdalnego agenta, jeśli podasz nazwę komputera, więc Matt wystarczy wpisać to:
-
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample3.cmd)]
 
-
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat składni wiersza polecenia narzędzia Web Deploy i *. pliku deploy.cmd* plików, zobacz [jak: Zainstaluj pakiet wdrożeniowy, przy użyciu pliku pliku deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
-
 
 Agent zdalny zapewnia prosty sposób wdrożyć zawartość z lokalizacji zdalnej, a takie podejście może pracować również wdrażanie jednym kliknięciem i automatycznych. Jednak użytkownik uruchamiający polecenie wdrożenia musi być również administratora domeny lub członkiem lokalnej grupy administratorów na serwerze docelowym. Ponadto agent zdalny nie obsługuje uwierzytelnianie podstawowe, dlatego nie można przekazać alternatywne poświadczenia w wierszu polecenia.
 
@@ -81,13 +71,10 @@ Podejście tymczasowego agenta do wdrożenia jest podobne do metody agenta zdaln
 
 Jeśli chcesz użyć ustawienie dostawcy tymczasowego agenta, należy dodać **/g** flagi do polecenia wdrożenia:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample4.cmd)]
-
 
 > [!NOTE]
 > Nie można użyć tymczasowego agenta. Jeśli usługa agenta wdrażania sieci web jest zainstalowana na komputerze docelowym, nawet wtedy, gdy usługa nie jest uruchomiona.
-
 
 Zaletą tego podejścia jest to, że nie jest wymagane do obsługi instalacji programu Web Deploy na serwerach docelowych z usługi. Ponadto nie musisz upewnić się, że komputery źródłowy i docelowy są uruchomione na tę samą wersję narzędzia Web Deploy. Jednak to podejście odczuwa te same ograniczenia podmiotu zabezpieczeń jako podejście agenta zdalnego, to znaczy, musi być kontem lokalnego administratora na serwerze docelowym w celu wdrażania zawartości i obsługiwane jest tylko uwierzytelnianie NTLM. Podejście tymczasowego agenta wymaga również znacznie większej liczby czynności konfiguracyjnych środowiska docelowego.
 
@@ -99,31 +86,23 @@ Dla serwera IIS 7 lub nowszy, narzędzie Web Deploy oferuje podejście alternaty
 
 Domyślnie zdalny agent uwidacznia punkt końcowy HTTP pod tym adresem:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample5.cmd)]
-
 
 > [!NOTE]
 > Możesz zastąpić [*serwera*] nazwą komputera serwera sieci web, adres IP serwera sieci web lub nazwy hosta, jest rozpoznawana jako serwer sieci web.
-
 
 Dużą zaletą programu obsługi wdrażania sieci Web za pośrednictwem agenta zdalnego i tymczasowego agenta jest skonfigurowanie usług IIS, aby umożliwić użytkownikom niebędącym administratorami na wdrażanie aplikacji i zawartości do określonych witryn internetowych usług IIS. Program obsługi wdrażania sieci Web obsługuje również uwierzytelnianie podstawowe, dzięki czemu możesz podać alternatywne poświadczenia jako parametry w poleceniach narzędzia Web Deploy. Główną wadą jest początkowo znacznie trudniejsze do instalowania i konfigurowania obsługi wdrażania sieci Web.
 
 W przypadku użytkowników niebędących administratorami usługi zarządzania siecią Web (WMSvc) zezwala tylko użytkownik nawiązał połączenie usług IIS przy użyciu połączenia na poziomie witryny, a nie połączenie poziomu serwera. Aby uzyskać dostęp do określonej lokacji, może zawierać ciągu zapytania specyficzne dla lokacji adres punktu końcowego:
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
-
 
 Na przykład załóżmy, że proces kompilacji jest skonfigurowana do automatycznego wdrożenia aplikacji sieci web w środowisku przejściowym po każdej udanej kompilacji. Jeśli używasz podejścia agenta zdalnego, będziesz potrzebować upewnij administratora na serwerach docelowych z Twojej tożsamości procesu kompilacji. Z kolei przy użyciu podejścia program obsługi wdrażania w sieci Web można nadać użytkownik niebędący administratorem&#x2014;**FABRIKAM\stagingdeployer** w tym przypadku&#x2014;zapewniają te uprawnienia do określonych usług IIS witryna sieci Web tylko i procesem kompilacji poświadczenia, aby wdrożyć pakiet sieci web.
 
-
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
-
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat narzędzia Web Deploy operacji wiersza polecenia i składnię, zobacz [sieci Web wdrażanie Command Line Reference](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Aby uzyskać więcej informacji na temat korzystania z *. pliku deploy.cmd* plików, zobacz [jak: Zainstaluj pakiet wdrożeniowy, przy użyciu pliku pliku deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
-
 
 Program obsługi wdrażania sieci Web udostępnia przydatne wdrożenie przejściowe środowisk, obsługiwanych środowiskach i opartych na sieci intranet środowisk produkcyjnych, gdzie dostęp zdalny do serwera jest dostępne, ale nie są poświadczenia administratora.
 

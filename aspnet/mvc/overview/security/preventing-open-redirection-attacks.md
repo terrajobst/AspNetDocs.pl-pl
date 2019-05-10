@@ -8,19 +8,18 @@ ms.date: 02/27/2014
 ms.assetid: 69fb02e0-f5b7-4c35-878c-fa87164fc785
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 1d83ede97ec37166d8dec32ff9e21c65423f3fc5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cfa635d4fd14d031993c5b452325cbe334f82dc2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408488"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126435"
 ---
 # <a name="preventing-open-redirection-attacks-c"></a>Zapobieganie atakom na otwarte przekierowywanie (C#)
 
 przez [Galloway'em Jon](https://github.com/jongalloway)
 
 > W tym samouczku wyjaśniono, jak zapobiegać atakom na otwarte przekierowywanie w aplikacjach ASP.NET MVC. W tym samouczku omówiono zmiany wprowadzone w elementu AccountController w ASP.NET MVC 3 i pokazuje, jak te zmiany mogą stosować w aplikacjach 2 i Twojego istniejącego programu ASP.NET MVC 1.0.
-
 
 ## <a name="what-is-an-open-redirection-attack"></a>Co to jest atak przekierowania Open?
 

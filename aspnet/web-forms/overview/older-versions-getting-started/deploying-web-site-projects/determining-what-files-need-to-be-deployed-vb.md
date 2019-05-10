@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fe19910d693a784b8dc207462591c9f4d51cec14
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00d820ff2fb0925d299bb17713435f8612e4b25a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382150"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130636"
 ---
 # <a name="determining-what-files-need-to-be-deployed-vb"></a>Określanie, które pliki muszą zostać wdrożone (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
 
 > Pliki muszą zostać wdrożone w środowisku programistycznym do środowiska produkcyjnego w części zależy od tego, czy aplikacja ASP.NET została skompilowana przy użyciu witryny sieci Web modelu lub Model aplikacji sieci Web. Dowiedz się więcej na temat tych dwóch projektów modeli i wpływ wdrożenia modelu projektu.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -92,20 +91,16 @@ Pobierania w tym samouczku obejmuje aplikacji programu ASP.NET o nazwie przeglą
 
 Rysunek 1 pokazuje zrzut ekranu, przeglądy książki witryny sieci Web podczas wyświetlania za pośrednictwem przeglądarki. W tym miejscu zostanie wyświetlona strona ~ / Tech/TYASP35.aspx, który przegląda książki *uczyć się ASP.NET 3.5 w ciągu 24 godzin*. Nawigacji, która obejmuje górnej części strony i w menu w lewej kolumnie są oparte na struktura mapy witryny, które są zdefiniowane w `Web.sitemap`. Obraz w prawym górnym rogu jest jednym z okładki książki obrazów znajdujących się w `Images` folderu. Witryny sieci Web wygląd i działanie są definiowane za pomocą kaskadowych reguły arkusza stylów, wskazane przez pliki CSS w `Styles` folderu, chociaż nadrzędna układ strony jest zdefiniowana na stronie głównej `Site.master`.
 
-
 [![Witryny sieci Web przeglądy książki oferuje recenzje pewną liczbę tytułów](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
 **Rysunek 1**: Witryny sieci Web przeglądy książki oferuje recenzje gamę tytuły ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](determining-what-files-need-to-be-deployed-vb/_static/image3.png))
-
 
 Ta aplikacja nie korzysta z bazy danych. każdej recenzji jest implementowany jako osobne strony sieci web w aplikacji. W tym samouczku (i dalej kilka samouczków) opisano wdrażanie aplikacji sieci web, który nie ma bazy danych. Jednak w samouczku przyszłości firma Microsoft ulepszenie tej aplikacji w celu przechowywania recenzje, komentarze czytelników i inne informacje w bazie danych i przedstawimy kroki należy wykonać w celu poprawnie wdrażanie aplikacji sieci web opartej na danych.
 
 > [!NOTE]
 > Te samouczki skupić się na hostowanie aplikacji ASP.NET u dostawcy usług hosta sieci web i nie Eksplorowanie pomocniczych tematów, takich jak ASP. NET firmy system mapy witryny lub przy użyciu klasy bazowej strony. Aby uzyskać więcej informacji dotyczących tych technologii, a aby uzyskać więcej informacji na inne tematy omówione w samouczku można znaleźć w sekcji dalsze informacje na końcu każdego samouczka.
 
-
 W tym samouczku pobierania zawiera dwie kopie aplikacji sieci web, każdy zaimplementowane jako innego typu projektu programu Visual Studio: BookReviewsWAP, projekt aplikacji sieci Web i BookReviewsWSP, projekt witryny sieci Web. Oba projekty zostały utworzone za pomocą programu Visual Web Developer 2008 z dodatkiem SP1 i użyć programu ASP.NET 3.5 z dodatkiem SP1. Do pracy z tych projektów uruchomić rozpakowywania zawartość na pulpicie. Aby otworzyć projekt aplikacji sieci Web (BookReviewsWAP), przejdź do `BookReviewsWAP` folder i kliknij dwukrotnie plik rozwiązania `BookReviewsWAP.sln`. Aby otworzyć projekt witryny sieci Web (BookReviewsWSP), uruchom program Visual Studio i następnie wybierz opcję otwarcia witryny sieci Web, w menu Plik, przejdź do `BookReviewsWSP` folderu na komputerze i kliknij przycisk OK.
-
 
 Pozostałe dwie sekcje w tym Szukaj samouczek na temat plików, które należy skopiować do środowiska produkcyjnego, podczas wdrażania aplikacji. W dwóch następnych samouczków — [ *wdrażanie Twojej witryny przy użyciu protokołu FTP* ](deploying-your-site-using-an-ftp-client-vb.md) i [ *wdrażanie Twojej witryny przy użyciu programu Visual Studio* ](deploying-your-site-using-visual-studio-vb.md) -pokazują różne sposoby Skopiuj te pliki do dostawcy hosta sieci web.
 
@@ -115,15 +110,12 @@ Model projektu aplikacji sieci Web używa kompilację typu explicit — kodu źr
 
 Na rysunku 2 przedstawiono pliki, które tworzą projektu aplikacji sieci Web przeglądy książki.
 
-
 [![Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
 
 **Rysunek 2**: Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu aplikacji sieci Web
 
-
 > [!NOTE]
 > Jak pokazano na rysunku 2, plików z kodem strony ASP.NET nie są wyświetlane w Eksploratorze rozwiązań dla projektu aplikacji sieci Web Visual Basic. Aby wyświetlić klasy CodeBehind dla strony, kliknij prawym przyciskiem myszy na stronie w Eksploratorze rozwiązań i wybierz Wyświetl kod.
-
 
 Aby wdrożyć aplikację ASP.NET opracowanych za pomocą początkowego modelu projektu aplikacji sieci Web, tworząc aplikację tak, aby jawnie skompilować najnowszych kod źródłowy do zestawu. Następnie skopiuj następujące pliki do środowiska produkcyjnego:
 
@@ -135,7 +127,6 @@ Nie trzeba kopiować plików kodu źródłowego stron ASP.NET do środowiska pro
 > [!NOTE]
 > Jak pokazano na rysunku 2, `BasePage` klasy jest implementowany jako plik klasy w projekcie, umieszczony w folderze o nazwie `HelperClasses`. Gdy projekt jest skompilowany kod w `BasePage.vb` plik został skompilowany wraz z klasy CodeBehind strony ASP.NET w jednym zestawie `BookReviewsWAP.dll`. Program ASP.NET ma specjalne folder o nazwie `App_Code` przeznaczoną do przechowywania plików klasy dla projektów witryny sieci Web. Kod w `App_Code` folderu automatycznie jest kompilowany i dlatego nie należy używać w projektach aplikacji sieci Web. Zamiast tego należy umieszczać pliki klas aplikacji w normalny folder o nazwie `HelperClasses`, lub `Classes`, lub innego ogranicznika. Alternatywnie można umieścić pliki klas w osobnym projekcie biblioteki klas.
 
-
 Oprócz kopiowania plików związanych z ASP.NET znaczników i zestawu w `Bin` folder, również należy skopiować pliki obsługi po stronie klienta — obrazy i pliki CSS — a także inne pliki obsługi po stronie serwera, `Web.config` i `Web.sitemap`. Te klienta - i -obsługę po stronie serwera potrzebę pliki będą kopiowane do środowiska produkcyjnego, niezależnie od tego, czy używać jawnych lub automatycznej kompilacji.
 
 ## <a name="determining-the-files-to-deploy-for-the-web-site-project-files"></a>Określanie plików do wdrożenia w usłudze pliki projektu witryny sieci Web
@@ -146,11 +137,9 @@ Opcja menu kompilacji w programie Visual Studio jest obecny w projektach aplikac
 
 Rysunek 3 przedstawia pliki, które składają się projekt witryny sieci Web przeglądy książki.
 
-
 [![Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
 
 **Rysunek 3**: Eksplorator rozwiązań zawiera listę plików, wchodzące w skład projektu witryny sieci Web
-
 
 Wdrażanie projektu witryny sieci Web obejmuje kopiowanie wszystkich plików związanych z ASP.NET do środowiska produkcyjnego - obejmującą strony kodu znaczników dla strony ASP.NET, stron wzorcowych i formanty użytkownika wraz z plikami kodu. Również konieczne skopiowanie zapasowej klasy, takie jak `BasePage.vb`. Należy pamiętać, że `BasePage.vb` plik znajduje się w `App_Code` folder, który jest używany podczas projektów witryny sieci Web dla plików klasy specjalnego folderu ASP.NET. Specjalny folder musi zostać utworzona w środowisku produkcyjnym, jak również jako pliki klas w `App_Code` folderu w środowisku deweloperskim, muszą zostać skopiowane do `App_Code` folderu w środowisku produkcyjnym.
 
@@ -158,7 +147,6 @@ Oprócz kopiowania ASP.NET znaczników i plikami źródła kodu, również nale�
 
 > [!NOTE]
 > Projektów witryny sieci Web można również użyć kompilację typu explicit. Samouczek przyszłych zbada sposób jawnego kompilowania projektu witryny sieci Web.
-
 
 ## <a name="summary"></a>Podsumowanie
 

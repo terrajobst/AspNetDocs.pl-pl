@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: a8d776af-4735-4612-87f6-9f326587f2d3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 3bae4d72c8b653a5cda500b05dde50c6a7201589
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3a5600aff3ba63cb7046e42d0bfd587c4181d99e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130269"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Wdrażanie aktualizacji bazy danych — 9 12
 
@@ -24,7 +24,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) ASP.NET projektu aplikacji sieci web, która zawiera bazę danych programu SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC for Web. Umożliwia także programu Visual Studio 2010 po zainstalowaniu aktualizacji publikowania w sieci Web. Aby zapoznać się z wprowadzeniem do serii, zobacz [pierwszym samouczku tej serii](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
 > Aby uzyskać samouczek, który zawiera funkcje wdrażania wprowadzone po wersji RC programu Visual Studio 2012, pokazuje, jak wdrażać wersje programu SQL Server, innym niż SQL Server Compact i pokazuje, jak wdrożyć w usłudze Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET za pomocą programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -88,7 +87,6 @@ Teraz można wdrożyć do produkcji. Jedyna różnica polega na tym, których b�
 
 > [!NOTE]
 > Gdy aplikacja jest używana w środowisku produkcyjnym powinny być implementowanie planu tworzenia kopii zapasowych. Oznacza to, że powinny być okresowo kopiowane *School-Prod.sdf* i *aspnet Prod.sdf* pliki z produkcji lokacji do lokalizacji bezpiecznego magazynu, a powinien utrzymywanie generacje kilka takich Tworzenie kopii zapasowych. Po zaktualizowaniu bazy danych powinno się wykonanie kopii zapasowej z bezpośrednio przed zmianą. Następnie jeśli popełnienia błędu, a nie odnaleźć go do czasu, po wdrożeniu do środowiska produkcyjnego, nadal będzie można odzyskać bazy danych do stanu, w jakim był, zanim zostanie ona uszkodzona.
-
 
 Gdy program Visual Studio otwiera adres URL strony głównej w przeglądarce, *aplikacji\_offline.htm* zostanie wyświetlona strona. Po usunięciu *aplikacji\_offline.htm* pliku, możesz przejść do strony głównej ponownie, aby sprawdzić, czy aktualizacja została wdrożona pomyślnie.
 

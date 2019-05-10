@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: db8db4e3bff8047b48a7528b5146873ab6d84714
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 707dc9d87ae324a7897c971a451e40bc54c96cb3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398686"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130604"
 ---
 # <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Część 8. Końcowe strony, obsługa wyjątków i podsumowanie
 
@@ -22,7 +22,6 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
 > 
 > W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 8 dodaje kontaktu strony, strony i obsługa wyjątków — informacje. To jest zawarcie tej serii.
-
 
 ## <a id="_Toc260221680"></a>  Skontaktuj się z strony (wysyłanie wiadomości e-mail z platformy ASP.NET)
 

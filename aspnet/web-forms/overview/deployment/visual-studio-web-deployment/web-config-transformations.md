@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 15a5984048ba2aca9fedcb7bc4bb77eb440f21ee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 595723d9c6ea9cc40bb0ae896524ee828c4ebce2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379459"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128427"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Przekształcenia pliku web.config
 
@@ -22,7 +22,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -106,7 +105,6 @@ Kiedy testujesz lokacji po wdrożeniu Ponadto przetestujesz, aby sprawdzić, czy
 > 
 > **Uwaga dotycząca zabezpieczeń** nigdy nie są wyświetlane szczegóły błędu publicznie w aplikacji produkcyjnej lub przechowywania tych informacji w ogólnodostępnej lokalizacji. Osoby atakujące umożliwia wykrywanie luk w zabezpieczeniach w lokacji informacje o błędzie. Jeśli używasz biblioteki ELMAH we własnej aplikacji, należy skonfigurować ELMAH, aby zminimalizować zagrożenia bezpieczeństwa. W przykładzie ELMAH, w tym samouczku nie powinny być uwzględniane zalecanej konfiguracji. To przykład, który został wybrany w celu zilustrowania sposobu obsługi aplikacji musi umożliwiać do tworzenia plików w folderze. Aby uzyskać więcej informacji, zobacz [zabezpieczenia punktu końcowego ELMAH](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
 
-
 ## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>To ustawienie, które zostanie omówione w publikowanie pliki transformacji profilu
 
 Jest to typowy scenariusz *Web.config* ustawienia, które muszą być różne w każdym środowisku, który można wdrożyć do pliku. Na przykład aplikację, która wywołuje usługę WCF może być konieczne innym punktem końcowym w środowiskach testowych i produkcyjnych. Aplikacja Contoso University obejmuje ustawienia tego rodzaju także. To ustawienie steruje widoczny wskaźnik na stronach witryny, informujące o środowisko, które znajdują się w, takich jak rozwój, testowym czy produkcyjnym. Wartość ustawienia określa, czy aplikacja dołączy "(Dev)" lub "(Test)" do nagłówka w *Site.Master* strona główna:
@@ -131,7 +129,6 @@ Ta transformacja jest powiązana pliki transformacji profilu publikowania, któr
 
 > [!NOTE]
 > Ponieważ to ustawienie znajduje się w `<appSettings>` elementu, masz inną alternatywą do określania przekształcenie, podczas wdrażania Web Apps usługi Azure App Service — zobacz [określenie ustawienia pliku Web.config na platformie Azure](#watransforms) we wcześniejszej części w tym temacie.
-
 
 ## <a name="setting-connection-strings"></a>Ustawianie parametrów połączenia
 

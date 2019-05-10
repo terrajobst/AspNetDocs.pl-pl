@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: ece436d44908497d6cf10017ba1ee285bfb4a5b2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 49a841dbda183bf1d59153b83f694c9f517e0b94
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382107"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127747"
 ---
 # <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do wzorca ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix
 
@@ -26,7 +26,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > - Microsoft Azure
 > - Firma hostingu w sieci Web
 
-
 ## <a name="about-publishing-your-site"></a>Publikowanie witryny — informacje
 
 Do chwili obecnej należy wykonać całą pracę na komputerze lokalnym, w tym Testowanie stron internetowych. Aby uruchomić usługi<em>.cshtml</em> stron, użytych serwera sieci web, która jest wbudowana w program WebMatrix, a mianowicie usług IIS Express. Ale oczywiście nie widać witryny, do której został utworzony, chyba że użytkownik. Aby inni pracować z witryny, należy opublikować ją w Internecie.
@@ -35,7 +34,6 @@ Jeśli nie masz już dostępu do serwera sieci web publicznych, publikowanie ozn
 
 > [!NOTE]
 > Możesz mieć dostępu do serwera internetowego publicznej za pośrednictwem dostawcy usług internetowych (ISP), który umożliwia uzyskiwanie usługi internetowe w domu. Jednak Twój dostawca hostingu musi obsługiwać stron ASP.NET Web Pages. Nie wielu usługodawców internetowych, ale warto zawsze sprawdzania.
-
 
 W tym samouczku przedstawimy omówienie sposobu publikowania. Nie jest praktyczne zapewnienie szczegółowymi informacjami na temat do wszystkiego, ponieważ proces różni się nieco dla każdego dostawcy hostingu. Ale zapewnisz sobie dobrze, jak działa ten proces.
 
@@ -142,7 +140,6 @@ Taki, który chcesz pobrać. W tym samouczku wybrano DiscountASP.NET, ponieważ 
 > [!NOTE]
 > Nasz wybór dostawcy hostingu, w tym samouczku nie powinien interpretowane jako poręczenia tej firmy za pośrednictwem innych. Ale musimy wybrać jeden z nich do celów ilustracyjnych i DiscountASP.NET jest jednym z wielu firm, które obsługuje stron ASP.NET Web Pages i protokołu Web Deploy dla publikowania.
 
-
 Zazwyczaj po zalogowaniu przy użyciu dostawcy hostingu, przedsiębiorstwo wyśle do Ciebie wiadomość e-mail, który zawiera nazwę użytkownika i hasło, adres URL serwera sieci web i tak dalej. Jeśli firmy hostingowej obsługuje protokołu Web Deploy, może wysyłać należy plik, który zawiera ustawienia publikowania lub umożliwiają pobieranie jeden. Plik ustawień publikowania upraszcza proces.
 
 Jeśli zarejestrowano się i jest gotowe do opublikowania, kliknij przycisk **Publikuj** przycisk na wstążce programu WebMatrix. **Ustawień publikowania** zostanie wyświetlone okno dialogowe.
@@ -196,7 +193,6 @@ Kliknij przycisk **Publikuj** przycisk na Wstążce. Program WebMatrix Określa,
 > 
 > Domyślnie program WebMatrix publikowanie bazy danych (*.sdf* pliku) tylko po raz pierwszy, należy opublikować witrynę. Po opublikowaniu lokacji i osób wchodzą w interakcje z witryny sieci Web, bazy danych w aktywnej witrynie zwykle zawiera rzeczywiste dane lokacji. Masz bardzo nie podawaj zastąpienia bazy danych na żywo za pomocą *.sdf* pliku, który znajduje się na tym komputerze, który zwykle zawiera tylko dane testowe. Dlatego zapoznaj się z ostrzeżeniem **publikowania spowoduje zastąpienie wszelkich zdalnych baz danych**, i dlaczego pole wyboru dla *WebPagesMovies.sdf* jest domyślnie wyczyszczone.
 
-
 Kliknij przycisk **Kontynuuj**. Program WebMatrix publikuje zmienionych plików i zostanie wyświetlony komunikat o powodzeniu, tak, jak został opublikowany po raz pierwszy.
 
 Przejdź do aktywnej witryny (można kliknąć link w komunikat o powodzeniu, jeśli jest nadal wyświetlana) i sprawdź, czy zmiany zostały opublikowane.
@@ -210,7 +206,6 @@ Przejdź do aktywnej witryny (można kliknąć link w komunikat o powodzeniu, je
 > Zdalnie edytować to prosty sposób, aby wprowadzić zmiany w działającej witryny. Jednak zmiany wprowadzone w ten sposób nie są zsynchronizowane z plikami w lokacji lokalnej. Aby zsynchronizować pliki lokalne z lokacji zdalnej, możesz pobrać pliki zdalne. Ten proces działa podobnie do publikowania, z wyjątkiem w odwrotnej kolejności.
 > 
 > Firma Microsoft nie będzie Opisz bardziej edycji zdalnego i zdalnego pobierania urządzeń programu WebMatrix w tym miejscu. Są one bardzo przydatne, gdy wiele osób ponosi do pracy w tej samej lokacji, na różnych komputerach. Aby uzyskać więcej informacji, zobacz [publikowania i edytować lokacji zdalnej za pomocą programu WebMatrix 2 Beta](https://go.microsoft.com/fwlink/?LinkId=251591).
-
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

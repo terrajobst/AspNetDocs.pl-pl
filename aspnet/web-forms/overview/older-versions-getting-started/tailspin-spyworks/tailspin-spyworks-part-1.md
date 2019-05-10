@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 15d4652b-d5aa-4172-b186-2c7f96ba316d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 70d2efb789d694a0aaecc046615c7b3622079dc1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 05a3ace3d8fef9c1f3593f7948e42b4725d70134
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385361"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130588"
 ---
 # <a name="part-1-file--new-project"></a>Część 1. Plik -> Nowy projekt
 
@@ -23,7 +23,6 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > 
 > W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 1 obejmuje omówienie i plik/nowy projekt.
 
-
 ## <a id="_Toc260221666"></a>  Przegląd
 
 Ten samouczek stanowi wprowadzenie do formularzy sieci Web platformy ASP.NET. Firma Microsoft będzie uruchamiana powoli, a więc środowisko programowania dla początkujących poziomu sieci web jest poprawny.
@@ -31,7 +30,6 @@ Ten samouczek stanowi wprowadzenie do formularzy sieci Web platformy ASP.NET. Fi
 Aplikacja, którą tworzymy będzie jest proste magazyn online.
 
 ![](tailspin-spyworks-part-1/_static/image1.jpg)
-
 
 Goście mogą przeglądać produktów według kategorii:
 
@@ -54,7 +52,6 @@ Przejściem do wyewidencjonowania spowoduje wyświetlenie monitu o
 Po określeniu kolejności, zobaczy ekran potwierdzenia proste:
 
 ![](tailspin-spyworks-part-1/_static/image7.jpg)
-
 
 Firma Microsoft rozpocznie się, tworząc nowy projekt formularzy sieci Web platformy ASP.NET w programie Visual Studio 2010, a przyrostowe dodamy funkcje umożliwiające tworzenie kompletna aplikacja działa. Po drodze omówimy dostępu do bazy danych, widoku listy i siatki, stron aktualizacji danych, sprawdzanie poprawności danych, za pomocą stron wzorcowych dla układu strony spójne, AJAX, weryfikacji i użytkownika członkostwa.
 

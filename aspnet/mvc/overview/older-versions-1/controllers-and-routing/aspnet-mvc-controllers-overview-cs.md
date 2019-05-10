@@ -8,19 +8,18 @@ ms.date: 02/16/2008
 ms.assetid: b985c49a-3668-455c-a366-f85f6bc64b12
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21891a022885f7a4fae6d7fe3276587abf59986d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1a287b37742400a17c2ed53cfd00bfb053b4f3d2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414299"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123604"
 ---
 # <a name="aspnet-mvc-controller-overview-c"></a>Omówienie kontrolera ASP.NET MVC (C#)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > W tym samouczku Walther Autor: Stephen przedstawiono kontrolery ASP.NET MVC. Dowiesz się, jak utworzyć nowe kontrolery i zwracania różnych typów wyników akcji.
-
 
 W tym samouczku przedstawiono temat kontrolerów, akcji kontrolera ASP.NET MVC i wyników akcji. Po ukończeniu tego samouczka należy zrozumieć, jak kontrolery są używane do kontrolowania sposobu, w których użytkownik wchodzi w interakcję z witryny sieci Web platformy ASP.NET MVC.
 

@@ -8,12 +8,12 @@ ms.date: 03/24/2008
 ms.assetid: fd208ee9-69cc-4467-9783-b4e039bdd1d3
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6bedfd2b6ff0b50b3b863d26dccaacf687ed5907
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9efe20a1e8a5982d7494914a0ed865db0ab0f52e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403275"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130194"
 ---
 # <a name="assigning-roles-to-users-vb"></a>Przypisywanie ról do użytkowników (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/VB.10.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial10_AssigningRoles_vb.pdf)
 
 > W tym samouczku utworzymy dwie strony ASP.NET, aby ułatwić zarządzanie, jakie użytkownicy należą do jakich ról. Pierwsza strona będzie zawierać urządzenia, aby zobaczyć, jakie użytkownicy należą do danej roli role, jakie jest dany użytkownik należy do oraz możliwość przypisać lub usunąć wybranego użytkownika z określoną rolę. Na drugiej stronie firma Microsoft będzie rozszerzyć kontroli CreateUserWizard aby obejmowała krok, aby określić, jakie role nowo utworzony użytkownik należy do. Jest to przydatne w scenariuszach, w którym administrator jest możliwość tworzenia nowych kont użytkowników.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -43,7 +42,6 @@ Zaczniemy od utworzenia interfejsu "przez użytkownika". Ten interfejs będzie s
 > [!NOTE]
 > Korzystanie z rozwijanej listy do kont użytkowników nie jest idealnym wyborem w przypadku witryn sieci Web w przypadku, gdy mogą istnieć setki kont użytkowników. Listy rozwijanej umożliwia użytkownikowi wybrać jeden element z listy względnie krótkich opcji. Szybko staje się one nieporęczne za wraz ze wzrostem natężenia liczbę elementów listy. Jeśli tworzysz witrynę internetową, która będzie miał potencjalnie dużej liczby kont użytkowników, warto wziąć pod uwagę przy użyciu interfejsu użytkownika alternatywnych takie jak stronicowanej GridView lub filtrowanie interfejs, który zawiera listę poprosi list wyboru i następnie tylko Pokazuje tych użytkowników, których nazwa użytkownika, który rozpoczyna się od litery wybrane.
 
-
 ## <a name="step-1-building-the-by-user-user-interface"></a>Krok 1. Tworzenie interfejsu użytkownika "Przez użytkownika"
 
 Otwórz `UsersAndRoles.aspx` strony. W górnej części strony, należy dodać formant etykiety w sieci Web o nazwie `ActionStatus` i wyczyszczenie jego `Text` właściwości. Użyjemy tej etykiety się opinią na temat akcji wykonywanych, wyświetlania komunikatów, takie jak, "Tito użytkownik został dodany do roli Administratorzy" lub "Jisun użytkownika zostało usunięte z roli nadzorców." Aby można było wprowadzać wyróżnienia wiadomości, ustaw właściwość etykiety `CssClass` właściwość "Ważne".
@@ -56,11 +54,9 @@ Następnie dodaj poniższą definicję klasy CSS do `Styles.css` arkusza stylów
 
 Ta definicja CSS powoduje, że przeglądarka do wyświetlania etykiet przy użyciu czcionki dużych, red. Rysunek 1 pokazuje, w tym celu za pomocą projektanta programu Visual Studio.
 
-
 [![Właściwość CssClass etykiety powoduje czcionki dużych, czerwony](assigning-roles-to-users-vb/_static/image2.png)](assigning-roles-to-users-vb/_static/image1.png)
 
 **Rysunek 1**: Etykiety `CssClass` właściwości powoduje duże, czcionka Red ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image3.png))
-
 
 Następnie dodaj kontrolki DropDownList do strony, ustaw jego `ID` właściwości `UserList`i ustaw jego `AutoPostBack` właściwości na wartość True. Użyjemy tej metody DropDownList, aby wyświetlić listę wszystkich użytkowników w systemie. Kolekcja obiektów MembershipUser będą powiązane tej metody DropDownList. Ponieważ chcemy, aby DropDownList do wyświetlania właściwości nazwy użytkownika obiektu MembershipUser (i używać go jako wartość elementów listy), należy ustawić DropDownList `DataTextField` i `DataValueField` właściwości "Nazwa_użytkownika".
 
@@ -83,7 +79,6 @@ Teraz możemy przystąpić do pisania kodu, aby powiązać zbiór kont użytkown
 > [!NOTE]
 > `Membership.GetAllUsers` Metoda ma dwa przeciążenia: jedną, która przyjmuje nie parametrów wejściowych i zwraca wszystkich użytkowników oraz jedna, która przyjmuje wartości całkowitoliczbowe dla indeks strony i rozmiar strony, a następnie zwraca określony podzbiór użytkowników. W przypadku dużych ilości konta użytkowników są wyświetlane w elemencie interfejsu użytkownika stronicowanej drugie przeciążenie można efektywniej strony za pomocą użytkowników, ponieważ zwraca ono tylko dokładne podzbiór kont użytkowników, a nie dla wszystkich z nich.
 
-
 `BindRolesToList` Metoda uruchamia się przez wywołanie metody `Roles` klasy [ `GetAllRoles` metoda](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx), która zwraca tablicę ciągów, zawierający role w systemie. Ta tablica ciągów następnie jest powiązany z elementu powtarzanego.
 
 Na koniec należy wywołać te dwie metody, gdy strona jest ładowana jako pierwsza. Dodaj następujący kod do `Page_Load` program obsługi zdarzeń:
@@ -92,11 +87,9 @@ Na koniec należy wywołać te dwie metody, gdy strona jest ładowana jako pierw
 
 Przy użyciu tego kodu w miejscu Poświęć chwilę na stronę za pośrednictwem przeglądarki; ekran powinien wyglądać podobnie jak na rysunku 2. Wszystkie konta użytkowników zostaną wypełnione na liście rozwijanej, a poniżej, każda rola ma postać pola wyboru. Ponieważ ustawiliśmy `AutoPostBack` właściwości kontrolki DropDownList i pola wyboru o wartości True, zmiana wybranego użytkownika lub zaznaczenie lub usunięcie zaznaczenia roli powoduje odświeżenie strony. Jest wykonywana żadna akcja, jednak, ponieważ trzeba jeszcze napisać kod, aby obsługiwać te akcje. Firma Microsoft będzie czoła tych zadań w dwóch następnych sekcjach.
 
-
 [![Zostanie wyświetlona strona użytkownikami i rolami](assigning-roles-to-users-vb/_static/image5.png)](assigning-roles-to-users-vb/_static/image4.png)
 
 **Rysunek 2**: Zostanie wyświetlona strona Użytkownicy i role ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image6.png))
-
 
 ### <a name="checking-the-roles-the-selected-user-belongs-to"></a>Sprawdzanie role wybranego użytkownika należy do
 
@@ -108,7 +101,6 @@ Powyższy kod uruchamia, ustalając będący wybranego użytkownika. Następnie 
 
 > [!NOTE]
 > `Linq.Enumerable.Contains(Of String)(...)` Składni nie zostanie skompilowany, jeśli używasz programu ASP.NET w wersji 2.0. `Contains(Of String)` Metody jest częścią [biblioteki LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query), który jest nowym składnikiem w programie ASP.NET 3.5. Jeśli nadal używasz platformę ASP.NET w wersji 2.0, użyj [ `Array.IndexOf(Of String)` metoda](https://msdn.microsoft.com/library/eha9t187.aspx) zamiast tego.
-
 
 `CheckRolesForSelectedUser` Metoda musi zostać wywołana w dwóch przypadkach: po pierwszym załadowaniu strony i zawsze wtedy, gdy `UserList` wybranego indeksu DropDownList firmy zostanie zmieniony. W związku z tym, wywołanie tej metody z `Page_Load` programu obsługi zdarzeń (po wywołania `BindUsersToUserList` i `BindRolesToList`). Ponadto utworzyć program obsługi zdarzeń dla metody DropDownList `SelectedIndexChanged` zdarzenia i wywołać tę metodę w tym miejscu.
 
@@ -134,19 +126,15 @@ Powyższy kod, który rozpoczyna się od programowe odwoływanie się do pola wy
 
 Poświęć chwilę, w celu przetestowania tej strony za pośrednictwem przeglądarki. Wybierz użytkownika Tito, a następnie dodaj Tito do ról administratorów i nadzorców.
 
-
 [![Tito została dodana do administratorów i ról nadzorcy](assigning-roles-to-users-vb/_static/image8.png)](assigning-roles-to-users-vb/_static/image7.png)
 
 **Rysunek 3**: Tito została dodana do administratorów i ról nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image9.png))
 
-
 Następnie wybierz użytkownika Bruce z listy rozwijanej. Brak odświeżenie strony i pól wyboru Repeater są aktualizowane przy użyciu `CheckRolesForSelectedUser`. Ponieważ Bruce nie należy jeszcze do żadnej roli, dwa pola wyboru są nie zaznaczone. Następnie dodaj Bruce do roli nadzorców.
-
 
 [![Bruce został dodany do roli nadzorcy](assigning-roles-to-users-vb/_static/image11.png)](assigning-roles-to-users-vb/_static/image10.png)
 
 **Rysunek 4**: Bruce został dodany do roli nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image12.png))
-
 
 Dodatkową weryfikację funkcjonalności `CheckRolesForSelectedUser` metody, wybierz użytkownika innych niż Tito lub Bruce. Należy zauważyć, jak automatycznie nie są zaznaczone pola wyboru, oznaczające, że należą one do żadnej roli. Wróć do Tito. Powinno być zaznaczone pola wyboru zarówno Administratorzy, jak i nadzorców.
 
@@ -166,11 +154,9 @@ Należy wypełnić `RoleList` DropDownList przy użyciu zestawu ról w systemie.
 
 Ostatnie dwa wiersze w `BindRolesToList` metody zostały dodane do zestawu ról, aby powiązać `RoleList` kontrolki DropDownList. Rysunek 5. pokazuje wynik końcowy podczas wyświetlania za pośrednictwem przeglądarki — listy rozwijanej, wypełnione z rolami systemu.
 
-
 [![Role są wyświetlane w RoleList DropDownList](assigning-roles-to-users-vb/_static/image14.png)](assigning-roles-to-users-vb/_static/image13.png)
 
 **Rysunek 5**: Role są wyświetlane w `RoleList` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image15.png))
-
 
 ### <a name="displaying-the-users-that-belong-to-the-selected-role"></a>Wyświetlanie użytkowników, którzy należą do wybranej roli
 
@@ -186,11 +172,9 @@ Ta metoda musi zostać wywołana w dwóch przypadkach: podczas wczytywania stron
 
 Przy użyciu tego kodu w miejscu `RolesUserList` GridView powinien być wyświetlany użytkowników, którzy należą do wybranej roli. Jak pokazano na rysunku 6, rola nadzorców składa się z dwóch elementów: Bruce i Tito.
 
-
 [![Kontrolki GridView zawiera listę użytkowników, którzy należą do wybranej roli](assigning-roles-to-users-vb/_static/image17.png)](assigning-roles-to-users-vb/_static/image16.png)
 
 **Rysunek 6**: GridView zawiera listę tych użytkowników, należy do wybrane roli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image18.png))
-
 
 ### <a name="removing-users-from-the-selected-role"></a>Usuwanie użytkowników w wybranej roli
 
@@ -198,11 +182,9 @@ Możemy rozszerzyć `RolesUserList` przyciski GridView aby obejmowała kolumny "
 
 Rozpocznij, dodając pola przycisku usuwania do kontrolki GridView. Należy to pole, które są wyświetlane jako najbardziej zachowanej po lewej stronie i zmień jego `DeleteText` właściwość "Delete" (wartość domyślna) "Usuń".
 
-
 [![Dodaj](assigning-roles-to-users-vb/_static/image20.png)](assigning-roles-to-users-vb/_static/image19.png)
 
 **Rysunek 7**: Dodaj przycisk "Usuń" do kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image21.png))
-
 
 Po kliknięciu przycisku "Usuń" ensues odświeżenie strony i GridView `RowDeleting` zdarzenie jest wywoływane. Potrzebujemy utworzyć program obsługi zdarzeń dla tego zdarzenia i napisać kod, który usuwa użytkownika z wybranej roli. Utwórz procedurę obsługi zdarzeń, a następnie dodaj następujący kod:
 
@@ -213,14 +195,11 @@ Zaczyna się kod poprzez określenie nazwy wybranej roli. Następnie programowo 
 > [!NOTE]
 > Przycisk "Usuń" nie jest wymagane dowolny rodzaj potwierdzenie od użytkownika przed usunięciem użytkownika z roli. Zapraszam WAS do dodania pewien stopień potwierdzenie przez użytkownika. Jednym z najprostszych sposobów, aby potwierdzić akcję jest poprzez okno dialogowe Potwierdź po stronie klienta. Aby uzyskać więcej informacji na temat tej techniki, zobacz [dodawanie potwierdzenia po stronie klienta podczas usuwania](https://asp.net/learn/data-access/tutorial-42-vb.aspx).
 
-
 Rysunek 8 przedstawia stronę po użytkownik Tito został usunięty z grupy nadzorców.
-
 
 [![Niemniej Tito nie jest już nadzorcy](assigning-roles-to-users-vb/_static/image23.png)](assigning-roles-to-users-vb/_static/image22.png)
 
 **Rysunek 8**: Niemniej Tito nie jest już nadzorcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image24.png))
-
 
 ### <a name="adding-new-users-to-the-selected-role"></a>Dodawanie nowych użytkowników do wybranej roli
 
@@ -241,22 +220,17 @@ Większość kodu w `Click` programu obsługi zdarzeń wykonuje różne sprawdza
 > [!NOTE]
 > Aby upewnić się, że podany użytkownik należy już do wybranej roli, użyjemy [ `Roles.IsUserInRole(userName, roleName)` metoda](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx), która zwraca wartość logiczną wskazującą czy *userName* jest elementem członkowskim *roleName*. Firma Microsoft użyje tej metody, ponownie w <a id="_msoanchor_2"> </a> [następnego samouczka](role-based-authorization-vb.md) Jeśli przyjrzymy się autoryzacji opartej na rolach.
 
-
 Odwiedź stronę za pośrednictwem przeglądarki, a następnie wybierz rolę nadzorców z `RoleList` DropDownList. Spróbuj wprowadzić nieprawidłowej nazwy użytkownika — powinien zostać wyświetlony komunikat wyjaśniający, że użytkownik nie istnieje w systemie.
-
 
 [![Nie można dodać nieistniejącego użytkownika do roli](assigning-roles-to-users-vb/_static/image26.png)](assigning-roles-to-users-vb/_static/image25.png)
 
 **Rysunek 9**: Nie można dodać użytkownika nieistniejąca do roli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image27.png))
 
-
 Teraz należy spróbować dodać prawidłowego użytkownika. Przejdź dalej i ponownie dodać Tito do roli nadzorców.
-
 
 [![Tito jest ponownie nadzorcy!](assigning-roles-to-users-vb/_static/image29.png)](assigning-roles-to-users-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Tito jest ponownie nadzorcy!  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image30.png))
-
 
 ## <a name="step-3-cross-updating-the-by-user-and-by-role-interfaces"></a>Krok 3. Aktualizowanie wielu "Przez użytkownika" i "Za rolę" interfejsów
 
@@ -289,11 +263,9 @@ Otwórz `CreateUserWizardWithRoles.aspx` strony, a następnie dodaj formancie Cr
 
 Następnie wybierz pozycję "Dodaj/Usuń `WizardSteps`..." w tagu inteligentnego CreateUserWizard i Dodaj nową `WizardStep`, ustawiając jego `ID` do `SpecifyRolesStep`. Przenieś `SpecifyRolesStep WizardStep` tak, aby nastąpi po wykonaniu kroku "Logowania konto nowego konta", ale przed wykonaniem kroku "Ukończony". Ustaw `WizardStep`firmy `Title` właściwość "Określ role", jego `StepType` właściwości `Step`i jego `AllowReturn` wartość False dla właściwości.
 
-
 [![Dodaj](assigning-roles-to-users-vb/_static/image32.png)](assigning-roles-to-users-vb/_static/image31.png)
 
 **Rysunek 11**: Dodaj "Określ role" `WizardStep` do CreateUserWizard ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image33.png))
-
 
 Po tej zmianie swoje CreateUserWizard oznaczeniu deklaracyjnym powinien wyglądać następująco:
 
@@ -317,27 +289,21 @@ Jeśli użytkownik po prostu osiągnął kroku "Completed", program obsługi zda
 
 Odwiedź tę stronę za pośrednictwem przeglądarki. Pierwszym etapem CreateUserWizard jest kroku "Logowania konto nowego konta" Standardowa monituje o podanie nazwy użytkownika nowego użytkownika, hasło, adres e-mail i inne informacje o kluczu. Wprowadź informacje, aby utworzyć nowego użytkownika o nazwie Wanda.
 
-
 [![Tworzenie nowego użytkownika o nazwie Wanda](assigning-roles-to-users-vb/_static/image35.png)](assigning-roles-to-users-vb/_static/image34.png)
 
 **Rysunek 12**: Tworzenie nowego Wanda o nazwie użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image36.png))
 
-
 Kliknij przycisk "Create User". Wywołuje wewnętrznie CreateUserWizard `Membership.CreateUser` metody tworzenia nowego konta użytkownika, a następnie następuje przejście do następnego kroku "Określ role." W tym miejscu są wyświetlane role systemu. Zaznacz pole wyboru Nadzorcom i kliknij przycisk Dalej.
-
 
 [![Wprowadzić Wanda jako członka roli nadzorcy](assigning-roles-to-users-vb/_static/image38.png)](assigning-roles-to-users-vb/_static/image37.png)
 
 **Rysunek 13**: Wprowadzić Wanda jako członka roli nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image39.png))
 
-
 Jeśli klikniesz pozycję dalej powoduje odświeżenie strony i aktualizacje `ActiveStep` do kroku "Zakończono". W `ActiveStepChanged` ostatnio utworzone konto programu obsługi zdarzeń jest przypisywana rola nadzorców. Aby to sprawdzić, wróć do `UsersAndRoles.aspx` strony i wybierz nadzorców z `RoleList` DropDownList. Jak pokazano na rysunku 14, nadzorców teraz składają się z trzech użytkowników: Bruce Tito i Wanda.
-
 
 [![Bruce, Tito i Wanda są wszystkie nadzorcy](assigning-roles-to-users-vb/_static/image41.png)](assigning-roles-to-users-vb/_static/image40.png)
 
 **Rysunek 14**: Bruce, Tito i Wanda są wszystkie nadzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](assigning-roles-to-users-vb/_static/image42.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

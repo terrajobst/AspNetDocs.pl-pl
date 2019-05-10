@@ -8,12 +8,12 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: 3f36f0c504678e1e8b40aef99db81ab99101568b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 96873c8f2b0ad2415f371aceb651400c801a3338
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383939"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125662"
 ---
 # <a name="aspnet-web-deployment---recommended-resources"></a>Wdrożenie internetowe na platformie ASP.NET — zalecane zasoby
 
@@ -24,7 +24,6 @@ ms.locfileid: "59383939"
 > > [!NOTE] 
 > > 
 > > Wiele z tych zasobów opisano funkcje wdrażania, które są dostępne tylko w przypadku instalowania najnowszych wersji [Visual Studio Web publikowanie aktualizacji](https://go.microsoft.com/fwlink/?LinkID=208120). Niektóre funkcje są dostępne tylko w programie Visual Studio 2012 lub Visual Studio 2013.
-
 
 Ten temat zawiera następujące sekcje:
 
@@ -48,9 +47,7 @@ Ten temat zawiera następujące sekcje:
 - [Uzyskiwanie pomocy dotyczącej zapytania określonego wdrożenia](#gettinghelp)
 - [Dodatkowe zasoby](#additional)
 
-
 <a id="understanding"></a>
-
 
 ## <a name="understanding-deployment-options-for-web-projects"></a>Omówienie opcji wdrażania dla projektów sieci web
 
@@ -59,17 +56,13 @@ Ten temat zawiera następujące sekcje:
 - [Ulepszenia publikowania w sieci Web programu Visual Studio 2012](../visual-studio/overview/2012/visual-studio-2012-web-publishing-improvements.md) (klip wideo Scott hanselman).
 - [Omówienie wpis dla wdrażania w Internecie w VS 2010](http://vishaljoshi.blogspot.com/2009/09/overview-post-for-web-deployment-in-vs.html) (blog Vishal Joshi). Starsze wpis w blogu, ale niektóre zasoby programu Visual Studio 2010 łączy informacje, które nadal są prawidłowe dla programu Visual Studio 2012.
 
-
 <a id="findinghosting"></a>
-
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>Wyszukiwanie dostawcy usług dla aplikacji ASP.NET hosta
 
 - [ASP.NET Hosting](https://asp.net/hosting)
 
-
 <a id="fromvs"></a>
-
 
 ## <a name="deploying-a-web-application-from-visual-studio"></a>Wdrażanie aplikacji sieci web w programie Visual Studio
 
@@ -78,7 +71,6 @@ Ten temat zawiera następujące sekcje:
 - [Instrukcje: Wdrażanie publikowania projektu sieci Web za pomocą jednego kliknięcia w programie Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (informacje referencyjne dotyczące programu Visual Studio Web Publish kreatora.)
 - [Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Jest to starszą wersję **wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio** wymienione w górnej części tej sekcji. Przede wszystkim ułatwia teraz informacje dotyczące wdrażania baz danych programu SQL Server Compact i migrację z programu SQL Server Compact do pełnej wersji programu SQL Server.
 - [Przy użyciu tabel magazynu .NET obejmujące wiele warstw aplikacji, kolejek i obiektów blob](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (witryny Microsoft Azure). 5-częściową serię samouczków pokazano, jak utworzyć projekt programu MVC oraz wdrożyć ją z usługą Windows Azure w chmurze.
-
 
 <a id="package"></a>
 ## <a name="deploying-a-web-application-by-creating-and-installing-a-web-deployment-package"></a>Wdrażanie aplikacji sieci web przez tworzenie i instalowanie pakietu wdrożeniowego sieci web
@@ -91,9 +83,7 @@ Ten temat zawiera następujące sekcje:
 
 Zobacz też poniższej sekcji.
 
-
 <a id="ci"></a>
-
 
 ## <a name="deploying-a-web-application-using-a-continuous-integration-ci-process"></a>Wdrażanie aplikacji sieci web, za pomocą procesu ciągłej integracji (CI)
 
@@ -107,9 +97,7 @@ Zobacz też poniższej sekcji.
 
 Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażania](aspnet-web-deployment-content-map.md#appoffline) nowszych na tej stronie.
 
-
 <a id="transforms"></a>
-
 
 ## <a name="using-webconfig-transformations-to-change-settings-in-the-destination-webconfig-file-or-appconfig-file-during-deployment"></a>Aby zmienić ustawienia w pliku app.config lub pliku Web.config docelowego podczas wdrażania za pomocą transformacje pliku Web.config
 
@@ -121,9 +109,7 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 - [XDT (Przekształcanie dokumentów XML), wydanej w dniu codeplex.com](https://blogs.msdn.com/b/webdev/archive/2013/04/23/xdt-xml-document-transform-released-on-codeplex-com.aspx) (blog programowanie aplikacji sieci Web platformy .NET i narzędzi). Ogłasza dostępności kodu źródłowego dla silnika transformacji pliku Web.config i zawiera listę niektórych narzędzi, które go używają.
 - [Windows Azure Web Sites: Jak aplikacja ciągi and Connection Strings Work](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog Microsoft Azure). Przekształca alternatywę do pliku Web.config, jeśli środowisko docelowym jest Windows Azure Web Sites, a chcesz przekształcić `appSettings` lub `connectionStrings`.
 
-
 <a id="webdeployparms"></a>
-
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Za pomocą narzędzia Web Deploy parametrów, aby zmienić ustawienia w aplikacji sieci web docelowego podczas wdrażania
 
@@ -134,9 +120,7 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 - [Vs parametryzacji wdrażania sieci Web. Przekształcenia pliku Web.config](http://vishaljoshi.blogspot.com/2010/06/parameterization-vs-webconfig.html) (blog Vishal Joshi).
 - [Windows Azure Web Sites: Jak aplikacja ciągi and Connection Strings Work](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog Microsoft Azure). Alternatywa dla sieci Web wdrożenia parametrów, jeśli środowisko docelowym jest Windows Azure Web Sites, a użytkownik chce zdefiniować parametry `appSettings` lub `connectionStrings`.
 
-
 <a id="appoffline"></a>
-
 
 ## <a name="making-sure-an-application-is-off-line-during-deployment"></a>Upewnij się, że aplikacja jest w trybie offline podczas wdrażania
 
@@ -146,9 +130,7 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 - [Sieci Web publikowanie aktualizacji dla aplikacji w trybie offline i usechecksum](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx) (blog tworzenie aplikacji sieci Web firmy Microsoft). Inną opcją do automatyzowania korzystanie z aplikacji\_offline.htm pliku.
 - [Sieci Web wdrażanie RTW 3.5](https://blogs.iis.net/msdeploy/archive/2013/07/09/webdeploy-3-5-rtw.aspx) (IIS.net w witrynie). Nowa funkcja w sieci Web wdrażanie 3.5 w aplikacji niestandardowej\_offline.htm plików.
 
-
 <a id="databasewithweb"></a>
-
 
 ## <a name="deploying-a-database-or-changes-to-a-database-as-part-of-web-application-deployment"></a>Wdrażanie bazy danych lub zmiany do bazy danych jako część wdrożenia aplikacji sieci web
 
@@ -160,9 +142,7 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 
 Zobacz również wdrażanie aplikacji sieci web, tworząc i instalowanie pakietu wdrożeniowego sieci web i wdrażanie aplikacji sieci web, za pomocą procesu ciągłej integracji (CI) we wcześniejszej części tej strony.
 
-
 <a id="databaseseparate"></a>
-
 
 ## <a name="deploying-a-database-separately-from-web-application-deployment"></a>Wdrażanie bazy danych niezależnie od wdrażania aplikacji sieci web
 
@@ -174,9 +154,7 @@ Zobacz również wdrażanie aplikacji sieci web, tworząc i instalowanie pakietu
 - [Migrowanie aplikacji opartych na danych na platformie Windows Azure](https://msdn.microsoft.com/library/jj156154.aspx) (MSDN).
 - [Migrowanie bazy danych SQL Server do usługi Windows Azure SQL Database](https://msdn.microsoft.com/library/windowsazure/jj156160.aspx) (MSDN).
 
-
 <a id="aspnetmembership"></a>
-
 
 ## <a name="deploying-a-web-application-that-uses-aspnet-application-services-such-as-membership-and-profiling"></a>Wdrażanie aplikacji sieci web, który używa aplikacji ASP.NET usługach, takich jak członkostwo i profilowania
 
@@ -186,9 +164,7 @@ Zobacz również wdrażanie aplikacji sieci web, tworząc i instalowanie pakietu
 - [Konfigurowanie witryny sieci Web, która korzysta z usług aplikacji](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs.md). Dla witryny sieci web projektów ale jest również istotne dla projektów aplikacji sieci web.
 - [Użytkownicy i role w produkcyjnej witrynie internetowej](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs.md). Dla witryny sieci web projektów ale jest również istotne dla projektów aplikacji sieci web.
 
-
 <a id="precompiling"></a>
-
 
 ## <a name="precompiling-for-deployment"></a>Prekompilowanie wdrożenia
 
@@ -196,18 +172,14 @@ Zobacz również wdrażanie aplikacji sieci web, tworząc i instalowanie pakietu
 - [Pakowanie/publikowanie kartę sieci Web, właściwości projektu](https://msdn.microsoft.com/library/dd410108.aspx) (MSDN).
 - [Zaawansowane Prekompilowanie okno dialogowe Ustawienia](https://msdn.microsoft.com/library/hh475319.aspx) (MSDN).
 
-
 <a id="intranet"></a>
-
 
 ## <a name="deploying-an-intranet-web-application"></a>Wdrażanie aplikacji sieci web w sieci intranet
 
 - [Opcja uwierzytelniania organizacyjnego lokalnego (AD FS) za pomocą programu ASP.NET w programie Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/) (Blog autorstwa Vittorio Bertocci.).
 - [Sposób tworzenia witryny intranetowej przy użyciu platformy ASP.NET MVC](https://msdn.microsoft.com/library/gg703322(VS.98).aspx) (MSDN). Starsze writen wskazówki dla programu Visual Studio 2010, nie odzwierciedla istotne zmiany w szablonach projektu sieci intranet, wprowadzone w programie Visual Studio 2013.
 
-
 <a id="automating"></a>
-
 
 ## <a name="automating-common-deployment-tasks-that-are-not-automated-out-of-the-box"></a>Automatyzację typowych zadań wdrażania, które nie są zautomatyzowane gotowe
 
@@ -220,26 +192,20 @@ Zobacz również wdrażanie aplikacji sieci web, tworząc i instalowanie pakietu
 - [Jak zestawy .NET pakietów](https://blogs.msdn.com/webdevtools/archive/2010/02/19/how-to-package-com-component.aspx) (blog narzędzi do programowania). Jak wdrożyć zestawy w pamięci GAC.
 - [Wszystko — inicjowanie Your Windows maszyny Wirtualnej platformy Azure dla serwera sieci Web usług IIS, narzędzie Web Deploy i inne rzeczy skryptu](http://www.tugberkugurlu.com/archive/script-out-everything-initialize-your-windows-azure-vm-for-your-web-server-with-iis-web-deploy-and-other-stuff) (blog Tugberk Ugurlu).
 
-
 <a id="configuringservers"></a>
-
 
 ## <a name="configuring-web-servers-so-that-developers-can-deploy-web-applications-to-them-using-web-deploy"></a>Konfigurowanie serwerów sieci web, dzięki czemu deweloperzy mogą wdrażanie aplikacji sieci web do nich za pomocą narzędzia Web Deploy
 
 - [Instalowanie i konfigurowanie narzędzie Web Deploy dla administratora i użytkowników niebędących administratorami wdrożeń](https://www.iis.net/learn/install/installing-publishing-technologies/installing-and-configuring-web-deploy) (IIS.net w witrynie).
 
-
 <a id="hostingprovider"></a>
-
 
 ## <a name="configuring-servers-for-a-hosting-provider"></a>Konfigurowanie serwerów dla dostawcy usług hostingowych
 
 - [Przewodniku dotyczącym wdrażania hostingu platformy Microsoft ASP.NET 4](https://go.microsoft.com/fwlink/?LinkId=191365) (Centrum pobierania Microsoft).
 - [Generowanie pliku XML profilu](https://www.iis.net/learn/web-hosting/joining-the-web-hosting-gallery/generate-a-profile-xml-file) (IIS.net w witrynie).
 
-
 <a id="troubleshooting"></a>
-
 
 ## <a name="troubleshooting-deployment-problems"></a>Rozwiązywanie problemów z wdrażaniem
 
@@ -252,18 +218,14 @@ Zobacz również wdrażanie aplikacji sieci web, tworząc i instalowanie pakietu
 - [Typowe różnice konfiguracji między środowiskami deweloperskim i produkcyjnym](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs.md).
 - [Hostowanie aplikacji ASP.NET w trybie średniego zaufania](http://www.4guysfromrolla.com/articles/100307-1.aspx) (4 Guys z witryny Rolla).
 
-
 <a id="gettinghelp"></a>
-
 
 ## <a name="getting-help-with-a-specific-deployment-question"></a>Uzyskiwanie pomocy dotyczącej zapytania określonego wdrożenia
 
 - [Konfiguracja platformy ASP.NET i wdrażanie forum](https://forums.asp.net/26.aspx/1?Configuration and Deployment).
 - [StackOverflow.com](http://www.StackOverflow.com).
 
-
 <a id="additional"></a>
-
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

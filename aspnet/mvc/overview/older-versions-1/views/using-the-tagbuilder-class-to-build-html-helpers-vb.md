@@ -8,19 +8,18 @@ ms.date: 03/02/2009
 ms.assetid: ec26f264-d0ea-4031-9943-825505a3ac4b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4fe34858aadb705ffb59e06ba805493d89aa4028
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3b0aa9816209cc326d3dea4b8dfb1b13cf697fcd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403210"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130364"
 ---
 # <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Za pomocą klasa TagBuilder do tworzenia pomocników HTML (VB)
 
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
 > Autor: Stephen Walther wprowadza do klasy przydatne narzędzia w platformę ASP.NET MVC, nazwana klasa TagBuilder. Klasa TagBuilder umożliwia łatwe tworzenie tagów HTML.
-
 
 Platforma ASP.NET MVC zawiera klasę przydatne narzędzie nazwana klasa TagBuilder, używanego podczas tworzenia pomocników HTML. Klasa TagBuilder jak sugeruje nazwa klasy, można w łatwy sposób tworzyć tagi HTML. W tym samouczku krótki podano klasa TagBuilder do przeglądu i dowiesz się, jak używać tej klasy, podczas tworzenia prostego pomocnika kodu HTML, który renderuje HTML &lt;img&gt; tagów.
 
@@ -33,7 +32,6 @@ Klasa TagBuilder znajduje się w przestrzeni nazw System.Web.Mvc. Ma pięć meto
 - MergeAttribute() — umożliwia dodanie atrybutów tagu. Istnieje wiele przeciążeń z tej metody.
 - SetInnerText() — umożliwia ustawianie tekst zawarty wewnątrz tagu. Tekst wewnętrzny jest automatycznie kodowanie HTML.
 - ToString() — umożliwia renderowania tagu. Można określić, czy chcesz utworzyć tag normalne, tagu początkowego, tagu końcowego lub tagu samozamykającego.
-  
 
 Klasa TagBuilder ma cztery właściwości ważne:
 
@@ -64,11 +62,9 @@ Po utworzeniu Pomocnik obrazu, można użyć pomocnika, w sekcji Widoki ASP.NET 
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-vb/samples/sample2.aspx)]
 
-
 [![Okno dialogowe Nowy projekt](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image1.png)
 
 **Rysunek 01**: Przy użyciu Pomocnika obrazu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-tagbuilder-class-to-build-html-helpers-vb/_static/image2.png))
-
 
 Zwróć uwagę, należy zaimportować skojarzone z elementem pomocniczym obrazu w górnej części widoku Index.aspx przestrzeni nazw. Pomocnik jest importowany z następującą dyrektywę:
 

@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 44761193-04ba-4990-9f90-145d3c10a716
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 71ff3c269c5d1ed43a67d19442eda8e9d4728295
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d0d6c9dd5234c8085b5c1dea5552854486314010
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405706"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129778"
 ---
 # <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Wdrażanie z repozytorium i jednostki pracy w aplikacji ASP.NET MVC (9, 10)
 
@@ -26,7 +26,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 W poprzednim samouczku użyto dziedziczenia zmniejszyć nadmiarowy kod w `Student` i `Instructor` klas jednostek. W tym samouczku zobaczysz niektóre sposoby korzystania z repozytorium i jednostki pracy wzorce dla operacji CRUD. Tak jak w poprzednim samouczku w tym jednym poznasz, jak zmienić sposób działania swojego kodu za pomocą stron można już utworzyć zamiast tworzenia nowych stron.
 
@@ -51,7 +50,6 @@ Testy jednostkowe nie utworzy w tej serii samouczków. Aby zapoznać się z TDD 
 
 > [!NOTE]
 > Istnieje wiele sposobów implementowania repozytorium i jednostki pracy. Można użyć klasy repozytorium, z lub bez niego jednostkę pracy klasy. Możesz zaimplementować pojedynczego repozytorium na potrzeby wszystkie typy jednostek i jeden dla każdego typu. W przypadku zastosowania dla każdego typu można użyć osobnych klas, rodzajowego klasy podstawowej i klasy pochodne lub abstrakcyjną klasę bazową i klasach pochodnych. Można uwzględnić logikę biznesową w repozytorium lub ograniczyć jego logiką dostępu do danych. Można również wbudować warstwę abstrakcji do klasy kontekstu bazy danych, za pomocą [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) interfejsy istnieje zamiast [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) typów dla zestawów jednostek. Podejścia do wdrażania warstwę abstrakcji przedstawiona w tym samouczku jest jedną z opcji należy rozważyć nie zalecenie dla wszystkich scenariuszach i środowiskach.
-
 
 ## <a name="creating-the-student-repository-class"></a>Tworzenie klasy repozytorium dla uczniów
 
@@ -142,7 +140,6 @@ W pierwotnej wersji kodu `students` jest `IQueryable` obiektu. Zapytanie nie jes
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample16.sql)]
 > 
 > (Następującego samouczka wyjaśniono, jak sprawdzić zapytania wysyłane do programu SQL Server).
-
 
 W poniższej sekcji pokazano, jak implementować metody repozytorium, które umożliwiają określenie, że ta praca ma się odbywać przez bazę danych.
 

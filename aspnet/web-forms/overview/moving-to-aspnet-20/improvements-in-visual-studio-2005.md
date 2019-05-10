@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 72d90cd0-b3d9-454c-b2eb-ed0d9812f32c
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: a580b678a943695969b7f3acd2f7a033bd0b6ee3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 64215d556ded0850537a13856fe69b094116ebca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379772"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130326"
 ---
 # <a name="improvements-in-visual-studio-2005"></a>Ulepszenia w programie Visual Studio 2005
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Visual Studio 2005 zawiera twórcom długą listę usprawnień i ulepszeń do projektów sieci Web w aplikacji sieci Web.
-
 
 Visual Studio 2005 zawiera twórcom długą listę usprawnień i ulepszeń do projektów sieci Web w aplikacji sieci Web. Tak wydajna jak Visual Studio .NET 2002 i 2003 wystąpiły wiele skarg w taki sposób, że projekty sieci Web zostały obsłużone. Visual Studio 2005 dodaje szereg istotnych nowe funkcje, aby rozwiązać te skargi. Dla tych, którzy wolą sposób obsługi kompilacji aplikacji sieci Web w Visual Studio .NET 2003, zobacz [projektów aplikacji sieci Web](https://go.microsoft.com/fwlink/?LinkId=57870).
 
@@ -36,7 +35,6 @@ Dla deweloperów, którzy chcą korzystać z rozszerzeń serwera FrontPage w swo
 
 > [!NOTE]
 > Rozszerzenia serwera FrontPage są nadal wymagane dla projektu zdalnego tworzenia, otwierania itp.
-
 
 ## <a name="aspnet-development-server"></a>ASP.NET Development Server
 
@@ -64,12 +62,9 @@ Deweloperzy sieci Web mają wiele nowych opcji dostępnych do utworzenia projekt
 
 Kliknij tutaj, aby wyświetlić Przewodnik wideo dotyczący tworzenia projektów sieci Web w programie Visual Studio 2005.
 
-
 ![](improvements-in-visual-studio-2005/_static/image1.png)
 
-
 [Otwórz wideo pełnego ekranu](improvements-in-visual-studio-2005/_static/creating_projects1.wmv)
-
 
 ### <a name="file-system-projects"></a>Projekty systemu plików
 
@@ -77,7 +72,6 @@ Jak przedstawiono w przewodnik wideo można utworzyć witryny sieci Web w system
 
 > [!NOTE]
 > ASP.NET Development Server może być niejasne dla klientów. Jeśli projekt sieci Web została utworzona w systemie plików w strukturze katalogów o IISs (czyli c:/Lokalizacja inetpub/wwwroot), nadal można przeglądać witryny sieci Web za pomocą programu ASP.NET Development Server, gdy uruchamiana z poziomu programu Visual Studio 2005. W związku z tym nie dotyczy konfigurowania usług IIS (np. metody uwierzytelniania).
-
 
 Domyślny projekt sieci web spowoduje również usunięcie znacznie obciążenie przez tylko obejmuje strony Default.aspx, default.cs plików i folderów aplikacji/_dane. Plik web.config i foldery specjalne (czyli aplikacji/_fragmenty) są dodawane, ponieważ są one potrzebne. Projekt sieci web zawiera tylko pliki i foldery, które są potrzebne.
 
@@ -90,22 +84,17 @@ Opcja lokalne usługi IIS odczytuje informacje o lokacji w metabazie na komputer
 > [!NOTE]
 > Plik vs###/_tmp.htm i get/_aspx/_ver.aspx nie są już używane do określenia informacje o wersji.
 
-
 Domyślna opcja HTTP jest lokalne usługi IIS. Ta opcja odczytuje metabazy usług IIS, aby określić, które witryny są dostępne i lokalizację, w której ma zostać utworzona zawartość. Można wybrać inny folder lub katalog wirtualny, wybierając go w widoku drzewa. Użytkownik może również Utwórz nowy katalog wirtualny, oznacz foldery jako aplikacje, a także usuwania istniejących katalogów wirtualnych w tym oknie dialogowym.
-
 
 ![Wybierz lokalizację w oknie dialogowym](improvements-in-visual-studio-2005/_static/image1.gif)
 
 **Rysunek 1**: Wybierz lokalizację w oknie dialogowym
 
-
 W odróżnieniu od we wcześniejszych wersjach programu Visual Studio, jeśli zaznaczysz **Użyj protokołu Secure Sockets Layer** pole wyboru i certyfikat SSL jest niezgodny adres URL przeglądania, zostanie wyświetlone okno dialogowe Alert zabezpieczeń pytaniem, jeśli będzie np. kontynuować. Przy użyciu programu Visual Studio .NET 2003, jeśli certyfikat nie jest zgodne jeden, tworzenia projektu zakończy się niepowodzeniem.
-
 
 ![Certyfikat SSL dotyczący alertów zabezpieczeń](improvements-in-visual-studio-2005/_static/image2.gif)
 
 **Rysunek 2**: Certyfikat SSL dotyczący alertów zabezpieczeń
-
 
 ### <a name="note-on-host-headers"></a>Uwaga dotycząca nagłówki hosta
 
@@ -113,19 +102,15 @@ W przypadku tworzenia aplikacji sieci Web w lokacji powiązane z określonego ad
 
 Jeśli zostanie wybrana opcja lokacji zdalnej, okno dialogowe zmieni się na umożliwiają wprowadzanie docelowy adres URL dla nowej witryny sieci Web. Ten adres URL musi być na serwerze, który ma rozszerzenia serwera FrontPage, które są włączone. Jeśli użytkownik chce pracować z lokalnego serwera sieci Web za pomocą rozszerzenia serwera FrontPage, należy użyć opcji lokacji zdalnej i określić lokalny adres URL.
 
-
 ![Tworzenie witryny sieci Web na serwerze zdalnym](improvements-in-visual-studio-2005/_static/image1.jpg)
 
 **Rysunek 3**: Tworzenie witryny sieci Web na serwerze zdalnym
 
-
 Podczas tworzenia aplikacji w lokalizacji zdalnej za pomocą protokołu SSL, jeśli certyfikat SSL nie jest zgodny, okno dialogowe potwierdzenia jest nieco inna niż okno dialogowe wyświetlane podczas korzystania z opcji lokalnych usług IIS.
-
 
 ![Alert zabezpieczeń lokacji zdalnej](improvements-in-visual-studio-2005/_static/image3.gif)
 
 **Rysunek 4**: Alert zabezpieczeń lokacji zdalnej
-
 
 <a id="_Toc116100243"></a>
 
@@ -136,14 +121,11 @@ Visual Studio 2005 wprowadza możliwość utworzenia witryny sieci Web za pośre
 > [!NOTE]
 > Lokalizacja folderu tymczasowego to c:/Documents and Settings /&lt;użytkownika&gt;/Local ustawienia/Temp/VWDWebCache/&lt;serwera&gt;/_&lt;nazwy aplikacji&gt;
 
-
 Korzystając z opcji FTP, zostanie wyświetlone okno dialogowe Wybierz lokalizację. Wprowadzeniu wymaganych informacji o połączeniu FTP do tego okna dialogowego, jak pokazano poniżej.
-
 
 ![Wybierz okno dialogowe lokalizacji FTP](improvements-in-visual-studio-2005/_static/image2.jpg)
 
 **Rysunek 5**: Wybierz okno dialogowe lokalizacji FTP
-
 
 ## <a name="lab-setup-ftp-site-and-create-a-project"></a>Laboratorium: Konfigurowanie witryny FTP i Utwórz projekt
 
@@ -199,7 +181,6 @@ Poniższe kroki konfigurowania witryny FTP, tak, aby użytkownik miał lokalizac
 > [!NOTE]
 > Jeśli błąd wskazujący brakiem, aby załadować /_Default typu, upewnij się, że działają ASP.NET 2.0 w witrynie sieci Web i nie starszej wersji. Możesz to zrobić na karcie ASP.NET w programie Internet Information Services.
 
-
 ## <a name="opening-web-projects"></a>Otwierania projektów sieci Web
 
 Otwierania projektów sieci Web jest podobny do tworzenia projektów. Poniższe sekcje wyróżnienia obszarów, aby zorientować się, aby uzyskać podczas pracy w środowisku IDE. Obejmuje ona również korzystanie z projektów sieci Web przy użyciu protokołu HTTP i FTP.
@@ -212,11 +193,9 @@ Aby otworzyć projekt sieci Web, wybierz Otwórz witrynę sieci Web za pomocą m
 
 Jak wskazano wcześniej, w tym module, Visual Studio nie jest już używa pliku projektu. W związku z tym jeśli użytkownik chce otworzyć witrynę sieci Web w systemie plików, faktycznie masz wybór wszystkich folderach, które chcesz, nawet jeśli nie utworzono folder, który wybierzesz jako projekt sieci Web początkowo w programie Visual Studio. Na przykład można wybrać otworzyć folder Moje dokumenty, jako witryny sieci Web i Visual Studio trafem korzysta go otworzyć i wyświetlić pliki, jak pokazano poniżej.
 
-
 ![Moje dokumenty, otwarty jako witryny sieci Web](improvements-in-visual-studio-2005/_static/image3.jpg)
 
 **Rysunek 6**: *Moje dokumenty* otwarty jako witryny sieci Web
-
 
 Ponieważ program Visual Studio tworzy tylko dodatkowe pliki i foldery, gdy jest to konieczne, żadne dodatkowe pliki lub foldery są dodawane do lokalizacji, w której możesz otworzyć. Efekt uboczny tej architektury jest to, że uniemożliwia zagnieżdżania witryn sieci Web w systemie plików. Na przykład rozważmy następującą strukturę katalogów.
 
@@ -234,11 +213,9 @@ Podczas otwierania witryn sieci Web za pośrednictwem protokołu HTTP, ustawieni
 
 Mimo że program Visual Studio wyświetli ikonę dla aplikacji, które zagnieżdżonych aplikacji, która jest obecnie otwarty w środowisku IDE, nie umożliwia można rozszerzyć je, aby wyświetlić jego zawartość. Można jednak kliknij dwukrotnie je, aby je otworzyć. Po wykonaniu czynności zostanie wyświetlone okno dialogowe monitowania o albo otworzyć aplikację sieci web (i zastąpić aktualnie otwarte rozwiązanie) lub dodać aplikację sieci Web do bieżącego rozwiązania.
 
-
 ![Dwukrotne kliknięcie ikony aplikacji zagnieżdżonych przedstawia to okno dialogowe](improvements-in-visual-studio-2005/_static/image4.jpg)
 
 **Rysunek 7**: Dwukrotne kliknięcie ikony aplikacji zagnieżdżonych przedstawia to okno dialogowe
-
 
 <a id="_Toc116100247"></a>
 
@@ -250,11 +227,9 @@ C:/Documents and Settings /&lt;użytkownika&gt;/Local ustawienia/Temp/VWDWebCach
 
 Gdy za pomocą protokołu FTP, Visual Studio należy określić podstawowy adres URL dla projektu, możesz je przeglądać, jak pokazano poniżej. Jeśli podstawowy adres URL nie jest określony, program Visual Studio wyświetli monit dla niej próba przejść na stronę w witrynie sieci Web po raz pierwszy.
 
-
 ![Określanie podstawowego adresu URL dla witryny FTP](improvements-in-visual-studio-2005/_static/image5.jpg)
 
 **Rysunek 8**: Określanie podstawowego adresu URL dla witryny FTP
-
 
 ## <a name="improvements-in-compilation"></a>Ulepszenia kompilacji
 
@@ -265,27 +240,21 @@ W programie Visual Studio 2002 i 2003 aplikacji sieci Web zostały skompilowane 
 > [!NOTE]
 > Narzędzie wiersza polecenia programu MSBuild można również tworzyć aplikacje sieci Web platformy ASP.NET. Tego narzędzia zostały omówione w module 9.
 
-
 Innym usprawnieniem kompilacji jest nowa opcja Stroka kompilacji w menu Kompiluj. Ta funkcja umożliwia zatem programistą, aby ponownie skompilować tylko bieżącej strony (wraz z programem, kursu i zależności) tak, aby zmiany może być kompilowane szybciej. Ponieważ języka C# nie oferuje kompilacja tła na potrzeby aktualizowania funkcji IntelliSense, itp., ich będą mogli korzystać bardzo z tej funkcji, ponieważ pozwoli to na technologię IntelliSense, aby zaktualizować szybko po prostu ponownie skompilować z pojedynczą stroną.
 
 Właściwości kompilacji dla projektu umożliwiają skonfigurowanie typ kompilacji, który występuje, zanim zostanie wykonany stronę startową. Deweloperzy mogą być tylko kompilacji na bieżącej stronie, aby program Visual Studio można uruchomić, szybsze debugowanie aplikacji po zmianie kodu.
-
 
 ![Akcja kompilacji początek strony](improvements-in-visual-studio-2005/_static/image6.jpg)
 
 **Rysunek 9**: Akcja kompilacji początek strony
 
-
 Innym usprawnieniem doskonałe architektura platformy ASP.NET i programu Visual Studio znajduje się w obszarze Edytuj i Kontynuuj. W programie Visual Studio 2005 deweloperzy mogą rozpocząć debugowanie projektu i wprowadzać zmiany kodu w projekcie bez odłączania debugera. W rzeczywistości dosłownie rozpocząć debugowanie projektu, Dodaj nową klasę, Dodaj kod dla tej klasy, Dodaj kod do strony, która tworzy nowe wystąpienie klasy i wykonać metodę do klasy bez odłączania debugera. Wykonywanie nowy kod jest dosłownie bardzo proste — wystarczy odświeżeniu przeglądarki!
 
 Kliknij tutaj, aby zobaczyć przewodnik wideo, edycji i kontynuować funkcji w programie Visual Studio 2005.
 
-
 ![](improvements-in-visual-studio-2005/_static/image2.png)
 
-
 [Otwórz wideo pełnego ekranu](improvements-in-visual-studio-2005/_static/editcontinue1.wmv)
-
 
 Niezawodne Edytuj i Kontynuuj funkcji w programie ASP.NET 2.0 i Visual Studio 2005 jest z powodu zmiany architektury dla aplikacji ASP.NET. W programie ASP.NET: 1.x, aplikacje utworzone w programie Visual Studio 2002/2003 zostały skompilowane do podstawowego zestawu, który był przechowywany w folderze/bin. Wszystkie klasy, stron, itp. dla aplikacji zostały skompilowane w tym jedną bibliotekę DLL. W czasie wykonywania, ASP.NET może następnie skompilować wszystkie kontrolki, znaczników i kodu platformy ASP.NET na stronach i skopiuj tych bibliotek DLL do folderu tymczasowego środowiska ASP.NET.
 
@@ -293,28 +262,21 @@ W programie Visual Studio 2005 za pomocą programu ASP.NET 2.0, modele dwóch ko
 
 Kliknij tutaj, aby zobaczyć przewodnik wideo dotyczący wsparcie dla kontrolki użytkownika.
 
-
 ![](improvements-in-visual-studio-2005/_static/image3.png)
 
-
 [Otwórz wideo pełnego ekranu](improvements-in-visual-studio-2005/_static/usercontrols1.wmv)
-
 
 > [!NOTE]
 > Po usunięciu kontrolki użytkownika na stronie @Register dyrektywy pozostaje w znaczniku i powinny zostać usunięte ręcznie, aby uniknąć błędów analizatora, jeśli formant użytkownika zostanie usunięta z witryny sieci Web.
 
-
 Poprawa innego modelu kompilacji Visual Studio to funkcja Publikowanie witryny sieci Web. Ponieważ funkcja Publikuj wstępnie kompiluje witryny sieci Web, deweloperzy mogą korzystać dodano wydajność nie ma potrzeby Kompiluj wszystko na żądanie. On również wstępnie kompiluje całego kodu źródłowego w folderze aplikacji/_fragmenty do biblioteki DLL tak, aby żaden kod źródłowy ma zostać wdrożone.
-
 
 ![Okno dialogowe publikowania witryny sieci Web](improvements-in-visual-studio-2005/_static/image7.jpg)
 
 **Na rysunku nr 10**: Okno dialogowe publikowania witryny sieci Web
 
-
 > [!NOTE]
 > Narzędzie aspnet/_compile.exe można również wstępnie skompilować aplikację sieci Web ASP.NET. Tego narzędzia zostały omówione w module 9.
-
 
 Gdy Publikuj witryny sieci Web, wstępnie skompilowane pliki są przechowywane w folderze plików tymczasowych ASP.NET jak pokazano poniżej. Pliki z *.compiled* rozszerzenie pliku są plikami XML, które Definiowanie zależności dla określonej biblioteki dll. Wszystkie formanty formularza sieci Web lub użytkownika są kompilowane do losowych bibliotek DLL, które zaczynają się od *aplikacji /_sieci Web /_*.
 
@@ -327,15 +289,12 @@ Jeśli pozostawisz *tej prekompilowanej witryny zezwalać na aktualizacje* zazna
 > [!NOTE]
 > W programie ASP.NET: 1.x, zestawy o silnych nazwach musiały być zainstalowany w globalnej pamięci podręcznej zestawów (GAC). W programie ASP.NET 2.0 nie jest wymagane do instalowania zestawów o silnych nazwach w GAC.
 
-
 ![Pliki wstępnie skompilowanych aplikacji ASP.NET](improvements-in-visual-studio-2005/_static/image8.jpg)
 
 **Rysunek 11**: Pliki wstępnie skompilowanych aplikacji ASP.NET
 
-
 > [!NOTE]
 > W powyższym aplikacji wystąpił nie pliku web.config. Jeśli nastąpiła, jego może zostać wywołany *PrecompiledApp.config* po publikowanie w sieci Web site procesu.
-
 
 ## <a name="improvements-in-deployment"></a>Ulepszenia we wdrożeniu
 
@@ -348,15 +307,11 @@ Jeśli projekt jest kopiowany do zdalnej witryny sieci Web, tej lokacji musi mie
 > [!NOTE]
 > Jeśli spróbujesz utworzyć nową witrynę sieci Web w lokalnym wystąpieniu usług IIS i zainstalowanych rozszerzeń serwera FrontPage 2002, zostanie wyświetlony komunikat o błędzie informujący o tym, że tworzenie witryn sieci Web nie jest obsługiwany na serwerze programu SharePoint. W takiej sytuacji istnieje możliwość rozszerzenia serwera FrontPage 2000 instalowania lub usuwania rozszerzenia serwera FrontPage.
 
-
 Kliknij tutaj, aby uzyskać przewodnik wideo dotyczący funkcji kopiowania witryny sieci Web.
-
 
 ![](improvements-in-visual-studio-2005/_static/image4.png)
 
-
 [Otwórz wideo pełnego ekranu](improvements-in-visual-studio-2005/_static/copysite1.wmv)
-
 
 ## <a name="improvements-in-debugging"></a>Ulepszenia debugowania
 
@@ -389,19 +344,15 @@ Wymagania dla zdalnego debugowania w programie Visual Studio 2005 jest bardzo pr
 
 Po uruchomieniu msvsmon.exe, prawdopodobnie będzie zgłaszać błąd o portach blokowane dla zdalnego debugowania. Łatwo można szczęście odblokować portów z prawej strony w oknie dialogowym ostrzeżenia, jak pokazano poniżej.
 
-
 ![Powiadamianie zapory Windows blokuje debugowanie zdalne](improvements-in-visual-studio-2005/_static/image9.jpg)
 
 **Rysunek 12**: Powiadamianie zapory Windows blokuje debugowanie zdalne
 
-
 Po ma odblokowany porty niezbędne do debugowania, zostanie wyświetlony Monitor zdalnego debugowania, jak pokazano poniżej. W tym interfejsie można monitorować połączenia i zmienić uprawnień debugowania, łatwo.
-
 
 ![Monitor debugera zdalnego](improvements-in-visual-studio-2005/_static/image10.jpg)
 
 **Rysunek 13**: Monitor debugera zdalnego
-
 
 Jest również możliwe zdalne debugowanie aplikacji sieci Web otwarte przy użyciu protokołu FTP. Kroki są takie same, jak omówione wcześniej. Należy określić podstawowy adres URL do przeglądania projektu FTP, zgodnie z opisem we wcześniejszej części tego modułu.
 
@@ -413,12 +364,9 @@ W tym laboratorium przeprowadzi zdalnego debugowania w programie Visual Studio 2
 
 Kliknij tutaj, aby przewodnik wideo dotyczący tego laboratorium.
 
-
 ![](improvements-in-visual-studio-2005/_static/image5.png)
 
-
 [Otwórz wideo pełnego ekranu](improvements-in-visual-studio-2005/_static/remdebug1.wmv)
-
 
 W tym laboratorium musisz mieć dwie maszyny, co uruchamianie programu Visual Studio 2005 i inne uruchomione usługi IIS 5 lub nowszego.
 
@@ -426,7 +374,6 @@ W tym laboratorium musisz mieć dwie maszyny, co uruchamianie programu Visual St
 
 > [!NOTE]
 > Można utworzyć witryny sieci Web, na zdalnym wystąpieniu programu IIS lub za pośrednictwem protokołu FTP.
-
 
 1. Z serwerem sieci Web zlokalizuj msvsmon.exe na komputerze deweloperskim, przy użyciu ścieżki UNC, a następnie uruchomić go.  
  Domyślną lokalizacją msvsmon.exe jest //server/c$/Program plików/Microsoft Visual Studio 8/Common7/IDE/Remote Debugger/x86.
@@ -444,11 +391,9 @@ ASP.NET Development Server jest ograniczony serwera sieci Web. Nie zezwalaj na p
 
 ASP.NET Development Server można uruchomić z poziomu wiersza polecenia, uruchamiając plik WebDev.WebServer.exe znajdujący się w c:/Windows/Microsoft.NET/Framework/v2.0./*/* /  */*/*. Następujące okno dialogowe wyświetla parametry, które są dostępne.
 
-
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)
 
 **Rysunek 14**
-
 
 > [!NOTE]
 > ASP.NET Development Server nie jest obsługiwana w przypadku uruchomienia jawnie za pomocą wiersza polecenia.

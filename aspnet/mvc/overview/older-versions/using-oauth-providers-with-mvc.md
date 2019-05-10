@@ -8,12 +8,12 @@ ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c2fe74c3d7b1aa0d230f1893f6ba7dcaa7a88419
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5dfd1305376a62f4987caea242ca0f6aac1018e9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396986"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129631"
 ---
 # <a name="using-oauth-providers-with-mvc-4"></a>Korzystanie z dostawców uwierzytelniania OAuth we wzorcu MVC 4
 
@@ -24,7 +24,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > Aby użyć zewnętrznych poświadczeń w aplikacji sieci web programu ASP.NET MVC 5, zobacz [tworzenie aplikacji platformy ASP.NET MVC 5 za pomocą usługi Facebook i Google OAuth2 i OpenID logowanie jednokrotne](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 > 
 > Włączanie tych poświadczeń w witrynach sieci web zapewnia znaczące korzyści, ponieważ milionom użytkowników mają już konta z tych dostawców zewnętrznych. Tacy użytkownicy mogą być bardziej skłonni się zarejestrować dla danej witryny, gdy ta osoba nie ma do tworzenia i Zapamiętaj nowego zestawu poświadczeń. Ponadto po użytkownik jest zalogowany za pomocą jednego z tych dostawców, można zastosować operacji społecznościowych od dostawcy.
-
 
 ## <a name="what-youll-build"></a>Będziesz tworzyć
 

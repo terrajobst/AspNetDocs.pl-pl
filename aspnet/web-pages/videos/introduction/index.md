@@ -8,12 +8,12 @@ ms.date: 05/18/2012
 ms.assetid: b8a43660-177f-4a00-bb51-be887364c607
 msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
-ms.openlocfilehash: d4e5ef19044a265f48d51586062fb7d2dc024b4c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e4e9d63ddc701205d9f102e05fe47dd2c552bdf1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413675"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127738"
 ---
 # <a name="introduction-to-web-pages-videos"></a>Wprowadzenie do stron sieci Web filmów wideo
 
@@ -21,7 +21,6 @@ ms.locfileid: "59413675"
 
 > [!NOTE] 
 > Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj [programu Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) lub [programu Visual Studio Code](https://code.visualstudio.com/).
-
 
 - [Pięciominutowe wprowadzenie do wzorca ASP.NET Web Pages](5-minute-introduction-to-aspnet-web-pages.md)
 - [Instalowanie i korzystanie z narzędzia Microsoft WebMatrix](install-and-use-the-microsoft-webmatrix-tool.md)

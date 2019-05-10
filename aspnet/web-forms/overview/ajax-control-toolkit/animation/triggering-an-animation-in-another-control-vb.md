@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 25ebaf1f-5a9f-423d-98c7-1d694e93664f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c74e829c85ae3b57d54a62aeb79388f1131e7184
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc27e44ae42865eebbf67da69dbe1aa43a57a4d7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398205"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128166"
 ---
 # <a name="triggering-an-animation-in-another-control-vb"></a>Wyzwalanie animacji w innej kontrolce (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8VB.pdf)
 
 > Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Ogólnie rzecz biorąc uruchamianie animacji jest wyzwalana przez interakcji użytkownika z tej samej kontrolki. Jest jednak również możliwość oddziałują na jeden formant, a następnie animacji innej kontrolki.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -55,7 +54,6 @@ W ramach `<Animations>` węzła, animacje miejsce w zwykły sposób. Aby stały 
 [!code-aspx[Main](triggering-an-animation-in-another-control-vb/samples/sample6.aspx)]
 
 Należy zwrócić uwagę specjalne kolejność, w jakiej są wyświetlane poszczególne animacji. Po pierwsze przycisk pobiera dezaktywowane, po uruchomieniu animacji. Ponieważ ma nie `AnimationTarget` atrybutu w `<EnableAction>` elementu, ta animacja jest stosowana do sterowania źródłowy: przycisku. Kroki opisane w dwóch następnych animacji przeprowadza się równolegle (`<Parallel>` elementu). Zachowują się ich `AnimationTarget` Ustaw atrybuty `"Panel1"`, dlatego animowanie panelu nie przycisk.
-
 
 [![Kliknięcie na przycisk uruchamiania animacji panelu](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
 

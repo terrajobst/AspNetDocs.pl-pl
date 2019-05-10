@@ -8,19 +8,18 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: de65e01b888d9ed15da3903f086b40c49b32b9fb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 62050f561440a2c0fbbe91ec49fb1f9e30885e9f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402417"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130349"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 — funkcje mobilne
 
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Teraz jest dostępna wersja MVC 5 tego samouczka przy użyciu przykładów kodu w zasięgu [wdrożyć aplikację ASP.NET MVC 5 Mobile sieci Web w usłudze Azure Web Sites](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
-
 
 Ta seria samouczków obejmuje podstawowe informacje dotyczące korzystania z funkcji mobilnych aplikacji sieci Web programu ASP.NET MVC 4. W tym samouczku użyjesz [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) lub Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer lub VWD&quot;). Jeśli masz już, można użyć programu Visual Studio w wersji professional.
 
@@ -214,7 +213,6 @@ Poniższy kod przedstawia pełny *Global.asax* pliku.
 > [!NOTE]
 > Jeśli używasz programu Internet Explorer 9, a nie widać `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku Widok zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku Widok zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konturem ![obraz przycisku Widok zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku Widok zgodności (wyłączony) ") pełny kolor ![obraz przycisku Widok zgodności (funkcja włączona)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku Widok zgodności (funkcja włączona)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarce FireFox lub Chrome.
 
-
 Otwórz *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* pliku i Dodaj następujący kod bezpośrednio po `Html.Partial` wywołania:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample12.cshtml)]
@@ -229,7 +227,6 @@ Skompiluj aplikację i w swojej przeglądarce dla urządzeń przenośnych emulat
 
 > [!NOTE]
 > Można debugować mobilnego określonych przez [ustawienie ciąg agenta użytkownika](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) dla programu Internet Explorer lub Chrome do telefonu iPhone, a następnie użyć narzędzia deweloperskie F-12. Jeśli w przeglądarce dla urządzeń przenośnych nie są wyświetlane **Home**, **osoby mówiącej**, **Tag**, i **data** łącza jako przyciski, odwołania do technologii jQuery Mobile skrypty i pliki CSS prawdopodobnie nie są prawidłowe.
-
 
 Oprócz zmian stylów zobaczysz **wyświetlanie widoku dla urządzeń przenośnych** i łącze, które umożliwia przechodzenie z widoku dla urządzeń przenośnych do widoku pulpitu. Wybierz **widok pulpitu** łącze i widok pulpitu są wyświetlane.
 
@@ -251,7 +248,6 @@ Odśwież *alltags —* Wyświetl w przeglądarce dla urządzeń przenośnych. M
 > i dodać następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.
 >
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
-
 
 Przejdź do *alltags —* strony w przeglądarce pulpitu. Widżet o przełącznikiem widoku nie jest wyświetlana w przeglądarce pulpitu, ponieważ jest ono dodane tylko do strony układu dla urządzeń przenośnych. W dalszej części tego samouczka zobaczysz, jak dodać element widget przełącznikiem widoku w widoku pulpitu.
 

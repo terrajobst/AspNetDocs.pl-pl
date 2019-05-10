@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: ce866a169e69c0d85fe18ddeccf271f1f235d440
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3fcfc816cde22c697a78bab2c9ea7ace1bf68501
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381123"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129677"
 ---
 # <a name="part-3-views-and-viewmodels"></a>Część 3. widoki i modele widoków
 
@@ -24,7 +24,6 @@ przez [Galloway'em Jon](https://github.com/jongalloway)
 > MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
 > W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 3 obejmuje, widoki i modele widoków.
-
 
 Do tej pory firma Microsoft została właśnie zostało zwracanie ciągi z akcji kontrolera. Jest to dobre rozwiązanie sposób poznać działanie kontrolerów, ale to, że nie będzie sposób tworzenia aplikacji sieci web rzeczywistych. Firma Microsoft zamierza mają lepszy sposób generują kod HTML do przeglądarki, odwiedź naszą witrynę — jeden w którym firma Microsoft może korzystać z plików szablonu można łatwo dostosować zawartość HTML przesyła z powrotem. To dokładnie wykonaj widoków.
 
@@ -257,7 +256,6 @@ Teraz możemy ponownie uruchom naszych projektów i uzyskać dostępu do adresu 
 Kod HTML dla listy gatunku wygląda następująco:
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
-
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-2.md)

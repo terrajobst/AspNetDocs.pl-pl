@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 2cd99e23904276e89cf043a2332ad07c0f01716d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ade3c1ba1c470092f512436f39b8831458408c2c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415352"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131572"
 ---
 # <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy
 
@@ -24,7 +24,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrażania w Internecie i publikowania.
 > 
 > Zadania opisane w tym temacie są wspólne dla każdego scenariusza wdrażania&#x2014;nie ma znaczenia, czy serwery sieci web są skonfigurowane do używania zdalnej usługi agenta narzędzia do wdrażania sieci Web usług IIS (Web Deploy), program obsługi wdrażania w sieci Web lub wdrożenie w trybie offline lub Aplikacja jest uruchomiona na jednym serwerze sieci web lub w farmie serwerów. Sposób wdrażania bazy danych może się zmieniać zgodnie z wymagań dotyczących zabezpieczeń oraz inne zagadnienia. Na przykład można wdrożyć bazę danych z lub bez przykładowych danych i mogą wdrażać mapowania roli użytkownika lub ręcznie skonfigurować po wdrożeniu. Jednak sposób konfigurowania serwera bazy danych pozostaje taki sam.
-
 
 Nie musisz zainstalować wszelkie dodatkowe produkty lub narzędzi do konfigurowania serwera bazy danych do obsługi wdrażania w Internecie. Przy założeniu, że serwer bazy danych i serwera sieci web działają na różnych maszynach, po prostu musisz:
 
@@ -46,7 +45,6 @@ Wystąpienie programu SQL Server musi jedynie zawierać **usługi aparatu bazy d
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [łączenie komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Aby uzyskać więcej informacji na temat instalowania programu SQL Server, zobacz [Instalowanie programu SQL Server 2008 R2](https://technet.microsoft.com/library/bb500395.aspx).
-
 
 ## <a name="enable-remote-access-to-sql-server"></a>Włącz dostęp zdalny do programu SQL Server
 
@@ -96,11 +94,9 @@ Przy założeniu, że używasz domyślnego wystąpienia programu SQL Server, mus
 | --- | --- | --- | --- |
 | Dla ruchu przychodzącego | Dowolne | 1433 | TCP |
 | Wychodzące | 1433 | Dowolne | TCP |
-  
 
 > [!NOTE]
 > Technicznie rzecz biorąc komputer kliencki będzie używać jeden losowo przypisany port TCP od 1024 do 5000 do komunikowania się z programem SQL Server i odpowiednio ograniczyć reguły zapory. Aby uzyskać więcej informacji na temat programu SQL Server, porty i zapór, zobacz [numery portów TCP/IP wymagany do komunikowania się do bazy danych SQL za pośrednictwem zapory](https://go.microsoft.com/?linkid=9805125) i [jak: Konfigurowanie serwera do nasłuchiwania na konkretnym porcie TCP (SQL Server Configuration Manager)](https://msdn.microsoft.com/library/ms177440.aspx).
-
 
 W większości środowisk systemu Windows Server prawdopodobnie musisz skonfigurować zaporę Windows na serwerze bazy danych. Domyślnie Zapora Windows umożliwia cały ruch wychodzący, chyba że regułę. Aby włączyć serwer sieci web dotrzeć do bazy danych, musisz skonfigurować regułę ruchu przychodzącego zezwalającą na ruch TCP na numer portu, który korzysta z wystąpienia programu SQL Server. Jeśli używasz domyślnego wystąpienia programu SQL Server umożliwia następnej procedury konfigurowania tej reguły.
 
@@ -136,7 +132,6 @@ Jeśli aplikacja sieci web jest uruchomiony na farmie serwerów, a nie pojedyncz
 
 > [!NOTE]
 > Aby uzyskać więcej informacji o tożsamości puli aplikacji i uzyskiwanie dostępu do zasobów sieciowych, zobacz [tożsamości puli aplikacji](https://go.microsoft.com/?linkid=9805123).
-
 
 Może zbliżać się te zadania na różne sposoby. Aby utworzyć identyfikator logowania, można:
 
@@ -182,14 +177,12 @@ Podczas ręcznego mapowania ról bazy danych często jest większe niż odpowied
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat serwera i bazy danych projektów, zobacz [Visual Studio 2010 projektów bazodanowych SQL Server](https://msdn.microsoft.com/library/ff678491.aspx).
 
-
 ## <a name="configure-permissions-for-the-deployment-account"></a>Skonfiguruj uprawnienia dla konta wdrożenia
 
 Jeśli konto, które będzie używane do uruchamiania wdrożenia nie jest administratorem programu SQL Server, należy także utworzyć identyfikator logowania dla tego konta. Aby utworzyć bazę danych, konto musi należeć do **dbcreator** roli serwera lub mieć równoważne uprawnienia.
 
 > [!NOTE]
 > Korzystając z narzędzia Web Deploy lub VSDBCMD wdrożyć bazę danych, można użyć poświadczenia Windows lub programu SQL Server (jeśli wystąpienia programu SQL Server jest skonfigurowany do obsługi uwierzytelniania w trybie mieszanym). Następnej procedury przyjęto założenie, że chcesz użyć poświadczeń Windows, ale nie ma nic zatrzymywanie możesz z określania programu SQL Server, nazwę użytkownika i hasła w ciągu połączenia, podczas konfigurowania wdrożenia.
-
 
 **Aby skonfigurować uprawnienia dla konta wdrożenia**
 

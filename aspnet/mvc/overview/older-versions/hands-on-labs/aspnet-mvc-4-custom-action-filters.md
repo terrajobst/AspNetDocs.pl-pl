@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 32587c7b0fd3075cd46678922b40bda2019f3a26
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: eaeb32180f79fabf557cbc38ff067eb26b47fea7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381136"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129751"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 — niestandardowe filtry akcji
 
@@ -76,7 +76,6 @@ Szacowany czas do ukończenia tego laboratorium: **30 minut**.
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
 
-
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Logging_Actions"></a>
@@ -95,7 +94,6 @@ Filtr będzie rozszerzać **ActionFilterAttributeClass** i zastąpić **OnAction
 > - **Wyjątek** filtr, który jest wykonywany, jeśli ma nieobsługiwany wyjątek spowodowany gdzieś w metodzie akcji, począwszy od filtry autoryzacji, a kończąc na wykonanie wynik. Filtry wyjątków może służyć do zadań, takich jak rejestrowanie lub wyświetlanie strony błędu.
 > 
 > Aby uzyskać więcej informacji o dostawcach filtrów można znaleźć ten link MSDN: ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx)).
-
 
 <a id="AboutLoggingFeature"></a>
 
@@ -132,7 +130,6 @@ W tym zadaniu utworzysz klasę atrybutów niestandardowego filtru, która będzi
 > - **OnResultExecuted**(ResultExecutedContext filterContext): Po wykonaniu wyniku (po renderowania widoku).
 > 
 > Przez zastąpienie dowolnego z tych metod w klasie pochodnej, można wykonać filtrowania kodu.
-
 
 1. Otwórz **rozpocząć** rozwiązania znajdujący się w **\Source\Ex01-LoggingActions\Begin** folderu.
 
@@ -352,7 +349,6 @@ To zadanie zaktualizuje rozwiązanie, aby zarejestrować nowy filtr (**MyNewCust
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację do witryny sieci Web systemu Windows Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
-
 
 ---
 

@@ -8,19 +8,18 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4a2a9fc56393ac816f25a1039b233aa8961608
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 79d6b38c6464a749db9cd6d35e1f277b0adf2a02
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129432"
 ---
 # <a name="bundling-and-minification"></a>Tworzenie pakietów i minifikacja
 
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5, aby poprawić czas ładowania żądań. Tworzenie pakietów i minimalizowanie poprawia czas ładowania dzięki zmniejszeniu liczby żądań do serwera oraz redukcję rozmiaru żądanych zasobów (na przykład CSS i JavaScript.)
-
 
 Większość bieżącego ważniejszymi przeglądarkami ograniczyć liczbę [równoczesnych połączeń](http://www.browserscope.org/?category=network) dla każdej nazwy hosta na 6. Oznacza to, że podczas przetwarzania żądania sześciu dodatkowych żądań zasobów na hoście zostanie umieszczona w kolejce przez przeglądarkę. Na poniższej ilustracji kart sieciowych narzędzia dla deweloperów F12 w przeglądarce IE pokazuje chronometraż zasoby wymagane przez widok informacje przykładowej aplikacji.
 
@@ -96,7 +95,6 @@ Aby włączyć tworzenie pakietów i minimalizowanie, ustaw `debug` wartość "f
 
 > [!NOTE]
 > Chyba że `EnableOptimizations` jest `true` lub atrybutu debugowania w [kompilacji elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku jest ustawiona na `false`, pliki nie zostaną powiązane lub zminimalizowany. Ponadto .min wersję plików, nie będzie używany, zostaną wybrane wersje do debugowania pełne. `EnableOptimizations` przesłania atrybut debugowania w [kompilacji elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku
-
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Za pomocą tworzenia pakietów i minimalizowanie przy użyciu wzorca ASP.NET Web Forms i stron sieci Web
 

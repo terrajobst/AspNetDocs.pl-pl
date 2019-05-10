@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: ab55ca81-ab9b-44a0-8700-dc6da2599335
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 40fec3a2ef4ee8d5e4abe4be4dfa144720a88a41
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 402be340f1ea3344675e7b859cea8c5130cfc8ee
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59391185"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129651"
 ---
 # <a name="part-4-models-and-data-access"></a>Część 4. Modele i dostęp do danych
 
@@ -24,7 +24,6 @@ przez [Galloway'em Jon](https://github.com/jongalloway)
 > MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.
 > 
 > W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 4 obejmuje modele i dostęp do danych.
-
 
 Do tej pory firma Microsoft została tylko zostały przekazywanie "fikcyjne dane" z naszych kontrolerów do nasze szablony widoku. Teraz jesteśmy gotowi zaczepić rzeczywista baza danych. W tym samouczku będzie dotyczyć sposób używania programu SQL Server Compact Edition (często nazywanej SQL CE) jako naszego aparatu bazy danych. SQL CE jest bezpłatna, plik osadzony na podstawie bazy danych, która nie wymaga instalacji ani konfiguracji, która sprawia, że naprawdę wygodne do tworzenia aplikacji lokalnej.
 

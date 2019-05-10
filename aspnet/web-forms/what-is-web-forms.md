@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: cb7a4ff9dbf746c0729129445042e53e506df5d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 19be419c499759713971a6c77674c924867d1bbc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385738"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133233"
 ---
 # <a name="what-is-web-forms"></a>Co to jest formularzy sieci Web
 
@@ -26,7 +26,6 @@ W programie Visual Studio można utworzyć formularzy sieci Web ASP.NET. Visual 
 > [!NOTE] 
 > 
 > Dokumentacja platformy ASP.NET i programu Visual Studio obejmuje różne wersje. Tematy, przedstawiających funkcje z poprzednich wersji może być przydatne dla bieżącego zadania i scenariuszy przy użyciu najnowszej wersji.
-
 
 **ASP.NET Web Forms są:** 
 

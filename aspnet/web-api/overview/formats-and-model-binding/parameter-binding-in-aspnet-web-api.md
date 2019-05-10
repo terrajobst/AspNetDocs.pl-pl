@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f121f12ce689a079412bbd5392fde4fea863ff1f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da0b9e12fcbe5cd2bfb5478162b7453d34931edf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401975"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127521"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>Wiązanie parametrów interfejsie Web API platformy ASP.NET
 
@@ -173,7 +173,6 @@ Oto **HttpParameterBinding** , pobiera element ETag z żądanego nagłówka i wi
 
 > [!NOTE]
 > Jeśli Twoje **ExecuteBindingAsync** metoda odczytuje treści komunikatu żądania, Zastąp **WillReadBody** właściwości, aby zwracała wartość true. Treść żądania może być Niebuforowane strumienia, które mogą być odczytane tylko raz, więc interfejsu API sieci Web wymusza reguły co najwyżej jednego powiązanie można odczytać treści komunikatu.
-
 
 Aby zastosować niestandardowy **HttpParameterBinding**, można zdefiniować atrybut, który pochodzi od klasy **ParameterBindingAttribute**. Aby uzyskać `ETagParameterBinding`, zdefiniujemy dwa atrybuty, jeden dla `if-match` nagłówków i jeden dla `if-none-match` nagłówków. Abstrakcyjna klasa bazowa zarówno dziedziczyć.
 

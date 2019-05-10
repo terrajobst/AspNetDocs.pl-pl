@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 86781a1f46ce0c01a5d70b1f0cf8a81f3f96a032
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 15c9d4dcb9e2c6b9f6adf54d65d15737b32cca3b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405927"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129741"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 — wstrzykiwanie zależności
 
@@ -57,7 +57,6 @@ Zalety korzystania z wzorca wstrzykiwanie zależności oraz Inwersja kontroli s�
 > [!NOTE]
 > Wstrzykiwanie zależności czasem jest porównywana z abstrakcyjne wzorzec projektowy fabryki, ale istnieje niewielka różnica między oba podejścia. DI ma strukturę pracę za modułem rozwiązać zależności w wywołaniu fabryk i zarejestrowane usługi.
 
-
 Teraz, gdy już rozumiesz wzorzec iniekcji zależności, nauczysz w całym tym środowisku laboratoryjnym ją zastosować w technologii ASP.NET MVC 4. Zostanie uruchomiona, przy użyciu iniekcji zależności w **kontrolerów** obejmujący usługi dostępu do bazy danych. Następnie zostaną zastosowane wstrzykiwanie zależności do **widoków** do korzystania z usługi i wyświetlania informacji. Na koniec rozszerzenie DI do platformy ASP.NET MVC 4 filtrów, wprowadzanie filtru akcji niestandardowej w rozwiązaniu.
 
 W tym laboratorium praktyczne dowiesz się jak:
@@ -69,7 +68,6 @@ W tym laboratorium praktyczne dowiesz się jak:
 
 > [!NOTE]
 > W tym laboratorium to przy użyciu pakietu NuGet Unity.Mvc3 do rozpoznawania zależności, ale istnieje możliwość dostosowania dowolnej architektury wstrzykiwanie zależności do pracy z platformy ASP.NET MVC 4.
-
 
 <a id="Prerequisites"></a>
 
@@ -107,7 +105,6 @@ W tym laboratorium praktyczne składa się przez następujących czynnościach:
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
 
-
 Szacowany czas do ukończenia tego laboratorium: **30 minut**.
 
 <a id="Exercise1"></a>
@@ -137,12 +134,10 @@ Można znaleźć poniżej **StoreController** implementacja ma zależność **St
 > 
 > Można rozpoznać zależności, kontroler ma zostać utworzona przez fabrykę abstrakcyjny (klasę, która zwraca dowolnego obiektu określonego typu).
 
-
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample2.cs)]
 
 > [!NOTE]
 > Gdy klasa próbuje utworzyć StoreController bez wysyłania obiektu usługi, ponieważ nie ma żadnych konstruktora bez parametrów, które zostały zgłoszone, otrzymają komunikat o błędzie.
-
 
 <a id="Ex1Task1"></a>
 
@@ -181,7 +176,6 @@ W ramach tego zadania będzie zawierać **Unity.Mvc3** pakietu NuGet z rozwiąza
 > Pakiet Unity.Mvc3 był przeznaczony dla platformy ASP.NET MVC 3, ale jest w pełni zgodny z platformy ASP.NET MVC 4.
 > 
 > Unity to kontener iniekcji zależności niewielka, rozszerzalna opcjonalna pomoc techniczna dla wystąpienia i wpisz przejmowanie. Jest kontener ogólnego zastosowania do użycia w aplikacji .NET dowolnego typu. Umożliwia wspólne funkcje w mechanizmy iniekcji zależności, w tym: Tworzenie obiektów, abstrakcji wymagania za pośrednictwem zależności środowiska uruchomieniowego i elastyczność, poprzez opóźnienie Konfiguracja składnika, do kontenera.
-
 
 1. Zainstaluj **Unity.Mvc3** pakietu NuGet w **MvcMusicStore** projektu. Aby to zrobić, otwórz **Konsola Menedżera pakietów** z **widoku** | **inne Windows**.
 2. Uruchom następujące polecenie.
@@ -310,7 +304,6 @@ W poprzednim zadaniu wprowadzony się nowych zależności wewnątrz widoku, aby 
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample11.cs)]
-
 
 1. Utwórz /**fabryk** folderu w folderze głównym projektu.
 2. Obejmują **CustomViewPageActivator.cs** do rozwiązania z **/źródła/zasobów/** do **fabryk** folderu. Aby to zrobić, kliknij prawym przyciskiem myszy **/Factories** folderu, wybierz **Dodaj | Istniejący element** , a następnie wybierz **CustomViewPageActivator.cs**. Ta klasa implementuje **IViewPageActivator** interfejs do przechowywania kontenera aparatu Unity.

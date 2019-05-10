@@ -8,12 +8,12 @@ ms.date: 01/27/2009
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
-ms.openlocfilehash: 4a47f51b08b66dfe9636b3992786df19d0ad72ad
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 28940947253e0af43886cf1231f8aaf4615526cc
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414936"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125479"
 ---
 # <a name="understanding-the-aspnet-mvc-execution-process"></a>Objaśnienie procesu wykonywania we wzorcu ASP.NET MVC
 
@@ -21,14 +21,12 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak platforma ASP.NET MVC przetwarza żądanie przeglądarkę krok po kroku.
 
-
 Najpierw przekazywania żądań do aplikacji sieci Web opartych na programie ASP.NET MVC **UrlRoutingModule** obiektu, który jest moduł protokołu HTTP. Ten moduł analizuje żądania i wykonuje wybór trasy. **UrlRoutingModule** obiektu wybiera pierwszy obiekt trasy, który pasuje do bieżącego żądania. (Obiekt trasy jest klasa, która implementuje **RouteBase**, i zazwyczaj to wystąpienie **trasy** klasy.) Jeśli brak tras zgodnych, **UrlRoutingModule** obiektu nic nie robi i umożliwia żądanie wracać do regularnego żądania programu ASP.NET lub IIS przetwarzania.
 
 Z wybranego **trasy** obiektu **UrlRoutingModule** uzyskuje obiekt **IRouteHandler** obiekt, który jest skojarzony z **trasy**obiektu. Zazwyczaj w aplikacji MVC, będzie to wystąpienie **MvcRouteHandler**. **IRouteHandler** tworzy wystąpienie **IHttpHandler** obiektu i przekazuje je **IHttpContext** obiektu. Domyślnie **IHttpHandler** wystąpienia dla platformy MVC jest **MvcHandler** obiektu. **MvcHandler** obiektu następnie wybiera kontrolera, który będzie ostatecznie obsługiwać żądania.
 
 > [!NOTE]
 > Po uruchomieniu aplikacji sieci Web platformy ASP.NET MVC w usługach IIS 7.0, bez rozszerzenia nazwy pliku jest wymagana dla projektów MVC. W usługach IIS 6.0, program obsługi wymaga jednak mapowania rozszerzenia nazwy pliku MVC do biblioteki DLL ISAPI programu ASP.NET.
-
 
 Moduł i procedury obsługi są punktami wejściowymi umożliwiającymi platformę ASP.NET MVC. Wykonują następujące czynności:
 

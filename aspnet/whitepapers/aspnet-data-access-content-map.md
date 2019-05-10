@@ -8,12 +8,12 @@ ms.date: 07/25/2013
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: d120c184f6cf7dd0db075bbfac17214d7467664a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1bb5c15f8b34c516dcc2d3c5723eb74b133a9188
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383723"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125691"
 ---
 # <a name="aspnet-data-access---recommended-resources"></a>Dostęp do danych na platformie ASP.NET — zalecane zasoby
 
@@ -22,7 +22,6 @@ ms.locfileid: "59383723"
 > Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com) wątku lub dowolny link, który powinien być przydatny, [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Data Access Content Map) z linkiem.
 > 
 > Zaktualizowano ostatnie 4/3/2014
-
 
 Temat zawiera następujące sekcje:
 
@@ -74,7 +73,6 @@ Temat zawiera następujące sekcje:
 <a id="cf"></a>
 
 ### <a name="using-entity-framework-code-first"></a>Najpierw za pomocą kodu struktury jednostki
-  
 
 Następujące samouczki oferty aplikacji przykładowych możliwych do pobrania:
 
@@ -94,7 +92,6 @@ Zobacz też [Książki poświęcone Entity Framework](#efbooks) i [dodatkowe zas
 <a id="efcfmigrations"></a>
 
 ### <a name="using-entity-framework-code-first-migrations"></a>Za pomocą migracje Code First Framework jednostki
-  
 
 Większość Code First samouczków wymienionych powyżej cover migracji. Zobacz też następujące zasoby.
 

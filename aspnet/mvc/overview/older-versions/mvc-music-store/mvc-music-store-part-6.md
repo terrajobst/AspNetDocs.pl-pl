@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b1e7bd0b16190b00e0e78a01ef71475e1c8d048a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bc031dd5be61cc6707c522f85f6af77a420c8b31
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59394825"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129669"
 ---
 # <a name="part-6-using-data-annotations-for-model-validation"></a>Część 6. Używanie adnotacji do danych na potrzeby walidacji modelu
 
@@ -24,7 +24,6 @@ przez [Galloway'em Jon](https://github.com/jongalloway)
 > MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
 > W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 6 obejmuje przy użyciu adnotacje danych na potrzeby weryfikacji modelu.
-
 
 Mamy poważnym problemem z naszych formularzami tworzyć i edytować: nie robią wszystkich sprawdzania poprawności. Możemy to zrobić na przykład pozostawić wymagane pola puste lub liter, wpisz w polu Cena, a pierwszy błąd, który zobaczymy to z bazy danych.
 
@@ -76,7 +75,6 @@ Na szczęście szablony szkieletu ASP.NET MVC 3 mają weryfikacji po stronie kli
 Wpisz pojedynczą literą, w polu Tytuł spełnia wymagania sprawdzania poprawności, więc komunikat sprawdzania poprawności jest od razu usunięte.
 
 ![](mvc-music-store-part-6/_static/image3.png)
-
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-5.md)

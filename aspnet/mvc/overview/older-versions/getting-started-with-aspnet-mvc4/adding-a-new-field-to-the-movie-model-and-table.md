@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 307719f30c9efc8001f63f3ab068e50f82e1c5c0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b0a66cf62c34a59ca5c89c2f380093165e765100
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59399622"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129901"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Dodawanie nowego pola do modelu Movie i tabeli
 
@@ -21,7 +21,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
 > > Jest dostępna zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
-
 
 W tej sekcji użyjesz migracje Code First Framework jednostki migracji pewne zmiany do klasy modelu, aby zmiana została zastosowana do bazy danych.
 
@@ -68,7 +67,6 @@ Spowoduje to dodanie następujących instrukcję using:
 > [!NOTE] 
 > 
 > Kod wywołuje metodę migracji First `Seed` metody po każdej migracji (oznacza to, że wywołanie **update-database** w konsoli Menedżera pakietów), i ta metoda aktualizuje wierszy, które już zostały wstawione lub wstawia je, jeśli ich jeszcze nie istnieją.
-
 
 **Naciśnij klawisze CTRL-SHIFT-B, aby skompilować projekt.** (Następujących kroków zakończy się niepowodzeniem, jeśli usługi nie kompilacji na tym etapie.)
 
@@ -122,13 +120,11 @@ Teraz uruchom aplikację, a następnie przejdź do */Movies* adresu URL. Gdy to 
 
 Widzisz ten błąd, ponieważ zaktualizowanego `Movie` klasy modelu w aplikacji teraz różni się od schematu `Movie` tabeli istniejącej bazy danych. (Brak nie `Rating` kolumny w tabeli bazy danych.)
 
-
 Istnieje kilka sposobów rozwiązania problemu:
 
 1. Ma automatycznie Porzuć i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu Entity Framework. To podejście jest bardzo wygodne w przypadku, gdy aktywne tworzenie aplikacji w bazie danych testu; Umożliwia szybkie razem rozwijania schematu za jego modelu i bazie danych. Wadą jednak jest utraty istniejących danych w bazie danych — dzięki czemu możesz *nie* chcesz użyć tej metody w produkcyjnej bazie danych! Automatycznie zapełnić bazę danych przy użyciu danych testowych za pomocą inicjatora jest często produktywny sposób tworzenia aplikacji. Aby uzyskać więcej informacji na temat inicjatory bazy danych programu Entity Framework, zobacz Tom Dykstra [samouczek platformy ASP.NET MVC/Entity Framework](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 2. Jawnie zmodyfikować schemat istniejącej bazy danych, aby odpowiadały one klasy modelu. Zaletą tego podejścia jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych zmiana skryptu.
 3. Aby zaktualizować schemat bazy danych, należy użyć migracje Code First.
-
 
 W tym samouczku użyjemy migracje Code First.
 

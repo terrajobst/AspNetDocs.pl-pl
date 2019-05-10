@@ -9,19 +9,18 @@ ms.custom: seoapril2019
 ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: 8916f8b7a024636be1be055457081487f46a7936
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 63df4a82cd8df92631485b2544117844cfd0ca56
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421631"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130471"
 ---
 # <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Konwencje routingu we wzorcu ASP.NET Web API 2 Odata
 
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > W tym artykule opisano konwencje tras w tej sieci Web API 2 w programie ASP.NET 4.x używa punkty końcowe OData.
-
 
 Gdy internetowy interfejs API odbiera żądanie OData, jest on mapowany żądanie nazwy kontrolera i nazwy akcji. Mapowanie jest oparte na metody HTTP i identyfikatora URI. Na przykład `GET /odata/Products(1)` mapuje `ProductsController.GetProduct`.
 
@@ -53,7 +52,6 @@ Zatem ta ścieżka wybiera się z dostawcą danego produktu 1.
 
 > [!NOTE]
 > Segmenty ścieżki OData nie zawsze pasują do segmentów identyfikatora URI. Na przykład "1" jest uważany za segmentu ścieżki.
-
 
 **Nazwy kontrolera.** Nazwa kontrolera jest zawsze pochodną jednostki ustawione na poziom główny ścieżki zasobu. Na przykład, jeśli ścieżka zasobu jest `/Products(1)/Supplier`, internetowy interfejs API wygląda dla kontrolera, o nazwie `ProductsController`.
 

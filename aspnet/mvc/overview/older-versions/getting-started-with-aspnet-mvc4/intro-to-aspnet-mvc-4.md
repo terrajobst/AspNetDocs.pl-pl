@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: ecc0733c2850bc157c7ee5b251787152393481fc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 9762ac77f7460cc123e67b9eb57a17f4b83ed54c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385257"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129872"
 ---
 # <a name="intro-to-aspnet-mvc-4"></a>Wprowadzenie do wzorca ASP.NET MVC 4
 
@@ -36,12 +36,10 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 >
 > Ten samouczek został napisany przez Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
-
 ## <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
 > [!NOTE]
 > Zaktualizowanej wersji, jeśli w tym samouczku jest dostępny [tutaj](../../getting-started/introduction/getting-started.md) przy użyciu [programu Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Nowe samouczku ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z tego samouczka.
-
 
 Będzie implementowana prostą aplikację listy filmów, która obsługuje tworzenie, edytowanie, wyszukiwanie i wyświetlanie listy filmów z bazy danych. Poniżej przedstawiono dwa zrzuty ekranu aplikacji, którą utworzysz. Zawiera ona strona, która wyświetla listę filmów z bazy danych:
 
