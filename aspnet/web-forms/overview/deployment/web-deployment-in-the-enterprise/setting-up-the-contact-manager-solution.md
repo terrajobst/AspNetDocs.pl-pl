@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 200b973c-776b-4a9b-9e82-39fda6120a52
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: d0a7c29a590fcde504e5f5227806df62454f6add
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d9774ee01cb0515d7e733b24baa661f2648bd7c4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410490"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131044"
 ---
 # <a name="setting-up-the-contact-manager-solution"></a>Konfigurowanie rozwiązania Contact Manager
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano, jak pobrać i skonfigurować rozwiązanie Contact Manager, aby uruchomić lokalnie na stacji roboczej dewelopera.
-
 
 ## <a name="system-requirements"></a>Wymagania systemowe
 
@@ -70,7 +69,6 @@ Dalszej części tej sekcji zawiera więcej wskazówek na temat sposobu ukończe
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat aspnet\_regsql narzędzia, zobacz [narzędzia rejestracji serwera SQL platformy ASP.NET (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
 
-
 Następnym krokiem jest, aby upewnić się, że parametry połączenia dla rozwiązania Contact Manager odwołują się do lokalnego wystąpienia programu SQL Server Express.
 
 **Aby zaktualizować ciągi połączenia**
@@ -97,7 +95,6 @@ Teraz powinno być gotowe do uruchomienia rozwiązania Contact Manager na komput
 
 > [!NOTE]
 > Jeśli wykonujesz te kroki bez tworzenia bazy danych usług aplikacji ASP.NET spowoduje utworzenie bazy danych po raz pierwszy użytkownik podejmie próbę utworzenia użytkownika. Jednak ręcznego tworzenia bazy danych zapewnia znacznie większą kontrolę nad zestawu funkcji usług aplikacji, które mają być obsługiwane.
-
 
 **Aby uruchomić rozwiązanie Contact Manager**
 

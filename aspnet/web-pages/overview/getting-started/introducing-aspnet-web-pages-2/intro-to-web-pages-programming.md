@@ -8,12 +8,12 @@ ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 81c2c6f0070a409c289128ccf5d39f9fff788b48
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 474de7671ac2931e5ba9ff635d77385403644521
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130512"
 ---
 # <a name="introducing-aspnet-web-pages---programming-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy programowania
 
@@ -34,7 +34,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - I Menedżer pakietów NuGet.
 > - `Gravatar` Pomocnika.
-
 
 Niniejszy samouczek jest głównie w ramach ćwiczenia w wprowadzenie do programowania składni, którego będziesz używać dla stron ASP.NET Web Pages. Poznasz *składni Razor* i język programowania kodu, który został napisany w języku C#. Masz możliwość wypróbowania tej składni w poprzednim samouczku; w tym samouczku wyjaśnimy więcej składni.
 
@@ -60,7 +59,6 @@ Skopiuj następujące do pliku, zastępując całkowicie, co jest już.
 
 > [!NOTE]
 > Podczas kopiowania kodu lub języka znaczników w przykładach w stronę, wcięcia i wyrównanie może nie być taki sam jak w tym samouczku. Wcięcia i wyrównanie nie wpływają na jak kod jest wykonywany, mimo że.
-
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample1.cshtml)]
 
@@ -126,7 +124,6 @@ Zgodnie z oczekiwaniami z środowiska w poprzednim samouczku jest Brak kodu Razo
 > 
 > Firma Microsoft wspomnieć o to, ponieważ jeśli szukasz informacji na temat programowania stron ASP.NET Web Pages znajdziesz mnóstwo odwołania do aparatu Razor. Jednak wiele te odwołania nie dotyczą co teraz zrobić i dlatego może być mylące. I w rzeczywistości wielu programowania pytania naprawdę mają zostać o pracy w języku C# lub pracy za pomocą platformy ASP.NET. Dlatego spojrzeć specjalnie dla informacji na temat Razor nie może być potrzebne odpowiedzi.
 
-
 ## <a name="adding-some-conditional-logic"></a>Dodawanie niektóre warunkowe logiki
 
 Jest jedną z najważniejszych funkcji o przy użyciu kodu na stronie sieci, można zmienić, co się stanie w zależności od różnych kryteriów. W tej części samouczka możesz będzie Poeksperymentuj z kilka sposobów, aby zmienić informacje wyświetlane na stronie.
@@ -166,7 +163,6 @@ Zmienne dla wartości lub względem wyrażenia można przetestować przy użyciu
 
 > [!NOTE]
 > Upewnij się, że można zauważyć, że operator porównania dla równości się (==) nie jest taka sama jak wartość =. = — Operator jest używany tylko do przypisywania wartości (var = 2). Jeśli te operatory są mieszały się, albo otrzymasz błąd lub niektóre dziwne wyniki.
-
 
 Aby sprawdzić, czy coś, co ma wartość true, jest pełną składnię if(IsDone == true). Jednak możesz również użyć if(IsDone) skrótów. Jeśli nie ma żadnego operatora porównania, ASP.NET zakłada, testujesz przypadku wartości true.
 
@@ -231,7 +227,6 @@ Jak widać jest sposobem, w tym miejscu. Jak wynika z nazwy, ciąg zapytania jes
 > **Typy danych i metod As()**
 > 
 > Firma Microsoft tylko tym do tej pory gdy tworzysz zmienną, użycie var. — słowo kluczowe To nie jest cały artykuł, mimo że. W celu manipulowania wartością — do dodawania numerów, lub ciągów, porównywanie dat lub testowania PRAWDA/FAŁSZ — C# ma do pracy z odpowiedniej wewnętrznej reprezentacji wartości. C# można *zwykle* zorientować się, jakie powinny być tę reprezentację (oznacza to, co *typu* dane) oparte na wykonujesz wartościami. Teraz, a następnie jednak ją tej czynności nie. W przeciwnym razie ma pomagać wskazując jawnie jak C# powinny reprezentować danych. Metoda AsBool robi to — informuje C#, że wartość ciągu "true" lub "false" powinny być traktowane jako wartość logiczna. Istnieją podobne metody do reprezentowania ciągów jako innych typów, takich jak AsInt (traktowanej jako liczba całkowita), AsDateTime (traktowanej jako daty/godziny), AsFloat (traktowanej jako liczba zmiennoprzecinkowa) i tak dalej. Korzystając z tych metod (), jeśli C# nie może reprezentować wartość ciągu zgodnie z żądaniem, zobaczysz błąd.
-
 
 W znaczniku strony, należy usunąć lub skomentować tego elementu (w tym miejscu wyświetleniem skomentowanej się):
 

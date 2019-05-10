@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: c979535f-48a3-4ec4-a633-a77889b86ddb
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab58aee6f1203beaf3990536b059f8209e66547
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6bede6b36c24ade928ab052e14daec1e017bd0b2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393486"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131944"
 ---
 # <a name="deploying-a-specific-build"></a>Wdrażanie określonej kompilacji
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób wdrażania pakietów sieci web i skrypty bazy danych z określonego poprzednią kompilację do nowego miejsca docelowego, takie jak środowisku tymczasowym czy produkcyjnym.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -47,21 +46,15 @@ W [przykładowe rozwiązanie](../web-deployment-in-the-enterprise/the-contact-ma
 > [!NOTE]
 > **OutputRoot** jest nazwą właściwości często używane. Pliki projektu Visual C# i Visual Basic również zadeklarować tej właściwości, aby przechowywać główną lokalizację dla wszystkie dane wyjściowe kompilacji.
 
-
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
-
 
 Jeśli chcesz, aby plik projektu do wdrożenia pakietów sieci web i bazy danych skryptów z innej lokalizacji&#x2014;danych wyjściowych poprzedniej kompilacji serwera TFS, takich jak&#x2014;po prostu musisz przesłonić **OutputRoot** właściwości. Na serwerze programu Team Build, powinny ustawić wartość właściwości do folderu kompilacji odpowiednie. Jeśli podczas uruchamiania programu MSBuild w wierszu polecenia, można określić wartość dla **OutputRoot** jako argument wiersza polecenia:
 
-
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
-
 
 W praktyce, czy też chcesz pominąć **kompilacji** docelowej&#x2014;Brak punktu tworzenia rozwiązania, jeśli nie planujesz używania dane wyjściowe kompilacji. Można to zrobić przez określenie obiektów docelowych, które chcesz wykonać z poziomu wiersza polecenia:
 
-
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
-
 
 Jednak w większości przypadków należy wbuduj logikę wdrożenia w definicji kompilacji serwera TFS. Dzięki temu użytkownicy z **ustawiania kompilacji w kolejce** uprawnień do wyzwalania wdrożenia z żadnej instalacji programu Visual Studio z połączeniem z serwerem TFS.
 

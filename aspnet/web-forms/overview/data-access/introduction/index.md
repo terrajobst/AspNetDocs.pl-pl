@@ -8,17 +8,16 @@ ms.date: 11/11/2011
 ms.assetid: 74f3a86b-81fa-4d64-820a-304613f72caa
 msc.legacyurl: /web-forms/overview/data-access/introduction
 msc.type: chapter
-ms.openlocfilehash: 7ab0f76e0892e5c4fbabc71b6fa1ec71e00fcaf9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a62b473993804312021725642a102c1eeff20f74
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387610"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132201"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
 > Ten zestaw wprowadzających samouczków opisano procedurę tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI) i spójnego wyglądu w lokacji.
-
 
 - [Tworzenie warstwy dostępu do danych (C#)](creating-a-data-access-layer-cs.md)
 - [Tworzenie warstwy logiki biznesowej (C#)](creating-a-business-logic-layer-cs.md)

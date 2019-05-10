@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 3833e3f3c6c49ff2b317ad04aff33c9119cb1f41
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 80c77ec65ed86b06e417d3f6ba608e404c46768b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420214"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132089"
 ---
 # <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Co nowego w platformie ASP.NET i w programowaniu dla Internetu w programie Visual Studio 2012
 
@@ -30,7 +30,6 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > W tym laboratorium przeprowadzi Cię przez ulepszeń i nowych funkcji, które opisano wcześniej, stosując drobne zmiany do przykładowej aplikacji sieci Web, pod warunkiem w folderze źródłowym.
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 
@@ -331,7 +330,6 @@ Jedną z najlepszych rozwiązań w języku HTML jest wcięcia elementów zagnie�
 > [!NOTE]
 > W poprzedniej wersji programu Visual Studio, inteligentne wcięcia była dostępna w edytorze XML, ale nie w edytorze HTML.
 
-
 1. Upewnij się, że konfiguracja Indenting w edytorze HTML inteligentnego wcięcia. Aby to zrobić, wybierz **narzędzia | Opcje** , a następnie wybierz opcję menu **Edytor tekstu | HTML | Karty** strony w okienku po lewej stronie ekranu. Wybierz opcję inteligentnego wcięcia.
 
     ![Ustawienia edytora HTML](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "ustawienia edytora HTML")
@@ -433,7 +431,6 @@ W tym zadaniu wykryje nowe sprawdzanie poprawności języka JavaScript dla warst
 > [!NOTE]
 > Visual Studio 2010 implementowane ECMAStript3 zgodności, a program Visual Studio 2012 zapewnia zgodność ECMAScript5.
 
-
 1. Otwórz **ECMA5script5.js** znajdujący się w folderze **Scripts\custom** folderu projektu. Będzie teraz przetestować sprawdzania poprawności dla ECMAScript5 standardowych.
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample8.html)]
@@ -493,7 +490,6 @@ W tym zadaniu przedstawimy funkcje programu Visual Studio dla dokumentacji XML w
 
 > [!NOTE]
 > Upewnij się, że GotoDefinition.js nie ma żadnych błędów składni przed zapisaniem pliku.
-
 
 <a id="Exercise4"></a>
 
@@ -675,7 +671,6 @@ W tym przykładzie zostanie dowiesz się, jak używać **DynamicFolderBundle** k
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację do witryny sieci Web systemu Windows Azure następujące [dodatek B: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixB).
-
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie

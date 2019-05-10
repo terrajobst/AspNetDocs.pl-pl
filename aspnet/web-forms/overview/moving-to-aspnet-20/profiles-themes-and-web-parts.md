@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 0f3b376cee8d391eb087664a51cc25e3b58d16b9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cf5c45781be6d003d28c6aa27efa08032579a6dd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390041"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132788"
 ---
 # <a name="profiles-themes-and-web-parts"></a>Profile, motywy i składniki Web Part
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia programowe wprowadzone zmiany w konfiguracji. Ponadto istnieje wiele nowych ustawień konfiguracji umożliwiają nowe konfiguracje i instrumentacji.
-
 
 Program ASP.NET 2.0 reprezentuje znaczną poprawę obszaru spersonalizowanych witryn sieci Web. Oprócz funkcji członkostwo, które Omówiliśmy już profilów programu ASP.NET, motywy i składniki Web Part znacznie poprawić personalizacji w witrynach sieci Web.
 
@@ -155,16 +154,13 @@ Plik skórki jest plik XML, który zawiera definicje właściwości formantów s
 
 **Rysunek 1** poniżej przedstawia małe strony ASP.NET przeglądania bez zastosowania motywu. **Rysunek 2** pokazuje tego samego pliku przy użyciu motyw. Kolor tła i kolor tekstu są skonfigurowane przy użyciu pliku CSS. Wygląd przycisk i pole tekstowe są skonfigurowane przy użyciu plik skin wymienionych powyżej.
 
-
 ![Brak motywu](profiles-themes-and-web-parts/_static/image1.gif)
 
 **Rysunek 1**: Brak motywu
 
-
 ![Motyw](profiles-themes-and-web-parts/_static/image2.gif)
 
 **Rysunek 2**: Motyw
-
 
 Plik skórki wymienionych powyżej definiuje powłoki domyślnego dla wszystkich pól tekstowych i formanty przycisków. Oznacza to, czy każdy formant pola tekstowego i formant przycisku wstawione na stronie spowoduje przejście na wygląd. Można również zdefiniować skórki, który można zastosować do konkretnych wystąpień tych kontrolek przy użyciu **wartość SkinID** właściwości formantu.
 
@@ -329,7 +325,6 @@ W tej części instruktażu utworzysz stronę, która używa formantów składni
 > [!NOTE]
 > Nie trzeba nic robić, aby włączyć personalizacji składników Web Part; jego jest domyślnie włączona, aby uzyskać zestaw formantów części sieci Web. Przy pierwszym uruchomieniu strony składników Web Part w witrynie, ASP.NET ustawia domyślnego dostawcę personalizacji do przechowywania ustawień personalizacji użytkownika. Aby uzyskać więcej informacji na temat personalizacji Zobacz Omówienie personalizacji części sieci Web.
 
-
 ### <a name="to-create-a-page-for-containing-web-parts-controls"></a>Aby utworzyć stronę dla zawierające formanty składników Web Part
 
 1. Zamknij stronę domyślną, a następnie dodaj nową stronę do witryny o nazwie WebPartsDemo.aspx.
@@ -402,11 +397,9 @@ Teraz można przetestować stronę, przechodząc do niego w przeglądarce. Na st
 
 **Strona pokazu części sieci Web z dwiema strefami**
 
-
 ![Przewodnik po 1 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image3.gif)
 
 **Rysunek 3**: Przewodnik po 1 Web Part w programie VS — zrzut ekranu
-
 
 Tytuł paska każdej kontrolki jest strzałki w dół, zapewniający dostęp do menu zleceń, dostępne akcje, które można wykonywać na kontrolce. Kliknij menu zleceń dla formantów, a następnie kliknij przycisk **Minimalizuj** zlecenie i zwróć uwagę, że formant jest zminimalizowany. Menu zleceń, kliknij **przywrócić**, a sterowanie powraca do normalnego rozmiaru.
 
@@ -449,11 +442,9 @@ Teraz można przetestować możliwość edycji stron i Zmień układ.
 
 ### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Strony pokaz części sieci Web za pomocą kontrolki Moje łącza przeniesiony
 
-
 ![Przewodnik po 2 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image4.gif)
 
 **Rysunek 4**: Przewodnik po 2 Web Part w programie VS — zrzut ekranu
-
 
 1. Kliknij przycisk **tryb wyświetlania** menu rozwijanego, a następnie wybierz **Przeglądaj**. Strona zostanie odświeżona, nazwy stref znikną i **Moje łącza** kontrolować pozostaje, gdzie umieszczony.
 2. Aby zademonstrować, czy działa personalizacji, zamknij przeglądarkę, a następnie ponownie załadować stronę. Wprowadzone zmiany są zapisywane w przeglądarce przyszłych sesji.
@@ -467,22 +458,18 @@ Teraz można przetestować możliwość edycji stron i Zmień układ.
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Strona pokazu części sieci Web w trybie edycji
 
-
 ![Przewodnik po 3 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image5.gif)
 
 **Rysunek 5**: Przewodnik po 3 Web Part w programie VS — zrzut ekranu
-
 
 1. Kliknij przycisk **tryb wyświetlania** menu, a następnie wybierz **Przeglądaj** aby powrócić do trybu przeglądania.
 2. Kontrolki są ma teraz zaktualizowany tytuł, bez obramowania, jak pokazano na poniższym zrzucie ekranu.
 
 ### <a name="edited-web-parts-demo-page"></a>Edytowanej strony części sieci Web w wersji demonstracyjnej
 
-
 ![Przewodnik po 4 Web Part w programie VS — zrzut ekranu](profiles-themes-and-web-parts/_static/image6.gif)
 
 **Rysunek 4**: Przewodnik po 4 Web Part w programie VS — zrzut ekranu
-
 
 ### <a name="adding-web-parts-at-run-time"></a>Dodawanie składników Web Part w czasie wykonywania
 

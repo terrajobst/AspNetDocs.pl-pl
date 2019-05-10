@@ -8,19 +8,18 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 078382191595d1f65b5ebe9d0de8d41cd70e376d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 051253d1e7a09f6285ebe0a83f87155de8467536
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419889"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129412"
 ---
 # <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilowanie i debugowanie aplikacji ASP.NET MVC za pomocą pakietów Glimpse
 
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Możliwość wypróbowania to prężnie działającą i rośnie z rodziny pakietów NuGet typu open source zapewniająca wydajność szczegółowe, debugowania i informacje diagnostyczne dla aplikacji ASP.NET. Jest proste do zainstalowania, lekki, niezwykle szybkie uzyskiwanie i przedstawia kluczowe metryki wydajności u dołu każdej strony. Umożliwia przechodzenie do aplikacji, gdy potrzebujesz dowiedzieć się, co się dzieje na serwerze. Możliwość wypróbowania zapewnia znacznie cenne informacje, zaleca się używania go w całym cyklu tworzenia oprogramowania, w tym środowisku testowym platformy Azure. Podczas [Fiddler](http://www.telerik.com/fiddler) i [narzędzia programistyczne F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) zapewniają po stronie klienta widok, możliwość wypróbowania zawiera szczegółowy widok z serwera. Ten samouczek koncentruje się na przy użyciu platformy ASP.NET MVC możliwość wypróbowania i EF pakietów, ale dostępnych jest wiele innych pakietów. Jeśli jest to możliwe I połączy się z odpowiednią [Poznaj docs](http://getglimpse.com/Docs/) co mogę pomóc zachować. Możliwość wypróbowania to projekt typu open source, zbyt można współtworzyć kod źródłowy i dokumentacja.
-
 
 - [Instalowanie możliwość wypróbowania](#ig)
 - [Włącz możliwość wypróbowania hosta lokalnego](#eg)
@@ -116,7 +115,6 @@ Usuń komentarze z *GlimpseSecurityPolicy.cs* pliku, a następnie zmień [IsInRo
 
 > [!WARNING]
 > Zabezpieczenia — zaawansowanych danych dostarczanych przez możliwość wypróbowania może narazić bezpieczeństwo aplikacji. Nie przeprowadzanych przez firmę Microsoft o możliwość wypróbowania inspekcji zabezpieczeń do użycia w aplikacji w produkcji.
-
 
 Aby uzyskać informacje na temat dodawania ról, zobacz mój [wdrażanie aplikacji sieci web zabezpieczenia programu ASP.NET MVC 5 z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL na platformie Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) samouczka.
 

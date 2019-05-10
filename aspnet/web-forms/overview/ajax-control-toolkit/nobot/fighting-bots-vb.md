@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: e9803150-452d-4521-97e3-d75d5599383c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6baf5447d31d00b89cb7ddf526553456fecbbf6e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e493ecfb31716355f33c320bb4467fcef1a2437d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132577"
 ---
 # <a name="fighting-bots-vb"></a>Zwalczanie botów (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/NoBot0.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/nobot0VB.pdf)
 
 > Zautomatyzowanych robotów Sztukateria dzienników w sieci Web i innych witryn sieci Web ze spamem, przesyłać formularze komentarz bez żadnej interakcji użytkownika. Kontrolka NoBot w ASP.NET AJAX Control Toolkit może pomóc walczą o tych botów.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -63,7 +62,6 @@ Na koniec należy formularza w celu przesyłania i elementu label, aby wyprowadz
 [!code-aspx[Main](fighting-bots-vb/samples/sample4.aspx)]
 
 Uruchom ten skrypt, a dezaktywować JavaScript lub Prześlij formularz w ciągu pierwszych dwóch sekund lub Prześlij formularz siedem razy w ciągu 30 sekund, zostanie wyświetlony komunikat o błędzie. Jednak należy uważnie użyć tej kontrolki, ponieważ tylko około 90-95% użytkownicy mają JavaScript aktywowany, w związku z tym 5 – 10% użytkowników zakończy się niepowodzeniem `NoBot`użytkownika testu.
-
 
 [![Ten komunikat o błędzie może być spowodowane przez robota](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
 

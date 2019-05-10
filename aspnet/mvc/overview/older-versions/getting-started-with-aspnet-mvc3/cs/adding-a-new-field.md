@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: b4e76c1a-f66e-43a0-aa72-f39df79c07c1
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: a06def9c434bd79d63bb74d105c1788e993e231a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: acac3ade54cc51c8004f9ea5f0ee4157d15251e5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383910"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130180"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table-c"></a>Dodawanie nowego pola do modelu Movie i tabeli (C#)
 
@@ -32,7 +32,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
 > Projekt Visual Web Developer, przy użyciu kodu źródłowego języka C# jest dostępny powiązany z tym tematem. [Pobierz wersję języka C#](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz języka Visual Basic, przełącz się do [wersji języka Visual Basic](../vb/intro-to-aspnet-mvc-3.md) po ukończeniu tego samouczka.
-
 
 W tej sekcji możesz wprowadzić pewne zmiany na klasy modeli i Dowiedz się, jak można zaktualizować schematu bazy danych, aby dopasować zmiany modelu.
 
@@ -84,7 +83,6 @@ Zaktualizujmy aplikacji, dzięki czemu Code First automatycznie umieszcza i pono
 > [!NOTE] 
 > 
 > **Ostrzeżenie** należy włączyć takie podejście automatycznie porzucenie i ponowne utworzenie bazy danych, tylko wtedy, gdy używasz deweloperskie lub testowe bazy danych i *nigdy nie* na produkcyjnej bazy danych, który zawiera rzeczywiste dane. Używany na serwerze produkcyjnym może prowadzić do utraty danych.
-
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *modeli* folderu, wybierz **Dodaj**, a następnie wybierz pozycję **klasy**.
 

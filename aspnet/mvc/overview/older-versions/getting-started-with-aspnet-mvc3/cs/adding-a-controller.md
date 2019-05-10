@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: 0b8c56b5-fdf3-42dd-a866-98fbe0ab78a0
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 18c8f2a95222a28d95950b34c816539f723542f2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 635fae26ade5c99fb3a010b25e1d74d214e3c32e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396489"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130264"
 ---
 # <a name="adding-a-controller-c"></a>Dodawanie kontrolera (C#)
 
@@ -32,7 +32,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
 > Projekt Visual Web Developer, przy użyciu kodu źródłowego języka C# jest dostępny powiązany z tym tematem. [Pobierz wersję języka C#](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz języka Visual Basic, przełącz się do [wersji języka Visual Basic](../vb/intro-to-aspnet-mvc-3.md) po ukończeniu tego samouczka.
-
 
 MVC to *model-view-controller*. MVC to wzorzec do tworzenia aplikacji, które są również wysokiej i łatwa w obsłudze. Aplikacje oparte na MVC zawiera:
 

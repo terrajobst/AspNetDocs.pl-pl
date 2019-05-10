@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 794bd819-00fc-47e2-876d-fc5d15e0de1c
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
-ms.openlocfilehash: 79774c6a1a1d05d5a7bcd82a5d7aa888933cf089
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ad649dfff085a8774cc13c11d8a3e3d48277d66
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420110"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128703"
 ---
 # <a name="troubleshooting-the-packaging-process"></a>Rozwiązywanie problemów z procesem tworzenia pakietów
 
@@ -34,7 +34,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > > [!NOTE]
 > > **EnablePackageProcessLoggingAndAssert** właściwości tylko wtedy, gdy tworzysz projekt przy użyciu **debugowania** konfiguracji. Właściwość jest ignorowana w innych konfiguracjach.
 
-
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
 Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowana przez dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
@@ -45,13 +44,10 @@ Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projek
 
 Wiele z tych celów WPP obejmują logikę warunkową, która rejestruje dodatkowe informacje podczas **EnablePackageProcessLoggingAndAssert** właściwość jest ustawiona na **true**. Na przykład, jeśli przejrzysz **pakietu** obiektu docelowego, widać tworzy katalog dziennika dodatkowe i zapisuje listę plików do pliku tekstowego, jeśli **EnablePackageProcessLoggingAndAssert** jest równa **true**.
 
-
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample1.xml)]
-
 
 > [!NOTE]
 > Obiekty docelowe WPP są zdefiniowane w *Microsoft.Web.Publishing.targets* pliku w folderze % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web. Możesz otworzyć ten plik i przejrzyj obiekty docelowe w programie Visual Studio 2010 lub dowolnym edytorze XML. Należy zadbać, nie należy modyfikować zawartości pliku.
-
 
 ## <a name="enabling-the-additional-logging"></a>Włączanie dodatkowe rejestrowanie
 
@@ -59,27 +55,20 @@ Należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwości
 
 Jeśli tworzysz projekt w wierszu polecenia, należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwość jako argument wiersza polecenia:
 
-
 [!code-console[Main](troubleshooting-the-packaging-process/samples/sample2.cmd)]
-
 
 Jeśli używasz pliku niestandardowego projektu do tworzenia projektów, można dołączyć **EnablePackageProcessLoggingAndAssert** wartość w **właściwości** atrybutu **MSBuild**zadań:
 
-
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample3.xml)]
-
 
 Jeśli używasz definicji kompilacji Team Foundation Server (TFS) do tworzenia projektów, należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwość **argumenty MSBuild** wiersz:![](troubleshooting-the-packaging-process/_static/image1.png)
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia i konfigurowania definicji kompilacji, zobacz [tworzenie kompilacji definicji, obsługuje wdrożenia](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
-
 Alternatywnie, jeśli chcesz uwzględnić pakiet z każdą kompilacją, można zmodyfikować plik projektu dla projektu aplikacji sieci web ustawić **EnablePackageProcessLoggingAndAssert** właściwości **true**. Należy dodać właściwości do pierwszego **PropertyGroup** element w obrębie pliku .csproj lub .vbproj.
 
-
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample4.xml)]
-
 
 ## <a name="reviewing-the-log-files"></a>Przeglądanie plików dziennika
 
@@ -100,7 +89,6 @@ Listę plików, które są wyświetlane będą się różnić zależnie od eleme
 
 > [!NOTE]
 > Nazwy dodatkowe pliki dziennika zwykle odpowiadają WPP elementów docelowych. Możesz przejrzeć te obiekty docelowe, sprawdzając *Microsoft.Web.Publishing.targets* pliku w folderze % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web.
-
 
 Jeśli zawartość pakietu sieci web nie odpowiadają oczekiwaniom, przeglądania tych plików może być przydatny sposób identyfikacji w momencie w kwestii przetwarzania poszło źle.
 

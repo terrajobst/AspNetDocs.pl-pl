@@ -8,12 +8,12 @@ ms.date: 02/27/2014
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 0ac1982a9476ea324f2faea0bf06f9406f9af1cf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 11dc52ec79ca91119b37ea60e08164eb1b1d0e2b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59389326"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130317"
 ---
 # <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Aktualizowanie, usuwanie i tworzenie danych za pomocą wiązania modelu i formularzy sieci web
 
@@ -32,7 +32,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > Ten samouczek opiera się na projekt utworzony w pierwszym [część](retrieving-data.md) serii.
 > 
 > Możesz [Pobierz](https://go.microsoft.com/fwlink/?LinkId=286116) kompletnego projektu w języku C# lub VB. Kod do pobrania w programach Visual Studio 2012 lub Visual Studio 2013. Używa szablonu programu Visual Studio 2012, który różni się nieco od szablonu programu Visual Studio 2013, przedstawione w tym samouczku.
-
 
 ## <a name="what-youll-build"></a>Będziesz tworzyć
 

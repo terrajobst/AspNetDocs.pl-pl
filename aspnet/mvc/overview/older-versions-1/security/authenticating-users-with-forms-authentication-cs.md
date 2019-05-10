@@ -8,19 +8,18 @@ ms.date: 01/27/2009
 ms.assetid: 239fd3ca-5630-4b8d-bc4b-2f906b1d3504
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b52abab12503918603419c9ccfabefcffdfd7e06
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bed2eafa47fec25ac04cb07e0037f596494bb7d9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418277"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128193"
 ---
 # <a name="authenticating-users-with-forms-authentication-c"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (C#)
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Dowiedz się, jak używać atrybutu [Authorize] do hasła ochrony konkretnych stron w aplikacji MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia i zarządzania użytkownikami i rolami. Poznasz również sposób konfigurowania przechowywania informacji o kontach i roli użytkownika.
-
 
 Celem tego samouczka jest wyjaśniają, jak można użyć formy uwierzytelniania do hasła ochrony widoków w aplikacjach ASP.NET MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia użytkowników i ról. Poznasz również sposób zapobiegania nieautoryzowanemu dostępowi wywołanie akcji kontrolera. Na koniec dowiesz się, jak skonfigurować, gdzie są przechowywane nazwy użytkowników i hasła.
 
@@ -117,7 +116,6 @@ Kreator instalacji serwera SQL programu ASP.NET umożliwia wybierz bazę danych 
 > Jeśli nie chcesz używać Kreatora instalacji serwera SQL programu ASP.NET, można znaleźć skrypty SQL, dodawania obiektów bazy danych usług aplikacji w następującym folderze:
 > 
 > > C:\Windows\Microsoft.NET\Framework\v2.0.50727
-
 
 Po utworzeniu niezbędne obiekty bazy danych, musisz zmodyfikować połączenie z bazą danych używanych przez aplikację MVC. Zmodyfikuj ApplicationServices parametry połączenia w pliku konfiguracji (web.config) w sieci web, które wskazuje w produkcyjnej bazie danych. Na przykład połączenie zmodyfikowane w ofercie 3 wskazuje bazę danych o nazwie MyProductionDB (oryginalny ciąg połączenia ApplicationServices została ujęta w poziomie).
 

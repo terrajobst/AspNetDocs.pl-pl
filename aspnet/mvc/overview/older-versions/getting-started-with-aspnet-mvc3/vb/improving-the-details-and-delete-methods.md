@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: c5c14ef0-c128-4dc1-8c01-7f0fdb09e411
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 63930ebe35e4c37e0cc7c0882582c48348cf201a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1912a36c19b27993e2bf17368d671d5a3b7f6450
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130031"
 ---
 # <a name="improving-the-details-and-delete-methods-vb"></a>Ulepszanie metod Details i Delete (VB)
 
@@ -28,7 +28,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
 > Projekt Visual Web Developer z kodem źródłowym VB.NET jest dostępna powiązany z tym tematem. [Pobierz wersję VB.NET](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz C#, przełącz się do [wersji języka C#](../cs/improving-the-details-and-delete-methods.md) po ukończeniu tego samouczka.
-
 
 W tej części samouczka, należy podjąć kilka ulepszeń do automatycznie generowanego `Details` i `Delete` metody. Te zmiany nie są wymagane, ale przy użyciu zaledwie kilku małe fragmenty kodu można łatwo zwiększyć aplikacji.
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 86c14aab-c2dd-4f73-b40c-c6d52fa44950
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a609b761543e4994aa4a7f86636bd16e9cd74683
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 16073dd2fb0ea1cc4ddbc94c843181933dc174c1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396723"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131545"
 ---
 # <a name="adding-content-to-source-control"></a>Dodawanie zawartości do kontroli źródła
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób dodawania zawartości do kontroli źródła w Team Foundation Server (TFS) 2010. Opisano w nim sposób dodawania rozwiązań i projektów do projektu zespołowego w programie TFS, i wyjaśnia, jak dodać zależności zewnętrznych, takich jak platform ani zestawów do kontroli źródła.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -116,7 +115,6 @@ Na przykład struktura folderów dla Contact Manager przykładowe rozwiązanie z
 
 > [!NOTE]
 > Włączenie packages folder jest typowy dla co się stanie po dodaniu Entity Framework lub podobne zasoby do rozwiązania przy użyciu rozszerzenia NuGet dla programu Visual Studio 2010.
-
 
 **Aby dodać zawartość — projekt do kontroli źródła**
 

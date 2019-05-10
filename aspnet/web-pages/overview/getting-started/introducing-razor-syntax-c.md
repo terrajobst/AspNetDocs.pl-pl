@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 8237dc6b925ccefc5b411aebc8e7c399dcdc6746
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d9edcd61e52941c0fd69e645da7e2cf467a632ac
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131784"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (C#)
 
@@ -36,14 +36,12 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
 
-
 ## <a name="the-top-8-programming-tips"></a>Najważniejsze 8 porady dotyczące programowania
 
 W tej sekcji przedstawiono kilka wskazówek, które bezwzględnie musisz wiedzieć, po rozpoczęciu pisania kodu serwera ASP.NET używająca składni Razor.
 
 > [!NOTE]
 > Składnia Razor zależy od języka programowania C#, a to język, który jest używany w większości przypadków przy użyciu stron ASP.NET Web Pages. Jednak składni Razor obsługuje również języka Visual Basic i wszystko, co widać, że możesz również wykonać w języku Visual Basic. Aby uzyskać więcej informacji, zobacz dodatku [języka Visual Basic i składni](https://go.microsoft.com/fwlink/?LinkId=202908).
-
 
 Więcej informacji na temat większości z tych technik programowania można znaleźć w dalszej części tego artykułu.
 
@@ -66,7 +64,6 @@ Jest to, te instrukcje wyglądać po uruchomieniu na stronie w przeglądarce:
 > Jeśli dowiesz się, jak dane wyjściowe kod znaczników HTML, który renderuje tagi jako kod znaczników (na przykład `<p></p>` akapitu lub `<em></em>` aby wyróżnić tekst), zobacz sekcję [łączenie tekstu, znaczników i kodu w blokach kodu](#BM_CombiningTextMarkupAndCode) w dalszej części tego artykułu.
 > 
 > Możesz dowiedzieć się więcej o kodowanie HTML w [Praca z formularzami](https://go.microsoft.com/fwlink/?LinkId=202892).
-
 
 ### <a name="2-you-enclose-code-blocks-in-braces"></a>2. Bloki kodu są ująć w nawiasy klamrowe
 
@@ -116,7 +113,6 @@ W tym miejscu jest wynikiem użycia obu tych przykładów na stronie:
 > [!NOTE]
 > Należy zauważyć, że `@` znak jest używany zarówno do oznaczenia verbatim literałów w języku C#, jak i do oznaczania kodu na stronach ASP.NET.
 
-
 ### <a name="6-code-is-case-sensitive"></a>6. Kod jest uwzględniana wielkość liter
 
 W języku C# słowa kluczowe (takie jak `var`, `true`, i `if`) i w nazwach zmiennych jest rozróżniana wielkość liter. Następujące wiersze kodu tworzą dwie różne zmienne, `lastName` i `LastName.`
@@ -127,7 +123,6 @@ Jeśli zadeklarujesz zmienną `var lastName = "Smith";` i jeśli zostanie podję
 
 > [!NOTE]
 > W języku Visual Basic słowa kluczowe i zmienne są *nie* z uwzględnieniem wielkości liter.
-
 
 ### <a name="7-much-of-your-coding-involves-objects"></a>7. Obejmuje większość kodowania obiektów
 
@@ -161,7 +156,6 @@ Wynik wyświetlany w przeglądarce (po kliknięciu przycisku **przesyłania**):
 > Protokół używany dla stron sieci web (HTTP) obsługuje bardzo ograniczoną liczbę metod (poleceń), które są używane na wysyłanie żądań do serwera. Dwie najbardziej typowe to GET, który służy do odczytu strony i WPIS, który jest używany do przesyłania strony. Ogólnie rzecz biorąc po raz pierwszy użytkownik zgłasza żądanie strony, strony jest przesyłane przy użyciu GET. Jeśli użytkownik wypełnia formularz, a następnie kliknie przycisk przesyłania, przeglądarki wysyła żądanie POST do serwera.
 > 
 > W programowanie dla sieci web jest często grupowaniu można sprawdzić, czy strona jest wymagana jako GET lub POST, aby znać sposób przetwarzania tej strony. W składniku ASP.NET Web Pages można użyć `IsPost` właściwość, aby sprawdzić, czy żądanie GET lub POST. Jeśli żądanie jest żądaniem POST `IsPost` właściwość zostanie zwrócona wartość PRAWDA, a można wykonywać takie czynności, takich jak odczyt wartości pola tekstowe w formularzu. Wiele przykładów zobaczysz pokazują, jak można przetworzyć strony inaczej w zależności od wartości `IsPost`.
-
 
 ## <a name="a-simple-code-example"></a>Prosty przykład kodu
 
@@ -217,7 +211,6 @@ Składnia Razor zapewnia wszystkich możliwości platformy ASP.NET, ale przy uż
 > Aplikacja musi pracować z informacjami o klientach rzeczywiste, tworzy wystąpienie (lub *tworzy*) obiektu klienta. Poszczególnych klientów są osobne wystąpienie `Customer` klasy. Każde wystąpienie obsługuje te same właściwości i metody, ale dla każdego wystąpienia wartości właściwości różnią się zwykle, ponieważ każdy obiekt klienta jest unikatowa. W obiekcie jednego klienta `LastName` właściwość może być "Smith"; w innym obiekcie klienta, `LastName` właściwość może być "Kowalski".
 > 
 > Podobnie, dowolnej poszczególne strony sieci web w lokacji jest `Page` obiekt, który jest wystąpieniem `Page` klasy. Przycisk na stronie jest `Button` obiekt, który jest wystąpieniem `Button` klasy i tak dalej. Każde wystąpienie ma własne charakterystyki, ale wszystkie one są oparte na został określony w definicji klasy obiektu.
-
 
 ## <a name="basic-syntax"></a>Podstawowa składnia
 
@@ -439,7 +432,6 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
 ## <a name="operators"></a>Operatory
 
 Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. W języku C# (i składni Razor, który opiera się na nim) obsługuje wiele operatorów, ale musisz rozpoznać kilka, aby rozpocząć pracę. Poniższa tabela zawiera podsumowanie najbardziej typowych operatorów.
-
 
 :::row:::
     :::column:::
@@ -832,7 +824,6 @@ W sytuacjach, w którym kod może wystąpić wyjątki i w celu uniknięcia komun
 > [!NOTE]
 > Firma Microsoft zaleca, unikaj używania `Response.Redirect` method in Class metoda `try/catch` instrukcji, ponieważ może to spowodować wyjątek na stronie.
 
-
 Poniższy przykład pokazuje stronę, która tworzy plik tekstowy na pierwsze żądanie, a następnie wyświetla przycisk, który umożliwia użytkownikowi, otwórz plik. W przykładzie użyto celowo Zła nazwa pliku, tak aby spowoduje wyjątek. Kod zawiera `catch` instrukcji dla dwóch możliwych wyjątków: `FileNotFoundException`, który występuje, jeśli nazwa pliku jest nieprawidłowa, i `DirectoryNotFoundException`, który występuje, gdy program ASP.NET nawet nie można odnaleźć folderu. (Aby zobaczyć, jak działa, gdy wszystko będzie działać prawidłowo można komentarz do instrukcji w tym przykładzie).
 
 Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut ekranu przedstawiający stronę błędu. Jednak `try/catch` sekcji uniemożliwia użytkownikowi widzisz błędy tych typów.
@@ -843,12 +834,9 @@ Jeśli Twój kod nie obsługuje wyjątek, widział takich jak poprzedniej zrzut 
 
 **Programowanie za pomocą języka Visual Basic**
 
-
 [Dodatek: Język Visual Basic i składnia](https://go.microsoft.com/fwlink/?LinkId=202908)
 
-
 **Dokumentacja referencyjna**
-
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 

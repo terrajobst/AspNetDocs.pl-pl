@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 7871dc05-2750-470f-8b4c-3a52511949bc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dc49d7467db01e62db147c7083ed62379d23940
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68f8bdeeb85bc66cf790c2005cf0f0ff24b3b653
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394162"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129767"
 ---
 # <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Aktualizowanie powiązanych danych z platformą Entity Framework w aplikacji ASP.NET MVC (6 10)
 
@@ -26,7 +26,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 W poprzednim samouczku wyświetlane powiązanych danych; w tym samouczku zostaną zaktualizowane powiązane dane. W przypadku większości relacji można to zrobić, aktualizując odpowiednie pola kluczy obcych. W przypadku relacji wiele do wielu platformy Entity Framework nie ujawnia tabelę sprzężenia bezpośrednio, więc należy jawnie Dodawanie i usuwanie jednostek do i z właściwości nawigacji odpowiednie.
 
@@ -194,14 +193,12 @@ Kliknij przycisk **Edytuj** na pod kierunkiem instruktora, aby wyświetlić stro
 Zmienić niektóre przypisania kursów, a następnie kliknij przycisk **Zapisz**. Wprowadzone zmiany zostaną odzwierciedlone na stronę indeksu.
 
  Uwaga: Podejście do edycji przez instruktorów kurs danych działa dobrze w przypadku, gdy istnieje ograniczona liczba kursów. Dla kolekcji, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będą wymagane.  
- 
 
 ## <a name="update-the-delete-method"></a>Zaktualizuj metodę Delete
 
 Zmień kod metody HttpPost Delete, aby rekordu przypisania pakietu office (jeśli istnieje) zostanie usunięty po usunięciu instruktora:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs?highlight=6,10)]
-
 
 Jeśli spróbujesz usunąć instruktora, który jest przypisany do działu jako administrator, otrzymasz błąd integralności referencyjnej. Zobacz [bieżącą wersję tego samouczka](../../getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) dla dodatkowego kodu, który automatycznie usunie instruktora działu gdzie instruktora jest przypisany jako administrator.
 

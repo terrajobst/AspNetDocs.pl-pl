@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: f81f3d80-3674-4d8e-a9b1-87feed1a93c9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 15bdaa588792c3cf4a8e6eee651e0675f959f942
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2ba7ca22074fe3c131209482180f8f7706714dd5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382240"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129832"
 ---
 # <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Tworzenie bardziej złożonego modelu danych dla aplikacji ASP.NET MVC (4 z 10)
 
@@ -26,7 +26,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 W poprzednich samouczkach doświadczenie w pracy z modelu prostego danych, który został składające się z trzech jednostek. W tym samouczku dodasz więcej jednostek i relacji i będzie Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania bazy danych. Zobaczysz Dostosuj model danych na dwa sposoby: przez dodanie atrybutów do klas jednostek i, dodając kod do klasy kontekstu bazy danych.
 
@@ -52,9 +51,7 @@ W *Models\Student.cs*, Dodaj `using` poufności informacji dotyczące `System.Co
 
 `DisplayFormat` Atrybut jest używany jawnie określić format daty:
 
-
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample2.cs)]
-
 
 `ApplyFormatInEditMode` Ustawienie określa, czy określony sposób formatowania powinien również będą stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Nie może być, w przypadku niektórych pól — na przykład dla wartości waluty może nie ma symbolu waluty, w polu tekstowym do edycji.)
 
@@ -124,7 +121,6 @@ Można również zmienić bazę danych mapowania przy użyciu [Fluent API](https
 
 > [!NOTE]
 > Jeśli spróbujesz skompilować przed zakończeniem, tworzenie wszystkich tych klas jednostek, możesz otrzymać błędy kompilatora.
-
 
 ## <a name="create-the-instructor-entity"></a>Tworzenie jednostki przez instruktorów
 
@@ -260,7 +256,6 @@ Obcy właściwości klucza i nawigacji odzwierciedla się następująco:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
-
 ## <a name="modifying-the-student-entity"></a>Modyfikowanie jednostek dla uczniów
 
 ![Student_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image10.png)
@@ -378,7 +373,6 @@ Po zakończeniu edycji &lt; *sygnatura czasowa&gt;\_Chap4.cs* pliku, wprowadź `
 > [!code-xml[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample35.xml?highlight=1-2)]
 > 
 > Za pomocą nowej bazy danych, nie ma żadnych danych, aby przeprowadzić migrację oraz `update-database` polecenia jest znacznie bardziej prawdopodobne zakończyć bez błędów. Aby uzyskać instrukcje dotyczące sposobu usuwania z bazy danych, zobacz [jak usunąć bazę danych z programu Visual Studio 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/).
-
 
 Otwórz bazę danych w **Eksploratora serwera** były wykonywane wcześniej, i rozwiń **tabel** węzeł, aby zobaczyć, czy wszystkie tabele zostały utworzone. (Jeśli nadal masz **Eksploratora serwera** Otwórz od wcześniejszego stanu, kliknij pozycję **Odśwież** przycisku.)
 

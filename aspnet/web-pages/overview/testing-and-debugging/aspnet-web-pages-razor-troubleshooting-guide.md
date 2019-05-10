@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: adbaa5cbda4a60a8b222ba49bb148b28b2e214cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fc03767c16f46c1e282d24ee3a7df2409a7c38bb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389209"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128571"
 ---
 # <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)
 
@@ -28,7 +28,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2 i stron sieci Web platformy ASP.NET w wersji 1.0.
-
 
 Ten temat zawiera następujące sekcje:
 
@@ -150,7 +149,6 @@ Zastąp odpowiednie wartości dla `your-SMTP-server-name`i tak dalej. Komunikaty
 
 > [!NOTE]
 > Usuń kod znaczników, który powoduje wyświetlenie błędu (`@errorMessage`), przed opublikowaniem strony w działającej witrynie. Nie jest dobry pomysł, aby umożliwić użytkownikom wyświetlić komunikaty o błędach, które można uzyskać z serwera.
-
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby

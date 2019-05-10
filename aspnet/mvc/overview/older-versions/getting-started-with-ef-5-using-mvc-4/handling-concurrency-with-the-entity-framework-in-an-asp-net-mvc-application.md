@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: a79cca143df9a10b4255796a6d034688713e4e52
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d55f01bd2204a2fdb26664827b92c72d68e00a89
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379758"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129806"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Obsługa współbieżności przy użyciu platformy Entity Framework w aplikacji ASP.NET MVC (7 10)
 
@@ -26,7 +26,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 W poprzednich samouczkach dwóch doświadczenie w pracy z powiązanych danych. W tym samouczku pokazano, jak obsługiwać współbieżności. Utworzysz stron sieci web, które działają z `Department` jednostki i stron, które edytowania i usuwania `Department` jednostek obsługi błędów współbieżności. Na poniższych ilustracjach przedstawiono indeks i usuwanie stron, tym niektóre komunikaty, które są wyświetlane, jeśli wystąpi konflikt współbieżności.
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 266d2e3fda54a9e584622ccd595e41229c96e6b0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 25037d2994354c92f9fe831c948393df32e120a1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420747"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129921"
 ---
 # <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
 
@@ -21,7 +21,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
 > > Jest dostępna zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
-
 
 W tej sekcji dodasz logikę walidacji do `Movie` modelu, a będzie upewnij się, że reguły sprawdzania poprawności są wymuszane ilekroć użytkownik próbuje utworzyć lub edytować film przy użyciu aplikacji.
 
@@ -79,7 +78,6 @@ Kliknij przycisk **Utwórz nowy** łącze, aby dodać nowy film. Wypełnij formu
 
 > [!NOTE]
 > do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (&quot;,&quot;) separator dziesiętny, musi zawierać *globalize.js* i konkretne *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i języka JavaScript, aby użyć `Globalize.parseFloat`. Poniższy kod przedstawia zmiany w pliku Views\Movies\Edit.cshtml do pracy z &quot;fr-FR&quot; kultury:
-
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample6.cshtml)]
 

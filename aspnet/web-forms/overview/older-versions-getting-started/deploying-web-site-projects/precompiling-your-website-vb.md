@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: c285dc6f-a1c6-46e6-ac03-3830947f57e3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f6e8fd2c31aa4eaf563edc719bbb8d2b3006866
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 95ca336504d05c4ea82b979dd431a6d90fb2f7b4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386271"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130293"
 ---
 # <a name="precompiling-your-website-vb"></a>Prekompilowanie witryny internetowej (VB)
 
@@ -23,14 +23,12 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > Program Visual Studio oferuje deweloperom ASP.NET dwoma typami projektów: Aplikacja sieci Web projektów (WAPs) i witrynę sieci Web projektów (WSPs). Jest jedną z najważniejszych różnic między dwoma typami projektów, że WAPs muszą mieć kod jawnie skompilowany przed wdrożeniem, natomiast kod w WSP może być automatycznie kompilowane na serwerze sieci web. Jednak istnieje możliwość wstępnej kompilacji WSP przed ich wdrożeniem. W tym samouczku omówiono zalety wstępnej kompilacji i pokazuje, jak przeprowadzać prekompilowanie witryny sieci Web z poziomu programu Visual Studio i w wierszu polecenia.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Program Visual Studio oferuje deweloperom ASP.NET dwóch różnych typach projektów: Projekty aplikacji sieci Web (WAP) i projektów witryny sieci Web (WSP). Jedną z podstawowych różnic między tymi typami projektów jest, że WAPs wymagają *kompilację typu explicit* zużycie WSPs *automatyczne kompilowanie*, domyślnie. Za pomocą WAPs, kompilowanie kodu aplikacji sieci web do jednego zestawu, który jest tworzony w witrynie internetowej `Bin` folderu. Wdrożenie pociąga za sobą kopiowanie zawartości kodu znaczników ( `.aspx.ascx`, i `.master` pliki) w projekcie, wraz z zestawu w `Bin` folderu; związane z kodem same pliki klasy nie powinny być wdrożony. Z drugiej strony możesz wdrożyć WSPs przez skopiowanie na stronach adiustacji i ich odpowiednich grup kodu powiązanego do środowiska produkcyjnego. Klasy związane z kodem są kompilowane na żądanie na serwerze sieci web.
 
 > [!NOTE]
 > Odwołaj się do sekcji "Kompilacja Versus automatyczne kompilację typu Explicit" [ *określająca, które pliki muszą zostać wdrożone* samouczek](determining-what-files-need-to-be-deployed-vb.md) Aby uzyskać więcej informacji na temat różnic między projektu modele, jawnego i automatycznej kompilacji i jak model kompilacja wpływa na wdrożenie.
-
 
 Opcja automatycznego kompilacji jest łatwa w użyciu. Istnieje bez kroku kompilację typu explicit, a tylko te pliki, które zostały zmodyfikowane potrzebę wdrożony kompilację typu explicit wymaga wdrażania na stronach adiustacji zmienione i po prostu skompilowanego zestawu. Jednak automatycznego wdrażania ma dwie wady:
 
@@ -49,7 +47,6 @@ WSPs oraz automatyczne kompilowanie będzie nie kroku kompilację typu explicit 
 
 > [!NOTE]
 > Jak można oczekiwać, ma niewielkie opóźnienie podczas żądania strony po raz pierwszy (lub po raz pierwszy, ponieważ zostanie on zmieniony) w lokacji, która używa automatyczne kompilowanie, jak może potrwać chwilę dla serwera, aby skompilować kod strony i zapisać wynikowego zestawu dysk.
-
 
 Krótko mówiąc za pomocą kompilację typu explicit należy skompilować kod źródłowy witryny sieci Web przed przystąpieniem do wdrożenia, zapisywanie środowiska uruchomieniowego trzeba wykonać ten krok. Automatyczne kompilowanie środowisko wykonawcze obsługuje kompilację kodu źródłowego stron, ale bez kosztów nieznaczne inicjowania dla pierwszej wizyty na stronie od czasu utworzenia lub ostatniej aktualizacji.
 
@@ -70,7 +67,6 @@ Narzędzie kompilacji zawiera dwa rodzaje ogólne kompilacji:- i w miejscu wstę
 > [!NOTE]
 > Aby uzyskać więcej informacji o wstępnej kompilacji w miejscu, zapoznaj się [How to: Prekompilowanie witryny sieci Web platformy ASP.NET](https://msdn.microsoft.com/library/ms227972.aspx) i [wstępnej kompilacji w programie ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
 
-
 Zamiast kompilowania stron w witrynie sieci Web do `Temporary ASP.NET Files` folderu, kompiluje wstępnej kompilacji dla wdrożenia stron do katalogu wybrane, w formacie, który można wdrożyć w środowisku produkcyjnym.
 
 Istnieją dwa odmian wstępnej kompilacji do wdrożenia, którą omówimy w tym samouczku: wstępnej kompilacji za pomocą interfejsu użytkownika można aktualizować i wstępnej kompilacji za pomocą interfejsu użytkownika nie nadaje się do aktualizacji. Wstępnej kompilacji za pomocą interfejsu użytkownika można aktualizować pozostawia oznaczeniu deklaracyjnym w `.aspx`, `.ascx`, i `.master` plików, umożliwiając w ten sposób dla deweloperów wyświetlić i, jeśli to konieczne, należy zmodyfikować oznaczeniu deklaracyjnym na serwerze produkcyjnym. Generuje wstępnej kompilacji za pomocą interfejsu użytkownika nie można zaktualizować `.aspx` stron, które są nieważne żadnej zawartości i usuwa `.ascx` i `.master` plików, a tym samym ukrywanie oznaczeniu deklaracyjnym i uniemożliwiają zmianę z deweloperem środowiska produkcyjnego.
@@ -88,7 +84,6 @@ Otwórz WSP przeglądu książki w programie Visual Studio, przejdź do menu kom
 
 > [!NOTE]
 > Opcja publikowania witryny sieci Web, w menu kompilacja nie jest dostępne w Visual Web Developer. Jeśli używasz programu Visual Web Developer, będą musieli używać wersji wiersza polecenia narzędzia kompilacji platformy ASP.NET, co zostało omówione w sekcji "wstępnej kompilacji z wiersza polecenia".
-
 
 Po wstępnej kompilacji witryny sieci Web, przejdź do lokalizacji docelowej, która została wprowadzona w oknie dialogowym Publikowanie witryny sieci Web. Poświęć chwilę, aby porównać zwartość tego katalogu z zawartością witryny sieci Web. **Rysunek 2** pokazuje przeglądy książki folderu witryny sieci Web. Należy pamiętać, że zawiera ona `.aspx` i `.aspx.cs` plików. Ponadto należy pamiętać, że `Bin` katalogu zawiera tylko jeden plik `Elmah.dll`, dodanego w [poprzedni Samouczek](logging-error-details-with-elmah-vb.md)
 
@@ -108,7 +103,6 @@ W odróżnieniu od kompilację typu explicit w WAPs wstępnej kompilacji procesu
 
 > [!NOTE]
 > Można poinstruować narzędzia kompilacji, aby utworzyć jeden zestaw dla strony ASP.NET, formant użytkownika lub strony wzorcowej, zaznaczając pole wyboru "Używana stała nazewnictwa i zestawów pojedynczej strony" w oknie dialogowym Publikowanie witryny sieci Web. Po każdej stronie ASP.NET skompilowany w ich własnych zestawach umożliwia bardziej precyzyjną kontrolę nad wdrażaniem. Na przykład, jeśli utworzono pojedyncza strona sieci web platformy ASP.NET i potrzebne do wdrożenia tej zmiany, należy tylko wdrożeniem tej strony `.aspx` plików i skojarzony zestaw do środowiska produkcyjnego. Zapoznaj się z [jak: Generuj stałą nazwy za pomocą narzędzia kompilacji platformy ASP.NET](https://msdn.microsoft.com/library/ms228040.aspx) Aby uzyskać więcej informacji.
-
 
 Katalog lokalizacji docelowej zawiera także plik, który nie jest częścią projektu sieci web wstępnie skompilowanych, to znaczy `PrecompiledApp.config`. Ten plik informuje, środowisko uruchomieniowe programu ASP.NET, że aplikacja została wstępnie skompilowany i czy został prekompilowanych za pomocą interfejsu użytkownika można aktualizować lub południe-nadaje się do aktualizacji.
 

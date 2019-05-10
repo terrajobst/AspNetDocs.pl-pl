@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: d76f607f1d5e779d43ee15d8f2d697e7b0f147ae
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9354a7b97a7df9020a681f709e16a92650cfcf0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380122"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132973"
 ---
 # <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy
 
@@ -36,7 +36,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > - SQL `Insert Into` — instrukcja
 > - `Validation` Pomocnika.
 > - `Response.Redirect` Metody.
-
 
 ## <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
@@ -155,7 +154,6 @@ Oczywiście nie chcesz umożliwić użytkownikom wprowadzanie informacji o filma
 > Teraz, a następnie ważne jest zrozumieć dokładnie gdy ma wartość null, i kiedy jest tylko pustym ciągiem. W kodzie dla *AddMovie* strony, można pobrać wartości pola przy użyciu `Request.Form["title"]` i tak dalej. Po pierwszym uruchomieniu strony (przed kliknięciem przycisku), wartość `Request.Form["title"]` ma wartość null. Jednak gdy prześlesz formularz, `Request.Form["title"]` pobiera wartość `title` pola tekstowego. Nie jest jasne, ale puste pole tekstowe nie jest równa null; ją po prostu zawiera pusty ciąg. Gdy kod jest uruchamiany w odpowiedzi na przycisk kliknij przycisk, `Request.Form["title"]` zawiera pusty ciąg.
 > 
 > Ta różnica jest ważna Podczas tworzenia *filmy* tabeli jawnie wspomniałeś, żadne pole może mieć wartości null. Jednak w tym miejscu masz formularz wprowadzania dla nowych filmów i jest pozostawienie pustego pola. Można oczekiwać rozsądnie bazy danych, błąd podczas próby zapisania nowe filmy, które nie mają wartości gatunku lub roku. Ale to punkt &mdash; nawet jeśli te pola tekstowe jest puste, wartości nie ma wartość null; są one puste ciągi. W rezultacie, możesz zapisać nowe filmy w bazie danych z tych kolumn pusty &mdash; , ale nie o wartości null! &mdash; wartości. W związku z tym należy upewnić się, że użytkownicy nie przesyłaj pustym ciągiem, co można zrobić, sprawdzając poprawność danych wejściowych użytkownika.
-
 
 ### <a name="the-validation-helper"></a>Pomocnik weryfikacji
 

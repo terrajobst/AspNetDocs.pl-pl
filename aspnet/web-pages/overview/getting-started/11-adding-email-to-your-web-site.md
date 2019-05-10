@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 0263f736b96f8e8572536f3783d86c261d7c0512
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 23e9717329525fb5a0ed505c9dc94505d4f9dbbe
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130546"
 ---
 # <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Wysyłanie wiadomości E-mail z witrynie ASP.NET Web Pages (Razor)
 
@@ -39,7 +39,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
 
-
 <a id="Sending_Email_Messages"></a>
 ## <a name="sending-email-messages-from-your-website"></a>Wysyłanie wiadomości E-mail z witryny sieci Web
 
@@ -57,7 +56,6 @@ W tej procedurze utworzysz dwie strony. Pierwsza strona zawiera formularz, któr
 
 > [!NOTE]
 > W celu uproszczenia w tym przykładzie inicjuje kod `WebMail` pomocnika po prawej stronie na stronie, których używasz. Jednak rzeczywiste witryn sieci Web, jest lepiej zrozumieć, należy umieścić kod inicjowania w pliku globalnego, dzięki czemu można zainicjować `WebMail` pomocnika dla wszystkich plików w witrynie sieci Web. Aby uzyskać więcej informacji, zobacz [Dostosowywanie zachowania dla całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Setting_Values_For_Helpers).
-
 
 1. Utwórz nową witrynę sieci Web.
 2. Dodaj nową stronę o nazwie *EmailRequest.cshtml* i Dodaj następujący kod: 
@@ -133,7 +131,6 @@ Można również wysłać pliki, które są dołączone do wiadomości e-mail. W
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-
 
 - [Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
 - [Simple Mail Transfer Protocol](https://msdn.microsoft.com/library/aa480435.aspx)

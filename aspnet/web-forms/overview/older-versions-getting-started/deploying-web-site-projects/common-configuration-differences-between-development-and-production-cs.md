@@ -8,12 +8,12 @@ ms.date: 04/01/2009
 ms.assetid: 721a5c37-7e21-48e0-832e-535c6351dcae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b9d4ed08ea1e8429c1895d0631e1acac9c7eaba9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 265243a54eb5ab28a7f76d2df32a9442d61862a5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130652"
 ---
 # <a name="common-configuration-differences-between-development-and-production-c"></a>Typowe różnice konfiguracji między środowiskami deweloperskim i produkcyjnym (C#)
 
@@ -23,9 +23,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > W samouczkach wcześniej wdrożyliśmy naszej witryny sieci Web, kopiując wszystkie odpowiednie pliki ze środowiska projektowego do środowiska produkcyjnego. Jednak nie jest niczym niezwykłym istniała różnice konfiguracji między środowiskami, które wymaga, że każde środowisko ma unikatowy pliku Web.config. W tym samouczku sprawdza różnice w typowej konfiguracji i analizuje strategie utrzymania informacji konfiguracji.
 
-
 ## <a name="introduction"></a>Wprowadzenie
-
 
 Ostatnie dwa samouczki przeprowadzony przez wdrażanie prostej aplikacji sieci web. [ *Wdrażanie witryny przy użyciu klienta FTP* ](deploying-your-site-using-an-ftp-client-cs.md) samouczku pokazano, jak za pomocą autonomicznego klienta FTP skopiuj niezbędne pliki ze środowiska projektowego do produkcji. Poprzedni Samouczek [ *wdrażanie Twojej witryny przy użyciu programu Visual Studio*](deploying-your-site-using-visual-studio-cs.md), przyjrzano się wdrożenie za pomocą narzędzia kopiowania witryny sieci Web programu Visual Studio i opcję Publikuj. W obu samouczki wszystkich plików w środowisku produkcyjnym była kopia pliku w środowisku programistycznym. Jednak nie jest niczym niezwykłym dla plików konfiguracyjnych w środowisku produkcyjnym mogą się różnić od tych w środowisku programistycznym. Konfiguracja aplikacji sieci web jest przechowywana w `Web.config` pliku i zwykle zawiera informacje na temat zasobów zewnętrznych, takich jak bazy danych, sieci web i serwerów poczty e-mail. Opisujemy również zachowanie aplikacji w niektórych sytuacjach, takich jak kurs akcję podejmowaną po wystąpieniu nieobsługiwanego wyjątku.
 
@@ -40,7 +38,6 @@ Parametry połączenia bazy danych to podstawowy przykład informacje o konfigur
 > [!NOTE]
 > Samouczki przyszłych Eksplorowanie, wdrażanie aplikacji opartych na danych, w tym momencie będziesz przejdziemy do szczegółowych informacji o jak parametry połączenia bazy danych są przechowywane w pliku konfiguracji.
 
-
 Znacznie różni się to oczekiwane zachowanie w środowiskach deweloperskich i produkcyjnych. Aplikacji sieci web w środowisku deweloperskim jest tworzony, przetestowane i debugowania przez małe grupy deweloperów. W środowisku produkcyjnym, czy ta sama aplikacja jest są kontrolowane przez wielu równoczesnych użytkowników. Program ASP.NET zawiera pewną liczbę funkcji, które pomagają deweloperom testowanie i debugowanie aplikacji, ale te funkcje powinny być wyłączone dla bezpieczeństwo i wydajność w środowisku produkcyjnym. Przyjrzyjmy się kilku takie ustawienia konfiguracji.
 
 ### <a name="configuration-settings-that-impact-performance"></a>Ustawienia konfiguracji, które mają wpływ na wydajność
@@ -51,7 +48,6 @@ Atrybut debug jest jednym z najważniejszych atrybutów w `<compilation>` elemen
 
 > [!NOTE]
 > `WebResource.axd` wbudowany program obsługi HTTP wprowadzono w programie ASP.NET 2.0, aby pobrać zasoby osadzone, takie jak pliki skryptów, obrazy, pliki CSS i innej zawartości, użyj formantów serwera. Aby uzyskać więcej informacji na temat `WebResource.axd` działa i jak go używać dostępu do zasobów osadzonych w swojej niestandardowych kontrolek serwera, zobacz [uzyskiwania dostępu do osadzonych zasobów za pomocą adresu URL przy użyciu `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
-
 
 `<compilation>` Elementu `debug` atrybut jest zazwyczaj równa "true" w środowisku programistycznym. W rzeczywistości ten atrybut musi być równa "true", aby debugować aplikację sieci web; Jeśli podczas próby debugowania aplikacji ASP.NET w programie Visual Studio i `debug` atrybut jest ustawiony na "false", programu Visual Studio wyświetli komunikat wyjaśniający, dopóki nie można debugować aplikację `debug` atrybut jest ustawiony na "true" która ma oferty wprowadzić tę zmianę automatycznie.
 
@@ -71,7 +67,6 @@ Podczas opracowywania i testowania aplikacji pomaga szczegółowe informacje o w
 
 > [!NOTE]
 > Wartość domyślna `<customErrors>` ustawienie sekcji przedstawiono szczegóły wyjątku komunikatu tylko wtedy, gdy strona jest odwiedzana za pośrednictwem hosta lokalnego i pokazuje stronę błędu ogólnego środowiska uruchomieniowego, w przeciwnym razie. To nie jest najlepszym rozwiązaniem, ale jest zapewniając, aby dowiedzieć się, że domyślne zachowanie nie zawiera szczegóły wyjątku dla osób odwiedzających inną niż lokalna. Sprawdza, czy przyszłych zapoznać się z samouczkiem `<customErrors>` sekcji bardziej szczegółowo i pokazuje, jak mają niestandardowej strony błędu pokazano, w przypadku wystąpienia błędu w środowisku produkcyjnym.
-
 
 Śledzenie jest inna funkcja platformy ASP.NET, które są przydatne podczas programowania. Śledzenie, jeśli włączone, rejestruje informacje o poszczególnych żądań przychodzących i zapewnia specjalną stroną sieci web, `Trace.axd`, w celu wyświetlania najnowsze informacje dotyczące żądania. Można włączyć i skonfigurować śledzenie za pomocą [ `<trace>` elementu](https://msdn.microsoft.com/library/6915t83k.aspx) w `Web.config`.
 
@@ -111,7 +106,6 @@ Aby dowiedzieć się więcej o korzystaniu z projektu wdrożenia w Internecie, s
 
 > [!NOTE]
 > Nie można użyć projektu wdrażania sieci Web za pomocą programu Visual Web Developer, ponieważ projektu wdrożenia w Internecie jest implementowany jako Visual Studio dodatek programu i program Visual Studio Express (w tym Visual Web Developer) nie obsługują dodatków.
-
 
 ## <a name="summary"></a>Podsumowanie
 

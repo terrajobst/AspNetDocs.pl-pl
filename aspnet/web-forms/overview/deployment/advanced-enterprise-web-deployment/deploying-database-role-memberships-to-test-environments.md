@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: fd0914ed62a280fea290b9f1b150fc25c8ed6d40
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a15f5bf5f659d151e91ef9e53c5ad55bcd8e2b01
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385335"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130406"
 ---
 # <a name="deploying-database-role-memberships-to-test-environments"></a>Wdrażanie członkostw ról bazy danych w środowiskach testowych
 
@@ -32,7 +32,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > W tym scenariuszu jest często korzystne automatycznie utworzyć bazy danych użytkowników i przypisywanie członkostw roli bazy danych jako część procesu wdrażania.
 > 
 > Kluczowym czynnikiem jest to, że ta operacja musi być warunkowych opartych na środowisku docelowym. Jeśli wdrażasz tymczasowym lub w środowisku produkcyjnym, należy pominąć operację. Jeśli jest wdrażany z deweloperem lub środowiska testowego, którą chcesz wdrożyć członkostwa w roli bez dalszej interwencji. W tym temacie opisano jeden podejścia, którego można użyć, aby rozwiązać ten problem.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -79,13 +78,10 @@ Wiele różnych sposobów, można utworzyć skrypt języka Transact-SQL i w dowo
 
 W idealnym przypadku należy uruchomić wszystkie wymagane skrypty języka Transact-SQL w ramach skryptu powdrożeniowego podczas wdrażania projektu bazy danych. Jednak skrypty powdrożeniowe nie pozwalają na wykonywanie logiki warunkowe na podstawie konfiguracje rozwiązania lub właściwości kompilacji. Alternatywą jest uruchamiać skrypty SQL bezpośrednio w pliku projektu MSBuild, tworząc **docelowej** element, który wykonuje polecenie sqlcmd.exe. Można użyć tego polecenia, aby uruchomić skrypt do docelowej bazy danych:
 
-
 [!code-console[Main](deploying-database-role-memberships-to-test-environments/samples/sample2.cmd)]
-
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat opcji wiersza polecenia sqlcmd, zobacz [Narzędzie sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
-
 
 Zanim to polecenie można osadzić w obiekt docelowy programu MSBuild, należy wziąć pod uwagę pod jakimi warunkami ma skrypt do uruchomienia:
 
@@ -100,15 +96,11 @@ Jeśli używasz podziału podejście pliku projektu, opisane w [objaśnienie pli
 
 W pliku projektu specyficznymi dla środowiska należy zdefiniować nazwę serwera bazy danych, nazwa docelowej bazy danych i właściwość typu Boolean, która umożliwia użytkownikowi określenie, czy mają zostać wdrożone członkostwa w roli.
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample3.xml)]
-
 
 W pliku projektu uniwersalnej należy podać lokalizację pliku wykonywalnym sqlcmd i lokalizację skryptu SQL, który chcesz uruchomić. Te właściwości pozostaną takie same, niezależnie od tego, w środowisku docelowym. Należy również utworzyć obiekt docelowy programu MSBuild do wykonania polecenia sqlcmd.
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample4.xml)]
-
 
 Zwróć uwagę, Dodaj lokalizację pliku wykonywalnym sqlcmd jako właściwość statyczna, ponieważ może to być przydatne do innych celów. Z kolei należy zdefiniować lokalizację skryptu SQL i składnia polecenia sqlcmd jako właściwości dynamicznych w ciągu docelowym, ponieważ nie będą wymagane przed docelowy jest wykonywany. W tym przypadku **DeployTestDBPermissions** docelowy będzie można wykonać tylko, jeśli te warunki są spełnione:
 
@@ -117,9 +109,7 @@ Zwróć uwagę, Dodaj lokalizację pliku wykonywalnym sqlcmd jako właściwość
 
 Na koniec nie zapomnij wywołać element docelowy. W *Publish.proj* pliku, można to zrobić, dodając element docelowy do listy zależności dla domyślnej **FullPublish** docelowej. Należy upewnić się, że **DeployTestDBPermissions** docelowy nie jest wykonywany do momentu **PublishDbPackages** został on wykonany.
 
-
 [!code-xml[Main](deploying-database-role-memberships-to-test-environments/samples/sample5.xml)]
-
 
 ## <a name="conclusion"></a>Wniosek
 
