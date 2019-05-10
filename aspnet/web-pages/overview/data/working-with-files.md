@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 4a62cce3af57b507882744f948ce208becdb03ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3ff852232212ddda4930597731911be60c092667
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382306"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108946"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Praca z plikami w witrynie ASP.NET Web Pages (Razor)
 
@@ -48,7 +48,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > W tym samouczku współpracuje również z programu WebMatrix 3.
-
 
 <a id="Creating_a_Text_File"></a>
 ## <a name="creating-a-text-file-and-writing-data-to-it"></a>Tworzenie pliku tekstowego i zapisywania danych
@@ -145,7 +144,6 @@ Ta procedura pokazuje, jak odczytywać i wyświetlić dane, który został utwor
 > 
 > Można użyć programu Microsoft Excel, można zapisać danych zawartych w arkuszu kalkulacyjnym jako pliku rozdzielanego przecinkami (*CSV* pliku). Po wykonaniu, plik jest zapisywany w postaci zwykłego tekstu, a nie w formacie programu Excel. Każdy wiersz w arkuszu kalkulacyjnym jest rozdzielonych przez podziały wiersza w pliku tekstowym, a każdy element danych jest oddzielona przecinkiem. Kod przedstawiony w poprzednim przykładzie służy do odczytu z pliku rozdzielanego przecinkami programu Excel po prostu zmieniając nazwę pliku danych w kodzie.
 
-
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>Usuwanie plików
 
@@ -154,7 +152,6 @@ Aby usunąć pliki z witryny sieci Web, można użyć `File.Delete` metody. Za p
 > [!NOTE] 
 > 
 > **Ważne** w produkcyjnej witrynie internetowej można zwykle ograniczają kto ma prawo do wprowadzania zmian w danych. Aby uzyskać informacje dotyczące sposobu konfigurowania członkostwa i sposobów autoryzacji użytkowników do wykonywania zadań w lokacji, zobacz [Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
-
 
 1. W witrynie sieci Web, utwórz podfolder o nazwie *obrazów*.
 2. Kopiuj co najmniej jeden *.jpg* pliki do *obrazów* folderu.
@@ -255,7 +252,6 @@ W poprzednim przykładzie możesz zezwolić użytkownikom przekazać jeden plik.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-
 
 [Praca z obrazami w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202897)
 

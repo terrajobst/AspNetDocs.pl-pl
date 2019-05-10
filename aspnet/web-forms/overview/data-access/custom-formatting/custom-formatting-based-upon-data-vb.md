@@ -8,12 +8,12 @@ ms.date: 03/31/2010
 ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a408134b4e26e8ad1f7c22c9d2005a7c551b00c6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 064bbc94b466ecb43bd0f7985433a0acb986d757
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392862"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108893"
 ---
 # <a name="custom-formatting-based-upon-data-vb"></a>Niestandardowe formatowanie na podstawie danych (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/5/7/0/57084608-dfb3-4781-991c-407d086e2adc/ASPNET_Data_Tutorial_11_VB.exe) lub [Pobierz plik PDF](custom-formatting-based-upon-data-vb/_static/datatutorial11vb1.pdf)
 
 > Dostosowywanie formatu GridView, DetailsView lub FormView w oparciu o dane powiązane z nim można przeprowadzić na wiele sposobów. W tym samouczku omówimy sposób wykonania powiązane formatowanie danych przy użyciu procedur obsługi zdarzeń z danymi i RowDataBound.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -48,41 +47,32 @@ Otwórz `CustomColors.aspx` strony w `CustomFormatting` folderu, przeciągnij ko
 
 Gdy kontrolki ObjectDataSource został powiązany z DetailsView, Poświęć chwilę na modyfikowanie listy pól. Czy załączania do usunięcia `ProductID`, `SupplierID`, `CategoryID`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, i `Discontinued` BoundFields przekształcony w pozostałych BoundFields i zmieniono jego nazwę. Czy mogę również wyczyszczone `Width` i `Height` ustawienia. Ponieważ DetailsView jest wyświetlany tylko jeden rekord, musimy Włączanie stronicowania w celu umożliwiają użytkownikom końcowym wyświetlić wszystkie produkty. To zrobić, zaznaczając pole wyboru Włącz stronicowania w DetailsView tagu inteligentnego.
 
-
 [![Rysunek 1: Włączanie stronicowania zaznacz pole wyboru w tagu inteligentnego DetailsView](custom-formatting-based-upon-data-vb/_static/image2.png)](custom-formatting-based-upon-data-vb/_static/image1.png)
 
 **Rysunek 1**: Rysunek 1: Włączanie stronicowania zaznacz pole wyboru w tagu inteligentnego DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image3.png))
 
-
 Po wprowadzeniu tych zmian będzie znaczników DetailsView:
-
 
 [!code-aspx[Main](custom-formatting-based-upon-data-vb/samples/sample1.aspx)]
 
 Poświęć chwilę, w celu przetestowania tej strony w przeglądarce.
 
-
 [![W kontrolce DetailsView Wyświetla jeden produkt w czasie](custom-formatting-based-upon-data-vb/_static/image5.png)](custom-formatting-based-upon-data-vb/_static/image4.png)
 
 **Rysunek 2**: DetailsView kontrolka Wyświetla jeden produkt w danym momencie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image6.png))
-
 
 ## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-databound-event-handler"></a>Krok 2. Programowe określanie wartości danych w obsłudze zdarzeń powiązanych z danymi
 
 Aby wyświetlić ceny czcionką pogrubienia, kursywy, dla tych produktów, których `UnitPrice` wartość przekracza $75.00, musimy najpierw można programowo określić `UnitPrice` wartość. Dla DetailsView, można to zrobić w `DataBound` programu obsługi zdarzeń. Można utworzyć zdarzenia obsługi kliknij DetailsView w projektancie, a następnie przejdź do okna właściwości. Naciśnij klawisz F4, aby wyświetlić go, jeśli nie jest widoczny czy przejdź do menu Widok, a następnie wybierz opcję menu okna właściwości. W oknie dialogowym właściwości kliknij ikonę pioruna na liście DetailsView zdarzenia. Następnie kliknij dwukrotnie `DataBound` zdarzenia lub wpisz nazwę programu obsługi zdarzeń, którą chcesz utworzyć.
 
-
 ![Tworzenie procedury obsługi zdarzeń dla zdarzenia z danymi](custom-formatting-based-upon-data-vb/_static/image7.png)
 
 **Rysunek 3**: Utwórz procedurę obsługi zdarzeń dla `DataBound` zdarzeń
 
-
 > [!NOTE]
 > Można również utworzyć program obsługi zdarzeń z części kodu strony ASP.NET. Można znaleźć dwie listy rozwijanej w górnej części strony. Wybierz obiekt z listy rozwijanej po lewej stronie i zdarzeń, w której chcesz utworzyć program obsługi w prawo rozwijanej listy i programu Visual Studio automatycznie utworzy odpowiednie zdarzenie obsługi.
 
-
 To spowoduje automatycznie utworzyć procedury obsługi zdarzeń i przejście do fragment kodu których został dodany. W tym momencie zostanie wyświetlony:
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample2.vb)]
 
@@ -90,12 +80,10 @@ Dane powiązane z DetailsView jest możliwy za pośrednictwem `DataItem` właśc
 
 Poniższy kod ilustruje sposób określić, czy `UnitPrice` powiązany z kontrolą DetailsView wartość jest większa niż $75.00:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample3.vb)]
 
 > [!NOTE]
 > Ponieważ `UnitPrice` może mieć `NULL` wartość w bazie danych, najpierw zapoznaj się upewnić, że firma Microsoft nie są brane z `NULL` wartość przed uzyskaniem dostępu do `ProductsRow`firmy `UnitPrice` właściwości. Ważne jest to sprawdzenie, ponieważ jeśli firma Microsoft spróbuje uzyskać dostęp do `UnitPrice` właściwości, gdy ma ona `NULL` wartość `ProductsRow` zgłosi obiektu [strongtypingexception — wyjątek](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx).
-
 
 ## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>Krok 3. Formatowanie wartości UnitPrice w DetailsView
 
@@ -103,36 +91,29 @@ W tym momencie można określić czy `UnitPrice` wartość granicy do DetailsVie
 
 Programowe uzyskiwanie dostępu do wiersza wymaga, że znasz indeks wiersza, który zaczyna się od 0. `UnitPrice` Wiersz jest piąty wiersz DetailsView, nadając mu indeksu 4 i oznaczania go jako dostępny programowo przy użyciu `ExpensiveProductsPriceInBoldItalic.Rows(4)`. Na tym etapie firma Microsoft może mieć zawartości cały wiersz wyświetlana czcionką pogrubienia, kursywy, używając następującego kodu:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample4.vb)]
 
 Jednak dzięki temu *zarówno* etykietę (cena) i wartość pogrubiony i kursywę. Jeśli chcemy mieć tylko wartość pogrubiony i kursywę należy zastosować te odpowiadający ustawieniom lokalnym drugiej komórce wiersz, który można osiągnąć za pomocą następujących:
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample5.vb)]
 
 Ponieważ naszych samouczków dotychczasowych korzystano arkuszy stylów do utrzymania czystą separacji między renderowanego kodu znaczników i informacje dotyczące stylu, zamiast ustawienie właściwości konkretnego stylu, jak pokazano powyżej Przyjrzyjmy zamiast tego użyj klasę CSS. Otwórz `Styles.css` arkusza stylów i Dodaj nową klasę CSS o nazwie `ExpensivePriceEmphasis` przy użyciu następujących definicji:
 
-
 [!code-css[Main](custom-formatting-based-upon-data-vb/samples/sample6.css)]
 
 Następnie w `DataBound` procedura obsługi zdarzeń, ustawianie komórki `CssClass` właściwość `ExpensivePriceEmphasis`. Poniższy kod przedstawia `DataBound` program obsługi zdarzeń w całości:
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample7.vb)]
 
 Podczas wyświetlania Chai, której koszt mniej niż 75.00 $, cena jest wyświetlany czcionką normalną (zobacz rysunek 4). Jednak podczas wyświetlania Niku Kobe Mishi, mającej cenie $97.00 cena jest wyświetlana w czcionki pogrubienia, kursywy (zobacz rysunek 5).
 
-
 [![Ceny opóźnienia mniejsze niż $75.00 są wyświetlane w czcionki normalny](custom-formatting-based-upon-data-vb/_static/image9.png)](custom-formatting-based-upon-data-vb/_static/image8.png)
 
 **Rysunek 4**: Ceny opóźnienia mniejsze niż $75.00 są wyświetlane w czcionki normalny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image10.png))
 
-
 [![Ceny kosztowne produktów są wyświetlane w pogrubienie, kursywa czcionki](custom-formatting-based-upon-data-vb/_static/image12.png)](custom-formatting-based-upon-data-vb/_static/image11.png)
 
 **Rysunek 5**: Ceny kosztowne produktów są wyświetlane w pogrubienie, kursywa czcionki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image13.png))
-
 
 ## <a name="using-the-formview-controlsdataboundevent-handler"></a>Używanie formantu FormView`DataBound`program obsługi zdarzeń
 
@@ -148,7 +129,6 @@ Dodaj FormView do `CustomColors.aspx` strony pod DetailsView i ustaw jego `ID` w
 
 Po edycji tych znaczników swoje FormView powinien wyglądać podobny do następującego:
 
-
 [!code-aspx[Main](custom-formatting-based-upon-data-vb/samples/sample8.aspx)]
 
 Należy pamiętać, że `ItemTemplate` zawiera:
@@ -161,14 +141,11 @@ Należy pamiętać, że `ItemTemplate` zawiera:
 
 Za pomocą znaczników FormView jest pełna, następnym krokiem jest programowo określić, czy `UnitsInStock` wartość jest mniejsza niż 10. Jest to realizowane w dokładnie taki sam sposób, przy użyciu widoku FormView, ponieważ był za pomocą DetailsView. Rozpocznij od utworzenia programu obsługi zdarzeń dla FormView `DataBound` zdarzeń.
 
-
 ![Utwórz procedurę obsługi zdarzeń z danymi](custom-formatting-based-upon-data-vb/_static/image14.png)
 
 **Rysunek 6**: Utwórz `DataBound` program obsługi zdarzeń
 
-
 W przypadku obsługi rzutowania FormView `DataItem` właściwości `ProductsRow` wystąpienia i określić, czy `UnitsInPrice` wartość jest taka, że potrzebujemy mogą być wyświetlane dla czerwonych czcionki.
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample9.vb)]
 
@@ -176,35 +153,28 @@ W przypadku obsługi rzutowania FormView `DataItem` właściwości `ProductsRow`
 
 Ostatnim krokiem jest do formatowania wyświetlany `UnitsInStock` wartość czcionką czerwony, jeśli wartość wynosi 10 lub mniej. W tym potrzebujemy do uzyskania programowego dostępu `UnitsInStockLabel` w kontrolce `ItemTemplate` i ustaw jego właściwości stylu, tak aby jego tekst jest wyświetlany w kolorze czerwonym. Aby uzyskać dostęp do formantu sieci Web w taki sposób, w szablonie, należy użyć `FindControl("controlID")` metoda następująco:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample10.vb)]
 
 W tym przykładzie chcemy uzyskać dostęp etykietę formant, którego `ID` wartość `UnitsInStockLabel`, więc należy użyć:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample11.vb)]
 
 Gdy będziemy już mieć programowe odwołanie do formantu sieci Web, firma Microsoft można zmodyfikować jego właściwości stylu związane zgodnie z potrzebami. Zgodnie z wcześniejszym przykładzie utworzono klasę CSS z `Styles.css` o nazwie `LowUnitsInStockEmphasis`. Aby zastosować ten styl kontrolki sieci Web etykietę, ustaw jego `CssClass` właściwość odpowiednio.
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample12.vb)]
 
 > [!NOTE]
 > Składnia służąca do formatowania szablonu programowe uzyskiwanie dostępu za pomocą formantu sieci Web `FindControl("controlID")` oraz ustawienie jego właściwości stylu związane można również przy użyciu [kontrolek TemplateField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) DetailsView lub widoku GridView kontrolki. Zajmiemy się kontrolek TemplateField w naszym samouczku dalej.
 
-
 Rysunki 7 przedstawia FormView, podczas wyświetlania produktu którego `UnitsInStock` wartość jest większa niż 10, w przypadku, gdy produkt na rysunku 8 ma wartość mniejsza niż 10.
-
 
 [![W przypadku produktów z wystarczająco duże jednostki w magazynie formatowanie niestandardowe nie jest stosowany](custom-formatting-based-upon-data-vb/_static/image16.png)](custom-formatting-based-upon-data-vb/_static/image15.png)
 
 **Rysunek 7**: W przypadku produktów z wystarczająco duże jednostki w magazynie, formatowanie niestandardowe nie jest stosowany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image17.png))
 
-
 [![Jednostki w magazynie numer jest wyświetlany w kolorze czerwonym dla tych produktów za pomocą wartości 10 lub mniejsza](custom-formatting-based-upon-data-vb/_static/image19.png)](custom-formatting-based-upon-data-vb/_static/image18.png)
 
 **Rysunek 8**: Jednostki w magazynie numer jest wyświetlany w kolorze czerwonym dla tych produktów za pomocą wartości 10 lub mniejsza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image20.png))
-
 
 ## <a name="formatting-with-the-gridviewsrowdataboundevent"></a>GridView — mechanizm formatowania`RowDataBound`zdarzeń
 
@@ -241,16 +211,13 @@ Aby dostosować format GridView pojedynczych rekordów, następnie należy utwor
 
 Dodaj GridView poniżej FormView z poprzedniego przykładu, a następnie ustaw jego `ID` właściwość `HighlightCheapProducts`. Ponieważ kontrolki ObjectDataSource, które zwraca wszystkie produkty na stronie mamy już powiązać widoku GridView. Wreszcie edytować BoundFields GridView obejmujący tylko produktów nazwy, kategorii i ceny. Po edycji tych znaczników GridView powinien wyglądać:
 
-
 [!code-aspx[Main](custom-formatting-based-upon-data-vb/samples/sample13.aspx)]
 
 Rysunek 9 pokazuje nasz postęp do tego momentu podczas wyświetlania za pośrednictwem przeglądarki.
 
-
 [![Kontrolki GridView Wyświetla nazwy, kategorii i ceny dla każdego produktu](custom-formatting-based-upon-data-vb/_static/image22.png)](custom-formatting-based-upon-data-vb/_static/image21.png)
 
 **Rysunek 9**: Kontrolki GridView Wyświetla nazwy, kategorii i ceny dla każdego produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image23.png))
-
 
 ## <a name="step-8-programmatically-determining-the-value-of-the-data-in-the-rowdatabound-event-handler"></a>Krok 8. Programowe określanie wartości danych w obsłudze zdarzeń RowDataBound
 
@@ -258,19 +225,15 @@ Gdy `ProductsDataTable` jest powiązany z kontrolki GridView jego `ProductsRow` 
 
 Ta procedura obsługi zdarzeń mogą być tworzone przy użyciu tego samego serię kroków, jak za pomocą FormView i DetailsView.
 
-
 ![Tworzenie procedury obsługi zdarzeń dla zdarzenia RowDataBound GridView](custom-formatting-based-upon-data-vb/_static/image24.png)
 
 **Na rysunku nr 10**: Utwórz procedurę obsługi zdarzeń dla GridView `RowDataBound` zdarzeń
 
-
 Tworzenie obsługi zdarzeń w ten sposób spowoduje, że następujący kod, aby były automatycznie dodawane do strony ASP.NET, fragment kodu:
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample14.vb)]
 
 Gdy `RowDataBound` generowane zdarzenie programu obsługi zdarzeń jest przekazywany jako drugi parametr obiektu typu `GridViewRowEventArgs`, która ma właściwość o nazwie `Row`. Ta właściwość zwraca odwołanie do `GridViewRow` było po prostu powiązane z danymi. Aby uzyskać dostęp do `ProductsRow` wystąpienia jest powiązana z `GridViewRow` używamy `DataItem` właściwości w następujący sposób:
-
 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample15.vb)]
 
@@ -285,7 +248,6 @@ Podczas pracy z `RowDataBound` ważne jest, aby pamiętać, że widoku GridView 
 
 Ponieważ `EmptyDataRow`, `Header`, `Footer`, i `Pager` wierszy nie są skojarzone z `DataSource` rekordu, będzie zawsze mają wartość `Nothing` dla ich `DataItem` właściwości. Z tego powodu przed przystąpieniem do pracy z bieżącego `GridViewRow`firmy `DataItem` właściwości, firma Microsoft najpierw należy się upewnić, że firma Microsoft jest zajmujących się `DataRow`. Można to osiągnąć, sprawdzając `GridViewRow`firmy `RowType` właściwości w następujący sposób:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample16.vb)]
 
 ## <a name="step-9-highlighting-the-row-yellow-when-the-unitprice-value-is-less-than-1000"></a>Krok 9. Wyróżnianie żółty po UnitPrice wartość wiersza jest mniejsza niż 10,00 zł
@@ -294,19 +256,15 @@ Ostatnim krokiem jest programowe podświetlić całą `GridViewRow` Jeśli `Unit
 
 Zamiast `GridViewID.Rows(index)`, firma Microsoft może odwoływać się do bieżącego `GridViewRow` wystąpienia w `RowDataBound` za pomocą programu obsługi zdarzeń `e.Row`. Oznacza to, w celu wyróżnienia bieżącego `GridViewRow` wystąpienia z `RowDataBound` program obsługi zdarzeń, należy użyć:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample17.vb)]
 
 Zamiast `GridViewRow`firmy `BackColor` właściwości bezpośrednio, możemy trzymaj się przy użyciu klas CSS. Utworzono klasę CSS o nazwie `AffordablePriceEmphasis` , ustawia kolor tła na żółty. Gotowy `RowDataBound` obsługi zdarzeń:
 
-
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample18.vb)]
-
 
 [![Najbardziej niedrogie produkty są wyróżnione żółty](custom-formatting-based-upon-data-vb/_static/image26.png)](custom-formatting-based-upon-data-vb/_static/image25.png)
 
 **Rysunek 11**: Najbardziej niedrogie produkty są wyróżniony żółtym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](custom-formatting-based-upon-data-vb/_static/image27.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

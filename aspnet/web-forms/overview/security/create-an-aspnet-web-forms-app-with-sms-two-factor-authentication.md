@@ -8,12 +8,12 @@ ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 2010de510cf44bba1b95d29dbdb573ab78f452f7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 02c511f0e99e306daaf595da5bc618fe738e806c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411361"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106789"
 ---
 # <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie aplikacji ASP.NET Web Forms z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS (C#)
 
@@ -22,7 +22,6 @@ przez [Erik Reitan](https://github.com/Erikre)
 [Pobieranie aplikacji formularzy sieci Web ASP.NET za pomocą poczty E-mail i SMS procedury uwierzytelniania dwuskładnikowego](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
 
 > W tym samouczku przedstawiono sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą uwierzytelniania dwuskładnikowego. W tym samouczku został zaprojektowany jako uzupełnienie samouczek pod tytułem [tworzenie bezpiecznej aplikacji ASP.NET Web Forms z rejestracją użytkownika, wiadomości e-mail z potwierdzeniem i resetowaniem hasła](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md). Ponadto, w tym samouczku został oparty na Rick Anderson [samouczek MVC](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md).
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -42,7 +41,6 @@ Rozpocznij od instalowania i uruchamiania [Visual Studio Express 2013 for Web](h
 
 > [!NOTE]
 > Ważne: Należy zainstalować [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465) lub nowszej, aby ukończyć ten samouczek.
-
 
 1. Utwórz nowy projekt (**pliku**  - &gt; **nowy projekt**) i wybierz **aplikacji sieci Web ASP.NET** szablonu wraz z .NET Framework w wersji 4.5.2 z **nowy projekt** okno dialogowe.
 2. Z **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **formularzy sieci Web** szablonu. Pozostaw domyślne uwierzytelnianie jako **indywidualne konta użytkowników**. Następnie kliknij przycisk **OK** Aby utworzyć nowy projekt.  

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 5a8e49b7-5317-4125-b107-7e2466b47bb3
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7e66c6cd8c7296b889dfe6cc1ebd1eb62cda10ea
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: eaa61ca850817f8dd98955b59e94be93389bf256
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384335"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106843"
 ---
 # <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Scenariusz: konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano scenariusz wdrażania web typowe środowisko przejściowe i opisano zadania, które należy wykonać, aby można było skonfigurować podobnie środowisko.
-
 
 Wiele organizacji użyj tymczasowym, aby przejrzeć aktualizacje aplikacji sieci web lub witryn sieci Web. Osoby w organizacji daje szansę, aby eksplorować i przegląd nowych funkcji lub zawartości przed witryna "miejsce na żywo" lub innymi słowy, jest wdrażana w środowisku produkcyjnym. Środowisko przejściowe jest przeznaczony do replikacji w środowisku produkcyjnym możliwie najlepszy sposób, aby zapewnić realistyczne (wersja zapoznawcza). Tego rodzaju środowisko przejściowe zazwyczaj ma następujące cechy:
 
@@ -33,7 +32,6 @@ Wiele organizacji użyj tymczasowym, aby przejrzeć aktualizacje aplikacji sieci
 
 > [!NOTE]
 > Skalowanie w poziomie wdrożenie bazy danych na wielu serwerach wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na temat tego obszaru, zajrzyj [programu SQL Server — książki Online](https://technet.microsoft.com/library/ms130214.aspx).
-
 
 Na przykład w naszym [scenariusz samouczka](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) zarządza rozwiązania Contact Manager. Administratora TFS, Tomasz Rob utworzył definicję kompilacji, która pozwala deweloperom na wyzwalanie wdrożenia w środowisku przejściowym, zgodnie z potrzebami.
 

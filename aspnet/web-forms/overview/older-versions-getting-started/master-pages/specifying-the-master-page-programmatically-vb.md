@@ -8,12 +8,12 @@ ms.date: 07/28/2008
 ms.assetid: 0edcd653-f24a-41aa-aef4-75f868fe5ac2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 96f6ebb47af38c77cba11a92c883700730324226
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d075d0b66da8a0f4e2f0155c08b09a02a4ca71fb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389235"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106945"
 ---
 # <a name="specifying-the-master-page-programmatically-vb"></a>Programowe określanie strony wzorcowej (VB)
 
@@ -23,11 +23,9 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > Patrzy na ustawienie poziomu strony zawartości strony wzorcowej programowo za pośrednictwem programu obsługi zdarzeń PreInit.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Ponieważ przykład inauguracyjnym w [ *tworzenia całej witryny układu za pomocą stron wzorcowych*](creating-a-site-wide-layout-using-master-pages-vb.md), cała zawartość strony ma odwołanie do ich strony wzorcowej w sposób deklaratywny za pośrednictwem `MasterPageFile` atrybutu w `@Page`dyrektywy. Na przykład następująca `@Page` dyrektywy łączy strony zawartości strony wzorcowej `Site.master`:
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample1.aspx)]
 
@@ -41,11 +39,9 @@ Zawsze, gdy żądanie dociera do serwera sieci web dla strony ASP.NET, która je
 
 Rysunek 1 przedstawia ten fusion. Krok 1 na rysunku 1 przedstawiono oryginalnej zawartości i hierarchii kontroli strony wzorcowej. Na końcu tail etapu PreInit zawartość kontrolki na stronie są dodawane do odpowiednich kontrolek ContentPlaceHolder na stronie głównej (krok 2). Po tym fusion strony wzorcowej służy jako katalog główny hierarchii kolei kontroli. Tego zespolone kontroli jest następnie dodawana do strony Aby wygenerować hierarchii kontroli ukończone (krok 3). Wynikiem jest, że hierarchii kontroli strony zawiera hierarchii kolei kontroli.
 
-
 [![Strona wzorcowa i hierarchii kontroli zawartości strony są zespolone ze sobą, na etapie PreInit](specifying-the-master-page-programmatically-vb/_static/image2.png)](specifying-the-master-page-programmatically-vb/_static/image1.png)
 
 **Rysunek 01**: Strona wzorcowa i hierarchii kontroli zawartości strony są zespolone ze sobą, na etapie PreInit ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image3.png))
-
 
 ## <a name="step-2-setting-themasterpagefileproperty-from-code"></a>Krok 2. Ustawienie`MasterPageFile`właściwości z kodu
 
@@ -55,18 +51,15 @@ Na początku tego etapu PreInit `Page` obiektu wywołuje jego [ `PreInit` zdarze
 
 Zacznij od otwarcia `Default.aspx.vb`, plik klasy CodeBehind strony głównej w naszej witrynie. Dodawanie obsługi zdarzeń dla strony `PreInit` zdarzeń, wpisując polecenie w następującym kodzie:
 
-
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample2.vb)]
 
 W tym miejscu możemy ustawić `MasterPageFile` właściwości. Aktualizowanie kodu, tak aby przypisuje wartość "~ / Site.master" Aby `MasterPageFile` właściwości.
-
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample3.vb)]
 
 Jeśli ustawisz punkt przerwania i Rozpocznij debugowanie można będzie wyświetlana po każdym `Default.aspx` odwiedzoną stronę lub zawsze, gdy występuje zwrot do tej strony `Page_PreInit` wykonuje program obsługi zdarzeń i `MasterPageFile` właściwości jest przypisany do "~ / Site.master".
 
 Alternatywnie możesz zastąpić `Page` klasy `OnPreInit` metody i ustaw `MasterPageFile` istnieje właściwość. W tym przykładzie załóżmy Nieustawione strony wzorcowej w określonej strony, ale raczej z `BasePage`. Pamiętaj, że firma Microsoft utworzone klasy niestandardowej strony podstawowej (`BasePage`) w [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) samouczka. Obecnie `BasePage` zastępuje `Page` klasy `OnLoadComplete` metody, w którym ustawia strony `Title` właściwość oparte na danych mapy witryny. Zaktualizujmy `BasePage` można także Przesłoń `OnPreInit` metody programowe określanie strony wzorcowej.
-
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample4.vb)]
 
@@ -82,11 +75,9 @@ Czy `MasterPageFile` zostaje ustalona za pośrednictwem `@Page` dyrektywy lub pr
 
 Krótko mówiąc, należy pozostawić `MasterPageFile` atrybutu w `@Page` dyrektywy zaawansowane środowisko czasu projektowania w programie Visual Studio.
 
-
 [![Program Visual Studio używa @Page atrybut MasterPageFile dyrektywy do renderowania widoku projektu](specifying-the-master-page-programmatically-vb/_static/image5.png)](specifying-the-master-page-programmatically-vb/_static/image4.png)
 
 **Rysunek 02**: Visual Studio korzysta z `@Page` dyrektywy `MasterPageFile` atrybutu do renderowania widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image6.png))
-
 
 ## <a name="step-3-creating-an-alternative-master-page"></a>Krok 3. Tworzenie strony wzorcowej alternatywna
 
@@ -96,22 +87,18 @@ Przeanalizujmy dynamicznie ładowanie strony wzorcowej w czasie wykonywania na p
 
 Tworzenie nowej strony wzorcowej w folderze głównym o nazwie `Alternate.master`. Również dodać nowy arkusz stylów do witryny sieci Web o nazwie `AlternateStyles.css`.
 
-
 [![Dodaj kolejną stronę wzorcową i arkusze CSS plik do witryny sieci Web](specifying-the-master-page-programmatically-vb/_static/image8.png)](specifying-the-master-page-programmatically-vb/_static/image7.png)
 
 **Rysunek 03**: Dodawanie innej strony wzorcowej i pliku CSS do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image9.png))
-
 
 Czy mogę zaprojektowania `Alternate.master` stronę wzorcową, która znajduje się tytuł wyświetlany u góry strony, a ich tematyka i granatowym tła. I zostały pominięte w kolumnie po lewej stronie i przenieść tę zawartość pod `MainContent` ContentPlaceHolder formant, który teraz obejmuje całą szerokość strony. Ponadto nixed listę nieuporządkowaną — lekcje i zastąpiliśmy go z powyższej listy poziomej `MainContent`. Zaktualizowano również czcionek i kolorów używanych przez strony wzorcowej (i przy użyciu rozszerzenia, na stronach zawartości). Rysunek 4 przedstawia `Default.aspx` przy użyciu `Alternate.master` strony wzorcowej.
 
 > [!NOTE]
 > Program ASP.NET zawiera możliwość definiowania *motywy*. Motyw jest kolekcją, obrazy, pliki CSS i stylu związane sieci Web kontroli ustawień właściwości, które mogą być stosowane do strony w czasie wykonywania. Motywy to sposób Jeśli układy witryny różnią się tylko w przypadku obrazów wyświetlanych i ich reguły CSS. Jeśli układów różnią się w bardziej znacznie, takiej jak inne kontrolki sieci Web lub mieć znacznie inny układ, następnie konieczne będzie używać osobnych stron wzorcowych. Na końcu tego samouczka, aby uzyskać więcej informacji dotyczących tematów można znaleźć w sekcji dalsze informacje.
 
-
 [![Nasze strony zawartości można teraz używać nowego wyglądu i działania](specifying-the-master-page-programmatically-vb/_static/image11.png)](specifying-the-master-page-programmatically-vb/_static/image10.png)
 
 **Rysunek 04**: Nasze strony zawartości można teraz używać nowego wyglądu i sposobu działania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image12.png))
-
 
 Gdy wzorzec i znaczników stron zawartości są zespolone, `MasterPage` klasy kontrole, aby upewnić się, że zawartość każdej kontrolki na stronie zawartości odwołuje się do ContentPlaceHolder na stronie głównej. Wyjątek jest generowany, jeśli zostanie znaleziony w formancie zawartości, który odwołuje się do nieistniejącej ContentPlaceHolder. Innymi słowy, konieczne jest przypisywane do strony zawartości strony wzorcowej że ContentPlaceHolder dla każdego formantu na stronie zawartości zawartości.
 
@@ -126,11 +113,9 @@ Niektóre zawartości stron w naszej witryny sieci Web to tylko jeden lub dwa fo
 
 Aby uzyskać swoje `Alternate.master` strony wzorcowej wyglądają podobnie, aby analizować (zobacz rysunek 4), Rozpocznij od zdefiniowania style strony wzorcowej w `AlternateStyles.css` arkusza stylów. Dodaj następujące reguły do `AlternateStyles.css`:
 
-
 [!code-css[Main](specifying-the-master-page-programmatically-vb/samples/sample5.css)]
 
 Następnie dodaj poniższe oznaczeniu deklaracyjnym do `Alternate.master`. Jak widać, `Alternate.master` zawiera cztery kontrolki ContentPlaceHolder o takiej samej `ID` wartości co w przypadku kontrolek ContentPlaceHolder w `Site.master`. Ponadto zawiera ona formantu ScriptManager, co jest niezbędne do tych stron w naszej witryny sieci Web, które korzystaj z platformy ASP.NET AJAX.
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample6.aspx)]
 
@@ -139,7 +124,6 @@ Następnie dodaj poniższe oznaczeniu deklaracyjnym do `Alternate.master`. Jak w
 Do testowania tej aktualizacji strony wzorcowej `BasePage` klasy `OnPreInit` metody, aby `MasterPageFile` właściwość jest przypisywana wartość `"~/Alternate.maser"` , a następnie odwiedź witryny sieci Web. Każdej strony powinny działać bez błędów, z wyjątkiem dwóch: `~/Admin/AddProduct.aspx` i `~/Admin/Products.aspx`. Dodawanie produktu do DetailsView w `~/Admin/AddProduct.aspx` skutkuje `NullReferenceException` z wiersza kodu, który podejmuje próbę ustawienia strony wzorcowej `GridMessageText` właściwości. Gdy użytkownik odwiedzi `~/Admin/Products.aspx` `InvalidCastException` jest zgłaszany po załadowaniu strony z komunikatem: "Nie można rzutować obiektu typu" ASP.alternate\_master "na typ" ASP.site\_master "."
 
 Te błędy, ponieważ `Site.master` osobna klasa kodu obejmuje zdarzenia publiczne, właściwości i metody, które nie są zdefiniowane w `Alternate.master`. Fragment kodu znaczników te dwie strony mają `@MasterType` dyrektywę, który odwołuje się do `Site.master` strony wzorcowej.
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample7.aspx)]
 
@@ -157,18 +141,15 @@ Należy również zdefiniować `PricesDoubled` zdarzenia w `BaseMasterPage` i za
 
 Aktualizacja usługi `BaseMasterPage` klasy tak, aby zawierała następujący kod:
 
-
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample8.vb)]
 
 Następnie przejdź do `Site.master` związanym z kodem klasy i jest pochodną `BaseMasterPage`. Ponieważ `BaseMasterPage` zawiera składowe oznaczone `MustOverride` należy zastąpić te elementy członkowskie w tym miejscu `Site.master`. Dodaj `Overrides` słowa kluczowego definicje metod i właściwości. Również zaktualizować kod, który wywołuje `PricesDoubled` zdarzenia w `DoublePrice` przycisku `Click` programu obsługi zdarzeń przy użyciu wywołania do klasy bazowej `OnPricesDoubled` metody.
 
 Po tych zmian `Site.master` z kodem klasę powinna zawierać następujący kod:
 
-
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample9.vb)]
 
 Musimy też zaktualizować `Alternate.master`firmy pochodzi od klasy związane z kodem `BaseMasterPage` i zastąpić dwa `MustOverride` elementów członkowskich. Ale ponieważ `Alternate.master` nie zawiera GridView, wyświetla najnowsze produkty ani etykietę, która wyświetla komunikat po nowego produktu nie zostanie dodany do bazy danych, te metody nie trzeba podejmować żadnych działań.
-
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample10.vb)]
 
@@ -176,11 +157,9 @@ Musimy też zaktualizować `Alternate.master`firmy pochodzi od klasy związane z
 
 Teraz, gdy ukończyliśmy `BaseMasterPage` klasy i mieć nasze dwie strony wzorcowe, rozszerzając go, ostatnią czynnością jest zaktualizowanie `~/Admin/AddProduct.aspx` i `~/Admin/Products.aspx` stron do odwoływania się do tego typu wspólnego. Rozpocznij od zmiany `@MasterType` dyrektywy w obie strony z:
 
-
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample11.aspx)]
 
 Do:
-
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample12.aspx)]
 
@@ -188,11 +167,9 @@ Zamiast odwołujące się do ścieżki pliku, `@MasterType` właściwość teraz
 
 Istnieje jeden niewielką zmianę, który ma nastąpić w `~/Admin/AddProduct.aspx`. Kontrolce DetailsView `ItemInserted` programu obsługi zdarzeń korzysta z obu silnie typizowaną `Master` właściwość i typowaniem luźnym `Page.Master` właściwości. Usunięto odwołanie silnie typizowane, gdy Zaktualizowaliśmy `@MasterType` dyrektywy, ale nadal konieczne zaktualizowanie typowaniem luźnym odwołania. Zastąp następujący wiersz kodu:
 
-
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample13.vb)]
 
 Z następujących pozycji, której rzutuje `Page.Master` do typu podstawowego:
-
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample14.vb)]
 
@@ -205,14 +182,11 @@ Utwórz stronę sieci web, która umożliwia użytkownikowi określenie, które 
 > [!NOTE]
 > Ponieważ `Site.master` i `Alternate.master` mają ten sam zestaw kontrolek ContentPlaceHolder nieważne, jakiego stronę wzorcową, możesz wybrać, tworząc nową stronę zawartości. W celu zapewnienia spójności I moglibyśmy przy użyciu `Site.master`.
 
-
 [![Dodaj nową stronę zawartości do witryny sieci Web](specifying-the-master-page-programmatically-vb/_static/image14.png)](specifying-the-master-page-programmatically-vb/_static/image13.png)
 
 **Rysunek 05**: Dodaj nową stronę zawartości do witryny internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image15.png))
 
-
 Aktualizacja `Web.sitemap` plik, aby dołączyć wpis dla tej lekcji. Dodaj następujący kod pod `<siteMapNode>` dla strony wzorcowe i ASP.NET AJAX lekcji:
-
 
 [!code-xml[Main](specifying-the-master-page-programmatically-vb/samples/sample15.xml)]
 
@@ -220,11 +194,9 @@ Przed dodaniem żadnej zawartości do `ChooseMasterPage.aspx` strony Poświęć 
 
 Dodawanie kontrolki przycisku w sieci Web do strony i ustaw jego `ID` i `Text` właściwości `SaveLayout` i "Zapisywanie układu", odpowiednio. W tym momencie oznaczeniu deklaracyjnym strony powinien wyglądać podobnie do poniższej:
 
-
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample16.aspx)]
 
 Po pierwsze odwiedzenia strony należy wyświetlić wybór strony wzorcowej aktualnie wybranego użytkownika. Utwórz `Page_Load` program obsługi zdarzeń i Dodaj następujący kod:
-
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample17.vb)]
 
@@ -232,34 +204,27 @@ Powyższy kod wykonuje tylko na pierwszej wizyty strony (a nie kolejnych ogłasz
 
 Należy również kod, który zapisuje wybrany przez użytkownika do `MyMasterPage` zmiennej sesji. Utwórz procedurę obsługi zdarzeń dla `SaveLayout` przycisku `Click` zdarzeń i Dodaj następujący kod:
 
-
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample18.vb)]
 
 > [!NOTE]
 > Do czasu `Click` program obsługi zdarzeń jest wykonywana na odświeżenie strony, strony wzorcowej został już wybrany. W związku z tym opcji wyboru z listy rozwijanej użytkownika nie będą obowiązywać, dopóki nie można znaleźć w następnej strony. `Response.Redirect` Wymusza przeglądarkę, aby ponownie `ChooseMasterPage.aspx`.
 
-
 Za pomocą `ChooseMasterPage.aspx` strona kompletna naszych ostatnim zadaniem jest zapewnienie `BasePage` przypisać `MasterPageFile` właściwości na podstawie wartości z `MyMasterPage` zmiennej sesji. Jeśli nie ustawiono zmiennej sesji `BasePage` domyślnie `Site.master`.
-
 
 [!code-vb[Main](specifying-the-master-page-programmatically-vb/samples/sample19.vb)]
 
 > [!NOTE]
 > Czy mogę przenieść kod, który przypisuje `Page` obiektu `MasterPageFile` właściwości z `OnPreInit` program obsługi zdarzeń do dwóch oddzielnych metod. Ta pierwsza metoda `SetMasterPageFile`, przypisuje `MasterPageFile` właściwości do wartości zwracanej przez druga metoda `GetMasterPageFileFromSession`. Po oznaczeniu `SetMasterPageFile` metoda `Overridable` tak, aby w przyszłości klas, które rozszerzają `BasePage` można opcjonalnie zastąpić, aby zaimplementować logikę niestandardową, w razie potrzeby. Zajmiemy się tym przykładem zastępowanie `BasePage`firmy `SetMasterPageFile` właściwość w następnym samouczku.
 
-
 Przy użyciu tego kodu w miejscu, odwiedź stronę `ChooseMasterPage.aspx` strony. Początkowo `Site.master` strony wzorcowej jest wybrane (patrz rysunek 6), ale użytkownik może wybrać innej strony wzorcowej, z listy rozwijanej.
-
 
 [![Zawartość strony są wyświetlane przy użyciu strony wzorcowej Site.master](specifying-the-master-page-programmatically-vb/_static/image17.png)](specifying-the-master-page-programmatically-vb/_static/image16.png)
 
 **Rysunek 06**: Zawartość strony są wyświetlane przy użyciu `Site.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image18.png))
 
-
 [![Strony z zawartością są teraz wyświetlane przy użyciu strony wzorcowej Alternate.master](specifying-the-master-page-programmatically-vb/_static/image20.png)](specifying-the-master-page-programmatically-vb/_static/image19.png)
 
 **Rysunek 07**: Zawartość strony są teraz wyświetlane przy użyciu `Alternate.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-master-page-programmatically-vb/_static/image21.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 78fd0e92-f9c6-4e96-a5e9-0375b307a828
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ba9fdaaf655f6510d3ebf6ce0930fbf4000add3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a2e2cfbec3e5aebf42a2de30bab7d45b4b610298
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59388871"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109576"
 ---
 # <a name="data-source-controls"></a>Kontrolki źródła danych
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Formant DataGrid na platformie ASP.NET 1.x oznaczone doskonałe poprawę dostęp do danych w aplikacji sieci Web. Jednak to nie było jak przyjazna dla użytkownika jako mogło być. Wymaga ona nadal znaczną ilość kodu w celu uzyskania wiele przydatnych funkcji z niego. Przykład jest modelem w wszystkich przedsięwzięciach dostępu do danych w 1.x.
-
 
 Formant DataGrid na platformie ASP.NET 1.x oznaczone doskonałe poprawę dostęp do danych w aplikacji sieci Web. Jednak to nie było jak przyjazna dla użytkownika jako mogło być. Wymaga ona nadal znaczną ilość kodu w celu uzyskania wiele przydatnych funkcji z niego. Przykład jest modelem w wszystkich przedsięwzięciach dostępu do danych w 1.x.
 
@@ -30,7 +29,6 @@ Kontrolki źródła danych mają bez interfejsu użytkownika. Są implementowane
 
 > [!NOTE]
 > Jak zobaczysz później, są również buforowania korzyści można uzyskać za pomocą kontrolki źródła danych.
-
 
 ## <a name="storing-connection-strings"></a>Przechowywanie parametrów połączenia
 
@@ -42,7 +40,6 @@ Poniższy fragment kodu dodaje nowe parametry połączenia.
 
 > [!NOTE]
 > Podobnie jak &lt;appSettings&gt; sekcji &lt;connectionStrings&gt; poza pojawi się sekcja &lt;system.web&gt; sekcji w pliku konfiguracji.
-
 
 Aby użyć tych parametrów połączenia, można użyć następującej składni, podczas ustawiania atrybutu ConnectionString formant serwera.
 
@@ -81,7 +78,6 @@ Aby skorzystać z kontrolką SqlDataSource, możesz po prostu podać wartość d
 > [!NOTE]
 > Ponieważ klasa format źródła danych automatycznie zamyka połączenie dla Ciebie, jego powinno zmniejszyć liczbę wywołań klienta generowany przez wyciek połączenia z bazą danych.
 
-
 Poniższy fragment kodu wiąże formant DropDownList z kontrolką SqlDataSource przy użyciu parametrów połączenia, który jest przechowywany w pliku konfiguracji, jak pokazano powyżej.
 
 [!code-aspx[Main](data-source-controls/samples/sample3.aspx)]
@@ -90,7 +86,6 @@ Jak pokazano powyżej, właściwości DataSourceMode z kontrolką SqlDataSource 
 
 > [!NOTE]
 > Gdy buforowanie SqlDataSource lub AccessDataSource, właściwości DataSourceMode musi mieć wartość do zestawu danych. Wyjątek wystąpi po włączeniu buforowania elementu DataSourceMode DataReader.
-
 
 ## <a name="sqldatasource-properties"></a>Właściwości SqlDataSource
 
@@ -162,7 +157,6 @@ AccessDataSource będzie zawsze równa ProviderName z podstawowej SqlDataSource 
 
 > [!NOTE]
 > Dostęp do baz danych przechowywanych w ramach witryny sieci Web, należy umieścić w aplikacji\_katalog danych. Program ASP.NET nie zezwala na pliki w tym katalogu do przeglądania. Należy przyznać uprawnienia do odczytu i zapisu do aplikacji konto procesu\_katalog danych w przypadku korzystania z baz danych programu Access.
-
 
 ## <a name="the-xmldatasource-control"></a>Kontrolki elementu XmlDataSource
 

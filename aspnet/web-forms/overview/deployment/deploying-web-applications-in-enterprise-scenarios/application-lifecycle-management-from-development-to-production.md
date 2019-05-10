@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 3b7f154936222c85bd7897ea10cbb5ae9d1aa670
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 230cf4393db0ee19cfc42ed54359d61e7926a49d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408943"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65109288"
 ---
 # <a name="application-lifecycle-management-from-development-to-production"></a>Zarządzanie cyklem życia aplikacji: od projektowania do produkcji
 
@@ -27,7 +27,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > 
 > > [!NOTE]
 > > Dla uproszczenia w tym temacie nie omówiono w nim aktualizowanie bazy danych jako część procesu wdrażania. Wprowadzanie aktualizacji przyrostowych funkcje bazy danych jest wymagane wiele scenariuszy wdrażania w przedsiębiorstwie i wskazówki można znaleźć w sposób, w tym celu w dalszej części tej serii samouczków. Aby uzyskać więcej informacji, zobacz [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -94,7 +93,6 @@ Aby uruchomić wdrożenie, użytkownik wykonuje *Publish.proj* plików przy uży
 > Sposób, w jaki działają te pliki niestandardowego projektu jest niezależna od mechanizmu, którego używasz do wywoływania MSBuild. Na przykład, można użyć wiersza polecenia MSBuild bezpośrednio, zgodnie z opisem w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Możesz uruchamiać pliki projektu z pliku polecenia, zgodnie z opisem w [tworzenie i uruchamianie pliku poleceń wdrażania](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatywnie można uruchomić pliki projektu z definicji kompilacji w programie TFS, zgodnie z opisem w [tworząc definicję kompilacji tego wdrożenia obsługuje](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
 > W każdym przypadku efekt jest taki sam&#x2014;MSBuild wykonuje pliku scalonego projektu i wdraża rozwiązanie na środowisku docelowym. Zapewnia dużą elastyczność w jak wyzwolić proces publikowania.
 
-
 Gdy ma on utworzone pliki niestandardowego projektu, Matt dodaje je do folderu rozwiązania i ewidencjonuje je w kontroli źródła.
 
 ### <a name="create-build-definitions"></a>Utwórz definicje kompilacji
@@ -125,15 +123,12 @@ Wynik końcowy to, czy rozwiązanie pomyślnie skompilowana, przekazuje testów 
 
 **DeployToTest** tworzenia definicji dostarcza te argumenty MSBuild:
 
-
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample1.cmd)]
-
 
 **DeployOnBuild = true** i **DeployTarget = pakiet** właściwości są używane w przypadku kompilacji zespołowej kompilacji projektów w rozwiązaniu. Gdy projekt jest projektem aplikacji sieci web, te właściwości poinstruować program MSBuild, aby utworzyć pakiet wdrożeniowy sieci web dla projektu. **TargetEnvPropsFile** właściwość zawiera informacje dla *Publish.proj* gdzie można znaleźć pliku projektu specyficznymi dla środowiska, aby zaimportować plik.
 
 > [!NOTE]
 > Szczegółowy przewodnik na temat tworzenia definicji kompilacji, tak, zobacz [tworząc definicję kompilacji tego wdrożenia obsługuje](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
-
 
 *Publish.proj* plik zawiera elementy docelowe, które kompilują każdy projekt w rozwiązaniu. Jednak obejmuje również logikę warunkową, pomija te Kompiluj elementów docelowych, gdy wykonujesz pliku w programie Team Build. Dzięki temu można wykorzystać funkcje dodatkowe kompilacji, pozwalającą na tworzenie zespołu, takie jak możliwość uruchamiania testów jednostkowych. Jeśli kompilacja rozwiązania lub jednostki testy kończyć się niepowodzeniem, *Publish.proj* pliku nie zostaną wykonane, a aplikacja nie zostanie wdrożony.
 
@@ -164,9 +159,7 @@ Oto ogólny proces wdrażania w środowisku przejściowym:
 
 **DeployToStaging** tworzenia definicji dostarcza te argumenty MSBuild:
 
-
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample2.cmd)]
-
 
 **TargetEnvPropsFile** właściwość zawiera informacje dla *Publish.proj* gdzie można znaleźć pliku projektu specyficznymi dla środowiska, aby zaimportować plik. **OutputRoot** właściwości przesłonięcia wbudowanej wartości i wskazuje lokalizację folderu kompilacji, która zawiera zasoby, którą chcesz wdrożyć. Gdy Rob kolejkuje kompilację, używając **parametry** kartę, aby zapewnić zaktualizowaną wartość dla **OutputRoot** właściwości.
 
@@ -175,24 +168,19 @@ Oto ogólny proces wdrażania w środowisku przejściowym:
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia definicji kompilacji, tak, zobacz [wdrażanie określonej kompilacji](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md).
 
-
 **DeployToStaging-WhatIf** definicji kompilacji zawiera tę samą logikę wdrożenia jako **DeployToStaging** definicji kompilacji. Jednak zawiera dodatkowy argument **WhatIf = true**:
 
-
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
-
 
 W ramach *Publish.proj* pliku **WhatIf** właściwość wskazuje, że wszystkie zasoby dotyczące wdrażania powinny być publikowane w trybie "what if". Innymi słowy pliki dziennika są generowane, tak, jakby wyprzedzeniem zdecydowali wdrożenia, ale nic nie zostanie faktycznie zmienione w środowisku docelowym. Dzięki temu można ocenić wpływ proponowanej wdrożenia&#x2014;w szczególności, co będzie poproś o dodanie Cię, jakie zostaną zaktualizowani i jakie będą usuwane&#x2014;przed faktycznie wprowadzone zmiany.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat konfigurowania wdrożenia "what if", zobacz [wykonywania wdrożenia "What If"](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
 
-
 Po wdrożeniu aplikacji na podstawowym serwerze sieci web w środowisku przejściowym, WFF automatyczną synchronizację aplikacji na wszystkich serwerach w farmie serwerów.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat konfigurowania WFF do synchronizowania serwerów sieci web, zobacz [utworzyć farmę serwerów za pomocą rozwiązania Web Farm Framework](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md).
-
 
 ## <a name="deployment-to-production"></a>Wdrożenia w środowisku produkcyjnym
 

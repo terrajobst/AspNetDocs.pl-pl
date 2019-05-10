@@ -8,12 +8,12 @@ ms.date: 03/06/2007
 ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 251cd769672f1610ac7c51772882b0c166184372
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 962d1ff53b87577dd8f232f1bcb8fd01198a5a6d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397438"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108634"
 ---
 # <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>Wstawianie nowego rekordu w stopce kontrolki GridView (VB)
 
@@ -23,41 +23,33 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 > Gdy kontrolki GridView nie zapewnia wbudowaną obsługę do wstawiania nowego rekordu danych, w tym samouczku pokazano, jak rozszerzyć GridView obejmujący Wstawianie interfejsu.
 
-
 ## <a name="introduction"></a>Wprowadzenie
 
 Zgodnie z opisem w [Przegląd Wstawianie, aktualizowanie i usuwanie danych](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md) samouczek kontrolek każdego widoku GridView, DetailsView i FormView Web obejmują możliwości modyfikacji danych wbudowane. W przypadku użycia z kontrolki źródła danych deklaratywne, te trzy kontrolki sieci Web można szybko i łatwo skonfigurować do modyfikowania danych — i w scenariuszach bez konieczności pisania nawet wiersza kodu. Niestety tylko formanty DetailsView i FormView zawierają wbudowane wstawiania, edytowanie i usuwanie możliwości. Kontrolki GridView tylko ofert, edytowania i usuwania pomocy technicznej. Jednak nieco smarem kątowa, możemy rozszerzyć GridView obejmujący Wstawianie interfejsu.
 
 Dodanie możliwości wstawianie do kontrolki GridView, odpowiadamy przy wyborze rozwiązania, w jaki sposób nowe rekordy zostaną dodane, tworzenia interfejsu podano Wstawianie i pisanie kodu, aby wstawić nowy rekord. W tym samouczku przyjrzymy się dodanie interfejsu wstawianie w stopce kontrolki GridView s wierszy (patrz rysunek 1). Komórka stopki dla każdej kolumny zawiera odpowiednie dane kolekcji element interfejsu użytkownika (pole tekstowe nazwy produktu s, kontrolki DropDownList dla dostawcy i tak dalej). Potrzebujemy kolumny Dodaj przycisk, po kliknięciu zostanie powoduje odświeżenie strony i wstawić nowy rekord do `Products` tabeli, używając wartości podane w wierszu stopki.
 
-
 [![Wiersz stopki udostępnia interfejs do dodawania nowych produktów](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image1.png)
 
 **Rysunek 1**: Wiersz stopki udostępnia interfejs dla dodawania nowych produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.png))
-
 
 ## <a name="step-1-displaying-product-information-in-a-gridview"></a>Krok 1. Wyświetlanie informacji o produkcie w widoku GridView
 
 Zanim możemy określić główną przyczynę dotyczą tworzenia interfejsu wstawianie w stopce kontrolki GridView s, chętnie s pierwszy koncentracji uwagi na temat dodawania GridView do strony, która zawiera listę produktów w bazie danych. Zacznij od otwarcia `InsertThroughFooter.aspx` strony w `EnhancedGridView` folder i przeciągnij GridView z przybornika w projektancie, ustawienie GridView s `ID` właściwość `Products`. Następnie użyj tagu inteligentnego s GridView, aby powiązać nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSource`.
 
-
 [![Tworzenie nowego elementu ObjectDataSource, o nazwie ProductsDataSource](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image2.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.png)
 
 **Rysunek 2**: Utwórz nowy o nazwie elementu ObjectDataSource `ProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.png))
 
-
 Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy s `GetProducts()` metodę, aby pobrać informacje o produkcie. W tym samouczku pozwalają fokus s wyłącznie na dodawanie funkcji Wstawianie i nie martw się o edytowania i usuwania. Dlatego upewnij się, że listy rozwijanej na karcie Wstawianie jest ustawiona na `AddProduct()` i że list rozwijanych w karty aktualizacji i usuwania są ustawione na (Brak).
-
 
 [![Map, metoda AddProduct metody Insert() s ObjectDataSource](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image3.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.png)
 
 **Rysunek 3**: Mapa `AddProduct` metoda s ObjectDataSource `Insert()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.png))
 
-
 [![Ustawianie list rozwijanych aktualizacji i usuwania karty (Brak)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image4.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.png)
 
 **Rysunek 4**: Ustaw aktualizacji i usuwania listy rozwijane karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.png))
-
 
 Po zakończeniu pracy kreatora Konfigurowanie źródła danych s ObjectDataSource, Visual Studio spowoduje automatyczne dodanie pola do widoku GridView dla każdego odpowiedniego pola danych. Na razie pozostaw wszystkie pola, który został dodany przez program Visual Studio. Później w tym samouczku utworzymy możesz wrócić i usunąć niektóre pola, których wartości don t, muszą być określone, podczas dodawania nowego rekordu.
 
@@ -65,41 +57,32 @@ Ponieważ blisko 80 produktów w bazie danych, użytkownik będzie miał być pr
 
 W tym momencie kontrolkami GridView i kontrolki ObjectDataSource s oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
 
-
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample1.aspx)]
-
 
 [![Wszystkie pola danych produktu są wyświetlane w widoku GridView stronicowanej](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
 
 **Rysunek 5**: Wszystkie pola danych produktu są wyświetlane w widoku GridView stronicowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))
 
-
 ## <a name="step-2-adding-a-footer-row"></a>Krok 2. Dodanie wiersza stopki
 
 Wraz z jego nagłówka i wiersze danych widoku GridView zawiera wiersz stopki. Wiersze nagłówki i stopki są wyświetlane w zależności od wartości GridView s [ `ShowHeader` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showheader.aspx) i [ `ShowFooter` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showfooter.aspx) właściwości. Aby wyświetlić wiersz stopki, po prostu ustaw `ShowFooter` właściwość `True`. Tak jak pokazano w rysunek 6 ustawienie `ShowFooter` właściwość `True` dodaje wiersz stopki do siatki.
-
 
 [![Aby wyświetlić wiersz stopki, ustaw ShowFooter wartość True](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
 
 **Rysunek 6**: Aby wyświetlić wiersz stopki, należy ustawić `ShowFooter` do `True` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png))
 
-
 Należy pamiętać o tym, czy wiersz stopki ma kolor ciemnym tle czerwony. Jest to spowodowane motyw DataWebControls, możemy utworzyć i stosowane do wszystkich stron w [wyświetlanie danych za pomocą kontrolki ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) samouczka. W szczególności `GridView.skin` plik konfiguruje `FooterStyle` właściwość takich zastosowań `FooterStyle` klasę CSS. `FooterStyle` Klasa jest zdefiniowana w `Styles.css` w następujący sposób:
-
 
 [!code-css[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample2.css)]
 
 > [!NOTE]
 > Firma Microsoft ve przedstawione w poprzednich samouczkach przy użyciu wiersza stopce kontrolki GridView s. Jeśli to konieczne, odwołaj się do [wyświetlanie informacji podsumowania w stopce kontrolki GridView](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb.md) samouczków dla przypomnienia informacji.
 
-
 Po ustawieniu `ShowFooter` właściwości `True`, Poświęć chwilę, aby wyświetlić dane wyjściowe w przeglądarce. Obecnie t wiersz stopki zawierać tekst i formantów sieci Web. W kroku 3 zmodyfikujemy stopkę dla każdego pola GridView aby obejmowała odpowiedni interfejs Wstawianie.
-
 
 [![Wiersz pusty stopka jest wyświetlone powyżej stronicowania kontrolek interfejsu](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image7.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image13.png)
 
 **Rysunek 7**: Wiersz pusty stopka jest wyświetlone powyżej stronicowania kontrolek interfejsu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image14.png))
-
 
 ## <a name="step-3-customizing-the-footer-row"></a>Krok 3. Dostosowywanie wierszy stopki
 
@@ -107,14 +90,11 @@ Ponownie [za pomocą kontrolek TemplateField w kontrolce GridView](../custom-for
 
 Wraz z `ItemTemplate` i `EditItemTemplate`, obejmuje także TemplateField `FooterTemplate` określający zawartość wiersza stopki. W związku z tym, można dodać kontrolki sieci Web, potrzebne dla każdego pola s, wstawianie interfejsu do `FooterTemplate`. Aby rozpocząć, przekonwertować wszystkie pola w widoku GridView kontrolek TemplateField. Można to zrobić kliknięcie linku Edytowanie kolumn w kontrolce GridView s tagu inteligentnego, wybierając każdego pola w lewym dolnym rogu, a po kliknięciu łącza TemplateField Convert to pole.
 
-
 ![Każde pole należy konwertować TemplateField](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image8.gif)
 
 **Rysunek 8**: Każde pole należy konwertować TemplateField
 
-
 Kliknięcie przycisku Konwertuj tego pola do TemplateField włącza bieżącego typu pola w TemplateField równoważne. Na przykład każdego elementu BoundField zastępuje TemplateField z `ItemTemplate` zawierający etykietę, która wyświetla odpowiednie pole danych i `EditItemTemplate` wyświetlającą pola danych w polu tekstowym. `ProductName` Elementu BoundField został przekształcony w niej następujące znaczniki TemplateField:
-
 
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample3.aspx)]
 
@@ -122,18 +102,15 @@ Podobnie `Discontinued` CheckBoxField został przekształcony w TemplateField kt
 
 Ponieważ widoku GridView możemy ponownie Praca z edycji pomocy technicznej t możesz usunąć `EditItemTemplate` z każdego TemplateField, pozostawiając tylko `ItemTemplate`. Po wykonaniu tego, deklaratywne kontrolki GridView znaczników w s powinna wyglądać następująco:
 
-
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample4.aspx)]
 
 Teraz, że każde pole GridView został przekształcony w TemplateField, możemy wprowadzić odpowiedni interfejs wstawianie do każdego pola s `FooterTemplate`. Niektóre pola nie zostaną Wstawianie interfejsu (`ProductID`, na przykład); inne osoby będą się różnić w kontrolkach internetowych, używane do zbierania nowe informacje o produkcie s.
 
 Aby utworzyć interfejs edycji, wybierz łącze Edytuj szablony z tagu inteligentnego s GridView. Z listy rozwijanej, wybierz odpowiednie pole s `FooterTemplate` i przeciągnij odpowiednie kontrolki z przybornika do projektanta.
 
-
 [![Dodaj do każdego pola s FooterTemplate odpowiedni interfejs Wstawianie](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image15.png)
 
 **Rysunek 9**: Dodaj odpowiedni interfejs wstawiania do każdego pola s `FooterTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image16.png))
-
 
 Poniższej liście punktowanej wylicza pola GridView, określając Wstawianie interfejsu do dodania:
 
@@ -160,16 +137,13 @@ Możesz poprawić wygląd różnych pól GridView. Na przykład możesz chcieć 
 
 Po utworzeniu slew wstawiania interfejsy w `FooterTemplate` s, usuwając `SupplierID`, i `CategoryID` kontrolek TemplateField i poprawy wyglądu siatki za pomocą formatowania i wyrównywanie kontrolek TemplateField, Twoje deklaratywne s GridView Kod znaczników powinien wyglądać podobnie do następującego:
 
-
 [!code-aspx[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample5.aspx)]
 
 Po wyświetleniu za pośrednictwem przeglądarki, wiersz stopce kontrolki GridView s zawiera teraz gotowy Wstawianie interfejsu (zobacz rysunek 10). W tym momencie Wstawianie t interfejs obejmują oznacza, że dla użytkownika wskazać, że s nagrywa wprowadzić dane dla nowego produktu i chce, aby wstawić nowy rekord do bazy danych. Ponadto firma Microsoft ve jeszcze umożliwiającą, jak dane wprowadzone w stopce będzie przekłada się na nowy rekord w `Products` bazy danych. W kroku 4, omówimy sposób obejmują przycisk dodawania do interfejsu Wstawianie oraz wykonanie kodu na ogłaszanie zwrotne po jego kliknięciu s. Krok 5 przedstawia sposób wstawiania nowego rekordu przy użyciu danych z stopki.
 
-
 [![W stopce kontrolki GridView udostępnia interfejs dla dodawania nowego rekordu](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image17.png)
 
 **Na rysunku nr 10**: W stopce kontrolki GridView udostępnia interfejs dla dodawania nowego rekordu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image18.png))
-
 
 ## <a name="step-4-including-an-add-button-in-the-inserting-interface"></a>Krok 4. W tym przycisk dodawania w interfejsie Wstawianie
 
@@ -177,23 +151,18 @@ Musimy uwzględnić przycisk dodawania gdzieś w interfejsie Wstawianie poniewa�
 
 Przy użyciu projektanta, kliknij link Edytuj szablony w tagu inteligentnego s GridView, a następnie wybierz `ProductID` s pola `FooterTemplate` z listy rozwijanej. Dodawanie kontrolki przycisku w sieci Web (lub element LinkButton lub ImageButton, jeśli użytkownik sobie tego życzy) do szablonu, ustawiając jej identyfikator na `AddProduct`, jego `CommandName` do wstawiania, a jego `Text` właściwość do dodania, jak pokazano na ilustracji 11.
 
-
 [![Umieść przycisk Dodaj w FooterTemplate s ProductID TemplateField](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image19.png)
 
 **Rysunek 11**: Dodaj przycisk w miejscu `ProductID` TemplateField s `FooterTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image20.png))
 
-
 Po był dołączony przycisk Dodaj, należy przetestować stronę w przeglądarce. Należy pamiętać, że po kliknięciu przycisku Dodaj przy użyciu nieprawidłowych danych w interfejsie Wstawianie zwrotu jest krótko circuited i kontrolki podsumowania walidacji wskazuje nieprawidłowe dane (zobacz rysunek 12). Wprowadzić odpowiednie dane klikając przycisk Dodaj powoduje odświeżenie strony. Brak rekordu jest dodawany do bazy danych, jednak. Firma Microsoft będzie konieczne napisanie ilość kodu, aby faktycznie wykonać insert.
-
 
 [![S Dodaj przycisk odświeżania wynosi krótki Circuited nieprawidłowe dane w interfejsie wstawiania](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image21.png)
 
 **Rysunek 12**: Dodaj przycisk s zwrotu wynosi Circuited krótki nieprawidłowe dane w interfejsie wstawiania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image22.png))
 
-
 > [!NOTE]
 > Formanty sprawdzania poprawności w interfejsie Wstawianie nie zostały przypisane do grupy sprawdzania poprawności. Działa to prawidłowo, tak długo, jak wstawianie interfejs jest ustawione tylko sprawdzania poprawności formantów na stronie. Jeśli istnieją inne formanty sprawdzania poprawności na stronie (na przykład formanty sprawdzania poprawności w interfejsie edycji siatki s), formanty sprawdzania poprawności w Wstawianie interfejs i dodać przycisk s `ValidationGroup` właściwości powinien być przypisany do tej samej wartości tak, aby Te kontrolki należy skojarzyć z grupą określonego sprawdzania poprawności. Zobacz [analiza formanty sprawdzania poprawności w programie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx) więcej informacji na temat partycjonowania formanty sprawdzania poprawności i przyciski na stronie do sprawdzania poprawności grupy.
-
 
 ## <a name="step-5-inserting-a-new-record-into-theproductstable"></a>Krok 5. Wstawianie nowego rekordu w`Products`tabeli
 
@@ -203,20 +172,16 @@ Tę logikę wstawiania powinien być wykonywany po kliknięciu przycisku Dodaj. 
 
 W związku z tym, aby odpowiedzieć użytkownik, kliknij przycisk Dodaj, musimy utworzyć program obsługi zdarzeń dla GridView s `RowCommand` zdarzeń. Ponieważ to zdarzenie jest generowane każdorazowo *wszelkie* po kliknięciu przycisku, element LinkButton lub ImageButton w widoku GridView go s istotne, że będziemy kontynuować, tylko z logiką wstawianie `CommandName` właściwość przekazany do mapowania programu obsługi zdarzeń do `CommandName` wartość przycisk Dodaj (Wstaw). Ponadto możemy również Kontynuuj tylko wtedy, jeśli prawidłowe dane zgłasza, formanty sprawdzania poprawności. Aby to umożliwić, należy utworzyć program obsługi zdarzeń dla `RowCommand` zdarzeń z następującym kodem:
 
-
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample6.vb)]
 
 > [!NOTE]
 > Możesz się zastanawiać, dlaczego program obsługi zdarzeń bothers sprawdzanie `Page.IsValid` właściwości. Przecież nie będzie zwrotu pomijane, jeśli podano nieprawidłowe dane w interfejsie Wstawianie? To założenie jest poprawna, dopóki użytkownik nie wyłączył JavaScript lub podjęte kroki w celu obejścia logiki weryfikacji po stronie klienta. Krótko mówiąc jeden nigdy nie będą miały ściśle weryfikacji po stronie klienta; sprawdzenia poprawności po stronie serwera powinny być zawsze realizowane przed rozpoczęciem pracy z danymi.
 
-
 W kroku 1 utworzyliśmy `ProductsDataSource` ObjectDataSource taki sposób, że jego `Insert()` metody jest mapowany na `ProductsBLL` klasy s `AddProduct` metody. Aby wstawić nowy rekord do `Products` tabeli, można po prostu wywołać ObjectDataSource s `Insert()` metody:
-
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample7.vb)]
 
 Teraz, gdy `Insert()` wywołaniu metody, wszystkie opcje, które pozostaje tylko skopiuj wartości z interfejsu Wstawianie parametry przekazywane do `ProductsBLL` klasy s `AddProduct` metody. Jak widzieliśmy w [badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) samouczków, można to zrobić za pośrednictwem ObjectDataSource s `Inserting` zdarzeń. W `Inserting` zdarzeń, musimy programowo odwołują się do formantów z `Products` stopki s GridView wiersza, a ich wartości, aby przypisać `e.InputParameters` kolekcji. Jeśli użytkownik pomija wartością, taką jak opuszczania `ReorderLevel` puste pole tekstowe, należy określić wartość wstawione do bazy danych należy `NULL`. Ponieważ `AddProducts` metoda przyjmuje typy dopuszczające wartości null dla pól bazy danych dopuszcza wartości null, po prostu użyć typu dopuszczającego wartość null i ustawić jej wartość na `Nothing` w przypadku, gdy dane wejściowe użytkownika zostanie pominięty.
-
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample8.vb)]
 
@@ -228,11 +193,9 @@ Obecnie w kliknij przycisk Dodaj dodaje nowy rekord do tabeli bazy danych, ale n
 
 GridView używane w tym samouczku nie dotyczą żadnych kolejność sortowania listy produktów, ani nie zezwala użytkownikowi końcowemu sortowania danych. W rezultacie rekordy są uporządkowane jako znajdują się w bazie danych przez ich klucz podstawowy. Ponieważ każdy nowy rekord ma `ProductID` wartość większą niż ostatni z nich, za każdym razem, gdy nowy produkt jest dodawana go jest kumulowany końcu siatki. W związku z tym można automatycznie wysłać użytkownika do ostatniej strony widoku GridView po dodaniu nowego rekordu. Można to osiągnąć, dodając następujący wiersz kodu po wywołaniu `ProductsDataSource.Insert()` w `RowCommand` programu obsługi zdarzeń, aby wskazać, że użytkownik potrzebuje do wysłania do ostatniej strony po powiązaniu danych z widoku GridView:
 
-
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample9.vb)]
 
 `SendUserToLastPage` jest na poziomie strony zmiennej typu Boolean, która jest początkowo przypisana wartość `False`. W tym s GridView `DataBound` procedura obsługi zdarzeń, jeśli `SendUserToLastPage` ma wartość FAŁSZ, `PageIndex` właściwość zostanie zaktualizowany i będzie wysłać użytkownika do ostatniej strony.
-
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample10.vb)]
 

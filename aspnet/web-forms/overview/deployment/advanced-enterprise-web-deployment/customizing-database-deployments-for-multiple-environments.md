@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: a172979a-1318-4318-a9c6-4f9560d26267
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 865e901618b48bc4bfdc6d7a3ca4e8868d4cb46b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8ae8cb1a322afb95c5d2e8d5e73c7825c7b2fe5a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412986"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108303"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>Dostosowywanie wdrożeń bazy danych dla wielu środowisk
 
@@ -30,7 +30,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > Podczas wdrażania projektu bazy danych do wielu miejsc docelowych, często warto dostosować właściwości wdrożenia bazy danych dla każdego środowiska docelowego. Na przykład w środowiskach testowych będzie najczęściej ponownego tworzenia bazy danych przy każdym wdrożeniu w środowiskach przejściowych lub produkcyjnych może być znacznie częściej wprowadzić aktualizacje przyrostowe, aby zachować swoje dane.
 > 
 > W projekcie bazy danych programu Visual Studio 2010 ustawienia wdrożenia są zawarte w pliku konfiguracji (.sqldeployment) wdrożenia. W tym temacie pokazano sposób tworzenia plików konfiguracyjnych specyficznych dla środowiska wdrażania i określ ten, którego chcesz użyć jako parametru VSDBCMD.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -76,11 +75,9 @@ W poniższej tabeli przedstawiono typowe wdrożenie ustawienia w środowiskach r
 | **Tworzenie kopii zapasowej bazy danych przed przystąpieniem do wdrożenia** | False | Być może | Prawda |
 | **Generuj instrukcje usuwania obiektów, które znajdują się w docelowej bazie danych, ale nie są w projekcie bazy danych** | False | Prawda | Prawda |
 | **Nie używaj instrukcji ALTER ASSEMBLY można zaktualizować typów CLR** | False | False | False |
-  
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat właściwości wdrożenia bazy danych i zagadnienia dotyczące środowiska, zobacz [przegląd z ustawienia projektu bazy danych](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [jak: Konfigurowanie właściwości szczegóły wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx), [tworzenia i wdrażania bazy danych do środowiska izolowanego rozwoju](https://msdn.microsoft.com/library/dd193409.aspx), i [tworzenia i wdrażania baz danych w tymczasowym lub produkcyjnym środowisku](https://msdn.microsoft.com/library/dd193413.aspx).
-
 
 Aby zapewnić obsługę wdrażania projektu bazy danych do wielu miejsc docelowych, należy utworzyć plik konfiguracji wdrożenia dla każdego środowiska docelowego.
 
@@ -104,13 +101,10 @@ Gdy używasz konfiguracje rozwiązania (na przykład Debug i Release) w programi
 
 Aby określić plik konfiguracji wdrożenia w Twojej VSDBCMD, użyj **p:/DeploymentConfigurationFile** Przełącz i podaj pełną ścieżkę do pliku. Spowoduje to zastąpienie pliku konfiguracji wdrożenia, który identyfikuje manifestu wdrażania. Na przykład można użyć tego polecenia VSDBCMD wdrażania **ContactManager** bazy danych do środowiska testowego:
 
-
 [!code-console[Main](customizing-database-deployments-for-multiple-environments/samples/sample1.cmd)]
-
 
 > [!NOTE]
 > Należy zauważyć, że proces kompilacji może Zmień nazwę pliku .sqldeployment podczas kopiowania pliku do katalogu wyjściowego.
-
 
 Użycie zmiennych poleceń SQL w skrypty SQL przed wdrożeniem lub po wdrożeniu, można użyć podejście podobne do skojarzenia z plikiem .sqlcmdvars specyficznymi dla środowiska z wdrożeniem. W tym przypadku używasz **p:/SqlCommandVariablesFile** przełącznik, aby zidentyfikować .sqlcmdvars pliku.
 
@@ -118,9 +112,7 @@ Użycie zmiennych poleceń SQL w skrypty SQL przed wdrożeniem lub po wdrożeniu
 
 Możesz wywołać polecenie VSDBCMD w pliku projektu MSBuild przy użyciu **Exec** zadanie w ramach obiekt docelowy programu MSBuild. W najprostszej postaci wyglądała następująco:
 
-
 [!code-xml[Main](customizing-database-deployments-for-multiple-environments/samples/sample2.xml)]
-
 
 - W praktyce aby ułatwić odczytywanie i ponownego użycia, plików projektu należy utworzyć właściwości do przechowywania różnych parametrów wiersza polecenia. Ułatwia użytkownikom podawanie wartości właściwości w pliku projektu specyficznymi dla środowiska lub zastąpić wartości domyślne w wierszu polecenia programu MSBuild. Jeśli używasz podziału podejście pliku projektu, opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), należy rozdzielać właściwości między dwoma plikami i instrukcje kompilacji, na których odpowiednio:
 - Ustawienia specyficzne dla środowiska, takie jak nazwa pliku konfiguracji wdrożenia, parametry połączenia bazy danych i nazwa docelowej bazy danych powinny przejść w pliku projektu specyficznego dla danego środowiska.

@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fe6097c32e4584fd4c577fb8d2afee9b3483c22f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b9488a294de8f23ecd2b22812d728a5904a8ef18
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418420"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65106894"
 ---
 # <a name="configuring-a-website-that-uses-application-services-c"></a>Konfigurowanie witryny internetowej, która korzysta z usług aplikacji (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_09_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial09_AppServicesConfig_cs.pdf)
 
 > Verze technologie ASP.NET 2.0 wprowadzono szereg usług aplikacji, które są częścią programu .NET Framework i służyć jako zestaw usług bloków konstrukcyjnych, których można użyć, aby dodać zaawansowane funkcje do aplikacji sieci web. W tym samouczku przedstawiono sposób konfigurowania witryny sieci Web w środowisku produkcyjnym w celu korzystania z usług aplikacji i opisano często występujące problemy z zarządzaniem kont użytkowników i ról w środowisku produkcyjnym.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -34,7 +33,6 @@ Verze technologie ASP.NET 2.0 wprowadzono szereg *usługi aplikacji*, które są
 - **Mapa witryny** — interfejs API do definiowania struktury logicznej lokacji s w postaci hierarchii, które można wyświetlić za pomocą kontrolki, takie jak menu i linki do stron nadrzędnych.
 - **Personalizacja** — interfejs API na potrzeby utrzymywania preferencje, najczęściej używana z [ *składników Web Part*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Monitorowanie kondycji** — interfejs API do monitorowania wydajności, bezpieczeństwa, błędy i inne metryki kondycji systemu dla działającej aplikacji sieci web.
-  
 
 Usługi aplikacji interfejsów API nie są związane z konkretnej implementacji. Zamiast tego należy wydać polecenie usługi aplikacji, aby użyć określonego *dostawcy*, i że dostawcy implementuje usługę za pomocą określonej technologii. Dostawcy najczęściej używanych internetowych aplikacji sieci web hostowanych w sieci web firma zapewniająca hosting są dostawców korzystających z implementacją bazy danych programu SQL Server. Na przykład `SqlMembershipProvider` jest dostawcą członkostwa interfejsu API, która przechowuje informacje o koncie użytkownika w bazie danych programu Microsoft SQL Server.
 
@@ -42,7 +40,6 @@ Przy użyciu usług aplikacji i programu SQL Server dostawców dodaje niektóre 
 
 > [!NOTE]
 > Usługi aplikacji, interfejsy API zostały zaprojektowane, za pomocą [ *modelu dostawca*](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), szablon projektu, który umożliwia interfejsu API s szczegóły implementacji, które mają być dostarczane w czasie wykonywania. .NET Framework, który jest dostarczany z wielu dostawców usług aplikacji, które mogą być używane, takich jak `SqlMembershipProvider` i `SqlRoleProvider`dostawców o członkostwo, które są i interfejsów API ról, które używają programu SQL Server, bazy danych wdrożenia. Można również tworzyć i wtyczka niestandardowego dostawcy. W rzeczywistości, przeglądy książki aplikacji sieci web już zawiera niestandardowego dostawcy dla interfejsu API mapy witryny (`ReviewSiteMapProvider`), który tworzy mapy witryny z danych w `Genres` i `Books` tabele w bazie danych.
-
 
 Ten samouczek rozpoczyna się od przyjrzeć się jak mogę rozszerzyć przeglądy książki aplikacji sieci web, członkostwo i role interfejsów API. Następnie przeprowadzi wdrażanie aplikacji sieci web, korzysta z usług aplikacji z implementacją bazy danych programu SQL Server, która stwierdza, odnoszący się typowe problemy związane z zarządzaniem kont użytkowników i rolami w środowisku produkcyjnym.
 
@@ -53,7 +50,6 @@ W ciągu ostatnich kilku samouczków, z którymi aplikacji sieci web przeglądy 
 > [!NOTE]
 > Czy mogę ve utworzyć trzy konta użytkowników w aplikacji sieci web książki przeglądów: Scott Jisun i Alicji. Wszystkie trzy użytkownicy mają tego samego hasła: **hasło!** Scott i Jisun znajdują się w roli administratora, Alicja nie znajduje się. Strony inne niż administracyjne s witryny są nadal dostępne dla użytkowników anonimowych. Oznacza to, że nie trzeba zalogować się do witryny, chyba że chcesz administrować, w którym to przypadku musisz zarejestrować się jako użytkownik w roli administratora.
 
-
 Przeglądy książki s stronie wzorcowej aplikacji został zaktualizowany do uwzględnienia interfejsu użytkownika różnych użytkowników uwierzytelnionych i anonimowych. Jeśli użytkownik anonimowy odwiedza witryny zauważenia łącze Zaloguj się w prawym górnym rogu. Uwierzytelniony użytkownik zobaczy następujący komunikat, "Witaj ponownie, *username*!" a także łącze do wylogowania. Tam s również strony logowania (`~/Login.aspx`), który zawiera formant logowanie w sieci Web, który zapewnia interfejs użytkownika i logikę w celu uwierzytelniania obiekt odwiedzający. Tylko administratorzy mogą tworzyć nowych kont. (Brak stron do tworzenia i zarządzania kontami użytkowników w `~/Admin` folderu.)
 
 ### <a name="configuring-the-membership-and-roles-apis"></a>Konfigurowanie członkostwa i ról interfejsów API
@@ -62,7 +58,6 @@ Przeglądy książki aplikacji sieci web używa członkostwa i ról interfejsów
 
 > [!NOTE]
 > Ten samouczek nie jest przeznaczony do szczegółowej analizy na konfigurowanie aplikacji sieci web do obsługi członkostwa i ról interfejsów API. Dokładne przyjrzeć się te interfejsy API i kroki należy wykonać w celu skonfigurowania witryny sieci Web z nich korzystać, należy przeczytać Moje [ *samouczki dotyczące zabezpieczeń witryny sieci Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
-
 
 Aby korzystać z usług aplikacji z bazą danych programu SQL Server, należy najpierw dodać obiekty bazy danych używane przez tych dostawców w bazie danych, którego konto użytkownika i przechowywane informacje o rolach. Te obiekty wymagania bazy danych obejmują szereg tabel, widoków i procedur składowanych. Chyba że określono inaczej, `SqlMembershipProvider` i `SqlRoleProvider` klasy dostawców używają bazy danych programu SQL Server Express Edition, o nazwie `ASPNETDB` s aplikacji na terenie `App_Data` folderu; Jeśli baza danych nie istnieje, jest ona tworzona automatycznie z wymaganych obiektów bazy danych przez tych dostawców, w czasie wykonywania.
 
@@ -73,7 +68,6 @@ Jeśli dodasz usługami obiekty bazy danych do bazy danych innej niż `ASPNETDB`
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample1.xml)]
 
 `Web.config` Pliku s `<authentication>` element także został skonfigurowany do obsługi uwierzytelniania opartego na formularzach.
-  
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample2.xml)]
 
@@ -100,43 +94,34 @@ ASP.NET, który jest dostarczany z nieuprzywilejowany [ *narzędzie Administracj
 > [!NOTE]
 > `aspnet_regsql.exe` Narzędzie tworzy obiekty baz danych w określonej bazie danych. Nie są migrowane dane w tych obiektach bazy danych z bazy danych rozwoju w produkcyjnej bazie danych. Jeśli chcesz skopiować informacji o kontach i roli użytkownika w bazie danych rozwoju w produkcyjnej bazie danych Użyj technik omówione w *wdrażania bazy danych* samouczka.
 
-
 Pozwól s, zobacz, jak dodać obiekty z bazy danych do bazy danych produkcyjnych przy użyciu `aspnet_regsql.exe` narzędzia. Uruchom po otwarciu Eksploratora Windows i przejdź do katalogu .NET Framework w wersji 2.0 na komputerze %WINDIR%\ Microsoft.NET\Framework\v2.0.50727. Możesz znaleźć `aspnet_regsql.exe` narzędzia. To narzędzie może służyć z wiersza polecenia, ale obejmuje także graficzny interfejs użytkownika; Kliknij dwukrotnie `aspnet_regsql.exe` plików, które można uruchomić jej składowe graficznego.
 
 Uruchamia narzędzie, wyświetlając ekran powitalny wyjaśniające, jego przeznaczenie. Kliknij obok Zaawansowane na ekranie "Wybieranie opcji konfiguracji", który jest pokazany na rysunku 1. W tym miejscu można dodać usługi aplikacji obiektów bazy danych lub usunięcie ich z bazy danych. Ponieważ chcemy dodać te obiekty do produkcyjnej bazy danych, wybierz opcję "Configure SQL Server dla usług aplikacji", a następnie kliknij przycisk Dalej.
 
-
 [![Wybierz opcję konfigurowania programu SQL Server dla usług aplikacji](configuring-a-website-that-uses-application-services-cs/_static/image2.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image1.jpg)
 
 **Rysunek 1**: Możliwość konfigurowania programu SQL Server dla usług aplikacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-cs/_static/image3.jpg))
-
 
 W "Wybierz serwer i baza danych" ekranu monituje o podanie informacji do łączenia z bazą danych. Wprowadź serwera bazy danych, poświadczenia zabezpieczeń i nazwa bazy danych, udostępniane przez firmy hostingu w sieci web, a następnie kliknij przycisk Dalej.
 
 > [!NOTE]
 > Po wprowadzeniu serwera bazy danych i poświadczeń może wystąpi błąd podczas rozwijania listy rozwijanej bazy danych. `aspnet_regsql.exe` Narzędzia zapytań `sysdatabases` tabeli systemowej można pobrać listy baz danych na serwerze, ale niektóre hostingu firmy blokowanie ich serwerów baz danych, aby te informacje nie są publicznie dostępne w sieci web. Jeśli ten błąd można wpisać nazwę bazy danych bezpośrednio na liście rozwijanej.
 
-
 [![Podaj narzędzia z informacjami o połączeniu s bazy danych](configuring-a-website-that-uses-application-services-cs/_static/image5.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image4.jpg)
 
 **Rysunek 2**: Podaj s Narzędzie za pomocą usługi bazy danych informacji o połączeniu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-cs/_static/image6.jpg))
 
-
 Kolejne ekranu zawiera podsumowanie działań, które mają zostać wykonane, a mianowicie który obiekty bazy danych usług aplikacji ma zostać dodany do określonej bazy danych. Kliknij przycisk Dalej, aby ukończyć tę akcję. Po kilku chwilach ekran końcowy jest wyświetlany, biorąc pod uwagę, że obiekty bazy danych zostały dodane (zobacz rysunek 3).
-
 
 [![SUKCES! Obiekty bazy danych usług aplikacji zostały dodane do produkcyjnej bazy danych](configuring-a-website-that-uses-application-services-cs/_static/image8.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image7.jpg)
 
 **Rysunek 3**: SUKCES! Aplikacja usługi bazy danych obiekty zostały dodane do produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-cs/_static/image9.jpg))
 
-
 Aby sprawdzić, czy obiekty bazy danych usług aplikacji zostały pomyślnie dodane do produkcyjnej bazy danych, Otwórz program SQL Server Management Studio i połączyć do produkcyjnej bazy danych. Jak pokazano na rysunku 4, powinien zostać wyświetlony tabel bazy danych usług aplikacji w bazie danych, `aspnet_Applications`, `aspnet_Membership`, `aspnet_Users`, i tak dalej.
-
 
 [![Upewnij się, że obiekty bazy danych zostały dodane do produkcyjnej bazy danych](configuring-a-website-that-uses-application-services-cs/_static/image11.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image10.jpg)
 
 **Rysunek 4**: Upewnij się, że obiekty bazy danych zostały dodane do produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-cs/_static/image12.jpg))
-
 
 Tylko wtedy należy użyć `aspnet_regsql.exe` narzędzia podczas wdrażania aplikacji sieci web po raz pierwszy lub po raz pierwszy po uruchomieniu przy użyciu usług aplikacji. Gdy te obiekty bazy danych znajdują się w produkcyjnej bazy danych, które nie muszą być ponownie dodane lub zmodyfikowane.
 
@@ -152,7 +137,6 @@ Ale co się stanie, jeśli `applicationName` atrybut nie jest określony w `Web.
 
 > [!NOTE]
 > Jeśli okaże się, w takiej sytuacji — z kontami użytkowników skopiowane do środowiska produkcyjnego niezgodny `ApplicationId` wartość — można napisać zapytanie, aby zaktualizować te nieprawidłowe `ApplicationId` wartości `ApplicationId` używane w środowisku produkcyjnym. Po zaktualizowaniu użytkowników, których konta zostały utworzone w środowisku programistycznym będą teraz mogli logować się do aplikacji sieci web w środowisku produkcyjnym.
-
 
 Dobra wiadomość jest prostym kroku może podjąć w celu zapewnienia, że dwóch środowisk używać tego samego `ApplicationId` — jawnie ustaw `applicationName` atrybutu w `Web.config` dla wszystkich dostawców usług w Twojej aplikacji. Jawnie ustawić `applicationName` atrybutu "BookReviews" w `<membership>` i `<roleManager>` elementy jako ten fragment kodu z `Web.config` pokazuje.
 
@@ -171,11 +155,9 @@ Pamiętaj, że wcześniej samouczek zaktualizowane książki przeglądy aplikacj
 > [!NOTE]
 > Aby więcej informacji na temat przy użyciu członkostwa i ról interfejsów API do formantów sieci Web platformy ASP.NET skojarzone z logowaniem, pamiętaj o przeczytaniu Moje [ *samouczki dotyczące zabezpieczeń witryny sieci Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md). Aby uzyskać więcej informacji na dostosowywanie formantu CreateUserWizard, zobacz [ *tworzenie kont użytkowników* ](../../older-versions-security/membership/creating-user-accounts-cs.md) i [ *przechowywanie dodatkowych informacji użytkownika* ](../../older-versions-security/membership/storing-additional-user-information-cs.md) samouczków lub wyewidencjonowanie [ *Erich Peterson* ](http://www.erichpeterson.com/) artykułu s [ *Dostosowywanie formantu CreateUserWizard* ](http://aspnet.4guysfromrolla.com/articles/070506-1.aspx).
 
-
 [![Administratorzy mogą tworzyć nowych kont użytkowników](configuring-a-website-that-uses-application-services-cs/_static/image14.jpg)](configuring-a-website-that-uses-application-services-cs/_static/image13.jpg)
 
 **Rysunek 5**: Administratorzy mogą tworzyć nowych kont użytkowników ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-a-website-that-uses-application-services-cs/_static/image15.jpg))
-
 
 Jeśli potrzebujesz pełnej funkcjonalności WSAT wyewidencjonowanie [ *stopniowe Twojej własnej witryny sieci Web narzędzie administracyjne*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx), w których autor Dan Clem przedstawiono proces tworzenia niestandardowego narzędzia WSAT podobne. DaN udostępnia jego kod źródłowy aplikacji s (w języku C#) i zawiera szczegółowe instrukcje dotyczące dodawania go do witryny sieci Web hostowanej.
 

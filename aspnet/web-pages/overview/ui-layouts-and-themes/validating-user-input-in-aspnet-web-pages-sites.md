@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: fd3ba36891aa66f78c28c538a4d3ba0da6736765
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e6f8e1051d09d11f1756bfada44a73ba7c2a1db2
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59392992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65108595"
 ---
 # <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Sprawdzanie poprawności danych wejściowych użytkownika w witrynach ASP.NET Web Pages (Razor)
 
@@ -42,7 +42,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
 
-
 Ten artykuł zawiera następujące sekcje:
 
 - [Omówienie sprawdzania poprawności danych wejściowych użytkownika](#Overview_of_User_Input_Validation)
@@ -65,7 +64,6 @@ Można również zainstalować pewne ograniczenia na podstawie wartości. Nawet 
 > [!NOTE] 
 > 
 > **Ważne** sprawdzanie poprawności danych wejściowych użytkownika jest również ważne dla bezpieczeństwa. Ograniczenie wartości, które użytkownicy mogą wprowadzać w formularzach, można zmniejszyć prawdopodobieństwo, że ktoś wprowadź wartość, która może naruszyć bezpieczeństwo witryny sieci.
-
 
 <a id="Validating_User_Input"></a>
 ## <a name="validating-user-input"></a>Walidacja danych wejściowych użytkownika
@@ -114,7 +112,6 @@ Możesz dodać obsługę przeprowadzania weryfikacji w skrypt po stronie klienta
 > [!NOTE]
 > Nawet w przypadku używania weryfikacji po stronie klienta jest zawsze również przeprowadzana Walidacja w kodzie serwera. Wykonywanie sprawdzania poprawności w kodzie serwera jest miarą zabezpieczeń, w przypadku, gdy użytkownicy pominąć weryfikacji opartą na kliencie.
 
-
 1. Zarejestruj następujące biblioteki JavaScript na stronie:  
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
@@ -159,7 +156,6 @@ Jeśli dodasz tego bloku stylu w przykładzie strony z we wcześniejszej częśc
 > [!NOTE]
 > Jeśli nie używasz Sprawdzanie poprawności klienta w programie ASP.NET Web Pages 2, arkusze CSS klasy dla `<input>` elementów (`input-validation-error` i `input-validation-valid` nie ma żadnego efektu.
 
-
 ### <a name="static-and-dynamic-error-display"></a>Wyświetlanie błędów statycznych i dynamicznych
 
 Reguły CSS są dostępne w parach, takich jak `validation-summary-errors` i `validation-summary-valid`. Te pary pozwalają zdefiniować zasady dla obu warunków: warunek błędu i warunek "normal" (bez błędów). Jest ważne dowiedzieć się, że zawsze renderowania kodu znaczników dla wyświetlania błędów, nawet, jeśli nie ma żadnych błędów. Na przykład, jeśli strona ma `Html.ValidationSummary` metody w znaczniku, źródło strony będzie zawierać następujące znaczniki nawet wtedy, gdy strona jest wykonywana po raz pierwszy:
@@ -182,7 +178,6 @@ W tym przypadku chcesz upewnij się, że wartość, która jest przekazywana do 
 > [!NOTE] 
 > 
 > **Ważne** zawsze sprawdzają poprawność wartości, które można uzyskać z *wszelkie* źródła, takiego jak wartości pola formularza, wartości ciągu zapytania i wartości pliku cookie. To proste, użytkownicy będą mogli zmieniać te wartości (np. do złośliwych celów). Dlatego należy sprawdzić te wartości w celu ochrony aplikacji.
-
 
 Poniższy przykład pokazuje, jak może zweryfikować wartości, który jest przekazywany w ciągu zapytania. Kod sprawdza, czy wartość nie jest pusty i że jest liczbą całkowitą.
 
