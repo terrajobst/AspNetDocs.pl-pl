@@ -8,75 +8,73 @@ ms.date: 06/02/2008
 ms.assetid: c120187e-963e-4439-bb85-32771bc7f1f4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c55bbeb383b15f4dc9cb95d25905cade1e8c5c29
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: edc80db42c7b1adf25214e1d6ae6d8a938a4be12
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418901"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130764"
 ---
-# <a name="adding-animation-to-a-control-vb"></a><span data-ttu-id="1c5f0-104">Dodawanie animacji do kontrolki (VB)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-104">Adding Animation to a Control (VB)</span></span>
+# <a name="adding-animation-to-a-control-vb"></a><span data-ttu-id="ab14c-104">Dodawanie animacji do kontrolki (VB)</span><span class="sxs-lookup"><span data-stu-id="ab14c-104">Adding Animation to a Control (VB)</span></span>
 
-<span data-ttu-id="1c5f0-105">przez [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="ab14c-105">przez [Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="ab14c-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="1c5f0-106">[Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span></span>
+<span data-ttu-id="ab14c-106">[Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="ab14c-106">[Download Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation1.vb.zip) or [Download PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation1VB.pdf)</span></span>
 
-> <span data-ttu-id="1c5f0-107">Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="1c5f0-108">W tym samouczku pokazano, jak skonfigurować takie animacji.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-108">This tutorial shows how to set up such an animation.</span></span>
+> <span data-ttu-id="ab14c-107">Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki.</span><span class="sxs-lookup"><span data-stu-id="ab14c-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="ab14c-108">W tym samouczku pokazano, jak skonfigurować takie animacji.</span><span class="sxs-lookup"><span data-stu-id="ab14c-108">This tutorial shows how to set up such an animation.</span></span>
 
+## <a name="overview"></a><span data-ttu-id="ab14c-109">Omówienie</span><span class="sxs-lookup"><span data-stu-id="ab14c-109">Overview</span></span>
 
-## <a name="overview"></a><span data-ttu-id="1c5f0-109">Omówienie</span><span class="sxs-lookup"><span data-stu-id="1c5f0-109">Overview</span></span>
+<span data-ttu-id="ab14c-110">Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki.</span><span class="sxs-lookup"><span data-stu-id="ab14c-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="ab14c-111">W tym samouczku pokazano, jak skonfigurować takie animacji.</span><span class="sxs-lookup"><span data-stu-id="ab14c-111">This tutorial shows how to set up such an animation.</span></span>
 
-<span data-ttu-id="1c5f0-110">Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="1c5f0-111">W tym samouczku pokazano, jak skonfigurować takie animacji.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-111">This tutorial shows how to set up such an animation.</span></span>
+## <a name="steps"></a><span data-ttu-id="ab14c-112">Kroki</span><span class="sxs-lookup"><span data-stu-id="ab14c-112">Steps</span></span>
 
-## <a name="steps"></a><span data-ttu-id="1c5f0-112">Kroki</span><span class="sxs-lookup"><span data-stu-id="1c5f0-112">Steps</span></span>
-
-<span data-ttu-id="1c5f0-113">Pierwszym krokiem jest jak zwykle obejmują `ScriptManager` na stronie, aby biblioteka ASP.NET AJAX jest ładowany i można go używać razem sterowania:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-113">The first step is as usual to include the `ScriptManager` in the page so that the ASP.NET AJAX library is loaded and the Control Toolkit can be used:</span></span>
+<span data-ttu-id="ab14c-113">Pierwszym krokiem jest jak zwykle obejmują `ScriptManager` na stronie, aby biblioteka ASP.NET AJAX jest ładowany i można go używać razem sterowania:</span><span class="sxs-lookup"><span data-stu-id="ab14c-113">The first step is as usual to include the `ScriptManager` in the page so that the ASP.NET AJAX library is loaded and the Control Toolkit can be used:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample1.aspx)]
 
-<span data-ttu-id="1c5f0-114">Animacji w tym scenariuszu zostaną zastosowane do panelu tekstu, który wygląda w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-114">The animation in this scenario will be applied to a panel of text which looks like this:</span></span>
+<span data-ttu-id="ab14c-114">Animacji w tym scenariuszu zostaną zastosowane do panelu tekstu, który wygląda w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="ab14c-114">The animation in this scenario will be applied to a panel of text which looks like this:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample2.aspx)]
 
-<span data-ttu-id="1c5f0-115">Skojarzona klasa CSS w panelu definiuje kolor tła i szerokości:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-115">The associated CSS class for the panel defines a background color and a width:</span></span>
+<span data-ttu-id="ab14c-115">Skojarzona klasa CSS w panelu definiuje kolor tła i szerokości:</span><span class="sxs-lookup"><span data-stu-id="ab14c-115">The associated CSS class for the panel defines a background color and a width:</span></span>
 
 [!code-css[Main](adding-animation-to-a-control-vb/samples/sample3.css)]
 
-<span data-ttu-id="1c5f0-116">Następnie up, potrzebujemy `AnimationExtender`.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-116">Next up, we need the `AnimationExtender`.</span></span> <span data-ttu-id="1c5f0-117">Po podaniu `ID` i zwykle `runat="server"`, `TargetControlID` atrybutu musi być równa kontrolki animacji w naszym przypadku panelu:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-117">After providing an `ID` and the usual `runat="server"`, the `TargetControlID` attribute must be set to the control to animate in our case, the panel:</span></span>
+<span data-ttu-id="ab14c-116">Następnie up, potrzebujemy `AnimationExtender`.</span><span class="sxs-lookup"><span data-stu-id="ab14c-116">Next up, we need the `AnimationExtender`.</span></span> <span data-ttu-id="ab14c-117">Po podaniu `ID` i zwykle `runat="server"`, `TargetControlID` atrybutu musi być równa kontrolki animacji w naszym przypadku panelu:</span><span class="sxs-lookup"><span data-stu-id="ab14c-117">After providing an `ID` and the usual `runat="server"`, the `TargetControlID` attribute must be set to the control to animate in our case, the panel:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample4.aspx)]
 
-<span data-ttu-id="1c5f0-118">Całe zastosowania animacji deklaratywne, przy użyciu składni XML, Niestety obecnie nie są w pełni obsługiwane przez funkcję IntelliSense programu Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-118">The whole animation is applied declaratively, using an XML syntax, unfortunately currently not fully supported by Visual Studio's IntelliSense.</span></span> <span data-ttu-id="1c5f0-119">Węzeł główny jest `<Animations>;` w tym węźle kilka zdarzeń są dozwolone, które określają, kiedy animation(s) zakończeniu miejsce:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-119">The root node is `<Animations>;` within this node, several events are allowed which determine when the animation(s) take(s) place:</span></span>
+<span data-ttu-id="ab14c-118">Całe zastosowania animacji deklaratywne, przy użyciu składni XML, Niestety obecnie nie są w pełni obsługiwane przez funkcję IntelliSense programu Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="ab14c-118">The whole animation is applied declaratively, using an XML syntax, unfortunately currently not fully supported by Visual Studio's IntelliSense.</span></span> <span data-ttu-id="ab14c-119">Węzeł główny jest `<Animations>;` w tym węźle kilka zdarzeń są dozwolone, które określają, kiedy animation(s) zakończeniu miejsce:</span><span class="sxs-lookup"><span data-stu-id="ab14c-119">The root node is `<Animations>;` within this node, several events are allowed which determine when the animation(s) take(s) place:</span></span>
 
-- <span data-ttu-id="1c5f0-120">`OnClick` (kliknięcie myszą)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-120">`OnClick` (mouse click)</span></span>
-- <span data-ttu-id="1c5f0-121">`OnHoverOut` (Jeśli kursora myszy poza formant)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-121">`OnHoverOut` (when the mouse leaves a control)</span></span>
-- <span data-ttu-id="1c5f0-122">`OnHoverOver` (gdy wskaźnika myszy nad formant, zatrzymanie `OnHoverOut` animacji)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-122">`OnHoverOver` (when the mouse hovers over a control, stopping the `OnHoverOut` animation)</span></span>
-- <span data-ttu-id="1c5f0-123">`OnLoad` (po stronie został załadowany)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-123">`OnLoad` (when the page has been loaded)</span></span>
-- <span data-ttu-id="1c5f0-124">`OnMouseOut` (Jeśli kursora myszy poza formant)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-124">`OnMouseOut` (when the mouse leaves a control)</span></span>
-- <span data-ttu-id="1c5f0-125">`OnMouseOver` (gdy wskaźnika myszy nad formant, nie zatrzymywanie `OnMouseOut` animacji)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-125">`OnMouseOver` (when the mouse hovers over a control, not stopping the `OnMouseOut` animation)</span></span>
+- <span data-ttu-id="ab14c-120">`OnClick` (kliknięcie myszą)</span><span class="sxs-lookup"><span data-stu-id="ab14c-120">`OnClick` (mouse click)</span></span>
+- <span data-ttu-id="ab14c-121">`OnHoverOut` (Jeśli kursora myszy poza formant)</span><span class="sxs-lookup"><span data-stu-id="ab14c-121">`OnHoverOut` (when the mouse leaves a control)</span></span>
+- <span data-ttu-id="ab14c-122">`OnHoverOver` (gdy wskaźnika myszy nad formant, zatrzymanie `OnHoverOut` animacji)</span><span class="sxs-lookup"><span data-stu-id="ab14c-122">`OnHoverOver` (when the mouse hovers over a control, stopping the `OnHoverOut` animation)</span></span>
+- <span data-ttu-id="ab14c-123">`OnLoad` (po stronie został załadowany)</span><span class="sxs-lookup"><span data-stu-id="ab14c-123">`OnLoad` (when the page has been loaded)</span></span>
+- <span data-ttu-id="ab14c-124">`OnMouseOut` (Jeśli kursora myszy poza formant)</span><span class="sxs-lookup"><span data-stu-id="ab14c-124">`OnMouseOut` (when the mouse leaves a control)</span></span>
+- <span data-ttu-id="ab14c-125">`OnMouseOver` (gdy wskaźnika myszy nad formant, nie zatrzymywanie `OnMouseOut` animacji)</span><span class="sxs-lookup"><span data-stu-id="ab14c-125">`OnMouseOver` (when the mouse hovers over a control, not stopping the `OnMouseOut` animation)</span></span>
 
-<span data-ttu-id="1c5f0-126">Struktura zawiera zestaw animacji, każdy z nich reprezentowany przez własną — element XML.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-126">The framework comes with a set of animations, each one represented by its own XML element.</span></span> <span data-ttu-id="1c5f0-127">Oto zaznaczenia:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-127">Here is a selection:</span></span>
+<span data-ttu-id="ab14c-126">Struktura zawiera zestaw animacji, każdy z nich reprezentowany przez własną — element XML.</span><span class="sxs-lookup"><span data-stu-id="ab14c-126">The framework comes with a set of animations, each one represented by its own XML element.</span></span> <span data-ttu-id="ab14c-127">Oto zaznaczenia:</span><span class="sxs-lookup"><span data-stu-id="ab14c-127">Here is a selection:</span></span>
 
-- <span data-ttu-id="1c5f0-128">`<Color>` (zmiana koloru)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-128">`<Color>` (changing a color)</span></span>
-- <span data-ttu-id="1c5f0-129">`<FadeIn>` (rozjaśnianie)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-129">`<FadeIn>` (fading in)</span></span>
-- <span data-ttu-id="1c5f0-130">`<FadeOut>` (wygaszanie)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-130">`<FadeOut>` (fading out)</span></span>
-- <span data-ttu-id="1c5f0-131">`<Property>` (zmiana właściwości kontrolki)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-131">`<Property>` (changing a control's property)</span></span>
-- <span data-ttu-id="1c5f0-132">`<Pulse>` (pulsating)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-132">`<Pulse>` (pulsating)</span></span>
-- <span data-ttu-id="1c5f0-133">`<Resize>` (zmiana rozmiaru)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-133">`<Resize>` (changing the size)</span></span>
-- <span data-ttu-id="1c5f0-134">`<Scale>` (proporcjonalnie zmiany rozmiaru)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-134">`<Scale>` (proportionally changing the size)</span></span>
+- <span data-ttu-id="ab14c-128">`<Color>` (zmiana koloru)</span><span class="sxs-lookup"><span data-stu-id="ab14c-128">`<Color>` (changing a color)</span></span>
+- <span data-ttu-id="ab14c-129">`<FadeIn>` (rozjaśnianie)</span><span class="sxs-lookup"><span data-stu-id="ab14c-129">`<FadeIn>` (fading in)</span></span>
+- <span data-ttu-id="ab14c-130">`<FadeOut>` (wygaszanie)</span><span class="sxs-lookup"><span data-stu-id="ab14c-130">`<FadeOut>` (fading out)</span></span>
+- <span data-ttu-id="ab14c-131">`<Property>` (zmiana właściwości kontrolki)</span><span class="sxs-lookup"><span data-stu-id="ab14c-131">`<Property>` (changing a control's property)</span></span>
+- <span data-ttu-id="ab14c-132">`<Pulse>` (pulsating)</span><span class="sxs-lookup"><span data-stu-id="ab14c-132">`<Pulse>` (pulsating)</span></span>
+- <span data-ttu-id="ab14c-133">`<Resize>` (zmiana rozmiaru)</span><span class="sxs-lookup"><span data-stu-id="ab14c-133">`<Resize>` (changing the size)</span></span>
+- <span data-ttu-id="ab14c-134">`<Scale>` (proporcjonalnie zmiany rozmiaru)</span><span class="sxs-lookup"><span data-stu-id="ab14c-134">`<Scale>` (proportionally changing the size)</span></span>
 
-<span data-ttu-id="1c5f0-135">W tym przykładzie panelu są zanikanie. Animacja podejmują 1,5 s (`Duration` atrybut), wyświetlanie 24 ramek (kroki animację) na sekundę (`Fps` atrybutu).</span><span class="sxs-lookup"><span data-stu-id="1c5f0-135">In this example, the panel shall fade out. The animation shall take 1.5 seconds (`Duration` attribute), displaying 24 frames (animation steps) per second (`Fps` attribute).</span></span> <span data-ttu-id="1c5f0-136">Oto kompletny kod znaczników dla `AnimationExtender` sterowania:</span><span class="sxs-lookup"><span data-stu-id="1c5f0-136">Here is the complete markup for the `AnimationExtender` control:</span></span>
+<span data-ttu-id="ab14c-135">W tym przykładzie panelu są zanikanie. Animacja podejmują 1,5 s (`Duration` atrybut), wyświetlanie 24 ramek (kroki animację) na sekundę (`Fps` atrybutu).</span><span class="sxs-lookup"><span data-stu-id="ab14c-135">In this example, the panel shall fade out. The animation shall take 1.5 seconds (`Duration` attribute), displaying 24 frames (animation steps) per second (`Fps` attribute).</span></span> <span data-ttu-id="ab14c-136">Oto kompletny kod znaczników dla `AnimationExtender` sterowania:</span><span class="sxs-lookup"><span data-stu-id="ab14c-136">Here is the complete markup for the `AnimationExtender` control:</span></span>
 
 [!code-aspx[Main](adding-animation-to-a-control-vb/samples/sample5.aspx)]
 
-<span data-ttu-id="1c5f0-137">Po uruchomieniu tego skryptu, panel jest wyświetlany i stopniowo zmniejsza się w ciągu półtora sekund.</span><span class="sxs-lookup"><span data-stu-id="1c5f0-137">When you run this script, the panel is displayed and fades out in one and a half seconds.</span></span>
+<span data-ttu-id="ab14c-137">Po uruchomieniu tego skryptu, panel jest wyświetlany i stopniowo zmniejsza się w ciągu półtora sekund.</span><span class="sxs-lookup"><span data-stu-id="ab14c-137">When you run this script, the panel is displayed and fades out in one and a half seconds.</span></span>
 
+<span data-ttu-id="ab14c-138">[![Panel jest Ściemnianie](adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="ab14c-138">[![The panel is fading out](adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)</span></span>
 
-<span data-ttu-id="1c5f0-138">[![Panel jest Ściemnianie](adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-138">[![The panel is fading out](adding-animation-to-a-control-vb/_static/image2.png)](adding-animation-to-a-control-vb/_static/image1.png)</span></span>
-
-<span data-ttu-id="1c5f0-139">Panel jest wygaszanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-animation-to-a-control-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="1c5f0-139">The panel is fading out ([Click to view full-size image](adding-animation-to-a-control-vb/_static/image3.png))</span></span>
+<span data-ttu-id="ab14c-139">Panel jest wygaszanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-animation-to-a-control-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="ab14c-139">The panel is fading out ([Click to view full-size image](adding-animation-to-a-control-vb/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="1c5f0-140">[Poprzednie](dynamically-controlling-updatepanel-animations-cs.md)
-> [dalej](executing-several-animations-at-the-same-time-vb.md)</span><span class="sxs-lookup"><span data-stu-id="1c5f0-140">[Previous](dynamically-controlling-updatepanel-animations-cs.md)
+> <span data-ttu-id="ab14c-140">[Poprzednie](dynamically-controlling-updatepanel-animations-cs.md)
+> [dalej](executing-several-animations-at-the-same-time-vb.md)</span><span class="sxs-lookup"><span data-stu-id="ab14c-140">[Previous](dynamically-controlling-updatepanel-animations-cs.md)
 [Next](executing-several-animations-at-the-same-time-vb.md)</span></span>
