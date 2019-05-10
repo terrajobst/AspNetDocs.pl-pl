@@ -8,12 +8,12 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 1dadbdb6fa1dc58b855402f1d6f18e8af861f756
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 34fe2cdb10c4b41a6e8cac7fb1741d53c02dfc80
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399362"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65114401"
 ---
 # <a name="enabling-signalr-tracing"></a>Włączanie śledzenia usługi SignalR
 
@@ -37,7 +37,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 >
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
-
 
 Po włączeniu funkcji śledzenia aplikacji SignalR tworzy wpisy dziennika zdarzeń. Można rejestrować zdarzenia z zarówno klient, jak i z serwera. Śledzenie na połączenie z serwerem dzienniki dostawcy skalowania i komunikatów bus zdarzenia. Śledzenie zdarzeń połączenia dzienniki klienta. SignalR 2.1 i nowsze śledzenia na kliencie rejestruje pełnej zawartości wiadomości wywołania koncentratora.
 

@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 1caac9d0-e21e-49d6-a8ff-e563a736d6ca
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: db69c0cf4fc3e5d39d88d8a6478a529309020d3d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 362e0f84ce336d320e016dd19d2dd286560f75c6
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398036"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65115406"
 ---
 # <a name="positioning-a-modalpopup-c"></a>Pozycjonowanie kontrolki ModalPopup (C#)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup4.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup4CS.pdf)
 
 > Kontrolki ModalPopup na zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób utworzyć modalnego okna podręcznego, za pomocą oznacza, że po stronie klienta. Jednak formant nie oferuje wbudowane funkcje, aby ustalić położenie wyskakującego okienka.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -53,7 +52,6 @@ Teraz pozostało celu jest zapewnienie przeglądarki wywołać te funkcje, zawsz
 I `stopMoving()` funkcja właśnie po zamknięciu okna podręcznego może to nastąpić w `ModalPopupExtender` sterowania:
 
 [!code-aspx[Main](positioning-a-modalpopup-cs/samples/sample6.aspx)]
-
 
 [![Modalnego okna podręcznego, który pojawia się w wyznaczonym miejscu](positioning-a-modalpopup-cs/_static/image2.png)](positioning-a-modalpopup-cs/_static/image1.png)
 

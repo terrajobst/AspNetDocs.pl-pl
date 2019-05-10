@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
-ms.openlocfilehash: 482119a97f30e24472231897e8db31685c451a0f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5bb9ee8f758a25afa6baf3ccbaf7d5864754c7df
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400792"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113358"
 ---
 # <a name="breezeknockout-template"></a>Szablon Breeze/Knockout
 
@@ -22,7 +22,6 @@ przez [: Mads Kristensen](https://github.com/madskristensen)
 > Szablon Breeze/Knockout MVC został napisany przez lej dzwonka
 > 
 > [Pobierz szablon MVC Breeze/Knockout](https://go.microsoft.com/fwlink/?LinkId=282649)
-
 
 Została uzyskana informacja "aplikacji jednostronicowej" (SPA) zastanawiasz się, co to jest. Podczas czytania można na jego temat, użytkownik będzie zamiast wystąpić dla siebie. Ale kto ma czas, aby pobrać próbkę? Jeśli masz program Visual Studio, będziesz mieć przykład SPA i uruchomiona w mniej niż 60 sekund przy użyciu wzorca ASP.NET MVC 4 szablon "Breeze/Knockout aplikacji jednostronicowej".
 

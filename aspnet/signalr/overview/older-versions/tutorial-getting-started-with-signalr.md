@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 288f5017acde5a103460ace688933609fba0b02c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 87a90b47ae30bee43e0b0c1e078597db54b8e67d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391029"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113871"
 ---
 # <a name="tutorial-getting-started-with-signalr-1x"></a>Samouczek: wprowadzenie do usługi SignalR 1.x
 
@@ -22,7 +22,6 @@ przez [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://gi
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Będzie dodać SignalR do pustych aplikacji sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetla komunikaty.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -148,7 +147,6 @@ Poniższy kod deklaruje serwera proxy koncentratora.
 > [!NOTE]
 > Odwołanie do klasy serwera i jej elementów członkowskich w jQuery znajduje się w camelcase. Przykładowy kod odwołuje się do języka C# **ChatHub** klasy w jQuery jako **chatHub**.
 
-
 Poniższy kod jest na tym, jak utworzyć funkcję wywołania zwrotnego w skrypcie. Klasy koncentratora na serwerze wywołuje tę funkcję, aby wypchnąć aktualizacji zawartości dla każdego klienta. Dwa wiersze, czy kodowanie HTML zawartości przed wyświetleniem go są opcjonalne i Pokaż prostego sposobu zapobiegania uruchomienie skryptu.
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample7.html)]
@@ -157,7 +155,6 @@ Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod 
 
 > [!NOTE]
 > To podejście ubezpieczycielom, że połączenie zostało nawiązane przed wykonaniem programu obsługi zdarzeń.
-
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample8.js)]
 

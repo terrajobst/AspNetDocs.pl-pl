@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1023d9bef311e58fb5fb0bb24cde80e8320e6bac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 165d104b5d3ef3281af449cc8673ad96f531d628
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419057"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113081"
 ---
 # <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Ćwiczenia praktyczne: Jedna platforma ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API
 
@@ -26,7 +26,6 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > Visual Studio 2013 wprowadza nowy jednolity system, który umożliwia tworzenie aplikacji i korzystać z technologii ASP.NET w jednym projekcie. Ta funkcja eliminuje konieczność pobrania jedna technologia na początku projektu i hokejowego z nim, a zamiast tego zaleca się korzystanie z wielu platform ASP.NET, w ramach jednego projektu.
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Omówienie
@@ -62,7 +61,6 @@ Aby można było uruchomić ćwiczeń opisanych w tym praktyczne laboratorium, n
 > [!NOTE]
 > Upewnij się, że wszystkie zależności w tym środowisku laboratoryjnym sprawdzeniu przed uruchomieniem Instalatora.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Za pomocą fragmentów kodu
 
@@ -70,7 +68,6 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 
 > [!NOTE]
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
-
 
 ---
 
@@ -87,7 +84,6 @@ Szacowany czas do ukończenia tego laboratorium: **60 minut**
 
 > [!NOTE]
 > Przy pierwszym uruchomieniu programu Visual Studio, należy wybrać jedną z kolekcji wstępnie zdefiniowanych ustawień. Każda kolekcja wstępnie zdefiniowanych służy do dopasowywania style rozwoju i określa układy okna, zachowanie edytora, fragmenty kodu IntelliSense i opcje w oknach dialogowych. Procedury przedstawione w tym środowisku laboratoryjnym opisano czynności niezbędnych do wykonywania danego zadania w programie Visual Studio, korzystając z **ogólnych ustawieniach projektowych** kolekcji. Jeśli wybierzesz kolekcji różne ustawienia dla swojego środowiska programowania, może być różnice w krokach, które należy wziąć pod uwagę.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-creating-a-new-web-forms-project"></a>Ćwiczenie 1: Tworzenie nowego projektu formularzy sieci Web
@@ -189,7 +185,6 @@ Entity Framework Code First modelowania przepływu pracy pozwala na używanie w�
 
 > [!NOTE]
 > Dowiedz się więcej na temat platformy Entity Framework [tutaj](../../../entity-framework.md).
-
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-new-model"></a>Zadanie 1 — Tworzenie nowego modelu
@@ -342,7 +337,6 @@ W ramach tego zadania będzie używać programu Internet Explorer **narzędzi de
 > ![Internet Explorer option](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image27.png)
 > 
 > **Narzędzi deweloperskich F12** mają szeroki zestaw funkcji, która nie została uwzględniona w tym hands-na-laboratorium. Aby dowiedzieć się więcej na ten temat, zapoznaj się [przy użyciu narzędzi deweloperskich F12](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
-
 
 1. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie.
 

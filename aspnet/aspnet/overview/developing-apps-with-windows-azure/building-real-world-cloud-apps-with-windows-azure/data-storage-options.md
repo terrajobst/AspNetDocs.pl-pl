@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 9969a68a3e1aa043845fb5affd6d3b73dec4136d
-ms.sourcegitcommit: 289e051cc8a90e8f7127e239fda73047bde4de12
+ms.openlocfilehash: 8656f4a4211c2e97d71d76dd2f799412539896ca
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58425395"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118849"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opcje magazynu danych (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
-
 
 Większość osób służą do relacyjnych baz danych i charakteryzują się przeoczyć innych opcjach magazynu danych, gdy ich projektowania aplikacji w chmurze. Może to spowodować nieoptymalne wydajność, wysoką wydatków lub co gorsza, ponieważ [NoSQL](http://en.wikipedia.org/wiki/NoSQL) (nierelacyjnej) baz danych może obsługiwać kilka zadań umożliwi bardziej wydajne niż relacyjne bazy danych. Gdy klienci zapytaj NAS, aby uzyskać pomoc w rozwiązywaniu problemu z magazynem danych krytycznych, często jest ponieważ mają one relacyjnej bazy danych gdzie jedną z opcji NoSQL będą działały lepiej. W takiej sytuacji klient byłoby lepsze rozwiązanie, jeśli były one wdrożone rozwiązanie NoSQL przed wdrożeniem aplikacji do środowiska produkcyjnego.
 

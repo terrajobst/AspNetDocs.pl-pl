@@ -8,12 +8,12 @@ ms.date: 03/08/2013
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
-ms.openlocfilehash: 1e7103df41e4c355ca6f1291ef0a10269c5c403a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3e4e63d385a56d51d3d08696782b43d6228f6201
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415560"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113403"
 ---
 # <a name="breezeangular-template"></a>Szablon Breeze/Angular
 
@@ -22,7 +22,6 @@ przez [: Mads Kristensen](https://github.com/madskristensen)
 > Szablon Breeze/Angular MVC został napisany przez lej dzwonka
 > 
 > [Pobierz szablon Breeze/Angular MVC](https://go.microsoft.com/fwlink/?LinkId=286437)
-
 
 [Moduł AngularJS](http://angularjs.org) jest biblioteki typu open source, od firmy Google umożliwiające tworzenie aplikacji (źródła). Oferuje ona powiązania danych, wstrzykiwanie zależności i zarządzanie ekranu. Połącz ją z [BreezeJS](http://www.breezejs.com/?utm_source=ms-spa), innej biblioteki typu open source, modelowanie danych i zarządzania danymi i możesz mieć składniki podstawowe atrakcyjną aplikację klienta HTML/JavaScript.
 

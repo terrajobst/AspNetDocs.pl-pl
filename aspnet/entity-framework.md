@@ -8,23 +8,21 @@ ms.author: riande
 ms.date: 03/12/2010
 msc.legacyurl: /entity-framework
 msc.type: content
-ms.openlocfilehash: 26862565b23f60baf3698c0c6d63c7daa147abe0
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: c6fe7605a7386621bd4a962b3c3b011fb80b11c8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905660"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118252"
 ---
 # <a name="entity-framework"></a>Entity Framework
 
 Entity Framework (EF) to maper obiektowo relacyjny, który umożliwia deweloperom platformy .NET pracować z danymi relacyjnymi przy użyciu obiektów specyficznych dla domeny. Dzięki temu większa część kodu dostępu do danych, który programiści muszą zwykle tworzyć, nie jest już potrzebna.
 
-
 - [Pobierz:](https://msdn.com/data/ee712906) Dodać to do projektu i Rozpocznij, korzystając z zalet tego zaawansowanego O/Menedżera zasobów.
 - [Rozpocznij pracę:](https://msdn.com/data/ee712907) Można znaleźć w podręczniku materiały wideo i samouczki, które pomogą Ci maksymalnie wykorzystać swoje dane.
 - [Uzyskaj pomoc:](https://msdn.com/data/hh913619) Dowiedz się, jak uzyskać pomoc od ekspertów i przyczynić się do społeczności danych w witrynie Stack Overflow.
 - [Współtworzenie:](https://github.com/aspnet/EntityFramework6) Dowiedz się, jak możesz pomóc ulepszyć Entity Framework, otwarty model opracowywania, nawet przechodząc do witryny GitHub.
-
 
 Używać programu Entity Framework za pomocą platformy ASP.NET
 

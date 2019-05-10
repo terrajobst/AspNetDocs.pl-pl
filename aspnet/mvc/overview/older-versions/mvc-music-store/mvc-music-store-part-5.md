@@ -8,12 +8,12 @@ ms.date: 04/21/2011
 ms.assetid: 6b09413a-6d6a-425a-87c9-629f91b91b28
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e02e15a8955fa42692fac486dadfa426540295f7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 20b99cbe57b5dfa623205838a5929733a6c2d70d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59387494"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65112983"
 ---
 # <a name="part-5-edit-forms-and-templating"></a>Część 5. Edycja formularzy i tworzenie szablonów
 
@@ -24,7 +24,6 @@ przez [Galloway'em Jon](https://github.com/jongalloway)
 > MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.
 > 
 > W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 5 obejmuje Edycja formularzy i szablonów.
-
 
 W ciągu ostatnich rozdziale firma Microsoft była podczas ładowania danych z naszej bazie danych i wyświetlanie ich. W tym rozdziale będzie pozwalamy również edycji danych.
 
@@ -260,7 +259,6 @@ Teraz przeglądających /StoreManager/ adres URL, albumy i tytuły są utrzymywa
 ![](mvc-music-store-part-5/_static/image18.png)
 
 Uwaga: Pokazuje to tak proste tworzenie i używanie pomocnika w jednym widoku. Aby dowiedzieć się więcej na temat tworzenia wątków, które można użyć w całej lokacji, zobacz wpis w blogu moje: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
-
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc-music-store-part-4.md)

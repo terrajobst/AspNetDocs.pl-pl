@@ -8,12 +8,12 @@ ms.date: 04/17/2013
 ms.assetid: 03e4b9f5-0fea-4d94-959f-014b2762a301
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 7d75c832f704ea88d365f6a8b83c1c3a024b30ca
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d9cd3fad36c0300d96c6dbdc61291ef119da2327
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382254"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113031"
 ---
 # <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — serwer (SignalR 1.x)
 
@@ -26,7 +26,6 @@ przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gi
 > Interfejsu API centrów SignalR umożliwia zdalne wywołania procedur (RPC) z serwera do połączonych klientów i od klientów z serwerem. W kodzie serwera należy zdefiniować metody, które mogą być wywoływane przez klientów, a wywołanie metody, które są uruchamiane na komputerze klienckim. W kodzie klienta definiowania metod, które mogą być wywoływane z serwera, a wywołanie metody, które są uruchamiane na serwerze. SignalR zajmuje się wszystkie nadmiar klient serwer dla Ciebie.
 > 
 > SignalR oferuje również interfejs API niższego poziomu o nazwie połączeń trwałych. Wprowadzenie do SignalR, centra i połączenia trwałego lub samouczek, w którym przedstawiono sposób tworzenia kompletnej aplikacji SignalR, patrz [SignalR — wprowadzenie](index.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -516,7 +515,6 @@ W klasie Centrum uzyskujesz dostęp do tych danych w `Clients.Caller` właściwo
 
 > [!NOTE]
 > Ten mechanizm utrwalanie stanu nie jest przeznaczony dla dużych ilości danych, ponieważ wszystko, co umieścić w `state` lub `Clients.Caller` właściwość jest zwrotnego z każdego wywołania metody. Jest to przydatne dla mniejszych elementów, takich jak nazwy użytkowników lub liczniki.
-
 
 <a id="handleErrors"></a>
 

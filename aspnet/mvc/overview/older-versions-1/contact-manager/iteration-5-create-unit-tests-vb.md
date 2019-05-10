@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 476e5529e4fd53c6166c53766409268939a83c72
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ce1c6224a7e9203ff62f136f4f3a43e4561a904
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123829"
 ---
 # <a name="iteration-5--create-unit-tests-vb"></a>Iteracja #5 — Tworzenie testów jednostkowych (VB)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz program Code](iteration-5-create-unit-tests-vb/_static/contactmanager_5_vb1.zip)
 
 > W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
-
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (VB)
 
@@ -43,7 +42,6 @@ Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą it
 - Iteracja #6 — korzystanie z projektowania opartego na testach. W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
 
 - Iteracja #7 — dodawanie funkcji Ajax. W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
-
 
 ## <a name="this-iteration"></a>Tej iteracji
 
@@ -69,7 +67,6 @@ W tym iteracji możemy dodać testy jednostkowe do naszej aplikacji Contact Mana
 > 
 > Istnieją różne platformy, w tym NUnit i xUnit.net, MbUnit testów jednostkowych. W tym samouczku używamy jednostki testowania framework zawartej z programem Visual Studio. Jednak może równie łatwo użyć jednej z tych środowisk alternatywne.
 
-
 ## <a name="what-gets-tested"></a>Co pobiera przetestowane
 
 W świecie doskonałego kodu byłyby objęte testy jednostek. W świecie doskonałe trzeba doskonałe projektowi. Można zmodyfikować w każdym wierszu kodu w aplikacji i natychmiast będzie znana, wykonując testy jednostkowe, czy zmiana Przerwano istniejących funkcji.
@@ -88,11 +85,9 @@ Jeśli widok zawiera skomplikowaną logikę, następnie należy rozważyć przen
 > 
 > Podczas pisania testów logiką dostępu do danych lub widoku logiki nie jest dobrze podczas pisania testów jednostkowych, te testy może być bardzo przydatne podczas tworzenia funkcjonalności lub integracji testy.
 
-
 > [!NOTE] 
 > 
 > ASP.NET MVC jest aparat widoku w formularzach sieci Web. Aparat widoku w formularzach sieci Web jest zależny od serwera sieci web, mogą być inne aparaty widoku.
-
 
 ## <a name="using-a-mock-object-framework"></a>Za pomocą platformy makiety obiektu
 
@@ -115,16 +110,13 @@ Zanim użyjesz Moq, należy wykonać następujące czynności:
 3. Rozpakuj pliki do pobrania.
 4. Dodaj odwołanie do zestawu Moq do projektu testu, wybierając opcję menu **projektu, Dodaj odwołanie** otworzyć **Dodaj odwołanie** okna dialogowego. Na karcie przeglądania przejdź do folderu, w którym rozpakowano Moq i wybierz zestaw Moq.dll. Kliknij przycisk **OK** przycisku (patrz rysunek 2).
 
-
 [![Odblokowywanie Moq](iteration-5-create-unit-tests-vb/_static/image1.jpg)](iteration-5-create-unit-tests-vb/_static/image1.png)
 
 **Rysunek 01**: Odblokowywanie Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image2.png))
 
-
 [![Odwołania po dodaniu Moq](iteration-5-create-unit-tests-vb/_static/image2.jpg)](iteration-5-create-unit-tests-vb/_static/image3.png)
 
 **Rysunek 02**: Odwołania po dodaniu Moq ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image4.png))
-
 
 ## <a name="creating-unit-tests-for-the-service-layer"></a>Tworzenie testów jednostkowych dla warstwy usług
 
@@ -136,11 +128,9 @@ Utwórz nowy folder o nazwie modeli w projekcie ContactManager.Tests. Następnie
 > 
 > Ogólnie rzecz biorąc ma strukturę folderu projektu testu w taki sposób, aby dopasować strukturę folderu projektu ASP.NET MVC. Na przykład umieść kontrolera testów w folderze kontrolerów testów modelu w folderze modeli i tak dalej.
 
-
 [![Models\ContactManagerServiceTest.cs](iteration-5-create-unit-tests-vb/_static/image3.jpg)](iteration-5-create-unit-tests-vb/_static/image5.png)
 
 **Rysunek 03**: Models\ContactManagerServiceTest.cs ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image6.png))
-
 
 Początkowo chcemy metoda CreateContact() udostępnianych przez klasy ContactManagerService testu. Utworzymy pięć testów poniżej:
 
@@ -158,9 +148,7 @@ Kod dla tych testów znajduje się w ofercie 1.
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
-
 Ponieważ używamy klasy skontaktuj się z listą 1 musimy dodać odwołanie do Microsoft Entity Framework do naszego projektu testu. Dodaj odwołanie do zestawu System.Data.Entity.
-
 
 Wyświetlanie listy 1 zawiera metodę o nazwie Initialize(), który zostanie nadany atrybut [TestInitialize]. Ta metoda jest wywoływana automatycznie, przed uruchomieniem każdego z testów jednostkowych (jest to 5 razy bezpośrednio przed każdym z testów jednostkowych). Metoda Initialize() tworzy makiety repozytorium przy użyciu następującego kodu:
 
@@ -172,7 +160,6 @@ Ten wiersz kodu używa Moq framework do wygenerowania makiety repozytorium z int
 > 
 > Korzystając z Moq framework, jest rozróżnienie między \_mockRepository i \_mockRepository.Object. Pierwsza odnosi się do klasy pozorny (z IContactManagerRepository), który zawiera metody do określania zachowania makiety repozytorium. Te ostatnie odnosi się do rzeczywistego makiety repozytorium, który implementuje interfejs IContactManagerRepository.
 
-
 Makiety repozytorium jest używana w przypadku metody Initialize() podczas tworzenia wystąpienia klasy ContactManagerService. Wszystkie testy jednostkowe poszczególnych użycie tego wystąpienia klasy ContactManagerService.
 
 Wyświetlanie listy 1 zawiera pięć metod, które odnoszą się do każdego z testów jednostkowych. Każda z tych metod zostanie nadany atrybut [TestMethod]. Kiedy uruchamiasz testy jednostkowe, nosi nazwę dowolnej metody, która ma tego atrybutu. Innymi słowy dowolnej metody, która zostanie nadany atrybut [TestMethod] to test jednostkowy.
@@ -183,11 +170,9 @@ Pozostałe testy Sprawdź, czy gdy wywoływana jest metoda CreateContact(), z ni
 
 Można uruchomić testy jednostkowe w ofercie 1, wybierając opcję menu **, przebieg testu, wszystkie testy w rozwiązaniu (CTRL + R, A)**. Wyniki testów są wyświetlane w oknie wyników testu (zobacz rysunek 4).
 
-
 [![Test Results](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)
 
 **Rysunek 04**: Wyniki testu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image8.png))
-
 
 ## <a name="creating-unit-tests-for-controllers"></a>Tworzenie testów jednostkowych dla kontrolerów
 
@@ -211,7 +196,6 @@ Drugi test jednostkowy sprawdza, czy akcja Create() błędny kontakt jest przeka
 
 Jeśli Metoda Create() zachowuje się jak oczekujemy, że następnie powinna zwrócić widok Tworzenie warstwy usług zwrócona wartość false. W ten sposób kontroler można wyświetlić komunikaty o błędach weryfikacji w widoku Utwórz, a użytkownik ma szansę, aby poprawić ten nieprawidłowe właściwości skontaktuj się z pomocą.
 
-
 Jeśli planujesz tworzenie testów jednostkowych dla kontrolerów należy zwrócić nazwy widoków jawne z akcji kontrolera. Na przykład nie zwracają widoku następująco:
 
 Zwróć View()
@@ -221,7 +205,6 @@ Zamiast tego zwracają widoku następująco:
 Zwróć View("Create")
 
 Jeśli nie jesteś jawne gdy zwracany jest widokiem ViewResult.ViewName właściwość zwraca pusty ciąg.
-
 
 **Wyświetlanie listy 2 - Controllers\ContactControllerTest.vb**
 

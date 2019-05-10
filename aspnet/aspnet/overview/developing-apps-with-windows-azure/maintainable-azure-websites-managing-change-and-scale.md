@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: ec0058472f8bc1d8d58e7c78deeb8b6097532510
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c88bae40a8aa092037c0b359ee391acaf161cf10
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409736"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118297"
 ---
 # <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem
 
@@ -34,7 +34,6 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
 >
 > Aby uzyskać więcej szczegółowe informacje dotyczące tego tematu, zobacz [tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure e-book](building-real-world-cloud-apps-with-windows-azure/introduction.md).
-
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Omówienie
@@ -79,7 +78,6 @@ Aby można było uruchomić ćwiczeń opisanych w tym praktyczne laboratorium, n
 > [!NOTE]
 > Upewnij się, że wszystkie zależności w tym środowisku laboratoryjnym sprawdzeniu przed uruchomieniem Instalatora.
 
-
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Za pomocą fragmentów kodu
 
@@ -87,7 +85,6 @@ W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla
 
 > [!NOTE]
 > Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
-
 
 ---
 
@@ -106,7 +103,6 @@ Szacowany czas do ukończenia tego laboratorium: **75 minut**
 
 > [!NOTE]
 > Przy pierwszym uruchomieniu programu Visual Studio, należy wybrać jedną z kolekcji wstępnie zdefiniowanych ustawień. Każda kolekcja wstępnie zdefiniowanych służy do dopasowywania style rozwoju i określa układy okna, zachowanie edytora, fragmenty kodu IntelliSense i opcje w oknach dialogowych. Procedury przedstawione w tym środowisku laboratoryjnym opisano czynności niezbędnych do wykonywania danego zadania w programie Visual Studio, korzystając z **ogólnych ustawieniach projektowych** kolekcji. Jeśli wybierzesz kolekcji różne ustawienia dla swojego środowiska programowania, może być różnice w krokach, które należy wziąć pod uwagę.
-
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-using-entity-framework-migrations"></a>Ćwiczenie 1: Korzystanie z migracją architektury jednostek
@@ -249,7 +245,6 @@ W tym ćwiczeniu wdrożysz **Quiz maniaków komputerowych** aplikacji do środow
 
 > [!NOTE]
 > Aby włączyć publikowanie etapowe, aplikacji sieci web musi należeć do **Tryb standardowy**. Należy pamiętać, że dodatkowe opłaty będą naliczane w przypadku aplikacji sieci web zmiany trybu na standardowy. Aby uzyskać więcej informacji o cenach, zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/).
-
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>Zadanie 1 — Tworzenie aplikacji sieci Web w usłudze Azure App Service
@@ -730,7 +725,6 @@ W tym zadaniu użyjesz **programu Internet Explorer** do przeglądania **Quiz ma
 
 > [!NOTE]
 > Jest to opcjonalne, ponieważ wymaga obsługi obciążenia sieci Web &amp; testowanie wydajności, która jest dostępna tylko dla **Visual Studio 2013 Ultimate Edition**. Aby uzyskać więcej informacji na temat określonych funkcji programu Visual Studio 2013, porównaj wersje [tutaj](https://www.microsoft.com/visualstudio/eng/products/compare).
-
 
 **Usługa Azure App Service Web Apps** udostępnia funkcję automatycznego skalowania dla aplikacji sieci web działających w **Tryb standardowy**. Automatyczne skalowanie pozwala automatycznie skalować liczbę wystąpień aplikacji sieci web w taki sposób, w zależności od obciążenia platformy Azure. Po włączeniu automatycznego skalowania Azure sprawdza, czy Procesor aplikacji sieci web co pięć minut i dodaje wystąpień, zgodnie z potrzebami w danym momencie. Jeśli użycie procesora CPU jest niska, Azure spowoduje usunięcie wystąpienia co dwie godziny, aby upewnić się, że wydajność aplikacji sieci web nie ma obniżoną wydajność.
 

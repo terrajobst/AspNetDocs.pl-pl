@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: bfbc151af40bf7ccceb5ac298ba812730d4e4ed9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c02a633013f061c09141d4f98871848c011a799e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420760"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65116711"
 ---
 # <a name="server-controls"></a>Kontrolki serwera
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre architektury zmiany w sposobie ASP.NET 2.0 i Visual Studio 2005 zajmuje się formantów serwera.
-
 
 Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre architektury zmiany w sposobie ASP.NET 2.0 i Visual Studio 2005 zajmuje się formantów serwera.
 
@@ -59,15 +58,11 @@ W programie ASP.NET 2.0 stan formantu rozwiązuje ten problem, dobrze za pośred
 > [!NOTE]
 > Stan formantu jest trwały oraz stanu widoku w \_ \_VIEWSTATE ukrytego pola formularza.
 
-
 To wideo jest przewodnik Wyświetl stan i stan kontrolki.
-
 
 ![](server-controls/_static/image1.png)
 
-
 [Otwórz wideo pełnego ekranu](server-controls/_static/state1.wmv)
-
 
 Dla kontrolki serwera do odczytu i zapisu do kontrolowania stanu, należy wykonać trzy czynności.
 
@@ -114,7 +109,6 @@ W programie ASP.NET 1.x i plik konfiguracji zawiera &lt;browserCaps&gt; wypełni
 > [!NOTE]
 > Klasa ControlAdapter jest klasą abstrakcyjną.
 
-
 Podobnie jak &lt;browserCaps&gt; sekcji 1.x, plik definicji przeglądarki korzysta z wyrażenia regularnego, aby przeanalizować ciąg agenta użytkownika w celu zidentyfikowania przeglądarki. Jego ich definiuje konkretnymi możliwościami dla tego agenta użytkownika. ControlAdapter renderuje kontrolkę za pomocą metody renderowania. W związku z tym jeśli zastąpienie metody renderowania, nie powinien wywoływać renderowania w klasie bazowej. Może to spowodować renderowania występuje dwa razy, jeden raz dla karty i jeden raz dla samego formantu.
 
 ## <a name="developing-a-custom-adapter"></a>Tworzenie karty niestandardowej
@@ -157,21 +151,17 @@ Poniżej przedstawiono nowe formanty serwera ASP.NET w wersji 2.0. Firma Microso
 
 Kontrolka ImageMap zezwala na dodawanie obszarów nadmiernej aktywności do obrazu, który można zainicjować post ponownie lub przejdź do adresu URL. Istnieją trzy typy obszarów nadmiernej aktywności dostępne; CircleHotSpot RectangleHotSpot i PolygonHotSpot. Punkty aktywne są dodawane przy użyciu edytora kolekcji, w programie Visual Studio lub programowo w kodzie. Brak dostępnej bez interfejsu użytkownika dla rysowania hotspotami obrazu. Deklaratywne należy podać współrzędne i rozmiar lub radius punktem największej aktywności. Istnieje również nie wizualnej reprezentacji punkt aktywny w projektancie. Jeśli punkt aktywny jest skonfigurowany do przejdź do adresu URL, adres URL jest określony za pomocą właściwości NavigateUrl punktu aktywnego. W przypadku wpis Utwórz kopię informacji o hotspotach, PostBackValue Właściwość pozwala przekazać ciąg we wpisie Wstecz, który można pobrać w kodzie po stronie serwera.
 
-
 ![Punkt aktywny Edytor kolekcji w programie Visual Studio](server-controls/_static/image1.jpg)
 
 **Rysunek 1**: Punkt aktywny Edytor kolekcji w programie Visual Studio
-
 
 ## <a name="bulletedlist-control"></a>Kontrolka BulletedList
 
 Kontrolka BulletedList jest listę punktowaną, które mogą być łatwo powiązane z danymi. Lista może zostać określona (numerowana) lub nieuporządkowane za pomocą właściwości BulletStyle. Każdy element na liście jest reprezentowany przez obiekt elementu listy.
 
-
 ![BulletedList sterowania w programie Visual Studio](server-controls/_static/image1.gif)
 
 **Rysunek 2**: BulletedList sterowania w programie Visual Studio
-
 
 ## <a name="hiddenfield-control"></a>HiddenField Control
 
@@ -204,15 +194,11 @@ Jest to dość często występują deweloperów platformy ASP.NET się próby ze
 > [!NOTE]
 > Formant kreatora przechowuje informacje o stanie przy użyciu stanu kontrolki ASP.NET. W związku z tym można ustawić właściwości EnableViewState na wartość false, bez żadnych szczegółów.
 
-
 To wideo jest przewodnik formantu kreatora.
-
 
 ![](server-controls/_static/image2.png)
 
-
 [Otwórz wideo pełnego ekranu](server-controls/_static/wizard1.wmv)
-
 
 ## <a name="localize-control"></a>Lokalizowanie formantu
 

@@ -8,12 +8,12 @@ ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 9076ce7d933d9bbaaf4d34ccb6df7b6823cd38bf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e15cba87b6ff4093aeac428542ce421b82e1bba1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59417016"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118508"
 ---
 # <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure) błędu przejściowego
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
-
 
 Podczas projektowania aplikacji w chmurze świata rzeczywistego, jedną z rzeczy, które trzeba się zajmować jest sposób obsługi przerw w świadczeniu usługi tymczasowych. Ten problem jest jednoznacznie ważne w aplikacjach w chmurze, ponieważ jesteś więc zależne od usług zewnętrznych i połączeniem sieciowym. Często znajdziesz niewielkie błędy wyróżnienia, które są zazwyczaj samonaprawiania, a jeśli nie masz przygotowany do obsługi tych inteligentnie, powodują one, będzie złe doświadczenia klientom.
 

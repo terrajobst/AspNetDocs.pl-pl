@@ -8,12 +8,12 @@ ms.date: 10/30/2006
 ms.assetid: f8fd58e2-f932-4f08-ab3d-fbf8ff3295d2
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5714b118a5894731820d8e9775c8f5c8a375856c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3edd37259a3624757dd5bc69ffba7159c9b85ad1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65113741"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-c"></a>Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_38_CS.exe) lub [Pobierz plik PDF](handling-bll-and-dal-level-exceptions-cs/_static/datatutorial38cs1.pdf)
 
 > W tym samouczku opisano jak przeczucie obsługiwać wyjątki zgłoszone podczas aktualizowania przepływu pracy można edytować DataList.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -35,38 +34,30 @@ Naszych samouczków DataList, jednak nie są za pomocą kontrolki ObjectDataSour
 > [!NOTE]
 > W *omówienie edytowania i usuwania danych w kontrolce DataList* samouczku Omówiliśmy różne techniki edytowania i usuwania danych w kontrolce DataList kilka technik bierze udziału za pomocą kontrolki ObjectDataSource aktualizacji i usuwanie. Jeśli te techniki zostanie zastosowana, może obsługiwać wyjątki od LOGIKI lub warstwy DAL za pośrednictwem ObjectDataSource s `Updated` lub `Deleted` procedury obsługi zdarzeń.
 
-
 ## <a name="step-1-creating-an-editable-datalist"></a>Krok 1. Tworzenie można edytować DataList
 
 Zanim będziemy zajmować obsługi wyjątków, które występują podczas aktualizowania przepływu pracy, chętnie s, należy najpierw utworzyć DataList można edytować. Otwórz `ErrorHandling.aspx` strony w `EditDeleteDataList` folderu, Dodaj kontrolką DataList do projektanta, ustaw jego `ID` właściwości `Products`, i dodać nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy s `GetProducts()` Metoda służąca do wybierania rekordów; Ustawianie list rozwijanych w INSERT, UPDATE i usuwanie kart (Brak).
-
 
 [![Zwraca informacje o produkcie przy użyciu metody GetProducts()](handling-bll-and-dal-level-exceptions-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-cs/_static/image1.png)
 
 **Rysunek 1**: Zwraca informacje o produkt za pomocą `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image3.png))
 
-
 Po zakończeniu pracy Kreatora ObjectDataSource programu Visual Studio będzie automatycznie tworzył `ItemTemplate` dla kontrolki DataList. Zastąp tę wartość ciągiem `ItemTemplate` , wyświetla każdy produkt s nazwy i ceny i zawiera przycisk Edytuj. Następnie należy utworzyć `EditItemTemplate` za pomocą kontrolki TextBox w sieci Web dla nazwy i ceny i przyciski aktualizacji i Anuluj. Wreszcie, ustaw DataList s `RepeatColumns` właściwość 2.
 
 Po wprowadzeniu tych zmian znaczniki deklaratywne s strony powinien wyglądać podobnie do poniższej. Dokładnie, czy upewnij się, że edytowanie, anulowanie, i aktualizacji przyciski powinny mieć ich `CommandName` właściwości ustawione do edytowania, Anuluj i zaktualizuj odpowiednio.
-
 
 [!code-aspx[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample1.aspx)]
 
 > [!NOTE]
 > W tym samouczku kontrolki DataList stan widoku s musi być włączona.
 
-
 Poświęć chwilę, aby wyświetlić postępach za pośrednictwem przeglądarki (patrz rysunek 2).
-
 
 [![Każdy produkt zawiera przycisk Edytuj](handling-bll-and-dal-level-exceptions-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-cs/_static/image4.png)
 
 **Rysunek 2**: Każdy produkt zawiera przycisk Edytuj ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image6.png))
 
-
 Obecnie przycisk Edytuj tylko powoduje odświeżenie strony jej t jeszcze sprawiają, że można edytować. Aby umożliwić edytowanie, musimy utworzyć procedury obsługi zdarzeń dla kontrolek DataList s `EditCommand`, `CancelCommand`, i `UpdateCommand` zdarzenia. `EditCommand` i `CancelCommand` zdarzenia po prostu zaktualizuj DataList s `EditItemIndex` właściwość i ponowne wiązanie danych do kontrolki DataList:
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample2.cs)]
 
@@ -74,16 +65,13 @@ Obecnie przycisk Edytuj tylko powoduje odświeżenie strony jej t jeszcze sprawi
 
 Na razie umożliwiają s wystarczy użyć dokładnie tego samego kodu z `UpdateCommand` programu obsługi zdarzeń w *omówienie edytowania i usuwania danych w kontrolce DataList* samouczka. Dodamy kod, aby bezpiecznie obsługiwać wyjątki w kroku 2.
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample3.cs)]
 
 Nieprawidłowe dane wejściowe w przypadku której może być w formie cena jednostkowa sformatowany, wartością cena jednostki niedozwolony następująco — $5.00 lub pominięcie Nazwa s produktu, który będzie zgłaszany wyjątek. Ponieważ `UpdateCommand` program obsługi zdarzeń nie zawiera każdy wyjątek, kod obsługi w tym momencie, wyjątek zostanie będą się pojawiać do środowiska uruchomieniowego programu ASP.NET, której będzie on wyświetlana użytkownikowi końcowemu (zobacz rysunek 3).
 
-
 ![Po wystąpieniu nieobsługiwanego wyjątku, użytkownik końcowy widzi stronę błędu](handling-bll-and-dal-level-exceptions-cs/_static/image7.png)
 
 **Rysunek 3**: Po wystąpieniu nieobsługiwanego wyjątku, użytkownik końcowy widzi stronę błędu
-
 
 ## <a name="step-2-gracefully-handling-exceptions-in-the-updatecommand-event-handler"></a>Krok 2. Bez problemu zmieniała obsługi wyjątków w obsłudze zdarzeń elementu UpdateCommand
 
@@ -93,13 +81,11 @@ Gdy wystąpi wyjątek, chcemy wyświetlić komunikat informacyjny w samej strony
 
 Gdy wystąpi błąd, ma być uruchamiany tylko etykiety, które mają być wyświetlane na raz. Oznacza to, że na kolejne ogłaszania zwrotnego, komunikat ostrzegawczy etykiety s powinien zniknąć. Można to osiągnąć przez albo wyczyszczenie się etykiety s `Text` właściwości lub ustawienia jej `Visible` właściwości `False` w `Page_Load` programu obsługi zdarzeń (jak robiliśmy ponownie [obsługi LOGIKI i poziom warstwy DAL wyjątków w ASP Strony .NET](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) samouczka) lub przez wyłączenie obsługi stanu widoku etykiety s. Pozwól s tę druga opcję.
 
-
 [!code-aspx[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample4.aspx)]
 
 Gdy wyjątek jest zgłaszany, przypiszemy szczegółów wyjątku do `ExceptionDetails` etykiety formantu s `Text` właściwości. Ponieważ swój stan widoku jest wyłączona, kolejne ogłaszania zwrotnego `Text` właściwości s programowe zmiany zostaną utracone, przywrócenie domyślny tekst (ciągiem pustym), a tym samym ukrywanie komunikat ostrzegawczy.
 
 Aby określić, gdy zgłoszono błąd w celu wyświetlania komunikatu przydatne na stronie, musimy dodać `Try ... Catch` za pomocą bloku `UpdateCommand` programu obsługi zdarzeń. `Try` Część zawiera kod, który może prowadzić do wyjątku, gdy `Catch` blok zawiera kod, który jest wykonywany w przypadku wyjątku. Zapoznaj się z [podstawowe informacje dotyczące obsługi wyjątków](https://msdn.microsoft.com/library/2w8f0bss.aspx) sekcji w dokumentacji programu .NET Framework, aby uzyskać więcej informacji na `Try ... Catch` bloku.
-
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample5.cs)]
 
@@ -107,23 +93,19 @@ Kiedy jest zgłaszany wyjątek dowolnego typu przez kod w ramach `Try` bloku, `C
 
 Firma Microsoft zapewnia bardziej użyteczne wyjaśnienie użytkownikowi końcowemu użycie tekst komunikatu w typie Wystąpił wyjątek. Poniższy kod, który został użyty w postaci niemal identyczne w [obsługi LOGIKI i wyjątki DAL na poziomie strony ASP.NET](../editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) samouczek zawiera taki poziom szczegółowości:
 
-
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample6.cs)]
 
 Do ukończenia tego samouczka, wystarczy wywołać `DisplayExceptionDetails` metody z `Catch` bloku, przekazując przechwycony `Exception` wystąpienia (`ex`).
 
 Za pomocą `Try ... Catch` blokowanie w miejscu, użytkownicy są przedstawione przy użyciu bardziej szczegółowy komunikat o błędzie jako rysunki 4 i 5 show. Należy zauważyć, że w przypadku wyjątku kontrolki DataList pozostaje w trybie edycji. To dlatego, gdy wystąpi wyjątek, przepływ sterowania od razu zostanie przekierowana do `Catch` bloku, pomijając kod, który zwraca kontrolki DataList stan wstępnie edycji.
 
-
 [![Komunikat o błędzie jest wyświetlany, jeśli użytkownik pomija pole wymagane](handling-bll-and-dal-level-exceptions-cs/_static/image9.png)](handling-bll-and-dal-level-exceptions-cs/_static/image8.png)
 
 **Rysunek 4**: Komunikat o błędzie jest wyświetlany, jeśli użytkownik pomija wymagane pola ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image10.png))
 
-
 [![Komunikat o błędzie jest wyświetlany podczas wprowadzania ceny](handling-bll-and-dal-level-exceptions-cs/_static/image12.png)](handling-bll-and-dal-level-exceptions-cs/_static/image11.png)
 
 **Rysunek 5**: Komunikat o błędzie jest wyświetlany podczas wprowadzania ujemna cena ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-cs/_static/image13.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

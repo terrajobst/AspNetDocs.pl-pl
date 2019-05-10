@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 1050018794526e12aad43cd473665de5ff575d7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3aecd64bc59ffa961aa97dd30b037f9aeb2acdd8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59403561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65118894"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>(Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) strategie partycjonowania danych
 
@@ -22,7 +22,6 @@ przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twi
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacje na temat serii, zobacz [pierwszy rozdział](introduction.md).
-
 
 Wcześniej widzieliśmy się, jak łatwo jest skalowanie warstwy internetowej, aplikacji w chmurze, dodając i usuwając serwerów sieci web. Ale jeśli one występują wszystkie tego samego magazynu danych, wąskich gardeł w aplikacji, zostanie przeniesiony z frontonu do zaplecza, a warstwa danych jest najtrudniejsze skalowania. W tym rozdziale przedstawiony sposób zapewniania warstwie danych skalowalne, dzieląc dane na wiele relacyjnych baz danych lub łącząc magazynu relacyjnej bazy danych w innych opcjach magazynu danych.
 
