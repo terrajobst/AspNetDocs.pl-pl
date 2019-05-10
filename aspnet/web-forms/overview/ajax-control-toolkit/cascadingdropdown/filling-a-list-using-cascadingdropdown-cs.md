@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: f949aafa-fe57-43b0-b722-f0dd33a900be
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a9a3bf12b721c8f5eec21f3090142e40e74b0b9c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 31319e0ad15825acead2b7e8b619985272fb8eaa
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395649"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131459"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-c"></a>Wypełnianie listy przy użyciu kontrolki CascadingDropDown (C#)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown0.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown0CS.pdf)
 
 > Kontrolki CascadingDropDown w zestawu narzędzi AJAX Control Toolkit rozszerza formant DropDownList tak, aby zmiany w jednej metody DropDownList ładowania skojarzone wartości w innej metody DropDownList. (Na przykład jedna lista zawiera listę stanów USA oraz następnej liście następnie jest wypełniany głównych miast, w tym stanie.) Pierwszy wyzwaniem wymagającym rozwiązania jest faktycznie wypełnienia listy rozwijanej, za pomocą tego formantu.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -59,7 +58,6 @@ Dlatego metoda musi zwracać tablicę typu ważnym aspektem `CascadingDropDownNa
 [!code-aspx[Main](filling-a-list-using-cascadingdropdown-cs/samples/sample5.aspx)]
 
 Ładowanie strony w przeglądarce wyzwoli listy ma zostać wypełniony przy użyciu trzech dostawców.
-
 
 [![Lista jest wypełniana automatycznie](filling-a-list-using-cascadingdropdown-cs/_static/image2.png)](filling-a-list-using-cascadingdropdown-cs/_static/image1.png)
 

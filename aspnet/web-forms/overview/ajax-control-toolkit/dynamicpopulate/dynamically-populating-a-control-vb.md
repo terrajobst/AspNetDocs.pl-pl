@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 27305347-7b5d-4519-97b7-197a357e7f6e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c9fdbe5f0e24aa3f09f11a67c6d13a32897e8b85
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 369beea703f84bb787ec132a357f016c2a74e6bd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131222"
 ---
 # <a name="dynamically-populating-a-control-vb"></a>Dynamiczne wypełnianie kontrolki (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0VB.pdf)
 
 > Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wprowadza wartość wynikową do formantu docelowego na stronie bez odświeżania strony.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -64,7 +63,6 @@ Jak widać, którego wymaga formant pewne informacje, ale umieszczenia wszystkie
 [!code-aspx[Main](dynamically-populating-a-control-vb/samples/sample5.aspx)]
 
 Uruchamianie jej w przeglądarce strony ASP.NET, a następnie kliknij przycisk; otrzymasz bieżącą datę w formacie dzień miesiąc rok.
-
 
 [![Kliknięcie przycisku pobiera datę z serwera](dynamically-populating-a-control-vb/_static/image2.png)](dynamically-populating-a-control-vb/_static/image1.png)
 

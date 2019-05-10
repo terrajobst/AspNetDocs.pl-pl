@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: bd347d93-4251-4532-801c-a36f2dfa7f96
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b1660c0d20b76d97ee00acf1080c3eca1f596be2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: be88d4928091cbe3010d6ef7e343de3517bf8211
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132183"
 ---
 # <a name="using-sql-cache-dependencies-vb"></a>Używanie zależności pamięci podręcznej SQL (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_VB.zip) lub [Pobierz plik PDF](using-sql-cache-dependencies-vb/_static/datatutorial61vb1.pdf)
 
 > Najprostsza strategii buforowania jest umożliwienie dane w pamięci podręcznej wygasa po upływie określonego czasu. Ale to proste podejście oznacza, że dane w pamięci podręcznej przechowuje żaden związek z jego źródle danych, co nieaktualnych danych, które odbywa się za długa lub bieżących danych, który wygasł zbyt szybko. Lepszym rozwiązaniem jest korzystanie z klasy SqlCacheDependency, tak aby danych pozostaje w pamięci podręcznej do momentu jego danych źródłowych został zmodyfikowany w bazie danych SQL. Ten samouczek pokazuje sposób.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -48,25 +47,20 @@ Oprócz `AspNet_SqlCacheTablesForChangeNotification` tabeli bazy danych równie�
 
 Dzięki podejściu sondowania bazy danych musi być skonfigurowany zawierać infrastruktury opisane powyżej: wstępnie zdefiniowanej tabeli (`AspNet_SqlCacheTablesForChangeNotification`), kilka procedur składowanych i wyzwalaczy w każdej z tabel, które mogą być używane w zależności pamięci podręcznej SQL w sieci web aplikacja. Tych tabel, procedur składowanych i wyzwalaczy można utworzyć za pomocą wiersza polecenia programu `aspnet_regsql.exe`, który znajduje się w `$WINDOWS$\Microsoft.NET\Framework\version` folderu. Aby utworzyć `AspNet_SqlCacheTablesForChangeNotification` tabeli i skojarzone procedur składowanych, uruchom następujące polecenie w wierszu polecenia:
 
-
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample1.cmd)]
 
 > [!NOTE]
 > Aby wykonać te polecenia logowania określona baza danych musi znajdować się w [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) i [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) ról. Aby zbadać języka T-SQL wysyłane do bazy danych przez `aspnet_regsql.exe` program wiersza polecenia, zobacz [ten wpis w blogu](http://scottonwriting.net/sowblog/posts/10709.aspx).
 
-
 Na przykład, aby dodać infrastruktury do sondowania z bazą danych programu Microsoft SQL Server o nazwie `pubs` na serwerze bazy danych o nazwie `ScottsServer` przy użyciu uwierzytelniania Windows, przejdź do odpowiedniego katalogu i, w wierszu polecenia wpisz:
-
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample2.cmd)]
 
 Po dodaniu infrastruktury poziomu bazy danych należy dodać wyzwalacze do tych tabel, które będą używane w zależności pamięci podręcznej SQL. Użyj `aspnet_regsql.exe` wiersza polecenia programu ponownie, ale określ za pomocą nazwy tabeli `-t` przełącznika i zamiast `-ed` Przełącz użyj `-et`, w następujący sposób:
 
-
 [!code-html[Main](using-sql-cache-dependencies-vb/samples/sample3.html)]
 
 Aby dodać wyzwalaczy, aby `authors` i `titles` tabel na `pubs` bazy danych na `ScottsServer`, użyj:
-
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample4.cmd)]
 
@@ -78,32 +72,25 @@ W tym samouczku dodane wyzwalaczy, aby `Products`, `Categories`, i `Suppliers` t
 
 Rozpocznij od zamknięcia programu Visual Studio. Następnie otwórz program SQL Server Management Studio i wybierz opcję nawiązać połączenie `localhost\SQLExpress` serwera przy użyciu uwierzytelniania Windows.
 
-
 ![Dołącz do localhost\SQLExpress serwera](using-sql-cache-dependencies-vb/_static/image1.gif)
 
 **Rysunek 1**: Dołącz do `localhost\SQLExpress` serwera
 
-
 Po nawiązaniu połączenia z serwerem Management Studio Pokaż serwera i podfoldery dla baz danych, zabezpieczeń i tak dalej. Kliknij prawym przyciskiem myszy na folder baz danych i wybierz opcję Dołącz. Zostanie wyświetlone okno dialogowe dołączanie bazy danych (zobacz rysunek 2). Kliknij przycisk Dodaj, a następnie wybierz pozycję `NORTHWND.MDF` folder bazy danych w sieci web aplikacji s `App_Data` folderu.
-
 
 [![Dołącz NORTHWND. MDF bazy danych, z folderu App_Data](using-sql-cache-dependencies-vb/_static/image2.gif)](using-sql-cache-dependencies-vb/_static/image1.png)
 
 **Rysunek 2**: Dołącz `NORTHWND.MDF` bazy danych z `App_Data` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image2.png))
 
-
 Spowoduje to dodanie bazy danych do folderu bazy danych. Nazwa bazy danych może być pełna ścieżka do pliku bazy danych lub pełną ścieżkę poprzedzonej ciągiem [GUID](http://en.wikipedia.org/wiki/Globally_Unique_Identifier). Aby uniknąć konieczności wpisywania w tej nazwie długich bazy danych, korzystając z aspnet\_regsql.exe narzędzia wiersza polecenia, Zmień nazwę dołączyć bazy danych do nazwy bardziej przyjaznego dla człowieka, klikając prawym przyciskiem myszy bazę danych po prostu i wybierając opcję zmiany nazwy. Czy mogę ve zmieniona Moja baza danych na DataTutorials.
-
 
 ![Zmień nazwę dołączonej bazie danych nazwę bardziej przyjaznego dla człowieka](using-sql-cache-dependencies-vb/_static/image3.gif)
 
 **Rysunek 3**: Zmień nazwę dołączonej bazie danych nazwę bardziej przyjaznego dla człowieka
 
-
 ## <a name="step-3-adding-the-polling-infrastructure-to-the-northwind-database"></a>Krok 3. Dodawanie infrastruktury sondowania z bazą danych Northwind
 
 Teraz, gdy będziemy mieć dołączone `NORTHWND.MDF` bazy danych z `App_Data` folderu, możemy ponownie gotowe do dodania infrastruktury sondowania. Przy założeniu, że był zmianie bazy danych na DataTutorials, uruchom następujące polecenia, cztery:
-
 
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample5.cmd)]
 
@@ -111,16 +98,13 @@ Po uruchomieniu tych poleceń cztery, kliknij prawym przyciskiem myszy nazwę ba
 
 Gdy program Visual Studio zawiera otwarte ponownie, należy przejść do bazy danych za pomocą Eksploratora serwera. Należy pamiętać, nowa tabela (`AspNet_SqlCacheTablesForChangeNotification`), nowy przechowywane procedury składowane i wyzwalacze na `Products`, `Categories`, i `Suppliers` tabel.
 
-
 ![Baza danych zawiera teraz infrastruktury niezbędnych sondowania](using-sql-cache-dependencies-vb/_static/image4.gif)
 
 **Rysunek 4**: Baza danych zawiera teraz infrastruktury niezbędnych sondowania
 
-
 ## <a name="step-4-configuring-the-polling-service"></a>Krok 4. Konfigurowanie usługi sondowania
 
 Po utworzeniu wymagane tabele, wyzwalaczy i procedur składowanych w bazie danych, ostatnim krokiem jest skonfigurować usługi sondowania, w którym odbywa się za pośrednictwem `Web.config` , określając baz danych i częstotliwość sondowania (w milisekundach). Następujące znaczniki sonduje bazy danych Northwind, co sekundę.
-
 
 [!code-xml[Main](using-sql-cache-dependencies-vb/samples/sample6.xml)]
 
@@ -133,7 +117,6 @@ Po ustanowieniu zależności pamięci podręcznej SQL, system sondowania połąc
 > [!NOTE]
 > Powyższy przykład zawiera pojedynczy `pollTime` wartość w `<sqlCacheDependency>` element, ale można opcjonalnie określić `pollTime` wartość w `<add>` elementu. Jest to przydatne, jeśli masz wiele określonych baz danych i chcesz dostosować częstotliwość sondowania na bazę danych.
 
-
 ## <a name="step-5-declaratively-working-with-sql-cache-dependencies"></a>Krok 5. Deklaratywne Praca z zależności pamięci podręcznej SQL
 
 W krokach 1 – 4 przyjrzeliśmy się instrukcje konfiguracji infrastruktury niezbędnych bazy danych i konfiguracji systemu sondowania. Za pomocą tej infrastruktury w miejscu możemy teraz Dodaj elementy do pamięci podręcznej danych z skojarzone zależności pamięci podręcznej SQL przy użyciu techniki programistyczne lub deklaratywne. W tym kroku zajmiemy się, jak deklaratywne pracować z zależności pamięci podręcznej SQL. W kroku 6 przyjrzymy rozwiązania programowego.
@@ -142,34 +125,27 @@ W krokach 1 – 4 przyjrzeliśmy się instrukcje konfiguracji infrastruktury nie
 
 Aby zademonstrować, używanie zależności pamięci podręcznej SQL w sposób deklaratywny, otwórz `SqlCacheDependencies.aspx` stronie `Caching` folder i przeciągnij GridView z przybornika do projektanta. Ustaw GridView s `ID` do `ProductsDeclarative` i z jego tag inteligentny chcesz powiązać nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSourceDeclarative`.
 
-
 [![Tworzenie nowego elementu ObjectDataSource, o nazwie ProductsDataSourceDeclarative](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
 
 **Rysunek 5**: Utwórz nowy o nazwie elementu ObjectDataSource `ProductsDataSourceDeclarative` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image4.png))
 
-
 Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy i zmień wartość na liście rozwijanej na karcie Wybierz `GetProducts()`. Na karcie aktualizacji, wybierz opcję `UpdateProduct` przeciążenia z trzema parametrami wejściowymi - `productName`, `unitPrice`, i `productID`. Ustaw list rozwijanych (Brak), znajdujące się na kartach INSERT i DELETE.
-
 
 [![Użyj przeciążenia UpdateProduct trzech parametrów wejściowych](using-sql-cache-dependencies-vb/_static/image6.gif)](using-sql-cache-dependencies-vb/_static/image5.png)
 
 **Rysunek 6**: Trzy parametry wejściowe za pomocą przeciążenia UpdateProduct ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image6.png))
 
-
 [![Zmień wartość na liście rozwijanej na (Brak) do WSTAWIANIA i usuwania karty](using-sql-cache-dependencies-vb/_static/image7.gif)](using-sql-cache-dependencies-vb/_static/image7.png)
 
 **Rysunek 7**: Zmień wartość na liście rozwijanej na (Brak) dla Wstawianie i usuwanie kart ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image8.png))
-
 
 Po zakończeniu pracy kreatora Konfigurowanie źródła danych, program Visual Studio utworzy BoundFields i CheckBoxFields w widoku GridView dla każdego pola danych. Usuń wszystkie pola, ale `ProductName`, `CategoryName`, i `UnitPrice`i sformatuj te pola, zgodnie z potrzebami. Za pomocą tagu inteligentnego s GridView zaznacz pola wyboru włączone stronicowanie, włączyć sortowanie i Włącz edytowanie. Program Visual Studio ustawi ObjectDataSource s `OldValuesParameterFormatString` właściwość `original_{0}`. Aby zapewnić poprawne działanie funkcji edycji s GridView, albo Usuń tę właściwość całkowicie w składni deklaratywnej lub ustaw go z powrotem na jego wartość domyślną `{0}`.
 
 Na koniec Dodaj kontrolkę etykieta Web powyżej GridView i ustaw jego `ID` właściwości `ODSEvents` i jego `EnableViewState` właściwość `False`. Po wprowadzeniu tych zmian, znaczniki deklaratywne s strony powinien wyglądać podobnie do poniższej. Należy pamiętać, ve wprowadzone liczby estetycznych dostosowań do pola kontrolki GridView, które nie są konieczne do zademonstrowania funkcji zależności pamięci podręcznej SQL.
 
-
 [!code-aspx[Main](using-sql-cache-dependencies-vb/samples/sample7.aspx)]
 
 Następnie należy utworzyć program obsługi zdarzeń dla ObjectDataSource s `Selecting` zdarzeń i w jego Dodaj następujący kod:
-
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample8.vb)]
 
@@ -177,14 +153,11 @@ Pamiętamy ObjectDataSource s `Selecting` zdarzeń jest uruchamiana tylko wtedy,
 
 Teraz odwiedź tę stronę za pośrednictwem przeglądarki. Ponieważ firma Microsoft ve jeszcze w celu implementacji wszelkich buforowania, każdym razem, strony, sortowanie lub edytowanie strony siatki powinien być wyświetlany tekst, wybranie event uruchamiane, jak pokazano na rysunku 8.
 
-
 [![S ObjectDataSource wybranie Event uruchamia każdego czasu stronicowanej widoku GridView, edytować, lub posortowane](using-sql-cache-dependencies-vb/_static/image8.gif)](using-sql-cache-dependencies-vb/_static/image9.png)
 
 **Rysunek 8**: ObjectDataSource s `Selecting` czas każdej generowane zdarzenia jest stronicowanej widoku GridView, edytowana lub posortowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image10.png))
 
-
 Jak widzieliśmy w [buforowanie danych za pomocą kontrolki ObjectDataSource](caching-data-with-the-objectdatasource-vb.md) samouczek, ustawienie `EnableCaching` właściwości `True` powoduje, że ObjectDataSource do jego dane z pamięci podręcznej przez czas określony przez jego `CacheDuration` właściwości. Ma również kontrolki ObjectDataSource [ `SqlCacheDependency` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), która dodaje co najmniej jeden zależności pamięci podręcznej SQL buforowanych danych przy użyciu wzorca:
-
 
 [!code-css[Main](using-sql-cache-dependencies-vb/samples/sample9.css)]
 
@@ -193,24 +166,19 @@ Gdzie *databaseName* to nazwa bazy danych, jak to określono w `name` atrybutu `
 > [!NOTE]
 > Możesz użyć zależności pamięci podręcznej SQL *i* na podstawie czasu wygaśnięcia, ustawiając `EnableCaching` do `True`, `CacheDuration` przedziału czasu i `SqlCacheDependency` do nazwy bazy danych i tabeli. Kontrolki ObjectDataSource Wyklucz swoje dane, po osiągnięciu na podstawie czasu wygaśnięcia lub gdy system sondowania zauważa, że danych bazowych bazy danych została zmieniona, zaznajomisz się stanie, najpierw.
 
-
 GridView w `SqlCacheDependencies.aspx` wyświetla dane z dwóch tabel - `Products` i `Categories` (produkt s `CategoryName` pola są pobierane za pośrednictwem `JOIN` na `Categories`). W związku z tym chcemy określić dwie zależności pamięci podręcznej SQL: NorthwindDB:Products;NorthwindDB:Categories .
-
 
 [![Konfigurowanie kontrolki ObjectDataSource do obsługi pamięci podręcznej używanie zależności pamięci podręcznej SQL na temat produktów i kategorii](using-sql-cache-dependencies-vb/_static/image9.gif)](using-sql-cache-dependencies-vb/_static/image11.png)
 
 **Rysunek 9**: Konfigurowanie kontrolki ObjectDataSource do obsługi pamięci podręcznej przy użyciu pamięci podręcznej zależności SQL na `Products` i `Categories` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image12.png))
 
-
 Po skonfigurowaniu ObjectDataSource do obsługi pamięci podręcznej, należy ponownie stronę za pośrednictwem przeglądarki. Ponownie zdarzenie wybranie tekstu, które są wywoływane powinny pojawić się na pierwszej wizyty strony, ale powinien zniknąć po stronicowania, sortowanie lub naciskać przycisków edycji, lub przycisk Anuluj. Jest to spowodowane po załadowaniu danych w pamięci podręcznej s ObjectDataSource nawet do momentu `Products` lub `Categories` tabele są modyfikowane lub dane są aktualizowane przy użyciu widoku GridView.
 
 Po stronicowanie siatki i zapisując braku zdarzeń wybranie wyzwolone tekst, Otwórz nowe okno przeglądarki i przejdź do samouczka podstawy w edytowanie, wstawianie i usuwanie sekcji (`~/EditInsertDelete/Basics.aspx`). Zaktualizuj nazwę lub cena produktu. Następnie z pierwszego okna przeglądarki, Wyświetl innej strony danych, sortowania siatki lub kliknij przycisk Edytuj wiersz s. Tym razem wybranie zdarzenia wywoływane powinno się ponownie, podstawowej bazy danych, których dane zostały zmienione (zobacz rysunek 10). Jeśli tekst nie jest widoczny, poczekaj chwilę i spróbuj ponownie. Należy pamiętać, że usługa sondowania sprawdza zmiany `Products` tabeli co `pollTime` milisekund, więc istnieje opóźnienie między po zaktualizowaniu danych bazowych i kiedy zostanie wykluczony dane w pamięci podręcznej.
 
-
 [![Modyfikowanie tabeli Produkty wyklucza mogą dane buforowane produktu](using-sql-cache-dependencies-vb/_static/image10.gif)](using-sql-cache-dependencies-vb/_static/image13.png)
 
 **Na rysunku nr 10**: Modyfikowanie tabeli Produkty wyklucza mogą danych produktu pamięci podręcznej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image14.png))
-
 
 ## <a name="step-6-programmatically-working-with-thesqlcachedependencyclass"></a>Krok 6. Programowe pracę`SqlCacheDependency`klasy
 
@@ -218,48 +186,39 @@ Po stronicowanie siatki i zapisując braku zdarzeń wybranie wyzwolone tekst, Ot
 
 W systemie sondowania `SqlCacheDependency` obiekt musi być skojarzone z określoną parą bazy danych i tabeli. Poniższy kod przykładowy tworzy `SqlCacheDependency` obiektu oparte na bazie danych Northwind s `Products` tabeli:
 
-
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample10.vb)]
 
 Wprowadź dwa parametry `SqlCacheDependency` Konstruktor s są odpowiednio nazwy bazy danych i tabeli. Za pomocą ObjectDataSource s `SqlCacheDependency` Właściwość Nazwa bazy danych, używane jest taka sama jak wartość określoną w `name` atrybutu `<add>` elementu w `Web.config`. Nazwa tabeli jest rzeczywista nazwa tabeli bazy danych.
 
 Aby skojarzyć `SqlCacheDependency` za pomocą elementu dodane do pamięci podręcznej danych, użyj jednej z `Insert` przeciążenia metody, które akceptuje zależności. Poniższy kod dodaje *wartość* do pamięci podręcznej danych na nieokreślony czas, ale kojarzy ją z `SqlCacheDependency` na `Products` tabeli. Krótko mówiąc *wartość* pozostaną w pamięci podręcznej, dopóki nie zostanie usunięty z powodu ograniczeń pamięci, lub ponieważ sondowania system wykrył, że `Products` tabeli zmieniła się od jego był buforowany.
 
-
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample11.vb)]
 
 S warstwy buforowania `ProductsCL` klasy obecnie buforuje dane z `Products` tabeli, używając na podstawie czasu wygaśnięcia 60 sekund. Pozwól s aktualizacji tej klasy, tak aby używał zależności pamięci podręcznej SQL zamiast tego. `ProductsCL` Klasy s `AddCacheItem` metody, która jest odpowiedzialny za dodawanie danych do pamięci podręcznej, obecnie zawiera następujący kod:
-
 
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample12.vb)]
 
 Zaktualizuj kod w celu użycia `SqlCacheDependency` zamiast obiektu `MasterCacheKeyArray` zależności w pamięci podręcznej:
 
-
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample13.vb)]
 
 Aby przetestować tę funkcję, należy dodać GridView do strony poniżej istniejącego `ProductsDeclarative` GridView. Ustaw ten nowy s GridView `ID` do `ProductsProgrammatic` i za pośrednictwem tagu inteligentnego powiązać go do nowego elementu ObjectDataSource, o nazwie `ProductsDataSourceProgrammatic`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsCL` klasy, listy rozwijane w polu Wybierz i aktualizacji karty, aby `GetProducts` i `UpdateProduct`, odpowiednio.
-
 
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsCL](using-sql-cache-dependencies-vb/_static/image11.gif)](using-sql-cache-dependencies-vb/_static/image15.png)
 
 **Rysunek 11**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsCL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image16.png))
 
-
 [![Wybierz metodę GetProducts z listy rozwijanej wybierz kartę s](using-sql-cache-dependencies-vb/_static/image12.gif)](using-sql-cache-dependencies-vb/_static/image17.png)
 
 **Rysunek 12**: Wybierz `GetProducts` metodę z listy rozwijanej s Wybierz kartę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image18.png))
-
 
 [![Wybierz metodę UpdateProduct z listy rozwijanej s kartę aktualizacji](using-sql-cache-dependencies-vb/_static/image13.gif)](using-sql-cache-dependencies-vb/_static/image19.png)
 
 **Rysunek 13**: Wybierz metodę UpdateProduct s kartę aktualizacji listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-vb/_static/image20.png))
 
-
 Po zakończeniu pracy kreatora Konfigurowanie źródła danych, program Visual Studio utworzy BoundFields i CheckBoxFields w widoku GridView dla każdego pola danych. Tak, jak przy użyciu GridView pierwszy dodane do tej strony, Usuń wszystkie pola, ale `ProductName`, `CategoryName`, i `UnitPrice`i sformatuj te pola, zgodnie z potrzebami. Za pomocą tagu inteligentnego s GridView zaznacz pola wyboru włączone stronicowanie, włączyć sortowanie i Włącz edytowanie. Podobnie jak w przypadku `ProductsDataSourceDeclarative` ObjectDataSource, Visual Studio ustawi `ProductsDataSourceProgrammatic` ObjectDataSource s `OldValuesParameterFormatString` właściwość `original_{0}`. Funkcja Edytuj s GridView działało poprawnie, ustaw tę właściwość z powrotem do `{0}` (lub całkowicie usunąć przypisania właściwości z składni deklaratywnej).
 
 Po zakończeniu tych zadań, wynikowy kontrolkami GridView i kontrolki ObjectDataSource oznaczeniu deklaracyjnym powinien wyglądać następująco:
-
 
 [!code-aspx[Main](using-sql-cache-dependencies-vb/samples/sample14.aspx)]
 
@@ -272,7 +231,6 @@ W tym scenariuszu zostanie wyświetlony jeden z dwóch kwestii: albo punkt przer
 > [!NOTE]
 > To opóźnienie jest bardziej prawdopodobne, które będą wyświetlane po edycji produktów dzięki GridView w `SqlCacheDependencies.aspx`. W [buforowania danych w architekturze](caching-data-in-the-architecture-vb.md) samouczek dodaliśmy `MasterCacheKeyArray` pamięci podręcznej zależności, aby potwierdzić, że dane edytowany przy użyciu `ProductsCL` klasy s `UpdateProduct` metoda została wykluczona z pamięci podręcznej. Jednak zastąpiliśmy tej zależności pamięci podręcznej podczas modyfikowania `AddCacheItem` metoda wcześniej w tym kroku i w związku z tym `ProductsCL` klasy będą w dalszym ciągu Pokaż dane w pamięci podręcznej do momentu zmiany — informacje o systemie sondowania `Products` tabeli. Zobaczymy, jak ponownie wprowadzić `MasterCacheKeyArray` zależności w kroku 7 w pamięci podręcznej.
 
-
 ## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>Krok 7. Kojarzenie wiele zależności z elementu w pamięci podręcznej
 
 Pamiętamy `MasterCacheKeyArray` zależności pamięci podręcznej służy do upewnij się, że *wszystkich* dane dotyczące produktu zostanie usunięty z pamięci podręcznej po zaktualizowaniu dowolnego pojedynczego elementu skojarzone znajdujący się w nim. Na przykład `GetProductsByCategoryID(categoryID)` pamięci podręczne metody `ProductsDataTables` wystąpień dla każdego unikatowy *categoryID* wartość. Jeśli jeden z tych obiektów zostanie usunięty, `MasterCacheKeyArray` zależności pamięci podręcznej zapewnia także inne usunięte. Bez tej zależności pamięci podręcznej po zmodyfikowaniu dane w pamięci podręcznej istnieje możliwość, że inne dane w pamięci podręcznej produktu mogą być nieaktualne. W związku z tym, jego s pamiętać, że firma Microsoft zachowuje `MasterCacheKeyArray` przechowują w pamięci podręcznej zależności używanie zależności pamięci podręcznej SQL. Jednak dane w pamięci podręcznej s `Insert` metoda zezwala tylko dla obiektu jednej zależności.
@@ -283,14 +241,12 @@ Ponadto podczas pracy z zależności pamięci podręcznej SQL firma Microsoft mo
 
 Poniżej pokazano zaktualizowany kod dla `ProductsCL` klasy s `AddCacheItem` metody. Ta metoda tworzy `MasterCacheKeyArray` pamięci podręcznej zależności wraz z `SqlCacheDependency` obiektów dla `Products`, `Categories`, i `Suppliers` tabel. Te są wszystkie połączone w jedną `AggregateCacheDependency` obiektu o nazwie `aggregateDependencies`, który jest następnie przekazywany do `Insert` metody.
 
-
 [!code-vb[Main](using-sql-cache-dependencies-vb/samples/sample15.vb)]
 
 Testowanie nowego kodu out. Teraz zmienia się na `Products`, `Categories`, lub `Suppliers` tabele spowodować, że dane w pamięci podręcznej zostać wykluczony. Ponadto `ProductsCL` klasy s `UpdateProduct` metody, która jest wywoływana podczas edytowania produktu za pośrednictwem widoku GridView, wyklucza mogą `MasterCacheKeyArray` zależności, co powoduje, że buforowane w pamięci podręcznej `ProductsDataTable` wykluczenie i ponowne pobranie na następnej danych żądanie.
 
 > [!NOTE]
 > Zależności pamięci podręcznej SQL może również służyć za pomocą [buforowania danych wyjściowych](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Do pokazania tej funkcji zobacz: [Za pomocą programu ASP.NET buforowania danych wyjściowych z programem SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
-
 
 ## <a name="summary"></a>Podsumowanie
 

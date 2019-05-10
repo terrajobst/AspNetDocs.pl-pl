@@ -8,12 +8,12 @@ ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: d35c0057f5c29e399e45d0a58467de7f106d9994
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6b5ab979518615356baaeeb824e0a621eb59a38f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59389976"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130780"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>Wywoływanie usługi protokołu OData z klienta .NET (C#)
 
@@ -29,7 +29,6 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (w programach Visual Studio 2012)
 > - [Biblioteka klienta usług danych WCF](https://msdn.microsoft.com/library/cc668772.aspx)
 > - Interfejsu Web API 2. (Przykład usługi OData został skompilowany przy użyciu Web API 2, ale aplikacja kliencka nie zależy od interfejsu API sieci Web).
-
 
 W ramach tego samouczka I zawiera opis kroków tworzenia aplikacji klienckiej, która wywołuje usługę OData. Usługa OData przedstawia następujących elementach:
 
@@ -57,7 +56,6 @@ Następnie otwórz inne wystąpienie programu Visual Studio i Utwórz projekt ap
 
 > [!NOTE]
 > Pozostałe kroki można znaleźć projektu konsoli.
-
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **odwołania** i wybierz **Dodaj odwołanie do usługi**.
 
@@ -201,7 +199,6 @@ Aktualizacja jest wykonywana po wywołaniu **SaveChanges**. Domyślnie program W
 
 > [!NOTE]
 > Dlaczego PATCH i MERGE? Pierwotną specyfikację protokołu HTTP 1.1 ([RCF 2616](http://tools.ietf.org/html/rfc2616)) nie definiują dowolną metodę HTTP, za pomocą semantyki "częściową aktualizację". Aby obsługiwać aktualizacje częściowe, specyfikacją OData zdefiniowane MERGE — metoda. W 2010 r. [RFC 5789](http://tools.ietf.org/html/rfc5789) zdefiniowane metody PATCH częściowej aktualizacji. Niektóre z historii, w tym przeczytasz [wpis w blogu](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx) na blogu usługi danych WCF. Już dziś poprawki jest preferowana nad scalania. Kontrolera OData, utworzonego przez tworzenie szkieletu interfejsu API sieci Web obsługuje obie metody.
-
 
 Jeśli chcesz zamienić całej jednostki (PUT semantyki), należy określić **ReplaceOnUpdate** opcji. Powoduje to WCF możesz wysłać żądanie HTTP PUT.
 

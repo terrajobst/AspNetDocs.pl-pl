@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: f11d22a7-5d32-4ad0-8a9b-276460a61c06
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0e57eb85242a0d6fa8ca9eef7f6c741862069d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f778549d3e26989a2e71ef21171adec521842729
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408800"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132137"
 ---
 # <a name="manually-installing-web-packages"></a>Ręczne instalowanie pakietów internetowych
 
@@ -29,7 +29,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > 
 > W tych scenariuszach jedynym rozwiązaniem może być portu pakiet sieci web na serwerze docelowym i ręcznie zaimportuj go do usług IIS. Chociaż to podejście wyklucza automatycznego wdrażania, jest nadal bardzo skuteczne technika publikowania aplikacji sieci web&#x2014;po prostu skopiuj plik zip pojedynczy serwer sieci web i proces importu za pomocą kreatora.
 
-
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
 ## <a name="task-overview"></a>Omówienie zadań
@@ -44,7 +43,6 @@ W tym temacie pokazują sposób wykonania tych procedur. Zadania i wskazówki, w
 
 > [!NOTE]
 > W tym temacie najlepiej sprawdza się w połączeniu z [Konfigurowanie serwera sieci Web dla wdrożenia publikowania w sieci Web (wdrożenie w trybie Offline)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md), która wyjaśnia, jak zainstalować wymagane składniki i przygotować to witryna sieci Web usług IIS do importowania pakietu.
-
 
 ## <a name="create-a-web-deployment-package"></a>Utwórz pakiet wdrażania sieci Web
 
@@ -68,9 +66,7 @@ Pakiet wdrażania sieci web dla projektu aplikacji sieci web można utworzyć w 
 
 Można utworzyć pakiet wdrażania sieci web z wiersza polecenia za pomocą wywołania **pakietu** obiektu docelowego projektu aplikacji sieci web, korzystając z programu MSBuild. Polecenie powinien wyglądać następująco:
 
-
 [!code-console[Main](manually-installing-web-packages/samples/sample1.cmd)]
-
 
 Zależności od tego podejścia, możesz użyć, efekt jest taki sam. Potok WPP tworzy pakiet wdrażania sieci web w postaci pliku zip, wraz z różnych zasobów pomocniczych, w folderze danych wyjściowych dla projektu aplikacji sieci web.
 

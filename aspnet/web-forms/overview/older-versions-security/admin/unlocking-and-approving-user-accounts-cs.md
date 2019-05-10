@@ -8,12 +8,12 @@ ms.date: 04/01/2008
 ms.assetid: 5346aab1-9974-489f-a065-ae3883b8a350
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d4e8591f3090de8f931ffd8eb1dd0a1138674842
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: b27be9dff132989a37eca7d5ef3af7b0e1aaeb74
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410048"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131304"
 ---
 # <a name="unlocking-and-approving-user-accounts-c"></a>Odblokowywanie i zatwierdzanie kont użytkowników (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/CS.14.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial14_UnlockAndApprove_cs.pdf)
 
 > W tym samouczku przedstawiono sposób tworzenia strony sieci web dla administratorów do zarządzania zablokowane i zatwierdzone stanów użytkowników. Firma Microsoft pojawi się także sposób zatwierdzenia nowych użytkowników tylko wtedy, gdy ich zweryfikowaniu swojego adresu e-mail.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -41,18 +40,15 @@ W tym samouczku użyjemy dwóch stron ASP.NET: `ManageUsers.aspx` i `UserInforma
 > [!NOTE]
 > Jeśli pobrano kod <a id="Tutorial13"> </a> [ *odzyskiwanie i zmienianie haseł* ](recovering-and-changing-passwords-cs.md) samouczek, być może zauważono, że `ManageUsers.aspx` strony już zawiera zbiór " Zarządzanie"linki i `UserInformation.aspx` strony udostępnia interfejs dla zmiany hasła wybranego użytkownika. Czy mogę zrezygnowała z replikowanie tej funkcji w kodzie, skojarzone z tym samouczkiem, ponieważ poszło obejściu API członkostwa i operacyjnego bezpośrednio z bazą danych programu SQL Server, aby zmienić hasło użytkownika. Ten samouczek rozpoczyna się od podstaw przy użyciu `UserInformation.aspx` strony.
 
-
 ### <a name="adding-manage-links-to-theuseraccountsgridview"></a>Dodawanie "Manage" linki do`UserAccounts`GridView
 
 Otwórz `ManageUsers.aspx` strony, a następnie dodaj pole hiperłącza HyperLinkField do `UserAccounts` GridView. Ustaw pole hiperłącza HyperLinkField `Text` właściwość "Manage" i jego `DataNavigateUrlFields` i `DataNavigateUrlFormatString` właściwości `UserName` i "UserInformation.aspx?user={0}", odpowiednio. Te ustawienia skonfigurować pole hiperłącza HyperLinkField w taki sposób, że wszystkie łącza wyświetlania tekstu "Manage", ale każde połączenie, przekazuje w odpowiedniej *UserName* wartość w zmiennej querystring.
 
 Po dodaniu pole hiperłącza HyperLinkField do kontrolki GridView, Poświęć chwilę na wyświetlanie `ManageUsers.aspx` strony za pośrednictwem przeglądarki. Jak pokazano na rysunku 1, każdy wiersz GridView obejmuje teraz link "Zarządzaj". Link "Zarządzaj", aby Bruce wskazuje `UserInformation.aspx?user=Bruce`, a link "Zarządzaj" Dave wskazuje `UserInformation.aspx?user=Dave`.
 
-
 [![Dodaje pole hiperłącza HyperLinkField](unlocking-and-approving-user-accounts-cs/_static/image2.png)](unlocking-and-approving-user-accounts-cs/_static/image1.png)
 
 **Rysunek 1**: Pole hiperłącza HyperLinkField dodaje Link "Zarządzaj" dla każdego konta użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image3.png))
-
 
 Firma Microsoft tworzymy interfejs użytkownika i kodu dla `UserInformation.aspx` strony w tej chwili, ale pierwszym teraz rozmawiać o jak programowo zmienić użytkownika zablokowane i zatwierdzone stanów. [ `MembershipUser` Klasy](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) ma [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) i [ `IsApproved` właściwości](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). `IsLockedOut` Właściwość jest tylko do odczytu. Nie ma mechanizmu programowo blokowania użytkownikowi. Aby odblokować użytkownika, należy użyć `MembershipUser` klasy [ `UnlockUser` metoda](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). `IsApproved` Właściwość jest Odczytywalny i zapisywalny. Aby zapisać zmiany tej właściwości, należy wywołać `Membership` klasy [ `UpdateUser` metoda](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), przekazując zmodyfikowanego `MembershipUser` obiektu.
 
@@ -71,11 +67,9 @@ Teraz jesteśmy gotowi do zaimplementowania interfejsu użytkownika w `UserInfor
 
 Po dodaniu tych kontrolek, widok projektu w programie Visual Studio powinien wyglądać podobnie do ekranu zrzut na rysunku 2.
 
-
 [![Tworzenie interfejsu użytkownika dla UserInformation.aspx](unlocking-and-approving-user-accounts-cs/_static/image5.png)](unlocking-and-approving-user-accounts-cs/_static/image4.png)
 
 **Rysunek 2**: Utwórz interfejs użytkownika dla `UserInformation.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image6.png))
-
 
 Pełny interfejs użytkownika naszym kolejnym krokiem jest ustawiony `IsApproved` pola wyboru i inne kontrolki na podstawie wybranego użytkownika informacji. Utwórz procedurę obsługi zdarzeń dla strony `Load` zdarzeń i Dodaj następujący kod:
 
@@ -97,29 +91,23 @@ Wróć do programu Visual Studio i utworzyć procedury obsługi zdarzeń dla `Is
 
 Za pomocą tych procedur obsługi zdarzeń w miejscu, należy ponownie stronę i niezatwierdzone przez użytkownika. Jak pokazano na rysunku 3, powinny zostać wyświetlone krótkie wiadomości na stronie, co oznacza, że użytkownik `IsApproved` właściwość została pomyślnie zmodyfikowana.
 
-
 [![Chris został niezatwierdzone](unlocking-and-approving-user-accounts-cs/_static/image8.png)](unlocking-and-approving-user-accounts-cs/_static/image7.png)
 
 **Rysunek 3**: Chris został niezatwierdzone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image9.png))
 
-
 Następnie wylogowania i spróbuj zalogować się jako użytkownik, którego konto zostało właśnie niezatwierdzonych. Ponieważ użytkownik nie zostanie zatwierdzone, nie można zalogować. Domyślnie kontrolka Login wyświetla ten sam komunikat, jeśli użytkownik nie może się zalogować, niezależnie od przyczyny. Ale w <a id="Tutorial6"> </a> [ *sprawdzania poprawności użytkownika poświadczeń względem członkostwa użytkownika Store* ](../membership/validating-user-credentials-against-the-membership-user-store-cs.md) samouczek przyjrzeliśmy się udoskonalanie formantu logowania, aby wyświetlić bardziej odpowiedni komunikat. Jak pokazano na rysunku 4, Chris jest wyświetlany komunikat wyjaśniający, że on nie można się zalogować, ponieważ jego konto nie jest jeszcze zatwierdzone.
-
 
 [![Chris nie ponieważ jego konto logowania jest niezatwierdzone](unlocking-and-approving-user-accounts-cs/_static/image11.png)](unlocking-and-approving-user-accounts-cs/_static/image10.png)
 
 **Rysunek 4**: Chris nie ponieważ jego konto logowania jest niezatwierdzone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image12.png))
 
-
 Aby przetestować funkcje blokady, spróbuj zalogować się jako użytkownik zatwierdzone, ale użyć niepoprawnego hasła. Powtórz ten proces niezbędne liczbę razy dopóki konto użytkownika zostało zablokowane. Kontrolka Login został także zaktualizowany i będzie zawierał niestandardowego komunikatu, jeśli próba logowania z blokady konta. Wiesz, czy konto zostało zablokowane po uruchomieniu następujący komunikat na stronie logowania wyświetlany: "Twoje konto zostało zablokowane z powodu zbyt wielu nieudanych prób logowania. Skontaktuj się z administratorem, aby Twoje konto zostało odblokowane."
 
 Wróć do `ManageUsers.aspx` strony, a następnie kliknij łącze Zarządzanie blokady użytkownika. Jak pokazano na rysunku 5, powinien zostać wyświetlony z wartością w `LastLockedOutDateLabel` przycisku odblokować użytkownika powinno być włączone. Kliknij przycisk odblokować użytkownika, aby odblokować konto użytkownika. Gdy masz odblokować użytkownika, będą mogli logować się ponownie.
 
-
 [![Dave zostało zablokowane z systemu](unlocking-and-approving-user-accounts-cs/_static/image14.png)](unlocking-and-approving-user-accounts-cs/_static/image13.png)
 
 **Rysunek 5**: Dave ma zostało zablokowane z systemu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image15.png))
-
 
 ## <a name="step-2-specifying-new-users-approved-status"></a>Krok 2. Określenie nowych użytkowników zatwierdzone stanu
 
@@ -129,7 +117,6 @@ Domyślnie formant CreateUserWizard zatwierdza nowe konta. Można skonfigurować
 
 > [!NOTE]
 > Domyślnie formant CreateUserWizard loguje się automatycznie nowego konta użytkownika. To zachowanie jest zależna od formantu [ `LoginCreatedUser` właściwość](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx). Ponieważ niezatwierdzonych użytkowników nie można zalogować się do witryny, gdy `DisableCreatedUser` jest `true` nowe konto użytkownika nie jest zalogowany do witryny, niezależnie od wartości `LoginCreatedUser` właściwości.
-
 
 Jeśli są programowe tworzenie nowych kont użytkowników za pośrednictwem `Membership.CreateUser` metod w celu utworzenia konta użytkownika niezatwierdzonych Użyj jednego z przeciążeń, które akceptują nowego użytkownika `IsApproved` wartości właściwości jako parametr wejściowy.
 
@@ -148,7 +135,6 @@ Aby wysłać wiadomość e-mail z formantu CreateUserWizard, skonfiguruj jego `M
 > [!NOTE]
 > Aby użyć `MailDefinition` właściwość należy określić dostarczanie poczty opcji na liście `Web.config`. Aby uzyskać więcej informacji, zobacz [wysyłania wiadomości E-mail w programie ASP.NET:](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
 
-
 Rozpocznij od utworzenia nowego szablonu wiadomości e-mail o nazwie `CreateUserWizard.txt` w `EmailTemplates` folderu. Dla szablonu, należy użyć następującego tekstu:
 
 [!code-aspx[Main](unlocking-and-approving-user-accounts-cs/samples/sample3.aspx)]
@@ -165,15 +151,12 @@ W tym celu należy utworzyć procedurę obsługi zdarzeń dla CreateUserWizard [
 
 Efektem sieciowym jest nowych użytkowników czy niezatwierdzonych, co oznacza, że nie można zalogować do witryny. Ponadto one są automatycznie wysyłane wiadomości e-mail z linkiem do weryfikacji adresu URL (patrz rysunek 6).
 
-
 [![Nowy użytkownik otrzymuje wiadomość E-mail z Linkiem do weryfikacji adresu URL](unlocking-and-approving-user-accounts-cs/_static/image17.png)](unlocking-and-approving-user-accounts-cs/_static/image16.png)
 
 **Rysunek 6**: Nowy użytkownik otrzymuje wiadomość E-mail z Linkiem do weryfikacji adresu URL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image18.png))
 
-
 > [!NOTE]
 > Krok CreateUserWizard domyślny formant CreateUserWizard zostanie wyświetlony komunikat informujący użytkownika, jego konta został utworzony i wyświetla przycisk Kontynuuj. Kliknięcie powoduje otwarcie na adres URL określony przez funkcję Kontrola `ContinueDestinationPageUrl` właściwości. CreateUserWizard w `EnhancedCreateUserWizard.aspx` jest skonfigurowana do wysyłania nowych użytkowników do `~/Membership/AdditionalUserInfo.aspx`, który monituje użytkownika o ich hometown, adres URL strony głównej i podpis. Ponieważ te informacje mogą być dodawane tylko przy zalogowanych użytkownikach, dobrym pomysłem będzie zaktualizować tę właściwość, aby wysłać do użytkowników powrót do strony głównej witryny (`~/Default.aspx`). Ponadto `EnhancedCreateUserWizard.aspx` strony lub krok CreateUserWizard powinny zostać rozszerzony informować użytkownika, że masz została wysłana weryfikacyjna wiadomość e-mail i ich konta pozostaną nieaktywne do momentu ich postępuj zgodnie z instrukcjami w tej wiadomości e-mail. Czy mogę Pozostaw te modyfikacje w charakterze ćwiczenia czytelnika.
-
 
 ### <a name="creating-the-verification-page"></a>Tworzenie strony weryfikacji
 
@@ -187,11 +170,9 @@ Duża część powyższego kodu sprawdza, czy `UserId` dostarczony przez ciąg z
 
 Rysunek nr 7 przedstawia `Verification.aspx` strony po odwiedzeniu za pośrednictwem przeglądarki.
 
-
 [![Konto nowego użytkownika są teraz zatwierdzane](unlocking-and-approving-user-accounts-cs/_static/image20.png)](unlocking-and-approving-user-accounts-cs/_static/image19.png)
 
 **Rysunek 7**: Konto nowego użytkownika są teraz zatwierdzane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image21.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

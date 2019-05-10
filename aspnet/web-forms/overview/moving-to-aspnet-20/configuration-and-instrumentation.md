@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: 21ebbaee-7ed8-45ae-b6c1-c27c88342e48
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: b06f105b16087f97788e0ab360af41f538d2c1ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cd5bedce5459e8cf8e72df8de69ebd82f2d97789
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400805"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131715"
 ---
 # <a name="configuration-and-instrumentation"></a>Konfiguracja i instrumentacja
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia programowe wprowadzone zmiany w konfiguracji. Ponadto istnieje wiele nowych ustawień konfiguracji umożliwiają nowe konfiguracje i instrumentacji.
-
 
 Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia programowe wprowadzone zmiany w konfiguracji. Ponadto istnieje wiele nowych ustawień konfiguracji umożliwiają nowe konfiguracje i instrumentacji.
 
@@ -40,7 +39,6 @@ Interfejs API konfiguracji ASP.NET składa się z zestawu ASP.NET management Obj
 > [!NOTE]
 > Konfiguracja interfejsu API nie obsługuje tworzenia aplikacji usług IIS.
 
-
 ## <a name="working-with-local-and-remote-configuration-settings"></a>Praca z ustawieniami konfiguracji lokalnych i zdalnych
 
 Obiekt konfiguracji reprezentuje widok scalony ustawienia konfiguracji, które są stosowane do określonej jednostki fizyczne, taki jak komputer, lub logicznej jednostki, takie jak aplikacja lub witryna sieci Web. Określonej jednostki logicznej może istnieć na komputerze lokalnym lub na serwerze zdalnym. Gdy plik konfiguracji nie istnieje dla określonej jednostki, obiekt konfiguracji reprezentuje ustawienia konfiguracji domyślnej, zgodnie z definicją w pliku Machine.config.
@@ -58,7 +56,6 @@ Metoda GetSection lub GetSectionGroup umożliwia odczytywanie informacji o konfi
 
 > [!NOTE]
 > Jeśli używasz metody statycznej GetSection, który przyjmuje parametr ścieżki, parametr path musi odwoływać się do aplikacji, w którym wykonywany jest kod. W przeciwnym razie parametr jest ignorowany i informacje o obecnie uruchomionej aplikacji w konfiguracji jest zwracana.
-
 
 ### <a name="writing"></a>Zapisywanie
 
@@ -97,7 +94,6 @@ Konfiguracja, który reprezentuje obiekt nie reprezentuje pliku określonej konf
 
 > [!NOTE]
 > Należy pamiętać, że jeśli ścieżka /ProductInfo nie istnieje, powyższy kod zwróci konfigurację domyślną, jak określono w pliku machine.config.
-
 
 Po utworzeniu obiektu konfiguracji, można następnie użyć GetSection lub GetSectionGroup metody, aby przejść do ustawień konfiguracji. Poniższy przykład pobiera odwołanie do ustawienia personifikacji dla powyższych aplikacji ProductInfo:
 
@@ -199,7 +195,6 @@ Możesz również przekazywać zdarzenia do poczty e-mail. Należy zachować ost
 
 > [!NOTE]
 > Żadna z tych dostawców poczty e-mail nie jest skonfigurowane. Należy dodać je do pliku Web.config.
-
 
 Główna różnica między tych dostawców poczty e-mail dwóch jest SimpleMailWebEventProvider i wysyła wiadomości e-mail w szablonie ogólny, który nie może być modyfikowany. Przykładowy plik Web.config dodaje tego dostawcy wiadomość e-mail do listy dostawców skonfigurowane za pomocą następujących reguł:
 
@@ -313,7 +308,6 @@ Można także ponownie skompilować aplikację w miejscu po dodaniu nowych plik�
 > [!NOTE]
 > Kompilacją aplikacji, który zawiera zagnieżdżony aplikacji nie można skompilować aplikacji zagnieżdżonych. Zagnieżdżone aplikacji muszą być skompilowane oddzielnie.
 
-
 ### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Kompilowanie aplikacji dla wdrożenia](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Określenie parametru targetDir kompilowania aplikacji dla wdrożenia (kompilacja do lokalizacji docelowej). TargetDir może być lokalizacji końcowej dla aplikacji sieci Web lub skompilowaną aplikację można wdrożyć więcej. Za pomocą **-u** opcji kompilacją aplikacji w taki sposób, że możesz wprowadzić zmiany do niektórych plików w skompilowanej aplikacji bez konieczności ponownego kompilowania. ASPNET\_compiler.exe rozróżnia między typami plików statycznych i dynamicznych i obsługuje je inaczej, tworząc wynikłej aplikacji.
@@ -371,7 +365,6 @@ Każdego z następujących labs opiera się na poprzednim labs. Należy wykonywa
 2. Dodaj nowy plik konfiguracji sieci Web do witryny.
 3. Dodaj następujący element do pliku web.config:
 
-
 [!code-xml[Main](configuration-and-instrumentation/samples/sample14.xml)]
 
 Pozwoli to zagwarantować, że masz uprawnienia, aby zapisać zmiany w pliku web.config.
@@ -381,22 +374,18 @@ Pozwoli to zagwarantować, że masz uprawnienia, aby zapisać zmiany w pliku web
 3. Identyfikator kontrolki przycisku, aby zmienić **btnToggleDebug** i tekst, który ma **Przełącz stan debugowania**.
 4. Otwórz widok kodu dla pliku związanym z kodem Default.aspx i Dodaj **przy użyciu** poufności informacji dotyczące **System.Web.Configuration** w następujący sposób:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample15.cs)]
 
 1. Dodaj dwie zmienne prywatne do klasy i stronę\_metody Init, jak pokazano poniżej:
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample16.cs)]
 
 1. Dodaj następujący kod do strony\_obciążenia:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample17.cs)]
 
 1. Zapisz i Przeglądaj default.aspx. Należy zauważyć, że formant etykiety wyświetla bieżący stan debugowania.
 2. Kliknij dwukrotnie formant przycisku w Projektancie i Dodaj następujący kod do Zdarzenie kliknięcia dla przycisku kontroli:
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample18.cs)]
 
@@ -413,16 +402,13 @@ W tym laboratorium użytkownik utworzy kod, który umożliwia przełączanie rej
 4. Dodaj nową etykietę do default.aspx. Zmień identyfikator, który ma **lblLogAppEvents**.
 5. Otwórz widok związanym z kodem default.aspx, a następnie dodaj nowe oświadczenie dla zmiennej typu HealthMonitoringSection, jak pokazano poniżej:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample19.cs)]
 
 1. Dodaj następujący kod do istniejącego kodu na stronie\_Init:
 
-
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample20.cs)]
 
 1. Kliknij dwukrotnie metody DropDownList i Dodaj następujący kod do zdarzenie selectedindexchanged.:
-
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample21.cs)]
 

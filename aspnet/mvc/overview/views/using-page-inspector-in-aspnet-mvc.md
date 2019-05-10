@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: ef0ae42e1c6114849a311164eac242db6dab2b1d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 5da3e142c52a770f59222c21d9f9a53cbbdbf498
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126354"
 ---
 # <a name="using-page-inspector-in-aspnet-mvc"></a>Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC
 
@@ -38,7 +38,6 @@ przez Tim Ammann
 > - [Za pomocą selektora kolorów CSS](#css_color_picker)
 > - [Mapowanie elementów strony dynamicznej języka JavaScript](#map_dynamic_elements)
 
-
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -47,7 +46,6 @@ przez Tim Ammann
 
 > [!NOTE]
 > Aby uzyskać najnowszą wersję narzędzia Page Inspector, użyj [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) zainstalować zestaw Windows Azure SDK dla platformy .NET w wersji 2.0.
-
 
 Narzędzie Page Inspector jest umieszczany w pakietach za pomocą narzędzia Microsoft Web Developer Tools. Najnowsza wersja to 1.3. Aby sprawdzić, która wersja mają, uruchom program Visual Studio i wybierz **Microsoft Visual Studio** z **pomocy** menu.
 
@@ -179,7 +177,6 @@ Ponownie zaznacz pole wyboru, a następnie kliknij dwukrotnie wartość właści
 > [!NOTE]
 > Ta funkcja wymaga w wersji 1.3 narzędzia Page Inspector.
 
-
 Funkcja automatycznej synchronizacji CSS służy do bezpośredniego edytowania pliku CSS i zobaczyć zmiany bezpośrednio w przeglądarce narzędzia Page Inspector.
 
 Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie inspekcji.
@@ -238,7 +235,6 @@ W wersji 1.3 narzędzie Page Inspector można teraz Mapowanie elementów, które
 
 > [!NOTE]
 > Szablon SPA wymaga [platformy ASP.NET i Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650) aktualizacji.
-
 
 W programie Visual Studio, wybierz **pliku** &gt; **nowy projekt**. Po lewej stronie, rozwiń węzeł **Visual C#**, wybierz opcję **Web**, a następnie wybierz pozycję **aplikacji sieci Web programu ASP.NET MVC4**. Kliknij przycisk **OK**.
 

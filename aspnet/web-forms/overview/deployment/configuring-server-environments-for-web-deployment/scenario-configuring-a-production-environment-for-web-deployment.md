@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 2e861511-450e-4752-a61e-4a01933f9b6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 586508039b9a3d78492aa02a77a1f29c64668b5e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2d76e715cdbf6ec484fa0ff98b3b3d1d8dfd3961
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59409697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125839"
 ---
 # <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Scenariusz: konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano scenariusz wdrażania typowej sieci web w środowisku produkcyjnym oraz opisano zadania, które należy wykonać, aby można było skonfigurować podobnie środowisko.
-
 
 W środowisku produkcyjnym jest ostatecznym miejscem przeznaczenia dla aplikacji sieci web lub witryny sieci Web. Na tym etapie aplikacja przeszła testy, został wdrożony w środowisku przejściowym i jest gotowa do "aktywowania." Cechy w środowisku produkcyjnym mogą się znacznie zmieniać zgodnie z natury i celem zawartości sieci web, rozmiar Twojej organizacji, docelowych odbiorców i wiele innych czynników. W scenariuszu skali przedsiębiorstwa w środowisku produkcyjnym może mieć następującą charakterystykę:
 
@@ -33,7 +32,6 @@ W środowisku produkcyjnym jest ostatecznym miejscem przeznaczenia dla aplikacji
 
 > [!NOTE]
 > Skalowanie w poziomie wdrożenie bazy danych na wielu serwerach wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na temat tego obszaru, zajrzyj [programu SQL Server — książki Online](https://technet.microsoft.com/library/ms130214.aspx).
-
 
 Na przykład w naszym [scenariusz samouczka](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), serwer kompilacji zespołowej zawiera definicje kompilacji, które pozwalają użytkownikom tworzenia rozwiązania Contact Manager oraz wdrażania jej w środowisku przejściowym w jednym kroku. Gdy aplikacja jest gotowa do wdrożenia w środowisku produkcyjnym ze względu na ograniczenia nałożone przez wymagania dotyczące zabezpieczeń i infrastruktury sieci, administrator środowiska produkcyjnego, należy ręcznie skopiować pakiet sieci web na serwerze sieci web w środowisku produkcyjnym i zaimportować go za pomocą Menedżera usług Internet Information Services (IIS).
 

@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: ba92788f-9f03-44b1-b6b2-af8413e6a35d
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 66a784430de734c8b1387c950382472ce59d5ccc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 873eb9e350d5fadb017b20c4b6d2889e0df00091
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422138"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126054"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (wdrożenie w trybie offline)
 
@@ -30,7 +30,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 > - Użyj *wdrożenie w trybie offline*. Takie podejście wymaga co najmniej konfiguracji serwera sieci web, ale administrator serwera, należy ręcznie skopiować pakiet sieci web na serwerze i zaimportuj go za pomocą Menedżera usług IIS.
 > 
 > Aby uzyskać więcej informacji na temat kluczowych funkcji, zalety i wady tych metod, zobacz [Wybieranie podejścia prawo do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md).
-
 
 Tak, jeśli wdrożenie zdalne ograniczeń infrastruktury lub zabezpieczeń sieci nie było możliwe. Jest to najprawdopodobniej będą w przypadku środowisk produkcyjnych dostępnego z Internetu, w której serwery sieci web są izolowane&#x2014;albo fizycznie lub przez zapory i podsieci&#x2014;od pozostałej części infrastruktury serwerowej.
 
@@ -59,7 +58,6 @@ W tym temacie pokazują sposób wykonywania każdego z tych procedur. Zadania i 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [łączenie komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
-
 ## <a name="install-products-and-components"></a>Zainstaluj produkty i składniki
 
 Ta sekcja przeprowadzi Cię przez zainstalowanie wymaganych produktów i składników na serwerze sieci web. Przed przystąpieniem do wykonywania, dobrym rozwiązaniem jest uruchamianie Windows Update, aby upewnić się, że serwer jest w pełni bądź na bieżąco.
@@ -73,7 +71,6 @@ W takim przypadku należy zainstalować te rzeczy:
 
 > [!NOTE]
 > W tym przewodniku opisano użycie Instalatora platformy sieci Web do zainstalowania i skonfigurowania różnych składników. Mimo że nie musisz użyć Instalatora platformy sieci Web, upraszcza proces instalacji przez automatyczne wykrywanie zależności i zapewnienie zawsze uzyskać najnowsze wersje produktów. Aby uzyskać więcej informacji, zobacz [3.0 Instalatora platformy sieci Web firmy Microsoft](https://go.microsoft.com/?linkid=9805118).
-
 
 **Aby zainstalować wymagane produktów i składników**
 
@@ -180,7 +177,6 @@ Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\
 > [!NOTE]
 > Aby uzyskać więcej informacji o tożsamości puli aplikacji w usługach IIS 7.5, zobacz [tożsamości puli aplikacji](https://go.microsoft.com/?linkid=9805123).
 
-
 **Aby skonfigurować uprawnienia do folderu witryny sieci Web usług IIS**
 
 1. W Eksploratorze Windows przejdź do lokalizacji folderu lokalnego.
@@ -199,7 +195,6 @@ Po zainstalowaniu narzędzia Web Deploy, Usługa agenta wdrażania sieci Web jes
 
 > [!NOTE]
 > Nie ma potrzeby Zatrzymaj usługę agenta zdalnego, aby można było zaimportować i ręcznie wdrożyć pakiet sieci web. Jednak jest dobrym rozwiązaniem, aby zatrzymać i wyłączyć usługę, jeśli nie zamierzasz go używać.
-
 
 Można zatrzymać i wyłączyć usługę na wiele sposobów, za pomocą różnych narzędzi wiersza polecenia lub poleceń cmdlet programu Windows PowerShell. Ta procedura opisuje proste podejście oparte na interfejsie użytkownika.
 

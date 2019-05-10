@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 786be61d48f26e5765eac0c8d6fad7551897f711
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 72d69c0690c52c41f899e6cbe7cc656e537fe112
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59387689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131104"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Przygotowywanie do wdrożenia bazy danych
 
@@ -22,7 +22,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 > W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -134,7 +133,6 @@ Projekt jest teraz gotowe do wdrożenia *ContosoUniversity* bazy danych. Po wdro
 > 
 > `Sql("UPDATE Department SET Budget = 1000");`
 
-
 ## <a name="create-scripts-for-membership-database-deployment"></a>Tworzenie skryptów do wdrożenia bazy danych członkostwa
 
 Aplikacja Contoso University korzysta z uwierzytelniania systemu i formularze członkostwa ASP.NET do uwierzytelniania i autoryzacji użytkowników. **Aktualizacji środki na korzystanie z** strona jest dostępna tylko dla użytkowników, którzy znajdują się w roli administratora.
@@ -160,14 +158,12 @@ Ta baza danych nie jest zarządzane przez Entity Framework Code First, więc nie
 > [!NOTE]
 > Nowego systemu członkostwa programu ASP.NET (teraz nazwę produktu ASP.NET Identity) została wprowadzona w programie Visual Studio 2013. Nowy system umożliwia utrzymanie zarówno aplikacji, jak i tabele członkostwa w tej samej bazy danych, a następnie można użyć migracje Code First można wdrożyć obydwa elementy. Przykładowa aplikacja używa starszego systemu członkostwa programu ASP.NET, której nie można wdrożyć przy użyciu migracje Code First. Procedury dotyczące wdrażania tej bazy danych członkostwa również zastosowanie do każdej innej sytuacji, w którym Twoja aplikacja potrzebuje do wdrożenia bazy danych programu SQL Server, który nie jest tworzony przez Entity Framework Code First.
 
-
 W tym miejscu, zwykle nie chcesz tych samych danych w środowisku produkcyjnym, czy masz w trakcie opracowywania. Po raz pierwszy zostanie wdrożona lokacja, jest często większość lub wszystkie konta użytkowników, które tworzysz do testowania. W związku z tym, pobrany projekt zawiera dwie bazy danych członkostwa: *aspnet ContosoUniversity.mdf* użytkownikom rozwoju i *aspnet-ContosoUniversity-Prod.mdf* z użytkownikami w środowisku produkcyjnym. W tym samouczku nazwy użytkowników są takie same w obu bazach danych: *administratora* i *tekst nonadmin*. Zarówno użytkownicy mają hasło *devpwd* w bazie danych rozwoju i *prodpwd* w produkcyjnej bazie danych.
 
 Wdrożysz użytkownikom tworzenia środowiska testowego i produkcyjnego użytkownikom środowisk przejściowych i produkcyjnych. Aby to zrobić utworzysz dwa skrypty SQL, w tym samouczku, jeden do tworzenia aplikacji, a drugi dla środowiska produkcyjnego, a w kolejnych samouczkach należy skonfigurować proces publikowania, aby uruchomić je.
 
 > [!NOTE]
 > Skrót hasła do kont są przechowywane w bazie danych członkostwa. Aby wdrożyć kont z jednego komputera, należy upewnić się, czy procedury wyznaczania wartości skrótu nie Generuj różne skróty na serwerze docelowym niż na ich na komputerze źródłowym. One wygeneruje tych samych skrótów korzystając z dostawców uniwersalnych ASP.NET, tak długo, jak nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** elementu w pliku Web.config.
-
 
 Skrypty wdrażania danych można utworzyć ręcznie, za pomocą programu SQL Server Management Studio (SSMS) lub za pomocą narzędzia innych firm. Ta pozostałej części tego samouczka opisano, jak to zrobić w programie SSMS, ale jeśli nie chcesz zainstalować i używać narzędzia SSMS można uzyskać skrypty z pełną wersję projektu i przejść do sekcji, w której są przechowywane w folderze rozwiązania.
 

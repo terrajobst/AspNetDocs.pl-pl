@@ -8,12 +8,12 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: a8121a2d7c4ed14e296dc72c72ca7c25939a2b50
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2fb671e730a1d41c07b350bf1d64ac1d0b1be55c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414013"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128798"
 ---
 # <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Opis i obsługa zdarzeń okresu istnienia połączenia w SignalR 1.x
 
@@ -28,7 +28,6 @@ przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gi
 > - [Jak obsługiwać zdarzenia okresu istnienia połączenia w klasie Centrum](index.md)
 > - [Jak obsługiwać zdarzenia okresu istnienia połączenia w klientów języka JavaScript](index.md)
 > - [Jak obsługiwać zdarzenia okresu istnienia połączenia w przypadku klientów programu .NET](index.md)
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -132,7 +131,6 @@ Niektóre środowiska sieciowe celowo Zamknij bezczynnych połączeń, a inną f
 > 
 > [!IMPORTANT]
 > Kolejność zdarzeń opisane w tym miejscu nie jest gwarantowana. SignalR sprawia, że każda próba zgłaszać zdarzenia okresu istnienia połączenia w sposób przewidywalny zgodnie z tym schemacie, ale istnieją wielu wariantów zdarzenia sieci i wiele sposobów, w których podstawowych struktur komunikacji, takich jak transportu interfejsy API z je obsłużyć. Na przykład `Reconnected` zdarzeń nie może zostać wywołane, gdy klient ponownie nawiąże połączenie, lub `OnConnected` obsługi na serwerze może być uruchomiony, gdy próba nawiązania połączenia zakończy się niepowodzeniem. W tym temacie opisano tylko efekty, zwykle produkcji przez niektórych typowych okolicznościach.
-
 
 <a id="clientdisconnect"></a>
 

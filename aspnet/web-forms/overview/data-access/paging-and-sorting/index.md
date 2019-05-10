@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: d45a8c0c-e8ec-46d3-bc1c-ce446df005c8
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting
 msc.type: chapter
-ms.openlocfilehash: c422a142a06cf9255412384fa384304897f0ac0a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e534cd2a4e836df3943475c3d15a302ec78581c5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400602"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131416"
 ---
 # <a name="paging-and-sorting"></a>Stronicowanie i sortowanie
 
 > W tych samouczkach dodasz niektóre początkowej sortowania i stronicowania funkcji danych raportów.
-
 
 - [Stronicowanie i sortowanie danych raportu (C#)](paging-and-sorting-report-data-cs.md)
 - [Efektywne stronicowanie dużych ilości danych (C#)](efficiently-paging-through-large-amounts-of-data-cs.md)

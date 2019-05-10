@@ -8,12 +8,12 @@ ms.date: 04/23/2009
 ms.assetid: a64a7aa0-6608-449e-83bf-1ef8cceee504
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 66b6df78a8ffed3ea7c586a995b8df8563d908bb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 68ce0ab099c30306f5683d8b81a894bf6433ffed
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407214"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130880"
 ---
 # <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Konfigurowanie produkcyjnej aplikacji internetowej do korzystania z produkcyjnej bazy danych (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_08_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial08_DBConfig_vb.pdf)
 
 > Zgodnie z opisem w samouczkach wcześniej, nie jest niczym niezwykłym, aby uzyskać informacje o konfiguracji mogą się różnić między środowiskami deweloperskim i produkcyjnym. Jest to szczególnie istotne w przypadku aplikacji sieci web opartej na danych, jak parametry połączenia bazy danych różnią się między środowiskami deweloperskim i produkcyjnym. W tym samouczku przedstawiono sposoby konfigurowania środowiska produkcyjnego, aby uwzględnić parametry połączenia odpowiednie bardziej szczegółowo.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -44,7 +43,6 @@ Parametry połączenia — źródło danych =. \SQLEXPRESS; AttachDbFilename = |
 - `AttachDbFilename` -Określa lokalizację pliku bazy danych. Wartość zawiera symbol zastępczy `|DataDirectory|`, który został rozwiązany na pełną ścieżkę s aplikacji `App_Data` folderu w czasie wykonywania.
 - `Integrated Security` — wartość logiczna, która wskazuje, czy ma być używane określone nazwy użytkownika/hasło podczas nawiązywania połączenia z bazą danych (FAŁSZ) lub Windows bieżącego poświadczeń konta (PRAWDA).
 - `User Instance` -opcji konfiguracji specyficznych dla wersji programu SQL Server Express Edition, która wskazuje, czy zezwalać na dołączanie użytkowników innych niż administracyjne na komputerze lokalnym i połączenie z bazą danych programu SQL Server Express Edition. Zobacz [wystąpienia programu SQL Server Express użytkownika](https://msdn.microsoft.com/library/ms254504.aspx) Aby uzyskać więcej informacji na temat tego ustawienia.
-  
 
 Opcje parametrów połączenia dopuszczalne są zależne od bazy danych, którą jest nawiązywane połączenie i [ADO.NET](http://ADO.NET) używany dostawca bazy danych. Na przykład parametry połączenia do łączenia się z programu Microsoft SQL Server bazy danych różni się od, używany do łączenia z bazą danych Oracle. Podobnie nawiązywania połączenia z bazą danych programu Microsoft SQL Server, używając dostawcy SqlClient używa parametrów połączenia innego niż przy użyciu dostawcy OLE DB.
 
@@ -52,19 +50,15 @@ Parametry połączenia bazy danych można tworzyć ręcznie za pomocą witryny, 
 
 Otwórz program Visual Studio, a następnie przejdź do okna Eksplorator serwera (w Visual Web Developer, w tym oknie jest nazywana Eksplorator bazy danych). Kliknij prawym przyciskiem myszy opcję połączenia danych, a następnie wybierz opcję Dodaj połączenie z poziomu menu kontekstowego. Otwarte kreatora przedstawionej na rysunku 1. Wybierz odpowiednie źródło danych, a następnie kliknij przycisk Kontynuuj.
 
-
 [![Wybierz dodać nową bazę danych do Eksploratora serwera](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image2.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image1.jpg) 
 
 **Rysunek 1**: Wybierz dodać nową bazę danych do Eksploratora serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image3.jpg))
 
-
 Następnie określ różne informacje o połączeniu w bazie danych (zobacz rysunek 2). Po zalogowaniu przy użyciu usługi sieci web hostingu firmy, w której należy podać informacje na temat połączenia z bazą danych — nazwa serwera bazy danych, nazwę bazy danych, nazwę użytkownika i hasło używane do łączenia z bazą danych i tak dalej. Po wprowadzeniu tych informacji kliknij przycisk OK, aby zakończyć działanie kreatora i dodawanie bazy danych do Eksploratora serwera.
-
 
 [![Określ informacje dotyczące połączenia bazy danych](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image5.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image4.jpg) 
 
 **Rysunek 2**: Określ informacje dotyczące połączenia bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image6.jpg))
-
 
 Bazy danych środowiska produkcyjnego powinny teraz wyświetlany w Eksploratorze serwera. Wybierz bazę danych z poziomu Eksploratora serwera, a następnie przejdź do okna właściwości. Można znaleźć właściwości o nazwie parametrów połączenia parametrami połączenia s bazy danych. Przy założeniu, że używasz bazy danych programu Microsoft SQL Server w środowisku produkcyjnym i dostawcy SqlClient parametrów połączenia powinien wyglądać podobnie do następującego:
 
@@ -87,14 +81,11 @@ Jeśli nie masz więcej formalny przepływ pracy wdrożenia, albo ręcznie zmody
 > [!NOTE]
 > Jeśli przypadkowo wdrożono `Web.config` pliku zawierającego parametry połączenia bazy danych rozwoju będą dostępne wystąpił błąd podczas próby połączenia z bazą danych aplikacji w środowisku produkcyjnym. Ten błąd manifesty jako `SqlException` komunikatem raportowania, że serwer nie został znaleziony lub jest on niedostępny.
 
-
 Gdy witryna została wdrożona do produkcji, odwiedź witryny produkcyjnej za pośrednictwem przeglądarki. Należy wyświetlić i Ciesz się tego samego środowiska użytkownika, co po lokalnym uruchomieniu aplikacji opartych na danych. Oczywiście gdy użytkownik odwiedza witryny sieci Web w środowisku produkcyjnym ta witryna jest obsługiwana przez serwer bazy danych produkcyjnych, należy odwiedzić witrynę sieci Web w środowisku programistycznym korzysta z bazy danych w trakcie opracowywania. Rysunek 3 przedstawia *uczyć się ASP.NET 3.5 w ciągu 24 godzin* Przejrzyj stronę z witryny sieci Web w środowisku produkcyjnym (Uwaga: adres URL w pasku adresu przeglądarki s).
-
 
 [![Aplikacja ze jest teraz dostępna w środowisku produkcyjnym.](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image8.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image7.jpg) 
 
 **Rysunek 3**: Aplikacja ze jest teraz dostępna w środowisku produkcyjnym. ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image9.jpg))
-
 
 ### <a name="storing-connection-strings-in-a-separate-configuration-file"></a>Przechowywanie parametrów połączenia w oddzielnych pliku konfiguracji
 
@@ -113,14 +104,11 @@ Utwórz kopię pliku databaseConnectionStrings.dev.config i nadaj mu nazwę data
 > [!NOTE]
 > Możesz nazwać plik konfiguracyjny coś innego niż databaseConnectionStrings.config, opcjonalnie d, takich jak `connectionStrings.config` lub `dbInfo.config`. Jednak pamiętaj nazwać plik za pomocą `.config` rozszerzenie jako `.config` pliki domyślnie nie obsługiwanych przez aparat programu ASP.NET. Jeśli nazwa pliku, coś innego, takich jak `connectionStrings.txt`, użytkownik może wskazywać przeglądarki do [www.yoursite.com/ConfigSettings/connectionStrings.txt](http://www.yoursite.com/ConfigSettings/connectionStrings.txt) i wyświetlić zawartość pliku!
 
-
 W tym momencie `ConfigSections` folder powinien zawierać trzy pliki (zobacz rysunek 4). Pliki databaseConnectionStrings.dev.config i databaseConnectionStrings.production.config zawierają parametry połączenia dla środowisk deweloperskich i produkcyjnych, odpowiednio. Plik databaseConnectionStrings.config zawiera informacje o parametrach połączenia, który będzie używany przez aplikację sieci web w czasie wykonywania. W związku z tym plik databaseConnectionStrings.config powinny być identyczne z pliku databaseConnectionStrings.dev.config w środowisku programistycznym do produkcji pliku databaseConnectionStrings.config powinna być taka sama jak databaseConnectionStrings.production.config.
-
 
 [![ConfigSections](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image11.jpg)](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image10.jpg) 
 
 **Rysunek 4**: ConfigSections ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))
-
 
 Teraz musisz poinstruować `Web.config` na potrzeby pliku databaseConnectionStrings.config jego magazynu ciągów połączenia. Otwórz `Web.config` , zastępując istniejącą `<connectionStrings>` element następującym kodem:
 
@@ -132,7 +120,6 @@ Ta modyfikacja środowisk deweloperskich i produkcyjnych zawiera takie same `Web
 
 > [!NOTE]
 > Można określić informacje dla każdego `Web.config` element w osobnym pliku i użyj `configSource` atrybut odwołanie do tego pliku z poziomu `Web.config`.
-
 
 ## <a name="summary"></a>Podsumowanie
 

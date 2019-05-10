@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: afa59dfa-fef1-43d3-8fdd-aea3be36ed3c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0442b5e22e44e0767825026b26ad3da55777b962
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fffa670134d5b9aa3523603c60accb4e887747c8
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132531"
 ---
 # <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Tworzenie kontrolki Numeric Up/Down z zapleczem usługi internetowej (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/numericupdown1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/numericupdown1VB.pdf)
 
 > Zamiast umożliwienie użytkownikowi wpisz wartość w polu wyboru, liczbowych w górę/dół kontroli (co oznacza, że istnieje na Windows i innych systemów operacyjnych) można udowodnić, że ponieważ coraz więcej doświadczenia. Domyślnie formant NumericUpDown zawsze zwiększa lub zmniejsza wartość 1, ale usługi sieci web okaże bardziej elastyczne.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -52,7 +51,6 @@ Oto kompletny kod znaczników dla strony:
 [!code-aspx[Main](creating-a-numeric-up-down-control-with-a-web-service-backend-vb/samples/sample3.aspx)]
 
 Po uruchomieniu strony, zwróć uwagę, jak wartość w polu tekstowym zawsze podwaja się po kliknięciu przycisk w prawym górnym i filtrach, po kliknięciu przycisku niższe.
-
 
 [![Są wyświetlane tylko cyfry, które są wartością potęgi liczby 2](creating-a-numeric-up-down-control-with-a-web-service-backend-vb/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-vb/_static/image1.png)
 

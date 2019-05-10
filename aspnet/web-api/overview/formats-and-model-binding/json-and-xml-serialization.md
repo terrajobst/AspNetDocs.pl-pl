@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: a9e7ed63a55c146976e0221214e722f3a2292fee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 00fa07f00eabf7e6c883c5e9ceaf9a38a8f49605
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408280"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65126167"
 ---
 # <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON i serializacji XML we wzorcu ASP.NET Web API
 
@@ -221,7 +221,6 @@ Należy zauważyć, że serializator dodaje &quot;$id&quot; właściwości do ob
 
 > [!NOTE]
 > Odwołania do obiektu nie są standardowe w formacie JSON. Przed użyciem tej funkcji, należy rozważyć, czy klienci będą mogli przeanalizować wyniki. Może być lepiej po prostu usunąć cykle z wykresu. Na przykład łącze z pracowników do działu nie jest naprawdę potrzebne w tym przykładzie.
-
 
 Aby zachować odwołania do obiektów w formacie XML, masz dwie opcje. Prostsze opcją jest dodanie `[DataContract(IsReference=true)]` do klasy modelu. *IsReference* parametr umożliwia odwołania do obiektu. Należy pamiętać, że **DataContract** sprawia, że serializacji uczestnictwo, więc należy również dodać **DataMember** atrybuty do właściwości:
 

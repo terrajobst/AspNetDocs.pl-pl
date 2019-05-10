@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f86212c1cb559c164342997fb0e4208339b5e3cc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cc629f84bbf8c271780a8e7deba3d04d23d5fbb1
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421124"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65129819"
 ---
 # <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Odczytywanie powiązanych danych, za pomocą programu Entity Framework w aplikacji ASP.NET MVC (5, 10)
 
@@ -26,7 +26,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > > [!NOTE] 
 > > 
 > > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
-
 
 W poprzednim samouczku można wykonać modelu danych służbowych. W tym samouczku będziesz odczytywać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
 
@@ -176,7 +175,6 @@ Metoda akceptuje dane opcjonalne trasy (`id`) i parametr ciągu zapytania (`cour
 > 
 > [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cshtml)]
 
-
 Kod rozpoczyna się od tworzenia wystąpienia obiektu modelu widoku i umieszczenie w nim listy instruktorów. Kod ten określa wczesne ładowanie dla `Instructor.OfficeAssignment` i `Instructor.Courses` właściwości nawigacji.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs?highlight=3-4)]
@@ -237,7 +235,6 @@ Ten kod odczytuje `Courses` właściwości modelu widoku, aby wyświetlić list�
 
 > [!NOTE]
 > *.Css* plików jest buforowana przez przeglądarki. Jeśli zmiany nie jest widoczny po uruchomieniu aplikacji, wykonaj twardych odświeżania (przytrzymaj wciśnięty klawisz CTRL podczas klikania **Odśwież** przycisk lub naciśnij klawisze CTRL + F5).
-
 
 Uruchom strony i wybierz pod kierunkiem instruktora. Spowoduje to wyświetlenie siatce, która wyświetla kursy przypisane do wybranego przez instruktorów i każdego kursu możesz zobaczyć nazwę tego działu przypisane.
 

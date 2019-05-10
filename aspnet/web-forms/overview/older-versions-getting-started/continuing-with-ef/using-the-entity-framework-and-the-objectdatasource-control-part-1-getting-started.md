@@ -8,12 +8,12 @@ ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: c0f11019c7410b756d592066a7fe33b3e26fd383
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2f14707eb058d438495dd2bc4c17b976c471fc97
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407201"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131339"
 ---
 # <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Korzystanie z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie
 
@@ -45,7 +45,6 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 > ## <a name="questions"></a>Pytania
 > 
 > Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i LINQ to Entities forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
-
 
 `EntityDataSource` Control umożliwia szybkie tworzenie aplikacji, ale zazwyczaj wymaga można zachować znacznej ilości logika biznesowa i logika dostępu do danych w Twojej *.aspx* stron. Jeśli oczekujesz, że aplikacja zwiększanie się stopnia skomplikowania i będą musieli rutynowej konserwacji, możesz inwestować więcej czasu na programowanie na początku aby można było utworzyć *n warstwowa* lub *warstwie* struktury aplikacji to będzie łatwiejszy w utrzymaniu. Aby wdrożyć tę architekturę, można oddzielić Warstwa prezentacji od warstwy logiki biznesowej (LOGIKI) i warstwy dostępu do danych (DAL). Jednym ze sposobów implementuje ta struktura jest użycie `ObjectDataSource` zamiast kontrolki `EntityDataSource` kontroli. Kiedy używasz `ObjectDataSource` kontrolki, zaimplementować własny kod dostępu do danych, a następnie wywołaj ją w *.aspx* strony za pomocą formantu, który ma wiele takich samych funkcje jak inne kontrolki źródła danych. Dzięki temu można połączyć korzyści wynikające z podejścia n warstwowa przy użyciu korzyści z używania formant formularzy sieci Web, aby uzyskać dostęp do danych.
 
@@ -102,7 +101,6 @@ Kliknij przycisk **OK** w **tabele i kolumny** kliknij **Zamknij** w **relacje k
 > 
 > Po zapisaniu zmian nie można usunąć wiersza z `Person` tabeli, jeśli osoba ta jest administratorem działu. W przypadku aplikacji produkcyjnej będzie zapewniają określony komunikat o błędzie, gdy ograniczenia database uniemożliwia usunięcie lub należy określić kaskadowego usuwania. Na przykład sposobu określania kaskadowego usuwania zobacz [platformy Entity Framework i ASP.NET — wprowadzenie do części 2](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md).
 
-
 ### <a name="adding-a-view-to-the-database"></a>Dodawanie widoku w bazie danych
 
 W nowym *Departments.aspx* strony, która zostanie utworzona, chcesz udostępnić listy rozwijanej instruktorów, za pomocą nazwy w formacie "ostatni, najpierw", aby użytkownicy mogą wybierać Administratorzy działów. Aby ułatwić to zrobić, utworzysz widok w bazie danych. Widok będzie zawierać tylko dane wymagane przez listy rozwijanej: imię i nazwisko (prawidłowo sformatowaną) i klucza rekordu.
@@ -136,7 +134,6 @@ W projektancie, zobaczysz, że narzędzie utworzone `vInstructorName` jednostki 
 > [!NOTE]
 > W **dane wyjściowe** i **lista błędów** systemu windows, można napotkać komunikat ostrzegawczy informujący o tym, że narzędzie automatycznie utworzony podstawowy klucz dla nowego `vInstructorName` widoku. Jest to oczekiwane zachowanie.
 
-
 Gdy odwołasz się do nowego `vInstructorName` jednostki w kodzie, nie chcesz używać konwencji bazy danych z poprzedzania ich małe "v" do niego. W związku z tym spowoduje zmianę nazwy jednostek i zestawu jednostek w modelu.
 
 Otwórz **modelu przeglądarki**. Zostanie wyświetlony `vInstructorName` wymienione jako typu jednostki, a widokiem.
@@ -159,7 +156,6 @@ Ten kod zawiera pojedynczy `GetDepartments` metodę zwracającą wszystkie jedno
 
 > [!NOTE]
 > Powszechną praktyką jest, aby utworzyć klasę repozytorium dla każdego typu jednostki. W tym samouczku jest używany jedną klasę repozytorium dla wielu typów jednostek. Aby uzyskać więcej informacji na temat wzorca repozytorium zobacz wpisy w [blog zespołu programu Entity Framework](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) i [blogu Julie Lerman](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/).
-
 
 `GetDepartments` Metoda zwraca `IEnumerable` obiektu, a nie `IQueryable` obiektu w celu zapewnienia, że zwrócona kolekcja jest użyteczne nawet w przypadku, po usunięciu sam obiekt repozytorium. `IQueryable` Obiektu może spowodować dostępu do bazy danych zawsze wtedy, gdy jest on dostępny, ale obiektu repozytorium może być usuwane przez czas kontrolkę powiązaną z danymi próbuje przedstawienia tych danych. Może zwrócić inny typ kolekcji, takie jak `IList` zamiast obiektu `IEnumerable` obiektu. Jednak zwracanie `IEnumerable` obiektu gwarantuje, że będzie możliwe wykonanie zadań przetwarzania typowej listy tylko do odczytu takich jak `foreach` pętli i zapytań LINQ, ale nie można dodać do lub usuwanie elementów w kolekcji, która może oznaczać, że takie zmiany będą utrwalone w bazie danych.
 
@@ -309,7 +305,6 @@ Użyj *DepartmentsAdd.aspx* strony, aby dodać nowy dział, a następnie uruchom
 
 > [!NOTE]
 > Nie można edytować wierszy, które nie zostały dodane (oznacza to, że zostały już w bazie danych), ze względu na nieprawidłowe dane w bazie danych. Administratorzy dla wierszy, które zostały utworzone z bazą danych są studentów. Jeśli spróbujesz edytować jeden z nich, zostanie wyświetlony strona błędu, który zgłasza błąd, taki jak `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
-
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
 

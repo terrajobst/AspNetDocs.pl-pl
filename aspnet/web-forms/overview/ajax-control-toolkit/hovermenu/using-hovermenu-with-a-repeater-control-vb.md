@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 7f07c112-cd4f-4427-9699-57cfab2791fd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 963850e1048d4fde573f28244fd32d0c4232fda4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: fa9b11ea064bd8181381f8374cc96b8eea6aa72b
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59399193"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65127094"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-vb"></a>Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/b/0/6/b06fe835-5b8f-4c00-aef8-062c19d75b95/HoverMenu1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/hovermenu1VB.pdf)
 
 > Na formant kontrolki HoverMenu z zestawu narzędzi AJAX Control Toolkit zawiera efekt proste okno podręczne: Po zatrzymaniu wskaźnika myszy nad elementem, pojawi się okno podręczne na określonej pozycji. Użytkownik może również użyć tej kontrolki w elemencie powtarzanym.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -51,7 +50,6 @@ Teraz `HoverMenuExtender` trafia do odtwarzania. Tak, aby każdy element w źró
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-vb/samples/sample4.aspx)]
 
 Teraz każdy element w źródle danych wyświetla wyskakującego okienka po prawej stronie (`PopupPosition` atrybutu) z opóźnieniem 50 MS (`PopDelay` atrybutu).
-
 
 [![W menu po wskazaniu wskaźnikiem pojawia się obok każdego elementu w elemencie powtarzanym](using-hovermenu-with-a-repeater-control-vb/_static/image2.png)](using-hovermenu-with-a-repeater-control-vb/_static/image1.png)
 

@@ -8,12 +8,12 @@ ms.date: 02/28/2014
 ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
-ms.openlocfilehash: 952d13fec206bdb8d398cead70d10335731f583d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f4a9b3fb61552b070db11fba617b5627fcd71cd5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402222"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65124082"
 ---
 # <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>Cykl życia aplikacji ASP.NET MVC 5
 
@@ -31,7 +31,6 @@ W tym miejscu możesz pobrać dokument PDF, który wykresy cyklu życia każda a
 - Umieszczanie i cel wszystkie metody możliwym do zastąpienia w [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) obiekt w potoku przetwarzania żądań. Może lub nie ma konieczności zastąpienie wszelkich jednej metody, ale ważne jest, aby Ci zrozumieć ich roli w cyklu życia aplikacji, tak aby można napisać kod na etapie cyklu życia odpowiednie dla efektu, które mają.
 - Diagramy skierowany w górę, przedstawiający sposób wywoływania z każdego typu filtru (uwierzytelniania, autoryzacji, akcji i wyniku).
 - Połączyć artykuł lub w blogu z każdego punktu orientacyjnego w widoku szczegółów.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

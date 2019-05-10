@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: e079318b37563b1b7afe0f842f5b463541de0a81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1c54449e778eac96133cccdc90d86cbbaf05a70f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405433"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132106"
 ---
 # <a name="shopping-cart"></a>Koszyk
 
@@ -22,7 +22,6 @@ przez [Erik Reitan](https://github.com/Erikre)
 [Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
-
 
 W tym samouczku opisano logikę biznesową, wymagane do dodania koszyka do przykładowej aplikacji ASP.NET Web Forms Wingtip Toys. Ten samouczek opiera się na poprzednim samouczku "Wyświetlanie danych i szczegółów elementów" i jest częścią serii samouczków o nazwie Wingtip zabawki Store. Po ukończeniu tego samouczka użytkowników przykładowej aplikacji będzie do dodawania, usuwania i modyfikowania produktów w ich koszyk sklepowy.
 
@@ -49,7 +48,6 @@ We wcześniejszej części tej serii samouczków dodać strony i kodem, aby wyś
 > [!NOTE] 
 > 
 > Stan sesji platformy ASP.NET jest wygodne miejsce do przechowywania informacji o użytkowniku, która wygaśnie po użytkownik opuści lokacji. Gdy nieuprawnione użycie stanu sesji mogą mieć wpływ na wydajność w witrynach większe, jasny korzystanie z sesji, stan działa również w celach demonstracyjnych. Przykładowy projekt o nazwie Wingtip Toys przedstawiono sposób używania stanu sesji bez zewnętrznego dostawcy, których stan sesji jest przechowywane w procesie na serwerze sieci web hosta witryny. Dla większych witryny, które zapewniają wiele wystąpień aplikacji lub witryn, które uruchomić wiele wystąpień aplikacji na różnych serwerach, należy wziąć pod uwagę przy użyciu **Windows Azure Cache Service**. Ta usługa pamięci podręcznej udostępnia usługę buforowania rozproszonego, jest zewnętrzne w stosunku do witryny sieci web, która rozwiązuje problem przy użyciu stanu sesji w procesie. Aby uzyskać więcej informacji, zobacz [jak stanu sesji ASP.NET przy użyciu Windows Azure Web Sites](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
-
 
 ### <a name="add-cartitem-as-a-model-class"></a>Dodaj CartItem jako klasy modelu
 
@@ -128,7 +126,6 @@ Jak wspomniano wcześniej, utworzysz stronę przetwarzania o nazwie *AddToCart.a
 > [!NOTE] 
 > 
 > Modyfikuje kodu powiązanego (*AddToCart.aspx.cs*) na tej stronie nie strony interfejsu użytkownika (*AddToCart.aspx*).
-
 
 #### <a name="to-create-the-add-to-cart-functionality"></a>Aby utworzyć Dodaj na do koszyka funkcji:
 
@@ -215,7 +212,6 @@ Po pierwsze, `GetTotal` metoda pobiera identyfikator koszyka zakupów dla użytk
 > [!NOTE] 
 > 
 > Powyższy kod używa typu dopuszczającego wartość null "`int?`". Typy dopuszczające wartość null może reprezentować wszystkie wartości typu podstawowego, a także jako wartość null. Aby uzyskać więcej informacji, zobacz [przy użyciu typów dopuszczających wartości zerowe](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx).
-
 
 ### <a name="modify-the-shopping-cart-display"></a>Zmodyfikować sposób wyświetlania koszyka zakupów
 

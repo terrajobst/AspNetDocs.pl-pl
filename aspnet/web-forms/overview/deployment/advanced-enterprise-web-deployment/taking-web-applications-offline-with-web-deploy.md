@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 017eceb8567859fdbe28bb87af844eee20dfa525
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ba54454bcb6f5e4ceb269b128a6b72a4b75f64be
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415482"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131407"
 ---
 # <a name="taking-web-applications-offline-with-web-deploy"></a>Przełączanie aplikacji internetowych w tryb offline za pomocą narzędzia Web Deploy
 
@@ -22,7 +22,6 @@ przez [Jason Lee](https://github.com/jrjlee)
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób wykonania aplikacji sieci web w trybie offline na czas trwania automatycznego wdrażania przy użyciu narzędzia wdrażania usług Internet Information Services (IIS) w sieci Web (Web Deploy). Użytkownicy, którzy przejdź do aplikacji sieci web są przekierowywane do *aplikacji\_offline.htm* pliku do czasu ukończenia wdrożenia.
-
 
 Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
@@ -70,18 +69,13 @@ Następnym krokiem jest do modyfikowania logika wdrożenia, aby skopiować plik 
 > [!NOTE]
 > Następna procedura zakłada, że używasz niestandardowego pliku projektu MSBuild kontrolować proces wdrażania, zgodnie z opisem w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Jeśli jest wdrażany bezpośrednio z programu Visual Studio, należy użyć innego podejścia. Jedno takie podejście w tym artykule opisano Sayed Ibrahim Hashimi [jak wykonać Twojej aplikacji w trybie Offline podczas publikowania w sieci Web](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
-
 Aby wdrożyć *aplikacji\_w trybie offline* pliku do docelowej witryny usług IIS, należy wywołać za pomocą MSDeploy.exe [narzędzia Web Deploy **contentPath** dostawcy](https://technet.microsoft.com/library/dd569034(WS.10).aspx). **ContentPath** dostawca obsługuje zarówno ścieżki fizycznej katalogu i ścieżek witryny sieci Web lub aplikację usług IIS, co staje się on idealnym wyborem w przypadku synchronizacji plików między folderem projektu programu Visual Studio i aplikacji sieci web usług IIS. Aby wdrożyć plik, polecenie MSDeploy powinien wyglądać następująco:
-
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
 
-
 Aby usunąć plik z lokacji docelowej na końcu procesu wdrażania, polecenie MSDeploy powinien wyglądać następująco:
 
-
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample2.cmd)]
-
 
 Aby zautomatyzować te polecenia jako część procesu kompilacji i wdrożenia, należy zintegrować niestandardowego pliku projektu MSBuild. W następnej procedurze opisano jak to zrobić.
 
@@ -129,9 +123,7 @@ Web potok publikowania (WPP) używa listy elementów o nazwie **FilesForPackagin
 
 *. Wpp.targets* pliku powinna wyglądać następująco:
 
-
 [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample8.xml)]
-
 
 Oto kluczowe punkty Uwaga w tym przykładzie:
 
@@ -160,7 +152,6 @@ Przy kolejnym uruchomieniu kompilowanie i tworzenie pakietu projektu aplikacji s
 
 > [!NOTE]
 > W przypadku niepowodzenia wdrożenia *aplikacji\_offline.htm* plik pozostanie w miejscu, a aplikacja będzie pozostawać w trybie offline. Jest to zazwyczaj żądane zachowanie. Aby wyświetlić aplikację trybu online, możesz usunąć *aplikacji\_offline.htm* plików z serwera sieci web. Alternatywnie, jeśli Usuń wszelkie błędy i uruchom pomyślne wdrożenie *aplikacji\_offline.htm* plik zostanie usunięty.
-
 
 ## <a name="conclusion"></a>Wniosek
 

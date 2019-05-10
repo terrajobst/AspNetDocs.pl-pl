@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: 8996b59e-042c-4395-b28a-f1ab95ac16af
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: 59c0a820e30f302ac56dd000837f40f7c13fe183
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 2da6320622b9df538b368667296332ed1c988821
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133979"
 ---
 # <a name="paging-and-sorting-with-the-datalist-and-repeater"></a>Stronicowanie i sortowanie za pomocą kontrolek DataList i Repeater
 
 > Te samouczki pokazują, jak dodać obsługę stronicowania do kontrolki DataList lub Repeater utworzyć bardzo elastyczny w interfejsie użytkownika dla stronicowanie i sortowanie.
-
 
 - [Stronicowanie danych raportu w kontrolce DataList lub Repeater (C#)](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
 - [Sortowanie danych w kontrolce DataList lub Repeater (C#)](sorting-data-in-a-datalist-or-repeater-control-cs.md)

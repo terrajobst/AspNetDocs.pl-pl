@@ -8,12 +8,12 @@ ms.date: 01/18/2008
 ms.assetid: f175278c-6079-4d91-b9b4-2493ed43d9ec
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cce8770eb0f60c4306d4560e9a4e72fa1a59f618
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 162461a05e0c19f1c89f48e3caf0f21b1634b4cf
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406512"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131288"
 ---
 # <a name="creating-user-accounts-c"></a>Tworzenie kont użytkowników (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_05_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial05_CreatingUsers_cs.pdf)
 
 > W tym samouczku omówimy będzie tworzenie nowych kont użytkowników przy użyciu struktury członkostwa (za pośrednictwem SqlMembershipProvider). Zobaczymy sposobu tworzenia nowych użytkowników, programowo i za pośrednictwem ASP. Kontrolki CreateUserWizard wbudowanej w sieci.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -56,11 +55,9 @@ Rozpocznij od utworzenia nowego folderu w projekcie o nazwie `Membership`. Nast�
 
 Na tym etapie projektu w Eksploratorze rozwiązań powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 1.
 
-
 [![Pięć nowych stron zostały dodane do folderu członkostwa](creating-user-accounts-cs/_static/image2.png)](creating-user-accounts-cs/_static/image1.png)
 
 **Rysunek 1**: Pięć nowych stron zostały dodane do `Membership` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image3.png))
-
 
 Każda strona w tym momencie powinna mieć dwóch kontrolek zawartości, jeden dla każdej strony wzorcowej kontrolek ContentPlaceHolder: `MainContent` i `LoginContent`.
 
@@ -80,11 +77,9 @@ Podobnie jak struktury członkostwa i ról kompilowanych framework mapy witryny 
 
 Domyślnego dostawcy mapy witryny oczekuje, że poprawnie sformatowany plik XML o nazwie `Web.sitemap` istnieć katalogu głównego. Ponieważ używamy tego domyślnego dostawcę, należy dodać takiego pliku oraz zdefiniować strukturę mapy witryny w odpowiednim formacie XML. Aby dodać plik, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element. W oknie dialogowym, zoptymalizowany pod kątem można dodać pliku typu mapy witryny o nazwie `Web.sitemap`.
 
-
 [![Dodaj plik o nazwie Web.sitemap do katalogu głównego projektu](creating-user-accounts-cs/_static/image5.png)](creating-user-accounts-cs/_static/image4.png)
 
 **Rysunek 2**: Dodaj plik o nazwie `Web.sitemap` do katalogu głównego projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image6.png))
-
 
 Plik mapy witryny XML definiuje strukturę witryny sieci Web jako hierarchia. To hierarchiczna relacja jest formowana w pliku XML przy użyciu pochodzenie elementu `<siteMapNode>` elementów. `Web.sitemap` Musi zaczynać się `<siteMap>` węzła nadrzędnego, który ma dokładnie jedno `<siteMapNode>` podrzędnych. Tym najwyższego poziomu `<siteMapNode>` element reprezentuje katalog główny hierarchii i może mieć dowolną liczbę węzłów podrzędnych. Każdy `<siteMapNode>` element musi zawierać `title` atrybutu i może opcjonalnie obejmować `url` i `description` atrybutów, między innymi; każdego niepustego `url` atrybutu musi być unikatowa.
 
@@ -94,11 +89,9 @@ Wprowadź następujący kod XML do `Web.sitemap` pliku:
 
 Powyższe znaczników mapy witryny definiuje hierarchię pokazany na rysunku 3.
 
-
 [![Mapa witryny reprezentuje hierarchicznej struktury nawigacyjnej](creating-user-accounts-cs/_static/image8.png)](creating-user-accounts-cs/_static/image7.png)
 
 **Rysunek 3**: Mapa witryny reprezentuje hierarchicznej struktury nawigacyjnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image9.png))
-
 
 ## <a name="step-3-updating-the-master-page-to-include-a-navigational-user-interface"></a>Krok 3. Aktualizowanie strony wzorcowej, aby uwzględnić interfejs użytkownika nawigacji
 
@@ -116,11 +109,9 @@ Powyższe znaczników wiąże kontrolką elementu powtarzanego o nazwie `menu` d
 
 Rysunek 4 przedstawia powyżej znaczników wyniku renderowania przy użyciu struktury mapy witryny, utworzonego w kroku 2. Powtarzanego renderuje znacznik wanilii listę nieuporządkowaną kaskadowe reguły arkusz stylów zdefiniowany w `Styles.css` jest odpowiedzialny za aesthetically atrakcyjne układu. Aby uzyskać bardziej szczegółowy opis sposobu działania powyżej znaczników, dotyczą [strony wzorcowe i nawigacja w witrynie](https://asp.net/learn/data-access/tutorial-03-cs.aspx) samouczka.
 
-
 [![Nawigacyjne interfejsu użytkownika jest renderowany przy użyciu zagnieżdżonych nieuporządkowaną Wyświetla listę](creating-user-accounts-cs/_static/image11.png)](creating-user-accounts-cs/_static/image10.png)
 
 **Rysunek 4**: Nawigacyjne interfejsu użytkownika jest renderowany przy użyciu zagnieżdżonych nieuporządkowaną Wyświetla listę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image12.png))
-
 
 ### <a name="adding-breadcrumb-navigation"></a>Dodawanie do stron nadrzędnych
 
@@ -132,11 +123,9 @@ W szczególności dodać `<span>` elementu nagłówka strony wzorcowej `<div>` e
 
 Rysunek 5. pokazuje dane wyjściowe SiteMapPath podczas odwiedzania `~/Membership/CreatingUserAccounts.aspx`.
 
-
 [![Łączy do stron nadrzędnych Wyświetla bieżącą stronę i zamapuj jego elementy nadrzędne w lokacji](creating-user-accounts-cs/_static/image14.png)](creating-user-accounts-cs/_static/image13.png)
 
 **Rysunek 5**: Łączy do stron nadrzędnych Wyświetla bieżącą stronę i jego elementy nadrzędne mapy witryny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image15.png))
-
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>Krok 4. Usuwanie jednostki niestandardowej i logiki tożsamości
 
@@ -173,11 +162,9 @@ Aby zilustrować, za pomocą `CreateUser` metody, Utwórzmy interfejsu użytkown
 
 W tym momencie ekran powinien wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 6.
 
-
 [![Na stronie CreatingUserAccounts.aspx Dodaj różnych formantów sieci Web](creating-user-accounts-cs/_static/image17.png)](creating-user-accounts-cs/_static/image16.png)
 
 **Rysunek 6**: Dodać różne formanty Web `CreatingUserAccounts.aspx` strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image18.png))
-
 
 `SecurityQuestion` Etykiety i `SecurityAnswer` pole tekstowe są przeznaczone do wyświetlania na pytanie zabezpieczające wstępnie zdefiniowanych i zbieranie odpowiedzi użytkownika. Należy pamiętać, że pytanie zabezpieczające i odpowiedzi są przechowywane na podstawie użytkownika według, można pozwolić każdemu użytkownikowi na definiowanie własnych pytanie zabezpieczające. Jednak w tym przykładzie I zamierzasz używać na pytanie zabezpieczające uniwersalne, to znaczy: "Co to jest Twoje ulubione koloru?"
 
@@ -193,39 +180,31 @@ Następnie należy utworzyć program obsługi zdarzeń dla `CreateAccountButton`
 
 Po wywołaniu `CreateUser`, przekazując `createStatus`, `switch` instrukcja jest używane w danych wyjściowych odpowiedni komunikat i w zależności od wartości przypisanej do `createStatus`. Rysunki 7 przedstawia dane wyjściowe, gdy nowy użytkownik został pomyślnie utworzony. Rysunki 8 i 9 pokazują dane wyjściowe, gdy konto użytkownika nie została utworzona. Na rysunku 8 odwiedzający wprowadzić hasło pięciu literę, który nie spełnia wymagania dotyczące siły hasła, które zostały zapisane w ustawieniach konfiguracji dostawcy członkostwa. Na rysunku 9 odwiedzający próbuje utworzyć konto użytkownika przy użyciu istniejącej nazwy użytkownika (utworzonym na rysunku 7).
 
-
 [![Nowe konto użytkownika jest pomyślnie utworzony](creating-user-accounts-cs/_static/image20.png)](creating-user-accounts-cs/_static/image19.png)
 
 **Rysunek 7**: Nowe konto użytkownika jest pomyślnie utworzony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image21.png))
-
 
 [![Nie utworzono konta użytkownika, ponieważ podane hasło jest za słabe](creating-user-accounts-cs/_static/image23.png)](creating-user-accounts-cs/_static/image22.png)
 
 **Rysunek 8**: Nie utworzono konta użytkownika, ponieważ podane hasło jest za słabe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image24.png))
 
-
 [![To konto użytkownika nie utworzone, ponieważ nazwa jest już w użyciu](creating-user-accounts-cs/_static/image26.png)](creating-user-accounts-cs/_static/image25.png)
 
 **Rysunek 9**: Konto użytkownika jest nie utworzone, ponieważ nazwa jest już w użyciu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image27.png))
 
-
 > [!NOTE]
 > Możesz się zastanawiać, jak określić powodzenie lub niepowodzenie, korzystając z jednej z dwóch pierwszych `CreateUser` ani przeciążenia metod programu, który ma parametr typu `MembershipCreateStatus`. Te pierwsze dwa przeciążenia throw [ `MembershipCreateUserException` wyjątek](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.aspx) także w przypadku awarii, co obejmuje [ `StatusCode` właściwość](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.statuscode.aspx) typu `MembershipCreateStatus`.
 
-
 Po utworzeniu kilku kontom użytkowników, należy sprawdzić, czy konta zostały utworzone przez wymienienie zawartość `aspnet_Users` i `aspnet_Membership` tabelach `SecurityTutorials.mdf` bazy danych. Jak pokazano na rysunku nr 10, po dodaniu dwóch użytkowników za pośrednictwem `CreatingUserAccounts.aspx` strony: Tito i Bruce.
-
 
 [![Istnieją dwaj użytkownicy Store użytkownika członkostwa: Tito i Bruce](creating-user-accounts-cs/_static/image29.png)](creating-user-accounts-cs/_static/image28.png)
 
 **Na rysunku nr 10**: Istnieją dwaj użytkownicy Store użytkownika członkostwa: Tito i Bruce ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image30.png))
 
-
 Gdy magazyn użytkownika członkostwa zawiera teraz informacje o koncie Bruce i Tito firmy, mamy jeszcze do implementacji funkcji umożliwiającej Bruce lub Tito, aby zalogować się do witryny. Obecnie `Login.aspx` przeprowadza walidację poświadczeń użytkownika względem stały zestaw par nazwa użytkownika i hasło — robi *nie* sprawdzanie poprawności podanych poświadczeń względem framework członkostwa. Dla nowych kont użytkowników w teraz jest wyświetlany `aspnet_Users` i `aspnet_Membership` tabele będą miały się wystarczające. W następnym samouczku  *<a id="_msoanchor_9"> </a> [sprawdzania poprawności użytkownika poświadczeń względem członkostwa użytkownika Store](validating-user-credentials-against-the-membership-user-store-cs.md)*, zaktualizujemy strony logowania, aby przeprowadzić walidacji względem magazynu członkostwa.
 
 > [!NOTE]
 > Jeśli nie widzisz wszystkich użytkowników w Twojej `SecurityTutorials.mdf` bazy danych, może to być spowodowane aplikacją sieci web używa domyślnym dostawcą członkostwa `AspNetSqlMembershipProvider`, wykonującemu `ASPNETDB.mdf` baza danych jako jej magazyn użytkownika. Aby ustalić, czy ten problem, kliknij przycisk Odśwież w Eksploratorze rozwiązań. Jeśli baza danych o nazwie `ASPNETDB.mdf` została dodana do `App_Data` folderu, na tym polega problem. Wróć do kroku 4 *<a id="_msoanchor_10"> </a> [tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-cs.md)* samouczek, w jaki sposób poprawnie skonfigurować dostawcy członkostwa.
-
 
 W większości Utwórz użytkownika konta scenariuszy, odwiedzający są prezentowane za pomocą niektórych interfejsu, aby wprowadzić swoją nazwę użytkownika, hasło, adres e-mail i inne istotne informacje, w tym momencie jest tworzone nowe konto. W tym kroku będziemy przyjrzano ręcznego tworzenia takiego interfejsu i następnie pokazano, jak używać `Membership.CreateUser` metodę, aby programowo dodać nowe konto użytkownika oparte na danych wejściowych użytkownika. Nasz kod, jednak po prostu utworzyć nowe konto użytkownika. Nie wykonał wszelkich dalszych działań, takich jak logowanie użytkownika do witryny w ramach konta użytkownika z nowo utworzoną lub wysłanie wiadomości e-mail z potwierdzeniem do użytkownika. Te dodatkowe kroki wymaga dodatkowego kodu w przycisku `Click` programu obsługi zdarzeń.
 
@@ -245,11 +224,9 @@ Zacznijmy od przyjrzeć się przy użyciu domyślnego interfejsu i zachowanie ko
 
 Wróć do `CreatingUserAccounts.aspx` stronie `Membership` folderu, Przełącz do trybu projektowania lub podziału, a następnie dodaj formancie CreateUserWizard do górnej części strony. Kontrolka CreateUserWizard jest zachowane w sekcji Formanty logowania przybornika. Po dodaniu kontrolki, ustaw jego `ID` właściwość `RegisterUser`. Jak zrzut ekranu w przedstawia rysunek 11, CreateUserWizard renderuje interfejs z pól tekstowych dla nowego użytkownika nazwy użytkownika, hasło, adres e-mail i pytanie zabezpieczające i odpowiedzi.
 
-
 [![Renderuje CreateUserWizard kontroli ogólnego Tworzenie interfejsu użytkownika](creating-user-accounts-cs/_static/image32.png)](creating-user-accounts-cs/_static/image31.png)
 
 **Rysunek 11**: Kontrolka CreateUserWizard renderuje ogólny Tworzenie interfejsu użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image33.png))
-
 
 Poświęćmy chwilę, aby porównać domyślnym interfejsem użytkownika generowany przez kontrolkę CreateUserWizard przy użyciu interfejsu, utworzonego w kroku 5. Po pierwsze kontroli CreateUserWizard umożliwia obiektu odwiedzającego określić pytanie zabezpieczające i odpowiedzi, interfejsu utworzone ręcznie stosować na pytanie zabezpieczające wstępnie zdefiniowane. Interfejsu kontroli CreateUserWizard obejmuje również kontrolkami walidacji, dlatego musimy jeszcze Implementowanie weryfikacji pól formularza naszego interfejsu. I interfejsu kontroli CreateUserWizard zawiera pole tekstowe "Potwierdź hasło" (wraz z CompareValidator aby upewnić się, że wprowadzony tekst "Password" i "Password porównania" pola tekstowe są takie same).
 
@@ -266,23 +243,18 @@ Wygląd i zachowanie CreateUserWizard może być modyfikowane, konwertując dowo
 
 Zobaczmy, kontrola CreateUserWizard w działaniu. Odwiedź stronę `CreatingUserAccounts.aspx` strony za pośrednictwem przeglądarki. Rozpocznij, wprowadzając niektóre nieprawidłowe wartości do interfejsu CreateUserWizard. Spróbuj wprowadzić hasło, które nie są zgodne, wymagania dotyczące siły hasła lub opuścić "Nazwa użytkownika" pole tekstowe puste. CreateUserWizard wyświetli odpowiedni komunikat o błędzie. Rysunek 12 zawiera dane wyjściowe podczas próby utworzenia użytkownika z niewystarczająco silne hasło.
 
-
 [![CreateUserWizard automatycznie wprowadza kontrolkami walidacji](creating-user-accounts-cs/_static/image35.png)](creating-user-accounts-cs/_static/image34.png)
 
 **Rysunek 12**: CreateUserWizard automatycznie wprowadza formanty sprawdzania poprawności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image36.png))
 
-
 Następnie wprowadź odpowiednie wartości w CreateUserWizard i kliknij przycisk "Create User". Zakładając, że wymagane pola zostały wprowadzone i siły hasła jest wystarczająca, CreateUserWizard będzie Utwórz nowe konto użytkownika za pośrednictwem framework członkostwa i następnie wyświetlać `CompleteWizardStep`(zobacz rysunek 13) na interfejsie użytkownika. W tle wywołuje CreateUserWizard `Membership.CreateUser` metodę, tak samo, jak Robiliśmy to krok 5.
-
 
 [![Nowe konto użytkownika została pomyślnie utworzone](creating-user-accounts-cs/_static/image38.png)](creating-user-accounts-cs/_static/image37.png)
 
 **Rysunek 13**: Nowe konto użytkownika została pomyślnie utworzone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image39.png))
 
-
 > [!NOTE]
 > Jak pokazano na rysunku 13, `CompleteWizardStep`przez interfejs zawiera przycisk Kontynuuj. Jednak w tym momencie klikając po prostu wykonuje zwrotu, pozostawiając odwiedzający na tej samej stronie. W sekcji "Dostosowywanie wyglądu i zachowania za pomocą jego właściwości CreateUserWizard" przedstawiony zostanie sposób mogą mieć tego przycisku wysłać użytkownika `Default.aspx` (lub innej strony).
-
 
 Po utworzeniu nowego konta użytkownika, wróć do programu Visual Studio i sprawdź `aspnet_Users` i `aspnet_Membership` tabelami, takie jak zrobiliśmy na rysunku nr 10, aby sprawdzić, czy konto zostało pomyślnie utworzone.
 
@@ -298,11 +270,9 @@ Oprócz właściwości powiązane z wyglądem istnieje kilka właściwości, kt�
 
 Zaktualizujmy `RegisterUser` kontroli CreateUserWizard Pokaż przycisk Anuluj i wysłać użytkownika `Default.aspx` po kliknięciu przycisku Anuluj, lub Kontynuuj. Aby to zrobić, należy ustawić `DisplayCancelButton` właściwości na wartość True, a oba `CancelDestinationPageUrl` i `ContinueDestinationPageUrl` właściwości "~ / Default.aspx". Rysunek 14 zawiera zaktualizowane CreateUserWizard podczas wyświetlania za pośrednictwem przeglądarki.
 
-
 [![Element CreateUserWizardStep zawiera przycisk Anuluj](creating-user-accounts-cs/_static/image41.png)](creating-user-accounts-cs/_static/image40.png)
 
 **Rysunek 14**: `CreateUserWizardStep` Zawiera przycisk anulowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image42.png))
-
 
 Po użytkownik wprowadza nazwę użytkownika, hasło, adres e-mail i pytanie zabezpieczające i odpowiedzi i kliknie przycisk "Create User", jest tworzone nowe konto użytkownika i użytkownik jest zalogowany jako nowo utworzone przez tego użytkownika. Przy założeniu, że osoby, odwiedzając stronę tworzy nowe konto dla siebie, to prawdopodobnie żądane zachowanie. Można jednak administratorzy mogą dodawać nowych kont użytkowników. W ten sposób będzie można utworzyć konto użytkownika, ale Administrator pozostanie zalogowany jako Administrator (a nie nowo utworzonych kont). To zachowanie można modyfikować za pomocą typu Boolean [ `LoginCreatedUser` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx).
 
@@ -314,7 +284,6 @@ Inne właściwości związane z zachowaniem uwagi obejmują `AutoGeneratePasswor
 
 > [!NOTE]
 > `CreateUserWizard` Kontrolki `MailDefinition` właściwość określa tylko szczegóły dotyczące wiadomości e-mail, która jest wysyłana, gdy tworzone jest nowe konto. Nie zawiera wszystkie szczegółowe informacje dotyczące sposobu faktycznie zostanie wysłana wiadomość e-mail (oznacza to, czy jest używany katalog serwera lub przechowywania poczty usługi SMTP, wszelkie informacje uwierzytelniania i tak dalej). Te szczegóły niskiego poziomu, które muszą być zdefiniowane w `<system.net>` sekcji `Web.config`. Aby uzyskać więcej informacji na temat tych ustawień konfiguracji i wysyłanie wiadomości e-mail z programu ASP.NET 2.0, ogólnie rzecz biorąc, zobacz [— często zadawane pytania na SystemNetMail.com](http://www.systemnetmail.com/) i Moje artykułu [wysyłania wiadomości E-mail w programie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
-
 
 ### <a name="extending-the-createuserwizards-behavior-using-event-handlers"></a>Rozszerzanie zachowanie CreateUserWizard przy użyciu programów obsługi zdarzeń
 
@@ -336,15 +305,12 @@ Należy pamiętać, że nazwa użytkownika i hasło wprowadzone w formancie Crea
 
 Zrzut ekranu pokazuje, rysunek 15 `CreatingUserAccounts.aspx` po użytkownik wprowadza nazwę użytkownika, za pomocą spacji wiodących.
 
-
 [![Nazwy użytkowników za pomocą wiodące lub końcowe spacje są niedozwolone.](creating-user-accounts-cs/_static/image44.png)](creating-user-accounts-cs/_static/image43.png)
 
 **Rysunek 15**: Nazwy użytkowników za pomocą wiodące lub końcowe spacje nie są dozwolone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-user-accounts-cs/_static/image45.png))
 
-
 > [!NOTE]
 > Będzie można znaleźć przykład za pomocą kontroli CreateUserWizard `CreatedUser` zdarzenia w *<a id="_msoanchor_11"> </a> [przechowywanie dodatkowych informacji użytkownika](storing-additional-user-information-cs.md)* samouczka.
-
 
 ## <a name="summary"></a>Podsumowanie
 

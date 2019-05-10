@@ -8,12 +8,12 @@ ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 4542ad3ac3e321629bb4de3cd4df12c22ff6cb20
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 8f8bcfb7d9d2416a2699776cadbdaae8e12415ba
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414624"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131791"
 ---
 # <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — aktualizowanie danych bazy danych
 
@@ -37,7 +37,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > - SQL `Update` polecenia.
 > - `Database.Execute` Metody.
 > - Ukryte pola (`<input type="hidden">`).
-
 
 ## <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
@@ -129,7 +128,6 @@ Kolumna zawiera *tylko* z kodu znaczników, który renderuje łącze, oraz pewne
 > 
 > Oczywiście Aby użyć parametrów nazwanych, trzeba znać nazwy parametrów. Funkcja IntelliSense programu WebMatrix można *Pokaż* nazwy, ale nie można obecnie wypełnieniu je dla Ciebie.
 
-
 ## <a name="creating-the-edit-page"></a>Tworzenie strony edycji
 
 Teraz możesz utworzyć *EditMovie* strony. Gdy użytkownik kliknie **Edytuj** łącza, są one będzie umieszczane na tej stronie.
@@ -206,7 +204,6 @@ Można określić wszystkie kolumny w dowolnej kolejności, a nie zawsze koniecz
 > 
 > **Ważne** `Where` klauzuli o identyfikatorze to bardzo ważne, ponieważ jest to, jak baza danych zna bazę danych, która rekordów, które chcesz zaktualizować. Jeśli została przerwana `Where` klauzuli bazy danych będzie aktualizował *co* rekordów w bazie danych. W większości przypadków, które byłyby awarii.
 
-
 W kodzie wartości, aby zaktualizować są przekazywane do instrukcji SQL przy użyciu symboli zastępczych. Powtarzaj co już powiedzieliśmy przed: ze względów bezpieczeństwa *tylko* używać symbole zastępcze do przekazywania wartości do instrukcji SQL.
 
 Po kod używa `db.Execute` do uruchomienia `Update` instrukcji, zostanie przekierowany do strony, gdzie można zobaczyć zmiany.
@@ -222,7 +219,6 @@ Po kod używa `db.Execute` do uruchomienia `Update` instrukcji, zostanie przekie
 > Oczywiście `Query` metoda może zwracać tylko jeden wiersz bazy danych. Jednak ASP.NET zawsze traktuje wyniki `Query` metodę jako kolekcję. Nawet jeśli metoda ta zwraca tylko jeden wiersz, należy wyodrębnić ten pojedynczy wiersz z kolekcji. W związku z tym, w sytuacjach, w którym możesz *znać* wrócisz tylko jeden wiersz, jest nieco bardziej wygodne do użycia `QuerySingle`.
 > 
 > Dostępnych jest kilka metod, które wykonują określone typy operacji bazy danych. Możesz znaleźć listę metod bazy danych w [interfejsu API stron sieci Web platformy ASP.NET — dokumentacja szybkie](../../api-reference/asp-net-web-pages-api-reference.md#Data).
-
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Tworzenie niezawodnych sprawdzania poprawności dla innych identyfikator
 

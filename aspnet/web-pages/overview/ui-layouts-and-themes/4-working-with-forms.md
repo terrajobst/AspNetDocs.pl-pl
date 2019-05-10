@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 680739cbcf54bc9ca7a3bd8167d043ff537eaad5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: ec5ad784978b2d5191d59398fc4b5ed25ae516fb
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417536"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65128403"
 ---
 # <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzami HTML w witrynach ASP.NET Web Pages (Razor)
 
@@ -42,7 +42,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 >   
 > 
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
-
 
 ## <a name="creating-a-simple-html-form"></a>Tworzenie prostego formularza HTML
 
@@ -89,7 +88,6 @@ Aby przetwarzać formularza, należy dodać kod, który odczytuje wartości pól
 > To dobry pomysł, do użycia w dowolnym momencie wyświetlić ciągów kodowania HTML (dane wejściowe), którą uzyskano przez użytkownika. Jeśli nie, można pobrać strony sieci web do uruchamiania złośliwych skryptów lub czymś innym, obniża bezpieczeństwa witryny lub po prostu nie ma spróbować użytkownika. (Jest to szczególnie ważne, jeśli akceptują dane wejściowe użytkownika, zapisz go w innym, a następnie Wyświetl później &#8212; na przykład, jako komentarz blog, recenzji użytkownika lub coś podobnego.)
 > 
 > Aby uniknąć tych problemów, ASP.NET Web Pages automatycznie koduje HTML dowolny tekst zawartości, dane wyjściowe w kodzie. Na przykład podczas wyświetlania zawartości zmiennej lub wyrażenia przy użyciu kodu, takich jak `@MyVar`, ASP.NET Web Pages automatycznie koduje dane wyjściowe.
-
 
 ## <a name="validating-user-input"></a>Walidacja danych wejściowych użytkownika
 

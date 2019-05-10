@@ -8,12 +8,12 @@ ms.date: 10/16/2008
 ms.assetid: a94e4e81-40c1-47b7-8613-126a1a6cc93d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8264b48388ee4a6b51515aa2b897ece3b2f3972a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: dba27b48e5869c43d1082fc948bbc28bcee17f1c
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380876"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65123247"
 ---
 # <a name="understanding-action-filters-c"></a>Objaśnienie filtrów akcji (C#)
 
@@ -22,7 +22,6 @@ przez [firmy Microsoft](https://github.com/microsoft)
 [Pobierz plik PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
 
 > Celem tego samouczka jest wyjaśnić filtrów akcji. Filtr akcji jest atrybut, który można zastosować do akcji kontrolera — lub cały kontroler — która modyfikuje sposób, w którym akcja jest wykonywana.
-
 
 ## <a name="understanding-action-filters"></a>Objaśnienie filtrów akcji
 
@@ -48,11 +47,9 @@ Na przykład kontroler danych w ofercie 1 udostępnia akcję o nazwie `Index()` 
 
 Jeśli wywołujesz wielokrotnie `Index()` akcję, wprowadzając adres URL/Data/indeksu w pasku adresu przeglądarki i naciskanie klawisza odświeżania przycisk wiele razy, w tym samym czasie będzie widocznych 10 sekund. Dane wyjściowe `Index()` akcji jest buforowana przez 10 sekund (patrz rysunek 1).
 
-
 [![Czas pamięci podręcznej](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
 
 **Rysunek 01**: Buforowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-action-filters-cs/_static/image3.png))
-
 
 W ofercie 1 filtr jednej akcji — `OutputCache` filtr akcji — jest stosowany do `Index()` metody. Jeśli potrzebujesz, można zastosować wiele filtrów akcji do tego samego działania. Na przykład możesz chcieć zastosowanie zarówno `OutputCache` i `HandleError` filtry akcji do tego samego działania.
 
@@ -106,11 +103,9 @@ Aby zilustrować, jak tworzyć filtru akcji niestandardowej, utworzymy filtru ak
 
 W ofercie 2 `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting()`, i `OnResultExecuted()` wywołania metody `Log()` metody. Nazwa metody i bieżące dane trasy jest przekazywany do `Log()` metody. `Log()` Metoda zapisuje komunikat w oknie programu Visual Studio danych wyjściowych (patrz rysunek 2).
 
-
 [![Zapisywanie w oknie programu Visual Studio danych wyjściowych.](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
 
 **Rysunek 02**: Zapisywanie w oknie programu Visual Studio danych wyjściowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-action-filters-cs/_static/image6.png))
-
 
 Kontrolera głównego w ofercie 3 ilustruje, jak można zastosować filtr akcji dziennika do klasy całego kontrolera. Zawsze, gdy wszystkie akcje, udostępnianych przez kontrolera głównego są wywoływane — albo `Index()` metody lub `About()` metodą — etapy przetwarzania działania są rejestrowane w oknie programu Visual Studio danych wyjściowych.
 

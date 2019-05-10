@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 1203825a1fb6b2034d9180fcf416aba7d0012fb7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d33c45c50d4f8edc899f3fe63ede11ad98d45823
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383222"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131899"
 ---
 # <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Objaśnienie możliwości debugowania kodu ASP.NET AJAX
 
@@ -22,7 +22,6 @@ przez [Scott Cate](https://github.com/scottcate)
 [Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial06_Debugging_MS_Ajax_Applications_cs.pdf)
 
 > Możliwość debugowania kodu jest umiejętności, które każdy Deweloper powinien mieć w ich Arsenał, niezależnie od użytej technologii używane. Wielu programistów są przyzwyczajeni do debugowania aplikacji ASP.NET, które używają kodu VB.NET lub C# za pomocą programu Visual Studio .NET lub Web Developer Express, nie są świadomi, że możliwe jest też bardzo przydatne w przypadku debugowania kodu po stronie klienta, takich jak JavaScript. Ten sam typ techniki debugowania aplikacji .NET można również będą stosowane do aplikacji z włączoną obsługą technologii AJAX i dokładniej aplikacji ASP.NET AJAX.
-
 
 ## <a name="debugging-aspnet-ajax-applications"></a>Debugowanie aplikacji ASP.NET AJAX
 
@@ -47,11 +46,9 @@ Chociaż nie jest wymagane, jeśli próbujesz debugować aplikację, prawdopodob
 
 Rysunek 1 przedstawia jakie programu Internet Explorer okno dialogowe Zaawansowane powinien wyglądać po została prawidłowo skonfigurowana do debugowania.
 
-
 [![Konfigurowanie programu Internet Explorer do debugowania.](understanding-asp-net-ajax-debugging-capabilities/_static/image2.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image1.png)
 
 **Rysunek 1**: Konfigurowanie programu Internet Explorer do debugowania.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image3.png))
-
 
 Po debugowanie zostało włączone, zostanie wyświetlony nowy element menu są wyświetlane w menu Widok o nazwie debugera skryptów. Posiada dwie opcje dostępne w tym Open i podziału na następną instrukcję. Po wybraniu Open zostanie wyświetlony monit do debugowania na stronie w programie Visual Studio 2008 (należy zauważyć, że Visual Web Developer Express może również służyć do debugowania). Visual Studio .NET jest obecnie uruchomiona. Możesz użyć tego wystąpienia lub Utwórz nowe wystąpienie. Po wybraniu podziału w następnej instrukcji zostanie wyświetlony monit do debugowania na stronie, gdy kod JavaScript jest wykonywana. Jeśli kod JavaScript jest wykonywana zdarzenia onLoad strony możesz odświeżyć stronę, aby wyzwolić sesji debugowania. Jeśli kod JavaScript jest uruchamiane po kliknięciu przycisku debuger będzie działać natychmiast, po kliknięciu przycisku.
 
@@ -72,7 +69,6 @@ Debuger programu Visual Studio 2008 traktuje JavaScript osadzony na stronie, kt�
 
 Można obejść ten problem, przenosząc kod do pliku js zewnętrznych i odwoływania się do niego przy użyciu atrybutu src &lt;skryptu&gt; tag:
 
-
 [!code-html[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample1.html)]
 
 Co zrobić, jeśli przenoszenia kodu do zewnętrznego pliku nie jest dostępną opcją lub wymaga więcej pracy niż jest wart? Chociaż nie można ustawić punktu przerwania, za pomocą edytora, możesz dodać debugger — instrukcja bezpośrednio do kodu, w którym chcesz rozpocząć debugowanie. Umożliwia także klasy Sys.Debug dostępne w bibliotece programu ASP.NET AJAX do wymuszenia, debugowanie, aby rozpocząć. Dowiesz się więcej na temat klasy Sys.Debug w dalszej części tego artykułu.
@@ -80,7 +76,6 @@ Co zrobić, jeśli przenoszenia kodu do zewnętrznego pliku nie jest dostępną 
 Przykład użycia `debugger` — słowo kluczowe jest wyświetlany w ofercie 1. W tym przykładzie wymusza debuger przerywa prawo przed wykonaniem wywołania funkcji update.
 
 **Wyświetlanie listy 1. Wymusić aby przerwać debuger programu Visual Studio .NET przy użyciu słowa kluczowego debugera.**
-
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample2.js)]
 
@@ -90,11 +85,9 @@ Po osiągnięciu instrukcji debugera zostanie wyświetlony monit o debugowania s
 
 Po uruchomieniu sesji debugowania i rozpoczęciem Instruktaż kodu przy użyciu domyślnego klucza F11, może się pojawić okno dialogowe błędu wyświetlane w zobacz rysunek 2, chyba że wszystkie pliki skryptów użyty na stronie są otwarte i dostępne do debugowania.
 
-
 [![Okno dialogowe błędu jest wyświetlany, gdy brak kodu źródłowego jest dostępna do debugowania.](understanding-asp-net-ajax-debugging-capabilities/_static/image5.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image4.png)
 
 **Rysunek 2**: Okno dialogowe błędu jest wyświetlany, gdy brak kodu źródłowego jest dostępna do debugowania.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image6.png))
-
 
 To okno dialogowe jest wyświetlane, ponieważ program Visual Studio .NET nie ma pewności, jak uzyskać dostęp do kodu źródłowego w niektórych skryptów odwołuje się na stronie. Chociaż może to być całkiem irytujące na początku jest proste poprawki. Po rozpoczął sesję debugowania i Traf punkt przerwania, przejdź do okna programu debugowania Eksplorator skryptów Windows z menu programu Visual Studio 2008, lub użyj skrótu Ctrl + Alt + N.
 
@@ -103,11 +96,9 @@ To okno dialogowe jest wyświetlane, ponieważ program Visual Studio .NET nie ma
 
 Eksplorator skryptów może służyć do wyświetlania wszystkich skryptów na stronie i otwórz je w edytorze kodu. Po otwarciu Eksplorator skryptów, kliknij dwukrotnie strony .aspx aktualnie debugowanych aby otworzyć go w oknie edytora kodu. Wykonaj tę samą akcję dla wszystkich innych skryptów wyświetlane w Eksploratorze skryptów. Gdy wszystkie skrypty są otwarte w oknie kodu, możesz naciśnij klawisz F11 (i użyj innych klawisze dostępu debugowania), aby przejść przez kod. Rysunek 3 przedstawia przykład Eksplorator skryptów. Wyświetla listę bieżącego pliku debugowany (Demo.aspx) oraz dwa skrypty niestandardowe i dwa skrypty wstrzykuje dynamiczne strony przez Menedżera skryptów AJAX programu ASP.NET.
 
-
 [![Eksplorator skryptów zapewnia łatwy dostęp do skryptów na stronie.](understanding-asp-net-ajax-debugging-capabilities/_static/image8.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image7.png)
 
 **Rysunek 3**. Eksplorator skryptów zapewnia łatwy dostęp do skryptów na stronie.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image9.png))
-
 
 Kilka innych systemu windows mogą również zawierają przydatne informacje, jak krok po kroku przez kod na stronie. Na przykład umożliwia okno zmiennych lokalnych zobaczyć wartości różne zmienne używane na stronie okna bezpośredniego, aby ocenić określonych zmiennych lub warunków i wyświetlić dane wyjściowe. Aby wyświetlić instrukcje śledzenia napisanych przy użyciu funkcji Sys.Debug.trace, (które zostały omówione w dalszej części tego artykułu) lub Internet Explorer Debug.writeln — funkcja umożliwia także w oknie danych wyjściowych.
 
@@ -121,11 +112,9 @@ Mimo że program Visual Studio 2008 (i Visual Web Developer Express 2008) sprzę
 
 Pomocnik programowanie sieci Web należy używać bezpośrednio z programu Internet Explorer, co pozwala na łatwe w użyciu. Jej ponownym uruchomieniu, wybierając pozycję Narzędzia sieci Web Development pomocnika z menu programu Internet Explorer. Zostanie otwarte narzędzie w dolnej części przeglądarki, która to dobre rozwiązanie, ponieważ nie masz pozostawić przeglądarkę, aby wykonać kilka zadań, takich jak rejestrowanie komunikatów żądań i odpowiedzi HTTP. Rysunek 4 pokazuje, jak wygląda pomocnika programowanie sieci Web w działaniu.
 
-
 [![Pomocnik programowanie sieci Web](understanding-asp-net-ajax-debugging-capabilities/_static/image11.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image10.png)
 
 **Rysunek 4**: Pomocnik rozwoju w sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image12.png))
-
 
 Pomocnik programowanie sieci Web nie jest narzędziem użyjesz przechodzić przez kodu wiersz po wierszu jako za pomocą programu Visual Studio 2008. Jednak może służyć do wyświetlania danych wyjściowych śledzenia, łatwo oceny zmiennych w skrypcie lub eksplorować dane znajdują się wewnątrz obiektu JSON. Jest również bardzo przydatny do wyświetlania danych, które są przekazywane do i z na stronie ASP.NET AJAX i serwera.
 
@@ -137,13 +126,11 @@ W oknie bezpośrednim może służyć do wykonywania poleceń skryptu, lub nawet
 
 **Wyświetlanie listy 2. Wypisywanie komunikat śledzenia po stronie klienta przy użyciu klasy Debug.**
 
-
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample3.js)]
 
 Jeśli właściwość nazwisko zawiera wartość Kowalski, Pomocnik programowanie sieci Web wyświetli komunikat o "nazwisko osoby: DoE"w oknie polecenia konsoli skryptu (przy założeniu, że włączono debugowanie). Pomocnik programowanie sieci Web również dodaje obiekt debugService najwyższego poziomu do stron, które mogą służyć do zapisywania informacji śledzenia lub wyświetlanie zawartości obiektów JSON. Wyświetlanie listy 3 przedstawiono przykład przy użyciu funkcji śledzenia klasy debugService.
 
 **Wyświetlanie listy 3. Za pomocą klasy debugService pomocnika programowanie sieci Web do zapisywania komunikatów śledzenia.**
-
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample4.js)]
 
@@ -153,7 +140,6 @@ Klasa debugService umożliwia także danych obiektu JSON, aby ją wyświetlić z
 
 **Wyświetlanie listy 4. Przy użyciu funkcji debugService.inspect, aby wyświetlić dane z obiektu JSON.**
 
-
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample5.js)]
 
 Na stronie lub w oknie bezpośrednim podczas wywoływania funkcji GetPerson() spowoduje w oknie dialogowym Inspektor obiektów znajdujących się, jak pokazano na rysunku 5. Właściwości w obiekcie można zmienić dynamicznie przez wyróżnianie, zmieniając wartość pokazana w pole tekstowe z wartością, a następnie klikając łącze aktualizacji. Przy użyciu Inspektora obiektu sprawia, że prosta do wyświetlania danych obiektu JSON i eksperymentować z stosowanie różnych wartości właściwości.
@@ -162,19 +148,15 @@ Na stronie lub w oknie bezpośrednim podczas wywoływania funkcji GetPerson() sp
 
 Oprócz umożliwienia danych śledzenia i obiektami JSON, który będzie wyświetlany, pomocnika programowania dla sieci Web można również pomocy w Debugowanie błędów na stronie. W przypadku napotkania błędu użytkownik zostanie wyświetlony monit kontynuować do następnego wiersza kodu lub debugowanie skryptu (patrz rysunek 6). Na okno dialogowe błąd skryptu przedstawiono kompletne wywołanie stosu oraz numery wierszy, dzięki czemu można łatwo zidentyfikować, których problemów w ramach skryptów.
 
-
 [![Korzystanie z okna Inspektor obiektów, aby wyświetlić obiekt JSON.](understanding-asp-net-ajax-debugging-capabilities/_static/image14.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image13.png)
 
 **Rysunek 5**: Korzystanie z okna Inspektor obiektów, aby wyświetlić obiekt JSON.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image15.png))
 
-
 Wybranie opcji debugowania umożliwia wykonywanie instrukcji skryptu bezpośrednio w bezpośrednim pomocnika programowanie sieci Web, aby wyświetlić wartości zmiennych, zapisać obiekty JSON, a także więcej. Jeśli ta sama akcja, która wyzwoliła błąd odbywa się ponownie i programu Visual Studio 2008 jest dostępny na komputerze, użytkownik zostanie wyświetlony monit rozpocząć sesję debugowania, tak aby można było przechodzić przez kodu wiersz po wierszu zgodnie z opisem w poprzedniej sekcji.
-
 
 [![Okno dialogowe błąd skryptu pomocnika programowanie sieci Web](understanding-asp-net-ajax-debugging-capabilities/_static/image17.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image16.png)
 
 **Rysunek 6**: Okno dialogowe błąd skryptu pomocnika programowanie sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image18.png))
-
 
 *Sprawdzanie żądań i odpowiedzi wiadomości*
 
@@ -184,19 +166,15 @@ Aby wyświetlić komunikaty żądań i odpowiedzi AJAX programu ASP.NET, rejestr
 
 Mimo że wyświetlanie nieprzetworzony tekst wysyłanych w każdym komunikacie żądania/odpowiedzi przydaje się bez obaw i opcję w Pomocniku programowanie sieci Web, często jest łatwiejsze do wyświetlania danych wiadomości w postaci bardziej graficznej. Gdy włączono rejestrowanie HTTP, i zostały zarejestrowane komunikaty, można wyświetlić danych komunikatu przez dwukrotne kliknięcie komunikatu w przeglądarce dzienników HTTP. W ten sposób pozwala wyświetlić wszystkie nagłówki skojarzone z wiadomości, a także komunikat rzeczywiste zawartość. Rysunek 7 przedstawia przykładowy komunikat żądania, a komunikat odpowiedzi wyświetlane w oknie przeglądarka dzienników HTTP.
 
-
 [![Aby wyświetlić dane komunikatów żądań i odpowiedzi, przy użyciu przeglądarka dzienników HTTP.](understanding-asp-net-ajax-debugging-capabilities/_static/image20.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image19.png)
 
 **Rysunek 7**: Aby wyświetlić dane komunikatów żądań i odpowiedzi, przy użyciu przeglądarka dzienników HTTP.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image21.png))
 
-
 Podgląd dziennika HTTP automatycznie analizuje obiekty JSON i wyświetla je przy użyciu widoku drzewa, ułatwiając szybkie i łatwe do wyświetlania danych właściwości obiektu. Podgląd dzieli każdej części wiadomości na części, jak pokazano na rysunku 8, gdy UpdatePanel jest używane na stronie ASP.NET AJAX. Jest to doskonałe funkcja, która sprawia, że znacznie łatwiej zobaczyć i zrozumieć, co znajduje się w wiadomości porównaniu wyświetlanie danych pierwotnych wiadomości.
-
 
 [![Komunikat odpowiedzi UpdatePanel przeglądać za pomocą podglądu dziennika HTTP.](understanding-asp-net-ajax-debugging-capabilities/_static/image23.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image22.png)
 
 **Rysunek 8**: Komunikat odpowiedzi UpdatePanel przeglądać za pomocą podglądu dziennika HTTP.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image24.png))
-
 
 Istnieją inne narzędzia, które mogą służyć do wyświetlania komunikatów żądań i odpowiedzi, oprócz pomocnika programowanie sieci Web. Innym dobrym rozwiązaniem jest Fiddler, która jest dostępna bezpłatnie w [ http://www.fiddlertool.com ](http://www.fiddlertool.com). Mimo że nie Fiddler zostanie tutaj omówiona, jest również dobrym rozwiązaniem gdy należy dokładnie sprawdzić nagłówki komunikatów i danych.
 
@@ -210,11 +188,9 @@ Gdy Firebug jest uruchomiona, można ustawić punktów przerwania w dowolnym wie
 
 Gdy punkt przerwania został ustawiony w Firebug można wykonywać czynności do wykonania skryptu, który ma być debugowany, takie jak kliknięcie przycisku lub odświeżyć przeglądarkę, aby wyzwolić zdarzenie onLoad. Wykonywanie zostanie automatycznie zatrzymany na wiersz zawierający punkt przerwania. Rysunek 9 przedstawiono przykład punkcie przerwania, który został wyzwolony w Firebug.
 
-
 [![Obsługa punktów przerwania w Firebug.](understanding-asp-net-ajax-debugging-capabilities/_static/image26.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image25.png)
 
 **Rysunek 9**: Obsługa punktów przerwania w Firebug.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image27.png))
-
 
 Po osiągnięciu punktu przerwania można wkroczyć do, Przekrocz nad lub wychodzenia z kodu za pomocą przycisków strzałek. Podczas wykonywania kroków za pomocą kodu zmienne skryptu są wyświetlane po prawej stronie część debugera, dzięki czemu możesz zobaczyć wartości i przechodzenie do szczegółów w obiektach. Firebug obejmuje również stos wywołań listy rozwijanej, aby zapoznać się z procedurą wykonywanie skryptu, które doprowadziły do bieżącego wiersza debugowany.
 
@@ -222,11 +198,9 @@ Firebug obejmuje również okna konsoli, który może służyć do testowania in
 
 Na rysunku nr 10 przedstawiono przykład przy użyciu Inspektora DOM do zlokalizowania pole tekstowe o nazwie txtCountry na stronie. Inspektor Firebug można również wyświetlić style CSS używany w stronę, a także zdarzenia, takie jak śledzenie ruchów myszy, kliknięć przycisków, a także więcej.
 
-
 [![Przy użyciu Inspektora DOM Firebug firmy.](understanding-asp-net-ajax-debugging-capabilities/_static/image29.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image28.png)
 
 **Na rysunku nr 10**: Przy użyciu Inspektora DOM Firebug firmy.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image30.png))
-
 
 Firebug zapewnia sposób lekki szybko Debuguj strony bezpośrednio w przeglądarce Firefox, jak również doskonałe narzędzie do sprawdzania różnych elementów na stronie.
 
@@ -254,11 +228,9 @@ Klasa Sys.Debug udostępnia kilka różnych funkcji, które mogą służyć do o
 
 **Wyświetlanie listy 5. Przy użyciu funkcji Sys.Debug.trace.**
 
-
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample6.js)]
 
 Jeśli wykonanie kodu pokazany w ofercie 5 nie zobaczysz żadnych danych wyjściowych śledzenia na stronie. Jedynym sposobem, aby zobaczyć, jak to jest dostępne w programie Visual Studio .NET, pomocnika programowanie sieci Web lub Firebug oknie konsoli. Jeśli chcesz zobaczyć wyniki śledzenia na stronie następnie musisz dodać TextArea tag i nadaj mu identyfikator elementu TraceConsole, jak pokazano dalej:
-
 
 [!code-html[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample7.html)]
 
@@ -268,7 +240,6 @@ W przypadkach, w którym chcesz wyświetlić dane zawarte w obiekcie JSON można
 
 **Wyświetlanie listy 6. Przy użyciu funkcji Sys.Debug.traceDump.**
 
-
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample8.js)]
 
 Na ilustracji 11 pokazano dane wyjściowe z wywołaniem funkcji Sys.Debug.traceDump. Należy zauważyć, że oprócz wypisywanie danych obiektu osoba, usługa również zapisuje się adres sub-danych obiektu.
@@ -277,14 +248,11 @@ Oprócz śledzenia, klasa Sys.Debug można również przeprowadzić kod potwierd
 
 Wyświetlanie listy 7 przedstawiono przykład przy użyciu funkcji Sys.Debug.assert, aby przetestować warunku. Kod sprawdza, czy obiekt adres ma wartość null, przed zaktualizowaniem obiektu osoba.
 
-
 [![Dane wyjściowe funkcji Sys.Debug.traceDump.](understanding-asp-net-ajax-debugging-capabilities/_static/image32.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image31.png)
 
 **Rysunek 11**: Dane wyjściowe funkcji Sys.Debug.traceDump.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image33.png))
 
-
 **Wyświetlanie listy 7. Przy użyciu funkcji debug.assert.**
-
 
 [!code-javascript[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample9.js)]
 
@@ -292,14 +260,11 @@ Trzy parametry są przekazywane w tym warunek do oceny, komunikat wyświetlany, 
 
 Końcowe funkcję, aby obejmować jest Sys.Debug.fail. Jeśli chcesz wymusić kod nie powiedzie się w określonej linii w skrypcie można dodać wywołania Sys.Debug.fail zamiast instrukcji debuger zwykle używanych w aplikacji JavaScript. Funkcja Sys.Debug.fail akceptuje parametr pojedynczy ciąg, który reprezentuje przyczynę niepowodzenia, jak pokazano dalej:
 
-
 [!code-css[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample10.css)]
-
 
 [![Komunikat o błędzie Sys.Debug.assert.](understanding-asp-net-ajax-debugging-capabilities/_static/image35.png)](understanding-asp-net-ajax-debugging-capabilities/_static/image34.png)
 
 **Rysunek 12**: Komunikat o błędzie Sys.Debug.assert.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image36.png))
-
 
 W przypadku instrukcji Sys.Debug.fail podczas wykonywania skryptu wartość parametru komunikat pojawi się w konsoli application debugowania, takich jak program Visual Studio 2008 i zostanie wyświetlony monit, aby debugować aplikację. Jeden przypadek, gdzie może to być bardzo przydatne jest, gdy nie można ustawić punktu przerwania w programie Visual Studio 2008 na wykonanie wbudowanego skryptu, ale chcesz kod, aby zatrzymać na określony wiersz, dzięki czemu można sprawdzić wartości zmiennych.
 
@@ -313,19 +278,16 @@ ScriptMode przyjmuje domyślnie wartość Auto, co oznacza, że funkcja ScriptMa
 
 **Wyświetlanie listy 8. Ładowanie debugowania skryptów przy użyciu funkcja ScriptManager**.
 
-
 [!code-aspx[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample11.aspx)]
 
 Można również załadować różne wersje własnych skryptów niestandardowych (debugowanie lub wydanie) przy użyciu ScriptManager właściwość skryptów oraz składnik ScriptReference, jak pokazano w ofercie 9.
 
 **Wyświetlanie listy 9. Ładowanie skrypty niestandardowe korzystające z funkcja ScriptManager.**
 
-
 [!code-aspx[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample12.aspx)]
 
 > [!NOTE]
 > Jeśli ładowania niestandardowych skryptów za pomocą składnika ScriptReference funkcja ScriptManager musi powiadomić, po zakończeniu działania skryptu ładowania, dodając następujący kod w dolnej części skryptu:
-
 
 [!code-csharp[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample13.cs)]
 
@@ -334,7 +296,6 @@ Kod przedstawiony w ofercie 9 informuje menedżera skryptów do wyszukania wersj
 W przypadkach, jeśli chcesz, debugowania i wersji skryptu niestandardowego do załadowania na podstawie wartości ustawionej w formancie ScriptManager właściwości ScriptMode można ustawić właściwości ScriptMode kontroli ScriptReference do dziedziczenia. To spowoduje, że odpowiednia wersja niestandardowego skryptu do załadowania na podstawie właściwości ScriptMode ScriptManager, jak pokazano w ofercie 10. Ponieważ właściwość ScriptMode formantu ScriptManager debugowania skryptu Person.debug.js zostanie załadowany i użyty na stronie.
 
 **Wyświetlanie listy 10. Dziedziczenie ScriptMode z ScriptManager dla skryptów niestandardowych.**
-
 
 [!code-aspx[Main](understanding-asp-net-ajax-debugging-capabilities/samples/sample14.aspx)]
 

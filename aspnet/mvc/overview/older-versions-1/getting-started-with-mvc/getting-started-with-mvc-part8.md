@@ -8,19 +8,18 @@ ms.date: 08/14/2010
 ms.assetid: 7ae696b9-348f-4993-8ebb-a838acbe0c28
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 029234cf9a28a80c487504e4e0980c214e45f53a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1cf092c3db3959d6f47006f1be2ba82833c5dc06
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381968"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65122847"
 ---
 # <a name="adding-a-column-to-the-model"></a>Dodawanie kolumny do modelu
 
 przez [Scotta Hanselmana](https://github.com/shanselman)
 
 > Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
-
 
 W tej sekcji użyjemy opisano jak firma Microsoft może dokonać zmian schematu w naszej bazie danych i obsługi zmian w naszej aplikacji.
 

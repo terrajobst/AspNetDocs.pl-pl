@@ -8,12 +8,12 @@ ms.date: 08/15/2006
 ms.assetid: 811a6ef2-ec66-4c8e-a089-6f795056e288
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dc5b2a2888eebb4b812caf3fc11bf109d54bb73d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 6828c5c6724c84d84fc3fefa53a1b13da1b3a16f
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420695"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131586"
 ---
 # <a name="paging-and-sorting-report-data-c"></a>Stronicowanie i sortowanie danych raportu (C#)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_24_CS.exe) lub [Pobierz plik PDF](paging-and-sorting-report-data-cs/_static/datatutorial24cs1.pdf)
 
 > Stronicowanie i sortowanie są dwie funkcje bardzo często, gdy wyświetlanie danych w aplikacji online. W tym samouczku zostaną wykonane Pierwsze spojrzenie na dodawanie sortowania i stronicowania naszych raportów, które następnie utworzymy od samouczków w przyszłości.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -40,71 +39,55 @@ Zanim zaczniemy, w tym samouczku, chętnie s najpierw Poświęć chwilę, aby do
 - `SortParameter.aspx`
 - `CustomSortingUI.aspx`
 
-
 ![Utwórz PagingAndSorting Folder i dodawanie stron samouczek platformy ASP.NET](paging-and-sorting-report-data-cs/_static/image1.png)
 
 **Rysunek 1**: Utwórz PagingAndSorting Folder i dodawanie stron samouczek platformy ASP.NET
 
-
 Następnie otwórz `Default.aspx` strony, a następnie przeciągnij `SectionLevelTutorialListing.ascx` kontrolki użytkownika od `UserControls` folder na powierzchnię projektu. Ten formant użytkownika, które utworzyliśmy w [strony wzorcowe i nawigacja w witrynie](../introduction/master-pages-and-site-navigation-cs.md) samouczek, wylicza mapy witryny i wyświetla te samouczki w bieżącej sekcji na liście punktowanej.
-
 
 ![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](paging-and-sorting-report-data-cs/_static/image2.png)
 
 **Rysunek 2**: Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx
 
-
 Aby ma na liście punktowanej wyświetlić stronicowanie i sortowanie samouczków, z którymi firma utworzona, należy dodać je do mapy witryny. Otwórz `Web.sitemap` pliku i Dodaj następujący kod po edycji, wstawianie i usuwanie znaczników węzeł mapy witryny:
 
-
 [!code-xml[Main](paging-and-sorting-report-data-cs/samples/sample1.xml)]
-
 
 ![Aktualizacja mapy witryny, aby uwzględnić nowe strony ASP.NET](paging-and-sorting-report-data-cs/_static/image3.png)
 
 **Rysunek 3**: Aktualizacja mapy witryny, aby uwzględnić nowe strony ASP.NET
 
-
 ## <a name="step-2-displaying-product-information-in-a-gridview"></a>Krok 2. Wyświetlanie informacji o produkcie w widoku GridView
 
 Przed faktycznie wdrażamy, stronicowanie i sortowanie możliwości, niech s, należy najpierw utworzyć standardowe GridView — sortowanie, niestronicowanej, zawierającego informacje o produkcie. Jest to zadanie możemy ve wykonywane wiele razy przed w całej tej serii samouczków więc te kroki należy się zapoznać. Zacznij od otwarcia `SimplePagingSorting.aspx` strony, a następnie przeciągnij kontrolki widoku siatki z przybornika w projektancie, ustawiając jego `ID` właściwość `Products`. Następnie należy utworzyć nowe kontrolki ObjectDataSource, która używa klasy ProductsBLL s `GetProducts()` metodę, aby zwrócić wszystkie informacje o produkcie.
-
 
 ![Pobierz informacje o wszystkich produktów za pomocą metody GetProducts()](paging-and-sorting-report-data-cs/_static/image4.png)
 
 **Rysunek 4**: Pobierz informacje o wszystkich produktów za pomocą metody GetProducts()
 
-
 Ponieważ ten raport jest tylko do odczytu raportu, s tam nie ma potrzeby mapowania ObjectDataSource s `Insert()`, `Update()`, lub `Delete()` metody odpowiadającej `ProductsBLL` metod; w związku z tym, wybrać (Brak) z listy rozwijanej dla UPDATE, INSERT Usuwanie karty i.
-
 
 ![Wybierz (Brak) opcji listy rozwijanej w aktualizacji, WSTAWIANIA i usuwania karty](paging-and-sorting-report-data-cs/_static/image5.png)
 
 **Rysunek 5**: Wybierz (Brak) opcji listy rozwijanej w aktualizacji, WSTAWIANIA i usuwania karty
 
-
 Następnie pozwalają dostosować pola s GridView, aby były wyświetlane tylko nazwy produktów, dostawcy, kategorie, ceny i Stany nieobsługiwane s. Ponadto, możesz wprowadzić formatowanie na poziomie pola zmienia się, takich jak dostosowywanie `HeaderText` właściwości lub formatowania cena jako walutę. Po wprowadzeniu tych zmian deklaratywne kontrolki GridView znaczników w s powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample2.aspx)]
 
 Rysunek 6. pokazuje nasz postęp tej pory, podczas wyświetlania za pośrednictwem przeglądarki. Pamiętaj, że strona zawiera listę wszystkich produktów na jednym ekranie, przedstawiający każdej nazwy produktu s, kategorii, dostawca, ceny, wycofane stanu.
 
-
 [![Każdy z produktów są wyświetlane](paging-and-sorting-report-data-cs/_static/image7.png)](paging-and-sorting-report-data-cs/_static/image6.png)
 
 **Rysunek 6**: Każdy z produktów są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image8.png))
-
 
 ## <a name="step-3-adding-paging-support"></a>Krok 3. Dodanie obsługi stronicowania
 
 Wyświetlanie listy *wszystkich* produktów na jednym ekranie może doprowadzić do przeciążenia informacji dla użytkownika perusing danych. Aby wyniki łatwiejsze w obsłudze, możemy podzielić dane na mniejsze strony danych i umożliwia użytkownikowi przejść przez jedną stronę danych w czasie. Aby wykonać to po prostu zaznacz pole wyboru Włączanie stronicowania, za pomocą tagu inteligentnego s GridView (to ustawienie GridView s [ `AllowPaging` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) do `true`).
 
-
 [![Zaznacz pole wyboru stronicowania Włącz, aby dodać obsługę stronicowania](paging-and-sorting-report-data-cs/_static/image10.png)](paging-and-sorting-report-data-cs/_static/image9.png)
 
 **Rysunek 7**: Sprawdź włączone stronicowanie pole wyboru, aby dodać obsługę stronicowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image11.png))
-
 
 Włączanie stronicowania ogranicza liczbę rekordów wyświetlanych na stronie i dodaje *interfejsu stronicowania* do kontrolki GridView. Domyślny interfejs stronicowania pokazano na rysunku 7 jest szereg numery stron, co pozwala na szybkie przechodzenie z jednej strony danych do innego. Ten interfejs stronicowania powinien wyglądać dobrze znanych, ponieważ ve widać go podczas dodawania kontrolek DetailsView i FormView obsługę stronicowania w poprzednich samouczkach.
 
@@ -124,11 +107,9 @@ Ponadto GridView DetailsView i FormView wszystkie oferty `PageIndex` i `PageCoun
 
 Pozwól, s, Poświęć chwilę, aby poprawić wygląd domyślny naszego interfejsu stronicowania s GridView. W szczególności umożliwiają s interfejs stronicowania wyrównany do prawej światła szarym tle. Zamiast ustawienie tych właściwości bezpośrednio za pomocą GridView s `PagerStyle` właściwości umożliwiają s utworzyć klasę CSS z `Styles.css` o nazwie `PagerRowStyle` , a następnie przypisać `PagerStyle` s `CssClass` właściwości, za pośrednictwem naszego motywu. Zacznij od otwarcia `Styles.css` i dodanie następujących CSS definicję klasy:
 
-
 [!code-css[Main](paging-and-sorting-report-data-cs/samples/sample3.css)]
 
 Następnie otwórz `GridView.skin` w pliku `DataWebControls` folder wewnątrz `App_Themes` folderu. Tak jak Omówiliśmy to w *strony wzorcowe i nawigacja w witrynie* samouczek, karnacji plików może służyć do określenia domyślnych wartości właściwości kontrolki sieci Web. W związku z tym, rozszerzyć istniejące ustawienia, aby uwzględnić ustawienie `PagerStyle` s `CssClass` właściwość `PagerRowStyle`. Ponadto należy skonfigurować interfejs stronicowania, aby wyświetlić maksymalnie pięć stronę liczbowe przyciski, za pomocą umożliwiają s `NumericFirstLast` interfejsu stronicowania.
-
 
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample4.aspx)]
 
@@ -136,19 +117,15 @@ Następnie otwórz `GridView.skin` w pliku `DataWebControls` folder wewnątrz `A
 
 Rysunek 8 przedstawia strony sieci web po odwiedzeniu za pośrednictwem przeglądarki, po dokonaniu wyboru Włączanie stronicowania s GridView kontroli i `PagerStyle` i `PagerSettings` konfiguracji zostały wprowadzone za pośrednictwem `GridView.skin` pliku. Uwaga jak tylko dziesięć rekordy są wyświetlane, a interfejs stronicowania wskazuje, wyświetlania na pierwszej stronie danych.
 
-
 [![Za pomocą stronicowania włączone tylko podzestaw rekordów są wyświetlane w czasie](paging-and-sorting-report-data-cs/_static/image13.png)](paging-and-sorting-report-data-cs/_static/image12.png)
 
 **Rysunek 8**: Za pomocą stronicowania włączone, tylko podzestaw rekordów są wyświetlane w danym momencie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image14.png))
 
-
 Gdy użytkownik kliknie na jednym z numery stron w interfejsie stronicowania, ensues odświeżenie strony i strona ładuje się przedstawiający, że żądana strona s rekordów. Po przystąpieniu do wyświetlania danych na ostatniej stronie rysunku nr 9 przedstawiono wyniki. Należy zauważyć, że ostatnia strona ma tylko jeden rekord. jest to spowodowane istnieją rekordy 81 w całości, co osiem stron 10 rekordów dla określonej strony po jednej stronie pojedynczy rekord.
-
 
 [![Kliknięcie na numer strony powoduje odświeżenie strony i zawiera odpowiednią podzestaw rekordów](paging-and-sorting-report-data-cs/_static/image16.png)](paging-and-sorting-report-data-cs/_static/image15.png)
 
 **Rysunek 9**: Kliknięcie na numer strony powoduje odświeżenie strony i przedstawia podzbiór odpowiednie rekordy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image17.png))
-
 
 ## <a name="paging-s-server-side-workflow"></a>Przepływ pracy po stronie serwera s stronicowania
 
@@ -165,7 +142,6 @@ W następnym samouczku zajmiemy się sposób implementacji *stronicowania niesta
 > [!NOTE]
 > Gdy stronicowania domyślny nie jest odpowiedni w przypadku, gdy stronicowanie za pośrednictwem wystarczająco duży zestaw wyników lub witryny za pomocą wielu równoczesnych użytkowników, należy pamiętać, że stronicowania niestandardowego wymaga więcej zmian i wysiłku, aby zaimplementować i nie jest tak proste, jak zaznaczenia pola wyboru (co jest domyślny stronicowanie). W związku z tym, stronicowania domyślny może być idealnym wyborem dla małych, o małym natężeniu ruchu witryn sieci Web lub gdy stronicowanie za pośrednictwem wyników z niewielką zestawy, ponieważ s znacznie łatwiejsze i szybsze do wdrożenia.
 
-
 Na przykład gdy wiemy, że nigdy nie odpowiemy od ponad 100 produktów w naszej bazie danych, przyrost wydajności minimalnej przysługujące stronicowania niestandardowego jest prawdopodobnie równoważona nakład pracy wymagany do jej wdrożenia. Jeśli jednak może być jeden dzień mamy tysiące lub dziesiątki tysięcy produktów, *nie* Implementowanie stronicowania niestandardowego z kolei będzie znacznie ograniczać skalowalność naszej aplikacji.
 
 ## <a name="step-4-customizing-the-paging-experience"></a>Krok 4. Dostosowywanie środowiska stronicowania
@@ -174,23 +150,19 @@ Kontrolki internetowe danych zapewniają wiele właściwości, których można u
 
 Najpierw należy dodać formant etykiety w sieci Web do strony, ustaw jego `ID` właściwości `PagingInformation`i wyczyszczenie jego `Text` właściwości. Następnie należy utworzyć program obsługi zdarzeń dla GridView s `DataBound` zdarzeń i Dodaj następujący kod:
 
-
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample5.cs)]
 
 Przypisuje ten program obsługi zdarzeń `PagingInformation` etykiety s `Text` właściwość komunikat z informacją użytkownika strony obecnie odwiedzają `Products.PageIndex + 1` poza ile łączna liczba stron `Products.PageCount` (dodamy 1, aby `Products.PageIndex` właściwość ponieważ `PageIndex` są indeksowane począwszy od 0). Wybieram Przypisz tej etykiety s `Text` właściwości w `DataBound` programu obsługi zdarzeń, w przeciwieństwie do `PageIndexChanged` programu obsługi zdarzeń ponieważ `DataBound` zdarzeń jest uruchamiana za każdym razem, gdy powiązania danych z widoku GridView, natomiast `PageIndexChanged` tylko program obsługi zdarzeń generowane, gdy zostanie zmieniona indeks strony. GridView po początkowym danymi powiązanymi na pierwszej stronie odwiedź `PageIndexChanging` zdarzeń t ogień (natomiast `DataBound` zdarzeń jest).
 
 Dodając ten użytkownika są teraz wyświetlane komunikat wskazujący, jaki strony odwiedzają i ile łączna liczba stron danych istnieje.
 
-
 [![Numer bieżącej strony i łączna liczba stron są wyświetlane](paging-and-sorting-report-data-cs/_static/image19.png)](paging-and-sorting-report-data-cs/_static/image18.png)
 
 **Na rysunku nr 10**: Numer bieżącej strony i łączna liczba stron są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image20.png))
 
-
 Oprócz formant etykiety pozwalają również dodać formant DropDownList, który wyświetla numery stron w widoku GridView z aktualnie otwartą stronę wybrane s. W tym miejscu chodzi o to, że użytkownik można szybko przechodzić z bieżącej strony do innego, po prostu wybierając nowy indeks strony z metody DropDownList. Rozpocznij od dodania kontrolki DropDownList do projektanta, ustawiając jego `ID` właściwość `PageList` a zaznaczając opcję włączenia automatycznego ogłaszania zwrotnego w tagu inteligentnego.
 
 Następnie wróć do `DataBound` programu obsługi zdarzeń i Dodaj następujący kod:
-
 
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample6.cs)]
 
@@ -200,16 +172,13 @@ Następnie należy ponownie utworzyć numery stron i ten, który mapuje bieżąc
 
 Na koniec musimy utworzyć program obsługi zdarzeń dla DropDownList s `SelectedIndexChanged` zdarzenie, które są generowane każdorazowo użytkownika, wybierz inny element z listy. Aby utworzyć ten program obsługi zdarzeń, po prostu kliknij dwukrotnie ikonę kontrolki DropDownList w projektancie, a następnie dodaj następujący kod:
 
-
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample7.cs)]
 
 Jak pokazano na ilustracji 11, jedynie zmiana GridView s `PageIndex` właściwości powoduje, że dane, które mają być odbitych do kontrolki GridView. W tym s GridView `DataBound` programu obsługi zdarzeń, odpowiednie metody DropDownList `ListItem` jest zaznaczone.
 
-
 [![Użytkownik jest automatycznie otwierana szóstego strony po wybraniu elementu listy rozwijanej 6 strony](paging-and-sorting-report-data-cs/_static/image22.png)](paging-and-sorting-report-data-cs/_static/image21.png)
 
 **Rysunek 11**: Użytkownik jest automatycznie otwierana szóstego strony po wybraniu elementu listy rozwijanej 6 strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image23.png))
-
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>Krok 5. Dodanie obsługi sortowania dwukierunkowa
 
@@ -218,11 +187,9 @@ Dodawanie Obsługa sortowania dwukierunkowa jest tak proste. wystarczy dodać ob
 > [!NOTE]
 > Jeśli używasz niestandardowego warstwy dostępu do danych, a nie wpisana zestawu danych nie może mieć opcję Włącz sortowanie w tagu inteligentnego s GridView. Tylko GridViews powiązać ze źródłami danych, które natywnie obsługują sortowanie ma dostępne to pole wyboru. Wpisany zestaw danych zapewnia obsługę sortowania out-of--box, ponieważ zapewnia ADO.NET DataTable `Sort` metody, która przy wywołaniu sortuje s elementu DataTable przy użyciu kryteriów określonych wierszy danych.
 
-
 Jeśli Twoje DAL nie zwraca obiekty, które natywnie pomocy technicznej, sortowanie, musisz skonfigurować ObjectDataSource do przekazywania informacji sortowania do warstwy logiki biznesowej, które można sortować dane lub dane posortowane przez warstwę DAL. Pokażemy, jak sortować dane na logice biznesowej i warstwy dostępu do danych w przyszłości zapoznać się z samouczkiem.
 
 LinkButtons sortowania są renderowane jako hiperłącza HTML, którego bieżącym kolory (niebieski nieodwiedzonych łącze i Ciemnoczerwony dla odwiedzony Odnośnik) mogą powodować konfliktów z kolor tła w wierszu nagłówka. Zamiast tego umożliwiają s ma wszystkie łącza wiersz nagłówka wyświetlana białe, niezależnie od tego, czy ich ve zostały odwiedzone, czy nie. Można to osiągnąć, dodając następujące polecenie, aby `Styles.css` klasy:
-
 
 [!code-css[Main](paging-and-sorting-report-data-cs/samples/sample8.css)]
 
@@ -230,11 +197,9 @@ Ta składnia wskazuje, aby użyć białego tekstu, podczas wyświetlania hiperli
 
 Po dodaniu tego CSS podczas odwiedzania strony za pośrednictwem przeglądarki ekran powinien wyglądać podobnie jak rysunek 12. W szczególności rysunku 12 przedstawiono wyniki, po kliknięciu łącza nagłówka s pola Cena.
 
-
 [![Wyniki są posortowane według UnitPrice w kolejności rosnącej](paging-and-sorting-report-data-cs/_static/image25.png)](paging-and-sorting-report-data-cs/_static/image24.png)
 
 **Rysunek 12**: Wyniki są posortowane według UnitPrice w kolejności rosnącej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image26.png))
-
 
 ## <a name="examining-the-sorting-workflow"></a>Badanie sortowania przepływu pracy
 
@@ -250,24 +215,19 @@ Jak domyślne stronicowania, domyślne sortowanie opcji ponownie pobiera *wszyst
 
 Podczas tworzenia wiązania kontrolki ObjectDataSource do kontrolki GridView za pomocą listy rozwijanej w tagu inteligentnego s GridView, każde pole GridView automatycznie ma jego `SortExpression` przypisano nazwę pola danych właściwości `ProductsRow` klasy. Na przykład `ProductName` s elementu BoundField `SortExpression` jest ustawiona na `ProductName`, jak pokazano w poniższym oznaczeniu deklaracyjnym:
 
-
 [!code-aspx[Main](paging-and-sorting-report-data-cs/samples/sample9.aspx)]
 
 Pola można skonfigurować tak, aby go s nie można sortować, czyszcząc jego `SortExpression` właściwości (przypisywanie do pustego ciągu). Na przykład załóżmy, że nie chcemy przekazać naszych klientów, sortować nasze produkty według ceny. `UnitPrice` s elementu BoundField `SortExpression` właściwość może zostać usunięty w oznaczeniu deklaracyjnym, albo za pomocą okna dialogowego pola, (który jest dostępny, klikając łącze Edytowanie kolumn w widoku GridView tagu inteligentnego s).
-
 
 ![Wyniki są posortowane według UnitPrice w kolejności rosnącej](paging-and-sorting-report-data-cs/_static/image27.png)
 
 **Rysunek 13**: Wyniki są posortowane według UnitPrice w kolejności rosnącej
 
-
 Gdy `SortExpression` właściwość została usunięta z `UnitPrice` elementu BoundField, nagłówek jest renderowane jako tekst, a nie jako łącze, zapobiegając w ten sposób użytkownicy z sortowanie danych według ceny.
-
 
 [![Przez usunięcie właściwości SortExpression, użytkownicy będą mogli już sortować produkty według ceny](paging-and-sorting-report-data-cs/_static/image29.png)](paging-and-sorting-report-data-cs/_static/image28.png)
 
 **Rysunek 14**: Przez usunięcie właściwości SortExpression, użytkownicy będą mogli już sortować według produktów ceny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image30.png))
-
 
 ## <a name="programmatically-sorting-the-gridview"></a>Programowe sortowanie widoku GridView
 
@@ -277,16 +237,13 @@ Wyobraź sobie, że przyczyna możemy wyłączona sortowanie według `UnitPrice`
 
 Aby wykonać to dodanie kontrolki przycisku w sieci Web do strony, ustaw jego `ID` właściwości `SortPriceDescending`i jego `Text` właściwości Sortuj według ceny. Następnie należy utworzyć procedurę obsługi zdarzeń dla przycisku s `Click` zdarzeń przez dwukrotne kliknięcie formantu przycisku w projektancie. Dodaj następujący kod do tego programu obsługi zdarzeń:
 
-
 [!code-csharp[Main](paging-and-sorting-report-data-cs/samples/sample10.cs)]
 
 Kliknięcie tego przycisku zwraca użytkownika do pierwszej strony z produktami, posortowane według ceny z najbardziej kosztowne najniższy (patrz rysunek 15).
 
-
 [![Kliknięcie przycisku porządkuje produkty z najbardziej kosztowne do najmniej](paging-and-sorting-report-data-cs/_static/image32.png)](paging-and-sorting-report-data-cs/_static/image31.png)
 
 **Rysunek 15**: Kliknięcie przycisku porządkuje produkty z najbardziej kosztowne do najmniejszej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](paging-and-sorting-report-data-cs/_static/image33.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

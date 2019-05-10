@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: badae58d5b43fb2674f4918f54f999ff48d0b5b0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a223b97fd362ecf73ecde431e141021c1dcc6a6d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59418017"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131029"
 ---
 # <a name="part-3-layout-and-category-menu"></a>Część 3. Układ i menu kategorii
 
@@ -22,7 +22,6 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
 > 
 > W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 3 obejmuje dodawanie układ i menu kategorii.
-
 
 ## <a id="_Toc260221669"></a>  Dodanie niektórych układ i Menu kategorii
 

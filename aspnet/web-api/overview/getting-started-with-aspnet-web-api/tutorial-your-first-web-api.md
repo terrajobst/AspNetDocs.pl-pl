@@ -8,12 +8,12 @@ ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 5e3c049ba4349301c3c2d173d4311b3d0883bf68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401754"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125226"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
 
@@ -52,7 +52,6 @@ W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**. W obszarz
 
 > [!NOTE]
 > Można również utworzyć projekt internetowego interfejsu API za pomocą szablonu &quot;Internetowy interfejs API&quot;. Szablon internetowego interfejsu API używa platformy ASP.NET MVC do udostępniania stron pomocy do interfejsu API. Używam pustego szablonu na potrzeby tego samouczka, ponieważ chcę pokazać internetowy interfejs API bez platformy MVC. Ogólnie rzecz biorąc, nie trzeba znać platformy ASP.NET MVC, aby korzystać z internetowego interfejsu API.
-
 
 ## <a name="adding-a-model"></a>Dodawanie modelu
 
@@ -93,7 +92,6 @@ Funkcja tworzenia szkieletów utworzy plik o nazwie ProductsController.cs w fold
 
 > [!NOTE]
 > Kontroler nie musi być umieszczany w folderze kontrolerów (Controllers). Nazwy folderów ułatwiają tylko organizowanie plików źródłowych.
-
 
 Jeśli ten plik nie jest jeszcze otwarty, kliknij dwukrotnie, aby go otworzyć. Zastąp kod w tym pliku zgodnie z poniższym przykładem:
 

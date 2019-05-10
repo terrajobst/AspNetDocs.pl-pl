@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7834b5c418de9d05ee870641cfd7c7f9956ab210
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 06816f3555a806d41caf562b910a4ec4427b13bd
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403002"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65134235"
 ---
 # <a name="ui-and-navigation"></a>Interfejs użytkownika i nawigacja
 
@@ -22,7 +22,6 @@ przez [Erik Reitan](https://github.com/Erikre)
 [Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
-
 
 W tym samouczku zmodyfikujesz Interfejsie domyślnej aplikacji sieci Web do obsługi funkcji aplikacji frontonu magazynu o nazwie Wingtip Toys. Ponadto należy dodać prosty i nawigacji powiązany z danymi. Ten samouczek opiera się na poprzednim samouczku "Tworzenie warstwy dostępu do danych" i jest częścią serii samouczków firmy Wingtip Toys.
 
@@ -75,7 +74,6 @@ Jeśli nie zostanie uwzględniony `@Page` dyrektywy na stronie, lub jeśli dyrek
 > [!NOTE] 
 > 
 > *Machine.config* zawiera także szczegółowe informacje dotyczące wszystkich możliwych konfiguracji ustawień.
-
 
 ### <a name="web-server-controls"></a>Formanty serwera sieci Web
 
@@ -181,7 +179,6 @@ W tym samouczku zostanie zmienić wygląd i działanie aplikacji Wingtip Toys, z
 > 
 > Szablon aplikacji sieci Web platformy ASP.NET używa *Bundle.config* pliku w katalogu głównym projektu do przechowywania ścieżki plików CSS szablonu Bootstrap.
 
-
 ### <a name="modifying-the-default-navigation"></a>Modyfikowanie nawigacji domyślne
 
 Nawigacja domyślne dla każdej strony w aplikacji można modyfikować, zmieniając element listy nieuporządkowane nawigacji, który znajduje się w *Site.Master* strony.
@@ -196,7 +193,6 @@ Jak widać w powyższym kodzie HTML, został zmodyfikowany każdego elementu wie
 > [!NOTE] 
 > 
 > Tyldy (`~`) znak jest używany do określenia, że `href` ścieżka rozpoczyna się w katalogu głównym projektu.
-
 
 ### <a name="adding-a-data-control-to-display-navigation-data"></a>Dodawanie kontrolki danych do wyświetlania danych nawigacji
 
@@ -215,7 +211,6 @@ Ten kod będą wyświetlane wszystkie kategorie z bazy danych. **ListView** kont
 > **Porada**
 > 
 > Po dodaniu kodu, wpisując podczas projektowania może mieć pewność, że prawidłowym elementem członkowskim obiektu zostanie znaleziony ponieważ silnie typizowane kontrolki danych pokazać dostępne elementy członkowskie, oparte na technologii IntelliSense. Funkcja IntelliSense daje szeroki wybór odpowiednich kontekst kodu podczas pisania kodu, takie jak właściwości, metod i obiektów.
-
 
 W następnym kroku zostaną zaimplementowane `GetCategories` metody do pobierania danych.
 
@@ -253,7 +248,6 @@ Otwórz *Web.config* plik i przyjrzyj się w sekcji parametrów połączenia. Mo
 > [!NOTE] 
 > 
 > Jeśli *aplikacji\_danych* nie jest widoczny folder lub folder jest pusty, wybierz opcję **Odśwież** ikonę i następnie **Pokaż wszystkie pliki** ikonę u góry **Eksploratora rozwiązań** okna. Rozwijanie szerokość **Eksploratora rozwiązań** systemu windows może być wymagane do wyświetlenia wszystkich dostępnych ikon.
-
 
 Teraz możesz sprawdzić dane zawarte w *wingtiptoys.mdf* plik bazy danych przy użyciu **Eksploratora serwera** okna.
 

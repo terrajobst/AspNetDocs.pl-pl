@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: bc91eba17938de15f03ecc1e745aac57c7eac7a1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 61a9dae22efed9cb7e8957a8c131396cbdeea3c9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419499"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131356"
 ---
 # <a name="create-the-data-access-layer"></a>Tworzenie warstwy dostępu do danych
 
@@ -22,7 +22,6 @@ przez [Erik Reitan](https://github.com/Erikre)
 [Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 > W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
-
 
 W tym samouczku opisano sposób tworzenia, dostęp i przeglądanie danych z bazy danych przy użyciu formularzy sieci Web ASP.NET i Entity Framework Code First. Ten samouczek opiera się na poprzednim samouczku "Tworzenie projektu" i jest częścią serii samouczków o nazwie Wingtip zabawki Store. Po ukończeniu tego samouczka, dlatego zostanie utworzone grupy klas dostępu do danych, które znajdują się w *modeli* folderu projektu.
 
@@ -119,7 +118,6 @@ Jak widać w powyższym kodzie, jeśli baza danych jest tworzony i zainicjowany,
 > 
 > Jeśli potrzebowała bazy danych, być odtwarzane przy każdym uruchomieniu aplikacji, można użyć `DropCreateDatabaseAlways` klasy zamiast `DropCreateDatabaseIfModelChanges` klasy. Jednak w tej serii samouczków, należy użyć `DropCreateDatabaseIfModelChanges` klasy.
 
-
 W tym momencie w tym samouczku trzeba będzie *modeli* folder o cztery nowe klasy i klasa jeden domyślny:
 
 ![Tworzenie warstwy dostępu do danych — folderu modeli](create_the_data_access_layer/_static/image3.png)
@@ -136,7 +134,6 @@ Aby zainicjować modeli danych, podczas uruchamiania aplikacji, spowoduje zaktua
 > 
 > W Eksploratorze rozwiązań, użytkownik może wybrać jedną *Global.asax* pliku lub *Global.asax.cs* plik do edycji *Global.asax.cs* pliku.
 
-
 1. Dodaj następujący kod wyróżniony na żółto do `Application_Start` method in Class metoda *Global.asax.cs* pliku.   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample5.cs?highlight=9-10,22-23)]
@@ -144,7 +141,6 @@ Aby zainicjować modeli danych, podczas uruchamiania aplikacji, spowoduje zaktua
 > [!NOTE] 
 > 
 > Przeglądarka musi obsługiwać HTML5, aby wyświetlić kod wyróżniony na żółto, oglądając tę serię samouczków w przeglądarce.
-
 
 Jak pokazano w powyższym kodzie, podczas uruchamiania aplikacji, aplikacji określa, że inicjator, które będą uruchamiane podczas pierwszego danych jest dostępny. Dwa dodatkowe przestrzenie nazw są wymagane do dostępu `Database` obiektu i `ProductDatabaseInitializer` obiektu.
 

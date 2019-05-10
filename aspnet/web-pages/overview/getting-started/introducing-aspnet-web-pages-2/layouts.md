@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 58f3ec28914a604aa911cc3cb73733f0d58fd49f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 678eb7089e95e3d221d6b2d82034a62aefa75757
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390419"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131838"
 ---
 # <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Wprowadzenie do wzorca ASP.NET Web Pages — tworzenie spójnego układu
 
@@ -26,7 +26,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > - Strona układu jest.
 > - Jak połączyć układu strony z zawartością dynamiczną.
 > - Jak przekazać wartości do strony układu.
-
 
 ## <a name="about-layouts"></a>Układy — informacje
 
@@ -167,7 +166,6 @@ Jeśli chcesz, wyświetlić źródło strony w przeglądarce. Możesz zobaczyć,
 > Można przekazać dowolną liczbę wartości za pomocą `Page` obiektu. Jeśli chcesz przekazać informacje o filmach do strony układu można przekazać wartości, przy użyciu polecenia podobnego `Page.MovieTitle` i `Page.Genre` i `Page.MovieYear`. (Lub innych nazw, które opracowali do przechowywania informacji.) Jedynym wymaganiem — czyli prawdopodobnie oczywiste — jest konieczne przy użyciu tych samych nazw w zawartości strony i strony układu.
 > 
 > Informacje przekazywane za pomocą `Page` obiekt nie jest ograniczona do po prostu tekst do wyświetlenia na stronie układu. Można przekazać wartość do strony układu, a następnie kod w stronę układu można użyć wartości zdecydować, czy mają być wyświetlane w sekcji strony, co *.css* plików do użycia i tak dalej. Wartości są przekazywane w `Page` obiektu są tak jak inne wartości użycia w kodzie. Jest po prostu czy wartości pochodzą z poziomu strony zawartości i są przekazywane do strony układu.
-
 
 Otwórz *AddMovie.cshtml* strony, a następnie dodaj wiersz na początku kod, który zawiera tytuł *AddMovie.cshtml* strony:
 

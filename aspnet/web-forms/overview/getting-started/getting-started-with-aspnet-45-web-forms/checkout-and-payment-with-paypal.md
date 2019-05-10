@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: a0895c2246bc08f50645a865ce2dfffecfbb56a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0fc4e85a86289667566a76537dd1573f4d9b2bf0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391159"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131729"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>Finalizacja zakupu i płatność w systemie PayPal
 
@@ -23,7 +23,6 @@ przez [Erik Reitan](https://github.com/Erikre)
 
 > W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
 
-
 W tym samouczku opisano sposób modyfikowania przykładowej aplikacji Wingtip Toys obejmujący autoryzacji użytkowników, Rejestracja i płatności PayPal. Tylko użytkownicy, którzy są zalogowani mają autoryzację do zakupu produktów. Szablon projektu platformy ASP.NET 4.5 Web Forms wbudowanych rejestracji funkcji już zawiera większość potrzebnych składników. Doda funkcji PayPal Express wyewidencjonowania. W tym samouczku jest użycie developer PayPal środowiska, testowania, dzięki czemu nie rzeczywiste fundusze zostaną przekazane. Na końcu tego samouczka zostanie przetestować aplikację, wybierając produktów do dodania do koszyka, klikając przycisk wyewidencjonowania i przesyłania danych do witryny sieci web z testowania PayPal. W witrynie sieci web testowania PayPal będzie Potwierdź informacje, wysyłki i płatności, a następnie wróć do lokalnego przykładowej aplikacji Wingtip Toys potwierdzenie i ukończenie zakupu.
 
 Obejmuje kilka procesorów doświadczonym płatności specjalizujących zakupy online, że adres skalowalności i bezpieczeństwa. Deweloperzy platformy ASP.NET, należy wziąć pod uwagę zalety przy użyciu rozwiązania płatności innej przed Implementowanie, shopping i zakupu rozwiązań.
@@ -31,7 +30,6 @@ Obejmuje kilka procesorów doświadczonym płatności specjalizujących zakupy o
 > [!NOTE] 
 > 
 > Przykładowej aplikacji Wingtip Toys zaprojektowano tak, aby widocznym określonych koncepcji platformy ASP.NET i funkcje dostępne dla deweloperów sieci web platformy ASP.NET. Ta przykładowa aplikacja nie została zoptymalizowana dla każdych okolicznościach możliwości w zakresie skalowalności i bezpieczeństwa.
-
 
 ## <a name="what-youll-learn"></a>Zawartość:
 
@@ -150,7 +148,6 @@ Oprócz uwierzytelniania samouczka będzie także ról można użyć do zaimplem
 > [!NOTE] 
 > 
 > Aplikacje Windows Live akceptować tylko na żywo adresu URL dla roboczej witryny sieci Web, więc nie możesz użyć adresu URL lokalną witrynę sieci Web do testowania nazwy logowania.
-
 
 Poniższe kroki pozwala dodać dostawcę uwierzytelniania serwisu Google.
 
@@ -306,7 +303,6 @@ Spowoduje umieszczenie większość kodu PayPal w jednej klasie. Ta klasa zawier
 > 
 > W tej przykładowej aplikacji są po prostu dodawania poświadczeń do pliku C# (CS). Jednak w rozwiązaniu zaimplementowano, należy rozważyć szyfrowanie poświadczeń w pliku konfiguracji.
 
-
 Klasa NVPAPICaller zawiera obsługę większości funkcji PayPal. Kod w klasie zapewnia metody potrzebne do dokonywania zakupów w środowisku testowym PayPal testu. Następujące trzy funkcje PayPal są używane do robienia zakupów:
 
 - `SetExpressCheckout` — Funkcja
@@ -318,7 +314,6 @@ Klasa NVPAPICaller zawiera obsługę większości funkcji PayPal. Kod w klasie z
 > [!NOTE] 
 > 
 > PayPal umożliwia dołączanie szczegóły zakupu opcjonalne, na podstawie [specyfikacji interfejsu API PayPal](https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&amp;content_ID=developer/e_howto_api_nvp_r_SetExpressCheckout). Rozszerzając kodu w przykładowej aplikacji Wingtip Toys, może zawierać szczegóły lokalizacji, opisy produktów, podatku, numer usługi klienta, a także wiele innych pól opcjonalnych.
-
 
 Należy zauważyć, że adresów URL zwracane i anulowania, które są określone w **ShortcutExpressCheckout** metody używania numeru portu.
 
@@ -395,7 +390,6 @@ Po powrocie z systemu PayPal, *CheckoutReview.aspx* strony przykładowej aplikac
 > Wybierając **Edytuj pola**, **pola** zostanie wyświetlone okno dialogowe. W tym oknie można łatwo kontrolować visual właściwości, takie jak **ItemStyle**, z **DetailsView** kontroli.
 > 
 > ![Finalizacja zakupu i płatność w systemie PayPal — okno dialogowe pola](checkout-and-payment-with-paypal/_static/image19.png)
-
 
 ### <a name="complete-purchase"></a>Sfinalizuj zakup
 

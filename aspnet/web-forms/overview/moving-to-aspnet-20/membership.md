@@ -8,19 +8,18 @@ ms.date: 02/20/2005
 ms.assetid: f2339485-5d78-4c5e-8c0a-dc9b8a315345
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: f3f8c649932682fd96e0640ddf4595c19c755909
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: da6fc205bd852a818d65425586cec38fdb08d310
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408189"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131053"
 ---
 # <a name="membership"></a>Członkostwo
 
 przez [firmy Microsoft](https://github.com/microsoft)
 
 > Członkostwo ASP.NET jest oparta na powodzenie modelu uwierzytelniania formularzy z platformy ASP.NET 1.x. Uwierzytelnianie formularzy programu ASP.NET zapewnia wygodny sposób uwzględnienie formularz logowania w aplikacji ASP.NET i weryfikowania użytkowników przed bazę danych lub w innym magazynie danych.
-
 
 Członkostwo ASP.NET jest oparta na powodzenie modelu uwierzytelniania formularzy z platformy ASP.NET 1.x. Uwierzytelnianie formularzy programu ASP.NET zapewnia wygodny sposób uwzględnienie formularz logowania w aplikacji ASP.NET i weryfikowania użytkowników przed bazę danych lub w innym magazynie danych. Elementy członkowskie klasy uwierzytelniania formularzy umożliwiają obsługę plików cookie uwierzytelniania, sprawdź, czy są dostępne prawidłowe nazwy logowania, logowania użytkownika w poziomie itp. Implementowanie uwierzytelniania formularzy w aplikacji ASP.NET 1.x mogą jednak wymagać ilość kodu.
 
@@ -48,11 +47,9 @@ Jeśli używasz programu SQL Server 7.0 lub później, jako magazyn członkostwa
 
 Po uruchomieniu tego polecenia, zostanie wyświetlona przy użyciu Kreatora instalacji serwera SQL programu ASP.NET jak pokazano poniżej.
 
-
 ![](membership/_static/image1.jpg)
 
 **Rysunek 1.**
-
 
 Kreator instalacji serwera SQL platformy ASP.NET tworzy witrynę sieci Web w wystąpieniu, które są określone w kreatorze. Jednak ASP.NET użyje parametry połączenia w pliku machine.config nawiązywania połączenia z bazą danych. Domyślnie wskaże te parametry połączenia do wystąpienia programu SQL Server 2005, dlatego jeśli używasz wystąpienia programu SQL Server 2000 lub SQL Server 7.0, należy zmodyfikować parametry połączenia w pliku machine.config. Te parametry połączenia można znaleźć tutaj:
 
@@ -66,11 +63,9 @@ Następnym etapem konfigurowania członkostwa jest dodawanie informacji niezbęd
 
 Interfejs sieci Web można uruchomić, klikając przycisk Konfiguracja platformy ASP.NET na pasku narzędzi Eksploratora rozwiązań, jak pokazano poniżej. Można również uruchomić interfejs sieci Web za pomocą okienka wyskakujące, które są wyświetlane, gdy są wstawiane kontrolek logowania.
 
-
 ![](membership/_static/image2.jpg)
 
 **Rysunek 2**
-
 
 Spowoduje to uruchomienie narzędzie Administratorskie witryny sieci Web ASP.NET, pokazano poniżej. Administrowanie witryną sieci Web platformy ASP.NET to interfejs cztery karty, która ułatwia zarządzanie ustawieniami aplikacji. Dostępne są następujące karty:
 
@@ -83,21 +78,17 @@ Narzędzie Administratorskie witryny sieci Web pozwala łatwo utworzyć nowych u
 
 Aby uruchomić interfejs Windows, otwórz przystawkę Internetowe usługi informacyjne, kliknij prawym przyciskiem myszy w swojej aplikacji i wybierz polecenie Właściwości. Kliknij kartę programu ASP.NET, a następnie kliknij przycisk Edytuj konfigurację. (Aplikacji musi być uruchomiona w ramach programu ASP.NET 2.0 dla przycisku edycji konfiguracji do włączenia. Można skonfigurować verze technologie ASP.NET w oknie dialogowym aplikacji ASP.NET.) Zostanie wyświetlone okno dialogowe Ustawienia konfiguracji programu ASP.NET, jak pokazano poniżej.
 
-
 ![](membership/_static/image3.jpg)
 
 **Rysunek 3.**
-
 
 Na karcie Ogólne parametry połączenia i ustawienia aplikacji są wymienione. Wszystkie ustawienia kursywą są zdefiniowane w pliku konfiguracji nadrzędnej (w pliku machine.config lub web.config na wyższym poziomie), a ustawienia nie kursywą pochodzą z pliku konfiguracji aplikacji. Jeśli ustawienie zostanie dodany, usunąć lub edytować na poziomie aplikacji ASP.NET będzie dodać, usunąć lub zmodyfikować ustawienia w pliku web.config poziomy aplikacji zamiast usuwania ustawienia z pliku konfiguracji, z którego jest dziedziczona.
 
 Poniżej pokazano kartę uwierzytelnianie. Jest to, gdy skonfigurujesz ustawienia członkostwa. Tworzy ustawienia uwierzytelniania, dostawców członkostwa i dostawców ról można skonfigurować w tym miejscu.
 
-
 ![](membership/_static/image4.jpg)
 
 **Rysunek 4**
-
 
 ## <a name="implementing-membership-in-your-application"></a>Implementowanie członkostwa w aplikacji
 
@@ -133,11 +124,9 @@ Kontrolki nazwy logowania jest wyświetlana nazwa użytkownika zalogowanego obec
 
 Kontrolka CreateUserWizard zapewnia użytkownikom wygodny sposób rejestrowania w systemie członkostwa. Możesz dodać kroki (zaimplementowane jako zbiór WizardSteps) za pośrednictwem interfejsu, pokazano poniżej.
 
-
 ![](membership/_static/image5.jpg)
 
 **Rysunek 5**
-
 
 CreateUserWizard jest oparte na szablonach formant, który pochodzi od klasy kreatora i zawiera następujące szablony:
 
@@ -167,29 +156,23 @@ Aby włączyć zarządzanie rolami w aplikacji, wprowadź następującą zmianę
 
 Gdy **cacheRolesInCookie** atrybut jest ustawiony na wartość true, ASP.NET buforuje członkostwo w roli użytkowników w pliku cookie na komputerze klienckim. Dzięki temu roli wyszukiwania bez wywołania do elementu RoleProvider. Korzystając z tego atrybutu, deweloperzy są zachęcani do upewnij się, że **cookieProtection** atrybut jest ustawiony na wszystkie. (Jest to ustawienie domyślne). Gwarantuje to, że dane pliku cookie są szyfrowane i pomaga zapewnić, że zawartość plików cookie nie zostały zmienione. Role można dodać za pomocą narzędzia do administrowania witryną sieci Web. Umożliwia on łatwe Definiowanie ról, skonfiguruj dostęp do części witryny na podstawie tych ról i przypisywania użytkowników do ról.
 
-
 ![](membership/_static/image6.jpg)
 
 **Rysunek 6.**
-
 
 Jak wspomniano powyżej, można dodać nowe role po prostu wprowadź nazwę roli, a następnie klikając polecenie Dodaj rolę. Istniejące role mogą zarządzane lub usunięty przez kliknąć odpowiednie łącze na liście istniejące role.
 
 Podczas zarządzania roli można dodać lub usunąć użytkowników, jak pokazano poniżej.
 
-
 ![](membership/_static/image7.jpg)
 
 **Rysunek 7**
 
-
 Zaznaczając pole wyboru jest w roli użytkownika, można łatwo dodać użytkownika do określonej roli. ASP.NET automatycznie zaktualizuje bazę danych członkostwa odpowiednie pozycje. Należy również skonfigurować reguły dostępu do aplikacji. Deweloperzy 1.x ASP.NET zaczynasz temu za pośrednictwem &lt;autoryzacji&gt; elementu w pliku web.config, a ta opcja jest nadal dostępny w programie ASP.NET 2.0. Jednak łatwiej zarządzać dostępem reguł za pomocą witryny sieci Web administracji narzędzia jak pokazano poniżej.
-
 
 ![](membership/_static/image8.jpg)
 
 **Rysunek 8**
-
 
 W takim przypadku zostanie wyróżniona folderu administracji (jego trudno będą widoczne, ponieważ narzędzie wyróżnia ją w kolorze szarym światła) i roli Administratorzy przyznano dostęp. Wszyscy pozostali użytkownicy są odrzucane. Możesz kliknąć ikonę głównego, wybierz regułę, a następnie użyć przycisków Przenieś w górę i Przenieś w dół, aby uzgodnić zasady. Podobnie jak w przypadku platformy ASP.NET &lt;autoryzacji&gt; elementu reguły są przetwarzane w kolejności, w jakiej są wyświetlane. Oznacza to jeśli kolejność reguł na powyższym zrzucie zostały cofnięte, nikt będzie mieć dostęp do folderu administracji ponieważ pierwszą regułę, która napotyka ASP.NET będzie regułę, która nie zezwala na wszystkich użytkowników do folderu.
 
@@ -209,19 +192,15 @@ ASP.NET również tworzy wystąpienie RolePrincipal jako członek bieżącego ko
 
 Teraz, gdy masz zrozumienia zarządzania rolami i członkostwa, umożliwia krótko omówiono, jak kontrolki widoku logowania korzysta z tej funkcji w programie ASP.NET 2.0. Jak już wspomniano kontrolki widoku logowania jest formant z szablonem, który zawiera dwa szablony domyślne; AnonymousTemplate i LoggedInTemplate. W widoku logowania zadania, które okno dialogowe jest link (poniżej) umożliwiający upravit kolekci RoleGroups.
 
-
 ![](membership/_static/image9.jpg)
 
 **Rysunek 9**
 
-
 Każdy obiekt RoleGroup zawiera tablicę ciągów, który definiuje role, których dotyczy RoleGroup. Aby dodać nowe RoleGroup kontrolki widoku logowania, kliknij link Edytuj RoleGroups. Na powyższej ilustracji widać, że po dodaniu nowego RoleGroup dla administratorów. Wybierając ten RoleGroup (RoleGroup[0]) z listy rozwijanej widoki, można skonfigurować szablon, który będzie wyświetlany tylko członkowie roli administratora. Na poniższej ilustracji I zostały dodane nowe RoleGroup, która ma zastosowanie do elementów członkowskich w roli Sprzedaż i rola dystrybucji. Spowoduje to dodanie drugiego RoleGroup widoków listy rozwijanej w oknie dialogowym zadania widoku logowania i nic dodane do szablonu, którego będzie widoczny przez dowolnego użytkownika w sprzedaży lub dystrybucji roli.
-
 
 ![](membership/_static/image10.jpg)
 
 **Na rysunku nr 10**
-
 
 ## <a name="overriding-the-existing-membership-provider"></a>Zastępowanie istniejącego dostawcy członkostwa
 

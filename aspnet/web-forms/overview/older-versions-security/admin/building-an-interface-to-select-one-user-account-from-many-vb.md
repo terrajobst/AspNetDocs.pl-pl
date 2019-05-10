@@ -8,12 +8,12 @@ ms.date: 04/01/2008
 ms.assetid: da53380c-a16b-41c7-a20d-24343c735c52
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d7dd82ed4140b5ac6993483fb16af6a1b249be51
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: e25e94b172bb4b1652b87842d45cbbb78a464c0a
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131312"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Tworzenie interfejsu służącego do wybierania jednego konta użytkownika spośród wielu (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/VB.12.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/e/60e1bd94-e5f9-4d5a-a079-f23c98f4f67d/aspnet_tutorial12_SelectUser_vb.pdf)
 
 > W tym samouczku utworzymy interfejs użytkownika z siatką stronicowane, filtrowania. W szczególności interfejsu użytkownika będzie składać się z szeregu LinkButtons filtrowania wyników na podstawie początkowej litery nazwy użytkownika i kontrolki widoku siatki aby pokazać pasujących użytkowników. Zaczniemy od listą wszystkich kont użytkowników w GridView. Następnie w kroku 3, dodamy filtru LinkButtons. Krok 4 patrzy na stronicowanie wyników filtrowania. Interfejs zbudowane w krokach od 2 do 4 będzie służyć w kolejnych samouczkach do wykonywania zadań administracyjnych dla określonego konta użytkownika.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -55,11 +54,9 @@ Strony ASP.NET w programie `Administration` folderu są przeznaczone wyłącznie
 
 Na tym etapie projektu w Eksploratorze rozwiązań powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 1.
 
-
 [![Cztery nowe strony i pliku Web.config zostały dodane do witryny sieci Web](building-an-interface-to-select-one-user-account-from-many-vb/_static/image2.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image1.png)
 
 **Rysunek 1**: Cztery nowe strony i `Web.config` plików zostały dodane do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image3.png))
-
 
 Na koniec zaktualizuj mapy witryny (`Web.sitemap`) do uwzględnienia wpis do `ManageUsers.aspx` strony. Dodaj następujący kod XML po `<siteMapNode>` dodaliśmy samouczki ról.
 
@@ -67,11 +64,9 @@ Na koniec zaktualizuj mapy witryny (`Web.sitemap`) do uwzględnienia wpis do `Ma
 
 Za pomocą mapy witryny aktualizacji odwiedź witrynę za pośrednictwem przeglądarki. Jak pokazano na rysunku 2, nawigacji po lewej stronie teraz zawiera elementy samouczki administracji.
 
-
 [![Mapa witryny zawiera węzeł o nazwie Administracja użytkownikami](building-an-interface-to-select-one-user-account-from-many-vb/_static/image5.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image4.png)
 
 **Rysunek 2**: Mapa witryny zawiera węzeł o nazwie użytkownika administracji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image6.png))
-
 
 ## <a name="step-2-listing-all-user-accounts-in-a-gridview"></a>Krok 2. Wyświetlanie listy wszystkich kont użytkowników w widoku GridView
 
@@ -81,11 +76,9 @@ Otwórz `ManageUsers.aspx` strony w `Administration` folderu i Dodaj GridView, u
 
 Aby wyświetlić informacje o koncie żądanego użytkownika w widoku GridView, ustaw GridView `AutoGenerateColumns` wartość False dla właściwości i dodać BoundFields dla `UserName`, `Email`, i `Comment` właściwości i CheckBoxFields dla `IsApproved`, `IsLockedOut`, i `IsOnline` właściwości. Tę konfigurację można zastosować za pomocą formantu oznaczeniu deklaracyjnym lub za pomocą okna dialogowego pól. Rysunek 3 przedstawia zrzut ekranu: pola dialogowego po usunięto zaznaczenie pola wyboru pól automatycznego generowania i BoundFields i CheckBoxFields została dodana i skonfigurowana.
 
-
 [![Dodaj trzy BoundFields i trzy CheckBoxFields do widoku GridView](building-an-interface-to-select-one-user-account-from-many-vb/_static/image8.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image7.png)
 
 **Rysunek 3**: Dodaj trzy BoundFields i trzy CheckBoxFields do kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image9.png))
-
 
 Po skonfigurowaniu usługi GridView, upewnij się, że jego oznaczeniu deklaracyjnym podobny do następującego:
 
@@ -97,11 +90,9 @@ Następnie należy napisać kod, który wiąże kont użytkowników do widoku Gr
 
 Poświęć chwilę, aby przetestować stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 4, `UserAccounts` GridView Wyświetla nazwę użytkownika, adres e-mail i innych informacji dotyczących konta dla wszystkich użytkowników w systemie.
 
-
 [![Konta użytkowników są wyświetlane w widoku GridView](building-an-interface-to-select-one-user-account-from-many-vb/_static/image11.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image10.png)
 
 **Rysunek 4**: Konta użytkowników są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image12.png))
-
 
 ## <a name="step-3-filtering-the-results-by-the-first-letter-of-the-username"></a>Krok 3. Filtrowanie wyników za pomocą pierwsze litery nazwy użytkownika
 
@@ -121,15 +112,12 @@ Ta metoda określa opcje filtrowania jako elementy `String` tablicy `filterOptio
 
 Rysunek 5. pokazuje `ManageUsers.aspx` stronie podczas przeglądania za pośrednictwem przeglądarki.
 
-
 [![Powtarzanego Wyświetla 27 LinkButtons filtrowania](building-an-interface-to-select-one-user-account-from-many-vb/_static/image14.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image13.png)
 
 **Rysunek 5**: Elementu powtarzanego Wyświetla 27 filtrowanie LinkButtons ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image15.png))
 
-
 > [!NOTE]
 > Nazwy użytkowników mogą rozpoczynać się od dowolny znak, w tym liczby i znaki interpunkcyjne. Aby wyświetlić te konta, administrator będzie musiał użyć opcji LinkButton wszystkich. Alternatywnie można dodać LinkButton do zwrócenia wszystkich kont użytkowników, które rozpoczynają się liczbą. Można pozostawić to w charakterze ćwiczenia dla czytnika.
-
 
 Kliknięcie dowolnego z filtrowania LinkButtons powoduje odświeżenie strony i zgłasza Repeater `ItemCommand` zdarzenia, ale nastąpiła żadna zmiana w siatce, ponieważ zostały wykonane następujące kroki jeszcze do pisania jakiegokolwiek kodu, aby filtrować wyniki. `Membership` Klasa zawiera [ `FindUsersByName` metoda](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) zwracającego tych kont użytkowników, których nazwa użytkownika jest zgodny ze wzorcem wyszukiwania. Możemy użyć tej metody do pobrania tylko tych kont użytkowników, których nazwy użytkowników rozpoczynać się od litery, określony przez `CommandName` systemu filtrowanej element LinkButton, który został kliknięty.
 
@@ -151,11 +139,9 @@ Utwórz procedurę obsługi zdarzeń dla elementu powtarzanego `ItemCommand` zda
 
 Przy użyciu tego kodu w miejscu przetestowania funkcji filtrowania. Po pierwsze odwiedzenia strony, są wyświetlane wszystkie konta użytkowników (odnoszą się do rysunek 5). Klikając element LinkButton powoduje odświeżenie strony i filtruje wyniki wyświetlanie tylko tych kont użytkowników, które zaczyna się element.
 
-
 [![Użyj LinkButtons filtrowania, aby wyświetlić tych użytkowników, których nazwa użytkownika, który rozpoczyna się od określonej litery](building-an-interface-to-select-one-user-account-from-many-vb/_static/image17.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image16.png)
 
 **Rysunek 6**: Umożliwia wyświetlanie tych użytkowników Whose Username rozpoczyna się od litery niektóre LinkButtons filtrowanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image18.png))
-
 
 ## <a name="step-4-updating-the-gridview-to-use-paging"></a>Krok 4. Trwa aktualizowanie widoku GridView używać stronicowania
 
@@ -171,7 +157,6 @@ Różnica w wydajności domyślne i niestandardowe stronicowania może być bard
 > [!NOTE]
 > Aby uzyskać bardziej dogłębną dyskusję na temat różnic między domyślne i niestandardowe stronicowania, a także wyzwania związane z Implementowanie stronicowania niestandardowego, zobacz [efektywne stronicowanie za pośrednictwem dużych ilości danych](https://asp.net/learn/data-access/tutorial-25-vb.aspx). Dla niektórych analizy różnic w wydajności między domyślnych i niestandardowych stronicowania, zobacz [stronicowania niestandardowego w technologii ASP.NET za pomocą programu SQL Server 2005](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx).
 
-
 Aby zaimplementować niestandardowy stronicowania, najpierw należy pewien mechanizm, za pomocą którego można pobrać dokładne podzestaw rekordów, które są wyświetlane w widoku GridView. Dobra wiadomość jest fakt, że `Membership` klasy `FindUsersByName` metoda musi być przeciążona, który pozwala określić indeks strony i rozmiar strony i zwraca tylko te konta użytkowników, które mieszczą się w tym zakresie rekordów.
 
 W szczególności tego przeciążenia ma następujący podpis: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
@@ -180,7 +165,6 @@ W szczególności tego przeciążenia ma następujący podpis: [ `FindUsersByNam
 
 > [!NOTE]
 > Dane zwrócone przez `FindUsersByName` są sortowane według nazwy użytkownika; nie można dostosować kryteriów sortowania.
-
 
 Korzystanie z niestandardowych stronicowania, ale tylko podczas wiązania z formantu ObjectDataSource można skonfigurować widoku GridView. Kontrolka ObjectDataSource zaimplementować niestandardowy stronicowania, wymaga dwóch metod: jeden, który jest przekazywany indeks wiersza początkowego i maksymalną liczbę rekordów do wyświetlenia, i zwraca dokładne podzestaw rekordów, które mieszczą się w tym zakresu i metodę, która zwraca całkowita liczba rekordów jest stronicowana za pośrednictwem. `FindUsersByName` Przeciążenia akceptuje indeks strony i rozmiar strony, a następnie zwraca całkowitej liczbie rekordów za pomocą `ByRef` parametru. Dlatego jest interfejs niezgodność.
 
@@ -196,11 +180,9 @@ Następnie należy utworzyć procedurę obsługi zdarzeń dla każdego element L
 
 Rysunek nr 7 przedstawia cztery LinkButtons podczas wyświetlania przy użyciu widoku projektowania wizualnego dewelopera sieci Web.
 
-
 [![Dodać pierwszego, poprzedniego, w następnej kolejności i ostatniej LinkButtons poniżej widoku GridView](building-an-interface-to-select-one-user-account-from-many-vb/_static/image20.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image19.png)
 
 **Rysunek 7**: Najpierw, Dodaj Wstecz, Next i ostatniego LinkButtons poniżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image21.png))
-
 
 ### <a name="keeping-track-of-the-current-page-index"></a>Rejestrowanie informacji o indeks bieżącej strony
 
@@ -226,16 +208,13 @@ Ostatnim krokiem jest napisanie kodu dla czterech LinkButtons `Click` procedury 
 
 Rysunki 8 i 9 Pokaż niestandardowy interfejs stronicowania w działaniu. Rysunek 8 przedstawia `ManageUsers.aspx` stronie podczas wyświetlania na pierwszej stronie danych we wszystkich kontach użytkownika. Należy pamiętać, że wyświetlane są tylko 10 kont 13. Kliknięcie łącza Dalej lub ostatni powoduje odświeżenie strony, aktualizacje `PageIndex` 1 w celu powiązania z drugiej strony użytkownika konta do siatki (patrz rysunek 9).
 
-
 [![Pierwsze 10 konta użytkowników są wyświetlane.](building-an-interface-to-select-one-user-account-from-many-vb/_static/image23.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image22.png)
 
 **Rysunek 8**: Pierwsze 10 konta użytkowników są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image24.png))
 
-
 [![Klikając łącze do następnej Wyświetla drugiej stronie kont użytkowników](building-an-interface-to-select-one-user-account-from-many-vb/_static/image26.png)](building-an-interface-to-select-one-user-account-from-many-vb/_static/image25.png)
 
 **Rysunek 9**: Klikając łącze do następnej Wyświetla drugiej stronie kont użytkowników ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](building-an-interface-to-select-one-user-account-from-many-vb/_static/image27.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 

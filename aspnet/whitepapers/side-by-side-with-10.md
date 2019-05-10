@@ -8,19 +8,18 @@ ms.date: 02/10/2010
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
-ms.openlocfilehash: c4a371958d8de72628c037b3568551aaa91e0153
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d03919e8465c28cf00bf057193452396523cb1af
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380707"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65125625"
 ---
 # <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>Wykonywanie równoczesne aplikacji .NET Framework 1.0 i 1.1 na platformie ASP.NET
 
 > Ten dokument zawiera opis sposobu instalowania .NET 1.0 i 1.1 platformy .NET na komputerze, umożliwiając aplikacji sieci Web platformy ASP.NET do uruchamiania na obu wersji framework.
 > 
 > Stosuje się do platformy ASP.NET w wersji 1.0 i 1.1 programu ASP.NET.
-
 
 W programie ASP.NET: aplikacje mówi się, że jest uruchomiona obok siebie, gdy są zainstalowane na tym samym komputerze, ale korzystają z różnych wersji programu .NET Framework. Poniższy temat zawiera opis sposobu konfigurowania aplikacji ASP.NET w celu wykonania side-by-side i zawiera szczegółowy opis kroków:
 

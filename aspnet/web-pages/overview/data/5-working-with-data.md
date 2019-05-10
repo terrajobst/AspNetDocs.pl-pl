@@ -8,12 +8,12 @@ ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 0fc828e39cfcce22d4cc226954cf7d1731b04e42
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4ed2a2a1ee3cff7a50e67b6571b85f74d01efab7
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59379784"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65133210"
 ---
 # <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn
 
@@ -44,7 +44,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > W tym samouczku współpracuje również z programu WebMatrix 3. Można użyć 3 stron sieci Web platformy ASP.NET i programu Visual Studio 2013 (lub Visual Studio Express 2013 for Web); Jednak interfejs użytkownika może się różnić.
 
-
 ## <a name="introduction-to-databases"></a>Wprowadzenie do bazy danych
 
 Wyobraź sobie książki adresowej typowy. Dla każdego wpisu w książce adresowej (oznacza to, że dla każdej osoby nawiązującej) ma kilka rodzajów informacji, takich jak imię, nazwisko, adres, adres e-mail i numer telefonu.
@@ -67,7 +66,6 @@ Z tego podstawową wiedzę na temat baz danych, możesz dowiedzieć się, jak tw
 > Dane można przechowywać w wiele różnych sposobów, w tym plików tekstowych i arkuszy kalkulacyjnych. Dla większości zastosowań biznesowych jednak dane są przechowywane w relacyjnej bazie danych.
 > 
 > W tym artykule nie działa bardzo głęboko do baz danych. Jednak może okazać grupowaniu można sprawdzić trochę informacji o nich. Informacje w relacyjnej bazie danych, logicznie odbywa się w oddzielnych tabelach. Na przykład bazę danych dla szkoły może zawierać oddzielnych tabelach dla uczniów lub studentów i ofert klasa. Bazy danych oprogramowania (np. SQL Server) obsługuje zaawansowane polecenia, które umożliwiają dynamiczne ustanawiania relacji między tabelami. Na przykład można użyć relacyjnej bazy danych można ustanowić relacji logicznych między uczniami i klasami w celu utworzenia harmonogramu. Przechowywanie danych w oddzielnych tabelach zmniejsza złożoność strukturę tabeli i zmniejsza trzeba utrzymywać nadmiarowych danych w tabelach.
-
 
 ## <a name="creating-a-database"></a>Tworzenie bazy danych
 
@@ -173,7 +171,6 @@ Gdy już masz bazę danych z danymi w nim dane można wyświetlić strony sieci 
 > 
 > Istnieją dziesiątek poleceń SQL, ale wszystkie one wykonać wzorzec następująco. Można użyć poleceń SQL do tworzenia tabel bazy danych, liczby rekordów w tabeli, Oblicz ceny i wykonuje wiele więcej operacji.
 
-
 ## <a name="inserting-data-in-a-database"></a>Wstawianie danych w bazie danych
 
 W tej sekcji pokazano, jak utworzyć stronę, która umożliwia użytkownikom dodawanie nowego produktu do *produktu* tabeli bazy danych. Po wstawieniu nowego rekordu produktu, zostanie wyświetlona strona zaktualizowane tabeli przy użyciu *ListProducts.cshtml* strony, który został utworzony w poprzedniej sekcji.
@@ -238,7 +235,6 @@ Po wprowadzeniu danych do tabeli, należy go zaktualizować. Ta procedura pokazu
 > [!NOTE] 
 > 
 > **Ważne** w produkcyjnej witrynie internetowej można zwykle ograniczają kto ma prawo do wprowadzania zmian w danych. Aby uzyskać informacje dotyczące sposobu konfigurowania członkostwa i sposobów autoryzacji użytkowników do wykonywania zadań w lokacji, zobacz [Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
-
 
 1. W witrynie sieci Web, Utwórz nowy plik CSHTML o nazwie *EditProducts.cshtml*.
 2. Zastąp istniejący kod znaczników w pliku następujących czynności:
@@ -321,7 +317,6 @@ W tej sekcji pokazano, jak można zezwolić użytkownikom na usuwanie produktu z
 > 
 > **Ważne** w produkcyjnej witrynie internetowej można zwykle ograniczają kto ma prawo do wprowadzania zmian w danych. Aby uzyskać informacje dotyczące sposobu konfigurowania członkostwa i sposobów autoryzacji użytkowników do wykonywania zadań w lokacji, zobacz [Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
 
-
 1. W witrynie sieci Web, Utwórz nowy plik CSHTML o nazwie *ListProductsForDelete.cshtml*.
 2. Zastąp istniejący kod znaczników następujących czynności:
 
@@ -384,7 +379,6 @@ W tej sekcji pokazano, jak można zezwolić użytkownikom na usuwanie produktu z
 > Jak wspomniano, `Database.Open` metoda pozwala przekazać nazwę bazy danych lub parametrów połączenia, a jej określenie, której mają zostać użyte. Jest to bardzo przydatne, gdy należy wdrożyć (opublikować) witryny sieci Web. Możesz użyć *.sdf* w pliku *aplikacji\_danych* folderu podczas tworzenia i testowania witryny. Gdy przesuniesz witryny na serwerze produkcyjnym, możesz użyć parametrów połączenia w *Web.config* pliku, który ma taką samą nazwę jak Twoje *.sdf* plików, ale wskazuje dostawcy hostingu bazy danych &#8212;wszystko to bez konieczności zmian w kodzie.
 > 
 > Ponadto jeśli chcesz współpracować bezpośrednio z parametrów połączenia, można wywołać `Database.OpenConnectionString` metody i przekazać go rzeczywistych parametrów połączenia zamiast tylko nazwy w *Web.config* pliku. Może to być przydatne w sytuacjach, w którym jakiegoś powodu nie mają dostępu do parametrów połączenia (lub wartości, takich jak *.sdf* nazwy pliku) dopóki strona nie zostanie uruchomiony. Jednak w przypadku większości scenariuszy, można użyć `Database.Open` zgodnie z opisem w tym artykule.
-
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

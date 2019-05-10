@@ -8,17 +8,16 @@ ms.date: 10/05/2011
 ms.assetid: 6f7b1c74-cc73-42f9-8ef0-8b3d058dabfa
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: 938d7f696e12496fc4ae79c51e9446d71a898e3e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c92d686cdb7883efbb5e5b2997e4a490f83607f0
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382891"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131520"
 ---
 # <a name="ajax-control-toolkit"></a>Ajax Control Toolkit
 
 > Jak utworzyć bardzo elastyczny sieci Web platformy ASP.NET przy użyciu zestawu narzędzi Ajax Control Toolkit stron.
-
 
 - [Wprowadzenie do zestawu narzędzi AJAX Control Toolkit platformy ASP.NET](how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)
 - [Rozszerzenie kontrolki CascadingDropDown ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender.md)

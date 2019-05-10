@@ -8,19 +8,18 @@ ms.date: 06/27/2014
 ms.assetid: 5fbfefad-a17a-4c46-8646-f1ccd154cd56
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: fed55a4bf01e82af5167018f03e28a6274fcda78
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 50050e40c4c42bf6d769d077c27864ee6417d4db
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131645"
 ---
 # <a name="containment-in-odata-v4-using-web-api-22"></a>Zawieranie w protokole OData v4 używanie składnika Web API 2.2
 
 przez Jinfu Tan
 
 > Tradycyjnie z jednostki może oceniony jedynie go zostały hermetyzowany wewnątrz zestawu jednostek. Jednak protokół OData 4 udostępnia dwie dodatkowe opcje pojedyncze i zawierania, które obsługuje WebAPI 2.2.
-
 
 W tym temacie pokazano, jak zdefiniować zawierania w punktu końcowego OData w WebApi 2.2. Aby uzyskać więcej informacji na temat relacji zawierania zobacz [zawierania pochodzi z protokołu OData v4](https://blogs.msdn.com/b/odatateam/archive/2014/03/13/containment-is-coming-with-odata-v4.aspx). Aby utworzyć punkt końcowy protokołu OData V4 w interfejsie API sieci Web, zobacz [tworzenia protokołu OData v4 punktu końcowego Używanie wzorca ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md).
 

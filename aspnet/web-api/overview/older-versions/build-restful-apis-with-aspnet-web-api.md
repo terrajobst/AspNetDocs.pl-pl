@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 3ba7f2d186e6f0837a32f69f964cec19fe625953
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 35b115d6b4f84084e78e429bbb4842670e57bba4
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391484"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132266"
 ---
 # <a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą wzorca ASP.NET Web API
 
@@ -33,7 +33,6 @@ W tym laboratorium wymaga podstawową wiedzę na temat protokołu HTTP, REST, a 
 > 
 > 
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
-
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
@@ -70,7 +69,6 @@ To ćwiczenie praktyczne obejmuje wykonywanie następujących:
 
 > [!NOTE]
 > Towarzyszy każdego wykonywania **zakończenia** folderu zawierającego wynikowy rozwiązania, należy uzyskać po ukończeniu ćwiczenia. Jeśli potrzebujesz dodatkowej pomocy ćwiczeń opisanych w dalszej, można użyć tego rozwiązania jako wskazówki.
-
 
 Szacowany czas do ukończenia tego laboratorium: **60 minut**.
 
@@ -420,7 +418,6 @@ W ramach tego zadania będziesz zmodyfikuj widok indeksu w aplikacji MVC. Formul
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację do platformy Azure następujące [dodatek C: Publikowanie aplikacji ASP.NET MVC 4 za pomocą narzędzia Web Deploy](#AppendixC).
-
 
 ---
 

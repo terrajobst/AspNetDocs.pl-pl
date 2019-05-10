@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6aee7a07402e407b4c7b0bcd7a5e926955bf96b1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 1afdd80e9128f73e1f18823c70e87812eaf63da5
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410737"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132852"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodem JavaScript (VB)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2VB.pdf)
 
 > Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wprowadza wartość wynikową do formantu docelowego na stronie bez odświeżania strony. Istnieje również możliwość wyzwalania populacji przy użyciu niestandardowego kodu JavaScript po stronie klienta. Jednak szczególną uwagę należy podjąć, gdy urządzenie extender znajduje się w kontrolce użytkownika.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -65,7 +64,6 @@ Na koniec Dodaj formant użytkownika do strony. Musisz ustawić jego `ID` atrybu
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample8.aspx)]
 
 I to wszystko! Strona zachowuje się zgodnie z oczekiwaniami: Użytkownik kliknie na jeden z przycisków radiowych, formant w zestawie narzędzi wywołuje usługę sieci web i wyświetla bieżącą datę w wybranym formacie.
-
 
 [![Przyciski radiowe znajdują się w kontrolce użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
 

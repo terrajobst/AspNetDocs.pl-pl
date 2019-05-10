@@ -8,12 +8,12 @@ ms.date: 01/12/2011
 ms.assetid: 741259e1-54ac-4f71-b4e8-2bd5560bb950
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 144b00d9ec263231c29365caa2f3fb7b96a7ea16
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 0c637f5758f8196c19ef8d5c71009e85f9dd706e
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415534"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130038"
 ---
 # <a name="adding-a-controller-vb"></a>Dodawanie kontrolera (VB)
 
@@ -28,7 +28,6 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 > Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
 > Projekt Visual Web Developer z kodem źródłowym VB.NET jest dostępna powiązany z tym tematem. [Pobierz wersję VB.NET](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz C#, przełącz się do [wersji języka C#](../cs/adding-a-controller.md) po ukończeniu tego samouczka.
-
 
 MVC to *model-view-controller*. MVC to wzorzec do tworzenia aplikacji w taki sposób, że każda część ma oddzielne odpowiedzialność za:
 

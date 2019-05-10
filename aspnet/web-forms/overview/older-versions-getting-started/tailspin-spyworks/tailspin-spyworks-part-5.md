@@ -8,12 +8,12 @@ ms.date: 07/21/2010
 ms.assetid: eaef475a-ca91-47ea-a4a7-d074005ed80c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: cf2cee3888228069e59e9e44ffc2bc56fbba10e3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c60eece9223c47304786d7b0d0ca4b11ac0572e9
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65130996"
 ---
 # <a name="part-5-business-logic"></a>Część 5. Logika biznesowa
 
@@ -22,7 +22,6 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
 > 
 > W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 5 dodaje niektóre logiki biznesowej.
-
 
 ## <a id="_Toc260221671"></a>  Dodawanie logiki biznesowej
 

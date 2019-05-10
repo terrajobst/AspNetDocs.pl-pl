@@ -8,12 +8,12 @@ ms.date: 06/02/2008
 ms.assetid: 66d88cfa-f26f-46b1-ad52-1c9e03c04a48
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ea526ce8abdf6f7013e8dd832824c21448878e0b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 7134c95845ec7f22b5216e10b50ab8f81cd24806
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65131251"
 ---
 # <a name="dynamically-adding-an-accordion-pane-c"></a>Dynamiczne dodawanie okienka kontrolki Accordion (C#)
 
@@ -22,7 +22,6 @@ przez [Christian Wenz](https://github.com/wenz)
 [Pobierz program Code](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2CS.pdf)
 
 > Kontrolki właściwości Accordion na zestawu narzędzi AJAX Control Toolkit zawiera wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich jednocześnie. Panele zwykle są zadeklarowane w obrębie sama strona, ale kod po stronie serwera może służyć do ten sam efekt.
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -53,7 +52,6 @@ Jedynym elementem brak jest właściwości Accordion, która zależy od obecnoś
 Aby zakończyć w przykładzie, dwóch klas CSS, do którego odwołuje się kontroli właściwości Accordion zawierają informacje dotyczące stylu przeglądarki:
 
 [!code-css[Main](dynamically-adding-an-accordion-pane-cs/samples/sample6.css)]
-
 
 [![Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera](dynamically-adding-an-accordion-pane-cs/_static/image2.png)](dynamically-adding-an-accordion-pane-cs/_static/image1.png)
 

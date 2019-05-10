@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: f88f7a31551abda029bee0ec16aa35ce2ef5d2f0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: f57661077ec3bb13f3d4ec41b130bda4d2fb9070
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59385959"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132961"
 ---
 # <a name="introducing-aspnet-web-pages---html-form-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy formularzy HTML
 
@@ -33,7 +33,6 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - `Request` Obiektu.
 > - SQL `Where` klauzuli.
-
 
 ## <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
@@ -82,7 +81,6 @@ Po uruchomieniu na stronie znajduje się w tym znaczników tworzy prosty formula
 > 
 > (Aby dowiedzieć się więcej na temat zleceń HTTP, zobacz [definicje metod](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) artykuł w witrynie W3C.)
 
-
 Większość elementów wejściowych użytkownika są HTML `<input>` elementów. Wyglądają jak `<input type="type" name="name">,` gdzie *typu* wskazuje rodzaj kontrolki danych wejściowych użytkownika ma. Typowe z nich są to następujące elementy:
 
 - Pole tekstowe: `<input type="text">`
@@ -104,7 +102,6 @@ Interesujące części jest Deweloper musisz wykonać strony, czy przy użyciu d
 > Być może wiesz, HTML, jest w stanie przejścia i najnowszej wersji (HTML5) obejmuje obsługę bardziej intuicyjne dla użytkowników wprowadzić informacje. Na przykład przy użyciu kodu HTML5, (Deweloper strony) można określić strony ma datę wprowadzenia przez użytkownika. Przeglądarka następnie można wyświetlić automatycznie kalendarza, a nie użytkownik musi ręcznie wprowadź datę. Jednak HTML5 nowego i nie jest obsługiwana we wszystkich przeglądarkach na jeszcze.
 > 
 > Strony ASP.NET Web Pages obsługuje protokół HTML5, danych wejściowych w zakresie, w jakim jest przeglądarki użytkownika. Dla pomysł nowych atrybutów dla `<input>` elementu przy użyciu kodu HTML5, zobacz [HTML &lt;wejściowych&gt; typ atrybutu](http://www.w3schools.com/html/html_form_input_types.asp) witrynie W3Schools.
-
 
 ## <a name="creating-the-form"></a>Tworzenie formularza
 
@@ -176,7 +173,6 @@ Ten blok doświadczonych Trwa tworzenie zapytania, który używa termin wyszukiw
 > 
 > Jest dobrą praktyką określonych oraz używanie podzbiór `Request` interesującego Cię, takich jak `Request.Form` lub `Request.QueryString`. Dla prostych stron, które tworzysz w ramach tego samouczka to prawdopodobnie nie naprawdę że różnic. Jednak podczas tworzenia bardziej złożonych stron za pomocą jawnego wersji `Request.Form` lub `Request.QueryString` może pomóc uniknąć problemów, które mogą wystąpić, gdy strona zawiera formularza (lub wiele form), plików cookie, wartości ciągu zapytania i tak dalej.
 
-
 ## <a name="creating-a-query-by-using-a-search-term"></a>Trwa tworzenie zapytania przy użyciu wyszukiwany termin
 
 Teraz gdy wiesz, jak uzyskać wyszukiwany termin, wprowadzonej przez użytkownika, można utworzyć kwerendę, która go używa. Należy pamiętać, że aby pobrać wszystkie elementy film z bazy danych, używasz zapytania SQL, który wygląda jak ta instrukcja:
@@ -218,7 +214,6 @@ Jeśli wszystkie te elementy są umieszczone razem, otrzymasz następujący kod:
 > **Ważne!** Przy użyciu symboli zastępczych (takich jak `@0`) w celu przekazania wartości do polecenia SQL jest *bardzo ważne* zabezpieczeń. Sposób, zostanie wyświetlony w tym miejscu przy użyciu symboli zastępczych dla danych zmiennej jest jedynym sposobem, należy konstruować poleceń SQL.
 > 
 > Nigdy nie Skonstruuj instrukcję SQL, umieszczając ze sobą, tekst dosłowny (złączenie) i wartości, który jest pobierany z użytkownika. Łączenie danych wejściowych użytkownika do instrukcji SQL spowoduje otwarcie witryny *ataku polegającego na iniekcji SQL* gdzie złośliwy użytkownik przesyła wartości do strony, które hack bazy danych. (Możesz dowiedzieć się więcej w artykule [wstrzyknięcie kodu SQL](https://msdn.microsoft.com/library/ms161953.aspx) witryny sieci Web MSDN.)
-
 
 ## <a name="updating-the-movies-page-with-search-code"></a>Aktualizowanie strony filmów z kodem wyszukiwania
 
@@ -280,7 +275,6 @@ Na tej stronie można także ustawiono `value` atrybutu `searchTerm` zmiennej, p
 
 > [!NOTE]
 > Nie można "pamiętasz" wartość pola tekstowego, które jest używane hasło. Byłoby lukę w zabezpieczeniach mogli wypełnić pole hasła przy użyciu kodu.
-
 
 Ponownie uruchom strony, wprowadź określonego rodzaju, a następnie kliknij przycisk **gatunku wyszukiwania**. Teraz nie tylko zobaczysz wyniki wyszukiwania, ale pole tekstowe pamięta, co wprowadzony czas ostatniego:
 

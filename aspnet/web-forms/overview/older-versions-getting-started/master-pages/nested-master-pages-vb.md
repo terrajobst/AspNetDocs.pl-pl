@@ -8,12 +8,12 @@ ms.date: 07/28/2008
 ms.assetid: 14d9aa1b-4dca-43a0-aa9d-a6e891fee019
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8ba4bc5dc7ae2478413049ebb2943cbbe52e11e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 10cb11d75b278acc5dfbdf3d7560c3e268ad6e7d
+ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396788"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65132046"
 ---
 # <a name="nested-master-pages-vb"></a>Zagnieżdżone strony wzorcowe (VB)
 
@@ -22,7 +22,6 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 [Pobierz program Code](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/d/6/6/d66ad554-afdd-409e-a5c3-201b774fbb31/ASPNET_MasterPages_Tutorial_10_VB.pdf)
 
 > Pokazuje, jak można zagnieżdżać jedną stronę wzorcową w innym.
-
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -43,14 +42,12 @@ Ten samouczek rozpoczyna się przez wyróżnianie zalety zagnieżdżone strony w
 > [!NOTE]
 > Zagnieżdżone strony wzorcowe były możliwe od programu .NET Framework w wersji 2.0. Jednak program Visual Studio 2005 nie zawiera obsługi zagnieżdżone strony wzorcowe w czasie projektowania. Dobra wiadomość jest, że Visual Studio 2008 oferuje rozbudowane środowisko czasu projektowania dla zagnieżdżone strony wzorcowe. Jeśli interesują Cię przy użyciu zagnieżdżone strony wzorcowe, ale nadal przy użyciu programu Visual Studio 2005, zapoznaj się z [Scott Guthrie](https://weblogs.asp.net/scottgu/)firmy wpis w blogu [porady dotyczące zagnieżdżone strony wzorcowe w programie VS 2005 projektowania](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx).
 
-
 ## <a name="the-benefits-of-nested-master-pages"></a>Zalety zagnieżdżone strony wzorcowe
 
 Wiele witryn sieci Web mają lokacja nadrzędna, a także bardziej dostosowanego projekty specyficzne dla niektórych typów stron. Na przykład naszego demonstracyjnej aplikacji internetowej utworzyliśmy podstawowe sekcji Administracja (stron w `~/Admin` folder). Obecnie strony sieci web w `~/Admin` folderu pełnić tych stron nie w sekcji Administracja tej samej strony wzorcowej (to znaczy, `Site.master` lub `Alternate.master`, w zależności od wybranych przez użytkownika).
 
 > [!NOTE]
 > Na razie poudawać czy naszą witrynę ma tylko jedną stronę wzorcową, `Site.master`. Będziemy mogli zaspokoić przy użyciu zagnieżdżone strony wzorcowe, za pomocą dwóch (lub więcej) strony wzorcowe, rozpoczynając od "Przy użyciu zagnieżdżonych Master strony dla sekcji Administracja" w dalszej części tego samouczka.
-
 
 Wyobraź sobie, że firma Microsoft była monit o dostosowania układu stron administracyjnych, aby uwzględnić dodatkowe informacje i łącza, które nie zostałyby obecne w innych stron w witrynie. Istnieją cztery metody do zaimplementowania tego wymagania:
 
@@ -73,21 +70,17 @@ Tworzenie zagnieżdżonych wzorzec oparty na jednym z istniejącego wzorca stron
 
 Utwórz nowy folder o nazwie `NestedMasterPages` a następnie dodaj nowy plik strony głównej do tego folderu o nazwie `Simple.master`. (Zobacz rysunek 1 dla zrzut ekranu Eksploratora rozwiązań po dodaniu ten folder i plik). Przeciągnij `AlternateStyles.css` pliku arkusza stylów z poziomu Eksploratora rozwiązań do projektanta. Spowoduje to dodanie `<link>` elementu do pliku arkusza stylów w `<head>` elementu, po upływie którego strony wzorcowej `<head>` znaczników elementu powinien wyglądać następująco:
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample1.aspx)]
 
 Następnie dodaj następujący kod znaczników w formularzu sieci Web programu `Simple.master`:
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample2.aspx)]
 
 Ten kod znaczników Wyświetla łącze pod tytułem "Zagnieżdżone strony wzorcowe (proste)" w górnej części strony z użyciem dużej czcionki białe na tle granatowym. Poniżej, jest `MainContent` ContentPlaceHolder. Rysunek 1 pokazuje `Simple.master` strony wzorcowej po załadowaniu w projektancie programu Visual Studio.
 
-
 [![Zagnieżdżona strona wzorcowa definiuje zawartość określonej strony w sekcji Administracja](nested-master-pages-vb/_static/image2.png)](nested-master-pages-vb/_static/image1.png)
 
 **Rysunek 01**: Zagnieżdżone Master strony definiuje zawartości specyficzne dla strony w sekcji Administracja ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image3.png))
-
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>Krok 2. Tworzenie prostego zagnieżdżona strona wzorcowa
 
@@ -100,19 +93,15 @@ Następnie kliknij przycisk Dodaj. Spowoduje to wyświetlenie tego samego wybier
 > [!NOTE]
 > Jeśli utworzono witryny sieci Web ASP.NET przy użyciu modelu projektu aplikacji sieci Web zamiast modelu projektu witryny sieci Web nie zobaczą pola wyboru "Wybierz stronę wzorcową" w oknie dialogowym Dodaj nowy element pokazano na rysunku 2. Aby Tworzenie zagnieżdżonej strony wzorcowej, korzystając z modelu projektu aplikacji sieci Web, należy wybrać szablon zagnieżdżona strona wzorcowa (a nie szablon strona wzorcowa). Po wybierając szablon zagnieżdżoną stronę wzorcową i klikając przycisk Dodaj, taka sama wybierz stronę wzorcową, zostanie wyświetlone okno dialogowe pokazany na rysunku 3.
 
-
 [![Sprawdź &quot;wybierz stronę wzorcową&quot; pole wyboru, aby dodać zagnieżdżoną stronę wzorcową](nested-master-pages-vb/_static/image5.png)](nested-master-pages-vb/_static/image4.png)
 
 **Rysunek 02**: Zaznacz pole wyboru "Wybierz stronę wzorcową", aby dodać zagnieżdżoną stronę wzorcową ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image6.png))
-
 
 [![Zagnieżdżona strona wzorcowa należy powiązać strony wzorcowej Simple.master](nested-master-pages-vb/_static/image8.png)](nested-master-pages-vb/_static/image7.png)
 
 **Rysunek 03**: Powiąż zagnieżdżoną stronę wzorcową do `Simple.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image9.png))
 
-
 Oznaczeniu deklaracyjnym zagnieżdżonej strony wzorcowej, pokazano poniżej, zawiera dwie kontrolki zawartości odwołujące się do dwóch kontrolek ContentPlaceHolder najwyższego poziomu strony wzorcowej.
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample3.aspx)]
 
@@ -120,16 +109,13 @@ Z wyjątkiem `<%@ Master %>` dyrektywy, początkowej oznaczeniu deklaracyjnym za
 
 Aktualizacja ta zagnieżdżona strona wzorcowa tak, aby wyświetlała tekst "Hello, z SimpleNested!" w formancie zawartości, który odpowiada `MainContent` ContentPlaceHolder kontroli.
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
 Po wprowadzeniu to dodawanie należy zapisać zagnieżdżonej strony wzorcowej, a następnie dodaj nową stronę zawartości w celu `NestedMasterPages` folder o nazwie `Default.aspx`, który należy powiązać `SimpleNested.master` strony wzorcowej. Podczas dodawania tej strony może być zaskoczeniem zobaczyć, czy zawiera on nie kontrolek zawartości (zobacz rysunek 4)! Strony zawartości można uzyskać dostęp tylko do jej *nadrzędnego* kontrolek ContentPlaceHolder strony głównej. `SimpleNested.master` nie zawiera żadnych kontrolek ContentPlaceHolder; wszystkie formanty zawartości nie może zagrażać dowolnej strony zawartości, powiązane z tej strony wzorcowej.
 
-
 [![Nowa strona zawartości zawiera nie formantów zawartości](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
 
 **Rysunek 04**: Nowej zawartości strony zawiera nie formanty zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image12.png))
-
 
 Co należy zrobić to aktualizowanie zagnieżdżonej strony wzorcowej (`SimpleNested.master`) do uwzględnienia kontrolek ContentPlaceHolder. Zazwyczaj należy zagnieżdżone strony wzorcowe obejmujący ContentPlaceHolder dla każdego ContentPlaceHolder zdefiniowane przy jego nadrzędny strony wzorcowej, umożliwiając jego strony głównej podrzędny lub zawartości strony, aby pracować z dowolnymi ContentPlaceHolder najwyższego poziomu strony wzorcowej kontrolki.
 
@@ -138,9 +124,7 @@ Aktualizacja `SimpleNested.master` strony wzorcowej, które mają zostać objęt
 > [!NOTE]
 > Gdy polecam używanie nazw kontrolek ContentPlaceHolder w zagnieżdżonej strony wzorcowej, taka sama jak kontrolek ContentPlaceHolder w najwyższego poziomu strony wzorcowej, to nazewnictwa symetrii nie jest wymagana. Kontrolek ContentPlaceHolder można udostępnić z Twojej zagnieżdżona strona wzorcowa dowolną nazwę, jaką chcesz. Jednak I łatwiejsze do zapamiętania kontrolek ContentPlaceHolder odnoszą się do jakich regionach stronę, jeśli Moje najwyższego poziomu strony wzorcowej i zagnieżdżone strony wzorcowe, użyj takich samych nazwach.
 
-
 Po wprowadzeniu te dodatki swoje `SimpleNested.master` oznaczeniu deklaracyjnym strony wzorcowej powinien wyglądać podobnie do poniższego:
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample5.aspx)]
 
@@ -148,34 +132,27 @@ Usuń `Default.aspx` strona, którą właśnie utworzyliśmy zawartości, a nast
 
 Rysunek 5. pokazuje trzy obiekty zaangażowane w tym miejscu — `Simple.master`, `SimpleNested.master`, i `Default.aspx` — i jak odnoszą się do siebie nawzajem. Jak pokazano na diagramie, zagnieżdżonej strony wzorcowej implementuje formanty zawartości dla ContentPlaceHolder jego elementu nadrzędnego. Jeśli tych regionów muszą być dostępne dla strony zawartości, zagnieżdżonej strony wzorcowej, należy dodać swoje własne kontrolek ContentPlaceHolder z kontrolkami zawartości.
 
-
 [![Strony wzorcowe najwyższego poziomu i zagnieżdżonych dyktowanie układu strony zawartości](nested-master-pages-vb/_static/image14.png)](nested-master-pages-vb/_static/image13.png)
 
 **Rysunek 05**: Najwyższego poziomu i zagnieżdżone strony wzorcowe dyktowanie układu strony zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image15.png))
 
-
 To zachowanie ilustruje, jak strony zawartości lub strony wzorcowej jest tylko cognizant jego nadrzędny strony wzorcowej. To zachowanie jest również wskazywany przez projektanta programu Visual Studio. Rysunek 6 przedstawia Projektant `Default.aspx`. Gdy Projektant wyraźnie pokazuje, jakie regiony są edytowalne, z poziomu strony zawartości i nie są fragmenty, nie odróżniania, nie można edytować regiony są z zagnieżdżonej strony wzorcowej i jakie regiony z najwyższego poziomu strony wzorcowej.
-
 
 [![Zawartości teraz strony zawiera formanty zawartości dla kontrolek ContentPlaceHolder zagnieżdżona strona wzorcowa](nested-master-pages-vb/_static/image17.png)](nested-master-pages-vb/_static/image16.png)
 
 **Rysunek 06**: Zawartość strony teraz zawiera formanty zawartości dla kontrolek ContentPlaceHolder zagnieżdżoną stronę wzorcową firmy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image18.png))
 
-
 ## <a name="step-3-adding-a-second-simple-nested-master-page"></a>Krok 3. Dodawanie drugiego proste zagnieżdżonej strony wzorcowej
 
 Zaletą zagnieżdżone strony wzorcowe jest bardziej oczywiste, gdy wiele zagnieżdżone strony wzorcowe. Aby zilustrować tej korzyści, należy utworzyć innej zagnieżdżonej strony wzorcowej w `NestedMasterPages` folderu; ta nowa nazwa zagnieżdżonej strony wzorcowej `SimpleNestedAlternate.master` , który należy powiązać `Simple.master` strony wzorcowej. Dodaj kontrolek ContentPlaceHolder w zagnieżdżonej strony wzorcowej dwóch kontrolek zawartości, takie jak zrobiliśmy w kroku 2. Ponadto Dodaj tekst "Hello, z SimpleNestedAlternate!" w formancie zawartości, który odnosi się do najwyższego poziomu strony wzorcowej `MainContent` ContentPlaceHolder. Po wprowadzeniu tych zmian nowej zagnieżdżonej strony wzorcowej w oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
-
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample6.aspx)]
 
 Utwórz stronę zawartości o nazwie `Alternate.aspx` w `NestedMasterPages` folder, który należy powiązać `SimpleNestedAlternate.master` zagnieżdżonej strony wzorcowej. Dodaj tekst "Hello, z alternatywnym!" w formancie zawartości, który odpowiada `MainContent`. Rysunek nr 7 przedstawia `Alternate.aspx` oglądany przez projektanta programu Visual Studio.
 
-
 [![Alternate.aspx jest powiązany z poziomu strony wzorcowej SimpleNestedAlternate.master](nested-master-pages-vb/_static/image20.png)](nested-master-pages-vb/_static/image19.png)
 
 **Rysunek 07**: `Alternate.aspx` jest powiązany z `SimpleNestedAlternate.master` strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image21.png))
-
 
 Porównaj Designer na rysunku 7 programu Designer na rysunku 6. Obie strony z zawartością udostępnianie tego samego układu zdefiniowane w najwyższego poziomu strony wzorcowej (`Simple.master`), a mianowicie tytuł "Zagnieżdżone Master strony samouczek (proste)". Jeszcze mają różne zawartości zdefiniowanej w ich nadrzędnej strony wzorcowe — tekst "Hello, z SimpleNested!" Rysunek 6 i "Hello, z SimpleNestedAlternate!" na rysunku 7. Udzieleniu te różnice w tym miejscu są proste, ale można rozszerzyć tego przykładu, aby uwzględnić bardziej istotne różnice. Na przykład `SimpleNested.master` strony mogą zawierać menu z opcjami, które są określone na stronach zawartości, natomiast `SimpleNestedAlternate.master` może mieć informacji dotyczących stron zawartości, które powiązać rozwiązanie.
 
@@ -183,16 +160,13 @@ Teraz Wyobraź sobie, że Musieliśmy wprowadzić zmiany do nadrzędna układu w
 
 Aby zademonstrować prostotę, z którym można zmienić układ lokacja nadrzędna, otwórz `Simple.master` strony wzorcowej i Dodaj następujący kod między `topContent` i `mainContent` `<div>` elementy:
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample7.aspx)]
 
 Spowoduje to dodanie dwóch łączy do góry każdej strony, która jest powiązywana z `Simple.master`, `SimpleNested.master`, lub `SimpleNestedAlternate.master`; te zmiany natychmiast zastosowane do wszystkich zagnieżdżone strony wzorcowe i ich zawartości stron. Rysunek 8 przedstawia `Alternate.aspx` podczas wyświetlania za pośrednictwem przeglądarki. Należy pamiętać, dodawanie łączy w górnej części strony (w porównaniu do rysunek 7).
 
-
 [![Zmieniono na stronie wzorcowej najwyższego poziomu są natychmiast odzwierciedlane w jego zagnieżdżone strony wzorcowe i ich zawartości strony](nested-master-pages-vb/_static/image23.png)](nested-master-pages-vb/_static/image22.png)
 
 **Rysunek 08**: Zmieniono na stronie wzorcowej najwyższego poziomu są natychmiast odzwierciedlane w jego zagnieżdżone strony wzorcowe i ich strony zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image24.png))
-
 
 ## <a name="using-a-nested-master-page-for-the-administration-section"></a>Za pomocą zagnieżdżona strona wzorcowa dla sekcji Administracja
 
@@ -218,19 +192,15 @@ W jaki sposób możemy skonfigurować nasz zagnieżdżonej strony wzorcowej, tak
 
 Użyjmy drugiej opcji. Utwórz pojedynczy zagnieżdżonych pliku strony głównej w `~/Admin` folder o nazwie `AdminNested.master`. Ponieważ zarówno `Site.master` i `Alternate.master` mają taki sam zestaw kontrolek ContentPlaceHolder, nie ma znaczenia, jakie strony wzorcowej można powiązać, mimo że zachęcam Cię do powiązać `Site.master` dla sake firmy spójności.
 
-
 [![Dodaj zagnieżdżona strona wzorcowa do folderu ~/Admin.](nested-master-pages-vb/_static/image26.png)](nested-master-pages-vb/_static/image25.png)
 
 **Rysunek 09**: Zagnieżdżona strona wzorcowa, aby dodać `~/Admin` folderu. ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image27.png))
 
-
 Ponieważ zagnieżdżonej strony wzorcowej jest powiązany z strony wzorcowej za pomocą czterech kontrolek ContentPlaceHolder, program Visual Studio dodaje cztery formanty do nowego pliku zagnieżdżona strona wzorcowa początkowej znaczników zawartości. Jak Przeprowadziliśmy w krokach 2 i 3, Dodaj kontrolkę ContentPlaceHolder w każdej kontrolce zawartości, nadając mu taką samą nazwę jak kontrolka ContentPlaceHolder najwyższego poziomu strony wzorcowej. Również dodać następujący kod do formantu zawartości, która odpowiada `MainContent` ContentPlaceHolder:
-
 
 [!code-html[Main](nested-master-pages-vb/samples/sample8.html)]
 
 Następnie zdefiniuj `instructions` klasy CSS w `Styles.css` i `AlternateStyles.css` pliki CSS. Następujące reguły CSS spowodować, że elementy HTML stylem `instructions` klasy, które mają być wyświetlane za pomocą koloru światła żółte tło i obramowanie czarny, stałe:
-
 
 [!code-css[Main](nested-master-pages-vb/samples/sample9.css)]
 
@@ -238,18 +208,15 @@ Ponieważ ten kod znaczników została dodana do zagnieżdżonej strony wzorcowe
 
 Po wprowadzeniu te dodatki do strony głównej zagnieżdżonych, jego oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample10.aspx)]
 
 Należy zauważyć, że każdy formant zawartości ma formant ContentPlaceHolder i który kontrolek ContentPlaceHolder `ID` właściwości są przypisane te same wartości kontrolki z odpowiedniego ContentPlaceHolder najwyższego poziomu strony wzorcowej. Ponadto znaczników specyficzne dla sekcji Administracja pojawia się w `MainContent` ContentPlaceHolder.
 
 Na rysunku nr 10 przedstawiono `AdminNested.master` zagnieżdżona strona wzorcowa oglądany przez projektanta programu Visual Studio. Widać, zgodnie z instrukcjami w żółte pole w górnej części `MainContent` formantu zawartości.
 
-
 [![Zagnieżdżona strona wzorcowa rozszerza najwyższego poziomu strony wzorcowej, aby dołączyć instrukcje dla administratora.](nested-master-pages-vb/_static/image29.png)](nested-master-pages-vb/_static/image28.png)
 
 **Na rysunku nr 10**: Zagnieżdżona strona wzorcowa rozszerza najwyższego poziomu strony wzorcowej, aby dołączyć instrukcje dla administratora. ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image30.png))
-
 
 ## <a name="step-5-updating-the-existing-content-pages-to-use-the-new-nested-master-page"></a>Krok 5. Aktualizowanie istniejących stron zawartości, aby użyć nowych zagnieżdżona strona wzorcowa
 
@@ -259,26 +226,21 @@ Aby najlepszym sposobem osiągnięcia tego żądanego, zachowanie jest utworzeni
 
 Najpierw dodaj plik klasy do `App_Code` folder o nazwie `AdminBasePage.vb`. Masz `AdminBasePage` rozszerzyć `BasePage` a następnie zastąpić `SetMasterPageFile` metody. W tej metodzie należy przypisać `MasterPageFile` wartość "~ / Admin/AdminNested.master". Po wprowadzeniu tych zmian na klasę plik powinien wyglądać podobny do następującego:
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample11.vb)]
 
 Teraz musisz mieć istniejących stron zawartości w administracyjnej części pochodzić od `AdminBasePage` zamiast `BasePage`. Przejdź do pliku klasy CodeBehind dla każdej strony zawartości `~/Admin` folder i wprowadzić tę zmianę. Na przykład w `~/Admin/Default.aspx` należy zmienić deklarację klasy związane z kodem z:
-
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample12.vb)]
 
 Do:
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample13.vb)]
 
 Rysunek 11 przedstawia sposób najwyższego poziomu strony wzorcowej (`Site.master` lub `Alternate.master`), zagnieżdżonej strony wzorcowej (`AdminNested.master`), i stronach zawartości sekcji Administracja odnoszą się do siebie nawzajem.
 
-
 [![Zagnieżdżona strona wzorcowa definiuje zawartość określonej strony w sekcji Administracja](nested-master-pages-vb/_static/image32.png)](nested-master-pages-vb/_static/image31.png)
 
 **Rysunek 11**: Zagnieżdżone Master strony definiuje zawartości specyficzne dla strony w sekcji Administracja ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image33.png))
-
 
 ## <a name="step-6-mirroring-the-master-pages-public-methods-and-properties"></a>Krok 6. Dublowanie metody publiczne i właściwości strony wzorcowej
 
@@ -288,11 +250,9 @@ Pamiętamy `~/Admin/AddProduct.aspx` i `~/Admin/Products.aspx` stronach, interak
 
 Aby rozwiązać ten musimy mieć problem `AdminNested.master` rozszerzyć klasy CodeBehind `BaseMasterPage`. Zaktualizuj deklaracji klasy CodeBehind zagnieżdżonej strony wzorcowej od:
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample14.vb)]
 
 Do:
-
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample15.vb)]
 
@@ -302,21 +262,17 @@ Chociaż należy zaimplementować te składowe w `AdminNested.master`, tych impl
 
 Aby to osiągnąć, Rozpocznij, dodając następujące `@MasterType` dyrektywę na początku `AdminNested.master`:
 
-
 [!code-aspx[Main](nested-master-pages-vb/samples/sample16.aspx)]
 
 Pamiętamy `@MasterType` dyrektywy dodaje właściwość silnie typizowaną do klasy związane z kodem o nazwie `Master`. Następnie zastąp `RefreshRecentProductsGrid` i `GridMessageText` elementów członkowskich i po prostu delegowanie wywołanie `Master`użytkownika odpowiadającej metody:
-
 
 [!code-vb[Main](nested-master-pages-vb/samples/sample17.vb)]
 
 Przy użyciu tego kodu w miejscu można znaleźć i używać zawartości stron w sekcji Administracja. Przedstawia rysunek 12 `~/Admin/Products.aspx` stronie podczas przeglądania za pośrednictwem przeglądarki. Jak widać, strona zawiera pole instrukcje administracji, która jest zdefiniowana w zagnieżdżonej strony wzorcowej.
 
-
 [![Zawartość strony w sekcji Administracja dołączyć instrukcje u góry każdej strony](nested-master-pages-vb/_static/image35.png)](nested-master-pages-vb/_static/image34.png)
 
 **Rysunek 12**: Zawartość stron w administracji sekcji zawierają instrukcje u góry każdej strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image36.png))
-
 
 ## <a name="step-7-using-the-appropriate-top-level-master-page-at-runtime"></a>Krok 7. W czasie wykonywania za pomocą odpowiednich najwyższego poziomu strony wzorcowej
 
@@ -326,18 +282,15 @@ Aby użyć najwyższego poziomu strony wzorcowej wybierane przez użytkownika ko
 
 Dlatego musimy zagnieżdżonej strony wzorcowej `MasterPageFile` właściwości ze stron zawartości. Tylko zawartość strony, które używają `AdminNested.master` strony wzorcowej pochodzić od `AdminBasePage`. Firma Microsoft może więc tę logikę istnieje. W kroku 5, firma Microsoft overrode `SetMasterPageFile` metody, ustawienie obiektu strony `MasterPageFile` właściwość "~ / Admin/AdminNested.master". Aktualizacja `SetMasterPageFile` można również ustawić strony wzorcowej `MasterPageFile` właściwości do wyników przechowywanych w sesji:
 
-
 [!code-vb[Main](nested-master-pages-vb/samples/sample18.vb)]
 
 `GetMasterPageFileFromSession` Metody, która dodaliśmy do `BasePage` klasy w poprzednim samouczku zwraca ścieżkę pliku odpowiednią stronę wzorcową oparte na wartości zmiennej sesji.
 
 Dzięki tej zmianie w miejscu wybranej strony wzorcowej przez użytkownika są przenoszone do sekcji Administracja. Rysunek 13 pokazuje, jak rysunek 12, ale po użytkownik zmienił ich zaznaczenie strony wzorcowej do tej samej stronie `Alternate.master`.
 
-
 [![Na stronie Administracja zagnieżdżonych używa najwyższego poziomu strony wzorcowej wybrane przez użytkownika](nested-master-pages-vb/_static/image38.png)](nested-master-pages-vb/_static/image37.png)
 
 **Rysunek 13**: Zagnieżdżone strony administrowania używa najwyższego poziomu głównego strony wybranego przez użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-master-pages-vb/_static/image39.png))
-
 
 ## <a name="summary"></a>Podsumowanie
 
