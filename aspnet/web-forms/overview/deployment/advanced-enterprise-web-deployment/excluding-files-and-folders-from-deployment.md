@@ -88,7 +88,7 @@ Następna procedura dowiesz się, jak dodać *. wpp.targets* plik do projektu ap
 1. Otwórz swoje rozwiązanie w programie Visual Studio 2010.
 2. W **Eksploratora rozwiązań** okna, kliknij prawym przyciskiem myszy węzeł projektu aplikacji sieci web (na przykład **ContactManager.Mvc**), wskaż polecenie **Dodaj**, a następnie kliknij przycisk **Nowy element**.
 3. W **Dodaj nowy element** okno dialogowe, wybierz opcję **pliku XML** szablonu.
-4. W **nazwa** wpisz *[Nazwa projektu] ***.wpp.targets** (na przykład **ContactManager.Mvc.wpp.targets**), a następnie kliknij przycisk **Dodaj**.
+4. W **nazwa** wpisz *[Nazwa projektu]* **.wpp.targets** (na przykład **ContactManager.Mvc.wpp.targets**), a następnie kliknij przycisk **Dodaj**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 

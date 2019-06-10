@@ -83,7 +83,7 @@ Plik projektu musi zwykle zapewniają wiele różnych rodzajów informacji, aby 
 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
-Aby pobrać wartości właściwości, należy użyć formatu **$(***PropertyName***) ***.* Na przykład, aby pobrać wartość **ServerName** właściwość, należy wpisać:
+Aby pobrać wartości właściwości, należy użyć formatu * *$(***PropertyName***)***.* Na przykład, aby pobrać wartość **ServerName** właściwość, należy wpisać:
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
 
@@ -161,8 +161,8 @@ Obiekty docelowe i zadania mogą obejmować **warunek** atrybutów. W efekcie mo
 
 Ogólnie rzecz biorąc podczas tworzenia użytecznych zadań i obiektów docelowych, konieczne będzie odwoływać się do właściwości i elementy, które zostały zdefiniowane w innym miejscu w pliku projektu:
 
-- Aby użyć wartości właściwości, wpisz **$(***PropertyName***)**, gdzie *PropertyName* nazywa się **właściwość** elementu lub nazwa parametr.
-- Aby użyć elementu, wpisz **@(***ItemName***)**, gdzie *ItemName* nazywa się **elementu** elementu.
+- Aby użyć wartości właściwości, wpisz **$(***PropertyName***)** , gdzie *PropertyName* nazywa się **właściwość** elementu lub nazwa parametr.
+- Aby użyć elementu, wpisz **@(***ItemName***)** , gdzie *ItemName* nazywa się **elementu** elementu.
 
 > [!NOTE]
 > Należy pamiętać, że jeśli tworzysz wiele elementów o takiej samej nazwie, którą tworzysz listy. Z kolei jeśli tworzysz wiele właściwości o takiej samej nazwie, ostatnią wartość właściwości, należy podać zastąpią wszelkie poprzednie właściwości o takiej samej nazwie&#x2014;właściwość może zawierać tylko jedną wartość.
