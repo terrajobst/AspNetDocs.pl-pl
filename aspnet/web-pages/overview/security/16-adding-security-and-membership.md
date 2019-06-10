@@ -130,7 +130,7 @@ Poniższa procedura opisuje sposób tworzenia lokacji i skonfigurować go.
 Witryna zawiera inne funkcje, która umożliwia zarządzanie kontami użytkowników. Użytkownicy mogą wykonywać następujące czynności:
 
 - Zmienić swoje hasła. Po zalogowaniu po kliknięciu nazwy użytkownika (czyli link). Kliknięcie tej pozycji spowoduje ich strony gdzie można utworzyć nowe hasło (*Account/ChangePassword.cshtml*).
-- Odzyskać zapomniane hasło. Na stronie logowania znajduje się link (**czy pamiętasz hasła?**), przejście do strony (*Account/ForgotPassword.cshtml*) mogą wprowadzać adres e-mail. Witryna wysyła do nich wiadomości e-mail z linkiem, który można kliknąć, aby ustawić nowe hasło (*Account/PasswordReset.cshtml*).
+- Odzyskać zapomniane hasło. Na stronie logowania znajduje się link (**czy pamiętasz hasła?** ), przejście do strony (*Account/ForgotPassword.cshtml*) mogą wprowadzać adres e-mail. Witryna wysyła do nich wiadomości e-mail z linkiem, który można kliknąć, aby ustawić nowe hasło (*Account/PasswordReset.cshtml*).
 
 Można także pozwolić użytkownikom może również logowanie się za pomocą witryny zewnętrznej, jak opisano w dalszej części.
 
@@ -166,7 +166,7 @@ W tej procedurze utworzysz folder, który będzie zawierać stron, które są do
 Aby zabezpieczyć dostęp do wielu stron, można to zrobić:
 
 - Dodaj sprawdzanie zabezpieczeń do każdej strony.
-- Tworzenie  *\_PageStart.cshtml* strony w folderze, w której Zachowaj chronione stron, a następnie dodaj podczas sprawdzania zabezpieczeń.  *\_PageStart.cshtml* strony pełni rolę globalnego strony dla wszystkich stron w folderze. Ta technika jest omówione bardziej szczegółowo w [Dostosowywanie zachowania dla całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Tworzenie  *\_PageStart.cshtml* strony w folderze, w której Zachowaj chronione stron, a następnie dodaj podczas sprawdzania zabezpieczeń. *\_PageStart.cshtml* strony pełni rolę globalnego strony dla wszystkich stron w folderze. Ta technika jest omówione bardziej szczegółowo w [Dostosowywanie zachowania dla całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>Tworzenie zabezpieczeń dla grup użytkowników (role)
 
