@@ -88,7 +88,7 @@ Aby zapewnić obsługę wdrażania projektu bazy danych do wielu miejsc docelowy
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. W **nowy plik konfiguracji wdrożenia** okna dialogowego pole, nadaj plikowi nazwę opisową (na przykład **TestEnvironment.sqldeployment**), a następnie kliknij przycisk **Zapisz**.
-4. Na *[nazwa_pliku] *** .sqldeployment** strony, ustaw właściwości wdrożenia w celu dopasowania do wymagań środowiska docelowego, a następnie zapisz plik.
+4. Na *[nazwa_pliku]* **.sqldeployment** strony, ustaw właściwości wdrożenia w celu dopasowania do wymagań środowiska docelowego, a następnie zapisz plik.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Należy zauważyć, że nowy plik zostanie dodany do właściwości folderu w projekcie bazy danych.
