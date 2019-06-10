@@ -34,7 +34,7 @@ Po zainstalowaniu usługi kompilacji 2010 Team Foundation Server (TFS), możesz 
 Wszystkie zadania wdrażania, które wymagają uwierzytelniania Windows i planujesz zautomatyzować za pomocą kompilacji zespołowej, uruchamiana, za pomocą tożsamości usługi kompilacji. Jako takie należy przyznać tożsamości usługi kompilacji wszelkich wymaganych uprawnień na serwerach sieci web i serwery bazy danych.
 
 > [!NOTE]
-> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na innych komputerach. Konta komputerów mieć postać * [nazwa domeny]\[nazwa komputera] ***$**&#x2014;na przykład **FABRIKAM\TFSBUILD$**. Jako takie swoją usługę kompilacji jest uruchamiany, za pomocą tożsamości usługi sieciowej, należy udzielić wszystkie uprawnienia wymagane do tożsamość konta komputera dla serwera kompilacji.
+> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na innych komputerach. Konta komputerów mieć postać *[nazwa domeny]\[nazwa komputera]* **$** &#x2014;na przykład **FABRIKAM\TFSBUILD$** . Jako takie swoją usługę kompilacji jest uruchamiany, za pomocą tożsamości usługi sieciowej, należy udzielić wszystkie uprawnienia wymagane do tożsamość konta komputera dla serwera kompilacji.
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurowanie uprawnień serwera sieci Web
 
