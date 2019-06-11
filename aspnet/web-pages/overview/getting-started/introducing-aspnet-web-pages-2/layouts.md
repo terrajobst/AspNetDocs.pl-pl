@@ -133,7 +133,7 @@ Aby wprowadzić zmiany podobne do strony w witrynie — *EditMovie.cshtml* i *De
 
 ## <a name="passing-title-information-to-the-layout-page"></a>Informacje o tytułach Przechodzenie do strony układ
 
- *\_Layout.cshtml* zawiera strony, który został utworzony `<title>` element, który jest ustawiony na "Moja witryna filmu". W większości przeglądarek wyświetlenie zawartości tego elementu jako tekst, na karcie:
+*\_Layout.cshtml* zawiera strony, który został utworzony `<title>` element, który jest ustawiony na "Moja witryna filmu". W większości przeglądarek wyświetlenie zawartości tego elementu jako tekst, na karcie:
 
 ![Strony &lt;tytuł&gt; element wyświetlane na karcie przeglądarki](layouts/_static/image8.png)
 

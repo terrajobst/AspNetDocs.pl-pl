@@ -164,7 +164,7 @@ Po pierwsze, zwróć uwagę, że otwierający tag **dane wyjściowe** atrybutu.
 
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
-Jest to przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektowych MSBuild przetwarzanie wsadowe jest techniką Iterowanie po kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages**  listy elementów. Tej notacji, **Outputs=%***(ItemList.ItemMetadataName)*, jest tłumaczony jako:
+Jest to przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektowych MSBuild przetwarzanie wsadowe jest techniką Iterowanie po kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"** , odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages**  listy elementów. Tej notacji, **Outputs=%** *(ItemList.ItemMetadataName)* , jest tłumaczony jako:
 
 - Podziel elementy w **DbPublishPackages** w partie elementów, które zawierają takie same **tożsamości** wartość metadanych.
 - Wykonanie docelowego raz na partię.
@@ -178,7 +178,7 @@ Możesz zobaczyć podobne Notacja w  **\_Cmd** właściwość, która tworzy pol
 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
-W tym przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** elementu kolekcji.  **\_Cmd** właściwość jest używana przez **Exec** zadania, które wywołuje polecenie.
+W tym przypadku **%(DbPublishPackages.DatabaseConnectionString)** , **%(DbPublishPackages.TargetDatabase)** , i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** elementu kolekcji. **\_Cmd** właściwość jest używana przez **Exec** zadania, które wywołuje polecenie.
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
 
