@@ -6,12 +6,12 @@ description: Łącza do elementów Webhook programu ASP.NET w kodzie źródłowy
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
-ms.openlocfilehash: ff716b476f7dc69b6071d3febd5b5871e4f02689
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f88d9247f9d8aa0c5edc1ffc462be21d9319a725
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066770"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410803"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>Kod źródłowy elementów Webhook programu ASP.NET i pakiety NuGet
 
@@ -25,6 +25,6 @@ Tej dokumentacji online, w którym czytasz teraz również znajduje się jako [t
 
 * [Typowe](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common): Typowe pakiet, który jest udostępniany między nadawcami a odbiornikami.
 
-* [Nadawca](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom): Zestaw pakietów obsługi wysyłania własne elementy Webhook dla innych użytkowników. Funkcja wysyłania elementów Webhook jest opisany bardziej szczegółowo w [wysyłania elementów Webhook](sending/index.md).
+* [Nadawca](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom): Zestaw pakietów obsługi wysyłania własne elementy Webhook dla innych użytkowników. Funkcja wysyłania elementów Webhook jest opisany bardziej szczegółowo w [wysyłania elementów Webhook](sending/senders).
 
 * [Odbiorniki](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers): Zestaw pakietów obsługi odbieranie elementów Webhook od innych. Funkcje do odbierania elementów Webhook jest opisany bardziej szczegółowo w [odbieranie elementów Webhook](receiving/index.md).

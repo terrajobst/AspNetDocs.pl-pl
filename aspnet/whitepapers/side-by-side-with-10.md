@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
-ms.openlocfilehash: d03919e8465c28cf00bf057193452396523cb1af
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c123545099013af71569bce4707f2b3eb732c344
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125625"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411210"
 ---
 # <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>Wykonywanie równoczesne aplikacji .NET Framework 1.0 i 1.1 na platformie ASP.NET
 
@@ -68,11 +68,11 @@ Każda wersja programu .NET Framework zawiera wersję narzędzia rejestracji us�
 
 Aspnet\_regiis.exe dla wersji 1.0 znajduje się w folderze:
 
-- C:\WINDOWS\Microsoft.NET\Framework\**v1.0.3705**\aspnet\_regiis
+- C:\WINDOWS\Microsoft.NET\Framework\\**v1.0.3705**\aspnet\_regiis
 
 Aspnet\_regiis.exe w wersji 1,1 znajduje się w folderze:
 
-- C:\WINDOWS\Microsoft.NET\Framework\**v1.1.4322**\aspnet\_regiis
+- C:\WINDOWS\Microsoft.NET\Framework\\**v1.1.4322**\aspnet\_regiis
 
 Aspnet\_regiis.exe oferuje dwie opcje skryptów, mapowania aplikacji sieci Web:
 

@@ -8,12 +8,12 @@ ms.date: 03/10/2014
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 7d580b3812c4a09d6bc8d34c46dc82339ba40ee8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3f63ce68ae4c13970ac0df196167ace0b22b592c
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133371"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411257"
 ---
 # <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>Tworzenie spójnego układu w witrynach ASP.NET Web Pages (Razor)
 
@@ -53,7 +53,7 @@ Na poniższym diagramie przedstawiono, jak zawartości blokuje pracy. Gdy przegl
 
 W tej procedurze utworzysz stronę, która odwołuje się dwa bloki zawartości (nagłówek i stopka), które znajdują się w oddzielnych plikach. Można użyć tych samych bloków zawartości w dowolnej stronie w witrynie. Gdy wszystko będzie gotowe, zostanie wyświetlona strona z informacją następująco:
 
-![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderPage.](3-creating-a-consistent-look/_static/image2.jpg)
+![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderPage.](3-creating-a-consistent-look/_static/image2.png)
 
 1. W folderze głównym witryny sieci Web, Utwórz plik o nazwie *Index.cshtml*.
 2. Zastąp istniejący kod znaczników następujących czynności:
@@ -118,7 +118,7 @@ Poniższa procedura pokazuje, jak utworzyć układ stron zawartości strony i li
     Jest to strona, która będzie używać strony układu. Blok kodu, w górnej części strony wskazuje stronę układu, które będą formatowane tej zawartości.
 7. Uruchom *Content1.cshtml* w przeglądarce. Renderowanej strony używa formatu i arkusz stylów zdefiniowany w  *\_Layout1.cshtml* i tekst (zawartość) zdefiniowany w *Content1.cshtml*.
 
-    ![[image]](3-creating-a-consistent-look/_static/image4.jpg)
+    ![[image]](3-creating-a-consistent-look/_static/image4.png)
 
     Możesz powtórzyć krok 6, aby utworzyć dodatkowe strony zawartości, które będzie mogło współużytkować tę samą stronę układu.
 
@@ -148,7 +148,7 @@ Ta procedura pokazuje, jak utworzyć strony zawartości, która ma wiele sekcji 
     Ta strona zawartości zawiera blok kodu, w górnej części strony. Każda sekcja o nazwie znajduje się w bloku sekcji. Pozostałej części strony zawiera sekcja zawartość domyślna (bez nazwy).
 4. Uruchom *Content2.cshtml* w przeglądarce.
 
-    ![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderSection.](3-creating-a-consistent-look/_static/image6.jpg)
+    ![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderSection.](3-creating-a-consistent-look/_static/image6.png)
 
 ## <a name="making-content-sections-optional"></a>Tworzenie opcjonalne sekcje zawartości
 
@@ -165,7 +165,7 @@ Jednak można zastąpić to zachowanie dla nazwanej sekcji przez zadeklarowanie 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample12.cshtml)]
 2. Zapisz stronę, a następnie uruchom go w przeglądarce. Wyświetlany jest komunikat o błędzie, ponieważ strony zawartości nie udostępnia zawartość sekcji zdefiniowana na stronie układu, a mianowicie sekcji nagłówka.
 
-    ![Zrzut ekranu pokazujący błąd występujący po uruchomieniu strony, która wywołuje metodę RenderSection, ale nie podano odpowiedniej sekcji.](3-creating-a-consistent-look/_static/image7.jpg)
+    ![Zrzut ekranu pokazujący błąd występujący po uruchomieniu strony, która wywołuje metodę RenderSection, ale nie podano odpowiedniej sekcji.](3-creating-a-consistent-look/_static/image7.png)
 3. W *Shared* folder, otwórz  *\_Layout2.cshtml* strony, a następnie Zastąp ten wiersz:
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample13.js)]
@@ -210,10 +210,10 @@ Poniższa procedura pokazuje, jak przekazywanie danych od strony zawartości do 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample18.html)]
 4. Uruchom *Content3.cshtml* strony w przeglądarce. Ta strona jest wyświetlana przy użyciu listy widocznych w lewej części strony i **Ukryj listę** znajdujący się u dołu.
 
-    ![Zrzut ekranu przedstawiający stronę zawierającą listy i przycisk, który jest wyświetlany komunikat "Ukryj List".](3-creating-a-consistent-look/_static/image10.jpg)
+    ![Zrzut ekranu przedstawiający stronę zawierającą listy i przycisk, który jest wyświetlany komunikat "Ukryj List".](3-creating-a-consistent-look/_static/image10.png)
 5. Kliknij przycisk **Ukryj listę**. Lista znika i przycisku zmienia się na **Pokaż listę**.
 
-    ![Zrzut ekranu przedstawiający stronę, która nie zawiera listy i przycisk, który jest wyświetlany komunikat "Pokaż listę".](3-creating-a-consistent-look/_static/image11.jpg)
+    ![Zrzut ekranu przedstawiający stronę, która nie zawiera listy i przycisk, który jest wyświetlany komunikat "Pokaż listę".](3-creating-a-consistent-look/_static/image11.png)
 6. Kliknij przycisk **Pokaż listę** przycisku i listy zostaną wyświetlone ponownie.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

@@ -8,12 +8,12 @@ ms.date: 05/18/2012
 ms.assetid: 79eca52c-e7ad-44ab-a3e4-d8093e9da5a7
 msc.legacyurl: /web-pages/pluralsight
 msc.type: content
-ms.openlocfilehash: 5485b68f8ed87952a6d09e1880e6d8ce39eea73a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ce6d8a678e07945eff05baa080bb877bf06f6c6e
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108567"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411232"
 ---
 # <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Program WebMatrix i model Web Pages — szkolenie wideo w witrynie Pluralsight
 
@@ -39,4 +39,4 @@ Scott Hanselman, główny menedżer programu, platforma sieci Web i narzędzia p
 
 Odblokowanie dostępu do 3000 + deweloperskie, IT i creative kursów, które można obejrzeć w dowolnym czasie i miejscu.
 
-**Już od 29 USD/mo.**[Rozpocznij bezpłatny okres próbny](https://pluralsight.com/microsoft/olt/subscribe/SubscriptionRedirector.aspx?freetrial=true&amp;utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course) [Subskrybuj teraz](https://pluralsight.com/microsoft/OLT/subscriptions.aspx?utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course)
+**Począwszy od 35 $ / mo.** [Rozpocznij bezpłatną wersję próbną lub subskrypcję teraz](https://www.pluralsight.com/pricing&amp;utm_source=microsoft&amp;utm_medium=sponsored-page&amp;utm_content=webmatrix&amp;utm_campaign=microsoft-sponsored-course)

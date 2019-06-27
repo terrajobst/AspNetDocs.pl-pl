@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: 65b13065ae5324ce64ec1b87b2127e5277542fb8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8ccad3b40a723c92a3164de082e1f94577141008
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125676"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411199"
 ---
 # <a name="aspnet-4-breaking-changes"></a>Zmiany powodujące niezgodność w platformie ASP.NET 4
 
@@ -362,7 +362,7 @@ Po przywróceniu do starszego modelu urzędów certyfikacji, są włączone nast
 - Dopuszcza się wielu zestawów różnych uprawnień w domenie pojedynczej aplikacji.
 - Potwierdzenia jawne uprawnienia nie są wymagane dla zestawów w pamięci podręcznej GAC, które są wywoływane, gdy tylko ASP.NET lub inny kod .NET Framework znajduje się na stosie.
 
-Nie można przywrócić jeden scenariusz w programie .NET Framework 4: aplikacje częściowo zaufane Web nie może wywołać niektórych interfejsów API w System.Web.dll i System.Web.Extensions.dll. W poprzednich wersjach programu .NET Framework, było możliwe innych częściowego zaufania aplikacji należy jawnie przyznać <strong>AspNetHostingPermission</strong> uprawnienia. Aplikacje te można następnie użyć <strong>System.Web.HttpUtility</strong>, typy w <strong>System.Web.ClientServices.\< / strong > * obszary nazw i typy związane z członkostwa, ról i profilów. Wywoływanie tych typów z aplikacji sieci Web częściowej relacji zaufania nie jest już obsługiwana w programie .NET Framework 4.
+Nie można przywrócić jeden scenariusz w programie .NET Framework 4: aplikacje częściowo zaufane Web nie może wywołać niektórych interfejsów API w System.Web.dll i System.Web.Extensions.dll. W poprzednich wersjach programu .NET Framework, było możliwe innych częściowego zaufania aplikacji należy jawnie przyznać **AspNetHostingPermission** uprawnienia. Aplikacje te można następnie użyć **System.Web.HttpUtility**, typy w **System.Web.ClientServices.\***  obszary nazw i typy związane z członkostwa, ról i profilów. Wywoływanie tych typów z aplikacji sieci Web częściowej relacji zaufania nie jest już obsługiwana w programie .NET Framework 4.
 
 > [!NOTE]
 > **HtmlEncode** i **HtmlDecode** funkcjonalność **System.Web.HttpUtility** klasy został przeniesiony do nowej platformy .NET Framework 4  **System.Net.WebUtility** klasy. Jeśli było tylko funkcje platformy ASP.NET, które było używane, należy zmodyfikować kod aplikacji, aby użyć nowego **WebUtility** klasy zamiast tego.

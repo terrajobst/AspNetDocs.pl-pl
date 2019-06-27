@@ -8,12 +8,12 @@ ms.date: 06/09/2009
 ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f56241a6a3d1d54f917d366b08edb4a1a43bbce8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2b84b4e0f57bdddb83fc79494b66be76edcad664
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134444"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411014"
 ---
 # <a name="displaying-a-custom-error-page-c"></a>Wyświetlanie niestandardowej strony błędu (C#)
 
@@ -137,8 +137,10 @@ Dzięki tej zmianie w miejscu zawsze wtedy, gdy użytkownik odwiedzający zdalni
 > [!NOTE]
 > Zapoznaj się z [404 stron błędów, jeden raz z bardziej](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) wskazówki dotyczące tworzenia skutecznych stron powodujących błąd 404.
 
-[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Rysunek 7**: Strony błędu niestandardowego 404 wyświetla komunikat bardziej precyzyjnie niż `Oops.aspx`  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-cs/_static/image20.png)) 
+[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)
+
+**Rysunek 7**: Strony błędu niestandardowego 404 wyświetla komunikat bardziej precyzyjnie niż `Oops.aspx`  
+([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-cs/_static/image20.png)) 
 
 Ponieważ wiadomo, że `404.aspx` strony jest osiągany dopiero po użytkownik wysyła żądanie dla strony, który nie został znaleziony, można zwiększyć tę stronę błędu niestandardowego, aby oferować takie funkcje, aby pomóc użytkownikowi adresu określonego typu błędu. Na przykład można tworzenie map znane nieprawidłowe adresy URL to dobry adresów URL tabeli bazy danych, a następnie `404.aspx` niestandardowej strony błędu uruchom zapytanie dla tabeli, która zasugerować stron, które użytkownik może próbować dotrzeć do.
 

@@ -8,12 +8,12 @@ ms.date: 02/20/2005
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 39f4eb7b0859cf52fe3ed2531e9c349b465b9327
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4f0b021ca6ca151544dd9fb0587ed9e0cf14ff65
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116855"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411239"
 ---
 # <a name="caching"></a>Buforowanie
 
@@ -94,7 +94,7 @@ Po uruchomieniu tego polecenia następujące zmiany zostały wprowadzone do bazy
 | AspNet\_SqlCacheUnRegisterTableStoredProcedure | Wyrejestrowuje tabeli dla zależności pamięci podręcznej SQL, usuwając wpis w tabeli powiadomień i usuwa wyzwalacz. |
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Aktualizuje tabelę powiadomień przez zwiększenie changeId zmienione tabeli. ASP.NET używa tej wartości, aby ustalić, czy dane uległy zmianie. Wyszczególnionych poniżej tej wartości przechowywanej jest wykonywana przez wyzwalacz utworzony po włączeniu tabeli. |
 
-- Wyzwalacz programu SQL Server o nazwie ***tabeli\_nazwa *\_AspNet\_SqlCacheNotification\_wyzwalacza** jest tworzony dla tabeli. Ten wyzwalacz jest wykonywany AspNet\_SqlCacheUpdateChangeIdStoredProcedure podczas wykonywania w tabeli INSERT, UPDATE lub DELETE.
+- Wyzwalacz programu SQL Server o nazwie  **_tabeli\_nazwa_\_AspNet\_SqlCacheNotification\_wyzwalacza** jest tworzony dla tabeli. Ten wyzwalacz jest wykonywany AspNet\_SqlCacheUpdateChangeIdStoredProcedure podczas wykonywania w tabeli INSERT, UPDATE lub DELETE.
 - Rola programu SQL Server o nazwie **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** zostanie dodany do bazy danych.
 
 **Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** roli programu SQL Server ma uprawnienia EXEC AspNet\_SqlCachePollingStoredProcedure. Aby modelu sondowania działała prawidłowo, należy dodać swoje konto procesu do aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess roli. Aspnet\_regsql.exe narzędzie nie będzie to dla Ciebie.

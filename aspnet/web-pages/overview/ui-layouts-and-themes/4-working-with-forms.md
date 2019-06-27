@@ -8,12 +8,12 @@ ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: ec5ad784978b2d5191d59398fc4b5ed25ae516fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c7d4802063c8610a246afe67bd15eea429f7304a
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128403"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410842"
 ---
 # <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzami HTML w witrynach ASP.NET Web Pages (Razor)
 
@@ -51,7 +51,7 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
     [!code-html[Main](4-working-with-forms/samples/sample1.html)]
 3. Uruchom stronę w przeglądarce. (W programie WebMatrix w **pliki** obszaru roboczego, kliknij prawym przyciskiem myszy plik, a następnie wybierz pozycję **Uruchom w przeglądarce**.) Prosty formularz z trzech pól wejściowych i **przesyłania** wyświetlany przycisk.
 
-    ![Zrzut ekranu przedstawiający formularz zawierający trzy pola tekstowe.](4-working-with-forms/_static/image1.jpg)
+    ![Zrzut ekranu przedstawiający formularz zawierający trzy pola tekstowe.](4-working-with-forms/_static/image1.png)
 
     Jeśli na tym etapie, możesz kliknąć pozycję **przesyłania** przycisk, nic się nie dzieje. Aby formularz był przydatny, trzeba dodać kodu, który będzie uruchamiany na serwerze.
 
@@ -67,7 +67,7 @@ Aby przetwarzać formularza, należy dodać kod, który odczytuje wartości pól
 
     Po przesłaniu strony teraz wprowadzone wartości są wyświetlane nad formularza:
 
-    ![Zrzut ekranu pokazujący wprowadzone wartości wyświetlane na stronie.](4-working-with-forms/_static/image2.jpg)
+    ![Zrzut ekranu pokazujący wprowadzone wartości wyświetlane na stronie.](4-working-with-forms/_static/image2.png)
 
     Spójrz na kod strony. Należy najpierw użyć `IsPost` metodę pozwala ustalić, czy strona jest przesyłana &#8212; oznacza to, czy użytkownik kliknął element **przesyłania** przycisku. Jeśli jest to udzielania `IsPost` zwraca wartość true. Jest to standardowy sposób stron ASP.NET Web Pages w celu ustalenia, czy pracujesz za pomocą początkowego żądania (żądanie GET) lub zwrotu (żądania POST). (Aby uzyskać więcej informacji na temat GET i POST zobacz "Pobierz i POST oraz IsPost właściwość HTTP" paska bocznego w [wprowadzenie do platformy ASP.NET Web Pages programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 

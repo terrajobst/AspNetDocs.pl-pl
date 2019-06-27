@@ -8,12 +8,12 @@ ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 1f5109324ff3ce919e88fe976587a179eeaa5a5d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 380663951094c9fc7d5f0601e30995fa073a204b
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116032"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67410969"
 ---
 # <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Tworzenie i używanie pomocnika w witrynie ASP.NET Web Pages (Razor)
 
@@ -71,7 +71,7 @@ Ta procedura pokazuje, jak utworzyć pomocnika, która tworzy Uwaga, jak opisano
     Aby wywołać pomocnika został utworzony, należy użyć `@` nazwę pliku, gdzie jest pomocnika, kropka, a następnie nazwa pomocnika. (Jeśli masz wiele folderów *aplikacji\_kodu* folderu, można użyć składni `@FolderName.FileName.HelperName` wywołać Pomocnik żadnej zagnieżdżony poziom folderów). Tekst, który możesz dodać w znaki cudzysłowu w nawiasach jest tekst, który pomocnika będą wyświetlane jako część notatki na stronie sieci web.
 3. Zapisz stronę i uruchom go w przeglądarce. Pomocnik generuje elementu notatki bezpośrednio gdzie wywoływana pomocnika: między dwoma akapitami.
 
-    ![Zrzut ekranu przedstawiający stronę w przeglądarce i jak Pomocnik wygenerowany kod znaczników, który umieszcza otoczkę wokół pozycji określony tekst.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.jpg)
+    ![Zrzut ekranu przedstawiający stronę w przeglądarce i jak Pomocnik wygenerowany kod znaczników, który umieszcza otoczkę wokół pozycji określony tekst.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

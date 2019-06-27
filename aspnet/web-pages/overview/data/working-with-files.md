@@ -8,12 +8,12 @@ ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: 3ff852232212ddda4930597731911be60c092667
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 684c47a8a8480dc040e5144144577c94c35d39e5
+ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108946"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67411186"
 ---
 # <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Praca z plikami w witrynie ASP.NET Web Pages (Razor)
 
@@ -22,7 +22,7 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 > W tym artykule wyjaśniono, jak do odczytu, zapisu, dołączania, usuwania i przekazywanie plików w witrynie ASP.NET Web Pages (Razor).
 > 
 > > [!NOTE]
-> > Jeśli chcesz przekazywać obrazy i manipulować nimi (na przykład przerzucić lub zmieniać ich rozmiar), zobacz [Praca z obrazami w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202897).
+> > Jeśli chcesz przekazywać obrazy i manipulować nimi (na przykład przerzucić lub zmieniać ich rozmiar), zobacz [Praca z obrazami w witrynie ASP.NET Web Pages](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images).
 > 
 > 
 > **Zawartość:** 
@@ -72,7 +72,7 @@ Jeśli chcesz przechowywać dane w pliku tekstowym, możesz użyć `File.WriteAl
 
     Następnie Utwórz zmienną (`dataFile`) zawierający lokalizację i nazwę pliku do przechowywania danych. Ustawianie lokalizacji wymaga pewnych specjalnej obsługi. W witrynach sieci Web, jest złym zwyczajem się w kodzie do ścieżki bezwzględnej, jak *C:\Folder\File.txt* dla plików na serwerze sieci web. Jeśli witryna sieci Web zostanie przeniesiony, ścieżka bezwzględna będą nieprawidłowe. Ponadto hostowanej witryny (a nie na swoim komputerze) należy zwykle nawet prawidłowej ścieżki jest nieznana podczas pisania kodu.
 
-    Jednak czasami (np. teraz do zapisywania pliku) należy pełną ścieżkę. Rozwiązaniem jest użycie `MapPath` metody `Server` obiektu. Spowoduje to zwrócenie pełnej ścieżki do witryny sieci Web. Aby pobrać ścieżkę do katalogu głównego witryny sieci Web, użytkownik zostanie `~` — operator (do represen lokacji użytkownika wirtualnego katalogu głównego) do `MapPath`. (Można również przekazać nazwę podfolderu, takich jak *~/App\_danych /*, aby pobrać ścieżkę do tego podfolderu.) Można następnie łączyć ze sobą dodatkowe informacje na zwraca niezależnie od metody, aby można było utworzyć pełną ścieżkę. W tym przykładzie należy dodać nazwę pliku. (Możesz dowiedzieć się więcej o tym, jak pracować z ścieżek plików i folderów w [wprowadzenie do platformy ASP.NET Web Pages programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
+    Jednak czasami (np. teraz do zapisywania pliku) należy pełną ścieżkę. Rozwiązaniem jest użycie `MapPath` metody `Server` obiektu. Spowoduje to zwrócenie pełnej ścieżki do witryny sieci Web. Aby pobrać ścieżkę do katalogu głównego witryny sieci Web, użytkownik zostanie `~` — operator (do represen lokacji użytkownika wirtualnego katalogu głównego) do `MapPath`. (Można również przekazać nazwę podfolderu, takich jak *~/App\_danych /* , aby pobrać ścieżkę do tego podfolderu.) Można następnie łączyć ze sobą dodatkowe informacje na zwraca niezależnie od metody, aby można było utworzyć pełną ścieżkę. W tym przykładzie należy dodać nazwę pliku. (Możesz dowiedzieć się więcej o tym, jak pracować z ścieżek plików i folderów w [wprowadzenie do platformy ASP.NET Web Pages programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
 
     Plik jest zapisywany w *aplikacji\_danych* folderu. Ten folder jest na platformie ASP.NET, który jest używany do przechowywania plików danych, zgodnie z opisem w folderze specjalnym [wprowadzenie do pracy z bazą danych w witrynach stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=195209).
 
@@ -147,7 +147,7 @@ Ta procedura pokazuje, jak odczytywać i wyświetlić dane, który został utwor
 <a id="Deleting_Files"></a>
 ## <a name="deleting-files"></a>Usuwanie plików
 
-Aby usunąć pliki z witryny sieci Web, można użyć `File.Delete` metody. Za pomocą poniższej procedury zezwolić użytkownikom na usuwanie obrazu (*.jpg* plik) z *obrazów* folderu, jeśli znają nazwę pliku.
+Aby usunąć pliki z witryny sieci Web, można użyć `File.Delete` metody. Za pomocą poniższej procedury zezwolić użytkownikom na usuwanie obrazu ( *.jpg* plik) z *obrazów* folderu, jeśli znają nazwę pliku.
 
 > [!NOTE] 
 > 
