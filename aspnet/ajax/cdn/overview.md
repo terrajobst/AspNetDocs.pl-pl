@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 7b0b42c02439fdb76bceecc80af881e1d58e470d
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.openlocfilehash: c153dd56fea6f19a818f8785691b022c90391b71
+ms.sourcegitcommit: a256895f6160acc28d75424b8ab5d03b4e74412e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67410821"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471395"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Usługa Microsoft AJAX Content Delivery Network
 
@@ -619,6 +619,7 @@ Następujące wersje biblioteki interfejsu użytkownika jQuery znajdują się w 
 
 Następujące wersje weryfikacji biblioteki jQuery znajdują się w tej sieci CDN. Kliknij każdy link, aby wyświetlić rzeczywiste listę plików.
 
+- [Sprawdź poprawność 1.19.1 jQuery](jquery-validate/cdnjqueryvalidate1191.md "jQuery 1.19.1 sprawdzania poprawności")
 - [Sprawdź poprawność 1.19.0 jQuery](jquery-validate/cdnjqueryvalidate1190.md "jQuery 1.19.0 sprawdzania poprawności")
 - [Sprawdź poprawność 1.17.0 jQuery](jquery-validate/cdnjqueryvalidate1170.md "jQuery 1.17.0 sprawdzania poprawności")
 - [jQuery Validate 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery Validation 1.16.0")
