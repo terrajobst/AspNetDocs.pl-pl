@@ -8,12 +8,12 @@ ms.date: 05/04/2012
 ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: f57d7597a1454a53f5e87b4d69eee8ec8972e37c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a72de5c143bf760292975778b0cf5e0ccdda0973
+ms.sourcegitcommit: 6a564984ad448db34cdfab5458af755d6b65e69c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121928"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538818"
 ---
 # <a name="understanding-the-project-file"></a>Objaśnienie pliku projektu
 
@@ -83,7 +83,7 @@ Plik projektu musi zwykle zapewniają wiele różnych rodzajów informacji, aby 
 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
-Aby pobrać wartości właściwości, należy użyć formatu * *$(***PropertyName***)***.* Na przykład, aby pobrać wartość **ServerName** właściwość, należy wpisać:
+Aby pobrać wartości właściwości, użyj formatu *$(PropertyName)* . Na przykład, aby pobrać wartość **ServerName** właściwość, należy wpisać:
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
 
