@@ -25,7 +25,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Jeden atrybut dobrze zaprojektowanego witryny sieci Web jest układ spójne strony całej lokacji. Przyjmować www.asp.net witryny sieci Web, na przykład. W momencie pisania tego dokumentu każdej strony ma taką samą zawartość, u góry i u dołu strony. Jak pokazano na rysunku 1, bardzo u góry każdej strony wyświetli szarym pasku listę Communities firmy Microsoft. Poniżej oznacza to logo witryny, listy języków, w których został przetłumaczony lokacji i sekcje core: Strona główna, wprowadzenie, Dowiedz się więcej, pliki do pobrania i tak dalej. Podobnie dolnej części strony zawiera informacje o reklamie na www.asp.net, informacje o prawach autorskich oraz łącze do zasad zachowania poufności.
+Jeden atrybut dobrze zaprojektowanego witryny sieci Web jest układ spójne strony całej lokacji. Przyjmować [www.asp.net](www.asp.net) witryny sieci Web, na przykład. W momencie pisania tego dokumentu każdej strony ma taką samą zawartość, u góry i u dołu strony. Jak pokazano na rysunku 1, bardzo u góry każdej strony wyświetli szarym pasku listę Communities firmy Microsoft. Poniżej oznacza to logo witryny, listy języków, w których został przetłumaczony lokacji i sekcje core: Strona główna, wprowadzenie, Dowiedz się więcej, pliki do pobrania i tak dalej. Podobnie dolnej części strony zawiera informacje o reklamie na www.asp.net, informacje o prawach autorskich oraz łącze do zasad zachowania poufności.
 
 [![Witryny sieci Web www.asp.net stosuje spójny wygląd i zachowanie na wszystkich stronach](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
