@@ -234,7 +234,7 @@ Chcąc /Mobile adres URL do osiągnięcia akcji indeksu na HomeController wewną
 
 Oznacza to, przenośne strony głównej teraz powinien znajdować się w /Mobile zamiast/Mobile domowych, ponieważ "Home" jest teraz niejawnie domyślna nazwa kontrolera dla stron dla urządzeń przenośnych.
 
-Następnie należy pamiętać, że dodając HomeController drugi do aplikacji (czyli mobilnych, oprócz istniejącego pulpitu jeden), będzie Przerwano regularne strona główna pulpitu. Zakończy się niepowodzeniem z powodu błędu "*znaleziono wiele typów zgodnych kontroler o nazwie"Home"*". Aby rozwiązać ten problem, zaktualizuj konfigurację routingu najwyższego poziomu (w Global.asax.cs) do określenia Twojej pulpitu HomeController powinno zająć priorytet po niejednoznaczności:
+Następnie należy pamiętać, że dodając HomeController drugi do aplikacji (czyli mobilnych, oprócz istniejącego pulpitu jeden), będzie Przerwano regularne strona główna pulpitu. Zakończy się niepowodzeniem z powodu błędu "*znaleziono wiele typów zgodnych kontroler o nazwie"Home"* ". Aby rozwiązać ten problem, zaktualizuj konfigurację routingu najwyższego poziomu (w Global.asax.cs) do określenia Twojej pulpitu HomeController powinno zająć priorytet po niejednoznaczności:
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 

@@ -42,7 +42,7 @@ W tym samouczku użyjesz internetowego interfejsu API platformy ASP.NET do tworz
 
 Uruchom program Visual Studio i wybierz pozycję **Nowy projekt** na stronie **Start**. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
 
-W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#**. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **Aplikacja internetowa ASP.NET**. Nadaj projektowi nazwę "ProductsApp", a następnie kliknij przycisk **OK**.
+W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#** . W obszarze **Visual C#** , wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **Aplikacja internetowa ASP.NET**. Nadaj projektowi nazwę "ProductsApp", a następnie kliknij przycisk **OK**.
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -101,7 +101,7 @@ W tym przykładzie w celu uproszczenia produkty są przechowywane w stałej tabl
 
 Kontroler definiuje dwie metody, które zwracają produkty:
 
-- Metoda `GetAllProducts` zwraca całą listę produktów jako typ **IEnumerable&lt;produkt&gt;**.
+- Metoda `GetAllProducts` zwraca całą listę produktów jako typ **IEnumerable&lt;produkt&gt;** .
 - `GetProduct` Metoda odwołuje się do jednego produktu za pomocą jego identyfikatora.
 
 To wszystko! Masz działający internetowy interfejs API. Każda metoda na kontrolerze odnosi się do co najmniej jednego identyfikatora URI:
@@ -123,7 +123,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz *
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-W oknie dialogowym **Dodawanie nowego elementu** wybierz węzeł **Sieć Web** w kategorii **Visual C#**, a następnie wybierz element **Strona HTML**. Nazwij stronę &quot;index.html&quot;.
+W oknie dialogowym **Dodawanie nowego elementu** wybierz węzeł **Sieć Web** w kategorii **Visual C#** , a następnie wybierz element **Strona HTML**. Nazwij stronę &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 
