@@ -165,7 +165,7 @@ Jeśli wprowadzisz nieprawidłowy identyfikator, serwer zwraca błąd HTTP:
 
 ## <a name="using-f12-to-view-the-http-request-and-response"></a>Używanie klawisza F12 do wyświetlania żądania i odpowiedzi HTTP
 
-W przypadku korzystania z usługi HTTP bardzo przydatne może być wyświetlenie żądania HTTP i jego komunikatów. Można to zrobić w programie Internet Explorer 9 przy użyciu narzędzi deweloperskich uruchamianych za pomocą klawisza F12. W tym celu w programie Internet Explorer 9 naciśnij klawisz **F12**, aby otworzyć narzędzia. Następnie kliknij kartę **Sieć** i wybierz pozycję **Rozpocznij przechwytywanie**. Teraz wróć do strony internetowej i naciśnij klawisz ***F5**, aby ponowne załadować stronę. Program Internet Explorer będzie przechwytywać ruch HTTP między przeglądarką a serwerem internetowym. Widok podsumowania przedstawia cały ruch sieciowy dla strony:
+W przypadku korzystania z usługi HTTP bardzo przydatne może być wyświetlenie żądania HTTP i jego komunikatów. Można to zrobić w programie Internet Explorer 9 przy użyciu narzędzi deweloperskich uruchamianych za pomocą klawisza F12. W tym celu w programie Internet Explorer 9 naciśnij klawisz **F12**, aby otworzyć narzędzia. Następnie kliknij kartę **Sieć** i wybierz pozycję **Rozpocznij przechwytywanie**. Teraz wróć do strony internetowej i naciśnij klawisz **F5**, aby ponowne załadować stronę. Program Internet Explorer będzie przechwytywać ruch HTTP między przeglądarką a serwerem internetowym. Widok podsumowania przedstawia cały ruch sieciowy dla strony:
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
