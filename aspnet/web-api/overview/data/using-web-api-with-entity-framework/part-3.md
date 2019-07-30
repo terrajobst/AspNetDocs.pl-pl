@@ -63,19 +63,19 @@ Interfejs API umożliwia wykonywanie operacji CRUD na bazie danych. Poniżej prz
 
 | Autorzy |  |
 | --- | -- |
-| Pobierz interfejs api/autorów | Pobieranie wszystkich autorów. |
-| Interfejs api GET/autorzy / {id} | Pobierz Autor według identyfikatora. |
-| POST/api/autorów | Utwórz nowy autora. |
-| PUT/interfejs API/autorzy / {id} | Zaktualizuj istniejący autora. |
-| Usuń/interfejs API/autorzy / {id} | Usuń autora. |
+| GET api/authors | Pobieranie wszystkich autorów. |
+| GET api/authors/{id} | Pobierz Autor według identyfikatora. |
+| POST /api/authors | Utwórz nowy autora. |
+| PUT /api/authors/{id} | Zaktualizuj istniejący autora. |
+| DELETE /api/authors/{id} | Usuń autora. |
 
 | Książki |  |
 | --- | -- |
-| Pobierz /api/books | Pobierz wszystkie książki. |
-| Pobierz/interfejs API/books / {id} | Pobierz książkę według identyfikatora. |
-| WPIS książki/api / | Tworzenie nowej książki. |
-| PUT/interfejs API/books / {id} | Aktualizowanie istniejącej. |
-| Usuń/interfejs API/books / {id} | Usuń książki. |
+| GET /api/books | Pobierz wszystkie książki. |
+| GET /api/books/{id} | Pobierz książkę według identyfikatora. |
+| POST /api/books | Tworzenie nowej książki. |
+| PUT /api/books/{id} | Aktualizowanie istniejącej. |
+| DELETE /api/books/{id} | Usuń książki. |
 
 ## <a name="view-the-database-optional"></a>Widok bazy danych (opcjonalnie)
 
