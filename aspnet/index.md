@@ -7,12 +7,12 @@ ms.author: riande
 title: Dokumentacja platformy ASP.NET
 ms.date: 08/24/2018
 description: Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i inne materiały.
-ms.openlocfilehash: c907f2ba66ba6ff197ced0c67243a963ffab17e3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 4bfa5b2a161cdf67f3d2df0057bd68958d8a5769
+ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384724"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68810738"
 ---
 <!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
@@ -23,11 +23,11 @@ ms.locfileid: "59384724"
                 <a href="#core">ASP.NET Core</a>
                 <ul id="core">
                     <li>
-                        <a href="#core_overview">Omówienie</a>
+                        <a href="#core_overview">Podsumowanie</a>
                         <ul id="core_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>Platforma ASP.NET Core to nowa międzyplatformowa struktura .NET typu open source służąca do tworzenia nowoczesnych, opartych na chmurze aplikacji internetowych w systemie Windows, Mac lub Linux.</p>
+                                    <p>ASP.NET Core to platforma .NET platformy Open Source i wieloplatformowa platforma do tworzenia nowoczesnych aplikacji sieci Web opartych na chmurze w systemie Windows, Mac lub Linux.</p>
                                     <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">Poznaj zalety platform ASP.NET Core oraz ASP.NET</a> i wybierz odpowiednią dla siebie.</p>
                                 </div>
                             </li>
@@ -148,13 +148,12 @@ ms.locfileid: "59384724"
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję dokumentacji Visual Studio 2015/project.json</a></p>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#core_tutorials">Samouczki</a>
+                        <a href="#core_tutorials">Podręcznik</a>
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
@@ -280,7 +279,7 @@ ms.locfileid: "59384724"
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję dokumentacji Visual Studio 2015/project.json</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -291,7 +290,7 @@ ms.locfileid: "59384724"
                 <a href="#aspnet">ASP.NET</a>
                 <ul id="aspnet">
                     <li>
-                        <a href="#aspnet_overview">Omówienie</a>
+                        <a href="#aspnet_overview">Podsumowanie</a>
                         <ul id="aspnet_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -406,7 +405,7 @@ ms.locfileid: "59384724"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Przesyłanie w czasie rzeczywistym</h3>
-                                                    <p>Dowiedz się, jak utworzyć aplikację do rozmów za pomocą signalr2 na platformie ASP.NET i programu Visual Studio.</p>
+                                                    <p>Dowiedz się, jak utworzyć aplikację czatu przy użyciu ASP.NET Signaler 2 i Visual Studio.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,7 +439,7 @@ ms.locfileid: "59384724"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_framework">Platformy</a>
+                        <a href="#aspnet_framework">Platform</a>
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -569,7 +568,7 @@ ms.locfileid: "59384724"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_tutorials">Samouczki</a>
+                        <a href="#aspnet_tutorials">Podręcznik</a>
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
