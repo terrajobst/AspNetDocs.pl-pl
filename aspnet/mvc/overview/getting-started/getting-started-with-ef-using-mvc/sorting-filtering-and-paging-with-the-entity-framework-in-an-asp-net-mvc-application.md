@@ -1,124 +1,124 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie za pomocą programu Entity Framework w aplikacji ASP.NET MVC | Dokumentacja firmy Microsoft'
+title: 'Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie za pomocą Entity Framework w aplikacji ASP.NET MVC | Microsoft Docs'
 author: tdykstra
-description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie funkcje **studentów** strony indeksu. Możesz również utworzyć strony proste grupowanie.
+description: W tym samouczku dodasz funkcje sortowania, filtrowania i stronicowania na stronie indeksu **uczniów** . Możesz również utworzyć prostą stronę grupowania.
 ms.author: riande
 ms.date: 01/14/2019
 ms.assetid: d5723e46-41fe-4d09-850a-e03b9e285bfa
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: b7b5d3d3931f752f2effc044ca8cc52eab22da0a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d9fadc12aa83a8095f364cf39e5376243a7d0670
+ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57075587"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68810750"
 ---
-# <a name="tutorial-add-sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie za pomocą programu Entity Framework w aplikacji ASP.NET MVC
+# <a name="tutorial-add-sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Samouczek: Dodawanie sortowania, filtrowania i stronicowania za pomocą Entity Framework w aplikacji ASP.NET MVC
 
-W [poprzedniego samouczka](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md), zaimplementowane zestaw stron sieci web w przypadku podstawowych operacji CRUD dla `Student` jednostek. W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie funkcje **studentów** strony indeksu. Możesz również utworzyć strony proste grupowanie.
+W [poprzednim samouczku](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)zaimplementowano zestaw stron sieci Web dla podstawowych operacji CRUD dla `Student` jednostek. W tym samouczku dodasz funkcje sortowania, filtrowania i stronicowania na stronie indeksu **uczniów** . Możesz również utworzyć prostą stronę grupowania.
 
-Na poniższej ilustracji przedstawiono, jak będzie wyglądać stronę po zakończeniu. Nagłówki kolumn odnoszą się łącza, które użytkownik może kliknąć, aby posortować według tej kolumny. Klikając kolumnę nagłówka wielokrotnie przełącza między malejącą i rosnącą porządek sortowania.
+Na poniższej ilustracji przedstawiono, jak będzie wyglądać strona po zakończeniu. Nagłówki kolumn to linki, które użytkownik może kliknąć, aby posortować według tej kolumny. Wielokrotne kliknięcie nagłówka kolumny powoduje przełączenie między rosnącą i malejącą kolejnością sortowania.
 
 ![Students_Index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dodaj kolumnę sortowania łącza
+> * Dodaj linki sortowania kolumn
 > * Dodawanie pola wyszukiwania
-> * Dodawanie stronicowania
+> * Dodaj stronicowanie
 > * Tworzenie strony informacje
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Implementowanie podstawowych funkcji CRUD](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
 
-## <a name="add-column-sort-links"></a>Dodaj kolumnę sortowania łącza
+## <a name="add-column-sort-links"></a>Dodaj linki sortowania kolumn
 
-Aby dodać sortowanie do strony indeksu dla uczniów, zmienisz `Index` metody `Student` kontrolera i Dodaj kod do `Student` indeksować widoku.
+Aby dodać sortowanie na stronie indeksu ucznia, należy zmienić `Index` metodę `Student` kontrolera `Student` i dodać kod do widoku indeksu.
 
-### <a name="add-sorting-functionality-to-the-index-method"></a>Dodawanie funkcji sortowania do Index — metoda
+### <a name="add-sorting-functionality-to-the-index-method"></a>Dodawanie funkcji sortowania do metody index
 
-- W *Controllers\StudentController.cs*, Zastąp `Index` metoda następującym kodem:
+- W *Controllers\StudentController.cs*Zastąp `Index` metodę następującym kodem:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Ten kod odbiera `sortOrder` parametr ciągu zapytania w adresie URL. Wartość ciągu zapytania jest dostarczane przez platformę ASP.NET MVC jako parametr do metody akcji. Parametr jest ciąg, który jest "Name" lub "Date", opcjonalnie, podkreślenia i ciąg "desc", aby określić w kolejności malejącej. Domyślna kolejność sortowania jest rosnąca.
+Ten kod otrzymuje `sortOrder` parametr z ciągu zapytania w adresie URL. Wartość ciągu zapytania jest dostarczana przez ASP.NET MVC jako parametr do metody akcji. Parametr jest ciągiem "name" lub "date", opcjonalnie poprzedzonym znakiem podkreślenia i ciągiem "DESC" w celu określenia kolejności malejącej. Domyślna kolejność sortowania to Ascending.
 
-Przy pierwszym żądaniu strony indeksu nie jest Brak ciągu zapytania. Uczniów są wyświetlane w porządku rosnącym według `LastName`, co jest ustawieniem domyślnym, zgodnie z ustaleniami w należą do przypadku `switch` instrukcji. Kiedy użytkownik kliknie hiperlink nagłówek kolumny, odpowiednie `sortOrder` podana w ciągu zapytania.
+Podczas pierwszego żądania strony indeksu nie ma ciągu zapytania. Studenci są wyświetlani w porządku rosnącym według `LastName`, który jest wartością domyślną ustaloną przez przypadek przypadania `switch` w instrukcji. Gdy użytkownik kliknie hiperlink nagłówka kolumny, odpowiednia `sortOrder` wartość jest podawana w ciągu zapytania.
 
-Dwa `ViewBag` zmienne są używane, tak aby widok można skonfigurować hiperłącza nagłówków kolumn za pomocą wartości ciągu zapytania odpowiednie:
+Te dwie `ViewBag` zmienne są używane, aby widok mógł skonfigurować hiperłącza nagłówków kolumn z odpowiednimi wartościami ciągu zapytania:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Są to trójargumentowy instrukcji. Pierwsza z nich Określa, że jeśli `sortOrder` parametr ma wartość null lub jest pusta, `ViewBag.NameSortParm` powinna być ustawiona na "nazwa\_desc"; w przeciwnym razie należy ją ustawić na pusty ciąg. Te dwie instrukcje Włącz widok, aby ustawić hiperłącza nagłówek kolumny w następujący sposób:
+Są to "Trzyelementowy". Pierwszy z nich określa, że jeśli `sortOrder` parametr ma wartość null lub jest `ViewBag.NameSortParm` pusty, należy ustawić wartość "\_nazwa DESC"; w przeciwnym razie należy ustawić pusty ciąg. Te dwie instrukcje umożliwiają widokowi ustawienie hiperłączy nagłówka kolumny w następujący sposób:
 
-| Bieżący kolejność sortowania | Ostatnia nazwa hiperłącza | Data hiperłącza |
+| Bieżący porządek sortowania | Hiperłącze nazwisko | Hiperłącze daty |
 | --- | --- | --- |
-| Ostatnie nazwy, rosnąco | descending | ascending |
-| Ostatnie nazwy, malejąco | ascending | ascending |
-| Data, w kolejności rosnącej | ascending | descending |
-| Data, malejąco | ascending | ascending |
+| Nazwisko — rosnąco | descending | ascending |
+| Nazwisko malejąco | ascending | ascending |
+| Data rosnąca | ascending | descending |
+| Data malejąca | ascending | ascending |
 
-Metoda używa [składnik LINQ to Entities](/dotnet/framework/data/adonet/ef/language-reference/linq-to-entities) określić kolumnę sortowania. Ten kod tworzy <xref:System.Linq.IQueryable%601> zmiennej przed `switch` instrukcji, modyfikuje je w `switch` instrukcji i wywołania `ToList` metody `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, bez określenia zapytania są wysyłane do bazy danych. Zapytanie nie jest wykonywane, dopóki nie można przekonwertować `IQueryable` obiektu w kolekcji przez wywołanie metody, takie jak `ToList`. W związku z tym, ten kod powoduje pojedyncze zapytanie, które nie jest wykonywane, dopóki `return View` instrukcji.
+Metoda używa [LINQ to Entities](/dotnet/framework/data/adonet/ef/language-reference/linq-to-entities) , aby określić kolumnę, według której ma zostać wykonane sortowanie. <xref:System.Linq.IQueryable%601> Kod tworzy `switch` zmienną `switch` przed instrukcją `switch` , modyfikuje ją w instrukcji i wywołuje `ToList` metodę po instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych nie są wysyłane żadne zapytania do bazy danych. Zapytanie nie jest wykonywane do momentu przekonwertowania `IQueryable` obiektu do kolekcji przez wywołanie metody, takiej jak. `ToList` W związku z tym ten kod skutkuje pojedynczym zapytaniem, które nie `return View` jest wykonywane do momentu wykonania instrukcji.
 
-Jako alternatywę do pisania różnych instrukcji LINQ dla każdego kolejność sortowania można dynamicznie utworzyć instrukcji LINQ. Aby uzyskać informacji na temat dynamicznej LINQ, zobacz [dynamiczne LINQ](https://go.microsoft.com/fwlink/?LinkID=323957).
+Alternatywą dla pisania różnych instrukcji LINQ dla każdej kolejności sortowania jest możliwość dynamicznego tworzenia instrukcji LINQ. Aby uzyskać informacje na temat dynamicznego LINQ, zobacz [dynamiczny LINQ](https://go.microsoft.com/fwlink/?LinkID=323957).
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Dodawanie hiperłączy nagłówek kolumny do widoku indeksu dla uczniów
+### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Dodawanie hiperłączy nagłówka kolumny do widoku indeksu ucznia
 
-1. W *Views\Student\Index.cshtml*, Zastąp `<tr>` i `<th>` elementy wiersz nagłówka z wyróżniony kod:
+1. W *Views\Student\Index.cshtml*Zastąp `<tr>` elementy i `<th>` dla wiersza nagłówka wyróżnionym kodem:
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cshtml?highlight=5-15)]
 
-   Ten kod używa tych informacji w `ViewBag` właściwości, aby skonfigurować hiperlinki z zapytaniem odpowiednie wartości ciągu.
+   Ten kod używa informacji we `ViewBag` właściwościach do konfigurowania hiperłączy z odpowiednimi wartościami ciągu zapytania.
 
-2. Uruchom stronę, a następnie kliknij przycisk **nazwisko** i **Data rejestracji** nagłówków kolumn, aby zweryfikować, że sortowanie działa.
+2. Uruchom stronę i kliknij nagłówki kolumny **nazwisko** i **Data rejestracji** , aby sprawdzić, czy sortowanie działa.
 
-   Po kliknięciu **nazwisko** nagłówka, studentów są wyświetlane w ostatniej malejącej nazwy.
+   Po kliknięciu nagłówka nazwisko uczniowie będą wyświetlane w kolejności malejących nazwisk.
 
 ## <a name="add-a-search-box"></a>Dodawanie pola wyszukiwania
 
-Aby dodać filtrowanie do strony indeksu studentów, dodasz pole tekstowe i przycisk Prześlij do widoku i wprowadzić odpowiednie zmiany w `Index` metody. Pole tekstowe pozwala wprowadzić ciąg do wyszukania w imię pola imienia i nazwiska.
+Aby dodać filtrowanie do strony indeksu uczniów, należy dodać pole tekstowe i przycisk Prześlij do widoku i wprowadzić odpowiednie zmiany w `Index` metodzie. Pole tekstowe umożliwia wprowadzenie ciągu do wyszukania w polach Imię i nazwisko.
 
-### <a name="add-filtering-functionality-to-the-index-method"></a>Dodawanie funkcji filtrowania do Index — metoda
+### <a name="add-filtering-functionality-to-the-index-method"></a>Dodawanie funkcji filtrowania do metody index
 
-- W *Controllers\StudentController.cs*, Zastąp `Index` metoda następującym kodem (zmiany zostały wyróżnione):
+- W *Controllers\StudentController.cs*Zastąp `Index` metodę następującym kodem (zmiany są wyróżnione):
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Ten kod dodaje `searchString` parametr `Index` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, które należy dodać do widoku indeksu. Dodaje także `where` klauzuli do instrukcji LINQ, który wybiera tylko uczniowie, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje <xref:System.Linq.Queryable.Where%2A> klauzula jest wykonywany tylko wtedy, gdy wartość do wyszukania.
+Kod dodaje `searchString` parametr `Index` do metody. Wartość ciągu wyszukiwania jest odbierana z pola tekstowego, które zostanie dodane do widoku indeksu. Dodaje `where` również klauzulę do instrukcji LINQ, która wybiera tylko uczniów, których imię i nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje <xref:System.Linq.Queryable.Where%2A> klauzulę, jest wykonywana tylko wtedy, gdy istnieje wartość do wyszukania.
 
 > [!NOTE]
-> W wielu przypadkach można wywołać tej samej metody, zestaw jednostek platformy Entity Framework lub jako metodę rozszerzenia w kolekcji w pamięci. Wyniki są zazwyczaj takie same, ale w niektórych przypadkach może być inna.
+> W wielu przypadkach można wywołać tę samą metodę w ramach zestawu jednostek Entity Framework lub jako metodę rozszerzenia w kolekcji w pamięci. Wyniki są zwykle takie same, ale w niektórych przypadkach mogą być różne.
 >
-> Na przykład implementacji .NET Framework z `Contains` metoda zwraca wszystkie wiersze, w przypadku przekazania pustego ciągu do niego, ale dostawcy środowiska Entity Framework dla programu SQL Server Compact 4.0 zwraca zero wierszy obecność pustych ciągów. W związku z tym kodem w przykładzie (umieszczanie `Where` instrukcji wewnątrz `if` instrukcji) zapewnia, że, Pobierz te same wyniki dla wszystkich wersji programu SQL Server. Ponadto wdrożenia programu .NET Framework z `Contains` metoda wykonuje porównania uwzględniającego wielkość liter, domyślnie, ale dostawcy programu Entity Framework SQL Server wykonania porównania bez uwzględniania wielkości liter, domyślnie. Dlatego wywołanie `ToUpper` metody testu jawnie bez uwzględniania wielkości liter zapewnia wyniki nie należy zmieniać po zmianie kodu później, aby korzystać z repozytorium, które zwróci `IEnumerable` zbiór zamiast `IQueryable` obiektu. (Gdy wywołujesz `Contains` metody `IEnumerable` kolekcji, możesz pobrać wdrożenia programu .NET Framework; Jeśli wywołasz ją na `IQueryable` obiektu, możesz uzyskać implementację dostawcy bazy danych.)
+> Na przykład .NET Framework implementacja `Contains` metody zwraca wszystkie wiersze w przypadku przekazania do niego pustego ciągu, ale dostawca Entity Framework dla SQL Server Compact 4,0 zwraca zero wierszy dla pustych ciągów. W związku z tym kod w przykładzie (umieszczenie `Where` instrukcji `if` wewnątrz instrukcji) gwarantuje, że te same wyniki są uzyskiwane dla wszystkich wersji SQL Server. Ponadto .NET Framework implementacja `Contains` metody domyślnie wykonuje porównanie z uwzględnieniem wielkości liter, ale Entity Framework SQL Server dostawcy domyślnie wykonuje porównania bez uwzględniania wielkości liter. W związku z tym `ToUpper` , wywołanie metody w celu przeprowadzenia testu jawnie bez uwzględniania wielkości liter gwarantuje, że wyniki nie zmienią się później, aby użyć repozytorium, które `IEnumerable` zwróci kolekcję zamiast `IQueryable` obiektu. (Po wywołaniu `Contains` metody `IEnumerable` w kolekcji jest pobierana .NET Framework implementacja. po wywołaniu dla `IQueryable` obiektu zostanie wykorzystana implementacja dostawcy bazy danych).
 >
-> Obsługa wartości null, również mogą być różne dla dostawców innej bazy danych lub jeśli używasz `IQueryable` względem obiektu, gdy używasz `IEnumerable` kolekcji. Na przykład w niektórych scenariuszach `Where` warunków, takich jak `table.Column != 0` mogą nie zwracać kolumn, które mają `null` jako wartość. Aby uzyskać więcej informacji, zobacz [nieprawidłowa obsługa zmiennych o wartości null w klauzuli "where"](https://data.uservoice.com/forums/72025-entity-framework-feature-suggestions/suggestions/1015361-incorrect-handling-of-null-variables-in-where-cl).
+> Obsługa wartości null może być również różna dla różnych dostawców baz danych lub jeśli `IQueryable` używasz obiektu w porównaniu z, gdy korzystasz z `IEnumerable` kolekcji. Na przykład w niektórych scenariuszach `Where` warunek taki jak `table.Column != 0` może nie zwracać kolumn, które mają `null` jako wartość. Domyślnie EF generuje dodatkowe operatory SQL, aby mieć równość między wartościami null, które działają w bazie danych, tak jak to działa w pamięci, ale można ustawić flagę [UseDatabaseNullSemantics](https://docs.microsoft.com/dotnet/api/system.data.entity.infrastructure.dbcontextconfiguration.usedatabasenullsemantics) w Ef6 lub wywołać metodę [UseRelationalNulls](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.infrastructure.relationaldbcontextoptionsbuilder-2.userelationalnulls) w EF Core do Skonfiguruj to zachowanie.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Dodaj pole wyszukiwania do widoku indeksu dla uczniów
+### <a name="add-a-search-box-to-the-student-index-view"></a>Dodawanie pola wyszukiwania do widoku indeksu ucznia
 
-1. W *Views\Student\Index.cshtml*, Dodaj wyróżniony kod bezpośrednio przed otwierającym `table` tag, aby można było utworzyć podpis, pola tekstowego, a **wyszukiwania** przycisku.
+1. W *Views\Student\Index.cshtml*, Dodaj wyróżniony kod bezpośrednio przed tagiem otwierającym `table` , aby utworzyć podpis, pole tekstowe i przycisk **wyszukiwania** .
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cshtml?highlight=4-11)]
 
-2. Uruchom strony, wprowadź wyszukiwany ciąg, a następnie kliknij przycisk **wyszukiwania** Aby sprawdzić, czy działa filtrowanie.
+2. Uruchom stronę, wprowadź ciąg wyszukiwania, a następnie kliknij przycisk **Wyszukaj** , aby sprawdzić, czy filtrowanie działa.
 
-   Należy zauważyć, że adres URL nie zawiera "" ciąg wyszukiwania, co oznacza, że jeśli Oznacz tę stronę zakładką nie otrzymasz filtrowana lista korzystając z zakładki. Dotyczy to również łączy sortowania kolumn, ponieważ zostaną one posortowane całej listy. Poznasz, jak zmienić **wyszukiwania** przycisk, aby użyć ciągów zapytań do kryteriów filtrowania w dalszej części tego samouczka.
+   Zwróć uwagę, że adres URL nie zawiera ciągu wyszukiwania "a", co oznacza, że jeśli utworzysz zakładkę na tej stronie, nie otrzymasz filtrowanej listy przy użyciu zakładki. Dotyczy to również linków do sortowania kolumn, ponieważ sortuje całą listę. Zmienisz przycisk **wyszukiwania** , aby używać ciągów zapytania dla kryteriów filtrowania w dalszej części tego samouczka.
 
-## <a name="add-paging"></a>Dodawanie stronicowania
+## <a name="add-paging"></a>Dodaj stronicowanie
 
-Dodawanie stronicowania do strony indeksu studentów, zostanie najpierw należy zainstalować **PagedList.Mvc** pakietu NuGet. Będzie wprowadzić dodatkowe zmiany w `Index` metody i dodawanie stronicowania łącza do `Index` widoku. **PagedList.Mvc** jest jednym z wielu dobre stronicowania i sortowania pakietów dla platformy ASP.NET MVC i jego użycia w tym miejscu jest przeznaczona tylko na potrzeby przykładu nie jako zalecenie dla niego inne opcje.
+Aby dodać stronicowanie do strony indeksu uczniów, Zacznij od zainstalowania pakietu NuGet **PagedList. MVC** . Następnie wprowadzisz dodatkowe zmiany w `Index` metodzie i dodasz linki stronicowania `Index` do widoku. **PagedList. MVC** to jeden z wielu dobrych pakietów stronicowania i sortowania dla ASP.NET MVC, a jego użycie w tym miejscu jest przeznaczone tylko jako przykład, a nie jako zalecenia dotyczące innych opcji.
 
-### <a name="install-the-pagedlistmvc-nuget-package"></a>Zainstaluj pakiet PagedList.MVC NuGet
+### <a name="install-the-pagedlistmvc-nuget-package"></a>Zainstaluj pakiet NuGet PagedList. MVC
 
-NuGet **PagedList.Mvc** pakiet automatycznie instaluje **PagedList** pakietu jako zależność. **PagedList** pakiet instaluje `PagedList` kolekcji typu i rozszerzenie metody `IQueryable` i `IEnumerable` kolekcji. Metody rozszerzające tworzenia pojedynczej strony danych w `PagedList` kolekcji z Twojej `IQueryable` lub `IEnumerable`i `PagedList` kolekcji zawiera kilka właściwości i metod, które ułatwiają stronicowania. **PagedList.Mvc** pakiet Instaluje pomocnika stronicowania, który wyświetla przyciski stronicowania.
+Pakiet NuGet **PagedList. MVC** automatycznie instaluje pakiet **PagedList** jako zależność. Pakiet **PagedList** instaluje `PagedList` typ kolekcji i metody rozszerzające dla `IQueryable` i `IEnumerable` kolekcje. Metody rozszerzające umożliwiają utworzenie pojedynczej strony danych `PagedList` w kolekcji `IQueryable` z lub `IEnumerable`, a `PagedList` kolekcja zawiera kilka właściwości i metod, które ułatwiają stronicowanie. Pakiet **PagedList. MVC** instaluje pomocnika stronicowania, który wyświetla przyciski stronicowania.
 
-1. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** i następnie **Konsola Menedżera pakietów**.
+1. W menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet** , a następnie **konsolę Menedżera pakietów**.
 
-2. W **Konsola Menedżera pakietów** okna, upewnij się, że **źródła pakietu** jest **nuget.org** i **projekt domyślny** jest **ContosoUniversity**, a następnie wprowadź następujące polecenie:
+2. W oknie **konsola Menedżera pakietów** upewnij się, że **źródło pakietu** to **NuGet.org** , a **Projekt domyślny** to **ContosoUniversity**, a następnie wprowadź następujące polecenie:
 
    ```text
    Install-Package PagedList.Mvc
@@ -126,140 +126,140 @@ NuGet **PagedList.Mvc** pakiet automatycznie instaluje **PagedList** pakietu jak
 
 3. Skompiluj projekt.
 
-### <a name="add-paging-functionality-to-the-index-method"></a>Dodawanie funkcji stronicowania do Index — metoda
+### <a name="add-paging-functionality-to-the-index-method"></a>Dodawanie funkcji stronicowania do metody index
 
-1. W *Controllers\StudentController.cs*, Dodaj `using` poufności informacji dotyczące `PagedList` przestrzeni nazw:
+1. W *Controllers\StudentController.cs*Dodaj `using` instrukcję dla `PagedList` przestrzeni nazw:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-2. Zastąp `Index` metoda następującym kodem:
+2. Zastąp `Index` metodę następującym kodem:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs?highlight=1,3,7-16,41-43)]
 
-   Ten kod dodaje `page` parametr, bieżący parametr kolejność sortowania i bieżący parametr filtru do sygnatury metody:
+   Ten kod dodaje `page` parametr, bieżący parametr kolejności sortowania i bieżący parametr filtru do sygnatury metody:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-   Po raz pierwszy, ta strona jest wyświetlana, lub jeśli użytkownik nie kliknie, stronicowanie i sortowanie łącza, wszystkie parametry mają wartość null. Po kliknięciu łącza stronicowania `page` zmienna zawiera numer strony, aby wyświetlić.
+   Gdy strona jest wyświetlana po raz pierwszy, lub jeśli użytkownik nie kliknął linku stronicowania ani sortowania, wszystkie parametry mają wartość null. Jeśli kliknięto łącze stronicowania, `page` zmienna zawiera numer strony do wyświetlenia.
 
-   A `ViewBag` właściwości zapewnia widok z bieżącej kolejności sortowania, ponieważ ten musi być uwzględniona w łącza stronicowania Aby zachować porządek sortowania, taki sam, podczas stronicowania:
+   `ViewBag` Właściwość zapewnia widok z bieżącą kolejnością sortowania, ponieważ ta wartość musi być uwzględniona w łączach stronicowania, aby kolejność sortowania była taka sama podczas stronicowania:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-   Inna właściwość `ViewBag.CurrentFilter`, zawiera widok bieżący ciąg filtru. Ta wartość musi być uwzględniona w łącza stronicowania w celu utrzymania ustawień filtru podczas stronicowania i musi on zostać przywrócony do pola tekstowego po stronie zostanie wyświetlony ponownie. Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strony musi być ustawiony na 1, nowy filtr może powodować różne dane do wyświetlenia. Ciąg wyszukiwania jest zmieniany, gdy wartość jest wprowadzana w polu tekstowym i naciśnięciu przycisku Prześlij. W takim przypadku `searchString` parametru nie ma wartości null.
+   Inna Właściwość `ViewBag.CurrentFilter`,, zapewnia widok z bieżącym ciągiem filtru. Ta wartość musi być uwzględniona w łączach stronicowania, aby zachować ustawienia filtru podczas stronicowania, i musi zostać przywrócone do pola tekstowego, gdy strona jest ponownie wyświetlana. Jeśli ciąg wyszukiwania zostanie zmieniony podczas stronicowania, należy zresetować stronę do 1, ponieważ nowy filtr może spowodować wyświetlenie różnych danych. Ciąg wyszukiwania jest zmieniany, gdy wartość zostanie wprowadzona w polu tekstowym, a przycisk Prześlij zostanie naciśnięty. W takim przypadku `searchString` parametr nie ma wartości null.
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-   Na końcu metody `ToPagedList` metody rozszerzenia na uczniów `IQueryable` obiektu konwertuje zapytań dla uczniów na pojedynczej strony uczniów na typ kolekcji, który obsługuje stronicowanie. Tego jednostronicowej studentów są następnie przekazywane do widoku:
+   Na końcu metody `ToPagedList` rozszerzenia Metoda w obiekcie Students `IQueryable` konwertuje zapytanie ucznia na jedną stronę uczniów w typie kolekcji, który obsługuje stronicowanie. Ta pojedyncza strona studentów jest następnie przenoszona do widoku:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-   `ToPagedList` Metoda przyjmuje numeru strony. Dwa znaki zapytania reprezentują [operatorem łączenia wartości null](/dotnet/csharp/language-reference/operators/null-coalescing-operator). Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(page ?? 1)` oznacza, że zwracają wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
+   `ToPagedList` Metoda przyjmuje numer strony. Dwa znaki zapytania reprezentują [operator łączenia wartości null](/dotnet/csharp/language-reference/operators/null-coalescing-operator). Operator łączenia wartości null definiuje wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(page ?? 1)` oznacza zwrócenie `page` wartości, jeśli ma wartość, lub zwraca wartość 1, jeśli `page` jest równa null.
 
-### <a name="add-paging-links-to-the-student-index-view"></a>Dodawanie stronicowania łączy do widoku indeksu dla uczniów
+### <a name="add-paging-links-to-the-student-index-view"></a>Dodawanie linków stronicowania do widoku indeksu ucznia
 
-1. W *Views\Student\Index.cshtml*, Zastąp istniejący kod następującym kodem. Zmiany są wyróżnione.
+1. W *Views\Student\Index.cshtml*Zastąp istniejący kod następującym kodem. Zmiany są wyróżnione.
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=1-3,6,9,14,17,24,30,55-56,58-59)]
 
-   `@model` Instrukcji w górnej części strony określa widok teraz pobiera `PagedList` zamiast obiektu `List` obiektu.
+   Instrukcja w górnej części strony określa, że widok `PagedList` pobiera teraz obiekt zamiast `List` obiektu. `@model`
 
-   `using` Poufności informacji dotyczące `PagedList.Mvc` daje dostęp do pomocy MVC przycisków stronicowania.
+   `using` Instrukcja dla`PagedList.Mvc` daje dostęp do pomocnika MVC dla przycisków stronicowania.
 
-   Kod używa przeciążenia [BeginForm](/previous-versions/aspnet/dd492719(v=vs.108)) umożliwiająca, aby określić [FormMethod.Get](/previous-versions/aspnet/dd460179(v=vs.100)).
+   Kod używa przeciążenia elementu [BeginForm](/previous-versions/aspnet/dd492719(v=vs.108)) , który umożliwia określenie [FormMethod. Get](/previous-versions/aspnet/dd460179(v=vs.100)).
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-   Wartość domyślna [BeginForm](/previous-versions/aspnet/dd492719(v=vs.108)) przesyła dane formularza z WPISEM, co oznacza, że parametry są przekazywane w treści komunikatu HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu HTTP GET, dane formularza jest przekazywany w adresie URL jako ciągi zapytań, która umożliwia użytkownikom utworzyć zakładkę ma adres URL. [W3C wytyczne dotyczące użytkowania HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) zaleca się, powinien być używany GET akcja nie powoduje aktualizacji.
+   Wartość domyślna [BeginForm](/previous-versions/aspnet/dd492719(v=vs.108)) przesyła dane formularza z wpisem, co oznacza, że parametry są przesyłane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu protokołu HTTP GET dane formularza są przesyłane w adresie URL jako ciągi zapytań, co umożliwia użytkownikom tworzenie zakładek w adresie URL. [Wskazówki W3C dotyczące korzystania z protokołu HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) zalecają korzystanie z usługi Get, gdy akcja nie spowoduje aktualizacji.
 
-   Pole tekstowe jest inicjowany z aktualnie wyszukiwanego ciągu, dzięki czemu po kliknięciu nowej strony można przeglądać aktualnie wyszukiwanego ciągu.
+   Pole tekstowe jest inicjowane z bieżącym ciągiem wyszukiwania, więc po kliknięciu nowej strony można zobaczyć bieżący ciąg wyszukiwania.
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cshtml?highlight=1)]
 
-   Linki nagłówek kolumny, użyj ciągu zapytania do przekazania aktualnie wyszukiwanego ciągu do kontrolera, dzięki czemu użytkownik może sortować w ramach wyników filtrowania:
+   Linki nagłówka kolumny używają ciągu zapytania, aby przekazać bieżący ciąg wyszukiwania do kontrolera, tak aby użytkownik mógł sortować wyniki filtrów:
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cshtml?highlight=1)]
 
-   Bieżącej strony i łączna liczba stron są wyświetlane.
+   Zostanie wyświetlona bieżąca strona i całkowita liczba stron.
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
 
-   W przypadku stron do wyświetlania jest wyświetlany "Page 0 0". (W tym przypadku jest większa niż liczba stron na numer strony ponieważ `Model.PageNumber` wynosi 1, a `Model.PageCount` wynosi 0.)
+   Jeśli nie ma żadnych stron do wyświetlenia, wyświetlana jest wartość "Strona 0 z 0". (W tym przypadku numer strony jest większy niż liczba stron, ponieważ `Model.PageNumber` jest równa 1 i `Model.PageCount` wynosi 0).
 
-   Przyciski stronicowania są wyświetlane przez `PagedListPager` pomocy:
+   Przyciski stronicowania są wyświetlane przez `PagedListPager` pomocnika:
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 
-   `PagedListPager` Pomocnik zapewnia kilka opcji, które można dostosować, w tym adresy URL i ustawianie stylów. Aby uzyskać więcej informacji, zobacz [TroyGoode / PagedList](https://github.com/TroyGoode/PagedList) w witrynie GitHub.
+   `PagedListPager` Pomocnik zawiera kilka opcji, które można dostosować, w tym adresy URL i style. Aby uzyskać więcej informacji, zobacz [TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) w witrynie GitHub.
 
 2. Uruchom stronę.
 
-   Po kliknięciu łączy stronicowania w różnych sortowania, aby upewnić się, że działa stronicowania. Następnie wprowadź wyszukiwany ciąg i spróbuj stronicowania ponownie, aby sprawdzić, czy stronicowania również działa poprawnie przy użyciu sortowania i filtrowania.
+   Kliknij linki stronicowania w różnych kolejności sortowania, aby upewnić się, że stronicowanie działa. Następnie wprowadź ciąg wyszukiwania i spróbuj ponownie wykonać stronicowanie, aby sprawdzić, czy stronicowanie działa prawidłowo z sortowaniem i filtrowaniem.
 
 ## <a name="create-an-about-page"></a>Tworzenie strony informacje
 
-Dla firmy Contoso University witryny internetowej informacje o stronie będą wyświetlane, jak wiele studentów zostały zarejestrowane dla każdego dnia rejestracji. Wymaga to obliczeń grupowania i prostych grup. Aby to osiągnąć, wykonasz następujące czynności:
+Na stronie informacje o witrynie sieci Web dla uniwersytetów firmy Contoso można wyświetlić liczbę studentów zarejestrowanych dla każdej daty rejestracji. Wymaga to grupowania i prostych obliczeń dla grup. Aby to osiągnąć, należy wykonać następujące czynności:
 
-- Utwórz klasę modelu widoku danych potrzebnych do przekazania do widoku.
-- Modyfikowanie `About` method in Class metoda `Home` kontrolera.
-- Modyfikowanie `About` widoku.
+- Utwórz klasę modelu widoku dla danych, które należy przekazać do widoku.
+- `About` Zmodyfikuj metodę`Home` w kontrolerze.
+- `About` Zmodyfikuj widok.
 
 ### <a name="create-the-view-model"></a>Tworzenie modelu widoku
 
-Tworzenie *modele widoków* folderu w folderze projektu. W tym folderze, Dodaj plik klasy *EnrollmentDateGroup.cs* i Zastąp kod szablonu poniższym kodem:
+Utwórz folder *modele widoków* w folderze projektu. W tym folderze Dodaj plik klasy *EnrollmentDateGroup.cs* i Zastąp kod szablonu następującym kodem:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-### <a name="modify-the-home-controller"></a>Modyfikowanie kontrolera głównego
+### <a name="modify-the-home-controller"></a>Modyfikowanie kontrolera macierzystego
 
-1. W *HomeController.cs*, Dodaj następujący kod `using` instrukcji w górnej części pliku:
+1. W *HomeController.cs*Dodaj następujące `using` instrukcje w górnej części pliku:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
-2. Dodaj zmienną klasy kontekstu bazy danych bezpośrednio po otwierającym nawiasie klamrowym dla klasy:
+2. Dodaj zmienną klasy dla kontekstu bazy danych bezpośrednio po otwierającym nawiasie klamrowym dla klasy:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs?highlight=3)]
 
-3. Zastąp `About` metoda następującym kodem:
+3. Zastąp `About` metodę następującym kodem:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs)]
 
-   Instrukcji LINQ grup jednostek uczniów według daty rejestracji, oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w zbiorze `EnrollmentDateGroup` wyświetlić obiekty w modelu.
+   Instrukcja LINQ grupuje jednostki studenta według daty rejestracji, oblicza liczbę jednostek w każdej grupie i zapisuje wyniki w kolekcji `EnrollmentDateGroup` obiektów modelu widoku.
 
-4. Dodaj `Dispose` metody:
+4. `Dispose` Dodaj metodę:
 
    [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
-### <a name="modify-the-about-view"></a>Zmodyfikuj widok — informacje
+### <a name="modify-the-about-view"></a>Modyfikowanie widoku informacje
 
-1. Zastąp kod w *Views\Home\About.cshtml* pliku następującym kodem:
+1. Zastąp kod w pliku *Views\Home\About.cshtml* następującym kodem:
 
    [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cshtml)]
 
-2. Uruchom aplikację, a następnie kliknij przycisk **o** łącza.
+2. Uruchom aplikację i kliknij łącze **informacje** .
 
-   Liczba studentów każdej daty rejestracji wyświetla się w tabeli.
+   Liczba studentów dla każdej daty rejestracji zostanie wyświetlona w tabeli.
 
    ![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobieranie ukończone projektu](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
+[Pobierz ukończony projekt](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
+Linki do innych zasobów Entity Framework można znaleźć w temacie [ASP.NET Data Access — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dodaj kolumnę sortowania łącza
+> * Dodaj linki sortowania kolumn
 > * Dodawanie pola wyszukiwania
-> * Dodawanie stronicowania
+> * Dodaj stronicowanie
 > * Tworzenie strony informacje
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak używać połączenia przejmowanie odporność i polecenia.
+Przejdź do następnego artykułu, aby dowiedzieć się, jak korzystać z odporności połączeń i przechwycenia poleceń.
 > [!div class="nextstepaction"]
-> [Przejmowanie odporność i polecenia połączenia](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Odporność połączeń i przechwycenie poleceń](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
