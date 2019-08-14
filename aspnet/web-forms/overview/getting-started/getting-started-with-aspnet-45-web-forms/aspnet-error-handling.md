@@ -309,7 +309,7 @@ W tym samouczku przedstawiono obsługi błędów na poziomie aplikacji, na pozio
 
 ## <a name="tutorial-series-conclusion"></a>Podsumowanie serii samouczków
 
-*Dziękujemy za przechodzenia. Mam nadzieję, że pomogła tym zestawie samouczków, możesz lepiej zapoznać się z wzorca ASP.NET Web Forms. Aby uzyskać więcej informacji na temat funkcji formularzy sieci Web, które są dostępne w programach ASP.NET 4.5 i programu Visual Studio 2013, zobacz* [ *ASP.NET and Web Tools dla programu Visual Studio 2013 Release Notes* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Należy także zapoznaj się z samouczkiem wymienione w* * **następne kroki *** sekcji i defintely wypróbować* [ *bezpłatnej wersji próbnej platformy Azure* ](https://azure.microsoft.com/pricing/free-trial/)* .*
+*Dziękujemy za przechodzenia. Mam nadzieję, że pomogła tym zestawie samouczków, możesz lepiej zapoznać się z wzorca ASP.NET Web Forms. Aby uzyskać więcej informacji na temat funkcji formularzy sieci Web, które są dostępne w programach ASP.NET 4.5 i programu Visual Studio 2013, zobacz* [ *ASP.NET and Web Tools dla programu Visual Studio 2013 Release Notes* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Należy także zapoznaj się z samouczkiem wymienione w ** **następne kroki** **sekcji i defintely wypróbować* [*bezpłatnej wersji próbnej platformy Azure*](https://azure.microsoft.com/pricing/free-trial/)* .*
 
 ![Dziękuję — Erik](aspnet-error-handling/_static/image10.png)  
 
