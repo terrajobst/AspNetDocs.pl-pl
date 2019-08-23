@@ -1,105 +1,105 @@
 ---
 uid: overview
-title: Omówienie programu ASP.NET | Dokumentacja firmy Microsoft
+title: Przegląd ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Wprowadzenie do platformy ASP.NET, bezpłatna architektura służąca do tworzenia witryn sieci Web, aplikacji sieci web i interfejsów API sieci web.
+description: Wprowadzenie do usługi ASP.NET — bezpłatnej platformy do tworzenia witryn internetowych, aplikacji sieci Web i interfejsów API sieci Web.
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
 ms.author: riande
-ms.date: 03/12/2010
+ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: d4b96bd2ff99bb30ff59b9697a27e33acb0f719d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9a6d08849f09c9d7a779df64f70e8770d2af3c87
+ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120092"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995286"
 ---
 # <a name="aspnet-overview"></a>Omówienie platformy ASP.NET
 
-ASP.NET to bezpłatne środowisko internetowe umożliwiające tworzenie doskonałych witryn oraz aplikacji internetowych za pomocą kodu HTML, CSS i JavaScript. Można również tworzyć interfejsy API sieci Web i używać technologii czasu rzeczywistego, takich jak Web Sockets.
+ASP.NET to bezpłatna platforma internetowa do tworzenia doskonałych witryn internetowych i aplikacji sieci Web przy użyciu języków HTML, CSS i JavaScript. Można również tworzyć interfejsy API sieci Web i używać technologii w czasie rzeczywistym, takich jak sieci Web.
 
-[Platforma ASP.NET Core](https://docs.microsoft.com/aspnet/core/) stanowi alternatywę dla platformy ASP.NET.  Zobacz [wskazówki dotyczące wyboru między ASP.NET i ASP.NET Core](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework).
+[ASP.NET Core](https://docs.microsoft.com/aspnet/core/) jest alternatywą dla ASP.NET.  Zapoznaj się ze [wskazówkami dotyczącymi wybierania między ASP.NET i ASP.NET Core](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework).
 
 ## <a name="get-started"></a>Wprowadzenie
 
-Zainstaluj [programu Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community edition, bezpłatne środowisko IDE dla platformy ASP.NET w Windows.
+Zainstaluj [program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community Edition, bezpłatne środowisko IDE dla ASP.NET w systemie Windows.
 
-## <a name="websites-and-web-applications"></a>Aplikacje sieci web i witryn sieci Web
+## <a name="websites-and-web-applications"></a>Witryny internetowe i aplikacje sieci Web
 
- Program ASP.NET oferuje trzy platformy tworzenia aplikacji sieci web: Formularze sieci Web platformy ASP.NET MVC i stron ASP.NET Web Pages. Wszystkie trzy struktury są stabilne i dojrzałych i możesz tworzyć aplikacje sieci web przy użyciu dowolnego z nich. Niezależnie od tego, w jakiej możesz wybrać platformy otrzymasz wszystkie korzyści i funkcje platformy ASP.NET wszędzie.
+ ASP.NET oferuje trzy platformy do tworzenia aplikacji sieci Web: Web Forms, ASP.NET MVC i ASP.NET Web Pages. Wszystkie trzy platformy są stabilne i dojrzałe i można tworzyć wspaniałe aplikacje sieci Web przy użyciu dowolnego z nich. Bez względu na to, którą platformę wybierzesz, uzyskasz wszystkie korzyści i funkcje ASP.NET wszędzie.
 
-Każdego szablonu jest przeznaczony dla stylu różnych rozwoju. Możesz wybrać jedną zależy od kombinacji zasobów programowania (wiedzy, umiejętności i środowisko programistyczne), typ aplikacji, którą tworzysz i podejście do tworzenia, które komfortowo, jednocześnie.
+Każda struktura jest przeznaczona dla innego stylu programowania. Wybór wybierany zależy od kombinacji zasobów programistycznych (wiedzy, umiejętności i środowiska programistycznego), typu tworzonej aplikacji oraz podejścia do programowania, z jakim jesteś.
 
-Poniżej przedstawiono omówienie każdego z struktury i kilka pomysłów na to, jak dokonać wyboru między nimi. Jeśli wolisz wprowadzenie wideo, zobacz [tworzenie witryn internetowych ASP.NET](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET) i [co to jest narzędzia sieci Web?](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)
+Poniżej znajduje się przegląd poszczególnych platform oraz kilka pomysłów dotyczących wyboru między nimi. Jeśli wolisz wybrać film wideo, zobacz [Tworzenie witryn internetowych z ASP.NET](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET) i [co to są narzędzia sieci Web?](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)
 
-|   | Jeśli masz doświadczenie | Styl projektowania | Doświadczenie |
+|   | Jeśli masz doświadczenie w programie | Styl programowania | Doświadczenie |
 |-----------|----------------------|-----------------------------------------------------|----------------|
-| Formularze sieci Web | Win Forms, WPF, .NET | Szybkie opracowywanie przy użyciu bogata Biblioteka formantów, które hermetyzują kod znaczników HTML | RAD średniego poziomu, zaawansowany |
-| MVC       | Ruby on Rails, platformy .NET  | Pełną kontrolę nad kod znaczników HTML, kodu i znaczników rozdzielonych i łatwe do pisania testów. Najlepszym wyborem dla aplikacji mobilnych i jednostronicowej (SPA). | Średniego poziomu, zaawansowany |
-| Model Web Pages  | Classic ASP, PHP     | Kod znaczników HTML, a kod razem w tym samym pliku | Nowy, średniego poziomu |
+| Formularze sieci Web | Win Forms, WPF, .NET | Szybkie programowanie przy użyciu bogatej biblioteki formantów, która hermetyzuje znaczniki HTML | Średni poziom, zaawansowana RAD |
+| MVC       | Język Ruby on-szyny, .NET  | Pełna kontrola nad adiustacją HTML, kodem i rozdzielonymi znacznikami oraz łatwym do pisania testami. Najlepszy wybór dla aplikacji mobilnych i jednostronicowych (SPA). | Na poziomie średniej, zaawansowane |
+| Model Web Pages  | Klasyczne środowisko ASP, PHP     | Znaczniki HTML i kod w tym samym pliku | Nowy, średni poziom |
 
 ### <a name="web-forms"></a>Formularze sieci Web
 
-ASP.NET Web Forms umożliwiają tworzenie dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej oraz setkom kontrolek i składników pozwalają szybko tworzyć złożone, zaawansowane witryny opartej na interfejsie użytkownika z dostępem do danych.
+Za pomocą formularzy sieci Web ASP.NET można tworzyć dynamiczne witryny internetowe przy użyciu znanego modelu typu "przeciągnij i upuść". Powierzchnia projektowa i setki kontrolek i składników pozwalają na szybkie tworzenie zaawansowanych, zaawansowanych witryn opartych na interfejsie użytkownika z dostępem do danych.
 
-[Dowiedz się więcej o formularzy sieci Web](web-forms/index.md)
+[Dowiedz się więcej o formularzach sieci Web](web-forms/index.md)
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC zapewnia zaawansowany, bazujący na wzorcach sposób tworzenia dynamicznych witryn internetowych, które umożliwia wyraźne oddzielenie obaw i zapewnia pełną kontrolę nad znacznikami dla przyjemne, elastyczne programowanie. Platforma ASP.NET MVC zawiera wiele funkcji umożliwiających szybkie, przyjazne projektowanie oparte na testach Programowanie w celu tworzenia zaawansowanych aplikacji korzystających z najnowszych standardów sieci web.
+ASP.NET MVC oferuje zaawansowany, oparty na wzorcach sposób tworzenia dynamicznych witryn sieci Web, które umożliwiają czyste rozdzielenie problemów i zapewnia pełną kontrolę nad adiustacjami, aby można było korzystać z programowania Agile. ASP.NET MVC zawiera wiele funkcji, które umożliwiają szybkie i niezrozumiałe Programowanie dla tworzenia zaawansowanych aplikacji, które korzystają z najnowszych standardów sieci Web.
 
 [Dowiedz się więcej o MVC](mvc/index.md)
 
 ### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
-Strony ASP.NET Web Pages o składni Razor zapewniają szybki, przystępny i nieskomplikowany sposób łączenia kodu serwera z kodem HTML w celu tworzenia dynamicznej zawartości internetowej. Łączenie z bazami danych, dodawanie filmu wideo, połącz się z witrynami sieci społecznościowych i obejmuje wiele innych funkcji, które pomagają tworzyć piękne witryny, które są zgodne z najnowszych standardów sieci web.
+ASP.NET strony sieci Web i składnia Razor zapewniają szybki, efektywny i prosty sposób łączenia kodu serwera z HTML w celu utworzenia dynamicznej zawartości sieci Web. Łączenie z bazami danych, Dodawanie wideo, łączenie z witrynami sieci społecznościowych i zawiera wiele innych funkcji, które ułatwiają tworzenie atrakcyjnych witryn, które są zgodne z najnowszymi standardami sieci Web.
 
-[Dowiedz się więcej na temat stron sieci Web](web-pages/index.md)
+[Dowiedz się więcej o stronach sieci Web](web-pages/index.md)
 
-### <a name="notes-about-web-forms-mvc-and-web-pages"></a>Uwagi dotyczące formularzy sieci Web, MVC i Web Pages
+### <a name="notes-about-web-forms-mvc-and-web-pages"></a>Uwagi dotyczące formularzy sieci Web, MVC i stron sieci Web
 
-Wszystkie trzy struktury ASP.NET są oparte na programie .NET Framework i udostępniaj podstawowych funkcji programu .NET i programu ASP.NET. Na przykład wszystkie trzy struktury oferuje model zabezpieczeń logowania na podstawie członkostwa, a wszystkie trzy udostępniać te same urządzenia do zarządzania żądaniami, obsługa sesji i tak dalej, które są częścią podstawowych funkcji programu ASP.NET.
+Wszystkie trzy platformy ASP.NET są oparte na .NET Framework i udostępniają podstawowe funkcje platformy .NET i ASP.NET. Na przykład wszystkie trzy struktury oferują model zabezpieczeń logowania na podstawie członkostwa, a wszystkie trzy współużytkują te same obiekty do zarządzania żądaniami, obsługi sesji i tak dalej, które są częścią podstawowych funkcji ASP.NET.
 
-Ponadto trzy struktur są całkowicie niezależne i wybierając jedną nie wyklucza korzystania z innej. Ponieważ struktury mogą współistnieć w tej samej aplikacji sieci web, nie jest niczym niezwykłym, aby wyświetlić poszczególne składniki aplikacji napisanych przy użyciu różnych platform. Na przykład przeznaczonych dla klientów części aplikacji mogą być tworzone w MVC w celu optymalizacji znaczników, podczas dostępu do danych i administracyjnych fragmenty są opracowywane w formularzach sieci Web, aby móc korzystać z formantów danych i prostego data access.
+Ponadto trzy struktury nie są całkowicie niezależne i wybór jednego z nich nie wyklucza użycia innego. Ponieważ struktury mogą współistnieć w tej samej aplikacji sieci Web, nie jest rzadko widoczne poszczególne składniki aplikacji pisanych przy użyciu różnych platform. Na przykład składniki aplikacji dostępne dla klientów mogą być opracowywane w MVC, aby zoptymalizować znaczniki, podczas gdy dane dotyczące dostępu do danych i administracyjne są opracowywane w formularzach sieci Web w celu wykorzystania kontroli danych i prostego dostępu do danych.
 
 ## <a name="web-apis"></a>Interfejsy Web API
 
-Web API platformy ASP.NET to platforma, która ułatwia tworzenie usług HTTP, docierających do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych. Web API platformy ASP.NET jest idealną platformą do tworzenia aplikacji typu RESTful na .NET Framework.
+Interfejs API sieci Web ASP.NET to struktura, która ułatwia tworzenie usług HTTP, które docierają do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. Interfejs API sieci Web ASP.NET to idealna platforma służąca do tworzenia aplikacji RESTful na .NET Framework.
 
-[Dowiedz się więcej na temat interfejsu API sieci Web](web-api/index.md)
+[Dowiedz się więcej o interfejsie API sieci Web](web-api/index.md)
 
 <!-- Put first under Web API TOC:  Watch video (9 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/services-and-aspnet -->
 
-## <a name="real-time-technologies"></a>Z technologii czasu rzeczywistego
+## <a name="real-time-technologies"></a>Technologie w czasie rzeczywistym
 
-Biblioteki SignalR platformy ASP.NET jest nową biblioteką dla deweloperów platformy ASP.NET, który ułatwia opracowywanie funkcji sieci web w czasie rzeczywistym. SignalR umożliwia komunikację dwukierunkową między serwerem a klientem. Serwery można wypchnąć zawartości do połączonych klientów natychmiast po jej udostępnieniu. SignalR obsługuje gniazda sieci Web i powraca do innych technik zgodne starsze przeglądarki. SignalR obejmuje funkcje interfejsu API umożliwiający zarządzanie połączeniami (na przykład nawiązywać połączenia i zdarzenia rozłączenia), grupowanie połączeń i autoryzację.
+ASP.NET Signal to nowa biblioteka dla deweloperów ASP.NET, która ułatwia tworzenie funkcji sieci Web w czasie rzeczywistym. Usługa sygnalizująca umożliwia komunikację dwukierunkową między serwerem a klientem. Serwery mogą natychmiast wysyłać zawartość do podłączonych klientów, gdy stanie się ona dostępna. Program sygnalizujący obsługuje gniazda sieci Web i powraca do innych zgodnych technik dla starszych przeglądarek. Sygnalizujący obejmuje interfejsy API do zarządzania połączeniami (na przykład zdarzenia łączenia i rozłączania), grupowanie połączeń i autoryzację.
 
-[Dowiedz się więcej na temat biblioteki SignalR](signalr/index.md)
+[Dowiedz się więcej o usłudze sygnalizującej](signalr/index.md)
 
 <!-- Put first under SignalR TOC:  Watch video (6 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/signalr-and-the-real-time-web -->
 
-## <a name="mobile-apps-and-sites"></a>Aplikacje mobilne i lokacje
+## <a name="mobile-apps-and-sites"></a>Aplikacje mobilne i witryny
 
-Program ASP.NET może obsługiwać natywnych aplikacji mobilnych za pomocą interfejsu API sieci Web zaplecza, a także mobilnej witryny sieci web przy użyciu środowisk elastyczne, takich jak Twitter Bootstrap. Jeśli tworzysz natywnych aplikacji mobilnych jest łatwe tworzenie interfejsu API sieci Web opartych na formacie JSON na dostęp do danych uchwyt, uwierzytelnianie i powiadomienia wypychane dla aplikacji. Jeśli tworzysz interaktywnych witryn mobilnych, można użyć dowolnego CSS framework lub systemu siatki Otwórz kopii zapasowej lub wybierz zaawansowany system urządzenia przenośnego, np. jQuery Mobile lub Sencha i niezawodnych aplikacji mobilnych za pomocą PhoneGap.
+ASP.NET mogą korzystać z natywnych aplikacji mobilnych z zapleczem interfejsu API sieci Web, a także witryn sieci Web dla urządzeń przenośnych korzystających z platform projektowania, takich jak Bootstrap. Jeśli tworzysz natywną aplikację mobilną, możesz łatwo utworzyć interfejs API sieci Web oparty na notacji JSON, aby obsługiwać dostęp do danych, uwierzytelnianie i powiadomienia wypychane dla aplikacji. Jeśli tworzysz witrynę mobilną, możesz użyć dowolnej struktury CSS lub systemu otwartej siatki lub wybrać zaawansowany system mobilny, taki jak jQuery Mobile lub Sencha i wspaniałe aplikacje mobilne z PhoneGap.
 
-[Dowiedz się więcej o programowaniu rozwiązań mobilnych, aplikacji i witryny](mobile/index.md)
+[Dowiedz się więcej o tworzeniu aplikacji mobilnych i witrynach](mobile/index.md)
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
-## <a name="single-page-applications"></a>Aplikacje jednej strony
+## <a name="single-page-applications"></a>Aplikacje jednostronicowe
 
-ASP.NET pojedynczej strony aplikacji (SPA) pomaga w tworzeniu aplikacji, które zawierają istotne interakcji po stronie klienta przy użyciu języków HTML 5, CSS 3 i JavaScript. Visual Studio zawiera szablon służący do tworzenia aplikacji jednostronicowej przy użyciu struktura knockout.js i Web API platformy ASP.NET. Oprócz wbudowany szablon SPA utworzonych przez społeczność SPA są także dostępne szablony do pobrania.
+Aplikacja jednostronicowa ASP.NET (SPA) ułatwia tworzenie aplikacji, które obejmują znaczące interakcje po stronie klienta przy użyciu języka HTML 5, CSS 3 i JavaScript. Program Visual Studio zawiera szablon służący do tworzenia aplikacji jednostronicowych przy użyciu narzędzia separowania. js i interfejsu API sieci Web ASP.NET. Oprócz wbudowanego szablonu SPA tworzone przez społeczność szablony SPA są również dostępne do pobrania.
 
-[Dowiedz się więcej o programowaniu aplikacji jednostronicowej](single-page-application/index.md)
+[Dowiedz się więcej o tworzeniu aplikacji jednostronicowej](single-page-application/index.md)
 
 ## <a name="webhooks"></a>Elementy webhook
 
-Elementy Webhook jest lekkiego wzorca HTTP, podając modelu publikowania/subskrybowania proste dołączenie razem interfejsów API sieci Web i usług SaaS. Przypadku wystąpienia zdarzenia w usłudze, powiadomienie jest wysyłane w formularzu żądania HTTP POST do zarejestrowanych subskrybentów. Żądanie POST zawiera informacje o zdarzeniu, co umożliwia odbiorcy podejmowanie odpowiednich działań.
+Elementy webhook to lekki wzorzec HTTP udostępniający prosty model pub/sub dla połączeń interfejsów API sieci Web i usług SaaS. Po wystąpieniu zdarzenia w usłudze powiadomienie jest wysyłane w formie żądania HTTP POST do zarejestrowanych subskrybentów. Żądanie POST zawiera informacje o zdarzeniu, które umożliwi odbiorcy odpowiednie działanie.
 
-Elementy Webhook są udostępniane przez dużą liczbę usługi takie jak Dropbox, GitHub, usłudze Instagram, MailChimp, PayPal, Slack, Trello i wielu innych. Na przykład element WebHook można wskazać, że plik zmienił się w usłudze Dropbox, zmiany kodu został zatwierdzony w usłudze GitHub lub płatność została zainicjowana w systemie PayPal lub karta została utworzona w usłudze Trello.
+Elementy webhook są udostępniane przez dużą liczbę usług, w tym Dropbox, GitHub, usługi Instagram, MailChimp, PayPal, zapasowy, Trello i wiele innych. Na przykład element webhook może wskazywać, że plik został zmieniony w usłudze Dropbox lub że w usłudze GitHub została zatwierdzona zmiana kodu, lub Zainicjowanie płatności w systemie PayPal lub utworzenie karty w usłudze Trello.
 
-[Dowiedz się więcej na temat elementów Webhook](webhooks/index.md)
+[Dowiedz się więcej o elementach webhook](webhooks/index.md)
 
 <!--
 Create Deployment TOC based on https://www.asp.net/aspnet/overview/deployment
