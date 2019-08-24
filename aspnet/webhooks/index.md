@@ -1,39 +1,39 @@
 ---
 uid: webhooks/index
-title: Omówienie elementów Webhook programu ASP.NET | Dokumentacja firmy Microsoft
+title: Elementy webhook ASP.NET — Omówienie | Microsoft Docs
 author: rick-anderson
-description: Wprowadzenie do elementów Webhook programu ASP.NET.
+description: Wprowadzenie do ASP.NET elementów webhook.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.openlocfilehash: 702cc0bf0d0bb887c64bec19e1faf249bd96617a
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: aa65a20e1af16d58533e37fafc77ac246e0fe327
+ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57796575"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000730"
 ---
-# <a name="aspnet-webhooks-overview"></a>Omówienie elementów Webhook programu ASP.NET
+# <a name="aspnet-webhooks-overview"></a>Webhook ASP.NET — Omówienie
 
-Elementy Webhook jest lekkiego wzorca HTTP, podając modelu publikowania/subskrybowania proste dołączenie razem interfejsów API sieci Web i usług SaaS. Przypadku wystąpienia zdarzenia w usłudze, powiadomienie jest wysyłane w formularzu żądania HTTP POST do zarejestrowanych subskrybentów. Żądanie POST zawiera informacje o zdarzeniu, co umożliwia odbiorcy podejmowanie odpowiednich działań.
+Elementy webhook to lekki wzorzec HTTP udostępniający prosty model pub/sub dla połączeń interfejsów API sieci Web i usług SaaS. Po wystąpieniu zdarzenia w usłudze powiadomienie jest wysyłane w formie żądania HTTP POST do zarejestrowanych subskrybentów. Żądanie POST zawiera informacje o zdarzeniu, które umożliwi odbiorcy odpowiednie działanie.
 
-Ze względu na ich prostotę, elementy Webhook są już udostępniane przez dużą liczbę usług w tym [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [usługi MailChimp ](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Slack](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)i wiele innych. Na przykład element WebHook można wskazać, że plik został zmieniony w [Dropbox](http://dropbox.com/), zmiany kodu został zatwierdzony w usłudze GitHub lub płatność została zainicjowana w [PayPal](http://www.paypal.com/), lub karta została utworzona w [ Trello](http://www.trello.com/). Możliwości są nieograniczone!
+Ze względu na prostotę elementy webhook są już udostępniane przez dużą liczbę usług, w tym [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [BitBucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Zapasy](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)i wiele szczegółowe. Na przykład element webhook może wskazywać, że plik został zmieniony w usłudze [Dropbox](http://dropbox.com/)lub że w usłudze GitHub została zatwierdzona zmiana kodu, lub Zainicjowanie płatności w [systemie PayPal](http://www.paypal.com/)lub utworzenie karty w usłudze [Trello](http://www.trello.com/). Możliwości są nieograniczone!
 
-Microsoft ASP.NET WebHooks sprawia, że łatwiej wysyłać i odbierać elementy Webhook w ramach aplikacji ASP.NET:
+Microsoft ASP.NET webhook ułatwiają wysyłanie i odbieranie elementów webhook w ramach aplikacji ASP.NET:
 
-* Po stronie odbierającej zapewnia wspólny model odbieranie i przetwarzanie elementów Webhook z dowolnej liczby dostawców elementu WebHook. Chodzi gotowych dzięki obsłudze [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [Bitbucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Usługi pusher](http://www.pusher.com), [Salesforce](http://www.salesforce.com), [Slack](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[ WordPress](http://www.wordpress.com) i [Zendesk](https://www.zendesk.com/) , ale można łatwo dodać więcej obsługę.
+* Po stronie odbiorczej zapewnia wspólny model do odbioru i przetwarzania elementów webhook z dowolnej liczby dostawców elementów webhook. Usługa [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [BitBucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), Pusher, [Salesforce](http://www.salesforce.com), [Zapasy](http://www.slack.com), [](http://www.pusher.com) [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[WordPress](http://www.wordpress.com) i [Systemu Zendesk](https://www.zendesk.com/) , ale łatwo jest dodać obsługę więcej.
 
-* Po stronie wysyłającej zapewnia obsługę do zarządzania i przechowywania subskrypcje również, jak w przypadku wysyłania powiadomień o zdarzeniach do odpowiedniego zestawu subskrybentów. Dzięki temu można zdefiniować własny zestaw zdarzeń czy subskrybenci można zasubskrybować i powiadamiaj ich sytuacji rzeczy.
+* Na stronie wysyłającej zapewnia obsługę zarządzania subskrypcjami i ich przechowywania oraz wysyłania powiadomień o zdarzeniach do odpowiedniego zestawu subskrybentów. Pozwala to definiować własny zestaw zdarzeń, które Subskrybenci mogą subskrybować i powiadamiać o nich, gdy wystąpią.
 
-Dwie części można ze sobą lub od siebie w zależności od scenariusza. Jeśli chcesz odbierać elementy Webhook z innych usług, wówczas można użyć tylko części odbiorcy; Jeśli chcesz udostępnić elementy Webhook dla innych użytkowników do korzystania, następnie należy to.
+Te dwie części mogą być używane razem lub w zależności od danego scenariusza. Jeśli musisz tylko odbierać elementy webhook z innych usług, możesz użyć tylko części odbiornika. Jeśli chcesz tylko uwidocznić elementy webhook dla innych użytkowników, możesz to zrobić.
 
-Kod jest przeznaczony dla platformy ASP.NET Web API 2 i ASP.NET MVC 5 i jest dostępna jako [OSS w serwisie GitHub](https://github.com/aspnet/WebHooks).
+Kod jest przeznaczony dla ASP.NET Web API 2 i ASP.NET MVC 5 i jest dostępny jako [OSS w serwisie GitHub](https://github.com/aspnet/WebHooks).
 
-## <a name="webhooks-overview"></a>Omówienie elementów Webhook
+## <a name="webhooks-overview"></a>Elementy webhook — Omówienie
 
-Elementy Webhook jest wzorzec, co oznacza, że zależy to korzystania z usługi do usługi, ale podstawowa koncepcja jest taka sama. Można traktować elementów Webhook jako modelu publikowania/subskrybowania proste której użytkownik może subskrybować zdarzenia dzieje się w innym miejscu. Powiadomienia o zdarzeniach są propagowane na żądania HTTP POST zawierających informacje o samym zdarzeniu.
+Elementy webhook są wzorcem, co oznacza, że różni się w zależności od tego, w jaki sposób jest używany przez usługę do obsługi, ale podstawowy pomysł jest taki sam. Elementy webhook można traktować jako prosty model pub/sub, w którym użytkownik może subskrybować zdarzenia występujące w innym miejscu. Powiadomienia o zdarzeniach są propagowane jako żądania HTTP POST zawierające informacje o samym zdarzeniu.
 
-Żądanie HTTP POST zawiera zazwyczaj obiekt JSON lub danych formularza HTML, określane przez nadawcę elementu WebHook, w tym informacje o zdarzeniu, powodując elementu WebHook do wyzwalania. Na przykład przykład treści żądania POST elementu WebHook z [GitHub](http://www.github.com/) wygląda podobnie do następującego wyniku nowy problem jest otwarty w określonym repozytorium:
+Zwykle żądanie HTTP POST zawiera obiekt JSON lub dane formularza HTML określone przez nadawcę elementu webhook, w tym informacje o zdarzeniu powodującym wyzwolenie elementu webhook. Na przykład treść żądania POST elementu webhook z usługi [GitHub](http://www.github.com/) wygląda następująco w wyniku nowego problemu w określonym repozytorium:
 
 ```json
 {
@@ -61,34 +61,34 @@ Elementy Webhook jest wzorzec, co oznacza, że zależy to korzystania z usługi 
 }
 ```
 
-Aby upewnij się, że element WebHook w rzeczywistości od zamierzonego nadawcy, żądania POST jest zabezpieczony w jakiś sposób i następnie weryfikowany przez odbiorcę. Na przykład [elementy Webhook GitHub](https://developer.github.com/webhooks/) obejmuje *X-Hub-podpisu* nagłówka HTTP z treści żądania, która jest sprawdzana przez odbiornika, więc nie trzeba już martwić się o jego skrót.
+Aby upewnić się, że element webhook jest rzeczywiście z zamierzonego nadawcy, żądanie POST jest zabezpieczone w jakiś sposób, a następnie zweryfikowane przez odbiornik. Na przykład elementy [webhook usługi GitHub](https://developer.github.com/webhooks/) zawierają nagłówek HTTP *podpisu X-Hub* z skrótem treści żądania, który jest sprawdzany przez implementację odbiorcy, dzięki czemu nie trzeba martwić się o to.
 
-Przepływ elementu WebHook wykracza ogólnie podobny do poniższego:
+Przepływ elementu webhook zwykle jest podobny do tego:
 
-* Nadawca elementu WebHook uwidacznia zdarzenia, które może być subskrybowana przez klienta. Zdarzenia opisują zauważalne zmiany w systemie, na przykład które nowy element danych został wstawiony, że proces został zakończony lub coś innego.
+* Nadawca elementu webhook ujawnia zdarzenia, które klient może subskrybować. Zdarzenia opisują zauważalne zmiany w systemie, na przykład, że został wstawiony nowy element danych, że proces został ukończony lub coś innego.
 
-* Subskrybuje odbiorcy elementu WebHook, rejestrując element WebHook, składający się z czterech elementów:
+* Odbiorca elementu webhook subskrybuje się, rejestrując element webhook składający się z czterech rzeczy:
 
-     1. Identyfikator URI, dla których zaksięgowania powiadomień o zdarzeniach w formularzu żądania HTTP POST;
+     1. Identyfikator URI, w którym ma być ogłaszane powiadomienie o zdarzeniu w formie żądania HTTP POST;
 
-     2. Zestaw filtrów opisujące określonych zdarzeń, dla których powinny być uruchamiane elementu WebHook;
+     2. Zestaw filtrów opisujących konkretne zdarzenia, dla których powinien być uruchamiany element webhook;
 
-     3. Klucz tajny, który jest używany do podpisywania żądań POST protokołu HTTP;
+     3. Klucz tajny, który jest używany do podpisywania żądania HTTP POST;
 
-     4. Dodatkowe dane, które mają być zawarte w żądaniu POST protokołu HTTP. Może to być na przykład dodatkowe pola nagłówka HTTP lub właściwości zawarte w treści żądania HTTP POST.
+     4. Dodatkowe dane, które mają zostać uwzględnione w żądaniu POST protokołu HTTP. Może to być na przykład dodatkowe pola nagłówka HTTP lub właściwości zawarte w treści żądania POST protokołu HTTP.
 
-* Po wystąpieniu zdarzenia zostaną znalezione dopasowania rejestracji elementu WebHook i przesłaniu żądania HTTP POST. Zazwyczaj generowanie żądań HTTP POST zostaną ponowione kilka razy, jeśli dla jakiegoś powodu, że odbiorca nie odpowiada lub wyniki żądania HTTP POST w odpowiedzi na błąd.
+* Po wystąpieniu zdarzenia zostaną znalezione zgodne rejestracje elementu webhook i przesłane żądania POST HTTP. Zazwyczaj generowanie żądań POST protokołu HTTP zostanie ponowione kilka razy, jeśli z jakiegoś powodu odbiorca nie odpowiada lub żądanie HTTP POST spowoduje wystąpienie błędu.
 
-## <a name="webhooks-processing-pipeline"></a>Potok przetwarzania elementów Webhook
+## <a name="webhooks-processing-pipeline"></a>Potok przetwarzania elementów webhook
 
-Potok przetwarzania Microsoft ASP.NET WebHooks dla przychodzących elementów Webhook wygląda następująco:
+Potok przetwarzania Microsoft ASP.NET elementów webhook dla przychodzących elementów webhook wygląda następująco:
 
-![Potok przetwarzania elementów Webhook programu ASP.NET](_static/WebHookReceivers.png)
+![Potok przetwarzania elementów webhook ASP.NET](_static/WebHookReceivers.png)
 
-Są dwa kluczowe pojęcia tutaj *odbiorniki* i *obsługi*:
+Te dwa kluczowe pojęcia są *odbiornikami* i *programami obsługi*:
 
-* *Odbiorniki* jest odpowiedzialny za obsługę określoną wersję elementu WebHook z danym nadawcy i wymuszanie sprawdza zabezpieczeń, upewnij się, że żądanie elementu WebHook w rzeczywistości od zamierzonego nadawcy.
+* *Odbiorcy* są odpowiedzialni za obsługę określonej wersji elementu webhook od danego nadawcy i wymuszanie kontroli zabezpieczeń, aby upewnić się, że żądanie elementu webhook rzeczywiście pochodzi od zamierzonego nadawcy.
 
-* *Programy obsługi* są zazwyczaj, gdy kod użytkownika uruchamia przetwarzanie określonego elementu WebHook.
+* *Programy obsługi* zazwyczaj mają miejsce, gdzie kod użytkownika uruchamia przetwarzanie określonego elementu webhook.
 
-W następujących węzłach te pojęcia są opisane bardziej szczegółowo.
+W poniższych węzłach te pojęcia są opisane bardziej szczegółowo.
