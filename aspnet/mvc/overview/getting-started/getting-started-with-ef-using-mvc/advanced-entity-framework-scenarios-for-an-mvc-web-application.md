@@ -10,10 +10,10 @@ ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: d7cc83a5b78a60f575f5c3065079679189296a0c
-ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
+ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "58425278"
 ---
 # <a name="tutorial-learn-about-advanced-ef-scenarios-for-an-mvc-5-web-app"></a>Samouczek: Dowiedz się więcej na temat zaawansowanych scenariuszy EF dla aplikacji sieci Web MVC 5
@@ -59,7 +59,7 @@ Gdy jest zawsze prawdziwe w przypadku wykonywania poleceń SQL w aplikacji sieci
 
 ### <a name="calling-a-query-that-returns-entities"></a>Wywoływanie zapytania zwracającego jednostki
 
-Klasa [nieogólnymi&lt;&gt; ](https://msdn.microsoft.com/library/gg696460.aspx) zamiaru udostępnia metodę, której można użyć do wykonania zapytania zwracającego jednostkę typu. `TEntity` Aby zobaczyć, jak to działa, Zmień kod w `Details` metodzie `Department` kontrolera.
+Klasa [nieogólnymi&lt;zamiaru&gt; ](https://msdn.microsoft.com/library/gg696460.aspx) udostępnia metodę, której można użyć do wykonania zapytania zwracającego jednostkę typu. `TEntity` Aby zobaczyć, jak to działa, Zmień kod w `Details` metodzie `Department` kontrolera.
 
 W *DepartmentController.cs*, w `Details` `db.Departments.FindAsync` metodzie, Zastąp wywołanie `db.Departments.SqlQuery` metody wywołaniem metody, jak pokazano w poniższym wyróżnionym kodzie:
 
@@ -132,7 +132,7 @@ Teraz ustaw punkt przerwania w `return` instrukcji (F9 z kursorem w tym wierszu)
 
 [!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
 
-Kliknij szklaną lupę, aby zobaczyć zapytanie w wizualizatorze **tekstu**.
+Kliknij szklaną lupę, aby zobaczyć zapytanie w **wizualizatorze tekstu**.
 
 ![](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image10.png)
 
@@ -194,7 +194,7 @@ Większość czasu nie musisz wiedzieć o tym, jak korzystać z serwerów proxy,
 
 - W niektórych scenariuszach może być konieczne uniemożliwienie Entity Framework tworzenia wystąpień serwera proxy. Na przykład podczas serializowania jednostek zwykle potrzebne są klasy POCO, a nie klasy proxy. Jednym ze sposobów uniknięcia problemów serializacji jest Serializowanie obiektów transferu danych (DTO) zamiast obiektów jednostek, jak pokazano w samouczku [using Web API with Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) . Innym sposobem jest [wyłączenie tworzenia serwera proxy](https://msdn.microsoft.com/data/jj592886.aspx).
 - Podczas tworzenia wystąpienia klasy jednostki przy użyciu `new` operatora nie jest możliwe uzyskanie wystąpienia serwera proxy. Oznacza to, że nie otrzymujesz takich funkcji, jak ładowanie z opóźnieniem i automatyczne śledzenie zmian. Jest to zazwyczaj dobry; zwykle nie jest wymagane ładowanie z opóźnieniem, ponieważ tworzysz nową jednostkę, która nie znajduje się w bazie danych, a na ogół nie potrzebujesz śledzenia zmian, jeśli jawnie oznaczesz jednostkę `Added`jako. Jeśli jednak wymagasz ładowania z opóźnieniem i potrzebujesz śledzenia zmian, możesz utworzyć nowe wystąpienia jednostek z serwerami proxy za pomocą metody `DbSet` [Create](https://msdn.microsoft.com/library/gg679504.aspx) klasy.
-- Możesz chcieć uzyskać rzeczywisty typ jednostki z typu proxy. Można użyć metody GetObjectType klasy, [](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx) `ObjectContext` Aby uzyskać rzeczywisty typ jednostki wystąpienia typu serwera proxy.
+- Możesz chcieć uzyskać rzeczywisty typ jednostki z typu proxy. Można użyć metody [GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx) klasy, `ObjectContext` Aby uzyskać rzeczywisty typ jednostki wystąpienia typu serwera proxy.
 
 Aby uzyskać więcej informacji, zobacz [Praca z serwerami proxy](https://msdn.microsoft.com/data/JJ592886.aspx) w witrynie MSDN.
 
@@ -216,7 +216,7 @@ Jeśli śledzisz dużą liczbę jednostek i wywołujesz jedną z tych metod wiel
 
 ## <a name="automatic-validation"></a>Automatyczna walidacja
 
-Po wywołaniu `SaveChanges` metody, domyślnie Entity Framework sprawdza poprawność danych we wszystkich właściwościach wszystkich zmienionych jednostek przed aktualizacją bazy danych. Jeśli Zaktualizowano dużą liczbę jednostek i masz już zweryfikowane dane, ta wartość nie jest konieczna, a proces zapisywania zmian trwa krócej, tymczasowo wyłączając weryfikację. Można to zrobić za pomocą właściwości [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) . Aby uzyskać więcej informacji, [](https://msdn.microsoft.com/data/gg193959) zobacz Walidacja w witrynie MSDN.
+Po wywołaniu `SaveChanges` metody, domyślnie Entity Framework sprawdza poprawność danych we wszystkich właściwościach wszystkich zmienionych jednostek przed aktualizacją bazy danych. Jeśli Zaktualizowano dużą liczbę jednostek i masz już zweryfikowane dane, ta wartość nie jest konieczna, a proces zapisywania zmian trwa krócej, tymczasowo wyłączając weryfikację. Można to zrobić za pomocą właściwości [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) . Aby uzyskać więcej informacji, zobacz [Walidacja](https://msdn.microsoft.com/data/gg193959) w witrynie MSDN.
 
 ## <a name="entity-framework-power-tools"></a>Entity Framework narzędzia do zarządzania
 
@@ -266,7 +266,7 @@ Komunikat o błędzie (z `Update-Database` polecenia w obszarze PMC):
 
 Rozwiązanie
 
-Jedną z przyczyn tego problemu jest błędy walidacji podczas `Seed` uruchamiania metody. Zapoznaj się `Seed` z wypełnieniem [i debugowaniem Entity Framework (EF) baz danych](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) , aby uzyskać wskazówki dotyczące debugowania metody.
+Jedną z przyczyn tego problemu jest błędy walidacji podczas `Seed` uruchamiania metody. Zapoznaj się `Seed` z [wypełnieniem i debugowaniem Entity Framework (EF) baz danych](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) , aby uzyskać wskazówki dotyczące debugowania metody.
 
 ### <a name="http-50019-error"></a>Błąd HTTP 500,19
 
