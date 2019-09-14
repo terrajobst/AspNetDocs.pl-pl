@@ -1,394 +1,396 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku testowym | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: Wdrażanie do testowania | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 39502e03196d2ba51e826d248ff0ff1e84258131
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c45003325832258466a787bc589bf40e844248a2
+ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420201"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70985855"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku testowym
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: Wdrażanie w środowisku testowym
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub u dostawcy hostingu innych firm przy użyciu programu Visual Studio 2017. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2017. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
+
+Aby zapoznać się z bieżącą wersją wdrożenia na platformie Azure, zobacz [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku będziesz wdrożysz aplikację sieci web platformy ASP.NET do programu Internet Information Server (IIS) na komputerze lokalnym.
+W tym samouczku wdrożono aplikację sieci Web ASP.NET na serwerze Internet Information Server (IIS) na komputerze lokalnym.
 
-Zazwyczaj podczas opracowywania aplikacji, możesz go uruchomić i przetestować go w programie Visual Studio. Domyślnie projekty aplikacji sieci web w programie Visual Studio 2017 używają usług IIS Express jako serwera wdrożeniowego sieci web. Usługi IIS Express zachowuje się bardziej jak usługi IIS niż serwera programu Visual Studio Development (znanego także jako Cassini), która domyślnie używa programu Visual Studio 2017. Ale ani serwera wdrożeniowego sieci web działa tak samo jak usługi IIS. W związku z tym aplikację można uruchomić i poprawnie Testuj w programie Visual Studio, ale się nie powieść, gdy aplikacja jest wdrożona w usługach IIS.
+Ogólnie podczas opracowywania aplikacji należy ją uruchomić i przetestować w programie Visual Studio. Domyślnie projekty aplikacji sieci Web w programie Visual Studio 2017 używają IIS Express jako serwera deweloperskiego sieci Web. IIS Express zachowuje się jak pełnych usług IIS niż serwer programistyczny programu Visual Studio (znany również jako Cassini), którego program Visual Studio 2017 domyślnie używa. Jednak serwer sieci Web programistyczny działa tak samo jak w przypadku usług IIS. W związku z tym aplikacja może działać i testować prawidłowo w programie Visual Studio, ale kończy się niepowodzeniem, gdy zostanie wdrożona w usługach IIS.
 
-Można wiarygodnie przetestować aplikację na dwa sposoby:
+Możesz niezawodnie przetestować aplikację na dwa sposoby:
 
-1. Wdrażanie aplikacji w usługach IIS na komputerze deweloperskim za pomocą tego samego procesu, którego będziesz później wdrożyć w środowisku produkcyjnym.
+1. Wdróż aplikację w usługach IIS na komputerze deweloperskim, korzystając z tego samego procesu, który będzie używany później do wdrożenia go w środowisku produkcyjnym.
 
-   Można skonfigurować w programie Visual Studio do używania usług IIS, gdy uruchamiasz projekt sieci web, ale które nie Testuj proces wdrażania. Ta metoda sprawdza proces wdrażania, a aplikacja działa poprawnie w środowisku usług IIS.
+   Program Visual Studio można skonfigurować tak, aby korzystał z usług IIS podczas uruchamiania projektu sieci Web, ale nie przetestować procesu wdrażania. Ta metoda sprawdza poprawność procesu wdrażania i sprawdzanie, czy aplikacja działa prawidłowo w ramach usług IIS.
 
-2. Wdróż aplikację w środowisku testowym, podobne do środowiska produkcyjnego. 
+2. Wdróż aplikację w środowisku testowym, podobnym do środowiska produkcyjnego. 
  
-   Środowiska produkcyjnego potrzeby tych samouczków to funkcja Web Apps w usłudze Azure App Service. Środowisko testowe idealnym rozwiązaniem jest dodatkowe utworzona aplikacja sieci web w usłudze Azure. Chociaż należy go skonfigurować taki sam sposób jak produkcyjną aplikację internetową, będzie ona używana tylko do testowania.
+   Środowisko produkcyjne dla tych samouczków jest Web Apps w Azure App Service. Idealnym środowiskiem testowym jest dodatkowa aplikacja internetowa utworzona w usłudze platformy Azure. Mimo że można go skonfigurować w taki sam sposób jak w przypadku produkcyjnej aplikacji sieci Web, można używać jej tylko do testowania.
 
-Opcja 2 jest najbardziej niezawodnym sposobem, aby przetestować. Jeśli używasz opcji 2, nie jest konieczna opcja 1. Jednak jeśli wdrażasz do innych firm hostingu dostawcy, opcja 2 może nie być możliwe lub może być kosztowne, więc tej serii samouczków opisano obie metody. Wskazówki dotyczące opcji 2 znajduje się w [wdrażanie w środowisku produkcyjnym](deploying-to-production.md) samouczka.
+Opcja 2 to najbardziej niezawodny sposób na przetestowanie. Jeśli używasz opcji 2, nie musisz koniecznie używać opcji 1. Jeśli jednak wdrażasz w ramach dostawcy hostingu innej firmy, opcja 2 może nie być wykonalna lub być kosztowna, dlatego ta seria samouczków pokazuje obie metody. Wskazówki dotyczące opcji 2 są dostępne w samouczku [wdrażanie do środowiska produkcyjnego](deploying-to-production.md) .
 
-Aby uzyskać więcej informacji o korzystaniu z serwerów sieci web w programie Visual Studio, zobacz [serwerów sieci Web w programie Visual Studio dla projektów sieci Web platformy ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
+Aby uzyskać więcej informacji o korzystaniu z serwerów sieci Web w programie Visual Studio, zobacz [serwery sieci Web w programie Visual Studio for ASP.NET — projekty sieci Web](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 
-Przypomnienie: Jeśli pojawi się komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, należy koniecznie sprawdzić [strona rozwiązywania problemów](troubleshooting.md).
+Generowania Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie zadziała, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](troubleshooting.md).
 
-## <a name="download-the-contoso-university-starter-project"></a>Pobieranie uniwersytecie Contoso projekt startowy
+## <a name="download-the-contoso-university-starter-project"></a>Pobierz początkowy projekt firmy Contoso University
 
-Pobierz i zainstaluj rozwiązania starter Contoso University programu Visual Studio i projektu. To rozwiązanie zawiera samouczek ukończone. 
+Pobierz i zainstaluj rozwiązanie i projekt programu Visual Studio z uczelnią contoso. To rozwiązanie zawiera ukończony samouczek. 
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 ## <a name="install-iis"></a>Instalowanie usług IIS
 
-Do wdrożenia usług IIS na komputerze deweloperskim, upewnij się, że są zainstalowane usługi IIS i narzędzia Web Deploy. Domyślnie program Visual Studio instaluje narzędzie Web Deploy, ale usługi IIS nie jest zawarty w domyślnej konfiguracji systemu Windows 10, Windows 8 lub Windows 7. Jeśli usługi IIS zostały już zainstalowane, a domyślna pula aplikacji jest już ustawione w .NET 4, przejdź do [następnej sekcji](#sqlexpress).
+Aby wdrożyć usługi IIS na komputerze deweloperskim, upewnij się, że usługi IIS i Web Deploy są zainstalowane. Domyślnie program Visual Studio instaluje Web Deploy, ale usługi IIS nie są uwzględnione w konfiguracji domyślnej systemu Windows 10, Windows 8 lub Windows 7. Jeśli usługi IIS zostały już zainstalowane i domyślna pula aplikacji została już ustawiona na .NET 4, przejdź do [następnej sekcji](#sqlexpress).
 
-1. Zaleca się używanie [Instalatora platformy sieci Web (WPI)](https://www.microsoft.com/web/downloads/platform.aspx) do zainstalowania usług IIS i narzędzia Web Deploy. WPI instaluje zalecaną konfigurację usług IIS, który zawiera wymagania wstępne dotyczące usług IIS i narzędzia Web Deploy, jeśli to konieczne.
+1. Zalecamy używanie [Instalatora platformy sieci Web (WPI)](https://www.microsoft.com/web/downloads/platform.aspx) do instalowania usług IIS i Web Deploy. WPI instaluje zalecaną konfigurację usług IIS, która obejmuje usługi IIS i Web Deploy w razie potrzeby wymagania wstępne.
 
-   Jeśli po zainstalowaniu usług IIS, narzędzia Web Deploy lub dowolnej ich wymaganych składników, WPI instaluje tylko co to jest Brak.
+   Jeśli program IIS został już zainstalowany, Web Deploy lub dowolny z wymaganych składników, WPI zainstaluje tylko to, co się nie ma.
 
-   * Aby zainstalować usługi IIS i narzędzia Web Deploy, należy użyć Instalatora platformy sieci Web:
+   * Użyj Instalatora platformy sieci Web, aby zainstalować usługi IIS i Web Deploy:
     
-     ![Instalowanie usług IIS przy użyciu usługi](deploying-to-iis/_static/image30.png)
+     ![Instalowanie usług IIS przy użyciu WPI](deploying-to-iis/_static/image30.png)
 
-     ![Zainstaluj narzędzie Web Deploy, za pomocą usługi](deploying-to-iis/_static/image31.png)
+     ![Instalowanie Web Deploy przy użyciu WPI](deploying-to-iis/_static/image31.png)
 
-     Zostaną wyświetlone komunikaty wskazujące, czy zostaną zainstalowane usługi IIS 7. Łącze działa w przypadku usług IIS 8 w systemie Windows 8. Jednak dla systemu Windows 8 i nowszych przejść przez następujące kroki, aby upewnić się, że platforma ASP.NET 4.7 jest zainstalowany:
+     Zobaczysz komunikat informujący o tym, że usługi IIS 7 zostaną zainstalowane. Link działa dla usług IIS 8 w systemie Windows 8. Jednak w przypadku systemu Windows 8 i nowszych wykonaj następujące kroki, aby upewnić się, że zainstalowano program ASP.NET 4,7:
 
-   * Otwórz **Panelu sterowania** > **programy** > **programy i funkcje** > **Windows Włącz lub wyłącz funkcje** .
+   * Otwórz **panel** > sterowania**programy** > **programy i funkcje** > **Włącz lub wyłącz funkcje systemu Windows**.
 
-   * Rozwiń **Internetowe usługi informacyjne**, **usługi World Wide Web**, i **funkcje tworzenia aplikacji**.
+   * Rozwiń węzeł **Internet Information Services**, **usługi World Wide Web**i **funkcje projektowania aplikacji**.
    
-   * Upewnij się, że **platforma ASP.NET 4.7** jest zaznaczone.
+   * Upewnij się, że wybrano **ASP.NET 4,7** .
 
-     ![Select ASP.NET 4.7](deploying-to-iis/_static/image1a.png)
+     ![Wybierz ASP.NET 4,7](deploying-to-iis/_static/image1a.png)
 
-   * Upewnij się, że **usługi World Wide Web** i **Konsola zarządzania usługami IIS** jest zaznaczone. Spowoduje to zainstalowanie usług IIS i Menedżera usług IIS.
+   * Upewnij się, że jest wybrana opcja **usługi World Wide Web** i **Konsola zarządzania usługami IIS** . Spowoduje to zainstalowanie usług IIS i Menedżera usług IIS.
     
-     ![Wybierz opcję usługi WWW](deploying-to-iis/_static/image24.png)    
+     ![Wybierz World Wide Web usług](deploying-to-iis/_static/image24.png)    
   
-   * Kliknij przycisk **OK**. Komunikaty okna dialogowego wskazujący, że instalacja ma miejsce są wyświetlane.
+   * Kliknij przycisk **OK**. Pojawią się komunikaty okna dialogowego informujące o instalacji.
 
-Po zainstalowaniu usług IIS, należy uruchomić **Menedżera usług IIS** aby upewnić się, że .NET Framework w wersji 4 są przypisane do domyślnej puli aplikacji.
+Po zainstalowaniu usług IIS Uruchom **Menedżera usług IIS** , aby upewnić się, że .NET Framework wersja 4 jest przypisana do domyślnej puli aplikacji.
 
-1. Naciśnij klawisze WINDOWS + R, aby otworzyć **Uruchom** okno dialogowe.
+1. Naciśnij klawisze WINDOWS + R, aby otworzyć okno dialogowe **Uruchamianie** .
 
-   (W systemie Windows 8 lub nowszym, wprowadź "Uruchom" w **Start** strony. Windows 7, wybierz **Uruchom** z **Start** menu. Jeśli **Uruchom** nie znajduje się w **Start** menu, kliknij prawym przyciskiem myszy pasek zadań, wybrać **właściwości**, wybierz opcję **Start Menu** , a następnie wybierz **Dostosuj**i wybierz **Uruchom polecenie**.)
+   (W systemie Windows 8 lub nowszym wprowadź "Run" na stronie **startowej** . W systemie Windows 7 wybierz opcję **Uruchom** z menu **Start** . Jeśli **Run** nie ma w menu **Start** , kliknij prawym przyciskiem myszy pasek zadań, wybierz polecenie **Właściwości**, wybierz kartę **menu Start** , wybierz opcję **Dostosuj**i wybierz **polecenie Uruchom**.
 
-2. Wprowadź "inetmgr" i wybierz **OK**.
+2. Wprowadź wartość "inetmgr" i wybierz **przycisk OK**.
 
-3. W **połączeń** okienku rozwiń węzeł serwera i wybierz **pul aplikacji**. W **pul aplikacji** okienko Jeśli **DefaultAppPool** jest przypisany do programu .NET framework w wersji 4 tak jak na poniższej ilustracji, przejdź do następnej sekcji.
+3. W okienku **połączenia** rozwiń węzeł serwera, a następnie wybierz pozycję **Pule aplikacji**. W okienku **Pule aplikacji** **, jeśli do** programu .NET Framework w wersji 4 zostanie przypisany zestaw na poniższej ilustracji, przejdź do następnej sekcji.
 
    ![Inetmgr_showing_4.0_app_pools](deploying-to-iis/_static/image5a.png)
 
-4. Jeśli zostanie wyświetlony tylko dwie pule aplikacji i są ustawione na .NET Framework 2.0, programu ASP.NET 4 należy zainstalować w usługach IIS.
+4. Jeśli widzisz tylko dwie pule aplikacji i oba są ustawione na .NET Framework 2,0, zainstaluj ASP.NET 4 w usługach IIS.
 
-   Dla systemu Windows 8 lub nowszym, zobacz instrukcje w poprzedniej sekcji, upewniając się, że platforma ASP.NET 4.7 jest zainstalowane, lub zobacz [sposobu instalacji ASP.NET 4.5 w systemie Windows 8 i Windows Server 2012](https://support.microsoft.com/kb/2736284). Windows 7, Otwórz okno wiersza polecenia, klikając prawym przyciskiem myszy **polecenia** w Windows **Start** menu i wybierając polecenie **Uruchom jako Administrator**. Uruchom [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) do zainstalowania programu ASP.NET 4 w usługach IIS przy użyciu następujących poleceń. (W systemach 32-bitowych, zamiast "Framework64" z "Framework").
+   W przypadku systemu Windows 8 lub nowszego zapoznaj się z instrukcjami w poprzedniej sekcji, aby upewnić się, że ASP.NET 4,7 jest zainstalowana, lub zobacz [jak zainstalować ASP.NET 4,5 w systemie Windows 8 i Windows Server 2012](https://support.microsoft.com/kb/2736284). W systemie Windows 7 Otwórz okno wiersza polecenia, klikając prawym przyciskiem myszy **wiersz polecenia** w menu **Start** systemu Windows i wybierając polecenie **Uruchom jako administrator**. Uruchom [polecenie\_ASPNET regiis. exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) , aby zainstalować ASP.NET 4 w usługach IIS przy użyciu następujących poleceń. (W systemach 32-bitowych Zastąp ciąg "Framework64" "platformą").
 
    [!code-console[Main](deploying-to-iis/samples/sample1.cmd)]
 
-   To polecenie umożliwia utworzenie nowej aplikacji pul dla programu .NET Framework 4, ale domyślnej puli aplikacji będzie zachowana wartość 2.0. Wdrożysz aplikację, czy cele .NET 4 do puli aplikacji, więc Zmień pulę aplikacji .NET 4.
+   To polecenie tworzy nowe pule aplikacji dla .NET Framework 4, ale domyślna pula aplikacji pozostanie ustawiona na 2,0. Wdrażasz aplikację, która jest przeznaczona dla platformy .NET 4, do tej puli aplikacji, więc Zmień pulę aplikacji na .NET 4.
 
-5. Jeśli został zamknięty **Menedżera usług IIS**, uruchom ją ponownie, rozwiń węzeł serwera, a następnie wybierz **pul aplikacji**.
+5. Jeśli **Menedżer usług IIS**został zamknięty, uruchom go ponownie, rozwiń węzeł serwera, a następnie wybierz pozycję **Pule aplikacji**.
 
-6. W **pul aplikacji** okienku wybierz **DefaultAppPool**. W **akcje** okienku wybierz **podstawowych ustawień**.
+6. W okienku **Pule aplikacji** wybierz pozycję **Domyślna pula**. W okienku **Akcje** wybierz pozycję **Ustawienia podstawowe**.
 
    ![Inetmgr_selecting_Basic_Settings_for_app_pool](deploying-to-iis/_static/image25.png)
 
-7. W **edytowanie puli aplikacji** okno dialogowe, zmiana **wersja środowiska .NET CLR** do **4.0.30319 .NET CLR**. Kliknij przycisk **OK**.
+7. W oknie dialogowym **Edytowanie puli aplikacji** Zmień **wersję środowiska .NET CLR** na **.NET CLR v 4.0.30319**. Kliknij przycisk **OK**.
 
    ![Selecting_.NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
 
-Teraz możesz przystąpić do publikowania aplikacji sieci web usług IIS. Najpierw jednak tworzyć baz danych na potrzeby testowania.
+Teraz można przystąpić do publikowania aplikacji sieci Web w usługach IIS. Należy jednak najpierw utworzyć bazy danych do testowania.
 
 <a id="sqlexpress"></a>
 
-## <a name="install-sql-server-express"></a>Zainstaluj program SQL Server Express
+## <a name="install-sql-server-express"></a>Zainstaluj SQL Server Express
 
-LocalDB nie jest przeznaczona do pracy w usługach IIS, więc nie można zainstalować programu SQL Server Express środowiska testowego. Jeśli używasz programu Visual Studio 2010 programu SQL Server Express jest już zainstalowana domyślnie. Jeśli używasz programu Visual Studio 2012 lub nowszym należy zainstalować program SQL Server Express.
+LocalDB nie została zaprojektowana do pracy w usługach IIS, dlatego w środowisku testowym musi być zainstalowany SQL Server Express. Jeśli używasz programu Visual Studio 2010 SQL Server Express, jest on już instalowany domyślnie. Jeśli używasz programu Visual Studio 2012 lub nowszego, zainstaluj SQL Server Express.
 
-Aby zainstalować program SQL Server Express, Pobierz i zainstaluj go z [Centrum pobierania: Microsoft SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). 
+Aby zainstalować SQL Server Express, Pobierz i zainstaluj go z [centrum pobierania: Microsoft SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). 
 
-Na pierwszej stronie Centrum instalacji programu SQL Server, wybierz **nowy serwer SQL instalacji autonomicznej lub Dodaj funkcje do istniejącej instalacji** i postępuj zgodnie z instrukcjami przyjmuje opcje domyślne. W Kreatorze instalacji Zaakceptuj ustawienia domyślne. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Instalowanie programu SQL Server za pomocą Kreatora instalacji (Instalatora)](https://msdn.microsoft.com/library/ms143219.aspx).
+Na pierwszej stronie Centrum instalacji programu SQL Server wybierz pozycję **nowy SQL Server Instalacja autonomiczna lub Dodaj funkcje do istniejącej instalacji** i postępuj zgodnie z instrukcjami dotyczącymi akceptowania opcji domyślnych. W Kreatorze instalacji zaakceptuj ustawienia domyślne. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [instalowanie SQL Server z Kreatora instalacji (Instalator)](https://msdn.microsoft.com/library/ms143219.aspx).
 
-## <a name="create-sql-server-express-databases-for-the-test-environment"></a>Tworzenie programu SQL Server Express bazy danych dla środowiska testowego
+## <a name="create-sql-server-express-databases-for-the-test-environment"></a>Tworzenie SQL Server Express baz danych dla środowiska testowego
 
-Aplikacja Contoso University ma dwie bazy danych: 
+Aplikacja firmy Contoso University ma dwie bazy danych: 
 
-1. Bazy danych członkostwa 
+1. Baza danych członkostwa 
 2. Baza danych aplikacji 
 
-Można wdrożyć tych baz danych, dwie osobne bazy danych lub pojedynczą bazę danych. Łącząc je sprawia, że sprzężeń danych między nimi łatwiejsze. 
+Te bazy danych można wdrożyć w dwóch osobnych bazach danych lub w pojedynczej bazie danych. Łączenie ich sprawia, że tworzenie sprzężeń między nimi jest łatwiejsze. 
 
-Jeśli wdrażasz do dostawcy hostingu innych firm, planu hostingu może również umożliwiają powód do ich łączenia. Na przykład dostawca może pobierać tylko dla wielu baz danych lub może nawet zezwala na więcej niż jednej bazy danych.
+W przypadku wdrażania w ramach dostawcy hostingu innej firmy Twój plan hostingu może również przyczynić się do połączenia. Na przykład dostawca może obciążać więcej dla wielu baz danych lub nawet nie zezwalać na więcej niż jedną bazę danych.
 
-W tym samouczku wdrożysz dwie bazy danych w środowisku testowym i jedna baza danych w środowiskach przejściowych i produkcyjnych.
+W tym samouczku zostaną wdrożone do dwóch baz danych w środowisku testowym oraz do jednej bazy danych w środowiskach przejściowych i produkcyjnych.
 
-Z **widoku** menu w programie Visual Studio, wybierz **Eksploratora serwera** (**Eksplorator bazy danych** w Visual Web Developer). Kliknij prawym przyciskiem myszy **połączeń danych** i wybierz **Tworzenie nowej bazy danych SQL Server**.
+W menu **Widok** w programie Visual Studio wybierz pozycję **Eksplorator serwera** (**Eksplorator bazy danych** w Visual Web Developer). Kliknij prawym przyciskiem myszy pozycję **połączenia danych** , a następnie wybierz pozycję **Utwórz nową bazę danych SQL Server**.
 
 ![Selecting_Create_New_SQL_Server_Database](deploying-to-iis/_static/image8.png)
 
-W **Tworzenie nowej bazy danych SQL Server** okna dialogowego wprowadź ". \SQLExpress" w **nazwy serwera** pole i "aspnet-ContosoUniversity" w **nazwę nowej bazy danych** pole. Kliknij przycisk **OK**.
+W oknie dialogowym **Utwórz nową bazę danych SQL Server** wprowadź wartość ".\SQLEXPRESS" w polu **Nazwa serwera** i "ASPNET-ContosoUniversity" w polu **Nazwa nowej bazy danych** . Kliknij przycisk **OK**.
 
-![Utwórz aspnet ContosoUniversity](deploying-to-iis/_static/image9.png)
+![Utwórz ASPNET-ContosoUniversity](deploying-to-iis/_static/image9.png)
 
-Wykonaj tę samą procedurę, aby utworzyć nową bazę danych programu SQL Server Express School o nazwie `ContosoUniversity`.
+Postępuj zgodnie z tą samą procedurą, aby utworzyć nową bazę `ContosoUniversity`danych SQL Server Express szkoły o nazwie.
 
-**Eksplorator serwera** zawiera dwa nowe bazy danych.
+**Eksplorator serwera** przedstawia dwie nowe bazy danych.
 
-![Nowe bazy danych w Eksploratorze serwera](deploying-to-iis/_static/image10.png)
+![Nowe bazy danych w Eksplorator serwera](deploying-to-iis/_static/image10.png)
 
-## <a name="create-a-grant-script-for-the-new-databases"></a>Utwórz skrypt grant dla nowych baz danych
+## <a name="create-a-grant-script-for-the-new-databases"></a>Utwórz skrypt grantu dla nowych baz danych
 
-Po uruchomieniu aplikacji w usługach IIS na komputerze deweloperskim, aplikacja używa domyślnej puli aplikacji poświadczenia dostępu do bazy danych. Jednak domyślnie pula aplikacji nie ma uprawnień do otwierania bazy danych. Oznacza to, że trzeba uruchomić skrypt, aby przyznać to uprawnienie. W tej sekcji możesz utworzyć ten skrypt i uruchomić go później, aby upewnić się, że aplikacja będzie mógł otworzyć baz danych po uruchomieniu w usługach IIS.
+Gdy aplikacja jest uruchamiana w usługach IIS na komputerze deweloperskim, aplikacja używa domyślnych poświadczeń puli aplikacji w celu uzyskania dostępu do bazy danych. Jednak domyślnie Pula aplikacji nie ma uprawnień do otwierania baz danych. Oznacza to, że należy uruchomić skrypt w celu udzielenia tego uprawnienia. W tej sekcji utworzysz ten skrypt i uruchomisz go później w celu upewnienia się, że aplikacja może otworzyć bazy danych w programie IIS.
 
-W edytorze tekstów Skopiuj poniższe polecenia SQL do nowego pliku i zapisz go jako *Grant.sql*. 
+W edytorze tekstów Skopiuj następujące polecenia SQL do nowego pliku i Zapisz je jako *Grant. SQL*. 
 
 [!code-sql[Main](deploying-to-iis/samples/sample2.sql)]
 
-W programie Visual Studio Otwórz rozwiązanie University firmy Contoso. Kliknij prawym przyciskiem myszy rozwiązanie (nie jednego z projektów), a następnie wybierz pozycję **Dodaj**. Wybierz **istniejący element**, przejdź do *Grant.sql*, a następnie otwórz go.
+W programie Visual Studio Otwórz rozwiązanie firmy Contoso University. Kliknij prawym przyciskiem myszy Rozwiązanie (nie jeden z projektów) i wybierz polecenie **Dodaj**. Wybierz pozycję **istniejący element**, przejdź do pozycji *Grant. SQL*i otwórz ją.
 
 > [!NOTE]
-> Ten skrypt została zaprojektowana do pracy z programem SQL Server Express 2012 lub nowszym i przy użyciu ustawień usług IIS w systemie Windows 10, Windows 8 lub Windows 7, ponieważ są one określone w tym samouczku. Jeśli używasz innej wersji programu SQL Server lub Windows, czy należy zainstalować program IIS na komputerze inaczej, zmiany w tym skrypcie może być wymagane. Aby uzyskać więcej informacji na temat skrypty programu SQL Server, zobacz [programu SQL Server — książki Online](https://go.microsoft.com/fwlink/?LinkId=132511).
+> Ten skrypt jest przeznaczony do pracy z SQL Server Express 2012 lub nowszym oraz z ustawieniami usług IIS w systemie Windows 10, Windows 8 lub Windows 7, które są określone w tym samouczku. Jeśli używasz innej wersji SQL Server lub systemu Windows lub jeśli program IIS zostanie skonfigurowany na komputerze inaczej, może być wymagane wprowadzenie zmian w tym skrypcie. Aby uzyskać więcej informacji na temat skryptów SQL Server, zobacz [SQL Server Books Online](https://go.microsoft.com/fwlink/?LinkId=132511).
 
 > [!NOTE] 
-> **Uwaga dotycząca zabezpieczeń** ten skrypt umożliwia `db_owner` uprawnień do użytkownika, który uzyskuje dostęp do bazy danych w czasie wykonywania, który jest uzyskasz w środowisku produkcyjnym. W niektórych scenariuszach możesz chcieć określić użytkownika, która ma schemat pełnej bazy danych, zaktualizować uprawnienia tylko do wdrożenia i określ czas wykonywania inny użytkownik z uprawnieniami tylko do odczytu i zapisu danych. Aby uzyskać więcej informacji, zobacz [przeglądanie automatyczne zmiany w pliku Web.config na potrzeby migracji Code First](#reviewingmigrations) później w tym samouczku.
+> **Uwaga dotycząca zabezpieczeń** Ten skrypt daje `db_owner` uprawnienia użytkownikowi, który uzyskuje dostęp do bazy danych w czasie wykonywania, czyli w środowisku produkcyjnym. W niektórych scenariuszach możesz chcieć określić użytkownika, który ma pełne uprawnienia do aktualizacji schematu bazy danych tylko do wdrożenia i określić dla czasu wykonywania inny użytkownik, który ma uprawnienia tylko do odczytu i zapisu danych. Aby uzyskać więcej informacji, zobacz [przeglądanie automatycznych zmian w pliku Web. config dla migracje Code First](#reviewingmigrations) w dalszej części tego samouczka.
 
 <a id="publish"></a>
 
-## <a name="run-the-grant-script-in-the-application-database"></a>Uruchom skrypt przydział w bazie danych aplikacji
+## <a name="run-the-grant-script-in-the-application-database"></a>Uruchamianie skryptu grantu w bazie danych aplikacji
 
-Można skonfigurować profil publikowania, aby uruchomić skrypt przydział w bazie danych członkostwa podczas wdrażania, ponieważ korzysta z tego wdrożenia bazy danych [dbDacFx](https://docs.microsoft.com/iis/publish/using-web-deploy/dbdacfx-provider-for-incremental-database-publishing) dostawcy. Nie można uruchamiać skrypty w trakcie wdrażania migracje Code First jest sposób wdrażania aplikacji bazy danych. Oznacza to, że trzeba ręcznie uruchom skrypt przed wdrożeniem w bazie danych aplikacji.
+Profil publikacji można skonfigurować tak, aby uruchamiał skrypt przydzielenia w bazie danych członkostwa podczas wdrażania, ponieważ to wdrożenie bazy danych korzysta z dostawcy [dbDacFx](https://docs.microsoft.com/iis/publish/using-web-deploy/dbdacfx-provider-for-incremental-database-publishing) . Nie można uruchamiać skryptów podczas wdrażania Migracje Code First, czyli sposobu wdrażania bazy danych aplikacji. Oznacza to, że trzeba ręcznie uruchomić skrypt przed wdrożeniem w bazie danych aplikacji.
 
-1. W programie Visual Studio, otwórz *Grant.sql* pliku, który został utworzony wcześniej.
+1. W programie Visual Studio Otwórz utworzony wcześniej plik *Grant. SQL* .
 
 2. Wybierz przycisk **Połącz**. 
 
     ![Przycisk Połącz](deploying-to-iis/_static/image11.png)
 
-3. W **Połącz z serwerem** okna dialogowego wprowadź *. \SQLExpress* jako **nazwy serwera**. Wybierz przycisk **Połącz**.
+3. W oknie dialogowym **łączenie z serwerem** wprowadź *.\SQLEXPRESS* jako **nazwę serwera**. Wybierz przycisk **Połącz**.
 
-4. Na liście rozwijanej bazy danych wybierz **ContosoUniversity**. Wybierz pozycję **Wykonaj**. 
+4. Z listy rozwijanej baza danych wybierz pozycję **ContosoUniversity**. Wybierz pozycję **Wykonaj**. 
 
    ![](deploying-to-iis/_static/image12.png)
 
-Tożsamość puli aplikacji domyślnej teraz ma wystarczające uprawnienia w bazie danych aplikacji migracje Code First do tworzenia tabel bazy danych, gdy aplikacja zostanie uruchomiona.
+Domyślna tożsamość puli aplikacji ma teraz wystarczające uprawnienia w bazie danych aplikacji, aby Migracje Code First do tworzenia tabel bazy danych podczas uruchamiania aplikacji.
 
 ## <a name="publish-to-iis"></a>Publikowanie w usługach IIS
 
-Istnieje kilka sposobów, które można wdrożyć w usługach IIS przy użyciu programu Visual Studio i narzędzia Web Deploy:
+Istnieje kilka sposobów wdrażania programu w usługach IIS przy użyciu programu Visual Studio i Web Deploy:
 
-* Za pomocą programu Visual Studio publikowanie jednym kliknięciem.
+* Użyj programu Visual Studio, a następnie kliknij pozycję Publikuj.
 * Publikowanie z poziomu wiersza polecenia.
-* Utwórz pakiet wdrożeniowy i zainstaluj ją za pomocą Menedżera usług IIS. Pakiet zawiera plik zip ze wszystkimi plikami i metadane wymagane do przeprowadzenia instalacji lokacji w usługach IIS.
+* Utwórz pakiet wdrożeniowy i zainstaluj go za pomocą Menedżera usług IIS. Pakiet zawiera plik. zip ze wszystkimi plikami i metadanymi wymaganymi do zainstalowania lokacji w usługach IIS.
 * Utwórz pakiet wdrożeniowy i zainstaluj go przy użyciu wiersza polecenia.
 
-Proces, który zostały kolejno przerobione w poprzednich samouczkach, aby skonfigurować program Visual Studio do automatyzowania zadań wdrażania, który ma zastosowanie do wszystkich tych metod. W tych samouczkach użyjemy dwóch pierwszych metod. Aby dowiedzieć się, jak za pomocą pakietów wdrażania, zobacz [wdrażanie aplikacji sieci web przez tworzenie i instalowanie pakietu wdrożeniowego sieci web](https://go.microsoft.com/fwlink/p/?LinkId=282413#package) mapy zawartości wdrażania sieci Web dla programu Visual Studio i platformy ASP.NET.
+Proces, w którym nastąpiło przechodzenie w poprzednich samouczkach, aby skonfigurować program Visual Studio do automatyzowania zadań wdrażania, ma zastosowanie do wszystkich tych metod. W tych samouczkach zostaną użyte dwie pierwsze metody. Aby uzyskać informacje o korzystaniu z pakietów wdrożeniowych, zobacz [wdrażanie aplikacji sieci Web przez tworzenie i instalowanie pakietu wdrożeniowego](https://go.microsoft.com/fwlink/p/?LinkId=282413#package) sieci Web w mapie zawartości Web Deployment dla programu Visual Studio i ASP.NET.
 
-Przed opublikowaniem, upewnij się, że używasz programu Visual Studio w trybie administratora. Jeśli nie widzisz **(Administrator)** na pasku tytułu, zamknij program Visual Studio. W systemie Windows 8 (lub nowszym) **Start** strony lub Windows 7 **Start** menu, kliknij prawym przyciskiem myszy ikonę programu Visual Studio i wybierz **Uruchom jako Administrator**. Tryb administratora jest tylko wymagane do publikowania, gdy podczas publikowania w usługach IIS na komputerze lokalnym.
+Przed opublikowaniem upewnij się, że program Visual Studio jest uruchomiony w trybie administratora. Jeśli na pasku tytułu nie widzisz **(Administrator)** , Zamknij program Visual Studio. Na stronie **startowej** systemu Windows 8 (lub nowszej) lub menu **Start** systemu Windows 7 kliknij prawym przyciskiem myszy ikonę programu Visual Studio i wybierz polecenie **Uruchom jako administrator**. Tryb administratora jest wymagany tylko do publikowania w przypadku publikowania w usługach IIS na komputerze lokalnym.
 
 ### <a name="create-the-publish-profile"></a>Tworzenie profilu publikowania
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **ContosoUniversity** projektu (nie **ContosoUniversity.DAL** projektu). Wybierz **publikowania**. **Publikuj** zostanie wyświetlona strona.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ContosoUniversity** (a nie projekt **ContosoUniversity. dal** ). Wybierz **publikowania**. Zostanie wyświetlona strona **Publikowanie** .
 
-2. Wybierz **nowy profil**. **Wybierz lokalizację docelową publikowania** pojawi się okno dialogowe.
+2. Wybierz pozycję **Nowy profil**. Zostanie wyświetlone okno dialogowe **Wybieranie elementu docelowego publikowania** .
 
-3. Wybierz **usług IIS, FTP, etc**. Wybierz **Utwórz profil**. **Publikuj** pojawi się Kreator.
+3. Wybierz opcję **IIS, FTP itp**. Wybierz **Utwórz profil**. Zostanie wyświetlony Kreator **publikacji** .
 
-   ![Publikowanie w sieci Web Kreatora profilu karty](deploying-to-iis/_static/image26.png)
+   ![Karta profil Kreatora publikacji sieci Web](deploying-to-iis/_static/image26.png)
 
-4. Z **metody publikowania** menu rozwijanego wybierz opcję **narzędzia Web Deploy**.
+4. Z menu rozwijanego **Metoda publikowania** wybierz pozycję **Web Deploy**.
 
-5. Aby uzyskać **serwera**, wprowadź *localhost*.
+5. W obszarze **serwer**wprowadź wartość *localhost*.
 
-6. Aby uzyskać **Nazwa lokacji**, wprowadź *domyślnej witryny sieci Web/ContosoUniversity*.
+6. W obszarze **Nazwa lokacji**wprowadź *wartość domyślna witryna sieci Web/ContosoUniversity*.
 
-7. Aby uzyskać **docelowy adres URL**, wprowadź *http://localhost/ContosoUniversity*.
+7. W obszarze **docelowy adres URL**wprowadź *http://localhost/ContosoUniversity* .
 
-   **Docelowy adres URL** ustawienie nie jest wymagane. Po zakończeniu wdrażania aplikacji programu Visual Studio automatycznie otwiera domyślnej przeglądarki do tego adresu URL. Jeśli nie chcesz, aby otwierać automatycznie po wdrożeniu przeglądarka, pozostaw to pole puste.
+   Ustawienie **docelowego adresu URL** nie jest wymagane. Gdy program Visual Studio zakończy wdrażanie aplikacji, automatycznie otwiera domyślną przeglądarkę na tym adresie URL. Jeśli nie chcesz, aby przeglądarka była otwierana automatycznie po wdrożeniu, pozostaw to pole puste.
 
-8. Wybierz **Waliduj połączenie** można sprawdzić, czy ustawienia są poprawne i czy możesz nawiązać połączenie usług IIS na komputerze lokalnym.
+8. Wybierz pozycję **Weryfikuj połączenie** , aby sprawdzić, czy ustawienia są poprawne i czy można nawiązać połączenie z usługami IIS na komputerze lokalnym.
 
-   Zielony znacznik wyboru sprawdza, czy połączenie zostanie nawiązane.
+   Zielony znacznik wyboru weryfikuje, czy połączenie zostało nawiązane pomyślnie.
 
-   ![Opublikuj na karcie Połączenie Kreatora sieci Web](deploying-to-iis/_static/image27.png)
+   ![Karta połączenia Kreatora publikacji sieci Web](deploying-to-iis/_static/image27.png)
 
-9. Wybierz **dalej** celu przechodzenia do **ustawienia** kartę.
+9. Wybierz pozycję **dalej** , aby przejść do karty **Ustawienia** .
 
-10. **Konfiguracji** pole listy rozwijanej określa konfigurację kompilacji, aby wdrożyć. Pozostaw ona ustawiona na wartość domyślną **wersji**. Nie będzie wdrażanie kompilacji do debugowania w ramach tego samouczka.
+10. Pole listy rozwijanej **Konfiguracja** określa konfigurację kompilacji do wdrożenia. Pozostaw ustawioną wartość domyślną **Release**. Nie będziesz wdrażać kompilacji debugowania w tym samouczku.
 
-11. Rozwiń **opcje publikowania plików**. Wybierz **wykluczanie plików z aplikacji\_folderu danych**.
+11. Rozwiń węzeł **Opcje publikowania plików**. Wybierz pozycję **Wyklucz pliki z\_folderu Dane aplikacji**.
 
-    W środowisku testowym, aplikacja uzyskuje dostęp do bazy danych, które utworzono w lokalnym wystąpieniu programu SQL Server Express nie plików MDF w *aplikacji\_danych* folderu.
+    W środowisku testowym aplikacja uzyskuje dostęp do baz danych utworzonych w lokalnym wystąpieniu SQL Server Express, a nie plików. mdf w folderze *dane aplikacji\_* .
 
-12. Pozostaw **Precompile podczas publikowania** i **Usuń dodatkowe pliki w lokalizacji docelowej** żadnych pól wyboru.
+12. Pozostaw opcję **prekompilowanie podczas publikowania** i **Usuń dodatkowe pliki w miejscu docelowym** wyczyszczone.
 
-    ![Opcji publikowania pliku, na karcie Ustawienia](deploying-to-iis/_static/image15a.png)
+    ![Opcje publikowania plików na karcie Ustawienia](deploying-to-iis/_static/image15a.png)
 
-    Prekompilowanie to opcja, która jest przydatna szczególnie w przypadku dużych witryn. Umożliwia skrócenie czasu uruchamiania po raz pierwszy po opublikowaniu lokacji w żądaniu strony.
+    Prekompilowanie jest opcją przydatną głównie w przypadku dużych witryn. Może skrócić czas uruchamiania podczas pierwszego żądania strony po opublikowaniu lokacji.
 
-    Nie będzie konieczne usunięcie dodatkowych plików, ponieważ jest to pierwszy wdrożenia, a nie będą istnieć wszystkie pliki w folderze docelowym jeszcze.
+    Nie musisz usuwać dodatkowych plików, ponieważ jest to Twoje pierwsze wdrożenie i nie będzie jeszcze żadnych plików w folderze docelowym.
 
     > [!NOTE] 
-    > Jeśli wybierzesz **Usuń dodatkowe pliki w lokalizacji docelowej** na kolejne wdrożenie do tej samej lokacji, należy upewnić się, czy funkcja w wersji zapoznawczej umożliwiającego wyświetlanie wcześniej pliki, które zostaną usunięte przed wdrożeniem. Oczekiwane zachowanie jest, że narzędzie Web Deploy spowoduje usunięcie plików na serwerze docelowym, które zostały usunięte w projekcie. Jednak struktura cały folder, w obszarze foldery źródłowe i docelowe są porównywane; a w niektórych scenariuszach wdrażania sieci Web może usunąć pliki, których nie chcesz, aby usunąć.
+    > Jeśli wybierzesz opcję **Usuń dodatkowe pliki w miejscu docelowym** dla kolejnego wdrożenia w tej samej lokacji, upewnij się, że używasz funkcji wersji zapoznawczej, aby zobaczyć, które pliki zostaną usunięte przed wdrożeniem. Oczekiwane zachowanie polega na tym, że Web Deploy usunie pliki na serwerze docelowym, który został usunięty z projektu. Jednak cała struktura folderów w folderach źródłowych i docelowych jest porównywana; w niektórych scenariuszach Web Deploy mogą usunąć pliki, które nie mają być usuwane.
     > 
-    > Na przykład jeśli masz aplikację sieci web w podfolderze na serwerze podczas wdrażania projektu do folderu głównego, podfolderów zostaną usunięte. Może mieć jednego projektu do lokacji głównej w domenie contoso.com i innego projektu dla bloga w contoso.com/blog. Aplikacja blog znajduje się w podfolderze. Jeśli wybierzesz **Usuń dodatkowe pliki w lokalizacji docelowej** po wdrożeniu lokacji głównej aplikacji blogu zostaną usunięte.
+    > Jeśli na przykład aplikacja sieci Web znajduje się w podfolderze na serwerze podczas wdrażania projektu w folderze głównym, podfolder zostanie usunięty. Może istnieć jeden projekt witryny głównej w contoso.com i inny projekt dla blogu w witrynie contoso.com/blog. Aplikacja w blogu znajduje się w podfolderze. W przypadku wybrania opcji **Usuń dodatkowe pliki w miejscu docelowym** podczas wdrażania lokacji głównej aplikacja blogu zostanie usunięta.
     > 
-    > Inny przykład, aplikacja\_folderu danych, które mogą zostać usunięte nieoczekiwanie. Niektórych baz danych, takich jak SQL Server Compact przechowywania plików bazy danych w aplikacji\_folderu danych. Po początkowym wdrożeniu nie chcesz zachować kopiowanie plików bazy danych w przypadku kolejnych wdrożeń, musisz więc wybrać **wykluczanie aplikacji\_danych** na karcie pakowanie/publikowanie w sieci Web. Po wykonaniu, że jeśli masz **Usuń dodatkowe pliki w lokalizacji docelowej** wybrane pliki bazy danych i aplikacji\_sam folder dane zostaną usunięte podczas następnego publikowania.
+    > W innym przykładzie folder dane aplikacji\_może zostać nieoczekiwanie usunięty. Niektóre bazy danych, takie jak SQL Server Compact przechowują pliki bazy\_danych w folderze dane aplikacji. Po wstępnym wdrożeniu nie chcesz kopiować plików bazy danych w kolejnych wdrożeniach, więc wybierz pozycję **Wyklucz dane aplikacji\_** na karcie pakowanie/publikowanie w sieci Web. Po wybraniu tej czynności Jeśli **usuniesz dodatkowe pliki w miejscu docelowym** , pliki bazy danych i folder dane aplikacji\_zostaną usunięte po następnym opublikowaniu.
 
-### <a name="configure-deployment-for-the-membership-database"></a>Konfiguruj wdrożenie dla bazy danych członkostwa
+### <a name="configure-deployment-for-the-membership-database"></a>Skonfiguruj wdrożenie dla bazy danych członkostwa
 
-Poniższa procedura dotyczy **DefaultConnection** bazy danych w oknie dialogowym **baz danych** sekcji.
+Poniższe kroki dotyczą bazy danych **DefaultConnection** w sekcji **bazy danych** okna dialogowego.
 
-1. W **parametry połączenia zdalnego** wprowadź następujący ciąg połączenia wskazujący nowego programu SQL Server Express bazie danych członkostwa.
+1. W polu **ciąg połączenia zdalnego** wprowadź następujące parametry połączenia wskazujące nową bazę danych członkostwa SQL Server Express.
 
    [!code-console[Main](deploying-to-iis/samples/sample3.cmd)]
 
-   Proces wdrażania umieszcza te parametry połączenia w wdrożonym pliku Web.config, ponieważ **Użyj tych parametrów połączenia w czasie wykonywania** jest zaznaczone.
+   Proces wdrażania umieszcza te parametry połączenia we wdrożonym pliku Web. config, ponieważ wybierane są **Parametry połączenia w czasie wykonywania** .
 
-    Możesz też pobrać parametry połączenia z **Eksploratora serwera**. W **Eksploratora serwera**, rozwiń węzeł **połączeń danych** i wybierz  **&lt;machinename&gt;\sqlexpress.aspnet-ContosoUniversity** Baza danych, następnie z **właściwości** okna kopii **parametry połączenia** wartość. Czy parametry połączenia będzie mieć jedno ustawienie dodatkowe, które można usunąć: `Pooling=False`.
+    Możesz również uzyskać parametry połączenia z **Eksplorator serwera**. W **Eksplorator serwera**rozwiń węzeł **połączenia danych**  **&lt;&gt;** i wybierz bazę danych \sqlexpress.ASPNET-ContosoUniversity NazwaKomputera, a następnie w oknie **Właściwości** Skopiuj **Parametry połączenia.** wartość. Te parametry połączenia będą mieć jedno dodatkowe ustawienie, które można usunąć: `Pooling=False`.
 
-2. Wybierz **Aktualizuj bazę danych**.
+2. Wybierz pozycję **Aktualizuj bazę danych**.
 
-   Powoduje to, że schemat bazy danych, które zostały utworzone w docelowej bazie danych podczas wdrażania. W następnych krokach możesz określić dodatkowe skrypty, które są potrzebne do uruchomienia: jeden do udzielania dostępu do bazy danych do domyślnej puli aplikacji i jeden, aby wdrożyć dane.
+   Powoduje to, że schemat bazy danych zostanie utworzony w docelowej bazie danych podczas wdrażania. W następnych krokach należy określić dodatkowe skrypty, które należy uruchomić: jeden w celu przyznania dostępu do bazy danych do domyślnej puli aplikacji i jednej do wdrożenia danych.
 
-3. Wybierz **Konfiguruj aktualizacje bazy danych**.
+3. Wybierz pozycję **Konfiguruj aktualizacje bazy danych**.
  
-4. W **Konfiguruj aktualizacje bazy danych** okno dialogowe, wybierz opcję **Dodaj skrypt SQL**. Przejdź do *Grant.sql* skrypt, który został wcześniej zapisany w folderze rozwiązania.
+4. W oknie dialogowym **Konfiguruj aktualizacje bazy danych** wybierz pozycję **Dodaj skrypt SQL**. Przejdź do skryptu *Grant. SQL* , który został zapisany wcześniej w folderze rozwiązania.
 
-5. Powtórz te czynności, aby dodać *aspnet-data-dev.sql* skryptu.
+5. Powtórz ten proces, aby dodać skrypt *ASPNET-Data-dev. SQL* .
 
-   ![Konfiguruj aktualizacje bazy danych dla bazy danych członkostwa](deploying-to-iis/_static/image16.png)
+   ![Konfigurowanie aktualizacji bazy danych dla członkostwa](deploying-to-iis/_static/image16.png)
 
-6. Wybierz **Zamknij**.
+6. Wybierz pozycję **Zamknij**.
 
-### <a name="configure-deployment-for-the-application-database"></a>Konfigurowanie wdrożenia dla aplikacji bazy danych
+### <a name="configure-deployment-for-the-application-database"></a>Skonfiguruj wdrożenie dla bazy danych aplikacji
 
-Gdy program Visual Studio wykryje Entity Framework `DbContext` klasy, tworzy wpis w **baz danych** sekcji, która ma **wykonaj migracje Code First** pole wyboru, a nie  **Aktualizuj bazę danych** pole wyboru. W tym samouczku użyjesz tego pola wyboru do określenia wdrożenia migracje Code First.
+Gdy program Visual Studio wykryje `DbContext` klasę Entity Framework, tworzy wpis w sekcji **baz danych** , w której jest pole wyboru **Wykonaj migracje Code First** zamiast dla **bazy danych aktualizacji** . Na potrzeby tego samouczka użyjesz tego pola wyboru, aby określić wdrożenie Migracje Code First.
 
-W niektórych scenariuszach może być używany `DbContext` bazy danych, ale chcesz, aby użyć dostawcy dbDacFx zamiast migracji do wdrożenia bazy danych. W takim przypadku zobacz [jak wdrożyć Code First bazy danych bez migracje?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w wdrażania sieci Web platformy ASP.NET, często zadawanych Pytaniach, w witrynie MSDN.
+W niektórych scenariuszach może być używana `DbContext` baza danych, ale do wdrożenia bazy danych ma być używany dostawca dbDacFx zamiast migracji. W takim przypadku zapoznaj się z tematem [Jak mogę wdrożyć bazę danych Code First bez migracji?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w artykule ASP.NET Web Deployment — często zadawane pytania w witrynie MSDN.
 
-Poniższa procedura dotyczy **SchoolContext** bazy danych w oknie dialogowym **baz danych** sekcji.
+Poniższe kroki dotyczą bazy danych **SchoolContext** w sekcji **bazy danych** okna dialogowego.
 
-1. W **parametry połączenia zdalnego** wprowadź następujące parametry połączenia, który wskazuje na nowego programu SQL Server Express bazy danych aplikacji.
+1. W polu **ciąg połączenia zdalnego** wprowadź następujące parametry połączenia wskazujące nową bazę danych aplikacji SQL Server Express.
 
    [!code-console[Main](deploying-to-iis/samples/sample4.cmd)]
 
-   Proces wdrażania umieszcza te parametry połączenia w wdrożonym pliku Web.config, ponieważ **Użyj tych parametrów połączenia w czasie wykonywania** jest zaznaczone.
+   Proces wdrażania umieszcza te parametry połączenia we wdrożonym pliku Web. config, ponieważ wybierane są **Parametry połączenia w czasie wykonywania** .
 
-   Możesz też pobrać parametry połączenia bazy danych aplikacji z **Eksploratora serwera** tak samo jak masz parametry połączenia bazy danych członkostwa.
+   Możesz również uzyskać parametry połączenia z bazą danych aplikacji z **Eksplorator serwera** w taki sam sposób, jak parametry połączenia z bazą danych członkostwa.
 
-2. Wybierz **wykonaj migracje Code First (uruchomieniu aplikacji)**.
+2. Wybierz pozycję **wykonaj migracje Code First (uruchamiaj przy uruchamianiu aplikacji)** .
 
-   Ta opcja powoduje, że proces wdrażania i konfigurowania wdrożonym pliku Web.config w celu określenia `MigrateDatabaseToLatestVersion` inicjatora. Gdy aplikacja uzyskuje dostęp do bazy danych po raz pierwszy po wdrożeniu tego inicjatora automatycznie aktualizuje bazę danych do najnowszej wersji.
+   Ta opcja powoduje, że proces wdrażania skonfiguruje wdrożony plik Web. config w celu `MigrateDatabaseToLatestVersion` określenia inicjatora. Ten inicjator automatycznie aktualizuje bazę danych do najnowszej wersji, gdy aplikacja uzyskuje dostęp do bazy danych po raz pierwszy po wdrożeniu.
 
-### <a name="configure-publish-profile-transforms"></a>Skonfigurować przekształcenia profilu publikowania
+### <a name="configure-publish-profile-transforms"></a>Konfiguruj transformacje profilu publikowania
 
-1. Wybierz **Zamknij**. Wybierz **tak** po zapyta, czy chcesz zapisać zmiany.
+1. Wybierz pozycję **Zamknij**. Wybierz opcję **tak** , gdy zostanie wyświetlony monit o zapisanie zmian.
 
-2. W **Eksploratora rozwiązań**, rozwiń węzeł **właściwości**, rozwiń węzeł **PublishProfiles**.
+2. W **Eksplorator rozwiązań**rozwiń węzeł **Właściwości**, rozwiń węzeł **PublishProfiles**.
 
-3. Kliknij prawym przyciskiem myszy *CustomProfile.pubxml* i zmień jego nazwę *Test.pubxml*.
+3. Kliknij prawym przyciskiem myszy *CustomProfile. pubxml* i zmień jej nazwę *test. pubxml*.
 
-4. Kliknij prawym przyciskiem myszy *Test.pubxml*. Wybierz **Dodaj przekształcenie konfiguracji**.
+4. Kliknij prawym przyciskiem myszy pozycję *test. pubxml*. Wybierz pozycję **Dodaj przekształcenie konfiguracji**.
 
-   ![Dodaj przekształcenie konfiguracji menu](deploying-to-iis/_static/image17.png)
+   ![Menu Dodaj przekształcenie konfiguracji](deploying-to-iis/_static/image17.png)
 
-   Program Visual Studio tworzy *Web.Test.config* pliku transformacji i otwiera go.
+   Program Visual Studio utworzy plik transformacji *Web. test. config* i otworzy go.
 
-5. W *Web.Test.config* pliku przekształcenia, Wstaw następujący kod bezpośrednio po otwarciu tag konfiguracji.
+5. W pliku transformacji *Web. test. config* Wstaw następujący kod bezpośrednio po tagu otwierającym konfigurację.
 
    [!code-xml[Main](deploying-to-iis/samples/sample5.xml)]
 
-    Gdy używasz testu profil publikowania, przekształcenia ustawia wskaźnik środowiska, aby "Test". W witrynie wdrożonej zobaczysz "(Test)" po nagłówku H1 "Uniwersytet firmy Contoso".
+    W przypadku korzystania z profilu publikowania testowego, to przekształcenie ustawia wskaźnik środowiska na "test". W wdrożonej witrynie zobaczysz "(test)" po nagłówku "Contoso University" H1.
 
 6. Zapisz i zamknij plik.
 
-7. Kliknij prawym przyciskiem myszy *Web.Test.config* plik i wybierz **Przekształcanie wersji zapoznawczej** aby upewnić się, że przekształcenie zakodowane produkuje oczekiwane zmiany.
+7. Kliknij prawym przyciskiem myszy plik *Web. test. config* , a następnie wybierz polecenie **Podgląd transformacji** , aby upewnić się, że zakodowana transformacja generuje oczekiwane zmiany.
 
-    **(Wersja zapoznawcza) w pliku Web.config** okno pokazuje wynik zastosowania zarówno *Web.Release.config* przekształca i *Web.Test.config* przekształcenia.
+    W oknie **Podgląd pliku Web. config** zostanie wyświetlona informacja o wyniku zastosowania zarówno transformacji *Web. release. config* , jak i *pliku Web. test. config* .
 
-### <a name="preview-the-deployment-updates"></a>Wyświetl podgląd aktualizacji wdrażania
+### <a name="preview-the-deployment-updates"></a>Podgląd aktualizacji wdrożenia
 
-1. Otwórz **publikowanie w sieci Web** kreatora ponownie (kliknij prawym przyciskiem myszy projekt ContosoUniversity, wybierz **publikowania**, następnie **Podgląd**).
+1. Otwórz ponownie kreatora **publikowania sieci Web** (kliknij prawym przyciskiem myszy projekt ContosoUniversity, wybierz pozycję **Opublikuj**, a następnie pozycję **Podgląd**).
 
-2. W **Podgląd** okno dialogowe, wybierz opcję **Uruchom Podgląd** umożliwia wyświetlenie listy plików, które zostaną skopiowane. 
+2. W oknie dialogowym **Podgląd** wybierz pozycję **Rozpocznij podgląd** , aby wyświetlić listę plików, które zostaną skopiowane. 
 
    ![Podgląd publikacji](deploying-to-iis/_static/image29.png)
 
-   Możesz również wybrać **bazy danych w wersji zapoznawczej** linku umożliwia wyświetlenie skryptów, które będą uruchamiane w bazie danych członkostwa. (Nie skrypty są uruchamiane dla wdrożenia migracje Code First, więc nie ma nic do bazy danych aplikacji w wersji zapoznawczej.)
+   Możesz również wybrać link **Podgląd bazy danych** , aby wyświetlić skrypty, które będą uruchamiane w bazie danych członkostwa. (Żadne skrypty nie są uruchamiane na potrzeby wdrażania Migracje Code First, więc nie ma niczego do przejrzenia bazy danych aplikacji).
 
 3. Wybierz **publikowania**.
 
-   Jeśli program Visual Studio nie jest w trybie administratora, możesz otrzymać komunikat o błędzie uprawnień. W takim przypadku zamknięcie programu Visual Studio, otwórz go w trybie administratora i spróbuj opublikować ponownie.
+   Jeśli program Visual Studio nie jest w trybie administratora, może zostać wyświetlony komunikat o błędzie uprawnień. W takim przypadku Zamknij program Visual Studio, otwórz go w trybie administratora, a następnie ponów próbę opublikowania.
 
-   Jeśli program Visual Studio jest w trybie administratora **dane wyjściowe** pomyślne raporty okna tworzysz i publikujesz.
+   Jeśli program Visual Studio jest w trybie administratora, w oknie **danych wyjściowych** są raportowane pomyślne kompilacje i publikowanie.
 
    ![Output_window_publish_Test](deploying-to-iis/_static/image20.png)
 
-   Po wprowadzeniu adresu URL w **docelowy adres URL** pole na profil publikowania **połączenia** , przeglądarka automatycznie zostanie otwarta karta do strony głównej University Contoso uruchomionych w usługach IIS na komputerze.
+   Jeśli adres URL został wprowadzony w polu **docelowy adres URL** na karcie **połączenie** profilu publikowania, przeglądarka automatycznie otworzy stronę główną firmy Contoso University działającą w usługach IIS na komputerze.
 
 ## <a name="test-in-the-test-environment"></a>Testowanie w środowisku testowym
 
-Należy zauważyć, że wskaźnik środowisko zawiera "(Test)" zamiast "(Dev)", który wskazuje, że *Web.config* transformacji dla wskaźnika środowisko zakończyło się pomyślnie.
+Należy zauważyć, że wskaźnik środowiska pokazuje "(test)" zamiast "(dev)", który pokazuje, że transformacja *pliku Web. config* dla wskaźnika środowiska zakończyła się pomyślnie.
 
-Uruchom **Instruktorzy** stronę, aby sprawdzić, czy Code First zasilany w bazie danych przez instruktorów. Po wybraniu tej strony, może to potrwać kilka minut, aby załadować, ponieważ Code First tworzy bazę danych, a następnie uruchamia `Seed` metody. (Go nie wykonać, jeśli zostały na stronie głównej, ponieważ aplikacja nie próbuje jeszcze dostępu do bazy danych).
+Uruchom stronę **instruktorów** , aby sprawdzić, czy Code First wypełniania bazy danych danymi instruktora. Po wybraniu tej strony może upłynąć kilka minut, ponieważ Code First tworzy bazę danych, a następnie uruchamia `Seed` metodę. (Nie było to zrobione na stronie głównej, ponieważ aplikacja nie próbowała jeszcze uzyskać dostępu do bazy danych).
 
-Wybierz **studentów** kartę, aby sprawdzić, czy wdrożonej bazy danych jest nie studentów.
+Wybierz kartę **studenci** , aby sprawdzić, czy wdrożona baza danych nie ma uczniów.
 
-Wybierz **dodać uczniów** z **studentów** menu. Dodać Studenta, a następnie Wyświetl nowego studenta w **studentów** strony. Sprawdza, czy można pomyślnie zapisać do bazy danych.
+Wybierz pozycję **Dodaj uczniów** z menu **uczniów** . Dodaj studenta, a następnie Wyświetl nowych uczniów na stronie **uczniów** . Umożliwia to sprawdzenie, czy można pomyślnie zapisywać dane w bazie danych.
 
-Z **kursów** menu, wybierz opcję **aktualizacji środki na korzystanie z**. **Aktualizacji środki na korzystanie z** strony musi mieć uprawnienia administratora, więc **logowanie** zostanie wyświetlona strona. Wprowadź poświadczenia konta administratora, utworzony wcześniej ("admin" i "devpwd"). **Aktualizacji środki na korzystanie z** zostanie wyświetlona strona. Sprawdza, czy konto administratora, który został utworzony w poprzednim samouczku poprawnie została wdrożona do środowiska testowego.
+Z menu **kursy** wybierz pozycję **Aktualizuj kredyty**. Strona **kredyty aktualizacji** wymaga uprawnień administratora, więc zostanie wyświetlona strona **logowania** . Wprowadź utworzone wcześniej poświadczenia konta administratora ("admin" i "devpwd"). Zostanie wyświetlona strona **kredyty aktualizacji** . Spowoduje to sprawdzenie, czy konto administratora utworzone w poprzednim samouczku zostało prawidłowo wdrożone w środowisku testowym.
 
-Upewnij się, że *ELMAH* folder istnieje w *c:\inetpub\wwwroot\ContosoUniversity* folderu z plikiem w symbol zastępczy w nim.
+Sprawdź, czy folder *ELMAH* istnieje w folderze *c:\inetpub\wwwroot\ContosoUniversity* , w którym znajduje się tylko plik zastępczy.
 
 <a id="reviewingmigrations"></a>
 
-## <a name="review-the-automatic-webconfig-changes-for-code-first-migrations"></a>Przejrzyj automatycznej zmiany pliku Web.config dla migracje Code First
+## <a name="review-the-automatic-webconfig-changes-for-code-first-migrations"></a>Przejrzyj automatyczne zmiany w pliku Web. config dla Migracje Code First
 
-Otwórz *Web.config* plik w aplikacji wdrożonej w *C:\inetpub\wwwroot\ContosoUniversity* i zobaczyć, gdzie w procesie wdrażania skonfigurowane migracje Code First, aby automatycznie aktualizacji bazy danych do najnowszej wersji.
+Otwórz plik *Web. config* we wdrożonej aplikacji pod adresem *C:\inetpub\wwwroot\ContosoUniversity* i sprawdź, gdzie skonfigurowany proces wdrażania migracje Code First automatycznie aktualizować bazę danych do najnowszej wersji.
 
 ![](deploying-to-iis/_static/image21.png)
 
-Proces wdrażania jest tworzona nowe parametry połączenia dla migracje Code First do użycia wyłącznie w celu zaktualizowania schematu bazy danych:
+Proces wdrażania również utworzył nowe parametry połączenia dla Migracje Code First, które mają być używane wyłącznie do aktualizacji schematu bazy danych:
 
-![Parametry połączenia Database_Publish](deploying-to-iis/_static/image22.png)
+![Database_Publish parametry połączenia](deploying-to-iis/_static/image22.png)
 
-Te dodatkowe parametry można określić jedno konto użytkownika dla aktualizacje schematu bazy danych i inne konto użytkownika uzyskać dostęp do danych aplikacji. Na przykład można przypisać **db\_właściciela** roli migracje Code First i **db\_datareader** z **db\_datawriter**role w aplikacji. Jest to typowy wzorzec ochronę w głębi, który uniemożliwia potencjalnie złośliwego kodu w aplikacji zmianę schematu bazy danych. (Na przykład może się to zdarzyć w pomyślnym ataku polegającego na iniekcji SQL.) Te samouczki, nie używaj tego wzorca. Implementacja tego wzorca, w tym scenariuszu, wykonaj następujące czynności:
+Te dodatkowe parametry połączenia umożliwiają określenie jednego konta użytkownika dla aktualizacji schematu bazy danych i innego konta użytkownika na potrzeby dostępu do danych aplikacji. Można na przykład przypisać rolę **właściciela bazy danych\_** **\_** do migracje Code First i elementu DataReader usługi DB z **\_rolami datawrite** do aplikacji. Jest to typowy wzorzec obrony, który zapobiega zmienianiu schematu bazy danych przez potencjalnie złośliwy kod w aplikacji. (Na przykład może się to zdarzyć w przypadku pomyślnego ataku polegającego na iniekcji SQL). Te samouczki nie używają tego wzorca. Aby zaimplementować ten wzorzec w scenariuszu, wykonaj następujące kroki:
 
-1. W **publikowanie w sieci Web** kreatora w obszarze **ustawienia** wprowadź parametry połączenia, które określa użytkownika z uprawnieniami do aktualizacji schematu pełnej bazy danych. Wyczyść **Użyj tych parametrów połączenia w czasie wykonywania** pole wyboru. W wdrożonym pliku Web.config, staje się on `DatabasePublish` parametry połączenia.
+1. W kreatorze **publikowania sieci Web** na karcie **Ustawienia** wprowadź parametry połączenia określające użytkownika z uprawnieniami pełnego dostępu do schematu bazy danych. Wyczyść pole wyboru **Użyj tych parametrów połączenia w czasie wykonywania** . W wdrożonym pliku Web. config jest `DatabasePublish` to ciąg połączenia.
 
-2. Utwórz przekształcenia pliku Web.config dla parametrów połączenia, który ma aplikacji do użycia w czasie wykonywania.
+2. Utwórz transformację pliku Web. config dla parametrów połączenia, które mają być używane przez aplikację w czasie wykonywania.
 
 ## <a name="summary"></a>Podsumowanie
 
-Udało Ci wdrożyć aplikację w usłudze IIS na komputerze deweloperskim i przetestowano ją tam.
+Aplikacja została teraz wdrożona w usługach IIS na komputerze deweloperskim i przetestowana w tym miejscu.
 
 ![Strona główna w teście](deploying-to-iis/_static/image23.png)
 
-Sprawdza, czy Proces wdrażania skopiować zawartość aplikacji do odpowiedniej lokalizacji (z wyjątkiem plików, które nie miały wdrażania) i również narzędzia Web Deploy IIS poprawnie skonfigurowane podczas wdrażania. W następnym samouczku uruchomisz jeden więcej test, który umożliwia znalezienie zadanie wdrożenia, które jeszcze nie zostało wykonane: Ustawianie uprawnień do folderów na *wiąz ah* folderu.
+Umożliwia to sprawdzenie, czy proces wdrożenia skopiował zawartość aplikacji do odpowiedniej lokalizacji (z wyłączeniem plików, które nie zostały wdrożone), a także Web Deploy skonfigurowanych usług IIS poprawnie podczas wdrażania. W następnym samouczku zostanie uruchomiony jeszcze jeden test, który znajdzie zadanie wdrożenia, które nie zostało jeszcze wykonane: Ustawianie uprawnień do folderu w folderze *Elm Ah* .
 
 ## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać informacji na temat uruchamiania usług IIS lub IIS Express w programie Visual Studio zobacz następujące zasoby:
+Aby uzyskać informacje na temat uruchamiania usług IIS lub IIS Express w programie Visual Studio, zobacz następujące zasoby:
 
-- [Omówienie usługi IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) IIS.net w witrynie.
-- [Wprowadzenie do usług IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) w blogu Scotta Guthrie.
-- [Serwery w sieci Web w programie Visual Studio dla projektów sieci Web platformy ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
-- [Podstawowe różnice między usług IIS i programem ASP.NET Development Server](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) w witrynie programu ASP.NET.
+- [IIS Express przegląd](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) w witrynie IIS.NET.
+- [Wprowadzenie IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) na blogu Scott Guthrie.
+- [Serwery sieci Web w programie Visual Studio for ASP.NET Web Projects](https://msdn.microsoft.com/library/58wxa9w5.aspx).
+- [Podstawowe różnice między usługami IIS i ASP.NET Development Server](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) w witrynie ASP.NET.
 
-Aby uzyskać informacje o problemach, które mogą wystąpić, gdy aplikacja działa w trybie średniego zaufania, zobacz [hostingu aplikacji ASP.NET w relacji zaufania średni](http://www.4guysfromrolla.com/articles/100307-1.aspx) na czterech Guys z Rolla witryny.
+Aby uzyskać informacje o problemach, które mogą wystąpić, gdy aplikacja jest uruchamiana w średnim zaufaniu, zobacz [hosting aplikacji ASP.NET w średnim zaufaniu](http://www.4guysfromrolla.com/articles/100307-1.aspx) w czterech złoczyńców z witryny rolla.
 
 > [!div class="step-by-step"]
-> [Poprzednie](project-properties.md)
-> [dalej](setting-folder-permissions.md)
+> [Poprzedni](project-properties.md)Następny
+> [](setting-folder-permissions.md)
