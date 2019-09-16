@@ -9,14 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 1eaaf8e87168096683212fa66d3ddf415ad6b22b
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.openlocfilehash: f00ac0db453053e53d6d6942dd1557b409f4167b
+ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000717"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70985837"
 ---
 # <a name="action-results-in-web-api-2"></a>Wyniki akcji we wzorcu Web API 2
+
+[!INCLUDE[](~/includes/coreWebAPI.md)]
 
 W tym temacie opisano sposób, w jaki interfejs API sieci Web ASP.NET konwertuje wartość zwracaną z akcji kontrolera na komunikat odpowiedzi HTTP.
 
