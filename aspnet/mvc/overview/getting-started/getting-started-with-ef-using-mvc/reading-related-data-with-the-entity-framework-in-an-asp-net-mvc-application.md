@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'Samouczek: Odczytywanie powiązanych danych przy użyciu programu EF w aplikacji ASP.NET MVC'
-description: W tym samouczku będziesz odczytywać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
+title: 'Samouczek: odczytywanie powiązanych danych za pomocą EF w aplikacji ASP.NET MVC'
+description: W tym samouczku pokazano, jak odczytywać i wyświetlać powiązane dane — czyli dane, które Entity Framework ładowane do właściwości nawigacji.
 author: tdykstra
 ms.author: riande
 ms.date: 01/22/2019
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 61bd7cd9be2fbf83f72382c8e94505222295bdbb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: d804c8dd45ad131949260c85d9d9c6683bfe9646
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070067"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445654"
 ---
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+# <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Samouczek: odczytywanie powiązanych danych za pomocą EF w aplikacji ASP.NET MVC
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+W poprzednim samouczku został ukończony model danych szkoły. W tym samouczku pokazano, jak odczytywać i wyświetlać powiązane dane — czyli dane, które Entity Framework ładowane do właściwości nawigacji.
 
-# <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Samouczek: Odczytywanie powiązanych danych przy użyciu programu EF w aplikacji ASP.NET MVC
-
-W poprzednim samouczku można wykonać modelu danych służbowych. W tym samouczku będziesz odczytywać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
-
-Na poniższych ilustracjach przedstawiono strony, którą będziesz pracować.
+Na poniższych ilustracjach przedstawiono strony, z którymi będziesz korzystać.
 
 ![](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-W ramach tego samouczka możesz:
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+> Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET MVC 5 za pomocą Code First Entity Framework 6 i programu Visual Studio. Aby uzyskać informacje na temat serii samouczków, zobacz [pierwszy samouczek w serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dowiedz się, jak załadować dane pokrewne
+> * Dowiedz się, jak ładować powiązane dane
 > * Utwórz stronę kursów
 > * Tworzenie strony instruktorów
 
@@ -41,142 +41,142 @@ W ramach tego samouczka możesz:
 
 * [Tworzenie bardziej złożonego modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
 
-## <a name="learn-how-to-load-related-data"></a>Dowiedz się, jak załadować dane pokrewne
+## <a name="learn-how-to-load-related-data"></a>Dowiedz się, jak ładować powiązane dane
 
-Istnieje kilka sposobów, platformy Entity Framework można załadować powiązane dane do właściwości nawigacji jednostki:
+Istnieje kilka Entity Framework sposobów załadowania powiązanych danych do właściwości nawigacji jednostki:
 
-- *Powolne ładowanie*. Podczas odczytywania jednostki powiązane dane nie są pobierane. Jednak użytkownik podejmie próbę dostępu do właściwości nawigacji po raz pierwszy wymagane dane dla tej właściwości nawigacji jest automatycznie pobierany. Skutkiem wielu zapytań wysyłanych do bazy danych — jedną dla sam podmiot, a co za każdym razem, powiązane dane dla jednostki musi zostać pobrany. `DbContext` Klasa umożliwia powolne ładowanie domyślnie.
+- *Ładowanie z opóźnieniem*. Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Jednak przy pierwszej próbie uzyskania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Powoduje to, że wiele zapytań jest wysyłanych do bazy danych — jeden dla samej jednostki i po każdym każdej chwili, gdy powiązane dane dla jednostki muszą zostać pobrane. Klasa `DbContext` domyślnie włącza ładowanie z opóźnieniem.
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
-- *Wczesne ładowanie*. Podczas odczytywania jednostki powiązane dane są pobierane wraz z jej. Powoduje to zwykle w zapytaniu sprzężenia jednego, który pobiera wszystkie dane potrzebne. Należy określić wczesne ładowanie za pomocą `Include` metody.
+- *Ładowanie eager*. Po odczytaniu jednostki są pobierane powiązane dane. Zwykle powoduje to pojedyncze zapytanie sprzężenia, które pobiera wszystkie dane, które są zbędne. Należy określić eager ładowania przy użyciu metody `Include`.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Jawne ładowanie*. Jest to podobne do ładowania z opóźnieniem, chyba że jawnie pobrać powiązanych danych w kodzie nie będzie automatycznie gdy uzyskujesz dostęp do właściwości nawigacji. Ręczne ładowanie powiązanych danych uzyskując wpis Menedżera stanu obiektu do jednostki i wywoływania [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) metody dla kolekcji lub [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) metody, właściwości, które zawierają pojedynczy element. (W poniższym przykładzie, jeśli chcesz załadować właściwość nawigacji administratora, należy zamienić `Collection(x => x.Courses)` z `Reference(x => x.Administrator)`.) Zazwyczaj należy użyć jawne ładowanie tylko wtedy, gdy ta wiadomość została wysłana z opóźnieniem, ładowanie wyłączone.
+- *Jawne ładowanie*. Jest to podobne do ładowania z opóźnieniem, z tą różnicą, że jawnie pobierasz powiązane dane w kodzie; nie odbywa się to automatycznie podczas uzyskiwania dostępu do właściwości nawigacji. Powiązane dane są ładowane ręcznie poprzez pobranie wpisu menedżera stanu obiektów dla jednostki i wywołanie [kolekcji. Metoda Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) dla kolekcji lub metoda [Reference. Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) dla właściwości, które zawierają pojedynczą jednostkę. (W poniższym przykładzie, jeśli chcesz załadować właściwość nawigacji administratora, Zastąp `Collection(x => x.Courses)` z `Reference(x => x.Administrator)`.) Zazwyczaj użycie jawnego ładowania jest możliwe tylko wtedy, gdy włączono pobieranie z opóźnieniem.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
-Ponieważ nie są natychmiast pobrać wartości właściwości, powolne ładowanie i jawne ładowanie są również zarówno określane jako *odroczone ładowanie*.
+Ponieważ nie pobierają one natychmiast wartości właściwości, ładowanie z opóźnieniem i jawne ładowanie są również nazywane *opóźnionym ładowaniem*.
 
 ### <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Jeśli znasz powiązane dane potrzebne dla każdej jednostki pobrać eager podczas ładowania często oferuje najlepszą wydajność, ponieważ pojedynczego zapytania wysłanego do bazy danych jest zazwyczaj bardziej efektywne niż oddzielne zapytania, dla każdej jednostki pobierane. W powyższych przykładach, załóżmy, że każdy dział ma dziesięć Kursy pokrewne. W przykładzie wczesne ładowanie spowoduje tylko zapytania do jednego (Połącz) i jeden obiegu do bazy danych. Powolne ładowanie i przykłady jawne ładowanie zarówno spowodowałaby jedenaście zapytania i jedenaście rund do bazy danych. Dodatkowe rund do bazy danych są szczególnie szkodliwa dla wydajności, gdy opóźnienie jest wysokie.
+Jeśli wiesz, że potrzebujesz pokrewnych danych dla każdej pobranej jednostki, ładowanie eager często oferuje najlepszą wydajność, ponieważ pojedyncze zapytanie wysyłane do bazy danych jest zwykle bardziej wydajne niż osobne zapytania dla każdej pobranej jednostki. Na przykład w powyższych przykładach Załóżmy, że każdy dział ma dziesięć powiązanych kursów. Przykład ładowania eager może skutkować pojedynczym zapytaniem (sprzężeniem) i pojedynczą rundą w bazie danych. Przykłady ładowania z opóźnieniem i jawnego ładowania powodują jedenaście zapytań i jedenaście rund do bazy danych. Dodatkowe podróże do bazy danych są szczególnie niekorzystne w przypadku opóźnień.
 
-Z drugiej strony w niektórych scenariuszach powolne ładowanie jest bardziej wydajne. Wczesne ładowanie może powodować bardzo złożone sprzężenia zostanie wygenerowany, której program SQL Server nie może przetworzyć wydajnie. Lub jeśli potrzebujesz uzyskać dostęp do właściwości nawigacji jednostki, tylko dla podzbioru zbiór jednostek jest przetwarzanie, powolne ładowanie może działać lepiej, ponieważ wczesne ładowanie może pobrać większej ilości danych niż jest Ci potrzebne. Jeśli wydajność ma kluczowe znaczenie, najlepiej testowania wydajności w obu kierunkach, aby można było dokonanie najlepszego wyboru.
+Z drugiej strony, w niektórych scenariuszach ładowanie z opóźnieniem jest bardziej wydajne. Ładowanie eager może spowodować wygenerowanie bardzo złożonej sprzężenia, które SQL Server nie może przetwarzać efektywnie. Lub jeśli musisz uzyskać dostęp do właściwości nawigacji jednostki tylko dla podzbioru zestawu jednostek, które są przetwarzane, ładowanie z opóźnieniem może być lepsze, ponieważ ładowanie eager spowodowałoby pobranie większej ilości danych niż jest to potrzebne. Jeśli wydajność ma kluczowe znaczenie, najlepszym rozwiązaniem jest przetestowanie wydajności obu metod w celu zapewnienia najlepszego wyboru.
 
-Powolne ładowanie może maskować kod, który powoduje, że problemy z wydajnością. Na przykład kod, który nie określa eager lub jawny ładowania, ale przetwarza dużą liczbę jednostek i wykorzystuje kilka właściwości nawigacji w każdej iteracji może być nieefektywna (ze względu na wiele rund do bazy danych). Aplikacja, która wykonuje również Programowanie przy użyciu serwera SQL na lokalnych mogą wystąpić problemy z wydajnością po przeniesieniu do usługi Azure SQL Database ze względu na większe opóźnienia i ładowania z opóźnieniem. Profilowanie zapytania do bazy danych przy użyciu realistycznej testu obciążenia pomoże określić, czy powolne ładowanie jest odpowiednia. Aby uzyskać więcej informacji, zobacz [Demystifying strategie programu Entity Framework: Ładowanie powiązanych danych](https://msdn.microsoft.com/magazine/hh205756.aspx) i [zmniejszenia opóźnienia sieci na platformie Azure SQL przy użyciu platformy Entity Framework](https://msdn.microsoft.com/magazine/gg309181.aspx).
+Ładowanie z opóźnieniem może maskować kod, który powoduje problemy z wydajnością. Na przykład kod, który nie określa eager lub bezpośredniego ładowania, ale przetwarza dużą liczbę jednostek i używa kilku właściwości nawigacji w każdej iteracji, może być bardzo wydajny (ze względu na wiele podróży do bazy danych). Aplikacja, która działa dobrze podczas opracowywania przy użyciu lokalnego programu SQL Server, może mieć problemy z wydajnością podczas przenoszenia do Azure SQL Database z powodu zwiększonego opóźnienia i obciążenia z opóźnieniem. Profilowanie zapytań bazy danych przy użyciu realistycznego obciążenia testowego pomoże określić, czy ładowanie z opóźnieniem jest odpowiednie. Aby uzyskać więcej informacji, zobacz [sztuczna Entity Framework Strategies: ładowanie powiązanych danych](https://msdn.microsoft.com/magazine/hh205756.aspx) i [Korzystanie z Entity Framework, aby zmniejszyć opóźnienie sieci do usługi SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
-### <a name="disable-lazy-loading-before-serialization"></a>Wyłączenie ładowania z opóźnieniem, przed serializacji
+### <a name="disable-lazy-loading-before-serialization"></a>Wyłącz ładowanie z opóźnieniem przed serializacją
 
-Pozostawienie powolne ładowanie włączone podczas serializacji, może zakończyć się znacznie większej ilości danych niż planowano zapytań. Serializacja zazwyczaj polega na dostęp do każdej właściwości w wystąpieniu typu. Dostęp do właściwości wyzwala powolne ładowanie i podmioty załadowanych z opóźnieniem są serializowane. Następnie procesem serializacji uzyskuje dostęp do każdej właściwości ładowane z opóźnieniem jednostek, powodując jeszcze bardziej powolne ładowanie i serializacji. Aby uniknąć tego reakcję run-away, Włącz powolne ładowanie wyłączone przed serializacji jednostki.
+W przypadku pozostawienia włączonego ładowania z opóźnieniem podczas serializacji można zakończyć wykonywanie zapytań znacznie większej ilości danych niż zamierzone. Serializacja zazwyczaj działa przez uzyskanie dostępu do każdej właściwości w wystąpieniu typu. Dostęp do właściwości wyzwala ładowanie z opóźnieniem, a te jednostki załadowane z opóźnieniem są serializowane. Następnie proces serializacji uzyskuje dostęp do każdej właściwości jednostek ładowanych z opóźnieniem, co może spowodować jeszcze większą liczbę operacji ładowania i serializacji z opóźnieniem. Aby zapobiec tej reakcji łańcucha uruchamiania, przed serializacji jednostki należy wyłączyć pobieranie z opóźnieniem.
 
-Serializacja mogą również skomplikowane przez klasy serwera proxy, które korzysta z programu Entity Framework, zgodnie z objaśnieniem w [samouczek zaawansowane scenariusze](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#proxies).
+Serializacja może być również skomplikowana przez klasy proxy używane przez Entity Framework, zgodnie z opisem w [samouczku scenariusze zaawansowane](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#proxies).
 
-Jednym ze sposobów, aby uniknąć problemów z serializacji jest do wykonywania serializacji obiektów transferu danych (dto) zamiast obiektów jednostek, jak pokazano w [przy użyciu interfejsu API sieci Web za pomocą platformy Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) samouczka.
+Jednym ze sposobów uniknięcia problemów serializacji jest Serializowanie obiektów transferu danych (DTO) zamiast obiektów jednostek, jak pokazano w samouczku [using Web API with Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) .
 
-Jeśli nie używasz dto, można wyłączyć ładowania z opóźnieniem i uniknąć problemów z serwera proxy, przez [wyłączenie serwera proxy tworzenia](https://msdn.microsoft.com/data/jj592886.aspx).
+Jeśli nie korzystasz z DTO, możesz wyłączyć ładowanie z opóźnieniem i uniknąć problemów z serwerem proxy, [wyłączając Tworzenie serwera proxy](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Poniżej przedstawiono niektóre inne [sposobów można wyłączyć ładowania z opóźnieniem](https://msdn.microsoft.com/data/jj574232):
+Oto kilka innych [sposobów wyłączenia ładowania z opóźnieniem](https://msdn.microsoft.com/data/jj574232):
 
-- Dla właściwości nawigacji określonych, Pomiń `virtual` — słowo kluczowe w deklaracji właściwości.
-- Wszystkie właściwości nawigacji, można ustawić `LazyLoadingEnabled` do `false`, umieść następujący kod w konstruktorze klasy kontekstu:
+- Dla określonych właściwości nawigacji, Pomiń słowo kluczowe `virtual` podczas deklarowania właściwości.
+- Dla wszystkich właściwości nawigacji Ustaw `LazyLoadingEnabled` na `false`, umieść następujący kod w konstruktorze klasy kontekstu:
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
 ## <a name="create-a-courses-page"></a>Utwórz stronę kursów
 
-`Course` Jednostki zawiera właściwość nawigacji, która zawiera `Department` jednostki działu, przypisana do kursu. Aby wyświetlić nazwę działu przypisany na liście kursy, musisz pobrać `Name` właściwość `Department` jednostki, która znajduje się w `Course.Department` właściwości nawigacji.
+Jednostka `Course` obejmuje właściwość nawigacji, która zawiera `Department` jednostkę działu, do której jest przypisany kurs. Aby wyświetlić nazwę przypisanego działu na liście kursów, należy uzyskać Właściwość `Name` z jednostki `Department`, która znajduje się we właściwości nawigacji `Course.Department`.
 
-Utworzyć kontroler o nazwie `CourseController` (nie CoursesController) dla `Course` jednostki typu przy użyciu tych samych opcji dla **kontroler MVC 5 z widokami używający narzędzia Entity Framework** Generator szkieletu, która została wcześniej `Student` kontrolera:
+Utwórz kontroler o nazwie `CourseController` (nie CoursesController) dla typu jednostki `Course`, używając tych samych opcji dla **kontrolera MVC 5 z widokami, używając narzędzia Entity Framework** szkieletem wcześniej dla kontrolera `Student`:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Klasa modelu | Wybierz **kurs (ContosoUniversity.Models)**. |
-| Klasa kontekstu danych | Wybierz **SchoolContext (ContosoUniversity.DAL)**. |
-| Nazwa kontrolera | Wprowadź *CourseController*. Ponownie nie *CoursesController* z *s*. Po wybraniu **kurs (ContosoUniversity.Models)**, **nazwy kontrolera** wartość została automatycznie wypełniona. Należy zmienić wartość. |
+| Klasa modelu | Wybierz pozycję **kurs (ContosoUniversity. models)** . |
+| Klasa kontekstu danych | Wybierz pozycję **SchoolContext (ContosoUniversity. dal)** . |
+| Nazwa kontrolera | Wprowadź *CourseController*. Ponownie, nie *CoursesController* z *s*. W przypadku wybrania **kursu (ContosoUniversity. models)** wartość **nazwy kontrolera** została automatycznie wypełniona. Musisz zmienić wartość. |
 
-Pozostaw wartości domyślne i dodać kontrolera.
+Pozostaw pozostałe wartości domyślne i Dodaj kontroler.
 
-Otwórz *Controllers\CourseController.cs* i przyjrzyj się `Index` metody:
+Otwórz *Controllers\CourseController.cs* i przyjrzyj się metodzie `Index`:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Automatyczne tworzenie szkieletów określono wczesne ładowanie dla `Department` właściwość nawigacji za pomocą `Include` metody.
+Funkcja automatycznego tworzenia szkieletów określiła eager ładowania dla właściwości nawigacji `Department` przy użyciu metody `Include`.
 
 Otwórz *Views\Course\Index.cshtml* i Zastąp kod szablonu poniższym kodem. Zmiany są wyróżnione:
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cshtml?highlight=4,7,14-16,23-25,31-33,40-42)]
 
-Utworzony szkielet kodu zostały wprowadzone następujące zmiany:
+Do kodu szkieletowego wprowadzono następujące zmiany:
 
-- Zmienione nagłówek z **indeksu** do **kursów**.
-- Dodano **numer** kolumna, która pokazuje `CourseID` wartości właściwości. Domyślnie klucze podstawowe nie są szkieletu, ponieważ zwykle są bez znaczenia dla użytkowników końcowych. Jednak w takim przypadku klucz podstawowy ma znaczenie i chcą ją wyświetlić.
-- Przenieść **działu** kolumny z prawej strony i zmienić jej nagłówek. Generator szkieletu poprawnie wybrał opcję wyświetlania `Name` właściwość `Department` jednostki, ale tutaj na stronie kurs nagłówek kolumny powinna być **działu** zamiast **nazwa**.
+- Zmieniono nagłówek z **indeksu** na **kursy**.
+- Dodano kolumnę **liczbową** , która wyświetla wartość właściwości `CourseID`. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zazwyczaj nie mają znaczenia dla użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie i chcesz go wyświetlić.
+- Przeniesienie kolumny **działu** z prawej strony i zmiana jej nagłówka. Program szkieletowy prawidłowo zdecydował się na wyświetlenie właściwości `Name` z jednostki `Department`, ale w tym miejscu na stronie kursu nagłówek kolumny powinien być **działem** , a nie **nazwą**.
 
-Należy zauważyć, że kolumny Dział utworzony szkielet kodu wyświetla `Name` właściwość `Department` jednostki, który jest ładowany do `Department` właściwość nawigacji:
+Należy zauważyć, że dla kolumny dział, kod szkieletowy wyświetla Właściwość `Name` jednostki `Department`, która jest załadowana do właściwości nawigacji `Department`:
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cshtml?highlight=2)]
 
-Uruchom stronę (wybierz **kursów** karty na stronie głównej University firmy Contoso) aby wyświetlić listę z nazwami działu.
+Uruchom stronę (Wybierz kartę **kursy** na stronie głównej programu Contoso University), aby wyświetlić listę z nazwami działów.
 
 ## <a name="create-an-instructors-page"></a>Tworzenie strony instruktorów
 
-W tej sekcji utworzysz kontroler i wyświetlić `Instructor` jednostki w celu wyświetlenia strony instruktorów. Ta strona odczytuje i wyświetla powiązanych danych w następujący sposób:
+W tej sekcji utworzysz kontroler i widok dla jednostki `Instructor`, aby wyświetlić stronę instruktorów. Ta strona odczytuje i wyświetla powiązane dane w następujący sposób:
 
-- Lista Instruktorzy dane związane z `OfficeAssignment` jednostki. `Instructor` i `OfficeAssignment` jednostki są w relacji jeden do zero lub jeden. Użyjesz wczesne ładowanie dla `OfficeAssignment` jednostek. Jak wyjaśniono wcześniej, wczesne ładowanie jest zazwyczaj bardziej efektywne, gdy będziesz potrzebować powiązanych danych we wszystkich wierszach pobrane w tabeli podstawowej. W tym przypadku chcesz wyświetlić przypisania pakietu office dla wszystkich wyświetlanych instruktorów.
-- Gdy użytkownik wybierze pod kierunkiem instruktora, związane z `Course` jednostki są wyświetlane. `Instructor` i `Course` jednostki są w relacji wiele do wielu. Użyjesz wczesne ładowanie dla `Course` jednostek i ich powiązane `Department` jednostek. W tym przypadku powolne ładowanie może być bardziej efektywne, ponieważ należy kursy tylko dla wybranych przez instruktorów. Jednak w tym przykładzie pokazano, jak używać wczesne ładowanie dla właściwości nawigacji w ramach jednostek, które znajdują się w oknie właściwości nawigacji.
-- Gdy użytkownik wybierze kurs, powiązane dane z `Enrollments` zostanie wyświetlony zestaw jednostek. `Course` i `Enrollment` jednostki są w relacji jeden do wielu. Należy dodać jawne ładowanie dla `Enrollment` jednostek i ich powiązane `Student` jednostek. (Jawne ładowanie jest to konieczne, ponieważ ładowania z opóźnieniem jest włączone, ale to pokazuje, jak to zrobić jawne ładowanie).
+- Lista instruktorów wyświetla powiązane dane z jednostki `OfficeAssignment`. Jednostki `Instructor` i `OfficeAssignment` znajdują się w relacji jeden-do-zero-lub-jednego. Użyjesz eager ładowania dla jednostek `OfficeAssignment`. Jak wyjaśniono wcześniej, ładowanie eager jest zwykle bardziej wydajne, gdy potrzebne są powiązane dane dla wszystkich pobranych wierszy tabeli podstawowej. W takim przypadku chcesz wyświetlić przypisania pakietu Office dla wszystkich wyświetlanych instruktorów.
+- Gdy użytkownik wybierze instruktora, zostaną wyświetlone powiązane jednostki `Course`. Jednostki `Instructor` i `Course` znajdują się w relacji wiele-do-wielu. Będziesz używać eager ładowania dla jednostek `Course` i powiązanych z nimi jednostek `Department`. W takim przypadku ładowanie z opóźnieniem może być bardziej wydajne, ponieważ potrzebne są kursy tylko dla wybranego instruktora. Jednak w tym przykładzie pokazano, jak używać eager ładowania dla właściwości nawigacji w obrębie jednostek, które są same we właściwościach nawigacji.
+- Gdy użytkownik wybierze kurs, zostanie wyświetlona powiązana dane z zestawu jednostek `Enrollments`. Jednostki `Course` i `Enrollment` znajdują się w relacji jeden-do-wielu. Należy dodać jawne ładowanie dla jednostek `Enrollment` i powiązanych z nimi jednostek `Student`. (Jawne ładowanie nie jest konieczne, ponieważ jest włączone ładowanie z opóźnieniem, ale pokazuje, jak przeprowadzić jawne ładowanie).
 
-### <a name="create-a-view-model-for-the-instructor-index-view"></a>Tworzenie modelu widoku dla widoku indeksu przez instruktorów
+### <a name="create-a-view-model-for-the-instructor-index-view"></a>Utwórz model widoku dla widoku indeksu instruktora
 
-Na stronie Instruktorzy wyświetlane trzech różnych tabelach. W związku z tym utworzysz zawiera trzy właściwości zawierający dane dla jednej z tabel, model widoku.
+Na stronie instruktorzy są wyświetlane trzy różne tabele. W związku z tym utworzysz model widoku zawierający trzy właściwości, z których każda będzie zawierać dane dla jednej z tabel.
 
-W *modele widoków* folderze utwórz *InstructorIndexData.cs* i Zastąp istniejący kod następującym kodem:
+W folderze *modele widoków* Utwórz *InstructorIndexData.cs* i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-### <a name="create-the-instructor-controller-and-views"></a>Tworzenie widoków i kontrolerów przez instruktorów
+### <a name="create-the-instructor-controller-and-views"></a>Tworzenie kontrolera i widoków instruktora
 
-Utwórz `InstructorController` (nie InstructorsController) kontrolera przy użyciu programu EF odczytu/zapisu akcji:
+Utwórz kontroler `InstructorController` (nie InstructorsController) z akcją odczytu/zapisu EF:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Klasa modelu | Wybierz **przez instruktorów (ContosoUniversity.Models)**. |
-| Klasa kontekstu danych | Wybierz **SchoolContext (ContosoUniversity.DAL)**. |
-| Nazwa kontrolera | Wprowadź *InstructorController*. Ponownie nie *InstructorsController* z *s*. Po wybraniu **kurs (ContosoUniversity.Models)**, **nazwy kontrolera** wartość została automatycznie wypełniona. Należy zmienić wartość. |
+| Klasa modelu | Wybierz pozycję **instruktor (ContosoUniversity. models)** . |
+| Klasa kontekstu danych | Wybierz pozycję **SchoolContext (ContosoUniversity. dal)** . |
+| Nazwa kontrolera | Wprowadź *InstructorController*. Ponownie, nie *InstructorsController* z *s*. W przypadku wybrania **kursu (ContosoUniversity. models)** wartość **nazwy kontrolera** została automatycznie wypełniona. Musisz zmienić wartość. |
 
-Pozostaw wartości domyślne i dodać kontrolera.
+Pozostaw pozostałe wartości domyślne i Dodaj kontroler.
 
-Otwórz *Controllers\InstructorController.cs* i Dodaj `using` poufności informacji dotyczące `ViewModels` przestrzeni nazw:
+Otwórz *Controllers\InstructorController.cs* i dodaj instrukcję `using` dla przestrzeni nazw `ViewModels`:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-Utworzony szkielet kodu w `Index` metody określa wczesne ładowanie tylko w przypadku `OfficeAssignment` właściwość nawigacji:
+Kod szkieletowy w metodzie `Index` określa eager ładowania tylko dla właściwości nawigacji `OfficeAssignment`:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Zastąp `Index` metody za pomocą następującego kodu, aby załadować dodatkowe dane dotyczące i umieścić go w modelu widoku:
+Zastąp metodę `Index` poniższym kodem, aby załadować dodatkowe powiązane dane i umieścić je w modelu widoku:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Metoda akceptuje dane opcjonalne trasy (`id`) i parametr ciągu zapytania (`courseID`) podaj wartości identyfikator wybranego przez instruktorów i wybranych kursów i przekazuje wszystkie dane wymagane do widoku. Parametry są dostarczane przez **wybierz** hiperlinków na stronie.
+Metoda akceptuje opcjonalne dane trasy (`id`) i parametr ciągu zapytania (`courseID`), które zawierają wartości identyfikatora wybranego instruktora i wybranego kursu, i przekazuje wszystkie wymagane dane do widoku. Parametry są udostępniane przez **Wybieranie** hiperlinków na stronie.
 
-Kod rozpoczyna się od tworzenia wystąpienia obiektu modelu widoku i umieszczenie w nim listy instruktorów. Kod ten określa wczesne ładowanie dla `Instructor.OfficeAssignment` i `Instructor.Courses` właściwości nawigacji.
+Kod rozpoczyna się od utworzenia wystąpienia modelu widoku i umieszczenie go w liście instruktorów. Kod określa eager ładowania dla `Instructor.OfficeAssignment` i `Instructor.Courses` właściwość nawigacji.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs?highlight=3-4)]
 
-Drugi `Include` metoda ładuje kursów i każdego kursu, który jest ładowany robi wczesne ładowanie `Course.Department` właściwości nawigacji.
+Druga metoda `Include` ładuje kursy i dla każdego załadowanego kursu wykonuje eager ładowania dla właściwości nawigacji `Course.Department`.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-Jak wspomniano wcześniej, wczesne ładowanie nie jest wymagana, ale jest przeprowadzane w celu zwiększenia wydajności. Ponieważ widoku zawsze wymaga `OfficeAssignment` jednostki, jest bardziej wydajne, można pobrać, w tym samym zapytaniu. `Course` jednostki są wymagane w przypadku wybrania pod kierunkiem instruktora na stronie sieci web, więc wczesne ładowanie jest lepsze niż powolne ładowanie tylko wtedy, gdy ta strona jest wyświetlana częściej kurs wybrana niż bez.
+Jak wspomniano wcześniej, ładowanie eager nie jest wymagane, ale jest gotowe do zwiększenia wydajności. Ponieważ widok zawsze wymaga jednostki `OfficeAssignment`, można go pobrać w tym samym zapytaniu. jednostki `Course` są wymagane w przypadku wybrania na stronie sieci Web instruktora, więc ładowanie eager jest lepsze niż ładowanie z opóźnieniem, tylko wtedy, gdy strona jest wyświetlana częściej jako kurs wybrany niż bez.
 
-Jeśli wybrano Identyfikatora przez instruktorów, wybranej przez instruktorów są pobierane z listy w modelu widoku instruktorów. Model widoku `Courses` właściwość jest następnie ładowany z `Course` jednostek z tego instruktora `Courses` właściwości nawigacji.
+W przypadku wybrania identyfikatora instruktora wybrany instruktor jest pobierany z listy instruktorów w modelu widoku. Właściwość `Courses` modelu widoku jest następnie ładowana z jednostkami `Course` z tej właściwości nawigacji tego `Courses` instruktora.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`Where` Metoda zwraca kolekcję, ale w takim przypadku kryteria przekazany do tej metody powodują tylko jeden `Instructor` są zwracane jednostki. `Single` Metoda konwertuje kolekcję z jedną `Instructor` jednostki, która zapewnia dostęp do tej jednostki `Courses` właściwości.
+Metoda `Where` zwraca kolekcję, ale w tym przypadku kryteria przesłane do tej metody powodują, że zwracana jest tylko jedna jednostka `Instructor`. Metoda `Single` konwertuje kolekcję na jedną jednostkę `Instructor`, która zapewnia dostęp do właściwości `Courses` tej jednostki.
 
-Możesz użyć [pojedynczego](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) metody w kolekcji, gdy wiadomo, Kolekcja będzie mieć tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja wymagał jest pusta lub ma więcej niż jeden element. Alternatywą jest [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), która zwraca wartość domyślną (`null` w tym przypadku) Jeśli kolekcja jest pusta. Jednak w takim przypadku, będzie nadal prowadzić do wyjątku (z próby znalezienia `Courses` właściwość `null` odwołania), oraz komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Gdy wywołujesz `Single` metody, można również przekazać w `Where` warunku, zamiast wywoływać metodę `Where` metoda oddzielnie:
+Możesz użyć [pojedynczej](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) metody w kolekcji, Jeśli wiesz, że kolekcja będzie zawierać tylko jeden element. Metoda `Single` zgłasza wyjątek, jeśli kolekcja została przeniesiona do niej jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), która zwraca wartość domyślną (`null` w tym przypadku), jeśli kolekcja jest pusta. Jednak w takim przypadku nadal może wystąpić wyjątek (od próby znalezienia właściwości `Courses` w odwołaniu `null`), a komunikat o wyjątku będzie mniej jasno wskazywał przyczynę problemu. Po wywołaniu metody `Single` można również przekazać warunek `Where` zamiast wywołania `Where` metody osobno:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
@@ -184,69 +184,69 @@ Zamiast:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-Następnie jeśli kurs został wybrany, wybranych kursów jest pobierana z Lista kursów model widoku. Następnie Wyświetl modelu `Enrollments` właściwość jest ładowany z `Enrollment` jednostek z tego kursu `Enrollments` właściwości nawigacji.
+Następnie, jeśli wybrano kurs, wybrany kurs zostanie pobrany z listy kursów w modelu widoku. Następnie właściwość `Enrollments` modelu widoku jest ładowana z jednostkami `Enrollment` z `Enrollments` właściwości nawigacji tego kursu.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cs)]
 
-### <a name="modify-the-instructor-index-view"></a>Zmodyfikuj widok indeksu przez instruktorów
+### <a name="modify-the-instructor-index-view"></a>Modyfikowanie widoku indeksu instruktora
 
-W *Views\Instructor\Index.cshtml*, Zastąp kod szablonu poniższym kodem. Zmiany są wyróżnione:
+W *Views\Instructor\Index.cshtml*Zastąp kod szablonu poniższym kodem. Zmiany są wyróżnione:
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cshtml?highlight=1,4,14-18,21,23-28,38-43,45)]
 
-Następujące zmiany wprowadzone do istniejącego kodu:
+Wprowadzono następujące zmiany w istniejącym kodzie:
 
-- Klasa modelu, aby zmienić `InstructorIndexData`.
-- Zmienić tytuł strony z **indeksu** do **Instruktorzy**.
-- Dodano **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacja jeden do zero lub jeden, nie może być powiązane `OfficeAssignment` jednostki.)
+- Zmieniono klasę modelu na `InstructorIndexData`.
+- Zmieniono tytuł strony z **indeksu** na **Instruktorzy**.
+- Dodano kolumnę **pakietu Office** , która wyświetla `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacja "jeden do zera" lub jeden-do-jednego, może nie być powiązana jednostka `OfficeAssignment`).
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- Dodano kod, który będzie dynamicznie dodawać `class="success"` do `tr` elementu wybranego przez instruktorów. To ustawienie koloru tła wybranego wiersza za pomocą [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) klasy.
+- Dodano kod, który dynamicznie dodaje `class="success"` do elementu `tr` wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) .
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
-- Dodano nową `ActionLink` etykietą **wybierz** bezpośrednio przed innych linków w każdym wierszu, co powoduje, że identyfikator wybranego instruktora, które mają być wysyłane do `Index` metody.
+- Dodano nowe `ActionLink` z etykietą **Wybierz** bezpośrednio przed innymi łączami w każdym wierszu, co spowoduje wysłanie wybranego identyfikatora instruktora do metody `Index`.
 
-Uruchom aplikację, a następnie wybierz **Instruktorzy** kartę. Zostanie wyświetlona strona `Location` powiązane właściwości `OfficeAssignment` jednostek i pustej tabeli komórki, gdy istnieje bez powiązanych `OfficeAssignment` jednostki.
+Uruchom aplikację i wybierz kartę **Instruktorzy** . Na stronie jest wyświetlana właściwość `Location` powiązanych jednostek `OfficeAssignment` i pustej komórki tabeli, gdy nie ma żadnej powiązanej jednostki `OfficeAssignment`.
 
-W *Views\Instructor\Index.cshtml* plików po upływie `table` — element (na końcu pliku), Dodaj następujący kod. Ten kod wyświetla listę kursów związane z kierunkiem instruktora, po wybraniu pod kierunkiem instruktora.
+W pliku *Views\Instructor\Index.cshtml* po zamykającym elemencie `table` (na końcu pliku) Dodaj następujący kod. Ten kod wyświetla listę kursów związanych z instruktorem w przypadku wybrania instruktora.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cshtml)]
 
-Ten kod odczytuje `Courses` właściwości modelu widoku, aby wyświetlić listę kursów. Zapewnia także `Select` hiperłącze, które wysyła identyfikator wybranego kurs, aby `Index` metody akcji.
+Ten kod odczytuje Właściwość `Courses` modelu widoku, aby wyświetlić listę kursów. Udostępnia również hiperłącze `Select`, które wysyła identyfikator wybranego kursu do metody akcji `Index`.
 
-Uruchom strony i wybierz pod kierunkiem instruktora. Spowoduje to wyświetlenie siatce, która wyświetla kursy przypisane do wybranego przez instruktorów i każdego kursu możesz zobaczyć nazwę tego działu przypisane.
+Uruchom stronę i wybierz instruktora. Teraz zobaczysz siatkę wyświetlającą kursy przypisane do wybranego instruktora, a dla każdego kursu zobaczysz nazwę przypisanego działu.
 
-Po bloku kodu, który właśnie został dodany Dodaj następujący kod. Spowoduje to wyświetlenie listy uczniów, którzy są rejestrowane kursu, po wybraniu danego kursu.
+Po dodaniu bloku kodu Dodaj następujący kod. Spowoduje to wyświetlenie listy studentów, którzy są rejestrowani w kursie po wybraniu tego kursu.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml)]
 
-Ten kod odczytuje `Enrollments` właściwości modelu widoku, aby wyświetlić listę uczniów zarejestrowane w ramach tego kursu.
+Ten kod odczytuje Właściwość `Enrollments` modelu widoku w celu wyświetlenia listy uczniów zarejestrowanych w kursie.
 
-Uruchom strony i wybierz pod kierunkiem instruktora. Następnie wybierz kurs, aby wyświetlić listę zarejestrowanych studentów i ich klas.
+Uruchom stronę i wybierz instruktora. Następnie wybierz kurs, aby zobaczyć listę zarejestrowanych studentów i ich klasy.
 
-### <a name="adding-explicit-loading"></a>Dodawanie jawne ładowanie
+### <a name="adding-explicit-loading"></a>Dodawanie jawnego ładowania
 
-Otwórz *InstructorController.cs* i spójrz na sposób, w jaki `Index` metoda pobiera listę rejestracji dla wybranego kursu:
+Otwórz *InstructorController.cs* i sprawdź, jak Metoda `Index` pobiera listę rejestracji dla wybranego kursu:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs)]
 
-Po pobraniu listy instruktorów określony wczesne ładowanie dla `Courses` właściwość nawigacji i `Department` właściwości każdego kursu. A następnie przeniesiesz `Courses` kolekcji w modelu widoku, a teraz uzyskujesz dostęp do `Enrollments` właściwość nawigacji z jednej jednostki w tej kolekcji. Ponieważ nie określono wczesne ładowanie dla `Course.Enrollments` właściwość nawigacji, dane z tej właściwości jest wyświetlany na stronie wyniku powolne ładowanie.
+Po pobraniu listy instruktorów należy określić eager do załadowania dla właściwości nawigacji `Courses` i dla właściwości `Department` każdego kursu. Następnie należy umieścić kolekcję `Courses` w modelu widoku i teraz uzyskujesz dostęp do właściwości nawigacji `Enrollments` z jednej jednostki w tej kolekcji. Ponieważ nie określono eager ładowania dla właściwości nawigacji `Course.Enrollments`, dane z tej właściwości są wyświetlane na stronie jako wynik ładowania z opóźnieniem.
 
-Wyłączenie ładowania z opóźnieniem bez wpływu na kod w inny sposób `Enrollments` właściwość będzie o wartości null, niezależnie od tego, ile rejestracje kurs faktycznie miał. W takim przypadku można załadować `Enrollments` właściwości, trzeba określić wczesne ładowanie lub jawne ładowanie. Pokazaliśmy już już, jak zrobić wczesne ładowanie. Aby zobaczyć przykład jawne ładowanie, Zastąp `Index` metoda poniższym kodem, które jawnie ładuje `Enrollments` właściwości. Kod został zmieniony, zostały wyróżnione.
+Jeśli ładowanie z opóźnieniem zostało wyłączone bez zmiany kodu w inny sposób, właściwość `Enrollments` będzie miała wartość null, niezależnie od tego, ile rejestracji rzeczywiście miał kurs. W takim przypadku w celu załadowania właściwości `Enrollments` należy określić ładowanie eager lub jawne. Zaobserwowano już, jak przeprowadzić ładowanie eager. Aby zobaczyć przykład jawnego ładowania, Zastąp metodę `Index` poniższym kodem, który jawnie załaduje Właściwość `Enrollments`. Kod zmieniony jest wyróżniony.
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs?highlight=20-31)]
 
-Po otrzymaniu wybranego `Course` jednostki, nowy kod ładuje jawnie danego kursu `Enrollments` właściwość nawigacji:
+Po pobraniu wybranej jednostki `Course` nowy kod jawnie załaduje właściwość nawigacji `Enrollments` tego kursu:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
-Następnie są ładowane jawnie każdego `Enrollment` jednostki użytkownika związane z `Student` jednostki:
+Następnie jawnie wczytuje `Enrollment` jednostki `Student` powiązanej jednostki:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cs)]
 
-Zwróć uwagę, że używasz `Collection` metodę, aby załadować właściwość kolekcji, ale dla właściwości, która zawiera tylko jedną jednostkę, możesz użyć `Reference` metody.
+Zwróć uwagę, że używasz metody `Collection` do załadowania właściwości kolekcji, ale dla właściwości, która zawiera tylko jedną jednostkę, używasz metody `Reference`.
 
-Uruchom teraz strony indeksu przez instruktorów i ma różnicy w wyświetlanych na stronie zostanie wyświetlony, mimo że zostało zmienione, jak dane są pobierane.
+Uruchom teraz stronę indeks instruktora i nie zobaczysz żadnych różnic w wyświetlanych na stronie, chociaż zmieniono sposób pobierania danych.
 
 ## <a name="get-the-code"></a>Pobierz kod
 
@@ -254,18 +254,18 @@ Uruchom teraz strony indeksu przez instruktorów i ma różnicy w wyświetlanych
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
+Linki do innych zasobów Entity Framework można znaleźć w [zasobach zalecanych przez dostęp do danych ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dowiedzieliśmy się, jak załadować dane dotyczące
-> * Utworzona strona kursów
-> * Utworzona strona instruktorów
+> * Dowiesz się, jak ładować powiązane dane
+> * Utworzono stronę kursów
+> * Utworzono stronę instruktorów
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak aktualizowanie powiązanych danych.
+Przejdź do następnego artykułu, aby dowiedzieć się, jak zaktualizować powiązane dane.
 
 > [!div class="nextstepaction"]
 > [Aktualizowanie powiązanych danych](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

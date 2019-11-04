@@ -1,228 +1,228 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
-title: Objaśnienie pliku projektu | Dokumentacja firmy Microsoft
+title: Informacje o pliku projektu | Microsoft Docs
 author: jrjlee
-description: Pliki projektu aparatu Microsoft Build Engine (MSBuild) znajdują się w ramach procesu kompilacji i wdrażania. W tym temacie zaczyna się omówienie pojęć dotyczących programu MSBuild...
+description: Pliki projektu Microsoft Build Engine (MSBuild) znajdują się na serca procesu kompilacji i wdrożenia. Ten temat rozpoczyna się od omówienia koncepcji programu MSBuild...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: a72de5c143bf760292975778b0cf5e0ccdda0973
-ms.sourcegitcommit: 6a564984ad448db34cdfab5458af755d6b65e69c
+ms.openlocfilehash: 419fe51aaf65bddcc2c50380f099f842a8d9439c
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538818"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445697"
 ---
-# <a name="understanding-the-project-file"></a>Objaśnienie pliku projektu
+# <a name="understanding-the-project-file"></a>Zrozumienie pliku projektu
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Pliki projektu aparatu Microsoft Build Engine (MSBuild) znajdują się w ramach procesu kompilacji i wdrażania. W tym temacie zaczyna się omówienie pojęć dotyczących programu MSBuild i pliku projektu. Opisuje najważniejsze składniki, które będzie trafisz na podczas pracy z plikami projektu i działa za pośrednictwem przykład sposobu użycia plików projektu w celu wdrażania aplikacji w rzeczywistych warunkach.
+> Pliki projektu Microsoft Build Engine (MSBuild) znajdują się na serca procesu kompilacji i wdrożenia. Ten temat rozpoczyna się od omówienia koncepcji programu MSBuild i pliku projektu. Opisuje on najważniejsze składniki, które należy wykonać podczas pracy z plikami projektu, i działa za pomocą przykładowego sposobu użycia plików projektu do wdrożenia rzeczywistych aplikacji.
 > 
-> Zawartość:
+> Dowiesz się:
 > 
-> - Jak program MSBuild używa plików projektu MSBuild do kompilowania projektów.
-> - Jak MSBuild integruje się z wdrożenia technologii, takich jak Internet Information Services (IIS) Narzędzie wdrażania sieci Web (Web Deploy).
-> - Jak zrozumieć kluczowe składniki pliku projektu.
-> - Jak można użyć plików projektu, tworzyć i wdrażać złożone aplikacje.
+> - Jak MSBuild używa plików projektu MSBuild do kompilowania projektów.
+> - Sposób integracji programu MSBuild z technologiami wdrażania, takimi jak narzędzie Web Deployment Internet Information Services (IIS) (Web Deploy).
+> - Jak zrozumieć najważniejsze składniki pliku projektu.
+> - Jak można używać plików projektu do kompilowania i wdrażania złożonych aplikacji.
 
-## <a name="msbuild-and-the-project-file"></a>MSBuild i pliku projektu
+## <a name="msbuild-and-the-project-file"></a>MSBuild i plik projektu
 
-Podczas tworzenia i tworzyć rozwiązania w programie Visual Studio, Visual Studio używa MSBuild do tworzenia każdego projektu w rozwiązaniu. Każdy projekt programu Visual Studio zawiera plik projektu MSBuild z rozszerzeniem pliku, który odzwierciedla typu projektu&#x2014;na przykład projekt C# (.csproj), języku wizualnego projektu (.vbproj) lub projekt bazy danych (.dbproj). Aby skompilować projekt, program MSBuild musi przetworzyć plik projektu skojarzony z projektem. Plik projektu jest dokumentu XML, który zawiera wszystkie informacje i instrukcje, że program MSBuild wymaga w celu kompilowania projektu, takich jak zawartość, aby uwzględnić wymagania dotyczące platformy, informacji o wersji, serwer sieci web lub ustawienia serwera bazy danych, a zadania, które muszą być wykonywane.
+Podczas tworzenia i kompilowania rozwiązań w programie Visual Studio program Visual Studio używa programu MSBuild do kompilowania każdego projektu w rozwiązaniu. Każdy projekt programu Visual Studio zawiera plik projektu programu MSBuild z rozszerzeniem pliku, które odzwierciedla typ projektu&#x2014;na przykład C# projekt (. csproj), projekt Visual Basic.NET (. vbproj) lub projekt bazy danych (. DBPROJ). W celu skompilowania projektu MSBuild musi przetworzyć plik projektu skojarzony z projektem. Plik projektu to dokument XML, który zawiera wszystkie informacje i instrukcje wymagane przez MSBuild w celu skompilowania projektu, takie jak zawartość do uwzględnienia, wymagania dotyczące platformy, informacje o wersji, ustawienia serwera sieci Web lub serwera bazy danych, a także zadania, które muszą zostać wykonane.
 
-Pliki projektu MSBuild opierają się na [schematu MSBuild XML](https://msdn.microsoft.com/library/5dy88c2e.aspx), i dzięki temu proces kompilacji jest całkowicie otwarty i przejrzysty. Ponadto nie trzeba zainstalować program Visual Studio aby można było używać aparatu MSBuild&#x2014;MSBuild.exe pliku wykonywalnego, który jest częścią programu .NET Framework i można go uruchomić z wiersza polecenia. Jako deweloper możesz tworzyć we własnych plikach projektu programu MSBuild nakładają wyrafinowane i szczegółową kontrolę nad jak swoje projekty są zbudowane i wdrażane przy użyciu schematu MSBuild XML. Te pliki projektu niestandardowe działają w taki sam sposób, jak pliki projektów odnoszących się program Visual Studio generuje automatycznie.
+Pliki projektów programu MSBuild są oparte na [schemacie XML programu MSBuild](/visualstudio/msbuild/msbuild-project-file-schema-reference)i w związku z tym proces kompilacji jest całkowicie otwarty i niewidoczny. Ponadto nie trzeba instalować programu Visual Studio, aby używać aparatu&#x2014;MSBuild, plik wykonywalny MSBuild. exe jest częścią .NET Framework i można uruchomić go z poziomu wiersza polecenia. Jako programista możesz utworzyć własne pliki projektu programu MSBuild przy użyciu schematu XML programu MSBuild, aby nałożyć zaawansowanej i szczegółowej kontroli nad sposobem kompilowania i wdrażania projektów. Te pliki niestandardowego projektu działają w taki sam sposób jak pliki projektu, które program Visual Studio generuje automatycznie.
 
 > [!NOTE]
-> Umożliwia także pliki projektów programu MSBuild z usługą Team Build w Team Foundation Server (TFS). Na przykład można użyć plików projektu w scenariuszach ciągłej integracji (CI) zautomatyzować wdrożenia w środowisku testowym, gdy nowy kod jest zaewidencjonowany. Aby uzyskać więcej informacji, zobacz [Konfigurowanie serwera Team Foundation Server dla automatycznego wdrażania w Internecie](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md).
+> Można również użyć plików projektu MSBuild z usługą kompilacji zespołowej w Team Foundation Server (TFS). Na przykład można użyć plików projektu w scenariuszach ciągłej integracji (CI) do automatyzowania wdrażania w środowisku testowym, gdy nowy kod jest zaewidencjonowany. Aby uzyskać więcej informacji, zobacz [konfigurowanie Team Foundation Server na potrzeby zautomatyzowanego wdrażania w sieci Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md).
 
-### <a name="project-file-naming-conventions"></a>Plik projektu, konwencje nazewnictwa
+### <a name="project-file-naming-conventions"></a>Konwencje nazewnictwa plików projektu
 
-Podczas tworzenia plików projektu, można użyć dowolnego rozszerzenia pliku, które chcesz. Jednak aby ułatwić rozwiązania dla innych użytkowników dowiedzieć się, należy użyć tych typowych Konwencji:
+W przypadku tworzenia własnych plików projektu można użyć dowolnego rozszerzenia pliku. Jednak w celu ułatwienia innym użytkownikom zrozumienia rozwiązań należy używać tych wspólnych Konwencji:
 
-- Użyj rozszerzenia plików Proj, podczas tworzenia pliku projektu, który kompiluje projekty.
-- Użyj rozszerzenia .targets, podczas tworzenia pliku projektu do wielokrotnego użytku, aby zaimportować do innych plików projektów. Pliki z rozszerzeniem .targets zwykle nie zbudować prawie wszystko samodzielnie, po prostu zawierają instrukcje, które można importować do plików .proj.
+- Użyj rozszerzenia. proj podczas tworzenia pliku projektu, który kompiluje projekty.
+- Użyj rozszerzenia. targets podczas tworzenia pliku projektu wielokrotnego użytku do zaimportowania do innych plików projektu. Pliki z rozszerzeniem. targets zwykle nie kompilują niczego, po prostu zawierają instrukcje, które można zaimportować do plików. proj.
 
-### <a name="integration-with-deployment-technologies"></a>Integracja z usługą technologie wdrażania
+### <a name="integration-with-deployment-technologies"></a>Integracja z technologiami wdrażania
 
-Jeśli znasz już projektów aplikacji sieci web w programie Visual Studio 2010, takich jak aplikacje sieci web ASP.NET i aplikacji sieci web platformy ASP.NET MVC, będziesz wiedzieć, że te projekty zawierają wbudowaną obsługę pakowanie i wdrażanie aplikacji sieci web w środowisku docelowym. **Właściwości** strony, aby uwzględnić te projekty **pakowaniu/publikowaniu Web** i **Pakuj/Publikuj SQL** kart, które umożliwiają skonfigurowanie sposobu składniki usługi Aplikacja są spakowane i wdrażane. Pokazuje to **pakowaniu/publikowaniu Web** karty:
+Jeśli pracujesz z projektami aplikacji sieci Web w programie Visual Studio 2010, takich jak ASP.NET Web Applications i ASP.NET MVC, wiesz, że te projekty obejmują wbudowaną obsługę pakowania i wdrażania aplikacji sieci Web w środowisku docelowym. Strony **Właściwości** dla tych projektów zawierają informacje o **pakiecie/publikacji sieci Web** i **pakiecie/publikacji SQL** , których można użyć w celu skonfigurowania sposobu pakowania i wdrażania składników aplikacji. Zostanie wyświetlona karta **pakowanie/publikowanie w sieci Web** :
 
 ![](understanding-the-project-file/_static/image1.png)
 
-Podstawową używaną technologią za te możliwości jest znany jako Web potok publikowania (WPP). Potok WPP zasadniczo oferuje MSBuild i [narzędzia Web Deploy](https://go.microsoft.com/?linkid=9805122) ze sobą w celu zapewnienia kompletnego procesu kompilacji, tworzenie pakietów i wdrażanie aplikacji sieci web.
+Podstawowa technologia odpowiadająca tym funkcjom jest znana jako potok publikowania w sieci Web (WPP). WPP zasadniczo zapewnia MSBuild i [Web Deploy](https://go.microsoft.com/?linkid=9805122) ze sobą, aby zapewnić kompletny proces kompilowania, tworzenia pakietów i wdrażania aplikacji sieci Web.
 
-Dobra wiadomość jest taka, możesz skorzystać z punktów integracji udostępnianych przez potok WPP podczas tworzenia plików niestandardowego projektu dla projektów sieci web. Instrukcje dotyczące wdrażania można uwzględnić w pliku projektu, co pozwala na kompilowanie projektów, tworzyć pakiety wdrażania sieci web i zainstalować te pakiety na serwerach zdalnych za pośrednictwem pliku pojedynczego projektu i jedno wywołanie do programu MSBuild. Można również wywołać inne pliki wykonywalne, jako część procesu kompilacji. Na przykład można uruchomić narzędzie wiersza polecenia VSDBCMD.exe wdrożyć bazę danych z pliku schematu. W miarę upływu w tym temacie zobaczysz, jak można było korzystać z tych możliwości, aby spełnić wymagania organizacji scenariuszy wdrażania.
+Dobra wiadomość polega na tym, że można korzystać z punktów integracji udostępnianych przez WPP podczas tworzenia niestandardowych plików projektu dla projektów sieci Web. W pliku projektu można uwzględnić instrukcje wdrażania, które umożliwiają Kompilowanie projektów, tworzenie pakietów wdrożeniowych sieci Web i instalowanie tych pakietów na serwerach zdalnych za pomocą pojedynczego pliku projektu i pojedynczego wywołania programu MSBuild. Możesz również wywołać wszystkie inne pliki wykonywalne jako część procesu kompilacji. Na przykład można uruchomić narzędzie wiersza polecenia VSDBCMD. exe, aby wdrożyć bazę danych z pliku schematu. W ramach tego tematu zobaczysz, jak korzystać z tych funkcji w celu spełnienia wymagań scenariuszy wdrażania przedsiębiorstwa.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat sposobu działania procesu wdrażania aplikacji sieci web, zobacz [ASP.NET Web Application Project Deployment Overview](https://msdn.microsoft.com/library/dd394698.aspx).
+> Aby uzyskać więcej informacji na temat działania procesu wdrażania aplikacji sieci Web, zobacz artykuł [Omówienie wdrażania projektu aplikacji sieci web ASP.NET](https://msdn.microsoft.com/library/dd394698.aspx).
 
-## <a name="the-anatomy-of-a-project-file"></a>Struktura pliku projektu
+## <a name="the-anatomy-of-a-project-file"></a>Anatomia pliku projektu
 
-Zanim przyjrzymy się proces kompilacji, które bardziej szczegółowo, warto trwa kilka minut, aby zapoznać się z podstawowa struktura pliku projektu programu MSBuild. W tej sekcji omówiono typowe elementy, które będzie występować podczas przeglądu, edytowania lub tworzenia pliku projektu. W szczególności dowiesz się:
+Przed przystąpieniem do procesu kompilacji bardziej szczegółowo warto zaznajomić się z podstawową strukturą pliku projektu programu MSBuild. Ta sekcja zawiera omówienie bardziej typowych elementów, które można napotkać podczas przeglądania, edytowania lub tworzenia pliku projektu. W szczególności dowiesz się:
 
-- Jak używać *właściwości* Zarządzanie zmienne dla procesu kompilacji.
-- Jak używać *elementów* do identyfikowania danych wejściowych do procesu kompilacji, takie jak pliki kodu.
-- Jak używać *cele* i *zadania* zapewnienie instrukcje wykonania MSBuild, za pomocą *właściwości* i *elementów* zdefiniowanej w innym miejscu w plik projektu.
+- Jak używać *Właściwości* do zarządzania zmiennymi dla procesu kompilacji.
+- Jak używać *elementów* do identyfikowania danych wejściowych procesu kompilacji, takich jak pliki kodu.
+- Jak używać *obiektów docelowych* i *zadań* do dostarczania instrukcji wykonawczych do programu MSBuild przy użyciu *Właściwości* i *elementów* zdefiniowanych w innym miejscu w pliku projektu.
 
-To pokazuje relację między kluczami elementów w pliku projektu programu MSBuild:
+Spowoduje to wyświetlenie relacji między elementami klucza w pliku projektu programu MSBuild:
 
 ![](understanding-the-project-file/_static/image2.png)
 
 ### <a name="the-project-element"></a>Element projektu
 
-[Projektu](https://msdn.microsoft.com/library/bcxfsh87.aspx) element jest elementem głównym każdego pliku projektu. Oprócz identyfikowania schemat XML pliku projektu **projektu** element może zawierać atrybutów, aby określić punkty wejścia dla procesu kompilacji. Na przykład w [Contact Manager przykładowe rozwiązanie](the-contact-manager-solution.md), *Publish.proj* plik Określa, czy kompilacja powinna być uruchamiana, wywołując element docelowy o nazwie **FullPublish**.
+Element [projektu](https://msdn.microsoft.com/library/bcxfsh87.aspx) jest elementem głównym każdego pliku projektu. Oprócz identyfikacji schematu XML dla pliku projektu, element **projektu** może zawierać atrybuty, aby określić punkty wejścia dla procesu kompilacji. Przykładowo w przykładowym [rozwiązaniu Contact Manager](the-contact-manager-solution.md)plik *Publish. proj* określa, że kompilacja powinna zacząć się od wywołania obiektu docelowego o nazwie **FullPublish**.
 
 [!code-xml[Main](understanding-the-project-file/samples/sample1.xml)]
 
 ### <a name="properties-and-conditions"></a>Właściwości i warunki
 
-Plik projektu musi zwykle zapewniają wiele różnych rodzajów informacji, aby pomyślnie tworzyć i wdrażać swoje projekty. Te elementy informacje mogą obejmować nazwy serwera, parametry połączenia, poświadczenia, konfiguracje kompilacji, źródłowe i docelowe ścieżki plików i wszelkie inne informacje, które chcesz dołączyć do obsługi dostosowywania. W pliku projektu, właściwości muszą być zdefiniowane w ramach [PropertyGroup](https://msdn.microsoft.com/library/t4w159bs.aspx) elementu. Właściwości programu MSBuild składają się z pary klucz wartość. W ramach **PropertyGroup** elementu, nazwa elementu definiuje klucz właściwości i zawartość elementu definiuje wartości właściwości. Na przykład można zdefiniować właściwości o nazwie **ServerName** i **ConnectionString** do przechowywania statycznej serwera nazwę i parametry połączenia.
+Plik projektu zwykle musi udostępniać wiele różnych informacji w celu pomyślnego skompilowania i wdrożenia projektów. Te informacje mogą obejmować nazwy serwerów, parametry połączenia, poświadczenia, konfiguracje kompilacji, źródłową i docelową ścieżkę pliku oraz inne informacje, które mają być dołączone do obsługi dostosowywania. W pliku projektu właściwości muszą być zdefiniowane w obrębie elementu [Właściwości](https://msdn.microsoft.com/library/t4w159bs.aspx) . Właściwości programu MSBuild składają się z par klucz-wartość. W obrębie elementu **Property** , nazwa elementu definiuje klucz właściwości i zawartość elementu definiuje wartość właściwości. Na przykład można zdefiniować właściwości o nazwie **servername** i **ConnectionString** do przechowywania statycznej nazwy serwera i parametrów połączenia.
 
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
-Aby pobrać wartości właściwości, użyj formatu *$(PropertyName)* . Na przykład, aby pobrać wartość **ServerName** właściwość, należy wpisać:
+Aby pobrać wartość właściwości, użyj formatu *$ (propertyName)* . Na przykład aby pobrać wartość właściwości **servername** , należy wpisać:
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
 
 > [!NOTE]
-> Zostaną wyświetlone zapoznać się z przykładami i kiedy należy używać wartości właściwości w dalszej części tego tematu.
+> Zobacz, jak i kiedy używać wartości właściwości w dalszej części tego tematu.
 
-Osadzanie informacji o jako właściwości statycznych w pliku projektu nie zawsze jest idealnym rozwiązaniem podejście do zarządzania procesem kompilacji. W wielu scenariuszach będziesz chciał uzyskania informacji z innych źródeł lub zwiększenie możliwości dostępnych dla użytkownika o podanie informacji z poziomu wiersza polecenia. Program MSBuild umożliwia określenie dowolnej wartości właściwości jako parametr wiersza polecenia. Na przykład użytkownik może podać wartość dla **ServerName** po użytkownik uruchamia MSBuild.exe w wierszu polecenia.
+Osadzanie informacji jako właściwości statyczne w pliku projektu nie zawsze jest idealnym podejściem do zarządzania procesem kompilacji. W wielu scenariuszach warto uzyskać informacje od innych źródeł lub dać użytkownikowi informacje z poziomu wiersza polecenia. Program MSBuild pozwala określić dowolną wartość właściwości jako parametr wiersza polecenia. Na przykład użytkownik może podać wartość **serwera ServerName** , gdy w wierszu polecenia jest uruchomiony program MSBuild. exe.
 
 [!code-console[Main](understanding-the-project-file/samples/sample4.cmd)]
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat argumentów i parametrów można używać z MSBuild.exe, zobacz [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311.aspx).
+> Aby uzyskać więcej informacji na temat argumentów i przełączników, których można użyć z MSBuild. exe, zobacz [Dokumentacja wiersza polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
-Aby uzyskać wartości zmiennych środowiskowych i właściwości projektu wbudowanych, można użyć tej samej składni właściwości. Wiele powszechnie używanych właściwości są zdefiniowane dla Ciebie, a następnie używać w plikach projektu, łącznie z nazwą odpowiedniego parametru. Na przykład, aby pobrać Bieżąca platforma projektu&#x2014;na przykład **x86** lub **AnyCpu**&#x2014;mogą obejmować **$(Platform)** odwołaniem do właściwości w plik projektu. Aby uzyskać więcej informacji, zobacz [makra dla poleceń i właściwości kompilacji](https://msdn.microsoft.com/library/c02as0cs.aspx), [wspólne właściwości projektów MSBuild](https://msdn.microsoft.com/library/bb629394.aspx), i [właściwości zastrzeżonych](https://msdn.microsoft.com/library/ms164309.aspx).
+Możesz użyć tej samej składni właściwości, aby uzyskać wartości zmiennych środowiskowych i wbudowanych właściwości projektu. Wiele często używanych właściwości jest zdefiniowanych dla Ciebie i można ich używać w plikach projektu przez dołączenie odpowiedniej nazwy parametru. Na przykład aby pobrać bieżącą&#x2014;platformę projektu, na przykład **x86** lub **AnyCPU**&#x2014;, można dodać odwołanie do właściwości **$ (platform)** w pliku projektu. Aby uzyskać więcej informacji, zobacz [makra dla poleceń kompilacji i właściwości](https://msdn.microsoft.com/library/c02as0cs.aspx), [wspólne właściwości projektu MSBuild](https://msdn.microsoft.com/library/bb629394.aspx)i [właściwości zastrzeżone](https://msdn.microsoft.com/library/ms164309.aspx).
 
-Właściwości są często używane w połączeniu z *warunki*. Obsługuje większość elementów MSBuild **warunek** atrybut, który pozwala określić kryteria, na których program MSBuild należy ocenić element. Na przykład należy wziąć pod uwagę tę definicję właściwości:
+Właściwości są często używane w połączeniu z *warunkami*. Większość elementów programu MSBuild obsługuje atrybut **Condition** , który umożliwia określenie kryteriów, od których MSBuild powinien oceniać element. Rozważmy na przykład tę definicję właściwości:
 
 [!code-xml[Main](understanding-the-project-file/samples/sample5.xml)]
 
-Gdy program MSBuild przetwarza tę definicję właściwości, najpierw sprawdza, czy **$(OutputRoot)** wartość właściwości jest dostępna. Jeśli wartość właściwości jest puste&#x2014;innymi słowy, użytkownik nie dostarczył wartość tej właściwości&#x2014;warunek to **true** i wartość właściwości jest równa **... \Publish\Out**. Jeśli użytkownik udostępnił wartość tej właściwości, warunek jest **false** i nie jest używana wartość właściwości statycznej.
+Gdy program MSBuild przetwarza tę definicję właściwości, najpierw sprawdza, czy jest dostępna wartość właściwości **$ (OutputRoot)** . Jeśli wartość właściwości jest pusta&#x2014;inaczej mówiąc, użytkownik nie dostarczył wartości dla tej właściwości&#x2014;, warunek ma wartość **true** , a wartość właściwości jest ustawiona na **.. \Publish\Out**. Jeśli użytkownik podał wartość dla tej właściwości, warunek zwróci wartość **false** , a wartość właściwości statycznej nie jest używana.
 
-Aby uzyskać więcej informacji na temat różnych sposobów, w którym można określić warunki, zobacz [warunki MSBuild](https://msdn.microsoft.com/library/7szfhaft.aspx).
+Aby uzyskać więcej informacji na temat różnych sposobów określania warunków, zobacz [warunki MSBuild](https://msdn.microsoft.com/library/7szfhaft.aspx).
 
 ### <a name="items-and-item-groups"></a>Elementy i grupy elementów
 
-Jedną z ważnych ról w pliku projektu jest zdefiniowanie danych wejściowych do procesu kompilacji. Zazwyczaj te dane wejściowe są pliki&#x2014;kodu pliki, pliki konfiguracji, pliki poleceń i innych plików, które należy przetworzyć lub Kopiuj jako część procesu kompilacji. W schemacie projektu MSBuild te dane wejściowe są reprezentowane przez [elementu](https://msdn.microsoft.com/library/ms164283.aspx) elementów. W pliku projektu, elementy muszą być zdefiniowane w ramach [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) elementu. Podobnie jak w przypadku **właściwość** elementów można nazwać **elementu** elementu dowolny sposób. Jednakże, należy określić **Include** atrybut do identyfikowania plików lub symbolu wieloznacznego, który reprezentuje element.
+Jedną z ważnych ról pliku projektu jest Definiowanie danych wejściowych procesu kompilacji. Zazwyczaj te dane wejściowe to pliki&#x2014;kodu plików, pliki konfiguracji, pliki poleceń i inne pliki, które są potrzebne do przetworzenia lub kopiowania w ramach procesu kompilacji. W schemacie projektu MSBuild te dane wejściowe są reprezentowane przez elementy [elementu](https://msdn.microsoft.com/library/ms164283.aspx) . W pliku projektu elementy muszą być zdefiniowane w obrębie elementu [Item](https://msdn.microsoft.com/library/646dk05y.aspx) . Podobnie jak w przypadku elementów **Właściwości** , można nazwać element **elementu** . Jednak należy określić atrybut **include** , aby zidentyfikować plik lub symbol wieloznaczny, który reprezentuje element.
 
 [!code-xml[Main](understanding-the-project-file/samples/sample6.xml)]
 
-Określając wielu **elementu** elementów o takiej samej nazwie, efektywnie tworzysz nazwana Lista zasobów. Dobrym sposobem, aby zobaczyć to w akcji jest zapoznaj się z jednego z plików projektu, tworzonych w programie Visual Studio. Na przykład *ContactManager.Mvc.csproj* plik w przykładowym rozwiązaniu zawiera wiele elementów grup, każda z kilku identycznie nazwane **elementu** elementów.
+Określając **wiele elementów elementów o** tej samej nazwie, efektywnie tworzysz nazwaną listę zasobów. Dobrym sposobem wyświetlenia tego działania jest zaprojektowanie w jednym z plików projektu, które tworzy program Visual Studio. Na przykład plik *ContactManager. MVC. csproj* w przykładowym rozwiązaniu zawiera wiele grup elementów, z których każdy ma różne elementy o identycznej **nazwie.**
 
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
-W ten sposób w pliku projektu jest poinstruować program MSBuild do tworzenia list plików, które muszą zostać przetworzone w taki sam sposób&#x2014; **odwołania** lista zawiera zestawy, które muszą być spełnione dla udanej kompilacji  **Skompilować** lista zawiera pliki kodu, które muszą być skompilowane, oraz **zawartości** lista zawiera zasoby, które muszą zostać skopiowane niezmieniony. Omówimy sposób odwołuje się do procesu kompilacji i używa tych elementów w dalszej części tego tematu.
+W ten sposób plik projektu nakazuje programowi MSBuild konstruowanie list plików, które muszą być przetwarzane w taki sam sposób, jak&#x2014;lista **odwołania** zawiera zestawy, które muszą być stosowane dla pomyślnej kompilacji, a lista **kompilacji** zawiera kod pliki, które muszą zostać skompilowane, a lista **zawartości** zawiera zasoby, które muszą zostać skopiowane bez zmian. Dowiesz się, jak proces kompilacji odwołuje się do i używa tych elementów w dalszej części tego tematu.
 
-Elementy może również obejmować [itemmetadata —](https://msdn.microsoft.com/library/ms164284.aspx) elementów podrzędnych. Te są zdefiniowane przez użytkownika pary klucz wartość i zasadniczo reprezentuje właściwości, które są specyficzne dla tego elementu. Na przykład wiele **skompilować** obejmują elementy w pliku projektu **DependentUpon** elementów podrzędnych.
+Elementy elementu mogą również zawierać [ItemMetadata —](https://msdn.microsoft.com/library/ms164284.aspx) elementy podrzędne. Są to pary klucz-wartość zdefiniowane przez użytkownika i zasadniczo reprezentujące właściwości, które są specyficzne dla danego elementu. Na przykład, wiele elementów elementu **kompilowania** w pliku projektu zawiera **DependentUpon** elementy podrzędne.
 
 [!code-xml[Main](understanding-the-project-file/samples/sample8.xml)]
 
 > [!NOTE]
-> Oprócz metadanych elementu utworzone przez użytkownika wszystkie elementy są przypisane różne metadane wspólne przy tworzeniu. Aby uzyskać więcej informacji, zobacz [metadane dobrze znanego elementu](https://msdn.microsoft.com/library/ms164313.aspx).
+> Oprócz metadanych elementu utworzonego przez użytkownika, wszystkie elementy są przypisywane do różnych typowych metadanych podczas tworzenia. Aby uzyskać więcej informacji, zobacz [dobrze znane metadane elementu](https://msdn.microsoft.com/library/ms164313.aspx).
 
-Możesz utworzyć **ItemGroup** elementów w obrębie głównego poziomu **projektu** element lub w ramach określonych **docelowej** elementów. **ItemGroup** obsługują także elementy **warunek** atrybuty, które umożliwia dostosowywanie danych wejściowych do procesu kompilacji, zgodnie z warunkami, takich jak konfiguracja projektu lub platformy.
+Można utworzyć elementy **elementu Item** w obrębie elementu **projektu** poziomu głównego lub w obrębie określonych elementów **docelowych** . Elementy **elementu Items** obsługują również atrybuty **warunków** , które umożliwiają dostosowanie danych wejściowych do procesu kompilacji zgodnie z warunkami, takimi jak konfiguracja projektu lub platforma.
 
-### <a name="targets-and-tasks"></a>Elementy docelowe i zadania
+### <a name="targets-and-tasks"></a>Cele i zadania
 
-W schemacie MSBuild [zadań](https://msdn.microsoft.com/library/77f2hx1s.aspx) element reprezentuje poszczególnych kompilacji instrukcji (lub zadań). Program MSBuild obejmuje wiele wstępnie zdefiniowanych zadań. Na przykład:
+W schemacie programu MSBuild element [Task](https://msdn.microsoft.com/library/77f2hx1s.aspx) reprezentuje konkretną instrukcję kompilacji (lub zadanie). Program MSBuild zawiera wiele wstępnie zdefiniowanych zadań. Na przykład:
 
-- **Kopiowania** zadania kopiowania plików do nowej lokalizacji.
-- **Csc** zadanie wywołuje kompilatora Visual C#.
-- **Vbc** zadanie wywołuje kompilatora Visual Basic.
-- **Exec** zadanie jest uruchamiane określonego programu.
-- **Komunikat** zadań zapisuje komunikat do rejestratora.
+- Zadanie **copy** kopiuje pliki do nowej lokalizacji.
+- Zadanie **CSC** wywołuje kompilator wizualny C# .
+- Zadanie **VBC** wywołuje kompilator Visual Basic.
+- Zadanie **exec** uruchamia określony program.
+- Zadanie **komunikatu** zapisuje komunikat do rejestratora.
 
 > [!NOTE]
-> Aby uzyskać szczegółowe informacje, które są dostępne gotowych zadań, zobacz [odwołanie do zadania MSBuild](https://msdn.microsoft.com/library/7z253716.aspx). Aby uzyskać więcej informacji na temat zadań, w tym jak utworzyć własne zadania niestandardowe zobacz [zadania programu MSBuild](https://msdn.microsoft.com/library/ms171466.aspx).
+> Aby uzyskać szczegółowe informacje o zadaniach, które są dostępne, zobacz odwołanie do [zadania programu MSBuild](https://msdn.microsoft.com/library/7z253716.aspx). Aby uzyskać więcej informacji o zadaniach, w tym o sposobach tworzenia własnych zadań niestandardowych, zobacz [zadania programu MSBuild](https://msdn.microsoft.com/library/ms171466.aspx).
 
-Zadania zawsze musi być zawarta w [docelowej](https://msdn.microsoft.com/library/t50z2hka.aspx) elementów. A **docelowej** element to zbiór jednego lub więcej zadań, które są wykonywane sekwencyjnie, a plik projektu może zawierać wiele elementów docelowych. Jeśli chcesz uruchamiać zadania lub zestawu zadań, można wywołać docelowy, który je zawiera. Załóżmy na przykład, która rejestruje komunikat pliku prostego projektu.
+Zadania muszą być zawsze zawarte w elementach [docelowych](https://msdn.microsoft.com/library/t50z2hka.aspx) . Element **docelowy** jest zestawem co najmniej jednego zadania, które są wykonywane sekwencyjnie, a plik projektu może zawierać wiele obiektów docelowych. Gdy chcesz uruchomić zadanie lub zestaw zadań, wywołasz element docelowy, który je zawiera. Załóżmy na przykład, że masz prosty plik projektu, który rejestruje komunikat.
 
 [!code-xml[Main](understanding-the-project-file/samples/sample9.xml)]
 
-Obiekt docelowy z wiersza polecenia, można wywołać za pomocą **/t** przełącznik, aby określić cel.
+Obiekt docelowy można wywołać z wiersza polecenia przy użyciu **/t** Switch, aby określić element docelowy.
 
 [!code-console[Main](understanding-the-project-file/samples/sample10.cmd)]
 
-Alternatywnie, można dodać **defaulttargets —** atrybutu **projektu** element, aby określić cele, które chcesz wywołać.
+Alternatywnie, można dodać atrybut **DefaultTargets —** do elementu **projektu** , aby określić elementy docelowe, które chcesz wywołać.
 
 [!code-xml[Main](understanding-the-project-file/samples/sample11.xml)]
 
-W takim przypadku nie trzeba określić obiekt docelowy z wiersza polecenia. Można po prostu określić w pliku projektu i wywoła MSBuild **FullPublish** docelowego dla Ciebie.
+W takim przypadku nie trzeba określać elementu docelowego z wiersza polecenia. Można po prostu określić plik projektu, a MSBuild wywoła element docelowy **FullPublish** .
 
 [!code-console[Main](understanding-the-project-file/samples/sample12.cmd)]
 
-Obiekty docelowe i zadania mogą obejmować **warunek** atrybutów. W efekcie można pominąć cały elementów docelowych lub poszczególne zadania, jeśli są spełnione określone warunki.
+Oba elementy docelowe i zadania mogą zawierać atrybuty **warunku** . W związku z tym możesz pominąć wszystkie cele lub poszczególne zadania, jeśli zostaną spełnione określone warunki.
 
-Ogólnie rzecz biorąc podczas tworzenia użytecznych zadań i obiektów docelowych, konieczne będzie odwoływać się do właściwości i elementy, które zostały zdefiniowane w innym miejscu w pliku projektu:
+Ogólnie mówiąc, podczas tworzenia przydatnych zadań i obiektów docelowych należy odwołać się do właściwości i elementów, które zostały zdefiniowane w innym miejscu w pliku projektu:
 
-- Aby użyć wartości właściwości, wpisz **$(***PropertyName***)** , gdzie *PropertyName* nazywa się **właściwość** elementu lub nazwa parametr.
-- Aby użyć elementu, wpisz **@(***ItemName***)** , gdzie *ItemName* nazywa się **elementu** elementu.
+- Aby użyć wartości właściwości, wpisz **$ (***PropertyName***)** , gdzie *PropertyName* jest nazwą elementu **Właściwości** lub nazwą parametru.
+- Aby użyć elementu, wpisz **@ (***itemName***)** , gdzie *itemName* jest nazwą elementu **Item** .
 
 > [!NOTE]
-> Należy pamiętać, że jeśli tworzysz wiele elementów o takiej samej nazwie, którą tworzysz listy. Z kolei jeśli tworzysz wiele właściwości o takiej samej nazwie, ostatnią wartość właściwości, należy podać zastąpią wszelkie poprzednie właściwości o takiej samej nazwie&#x2014;właściwość może zawierać tylko jedną wartość.
+> Należy pamiętać, że jeśli tworzysz wiele elementów o tej samej nazwie, tworzysz listę. W przeciwieństwie do tworzenia wielu właściwości o tej samej nazwie, Ostatnia wartość właściwości zostanie zastąpiona wszystkimi poprzednimi właściwościami o tej samej nazwie&#x2014;, a właściwość może zawierać tylko jedną wartość.
 
-Na przykład w *Publish.proj* plików w przykładowym rozwiązaniu, Przyjrzyj się **BuildProjects** docelowej.
+Na przykład w pliku *Publish. proj* w przykładowym rozwiązaniu zapoznaj się z elementem docelowym **BuildProjects** .
 
 [!code-xml[Main](understanding-the-project-file/samples/sample13.xml)]
 
-W tym przykładzie można zaobserwować tych kluczowych zagadnieniach:
+W tym przykładzie można obserwować następujące kluczowe punkty:
 
-- Jeśli **BuildingInTeamBuild** parametr jest określony i ma wartość **true**, żadne zadania należące do tego elementu zostanie wykonana.
-- Element docelowy zawiera jedno wystąpienie [MSBuild](https://msdn.microsoft.com/library/z7f65y0d.aspx) zadania. To zadanie pozwala tworzyć innych projektów programu MSBuild.
-- **ProjectsToBuild** element jest przekazywany do zadania. Ten element może reprezentować listę plików projektu lub rozwiązania, wszystko to zdefiniowane przez **ProjectsToBuild** elementu elementów w obrębie grupy elementów. W tym przypadku **ProjectsToBuild** element odwołuje się do pliku jednego rozwiązania.
+- Jeśli parametr **BuildingInTeamBuild** jest określony i ma wartość **true**, żadne z zadań w tym obiekcie docelowym nie zostanie wykonane.
+- Element docelowy zawiera pojedyncze wystąpienie zadania programu [MSBuild](https://msdn.microsoft.com/library/z7f65y0d.aspx) . To zadanie pozwala tworzyć inne projekty MSBuild.
+- Element **ProjectsToBuild** jest przesyłany do zadania. Ten element może reprezentować listę plików projektu lub rozwiązania, które zostały zdefiniowane przez elementy elementu **ProjectsToBuild** w grupie elementów. W tym przypadku element **ProjectsToBuild** odwołuje się do pojedynczego pliku rozwiązania.
 
     [!code-xml[Main](understanding-the-project-file/samples/sample14.xml)]
-- Wartości właściwości przekazany do **MSBuild** zadanie obejmuje parametrów o nazwie **OutputRoot** i **konfiguracji**. Jeśli nie są ustawione na wartości parametrów, jeśli są one udostępniane lub wartości właściwości statycznej.
+- Wartości właściwości przesłane do zadania programu **MSBuild** obejmują parametry o nazwach **OutputRoot** i **Configuration**. Te ustawienia są ustawiane na wartości parametrów, jeśli są one dostarczone lub statyczne wartości właściwości, jeśli nie są.
 
     [!code-xml[Main](understanding-the-project-file/samples/sample15.xml)]
 
-Możesz również zobaczyć, że **MSBuild** zadanie wywołuje obiekt docelowy o nazwie **kompilacji**. Jest to jeden z kilku wbudowanych obiektów docelowych, które są powszechnie używane w plikach projektu programu Visual Studio i są dostępne w plikach projektu niestandardowych, jak **kompilacji**, **czysty**, **odbudować**, i **publikowania**. Dowiesz się więcej o korzystaniu z obiektów docelowych i zadań, do kontroli procesu kompilacji, a także o **MSBuild** zadań w szczególności w dalszej części tego tematu.
+Można też zobaczyć, że zadanie **MSBuild** wywołuje obiekt docelowy o nazwie **kompilacja**. Jest to jeden z kilku wbudowanych obiektów docelowych, które są szeroko używane w plikach projektu programu Visual Studio i są dostępne dla użytkownika w niestandardowych plikach projektu, takich jak **Kompilowanie**, **czyszczenie**, **Odbudowywanie**i **Publikowanie**. Dowiesz się więcej o używaniu elementów docelowych i zadań do kontrolowania procesu kompilacji oraz o zadaniu programu **MSBuild** w dalszej części tego tematu.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat elementów docelowych, zobacz [elementów docelowych MSBuild](https://msdn.microsoft.com/library/ms171462.aspx).
+> Aby uzyskać więcej informacji na temat obiektów docelowych, zobacz [elementy docelowe programu MSBuild](https://msdn.microsoft.com/library/ms171462.aspx).
 
-## <a name="splitting-project-files-to-support-multiple-environments"></a>Podział plików projektu w celu obsługi wielu środowisk
+## <a name="splitting-project-files-to-support-multiple-environments"></a>Dzielenie plików projektu do obsługi wielu środowisk
 
-Załóżmy, że chcesz można było wdrożyć rozwiązanie w wielu środowiskach, takich jak serwery testowe, tymczasowe platformy i środowisk produkcyjnych. Konfiguracja może znacząco różnią się między tymi środowiskami&#x2014;nie tylko pod względem serwerów nazw, parametry połączenia i tak dalej, ale też potencjalnie pod względem poświadczeń, ustawienia zabezpieczeń i wiele innych czynników. Jeśli potrzebujesz to zrobić regularnie, nie jest tak naprawdę wskazane edytować wiele właściwości w pliku projektu, za każdym razem, gdy przełączasz się środowiska docelowego. Nie jest to idealne rozwiązanie będą musieli nieskończone listę wartości właściwości do procesu kompilacji.
+Załóżmy, że chcesz mieć możliwość wdrożenia rozwiązania w wielu środowiskach, takich jak serwery testowe, platformy przejściowe i środowiska produkcyjne. Konfiguracja może znacząco różnić się między tymi środowiskami&#x2014;, nie tylko pod względem nazw serwerów, parametrów połączenia i tak dalej, ale także w przypadku poświadczeń, ustawień zabezpieczeń i wielu innych czynników. W przypadku konieczności regularnego wykonywania tych czynności nie jest celowe Edytowanie wielu właściwości w pliku projektu przy każdym przełączeniu środowiska docelowego. Nie jest to idealne rozwiązanie wymagane do uzyskania nieskończonej listy wartości właściwości, które mają być dostarczone do procesu kompilacji.
 
-Na szczęście jest alternatywą. Program MSBuild umożliwia podzielić konfiguracji kompilacji na wielu plikach projektów. Aby zobaczyć, jak to działa, w przykładowym rozwiązaniu, zwróć uwagę, że istnieją dwa pliki niestandardowego projektu:
+Na szczęście istnieje alternatywa. Program MSBuild pozwala podzielić konfigurację kompilacji na wiele plików projektu. Aby zobaczyć, jak to działa, w przykładowym rozwiązaniu należy zauważyć, że istnieją dwa pliki niestandardowego projektu:
 
-- *Publish.Proj*, który zawiera właściwości, elementy, i obiekty docelowe, które są wspólne dla wszystkich środowisk.
-- *ENV Dev.proj*, który zawiera właściwości, które są specyficzne dla środowiska deweloperskiego.
+- *Publish. proj*, który zawiera właściwości, elementy i obiekty docelowe, które są wspólne dla wszystkich środowisk.
+- *ENV-dev. proj*, który zawiera właściwości specyficzne dla środowiska deweloperskiego.
 
-Teraz należy zauważyć, że *Publish.proj* plik zawiera [importu](https://msdn.microsoft.com/library/92x05xfs.aspx) elementu tuż poniżej otwarcia **projektu** tagu.
+Teraz należy zauważyć, że plik *Publish. proj* zawiera element [Import](https://msdn.microsoft.com/library/92x05xfs.aspx) bezpośrednio poniżej tagu otwierającego **projektu** .
 
 [!code-xml[Main](understanding-the-project-file/samples/sample16.xml)]
 
-**Zaimportować** element jest używany w celu zaimportowania zawartości innego pliku projektu MSBuild do bieżącego pliku projektu MSBuild. W tym przypadku **TargetEnvPropsFile** parametr zawiera nazwę pliku projektu, który chcesz zaimportować. Po uruchomieniu programu MSBuild, możesz podać wartość dla tego parametru.
+Element **Import** służy do importowania zawartości innego pliku projektu MSBuild do bieżącego pliku projektu MSBuild. W tym przypadku parametr **TargetEnvPropsFile** zawiera nazwę pliku projektu, który chcesz zaimportować. Możesz podać wartość dla tego parametru podczas uruchamiania programu MSBuild.
 
 [!code-console[Main](understanding-the-project-file/samples/sample17.cmd)]
 
-To skutecznie Scala zawartość tych dwóch plików pliku pojedynczego projektu. W ten sposób można utworzyć jeden projekt zawierający konfigurację kompilacji uniwersalnych i wiele plików dodatkowych projekt zawierający właściwości specyficzne dla środowiska. W rezultacie po prostu uruchomienie polecenia za pomocą wartości parametru różnych pozwala wdrażać rozwiązania do innego środowiska.
+To efektywnie Scala zawartość dwóch plików w jeden plik projektu. Korzystając z tej metody, można utworzyć jeden plik projektu zawierający konfigurację uniwersalną kompilacji i wiele dodatkowych plików projektu zawierających właściwości specyficzne dla środowiska. W związku z tym po prostu uruchomienie polecenia z inną wartością parametru pozwala wdrożyć rozwiązanie w innym środowisku.
 
 ![](understanding-the-project-file/_static/image3.png)
 
-Podział plików projektu w ten sposób jest dobrym rozwiązaniem, należy wykonać. Umożliwia deweloperom wdrażanie w wielu środowiskach za pomocą jednego polecenia unikając dublowania właściwości kompilacji uniwersalnych w wielu plikach projektów.
+Podzielenie plików projektu w ten sposób jest dobrym podejściem do przestrzegania. Umożliwia deweloperom wdrażanie w wielu środowiskach, uruchamiając pojedyncze polecenie, unikając duplikowania właściwości uniwersalnej kompilacji w wielu plikach projektu.
 
 > [!NOTE]
-> Aby uzyskać wskazówki dotyczące dostosowywania pliki projektu specyficznego dla środowiska dla środowisk serwera, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
+> Aby uzyskać wskazówki dotyczące dostosowywania plików projektu specyficznych dla środowiska dla własnych środowisk serwerów, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
 ## <a name="conclusion"></a>Wniosek
 
-W tym temacie podano ogólne wprowadzenie do plików projektu MSBuild i wyjaśniono sposób tworzenia własnych niestandardowych plików projektu do kontrolowania procesu kompilacji. Również wprowadzonymi koncepcji dzielenia plików projektu w instrukcje universal kompilacji i właściwości specyficzne dla środowiska kompilacji, aby ułatwić tworzenie i wdrażanie projektów do wielu miejsc docelowych.
+Ten temat zawiera ogólne wprowadzenie do plików projektów programu MSBuild i wyjaśniono, jak można utworzyć własne niestandardowe pliki projektu w celu kontrolowania procesu kompilacji. Wprowadzono również koncepcję dzielenia plików projektu na instrukcje uniwersalnej kompilacji i właściwości kompilacji specyficzne dla środowiska, aby ułatwić tworzenie i wdrażanie projektów w wielu miejscach docelowych.
 
-Następny temat [objaśnienie procesu kompilacji](understanding-the-build-process.md), zapewnia lepszy wgląd w sposób korzystania plików projektu w celu sterowania kompilowania i wdrażania przez wdrożenie rozwiązania przy użyciu realistycznej stopień złożoności.
+W następnym temacie, [opisującym proces kompilacji](understanding-the-build-process.md), przedstawiono dokładniejsze informacje na temat sposobu użycia plików projektu do kontrolowania kompilowania i wdrażania, przechodzenia przez proces wdrażania rozwiązania o realistycznym poziomie złożoności.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i potok WPP, zobacz [wewnątrz aparatu Microsoft Build Engine: Przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i William Bartholomew, ISBN: 978-0-7356-4524-0.
+Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i WPP, zobacz [wewnątrz Microsoft Build Engine: korzystanie z programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) przez Sayed Ibrahim Hashimi i William BARTHOLOMEW, ISBN: 978-0-7356-4524-0.
 
 > [!div class="step-by-step"]
-> [Poprzednie](setting-up-the-contact-manager-solution.md)
+> [Poprzedni](setting-up-the-contact-manager-solution.md)
 > [dalej](understanding-the-build-process.md)
