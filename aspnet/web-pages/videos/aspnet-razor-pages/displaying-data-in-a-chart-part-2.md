@@ -1,29 +1,29 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
-title: Wyświetlanie danych na wykresie (część 2) | Dokumentacja firmy Microsoft
+title: Wyświetlanie danych na wykresie (część 2) | Microsoft Docs
 author: JoeStagner
-description: Wideo dodatek do wyświetlania danych w samouczku wykresie (część 2)
+description: Film wideo doskonała do wyświetlania danych na wykresie (część 2) samouczek
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: f28e8c8e-5e0f-4bc3-af69-2e6e18a6d100
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
 msc.type: video
-ms.openlocfilehash: ee02ebda2261727f9a477c29eb76fa303ce2b033
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: c6ba20f28cf577defd9d5262ffe3b576a90aeb59
+ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381838"
+ms.lasthandoff: 11/02/2019
+ms.locfileid: "73445627"
 ---
-# <a name="displaying-data-in-a-chart-part-2"></a><span data-ttu-id="ce87c-103">Wyświetlanie danych na wykresie (część 2)</span><span class="sxs-lookup"><span data-stu-id="ce87c-103">Displaying Data in a Chart (Part 2)</span></span>
+# <a name="displaying-data-in-a-chart-part-2"></a><span data-ttu-id="84ff2-103">Wyświetlanie danych na wykresie (część 2)</span><span class="sxs-lookup"><span data-stu-id="84ff2-103">Displaying Data in a Chart (Part 2)</span></span>
 
-<span data-ttu-id="ce87c-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ce87c-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="84ff2-104">Jan [Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="84ff2-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="ce87c-105">Wideo dodatek do wyświetlania danych w samouczku wykresie (część 2)</span><span class="sxs-lookup"><span data-stu-id="ce87c-105">Video accompaniment to the Displaying Data in a Chart (Part 2) tutorial</span></span>
+<span data-ttu-id="84ff2-105">Film wideo doskonała do wyświetlania danych na wykresie (część 2) samouczek</span><span class="sxs-lookup"><span data-stu-id="84ff2-105">Video accompaniment to the Displaying Data in a Chart (Part 2) tutorial</span></span>
 
-[<span data-ttu-id="ce87c-106">&#9654;Obejrzyj film wideo (9 min)</span><span class="sxs-lookup"><span data-stu-id="ce87c-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-part-2)
+<span data-ttu-id="84ff2-106">[&#9654;Obejrzyj wideo (9 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))</span><span class="sxs-lookup"><span data-stu-id="84ff2-106">[&#9654; Watch video (9 minutes)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-(part-2))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="ce87c-107">[Poprzednie](displaying-data-in-a-chart-part-1.md)
-> [dalej](working-with-files.md)</span><span class="sxs-lookup"><span data-stu-id="ce87c-107">[Previous](displaying-data-in-a-chart-part-1.md)
+> <span data-ttu-id="84ff2-107">[Poprzedni](displaying-data-in-a-chart-part-1.md)
+> [dalej](working-with-files.md)</span><span class="sxs-lookup"><span data-stu-id="84ff2-107">[Previous](displaying-data-in-a-chart-part-1.md)
 [Next](working-with-files.md)</span></span>
