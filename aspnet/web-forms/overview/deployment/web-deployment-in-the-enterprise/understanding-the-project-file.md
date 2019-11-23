@@ -117,7 +117,7 @@ Określając **wiele elementów elementów o** tej samej nazwie, efektywnie twor
 
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
-W ten sposób plik projektu nakazuje programowi MSBuild konstruowanie list plików, które muszą być przetwarzane w taki sam sposób, jak&#x2014;lista **odwołania** zawiera zestawy, które muszą być stosowane dla pomyślnej kompilacji, a lista **kompilacji** zawiera kod pliki, które muszą zostać skompilowane, a lista **zawartości** zawiera zasoby, które muszą zostać skopiowane bez zmian. Dowiesz się, jak proces kompilacji odwołuje się do i używa tych elementów w dalszej części tego tematu.
+W ten sposób plik projektu nakazuje programowi MSBuild konstruowanie list plików, które muszą być przetwarzane w taki sam sposób, jak&#x2014;lista **odwołania** zawiera zestawy, które muszą być stosowane dla pomyślnej kompilacji, a lista **kompilacji** zawiera pliki kodu, które muszą zostać skompilowane, a lista **zawartości** zawiera zasoby, które muszą zostać skopiowane bez zmian. Dowiesz się, jak proces kompilacji odwołuje się do i używa tych elementów w dalszej części tego tematu.
 
 Elementy elementu mogą również zawierać [ItemMetadata —](https://msdn.microsoft.com/library/ms164284.aspx) elementy podrzędne. Są to pary klucz-wartość zdefiniowane przez użytkownika i zasadniczo reprezentujące właściwości, które są specyficzne dla danego elementu. Na przykład, wiele elementów elementu **kompilowania** w pliku projektu zawiera **DependentUpon** elementy podrzędne.
 
@@ -225,4 +225,4 @@ Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i WPP, zoba
 
 > [!div class="step-by-step"]
 > [Poprzedni](setting-up-the-contact-manager-solution.md)
-> [dalej](understanding-the-build-process.md)
+> [Następny](understanding-the-build-process.md)

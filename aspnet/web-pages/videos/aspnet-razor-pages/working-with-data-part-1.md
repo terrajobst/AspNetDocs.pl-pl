@@ -25,4 +25,4 @@ Wideo doskonała z samouczkiem dotyczącym pracy z danymi (część 1)
 
 > [!div class="step-by-step"]
 > [Poprzedni](working-with-forms-part-2.md)
-> [dalej](working-with-data-part-2.md)
+> [Następny](working-with-data-part-2.md)

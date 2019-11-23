@@ -25,4 +25,4 @@ Wideo doskonała do tworzenia spójnego samouczka dotyczącego wyglądu (częś�
 
 > [!div class="step-by-step"]
 > [Poprzedni](creating-a-consistent-look-part-1.md)
-> [dalej](working-with-forms-part-1.md)
+> [Następny](working-with-forms-part-1.md)

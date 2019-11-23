@@ -25,4 +25,4 @@ Wideo doskonała z samouczkiem dotyczącym pracy z danymi (część 2)
 
 > [!div class="step-by-step"]
 > [Poprzedni](working-with-data-part-1.md)
-> [dalej](displaying-data-in-a-grid.md)
+> [Następny](displaying-data-in-a-grid.md)

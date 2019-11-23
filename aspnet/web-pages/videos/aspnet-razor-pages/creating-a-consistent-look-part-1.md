@@ -25,4 +25,4 @@ Wideo doskonała do tworzenia spójnego samouczka dotyczącego wyglądu (częś�
 
 > [!div class="step-by-step"]
 > [Poprzedni](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
-> [dalej](creating-a-consistent-look-part-2.md)
+> [Następny](creating-a-consistent-look-part-2.md)

@@ -25,4 +25,4 @@ Wideo doskonała z samouczkiem dotyczącym pracy z formularzami (część 1)
 
 > [!div class="step-by-step"]
 > [Poprzedni](creating-a-consistent-look-part-2.md)
-> [dalej](working-with-forms-part-2.md)
+> [Następny](working-with-forms-part-2.md)

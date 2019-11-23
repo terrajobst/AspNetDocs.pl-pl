@@ -53,4 +53,4 @@ Na koniec zmodyfikuj metodę `PostBook`, aby zwracała DTO.
 > 
 > [!div class="step-by-step"]
 > [Poprzedni](part-4.md)
-> [dalej](part-6.md)
+> [Następny](part-6.md)

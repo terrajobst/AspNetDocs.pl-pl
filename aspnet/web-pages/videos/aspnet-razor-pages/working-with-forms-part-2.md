@@ -25,4 +25,4 @@ Wideo doskonała z samouczkiem dotyczącym pracy z formularzami (część 2)
 
 > [!div class="step-by-step"]
 > [Poprzedni](working-with-forms-part-1.md)
-> [dalej](working-with-data-part-1.md)
+> [Następny](working-with-data-part-1.md)

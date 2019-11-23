@@ -25,4 +25,4 @@ Film wideo doskonała do wyświetlania danych w grafie (część 1)
 
 > [!div class="step-by-step"]
 > [Poprzedni](displaying-data-in-a-grid.md)
-> [dalej](displaying-data-in-a-chart-part-2.md)
+> [Następny](displaying-data-in-a-chart-part-2.md)

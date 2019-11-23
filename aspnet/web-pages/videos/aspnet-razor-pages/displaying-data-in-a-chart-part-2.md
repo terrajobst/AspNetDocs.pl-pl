@@ -25,4 +25,4 @@ Film wideo doskonała do wyświetlania danych na wykresie (część 2) samouczek
 
 > [!div class="step-by-step"]
 > [Poprzedni](displaying-data-in-a-chart-part-1.md)
-> [dalej](working-with-files.md)
+> [Następny](working-with-files.md)
