@@ -1,191 +1,191 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
-title: Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (C#) | Dokumentacja firmy Microsoft
+title: Wstawianie, aktualizowanie i usuwanie danych za pomocą kontrolki SqlDataSource (C#) | Microsoft Docs
 author: rick-anderson
-description: W poprzednich samouczkach dowiedzieliśmy się, jak kontrolka ObjectDataSource dozwolone w przypadku wstawiania, aktualizowania i usuwania danych. Kontrolki SqlDataSource obsługuje t...
+description: W poprzednich samouczkach dowiesz się, jak kontrolka ObjectDataSource może wstawiać, aktualizować i usuwać dane. Kontrolka kontrolki SqlDataSource obsługuje t...
 ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: a526f0ec-779e-4a2b-a476-6604090d25ce
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 43b16a8de51a3a67ea87f5d2a1e53b8f655c8f26
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 495e0e81a67e6926e1c4fa92e29ebbda747cd418
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132448"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74610534"
 ---
 # <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_49_CS.exe) lub [Pobierz plik PDF](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/datatutorial49cs1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_49_CS.exe) lub [Pobierz plik PDF](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/datatutorial49cs1.pdf)
 
-> W poprzednich samouczkach dowiedzieliśmy się, jak kontrolka ObjectDataSource dozwolone w przypadku wstawiania, aktualizowania i usuwania danych. Kontrolki SqlDataSource obsługuje te same operacje, ale różni się to podejście, a w tym samouczku przedstawiono sposób konfigurowania SqlDataSource do wstawiania, aktualizacji i usuwania danych.
+> W poprzednich samouczkach dowiesz się, jak kontrolka ObjectDataSource może wstawiać, aktualizować i usuwać dane. Kontrolka kontrolki SqlDataSource obsługuje te same operacje, ale podejście jest inne, a w tym samouczku pokazano, jak skonfigurować kontrolki SqlDataSource do wstawiania, aktualizowania i usuwania danych.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Zgodnie z opisem w [Omówienie programu Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)kontrolki GridView udostępnia wbudowane aktualizowanie i usuwanie możliwości, podczas gdy kontrolki DetailsView i FormView obejmuje Wstawianie pomocy technicznej wraz z edytowanie i usuwanie funkcji. Te możliwości modyfikacji danych można podłączyć bezpośrednio do kontroli źródła danych bez wiersza kodu, bez potrzeby zapisania. [Omówienie programu Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) zbadać za pomocą kontrolki ObjectDataSource ułatwiające Wstawianie, aktualizowanie i usuwanie z kontrolkami GridView DetailsView i FormView. Alternatywnie można użyć zamiast kontrolki ObjectDataSource SqlDataSource.
+Jak opisano w temacie [Omówienie wstawiania, aktualizowania i usuwania](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md), formant GridView udostępnia wbudowane funkcje aktualizowania i usuwania, natomiast formanty DetailsView i FormView obejmują Wstawianie obsługi oraz edytowanie i usuwanie funkcji. Te możliwości modyfikacji danych można podłączyć bezpośrednio do kontrolki źródła danych bez konieczności pisania wiersza kodu. [Omówienie wstawiania, aktualizowania i usuwania](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) zbadane za pomocą elementu ObjectDataSource, aby ułatwić Wstawianie, aktualizowanie i usuwanie za pomocą kontrolek GridView, DetailsView i FormView. Alternatywnie można użyć kontrolki SqlDataSource zamiast elementu ObjectDataSource.
 
-Odwołania, które umożliwiają wstawianie, aktualizowanie i usuwanie, za pomocą kontrolki ObjectDataSource możemy potrzebne do określenia metody warstwy obiektów zostać wywołana w celu wykonania insert, update lub delete akcji. Dzięki użyciu kontrolki SqlDataSource, należy podać `INSERT`, `UPDATE`, i `DELETE` SQL instrukcji (lub procedur składowanych) do wykonania. Jak opisano w tym samouczku, tych instrukcji może być tworzona ręcznie lub mogą być generowane automatycznie przez kreatora SqlDataSource s Konfigurowanie źródła danych.
-
-> [!NOTE]
-> Ponieważ firma Microsoft ve już omówione, wstawiania, edytowanie i usuwanie możliwości DetailsView, w widoku GridView i FormView kontroluje, ten samouczek koncentruje się na temat konfigurowania kontrolki SqlDataSource do obsługi tych operacji. Jeśli potrzebujesz odświeżyć informacje o implementacji tych funkcji w widoku GridView DetailsView i FormView, zwracany do samouczków, edytowanie, wstawianie i usuwanie danych, rozpoczynając od [Omówienie programu Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md).
-
-## <a name="step-1-specifyinginsertupdate-anddeletestatements"></a>Krok 1. Określanie`INSERT`,`UPDATE`, i`DELETE`instrukcji
-
-Ponieważ ve występuje w ciągu ostatnich dwóch samouczków do pobierania danych z kontrolki SqlDataSource, musimy Ustaw dwie właściwości:
-
-1. `ConnectionString`, która określa, jakie bazy danych do wysyłania zapytań, i
-2. `SelectCommand`, która określa ad-hoc instrukcji SQL lub nazwa procedury składowanej do wykonania w celu zwracania wyników.
-
-Dla `SelectCommand` wartości parametrów, parametr wartości są określane za pomocą SqlDataSource s `SelectParameters` kolekcji i mogą obejmować zakodowanych wartości i wartości źródła typowych parametrów (querystring pola Zmienne sesji wartości formantu sieci Web, i itd.), lub można przypisać programowo. Po użyciu kontrolki SqlDataSource kontrolować s `Select()` wywoływana jest metoda programowo lub automatycznie dane formantu sieci Web jest nawiązywane połączenie z bazą danych, wartości parametrów są przypisane do zapytania i polecenia jest shuttled wyłączone do Baza danych. Wyniki są następnie zwracane jako zestawu danych lub DataReader, w zależności od wartości kontrolki s `DataSourceMode` właściwości.
-
-Wraz z wybraniu danych, użyciu kontrolki SqlDataSource może służyć do wstawiania, aktualizacji i usuwania danych poprzez dostarczenie `INSERT`, `UPDATE`, i `DELETE` instrukcji języka SQL w taki sam sposób. Po prostu przypisać `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości `INSERT`, `UPDATE`, i `DELETE` instrukcji SQL do wykonania. Jeśli oświadczenia mają parametry (zgodnie z ich najbardziej zawsze będzie), należy je uwzględnić w `InsertParameters`, `UpdateParameters`, i `DeleteParameters` kolekcji.
-
-Gdy `InsertCommand`, `UpdateCommand`, lub `DeleteCommand` wartość została określona, opcja Włącz wstawianie, Włącz edytowanie lub Włącz usuwanie w odpowiednich danych tagu inteligentnego sterowania s sieci Web staną się dostępne. Na przykład umożliwiają s Użyj przykładu z `Querying.aspx` strony utworzonej w [zapytania danych przy użyciu kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-cs.md) samouczek i rozszerzyć, usuń go, aby uwzględniał możliwości.
-
-Zacznij od otwarcia `InsertUpdateDelete.aspx` i `Querying.aspx` strony z `SqlDataSource` folderu. Przy użyciu projektanta na `Querying.aspx` wybierz SqlDataSource i GridView z pierwszego przykładu ( `ProductsDataSource` i `GridView1` kontrolek). Po zaznaczeniu dwóch kontrolek, przejdź do menu Edycja i wybierz polecenie Kopiuj (lub po prostu naciśnij klawisze Ctrl + C). Następnie przejdź do projektanta `InsertUpdateDelete.aspx` i Wklej w kontrolkach. Po przesunięciu dwóch kontrolek celu `InsertUpdateDelete.aspx`, przetestowania strony w przeglądarce. Powinien zostać wyświetlony wartości `ProductID`, `ProductName`, i `UnitPrice` kolumn dla wszystkich rekordów w `Products` tabeli bazy danych.
-
-[![Wszystkie produkty zostaną wyświetlone, uporządkowane według elementu ProductID](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
-
-**Rysunek 1**: Wszystkie te produkty zostaną wyświetlone, uporządkowane według `ProductID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.png))
-
-## <a name="adding-the-sqldatasource-sdeletecommandanddeleteparametersproperties"></a>Dodawanie SqlDataSource s`DeleteCommand`i`DeleteParameters`właściwości
-
-W tym momencie mamy SqlDataSource, który po prostu zwraca wszystkie rekordy z `Products` tabeli i GridView, który renderuje tych danych. Naszym celem jest, aby rozszerzyć ten przykład umożliwia użytkownikowi usuwanie produktów za pośrednictwem widoku GridView. W tym trzeba określić wartości dla kontrolki SqlDataSource s `DeleteCommand` i `DeleteParameters` właściwości, a następnie skonfiguruj GridView do obsługi usuwania.
-
-`DeleteCommand` i `DeleteParameters` właściwości można określić wiele sposobów:
-
-- Za pomocą składni deklaratywnej
-- W oknie właściwości w Projektancie
-- Określ niestandardową instrukcję SQL lub procedury składowanej ekranie kreatora Konfigurowanie źródła danych
-- Za pomocą przycisku Zaawansowane w kolumnach Określ z tabeli ekran do wyświetlania w Kreatorze konfigurowania źródła danych, które faktycznie automatycznie wygeneruje `DELETE` SQL instrukcji i parametru kolekcji wykorzystywanej w `DeleteCommand` i `DeleteParameters` właściwości
-
-Zajmiemy się jak automatycznie `DELETE` instrukcji, utworzona w kroku 2. Na razie umożliwiają s, użyj okna właściwości w projektancie, mimo że Kreator konfigurowania źródła danych lub opcji składni deklaratywnej będzie działać równie dobrze.
-
-Przy użyciu projektanta w `InsertUpdateDelete.aspx`, kliknij pozycję `ProductsDataSource` SqlDataSource a następnie wywołaj okno właściwości (w menu Widok wybierz okno właściwości lub po prostu kliknij przycisk F4). Wybierz właściwość DeleteQuery, co umożliwi wyświetlenie zestawu elipsy.
-
-![W oknie właściwości wybierz właściwość DeleteQuery](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.gif)
-
-**Rysunek 2**: W oknie właściwości wybierz właściwość DeleteQuery
+Odwołaj się do programu, aby obsługiwać Wstawianie, aktualizowanie i usuwanie, z elementem ObjectDataSource, którego potrzebujemy, aby określić metody warstwy obiektu do wywołania, aby wykonać akcję Wstaw, zaktualizuj lub Usuń. Przy użyciu kontrolki SqlDataSource musimy podać `INSERT`, `UPDATE`i `DELETE` instrukcje SQL (lub procedury składowane) do wykonania. Jak zobaczymy w tym samouczku, te instrukcje można utworzyć ręcznie lub mogą być automatycznie generowane przez Kreatora konfiguracji źródła danych kontrolki SqlDataSource s.
 
 > [!NOTE]
-> SqlDataSource t ma właściwości DeleteQuery. Zamiast DeleteQuery jest kombinacją `DeleteCommand` i `DeleteParameters` właściwości i jest wyświetlany tylko w oknie dialogowym właściwości, podczas wyświetlania okna za pomocą projektanta. Jeśli szukasz w oknie dialogowym właściwości w widoku źródła, znajdziesz `DeleteCommand` właściwości zamiast tego.
+> Ponieważ już omówiono możliwości wstawiania, edytowania i usuwania formantów GridView, DetailsView i FormView, ten samouczek koncentruje się na konfigurowaniu kontrolki kontrolki SqlDataSource w celu obsługi tych operacji. Jeśli zachodzi potrzeba zaimplementowania tych funkcji w widoku GridView, DetailsView i FormView, Wróć do podręcznika edytowanie, wstawianie i usuwanie danych, rozpoczynając od [omówienia wstawiania, aktualizowania i usuwania](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md).
 
-Kliknij przycisk wielokropka we właściwości DeleteQuery, aby wyświetlić okno dialogowe Edytor poleceń i parametrów polu (patrz rysunek 3). W tym oknie dialogowym można określić `DELETE` instrukcji SQL i określ parametry. Wprowadź następujące zapytanie w `DELETE` polecenie w polu tekstowym (albo ręcznie lub za pomocą konstruktora zapytań, jeśli użytkownik sobie tego życzy):
+## <a name="step-1-specifyinginsertupdate-anddeletestatements"></a>Krok 1. Określanie`INSERT`,`UPDATE`i`DELETE`instrukcji
+
+Jak widać w ostatnich dwóch samouczkach, aby pobrać dane z formantu kontrolki SqlDataSource, musimy ustawić dwie właściwości:
+
+1. `ConnectionString`, która określa bazę danych, do której ma zostać wysłana kwerenda, i
+2. `SelectCommand`, która określa instrukcję SQL ad hoc lub nazwę procedury składowanej do wykonania w celu zwrócenia wyników.
+
+W przypadku `SelectCommand` wartości z parametrami wartości parametrów są określane za pośrednictwem kolekcji kontrolki SqlDataSource s `SelectParameters` i mogą zawierać zakodowane wartości, typowe wartości parametrów źródłowych (pola QueryString, zmienne sesji, wartości formantów sieci Web itd.) lub mogą być przypisywane programowo. Gdy metoda `Select()` sterowania kontrolki SqlDataSource jest wywoływana programowo lub automatycznie z kontrolki sieci Web danych, połączenie z bazą danych jest ustanawiane, wartości parametrów są przypisywane do zapytania, a polecenie jest bezczynne do bazy danych. Wyniki są następnie zwracane jako zestaw danych lub element DataReader, w zależności od wartości właściwości formantu s `DataSourceMode`.
+
+Wraz z zaznaczaniem danych formant kontrolki SqlDataSource może służyć do wstawiania, aktualizowania i usuwania danych przez dostarczanie `INSERT`, `UPDATE`i `DELETE` instrukcji SQL w ten sam sposób. Po prostu Przypisz właściwości `InsertCommand`, `UpdateCommand`i `DeleteCommand` `INSERT`, `UPDATE`i `DELETE` instrukcje SQL do wykonania. Jeśli instrukcje mają parametry (jak zawsze są), Uwzględnij je w kolekcjach `InsertParameters`, `UpdateParameters`i `DeleteParameters`.
+
+Po określeniu wartości `InsertCommand`, `UpdateCommand`lub `DeleteCommand`, opcja Włącz wstawianie, Włącz edytowanie lub Włącz usuwanie w odpowiednim tagu inteligentnym kontrolki sieci Web danych stanie się dostępna. Aby to zilustrować, podejmij przykładową stronę `Querying.aspx` utworzoną w [kwerendzie danych za pomocą samouczka kontrolki kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-cs.md) i uzupełnij ją w celu uwzględnienia funkcji usuwania.
+
+Zacznij od otworzenia `InsertUpdateDelete.aspx` i `Querying.aspx` stron z folderu `SqlDataSource`. Z poziomu projektanta na stronie `Querying.aspx` wybierz kontrolki SqlDataSource i GridView z pierwszego przykładu (kontrolki `ProductsDataSource` i `GridView1`). Po wybraniu dwóch kontrolek przejdź do menu Edycja i wybierz polecenie Kopiuj (lub po prostu naciśnij klawisze CTRL + C). Następnie przejdź do projektanta `InsertUpdateDelete.aspx` i wklej w kontrolkach. Po przeniesieniu dwóch formantów do `InsertUpdateDelete.aspx`, Przetestuj stronę w przeglądarce. Powinny być widoczne wartości kolumn `ProductID`, `ProductName`i `UnitPrice` dla wszystkich rekordów w tabeli `Products` bazy danych.
+
+[![wszystkie produkty są wymienione na liście uporządkowane według identyfikatora ProductID](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image1.png)
+
+**Rysunek 1**. wszystkie produkty są wymienione na liście uporządkowane według `ProductID` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.png))
+
+## <a name="adding-the-sqldatasource-sdeletecommandanddeleteparametersproperties"></a>Dodawanie`DeleteCommand`kontrolki SqlDataSource i`DeleteParameters`właściwości
+
+W tym momencie mamy kontrolki SqlDataSource, która po prostu zwraca wszystkie rekordy z tabeli `Products` i GridView, który renderuje te dane. Naszym celem jest poszerzenie tego przykładu, aby umożliwić użytkownikowi usuwanie produktów za pośrednictwem widoku GridView. Aby to osiągnąć, musimy określić wartości `DeleteCommand` kontrolki SqlDataSource i `DeleteParameters` właściwości, a następnie skonfigurować widok GridView do obsługi usuwania.
+
+Właściwości `DeleteCommand` i `DeleteParameters` można określić na kilka sposobów:
+
+- Za pomocą składni deklaracyjnej
+- Z okno Właściwości w projektancie
+- Na ekranie określ niestandardową instrukcję SQL lub procedurę przechowywaną w Kreatorze konfiguracji źródła danych
+- Za pośrednictwem przycisku zaawansowanego na ekranie Określanie kolumn z tabeli widok w Kreatorze konfiguracji źródła danych, który będzie w rzeczywistości automatycznie generować instrukcję SQL `DELETE` i kolekcję parametrów użytą we właściwościach `DeleteCommand` i `DeleteParameters`
+
+Sprawdzimy, jak automatycznie utworzyć instrukcję `DELETE` utworzoną w kroku 2. Na razie użyj okno Właściwości w projektancie, Chociaż Kreator konfigurowania źródła danych lub opcja deklaracyjnej składni będzie działała prawidłowo.
+
+W projektancie w `InsertUpdateDelete.aspx`kliknij `ProductsDataSource` kontrolki SqlDataSource, a następnie Wywołaj okno Właściwości (z menu Widok wybierz okno Właściwości lub po prostu naciśnij klawisz F4). Wybierz Właściwość DeleteQuery, która spowoduje wyświetlenie zestawu wielokropków.
+
+![Wybierz Właściwość DeleteQuery w oknie właściwości](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image2.gif)
+
+**Rysunek 2**. Wybieranie właściwości DeleteQuery z okna właściwości
+
+> [!NOTE]
+> Kontrolki SqlDataSource/t ma Właściwość DeleteQuery. DeleteQuery jest kombinacją właściwości `DeleteCommand` i `DeleteParameters` i są wyświetlane tylko w okno Właściwości podczas wyświetlania okna przez projektanta. Jeśli przeglądasz okno Właściwości w widoku źródła, zamiast tego znajdziesz Właściwość `DeleteCommand`.
+
+Kliknij wielokropek we właściwości DeleteQuery, aby wyświetlić okno dialogowe Edytor parametrów i polecenie (patrz rysunek 3). W tym oknie dialogowym można określić instrukcję SQL `DELETE` i określić parametry. Wprowadź następujące zapytanie do pola tekstowego polecenia `DELETE` (ręcznie lub przy użyciu Konstruktor zapytań, jeśli wolisz):
 
 [!code-sql[Main](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/samples/sample1.sql)]
 
-Następnie kliknij przycisk Odśwież parametry, aby dodać `@ProductID` parametru do listy poniższych parametrów.
+Następnie kliknij przycisk Odśwież parametry, aby dodać parametr `@ProductID` do listy parametrów poniżej.
 
-[![W oknie właściwości wybierz właściwość DeleteQuery](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
+[![zaznacz Właściwość DeleteQuery w oknie właściwości](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image3.png)
 
-**Rysunek 3**: W oknie właściwości wybierz właściwość DeleteQuery ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.png))
+**Rysunek 3**. Wybierz Właściwość DeleteQuery w oknie właściwości ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.png))
 
-Czy *nie* podać wartość dla tego parametru (pozostaw jako parametr źródło w None). Po Dodajemy obsługę usuwania do kontrolki GridView widoku GridView zostanie automatycznie określić wartości tego parametru przy użyciu wartości jego `DataKeys` kolekcji dla wiersza, którego przycisk Usuń został kliknięty.
+*Nie* dostarczaj wartości dla tego parametru (pozostaw Źródło parametru brak). Po dodaniu obsługi usuwania do widoku GridView zobaczysz automatycznie tę wartość parametru, używając wartości kolekcji `DataKeys` dla wiersza, którego przycisk usuwania został kliknięty.
 
 > [!NOTE]
-> Nazwa parametru używana w `DELETE` zapytania *musi* być taka sama jak nazwa `DataKeyNames` wartości w widoku GridView, DetailsView lub FormView. Oznacza to, że parametr w `DELETE` celowo nosi nazwę instrukcji `@ProductID` (zamiast, na przykład, `@ID`), ponieważ nazwa kolumny klucza podstawowego w tabeli Produkty (i w związku z tym wartości DataKeyNames w widoku GridView) jest `ProductID`.
+> Nazwa parametru użyta w zapytaniu `DELETE` *musi* być taka sama jak nazwa `DataKeyNames` wartości w widoku GridView, DetailsView lub FormView. Oznacza to, że parametr w instrukcji `DELETE` jest celowo całkowicie o nazwie `@ProductID` (zamiast, powiedzieć, `@ID`), ponieważ nazwa kolumny klucza podstawowego w tabeli Products (i w związku z tym wartość DataKeyNames ustawionej w widoku GridView) jest `ProductID`.
 
-Jeśli nazwa parametru i `DataKeyNames` wartości są zgodne, widoku GridView nie można automatycznie przypisać parametru wartość `DataKeys` kolekcji.
+Jeśli nazwa parametru i wartość `DataKeyNames` nie są zgodne, w widoku GridView nie można automatycznie przypisać parametru do wartości z kolekcji `DataKeys`.
 
-Po wprowadzeniu informacji dotyczących usuwania w oknie dialogowym Edytor poleceń i parametrów kliknij przycisk OK, a następnie przejdź do widoku źródła, aby zbadać wynikowy oznaczeniu deklaracyjnym:
+Po wprowadzeniu informacji związanych z usuwaniem do okna dialogowego Edytor parametrów i poleceń kliknij przycisk OK i przejdź do widoku źródła, aby sprawdzić powstające znaczniki deklaratywne:
 
 [!code-aspx[Main](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/samples/sample2.aspx)]
 
-Należy pamiętać, dodanie `DeleteCommand` właściwości, jak również `<DeleteParameters>` sekcji i obiektu parametr o nazwie `productID`.
+Zwróć uwagę na dodanie `DeleteCommand` właściwości, a także sekcji `<DeleteParameters>` i obiektu parametru o nazwie `productID`.
 
-## <a name="configuring-the-gridview-for-deleting"></a>Konfigurowanie kontrolki GridView usuwania
+## <a name="configuring-the-gridview-for-deleting"></a>Konfigurowanie widoku GridView do usuwania
 
-Za pomocą `DeleteCommand` dodana właściwość tagu inteligentnego s GridView zawiera teraz opcję Włącz usuwanie. Przejdź dalej i zaznacz to pole wyboru. Zgodnie z opisem w [Omówienie programu Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md), powoduje to, że GridView dodać CommandField z jego `ShowDeleteButton` właściwością `true`. Rysunek 4 przedstawia, gdy strona jest kontrolowane za pośrednictwem przeglądarki przycisk Usuń jest dołączony. Przetestuj tę stronę się przez usunięcie niektórych produktów.
+Po dodaniu właściwości `DeleteCommand`, tag "GridView" w widoku inteligentnym zawiera teraz opcję Włącz usuwanie. Zaznacz to pole wyboru. Jak opisano w temacie [Omówienie wstawiania, aktualizowania i usuwania](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md), powoduje to, że element GridView dodaje CommandField z właściwością `ShowDeleteButton` ustawioną na `true`. Jak pokazano na rysunku 4, gdy strona zostanie odwiedzana za pomocą przeglądarki, zostanie dołączony przycisk Usuń. Przetestuj Tę stronę, usuwając niektóre produkty.
 
-[![Każdy wiersz GridView zawiera teraz przycisk Usuń](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
+[![każdy wiersz GridView zawiera teraz przycisk Usuń](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image4.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.png)
 
-**Rysunek 4**: Każdy wiersz GridView zawiera teraz przycisk Usuń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.png))
+**Ilustracja 4**. Każdy wiersz GridView zawiera teraz przycisk Usuń ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.png))
 
-Po kliknięciu przycisku Usuń występuje odświeżenie strony, przypisuje widoku GridView `ProductID` parametru wartość z `DataKeys` wartość kolekcji dla wiersza, którego przycisk Usuń został kliknięty i wywołuje SqlDataSource s `Delete()` metody. Kontrolki SqlDataSource następnie nawiązuje połączenie z bazą danych i wykonuje `DELETE` instrukcji. Kontrolki GridView następnie rebinds do SqlDataSource powrót i wyświetlanie bieżący zestaw produktów (który nie zawiera już po prostu usunąć rekordu).
+Po kliknięciu przycisku Usuń następuje odświeżenie, a w obszarze GridView zostanie przypisany parametr `ProductID` wartość wartości kolekcji `DataKeys` dla wiersza, którego przycisk Usuń został kliknięty, i wywołanie metody `Delete()` kontrolki SqlDataSource. Kontrolka kontrolki SqlDataSource następnie łączy się z bazą danych i wykonuje instrukcję `DELETE`. Widok GridView następnie tworzy powiązanie z kontrolki SqlDataSource, przywracając i wyświetlając bieżący zestaw produktów (które nie zawierają już rekordu, który został usunięty).
 
 > [!NOTE]
-> Ponieważ w widoku GridView używane jego `DataKeys` kolekcję, aby wypełnić parametry SqlDataSource go s istotne, GridView s `DataKeyNames` właściwości można ustawić kolumny, które tworzą klucz podstawowy oraz że SqlDataSource s `SelectCommand` zwraca te kolumny. Ponadto go s pamiętać, że parametr nazwy SqlDataSource s `DeleteCommand` ustawiono `@ProductID`. Jeśli `DataKeyNames` nie ustawiono właściwości lub parametru nie ma nazwy `@ProductsID`, klikając przycisk Usuń spowoduje odświeżenie strony, ale nie usuwa żadnych rekordów.
+> Ponieważ element GridView używa swojej kolekcji `DataKeys`, aby wypełnić parametry kontrolki SqlDataSource, nieważne jest, aby właściwość GridView s `DataKeyNames` została ustawiona na kolumny, które stanowią klucz podstawowy i że kontrolki SqlDataSource s `SelectCommand` zwróci te kolumny. Ponadto należy pamiętać, że nazwa parametru w kontrolki SqlDataSource s `DeleteCommand` jest ustawiona na `@ProductID`. Jeśli właściwość `DataKeyNames` nie jest ustawiona lub parametr nie ma nazwy `@ProductsID`, kliknięcie przycisku Usuń spowoduje odświeżenie, ale w rzeczywistości nie usunie żadnego rekordu.
 
-Rysunek 5 przedstawia ta interakcja w formie graficznej. Odwołaj się do [badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) samouczka, aby uzyskać bardziej szczegółowe omówienie dotyczące łańcuch zdarzeń powiązanych ze Wstawianie, aktualizowanie i usuwanie danych formantu sieci Web.
+Rysunek 5 przedstawia interakcję w formie graficznej. Zapoznaj się z artykułem [Sprawdzanie zdarzeń skojarzonych z wstawianiem, aktualizowaniem i usuwaniem](../editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs.md) samouczka, aby zapoznać się z bardziej szczegółowym omówieniem łańcucha zdarzeń związanych z wstawianiem, aktualizowaniem i usuwaniem danych z kontrolki sieci Web.
 
-![Klikając przycisk Usuń w widoku GridView wywołuje metodę Delete() s SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.gif)
+![Kliknięcie przycisku Usuń w widoku GridView wywołuje metodę kontrolki SqlDataSource s Delete ()](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image5.gif)
 
-**Rysunek 5**: Klikając przycisk Usuń w widoku GridView wywołuje SqlDataSource s `Delete()` — metoda
+**Rysunek 5**. kliknięcie przycisku Usuń w widoku GridView wywołuje metodę `Delete()` kontrolki SqlDataSource s
 
-## <a name="step-2-automatically-generating-theinsertupdate-anddeletestatements"></a>Krok 2. Automatyczne generowanie`INSERT`,`UPDATE`, i`DELETE`instrukcji
+## <a name="step-2-automatically-generating-theinsertupdate-anddeletestatements"></a>Krok 2. Automatyczne generowanie instrukcji`INSERT`,`UPDATE`i`DELETE`
 
-Jako badania, w kroku 1 `INSERT`, `UPDATE`, i `DELETE` instrukcji SQL można określić za pomocą okna właściwości lub składni deklaratywnej formantu s. Takie podejście wymaga jednak, że firma Microsoft ręcznie zapisać instrukcji SQL ręcznie, które mogą być monotonii i obarczone ryzykiem błędów. Na szczęście Kreator skonfigurować źródło danych udostępnia opcję, aby `INSERT`, `UPDATE`, i `DELETE` instrukcji generowane automatycznie, korzystając z określ kolumn z tabeli ekran Widok.
+Zgodnie z krokiem 1, `INSERT`, `UPDATE`i `DELETE` instrukcji SQL można określić za pomocą okno Właściwości lub składni deklaracyjnej sterowania. Jednak takie podejście wymaga ręcznego zapisania instrukcji SQL, które mogą być monotonouse i podatne na błędy. Na szczęście Kreator konfigurowania źródła danych udostępnia opcję automatycznego generowania instrukcji `INSERT`, `UPDATE`i `DELETE` przy użyciu kolumn Określ kolumny z tabeli.
 
-Pozwól, zapoznaj się z tej opcji automatycznego generowania s. Dodaj element DetailsView do projektanta w `InsertUpdateDelete.aspx` i ustaw jego `ID` właściwość `ManageProducts`. Następnie wybierz za pomocą tagu inteligentnego s DetailsView utworzyć nowe źródło danych i utworzyć SqlDataSource, o nazwie `ManageProductsDataSource`.
+Pozwól, aby poznać tę opcję automatycznego generowania. Dodaj element DetailsView do projektanta w `InsertUpdateDelete.aspx` i ustaw jego właściwość `ID` na `ManageProducts`. Następnie z tagu inteligentnego DetailsView s wybierz opcję utworzenia nowego źródła danych i utworzenia kontrolki SqlDataSource o nazwie `ManageProductsDataSource`.
 
-[![Utwórz nowy SqlDataSource, o nazwie ManageProductsDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
+[![utworzyć nowy kontrolki SqlDataSource o nazwie ManageProductsDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image6.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.png)
 
-**Rysunek 6**: Utwórz nowy o nazwie SqlDataSource `ManageProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.png))
+**Ilustracja 6**. Tworzenie nowego kontrolki SqlDataSource o nazwie `ManageProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.png))
 
-Za pomocą Kreatora konfigurowania źródła danych zoptymalizowany pod kątem używania `NORTHWINDConnectionString` połączenia ciągu, a następnie kliknij przycisk Dalej. Z Konfiguruj ekranu instrukcji Select, pozostaw kolumn Określ z tabeli lub widoku zaznaczony przycisk radiowy, a następnie wybierz `Products` tabeli z listy rozwijanej. Wybierz `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumny z listy wyboru.
+W Kreatorze konfiguracji źródła danych wybierz opcję Użyj `NORTHWINDConnectionString` parametry połączenia i kliknij przycisk Dalej. Na ekranie Konfiguruj instrukcję SELECT pozostaw zaznaczone pole wyboru Określ kolumny z tabeli lub widoku, a następnie wybierz tabelę `Products` z listy rozwijanej. Wybierz kolumny `ProductID`, `ProductName`, `UnitPrice`i `Discontinued` z listy pól wyboru.
 
-[![Korzystając z tabeli Produkty, zwracają ProductID, ProductName, UnitPrice i nieobsługiwane kolumny](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
+[![przy użyciu tabeli Products (produkty) Zwróć kolumny ProductID, ProductName, CenaJednostkowa i uncontinued](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.png)
 
-**Rysunek 7**: Za pomocą `Products` tabeli, zwróć `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumn ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image10.png))
+**Rysunek 7**. użycie tabeli `Products`, zwrócenie kolumn `ProductID`, `ProductName`, `UnitPrice`i `Discontinued` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image10.png))
 
-Aby automatycznie wygenerować `INSERT`, `UPDATE`, i `DELETE` instrukcji na podstawie wybranej tabeli i kolumn, kliknij przycisk Zaawansowane i sprawdź Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru.
+Aby automatycznie generować instrukcje `INSERT`, `UPDATE`i `DELETE` na podstawie wybranej tabeli i kolumn, kliknij przycisk Zaawansowane i zaznacz pole wyboru Generuj `INSERT`, `UPDATE`i `DELETE` instrukcji.
 
-![Sprawdź instrukcje Generowanie INSERT, UPDATE i DELETE, zaznacz pole wyboru](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.gif)
+![Zaznacz pole wyboru Generuj instrukcje INSERT, UPDATE i DELETE](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image8.gif)
 
-**Rysunek 8**: Sprawdź Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru
+**Ilustracja 8**. Zaznacz pole wyboru Generuj `INSERT`, `UPDATE`i `DELETE` instrukcji
 
-Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru będą tylko dostępne do kontroli, jeśli wybrana tabela ma klucz podstawowy, a kolumna klucza podstawowego (lub kolumny) znajdują się na liście zwrócone kolumny. Użyj optymistycznej współbieżności pole wyboru, która staje się możliwy po Generuj `INSERT`, `UPDATE`, i `DELETE` zaznaczone pole wyboru instrukcji, będzie rozszerzać `WHERE` klauzul wynikowy `UPDATE` i `DELETE` instrukcji w celu zapewnienia kontroli optymistycznej współbieżności. Na razie nie zaznaczaj tego pola wyboru wyboru; w następnym samouczku zajmiemy się optymistycznej współbieżności przy użyciu kontrolki SqlDataSource.
+Pole wyboru Generuj `INSERT`, `UPDATE`i `DELETE` będzie możliwe tylko do sprawdzenia, jeśli wybrana tabela ma klucz podstawowy, a kolumna klucza podstawowego (lub kolumny) znajduje się na liście zwracanych kolumn. Pole wyboru Użyj optymistycznej współbieżności, które jest wybierane po zaznaczeniu pola wyboru Generuj `INSERT`, `UPDATE`i `DELETE`, uzupełnia klauzule `WHERE` w wyrażeniach `UPDATE` i `DELETE` w celu zapewnienia optymistycznej kontroli współbieżności. Na razie pozostaw to pole wyboru niezaznaczone; sprawdzimy optymistyczną współbieżność z kontrolką kontrolki SqlDataSource w następnym samouczku.
 
-Po sprawdzeniu Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru kliknij przycisk OK, aby powrócić do ekranu skonfigurować instrukcji Select, a następnie kliknij przycisk Dalej, a następnie Zakończ, aby zakończyć działanie kreatora Konfigurowanie źródła danych. Po ukończeniu kreatora, Visual Studio spowoduje dodanie BoundFields DetailsView dla `ProductID`, `ProductName`, i `UnitPrice` kolumn i CheckBoxField dla `Discontinued` kolumny. Za pomocą tagu inteligentnego s DetailsView Włączanie stronicowania zaznaczenie pola wyboru, aby przejść przez produkty użytkownika odwiedzenie tej strony. Również wyczyszczenie DetailsView s `Width` i `Height` właściwości.
+Po zaznaczeniu pola wyboru Generuj `INSERT`, `UPDATE`i `DELETE`, kliknij przycisk OK, aby powrócić do ekranu Konfigurowanie instrukcji SELECT, a następnie kliknij przycisk Dalej, a następnie Zakończ, aby zakończyć pracę Kreatora konfiguracji źródła danych. Po ukończeniu działania kreatora program Visual Studio doda BoundFields do widoku DetailsView dla kolumn `ProductID`, `ProductName`i `UnitPrice` oraz CheckBoxField dla kolumny `Discontinued`. Z poziomu tagu inteligentnego DetailsView s zaznacz opcję Włącz stronicowanie, aby użytkownik odwiedzający Tę stronę mógł przejść przez produkty. Wyczyść również `Width` i właściwości `Height` DetailsView.
 
-Zwróć uwagę, tagu inteligentnego nie ma dostępnych opcji Włącz wstawianie, Włącz edytowanie i Włącz usuwanie. Jest to spowodowane SqlDataSource zawiera wartości dla swojej `InsertCommand`, `UpdateCommand`, i `DeleteCommand`, jak pokazano na poniższej składni deklaratywnej:
+Należy zauważyć, że tag inteligentny ma dostępne opcje umożliwia wstawianie, Włączanie edytowania i włączania usuwania. Wynika to z faktu, że kontrolki SqlDataSource zawiera wartości dla `InsertCommand`, `UpdateCommand`i `DeleteCommand`, jak pokazano w następującej składni deklaracyjnej:
 
 [!code-aspx[Main](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/samples/sample3.aspx)]
 
-Należy zauważyć, jak kontrolki SqlDataSource miał wartości ustawiane automatycznie jej `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości. Zestaw kolumn, do którego odwołuje się `InsertCommand` i `UpdateCommand` właściwości są na podstawie `SELECT` instrukcji. Oznacza to zamiast *co* kolumny produktów w `InsertCommand` i `UpdateCommand`, są wyłącznie kolumny określone w `SelectCommand` (mniej `ProductID`, który został pominięty, ponieważ jej s [ `IDENTITY` kolumny](http://www.sqlteam.com/item.asp?ItemID=102), którego wartość nie można zmienić po edycji i który jest przypisywany podczas wstawiania). Ponadto dla każdego parametru `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości, które są odpowiednie parametry w `InsertParameters`, `UpdateParameters`, i `DeleteParameters` kolekcji.
+Zwróć uwagę na to, w jaki sposób formant kontrolki SqlDataSource ma wartości ustawione automatycznie dla właściwości `InsertCommand`, `UpdateCommand`i `DeleteCommand`. Zestaw kolumn, do których odwołuje się `InsertCommand` i `UpdateCommand`, jest oparty na tych, które znajdują się w instrukcji `SELECT`. Oznacza to, że nie ma żadnych *kolumn produktów w* `InsertCommand` i `UpdateCommand`, istnieją tylko kolumny określone w `SelectCommand` (mniej `ProductID`, które zostały pominięte, [`IDENTITY`](http://www.sqlteam.com/item.asp?ItemID=102)ponieważ nie można zmienić wartości podczas edycji i są automatycznie przypisywane podczas wstawiania). Ponadto dla każdego parametru w `InsertCommand`, `UpdateCommand`i `DeleteCommand` właściwości są odpowiednie parametry w kolekcjach `InsertParameters`, `UpdateParameters`i `DeleteParameters`.
 
-Aby włączyć funkcji modyfikacji danych s DetailsView, sprawdź Włącz wstawianie, Włącz edytowanie i Włącz usuwanie opcji w jego tagu inteligentnego. Spowoduje to dodanie CommandField z jego `ShowInsertButton`, `ShowEditButton`, i `ShowDeleteButton` właściwości ustawione na `true`.
+Aby włączyć funkcje modyfikacji danych DetailsView s, zaznacz opcje Włącz wstawianie, Włącz edytowanie i Włącz usuwanie w jego tagu inteligentnym. Spowoduje to dodanie CommandField z właściwościami `ShowInsertButton`, `ShowEditButton`i `ShowDeleteButton` ustawionymi na `true`.
 
-Odwiedź stronę w przeglądarce i zwróć uwagę, edytowania, usuwania i nowe przyciski objęte DetailsView. Klikając przycisk Edytuj jest przekształcany DetailsView tryb edycji, który wyświetla każdego elementu BoundField którego `ReadOnly` właściwość jest ustawiona na `false` (ustawienie domyślne) jako pole tekstowe i CheckBoxField jako pola wyboru.
+Odwiedź stronę w przeglądarce i zanotuj przyciski Edytuj, Usuń i nowe zawarte w widoku DetailsView. Kliknięcie przycisku Edytuj powoduje przełączenie widoku DetailsView do trybu edycji, który wyświetla każdy BoundField, którego właściwość `ReadOnly` jest ustawiona na `false` (domyślnie) jako pole tekstowe i CheckBoxField jako pole wyboru.
 
-[![DetailsView s domyślny interfejs edytowania](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
+[![domyślnego interfejsu edycji widoku DetailsView](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image9.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image11.png)
 
-**Rysunek 9**: S DetailsView interfejsu edycji kontrolki domyślne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image12.png))
+**Rysunek 9**: domyślny interfejs edycji widoku DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](inserting-updating-and-deleting-data-with-the-sqldatasource-cs/_static/image12.png))
 
-Podobnie można usunąć aktualnie wybranym produkcie, lub Dodaj nowy produkt do systemu. Ponieważ `InsertCommand` instrukcji działa tylko z `ProductName`, `UnitPrice`, i `Discontinued` kolumny, inne kolumny mają być `NULL` lub przywrócić wartości domyślne przypisane przez bazę danych podczas wstawiania. Podobnie jak za pomocą kontrolki ObjectDataSource, jeśli `InsertCommand` nie ma żadnej tabeli bazy danych kolumn, których w ogóle t Zezwalaj `NULL` s i don t ma wartości domyślnej, wystąpi błąd SQL podczas próby wykonania `INSERT` instrukcji.
-
-> [!NOTE]
-> S DetailsView, wstawianie i Edycja interfejsów braku dowolny rodzaj dostosowywania lub sprawdzania poprawności. Aby dodać formanty sprawdzania poprawności lub dostosować interfejsy, należy przekonwertować BoundFields kontrolek TemplateField. Zapoznaj się [Dodawanie kontrolek weryfikacji do edycji i wstawiania interfejsy](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md) i [Dostosowywanie interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) samouczki, aby uzyskać więcej informacji.
-
-Ponadto należy pamiętać o tym, aktualizowania i usuwania, DetailsView używa bieżącego produktu s `DataKey` wartość, która jest obecny tylko wtedy, gdy `DataKeyNames` właściwość jest konfigurowana. W przypadku edytowania lub usuwania wydaje się mieć żadnego efektu, upewnij się, że `DataKeyNames` właściwość jest ustawiona.
-
-## <a name="limitations-of-automatically-generating-sql-statements"></a>Ograniczenia dotyczące automatycznego generowania instrukcji języka SQL
-
-Ponieważ generowanie `INSERT`, `UPDATE`, i `DELETE` opcji instrukcji jest dostępna tylko w przypadku pobrania kolumny z tabeli, dla bardziej złożone zapytania możesz będą musieli napisać własny `INSERT`, `UPDATE`, i `DELETE` instrukcje, jak zrobiliśmy w kroku 1. Często SQL `SELECT` instrukcje używają `JOIN` s, aby przywrócić dane z jednego lub więcej tabel odnośników, aby wyświetlić celów (takie jak przeniesienie ponownie `Categories` tabeli s `CategoryName` pola podczas wyświetlania informacji o produkcie). W tym samym czasie chcemy może umożliwić użytkownikowi edytowanie, aktualizowanie lub wstawić dane do tabeli podstawowej (`Products`, w tym przypadku).
-
-Gdy `INSERT`, `UPDATE`, i `DELETE` instrukcji można wprowadzić ręcznie, należy wziąć pod uwagę następujące porada. Początkowo Instalatora SqlDataSource tak, aby ponownie ściąga dane tylko z `Products` tabeli. Użyj kolumny określ s kreatora Konfigurowanie źródła danych na ekranie tabeli lub widoku, dzięki czemu możesz automatycznie wygenerować `INSERT`, `UPDATE`, i `DELETE` instrukcji. Następnie wybierz po ukończeniu kreatora skonfigurować SelectQuery z okna właściwości (lub też, wróć do kreatora Konfigurowanie źródła danych, ale użyj Określ niestandardową instrukcję SQL lub procedury składowanej opcji). Następnie zaktualizuj `SELECT` instrukcję, aby uwzględnić `JOIN` składni. Ta metoda zapewnia korzyści zaoszczędzić czas, automatycznie generowanych instrukcji SQL i pozwala na bardziej dostosowanego `SELECT` instrukcji.
-
-Innym ograniczeniem automatycznego generowania `INSERT`, `UPDATE`, i `DELETE` instrukcji jest fakt, że kolumny w `INSERT` i `UPDATE` instrukcji opierają się na kolumny zwracane przez `SELECT` instrukcji. Firma Microsoft może być konieczne zaktualizować ani wstawić zwiększenie lub zmniejszenie liczby pól, jednak. Na przykład, w tym przykładzie z kroku nr 2 może chcemy mieć `UnitPrice` elementu BoundField się tylko do odczytu. W takiej sytuacji nie powinny występować w `UpdateCommand`. Lub chcemy ustawić wartość pola w tabeli, który nie jest widoczna w widoku GridView. Na przykład podczas dodawania nowego rekordu firma Microsoft może być `QuantityPerUnit` wartość zadań do wykonania.
-
-Takie dostosowania są wymagane, należy to zrobić ręcznie, za pośrednictwem oknie właściwości, Określ niestandardową instrukcję SQL lub procedury składowanej opcja w kreatorze lub za pomocą składni deklaratywnej.
+Analogicznie, można usunąć aktualnie wybrany produkt lub dodać nowy produkt do systemu. Ponieważ instrukcja `InsertCommand` działa tylko z kolumnami `ProductName`, `UnitPrice`i `Discontinued`, inne kolumny mają zarówno `NULL`, jak i ich domyślną wartość przypisaną przez bazę danych podczas wstawiania. Podobnie jak w przypadku elementu ObjectDataSource, jeśli `InsertCommand` brakuje żadnej kolumny tabeli bazy danych, która nie zezwala `NULL` s i nie ma wartości domyślnej, podczas próby wykonania instrukcji `INSERT` wystąpi błąd SQL.
 
 > [!NOTE]
-> Podczas dodawania parametrów, które nie mają odpowiednich pól danych kontrolki internetowej, pamiętać, że te wartości parametrów należy można przypisać wartości w jakikolwiek sposób. Te wartości mogą być: ustaloną bezpośrednio w `InsertCommand` lub `UpdateCommand`; mogą pochodzić z wstępnie zdefiniowanych źródła (querystring, stan sesji, kontrolki sieci Web, na stronie i tak dalej), lub można przypisać programowo, zgodnie z widzieliśmy w poprzednim samouczku.
+> Interfejsy wstawiania i edytowania widoku DetailsView nie mają żadnego sortowania ani walidacji. Aby dodać kontrolki walidacji lub dostosować interfejsy, należy skonwertować BoundFields na używanie TemplateField. Aby uzyskać więcej informacji, zapoznaj się z tematami [dodawania kontrolek weryfikacji do edycji i wstawiania interfejsów](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md) oraz dostosowywania samouczków dotyczących [interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) .
+
+Należy również pamiętać, że w przypadku aktualizowania i usuwania, w widoku DetailsView jest używany wartość bieżąca produkt s `DataKey`, która jest obecna tylko w przypadku skonfigurowania właściwości `DataKeyNames`. Jeśli edytowanie lub usuwanie nie ma żadnego efektu, upewnij się, że właściwość `DataKeyNames` jest ustawiona.
+
+## <a name="limitations-of-automatically-generating-sql-statements"></a>Ograniczenia dotyczące automatycznego generowania instrukcji SQL
+
+Ponieważ opcja Generuj `INSERT`, `UPDATE`i `DELETE` jest dostępna tylko podczas wybierania kolumn z tabeli, aby uzyskać bardziej skomplikowane zapytania, należy napisać własne instrukcje `INSERT`, `UPDATE`i `DELETE` jak w kroku 1. Często instrukcje SQL `SELECT` używają `JOIN` s do przenoszenia danych z co najmniej jednej tabeli odnośników na potrzeby wyświetlania (takie jak przywrócenie pola `CategoryName` `Categories` tabeli w przypadku wyświetlania informacji o produkcie). W tym samym czasie możemy chcieć zezwolić użytkownikowi na edytowanie, aktualizowanie lub wstawianie danych do tabeli podstawowej (`Products`w tym przypadku).
+
+Mimo że instrukcje `INSERT`, `UPDATE`i `DELETE` mogą być wprowadzane ręcznie, należy wziąć pod uwagę następujące wskazówki dotyczące zapisywania czasu. Początkowo Skonfiguruj kontrolki SqlDataSource tak, aby ściągał dane bezpośrednio z tabeli `Products`. Użyj Kreatora konfiguracji źródła danych s Określ kolumny z ekranu tabeli lub widoku, aby można było automatycznie generować instrukcje `INSERT`, `UPDATE`i `DELETE`. Następnie po zakończeniu pracy kreatora wybierz opcję konfigurowania SelectQuery z okno Właściwości (lub, Alternatywnie, Wróć do Kreatora konfiguracji źródła danych, ale użyj opcji Określ niestandardową instrukcję SQL lub procedurę składowaną). Następnie zaktualizuj instrukcję `SELECT`, aby zawierała składnię `JOIN`. Ta technika oferuje korzyści wynikające z oszczędności czasu dla automatycznie generowanych instrukcji SQL i pozwala na bardziej dostosowane instrukcje `SELECT`.
+
+Innym ograniczeniem automatycznego generowania instrukcji `INSERT`, `UPDATE`i `DELETE` jest to, że kolumny w instrukcjach `INSERT` i `UPDATE` są oparte na kolumnach zwracanych przez instrukcję `SELECT`. Może być jednak konieczne zaktualizowanie lub wstawienie więcej lub mniejszej liczby pól. Na przykład w przykładzie z kroku 2 może być konieczne, aby `UnitPrice` BoundField być tylko do odczytu. W takim przypadku nie powinien pojawić się w `UpdateCommand`. Możesz też chcieć ustawić wartość pola tabeli, która nie jest wyświetlana w widoku GridView. Na przykład podczas dodawania nowego rekordu możemy mieć ustawioną wartość `QuantityPerUnit`.
+
+Jeśli takie dostosowania są wymagane, należy je wprowadzić ręcznie, przez okno Właściwości, określić niestandardową instrukcję SQL lub procedurę składowaną w Kreatorze albo za pomocą składni deklaratywnej.
+
+> [!NOTE]
+> Podczas dodawania parametrów, które nie mają odpowiednich pól w kontrolce sieci Web danych, należy pamiętać, że te wartości parametrów muszą być przypisane w określony sposób. Te wartości mogą być: stałe kodowane bezpośrednio w `InsertCommand` lub `UpdateCommand`; mogą pochodzić ze wstępnie zdefiniowanego źródła (QueryString, stan sesji, kontrolki sieci Web na stronie itd.); lub można je przypisać programowo, jak zostało to opisane w poprzednim samouczku.
 
 ## <a name="summary"></a>Podsumowanie
 
-W kolejności dla danych, sieci Web kontroluje wykorzystanie ich wbudowane wstawiania, edytowanie i usuwanie możliwości kontroli źródła danych, które są powiązane muszą oferować takie funkcje. Dla SqlDataSource, oznacza to, że `INSERT`, `UPDATE`, i `DELETE` instrukcji SQL muszą być przypisane do `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości. Te właściwości, a odpowiednie kolekcje parametry, można ręcznie dodawać lub generowane automatycznie za pomocą Kreatora konfigurowania źródła danych. W tym samouczku zbadaliśmy obu tych technik.
+Aby formanty sieci Web danych mogły korzystać z wbudowanych funkcji wstawiania, edytowania i usuwania, kontrola źródła danych, z którą są powiązane, musi oferować takie funkcje. W przypadku kontrolki SqlDataSource oznacza to, że instrukcje `INSERT`, `UPDATE`i `DELETE` SQL muszą być przypisane do właściwości `InsertCommand`, `UpdateCommand`i `DeleteCommand`. Te właściwości i odpowiednie kolekcje parametrów mogą być dodawane ręcznie lub automatycznie za pomocą Kreatora konfiguracji źródła danych. W tym samouczku zbadamy obie techniki.
 
-Zbadaliśmy optymistycznej współbieżności przy użyciu kontrolki ObjectDataSource w [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) samouczka. Kontrolki SqlDataSource zapewnia również obsługę optymistycznej współbieżności. Jak wspomniano w kroku 2, podczas automatycznego generowania `INSERT`, `UPDATE`, i `DELETE` instrukcji, Kreator oferuje użyj opcji optymistycznej współbieżności. Jak opisano w następnym samouczku, za pomocą optymistycznej współbieżności przy użyciu kontrolki SqlDataSource modyfikuje `WHERE` klauzul `UPDATE` i `DELETE` instrukcji, aby upewnić się, że wartości w innych kolumnach nie zostały zmienione od momentu ostatniego danych wyświetlane na stronie.
+Sprawdzono użycie optymistycznej współbieżności z elementem ObjectDataSource w [implementacji optymistycznego samouczka współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) . Kontrolka kontrolki SqlDataSource zapewnia również optymistyczną obsługę współbieżności. Zgodnie z opisem w kroku 2, podczas automatycznego generowania instrukcji `INSERT`, `UPDATE`i `DELETE`, Kreator oferuje użycie optymistycznej opcji współbieżności. Jak zobaczymy w następnym samouczku, użycie optymistycznej współbieżności z kontrolki SqlDataSource modyfikuje klauzule `WHERE` w instrukcjach `UPDATE` i `DELETE`, aby upewnić się, że wartości innych kolumn nie uległy zmianie od momentu ostatniego wyświetlenia danych na stronie.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-parameterized-queries-with-the-sqldatasource-cs.md)

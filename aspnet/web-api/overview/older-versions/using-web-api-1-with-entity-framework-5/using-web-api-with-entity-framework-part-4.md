@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
-title: Część 4. Dodawanie widoku administratora | Dokumentacja firmy Microsoft
+title: 'Część 4: Dodawanie widoku administratora | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,78 +8,78 @@ ms.date: 07/04/2012
 ms.assetid: 792f4513-a508-4d14-a0dd-1a2fe282c7bb
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9e045b17434d46fa1b6e7942db95ecad67c34a46
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 664aeb33031e933322886a6d6bdd989277e9fda2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134756"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600015"
 ---
-# <a name="part-4-adding-an-admin-view"></a>Część 4. Dodawanie widoku administratora
+# <a name="part-4-adding-an-admin-view"></a>Część 4: Dodawanie widoku administratora
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-view"></a>Dodawanie widoku administratora
 
-Teraz utworzymy sięgają po stronie klienta i dodamy strony, którą może wykorzystać dane z kontrolera administratora. Strona Użytkownicy mogą tworzyć, edytować lub usunąć produktów, przez wysyłanie żądań AJAX do kontrolera.
+Teraz zmienimy się po stronie klienta i dodasz stronę, która będzie mogła korzystać z danych z kontrolera administratora. Na stronie użytkownicy będą mogli tworzyć, edytować lub usuwać produkty, wysyłając żądania AJAX do kontrolera.
 
-W Eksploratorze rozwiązań rozwiń folder kontrolerów, a następnie otwórz plik o nazwie HomeController.cs. Ten plik zawiera kontroler MVC. Dodaj metodę o nazwie `Admin`:
+W Eksplorator rozwiązań rozwiń folder kontrolery i Otwórz plik o nazwie HomeController.cs. Ten plik zawiera kontroler MVC. Dodaj metodę o nazwie `Admin`:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample1.cs)]
 
-**HttpRouteUrl** metoda tworzy identyfikator URI w internetowym interfejsie API i przechowujemy to w zbiorze widok na później.
+Metoda **HttpRouteUrl** tworzy identyfikator URI dla internetowego interfejsu API i zapisuje go w zbiorze widoku dla późniejszej.
 
-Następnie umieść kursor tekstu w obrębie `Admin` metody akcji, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję **Dodaj widok**. Zostanie wyświetlone okno **Dodaj widok** okna dialogowego.
+Następnie umieść kursor tekstu w metodzie `Admin` akcji, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie **Dodaj widok**. Spowoduje to wyświetlenie okna dialogowego **Dodawanie widoku** .
 
 ![](using-web-api-with-entity-framework-part-4/_static/image1.png)
 
-W **Dodaj widok** okno dialogowe, nazwę widoku, "Admin". Zaznacz pole wyboru przy opcji **utworzyć widok silnie typizowane**. W obszarze **klasy modelu**, wybierz pozycję "Product (ProductStore.Models)". Pozostaw wartości domyślne innych opcji.
+W oknie dialogowym **Dodawanie widoku** Nazwij widok "Administrator". Zaznacz pole wyboru z etykietą **Utwórz widok o jednoznacznie określonym typie**. W obszarze **Klasa modelu**wybierz pozycję "produkt (ProductStore. models)". Pozostaw wszystkie inne opcje jako wartości domyślne.
 
 ![](using-web-api-with-entity-framework-part-4/_static/image2.png)
 
-Klikając **Dodaj** dodaje plik o nazwie Admin.cshtml widoków/głównej. Otwórz ten plik i Dodaj poniższy kod HTML. Kod HTML definiuje strukturę strony, ale funkcjonalność nie jest jeszcze gotowe.
+Kliknięcie przycisku **Dodaj** dodaje plik o nazwie admin. cshtml w widokach/na stronie głównej. Otwórz ten plik i Dodaj następujący kod HTML. Ten kod HTML definiuje strukturę strony, ale żadne funkcje nie są jeszcze przewodne.
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-4/samples/sample2.cshtml)]
 
-## <a name="create-a-link-to-the-admin-page"></a>Utwórz łącze do strony administratora
+## <a name="create-a-link-to-the-admin-page"></a>Tworzenie linku do strony administratora
 
-W Eksploratorze rozwiązań rozwiń folder widoki, a następnie rozwiń folder udostępniony. Otwórz plik o nazwie \_Layout.cshtml. Znajdź **ul** element o identyfikatorze = "menu", a łącze akcji dla widoku administratora:
+W Eksplorator rozwiązań rozwiń folder widoki, a następnie rozwiń folder udostępniony. Otwórz plik o nazwie \_Layout. cshtml. Znajdź element **ul** z identyfikatorem "menu" i link akcji dla widoku administratora:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-4/samples/sample3.cshtml)]
 
 > [!NOTE]
-> W przykładowym projekcie kilka innych kosmetycznych zmiany wprowadzone, takich jak zastępując ciąg "Twoje logo". Nie mają one wpływu na funkcjonalność aplikacji. Można pobrać projektu i porównywanie plików.
+> W przykładowym projekcie zostały wykonane pewne inne zmiany, takie jak zastąpienie ciągu "logo" w tym miejscu. Nie wpływają one na działanie aplikacji. Możesz pobrać projekt i porównać pliki.
 
-Uruchom aplikację, a następnie kliknij link "Admin", który pojawia się w górnej części strony głównej. Strona administratora powinny wyglądać następująco:
+Uruchom aplikację i kliknij link "Administrator", który pojawia się w górnej części strony głównej. Strona administrator powinna wyglądać następująco:
 
 ![](using-web-api-with-entity-framework-part-4/_static/image3.png)
 
-Po prawej stronie teraz strony nie wprowadza żadnych zmian. W następnej sekcji użyjemy struktura Knockout.js do tworzenia dynamicznego interfejsu użytkownika.
+Teraz Strona nie wykonuje żadnych czynności. W następnej sekcji użyjemy narzędzia separowania. js do utworzenia dynamicznego interfejsu użytkownika.
 
 ## <a name="add-authorization"></a>Dodaj autoryzację
 
-Strona administratora jest obecnie dostępna dla każdego, kto w witrynie. Zmieńmy ten element, aby ograniczyć uprawnienia do administratorów.
+Strona administratora jest obecnie dostępna dla wszystkich osób odwiedzających witrynę. Zmieńmy ten sposób, aby ograniczyć uprawnienia do administratorów.
 
-Rozpocznij, dodając rolę "Administrator" i użytkownika administrator. W Eksploratorze rozwiązań rozwiń folder filtry, a następnie otwórz plik o nazwie InitializeSimpleMembershipAttribute.cs. Znajdź `SimpleMembershipInitializer` konstruktora. Po wywołaniu **WebSecurity.InitializeDatabaseConnection**, Dodaj następujący kod:
+Zacznij od dodania roli "Administrator" i administratora. W Eksplorator rozwiązań rozwiń folder filtry i Otwórz plik o nazwie InitializeSimpleMembershipAttribute.cs. Znajdź konstruktora `SimpleMembershipInitializer`. Po wywołaniu metody **WebSecurity. InitializeDatabaseConnection**Dodaj następujący kod:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample4.cs)]
 
-Jest quick-and-dirty sposób, aby dodać rolę "Administrator" i Utwórz użytkownika dla roli.
+Jest to szybka i zanieczyszczona metoda dodawania roli "Administrator" i tworzenia użytkownika dla roli.
 
-W Eksploratorze rozwiązań rozwiń folder kontrolerów, a następnie otwórz plik HomeController.cs. Dodaj **Autoryzuj** atrybutu `Admin` metody.
+W Eksplorator rozwiązań rozwiń folder kontrolery i Otwórz plik HomeController.cs. Dodaj atrybut **Autoryzuj** do metody `Admin`.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample5.cs)]
 
-Otwórz plik AdminController.cs i Dodaj **Autoryzuj** atrybutu do całej `AdminController` klasy.
+Otwórz plik AdminController.cs i Dodaj atrybut **Autoryzuj** do całej klasy `AdminController`.
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-4/samples/sample6.cs)]
 
 > [!NOTE]
-> MVC i internetowy interfejs API zarówno zdefiniować **Autoryzuj** atrybutów w różnych obszarach nazw. Używa MVC **System.Web.Mvc.AuthorizeAttribute**, podczas gdy interfejs API sieci Web używa **System.Web.Http.AuthorizeAttribute**.
+> Zarówno MVC, jak i interfejs API sieci Web definiują atrybuty **autoryzacji** w różnych przestrzeniach nazw. MVC używa **System. Web. MVC. AuthorizeAttribute**, a interfejs API sieci Web używa **System. Web. http. AuthorizeAttribute**.
 
-Tylko administratorzy mogą teraz wyświetlać strony administratora. Ponadto Jeśli wyślesz żądanie HTTP do kontrolera administratora żądanie musi zawierać plik cookie uwierzytelniania. Jeśli nie, serwer wysyła odpowiedź HTTP 401 (bez autoryzacji). Można to zobaczyć w narzędziu Fiddler, wysyłając żądanie GET w celu `http://localhost:*port*/api/admin`.
+Teraz tylko Administratorzy mogą wyświetlać stronę administratora. Ponadto w przypadku wysłania żądania HTTP do kontrolera administratora żądanie musi zawierać plik cookie uwierzytelniania. W przeciwnym razie serwer wysyła odpowiedź HTTP 401 (bez autoryzacji). Ten element można zobaczyć w programu Fiddler, wysyłając żądanie GET do `http://localhost:*port*/api/admin`.
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-web-api-with-entity-framework-part-3.md)

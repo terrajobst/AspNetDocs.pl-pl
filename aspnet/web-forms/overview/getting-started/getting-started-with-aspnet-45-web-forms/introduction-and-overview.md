@@ -1,194 +1,194 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-title: Wprowadzenie do formularzy sieci Web w wersji 4.7 ASP.NET i programu Visual Studio 2017 | Dokumentacja firmy Microsoft
+title: Wprowadzenie z formularzami sieci Web ASP.NET 4,7 i Visual Studio 2017 | Microsoft Docs
 author: Erikre
-description: W tej serii samouczków krok po kroku obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.7 i Microsoft Visual Studio
+description: W tej serii samouczków krok po kroku przedstawiono podstawowe informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,7 i Microsoft Visual Studio
 ms.author: riande
 ms.date: 01/09/2019
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ad491193c0d669464721d82f86a78b79f45b93aa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 52d5eb7abe4520ebdf6667d299d055fc7619a635
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131364"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615452"
 ---
-# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2017
+# <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>Wprowadzenie z formularzami sieci Web ASP.NET 4,5 i programem Visual Studio 2017
 
-[Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Pobierz program Wingtip zabawki (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-W tej serii samouczków pokazano, jak skompilować aplikację ASP.NET Web Forms, ASP.NET 4.5 i programu Microsoft Visual Studio 2017. 
+W tej serii samouczków pokazano, jak utworzyć aplikację ASP.NET Web Forms z ASP.NET 4,5 i Microsoft Visual Studio 2017. 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W tej serii samouczków przeprowadzi Cię przez tworzenie aplikacji formularzy sieci Web ASP.NET przy użyciu programu Visual Studio 2017 i program ASP.NET 4.5. Utworzymy aplikację o nazwie **Wingtip Toys** — uproszczone storefront witryny sieci web sprzedaż elementów w trybie online. Podczas serii zostały wyróżnione nowych funkcji ASP.NET 4.5.
+Ta seria samouczków prowadzi użytkownika przez proces tworzenia aplikacji ASP.NET Web Forms przy użyciu programu Visual Studio 2017 i ASP.NET 4,5. Utworzysz aplikację o nazwie **zabawki Wingtip** — uproszczona witryna sieci Web w sklepie do sprzedaży elementów sprzedawanych w trybie online. W ramach serii są wyróżnione nowe funkcje ASP.NET 4,5.
 
-### <a name="target-audience"></a>Docelowi odbiorcy
+### <a name="target-audience"></a>Odbiorcy docelowi
 
-Jesteś nowym użytkownikiem formularzy sieci Web platformy ASP.NET dla deweloperów jest przeznaczony dla tej serii samouczków.
+Deweloperzy, którzy korzystają z formularzy sieci Web ASP.NET, są docelowymi odbiorcami tej serii samouczków.
 
-Musisz mieć pewną wiedzę na temat w następujących obszarach:
+Należy mieć pewną wiedzę w następujących obszarach:
 
-- Programowanie zorientowane obiektowo (Obiektowo) i języków
-- Tworzenie aplikacji sieci Web (HTML, CSS, JavaScript)
+- Programowanie zorientowane obiektowo (OOP) i Języki
+- Programowanie dla sieci Web (HTML, CSS, JavaScript)
 - Relacyjne bazy danych
-- Architektury N-warstwowej
+- Architektura N-warstwowa
 
-Aby zapoznać się z tych obszarów, należy wziąć pod uwagę bada następującej zawartości:
+Aby przejrzeć te obszary, Rozważ zbadanie następującej zawartości:
 
-- [Wprowadzenie do języka Visual C#](https://msdn.microsoft.com/library/a72418yk.aspx)
-- [Web Development](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, PHP, JQuery](http://w3schools.com/)
+- [Wprowadzenie z wizualizacjąC#](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Programowanie dla sieci Web](https://msdn.microsoft.com/beginner/bb308760.aspx), [HTML, CSS, JavaScript, SQL, php, jQuery](http://w3schools.com/)
 - [Relacyjna baza danych](http://en.wikipedia.org/wiki/Relational_database)
-- [Architektury wielowarstwowej](http://en.wikipedia.org/wiki/Multitier_architecture)
+- [Architektura wielowarstwowa](http://en.wikipedia.org/wiki/Multitier_architecture)
 
 ### <a name="application-features"></a>Funkcje aplikacji
 
-Funkcje formularz sieci Web ASP.NET, przedstawione w tej serii obejmują:
+Funkcje formularza sieci Web ASP.NET przedstawione w tej serii obejmują:
 
 - Projekt aplikacji sieci Web (nie projekt witryny sieci Web)
 - Formularze sieci Web
-- Strony wzorcowe, konfiguracji
+- Strony wzorcowe, konfiguracja
 - Bootstrap
-- Entity Framework Code najpierw LocalDB
-- Żądanie weryfikacji
-- Formanty danych silnie typizowane
-- Wiązanie modelu
+- Entity Framework Code First, LocalDB
+- Żądaj weryfikacji
+- Kontrolki danych o jednoznacznie określonym typie
+- Powiązanie modelu
 - Adnotacje danych
-- Dostawców wartości
-- Protokół SSL i uwierzytelniania OAuth
-- ASP.NET Identity, konfiguracji i autoryzacji
-- Sprawdzania poprawności dyskretnego kodu
+- Dostawcy wartości
+- SSL i OAuth
+- ASP.NET Identity, konfiguracja i autoryzacja
+- Niezauważalna weryfikacja
 - Routing
 - Obsługa błędów platformy ASP.NET
 
-### <a name="application-scenarios-and-tasks"></a>Scenariusze aplikacji i zadania
+### <a name="application-scenarios-and-tasks"></a>Scenariusze i zadania aplikacji
 
-Seria samouczków zadania obejmują:
+Zadania serii samouczków obejmują:
 
 - Tworzenie, przeglądanie i uruchamianie nowego projektu
 - Tworzenie struktury bazy danych
-- Inicjowanie i wstępne wypełnianie bazy danych
-- Dostosowywanie interfejsu użytkownika przy użyciu stylów, grafikę i strony wzorcowej
-- Dodawanie strony i nawigacja
+- Inicjowanie i wypełnianie bazy danych
+- Dostosowywanie interfejsu użytkownika za pomocą stylów, grafiki i strony wzorcowej
+- Dodawanie stron i nawigowania
 - Wyświetlanie szczegółów menu i danych produktu
 - Tworzenie koszyka
-- Obsługa dodawania SSL i uwierzytelniania OAuth
+- Dodawanie obsługi protokołów SSL i OAuth
 - Dodawanie metody płatności
-- W tym rolę administratora i użytkownika do aplikacji
-- Ograniczanie dostępu do konkretnych stron i folderów
-- Próba przekazania pliku do aplikacji sieci web
+- Dołączenie roli administratora i użytkownika do aplikacji
+- Ograniczanie dostępu do określonych stron i folderów
+- Przekazywanie pliku do aplikacji sieci Web
 - Implementowanie walidacji danych wejściowych
-- Rejestrowanie tras dla aplikacji sieci web
+- Rejestrowanie tras dla aplikacji sieci Web
 - Implementowanie obsługi błędów i rejestrowania błędów
 
 ## <a name="overview"></a>Omówienie
 
-W tej serii samouczków jest przeznaczony do kogoś zapoznać się z koncepcjami programistycznymi, ale jesteś nowym użytkownikiem formularzy sieci Web ASP.NET. Jeśli już znasz z formularzy sieci Web ASP.NET, ta seria nadal może pomóc więcej informacji na temat nowych funkcji ASP.NET 4.5. Czytelnicy zaznajomiony z programowania pojęcia i formularzy sieci Web ASP.NET, zobacz dodatkowe samouczki formularzy sieci Web w [wprowadzenie](../../../index.md) sekcji w witrynie sieci Web platformy ASP.NET.
+Ta seria samouczków jest przeznaczona dla kogoś, kto zna koncepcje programowania, ale nowy ASP.NET formularzy sieci Web. Jeśli masz już doświadczenie w korzystaniu z formularzy sieci Web ASP.NET, ta seria może pomóc Ci w Poznaniu nowych funkcji ASP.NET 4,5. W przypadku czytelników nieznających pojęć związanych z programowaniem i formularzy sieci Web ASP.NET zapoznaj się z samouczkami dotyczącymi dodatkowych formularzy sieci Web znajdujących się w sekcji [wprowadzenie](../../../index.md) w witrynie sieci Web ASP.NET.
 
-W tej serii samouczków w programie ASP.NET 4.5 zawiera następujące funkcje:
+ASP.NET 4,5 podany w tej serii samouczków obejmuje następujące funkcje:
 
-- Prosty interfejs użytkownika do tworzenia projektów oferującą [pomocy technicznej dla wielu platform ASP.NET](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#add) (Web Forms, MVC i interfejs API sieci Web).
-- [Usługa ładowania początkowego](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap), układ, motywy i elastyczne środowisko framework.
-- [ASP.NET Identity](../../../../identity/index.md), nowego systemu członkostwa programu ASP.NET, która działa tak samo, we wszystkich platform ASP.NET i działa, za pomocą oprogramowania innych niż IIS hostingu w sieci web.
+- Prosty interfejs użytkownika do tworzenia projektów, które oferują [obsługę wielu platform ASP.NET](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#add) (Web Forms, MVC i Web API).
+- Struktura projektu [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap), układu, tworzenia i reagowania.
+- [ASP.NET Identity](../../../../identity/index.md)nowy system członkostwa ASP.NET, który działa tak samo we wszystkich strukturach ASP.NET i współpracuje z oprogramowaniem hostingu w sieci Web innym niż IIS.
 - [Entity Framework 6](https://msdn.microsoft.com/data/ef.aspx)
 
-  Aktualizacja programu Entity Framework, dzięki któremu można:
-  - Pobieranie i manipulowanie danymi jako silnie typizowanych obiektów
-  - Dostęp do danych w sposób asynchroniczny
-  - Obsługa przejściowe błędy połączenia
-  - W instrukcjach SQL
+  Aktualizacja Entity Framework umożliwiająca:
+  - Pobieranie i manipulowanie danymi jako obiektami o jednoznacznie określonym typie
+  - Dostęp do danych asynchronicznie
+  - Obsługa błędów przejściowych połączeń
+  - Rejestruj instrukcje SQL
 
-Aby uzyskać pełną listę funkcji ASP.NET 4.5, zobacz [ASP.NET and Web Tools dla programu Visual Studio 2013 Release Notes](../../../../visual-studio/overview/2013/release-notes.md).
+Aby zapoznać się z pełną listą funkcji ASP.NET 4,5, zobacz [ASP.NET and Web Tools do Visual Studio 2013 informacji o wersji](../../../../visual-studio/overview/2013/release-notes.md).
 
-### <a name="the-wingtip-toys-sample-application"></a>Przykładowej aplikacji Wingtip Toys
+### <a name="the-wingtip-toys-sample-application"></a>Przykładowa aplikacja Wingtip zabawki
 
-Poniższe zrzuty ekranu są z aplikacji formularzy sieci Web ASP.NET, który zostanie utworzony w tej serii samouczków. Po uruchomieniu aplikacji w programie Visual Studio pojawia się następującą stronę główną.
+Poniższe zrzuty ekranu pochodzą z aplikacji ASP.NET Web Forms utworzonej w tej serii samouczków. Po uruchomieniu aplikacji w programie Visual Studio zostanie wyświetlona następująca Strona główna sieci Web.
 
-![Firmy Wingtip Toys — domyślna strona](introduction-and-overview/_static/image1.png)
+![Zabawki Wingtip — strona domyślna](introduction-and-overview/_static/image1.png)
 
-Zarejestruj się jako nowy użytkownik lub zaloguj się jako istniejącego użytkownika. Górnym menu nawigacyjnym zawiera linki do kategorie produktów i produktów z bazy danych.
+Możesz zarejestrować się jako nowy użytkownik lub zalogować się jako istniejący użytkownik. Górna Nawigacja zawiera linki do kategorii produktów i ich produktów z bazy danych.
 
-Jeśli wybierzesz **produktów**, są wyświetlane wszystkie dostępne produkty. 
+W przypadku wybrania opcji **produkty**zostaną wyświetlone wszystkie dostępne produkty. 
 
-![Firmy Wingtip Toys - produktów](introduction-and-overview/_static/image2.png)
+![Zabawki Wingtip — produkty](introduction-and-overview/_static/image2.png)
 
-Jeśli wybierzesz określonego produktu, są wyświetlane szczegółowe informacje.
+W przypadku wybrania określonego produktu zostaną wyświetlone szczegóły produktu.
 
-![Firmy Wingtip Toys — szczegóły produktu](introduction-and-overview/_static/image3.png)
+![Zabawki Wingtip — szczegóły produktu](introduction-and-overview/_static/image3.png)
 
-Użytkownik może rejestrować i zaloguj się przy użyciu funkcji domyślnego szablonu formularzy sieci Web. W tym samouczku wyjaśniono również, jak zarejestrować się przy użyciu istniejącego konta usługi Gmail. Ponadto można zalogować się jako administrator, aby dodawać i usuwać produktów z bazy danych.
+Jako użytkownik możesz zarejestrować i zalogować się przy użyciu domyślnych funkcji szablonu formularzy sieci Web. W tym samouczku wyjaśniono również, jak zalogować się przy użyciu istniejącego konta usługi Gmail. Ponadto możesz zalogować się jako administrator, aby dodawać i usuwać produkty z bazy danych.
 
-![Firmy Wingtip Toys — logowanie](introduction-and-overview/_static/image4.png)
+![Zabawki Wingtip — Zaloguj się](introduction-and-overview/_static/image4.png)
 
-Po zalogowaniu się jako użytkownik, możesz dodać do koszyka i wyewidencjonowania w systemie PayPal produktów. Przykładowa aplikacja jest przeznaczona do pracy w piaskownicy dla deweloperów PayPal. Odbywa się żadna transakcja rzeczywiste pieniądze.
+Po zalogowaniu się jako użytkownik możesz dodać produkty do koszyka zakupów i wyewidencjonować je w systemie PayPal. Przykładowa aplikacja została zaprojektowana tak, aby działała w piaskownicy deweloperów w systemie PayPal. Nie ma rzeczywistej transakcji pieniężnej.
 
-![Firmy Wingtip Toys - koszyk](introduction-and-overview/_static/image5.png)
+![Zabawki Wingtip — koszyk](introduction-and-overview/_static/image5.png)
 
-PayPal potwierdzenie informacji o koncie, kolejność i płatności.
+System PayPal potwierdza Twoje konto, zamówienie i informacje o płatności.
 
-![Firmy Wingtip Toys - PayPal](introduction-and-overview/_static/image6.png)
+![Zabawki Wingtip — system PayPal](introduction-and-overview/_static/image6.png)
 
-Po powrocie z systemu PayPal, można przejrzeć i ukończyć zamówienie.
+Po powrocie z systemu PayPal możesz przejrzeć i zakończyć zamówienie.
 
-![Firmy Wingtip Toys — Przegląd zamówienia](introduction-and-overview/_static/image7.png)
+![Zabawki Wingtip — przegląd kolejności](introduction-and-overview/_static/image7.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że następujące oprogramowanie jest zainstalowane na komputerze:
+Przed rozpoczęciem upewnij się, że na komputerze zainstalowano następujące oprogramowanie:
 
 - [Microsoft Visual Studio 2017 lub Microsoft Visual Studio Community 2017](https://visualstudio.microsoft.com/downloads/).
 
 .NET Framework jest instalowana automatycznie.
 
-W tej serii samouczków używa programu Microsoft Visual Studio Community 2017. Można użyć albo lub Microsoft Visual Studio 2017 do ukończenia tej serii samouczków.
+Ta seria samouczków używa Microsoft Visual Studio Community 2017. Aby ukończyć tę serię samouczków, możesz użyć opcji lub Microsoft Visual Studio 2017.
 
-Należy pamiętać o następujących dotyczących programu Visual Studio:
+Zwróć uwagę na następujące informacje o programie Visual Studio:
 
-* Microsoft Visual Studio 2017 i Microsoft Visual Studio Community 2017 są określane jako *programu Visual Studio* w całej tej serii samouczków.
+* W tej serii samouczków Microsoft Visual Studio 2017 i Microsoft Visual Studio Community 2017 są określane jako *Visual Studio* .
 
-* Program Visual Studio 2017 jest instalowany obok wszystkie starsze wersje zainstalowane. Utworzone we wcześniejszych wersjach witryn mogą być otwierane w programie Visual Studio 2017 i Kontynuuj, aby w poprzednich wersjach.
+* Program Visual Studio 2017 jest instalowany obok wszystkich starszych wersji, które są już zainstalowane. Lokacje utworzone we wcześniejszych wersjach mogą być otwierane w programie Visual Studio 2017 i nadal otwierane w poprzednich wersjach.
 
-* Podczas pierwszego uruchomienia programu Visual Studio, to zakłada, że wybrano *programowania dla sieci Web* ustawienia. Aby uzyskać więcej informacji, zobacz [jak: Wybierz ustawienia środowiska programowania dla sieci Web](https://msdn.microsoft.com/library/ff521558.aspx).
+* Przy pierwszym uruchomieniu programu Visual Studio przyjęto założenie, że wybrano ustawienia *deweloperskie sieci Web* . Aby uzyskać więcej informacji, zobacz [How to: SELECT Web Development Environment Settings](https://msdn.microsoft.com/library/ff521558.aspx).
 
-Po zainstalowaniu wymagań wstępnych, możesz rozpocząć tworzenie projektu sieci Web, przedstawione w tej serii samouczków.
+Po zainstalowaniu wymagań wstępnych możesz zacząć tworzyć projekt sieci Web przedstawiony w tej serii samouczków.
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
- Ukończone przykładowej aplikacji w można pobrać w dowolnym czasie z witryny MSDN przykłady:
+ Ukończoną przykładową aplikację można pobrać w dowolnym momencie z witryny przykładów MSDN:
 
-[Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013 — firmy Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
+[Wprowadzenie z formularzami sieci Web ASP.NET 4,5 i zabawkami Visual Studio 2013-Wingtip](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
 
- Ten plik do pobrania zawiera następujące elementy:
+ Ten pobieranie zawiera następujące elementy:
 
-- Przykładowa aplikacja w *WingtipToys* folderu.
-- Zasoby używane do tworzenia przykładowej aplikacji w *zasoby WingtipToys* folderu w *WingtipToys* folderu.
+- Przykładowa aplikacja w folderze *WingtipToys* .
+- Zasoby używane do tworzenia przykładowej aplikacji w folderze *WingtipToys-Assets* w folderze *WingtipToys* .
 
-Pliki do pobrania jest *zip* pliku. Aby wyświetlić ukończone projektu, który tworzy tę serię samouczków, Znajdź i wybierz *C#* folder w pliku zip. Zapisz C# folderu do folderu, można użyć do pracy z projektów programu Visual Studio. Domyślnie jest folder projektów programu Visual Studio 2017:
+Pobranie to plik *. zip* . Aby wyświetlić ukończony Projekt tworzony przez tę serię samouczków, Znajdź i wybierz *C#* folder w pliku zip. Zapisz C# folder w folderze używanym do pracy z projektami programu Visual Studio. Domyślnie folder projektów programu Visual Studio 2017 to:
 
-<strong>C:\Users&#92;</strong><strong><em>&lt;username&gt;</em></strong><strong>\source\repos</strong>
+<strong>C:\Users&#92;</strong>  <strong><em>&lt;username&gt;</em></strong> <strong>\source\repos</strong>
 
-Zmień nazwę ***C#*** folder ***WingtipToys***.
+Zmień nazwę ***C#*** folderu na ***WingtipToys***.
 
 > [!NOTE]
-> Jeśli masz już folder o nazwie *WingtipToys* w Twoim folderze projektów tymczasowo zmień nazwę tego istniejącego folderu przed zmianą nazwy *C#* folder *WingtipToys*.
+> Jeśli masz już folder o nazwie *WingtipToys* w folderze projekty, tymczasowo Zmień nazwę istniejącego folderu przed zmianą nazwy *C#* folderu na *WingtipToys*.
 
-Aby uruchomić projekt ukończone, otwórz *WingtipToys* folder i kliknij dwukrotnie plik *WingtipToys.sln* pliku. Program Visual Studio 2017 zostanie otwarty projekt. Następnie kliknij prawym przyciskiem myszy *Default.aspx* w pliku **Eksploratora rozwiązań** i wybierz **Pokaż w przeglądarce**.
+Aby uruchomić ukończony projekt, Otwórz folder *WingtipToys* i kliknij dwukrotnie plik *WingtipToys. sln* . Program Visual Studio 2017 otwiera projekt. Następnie kliknij prawym przyciskiem myszy plik *default. aspx* w **Eksplorator rozwiązań** i wybierz pozycję **Widok w przeglądarce**.
 
-## <a name="take-a-aspnet-web-forms-quiz-to-review-content"></a>Aby zapoznać się z zawartością kwizu wzorca ASP.NET Web Forms
+## <a name="take-a-aspnet-web-forms-quiz-to-review-content"></a>Skorzystaj z quizu formularzy sieci Web ASP.NET, aby przejrzeć zawartość
 
-Po ukończeniu tej serii samouczka kwizu sprawdzić swoją wiedzę i wzmocnienia kluczowych pojęć. Każde pytanie zawiera wyjaśnienie i linki do dodatkowych wskazówek.
+Po zakończeniu serii samouczków zapoznaj się z quizem, aby przetestować swoją wiedzę i wzmocnić kluczowe pojęcia. Każde pytanie zawiera wyjaśnienie i linki do dodatkowych wskazówek.
 
 * [Quiz formularzy sieci Web ASP.NET](https://blogs.msdn.microsoft.com/erikreitan/2016/01/08/asp-net-web-forms-quiz/) 
 
-## <a name="tutorial-support-and-comments"></a>Samouczek pomocy technicznej i komentarze
+## <a name="tutorial-support-and-comments"></a>Obsługa samouczków i komentarzy
 
-Pytania i komentarze, za pomocą sekcji Q i A dołączonym [wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013 — Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) strona przykładu.
+Pytania i Komentarze można znaleźć w sekcji pytań i odpowiedzi, które znajdują się na [wprowadzenie za pomocą formularzy sieci Web ASP.NET 4,5 i Visual Studio 2013-Wingtip zabawki](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#).
 
-Komentarze dotyczące tej serii samouczków to powitalnej. Gdy w tej serii samouczków jest aktualizowany, co wysiłki w celu należy wziąć pod uwagę poprawki lub sugestie dotyczące ulepszenia.
+Komentarze do tej serii samouczków są powitane. Gdy ta seria samouczków zostanie zaktualizowana, należy wziąć pod uwagę poprawki lub sugestie dotyczące ulepszeń.
 
-Jeśli wystąpi błąd, odpowiednie komunikaty o błędach może być mylące, za pomocą żadne dobre wyjaśnienia dotyczące sposobu rozwiązania go. Aby uzyskać pomoc, możesz sprawdzić [fora ASP.NET](https://forums.asp.net/). Innym dobrym źródłem jest sekcji Q i A [wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013 — Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) strona przykładu. 
+Jeśli wystąpi błąd, odpowiednie komunikaty o błędach mogą być mylące i nie są dobrym wyjaśnieniem, jak to naprawić. Aby uzyskać pomoc, możesz sprawdzić [fora ASP.NET](https://forums.asp.net/). Innym dobrym źródłem jest sekcja pytań i odpowiedzi w [wprowadzenie za pomocą formularzy sieci Web ASP.NET 4,5 i Visual Studio 2013-Wingtip zabawki](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#). 
 
 > [!div class="step-by-step"]
 > [Next](create-the-project.md)

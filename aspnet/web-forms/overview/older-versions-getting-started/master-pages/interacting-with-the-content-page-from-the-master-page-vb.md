@@ -1,230 +1,230 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
-title: Interakcja ze stroną zawartości z poziomu strony wzorcowej (VB) | Dokumentacja firmy Microsoft
+title: Korzystanie z strony zawartości z poziomu strony wzorcowej (VB) | Microsoft Docs
 author: rick-anderson
-description: Zbadamy, jak wywoływać metody, ustaw właściwości, itd. z poziomu strony zawartości z poziomu kodu na stronie wzorcowej.
+description: Bada sposób wywoływania metod, ustawiania właściwości itp. strony zawartości z kodu na stronie wzorcowej.
 ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2b3cc02a170deabdd6248bacc9dab8a17b04e2b5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5367ad1b7f2fa11c635ad95754c9bcc1edcb6c1d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134123"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615559"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interakcja ze stroną zawartości z poziomu strony wzorcowej (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_07_VB.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_07_VB.pdf)
 
-> Zbadamy, jak wywoływać metody, ustaw właściwości, itd. z poziomu strony zawartości z poziomu kodu na stronie wzorcowej.
+> Bada sposób wywoływania metod, ustawiania właściwości itp. strony zawartości z kodu na stronie wzorcowej.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Poprzedni Samouczek zbadane jak programowo współdziałać z jego strony wzorcowej strony zawartość. Wycofanie zaktualizowane strony wzorcowej do uwzględnienia w kontrolce GridView wymienionego pięć ostatnio dodane produktów. Następnie utworzyliśmy strony zawartości, w którym użytkownik może dodać nowego produktu. Po dodaniu nowego produktu, poziomu strony zawartości wymagane poinstruować strony wzorcowej, aby odświeżyć jego GridView, tak aby po prostu dodać produktu będzie zawierało. Ta funkcja było wykonywane przez dodanie publiczną metodę strony wzorcowej, że odświeżane dane powiązane z widoku GridView, a następnie wywołania tej metody z poziomu strony zawartości.
+W poprzednim samouczku sprawdzono sposób, w jaki strona zawartości może programowo współdziałać ze stroną wzorcową. Odwołaj, że zaktualizowaliśmy stronę wzorcową w celu uwzględnienia kontrolki GridView, która wystawiła pięć ostatnio dodanych produktów. Następnie utworzyliśmy stronę zawartości, za pomocą której użytkownik może dodać nowy produkt. Po dodaniu nowego produktu strona zawartości musi nakazać stronie wzorcowej odświeżenie widoku GridView w taki sposób, aby zawierała tylko produkt dodany. Ta funkcja została osiągnięta przez dodanie metody publicznej do strony wzorcowej, która odświeży dane powiązane z elementem GridView, a następnie wywołuje tę metodę ze strony zawartości.
 
-Najczęściej używany typ zawartości i interakcji z strony wzorcowej pochodzi ze strony zawartość. Jednak jest możliwe dla strony wzorcowej do rouse bieżącej strony zawartości w działanie i mogą być potrzebne takich funkcji, jeśli strona główna zawiera elementy interfejsu użytkownika, które umożliwiają użytkownikom modyfikowanie danych, który jest również wyświetlany na stronie zawartości. Należy wziąć pod uwagę strony zawartości, że wyświetla informacji o produktach w GridView control i stronę wzorcową, która zawiera przycisk kontrolkę, która, po kliknięciu, podwaja ceny wszystkich produktów. Podobnie jak w przykładzie w poprzednim samouczku widoku GridView potrzebuje zostanie odświeżona po Podwójna cena, który kliknięto przycisk Tak, aby wyświetlał nowe ceny, ale w tym scenariuszu jest stronę wzorcową, którą trzeba rouse strony zawartości w działanie.
+Najbardziej typowa interakcja z zawartością i stroną wzorcową pochodzi ze strony zawartość. Jednak jest możliwe, aby strona wzorcowa Rouse bieżącą stronę zawartości do działania. może to być konieczne, jeśli strona wzorcowa zawiera elementy interfejsu użytkownika, które umożliwiają użytkownikom modyfikowanie danych, które są również wyświetlane na stronie zawartość. Rozważ użycie strony zawartości, która wyświetla informacje o produktach w kontrolce GridView i na stronie wzorcowej zawierającej kontrolkę Button, która po kliknięciu powoduje podwojenie cen wszystkich produktów. Podobnie jak w przypadku przykładu w poprzednim samouczku, widok GridView musi zostać odświeżony po kliknięciu przycisku podwójnej ceny, tak aby wyświetlał nowe ceny, ale w tym scenariuszu jest to strona wzorcowa, która musi Rouse stronę zawartości do działania.
 
-W tym samouczku przedstawiono, jak wywoływać funkcje zdefiniowane w stronę zawartości strony wzorcowej.
+W tym samouczku przedstawiono sposób, w jaki Strona główna wywołała funkcje zdefiniowane na stronie zawartości.
 
-### <a name="instigating-programmatic-interaction-via-an-event-and-event-handlers"></a>Podżeganie interakcji programistycznych za pomocą zdarzenia i procedury obsługi zdarzeń
+### <a name="instigating-programmatic-interaction-via-an-event-and-event-handlers"></a>Obsługa interakcji programistycznej za pośrednictwem obsługi zdarzeń i zdarzeń
 
-Wywoływanie funkcji strony zawartości strony wzorcowej jest trudniejsze niż odwrotnie. Ponieważ zawartość strony ma jednej strony wzorcowej, gdy podżeganie interakcji programistycznych z poziomu strony zawartości wiemy, właściwości i metody publiczne są nasze dyspozycji. Strony wzorcowej, jednak może mieć wiele różnych stronach zawartości, każdy z swój własny zestaw właściwości i metod. Jak to zrobić następnie napisać kod na stronie głównej na wykonanie akcji w jego zawartości strony, jeśli nie wiesz, jakie zawartość strony zostanie wywołany, aż do czasu?
+Wywoływanie funkcji strony zawartości z poziomu strony wzorcowej jest trudniejsze niż inne. Ze względu na to, że strona zawartości ma pojedynczą stronę wzorcową, podczas zawieszania interakcji programowanej ze strony zawartości wiemy, jakie metody i właściwości publiczne są dostępne w naszym usunięciu. Na stronie wzorcowej można jednak wybrać wiele różnych stron zawartości z własnymi zestawami właściwości i metod. W jaki sposób można napisać kod na stronie wzorcowej, aby wykonać jakąś akcję na stronie zawartości, gdy nie wiesz, jaka strona zawartości zostanie wywołana do czasu wykonania?
 
-Należy wziąć pod uwagę formantu sieci Web platformy ASP.NET, takich jak formant przycisku. Formant przycisku mogą być wyświetlane na dowolną liczbę stron ASP.NET i wymaga mechanizm, za pomocą którego może on informować strony została kliknięta. Jest to realizowane przy użyciu *zdarzenia*. W szczególności wywołuje kontrolki przycisku jego `Click` zdarzenie po kliknięciu; strony ASP.NET, która zawiera przycisk opcjonalnie mogą odpowiadać na powiadomienia za pośrednictwem *programu obsługi zdarzeń*.
+Rozważmy kontrolkę sieci Web ASP.NET, taką jak kontrolka Button. Kontrolka przycisku może być wyświetlana na dowolnej liczbie stron ASP.NET i wymaga mechanizmu, za pomocą którego można ostrzec o klikniętej stronie. Jest to realizowane przy użyciu *zdarzeń*. W szczególności formant Button wywołuje jego zdarzenie `Click`, gdy zostanie kliknięty; na stronie ASP.NET zawierającej przycisk można opcjonalnie odpowiedzieć na to powiadomienie za pośrednictwem *programu obsługi zdarzeń*.
 
-Ten sam wzorzec może służyć do mają funkcji wyzwalacza strony wzorcowej w stronach zawartości:
+Ten sam wzorzec może służyć do wyzwolenia funkcji wyzwalacza strony głównej na jej stronach zawartości:
 
-1. Dodaj zdarzenie do strony wzorcowej.
-2. Wywołaj zdarzenie zawsze wtedy, gdy musi komunikować się z jego strony zawartości strony wzorcowej. Na przykład jeśli strona wzorcowa wymaga do wyzwalania alertu jego strony zawartości, że użytkownik podwoiła ceny, jej zdarzenia będą zgłaszane, natychmiast po mają został podwojony ceny.
-3. Utwórz procedurę obsługi zdarzeń w tych stron zawartości, które wymagają wykonania określonego działania.
+1. Dodaj zdarzenie do strony głównej.
+2. Zgłoś zdarzenie, gdy strona wzorcowa musi komunikować się ze swoją stroną zawartości. Jeśli na przykład Strona główna musi wysyłać alerty do strony zawartości, na której użytkownik ma podwójne ceny, jego zdarzenie zostanie zgłoszone natychmiast po podwójnym cenach.
+3. Utwórz procedurę obsługi zdarzeń na tych stronach zawartości, które muszą wykonać pewne czynności.
 
-Ta pozostałej części tego samouczka implementuje przykładzie opisano we wprowadzeniu; to znaczy strony zawartości, która zawiera listę produktów w bazie danych i stronę wzorcową, która zawiera przycisk kontrolować dwukrotnie ceny.
+W pozostałej części tego samouczka zaimplementowano przykład opisany we wprowadzeniu; oznacza to, że strona zawartości, która wyświetla listę produktów w bazie danych i stronę wzorcową, która zawiera przycisk kontrolki do dwukrotnego uzyskania cen.
 
-## <a name="step-1-displaying-products-in-a-content-page"></a>Krok 1. Wyświetlanie produktów w zawartości strony
+## <a name="step-1-displaying-products-in-a-content-page"></a>Krok 1. Wyświetlanie produktów na stronie zawartości
 
-Naszym pierwszym zadaniem biznesowym polega na utworzeniu strony zawartości, która zawiera listę produktów z bazy danych Northwind. (Dodaliśmy do projektu bazy danych Northwind w poprzednim samouczku [ *interakcja ze stroną wzorcową z poziomu strony zawartości*](interacting-with-the-master-page-from-the-content-page-vb.md).) Rozpocznij od dodania nowej strony programu ASP.NET do `~/Admin` folder o nazwie `Products.aspx`i powiązać `Site.master` strony wzorcowej. Rysunek 1 Pokazuje Eksplorator rozwiązań po tej strony została dodana do witryny sieci Web.
+Pierwszą kolejnością biznesową jest utworzenie strony zawartości, która zawiera produkty z bazy danych Northwind. (Baza danych Northwind została dodana do projektu w poprzednim samouczku, [*korzystając z strony wzorcowej ze strony zawartość*](interacting-with-the-master-page-from-the-content-page-vb.md)). Zacznij od dodania nowej strony ASP.NET do folderu `~/Admin` o nazwie `Products.aspx`, aby upewnić się, że należy powiązać ją ze stroną wzorcową `Site.master`. Rysunek 1 przedstawia Eksplorator rozwiązań po dodaniu tej strony do witryny sieci Web.
 
-[![Dodawanie nowej strony programu ASP.NET do folderu administratora](interacting-with-the-content-page-from-the-master-page-vb/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image1.png)
+[![dodać nową stronę ASP.NET do folderu Admin](interacting-with-the-content-page-from-the-master-page-vb/_static/image2.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image1.png)
 
-**Rysunek 01**: Dodawanie nowej strony programu ASP.NET do `Admin` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image3.png))
+**Ilustracja 01**. Dodawanie nowej strony ASP.NET do folderu `Admin` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image3.png))
 
-Pamiętaj, że w [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) samouczek tworzenia niestandardowej strony podstawowej klasy o nazwie `BasePage` generujący tytuł strony, jeśli nie jest jawnie ustawione. Przejdź do `Products.aspx` kodem strony klasy i jest pochodną `BasePage` (zamiast z `System.Web.UI.Page`).
+Odwołaj się do tego w [*temacie Określanie tytułu, meta tagi i innych nagłówków HTML na stronie wzorcowej*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) — samouczek został utworzony za pomocą niestandardowej klasy strony podstawowej o nazwie `BasePage`, która generuje tytuł strony, jeśli nie jest jawnie ustawiona. Przejdź do klasy powiązanej z kodem `Products.aspx` strony i utwórz ją od `BasePage` (zamiast z `System.Web.UI.Page`).
 
-Na koniec zaktualizuj `Web.sitemap` plik, aby dołączyć wpis dla tej lekcji. Dodaj następujący kod pod `<siteMapNode>` zawartości do lekcji interakcji strony główne:
+Na koniec Zaktualizuj plik `Web.sitemap`, aby zawierał wpis do tej lekcji. Dodaj następującą adiustację poniżej `<siteMapNode>`, aby uzyskać informacje na temat interakcji ze stroną wzorcową:
 
 [!code-xml[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample1.xml)]
 
-Dodanie tego `<siteMapNode>` element jest widoczny w lekcji listy (zobacz rysunek 5).
+Dodanie tego elementu `<siteMapNode>` jest odzwierciedlone na liście lekcji (patrz rysunek 5).
 
-Wróć do `Products.aspx`. W formancie zawartości dla `MainContent`, dodawanie kontrolki GridView i nadaj mu nazwę `ProductsGrid`. Powiąż widoku GridView z kontrolką SqlDataSource o nazwie `ProductsDataSource`.
+Wróć do `Products.aspx`. W kontrolce zawartości dla `MainContent`Dodaj kontrolkę GridView i nadaj jej nazwę `ProductsGrid`. Powiąż element GridView z nową kontrolką kontrolki SqlDataSource o nazwie `ProductsDataSource`.
 
-[![Nowe kontrolki SqlDataSource powiązać widoku GridView](interacting-with-the-content-page-from-the-master-page-vb/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image4.png)
+[![powiązać widoku GridView z nową kontrolką kontrolki SqlDataSource](interacting-with-the-content-page-from-the-master-page-vb/_static/image5.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image4.png)
 
-**Rysunek 02**: Powiązywanie kontrolki GridView nowej kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image6.png))
+**Ilustracja 02**. powiązanie widoku GridView z nową kontrolką kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image6.png))
 
-Skonfiguruj kreatora, tak aby używał bazy danych Northwind. Jeśli pracy za pomocą poprzedniego samouczka, to konto powinno mieć już parametrów połączenia o nazwie `NorthwindConnectionString` w `Web.config`. Wybierz te parametry połączenia z listy rozwijanej, jak pokazano na rysunku 3.
+Skonfiguruj kreatora tak, aby używał bazy danych Northwind. Jeśli pracujesz w poprzednim samouczku, musisz mieć już parametry połączenia o nazwie `NorthwindConnectionString` w `Web.config`. Wybierz te parametry połączenia z listy rozwijanej, jak pokazano na rysunku 3.
 
-[![Konfigurowanie SqlDataSource do korzystania z bazy danych Northwind](interacting-with-the-content-page-from-the-master-page-vb/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image7.png)
+[![skonfigurować kontrolki SqlDataSource do korzystania z bazy danych Northwind](interacting-with-the-content-page-from-the-master-page-vb/_static/image8.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image7.png)
 
-**Rysunek 03**: Konfigurowanie SqlDataSource do korzystania z bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image9.png))
+**Rysunek 03**: Konfigurowanie kontrolki SqlDataSource do korzystania z bazy danych Northwind ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image9.png))
 
-Następnie określ kontroli źródła danych `SELECT` instrukcji przez wybranie tabeli Produkty z listy rozwijanej i zwracanie `ProductName` i `UnitPrice` kolumny (patrz rysunek 4). Kliknij przycisk Dalej, a następnie Zakończ, aby zakończyć działanie kreatora Konfigurowanie źródła danych.
+Następnie określ instrukcję `SELECT` formantu źródła danych, wybierając tabelę produkty z listy rozwijanej i zwracając kolumny `ProductName` i `UnitPrice` (zobacz rysunek 4). Kliknij przycisk Dalej, a następnie Zakończ, aby zakończyć pracę Kreatora konfiguracji źródła danych.
 
-[![Zwracanie ProductName i UnitPrice pola z tabeli Produkty](interacting-with-the-content-page-from-the-master-page-vb/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image10.png)
+[![zwrócić pola NazwaProduktu i CenaJednostkowa z tabeli Products](interacting-with-the-content-page-from-the-master-page-vb/_static/image11.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image10.png)
 
-**Rysunek 04**: Zwróć `ProductName` i `UnitPrice` pola z `Products` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image12.png))
+**Rysunek 04**: zwróć pola `ProductName` i `UnitPrice` z tabeli `Products` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image12.png))
 
-To wszystko. Po zakończeniu pracy Kreatora programu Visual Studio dodaje dwa BoundFields GridView duplikatów dwa pola, które są zwracane przy użyciu kontrolki SqlDataSource. Poniżej kontrolki GridView i użyciu kontrolki SqlDataSource znaczników. Rysunek 5. pokazuje wyniki podczas wyświetlania za pośrednictwem przeglądarki.
+To wszystko. Po zakończeniu działania kreatora program Visual Studio dodaje dwa BoundFields do widoku GridView, aby zdublować dwa pola zwracane przez formant kontrolki SqlDataSource. Poniższe znaczniki formantów GridView i kontrolki SqlDataSource. Rysunek 5 przedstawia wyniki wyświetlane w przeglądarce.
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample2.aspx)]
 
-[![Każdy produkt, a jego ceną znajduje się w widoku GridView](interacting-with-the-content-page-from-the-master-page-vb/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image13.png)
+[![każdego produktu, a jego cena jest wymieniona w widoku GridView](interacting-with-the-content-page-from-the-master-page-vb/_static/image14.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image13.png)
 
-**Rysunek 05**: Każdy produkt, a jego ceną znajduje się w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image15.png))
+**Ilustracja 05**: każdy produkt i jego cena są wymienione w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image15.png))
 
 > [!NOTE]
-> Możesz wyczyścić wyglądu kontrolki GridView. Kilka sugestii obejmują formatowanie wyświetlaną wartość UnitPrice jako walutę i przy użyciu czcionki i kolory tła, aby poprawić wygląd siatki. Aby uzyskać więcej informacji na temat wyświetlania i formatowanie danych w programie ASP.NET, zobacz mój [Praca z serii samouczków danych](../../data-access/index.md).
+> Możesz wyczyścić wygląd GridView. Niektóre sugestie obejmują formatowanie wyświetlanej wartości CenaJednostkowa jako waluty i użycie kolorów i czcionek tła w celu poprawienia wyglądu siatki. Aby uzyskać więcej informacji o wyświetlaniu i formatowaniu danych w programie ASP.NET, zapoznaj się z tematem [Praca z serią samouczków dotyczących danych](../../data-access/index.md).
 
-## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>Krok 2. Dodawanie przycisku Double cen do strony wzorcowej
+## <a name="step-2-adding-a-double-prices-button-to-the-master-page"></a>Krok 2. Dodawanie przycisku podwójnej ceny do strony głównej
 
-Naszym kolejnym krokiem jest, aby dodać kontrolkę przycisku w sieci Web do poziomu głównego strony, po kliknięciu zostanie double ceny wszystkich produktów w bazie danych. Otwórz `Site.master` strony wzorcowej, a następnie przeciągnij przycisk z przybornika w projektancie, umieszczając je pod `RecentProductsDataSource` kontrolki SqlDataSource dodane w poprzednim samouczku. Ustaw właściwość `ID` właściwości `DoublePrice` i jego `Text` właściwość "Double ceny produktów".
+Następnym zadaniem jest dodanie kontrolki sieci Web przycisku do strony wzorcowej, która po kliknięciu spowoduje podwójną cenę wszystkich produktów w bazie danych. Otwórz stronę wzorcową `Site.master` i przeciągnij przycisk z przybornika do projektanta, umieszczając go pod `RecentProductsDataSource` kontrolką kontrolki sqldatasourceą dodaną w poprzednim samouczku. Ustaw właściwość `ID` przycisku na `DoublePrice` i jej Właściwość `Text` na wartość "podwójne ceny produktu".
 
-Następnie dodaj kontrolki SqlDataSource strony wzorcowej, nadając mu nazwę `DoublePricesDataSource`. Ta SqlDataSource będzie służyć do wykonywania `UPDATE` instrukcję, aby wszystkie ceny dwukrotnie. W szczególności należy ustawić jego `ConnectionString` i `UpdateCommand` właściwości na ciąg połączenia i `UPDATE` instrukcji. Następnie należy wywołać tej kontrolki SqlDataSource `Update` metody podczas `DoublePrice` przycisku. Aby ustawić `ConnectionString` i `UpdateCommand` właściwości, wybierz kontrolkę kontrolką SqlDataSource, a następnie przejdź do okna właściwości. `ConnectionString` Listy właściwości tych parametrów połączenia przechowywanych już w `Web.config` na liście rozwijanej; wybierz opcję `NorthwindConnectionString` opcji, jak pokazano na rysunku 6.
+Następnie Dodaj kontrolkę kontrolki SqlDataSource do strony wzorcowej, nadając jej nazwę `DoublePricesDataSource`. Ta kontrolki SqlDataSource zostanie użyta do wykonania instrukcji `UPDATE` w celu podwójnej realizacji wszystkich cen. W związku z tym musimy ustawić właściwości `ConnectionString` i `UpdateCommand` do odpowiednich parametrów połączenia i instrukcji `UPDATE`. Następnie musimy wywołać metodę `Update` formantu kontrolki SqlDataSource po kliknięciu przycisku `DoublePrice`. Aby ustawić właściwości `ConnectionString` i `UpdateCommand`, wybierz kontrolkę kontrolki SqlDataSource, a następnie przejdź do okno Właściwości. Właściwość `ConnectionString` wyświetla listę tych parametrów połączenia, które są już przechowywane w `Web.config` na liście rozwijanej. Wybierz opcję `NorthwindConnectionString`, jak pokazano na rysunku 6.
 
-[![Konfigurowanie SqlDataSource używać NorthwindConnectionString](interacting-with-the-content-page-from-the-master-page-vb/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image16.png)
+[![skonfigurować kontrolki SqlDataSource do korzystania z NorthwindConnectionString](interacting-with-the-content-page-from-the-master-page-vb/_static/image17.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image16.png)
 
-**Rysunek 06**: Konfigurowanie SqlDataSource do użycia `NorthwindConnectionString` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image18.png))
+**Ilustracja 06**. Konfigurowanie kontrolki SqlDataSource do korzystania z `NorthwindConnectionString` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image18.png))
 
-Aby ustawić `UpdateCommand` właściwości, znajdź opcję UpdateQuery w oknie dialogowym właściwości. Tę właściwość, po wybraniu Wyświetla przycisk z wielokropkiem; Kliknij ten przycisk, aby wyświetlić okno dialogowe Edytor poleceń i parametrów pokazano na rysunku 7. Wpisz następujące polecenie `UPDATE` w polu tekstowym w oknie dialogowym instrukcji:
+Aby ustawić właściwość `UpdateCommand`, Znajdź w okno Właściwości opcję UpdateQuery. Ta właściwość, po wybraniu, wyświetla przycisk z wielokropkiem; Kliknij ten przycisk, aby wyświetlić okno dialogowe Edytor parametrów i polecenie pokazane na rysunku 7. Wpisz następującą instrukcję `UPDATE` w polu tekstowym okna dialogowego:
 
 [!code-sql[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample3.sql)]
 
-Po wykonaniu tej instrukcji zostanie dwukrotnie `UnitPrice` wartość dla każdego rekordu w `Products` tabeli.
+Ta instrukcja, gdy jest wykonywana, spowoduje podwójne `UnitPrice` wartość dla każdego rekordu w tabeli `Products`.
 
-[![Ustaw właściwość elementu UpdateCommand SqlDataSource firmy](interacting-with-the-content-page-from-the-master-page-vb/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image19.png)
+[![ustaw właściwość UpdateCommand elementu kontrolki SqlDataSource](interacting-with-the-content-page-from-the-master-page-vb/_static/image20.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image19.png)
 
-**Rysunek 07**: Ustaw jego SqlDataSource `UpdateCommand` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image21.png))
+**Ilustracja 07**: ustaw właściwość `UpdateCommand` kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image21.png))
 
-Po ustawieniu tych właściwości, przycisk i użyciu kontrolki SqlDataSource kontrolkom oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
+Po ustawieniu tych właściwości, przycisk i znaczniki deklaratywne formantów kontrolki SqlDataSource powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample4.aspx)]
 
-Pozostaje tylko do wywoływania jego `Update` metody podczas `DoublePrice` przycisku. Tworzenie `Click` program obsługi zdarzeń dla `DoublePrice` przycisku i Dodaj następujący kod:
+Wszystko to, które pozostanie, wywołuje metodę `Update` po kliknięciu przycisku `DoublePrice`. Utwórz procedurę obsługi zdarzeń `Click` dla przycisku `DoublePrice` i Dodaj następujący kod:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample5.vb)]
 
-Aby przetestować tę funkcję, odwiedź stronę `~/Admin/Products.aspx` stronie mamy utworzony w kroku 1, a następnie kliknij przycisk "Double cen produktu". Kliknięcie przycisku powoduje odświeżenie strony i wykonuje `DoublePrice` przycisku `Click` program obsługi zdarzeń, podwajając ceny wszystkich produktów. Następnie ponownie wyrenderowaniu strony i znaczników jest zwracana i ponownie jest wyświetlany w przeglądarce. GridView na stronie zawartości, jednak listy ceny tej samej, jako przed "Double ceny produktów" został kliknięty przycisk. Jest tak, ponieważ jego stan, przechowywane w widoku stanu, dzięki czemu nie są ładowane na ogłaszania zwrotnego, o ile nie zdecyduje, w przeciwnym razie dane wstępnie załadowane w widoku GridView. Jeśli można znaleźć w innej strony, a następnie wróć do `~/Admin/Products.aspx` strony zobaczysz zaktualizowanych cenach.
+Aby przetestować tę funkcję, odwiedź stronę `~/Admin/Products.aspx` utworzoną w kroku 1 i kliknij przycisk "podwójne ceny produktu". Kliknięcie przycisku powoduje odświeżenie i wykonanie `DoublePrice` przycisku `Click` obsługi zdarzeń, Podwajanie cen wszystkich produktów. Strona jest następnie ponownie renderowana, a znacznik jest zwracany i ponownie wyświetlany w przeglądarce. W widoku GridView na stronie zawartość są wyświetlane te same ceny jak przed kliknięciem przycisku "ceny podwójnego produktu". Wynika to z faktu, że dane początkowo załadowane w widoku GridView były przechowywane w stanie widoku, więc nie są ponownie ładowane w przypadku ogłaszania zwrotnego, chyba że zostanie to zrobione inaczej. Jeśli odwiedzasz na innej stronie, a następnie wrócisz do strony `~/Admin/Products.aspx`, zobaczysz zaktualizowane ceny.
 
-## <a name="step-3-raising-an-event-when-the-prices-are-doubled"></a>Krok 3. Wywoływanie zdarzeń ceny połączeń podczas są podwoiła
+## <a name="step-3-raising-an-event-when-the-prices-are-doubled"></a>Krok 3. Podnoszenie poziomu zdarzenia, gdy ceny są podwójne
 
-Ponieważ GridView w `~/Admin/Products.aspx` strony nie odzwierciedla natychmiast podwojenie ceny, użytkownik może uznać understandably, czy klikaj przycisk "Double cen produktu" lub że nie działało. One może spróbuj kliknąć przycisk więcej kilka razy, ponownego podwojenie ceny. Aby rozwiązać ten musimy mieć siatki w zawartości nowych cen wyświetlona strona, natychmiast po, zostaną one podwojone.
+Ponieważ GridView na stronie `~/Admin/Products.aspx` nie odzwierciedla bezpośrednio podwajania cen, użytkownik może zrozumieć, że nie klika przycisku "podwójne ceny produktu" lub że nie działa. Mogą próbować jeszcze raz kliknąć przycisk jeszcze raz, Podwajanie cen i ponownie. Aby rozwiązać ten problem, musimy mieć siatkę na stronie zawartości, która będzie zawierała nowe ceny natychmiast po ich podwójnym wyjściu.
 
-Zgodnie z opisem we wcześniejszej części tego samouczka, należy wywołać zdarzenie, na stronie głównej, gdy użytkownik kliknie `DoublePrice` przycisku. Zdarzenie jest sposobem jedną klasę (Wydawca zdarzeń) na powiadomienie drugiego zestawu innych klas (subskrybentów zdarzeń), które coś interesującego wystąpił. W tym przykładzie strony wzorcowej jest wydawcą zdarzeń; zawartość tych stron, które są istotne podczas `DoublePrice` przycisku są subskrybentów.
+Jak opisano wcześniej w tym samouczku, musimy zgłosić zdarzenie na stronie wzorcowej za każdym razem, gdy użytkownik kliknie przycisk `DoublePrice`. Zdarzenie to metoda dla jednej klasy (wydawcy zdarzeń), która powiadamia inny zestaw innych klas (subskrybentów zdarzeń) o wystąpieniu interesujących. W tym przykładzie Strona główna jest wydawcą zdarzeń. te strony zawartości, które należy zadbać o to, gdy kliknięto przycisk `DoublePrice`, to Subskrybenci.
 
-Klasa subskrybuje zdarzenie, tworząc *programu obsługi zdarzeń*, czyli metody, która jest wykonywana w odpowiedzi na zdarzenie, które są zgłaszane. Wydawca definiuje zdarzenia wywołuje on definiując *delegata zdarzenia*. Delegat wydarzenia określa jakie parametry wejściowe procedury obsługi zdarzeń musi zaakceptować. W .NET Framework delegatów zdarzeń nie zwraca żadnej wartości i akceptuje dwa parametry wejściowe:
+Klasa subskrybuje zdarzenie przez utworzenie *programu obsługi zdarzeń*, który jest metodą wykonywaną w odpowiedzi na zgłoszone zdarzenie. Wydawca definiuje zdarzenia, które wywołuje przez zdefiniowanie *delegata zdarzenia*. Delegat zdarzeń określa, jakie parametry wejściowe muszą być akceptowane przez program obsługi zdarzeń. W .NET Framework, Delegaty zdarzeń nie zwracają żadnej wartości i akceptują dwa parametry wejściowe:
 
-- `Object`, Który identyfikuje źródła zdarzeń i
-- Klasy pochodzącej od `System.EventArgs`
+- `Object`, który identyfikuje źródło zdarzenia i
+- Klasa pochodna `System.EventArgs`
 
-Drugi parametr przekazany do procedury obsługi zdarzeń może zawierać dodatkowe informacje o zdarzeniu. Podczas gdy podstawowy `EventArgs` klasy nie przekazują wszelkie informacje, program .NET Framework zawiera szereg klas, które rozszerzają `EventArgs` i obejmują dodatkowe właściwości. Na przykład `CommandEventArgs` wystąpienia zostanie przekazany do procedury obsługi zdarzeń, które reagują na wystąpienie `Command` zdarzenia i zawiera dwie właściwości informacyjny: `CommandArgument` i `CommandName`.
+Drugi parametr przesłany do procedury obsługi zdarzeń może zawierać dodatkowe informacje o zdarzeniu. Chociaż Klasa bazowa `EventArgs` nie przekazuje żadnych informacji, .NET Framework zawiera szereg klas, które zwiększają `EventArgs` i obejmują dodatkowe właściwości. Na przykład wystąpienie `CommandEventArgs` jest przesyłane do programów obsługi zdarzeń, które odpowiadają na zdarzenie `Command` i zawiera dwie właściwości informacyjne: `CommandArgument` i `CommandName`.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat tworzenia wywoływania i obsługi zdarzeń, zobacz [zdarzenia i delegatów](https://msdn.microsoft.com/library/17sde2xt.aspx) i [delegatów zdarzeń w języku angielskim — proste](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
+> Aby uzyskać więcej informacji na temat tworzenia, wywoływania i obsługi zdarzeń, zobacz [zdarzenia i delegatów](https://msdn.microsoft.com/library/17sde2xt.aspx) oraz [delegatów zdarzeń w prostym języku angielskim](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
 Aby zdefiniować zdarzenie, użyj następującej składni:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample6.vb)]
 
-Ponieważ musimy alert strony zawartości, gdy użytkownik kliknął `DoublePrice` przycisk i nie trzeba przekazać dodatkowe informacje, abyśmy delegata zdarzenia `EventHandler`, definiujący program obsługi zdarzeń, która akceptuje jako jego sekunda Parametr obiektu typu `System.EventArgs`. Aby utworzyć zdarzenie na stronie głównej, należy dodać następujący wiersz kodu do strony wzorcowej osobna klasa kodu:
+Ze względu na to, że po kliknięciu przycisku `DoublePrice` ma być wysyłany alert tylko na stronie zawartości, można użyć `EventHandler`delegata zdarzenia, który definiuje procedurę obsługi zdarzeń, która akceptuje jako drugi parametr obiekt typu `System.EventArgs`. Aby utworzyć zdarzenie na stronie wzorcowej, Dodaj następujący wiersz kodu do klasy powiązanej z kodem strony wzorcowej:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample7.vb)]
 
-Powyższy kod dodaje zdarzenie publiczne strony wzorcowej o nazwie `PricesDoubled`. Musimy teraz Zgłoś to zdarzenie po mają został podwojony ceny. Aby zgłosić zdarzenie, użyj następującej składni:
+Powyższy kod dodaje zdarzenie publiczne do strony wzorcowej o nazwie `PricesDoubled`. Teraz będziemy musieli zgłosić to zdarzenie po rozpoczęciu cen. Aby zgłosić zdarzenie, użyj następującej składni:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample8.vb)]
 
-Gdzie *nadawcy* i *eventArgs* wartości mają być przekazane do programu obsługi zdarzeń subskrybenta.
+Gdzie *Sender* i *EventArgs* są wartościami, które chcesz przekazać do programu obsługi zdarzeń subskrybenta.
 
-Aktualizacja `DoublePrice` `Click` programu obsługi zdarzeń z następującym kodem:
+Zaktualizuj procedurę obsługi zdarzeń `Click` `DoublePrice` przy użyciu następującego kodu:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample9.vb)]
 
-Tak jak poprzednio `Click` programu obsługi zdarzeń, który rozpoczyna się przez wywołanie metody `DoublePricesDataSource` kontrolki SqlDataSource `Update` metoda dwukrotnie ceny wszystkich produktów. Po, że istnieją dwa dodatków do programu obsługi zdarzeń. Po pierwsze, `RecentProducts` GridView dane są odświeżane. Ta GridView został dodany do strony wzorcowej w poprzednim samouczku i przedstawia pięć najbardziej ostatnio dodane produkty. Musimy odświeżyć tę siatkę, tak aby pokazywał tylko podwoiła ceny tych pięciu produktach. Poniżej `PricesDoubled` zdarzenie jest wywoływane. Odwołanie do samej strony wzorcowej (`Me`) są wysyłane do programu obsługi zdarzeń jako źródło zdarzenia i pusta `EventArgs` obiektu jest wysyłany jako argumenty zdarzenia.
+Tak jak wcześniej program obsługi zdarzeń `Click` jest uruchamiany przez wywołanie metody `Update` `DoublePricesDataSource` formantu kontrolki SqlDataSource, aby dwukrotnie ceny wszystkich produktów. Po doistnieniu dwóch dodatków do programu obsługi zdarzeń. Najpierw odświeżane są dane `RecentProducts` GridView. Ten element GridView został dodany do strony wzorcowej w poprzednim samouczku i zawiera pięć ostatnio dodanych produktów. Musimy odświeżyć tę siatkę, aby w przypadku tych pięciu produktów była widoczna Podwójna cena. Poniżej zostanie zgłoszone zdarzenie `PricesDoubled`. Odwołanie do samej strony wzorcowej (`Me`) jest wysyłane do programu obsługi zdarzeń jako źródło zdarzenia i pusty obiekt `EventArgs` jest wysyłany jako argumenty zdarzenia.
 
-## <a name="step-4-handling-the-event-in-the-content-page"></a>Krok 4. Obsługa zdarzeń w zawartości strony
+## <a name="step-4-handling-the-event-in-the-content-page"></a>Krok 4. obsługa zdarzenia na stronie zawartości
 
-W tym momencie strony wzorcowej wywołuje jego `PricesDoubled` zdarzenie zawsze wtedy, gdy `DoublePrice` kliknięciu formantu przycisku. Jednak jest to dopiero połowa gruntownie — wciąż potrzebujemy do obsługi zdarzeń w subskrybencie. Ten proces obejmuje dwa kroki: tworzenie obsługi zdarzeń i dodanie kodu okablowania zdarzenia, gdy zostanie wywołane zdarzenie obsługi zdarzenia jest wykonywany.
+Na tym etapie strona wzorcowa generuje swoje zdarzenie `PricesDoubled` przy każdym kliknięciu kontrolki przycisku `DoublePrice`. Jest to jednak tylko połowa sprawdzonej — nadal musimy obsłużyć zdarzenie na subskrybencie. Obejmuje to dwa kroki: Tworzenie programu obsługi zdarzeń i Dodawanie kodu okablowania zdarzeń, aby po podniesieniu zdarzenia zostanie wykonany program obsługi zdarzeń.
 
-Rozpocznij od utworzenia programu obsługi zdarzeń o nazwie `Master_PricesDoubled`. Ze względu na sposób zdefiniowaliśmy `PricesDoubled` zdarzenie na stronie głównej dwóch parametrów wejściowych programu obsługi zdarzeń musi być typu `Object` i `EventArgs`, odpowiednio. W wywołaniu procedury obsługi zdarzeń `ProductsGrid` GridView `DataBind` metodę, aby ponownie powiązać dane do siatki.
+Zacznij od utworzenia procedury obsługi zdarzeń o nazwie `Master_PricesDoubled`. Ze względu na to, jak definiujemy zdarzenie `PricesDoubled` na stronie wzorcowej dwa parametry wejściowe programu obsługi zdarzeń muszą być odpowiednio typu `Object` i `EventArgs`. W programie obsługi zdarzeń Wywołaj metodę `DataBind` `ProductsGrid` GridView, aby ponownie powiązać dane z siatką.
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample10.vb)]
 
-Kod obsługi zdarzeń jest gotowy, ale zostały wykonane następujące kroki jeszcze na połączenie strony wzorcowej `PricesDoubled` zdarzenie, aby ten program obsługi zdarzeń. Subskrybent przewody zdarzenia do obsługi zdarzeń za pomocą następującej składni:
+Kod dla programu obsługi zdarzeń został ukończony, ale jeszcze nie można obsłużyć zdarzenia `PricesDoubled` strony głównej do tej procedury obsługi zdarzeń. Abonent może nawiązać zdarzenie z obsługą zdarzeń za pomocą następującej składni:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample11.vb)]
 
-*Wydawca* jest odwołaniem do obiektu, który oferuje zdarzenia *eventName*, i *methodName* jest nazwą programu obsługi zdarzeń zdefiniowanych w subskrybencie.
+*Wydawca* jest odwołaniem do obiektu, który oferuje *zdarzenie EventName, a* *MethodName* to nazwa programu obsługi zdarzeń zdefiniowanego w subskrybencie.
 
-Ten kod okablowania zdarzenia musi zostać wykonane w pierwszej wizyty strony i kolejne ogłaszania zwrotnego i powinny być wykonywane w punkcie w cyklu życia strony, poprzedzającym podczas zdarzenia mogą być wywoływane. Jest odpowiedni moment, aby dodać kod okablowania zdarzenia w etapie PreInit występuje bardzo wczesnym etapie cyklu życia strony.
+Ten kod okablowania zdarzeń musi być wykonywany na pierwszej stronie odwiedzania i kolejnych ogłaszania zwrotnego i powinien wystąpić w punkcie cyklu życia strony, który poprzedza, gdy zdarzenie może zostać zgłoszone. Dobry moment na dodanie kodu okablowania zdarzeń znajduje się w etapie wstępnego inicjowania, który występuje bardzo wcześnie w cyklu życia strony.
 
-Otwórz `~/Admin/Products.aspx` i utworzyć `Page_PreInit` program obsługi zdarzeń:
+Otwórz `~/Admin/Products.aspx` i Utwórz procedurę obsługi zdarzeń `Page_PreInit`:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample12.vb)]
 
-Aby można było ukończyć ten kod okablowania potrzebujemy programowe odwołanie ze stroną wzorcową z poziomu strony zawartości. Jak wspomniano w poprzednim samouczku, istnieją dwa sposoby wykonania tej czynności:
+Aby można było ukończyć ten kod okablowania, potrzebujemy programistycznego odwołania do strony wzorcowej ze strony zawartość. Jak wspomniano w poprzednim samouczku, można to zrobić na dwa sposoby:
 
-- Przez rzutowanie z typowaniem luźnym `Page.Master` właściwość do typu odpowiednie strony wzorcowej lub
-- Dodając `@MasterType` dyrektywy w `.aspx` strony, a następnie używając, że wpisane pogrubieniem `Master` właściwości.
+- Poprzez rzutowanie właściwości `Page.Master` o swobodnej postaci na odpowiedni typ strony głównej lub
+- Przez dodanie dyrektywy `@MasterType` na stronie `.aspx`, a następnie użycie właściwości `Master` o jednoznacznie określonym typie.
 
-Użyjmy drugie podejście. Dodaj następujący kod `@MasterType` dyrektywę na początku oznaczeniu deklaracyjnym strony:
+Użyjmy tej ostatniej metody. Dodaj następującą `@MasterType` dyrektywy na górze znacznika deklaracyjnego strony:
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample13.aspx)]
 
-Następnie dodaj następujący kod okablowania zdarzeń w `Page_PreInit` programu obsługi zdarzeń:
+Następnie Dodaj następujący kod okablowania zdarzeń w programie obsługi zdarzeń `Page_PreInit`:
 
 [!code-vb[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample14.vb)]
 
-Przy użyciu tego kodu w miejscu GridView na stronie zawartości są odświeżane przy każdym `DoublePrice` przycisku.
+Po tym kodzie widok GridView na stronie zawartość jest odświeżany za każdym razem, gdy zostanie kliknięty przycisk `DoublePrice`.
 
-Rysunki 8 i 9 pokazują to zachowanie. Rysunek 8 przedstawia stronę po raz pierwszy odwiedzony. Należy zauważyć, że cena wartości w obu `RecentProducts` kontrolki GridView (w lewej kolumnie strony wzorcowej) i `ProductsGrid` kontrolki GridView (w stronę zawartości). Przedstawia rysunek 9 takie same ekranu natychmiast po `DoublePrice` został kliknięty przycisk. Jak widać, nowe ceny są natychmiast odzwierciedlane w obu GridViews.
+Ilustracje 8 i 9 ilustrują to zachowanie. Rysunek 8 pokazuje stronę podczas pierwszej wizyty. Zwróć uwagę, że wartości cen w `RecentProducts` GridView (w lewej kolumnie strony głównej) i `ProductsGrid` GridView (na stronie zawartość). Rysunek 9 przedstawia ten sam ekran bezpośrednio po kliknięciu przycisku `DoublePrice`. Jak widać, nowe ceny są natychmiast odzwierciedlane w obu elementach GridView.
 
-[![Wartości początkowej cen](interacting-with-the-content-page-from-the-master-page-vb/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image22.png)
+[![początkowych wartości cen](interacting-with-the-content-page-from-the-master-page-vb/_static/image23.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image22.png)
 
-**Rysunek 08**: Początkowe wartości cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image24.png))
+**Ilustracja 08**: początkowe wartości cen ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image24.png))
 
-[![Ceny Just-Doubled są wyświetlane w GridViews](interacting-with-the-content-page-from-the-master-page-vb/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image25.png)
+[![w widoku GridView są wyświetlane ceny podwójnie podwójne.](interacting-with-the-content-page-from-the-master-page-vb/_static/image26.png)](interacting-with-the-content-page-from-the-master-page-vb/_static/image25.png)
 
-**Rysunek 09**: Ceny Just-Doubled są wyświetlane w GridViews ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image27.png))
+**Ilustracja 09**: ceny dokładnie podwójne są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-content-page-from-the-master-page-vb/_static/image27.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-W idealnym przypadku strony wzorcowej i na stronach zawartości są całkowicie niezależne od siebie nawzajem i wymagają żaden poziom interakcji. Jednak jeśli masz strony wzorcowej lub strony zawartości, która wyświetla dane, który może być modyfikowany ze strony głównej lub strony zawartości, następnie konieczne może być mieć stronę wzorcową alert strony zawartości (lub odwrotnie a) modyfikacji danych, dzięki czemu mogą być aktualizowane wyświetlania. W poprzednim samouczku widzieliśmy jak programowo współdziałać z jego strony głównej; strony zawartości w tym samouczku zobaczyliśmy, jak inicjowania strony wzorcowej interakcji.
+Najlepiej, gdy strona wzorcowa i jej strony zawartości są całkowicie oddzielone od siebie i nie wymagają interakcji. Jeśli jednak masz stronę wzorcową lub stronę zawartości, która wyświetla dane, które można zmodyfikować ze strony głównej lub strony zawartości, może być konieczne wyświetlenie strony głównej alertu na stronie zawartości (lub na odwrót), gdy dane są modyfikowane, aby można było zaktualizować ekran. W poprzednim samouczku przedstawiono sposób, w jaki strona zawartości jest programowo współdziałać z jej stroną wzorcową. w tym samouczku pokazano, jak mam zainicjowanie interakcji przez stronę wzorcową.
 
-Podczas interakcji programistycznych między zawartości i strony wzorcowej mogą pochodzić z zawartości lub strony wzorcowej, wzorzec interakcji, używany jest zależna od pochodzenia. Różnice są wynika z faktu, że zawartość strony ma jednej strony wzorcowej, ale strony wzorcowej może mieć wiele różnych stronach zawartości. Zamiast bezpośrednio współdziałać ze stroną zawartości strony wzorcowej, lepszym rozwiązaniem jest strony wzorcowej wywołać zdarzenie do sygnalizowania, że niektóre akcje miało miejsce. Tych stron zawartości, które interesują akcji można utworzyć procedury obsługi zdarzeń.
+Gdy interakcja programowa między treścią a stroną wzorcową może pochodzić z zawartości lub strony wzorcowej, użyty wzorzec interakcji zależy od pochodzenia. Różnice wynikają z faktu, że strona zawartości ma pojedynczą stronę wzorcową, ale strona wzorcowa może mieć wiele różnych stron zawartości. Zamiast konieczności bezpośredniego działania strony wzorcowej ze stroną zawartości, lepszym rozwiązaniem jest wygenerowanie zdarzenia przez stronę wzorcową, aby sygnalizować, że wykonano pewne czynności. Te strony zawartości, które zadbają o akcję, mogą tworzyć programy obsługi zdarzeń.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Uzyskiwanie dostępu do i aktualizowanie danych w programie ASP.NET:](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [Zdarzenia i delegatów](https://msdn.microsoft.com/library/17sde2xt.aspx)
-- [Przekazywanie informacji między zawartości i stronami wzorcowymi](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
-- [Praca z danymi w samouczki platformy ASP.NET](../../data-access/index.md)
+- [Uzyskiwanie dostępu do danych i aktualizowanie ich w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
+- [Zdarzenia i Delegaty](https://msdn.microsoft.com/library/17sde2xt.aspx)
+- [Przekazywanie informacji między zawartością a stronami wzorcowymi](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
+- [Praca z danymi w samouczkach ASP.NET](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu ASP/ASP.NET książki i założyciel 4GuysFromRolla.com pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog znajduje się na [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu książek ASP/ASP. NET Books i założyciel of 4GuysFromRolla.com, pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 3,5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott można uzyskać w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
-### <a name="special-thanks-to"></a>Specjalne podziękowania dla
+### <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Suchi Banerjee. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został suchi Banerjee. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](interacting-with-the-master-page-from-the-content-page-vb.md)

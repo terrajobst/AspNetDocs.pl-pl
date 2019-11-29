@@ -1,88 +1,88 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: 'Samouczek: Rozmowy w czasie rzeczywistym przy użyciu SignalR 2 | Dokumentacja firmy Microsoft'
+title: 'Samouczek: rozmowa w czasie rzeczywistym z sygnałem 2 | Microsoft Docs'
 author: bradygaster
-description: Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Możesz dodać SignalR na pustą aplikację sieci web platformy ASP.NET.
+description: Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Dodajesz sygnał do pustej aplikacji sieci Web ASP.NET.
 ms.author: bradyg
 ms.date: 01/22/2019
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: ecc235454d4b95ce660a4373387f44720826b076
-ms.sourcegitcommit: 2d53ed9e4c8b19d3526cbc689bfa8394c9449cec
+ms.openlocfilehash: bc4ef190b6e36812b6fe7ca4e16eb763431e0e82
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59905647"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600470"
 ---
-# <a name="tutorial-real-time-chat-with-signalr-2"></a>Samouczek: Rozmowa w czasie rzeczywistym przy użyciu usługi SignalR 2
+# <a name="tutorial-real-time-chat-with-signalr-2"></a>Samouczek: rozmowa w czasie rzeczywistym z sygnałem 2
 
-Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Dodaj SignalR do pustych aplikacji sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetla komunikaty.
+W tym samouczku pokazano, jak za pomocą programu sygnalizujący utworzyć aplikację czatu w czasie rzeczywistym. Dodajesz sygnał do pustej aplikacji sieci Web ASP.NET i utworzysz stronę HTML, aby wysyłać i wyświetlać komunikaty.
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
-> * Uruchamianie aplikacji przykładowej
-> * Poszukaj w kodzie
+> * Uruchamianie przykładu
+> * Sprawdzanie kodu
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
+* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i programowaniem w sieci Web** .
 
 ## <a name="set-up-the-project"></a>Konfigurowanie projektu
 
-W tej sekcji pokazano, jak utworzyć pustą aplikację sieci web platformy ASP.NET, za pomocą programu Visual Studio 2017 i SignalR 2 Dodaj SignalR i tworzenie aplikacji czatu.
+W tej sekcji pokazano, jak za pomocą programu Visual Studio 2017 i sygnalizacji 2 utworzyć pustą aplikację sieci Web ASP.NET, dodać program sygnalizujący i utworzyć aplikację czatu.
 
-1. W programie Visual Studio należy utworzyć aplikację sieci Web platformy ASP.NET.
+1. W programie Visual Studio Utwórz aplikację sieci Web ASP.NET.
 
-    ![Tworzenie sieci web](tutorial-getting-started-with-signalr/_static/image2.png)
+    ![Tworzenie sieci Web](tutorial-getting-started-with-signalr/_static/image2.png)
 
-1. W **nowy projekt ASP.NET - SignalRChat** okna, pozostaw **pusty** zaznaczone, a następnie wybierz **OK**.
+1. W oknie **nowy ASP.NET Project-SignalRChat** , pozostaw **puste** zaznaczone i wybierz **przycisk OK**.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**.
 
-1. W **Dodaj nowy element - SignalRChat**, wybierz opcję **zainstalowane** > **Visual C#**   >  **Web**  >  **SignalR** , a następnie wybierz **klasa Centrum SignalR (v2)**.
+1. W obszarze **Dodaj nowy element — SignalRChat**wybierz pozycję **zainstalowane** > **Visual C#**  > **sieci Web** > **sygnalizujący** , a następnie wybierz pozycję **Klasa centrum sygnałów (v2)** .
 
-1. Nazwa klasy *ChatHub* i dodaj go do projektu.
+1. Nadaj klasie nazwę *ChatHub* i Dodaj ją do projektu.
 
-    Spowoduje to utworzenie *ChatHub.cs* plik i dodaje zestaw plików skryptów i odwołania do zestawów, obsługujące bibliotekę SignalR do projektu.
+    Ten krok tworzy plik klasy *ChatHub.cs* i dodaje zestaw plików skryptów oraz odwołania do zestawów, które obsługują sygnalizujący do projektu.
 
-1. Zastąp kod w nowej *ChatHub.cs* plik klasy przy użyciu tego kodu:
+1. Zastąp kod w nowym pliku klasy *ChatHub.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample1.cs)]
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**.
 
-1. W **Dodaj nowy element - SignalRChat** wybierz **zainstalowane** > **Visual C#**   >  **Web** a Wybierz **klasy początkowej OWIN**.
+1. W obszarze **Dodaj nowy element — SignalRChat** wybierz pozycję **zainstalowane** >  **C# Visual** > **Web** , a następnie wybierz pozycję **Owin klasy startowej**.
 
-1. Nazwa klasy *uruchamiania* i dodaj go do projektu.
+1. Nazwij klasę *uruchamiania* i Dodaj ją do projektu.
 
-1. Zastąp kod domyślne *uruchamiania* klasy przy użyciu tego kodu:
+1. Zastąp domyślny kod w klasie *startowej* tym kodem:
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **strony HTML**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **stronę HTML**.
 
-1. Nadaj nowej stronie *indeksu* i wybierz **OK**.
+1. Nazwij nowy *indeks* strony i wybierz **przycisk OK**.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy strony HTML został utworzony i wybierz **Ustaw jako strona startowa**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy UTWORZONĄ stronę HTML i wybierz polecenie **Ustaw jako stronę startową**.
 
-1. Zastąp kod domyślnej strony HTML przy użyciu tego kodu:
+1. Zastąp domyślny kod na stronie HTML tym kodem:
 
     [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample3.html)]
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **skrypty**.
+1. W **Eksplorator rozwiązań**rozwiń węzeł **skrypty**.
 
-    Biblioteki skryptów, jQuery i SignalR są widoczne w projekcie.
+    Biblioteki skryptów dla jQuery i sygnalizujących są widoczne w projekcie.
 
     > [!IMPORTANT]
-    > Menedżer pakietów może zainstalowano późniejszą wersję skrypty SignalR.
+    > Menedżer pakietów mógł zainstalować nowszą wersję skryptów sygnalizującego.
 
-1. Upewnij się, że odwołania do skryptów w blok kodu odpowiadają wersji plików skrypt w projekcie.
+1. Sprawdź, czy odwołania do skryptu w bloku kodu odpowiadają wersji plików skryptów w projekcie.
 
     Odwołania do skryptu z oryginalnego bloku kodu:
 
@@ -94,102 +94,102 @@ W tej sekcji pokazano, jak utworzyć pustą aplikację sieci web platformy ASP.N
     <script src="Scripts/jquery.signalR-2.2.1.min.js"></script>
     ```
 
-1. Jeśli nie są zgodne, zaktualizuj *.html* pliku.
+1. Jeśli nie są zgodne, zaktualizuj plik *. html* .
 
-1. Na pasku menu wybierz **pliku** > **Zapisz wszystko**.
+1. Na pasku menu wybierz pozycję **plik** > **Zapisz wszystko**.
 
-## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
+## <a name="run-the-sample"></a>Uruchamianie przykładu
 
-1. Na pasku narzędzi, Włącz **debugowanie skryptu** a następnie wybierz przycisk Odtwórz, aby uruchomić przykład w trybie debugowania.
+1. Na pasku narzędzi Włącz **debugowanie skryptów** , a następnie wybierz przycisk Odtwórz, aby uruchomić przykład w trybie debugowania.
 
     ![Wprowadź nazwę użytkownika](tutorial-getting-started-with-signalr/_static/image3.png)
 
-1. Po otwarciu przeglądarki, wprowadź nazwę swojej rozmowy tożsamości.
+1. Po otwarciu przeglądarki wprowadź nazwę swojej tożsamości rozmowy.
 
-1. Skopiuj adres URL w przeglądarce otwórz dwóch innych przeglądarek i wklejać adresy URL paski adresu.
+1. Skopiuj adres URL z przeglądarki, Otwórz dwie inne przeglądarki i wklej adresy URL do pasków adresów.
 
 1. W każdej przeglądarce wprowadź unikatową nazwę.
 
-1. Teraz Dodaj komentarz i wybierz pozycję **wysyłania**. Powtórz, w innych przeglądarkach. Komentarze są wyświetlane w czasie rzeczywistym.
+1. Teraz Dodaj komentarz i wybierz pozycję **Wyślij**. Powtórz te czynności w innych przeglądarkach. Komentarze pojawiają się w czasie rzeczywistym.
 
     > [!NOTE]
-    > Tej aplikacji rozmów prostego nie utrzymuje kontekst dyskusji na serwerze. Centrum emituje komentarzy do wszystkich bieżących użytkowników. Użytkownicy, którzy dołączają do czatu później zostanie wyświetlony komunikat o dodane od czasu dołączenia.
+    > Ta prosta aplikacja czatu nie utrzymuje kontekstu dyskusji na serwerze. Centrum emituje Komentarze do wszystkich bieżących użytkowników. Użytkownicy, którzy dołączą do rozmowy później zobaczą komunikaty dodawane od momentu dołączenia.
 
-    Zobacz, jak działa aplikacji rozmów w trzech różnych przeglądarkach. Tom Anand i Susan wysyłania wiadomości, wszystkie przeglądarki aktualizacji w czasie rzeczywistym:
+    Zobacz, jak działa aplikacja czatu w trzech różnych przeglądarkach. Po wysłaniu komunikatów Anand i Susan wszystkie przeglądarki są aktualizowane w czasie rzeczywistym:
 
-    ![Wszystkie trzy przeglądarki wyświetlenia tych samych Historia](tutorial-getting-started-with-signalr/_static/image4.png)
+    ![Wszystkie trzy przeglądarki wyświetlają tę samą historię rozmowy](tutorial-getting-started-with-signalr/_static/image4.png)
 
-1. W **Eksploratora rozwiązań**, zbadaj **dokumenty skryptów** węzła dla działającej aplikacji. Brak pliku skryptu o nazwie *koncentratory* generujący biblioteki SignalR w czasie wykonywania. Ten plik zarządza komunikacji między jQuery skryptu i kod po stronie serwera.
+1. W **Eksplorator rozwiązań**Sprawdź, czy węzeł **dokumenty skryptu** dla uruchomionej aplikacji. Istnieje plik skryptu o nazwie *Hubs* , który jest generowany przez bibliotekę sygnałów w czasie wykonywania. Ten plik zarządza komunikacją między skryptami jQuery i kodem po stronie serwera.
 
-    ![wygenerowany automatycznie koncentratory skryptu w węźle dokumentów skryptu](tutorial-getting-started-with-signalr/_static/image5.png)
+    ![wygenerowany automatycznie skrypt centrów w węźle dokumenty skryptu](tutorial-getting-started-with-signalr/_static/image5.png)
 
-## <a name="examine-the-code"></a>Poszukaj w kodzie
+## <a name="examine-the-code"></a>Sprawdzanie kodu
 
-Aplikacja SignalRChat pokazuje dwa podstawowe zadania rozwoju SignalR. Prezentuje sposób Utwórz koncentrator. Serwer używa koncentratora jako obiekt główny koordynacji. Centrum używa biblioteki jQuery SignalR do wysyłania i odbierania komunikatów.
+Aplikacja SignalRChat demonstruje dwa podstawowe zadania programistyczne sygnalizujące. Pokazano, jak utworzyć centrum. Serwer używa tego centrum jako głównego obiektu koordynacji. Do wysyłania i odbierania wiadomości centrum jest wykorzystywana Biblioteka sygnałów sygnalizujących.
 
-### <a name="signalr-hubs-in-the-chathubcs"></a>Koncentratory SignalR w ChatHub.cs
+### <a name="signalr-hubs-in-the-chathubcs"></a>Centra sygnałów w ChatHub.cs
 
-W powyższym przykładowym kodzie `ChatHub` klasa pochodzi od `Microsoft.AspNet.SignalR.Hub` klasy. Wyprowadzanie z `Hub` klasy jest to wygodny sposób, aby skompilować aplikację SignalR. Można utworzyć metody publiczne na klasie Centrum i następnie użyć tych metod, wywołując je ze skryptów na stronie sieci web.
+W powyższym przykładzie kodu Klasa `ChatHub` dziedziczy z klasy `Microsoft.AspNet.SignalR.Hub`. Wyprowadzanie z klasy `Hub` jest użytecznym sposobem tworzenia aplikacji sygnalizującej. Metody publiczne można utworzyć w klasie centrów, a następnie użyć tych metod, wywołując je ze skryptów na stronie sieci Web.
 
-W kodzie Rozmowa klienci wywołują `ChatHub.Send` metodę, aby wysyłać nowy komunikat. Centrum wiadomość jest wysyłana do wszystkich klientów, wywołując `Clients.All.broadcastMessage`.
+W kodzie rozmowy klienci wywołują metodę `ChatHub.Send` w celu wysłania nowej wiadomości. Następnie centrum wysyła komunikat do wszystkich klientów, wywołując `Clients.All.broadcastMessage`.
 
-`Send` Metoda pokazuje kilka koncepcji w Centrum:
+Metoda `Send` ilustruje kilka pojęć centrum:
 
-* Tak, aby je wywoływać klientów do deklarowania metod publicznych w koncentratorze.
+* Zadeklaruj metody publiczne w centrum, aby klienci mogli je wywoływać.
 
-* Użyj `Microsoft.AspNet.SignalR.Hub.Clients` właściwości dynamicznych do komunikowania się ze wszystkimi klientami podłączone do tego koncentratora.
+* Użyj właściwości dynamicznej `Microsoft.AspNet.SignalR.Hub.Clients`, aby komunikować się ze wszystkimi klientami podłączonymi do tego centrum.
 
-* Wywołania funkcji na komputerze klienckim (takich jak `broadcastMessage` funkcji) aby zaktualizować klientów.
+* Wywołaj funkcję na kliencie (na przykład funkcję `broadcastMessage`), aby zaktualizować klientów.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample4.cs)]
 
-### <a name="signalr-and-jquery-in-the-indexhtml"></a>SignalR i jQuery w index.html
+### <a name="signalr-and-jquery-in-the-indexhtml"></a>Sygnalizujący i jQuery w pliku index. html
 
-*Index.html* strony w przykładzie kodu pokazano, jak użyć biblioteki jQuery SignalR do komunikowania się z Centrum SignalR. Kod wykonuje wiele istotnych zadań. Go deklaruje serwer proxy, aby odwoływać się do koncentratora, deklaruje funkcję, serwer można wywołać w celu wypychania zawartości do klientów i rozpoczyna połączenie do wysłania wiadomości do Centrum.
+Na stronie *index. html* w przykładzie kodu pokazano, jak używać biblioteki sygnalizującej jQuery do komunikowania się z centrum sygnałów. Kod wykonuje wiele ważnych zadań. Deklaruje on serwer proxy do odwoływania się do centrum, deklaruje funkcję, którą serwer może wywoływać do wypychania zawartości do klientów i uruchamia połączenie w celu wysyłania komunikatów do centrum.
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample5.js)]
 
 > [!NOTE]
-> W języku JavaScript, musi być camelCase odwołanie do klasy serwera i jej elementów członkowskich. Odwołania do próbki kodu C# *ChatHub* klasy w języku JavaScript jako `chatHub`.
+> W języku JavaScript odwołanie do klasy serwera i jej elementów członkowskich musi być camelCase. Przykładowy kod odwołuje się C# do klasy *ChatHub* w języku JavaScript jako `chatHub`.
 
 W tym bloku kodu utworzysz funkcję wywołania zwrotnego w skrypcie.
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample6.html)]
 
-Klasy koncentratora na serwerze wywołuje tę funkcję, aby wypchnąć aktualizacji zawartości dla każdego klienta. Dwa wiersze, że — kodowanie HTML zawartości przed wyświetleniem go są opcjonalne i Pokaż dobrym sposobem, aby uniemożliwić uruchomienie skryptu.
+Klasa centrum na serwerze wywołuje tę funkcję, aby wypchnąć aktualizacje zawartości do każdego klienta. Te dwa wiersze, w których zawartość HTML jest zakodowana przed wyświetleniem, są opcjonalne i pokazują dobry sposób, aby zapobiec iniekcji skryptu.
 
-Ten kod otwiera połączenie z koncentratorem.
+Ten kod otwiera połączenie z centrum.
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample7.js)]
 
 > [!NOTE]
-> Takie podejście zapewnia, że kod nawiąże połączenie, przed wykonaniem programu obsługi zdarzeń.
+> Takie podejście zapewnia, że kod nawiązuje połączenie przed wykonaniem procedury obsługi zdarzeń.
 
-Kod uruchamia połączenie i przekazuje go po funkcji do obsługi zdarzenia click na **wysyłania** przycisk na stronie HTML.
+Kod uruchamia połączenie, a następnie przekazuje go do funkcji, aby obsłużyć zdarzenie kliknięcia na przycisku **Wyślij** na stronie HTML.
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać więcej informacji na temat biblioteki SignalR zobacz następujące zasoby:
+Aby uzyskać więcej informacji o sygnalizacji, zobacz następujące zasoby:
 
-* [Projekt SignalR](http://signalr.net)
+* [Projekt sygnalizującego](http://signalr.net)
 
-* [SignalR Github i przykłady](https://github.com/SignalR/SignalR)
+* [Usługi GitHub i przykłady dla sygnałów](https://github.com/SignalR/SignalR)
 
-* [Witryny typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)
+* [Strona typu wiki sygnalizująca](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku możesz:
+W tym samouczku:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
-> * Uruchomiono próbki
-> * Zbadanie kodu
+> * Uruchomiono przykład
+> * Zbadano kod
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak używać biblioteki SignalR i MVC 5.
+Przejdź do następnego artykułu, aby dowiedzieć się, jak używać sygnałów i MVC 5.
 > [!div class="nextstepaction"]
-> [SignalR 2 i MVC 5](tutorial-getting-started-with-signalr-and-mvc.md)
+> [Sygnalizujący 2 i MVC 5](tutorial-getting-started-with-signalr-and-mvc.md)

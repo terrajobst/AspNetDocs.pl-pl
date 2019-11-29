@@ -1,72 +1,72 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
-title: Tworzenie kontrolki Rating (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie kontrolki klasyfikacji (VB) | Microsoft Docs
 author: wenz
-description: Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności, oferują użytkownikom na szybkość artykuły lub elementów. Zwykle wymaga to pewnych wysiłków związanych z kodowaniem, ale mamy...
+description: Wiele witryn sieci Web — od handlu elektronicznego do witryn społecznościowych oferuje użytkownikom możliwość oceniania artykułów lub przedmiotów. Zwykle wymaga to pewnego nakładu na kodowanie, ale mamy...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 553eeaeedf20aee9217acb24786c0a587a409655
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 08e245edfe73db4e3896db51151e5d7a0fa9697c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125017"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74611517"
 ---
 # <a name="creating-a-rating-control-vb"></a>Tworzenie kontrolki Rating (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/rating0.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/rating0VB.pdf)
 
-> Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności, oferują użytkownikom na szybkość artykuły lub elementów. Zwykle wymaga to pewnych wysiłków związanych z kodowaniem, ale musimy Toolkit kontroli naszych usuwania.
+> Wiele witryn sieci Web — od handlu elektronicznego do witryn społecznościowych oferuje użytkownikom możliwość oceniania artykułów lub przedmiotów. Zwykle wymaga to pewnego wysiłku związanego z kodowaniem, ale mamy do dyspozycji zestaw narzędzi kontroli.
 
 ## <a name="overview"></a>Omówienie
 
-Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności, oferują użytkownikom na szybkość artykuły lub elementów. Zwykle wymaga to pewnych wysiłków związanych z kodowaniem, ale musimy Toolkit kontroli naszych usuwania.
+Wiele witryn sieci Web — od handlu elektronicznego do witryn społecznościowych oferuje użytkownikom możliwość oceniania artykułów lub przedmiotów. Zwykle wymaga to pewnego wysiłku związanego z kodowaniem, ale mamy do dyspozycji zestaw narzędzi kontroli.
 
 ## <a name="steps"></a>Kroki
 
-Przede wszystkim należy (co najmniej) dwa rodzaje obrazy: jeden dla wypełnienia elementu ocenę i jednego elementu pustego klasyfikacji. Element Klasyfikacja jest zazwyczaj gwiazdka lub uśmiechniętą. W tym scenariuszu możesz znaleźć trzy pliki, smiley.png i empty.png i done.png uśmiech jako część pobierania kodu źródłowego w ramach tego samouczka.
+Najpierw wystarczy (co najmniej) dwa rodzaje obrazów: jeden dla wypełnionego elementu oceny i jeden dla pustego elementu oceny. Element oceny jest zwykle gwiazdką lub uśmiechem. W tym scenariuszu znajdziesz trzy pliki, buźki. png i Empty. png i smiley-done. png w ramach pobierania kodu źródłowego dla tego samouczka.
 
-Następnie utwórz nowy plik platformy ASP.NET i Rozpocznij od dodania `ScriptManager` do niej kontrolkę:
+Następnie utwórz nowy plik ASP.NET i zacznij od dodania do niego formantu `ScriptManager`:
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample1.aspx)]
 
-Następnie należy dodać `Rating` formantu z ASP.NET AJAX Control Toolkit. Następujące atrybuty muszą zostać ustawione dla tego przykładu:
+Następnie Dodaj formant `Rating` z zestawu narzędzi ASP.NET AJAX Control Toolkit. Następujące atrybuty muszą być ustawione na potrzeby tego przykładu:
 
-- `CurrentRating` początkowa klasyfikacja ma być używany
-- `MaxRating` Maksymalny poziom klasyfikacji
-- `EmptyStarCssClass` Klasa CSS do użycia podczas element ranking (Star czyli rejestr) jest pusty
-- `FilledStarCssClass` Klasa CSS do użycia podczas wypełniania elementu klasyfikacji (star)
-- `StarCssClass` Klasa CSS na potrzeby stat widoczne
-- `WaitingStarCssClass` Klasa CSS do użycia podczas oceny w formie gwiazdek jest wysyłane z powrotem do serwera
+- `CurrentRating` klasyfikacji początkowej, która ma zostać użyta
+- `MaxRating` maksymalną klasyfikację
+- `EmptyStarCssClass` klasy CSS, która ma być używana, gdy element klasyfikacji (gwiazdka) jest pusty
+- `FilledStarCssClass` klasy CSS, która ma być używana w przypadku wypełnienia elementu klasyfikacji (gwiazdka)
+- `StarCssClass` klasy CSS do użycia dla widocznego statu
+- `WaitingStarCssClass` klasy CSS, która ma być używana podczas wysyłania do serwera klasyfikacji gwiazdek
 
-A Oto znaczników, który tworzy kontrolki rating z pięciu elementów (smileys), których brak jest wypełniane początkowo:
+A oto znacznik, który tworzy kontrolkę klasyfikacji z pięcioma elementami (uśmiechy), dla których żadna wartość nie jest początkowo wypełniana:
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample2.aspx)]
 
-Trzy klasy CSS do którego istnieje odwołanie teraz chcesz pokazać pliki odpowiedni obraz, który jest łatwo zrobić przy użyciu CSS:
+Trzy klasy CSS, do których istnieją odwołania, teraz muszą wyświetlać odpowiednie pliki obrazów, co jest łatwe do użycia w CSS:
 
 [!code-css[Main](creating-a-rating-control-vb/samples/sample3.css)]
 
-Upewnij się, że podajesz, szerokość i wysokość trzy obrazy, w przeciwnym razie wyświetlanie mogą wyglądać nieco messed w górę.
+Upewnij się, że podajesz szerokość i wysokość trzech obrazów, w przeciwnym razie może wyglądać bit popełniliśmy up.
 
-Na koniec wynik klasyfikacji powinny być wyświetlane użytkownikowi (lub co najmniej zapisane w bazie danych). Dlatego należy dodać etykietę dla danych wyjściowych, wiadomości SMS i przycisk Prześlij, aby ponownie post formularza klasyfikacji do serwera:
+Na koniec wynik oceny powinien zostać wyświetlony użytkownikowi (lub, co najmniej zapisany w bazie danych). Dodaj etykietę dla danych wyjściowych wiadomości tekstowej i przycisk Prześlij, aby opublikować formularz oceny na serwerze:
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample4.aspx)]
 
-W kodzie po stronie serwera, dostępu do kontrolki oceny za pośrednictwem jego `ID` i uzyskuje dostęp do jego `CurrentRating` właściwość, która jest liczbą elementów wybranych klasyfikacji, w tym przykładzie wartość z zakresu od 0 do 5.
+W kodzie po stronie serwera, uzyskaj dostęp do kontrolki oceny za pośrednictwem jej `ID` a następnie uzyskaj dostęp do jej właściwości `CurrentRating`, która jest liczbą wybranych elementów rankingu, w naszym przykładzie wartość z przedziału od 0 do 5.
 
 [!code-aspx[Main](creating-a-rating-control-vb/samples/sample5.aspx)]
 
-Zapisz stronę i załadować je bezpośrednio w przeglądarce. Po najechaniu kursorem na elementy klasyfikacji (początkowo pusta), występuje efekt JavaScript: Zmiany klasyfikacji. Po kliknięciu zestaw gwiazdek bieżąca ocena są zachowywane. Na koniec po przesłaniu formularza danych wyjściowych wybranej klasyfikacji kodu po stronie serwera.
+Zapisz stronę i Załaduj ją do przeglądarki. Po umieszczeniu wskaźnika myszy nad elementami klasyfikacji (początkowo puste) występuje efekt JavaScript: Klasyfikacja zmienia się. Po kliknięciu zestawu gwiazdek bieżąca klasyfikacja zostanie zachowana. Na koniec po przesłaniu formularza kod po stronie serwera wyprowadza wybraną klasyfikację.
 
-[![Tworzenie systemu klasyfikacji za pomocą minimalnej ilości kodu](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
+[![tworzenia systemu klasyfikacji z minimalnym kodem](creating-a-rating-control-vb/_static/image2.png)](creating-a-rating-control-vb/_static/image1.png)
 
-Tworzenie systemu klasyfikacji za pomocą minimalnej ilości kodu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-rating-control-vb/_static/image3.png))
+Tworzenie systemu klasyfikacji z minimalnym kodem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-rating-control-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Poprzednie](creating-a-rating-control-cs.md)
+> [Ubiegł](creating-a-rating-control-cs.md)

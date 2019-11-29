@@ -1,277 +1,277 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
-title: Członkostwo i Administracja | Dokumentacja firmy Microsoft
+title: Członkostwo i administracja | Microsoft Docs
 author: Erikre
-description: Tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for firma Microsoft...
+description: Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: 59f859ea30572fbe66184f29555ac2c5c2f22f82
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ab00bc90bfc767d06e747be6dfb973245b5aae88
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132156"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74615475"
 ---
 # <a name="membership-and-administration"></a>Członkostwo i administracja
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-[Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Pobierz program Wingtip zabawki (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
+> Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013 dla sieci Web. Projekt Visual Studio 2013 [z C# kodem źródłowym](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny do tej serii samouczków.
 
-W tym samouczku dowiesz się, jak zaktualizować przykładowej aplikacji Wingtip Toys Dodaj rolę niestandardową i używać tożsamości ASP.NET. Go również pokazano, jak zaimplementować na stronie Administracja, z którego użytkownik o roli niestandardowej można dodawać i usuwać produkty z witryny sieci Web.
+W tym samouczku pokazano, jak zaktualizować przykładową aplikację Wingtip zabawki, aby dodać rolę niestandardową i użyć ASP.NET Identity. Przedstawiono w nim również sposób implementacji strony administracyjnej, z której użytkownik mający rolę niestandardową może dodawać i usuwać produkty z witryny sieci Web.
 
-[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) jest systemu członkostwa, używany do tworzenia aplikacji sieci web ASP.NET i jest dostępny w programie ASP.NET 4.5. ASP.NET Identity jest używany w szablon projektu Visual Studio 2013 Web Forms, a także szablony dla [platformy ASP.NET MVC](../../../../mvc/index.md), [ASP.NET Web API](../../../../web-api/index.md), i [aplikacji jednostronicowej ASP.NET](../../../../single-page-application/index.md). Można również specjalnie zainstalować system tożsamości ASP.NET, za pomocą narzędzia NuGet, po uruchomieniu z pustą aplikację sieci Web. W tej serii samouczków można jednak użyć **formularzy sieci Web**projecttemplate, w tym system tożsamości ASP.NET. ASP.NET Identity ułatwia integrowanie danych profilu określonego użytkownika z danych aplikacji. Ponadto produktu ASP.NET Identity umożliwia wybierz model stanów trwałych dla profilów użytkowników w aplikacji. Dane można przechowywać w bazie danych programu SQL Server lub innym magazynem danych, w tym *NoSQL* magazyny danych, takie jak tabele magazynu systemu Windows Azure.
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md) to system członkostwa używany do kompilowania aplikacji sieci Web ASP.NET i jest dostępny w ASP.NET 4,5. ASP.NET Identity jest używany w szablonie projektu Visual Studio 2013 Web Forms, a także szablony dla [ASP.NET MVC](../../../../mvc/index.md), [ASP.NET Web API](../../../../web-api/index.md)i [ASP.NET aplikacji jednostronicowej](../../../../single-page-application/index.md). Możesz również zainstalować system ASP.NET Identity przy użyciu narzędzia NuGet, gdy zaczniesz od pustej aplikacji sieci Web. Jednak w tej serii samouczków używasz ProjectTemplate **formularzy sieci Web**, który zawiera system ASP.NET Identity. ASP.NET Identity ułatwia integrację danych profilu specyficznych dla użytkownika z danymi aplikacji. Ponadto ASP.NET Identity umożliwia wybranie modelu trwałości dla profilów użytkowników w aplikacji. Dane można przechowywać w bazie danych SQL Server lub w innym magazynie danych, w tym z magazynami danych *NoSQL* , takimi jak tabele magazynu systemu Windows Azure.
 
-Ten samouczek opiera się na poprzednim samouczku pod tytułem "Wyewidencjonowania i płatności za pomocą systemu PayPal" w tej serii samouczka Wingtip Toys.
+Ten samouczek jest oparty na poprzednim samouczku zatytułowanym "Wyewidencjonowywanie i płatność w systemie PayPal" w serii samouczków Wingtip.
 
-## <a name="what-youll-learn"></a>Zawartość:
+## <a name="what-youll-learn"></a>Dowiesz się:
 
-- Jak dodać niestandardową rolę i użytkownika do aplikacji za pomocą kodu.
-- Jak ograniczyć dostęp do folderu administracji i strony.
-- Jak zapewnić nawigacji dla użytkownika, który należy do roli niestandardowej.
-- Jak używać wiązania modelu do wypełniania [DropDownList](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist(v=vs.110).aspx) kontrolki z kategorii produktów.
-- Jak przekazać plik do aplikacji sieci web przy użyciu [FileUpload](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload(v=vs.110).aspx) kontroli.
-- Jak korzystać z kontrolek weryfikacji do zaimplementowania walidacji danych wejściowych.
-- Jak dodać i usunąć produktów z aplikacji.
+- Jak dodać rolę niestandardową i użytkownika do aplikacji przy użyciu kodu.
+- Jak ograniczyć dostęp do folderu administracyjnego i strony.
+- Jak zapewnić nawigację dla użytkownika należącego do roli niestandardowej.
+- Jak użyć powiązania modelu, aby wypełnić formant [DropDownList](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist(v=vs.110).aspx) z kategoriami produktów.
+- Jak przekazać plik do aplikacji sieci Web za pomocą formantu [FileUpload](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload(v=vs.110).aspx) .
+- Jak zaimplementować sprawdzanie poprawności danych wejściowych przy użyciu kontrolek walidacji.
+- Jak dodawać i usuwać produkty z aplikacji.
 
-## <a name="these-features-are-included-in-the-tutorial"></a>W tym samouczku znajdują się następujące funkcje:
+## <a name="these-features-are-included-in-the-tutorial"></a>Te funkcje są zawarte w samouczku:
 
 - ASP.NET Identity
-- Konfiguracja i autoryzacji
-- Wiązanie modelu
-- Sprawdzania poprawności dyskretnego kodu
+- Konfiguracja i autoryzacja
+- Powiązanie modelu
+- Niezauważalna weryfikacja
 
-ASP.NET Web Forms zapewnia możliwości członkostwa. Za pomocą domyślnego szablonu, masz funkcje wbudowane członkostwo, które można użyć od razu po uruchomieniu aplikacji. W tym samouczku dowiesz się, jak za pomocą tożsamości ASP.NET Dodaj rolę niestandardową i przypisać użytkownika do tej roli. Dowiesz się jak ograniczyć dostęp do folderu administracji. Strona dodasz do folderu administracji, który umożliwia użytkownikowi rolę niestandardową do dodawania i usuwania produktów i wersji zapoznawczej produktu po został dodany.
+ASP.NET Web Forms zapewnia możliwość członkostwa. Przy użyciu szablonu domyślnego masz wbudowaną funkcję członkostwa, która może być używana natychmiast po uruchomieniu aplikacji. W tym samouczku pokazano, jak za pomocą ASP.NET Identity dodawać rolę niestandardową i przypisywać użytkownika do tej roli. Dowiesz się, jak ograniczyć dostęp do folderu administracyjnego. Dodasz stronę do folderu Administracja, która umożliwia użytkownikowi z rolą niestandardową Dodawanie i usuwanie produktów oraz wyświetlanie podglądu produktu po jego dodaniu.
 
 ## <a name="adding-a-custom-role"></a>Dodawanie roli niestandardowej
 
-Za pomocą tożsamości ASP.NET, możesz dodać niestandardową rolę i przypisać użytkownika do roli przy użyciu kodu.
+Za pomocą ASP.NET Identity można dodać rolę niestandardową i przypisać użytkownika do tej roli przy użyciu kodu.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *logiki* folder i Utwórz nową klasę.
-2. Nadaj nowej klasie *RoleActions.cs*.
-3. Modyfikowanie kodu, aby była ona wyświetlana w następujący sposób:  
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *logiki* i Utwórz nową klasę.
+2. Nadaj nowej klasie nazwę *RoleActions.cs*.
+3. Zmodyfikuj kod, tak aby pojawił się w następujący sposób:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample1.cs?highlight=8)]
-4. W **Eksploratora rozwiązań**, otwórz *Global.asax.cs* pliku.
-5. Modyfikowanie *Global.asax.cs* pliku, dodając kod wyróżniony na żółto, tak aby była wyświetlana w następujący sposób:  
+4. W **Eksplorator rozwiązań**otwórz plik *Global.asax.cs* .
+5. Zmodyfikuj plik *Global.asax.cs* , dodając kod wyróżniony kolorem żółtym, aby pojawił się w następujący sposób:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
-6. Należy zauważyć, że `AddUserAndRole` jest podkreślone na czerwono. Kliknij dwukrotnie kodu AddUserAndRole.  
-   Literę "A" na początku metody wyróżniony zostanie podkreślone.
-7. Umieść kursor nad literę "A", a następnie kliknij pozycję interfejs użytkownika, który służy do generowania szkieletu metody dla `AddUserAndRole` metody. 
+6. Zwróć uwagę, że `AddUserAndRole` jest podkreślony na czerwono. Kliknij dwukrotnie kod AddUserAndRole.  
+   Litera "A" na początku wyróżnionej metody zostanie podkreślona.
+7. Umieść kursor nad literą "A" i kliknij interfejs użytkownika, który umożliwia wygenerowanie klasy zastępczej metody `AddUserAndRole`. 
 
-    ![Członkostwo i Administracja — Generuj szkielet metody](membership-and-administration/_static/image1.png)
-8. Kliknij opcję o nazwie:  
+    ![Członkostwo i administracja — generowanie zastępcze metody](membership-and-administration/_static/image1.png)
+8. Kliknij opcję zatytułowaną:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
-9. Otwórz *RoleActions.cs* plik wchodzącej w skład *logiki* folderu.  
-   `AddUserAndRole` Metoda została dodana do pliku klasy.
-10. Modyfikowanie *RoleActions.cs* pliku przez usunięcie `NotImplementedException` i dodawanie kod wyróżniony na żółto, aby była ona wyświetlana w następujący sposób:  
+9. Otwórz plik *RoleActions.cs* z folderu *Logic* .  
+   Metoda `AddUserAndRole` została dodana do pliku klasy.
+10. Zmodyfikuj plik *RoleActions.cs* , usuwając `NotImplementedException` i dodając kod wyróżniony kolorem żółtym, tak aby pojawił się w następujący sposób:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
 
-Powyższy kod najpierw ustanawia kontekst bazy danych dla bazy danych członkostwa. Bazy danych członkostwa także jest przechowywany jako *.mdf* w pliku *aplikacji\_danych* folderu. Będzie można wyświetlić tej bazy danych, gdy pierwszy użytkownik zalogował się w tej aplikacji sieci web. 
+Powyższy kod najpierw ustanawia kontekst bazy danych dla bazy danych członkostwa. Baza danych członkostwa jest również przechowywana jako plik *MDF* w folderze *danych\_aplikacji* . Będzie można wyświetlić tę bazę danych, gdy pierwszy użytkownik zaloguje się do tej aplikacji sieci Web. 
 
 > [!NOTE] 
 > 
-> Jeśli użytkownik chce przechowywać danych o członkostwie wraz z danymi produktów, można rozważyć, korzystając z tych samych **DbContext** umożliwia przechowywanie danych produktu w powyższym kodzie.
+> Jeśli chcesz przechowywać dane członkostwa wraz z danymi produktu, możesz rozważyć użycie tego samego **DbContext** , który został użyty do przechowywania danych produktu w powyższym kodzie.
 
- *Wewnętrzny* — słowo kluczowe jest modyfikatorem dostępu dla typów (na przykład klasy) i elementy członkowskie typu (np. metody lub właściwości). Typy wewnętrzne lub elementy członkowskie są dostępne tylko w obrębie pliki znajdujące się w tym samym zestawie *(.dll* pliku). Podczas kompilowania aplikacji, plik zestawu *(.dll*) jest tworzony zawierający kod, który jest wykonywany po uruchomieniu aplikacji. 
+ Słowo kluczowe *Internal* jest modyfikatorem dostępu dla typów (takich jak klasy) i składowych typu (takich jak metody lub właściwości). Typy wewnętrzne lub składowe są dostępne tylko w plikach znajdujących się w tym samym zestawie *(pliku DLL* ). Podczas kompilowania aplikacji tworzony jest plik zestawu *(. dll*) zawierający kod, który jest wykonywany podczas uruchamiania aplikacji. 
 
-Element `RoleStore` obiektu, który umożliwia zarządzanie rolami, jest tworzony w zależności od kontekstu bazy danych.
-
-> [!NOTE] 
-> 
-> Należy zauważyć, że w przypadku `RoleStore` tworzony jest obiekt używa ona ogólnych `IdentityRole` typu. Oznacza to, że `RoleStore` jest dozwolona tylko w celu uwzględnienia `IdentityRole` obiektów. Również za pomocą typów ogólnych, zasoby pamięci są obsługiwane lepiej.
-
-Następnie `RoleManager` obiektu, jest tworzony na podstawie `RoleStore` obiektu, który został utworzony. `RoleManager` obiektu ujawnia powiązany z rolą interfejs API, który może służyć do automatycznie zapisują zmiany `RoleStore`. `RoleManager` Jest dozwolona tylko w celu uwzględnienia `IdentityRole` obiektów, ponieważ kod używa `<IdentityRole>` typu ogólnego.
-
-Należy wywołać `RoleExists` metodę pozwala ustalić, czy rola "canEdit" znajduje się w bazie danych członkostwa. Jeśli nie jest dostępne, możesz utworzyć rolę.
-
-Tworzenie `UserManager` obiekt wydaje się bardziej skomplikowane niż `RoleManager` kontrolować, jednak są prawie takie same. Po prostu kod w jednym wierszu, a nie dla kilku. W tym miejscu parametr, który kończy się sukcesem jest utworzenie wystąpienia jako nowy obiekt zawarte w nawiasach.
-
-Następnie należy utworzyć użytkownika "canEditUser" przez utworzenie nowego `ApplicationUser` obiektu. Następnie jeśli pomyślnie utworzyć użytkownika, użytkownik zostanie dodany do nowej roli.
+Obiekt `RoleStore`, który zapewnia zarządzanie rolami, jest tworzony na podstawie kontekstu bazy danych.
 
 > [!NOTE] 
 > 
-> Obsługa błędów będzie aktualizowany podczas samouczek "Obsługę błędów programu ASP.NET" w dalszej części tej serii samouczków.
+> Należy zauważyć, że po utworzeniu obiektu `RoleStore` używa typu ogólnego `IdentityRole`. Oznacza to, że `RoleStore` może zawierać tylko obiekty `IdentityRole`. Również w przypadku używania typów ogólnych zasoby w pamięci są obsługiwane lepiej.
 
-Przy następnym uruchomieniu aplikacji użytkownik o nazwie "canEditUser" zostanie dodany jako roli o nazwie "canEdit" aplikacji. W dalszej części tego samouczka będzie zalogować się jako użytkownik "canEditUser", aby wyświetlić dodatkowe możliwości, które będą dodane w ramach tego samouczka. Interfejs API szczegółowe informacje na temat tożsamości ASP.NET, zobacz [Namespace Microsoft.AspNet.Identity](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx). Aby uzyskać dodatkowe szczegóły dotyczące inicjowania systemu tożsamości ASP.NET, zobacz [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs).
+Następnie obiekt `RoleManager` jest tworzony na podstawie obiektu `RoleStore`, który właśnie został utworzony. Obiekt `RoleManager` uwidacznia interfejs API związany z rolą, który może służyć do automatycznego zapisywania zmian w `RoleStore`. `RoleManager` może zawierać tylko obiekty `IdentityRole`, ponieważ kod używa typu ogólnego `<IdentityRole>`.
 
-### <a name="restricting-access-to-the-administration-page"></a>Ograniczanie dostępu do strony administrowania
+Należy wywołać metodę `RoleExists`, aby określić, czy w bazie danych członkostwa występuje rola "Anuluj edycję". Jeśli tak nie jest, tworzysz rolę.
 
-Przykładowej aplikacji Wingtip Toys umożliwia zarówno użytkowników anonimowych i zalogowanych użytkowników wyświetlić i nabywać produkty. Jednak zalogowanego użytkownika, który ma rolę niestandardowe "canEdit" dostęp ograniczony strony, aby można było dodawać i usuwać produktów.
+Tworzenie obiektu `UserManager` wydaje się bardziej skomplikowane niż kontrolka `RoleManager`, ale jest to niemal takie samo. Jest on właśnie zakodowany w jednym wierszu, a nie na kilku. W tym miejscu parametr, który przekazujesz, jest skonkretyzowany jako nowy obiekt zawarty w nawiasie.
 
-#### <a name="add-an-administration-folder-and-page"></a>Dodaj Folder administracji i strony
+Następnie utworzysz użytkownika "canEditUser", tworząc nowy obiekt `ApplicationUser`. Następnie w przypadku pomyślnego utworzenia użytkownika należy dodać użytkownika do nowej roli.
 
-Następnie utworzysz folder o nazwie *administratora* dla użytkownika "canEditUser" należącego do roli niestandardowej firmy Wingtip Toys przykładowej aplikacji.
+> [!NOTE] 
+> 
+> Obsługa błędów zostanie zaktualizowana w samouczku "Obsługa błędów ASP.NET" w dalszej części tej serii samouczków.
 
-1. Kliknij prawym przyciskiem myszy nazwę projektu (**Wingtip Toys**) w **Eksploratora rozwiązań** i wybierz **Dodaj**  - &gt; **nowy Folder**.
-2. Nadaj nazwę nowego folderu *administratora*.
-3. Kliknij prawym przyciskiem myszy *administratora* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-4. Wybierz <strong>Visual C#</strong> - &gt; <strong>Web</strong> grupy szablonów po lewej stronie. Wybierz z listy środkowej <strong>formularz sieci Web ze stroną wzorcową</strong>, nadaj jej nazwę <em>AdminPage.aspx</em><strong>,</strong> , a następnie wybierz <strong>Dodaj</strong>.
-5. Wybierz *Site.Master* jako stronę wzorcową, a następnie wybierz **OK**.
+Przy następnym uruchomieniu aplikacji użytkownik o nazwie "canEditUser" zostanie dodany jako rola o nazwie "Red Edit" (Edytuj) aplikacji. W dalszej części tego samouczka zalogujesz się jako użytkownik "canEditUser", aby wyświetlić dodatkowe funkcje, które zostaną dodane w ramach tego samouczka. Aby uzyskać szczegółowe informacje dotyczące interfejsu API ASP.NET Identity, zobacz [przestrzeń nazw Microsoft. ASPNET. Identity](https://msdn.microsoft.com/library/microsoft.aspnet.identity(v=vs.111).aspx). Aby uzyskać dodatkowe informacje na temat inicjowania systemu ASP.NET Identity, zobacz [AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample/blob/master/AspnetIdentitySample/App_Start/IdentityConfig.cs).
 
-#### <a name="add-a-webconfig-file"></a>Dodanie pliku Web.config
+### <a name="restricting-access-to-the-administration-page"></a>Ograniczanie dostępu do strony administracyjnej
 
-Dodając *Web.config* plik *administratora* folderu, można ograniczyć dostęp do stron znajdujących się w folderze.
+Przykładowa aplikacja Wingtip zabawki umożliwia zarówno anonimowym użytkownikom, jak i zalogowanym użytkownikom wyświetlanie i kupowanie produktów. Jednak zalogowany użytkownik, który ma niestandardową rolę "Edytuj", może uzyskać dostęp do strony z ograniczeniami w celu dodawania i usuwania produktów.
 
-1. Kliknij prawym przyciskiem myszy *administratora* i wybierz polecenie **Dodaj**  - &gt; **nowy element**.  
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Wybierz z listy szablonów sieci web programu Visual C#, <strong>pliku konfiguracji sieci Web</strong>z środkową listę Zaakceptuj domyślną nazwę <em>Web.config</em><strong>,</strong> , a następnie wybierz <strong>Dodaj</strong>.
-3. Zastąp istniejący kod XML zawartość w *Web.config* pliku następującym kodem:  
+#### <a name="add-an-administration-folder-and-page"></a>Dodawanie folderu administracyjnego i strony
+
+Następnie utworzysz folder o nazwie *admin* dla użytkownika "canEditUser" należącego do niestandardowej roli aplikacji przykładowej programu Wingtip zabawki.
+
+1. Kliknij prawym przyciskiem myszy nazwę projektu (**zabawki Wingtip**) w **Eksplorator rozwiązań** a następnie wybierz pozycję **Dodaj** -&gt; **Nowy folder**.
+2. Nadaj nowemu folderowi nazwę *administrator*.
+3. Kliknij prawym przyciskiem myszy folder *administrator* , a następnie wybierz pozycję **Dodaj** -&gt; **nowy element**.   
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+4. Wybierz grupę szablonów <strong>sieci Web</strong> <strong>Visual C#</strong> -&gt; po lewej stronie. Z listy środkowej wybierz pozycję <strong>formularz sieci Web ze stroną wzorcową</strong>, nadaj jej nazwę <em>AdminPage. aspx</em><strong>,</strong> a następnie wybierz pozycję <strong>Dodaj</strong>.
+5. Wybierz plik *site. Master* jako stronę wzorcową, a następnie wybierz przycisk **OK**.
+
+#### <a name="add-a-webconfig-file"></a>Dodaj plik Web. config
+
+Dodając plik *Web. config* do folderu *admin* , możesz ograniczyć dostęp do strony zawartej w folderze.
+
+1. Kliknij prawym przyciskiem myszy folder *administrator* i wybierz polecenie **Dodaj** -&gt; **nowy element**.  
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Z C# listy Visual Webtemplates wybierz pozycję <strong>plik konfiguracji sieci Web</strong>z listy środkowej, zaakceptuj domyślną nazwę pliku <em>Web. config</em><strong>,</strong> a następnie wybierz pozycję <strong>Dodaj</strong>.
+3. Zastąp istniejącą zawartość XML w pliku *Web. config* następującym:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
 
-Zapisz *Web.config* pliku. *Web.config* plik Określa ten tylko użytkownik należący do roli "canEdit" aplikacji można uzyskać dostęp do strony, zawarte w *administratora* folderu.
+Zapisz plik *Web. config* . Plik *Web. config* określa, że tylko użytkownik należący do roli "po edycji" aplikacji może uzyskać dostęp do strony zawartej w folderze *administratora* .
 
-### <a name="including-custom-role-navigation"></a>W tym rolę niestandardową nawigacji
+### <a name="including-custom-role-navigation"></a>Dołączenie do nawigacji roli niestandardowej
 
-Aby umożliwić użytkownikowi roli niestandardowej "canEdit" Przejdź do sekcji Administracja aplikacji, należy dodać link do *Site.Master* strony. Tylko użytkownicy, którzy należą do roli "canEdit", będą mogli zobaczyć **administratora** łącze i uzyskać dostęp do sekcji Administracja.
+Aby włączyć użytkownika niestandardowej roli "Edytuj" w celu przejścia do sekcji Administracja aplikacji, należy dodać łącze do strony *site. Master* . Tylko użytkownicy należący do roli "Edytuj" będą mogli zobaczyć link **administratora** i uzyskać dostęp do sekcji Administracja.
 
-1. W Eksploratorze rozwiązań należy znaleźć i otworzyć *Site.Master* strony.
-2. Aby utworzyć link do użytkownika w roli "canEdit", należy dodać znaczników wyróżniony na żółto następująca Lista nieuporządkowana `<ul>` element, aby jako zostanie wyświetlona lista poniżej:  
+1. W Eksplorator rozwiązań Znajdź i Otwórz stronę *site. Master* .
+2. Aby utworzyć łącze dla użytkownika roli "Edytuj", należy dodać znaczniki wyróżnione kolorem żółtym do poniższej listy nieuporządkowanej `<ul>` elementu, aby lista pojawiła się w następujący sposób:  
 
     [!code-html[Main](membership-and-administration/samples/sample5.html?highlight=2-3)]
-3. Otwórz *Site.Master.cs* pliku. Wprowadź **administratora** łącze widoczne tylko dla użytkownika "canEditUser", dodając kod wyróżniony na żółto do `Page_Load` programu obsługi. `Page_Load` Obsługi będzie wyglądać następująco:   
+3. Otwórz plik *site.Master.cs* . Ustaw łącze **administratora** jako widoczne tylko dla użytkownika "canEditUser", dodając kod wyróżniony kolorem żółtym do procedury obsługi `Page_Load`. Procedura obsługi `Page_Load` zostanie wyświetlona w następujący sposób:   
 
     [!code-csharp[Main](membership-and-administration/samples/sample6.cs?highlight=3-6)]
 
-Po załadowaniu strony kod sprawdza, czy zalogowany użytkownik ma rolę "canEdit". Jeśli użytkownik należy do roli "canEdit", element span zawierającą łącze do *AdminPage.aspx* strony (i w związku z tym link wewnątrz zakresu) jest widoczny.
+Po załadowaniu strony kod sprawdza, czy zalogowany użytkownik ma rolę "Edytuj". Jeśli użytkownik należy do roli "Edytuj", element span zawierający link do strony *AdminPage. aspx* (i w związku z tym link wewnątrz zakresu) jest widoczny.
 
-### <a name="enabling-product-administration"></a>Włączanie administracji produktu
+### <a name="enabling-product-administration"></a>Włączanie administrowania produktem
 
-Do tej pory utworzono rolę "canEdit" i dodane przez użytkownika "canEditUser", folder administracji i strony Administracja. Ustawiono prawa dostępu do folderu administracji i strony, a następnie dodano łącze nawigacyjne dla użytkownika w roli "canEdit" do aplikacji. Następnie dodasz znaczników w celu *AdminPage.aspx* strony, a kod *AdminPage.aspx.cs* pliku związanego z kodem, który umożliwi użytkownikowi z rolą "canEdit" Dodawanie i usuwanie produktów.
+Do tej pory utworzono rolę "Red Edit" i dodano użytkownika "canEditUser", folder administracyjny i stronę administracyjną. Użytkownik ustawił prawa dostępu do folderu administracyjnego i strony i dodał link nawigacji dla użytkownika roli "Edytuj" do aplikacji. Następnie dodasz znaczniki do strony *AdminPage. aspx* i kodu do pliku *AdminPage.aspx.cs* z kodem, który umożliwi użytkownikowi z rolą "Edytuj", Dodawanie i usuwanie produktów.
 
-1. W **Eksploratora rozwiązań**, otwórz *AdminPage.aspx* plik wchodzącej w skład *administratora* folderu.
-2. Zastąp istniejący kod znaczników następujących czynności:  
+1. W **Eksplorator rozwiązań**Otwórz plik *AdminPage. aspx* z folderu *admin* .
+2. Zastąp istniejący znacznik następującym:  
 
     [!code-aspx[Main](membership-and-administration/samples/sample7.aspx)]
-3. Następnie otwórz *AdminPage.aspx.cs* pliku związanego z kodem, klikając prawym przyciskiem myszy *AdminPage.aspx* i klikając **Wyświetl kod**.
-4. Zastąp istniejący kod w *AdminPage.aspx.cs* pliku związanego z kodem następującym kodem:  
+3. Następnie otwórz plik związany z kodem *AdminPage.aspx.cs* , klikając prawym przyciskiem myszy *AdminPage. aspx* i klikając polecenie **Wyświetl kod**.
+4. Zastąp istniejący kod w pliku z kodem *AdminPage.aspx.cs* następującym kodem:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample8.cs)]
 
-W kodzie, który wprowadzono dla *AdminPage.aspx.cs* pliku związanego z kodem, klasę o nazwie `AddProducts` wykonuje faktyczną pracę dodawania produktów w bazie danych. Ta klasa jeszcze nie istnieje, więc będzie można utworzyć go teraz.
+W kodzie, który został wprowadzony dla pliku z kodem *AdminPage.aspx.cs* , Klasa o nazwie `AddProducts` wykonuje rzeczywistą służbę dodawania produktów do bazy danych. Ta klasa jeszcze nie istnieje, więc utworzysz ją teraz.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *logiki* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Wybierz **Visual C#**  - &gt; **kodu** grupy szablonów po lewej stronie. Następnie wybierz **klasy**ze środka listy i nadaj mu nazwę *AddProducts.cs*.   
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *logiki* , a następnie wybierz pozycję **Dodaj** -&gt; **nowy element**.   
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Wybierz grupę **Visual C#**  ** -&gt; szablon** szablony po lewej stronie. Następnie wybierz pozycję **Klasa**z listy Środkowej i nadaj jej nazwę *AddProducts.cs*.   
    Zostanie wyświetlony nowy plik klasy.
-3. Zastąp istniejący kod następujących czynności:  
+3. Zastąp istniejący kod następującym:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
 
-*AdminPage.aspx* strona pozwala na użytkowników należących do roli "canEdit", do dodawania i usuwania produktów. Gdy zostanie dodany nowy produkt, szczegółowe informacje o produkcie są weryfikowane i następnie wprowadzany do bazy danych. Nowy produkt jest natychmiast dostępne dla wszystkich użytkowników w aplikacji sieci web.
+Strona *AdminPage. aspx* zezwala użytkownikowi należącemu do roli "Edytuj" w celu dodawania i usuwania produktów. Po dodaniu nowego produktu szczegóły dotyczące produktu są sprawdzane, a następnie wprowadzane do bazy danych programu. Nowy produkt jest natychmiast dostępny dla wszystkich użytkowników aplikacji sieci Web.
 
-#### <a name="unobtrusive-validation"></a>Sprawdzania poprawności dyskretnego kodu
+#### <a name="unobtrusive-validation"></a>Niezauważalna weryfikacja
 
-Szczegóły produktu, które użytkownik udostępnia na *AdminPage.aspx* strony są weryfikowane przy użyciu kontrolkami walidacji (`RequiredFieldValidator` i `RegularExpressionValidator`). Te kontrolki automatycznie używać sprawdzania poprawności dyskretnego kodu. Sprawdzania poprawności dyskretnego kodu umożliwia kontrolek weryfikacji do logiki weryfikacji po stronie klienta, co oznacza, że strona nie wymaga dwustronnej z serwerem, aby zostać uwierzytelnionym przy użyciu języka JavaScript. Domyślnie, sprawdzania poprawności dyskretnego kodu jest objęta *Web.config* plik oparty na następujące ustawienia konfiguracji:
+Szczegóły produktu udostępniane przez użytkownika na stronie *AdminPage. aspx* są weryfikowane przy użyciu kontrolek weryfikacji (`RequiredFieldValidator` i `RegularExpressionValidator`). Te kontrolki automatycznie używają niezauważalnej weryfikacji. Niedyskretna Walidacja umożliwia kontrolom walidacji używanie języka JavaScript dla logiki walidacji po stronie klienta, co oznacza, że strona nie będzie wymagała sprawdzenia poprawności na serwerze. Domyślnie niedyskretna weryfikacja jest zawarta w pliku *Web. config* na podstawie następującego ustawienia konfiguracji:
 
 [!code-xml[Main](membership-and-administration/samples/sample10.xml)]
 
 #### <a name="regular-expressions"></a>Wyrażenia regularne
 
-Cena produktu na *AdminPage.aspx* strony jest weryfikowany przy użyciu **RegularExpressionValidator** kontroli. Ten formant sprawdza, czy wartość kontrolki wejściowe skojarzone (poletekstowe "AddProductPrice") jest zgodny ze wzorcem określonym przez wyrażenia regularne. Wyrażenie regularne jest notacji dopasowania do wzorca, który pozwala na szybkie znalezienie i wzory znaków specyficznych dopasowania. **RegularExpressionValidator** formant zawiera właściwość o nazwie `ValidationExpression` zawiera wyrażenie regularne służące do sprawdzania poprawności danych wejściowych ceny, jak pokazano poniżej:
+Cena produktu na stronie *AdminPage. aspx* jest weryfikowana przy użyciu kontrolki **RegularExpressionValidator** . Ta kontrolka sprawdza, czy wartość skojarzonej kontrolki wejściowej (pole tekstowe "AddProductPrice") pasuje do wzorca określonego przez wyrażenie regularne. Wyrażenie regularne jest notacją zgodną z wzorcem, która umożliwia szybkie znajdowanie i dopasowywanie określonych wzorców znaków. Formant **RegularExpressionValidator** zawiera właściwość o nazwie `ValidationExpression`, która zawiera wyrażenie regularne używane do walidacji danych wejściowych ceny, jak pokazano poniżej:
 
 [!code-aspx[Main](membership-and-administration/samples/sample11.aspx)]
 
-#### <a name="fileupload-control"></a>Kontrolka fileUpload
+#### <a name="fileupload-control"></a>FileUpload — formant
 
-Oprócz danych wejściowych i sprawdzania poprawności formantów dodawanych **FileUpload** kontrolę *AdminPage.aspx* strony. Formant ten zapewnia możliwość przekazywania plików. W tym przypadku są pozwalając tylko pliki obrazów do przekazania. W pliku związanym z kodem (*AdminPage.aspx.cs*), gdy `AddProductButton` zostanie kliknięty kontroli kodu `HasFile` właściwość **FileUpload** kontroli. Jeśli kontrolka ma plik, a jeśli typ pliku (na podstawie rozszerzenia pliku) jest dozwolone, obraz, który jest zapisywany do *obrazów* folder i *obrazów/Thumbs* folderu aplikacji.
+Oprócz formantów wejściowych i walidacji dodano formant **FileUpload** do strony *AdminPage. aspx* . Ta kontrolka zapewnia możliwość przekazywania plików. W takim przypadku zezwalasz tylko na przekazywanie plików obrazów. W pliku związanym z kodem (*AdminPage.aspx.cs*), gdy kliknięto `AddProductButton`, kod sprawdza Właściwość `HasFile` kontrolki **FileUpload** . Jeśli kontrolka zawiera plik i jeśli typ pliku (na podstawie rozszerzenia pliku) jest dozwolony, obraz jest zapisywany w folderze *obrazy* i folderze *obrazy/kciuki* aplikacji.
 
-#### <a name="model-binding"></a>Wiązanie modelu
+#### <a name="model-binding"></a>Powiązanie modelu
 
-We wcześniejszej części tej serii samouczków wiązania modelu używanych do wypełniania **ListView** kontroli **FormsView** kontrolki, **GridView** kontroli i  **DetailView** kontroli. W tym samouczku Użyj wiązania modelu do wypełnienia **DropDownList** kontrolki z listy kategorii produktów.
+Wcześniej w tej serii samouczków użyto powiązania modelu do wypełnienia kontrolki **ListView** , kontrolki **FormsView** , kontrolki **GridView** i kontrolki **kontrolką detailview** . W tym samouczku użyjesz powiązania modelu, aby wypełnić formant **DropDownList** z listą kategorii produktów.
 
-Kod znaczników, który został dodany do *AdminPage.aspx* plik zawiera **DropDownList** formant nazywany `DropDownAddCategory`:
+Znacznik dodany do pliku *AdminPage. aspx* zawiera kontrolkę **DropDownList** o nazwie `DropDownAddCategory`:
 
 [!code-aspx[Main](membership-and-administration/samples/sample12.aspx)]
 
-Umożliwia powiązanie modelu wypełnić to pole **DropDownList** , ustawiając `ItemType` atrybutu i `SelectMethod` atrybutu. `ItemType` Atrybut określa, że używasz `WingtipToys.Models.Category` wpisz podczas wypełniania kontrolki. Definicja tego typu na początku tej serii samouczków, tworząc `Category` klasy (pokazana poniżej). `Category` Klasa się zebrała *modeli* folder wewnątrz *Category.cs* pliku.
+Aby wypełnić to **DropDownList** , należy użyć powiązania modelu, ustawiając atrybut `ItemType` i atrybut `SelectMethod`. Atrybut `ItemType` określa, że należy użyć typu `WingtipToys.Models.Category` podczas wypełniania formantu. Ten typ został zdefiniowany na początku tej serii samouczków przez utworzenie klasy `Category` (pokazanej poniżej). Klasa `Category` znajduje się w folderze *models* wewnątrz pliku *Category.cs* .
 
 [!code-csharp[Main](membership-and-administration/samples/sample13.cs)]
 
-`SelectMethod` Atrybutu **DropDownList** kontroli określa, że używasz `GetCategories` — metoda (pokazana poniżej) oznacza to zawarte w pliku związanym z kodem (*AdminPage.aspx.cs*).
+Atrybut `SelectMethod` formantu **DropDownList** określa, że należy użyć metody `GetCategories` (pokazanej poniżej), która jest uwzględniona w pliku związanym z kodem (*AdminPage.aspx.cs*).
 
 [!code-csharp[Main](membership-and-administration/samples/sample14.cs)]
 
-Ta metoda określa, że `IQueryable` interfejs jest używany do oceny zapytania dotyczącego `Category` typu. Zwrócona wartość jest używana do wypełniania **DropDownList** w znaczniku strony (*AdminPage.aspx*).
+Ta metoda określa, że interfejs `IQueryable` służy do szacowania zapytania względem typu `Category`. Zwracana wartość jest używana do wypełniania **DropDownList** w znaczniku strony (*AdminPage. aspx*).
 
-Tekst wyświetlany dla każdego elementu na liście jest określany przez ustawienie `DataTextField` atrybutu. `DataTextField` Atrybutu używa `CategoryName` z `Category` klasy (pokazany powyżej), aby wyświetlić każdej kategorii w **DropDownList** kontroli. Rzeczywista wartość, która jest przekazywana, gdy element jest zaznaczony na **DropDownList** formant opiera się na `DataValueField` atrybutu. `DataValueField` Ma ustawioną wartość atrybutu `CategoryID` jak zdefiniować w `Category` klasy (jak pokazano powyżej).
+Tekst wyświetlany dla każdego elementu na liście jest określany przez ustawienie atrybutu `DataTextField`. Atrybut `DataTextField` używa `CategoryName` klasy `Category` (pokazany powyżej) do wyświetlania każdej kategorii w kontrolce **DropDownList** . Wartość rzeczywista, która jest przesyłana po wybraniu elementu w kontrolce **DropDownList** , jest oparta na atrybucie `DataValueField`. Atrybut `DataValueField` jest ustawiany na `CategoryID`, jak zdefiniowano w klasie `Category` (pokazany powyżej).
 
-### <a name="how-the-application-will-work"></a>Działanie aplikacji
+### <a name="how-the-application-will-work"></a>Jak działa aplikacja
 
-Gdy użytkownik należący do roli "canEdit" przechodzi do strony po raz pierwszy `DropDownAddCategory` **DropDownList** kontroli jest wypełniana zgodnie z powyższym opisem. `DropDownRemoveProduct` **DropDownList** kontrolka również zostanie wypełniona przy użyciu tej samej metody produktów. Użytkownika należącego do roli "canEdit" wybiera typ kategorii i dodaje szczegóły produktu (**nazwa**, **opis**, **cena**, i **plik obrazu**). Po kliknięciu przez użytkownika należącego do roli "canEdit" **Dodaj produkt** przycisku `AddProductButton_Click` zostanie wywołany program obsługi zdarzeń. `AddProductButton_Click` Programu obsługi zdarzeń znajdujących się w pliku związanym z kodem (*AdminPage.aspx.cs*) sprawdza, czy plik obrazu, aby upewnić się, jest on zgodny typów plików dozwolonych *(.gif*, *.png*, *JPEG*, lub *.jpg*). Następnie ten obraz zostanie zapisany w folderze przykładowej aplikacji Wingtip Toys. Następnie nowy produkt jest dodawany do bazy danych. Aby osiągnąć, dodawanie nowego produktu, nowe wystąpienie klasy `AddProducts` klasy jest tworzony i o nazwie produktów. `AddProducts` Klasa ma metodę o nazwie `AddProduct`, oraz obiekt produktów wywołuje tę metodę, aby dodać produktów w bazie danych.
+Gdy użytkownik należący do roli "" Edytuj "nawiguje do strony po raz pierwszy, formant `DropDownAddCategory`**DropDownList** jest wypełniany zgodnie z powyższym opisem. Formant **DropDownList** `DropDownRemoveProduct`jest również wypełniany produktami przy użyciu tego samego podejścia. Użytkownik należący do roli "Edytuj" wybiera typ kategorii i dodaje szczegóły produktu (**Nazwa**, **Opis**, **Cena**i **plik obrazu**). Gdy użytkownik należący do roli "edytujesz" kliknie przycisk **Dodaj produkt** , zostanie wyzwolona obsługa zdarzeń `AddProductButton_Click`. Program obsługi zdarzeń `AddProductButton_Click` znajdujący się w pliku związanym z kodem (*AdminPage.aspx.cs*) sprawdza plik obrazu, aby upewnić się, że jest zgodny z dozwolonymi typami plików *(GIF*, *PNG*, *JPEG*lub *jpg*). Następnie plik obrazu jest zapisywany w folderze przykładowej aplikacji Wingtip zabawki. Następnie nowy produkt zostanie dodany do bazy danych programu. Aby wykonać Dodawanie nowego produktu, tworzone jest nowe wystąpienie klasy `AddProducts` i nazwane produkty. Klasa `AddProducts` ma metodę o nazwie `AddProduct`, a obiekt Products wywołuje tę metodę, aby dodać produkty do bazy danych.
 
 [!code-csharp[Main](membership-and-administration/samples/sample15.cs)]
 
-Jeśli kod pomyślnie dodaje nowy produkt do bazy danych, strony są ładowane z wartością ciągu zapytania `ProductAction=add`.
+Jeśli kod pomyślnie dodaje nowy produkt do bazy danych, Strona zostanie ponownie załadowana przy użyciu wartości ciągu zapytania `ProductAction=add`.
 
 [!code-csharp[Main](membership-and-administration/samples/sample16.cs)]
 
-Gdy ponownie ładuje stronę, ciąg zapytania są zawarte w adresie URL. Przez ponownie załadować stronę, użytkownika należącego do roli "canEdit" mogą natychmiast zobaczyć aktualizacje w **DropDownList** formantów na *AdminPage.aspx* strony. Ponadto umieszczając ciąg zapytania do adresu URL, stronę można wyświetlić komunikat o powodzeniu użytkownika należącego do roli "canEdit".
+Po ponownym załadowaniu strony ciąg zapytania jest uwzględniany w adresie URL. Po ponownym załadowaniu strony użytkownik należący do roli "Edytuj" może natychmiast zobaczyć aktualizacje w kontrolkach **DropDownList** na stronie *AdminPage. aspx* . Ponadto, dołączając ciąg zapytania z adresem URL, na stronie może zostać wyświetlony komunikat o powodzeniu należący do roli "Edytuj".
 
-Gdy *AdminPage.aspx* stronie ładunki `Page_Load` zdarzenie jest wywoływane.
+Po ponownym załadowaniu strony *AdminPage. aspx* zostanie wywołane zdarzenie `Page_Load`.
 
 [!code-csharp[Main](membership-and-administration/samples/sample17.cs)]
 
-`Page_Load` Program obsługi zdarzeń sprawdza, czy wartość ciągu zapytania i określa, czy ma być wyświetlany komunikat o powodzeniu.
+Program obsługi zdarzeń `Page_Load` sprawdza wartość ciągu zapytania i określa, czy ma być pokazywany komunikat o powodzeniu.
 
 ## <a name="running-the-application"></a>Uruchamianie aplikacji
 
-Można uruchomić aplikację teraz, aby zobaczyć sposób dodawania, usuwania i aktualizacji elementów w koszyku. Suma koszyka zakupów, zostanie naliczona łączny koszt wszystkich elementów w koszyku.
+Teraz możesz uruchomić aplikację, aby zobaczyć, jak można dodawać, usuwać i aktualizować elementy w koszyku. Kwota koszyka zakupów będzie odzwierciedlać łączny koszt wszystkich elementów w koszyku.
 
-1. W Eksploratorze rozwiązań, naciśnij klawisz **F5** uruchamianie przykładowej aplikacji Wingtip Toys.  
-   Przeglądarki otwiera się i pokazuje *Default.aspx* strony.
-2. Kliknij przycisk **Zaloguj** widocznego u góry strony. 
+1. W Eksplorator rozwiązań naciśnij klawisz **F5** , aby uruchomić przykładową aplikację z programem Wingtip.  
+   Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
+2. Kliknij link **Zaloguj** się u góry strony. 
 
-    ![Członkostwo i Administracja — Zaloguj się w Link](membership-and-administration/_static/image2.png)
+    ![Członkostwo i administracja — link do logowania](membership-and-administration/_static/image2.png)
 
-   *Login.aspx* zostanie wyświetlona strona.
+   Zostanie wyświetlona strona *login. aspx* .
 3. Użyj następującej nazwy użytkownika i hasła:  
    Nazwa użytkownika: canEditUser@wingtiptoys.com  
-   Hasło: Pa$$word1 
+   Hasło: PA $ $word 1 
 
-    ![Członkostwo i Administracja — strony logowania](membership-and-administration/_static/image3.png)
-4. Kliknij przycisk **Zaloguj** przycisk w dolnej części strony.
-5. W górnej części następnej strony wybierz **administratora** link, aby przejść do *AdminPage.aspx* strony. 
+    ![Członkostwo i administracja — Strona logowania](membership-and-administration/_static/image3.png)
+4. Kliknij przycisk **Zaloguj się w** dolnej części strony.
+5. W górnej części następnej strony wybierz łącze **administratora** , aby przejść do strony *AdminPage. aspx* . 
 
-    ![Członkostwo i Administracja - Link administratora](membership-and-administration/_static/image4.png)
-6. Aby przetestować walidacji danych wejściowych, kliknij pozycję **Dodaj produkt** przycisk bez dodawania żadnych szczegółów produktu. 
+    ![Członkostwo i administracja — link administracyjny](membership-and-administration/_static/image4.png)
+6. Aby przetestować sprawdzanie poprawności danych wejściowych, kliknij przycisk **Dodaj produkt** bez dodawania szczegółowych informacji o produkcie. 
 
-    ![Członkostwo i Administracja — strony administratora](membership-and-administration/_static/image5.png)
+    ![Członkostwo i administracja — Strona administracyjna](membership-and-administration/_static/image5.png)
 
-   Należy zauważyć, że są wyświetlane komunikaty wymaganego pola.
-7. Dodaj szczegóły nowego produktu, a następnie kliknij przycisk **Dodaj produkt** przycisku. 
+   Zauważ, że wyświetlane są wymagane komunikaty pól.
+7. Dodaj szczegóły nowego produktu, a następnie kliknij przycisk **Dodaj produkt** . 
 
-    ![Członkostwo i Administracja — Dodaj produkt](membership-and-administration/_static/image6.png)
-8. Wybierz **produktów** menu górnym menu nawigacyjnym, aby wyświetlić nowy produkt dodane. 
+    ![Członkostwo i administracja — Dodawanie produktu](membership-and-administration/_static/image6.png)
+8. Wybierz pozycję **produkty** z górnego menu nawigacji, aby wyświetlić nowy produkt, który został dodany. 
 
-    ![Członkostwo i Administracja — Pokaż nowego produktu](membership-and-administration/_static/image7.png)
-9. Kliknij przycisk **administratora** link umożliwiający powrót do strony administrowania.
-10. W **Usuń produkt** części strony, wybierz nowego produktu, które zostały dodane w **DropDownListBox**.
-11. Kliknij przycisk **Usuń produkt** przycisk, aby usunąć nowy produkt z aplikacji. 
+    ![Członkostwo i administracja — Pokaż nowy produkt](membership-and-administration/_static/image7.png)
+9. Kliknij link **administratora** , aby powrócić do strony Administracja.
+10. W sekcji **Usuń produkt** na stronie wybierz nowy produkt, który został dodany do **DropDownListBox**.
+11. Kliknij przycisk **Usuń produkt** , aby usunąć nowy produkt z aplikacji. 
 
-    ![Członkostwo i Administracja — usuwanie produktu](membership-and-administration/_static/image8.png)
-12. Wybierz **produktów** menu górnym menu nawigacyjnym, aby upewnić się, że produkt został usunięty.
-13. Kliknij przycisk **wylogować** istnieć trybu administracji.   
-    Należy zauważyć, że w górnym okienku nawigacji nie jest już wyświetlana **administratora** elementu menu.
+    ![Członkostwo i administracja — usuwanie produktu](membership-and-administration/_static/image8.png)
+12. Wybierz pozycję **produkty** z górnego menu nawigacji, aby potwierdzić, że produkt został usunięty.
+13. Kliknij pozycję **Wyloguj** się, aby istnieć tryb administrowania.   
+    Należy zauważyć, że Górne okienko nawigacji nie pokazuje już elementu menu **administratora** .
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku dodaje niestandardową rolę i użytkownika należącego do roli niestandardowej ograniczony dostęp do folderu administracji i strony i podano nawigacji dla użytkownika należącego do roli niestandardowej. Wiązanie modelu jest używana do wypełniania **DropDownList** kontrolki z danymi. Możesz zaimplementować **FileUpload** kontroli i sprawdzania poprawności formantów. Ponadto mają przedstawiono sposób dodawania i usuwania produktów z bazy danych. W następnym samouczku dowiesz się, jak zaimplementować routingu platformy ASP.NET.
+W tym samouczku dodano rolę niestandardową i użytkownika należącego do roli niestandardowej, ograniczony dostęp do folderu i strony administracji oraz udostępnienie nawigacji dla użytkownika należącego do roli niestandardowej. Użyto powiązania modelu, aby wypełnić formant **DropDownList** danymi. Zaimplementowano kontrolkę **FileUpload** i kontrolki walidacji. Dowiesz się również, jak dodawać i usuwać produkty z bazy danych. W następnym samouczku dowiesz się, jak wdrożyć Routing ASP.NET.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Web.config — autoryzacja — Element](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
+[Web. config — element autoryzacji](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
 [ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
-[Wdrażanie aplikacji formularzy bezpiecznej sieci Web platformy ASP.NET z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL w witrynie sieci Web platformy Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
+[Wdrażanie bezpiecznej aplikacji ASP.NET Web Forms z członkostwem, uwierzytelnianiem OAuth i SQL Database w witrynie sieci Web systemu Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure — bezpłatna wersja próbna](https://azure.microsoft.com/pricing/free-trial/)
 
 > [!div class="step-by-step"]

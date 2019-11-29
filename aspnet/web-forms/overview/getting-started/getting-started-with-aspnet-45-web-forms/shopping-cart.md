@@ -1,320 +1,320 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
-title: Koszyk | Dokumentacja firmy Microsoft
+title: Koszyk | Microsoft Docs
 author: Erikre
-description: Tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for firma Microsoft...
+description: Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 1c54449e778eac96133cccdc90d86cbbaf05a70f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 46264a0ab2244cff24761ce94b41722e61e3f426
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132106"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614925"
 ---
 # <a name="shopping-cart"></a>Koszyk
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-[Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Pobierz program Wingtip zabawki (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
+> Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013 dla sieci Web. Projekt Visual Studio 2013 [z C# kodem źródłowym](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny do tej serii samouczków.
 
-W tym samouczku opisano logikę biznesową, wymagane do dodania koszyka do przykładowej aplikacji ASP.NET Web Forms Wingtip Toys. Ten samouczek opiera się na poprzednim samouczku "Wyświetlanie danych i szczegółów elementów" i jest częścią serii samouczków o nazwie Wingtip zabawki Store. Po ukończeniu tego samouczka użytkowników przykładowej aplikacji będzie do dodawania, usuwania i modyfikowania produktów w ich koszyk sklepowy.
+W tym samouczku opisano logikę biznesową wymaganą do dodania koszyka do przykładowej aplikacji Wingtip zabawki ASP.NET Web Forms. W tym samouczku przedstawiono poprzednie samouczki "Wyświetlanie elementów danych i szczegółów" oraz jest częścią serii samouczków dotyczących sklepu Wingtip. Po ukończeniu tego samouczka użytkownicy przykładowej aplikacji będą mogli dodawać, usuwać i modyfikować produkty w koszyku zakupów.
 
-## <a name="what-youll-learn"></a>Zawartość:
+## <a name="what-youll-learn"></a>Dowiesz się:
 
-1. Jak utworzyć koszyka zakupów dla aplikacji sieci web.
+1. Jak utworzyć koszyk dla aplikacji sieci Web.
 2. Jak umożliwić użytkownikom dodawanie elementów do koszyka.
-3. Jak dodać [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview(v=vs.110).aspx#introduction) formantu, aby wyświetlić szczegółów koszyka zakupów.
-4. Jak obliczają i wyświetlają sumy zamówienia.
-5. Jak usunąć i aktualizować elementy na koszyk sklepowy.
-6. Jak dołączyć licznik koszyka zakupów.
+3. Jak dodać kontrolkę [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview(v=vs.110).aspx#introduction) , aby wyświetlić szczegóły koszyka zakupów.
+4. Obliczanie i wyświetlanie sumy zamówienia.
+5. Jak usuwać i aktualizować elementy w koszyku zakupów.
+6. Jak uwzględnić licznik koszyka zakupów.
 
-## <a name="code-features-in-this-tutorial"></a>Kod funkcji w ramach tego samouczka:
+## <a name="code-features-in-this-tutorial"></a>Funkcje kodu w tym samouczku:
 
-1. Entity Framework Code pierwszy
+1. Entity Framework Code First
 2. Adnotacje danych
-3. Silnie typizowane kontrolki danych
+3. Kontrolki danych o jednoznacznie określonym typie
 4. Powiązanie modelu
 
 ## <a name="creating-a-shopping-cart"></a>Tworzenie koszyka
 
-We wcześniejszej części tej serii samouczków dodać strony i kodem, aby wyświetlić dane produktów z bazy danych. W tym samouczku utworzysz koszyka do zarządzania produktami użytkownicy są zainteresowani zakupu. Użytkownicy będą mogli przeglądać i dodawanie elementów do koszyka, nawet jeśli nie są zarejestrowane lub zarejestrowane w. Aby zarządzać koszyk sklepowy dostępu, będą przypisywane użytkownikom unikatową `ID` przy użyciu Unikatowy identyfikator globalny (GUID), gdy użytkownik uzyskuje dostęp do sklepu koszyka po raz pierwszy. Można będzie zapisać `ID` przy użyciu stanu sesji platformy ASP.NET.
+Wcześniej w tej serii samouczków dodano strony i kod umożliwiający wyświetlenie danych produktu z bazy danych. W tym samouczku utworzysz koszyk do zarządzania produktami, które użytkownicy chcą kupić. Użytkownicy będą mogli przeglądać i dodawać elementy do koszyka, nawet jeśli nie są zarejestrowani lub zarejestrowani. Aby zarządzać dostępem do koszyka zakupów, użytkownicy są przypisani unikatowymi `ID` przy użyciu unikatowego identyfikatora globalnego (GUID), gdy użytkownik uzyskuje dostęp do koszyka po raz pierwszy. Ten `ID` będzie przechowywany przy użyciu stanu sesji ASP.NET.
 
 > [!NOTE] 
 > 
-> Stan sesji platformy ASP.NET jest wygodne miejsce do przechowywania informacji o użytkowniku, która wygaśnie po użytkownik opuści lokacji. Gdy nieuprawnione użycie stanu sesji mogą mieć wpływ na wydajność w witrynach większe, jasny korzystanie z sesji, stan działa również w celach demonstracyjnych. Przykładowy projekt o nazwie Wingtip Toys przedstawiono sposób używania stanu sesji bez zewnętrznego dostawcy, których stan sesji jest przechowywane w procesie na serwerze sieci web hosta witryny. Dla większych witryny, które zapewniają wiele wystąpień aplikacji lub witryn, które uruchomić wiele wystąpień aplikacji na różnych serwerach, należy wziąć pod uwagę przy użyciu **Windows Azure Cache Service**. Ta usługa pamięci podręcznej udostępnia usługę buforowania rozproszonego, jest zewnętrzne w stosunku do witryny sieci web, która rozwiązuje problem przy użyciu stanu sesji w procesie. Aby uzyskać więcej informacji, zobacz [jak stanu sesji ASP.NET przy użyciu Windows Azure Web Sites](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
+> Stan sesji ASP.NET jest wygodnym miejscem do przechowywania informacji specyficznych dla użytkownika, które wygasną po opuszczeniu witryny przez użytkownika. W przypadku nieprawidłowego stanu sesji może to mieć wpływ na wydajność większych lokacji, jednak w celach demonstracyjnych dobrze jest korzystać ze stanu sesji. Przykładowy projekt Wingtip zabawki pokazuje, jak używać stanu sesji bez zewnętrznego dostawcy, w którym stan sesji jest przechowywany w procesie na serwerze sieci Web hostującym lokację. W przypadku większych lokacji, które udostępniają wiele wystąpień aplikacji lub dla lokacji, które uruchamiają wiele wystąpień aplikacji na różnych serwerach, należy rozważyć użycie **usługi Windows Azure cache Service**. Ta Cache Service zapewnia usługę rozproszonego buforowania, która jest zewnętrzna względem witryny sieci Web i rozwiązuje problem związany z używaniem stanu sesji w procesie. Aby uzyskać więcej informacji, zobacz [jak używać stanu sesji ASP.NET z witrynami sieci Web systemu Windows Azure](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
 
-### <a name="add-cartitem-as-a-model-class"></a>Dodaj CartItem jako klasy modelu
+### <a name="add-cartitem-as-a-model-class"></a>Dodaj CartItem jako klasę modelu
 
-We wcześniejszej części tej serii samouczków, definicja schematu dla kategorii, a dane produktów, tworząc `Category` i `Product` klas w *modeli* folderu. Teraz Dodaj nową klasę do definiowania schematu do koszyka. W dalszej części tego samouczka dodasz klasy do obsługi dostępu do danych `CartItem` tabeli. Ta klasa dostarcza logikę biznesową do dodawania, usuwania i aktualizowania elementów w koszyku.
+Wcześniej w tej serii samouczków został zdefiniowany schemat dla kategorii i danych produktu, tworząc klasy `Category` i `Product` w folderze *modele* . Teraz Dodaj nową klasę, aby zdefiniować schemat dla koszyka. W dalszej części tego samouczka dodasz klasę do obsługi dostępu do danych do tabeli `CartItem`. Ta klasa udostępnia logikę biznesową, która umożliwia dodawanie, usuwanie i aktualizowanie elementów w koszyku.
 
-1. Kliknij prawym przyciskiem myszy *modeli* i wybierz polecenie **Dodaj**  - &gt; **nowy element**. 
+1. Kliknij prawym przyciskiem myszy folder *modele* i wybierz polecenie **Dodaj** -&gt; **nowy element**. 
 
-    ![Koszyk sklepowy - nowy element](shopping-cart/_static/image1.png)
-2. **Dodaj nowy element** zostanie wyświetlone okno dialogowe. Wybierz **kodu**, a następnie wybierz pozycję **klasy**. 
+    ![Koszyk — nowy element](shopping-cart/_static/image1.png)
+2. Zostanie wyświetlone okno dialogowe **Dodaj nowy element** . Wybierz pozycję **kod**, a następnie wybierz pozycję **Klasa**. 
 
-    ![Koszyk — okno dialogowe nowego elementu Dodawanie](shopping-cart/_static/image2.png)
-3. Nazwa ta nowa klasa *CartItem.cs*.
+    ![Koszyk — okno dialogowe Dodawanie nowego elementu](shopping-cart/_static/image2.png)
+3. Nadaj tej nowej klasie nazwę *CartItem.cs*.
 4. Kliknij przycisk **Dodaj**.  
-   Plik nowej klasy jest wyświetlany w edytorze.
+   Nowy plik klasy zostanie wyświetlony w edytorze.
 5. Zastąp domyślny kod następującym kodem:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
 
-`CartItem` Klasy zawiera schemat, definiujące każdego produktu, użytkownik dodaje do koszyka. Ta klasa jest podobne do innych klas schematu, utworzonej we wcześniejszej części tej serii samouczków. Zgodnie z Konwencją Entity Framework Code First spodziewa się, że klucz podstawowy dla `CartItem` tabeli będzie `CartItemId` lub `ID`. Jednak kod zastępuje domyślne zachowanie przy użyciu adnotacji danych `[Key]` atrybutu. `Key` Atrybut właściwości identyfikator elementu Określa, że `ItemID` właściwość jest kluczem podstawowym.
+Klasa `CartItem` zawiera schemat definiujący każdy produkt dodawany przez użytkownika do koszyka zakupów. Ta klasa jest podobna do innych klas schematu utworzonych wcześniej w tej serii samouczków. Zgodnie z Konwencją Entity Framework Code First oczekuje, że klucz podstawowy dla tabeli `CartItem` będzie `CartItemId` lub `ID`. Jednak kod zastępuje zachowanie domyślne za pomocą atrybutu `[Key]` adnotacji danych. Atrybut `Key` właściwości ItemId określa, że właściwość `ItemID` jest kluczem podstawowym.
 
-`CartId` Właściwość określa `ID` użytkownika, który jest skojarzony z elementem do zakupu. Następnie dodasz kod do utworzenia tego użytkownika `ID` gdy użytkownik uzyskuje dostęp do koszyka. To `ID` będzie przechowywany jako zmienną sesji programu ASP.NET.
+Właściwość `CartId` określa `ID` użytkownika, który jest skojarzony z elementem do zakupu. Dodasz kod w celu utworzenia tego użytkownika `ID`, gdy użytkownik uzyskuje dostęp do koszyka. Ten `ID` będzie również przechowywany jako zmienna sesji ASP.NET.
 
 ### <a name="update-the-product-context"></a>Aktualizowanie kontekstu produktu
 
-Oprócz dodawania `CartItem` klasy, należy zaktualizować klasy kontekstu bazy danych, który zarządza klas jednostek i który zapewnia dostęp do danych w bazie danych. Aby to zrobić, dodasz nowo utworzony `CartItem` modelu klasy `ProductContext` klasy.
+Oprócz dodawania klasy `CartItem` należy zaktualizować klasę kontekstu bazy danych, która zarządza klasami jednostki i która zapewnia dostęp do danych w bazie danych. W tym celu należy dodać nowo utworzoną klasę `CartItem` modelu do klasy `ProductContext`.
 
-1. W **Eksploratora rozwiązań**, znajdowanie i otwieranie *ProductContext.cs* w pliku *modeli* folderu.
-2. Dodaj wyróżniony kod do *ProductContext.cs* pliku w następujący sposób:  
+1. W **Eksplorator rozwiązań**Znajdź i otwórz plik *ProductContext.cs* w folderze *modele* .
+2. Dodaj wyróżniony kod do pliku *ProductContext.cs* w następujący sposób:  
 
     [!code-csharp[Main](shopping-cart/samples/sample2.cs?highlight=14)]
 
-Jak wspomniano wcześniej w tej serii samouczków, kod w *ProductContext.cs* dodaje plik `System.Data.Entity` przestrzeni nazw, aby mieć dostęp do wszystkich funkcji programu Entity Framework core. Ta funkcja obejmuje możliwość zapytania, wstawiania, aktualizacji i usuwania danych dzięki współpracy z silnie typizowanych obiektów. `ProductContext` Klasa dodaje dostępu do nowo dodanych `CartItem` klasa modelu.
+Jak wspomniano wcześniej w tej serii samouczków, kod w pliku *ProductContext.cs* dodaje przestrzeń nazw `System.Data.Entity`, dzięki czemu masz dostęp do wszystkich podstawowych funkcji Entity Framework. Ta funkcja obejmuje możliwość wykonywania zapytań, wstawiania, aktualizowania i usuwania danych przez pracę z silnie określonymi obiektami. Klasa `ProductContext` dodaje dostęp do nowo dodanej klasy modelu `CartItem`.
 
-### <a name="managing-the-shopping-cart-business-logic"></a>Zarządzanie zakupów logikę biznesową koszyka
+### <a name="managing-the-shopping-cart-business-logic"></a>Zarządzanie logiką biznesową koszyka zakupów
 
-Następnie utworzysz `ShoppingCart` klas w nowym *logiki* folderu. `ShoppingCart` Klasa obsługuje dostęp do danych `CartItem` tabeli. Klasa zawiera również logikę biznesową do dodawania, usuwania i aktualizowania elementów w koszyku.
+Następnie utworzysz klasę `ShoppingCart` w nowym folderze *logiki* . Klasa `ShoppingCart` obsługuje dostęp do danych do tabeli `CartItem`. Klasa zawiera również logikę biznesową, która umożliwia dodawanie, usuwanie i aktualizowanie elementów w koszyku.
 
-Logiki koszyka zakupów, który zostanie dodany będzie zawierać funkcje umożliwiające zarządzanie następujące akcje:
+Logika koszyka zakupów, którą dodasz, będzie zawierać funkcje do zarządzania następującymi akcjami:
 
-1. Dodawanie towarów do koszyka
-2. Usuwanie elementów z koszyka
-3. Uzyskiwanie Identyfikatora koszyka zakupów
-4. Pobieranie elementów z koszyka
-5. Sumowanie ilość wszystkie elementy koszyka zakupów
+1. Dodawanie elementów do koszyka zakupów
+2. Usuwanie elementów z koszyka zakupów
+3. Pobieranie identyfikatora koszyka zakupów
+4. Pobieranie elementów z koszyka zakupów
+5. Łączna ilość wszystkich elementów koszyka zakupów
 6. Aktualizowanie danych koszyka zakupów
 
-Stronie koszyka (*ShoppingCart.aspx*) i klasę koszyka zakupów będzie można używać razem dostępu do zakupów danych koszyka. Na stronie koszyka będą wyświetlane wszystkie elementy, które użytkownik dodaje do koszyka. Oprócz koszyka strony i klasy, utworzysz stronę (*AddToCart.aspx*) aby dodać produkty do koszyka. Możesz również dodać kod, aby *ProductList.aspx* strony i *ProductDetails.aspx* strona, która będzie udostępniać link do *AddToCart.aspx* strony, czemu użytkownik może dodać produkty do koszyka.
+Strona koszyka zakupów (*ShoppingCart. aspx*) i koszyka zakupów zostaną użyte razem w celu uzyskania dostępu do danych koszyka zakupów. Na stronie koszyka zakupów zostaną wyświetlone wszystkie elementy dodawane przez użytkownika do koszyka zakupów. Poza stroną koszyka i klasą zakupów utworzysz stronę (*AddToCart. aspx*), aby dodać produkty do koszyka. Dodasz również kod do strony *ProductList. aspx* oraz strony *ProductDetails. aspx* , która będzie udostępniać link do strony *AddToCart. aspx* , dzięki czemu użytkownik może dodawać produkty do koszyka.
 
 Na poniższym diagramie przedstawiono proces podstawowy, który występuje, gdy użytkownik dodaje produkt do koszyka.
 
-![Koszyk — dodawanie do koszyka](shopping-cart/_static/image3.png)
+![Koszyk — Dodawanie do koszyka zakupów](shopping-cart/_static/image3.png)
 
-Kiedy użytkownik kliknie **Dodaj do koszyka** łącze w dowolnym *ProductList.aspx* strony lub *ProductDetails.aspx* stronie aplikacji spowoduje przejście do *AddToCart.aspx* strony i następnie automatycznie *ShoppingCart.aspx* strony. *AddToCart.aspx* strony doda wybierz produkt do koszyka, wywołując metodę w klasie ShoppingCart. *ShoppingCart.aspx* strony wyświetli produktów, które zostały dodane do koszyka.
+Gdy użytkownik kliknie link **Dodaj do koszyka** na stronie *ProductList. aspx* lub *ProductDetails. aspx* , aplikacja przejdzie do strony *AddToCart. aspx* , a następnie automatycznie do strony *ShoppingCart. aspx* . Na stronie *AddToCart. aspx* zostanie dodany wybór produktu do koszyka przez wywołanie metody w klasie ShoppingCart. Na stronie *ShoppingCart. aspx* zostaną wyświetlone produkty, które zostały dodane do koszyka.
 
 #### <a name="creating-the-shopping-cart-class"></a>Tworzenie klasy koszyka zakupów
 
-`ShoppingCart` Klasy zostaną dodane do oddzielnego folderu w aplikacji, dzięki czemu będą wyraźne rozróżnienie między modelu (folderu modeli), strony (folder główny) i Logic Apps (logiki folder).
+Klasa `ShoppingCart` zostanie dodana do oddzielnego folderu w aplikacji, dzięki czemu będzie jasne rozróżnienie między modelem (folderem modeli), stronami (folderem głównym) i logiką (folderem logiki).
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **WingtipToys**projektu, a następnie wybierz **Dodaj**-&gt;**nowy Folder**. Nadaj nazwę nowego folderu *logiki*.
-2. Kliknij prawym przyciskiem myszy *logiki* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.
-3. Dodaj plik klasy o nazwie *ShoppingCartActions.cs*.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **WingtipToys**i wybierz pozycję **Dodaj**-&gt;**Nowy folder**. Nadaj nazwę nowej *logiki*folderu.
+2. Kliknij prawym przyciskiem myszy folder *logiki* , a następnie wybierz pozycję **Dodaj** -&gt; **nowy element**.
+3. Dodaj nowy plik klasy o nazwie *ShoppingCartActions.cs*.
 4. Zastąp domyślny kod następującym kodem:   
 
     [!code-csharp[Main](shopping-cart/samples/sample3.cs)]
 
-`AddToCart` Metoda umożliwia poszczególnych produktów, które mają zostać uwzględnione w koszyka opartych na produkcie `ID`. Produkt jest dodawana do koszyka, lub jeśli koszyka zawiera już element dla tego produktu, ilość jest zwiększany.
+Metoda `AddToCart` umożliwia uwzględnienie poszczególnych produktów w koszyku na podstawie `ID`produktu. Produkt zostanie dodany do koszyka lub jeśli koszyk zawiera już element dla tego produktu, ilość jest zwiększana.
 
-`GetCartId` Metoda zwraca koszyka `ID` dla użytkownika. Koszyka `ID` służy do śledzenia elementów, które użytkownik ma w ich koszyk sklepowy. Jeśli użytkownik nie ma istniejących koszyka `ID`, nowe koszyka `ID` jest dla niego tworzone. Jeśli użytkownik jest zalogowany jako zarejestrowanego użytkownika koszyka `ID` jest ustawiony do ich nazw użytkowników. Jednak jeśli użytkownik nie jest podpisany w koszyku `ID` jest ustawiona na unikatową wartość (GUID). Identyfikator GUID gwarantuje, że w tym tylko jeden koszyka jest tworzony dla każdego użytkownika, oparte na sesji.
+Metoda `GetCartId` zwraca koszyk `ID` dla użytkownika. `ID` koszyka służy do śledzenia elementów, które użytkownik ma w swoim koszyku. Jeśli użytkownik nie ma istniejącego koszyka `ID`, dla nich zostanie utworzony nowy koszyk `ID`. Jeśli użytkownik jest zalogowany jako zarejestrowanego użytkownika, `ID` koszyk zostanie ustawiony na nazwę użytkownika. Jeśli jednak użytkownik nie jest zalogowany, `ID` koszyka jest ustawiona na unikatową wartość (identyfikator GUID). Identyfikator GUID zapewnia, że dla każdego użytkownika jest tworzony tylko jeden koszyk, w oparciu o sesję.
 
-`GetCartItems` Metoda zwraca listę towary w koszyku dla użytkownika. W dalszej części tego samouczka, zobaczysz, że wiązanie modelu służy do wyświetlania elementów koszyka zakupów przy użyciu koszyka `GetCartItems` metody.
+Metoda `GetCartItems` zwraca listę elementów koszyka zakupów dla użytkownika. W dalszej części tego samouczka zobaczysz, że powiązanie modelu służy do wyświetlania elementów koszyka w koszyku przy użyciu metody `GetCartItems`.
 
-### <a name="creating-the-add-to-cart-functionality"></a>Tworzenie funkcji Dodaj do koszyka
+### <a name="creating-the-add-to-cart-functionality"></a>Tworzenie funkcji dodawania do koszyka
 
-Jak wspomniano wcześniej, utworzysz stronę przetwarzania o nazwie *AddToCart.aspx* który będzie używany do dodawania nowych produktów do koszyka użytkownika. Ta strona będzie wywoływać `AddToCart` method in Class metoda `ShoppingCart` klasy, który został utworzony. *AddToCart.aspx* strony będą oczekiwać, że produkt `ID` jest przekazywany do niego. Ten produkt `ID` będzie używany podczas wywoływania `AddToCart` method in Class metoda `ShoppingCart` klasy.
+Jak wspomniano wcześniej, utworzysz stronę przetwarzania o nazwie *AddToCart. aspx* , która będzie używana do dodawania nowych produktów do koszyka zakupów użytkownika. Ta strona wywoła metodę `AddToCart` w klasie `ShoppingCart`, która została właśnie utworzona. Strona *AddToCart. aspx* będzie oczekiwać, że `ID` produktu zostanie do niego przeniesiona. Ten `ID` produktu będzie używany podczas wywoływania metody `AddToCart` w klasie `ShoppingCart`.
 
 > [!NOTE] 
 > 
-> Modyfikuje kodu powiązanego (*AddToCart.aspx.cs*) na tej stronie nie strony interfejsu użytkownika (*AddToCart.aspx*).
+> Zmodyfikujesz kod w tle (*AddToCart.aspx.cs*) na tej stronie, a nie interfejs użytkownika strony (*AddToCart. aspx*).
 
-#### <a name="to-create-the-add-to-cart-functionality"></a>Aby utworzyć Dodaj na do koszyka funkcji:
+#### <a name="to-create-the-add-to-cart-functionality"></a>Aby utworzyć funkcję dodawania do koszyka:
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **WingtipToys**projektu, kliknij przycisk **Dodaj**  - &gt; **nowy element**.  
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Dodawanie standardowych nowej strony (formularz sieci Web) do aplikacji o nazwie *AddToCart.aspx*. 
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **WingtipToys**, kliknij polecenie **Dodaj** -&gt; **nowy element**.  
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Dodawanie standardowej nowej strony (formularz sieci Web) do aplikacji o nazwie *AddToCart. aspx*. 
 
     ![Koszyk — Dodaj formularz sieci Web](shopping-cart/_static/image4.png)
-3. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *AddToCart.aspx* strony, a następnie kliknij przycisk **Wyświetl kod**. *AddToCart.aspx.cs* pliku związanego z kodem jest otwarty w edytorze.
-4. Zastąp istniejący kod w *AddToCart.aspx.cs* związanym z kodem następującym kodem:   
+3. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy stronę *AddToCart. aspx* , a następnie kliknij pozycję **Wyświetl kod**. Plik związany z kodem *AddToCart.aspx.cs* jest otwarty w edytorze.
+4. Zastąp istniejący kod w kodzie *AddToCart.aspx.cs* następującym:   
 
     [!code-csharp[Main](shopping-cart/samples/sample4.cs)]
 
-Gdy *AddToCart.aspx* strona została załadowana, produkt `ID` jest pobierana z ciągu zapytania. Następnie tworzone i używane do wywoływania wystąpienia klasy koszyka zakupów `AddToCart` metoda dodaną wcześniej w tym samouczku. `AddToCart` Metody zawarte w *ShoppingCartActions.cs* plików, zawiera logikę do dodania wybrany produkt do koszyka lub zwiększ ilość produktu wybranego produktu. Jeśli nie został dodany produkt do koszyka, produktu jest dodawany do `CartItem` tabeli bazy danych. Jeśli produkt został już dodany do koszyka, a użytkownik dodaje dodatkowy element tego samego produktu, ilość produktów jest zwiększany w `CartItem` tabeli. Na koniec wróć do przekierowania na stronie *ShoppingCart.aspx* strony, które należy dodać w następnym kroku, w którym użytkownik widzi zaktualizowaną listę elementów w koszyku.
+Po załadowaniu strony *AddToCart. aspx* produkt `ID` jest pobierany z ciągu zapytania. Następnie wystąpienie klasy koszyka zakupów jest tworzone i używane do wywołania metody `AddToCart`, która została dodana wcześniej w tym samouczku. Metoda `AddToCart`, zawarta w pliku *ShoppingCartActions.cs* , zawiera logikę umożliwiającą dodanie wybranego produktu do koszyka zakupów lub zwiększenie ilości produktu wybranego produktu. Jeśli produkt nie został dodany do koszyka zakupów, produkt zostanie dodany do tabeli `CartItem` bazy danych. Jeśli produkt został już dodany do koszyka, a użytkownik dodaje dodatkowy element tego samego produktu, ilość produktu jest zwiększana w tabeli `CartItem`. Na koniec Strona przekierowuje z powrotem do strony *ShoppingCart. aspx* , którą dodasz w następnym kroku, gdzie użytkownik zobaczy zaktualizowaną listę elementów w koszyku.
 
-Jak wcześniej wspomniano, użytkownik `ID` służy do identyfikowania produktów, które są skojarzone z określonym użytkownikiem. To `ID` zostanie dodany do wiersza w `CartItem` tabeli każdorazowo użytkownik dodaje produkt do koszyka.
+Jak wspomniano wcześniej, `ID` użytkownika służy do identyfikowania produktów, które są skojarzone z określonym użytkownikiem. Ta `ID` jest dodawana do wiersza w tabeli `CartItem` za każdym razem, gdy użytkownik doda produkt do koszyka.
 
-### <a name="creating-the-shopping-cart-ui"></a>Tworzenie koszyka interfejsu użytkownika
+### <a name="creating-the-shopping-cart-ui"></a>Tworzenie interfejsu użytkownika koszyka zakupów
 
-*ShoppingCart.aspx* strony wyświetli produktów, które użytkownik został dodany do ich koszyk sklepowy. Będzie ona również możliwość dodawania, usuwania i aktualizowania elementów w koszyku.
+Na stronie *ShoppingCart. aspx* zostaną wyświetlone produkty dodane przez użytkownika do koszyka zakupów. Umożliwia także dodawanie, usuwanie i aktualizowanie elementów w koszyku.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **WingtipToys**, kliknij przycisk **Dodaj**  - &gt; **nowy element**.  
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Dodaj nową stronę (formularz sieci Web), która zawiera stronę wzorcową, wybierając **formularz sieci Web używający strony wzorcowej**. Nadaj nowej stronie *ShoppingCart.aspx*.
-3. Wybierz **Site.Master** można dołączyć strony wzorcowej do nowo utworzonego *.aspx* strony.
-4. W *ShoppingCart.aspx* strony, Zastąp istniejący kod znaczników następującym kodem:   
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **WingtipToys**, a następnie kliknij pozycję **Dodaj** -&gt; **nowy element**.  
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Dodaj nową stronę (formularz sieci Web), która zawiera stronę wzorcową, wybierając **formularz sieci Web przy użyciu strony wzorcowej**. Nadaj nowej stronie nazwę *ShoppingCart. aspx*.
+3. Wybierz pozycję **site. Master** , aby dołączyć stronę wzorcową do nowo utworzonej strony *. aspx* .
+4. Na stronie *ShoppingCart. aspx* Zastąp istniejący znacznik następującym znacznikiem:   
 
     [!code-aspx[Main](shopping-cart/samples/sample5.aspx)]
 
-*ShoppingCart.aspx* strona zawiera **GridView** formantu o nazwie `CartList`. Ta kontrola korzysta wiązania modelu do powiązania danych koszyka zakupów z bazy danych w **GridView** kontroli. Po ustawieniu `ItemType` właściwość **GridView** kontrolować wyrażenia wiązania danych `Item` jest dostępna w kodu znaczników kontrolki i kontroli staje się silnie typizowane. Jak wspomniano we wcześniejszej części tej serii samouczków, możesz wybrać szczegóły `Item` obiekt, za pomocą funkcji IntelliSense. Aby skonfigurować kontrolkę danych na potrzeby tworzenia powiązania modelu wybierz dane, należy ustawić `SelectMethod` właściwości formantu. W znacznikach powyżej, ustawić `SelectMethod` przy użyciu metody GetShoppingCartItems, która zwraca listę `CartItem` obiektów. **GridView** kontrola nad danymi wywołuje metodę w odpowiednim czasie w cyklu życia strony i automatycznie wiąże zwracanych danych. `GetShoppingCartItems` Metoda nadal musi zostać dodany.
+Strona *ShoppingCart. aspx* zawiera kontrolkę **GridView** o nazwie `CartList`. Ta kontrolka używa powiązania modelu, aby powiązać dane koszyka zakupów z bazy danych z formantem **GridView** . Po ustawieniu właściwości `ItemType` formantu **GridView** , wyrażenie powiązania danych `Item` jest dostępne w znaczniku kontrolki, a kontrolka zostanie silnie wpisana. Jak wspomniano wcześniej w tej serii samouczków, możesz wybrać szczegóły obiektu `Item` przy użyciu funkcji IntelliSense. Aby skonfigurować kontrolkę danych do używania powiązania modelu w celu wybrania danych, należy ustawić właściwość `SelectMethod` formantu. W powyższym znaczniku należy ustawić `SelectMethod`, aby użyć metody GetShoppingCartItems, która zwraca listę obiektów `CartItem`. Kontrolka danych **GridView** wywołuje metodę w odpowiednim czasie w cyklu życia strony i automatycznie wiąże zwrócone dane. Należy nadal dodać metodę `GetShoppingCartItems`.
 
-#### <a name="retrieving-the-shopping-cart-items"></a>Trwa pobieranie elementów koszyka zakupów
+#### <a name="retrieving-the-shopping-cart-items"></a>Pobieranie elementów koszyka zakupów
 
-Następnie dodaj kod, aby *ShoppingCart.aspx.cs* kodu powiązanego do pobrania i wypełnić koszyk na zakupy interfejsu użytkownika.
+Następnie Dodaj kod do kodu *ShoppingCart.aspx.cs* , aby pobrać i wypełnić interfejs użytkownika koszyka zakupów.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *ShoppingCart.aspx* strony, a następnie kliknij przycisk **Wyświetl kod**. *ShoppingCart.aspx.cs* pliku związanego z kodem jest otwarty w edytorze.
-2. Zastąp istniejący kod następujących czynności:  
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy stronę *ShoppingCart. aspx* , a następnie kliknij pozycję **Wyświetl kod**. Plik związany z kodem *ShoppingCart.aspx.cs* jest otwarty w edytorze.
+2. Zastąp istniejący kod następującym:  
 
     [!code-csharp[Main](shopping-cart/samples/sample6.cs)]
 
-Jak wspomniano powyżej, `GridView` danych kontrolować wywołania `GetShoppingCartItems` metody w odpowiednim czasie życia strony cyklu i automatycznie wiąże zwracanych danych. `GetShoppingCartItems` Metoda tworzy wystąpienie `ShoppingCartActions` obiektu. Następnie kod używa tego wystąpienia, aby przywrócić elementów w koszyku przez wywołanie metody `GetCartItems` metody.
+Jak wspomniano powyżej, Kontrola danych `GridView` wywołuje metodę `GetShoppingCartItems` w odpowiednim czasie w cyklu życia strony i automatycznie wiąże zwrócone dane. Metoda `GetShoppingCartItems` tworzy wystąpienie obiektu `ShoppingCartActions`. Następnie kod używa tego wystąpienia do zwrócenia elementów w koszyku, wywołując metodę `GetCartItems`.
 
-### <a name="adding-products-to-the-shopping-cart"></a>Dodawanie produktów do koszyka
+### <a name="adding-products-to-the-shopping-cart"></a>Dodawanie produktów do koszyka zakupów
 
-Gdy albo *ProductList.aspx* lub *ProductDetails.aspx* zostanie wyświetlona strona, użytkownik będzie mógł dodać produkt do koszyka, za pomocą linku. Po kliknięciu łącza, aplikacja przejdzie do strony przetwarzania o nazwie *AddToCart.aspx*. *AddToCart.aspx* wywoła strony `AddToCart` method in Class metoda `ShoppingCart` klasy dodaną wcześniej w tym samouczku.
+Gdy zostanie wyświetlona strona *ProductList. aspx* lub *ProductDetails. aspx* , użytkownik będzie mógł dodać produkt do koszyka przy użyciu linku. Po kliknięciu linku aplikacja przechodzi do strony przetwarzania o nazwie *AddToCart. aspx*. Strona *AddToCart. aspx* wywoła metodę `AddToCart` w klasie `ShoppingCart`, która została dodana wcześniej w tym samouczku.
 
-Teraz dodasz **Dodaj do koszyka** łącze do obu *ProductList.aspx* strony i *ProductDetails.aspx* strony. Ten link będzie zawierać produktu `ID` , są pobierane z bazy danych.
+Teraz dodasz link **Dodaj do koszyka** do strony *ProductList. aspx* i *ProductDetails. aspx* . Ten link będzie zawierać `ID` produktu pobrany z bazy danych programu.
 
-1. W **Eksploratora rozwiązań**, Znajdź i Otwórz stronę o nazwie *ProductList.aspx*.
-2. Dodawanie znaczników wyróżniony na żółto do *ProductList.aspx* stronie tak, aby cała strona wygląda następująco:  
+1. W **Eksplorator rozwiązań**Znajdź i Otwórz stronę o nazwie *ProductList. aspx*.
+2. Dodaj znaczniki wyróżnione kolorem żółtym do strony *ProductList. aspx* , aby cała strona była wyświetlana w następujący sposób:  
 
     [!code-aspx[Main](shopping-cart/samples/sample7.aspx?highlight=50-54)]
 
 ### <a name="testing-the-shopping-cart"></a>Testowanie koszyka
 
-Uruchom aplikację, aby zobaczyć, jak dodać produkty do koszyka.
+Uruchom aplikację, aby dowiedzieć się, jak dodać produkty do koszyka.
 
-1. Naciśnij klawisz **F5** do uruchomienia aplikacji.  
- Po projekcie odtwarza bazy danych, przeglądarce otworzy się i Pokaż *Default.aspx* strony.
-2. Wybierz **samochodów** z menu nawigacji kategorii.  
- *ProductList.aspx* zostanie wyświetlona strona, pokazujący tylko produkty z kategorii "Samochody". 
+1. Naciśnij klawisz **F5** , aby uruchomić aplikację.  
+ Po utworzeniu bazy danych przez projekt zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
+2. Wybierz pozycję **samochody** z menu nawigacji kategorii.  
+ Zostanie wyświetlona strona *ProductList. aspx* zawierająca tylko produkty należące do kategorii "samochody". 
 
-    ![Koszyk sklepowy - samochodów](shopping-cart/_static/image5.png)
-3. Kliknij przycisk **Dodaj do koszyka** łącze obok produktów pierwsze na liście (samochód konwertowany).   
- *ShoppingCart.aspx* zostanie wyświetlona strona, przedstawiający zaznaczenie w koszyku. 
+    ![Koszyk samochodów](shopping-cart/_static/image5.png)
+3. Kliknij link **Dodaj do koszyka** obok pierwszego produktu na liście (samochód wymienialny).   
+ Zostanie wyświetlona strona *ShoppingCart. aspx* pokazująca wybór w koszyku. 
 
-    ![Koszyk sklepowy - koszyka](shopping-cart/_static/image6.png)
-4. Wyświetl dodatkowe produkty, wybierając **płaszczyzn** z menu nawigacji kategorii.
-5. Kliknij przycisk **Dodaj do koszyka** łącze obok pierwszy produkt na liście.  
- *ShoppingCart.aspx* zostanie wyświetlona strona z elementem dodatkowe.
+    ![Koszyk — koszyk](shopping-cart/_static/image6.png)
+4. Wyświetl dodatkowe produkty, wybierając **płaszczyzny** z menu nawigacji kategorii.
+5. Kliknij link **Dodaj do koszyka** obok pierwszego wymienionego produktu.  
+ Zostanie wyświetlona strona *ShoppingCart. aspx* z dodatkowym elementem.
 6. Zamknij przeglądarkę.
 
 ### <a name="calculating-and-displaying-the-order-total"></a>Obliczanie i wyświetlanie sumy zamówienia
 
-Oprócz dodawania produktów do koszyka, należy dodać `GetTotal` metody `ShoppingCart` klasy i wyświetlić łączna kwota zamówienia na stronie Koszyk sklepowy.
+Oprócz dodawania produktów do koszyka zakupów należy dodać metodę `GetTotal` do klasy `ShoppingCart` i wyświetlić łączną kwotę zamówienia na stronie koszyka zakupów.
 
-1. W **Eksploratora rozwiązań**, otwórz *ShoppingCartActions.cs* w pliku *logiki* folderu.
-2. Dodaj następujący kod `GetTotal` wyróżniony na żółto do metody `ShoppingCart` klasy, tak aby klasy wygląda następująco:   
+1. W **Eksplorator rozwiązań**otwórz plik *ShoppingCartActions.cs* w folderze *logiki* .
+2. Dodaj następującą metodę `GetTotal` wyróżnioną żółtym do klasy `ShoppingCart`, tak aby Klasa była wyświetlana w następujący sposób:   
 
     [!code-csharp[Main](shopping-cart/samples/sample8.cs?highlight=85-97)]
 
-Po pierwsze, `GetTotal` metoda pobiera identyfikator koszyka zakupów dla użytkownika. Następnie metoda pobiera koszyka całkowitą przez pomnożenie cena produktu przez ilość produktu dla każdego produktu na liście w koszyku.
+Najpierw Metoda `GetTotal` Pobiera identyfikator koszyka dla użytkownika. Następnie Metoda pobiera kwotę koszyka przez pomnożenie ceny produktu przez ilość produktu dla każdego produktu wymienionego w koszyku.
 
 > [!NOTE] 
 > 
-> Powyższy kod używa typu dopuszczającego wartość null "`int?`". Typy dopuszczające wartość null może reprezentować wszystkie wartości typu podstawowego, a także jako wartość null. Aby uzyskać więcej informacji, zobacz [przy użyciu typów dopuszczających wartości zerowe](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx).
+> Powyższy kod używa typu dopuszczającego wartość null "`int?`". Typy dopuszczające wartości null mogą reprezentować wszystkie wartości typu podstawowego, a także jako wartość null. Aby uzyskać więcej informacji, zobacz [używanie typów dopuszczających wartość null](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx).
 
-### <a name="modify-the-shopping-cart-display"></a>Zmodyfikować sposób wyświetlania koszyka zakupów
+### <a name="modify-the-shopping-cart-display"></a>Modyfikowanie wyświetlania koszyka zakupów
 
-Następnie zmodyfikujesz kod *ShoppingCart.aspx* strony, aby wywołać `GetTotal` metody i sposobu wyświetlania łącznie na *ShoppingCart.aspx* stronie podczas ładowania strony.
+Następnie zmodyfikujesz kod dla strony *ShoppingCart. aspx* , aby wywołać metodę `GetTotal` i wyświetlić tę sumę na stronie *ShoppingCart. aspx* podczas ładowania strony.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *ShoppingCart.aspx* strony i wybierz **Wyświetl kod**.
-2. W *ShoppingCart.aspx.cs* pliku, zaktualizuj `Page_Load` program obsługi, dodając następujący kod wyróżniony na żółto:   
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy stronę *ShoppingCart. aspx* i wybierz polecenie **Wyświetl kod**.
+2. W pliku *ShoppingCart.aspx.cs* zaktualizuj procedurę obsługi `Page_Load`, dodając następujący kod w żółtym:   
 
     [!code-csharp[Main](shopping-cart/samples/sample9.cs?highlight=16-31)]
 
-Gdy *ShoppingCart.aspx* strona ładuje się, ładuje obiekt koszyka zakupów, a następnie pobiera łączną koszyka zakupów, wywołując `GetTotal` metody `ShoppingCart` klasy. Jeśli koszyka jest pusta, w tym celu jest wyświetlony komunikat.
+Po załadowaniu strony *ShoppingCart. aspx* załaduje ona obiekt koszyka zakupów, a następnie pobiera sumę koszyka zakupów, wywołując metodę `GetTotal` klasy `ShoppingCart`. Jeśli koszyk jest pusty, zostanie wyświetlony komunikat z tym efektem.
 
-### <a name="testing-the-shopping-cart-total"></a>Testowanie Suma koszyka zakupów
+### <a name="testing-the-shopping-cart-total"></a>Testowanie całkowitego koszyka zakupów
 
-Uruchom aplikację teraz aby zobaczyć, jak można nie tylko dodać produkt do koszyka, ale możesz zobaczyć łączną koszyka zakupów.
+Uruchom aplikację teraz, aby zobaczyć, jak nie tylko dodać produkt do koszyka, ale możesz zobaczyć łączną część koszyka zakupów.
 
-1. Naciśnij klawisz **F5** do uruchomienia aplikacji.  
- Spowoduje to otwarcie i Pokaż przeglądarki *Default.aspx* strony.
-2. Wybierz **samochodów** z menu nawigacji kategorii.
-3. Kliknij przycisk **Dodaj do koszyka** łącze obok pierwszego produktu.   
- *ShoppingCart.aspx* zostanie wyświetlona strona z sumy zamówienia. 
+1. Naciśnij klawisz **F5** , aby uruchomić aplikację.  
+ Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
+2. Wybierz pozycję **samochody** z menu nawigacji kategorii.
+3. Kliknij link **Dodaj do koszyka** obok pierwszego produktu.   
+ Zostanie wyświetlona strona *ShoppingCart. aspx* z sumą zamówień. 
 
-    ![Koszyk — łącznie z koszyka](shopping-cart/_static/image7.png)
-4. Niektóre inne produkty (na przykład płaszczyzna) należy dodać do koszyka.
-5. *ShoppingCart.aspx* zostanie wyświetlona strona z sumą zaktualizowane dla wszystkich produktów, które zostały dodane. 
+    ![Koszyk — suma dla koszyka](shopping-cart/_static/image7.png)
+4. Dodaj inne produkty (na przykład płaszczyznę) do koszyka.
+5. Na stronie *ShoppingCart. aspx* zostanie wyświetlona zaktualizowana suma dla wszystkich produktów, które zostały dodane. 
 
-    ![Koszyk sklepowy — wielu produktów](shopping-cart/_static/image8.png)
-6. Zatrzymaj uruchomionej aplikacji przez zamknięcie okna przeglądarki.
+    ![Koszyk — wiele produktów](shopping-cart/_static/image8.png)
+6. Zatrzymaj uruchomioną aplikację, zamykając okno przeglądarki.
 
-### <a name="adding-update-and-checkout-buttons-to-the-shopping-cart"></a>Dodawanie aktualizacji i wyewidencjonowania przycisków do koszyka
+### <a name="adding-update-and-checkout-buttons-to-the-shopping-cart"></a>Dodawanie przycisków aktualizacji i wyewidencjonowania do koszyka zakupów
 
-Aby zezwolić użytkownikom na modyfikowanie koszyka, należy dodać **aktualizacji** przycisku i **wyewidencjonowania** przycisk, aby na stronie koszyka. **Wyewidencjonowania** przycisk nie jest używany do momentu w dalszej części tej serii samouczków.
+Aby umożliwić użytkownikom modyfikowanie koszyka, dodasz przycisk **aktualizacji** i przycisk **wyewidencjonowania** do strony koszyka zakupów. Przycisk **wyewidencjonowywania** nie jest używany do dalszej części tej serii samouczków.
 
-1. W **Eksploratora rozwiązań**, otwórz *ShoppingCart.aspx* strony w folderze głównym projektu aplikacji sieci web.
-2. Aby dodać **aktualizacji** przycisku i **wyewidencjonowania** przycisk, aby *ShoppingCart.aspx* strony, Dodaj znaczniki wyróżniony na żółto istniejących znaczników, jak pokazano w Poniższy kod:   
+1. W **Eksplorator rozwiązań**Otwórz stronę *ShoppingCart. aspx* w folderze głównym projektu aplikacji sieci Web.
+2. Aby dodać przycisk **Aktualizuj** i przycisk **wyewidencjonowania** do strony *ShoppingCart. aspx* , Dodaj znacznik wyróżniony żółtym do istniejącego znacznika, jak pokazano w poniższym kodzie:   
 
     [!code-aspx[Main](shopping-cart/samples/sample10.aspx?highlight=36-45)]
 
-Kiedy użytkownik kliknie **aktualizacji** przycisku `UpdateBtn_Click` zostanie wywołana procedura obsługi zdarzeń. Ta procedura obsługi zdarzeń wywołuje kod, który należy dodać w następnym kroku.
+Gdy użytkownik kliknie przycisk **Aktualizuj** , zostanie wywołana procedura obsługi zdarzeń `UpdateBtn_Click`. Ta procedura obsługi zdarzeń wywoła kod, który zostanie dodany w następnym kroku.
 
-Następnie należy zaktualizować kod zawarty w *ShoppingCart.aspx.cs* pliku pętli elementów do koszyka i wywołania `RemoveItem` i `UpdateItem` metody.
+Następnie można zaktualizować kod zawarty w pliku *ShoppingCart.aspx.cs* , aby przechodzić do pętli przez elementy koszyka i wywoływać metody `RemoveItem` i `UpdateItem`.
 
-1. W **Eksploratora rozwiązań**, otwórz *ShoppingCart.aspx.cs* plik w folderze głównym projektu aplikacji sieci web.
-2. Dodaj poniższe sekcje kodu wyróżniony na żółto do *ShoppingCart.aspx.cs* pliku:   
+1. W **Eksplorator rozwiązań**otwórz plik *ShoppingCart.aspx.cs* w folderze głównym projektu aplikacji sieci Web.
+2. Dodaj następujące sekcje kodu wyróżnione żółtymi do pliku *ShoppingCart.aspx.cs* :   
 
     [!code-csharp[Main](shopping-cart/samples/sample11.cs?highlight=9-11,33,44-89)]
 
-Kiedy użytkownik kliknie **aktualizacji** znajdujący się na *ShoppingCart.aspx* strony, wywoływana jest metoda UpdateCartItems. Metoda UpdateCartItems pobiera zaktualizowane wartości dla każdego elementu w koszyku. Następnie wywołuje metodę UpdateCartItems `UpdateShoppingCartDatabase` — metoda (dodane i wyjaśnione w następnym kroku) Dodawanie lub usuwanie elementów z koszyka. Gdy baza danych została zaktualizowana w celu odzwierciedlenia aktualizacji do koszyka, **GridView** kontroli aktualizacji na stronie koszyka, wywołując `DataBind` metodę **GridView**. Ponadto łączna kwota zamówienia na stronie Koszyk sklepowy aktualizowany w celu odzwierciedlenia zaktualizowaną listę elementów.
+Gdy użytkownik kliknie przycisk **Aktualizuj** na stronie *ShoppingCart. aspx* , wywoływana jest metoda UpdateCartItems. Metoda UpdateCartItems pobiera zaktualizowane wartości dla każdego elementu w koszyku. Następnie Metoda UpdateCartItems wywołuje metodę `UpdateShoppingCartDatabase` (dodano i wyjaśniono w następnym kroku) w celu dodania lub usunięcia elementów z koszyka. Gdy baza danych zostanie zaktualizowana w celu odzwierciedlenia aktualizacji koszyka, formant **GridView** zostanie zaktualizowany na stronie koszyka zakupów, wywołując metodę `DataBind` dla **widoku GridView**. Ponadto całkowita kwota zamówienia na stronie koszyka zakupów jest aktualizowana w celu odzwierciedlenia zaktualizowanej listy elementów.
 
-### <a name="updating-and-removing-shopping-cart-items"></a>Aktualizacja i usuwanie elementów z koszyka zakupów
+### <a name="updating-and-removing-shopping-cart-items"></a>Aktualizowanie i usuwanie elementów koszyka zakupów
 
-Na *ShoppingCart.aspx* stronie widać, zostały dodane formanty aktualizowania ilość elementów i usunięcie elementu. Teraz Dodaj kod, który spowoduje, że te formanty pracy.
+Na stronie *ShoppingCart. aspx* można zobaczyć kontrolki, które zostały dodane do aktualizowania ilości elementu i usuwania elementu. Teraz Dodaj kod, który umożliwi działanie tych kontrolek.
 
-1. W **Eksploratora rozwiązań**, otwórz *ShoppingCartActions.cs* w pliku *logiki* folderu.
-2. Dodaj następujący kod wyróżniony na żółto do *ShoppingCartActions.cs* pliku klasy:   
+1. W **Eksplorator rozwiązań**otwórz plik *ShoppingCartActions.cs* w folderze *logiki* .
+2. Dodaj następujący kod wyróżniony kolorem żółtym do pliku klasy *ShoppingCartActions.cs* :   
 
     [!code-csharp[Main](shopping-cart/samples/sample12.cs?highlight=99-213)]
 
-`UpdateShoppingCartDatabase` Metody wywoływane z `UpdateCartItems` metody *ShoppingCart.aspx.cs* stronie, zawiera logikę, aktualizowanie lub usuwanie elementów z koszyka. `UpdateShoppingCartDatabase` Metoda wykonuje iterację przez wszystkie wiersze w obrębie listy koszyka zakupów. Jeśli element do koszyka zakupów została oznaczona do usunięcia lub ilość jest mniejsza niż jedna `RemoveItem` metoda jest wywoływana. W przeciwnym razie element do koszyka zakupów są sprawdzane pod kątem aktualizacji, gdy `UpdateItem` metoda jest wywoływana. Po element do koszyka zakupów została usunięta lub zaktualizowana, zmiany w bazie danych są zapisywane.
+Metoda `UpdateShoppingCartDatabase` wywołana z metody `UpdateCartItems` na stronie *ShoppingCart.aspx.cs* zawiera logikę do aktualizowania lub usuwania elementów z koszyka. Metoda `UpdateShoppingCartDatabase` wykonuje iterację wszystkich wierszy na liście koszyków zakupów. Jeśli element koszyka zakupów został oznaczony jako usunięty lub ilość jest mniejsza od 1, wywoływana jest metoda `RemoveItem`. W przeciwnym razie element koszyka zakupów jest sprawdzany pod kątem aktualizacji, gdy wywoływana jest metoda `UpdateItem`. Po usunięciu lub zaktualizowaniu elementu koszyka zostaną zapisane zmiany w bazie danych.
 
-`ShoppingCartUpdates` Struktura jest używana do przechowywania wszystkich elementów koszyka zakupów. `UpdateShoppingCartDatabase` Metoda używa `ShoppingCartUpdates` struktury, aby określić, jeśli jakiekolwiek elementy muszą zostać zaktualizowane lub usunięte.
+Struktura `ShoppingCartUpdates` jest używana do przechowywania wszystkich elementów koszyka zakupów. Metoda `UpdateShoppingCartDatabase` używa struktury `ShoppingCartUpdates`, aby określić, czy którykolwiek z elementów ma zostać zaktualizowany czy usunięty.
 
-W następnym samouczku użyjesz `EmptyCart` metodę, aby wyczyścić służącej do obsługi koszyka po zakupieniu produktów. Ale na razie użyjesz `GetCount` metodę, która właśnie został dodany do *ShoppingCartActions.cs* plik, aby określić, ile elementów znajdują się w koszyku.
+W następnym samouczku będziesz używać metody `EmptyCart`, aby wyczyścić koszyk po zakupie produktów. Jednak teraz użyjemy `GetCount` metody, która została właśnie dodana do pliku *ShoppingCartActions.cs* , aby określić, ile elementów znajduje się w koszyku zakupów.
 
-### <a name="adding-a-shopping-cart-counter"></a>Dodawanie licznik koszyka zakupów
+### <a name="adding-a-shopping-cart-counter"></a>Dodawanie licznika koszyka zakupów
 
-Aby umożliwić użytkownikom przeglądanie całkowitą liczbę elementów w koszyku, dodasz licznik do *Site.Master* strony. Ten licznik będzie również działać jako link do koszyka.
+Aby umożliwić użytkownikowi wyświetlanie łącznej liczby elementów w koszyku, należy dodać licznik do strony *site. Master* . Ten licznik również działa jako link do koszyka zakupów.
 
-1. W **Eksploratora rozwiązań**, otwórz *Site.Master* strony.
-2. Zmodyfikuj znaczniki, dodając zakupów łącze licznika koszyka, jak pokazano w kolorze żółtym do sekcji nawigacji, więc pojawia się ono w następujący sposób:  
+1. W **Eksplorator rozwiązań**Otwórz stronę *site. Master* .
+2. Zmodyfikuj znacznik przez dodanie linku do koszyka zakupów, jak pokazano w sekcji żółtej, tak aby pojawił się w następujący sposób:  
 
     [!code-html[Main](shopping-cart/samples/sample13.html?highlight=6)]
-3. Następnie zaktualizuj związanym kodzie *Site.Master.cs* pliku, dodając kod wyróżniony na żółto w następujący sposób:  
+3. Następnie zaktualizuj kod związany z plikiem *site.Master.cs* , dodając kod wyróżniony kolorem żółtym w następujący sposób:  
 
     [!code-csharp[Main](shopping-cart/samples/sample14.cs?highlight=11,77-84)]
 
-Przed wyświetleniem strony jako kod HTML, `Page_PreRender` zdarzenie jest wywoływane. W `Page_PreRender` obsługi, łączna liczba koszyka jest określana przez wywołanie metody `GetCount` metody. Zwrócona wartość jest dodawana do `cartCount` zakres uwzględniony w znaczniku elementu *Site.Master* strony. `<span>` Tagów umożliwia wewnętrzne elementy mógł być poprawnie renderowany. Po wyświetleniu dowolnej stronie witryny będą wyświetlane sumy koszyka zakupów. Użytkownik może także kliknąć łącznie koszyka zakupów, aby wyświetlić koszyk sklepowy.
+Przed renderowaniem strony jako HTML zostanie zgłoszone zdarzenie `Page_PreRender`. W obsłudze `Page_PreRender`, Łączna liczba koszyków zakupów jest określana przez wywołanie metody `GetCount`. Zwrócona wartość jest dodawana do zakresu `cartCount` zawartego w znaczniku strony *.* Tagi `<span>` umożliwiają prawidłowe renderowanie elementów wewnętrznych. Gdy zostanie wyświetlona dowolna strona witryny, zostanie wyświetlona suma koszyka zakupów. Użytkownik może również kliknąć opcję koszyka zakupów, aby wyświetlić koszyk.
 
-## <a name="testing-the-completed-shopping-cart"></a>Testy zakończone koszyka
+## <a name="testing-the-completed-shopping-cart"></a>Testowanie ukończonego koszyka zakupów
 
-Można uruchomić aplikację teraz, aby zobaczyć sposób dodawania, usuwania i aktualizacji elementów w koszyku. Suma koszyka zakupów, zostanie naliczona łączny koszt wszystkich elementów w koszyku.
+Teraz możesz uruchomić aplikację, aby zobaczyć, jak można dodawać, usuwać i aktualizować elementy w koszyku. Kwota koszyka zakupów będzie odzwierciedlać łączny koszt wszystkich elementów w koszyku.
 
-1. Naciśnij klawisz **F5** do uruchomienia aplikacji.  
- Przeglądarki otwiera się i pokazuje *Default.aspx* strony.
-2. Wybierz **samochodów** z menu nawigacji kategorii.
-3. Kliknij przycisk **Dodaj do koszyka** łącze obok pierwszego produktu.   
- *ShoppingCart.aspx* zostanie wyświetlona strona z sumy zamówienia.
-4. Wybierz **płaszczyzn** z menu nawigacji kategorii.
-5. Kliknij przycisk **Dodaj do koszyka** łącze obok pierwszego produktu.
-6. Ustaw wartość pierwszego elementu w koszyku na 3 i wybierz **Usuń element** pole wyboru drugiego elementu.<a id="a"></a>
-7. Kliknij przycisk **aktualizacji** przycisk, aby zaktualizować na stronie koszyka i wyświetlić nowe sumy zamówienia. 
+1. Naciśnij klawisz **F5** , aby uruchomić aplikację.  
+ Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
+2. Wybierz pozycję **samochody** z menu nawigacji kategorii.
+3. Kliknij link **Dodaj do koszyka** obok pierwszego produktu.   
+ Zostanie wyświetlona strona *ShoppingCart. aspx* z sumą zamówień.
+4. Wybierz **płaszczyzny** z menu nawigacji kategorii.
+5. Kliknij link **Dodaj do koszyka** obok pierwszego produktu.
+6. Ustaw liczbę pierwszego elementu w koszyku na 3, a następnie zaznacz pole wyboru **Usuń element** drugiego elementu.<a id="a"></a>
+7. Kliknij przycisk **Aktualizuj** , aby zaktualizować stronę koszyka zakupów i wyświetlić nową sumę zamówień. 
 
-    ![Koszyk sklepowy — aktualizacja koszyka](shopping-cart/_static/image9.png)
+    ![Aktualizacja koszyka koszyka](shopping-cart/_static/image9.png)
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku utworzono koszyka zakupów dla przykładowej aplikacji Wingtip Toys Web Forms. W tym samouczku użyto programu Entity Framework Code First, adnotacje danych na silnie typizowane kontrolki danych i tworzenia powiązania modelu.
+W tym samouczku utworzono koszyk dla przykładowej aplikacji Wingtip zabawki Web Forms. W tym samouczku użyto Entity Framework Code First, adnotacji danych, kontrolek danych o jednoznacznie określonym typie i powiązania modelu.
 
-Moduł koszyka zakupów obsługuje dodawanie, usuwanie i aktualizowanie elementów wybranych do zakupu. Oprócz wykonywania funkcji koszyka zakupów, wiesz sposób wyświetlania elementów koszyka zakupów **GridView** kontroli i obliczać sumy zamówienia.
+Koszyk obsługuje dodawanie, usuwanie i aktualizowanie elementów wybranych przez użytkownika do zakupu. Oprócz implementacji funkcji koszyka zakupów wiesz już, jak wyświetlać elementy koszyka zakupów w kontrolce **GridView** i obliczać sumę zamówień.
 
-## <a name="addition-information"></a>Informacje dodatkowe
+## <a name="addition-information"></a>Dodatkowe informacje
 
-[Przegląd stanu sesji platformy ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
+[Przegląd stanu sesji ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
 
 > [!div class="step-by-step"]
 > [Poprzednie](display_data_items_and_details.md)

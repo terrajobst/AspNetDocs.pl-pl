@@ -1,36 +1,36 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
-title: Wywoływanie usługi protokołu OData z klienta programu .NET (C#) | Dokumentacja firmy Microsoft
+title: Wywoływanie usługi OData z klienta platformy .NET (C#) | Microsoft Docs
 author: MikeWasson
-description: W tym samouczku pokazano, jak wywołać usługę OData z poziomu aplikacji klienckiej języka C#. Wersje oprogramowania używany w samouczku programu Visual Studio 2013 (działa Visual S...
+description: W tym samouczku pokazano, jak wywołać usługę OData z C# aplikacji klienckiej. Wersje oprogramowania używane w samouczku Visual Studio 2013 (działa z Visual S...
 ms.author: riande
 ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 6b5ab979518615356baaeeb824e0a621eb59a38f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6a289fcb843634eeeefef1e0767e04e0be8b6973
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130780"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600381"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>Wywoływanie usługi protokołu OData z klienta .NET (C#)
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> W tym samouczku pokazano, jak wywołać usługę OData z poziomu aplikacji klienckiej języka C#.
+> W tym samouczku pokazano, jak wywołać usługę OData z C# aplikacji klienckiej.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 >
 >
-> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (w programach Visual Studio 2012)
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (współdziała z programem Visual Studio 2012)
 > - [Biblioteka klienta usług danych WCF](https://msdn.microsoft.com/library/cc668772.aspx)
-> - Interfejsu Web API 2. (Przykład usługi OData został skompilowany przy użyciu Web API 2, ale aplikacja kliencka nie zależy od interfejsu API sieci Web).
+> - Web API 2. (Przykładowa usługa OData jest tworzona przy użyciu interfejsu Web API 2, ale aplikacja kliencka nie jest zależna od interfejsu API sieci Web).
 
-W ramach tego samouczka I zawiera opis kroków tworzenia aplikacji klienckiej, która wywołuje usługę OData. Usługa OData przedstawia następujących elementach:
+W tym samouczku omówiono tworzenie aplikacji klienckiej, która wywołuje usługę OData. Usługa OData udostępnia następujące jednostki:
 
 - `Product`
 - `Supplier`
@@ -38,190 +38,190 @@ W ramach tego samouczka I zawiera opis kroków tworzenia aplikacji klienckiej, k
 
 ![](calling-an-odata-service-from-a-net-client/_static/image1.png)
 
-Następujące artykuły zawierają instrukcje dotyczące wdrażania usługi OData w interfejsie API sieci Web. (Nie trzeba ich zrozumienie tego samouczka, jednak odczytać).
+W poniższych artykułach opisano sposób implementacji usługi OData w interfejsie Web API. (Jednak nie musisz czytać ich, aby poznać ten samouczek).
 
 - [Tworzenie punktu końcowego OData w interfejsie Web API 2](creating-an-odata-endpoint.md)
 - [Relacje jednostek OData w interfejsie Web API 2](working-with-entity-relations.md)
 - [Akcje protokołu OData w interfejsie Web API 2](odata-actions.md)
 
-## <a name="generate-the-service-proxy"></a>Generowanie usługi serwera Proxy
+## <a name="generate-the-service-proxy"></a>Generuj serwer proxy usługi
 
-Pierwszym krokiem jest generowanie usługi serwera proxy. Serwer proxy usługi jest klasą .NET, która definiuje metody uzyskiwania dostępu do usługi OData. Serwer proxy tłumaczy wywołania metody na żądania HTTP.
+Pierwszym krokiem jest wygenerowanie serwera proxy usługi. Serwer proxy usługi jest klasą .NET, która definiuje metody uzyskiwania dostępu do usługi OData. Serwer proxy tłumaczy wywołania metod na żądania HTTP.
 
 ![](calling-an-odata-service-from-a-net-client/_static/image2.png)
 
-Rozpocznij, otwierając projekt usługi OData w programie Visual Studio. Naciśnij klawisze CTRL + F5, aby uruchomić usługę lokalnie w usługach IIS Express. Należy pamiętać adresów lokalnych, w tym numer portu, który przypisuje programu Visual Studio. Podczas tworzenia serwera proxy, należy ten adres.
+Zacznij od otwarcia projektu usługi OData w programie Visual Studio. Naciśnij kombinację klawiszy CTRL + F5, aby uruchomić usługę lokalnie w IIS Express. Zanotuj adres lokalny, włącznie z numerem portu przypisywanym przez program Visual Studio. Ten adres będzie potrzebny podczas tworzenia serwera proxy.
 
-Następnie otwórz inne wystąpienie programu Visual Studio i Utwórz projekt aplikacji konsoli. Aplikacja konsoli będzie naszej aplikacji klienckiej OData. (Możesz również dodać projekt do tego samego rozwiązania co usługa.)
+Następnie otwórz inne wystąpienie programu Visual Studio i Utwórz projekt aplikacji konsolowej. Aplikacja konsolowa będzie naszą aplikacją kliencką OData. (Można również dodać projekt do tego samego rozwiązania, co usługa).
 
 > [!NOTE]
-> Pozostałe kroki można znaleźć projektu konsoli.
+> Pozostałe kroki odwołują się do projektu konsoli.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **odwołania** i wybierz **Dodaj odwołanie do usługi**.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję **odwołania** i wybierz pozycję **Dodaj odwołanie do usługi**.
 
 ![](calling-an-odata-service-from-a-net-client/_static/image3.png)
 
-W **Dodaj odwołanie do usługi** okno dialogowe, wpisz adres usługi OData:
+W oknie dialogowym **Dodaj odwołanie do usługi** wpisz adres usługi OData:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample1.cmd)]
 
-gdzie *portu* jest numerem portu.
+gdzie *port* jest numerem portu.
 
 [![](calling-an-odata-service-from-a-net-client/_static/image5.png)](calling-an-odata-service-from-a-net-client/_static/image4.png)
 
-Aby uzyskać **Namespace**, wpisz "ProductService". Ta opcja określa przestrzeń nazw, klasy proxy.
+W **obszarze Przestrzeń nazw**wpisz "ProductService". Ta opcja definiuje przestrzeń nazw klasy proxy.
 
-Kliknij przycisk **Przejdź**. Program Visual Studio odczytuje dokument metadanych OData, aby odnaleźć obiekty usługi.
+Kliknij pozycję **Przejdź**. Program Visual Studio odczytuje dokument metadanych OData w celu odnalezienia jednostek w usłudze.
 
 [![](calling-an-odata-service-from-a-net-client/_static/image7.png)](calling-an-odata-service-from-a-net-client/_static/image6.png)
 
-Kliknij przycisk **OK** można dodać klasy serwera proxy do projektu.
+Kliknij przycisk **OK** , aby dodać klasę proxy do projektu.
 
 ![](calling-an-odata-service-from-a-net-client/_static/image8.png)
 
-## <a name="create-an-instance-of-the-service-proxy-class"></a>Utwórz wystąpienie klasy serwera Proxy usługi
+## <a name="create-an-instance-of-the-service-proxy-class"></a>Utwórz wystąpienie klasy serwera proxy usługi
 
-Wewnątrz swojej `Main` metody, Utwórz nowe wystąpienie klasy serwera proxy w następujący sposób:
+Wewnątrz metody `Main` Utwórz nowe wystąpienie klasy proxy w następujący sposób:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample2.cs)]
 
-Ponownie użyj numeru portu rzeczywiste gdzie usługa jest uruchomiona. Podczas wdrażania usługi, zostanie użyty identyfikator URI usługi na żywo. Nie potrzebujesz zaktualizować serwer proxy.
+Ponownie Użyj rzeczywistego numeru portu, na którym działa usługa. Po wdrożeniu usługi będziesz używać identyfikatora URI usługi Live. Nie musisz aktualizować serwera proxy.
 
-Poniższy kod dodaje program obsługi zdarzeń, który wyświetla żądanie identyfikatorów URI w oknie konsoli. Ten krok nie jest wymagana, ale co ciekawe wyświetlić identyfikatory URI, dla każdego zapytania.
+Poniższy kod dodaje procedurę obsługi zdarzeń, która drukuje identyfikatory URI żądania do okna konsoli. Ten krok nie jest wymagany, ale jest interesujący do wyświetlania identyfikatorów URI dla każdego zapytania.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample3.cs)]
 
-## <a name="query-the-service"></a>Zapytanie usługi
+## <a name="query-the-service"></a>Wysyłanie zapytań do usługi
 
-Poniższy kod umożliwia pobranie listy produktów z usługi OData.
+Poniższy kod pobiera listę produktów z usługi OData.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample4.cs)]
 
-Należy zauważyć, że nie trzeba pisać kodu do wysyłania żądań HTTP lub przeanalizować odpowiedzi. Klasy serwera proxy jest to automatycznie podczas wyliczania `Container.Products` kolekcji w **foreach** pętli.
+Zwróć uwagę, że nie musisz pisać żadnego kodu w celu wysłania żądania HTTP lub przeanalizowania odpowiedzi. Klasa proxy robi to automatycznie podczas wyliczania kolekcji `Container.Products` w pętli **foreach** .
 
-Po uruchomieniu aplikacji, dane wyjściowe powinny wyglądać następująco:
+Po uruchomieniu aplikacji dane wyjściowe powinny wyglądać następująco:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample5.cmd)]
 
-Aby uzyskać jednostki według Identyfikatora, należy użyć `where` klauzuli.
+Aby uzyskać jednostkę według identyfikatora, należy użyć klauzuli `where`.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample6.cs)]
 
-Dla pozostałej części tego tematu, I nie będzie zawierać całą `Main` działać tylko kod potrzebny do wywołania tej usługi.
+W pozostałej części tego tematu nie będzie wyświetlana cała funkcja `Main`, tylko kod wymagany do wywołania usługi.
 
-## <a name="apply-query-options"></a>Stosowanie opcji zapytania
+## <a name="apply-query-options"></a>Zastosuj opcje zapytania
 
-Usługa OData definiuje [opcje kwerendy](../supporting-odata-query-options.md) który może służyć do filtrowania, sortowania, dane strony i tak dalej. Na serwerze proxy usługi można stosować te opcje przy użyciu różnych wyrażenia LINQ.
+Funkcja OData definiuje [Opcje zapytania](../supporting-odata-query-options.md) , których można użyć do filtrowania, sortowania, stronicowania danych i tak dalej. W przypadku serwera proxy usługi można zastosować te opcje przy użyciu różnych wyrażeń LINQ.
 
-W tej sekcji I pokazano przykładowe krótki. Aby uzyskać więcej informacji, zobacz temat [zagadnienia dotyczące LINQ (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx) w witrynie MSDN.
+W tej sekcji pokażę krótkie przykłady. Aby uzyskać więcej informacji, zobacz temat [uwagi dotyczące LINQ (usługi danych programu WCF)](https://msdn.microsoft.com/library/ee622463.aspx) w witrynie MSDN.
 
 ### <a name="filtering-filter"></a>Filtrowanie ($filter)
 
-Aby filtrować, użyj `where` klauzuli. Następujące przykładowe filtry według kategorii produktów.
+Aby przefiltrować, użyj klauzuli `where`. Poniższe przykładowe filtry według kategorii produktów.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample7.cs)]
 
-Ten kod odnosi się do następującego zapytania OData.
+Ten kod odnosi się do poniższego zapytania OData.
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample8.cmd)]
 
-Należy zauważyć, że serwer proxy konwertuje `where` klauzuli do OData `$filter` wyrażenia.
+Zwróć uwagę, że serwer proxy konwertuje klauzulę `where` na wyrażenie `$filter` OData.
 
 ### <a name="sorting-orderby"></a>Sortowanie ($orderby)
 
-Aby posortować, należy użyć `orderby` klauzuli. Poniższy przykład sortowania ceny, od najwyższego do najniższego.
+Aby posortować, użyj klauzuli `orderby`. Poniższy przykład sortuje według ceny, od najwyższego do najniższego.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample9.cs)]
 
-Oto odpowiednie żądania OData.
+Oto odpowiednie żądanie OData.
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample10.cmd)]
 
-### <a name="client-side-paging-skip-and-top"></a>Po stronie klienta stronicowania ($skip i $top)
+### <a name="client-side-paging-skip-and-top"></a>Stronicowanie po stronie klienta ($skip i $top)
 
-Dla zestawów dużych jednostek klient chcieć ograniczyć liczbę wyników. Na przykład klient może wyświetlać 10 wpisów w danym momencie. Jest to nazywane *stronicowania po stronie klienta*. (Dostępna jest również [stronicowania po stronie serwera](../supporting-odata-query-options.md#server-paging), gdy serwer ogranicza liczbę wyników.) Aby wykonać stronicowania po stronie klienta, należy użyć LINQ **Pomiń** i **zająć** metody. Poniższy przykład pomija najpierw 40 wyniki i pobiera następny 10.
+W przypadku dużych zestawów jednostek klient może chcieć ograniczyć liczbę wyników. Na przykład klient może wyświetlić 10 wpisów jednocześnie. Jest to nazywane *stronicowaniem po stronie klienta*. (Istnieje również [stronicowanie po stronie serwera](../supporting-odata-query-options.md#server-paging), gdzie serwer ogranicza liczbę wyników). Aby wykonać stronicowanie po stronie klienta, użyj metody LINQ **Skip** i **Take** . Poniższy przykład pomija pierwsze 40 wyników i pobiera następne 10.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample11.cs)]
 
-Oto odpowiednie żądania OData:
+Oto odpowiednie żądanie OData:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample12.cmd)]
 
 ### <a name="select-select-and-expand-expand"></a>Wybierz ($select) i rozwiń ($expand)
 
-Aby dołączyć powiązanych jednostek, należy użyć `DataServiceQuery<t>.Expand` metody. Na przykład w celu uwzględnienia `Supplier` dla każdego `Product`:
+Aby dołączyć powiązane jednostki, użyj metody `DataServiceQuery<t>.Expand`. Na przykład, aby uwzględnić `Supplier` dla każdej `Product`:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample13.cs)]
 
-Oto odpowiednie żądania OData:
+Oto odpowiednie żądanie OData:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample14.cmd)]
 
-Aby zmienić kształt odpowiedzi, należy użyć LINQ **wybierz** klauzuli. Poniższy przykład pobiera tylko nazwę każdego produktu, bez innych właściwości.
+Aby zmienić kształt odpowiedzi, użyj klauzuli LINQ **SELECT** . Poniższy przykład pobiera tylko nazwę każdego produktu bez innych właściwości.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample15.cs)]
 
-Oto odpowiednie żądania OData:
+Oto odpowiednie żądanie OData:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample16.cmd)]
 
-Klauzula select może obejmować powiązanych jednostek. W takiej sytuacji nie należy wywoływać metody **rozwiń**; w takim przypadku serwer proxy się automatycznie uwzględnia rozszerzenie. Poniższy przykład pobiera nazwę i dostawcy każdego produktu.
+Klauzula SELECT może obejmować powiązane jednostki. W takim przypadku nie wywołuj **rozwinięcia**; serwer proxy automatycznie uwzględnia rozszerzenie w tym przypadku. Poniższy przykład pobiera nazwę i dostawcę każdego produktu.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample17.cs)]
 
-Oto odpowiednie żądania OData. Należy zauważyć, że zawiera on **$expand** opcji.
+Oto odpowiednie żądanie OData. Należy zauważyć, że zawiera on opcję **$expand** .
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample18.cmd)]
 
-Aby uzyskać więcej informacji na temat $select i $rozwiń, zobacz [przy użyciu $select, $expand and $value w sieci Web API 2](../using-select-expand-and-value.md).
+Aby uzyskać więcej informacji na temat $select i $expand, zobacz [używanie $SELECT, $expand i $Value w interfejsie Web API 2](../using-select-expand-and-value.md).
 
 ## <a name="add-a-new-entity"></a>Dodaj nową jednostkę
 
-Aby dodać nową jednostkę do zbioru jednostek, należy wywołać `AddToEntitySet`, gdzie *EntitySet* to nazwa zestawu jednostek. Na przykład `AddToProducts` dodaje nowy `Product` do `Products` zestawu jednostek. Podczas generowania serwera proxy usług danych WCF automatycznie tworzy następujące silnie typizowane **AddTo** metody.
+Aby dodać nową jednostkę do zestawu jednostek, wywołaj `AddToEntitySet`, gdzie *EntitySet* jest nazwą zestawu jednostek. Na przykład `AddToProducts` dodaje nowy `Product` do zestawu jednostek `Products`. Podczas generowania serwera proxy Usługi danych programu WCF automatycznie tworzy te metody **AddTo** z jednoznacznie określonymi typami.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample19.cs)]
 
-Aby dodać łącze między dwiema jednostkami, użyj **AddLink** i **SetLink** metody. Poniższy kod dodaje nowego dostawcy i nowego produktu, a następnie tworzy łącza między nimi.
+Aby dodać łącze między dwiema jednostkami, użyj metod **AddLink** i **SetLink** . Poniższy kod dodaje nowego dostawcę i nowy produkt, a następnie tworzy linki między nimi.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample20.cs)]
 
-Użyj **AddLink** po właściwości nawigacji kolekcji. W tym przykładzie dodamy produktu do `Products` kolekcji na dostawcy.
+Użyj **AddLink** , gdy właściwość nawigacji jest kolekcją. W tym przykładzie dodajemy produkt do kolekcji `Products` na dostawcy.
 
-Użyj **SetLink** gdy właściwość nawigacji jest pojedynczą jednostką. W tym przykładzie firma Microsoft ustawienie `Supplier` właściwość nad produktem.
+Użyj **SetLink** , gdy właściwość nawigacji jest pojedynczą jednostką. W tym przykładzie ustawiamy Właściwość `Supplier` produktu.
 
-## <a name="update--patch"></a>Aktualizacji / poprawek
+## <a name="update--patch"></a>Aktualizacja/poprawka
 
-Aby zaktualizować jednostkę, należy wywołać **UpdateObject** metody.
+Aby zaktualizować jednostkę, wywołaj metodę **UpdateObject** .
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample21.cs)]
 
-Aktualizacja jest wykonywana po wywołaniu **SaveChanges**. Domyślnie program WCF wysyła żądanie HTTP scalania. **PatchOnUpdate** przekazuje WCF, zamiast wysyłać HTTP PATCH.
+Aktualizacja jest wykonywana po wywołaniu **metody SaveChanges**. Domyślnie WCF wysyła żądanie scalania HTTP. Opcja **PatchOnUpdate** informuje program WCF, aby zamiast tego wysłać poprawkę http.
 
 > [!NOTE]
-> Dlaczego PATCH i MERGE? Pierwotną specyfikację protokołu HTTP 1.1 ([RCF 2616](http://tools.ietf.org/html/rfc2616)) nie definiują dowolną metodę HTTP, za pomocą semantyki "częściową aktualizację". Aby obsługiwać aktualizacje częściowe, specyfikacją OData zdefiniowane MERGE — metoda. W 2010 r. [RFC 5789](http://tools.ietf.org/html/rfc5789) zdefiniowane metody PATCH częściowej aktualizacji. Niektóre z historii, w tym przeczytasz [wpis w blogu](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx) na blogu usługi danych WCF. Już dziś poprawki jest preferowana nad scalania. Kontrolera OData, utworzonego przez tworzenie szkieletu interfejsu API sieci Web obsługuje obie metody.
+> Dlaczego warto zastosować poprawki i scalić? Oryginalna specyfikacja protokołu HTTP 1,1 ([RCF 2616](http://tools.ietf.org/html/rfc2616)) nie definiuje żadnej metody http z semantyką "częściowej aktualizacji". W celu obsługi aktualizacji częściowych Specyfikacja OData zdefiniowana przez metodę MERGE. W 2010 [RFC 5789](http://tools.ietf.org/html/rfc5789) zdefiniowano metodę patch dla aktualizacji częściowych. Część historii w tym [wpisie w blogu](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx) znajdziesz w blogu usługi danych programu WCF. Obecnie poprawka jest preferowana przez SCALAnie. Kontroler OData utworzony przez szkielet interfejsu API sieci Web obsługuje obie metody.
 
-Jeśli chcesz zamienić całej jednostki (PUT semantyki), należy określić **ReplaceOnUpdate** opcji. Powoduje to WCF możesz wysłać żądanie HTTP PUT.
+Jeśli chcesz zastąpić całą jednostkę (PUT semantyki), określ opcję **ReplaceOnUpdate** . Powoduje to, że usługa WCF wysyła żądanie HTTP PUT.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample22.cs)]
 
-## <a name="delete-an-entity"></a>Usunięcie jednostki
+## <a name="delete-an-entity"></a>Usuwanie jednostki
 
-Aby usunąć jednostkę, wywołaj **DeleteObject**.
+Aby usunąć jednostkę, wywołaj metodę **DeleteObject**.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample23.cs)]
 
 ## <a name="invoke-an-odata-action"></a>Wywołaj akcję OData
 
-W protokole OData [akcje](odata-actions.md) to sposób, aby dodać zachowania po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach.
+W protokole OData [Akcje](odata-actions.md) są sposobem dodawania zachowań po stronie serwera, które nie są łatwo zdefiniowane jako operacje CRUD na jednostkach.
 
-Mimo że ten dokument metadanych OData w tym artykule opisano czynności, klasę proxy nie powoduje utworzenia wszelkie silnie typizowane metody dla nich. Nadal możesz wywołać akcję OData przy użyciu ogólnej **Execute** metody. Jednakże należy znać typów danych parametrów i zwracanej wartości.
+Mimo że dokument metadanych OData zawiera opis akcji, Klasa proxy nie tworzy żadnych metod z jednoznacznie określonymi typami. Nadal można wywołać akcję OData przy użyciu metody **wykonywania** generycznego. Należy jednak znać typy danych parametrów i wartość zwracaną.
 
-Na przykład `RateProduct` akcja ma parametr o nazwie "Ocena" o typie `Int32` i zwraca `double`. Poniższy kod przedstawia sposób wywołania tej akcji.
+Na przykład akcja `RateProduct` przyjmuje parametr o nazwie "Rating" typu `Int32` i zwraca `double`. Poniższy kod przedstawia sposób wywołania tej akcji.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-Aby uzyskać więcej informacji, zobacz[wywoływanie operacji usługi i akcje](https://msdn.microsoft.com/library/hh230677.aspx).
+Aby uzyskać więcej informacji, zobacz[wywoływanie operacji usługi i akcji](https://msdn.microsoft.com/library/hh230677.aspx).
 
-Jedną z opcji jest rozszerzenie **kontenera** Aby klasa zapewniała silnie typizowane metody, która wywołuje akcję:
+Jedną z opcji jest zwiększenie klasy **kontenera** w celu zapewnienia metody silnie wpisanej, która wywołuje akcję:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample25.cs)]

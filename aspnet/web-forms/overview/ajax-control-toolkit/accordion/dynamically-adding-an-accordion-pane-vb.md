@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
-title: Dynamiczne dodawanie okienka kontrolki Accordion (VB) | Dokumentacja firmy Microsoft
+title: Dynamiczne dodawanie okienka zgodnie z opisem (VB) | Microsoft Docs
 author: wenz
-description: Kontrolki właściwości Accordion na zestawu narzędzi AJAX Control Toolkit zawiera wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich jednocześnie. Panele zwykle są deklarowane w...
+description: Kontrola zgodnie z zestawem narzędzi AJAX Control Toolkit udostępnia wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich naraz. Panele są zwykle zadeklarowane w...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: fae968c9-1902-487d-b053-86a46dd52c3f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e3f99cbe31707f535809da0ad12f67832040b0d2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: be48db5ea3de4af46b0f864cc9e73d2f518294a4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131235"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74607201"
 ---
-# <a name="dynamically-adding-an-accordion-pane-vb"></a>Dynamiczne dodawanie okienka kontrolki Accordion (VB)
+# <a name="dynamically-adding-an-accordion-pane-vb"></a>Dynamiczne dodawanie okienka zgodnie z przepisami (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/5/6/d/56d50cef-2011-4c8f-9891-7edc6dc57df9/Accordion2.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/accordion2VB.pdf)
 
-> Kontrolki właściwości Accordion na zestawu narzędzi AJAX Control Toolkit zawiera wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich jednocześnie. Panele zwykle są zadeklarowane w obrębie sama strona, ale kod po stronie serwera może służyć do ten sam efekt.
+> Kontrola zgodnie z zestawem narzędzi AJAX Control Toolkit udostępnia wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich naraz. Panele są zwykle deklarowane na samej stronie, ale kod po stronie serwera może być używany do osiągnięcia tego samego wyniku.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki właściwości Accordion na zestawu narzędzi AJAX Control Toolkit zawiera wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich jednocześnie. Panele zwykle są zadeklarowane w obrębie sama strona, ale kod po stronie serwera może służyć do ten sam efekt.
+Kontrola zgodnie z zestawem narzędzi AJAX Control Toolkit udostępnia wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich naraz. Panele są zwykle deklarowane na samej stronie, ale kod po stronie serwera może być używany do osiągnięcia tego samego wyniku.
 
 ## <a name="steps"></a>Kroki
 
-Kontrolka właściwości Accordion uwidacznia wszystkie ważne właściwości do kodu po stronie serwera. Między innymi `Panes` właściwość udziela dostępu do kolekcja okienek, które tworzą właściwości Accordion. Okienka, co jest typu `AccordionPane`. W związku z tym jest prosta, aby utworzyć takie okienka:
+Kontrola wystawcy uwidacznia wszystkie ważne właściwości kodu po stronie serwera. W innych przypadkach Właściwość `Panes` udziela dostępu do kolekcji okienek, które składają się na siebie zgodnie z zasadami. Każde okienko jest typu `AccordionPane`. W związku z tym nie można utworzyć takiego okienka:
 
 [!code-vb[Main](dynamically-adding-an-accordion-pane-vb/samples/sample1.vb)]
 
-`HeaderContainer` Właściwość `AccordionPane` zapewnia dostęp do kontrolek ASP.NET, w ramach sekcji nagłówka okienka; `ContentContainer` właściwość `AccordionPane` działa tak samo dla zawartości sekcji okienka. Dzięki temu kod platformy ASP.NET do dodawania zawartości do okienka:
+Właściwość `HeaderContainer` `AccordionPane` zapewnia dostęp do kontrolek ASP.NET w sekcji nagłówka okienka; Właściwość `ContentContainer` `AccordionPane` jest taka sama dla sekcji zawartość okienka. Dzięki temu kod ASP.NET może dodawać zawartość do okienek:
 
 [!code-vb[Main](dynamically-adding-an-accordion-pane-vb/samples/sample2.vb)]
 
-Na koniec pane(s) muszą zostać dodane do `Panes` zbiór właściwości Accordion:
+Na koniec należy dodać okienka (y) do `Panes` kolekcji:
 
 [!code-vb[Main](dynamically-adding-an-accordion-pane-vb/samples/sample3.vb)]
 
-Oto kompletny kod po stronie serwera, który dodaje dwa okienka do kontrolki właściwości Accordion:
+Oto kompletny kod po stronie serwera, który dodaje dwa okienka do kontrolki przydzielenia:
 
 [!code-aspx[Main](dynamically-adding-an-accordion-pane-vb/samples/sample4.aspx)]
 
-Jedynym elementem brak jest właściwości Accordion, która zależy od obecności ASP.NET `ScriptManager` sterowania:
+Jedyny brakujący element to samo samo, co zależy od obecności kontrolki `ScriptManager` ASP.NET:
 
 [!code-aspx[Main](dynamically-adding-an-accordion-pane-vb/samples/sample5.aspx)]
 
-Aby zakończyć w przykładzie, dwóch klas CSS, do którego odwołuje się kontroli właściwości Accordion zawierają informacje dotyczące stylu przeglądarki:
+Aby zakończyć ten przykład, dwie klasy CSS, do których odwołuje się kontrolka, udostępniają informacje o stylu dla przeglądarki:
 
 [!code-css[Main](dynamically-adding-an-accordion-pane-vb/samples/sample6.css)]
 
-[![Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
+[![dane w ramach traktowania zostały dynamicznie dodane przez kod po stronie serwera](dynamically-adding-an-accordion-pane-vb/_static/image2.png)](dynamically-adding-an-accordion-pane-vb/_static/image1.png)
 
-Dane w właściwości accordion dynamicznie został dodany przez kod po stronie serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-adding-an-accordion-pane-vb/_static/image3.png))
+Dane w postawce zostały dynamicznie dodane przez kod po stronie serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-adding-an-accordion-pane-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Poprzednie](databinding-to-an-accordion-vb.md)
+> [Ubiegł](databinding-to-an-accordion-vb.md)

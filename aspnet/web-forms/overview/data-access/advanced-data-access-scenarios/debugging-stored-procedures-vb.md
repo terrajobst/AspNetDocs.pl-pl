@@ -1,169 +1,169 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
-title: Debugowanie procedur składowanych (VB) | Dokumentacja firmy Microsoft
+title: Debugowanie procedur składowanych (VB) | Microsoft Docs
 author: rick-anderson
-description: Wersje programu Visual Studio Professional i Team System umożliwiają ustawianie punktów przerwania i kroku w celu procedur składowanych w programie SQL Server, co znacznie przyspiesza debugowanie przechowywane...
+description: Wersje Visual Studio Professional i Team System umożliwiają ustawianie punktów przerwania i wykonywanie kroków w procedurach składowanych w ramach SQL Server i przechowywanie przechowywanych debugowania...
 ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e02f259d0c9833a91bd1592f46e0a4e30d59cea1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 13d213ef4baf493a4f05a82daae8d2dc3b0aa61b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131850"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74604672"
 ---
 # <a name="debugging-stored-procedures-vb"></a>Debugowanie procedur składowanych (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_74_VB.zip) lub [Pobierz plik PDF](debugging-stored-procedures-vb/_static/datatutorial74vb1.pdf)
+[Pobierz kod](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_74_VB.zip) lub [Pobierz plik PDF](debugging-stored-procedures-vb/_static/datatutorial74vb1.pdf)
 
-> Wersje programu Visual Studio Professional i Team System umożliwiają ustawianie punktów przerwania i kroku w celu procedur składowanych w programie SQL Server, co znacznie przyspiesza debugowanie procedur składowanych, które są równie proste jak debugowanie kodu aplikacji. Ten samouczek przedstawia bezpośredniego debugowania bazy danych i aplikacji debugowanie procedur składowanych.
+> Wersje Visual Studio Professional i Team System umożliwiają ustawienie punktów przerwania i przechodzenie do procedur składowanych w ramach SQL Server, dzięki czemu debugowanie procedur składowanych jest łatwe jak Debugowanie kodu aplikacji. W tym samouczku przedstawiono bezpośrednie debugowanie bazy danych i debugowanie aplikacji procedur składowanych.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Visual Studio zapewnia zaawansowane środowisko debugowania. Za pomocą kilku naciśnięć klawiszy lub kliknięć myszą jego s możliwe używanie punktów przerwania, aby zatrzymać wykonywanie program i sprawdź jej stan i kontroli przepływu. Wraz z debugowania kodu aplikacji, program Visual Studio oferuje obsługę debugowanie procedur składowanych w programie SQL Server. Tak samo, jak można ustawić punktów przerwania w kodzie ASP.NET osobna klasa kodu lub klasy warstwy logiki biznesowej, aby za ich można umieścić w ramach procedur składowanych.
+Program Visual Studio oferuje bogate środowisko debugowania. Za pomocą kilku naciśnięć klawiszy lub kliknięć myszą można użyć punktów przerwania do zatrzymania wykonywania programu i sprawdzenia jego stanu i przepływu sterowania. Wraz z kodem aplikacji debugowania program Visual Studio oferuje obsługę debugowania procedur składowanych z poziomu SQL Server. Podobnie jak punkty przerwania można ustawić w kodzie klasy ASP.NET lub klasy logiki biznesowej, tak aby można było ich umieścić w procedurach składowanych.
 
-W tym samouczku przyjrzymy się Przechodzenie do procedur składowanych z poziomu Eksploratora serwera w programie Visual Studio oraz jak można ustawić punktów przerwania, które są osiągane, gdy procedura składowana jest wywoływana z działającej aplikacji platformy ASP.NET.
-
-> [!NOTE]
-> Niestety procedury składowane może być wywołanie i tylko debugowania przez wersje Professional i systemy zespołu programu Visual Studio. Jeśli używasz standardowego wersji programu Visual Studio lub Visual Web Developer, zachęcamy do odczytu wzdłuż jako części omówimy kroki niezbędne do debugowanie procedur składowanych, ale nie można replikować te kroki na komputerze.
-
-## <a name="sql-server-debugging-concepts"></a>Pojęcia debugowanie serwera SQL
-
-Microsoft SQL Server 2005 zaprojektowano tak, aby zapewnić integrację z usługą [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), czyli środowiska uruchomieniowego użytego przez wszystkie zestawy .NET. W związku z tym SQL Server 2005 obsługuje obiektami zarządzanej bazy danych. Oznacza to można utworzyć obiektów bazy danych, takich jak procedury składowane i funkcje zdefiniowane przez użytkownika (UDF) jako metody w klasie języka Visual Basic. Dzięki temu tych procedur przechowywanych i funkcji zdefiniowanych przez użytkownika, korzystanie z funkcji w programie .NET Framework i z własnych niestandardowych klas. Oczywiście SQL Server 2005 także zapewnia obsługę języka T-SQL, obiektów bazy danych.
-
-SQL Server 2005 oferuje obsługę debugowania dla języka T-SQL i obiektami zarządzanej bazy danych. Jednak te obiekty mogą być debugowane za pomocą wersji programu Visual Studio 2005 Professional i systemy zespołu. W tym samouczku będziemy sprawdzać debugowania obiekty bazy danych języka T-SQL. Kolejnym samouczku patrzy na debugowanie obiektami zarządzanej bazy danych.
-
-[Omówienie języka T-SQL i CLR debugowania w programie SQL Server 2005](https://blogs.msdn.com/sqlclr/archive/2006/06/29/651644.aspx) wpis w blogu z [integrację środowiska CLR programu SQL Server 2005 team](https://blogs.msdn.com/sqlclr/default.aspx) wyróżnia trzy sposoby debugowania programu SQL Server 2005 obiektów z programu Visual Studio:
-
-- **Bezpośrednie bazy danych debugowania (DDD)** — z poziomu Eksploratora serwera, możemy przejść do obiektu do bazy danych języka T-SQL, takie jak procedur przechowywanych i funkcji zdefiniowanych przez użytkownika. Będziemy sprawdzać DDD w kroku 1.
-- **Debugowanie aplikacji** — firma Microsoft może ustawiać punkty przerwania w obrębie obiektu bazy danych, a następnie uruchom naszej aplikacji ASP.NET. Kiedy obiekt bazy danych jest wykonywana, punkt przerwania zostanie osiągnięty, a kontroli do debugera. Należy pamiętać, że w debugowaniu aplikacji firma Microsoft nie można wykonać kroku do obiektu bazy danych w kodzie aplikacji. Firma Microsoft musi jawnie ustawić punkty przerwania w tych procedurach składowanych lub UDF której chcemy, aby debuger zatrzymuje. Debugowanie aplikacji jest badany w kroku 2.
-- **Debugowanie z projektu serwera SQL** — wersje programu Visual Studio Professional i systemy zespołu zawierać typ projekt programu SQL Server, który jest najczęściej używany do tworzenia obiektów zarządzanej bazy danych. Będziemy sprawdzać za pomocą programu SQL Server projektów i debugowanie ich zawartość w następnym samouczku.
-
-Visual Studio umożliwia debugowanie procedur składowanych na lokalnego i zdalnego wystąpienia programu SQL Server. Lokalne wystąpienie programu SQL Server jest taki, który jest zainstalowany na tym samym komputerze co program Visual Studio. Jeśli bazy danych programu SQL Server, którego używasz, nie znajduje się na komputerze deweloperskim, następnie uważa się zdalne wystąpienie. Potrzeby tych samouczków firma Microsoft masz doświadczenie z lokalnego wystąpienia programu SQL Server. Debugowanie procedur składowanych na zdalnym wystąpieniu programu SQL server wymaga dodatkowych czynności konfiguracyjnych, niż gdy debugowanie procedur składowanych w lokalnym wystąpieniu.
-
-Jeśli używasz lokalnego wystąpienia programu SQL Server, możesz rozpocząć od kroku 1 i działać na końcu tego samouczka. Jeśli używasz zdalnego wystąpienia programu SQL Server, należy najpierw trzeba upewnij się, że podczas debugowania można są rejestrowane na komputerze deweloperskim przy użyciu konta użytkownika Windows, który ma identyfikator logowania programu SQL Server w zdalnym wystąpieniu. Ponadto, zarówno tych danych logowania w bazie danych, jak i nazwy logowania bazy danych służący do nawiązywania połączenia z bazą danych działającej aplikacji platformy ASP.NET muszą być elementami członkowskimi `sysadmin` roli. Na końcu tego samouczka, aby uzyskać więcej informacji na temat konfigurowania programu Visual Studio i programu SQL Server do debugowania zdalnego wystąpienia, zobacz obiekty bazy danych debugowania języka T-SQL w sekcji wystąpienia zdalnego.
-
-Ponadto Dowiedz się, że obsługę debugowania dla języka T-SQL, obiektów bazy danych nie jest jako funkcja sformatowany jako obsługę debugowania dla aplikacji platformy .NET. Na przykład warunków i punktu przerwania filtry nie są obsługiwane, tylko podzbiór debugowania systemu windows są dostępne, nie można użyć, Edytuj i Kontynuuj, bezpośrednim staje się bezużyteczny i tak dalej. Zobacz [ograniczenia poleceń debugera i funkcji](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) Aby uzyskać więcej informacji.
-
-## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Krok 1. Bezpośrednio przechodzenie krok po kroku do procedury składowanej
-
-Program Visual Studio ułatwia bezpośrednio debugować obiektu bazy danych. Pozwól s, zobacz, jak używać funkcji bezpośredniego debugowania bazy danych (DDD) Aby wkraczać do `Products_SelectByCategoryID` procedurę składowaną w bazie danych Northwind. Jak sugeruje jej nazwa, `Products_SelectByCategoryID` zwraca informacje o produkcie dla określonej kategorii; został utworzony w [za pomocą istniejących procedur składowanych dla s wpisany zestaw danych TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) samouczka. Zacznij od przejścia do Eksploratora serwera, a następnie rozwiń węzeł bazy danych Northwind. Następnie należy przejść do folderu procedur składowanych, kliknij prawym przyciskiem myszy `Products_SelectByCategoryID` procedury składowanej, a następnie wybierz opcję krok do procedury składowanej z menu kontekstowego. Spowoduje to uruchomienie debugera.
-
-Ponieważ `Products_SelectByCategoryID` oczekuje procedury składowanej `@CategoryID` parametr wejściowy, firma Microsoft jest proszony o podanie tej wartości. Wprowadź wartość 1, które zostaną zwrócone informacje na temat beverages.
-
-![Użyj wartości 1 dla @CategoryID parametru](debugging-stored-procedures-vb/_static/image1.png)
-
-**Rysunek 1**: Użyj wartości 1 dla `@CategoryID` parametru
-
-Po dostarczeniu wartość `@CategoryID` parametru procedury składowanej jest wykonywany. Zamiast uruchamiania do zakończenia, jednak debuger przerywa wykonywanie w pierwszej instrukcji. Należy pamiętać, żółta strzałka na marginesie, wskazujący bieżącą lokalizację w procedurze składowanej. Można wyświetlać i edytować wartości parametrów za pomocą okna czujki lub, ustawiając kursor nad nazwę parametru w procedurze składowanej.
-
-[![Debuger został zatrzymany w pierwszej instrukcji procedury składowanej](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
-
-**Rysunek 2**: Debuger został zatrzymany w pierwszej instrukcji procedury składowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image4.png))
-
-Do wykonania kroków procedury składowanej, jednej instrukcji w danym momencie, kliknij przycisk Przejdź na pasku narzędzi lub naciśnij klawisz F10. `Products_SelectByCategoryID` Procedury składowanej zawiera pojedynczy `SELECT` instrukcji, więc osiągnięcia F10 będzie Przekrocz nad pojedynczej instrukcji i zakończyć wykonywania procedury składowanej. Po zakończeniu procedury składowanej jego dane wyjściowe będą wyświetlane w oknie danych wyjściowych i debuger spowoduje przerwanie działania.
+W tym samouczku omówiono procedurę składowaną z Eksplorator serwera w programie Visual Studio, a także jak ustawiać punkty przerwania, które są trafień, gdy procedura składowana zostanie wywołana z działającej aplikacji ASP.NET.
 
 > [!NOTE]
-> Debugowanie języka T-SQL odbywa się na poziomie poufności; nie możesz wejść w `SELECT` instrukcji.
+> Niestety, procedury składowane można wykonać tylko w wersjach Professional i Team Systems programu Visual Studio. W przypadku korzystania z programu Visual Web Developer lub standardowej wersji programu Visual Studio, można zapoznać się z instrukcjami, które są niezbędne do debugowania procedur składowanych, ale nie będzie można replikować tych kroków na maszynie.
 
-## <a name="step-2-configuring-the-website-for-application-debugging"></a>Krok 2. Konfigurowanie witryny sieci Web do debugowania aplikacji
+## <a name="sql-server-debugging-concepts"></a>SQL Server pojęć dotyczących debugowania
 
-Podczas debugowania procedury składowanej bezpośrednio z poziomu Eksploratora serwera jest przydatne, w wielu scenariuszach Dbamy bardziej debugowania procedury składowanej, gdy jest wywoływana z naszej aplikacji ASP.NET. Możemy dodać punkty przerwania do procedury składowanej z poziomu programu Visual Studio, a następnie rozpocząć debugowanie aplikacji ASP.NET. Po wywołaniu procedury składowanej z punktami przerwania z aplikacji, wykonanie zostanie zatrzymany w punkcie przerwania, a firma Microsoft wyświetlenie i zmianę wartości parametrów procedury składowanej s i przejść przez jej instrukcji, tak samo, jak zrobiliśmy w kroku 1.
+Microsoft SQL Server 2005 został zaprojektowany w celu zapewnienia integracji ze [środowiskiem uruchomieniowym języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET. W związku z tym SQL Server 2005 obsługuje obiekty zarządzanej bazy danych. Oznacza to, że można tworzyć obiekty bazy danych, takie jak procedury składowane i funkcje zdefiniowane przez użytkownika (UDF) jako metody klasy Visual Basic. Dzięki temu te procedury składowane i UDF mogą korzystać z funkcji w .NET Framework i z własnych klas niestandardowych. Oczywiście SQL Server 2005 zapewnia również obsługę obiektów usługi T-SQL Database.
 
-Zanim firma Microsoft będzie mogła rozpocząć debugowanie procedur składowanych wywoływać z aplikacji, należy wydać polecenie aplikacji sieci web ASP.NET w celu zintegrowania za pomocą debugera programu SQL Server. Rozpocznij, klikając prawym przyciskiem myszy nazwę witryny sieci Web w Eksploratorze rozwiązań (`ASPNET_Data_Tutorial_74_VB`). Wybierz opcję strony właściwości, z menu kontekstowego, wybierz element Opcje uruchamiania po lewej stronie i zaznacz pole wyboru programu SQL Server, w sekcji debugery (zobacz rysunek 3).
+SQL Server 2005 oferuje obsługę debugowania zarówno dla obiektów T-SQL, jak i zarządzanych baz danych. Jednak te obiekty mogą być debugowane tylko za poorednictwem wersji programu Visual Studio 2005 Professional i Team Systems. W tym samouczku sprawdzimy debugowanie obiektów bazy danych T-SQL. W kolejnym samouczku pokazano, jak debugować zarządzane obiekty bazy danych.
 
-[![Zaznacz pole wyboru serwera SQL na stronach właściwości s aplikacji](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
+[Omówienie debugowania języka T-SQL i środowiska CLR w blogu SQL Server 2005](https://blogs.msdn.com/sqlclr/archive/2006/06/29/651644.aspx) z poziomu [zespołu integracji SQL Server 2005 dla środowiska CLR](https://blogs.msdn.com/sqlclr/default.aspx) wyróżnia trzy sposoby debugowania SQL Server 2005 obiektów z programu Visual Studio:
 
-**Rysunek 3**: Zaznacz pole wyboru serwera SQL w aplikacji s strony właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image7.png))
+- **Bezpośrednie debugowanie bazy danych (DDD)** — od Eksplorator serwera możemy przejść do dowolnego obiektu bazy danych T-SQL, takiego jak procedury składowane i UDF. Sprawdzimy DDD w kroku 1.
+- **Debugowanie aplikacji** — można ustawić punkty przerwania w obiekcie bazy danych, a następnie uruchomić naszą aplikację ASP.NET. Gdy obiekt bazy danych jest wykonywany, punkt przerwania zostanie trafiony i kontrola zostanie włączona. Należy pamiętać, że z debugowaniem aplikacji nie można wkroczyć do obiektu bazy danych z kodu aplikacji. Należy jawnie ustawić punkty przerwania w tych procedurach składowanych lub UDF, gdy chcemy, aby debuger zatrzymał działanie. Debugowanie aplikacji jest badane począwszy od kroku 2.
+- **Debugowanie z SQL Server Project** -Visual Studio Professional i Team Systems edition zawiera SQL Server typ projektu, który jest często używany do tworzenia obiektów zarządzanych baz danych. Będziemy badali użycie SQL Server projektów i debugowanie ich zawartości w następnym samouczku.
 
-Ponadto należy zaktualizować parametry połączenia bazy danych, które są używane przez aplikację tak, aby buforowanie połączeń jest wyłączona. Gdy połączenie z bazą danych jest zamknięty, odpowiedni `SqlConnection` obiekt jest umieszczany w puli dostępnych połączeń. Podczas nawiązywania połączenia z bazą danych, obiektu dostępnych połączeń mogą być pobierane z tej puli zamiast konieczności tworzenia i nawiązać nowe połączenie. Tej buforowanie obiektów połączeń jest zwiększenie wydajności i jest domyślnie włączona. Jednak podczas debugowania chcemy wyłączyć buforowanie połączeń, ponieważ infrastruktury debugowania nie poprawnie ustanowieniu podczas pracy z połączeniem, która została wykonana z puli.
+Program Visual Studio może debugować procedury składowane w lokalnych i zdalnych wystąpieniach SQL Server. Lokalne wystąpienie SQL Server to takie, które jest zainstalowane na tym samym komputerze co program Visual Studio. Jeśli używana baza danych SQL Server nie znajduje się na komputerze deweloperskim, jest uznawana za wystąpienie zdalne. Dla tych samouczków używamy lokalnych wystąpień SQL Server. Debugowanie procedur składowanych w zdalnym wystąpieniu programu SQL Server wymaga większej liczby kroków konfiguracyjnych niż podczas debugowania procedur składowanych w wystąpieniu lokalnym.
 
-Aby pula połączeń wyłączone, należy zaktualizować `NORTHWNDConnectionString` w `Web.config` tak, że zawiera on ustawienia `Pooling=false` .
+Jeśli używasz lokalnego SQL Server wystąpienia, możesz zacząć od kroku 1 i wykonać kroki opisane w tym samouczku na końcu. Jeśli jest używane zdalne wystąpienie SQL Server, należy najpierw upewnić się, że podczas debugowania na komputerze deweloperskim zostanie zarejestrowane konto użytkownika systemu Windows, które ma SQL Server logowaniu w wystąpieniu zdalnym. Ponadto zarówno identyfikator logowania bazy danych, jak i identyfikator logowania bazy danych używane do łączenia się z bazą danych z działającej aplikacji ASP.NET muszą być członkami roli `sysadmin`. Więcej informacji na temat konfigurowania programu Visual Studio i SQL Server do debugowania wystąpienia zdalnego znajduje się w sekcji debugowanie obiektów T-SQL Database w zdalnych wystąpieniach.
+
+Na koniec należy pamiętać, że obsługa debugowania dla obiektów usługi T-SQL Database nie jest funkcją zaawansowaną jako obsługa debugowania dla aplikacji .NET. Na przykład warunki i filtry punktu przerwania nie są obsługiwane. dostępne są tylko podzbiór okien debugowania, ale nie można używać elementów Edit i Continue. okno bezpośrednie jest renderowane jako bezużyteczne i tak dalej. Aby uzyskać więcej informacji [, zobacz ograniczenia dotyczące poleceń debugera i funkcji](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) .
+
+## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Krok 1. bezpośrednie przechodzenie do procedury składowanej
+
+Program Visual Studio ułatwia bezpośrednią debugowanie obiektu bazy danych. Pozwól, jak używać funkcji bezpośrednie debugowanie bazy danych (DDD), aby przejść do procedury składowanej `Products_SelectByCategoryID` w bazie danych Northwind. Jako że jego nazwa oznacza, `Products_SelectByCategoryID` zwraca informacje o produkcie dla określonej kategorii; został on utworzony w [istniejących procedurach składowanych dla danego TableAdaptersego samouczka zestawu danych](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) . Zacznij od przechodzenia do Eksplorator serwera i rozwiń węzeł bazy danych Northwind. Następnie przejdź do szczegółów w folderze procedury składowane, kliknij prawym przyciskiem myszy `Products_SelectByCategoryID` procedury składowanej i wybierz opcję wejdź do procedury składowanej z menu kontekstowego. Spowoduje to uruchomienie debugera.
+
+Ponieważ `Products_SelectByCategoryID` procedury składowanej oczekuje `@CategoryID` parametr wejściowy, zostanie wyświetlony monit o podanie tej wartości. Wprowadź wartość 1, która zwróci informacje o napojach.
+
+![Użyj wartości 1 dla parametru @CategoryID](debugging-stored-procedures-vb/_static/image1.png)
+
+**Rysunek 1**. Użyj wartości 1 dla parametru `@CategoryID`
+
+Po podaniu wartości parametru `@CategoryID` wykonywana jest procedura składowana. W przeciwieństwie do ukończenia, debuger zatrzymuje wykonywanie na pierwszej instrukcji. Zwróć uwagę na żółtą strzałkę na marginesie wskazującą bieżącą lokalizację w procedurze składowanej. Można wyświetlać i edytować wartości parametrów za pomocą okno wyrażeń kontrolnych lub przez umieszczenie kursora nad nazwą parametru w procedurze składowanej.
+
+[![debuger został zatrzymany na pierwszej instrukcji procedury składowanej](debugging-stored-procedures-vb/_static/image3.png)](debugging-stored-procedures-vb/_static/image2.png)
+
+**Rysunek 2**. debuger został zatrzymany na pierwszej instrukcji procedury składowanej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](debugging-stored-procedures-vb/_static/image4.png))
+
+Aby krokowo wykonać procedurę składowaną o jednej instrukcji w danym momencie, kliknij przycisk Przekrocz na pasku narzędzi lub naciśnij klawisz F10. Procedura składowana `Products_SelectByCategoryID` zawiera jedną instrukcję `SELECT`, więc naciśnięcie klawisza F10 spowoduje przekroczenie pojedynczej instrukcji i zakończenie wykonywania procedury składowanej. Po zakończeniu procedury składowanej jej dane wyjściowe pojawią się w oknie danych wyjściowych, a debuger zostanie przerwany.
+
+> [!NOTE]
+> Debugowanie T-SQL odbywa się na poziomie instrukcji; nie można przejść do instrukcji `SELECT`.
+
+## <a name="step-2-configuring-the-website-for-application-debugging"></a>Krok 2. Konfigurowanie witryny sieci Web na potrzeby debugowania aplikacji
+
+Debugowanie procedury składowanej bezpośrednio z Eksplorator serwera jest przydatne w wielu scenariuszach, które są bardziej interesujące podczas debugowania procedury składowanej, gdy jest wywoływana z naszej aplikacji ASP.NET. Możemy dodać punkty przerwania do procedury składowanej z poziomu programu Visual Studio, a następnie rozpocząć debugowanie aplikacji ASP.NET. Gdy procedura składowana z punktami przerwania jest wywoływana z aplikacji, wykonywanie zostanie zatrzymane w punkcie przerwania i będzie można wyświetlać i zmieniać wartości parametrów procedury składowanej oraz krokowo, podobnie jak w kroku 1.
+
+Zanim będziemy mogli rozpocząć debugowanie procedur składowanych wywoływanych z aplikacji, musimy nakazać aplikacji sieci Web ASP.NET integrację z debugerem SQL Server. Zacznij od kliknięcia prawym przyciskiem myszy nazwy witryny sieci Web w Eksplorator rozwiązań (`ASPNET_Data_Tutorial_74_VB`). Wybierz opcję strony właściwości z menu kontekstowego, wybierz pozycję Opcje uruchomienia po lewej stronie, a następnie zaznacz pole wyboru SQL Server w sekcji debugery (zobacz rysunek 3).
+
+[![zaznaczyć pole wyboru SQL Server na stronach właściwości aplikacji](debugging-stored-procedures-vb/_static/image6.png)](debugging-stored-procedures-vb/_static/image5.png)
+
+**Rysunek 3**. Zaznacz pole wyboru SQL Server na stronach właściwości aplikacji (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](debugging-stored-procedures-vb/_static/image7.png))
+
+Ponadto należy zaktualizować parametry połączenia z bazą danych używane przez aplikację, aby pule połączeń były wyłączone. Gdy połączenie z bazą danych jest zamknięte, odpowiedni obiekt `SqlConnection` jest umieszczany w puli dostępnych połączeń. Podczas ustanawiania połączenia z bazą danych można pobrać dostępny obiekt połączenia z tej puli zamiast tworzyć i ustanawiać nowe połączenie. Ta Pula obiektów połączeń jest ulepszeniem wydajności i jest domyślnie włączona. Jednak podczas debugowania chcemy wyłączyć buforowanie połączeń, ponieważ infrastruktura debugowania nie jest poprawnie ponownie ustanawiana podczas pracy z połączeniem, które zostało wykonane z puli.
+
+Aby wyłączyć buforowanie połączeń, zaktualizuj `NORTHWNDConnectionString` w `Web.config` tak, aby obejmował `Pooling=false` ustawienia.
 
 [!code-xml[Main](debugging-stored-procedures-vb/samples/sample1.xml)]
 
 > [!NOTE]
-> Po zakończeniu debugowania programu SQL Server za pośrednictwem aplikacji ASP.NET upewnij się przywrócić buforowanie połączeń, usuwając `Pooling` ustawienie z parametrów połączenia (lub przez ustawienie `Pooling=true` ).
+> Po zakończeniu debugowania SQL Server za pośrednictwem aplikacji ASP.NET upewnij się, że pula połączeń zostanie przywrócona, usuwając ustawienie `Pooling` z parametrów połączenia (lub ustawiając je na `Pooling=true`).
 
-W tym momencie aplikacji ASP.NET skonfigurowano programowi Visual Studio do debugowania obiekty bazy danych programu SQL Server, gdy wywoływane za pośrednictwem aplikacji sieci web. Nadal będzie teraz wystarczy dodać punkt przerwania do procedury składowanej i Rozpocznij debugowanie!
+W tym momencie aplikacja ASP.NET została skonfigurowana, aby umożliwić programowi Visual Studio debugowanie SQL Server obiektów bazy danych po wywołaniu za pomocą aplikacji sieci Web. Wszystkie te, które pozostają teraz, to dodanie punktu przerwania do procedury składowanej i rozpoczęcie debugowania.
 
 ## <a name="step-3-adding-a-breakpoint-and-debugging"></a>Krok 3. Dodawanie punktu przerwania i debugowania
 
-Otwórz `Products_SelectByCategoryID` procedury składowanej i ustaw punkt przerwania na początku `SELECT` instrukcji, klikając na marginesie w odpowiednim miejscu lub umieszczając kursor na początku `SELECT` instrukcji i naciskając klawisz F9. Rysunek 4 przedstawia, punkt przerwania jest pokazywana jako czerwone kółko na marginesie.
+Otwórz `Products_SelectByCategoryID` procedury składowanej i ustaw punkt przerwania na początku instrukcji `SELECT`, klikając margines w odpowiednim miejscu lub umieszczając kursor na początku instrukcji `SELECT` i naciskając klawisz F9. Jak pokazano na rysunku 4, punkt przerwania pojawia się jako czerwony okrąg na marginesie.
 
-[![Ustaw punkt przerwania w Products_SelectByCategoryID procedury składowanej](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
+[![ustawić punktu przerwania w procedurze składowanej Products_SelectByCategoryID](debugging-stored-procedures-vb/_static/image9.png)](debugging-stored-procedures-vb/_static/image8.png)
 
-**Rysunek 4**: Ustaw punkt przerwania `Products_SelectByCategoryID` Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image10.png))
+**Rysunek 4**. Ustawianie punktu przerwania w procedurze składowanej `Products_SelectByCategoryID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image10.png))
 
-Aby dla obiektu bazy danych SQL do debugowania za pomocą aplikacji klienckiej konieczne jest skonfigurowania bazy danych do obsługi debugowania aplikacji. Jeśli najpierw ustaw punkt przerwania, to ustawienie powinno automatycznie być włączone, ale zaleca się dokładnie. Kliknij prawym przyciskiem myszy `NORTHWND.MDF` węzła w Eksploratorze serwera. Menu kontekstowe powinno obejmować zaznaczony element menu o nazwie debugowania aplikacji.
+Aby obiekt bazy danych SQL był debugowany za pomocą aplikacji klienckiej, należy bezwzględnie skonfigurować bazę danych do obsługi debugowania aplikacji. Gdy po raz pierwszy ustawisz punkt przerwania, to ustawienie powinno być automatycznie włączane, ale ostrożne sprawdzanie podwójne. Kliknij prawym przyciskiem myszy węzeł `NORTHWND.MDF` w Eksplorator serwera. Menu kontekstowe powinno zawierać element menu wyboru o nazwie debugowanie aplikacji.
 
-![Upewnij się, że włączono opcję debugowania aplikacji](debugging-stored-procedures-vb/_static/image11.png)
+![Upewnij się, że opcja debugowania aplikacji jest włączona](debugging-stored-procedures-vb/_static/image11.png)
 
-**Rysunek 5**: Upewnij się, że włączono opcję debugowania aplikacji
+**Rysunek 5**. Upewnij się, że opcja debugowania aplikacji jest włączona
 
-Ustaw punkt przerwania i włączoną opcją debugowanie aplikacji możemy przystąpić do debugowania procedury składowanej, gdy zostanie wywołana z poziomu aplikacji ASP.NET. Uruchom debuger, przechodząc do menu Debuguj i wybierając Rozpocznij debugowanie przez naciskać klawisz F5 lub klikając na zielony wskaźnik odtwarzania ikonę na pasku narzędzi. Spowoduje to uruchomienia debugera i uruchomienie witryny sieci Web.
+Po włączeniu zestawu punktów przerwania i włączonej opcji debugowania aplikacji jesteśmy gotowi do debugowania procedury składowanej w przypadku wywołania z aplikacji ASP.NET. Uruchom Debuger, przechodząc do menu Debuguj i wybierając pozycję Rozpocznij debugowanie, naciskając klawisz F5 lub klikając zieloną ikonę odtwarzania na pasku narzędzi. Spowoduje to uruchomienie debugera i uruchomienie witryny sieci Web.
 
-`Products_SelectByCategoryID` Procedura składowana została utworzona w [za pomocą istniejących procedur składowanych dla s wpisany zestaw danych TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) samouczka. Jego odpowiadającą mu stronę sieci web (`~/AdvancedDAL/ExistingSprocs.aspx`) zawiera GridView wyświetlający wyników zwróconych przez tę procedurę składowaną. Odwiedź tę stronę za pośrednictwem przeglądarki. Gdy wykorzystasz na stronie punkt przerwania w `Products_SelectByCategoryID` procedury składowanej spowoduje osiągnięcie i kontroli zwrócił do programu Visual Studio. Podobnie jak w kroku 1, można przejść przez procedurę składowaną s instrukcji i widoku i modyfikowanie wartości parametrów.
+Procedura składowana `Products_SelectByCategoryID` została utworzona w [istniejących procedurach składowanych dla tego samouczka z określonym zestawem danych s TableAdapters](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md) . Odpowiadająca jej Strona sieci Web (`~/AdvancedDAL/ExistingSprocs.aspx`) zawiera widok GridView, który wyświetla wyniki zwrócone przez tę procedurę składowaną. Odwiedź Tę stronę za pomocą przeglądarki. Po osiągnięciu strony punkt przerwania w `Products_SelectByCategoryID` procedury składowanej zostanie trafiony i kontrolka zwróci do programu Visual Studio. Podobnie jak w kroku 1, można przejść przez instrukcje procedury składowanej i wyświetlić i zmodyfikować wartości parametrów.
 
-[![Na stronie ExistingSprocs.aspx początkowo wyświetlane są Beverages](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
+[![Strona ExistingSprocs. aspx zawiera początkowo napoje](debugging-stored-procedures-vb/_static/image13.png)](debugging-stored-procedures-vb/_static/image12.png)
 
-**Rysunek 6**: `ExistingSprocs.aspx` Strony wyświetli początkowo Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image14.png))
+**Ilustracja 6**. Strona `ExistingSprocs.aspx` początkowo wyświetla napoje (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image14.png))
 
-[![S procedury składowanej punkt przerwania zostanie osiągnięty](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
+[![punkt przerwania procedury składowanej s został osiągnięty](debugging-stored-procedures-vb/_static/image16.png)](debugging-stored-procedures-vb/_static/image15.png)
 
-**Rysunek 7**: Procedura składowana s, został osiągnięty punkt przerwania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image17.png))
+**Rysunek 7**: punkt przerwania procedury składowanej s został osiągnięty ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](debugging-stored-procedures-vb/_static/image17.png))
 
-Jak okna czujki w przedstawia rysunek 7, wartość `@CategoryID` parametru to 1. Jest to spowodowane `ExistingSprocs.aspx` strony początkowo wyświetlane produkty należące do tej kategorii, która ma `CategoryID` wartość 1. Wybierz inną kategorię z listy rozwijanej. Ten sposób powoduje odświeżenie strony i ponownie uruchamia `Products_SelectByCategoryID` procedury składowanej. Punkt przerwania zostaje trafiony ponownie, ale tym razem `@CategoryID` wartość s parametru odzwierciedla element do wybranej listy rozwijanej s `CategoryID`.
+Jak okno wyrażeń kontrolnych na rysunku 7 pokazuje wartość parametru `@CategoryID` to 1. Dzieje się tak, ponieważ na stronie `ExistingSprocs.aspx` początkowo są wyświetlane produkty w kategorii napoje, która ma `CategoryID` wartość 1. Wybierz inną kategorię z listy rozwijanej. Spowoduje to wygenerowanie ogłaszania zwrotnego i ponowne uruchomienie `Products_SelectByCategoryID` procedury składowanej. Punkt przerwania został ponownie trafiony, ale ten czas `@CategoryID` wartość parametru s odzwierciedla wybrany element listy rozwijanej `CategoryID`.
 
-[![Wybierz inną kategorię z listy rozwijanej](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
+[![wybrać inną kategorię z listy rozwijanej](debugging-stored-procedures-vb/_static/image19.png)](debugging-stored-procedures-vb/_static/image18.png)
 
-**Rysunek 8**: Wybierz inną kategorię z listy rozwijanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image20.png))
+**Ilustracja 8**. Wybierz inną kategorię z listy rozwijanej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](debugging-stored-procedures-vb/_static/image20.png))
 
-[![@CategoryID Parametr odzwierciedla kategorii wybrać na stronie sieci Web](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
+[![parametr @CategoryID odzwierciedla kategorię wybraną ze strony sieci Web](debugging-stored-procedures-vb/_static/image22.png)](debugging-stored-procedures-vb/_static/image21.png)
 
-**Rysunek 9**: `@CategoryID` Parametru odzwierciedla wybrać kategorię ze strony internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](debugging-stored-procedures-vb/_static/image23.png))
+**Ilustracja 9**. parametr `@CategoryID` odzwierciedla kategorię wybraną ze strony sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](debugging-stored-procedures-vb/_static/image23.png))
 
 > [!NOTE]
-> Jeśli punkt przerwania w `Products_SelectByCategoryID` procedury składowanej nie zostanie osiągnięty, gdy użytkownik odwiedzi `ExistingSprocs.aspx` strony, upewnij się, że pole wyboru programu SQL Server został zaewidencjonowany debugery części aplikacji ASP.NET s strony właściwości, że zostało puli połączeń wyłączone i włączenie bazy danych s opcji debugowania aplikacji. Jeśli ponownie nadal występują problemy, uruchom ponownie program Visual Studio i spróbuj ponownie.
+> Jeśli punkt przerwania w `Products_SelectByCategoryID` procedurze składowanej nie zostanie trafiony podczas odwiedzania `ExistingSprocs.aspx` strony, upewnij się, że pole wyboru SQL Server zostało zaznaczone w sekcji debugera na stronie właściwości aplikacji ASP.NET, że pule połączeń zostały wyłączone i że opcja debugowania aplikacji bazy danych jest włączona. Jeśli nadal występują problemy, uruchom ponownie program Visual Studio i spróbuj ponownie.
 
-## <a name="debugging-t-sql-database-objects-on-remote-instances"></a>Obiekty bazy danych języka T-SQL w wystąpieniach zdalnego debugowania
+## <a name="debugging-t-sql-database-objects-on-remote-instances"></a>Debugowanie obiektów T-SQL Database w wystąpieniach zdalnych
 
-Debugowanie obiektów bazy danych za pomocą programu Visual Studio jest dość prosta, gdy wystąpienie bazy danych programu SQL Server znajduje się na tym samym komputerze co program Visual Studio. Jednak jeśli program SQL Server i Visual Studio znajdują się na różnych maszynach niektóre dokładnej konfiguracji jest wymagane uzyskanie wszystko działa prawidłowo. Istnieją dwa podstawowych zadaniach, które napotykają firma Microsoft:
+Debugowanie obiektów bazy danych za pomocą programu Visual Studio jest dość proste, gdy wystąpienie bazy danych SQL Server znajduje się na tym samym komputerze co program Visual Studio. Jeśli jednak SQL Server i program Visual Studio znajdują się na różnych maszynach, w celu poprawnego działania wszystkiego konieczna jest pewna konfiguracja. Istnieją dwa podstawowe zadania, do których prowadzimy:
 
-- Upewnij się, że nazwa logowania używana do łączenia z bazą danych za pomocą ADO.NET należy do `sysadmin` roli.
-- Upewnij się, że konto użytkownika Windows, które są używane przez program Visual Studio na komputerze deweloperskim prawidłowe konto logowania programu SQL Server, który należy do `sysadmin` roli.
+- Upewnij się, że logowanie używane do nawiązania połączenia z bazą danych za pośrednictwem ADO.NET należy do roli `sysadmin`.
+- Upewnij się, że konto użytkownika systemu Windows używane przez program Visual Studio na komputerze deweloperskim jest prawidłowym kontem logowania SQL Server, które należy do roli `sysadmin`.
 
-Pierwszym krokiem jest stosunkowo prosta. Najpierw należy zidentyfikować konto użytkownika używane do łączenia z bazą danych z aplikacji ASP.NET i następnie z programu SQL Server Management Studio, dodaj to konto logowania do `sysadmin` roli.
+Pierwszy krok jest stosunkowo nieskomplikowany. Najpierw Zidentyfikuj konto użytkownika używane do nawiązania połączenia z bazą danych z aplikacji ASP.NET, a następnie z SQL Server Management Studio Dodaj to konto logowania do roli `sysadmin`.
 
-Drugie zadanie wymaga Windows konto użytkownika, którego używasz do debugowania aplikacji prawidłową nazwą logowania na zdalnej bazy danych. Jednak jest szansa, że użytkownik zalogowany na stacji roboczej za pomocą konta Windows nie jest prawidłową nazwą logowania w programie SQL Server. Zamiast dodawać konta określonego logowania do programu SQL Server, lepszym rozwiązaniem byłoby wyznaczyć niektóre konta użytkownika Windows jako konto debugowania programu SQL Server. Następnie Aby debugować obiekty bazy danych, zdalnego wystąpienia programu SQL Server, należy uruchomić programu Visual Studio przy użyciu poświadczeń konta s logowania tego Windows.
+Drugie zadanie wymaga, aby konto użytkownika systemu Windows używane do debugowania aplikacji było prawidłową nazwą logowania w zdalnej bazie danych. Jednak prawdopodobnie konto systemu Windows, które zostało zalogowane na stacji roboczej, nie jest prawidłową nazwą logowania w SQL Server. Zamiast dodawać określone konto logowania do SQL Server, lepszym wyborem będzie wyznaczenie konta użytkownika systemu Windows jako konta debugowania SQL Server. Następnie w celu debugowania obiektów bazy danych zdalnego wystąpienia SQL Server można uruchomić program Visual Studio przy użyciu poświadczeń konta logowania systemu Windows.
 
-Przykład powinny pomóc w wyjaśnianiu rzeczy. Wyobraź sobie, że istnieje konto Windows o nazwie `SQLDebug` w obrębie domeny Windows. To konto będzie należy dodać do zdalnego wystąpienia programu SQL Server jako prawidłową nazwą logowania i jako członek `sysadmin` roli. Następnie do debugowania zdalnego wystąpienia programu SQL Server w programie Visual Studio, czy należy uruchomić program Visual Studio jako `SQLDebug` użytkownika. Można to zrobić, logując się z naszym stacji roboczej, logowanie w trybie `SQLDebug`, a następnie uruchamiania programu Visual Studio, ale prostszej metody będzie zalogować się do naszych stacji roboczej przy użyciu własnych poświadczeń, a następnie użyć `runas.exe` można uruchomić programu Visual Studio jako `SQLDebug` użytkownika. `runas.exe` zezwala na konkretnej aplikacji mają być wykonane w ramach podszywając innego konta użytkownika. Aby uruchomić program Visual Studio jako `SQLDebug`, można wprowadzić następującą instrukcję w wierszu polecenia:
+Przykład powinien ułatwić wyjaśnienie rzeczy. Załóżmy, że istnieje konto systemu Windows o nazwie `SQLDebug` w domenie systemu Windows. To konto należy dodać do zdalnego wystąpienia SQL Server jako prawidłowe logowanie i jako element członkowski roli `sysadmin`. Następnie, aby debugować wystąpienie SQL Server zdalnego z programu Visual Studio, musimy uruchomić program Visual Studio jako użytkownik `SQLDebug`. Można to zrobić, logując się z naszej stacji roboczej, logując się jako `SQLDebug`, a następnie uruchamiając program Visual Studio, ale prostszym podejściem jest zalogowanie się do naszej stacji roboczej przy użyciu własnych poświadczeń, a następnie użycie `runas.exe` do uruchomienia programu Visual Studio jako użytkownik `SQLDebug`. `runas.exe` umożliwia wykonywanie konkretnej aplikacji w ramach Guise innego konta użytkownika. Aby uruchomić program Visual Studio jako `SQLDebug`, w wierszu polecenia można wprowadzić następującą instrukcję:
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
 
-Aby uzyskać więcej szczegółowych informacji na temat tego procesu, zobacz [William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Przewodnik po Visual Studio i SQL Server, Wydanie siódme* także [How to: Ustawianie uprawnień programu SQL Server do debugowania](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
+Aby zapoznać się z bardziej szczegółowym wyjaśnieniem tego procesu, zobacz [William R. Vaughn](http://betav.com/BLOG/billva/) s *hitchhiker s w programie Visual Studio i SQL Server, siódmej wersji* , jak również [: Ustawianie uprawnień SQL Server dla debugowania](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
-> Jeśli na komputerze deweloperskim działa Windows XP Service Pack 2 należy skonfigurować zapory w celu zezwolenia na debugowanie zdalne. [Instrukcje: Włącz debugowanie programu SQL Server 2005](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) artykułu — informacje o ten proces obejmuje dwa kroki: () na maszynie hosta programu Visual Studio, należy dodać `Devenv.exe` do listy wyjątków i otwórz port TCP 135; oraz (b) na komputerze zdalnym (SQL), należy otworzyć TCP 135 port i Dodaj `sqlservr.exe` do listy wyjątków. Jeśli zasady domeny wymaga komunikacji w sieci, można wykonać za pomocą protokołu IPSec, należy otworzyć porty UDP 4500 i protokołu UDP 500.
+> Jeśli na komputerze deweloperskim jest uruchomiony system Windows XP z dodatkiem Service Pack 2, należy skonfigurować zaporę połączenia internetowego, aby zezwalała na zdalne debugowanie. Artykuł [How to: Enable SQL Server 2005 Debug](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) uwagi, że dotyczy to dwóch kroków: (a) na komputerze hosta programu Visual Studio, należy dodać `Devenv.exe` do listy wyjątków i otworzyć port TCP 135; i (b) na komputerze zdalnym (SQL), należy otworzyć port TCP 135 i dodać `sqlservr.exe` do listy wyjątków. Jeśli zasady domeny wymagają komunikacji sieciowej za pomocą protokołu IPSec, należy otworzyć porty UDP 4500 i UDP 500.
 
 ## <a name="summary"></a>Podsumowanie
 
-Ponadto, aby zapewnić obsługę debugowania dla kodu aplikacji platformy .NET, Visual Studio udostępnia szereg opcji debugowania dla programu SQL Server 2005. W tym samouczku przyjrzeliśmy się dwa z tych opcji: Bezpośredniego debugowania bazy danych i debugowania aplikacji. Aby debugować bezpośrednio obiektu bazy danych języka T-SQL, zlokalizować obiektu za pomocą Eksploratora serwera, a następnie kliknij prawym przyciskiem myszy na nim, a następnie wybierz Step Into. Spowoduje to uruchomienie debugera i zatrzymuje się na pierwszej instrukcji w obiekcie bazy danych, w tym momencie można przejrzeć instrukcje s obiektów i widoku i modyfikować wartości parametrów. W kroku 1 użyliśmy tej metody, aby wkraczać do `Products_SelectByCategoryID` procedurę składowaną.
+Oprócz zapewniania obsługi debugowania kodu aplikacji .NET program Visual Studio udostępnia również różne opcje debugowania dla SQL Server 2005. W tym samouczku przedstawiono dwie z tych opcji: bezpośrednie debugowanie bazy danych i debugowanie aplikacji. Aby bezpośrednio debugować obiekt bazy danych T-SQL, zlokalizuj obiekt za pomocą Eksplorator serwera a następnie kliknij go prawym przyciskiem myszy i wybierz polecenie Wkrocz do. Spowoduje to uruchomienie debugera i zatrzymanie pierwszej instrukcji w obiekcie bazy danych, w tym momencie można wykonać krokowo przez instrukcje obiektu i wyświetlić i zmodyfikować wartości parametrów. W kroku 1 Ta metoda została użyta, aby przejść do procedury składowanej `Products_SelectByCategoryID`.
 
-Debugowanie aplikacji umożliwia punktów przerwania, aby ustawić bezpośrednio z poziomu obiektów bazy danych. Po wywołaniu obiektu bazy danych z punktami przerwania od aplikacji klienckiej, (na przykład aplikacja sieci web ASP.NET), program zatrzymuje jako przejmuje debugera. Debugowanie aplikacji jest przydatne, ponieważ bardziej wyraźnie pokazuje, jakie działania aplikacji powoduje, że obiekt określoną bazę danych do wywołania. Jednak wymaga nieco więcej konfiguracją i instalacją, niż bezpośredniego debugowania bazy danych.
+Debugowanie aplikacji umożliwia ustawianie punktów przerwania bezpośrednio w obiektach bazy danych. Gdy obiekt bazy danych z punktami przerwania jest wywoływany z aplikacji klienckiej (takiej jak aplikacja sieci Web ASP.NET), program zostaje zatrzymany, gdy debuger przejęcia. Debugowanie aplikacji jest przydatne, ponieważ bardziej jasno pokazuje działanie aplikacji, która powoduje wywoływanie określonego obiektu bazy danych. Jednak wymaga to nieco większej konfiguracji i instalacji niż bezpośrednie debugowanie bazy danych.
 
-Obiekty bazy danych można także debugować za pomocą projektów programu SQL Server. Przyjrzymy się przy użyciu projektów programu SQL Server i jak ich używać do tworzenia i debugowania zarządzanych obiektów bazy danych w następnym samouczku.
+Obiekty bazy danych mogą być również debugowane za poorednictwem projektów SQL Server. Będziemy przeglądać projekty SQL Server i sposoby ich używania do tworzenia i debugowania obiektów zarządzanych baz danych w następnym samouczku.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Poprzednie](protecting-connection-strings-and-other-configuration-information-vb.md)

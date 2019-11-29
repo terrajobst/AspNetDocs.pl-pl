@@ -1,109 +1,109 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
-title: Obsługa akcji OData we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Obsługa akcji OData w programie ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: 'W protokole OData akcje to sposób, aby dodać zachowania po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach. Do niektórych zastosowań akcje obejmują: Implementowanie...'
+description: 'W protokole OData akcje są sposobem dodawania zachowań po stronie serwera, które nie są łatwo zdefiniowane jako operacje CRUD na jednostkach. Niektóre zastosowania do akcji obejmują: Implementuj...'
 ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 2d7b3aa2-aa47-4e6e-b0ce-3d65a1c6fe02
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 msc.type: authoredcontent
-ms.openlocfilehash: 523225d86b06914349ebd689c4042b0b20393b9b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ae8b23f0868f992cb2bbbf14ee3f7ac848501515
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112322"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600352"
 ---
-# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>Obsługa akcji OData we wzorcu ASP.NET Web API 2
+# <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>Obsługa działań OData w programie ASP.NET Web API 2
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> W protokole OData *akcje* to sposób, aby dodać zachowania po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach. Do niektórych zastosowań akcje obejmują:
+> W protokole OData *Akcje* są sposobem dodawania zachowań po stronie serwera, które nie są łatwo zdefiniowane jako operacje CRUD na jednostkach. Niektóre zastosowania do akcji obejmują:
 > 
 > - Implementowanie złożonych transakcji.
-> - Manipulowanie kilka jednostek naraz.
-> - Zezwalanie na aktualizacje tylko dla niektórych właściwości jednostki.
+> - Jednoczesne manipulowanie kilkoma jednostkami.
+> - Zezwalanie na aktualizacje tylko do określonych właściwości jednostki.
 > - Wysyłanie informacji do serwera, który nie jest zdefiniowany w jednostce.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - Internetowy interfejs API 2
-> - OData w wersji 3
+> - Web API 2
+> - Usługa OData w wersji 3
 > - Entity Framework 6
 
 ## <a name="example-rating-a-product"></a>Przykład: Ocena produktu
 
-W tym przykładzie chcemy umożliwić użytkownikom oceniać produkty, a następnie udostępnić średnią ocen dla każdego produktu. W bazie danych będą przechowywane listy klasyfikacji, opartych na kluczach produktów.
+W tym przykładzie chcemy umożliwić użytkownikom ocenianie produktów, a następnie uwidocznienie średniej klasyfikacji dla każdego produktu. W bazie danych zostanie przechowana lista ocen, które zostały dostosowane do produktów.
 
-Poniżej przedstawiono model, może być używana do reprezentowania klasyfikacje platformy Entity Framework:
+Oto model, którego możemy użyć do reprezentowania klasyfikacji w Entity Framework:
 
 [!code-csharp[Main](odata-actions/samples/sample1.cs)]
 
-Ale nie chcemy, aby klienci POST `ProductRating` obiektu do kolekcji "Klasyfikacje". Intuicyjne ocena jest skojarzona z tą kolekcją produktów, a klient powinien wystarczy wpis wartość oceny.
+Ale nie chcemy, aby klienci OGŁASZAli obiekt `ProductRating` w kolekcji "ratings". Intuicyjnie, ocena jest skojarzona z kolekcją produkty, a klient powinien potrzebować tylko do opublikowania wartości klasyfikacji.
 
-W związku z tym zamiast korzystać z normalnych operacji CRUD, definiujemy akcję, które klient może wywołać nad produktem. W terminologii OData, akcja jest *powiązany* jednostek produktu.
+W związku z tym zamiast używania normalnych operacji CRUD definiujemy akcję, którą klient może wywołać w produkcie. W terminologii OData akcja jest *powiązana* z jednostkami produktu.
 
->Akcji ma efekty uboczne, na serwerze. Z tego powodu są wywoływane, za pomocą żądania HTTP POST. Akcje mogą mieć parametry i zwracane typy, które są opisane w metadanych usługi. Klient wysyła parametrów w treści żądania, a serwer wysyła wartości zwracanej w treści odpowiedzi. Aby wywołać akcję "Współczynnik produkt", klient wysyła WPIS do identyfikatora URI, jak pokazano poniżej:
+>Akcje mają efekty uboczne na serwerze. Z tego powodu są wywoływane przy użyciu żądań HTTP POST. Akcje mogą zawierać parametry i typy zwracane, które są opisane w metadanych usługi. Klient wysyła parametry w treści żądania, a serwer wysyła wartość zwracaną w treści odpowiedzi. Aby wywołać akcję "Oceń produkt", klient wysyła wpis do identyfikatora URI w następujący sposób:
 
 [!code-console[Main](odata-actions/samples/sample2.cmd)]
 
-Dane w żądaniu POST jest po prostu ocena produktu:
+Dane w żądaniu POST są po prostu klasyfikacją produktu:
 
 [!code-console[Main](odata-actions/samples/sample3.cmd)]
 
-## <a name="declare-the-action-in-the-entity-data-model"></a>Zadeklaruj akcji w modelu Entity Data Model
+## <a name="declare-the-action-in-the-entity-data-model"></a>Zadeklaruj akcję w Entity Data Model
 
-W konfiguracji interfejsu API sieci Web Dodaj do modelu entity data model (EDM struktury) akcję:
+W konfiguracji internetowego interfejsu API Dodaj akcję do modelu Entity Data Model (EDM):
 
 [!code-csharp[Main](odata-actions/samples/sample4.cs)]
 
-Ten kod definiuje "RateProduct" jako akcję, które mogą być wykonywane na jednostkach produktu. Również deklaruje, że akcja jest wykonywana **int** parametr o nazwie "Ocena" i zwraca **int** wartość.
+Ten kod definiuje "RateProduct" jako akcję, którą można wykonać w jednostkach produktu. Deklaruje także, że akcja przyjmuje parametr **int** o nazwie "Rating" i zwraca wartość **int** .
 
-## <a name="add-the-action-to-the-controller"></a>Dodawanie akcji do kontrolera
+## <a name="add-the-action-to-the-controller"></a>Dodaj akcję do kontrolera
 
-Akcja "RateProduct" jest powiązany z jednostki produktu. Aby zastosować akcję, Dodaj metodę o nazwie `RateProduct` kontrolerowi produktów:
+Akcja "RateProduct" jest powiązana z jednostkami produktu. Aby zaimplementować akcję, Dodaj metodę o nazwie `RateProduct` do kontrolera produktów:
 
 [!code-csharp[Main](odata-actions/samples/sample5.cs)]
 
-Należy zauważyć, że nazwa metody odpowiada nazwie w akcji EDM. Metoda ma dwa parametry:
+Zwróć uwagę, że nazwa metody jest zgodna z nazwą akcji w modelu EDM. Metoda ma dwa parametry:
 
-- *Klucz*: Klucz produktu do szybkości.
-- *Parametry*: Słownik wartości parametrów akcji.
+- *klucz*: klucz produktu do oceniania.
+- *Parametry*: słownik wartości parametrów akcji.
 
-Jeśli używasz domyślnych Konwencji tras parametr klucza musi mieć nazwę "klucza". Warto również uwzględnić **[FromOdataUri]** atrybutu, jak pokazano. Ten atrybut informuje reguły składni OData używane, gdy jej analizuje klucza z identyfikatora URI żądania interfejsu API sieci Web.
+Jeśli używasz domyślnych Konwencji routingu, parametr klucza musi mieć nazwę "klucz". Ważne jest również uwzględnienie atrybutu **[FromOdataUri]** , jak pokazano. Ten atrybut wskazuje, że interfejs API sieci Web ma używać reguł składni OData podczas analizowania klucza z żądania URI.
 
-Użyj *parametry* słownika można pobrać parametrów akcji:
+Użyj słownika *parametrów* , aby uzyskać parametry akcji:
 
 [!code-csharp[Main](odata-actions/samples/sample6.cs)]
 
-Jeśli klient wysyła parametry akcji w poprawny format, wartość **ModelState.IsValid** ma wartość true. W takim przypadku można użyć **ODataActionParameters** słownika do uzyskania wartości parametrów. W tym przykładzie `RateProduct` akcji przyjmuje jeden parametr o nazwie "Ocena".
+Jeśli klient wysyła parametry akcji w prawidłowym formacie, wartość **ModelState. IsValid** ma wartość true. W takim przypadku można pobrać wartości parametrów przy użyciu słownika **ODataActionParameters** . W tym przykładzie akcja `RateProduct` przyjmuje jeden parametr o nazwie "Rating".
 
 ## <a name="action-metadata"></a>Metadane akcji
 
-Aby wyświetlić metadane usługi, Wyślij żądanie Pobierz do /odata/$ metadanych. Poniżej przedstawiono część metadanych, który deklaruje `RateProduct` akcji:
+Aby wyświetlić metadane usługi, Wyślij żądanie GET do/OData/$metadata. Poniżej znajduje się część metadanych, która deklaruje `RateProduct` akcję:
 
 [!code-xml[Main](odata-actions/samples/sample7.xml)]
 
-**FunctionImport** elementu deklaruje akcji. Większość pól jest oczywista, ale dwa są warte odnotowania:
+Element **FunctionImport** deklaruje akcję. Większość pól nie ma wyjaśnień, ale dwie są następujące:
 
-- **Może być powiązana** oznacza, że akcja może być wywołana na jednostkę docelową co najmniej pewien czas.
-- **Funkcja IsAlwaysBindable** oznacza, że akcja zawsze może być wywołana na jednostkę docelową.
+- **Isbindd** oznacza, że akcja może być wywoływana w jednostce docelowej, co najmniej jakiś czas.
+- **IsAlwaysBindable** oznacza, że akcja zawsze może być wywoływana w jednostce docelowej.
 
-Różnica polega na niektóre akcje są zawsze dostępne dla klientów, że inne akcje mogą zależeć od stan jednostki. Na przykład załóżmy, że definiowania akcji "Kup". Można kupić tylko elementu, który znajduje się w magazynie. Jeśli element znajduje się na stanie, klient nie może wywołać tę akcję.
+Różnica polega na tym, że niektóre akcje są zawsze dostępne dla klientów, ale inne akcje mogą zależeć od stanu jednostki. Załóżmy na przykład, że zdefiniujesz akcję "Kup". Można kupić tylko element, który znajduje się w magazynie. Jeśli element jest poza magazynem, klient nie może wywołać tej akcji.
 
-Podczas definiowania EDM, **akcji** metoda tworzy zawsze powiązać akcji:
+Podczas definiowania modelu EDM, Metoda **akcji** tworzy zawsze powiązane akcje:
 
 [!code-csharp[Main](odata-actions/samples/sample8.cs?highlight=1)]
 
-Omówię nie zawsze — możliwości powiązania akcji (nazywane również *przejściowy* akcji) w dalszej części tego tematu.
+Porozmawiam w dalszej części tego tematu o akcjach, które nie są zawsze wiązane (nazywane również akcjami *przejściowymi* ).
 
-## <a name="invoking-the-action"></a>Wywoływania akcji
+## <a name="invoking-the-action"></a>Wywoływanie akcji
 
-Teraz zobaczmy, jak klient powodowałoby wywołanie pliku wykonywalnego tej akcji. Załóżmy, że klient chce udzielić ma klasyfikację od 2 do produktu o identyfikatorze = 4. Oto przykładowy komunikat żądania, przy użyciu formatu JSON w treści żądania:
+Teraz zobaczmy, jak klient wywoła tę akcję. Załóżmy, że klient chce przekazać klasyfikację 2 do produktu o IDENTYFIKATORze = 4. Oto przykładowy komunikat żądania, który używa formatu JSON dla treści żądania:
 
 [!code-console[Main](odata-actions/samples/sample9.cmd)]
 
@@ -111,56 +111,56 @@ Oto komunikat odpowiedzi:
 
 [!code-console[Main](odata-actions/samples/sample10.cmd)]
 
-## <a name="binding-an-action-to-an-entity-set"></a>Powiązania akcji do zbioru jednostek
+## <a name="binding-an-action-to-an-entity-set"></a>Wiązanie akcji z zestawem jednostek
 
-W poprzednim przykładzie akcja jest powiązany z pojedynczej jednostki: Klient ocenia jednego produktu. Możesz również powiązać akcję do kolekcji jednostek. Po prostu wprowadź następujące zmiany:
+W poprzednim przykładzie akcja jest powiązana z pojedynczą jednostką: klient klasyfikuje pojedynczy produkt. Można również powiązać akcję z kolekcją jednostek. Po prostu wprowadź następujące zmiany:
 
-W EDM, Dodaj akcję w jednostce **kolekcji** właściwości.
+W modelu EDM Dodaj akcję do właściwości **kolekcji** jednostki.
 
 [!code-csharp[Main](odata-actions/samples/sample11.cs?highlight=1)]
 
-W przypadku metody kontrolera pominąć *klucz* parametru.
+W metodzie kontrolera Pomiń parametr *klucza* .
 
 [!code-csharp[Main](odata-actions/samples/sample12.cs)]
 
-Teraz klient wywołuje akcję w zestawie jednostek produktów:
+Teraz klient wywołuje akcję dla zestawu jednostek Products:
 
 [!code-console[Main](odata-actions/samples/sample13.cmd)]
 
 ## <a name="actions-with-collection-parameters"></a>Akcje z parametrami kolekcji
 
-Akcje może mieć parametrów, które przyjmują kolekcję wartości. W EDM, użyj **CollectionParameter&lt;T&gt;**  Aby zadeklarować parametr.
+Akcje mogą mieć parametry, które pobierają kolekcję wartości. W modelu EDM Użyj **CollectionParameter&lt;t&gt;** , aby zadeklarować parametr.
 
 [!code-csharp[Main](odata-actions/samples/sample14.cs)]
 
-To deklaruje parametr o nazwie "Klasyfikacje", które z kolekcji **int** wartości. W przypadku metody kontrolera będzie nadal się pojawiać wartość parametru **ODataActionParameters** obiektu, ale teraz wartość **ICollection&lt;int&gt;**  wartość:
+Deklaruje on parametr o nazwie "ratings", który pobiera kolekcję wartości **int** . W metodzie kontrolera nadal otrzymujesz wartość parametru z obiektu **ODataActionParameters** , ale teraz wartość jest typu **ICollection&lt;int&gt;** wartość:
 
 [!code-csharp[Main](odata-actions/samples/sample15.cs)]
 
 ## <a name="transient-actions"></a>Akcje przejściowe
 
-W tym przykładzie "RateProduct" użytkownicy zawsze ocenić produktu, tak akcja jest zawsze dostępna. Jednak niektóre akcje są zależne od stanu jednostki. Na przykład w usłudze wideo wypożyczeń akcji "Wyewidencjonowania" nie zawsze jest dostępne. (Jest to uzależnione czy kopię tego wideo jest dostępna.) Ten typ akcji jest wywoływana *przejściowy* akcji.
+W przykładzie "RateProduct" użytkownicy zawsze mogą ocenić produkt, więc akcja jest zawsze dostępna. Jednak niektóre akcje zależą od stanu jednostki. Na przykład w usłudze najmu wideo akcja "wyewidencjonowywanie" nie zawsze jest dostępna. (Jest to zależne od tego, czy kopia tego wideo jest dostępna). Akcja tego typu jest nazywana akcją *przejściową* .
 
-W metadanych usługi ma przejściowy akcji **IsAlwaysBindable** równa false. Który jest faktycznie wartość domyślna, więc metadane będzie wyglądać następująco:
+W metadanych usługi przejściowa akcja ma **IsAlwaysBindable** równa false. Jest to rzeczywista wartość domyślna, więc metadane będą wyglądać następująco:
 
 [!code-xml[Main](odata-actions/samples/sample16.xml)]
 
-Oto Dlaczego ta ma znaczenie: Jeśli akcja jest przejściowy, serwer musi sprawdzić klienta, gdy akcja jest dostępna. Jest to możliwe dzięki tym link do akcji w jednostce. Oto przykład dla jednostki film:
+Oto dlaczego te kwestie: Jeśli akcja jest przejściowa, serwer musi poinformować klienta, gdy akcja jest dostępna. Robi to poprzez dołączenie linku do akcji w jednostce. Oto przykład dla jednostki filmu:
 
 [!code-console[Main](odata-actions/samples/sample17.cmd)]
 
-Właściwość "#CheckOut" zawiera łącze do Akcja CheckOut. Jeśli akcja nie jest dostępna, serwer pomija łącze.
+Właściwość "#CheckOut" zawiera link do akcji wyewidencjonowywania. Jeśli akcja jest niedostępna, serwer pomija link.
 
-Aby zadeklarować przejściowy akcji w EDM, należy wywołać **TransientAction** metody:
+Aby zadeklarować przejściową akcję w modelu EDM, wywołaj metodę **TransientAction** :
 
 [!code-csharp[Main](odata-actions/samples/sample18.cs)]
 
-Ponadto należy podać funkcji, która zwraca łącze akcji dla danej jednostki. Ustaw tę funkcję, wywołując **HasActionLink**. Funkcję można napisać jako wyrażenie lambda:
+Ponadto należy podać funkcję, która zwraca link akcji dla danej jednostki. Ustaw tę funkcję, wywołując **HasActionLink**. Funkcję można napisać jako wyrażenie lambda:
 
 [!code-csharp[Main](odata-actions/samples/sample19.cs)]
 
-Jeśli akcja jest dostępna, wyrażenie lambda zwraca link do akcji. Reprezentuje serializator OData zawiera ten link, gdy to szereguje jednostki. Jeśli akcja nie jest dostępna, funkcja zwraca `null`.
+Jeśli akcja jest dostępna, wyrażenie lambda zwraca link do akcji. Serializator OData zawiera ten link, gdy serializować jednostkę. Gdy akcja jest niedostępna, funkcja zwraca `null`.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 [Przykład akcji OData](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v3/ODataActionsSample/)

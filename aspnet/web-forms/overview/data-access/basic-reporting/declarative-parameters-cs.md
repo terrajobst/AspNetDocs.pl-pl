@@ -1,142 +1,142 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
-title: Parametry deklaratywne (C#) | Dokumentacja firmy Microsoft
+title: Parametry deklaratywneC#() | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku będzie firma Microsoft pokazują, jak używać ustaloną wartość parametru, aby wybrać dane do wyświetlenia w kontrolce DetailsView.
+description: W tym samouczku pokazano, jak za pomocą zestawu parametrów ustawić zakodowaną wartość, aby wybrać dane do wyświetlenia w formancie DetailsView.
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 603c9bd3-b895-4ec6-853b-0c81ff36d580
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac97b459536356a0ffa2a35b0c38942318f875f0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 87c8cfe064abc536e6015b0e553618981da9fefe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128086"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74613343"
 ---
 # <a name="declarative-parameters-c"></a>Parametry deklaratywne (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_5_CS.exe) lub [Pobierz plik PDF](declarative-parameters-cs/_static/datatutorial05cs1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_5_CS.exe) lub [Pobierz plik PDF](declarative-parameters-cs/_static/datatutorial05cs1.pdf)
 
-> W tym samouczku będzie firma Microsoft pokazują, jak używać ustaloną wartość parametru, aby wybrać dane do wyświetlenia w kontrolce DetailsView.
+> W tym samouczku pokazano, jak za pomocą zestawu parametrów ustawić zakodowaną wartość, aby wybrać dane do wyświetlenia w formancie DetailsView.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W [ostatni samouczek](displaying-data-with-the-objectdatasource-cs.md) przyjrzeliśmy się wyświetlanie danych z kontrolkami GridView DetailsView i FormView, powiązany z kontrolka ObjectDataSource, która wywołała `GetProducts()` metody z `ProductsBLL` klasy. `GetProducts()` Metoda zwraca wszystkie rekordy z bazy danych Northwind wypełniony DataTable silnie typizowane `Products` tabeli. `ProductsBLL` Klasa zawiera dodatkowe metody dla zwracanie tylko podzbiór produktów — `GetProductByProductID(productID)`, `GetProductsByCategoryID(categoryID)`, i `GetProductsBySupplierID(supplierID)`. Te trzy metody oczekiwać, że parametr wejściowy wskazujący, jak filtrować informacje zwrócone produktu.
+W [ostatnim samouczku](displaying-data-with-the-objectdatasource-cs.md) oglądamy wyświetlanie danych za pomocą kontrolek GridView, DetailsView i FormView powiązanych z kontrolką ObjectDataSource, która wywołała metodę `GetProducts()` z klasy `ProductsBLL`. Metoda `GetProducts()` zwraca element DataTable o jednoznacznie określonym typie, wypełniony ze wszystkimi rekordami z tabeli `Products` bazy danych Northwind. Klasa `ProductsBLL` zawiera dodatkowe metody zwracające tylko podzestawy produktów — `GetProductByProductID(productID)`, `GetProductsByCategoryID(categoryID)`i `GetProductsBySupplierID(supplierID)`. Te trzy metody oczekują parametru wejściowego wskazującego sposób filtrowania zwróconych informacji o produkcie.
 
-Kontrolki ObjectDataSource może służyć do wywołania metody, które oczekują parametrów wejściowych, ale aby to zrobić, należy określić, skąd pochodzą wartości tych parametrów. Wartości parametrów mogą być zakodowane lub mogą pochodzić z różnych źródeł dynamicznej, w tym: wartości querystring, zmienne sesji wartość właściwości formantu sieci Web, na stronie lub inne osoby.
+Element ObjectDataSource może służyć do wywoływania metod, które oczekują parametrów wejściowych, ale w tym celu należy określić miejsce, z którego pochodzą wartości tych parametrów. Wartości parametrów mogą być zakodowane na stałe lub mogą pochodzić z różnych źródeł dynamicznych, w tym: wartości QueryString, zmienne sesji, wartość właściwości kontrolki sieci Web na stronie lub inne.
 
-W tym samouczku Zacznijmy od pokazujący, jak użyć ustaloną wartość parametru. W szczególności Zapoznamy się dodanie DetailsView do strony, który wyświetla informacje dotyczące określonego produktu, a mianowicie Jacka Chef Gumbo mieszanego, który ma `ProductID` 5. Następnie zobaczymy, jak ustawić wartość tego parametru na podstawie formantu sieci Web. W szczególności użyjemy pole tekstowe umożliwiające użytkownika, wpisz w kraju, po upływie którego można kliknąć przycisk, aby wyświetlić listę dostawców, które znajdują się w danym kraju.
+Na potrzeby tego samouczka Zacznijmy od zilustrowania sposobu używania parametru jako wartości zakodowanej. W szczególności Przyjrzyjmy się dodawaniu widoku DetailsView do strony zawierającej informacje dotyczące konkretnego produktu, a mianowicie Chef Anton Gumbo, który ma `ProductID` 5. Następnie zobaczymy, jak ustawić wartość parametru na podstawie kontrolki sieci Web. W szczególności użyjemy pola tekstowego, aby zezwolić na typ użytkownika w kraju, po którym można kliknąć przycisk, aby wyświetlić listę dostawców znajdujących się w tym kraju.
 
-## <a name="using-a-hard-coded-parameter-value"></a>Przy użyciu wartości parametru ustaloną
+## <a name="using-a-hard-coded-parameter-value"></a>Używanie zakodowanej wartości parametru
 
-Pierwszy przykład: Rozpocznij, dodając kontrolki widoku szczegółów do `DeclarativeParams.aspx` stronie `BasicReporting` folderu. W tagu inteligentnego DetailsView, wybierz &lt;nowe źródło danych&gt; z listy rozwijanej i wybierz polecenie dodać kontrolki ObjectDataSource.
+Dla pierwszego przykładu Zacznij od dodania kontrolki DetailsView do strony `DeclarativeParams.aspx` w folderze `BasicReporting`. Z poziomu tagu inteligentnego DetailsView wybierz pozycję &lt;nowe źródło danych&gt; z listy rozwijanej i wybierz opcję dodania elementu ObjectDataSource.
 
-[![Dodawanie kontrolki ObjectDataSource do strony](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
+[![dodać elementu ObjectDataSource do strony](declarative-parameters-cs/_static/image2.png)](declarative-parameters-cs/_static/image1.png)
 
-**Rysunek 1**: Na stronie Dodaj kontrolki ObjectDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image3.png))
+**Rysunek 1**. Dodawanie elementu ObjectDataSource do strony ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image3.png))
 
-Spowoduje to automatyczne uruchomienie kreatora wybierz źródło danych formantu ObjectDataSource. Wybierz `ProductsBLL` klasy na pierwszym ekranie kreatora.
+Spowoduje to automatyczne uruchomienie Kreatora wyboru źródła danych kontrolki ObjectDataSource. Wybierz klasę `ProductsBLL` z pierwszego ekranu kreatora.
 
-[![Wybierz klasę ProductsBLL](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
+[![wybrać klasy ProductsBLL](declarative-parameters-cs/_static/image5.png)](declarative-parameters-cs/_static/image4.png)
 
-**Rysunek 2**: Wybierz `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image6.png))
+**Rysunek 2**. wybieranie klasy `ProductsBLL` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image6.png))
 
-Ponieważ chcemy wyświetlić informacje dotyczące konkretnego produktu chcemy do użycia `GetProductByProductID(productID)` metody.
+Ponieważ chcemy wyświetlić informacje o konkretnym produkcie, chcemy użyć metody `GetProductByProductID(productID)`.
 
-[![Wybierz metodę GetProductByProductID(productID)](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
+[![wybrać metodę GetProductByProductID (productID)](declarative-parameters-cs/_static/image8.png)](declarative-parameters-cs/_static/image7.png)
 
-**Rysunek 3**: Wybierz `GetProductByProductID(productID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image9.png))
+**Rysunek 3**. wybierz metodę `GetProductByProductID(productID)` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image9.png))
 
-Ponieważ metoda, który Wybraliśmy zawiera parametr, istnieje jeden ekran więcej dla kreatora, w którym możemy się prośba o definiujące wartość ma być używany dla parametru. Na liście po lewej stronie pokazuje wszystkie parametry dla wybranej metody. Aby uzyskać `GetProductByProductID(productID)` jest tylko jedna `productID`. Po prawej stronie można określić wartość dla wybranego parametru. Listy rozwijanej źródła parametru wylicza różnych możliwych źródeł wartości parametru. Ponieważ chcemy określić ustaloną wartość 5 `productID` parametr, pozostaw źródło parametru None i wprowadź 5 w polu tekstowym DefaultValue.
+Ponieważ wybrana metoda zawiera parametr, istnieje jeszcze jeden ekran dla kreatora, w którym zostanie wyświetlony monit o zdefiniowanie wartości do użycia dla parametru. Na liście po lewej stronie są wyświetlane wszystkie parametry wybranej metody. W przypadku `GetProductByProductID(productID)` istnieje tylko jeden `productID`. Po prawej stronie możemy określić wartość wybranego parametru. Lista rozwijana Źródło parametrów wylicza różne możliwe źródła dla wartości parametru. Ponieważ chcemy określić ustaloną wartość 5 dla parametru `productID`, pozostaw Źródło parametru jako brak i wprowadź wartość 5 w polu tekstowym DefaultValue.
 
-[![Hard-Coded parametru z 5 zostanie użyta wartość dla elementu productID parametru](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
+[![ustalona wartość parametru 5 zostanie użyta dla parametru productID](declarative-parameters-cs/_static/image11.png)](declarative-parameters-cs/_static/image10.png)
 
-**Rysunek 4**: Hard-Coded parametru z 5 zostanie użyta wartość dla `productID` parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image12.png))
+**Ilustracja 4**. dla parametru `productID` zostanie użyta twarda wartość parametru 5 ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image12.png))
 
-Po zakończeniu pracy kreatora skonfiguruj źródło danych zawiera formantu ObjectDataSource oznaczeniu deklaracyjnym `Parameter` obiektu `SelectParameters` kolekcji dla każdego z parametrów wejściowych, oczekiwana przez metody zdefiniowanej w `SelectMethod` Właściwość. Ponieważ metoda używamy w tym przykładzie oczekuje tylko jednego parametr wejściowy, `parameterID`, istnieje tylko jeden wpis w tym miejscu. `SelectParameters` Kolekcja może zawierać dowolną klasę pochodzącą od `Parameter` klasy w `System.Web.UI.WebControls` przestrzeni nazw. Dla parametru ustalonych wartości podstawowej `Parameter` klasa jest używana, ale w przypadku innych parametru pochodnego Opcje źródła `Parameter` klasy jest używany; można także tworzyć własne [typy parametrów niestandardowych](http://www.leftslipper.com/ShowFaq.aspx?FaqId=11), jeśli to konieczne.
+Po zakończeniu działania Kreatora konfiguracji źródła danych, znaczniki deklaratywne kontrolki ObjectDataSource zawierają obiekt `Parameter` w kolekcji `SelectParameters` dla każdego z parametrów wejściowych oczekiwanych przez metodę zdefiniowaną we właściwości `SelectMethod`. Ponieważ metoda, której używamy w tym przykładzie, oczekuje tylko jednego parametru wejściowego, `parameterID`, w tym miejscu znajduje się tylko jeden wpis. Kolekcja `SelectParameters` może zawierać dowolną klasę, która dziedziczy z klasy `Parameter` w przestrzeni nazw `System.Web.UI.WebControls`. W przypadku zakodowanych wartości parametrów jest używana klasa bazowa `Parameter`, ale dla innych opcji źródła parametrów jest używana Klasa pochodna `Parameter`; w razie konieczności można także utworzyć własne [niestandardowe typy parametrów](http://www.leftslipper.com/ShowFaq.aspx?FaqId=11).
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample1.aspx)]
 
 > [!NOTE]
-> Jeśli piszesz na swoim komputerze oznaczeniu deklaracyjnym zobaczysz, w tym momencie może zawierać wartości `InsertMethod`, `UpdateMethod`, i `DeleteMethod` właściwości, a także `DeleteParameters`. Kreatora wybierz źródło danych ObjectDataSource automatycznie określa metody z `ProductBLL` na potrzeby Wstawianie, aktualizowanie i usuwanie, chyba że jawnie wyczyszczone tych się, zostaną one uwzględnione w znacznikach powyżej.
+> Jeśli używasz na własnym komputerze, znaczniki deklaratywne widoczne w tym punkcie mogą zawierać wartości `InsertMethod`, `UpdateMethod`i `DeleteMethod` właściwości, a także `DeleteParameters`. Kreator wyboru źródła danych w elemencie ObjectDataSource automatycznie określa metody z `ProductBLL` do użycia podczas wstawiania, aktualizowania i usuwania, chyba że jawnie wyczyścisz te, ale zostaną one uwzględnione w powyższym znaczniku.
 
-Gdy użytkownik odwiedzi tę stronę, dane formantu sieci Web będzie wywoływać ObjectDataSource `Select` metody, która będzie wywoływać `ProductsBLL` klasy `GetProductByProductID(productID)` metody przy użyciu ustaloną wartość 5 `productID` parametr wejściowy. Metoda zwraca silnie typizowanego `ProductDataTable` obiekt, który zawiera pojedynczy wiersz z informacjami o Jacka Chef Gumbo mieszanego (produktu, zapewniając `ProductID` 5).
+Podczas odwiedzania tej strony formant sieci Web danych wywoła metodę `Select` elementu ObjectDataSource, która wywoła metodę `GetProductByProductID(productID)` klasy `ProductsBLL` przy użyciu zakodowanej wartości 5 dla `productID` parametru wejściowego. Metoda zwróci silnie wpisaną obiekt `ProductDataTable`, który zawiera pojedynczy wiersz z informacjami o połączeniu Gumbo Anton (produkt z `ProductID` 5).
 
-[![Wyświetlane są informacje o Chef Jacka Gumbo mieszanego](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
+[są wyświetlane ![informacje dotyczące mieszania Gumbo Anton Chef](declarative-parameters-cs/_static/image14.png)](declarative-parameters-cs/_static/image13.png)
 
-**Rysunek 5**: Wyświetlane są informacje o Chef Jacka Gumbo mieszanego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image15.png))
+**Rysunek 5**. wyświetlane są informacje o kombinacji Gumbo Chef Anton ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image15.png))
 
-## <a name="setting-the-parameter-value-to-the-property-value-of-a-web-control"></a>Ustawienie wartości parametru na wartość właściwości formantu sieci Web
+## <a name="setting-the-parameter-value-to-the-property-value-of-a-web-control"></a>Ustawianie wartości parametru na wartość właściwości kontrolki sieci Web
 
-Parametr ObjectDataSource, którego wartości można również ustawić na podstawie wartości kontrolki na stronie sieci Web. Na przykład Przyjrzyjmy się GridView, który zawiera listę wszystkich dostawców, które znajdują się w kraju, określone przez użytkownika. Aby osiągnąć ten start przez dodanie pola tekstowego do strony, do którego użytkownik może wprowadzić nazwę kraju. Ustaw ten formant TextBox `ID` właściwość `CountryName`. Również dodać kontrolkę przycisku w sieci Web.
+Wartości parametrów elementu ObjectDataSource można również ustawić na podstawie wartości kontrolki sieci Web na stronie. Aby to zilustrować, przyjrzyjmy się w widoku GridView, który zawiera listę wszystkich dostawców znajdujących się w kraju określonym przez użytkownika. Aby to zrobić, dodając pole tekstowe do strony, w której użytkownik może wprowadzić nazwę kraju. Ustaw właściwość `ID` formantu TextBox na `CountryName`. Dodaj również formant sieci Web przycisku.
 
-[![Dodawanie pola tekstowego do strony zawierającej identyfikator CountryName](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
+[![dodać pola tekstowego do strony z IDENTYFIKATORem CountryName](declarative-parameters-cs/_static/image17.png)](declarative-parameters-cs/_static/image16.png)
 
-**Rysunek 6**: Dodawanie pola tekstowego do strony zawierającej `ID` `CountryName` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image18.png))
+**Ilustracja 6**. Dodawanie pola tekstowego do strony z `ID` `CountryName` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image18.png))
 
-Następnie dodaj GridView do strony i za pomocą tagu inteligentnego, wybierz można dodać nowego elementu ObjectDataSource. Ponieważ chcemy wyświetlić wybierz informacje o dostawcy `SuppliersBLL` klasy z pierwszym ekranie kreatora. Na drugim ekranie Wybierz `GetSuppliersByCountry(country)` metody.
+Następnie Dodaj widok GridView do strony i, z tagu inteligentnego, wybierz opcję dodania nowego elementu ObjectDataSource. Ponieważ chcemy wyświetlić informacje o dostawcach, wybierz klasę `SuppliersBLL` z pierwszego ekranu kreatora. Na drugim ekranie Wybierz metodę `GetSuppliersByCountry(country)`.
 
-[![Wybierz metodę GetSuppliersByCountry(country)](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
+[![wybrać metody GetSuppliersByCountry (kraj)](declarative-parameters-cs/_static/image20.png)](declarative-parameters-cs/_static/image19.png)
 
-**Rysunek 7**: Wybierz `GetSuppliersByCountry(country)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image21.png))
+**Rysunek 7**. wybierz metodę `GetSuppliersByCountry(country)` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image21.png))
 
-Ponieważ `GetSuppliersByCountry(country)` metoda ma parametr wejściowy, w kreatorze są dostępne ponownie ekran końcowy dotyczące wybierania wartości parametru. Tym razem Ustaw źródło parametru do formantu. Spowoduje to wypełnienie listy rozwijanej ControlID o nazwach formantów na stronie; Wybierz `CountryName` kontrolki z listy. Po pierwsze odwiedzenia strony `CountryName` pole tekstowe jest puste, dzięki czemu żadne wyniki nie są zwracane i będą wyświetlane żadne informacje. Jeśli chcesz wyświetlać pewnych wyników domyślnie, należy odpowiednio ustawić pole tekstowe DefaultValue.
+Ponieważ metoda `GetSuppliersByCountry(country)` ma parametr wejściowy, Kreator ponownie zawiera końcowy ekran służący do wybierania wartości parametru. Tym razem ustaw Źródło parametru na kontrolkę. Spowoduje to wypełnienie listy rozwijanej ControlID nazwami kontrolek na stronie; Wybierz z listy formant `CountryName`. Gdy strona zostanie odwiedzana po raz pierwszy, `CountryName` pole tekstowe będzie puste, więc żadne wyniki nie są zwracane i nic nie zostanie wyświetlone. Jeśli chcesz, aby niektóre wyniki były domyślnie wyświetlane, Ustaw odpowiednio pole tekstowe DefaultValue.
 
-[![Ustaw wartość parametru wartości kontrolki CountryName](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
+[![ustawić wartości parametru CountryName](declarative-parameters-cs/_static/image23.png)](declarative-parameters-cs/_static/image22.png)
 
-**Rysunek 8**: Ustaw wartość parametru `CountryName` wartości formantu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image24.png))
+**Ilustracja 8**. Ustaw wartość parametru na wartość kontrolki `CountryName` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image24.png))
 
-ObjectDataSource oznaczeniu deklaracyjnym różni się nieco od naszym pierwszym przykładzie przy użyciu [parametrze ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) zamiast standardowego `Parameter` obiektu. A `ControlParameter` ma dodatkowe właściwości, aby określić `ID` kontrolki sieci Web i wartości właściwości, aby użyć jako parametru (`PropertyName`). W Kreatorze konfigurowania źródła danych była inteligentnego określić, że dla pola tekstowego, firma Microsoft będzie prawdopodobnie zechcesz użyć `Text` właściwości dla wartości parametru. Jeśli jednak chcesz korzystała z wartości różnych właściwości z formantu sieci Web można zmienić `PropertyName` wartości w tym miejscu lub klikając łącze "Pokaż zaawansowane właściwości" w kreatorze.
+Deklaratywne znaczniki elementu ObjectDataSource różnią się nieco od pierwszego przykładu, przy użyciu [parametrze ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) zamiast standardowego obiektu `Parameter`. `ControlParameter` ma dodatkowe właściwości do określenia `ID` kontrolki sieci Web oraz wartości właściwości, która ma być używana dla parametru (`PropertyName`). Kreator konfiguracji źródła danych był wystarczająco inteligentny, aby określić, że dla pola tekstowego prawdopodobnie zechcemy użyć właściwości `Text` dla wartości parametru. Jeśli jednak chcesz użyć innej wartości właściwości z formantu sieci Web, możesz zmienić wartość `PropertyName` w tym miejscu lub klikając łącze "Pokaż zaawansowane właściwości" w kreatorze.
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample2.aspx)]
 
-Podczas wyświetlania strony po raz pierwszy `CountryName` pole tekstowe jest puste. ObjectDataSource `Select` nadal wywoływana jest metoda widoku GridView, ale wartość `null` jest przekazywana do `GetSuppliersByCountry(country)` metody. Konwertuje TableAdapter `null` w bazie danych `NULL` wartość (`DBNull.Value`), ale zapytania używanego przez `GetSuppliersByCountry(country)` metoda jest napisana w taki sposób, że nie zwracać dowolne wartości, gdy `NULL` określono wartość dla `@CategoryID`parametru. Krótko mówiąc dostawców nie są zwracane.
+Podczas odwiedzin strony po raz pierwszy pole tekstowe `CountryName` jest puste. Metoda `Select` elementu ObjectDataSource jest nadal wywoływana przez element GridView, ale wartość `null` jest przenoszona do metody `GetSuppliersByCountry(country)`. TableAdapter konwertuje `null` do bazy danych `NULL` wartość (`DBNull.Value`), ale zapytanie używane przez metodę `GetSuppliersByCountry(country)` jest zapisywana w taki sposób, że nie zwraca żadnych wartości, gdy wartość `NULL` zostanie określona dla parametru `@CategoryID`. W skrócie nie są zwracane żadne dostawcy.
 
-Po użytkownik przechodzi w kraju, jednak i klika przycisk Pokaż dostawców powoduje odświeżenie strony, kontrolki ObjectDataSource firmy `Select` ponowieniu metody, przekazując w formancie TextBox `Text` wartość jako `country` parametru.
+Gdy odwiedzający wprowadzi w danym kraju, a następnie kliknie przycisk Pokaż dostawców, aby spowodować odświeżenie, Metoda `Select` elementu ObjectDataSource zostanie ponownie zbadana, przekazując wartość `Text` kontrolki TextBox jako parametr `country`.
 
-[![Tych dostawców z Kanady są wyświetlane.](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
+[![dostawców z Kanady są pokazani](declarative-parameters-cs/_static/image26.png)](declarative-parameters-cs/_static/image25.png)
 
-**Rysunek 9**: Są wyświetlane w tych dostawców z Kanady ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image27.png))
+**Rysunek 9**. pokazywane są te dostawcy z Kanady ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image27.png))
 
-## <a name="showing-all-suppliers-by-default"></a>Wyświetlanie wszystkich dostawców domyślnie
+## <a name="showing-all-suppliers-by-default"></a>Domyślnie pokazywanie wszystkich dostawców
 
-Raczej niż Pokaż brak dostawców, gdy najpierw wyświetlanie strony warto Pokaż *wszystkich* dostawców na początku, dzięki czemu użytkownik będzie listę w dół, wprowadzając nazwę kraju, w polu tekstowym. Jeśli pole tekstowe jest puste, `SuppliersBLL` klasy `GetSuppliersByCountry(country)` metody jest przekazywany w `null` wartość jego *`country`* parametr wejściowy. To `null` zostanie następnie przekazana wartość w dół do warstwy DAL `GetSupplierByCountry(country)` metody, gdzie jest tłumaczony na bazę danych `NULL` wartość `@Country` parametr w następującym zapytaniu:
+Zamiast wyświetlać żadnego z dostawców podczas pierwszego wyświetlania strony możemy chcieć wyświetlić *wszystkich* dostawców na początku, umożliwiając użytkownikowi dostosowanie listy, wprowadzając nazwę kraju w polu tekstowym. Gdy pole tekstowe jest puste, Metoda `GetSuppliersByCountry(country)` klasy `SuppliersBLL` jest przenoszona do wartości `null` dla *`country`* parametru wejściowego. Ta `null` wartość jest następnie przenoszona do metody `GetSupplierByCountry(country)`owej DAL, w której zostanie przetłumaczona na wartość `NULL` bazy danych dla parametru `@Country` w następującej kwerendzie:
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 
-Wyrażenie `Country = NULL` zawsze zwróci wartość False, nawet w przypadku rekordów którego `Country` kolumna ma `NULL` wartość; w związku z tym, nie zwrócono żadnych rekordów.
+Wyrażenie `Country = NULL` zawsze zwraca wartość false, nawet w przypadku rekordów, których kolumna `Country` ma wartość `NULL`; w związku z tym nie są zwracane żadne rekordy.
 
-Do zwrócenia *wszystkich* dostawców, gdy kraju pole tekstowe jest pusta, możemy rozszerzyć `GetSuppliersByCountry(country)` LOGIKI do wywołania metody `GetSuppliers()` metody, gdy jest parametrem kraju `null` oraz wywołanie DAL `GetSuppliersByCountry(country)` w przeciwnym razie metoda. Będzie to miało wpływ zwracanie wszystkich dostawców, jeśli nie określono żadnych kraju i odpowiedniego podzestawu dostawców, gdy parametr kraj jest uwzględniony.
+Aby zwrócić *wszystkich* dostawców, gdy pole tekstowe kraj jest puste, można rozszerzyć metodę `GetSuppliersByCountry(country)` w logiki biznesowej, aby wywołać metodę `GetSuppliers()`, gdy jej parametr country jest `null` i wywołać metodę `GetSuppliersByCountry(country)` dal w inny sposób. Będzie to miało wpływ na zwracanie wszystkich dostawców, gdy nie określono żadnego kraju i odpowiedni podzbiór dostawców, gdy parametr Country jest uwzględniony.
 
-Zmiana `GetSuppliersByCountry(country)` method in Class metoda `SuppliersBLL` klasy do następującego:
+Zmień metodę `GetSuppliersByCountry(country)` w klasie `SuppliersBLL` na następujące:
 
 [!code-csharp[Main](declarative-parameters-cs/samples/sample4.cs)]
 
-Dzięki tej zmianie `DeclarativeParams.aspx` stronie znajdują się wszyscy dostawcy, po raz pierwszy odwiedzony (lub gdy `CountryName` pole tekstowe jest puste).
+Dzięki tej zmianie na stronie `DeclarativeParams.aspx` są wyświetlane wszyscy dostawcy podczas pierwszej wizyty (lub za każdym razem, gdy pole tekstowe `CountryName` jest puste).
 
-[![Wszystkich dostawców są teraz wyświetlane domyślnie](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
+[![wszyscy dostawcy są teraz domyślnie wyświetlani](declarative-parameters-cs/_static/image29.png)](declarative-parameters-cs/_static/image28.png)
 
-**Na rysunku nr 10**: Wszystkich dostawców są teraz wyświetlane domyślnie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-cs/_static/image30.png))
+**Rysunek 10**: Wszyscy dostawcy są teraz wyświetlani domyślnie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](declarative-parameters-cs/_static/image30.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Aby użyć metody z parametrami wejściowymi, należy określić wartości parametrów w ObjectDataSource `SelectParameters` kolekcji. Różne rodzaje parametrów pozwalają na wartość parametru, które mają zostać uzyskane z innych źródeł. Domyślny typ parametru korzysta z ustaloną wartość, ale równie łatwo (i bez linii kodu) z querystring, zmienne sesji, pliki cookie i nawet wprowadzonych przez użytkownika wartości z formantów sieci Web na tej stronie można uzyskać wartości parametrów.
+Aby można było użyć metod z parametrami wejściowymi, musimy określić wartości parametrów w kolekcji `SelectParameters` elementu ObjectDataSource. Różne typy parametrów umożliwiają uzyskanie wartości parametru z różnych źródeł. Domyślny typ parametru używa zakodowanej wartości, ale równie łatwo (bez wiersza kodu) wartości parametrów mogą być uzyskiwane z ciągu QueryString, zmiennych sesji, plików cookie, a nawet wartości wprowadzonych przez użytkownika z formantów sieci Web na stronie.
 
-Przykłady, które przyjrzeliśmy się w tym samouczku przedstawiono sposób używania wartości parametrów deklaratywnego. Jednakże może występować sytuacje, gdy będziemy musieli używać źródła parametr, który nie jest dostępne, takich jak bieżącą datę i godzinę lub, jeśli naszą witrynę używano członkostwa, identyfikator użytkownika, obiekt odwiedzający. W przypadku takich scenariuszy firma Microsoft może podać wartości parametrów programowo przed kontrolki ObjectDataSource wywołania metody jej obiektu źródłowego. Zobaczymy, jak w tym w [następnego samouczka](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md).
+Przykłady przedstawione w tym samouczku przedstawiają sposób używania wartości parametrów deklaratywnych. Mogą jednak wystąpić sytuacje, w których musimy używać źródła parametrów, które jest niedostępne, takiego jak bieżąca data i godzina, lub, jeśli nasza witryna korzystała z przynależności do użytkownika. Na potrzeby takich scenariuszy można ustawić wartości parametrów programowo przed wywołaniem metody obiektu bazowego przez element ObjectDataSource. Zobaczymy, jak to zrobić w [następnym samouczku](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md).
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Hilton Giesenow. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Hilton Giesenow. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](displaying-data-with-the-objectdatasource-cs.md)

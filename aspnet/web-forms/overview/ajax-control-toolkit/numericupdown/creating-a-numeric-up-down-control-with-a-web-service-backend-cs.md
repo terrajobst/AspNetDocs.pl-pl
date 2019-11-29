@@ -1,60 +1,60 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
-title: Tworzenie Numeric w górę/dół kontrolki z zapleczem usługi internetowej (C#) | Dokumentacja firmy Microsoft
+title: Tworzenie numerycznej kontrolki up/down z zapleczem usługi sieciC#Web () | Microsoft Docs
 author: wenz
-description: Zamiast umożliwienie użytkownikowi wpisz wartość w polu wyboru, kontrolki numeric up/down (znajdującą się na Windows i innych systemów operacyjnych) może okazać się c ponieważ coraz więcej...
+description: Zamiast zezwalać użytkownikowi na wpisywanie wartości w polu wyboru, numeryczna kontrolka w górę/w dół (która istnieje w systemie Windows i innych systemach operacyjnych) może okazać się bardziej c...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: c99bbc72-d4de-41ed-92a4-9a4632368363
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: afe712dd2b09eda49a4972e8d34fe27760d5b6f6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 816a840b9e93b95a049c3a4cb792e9deeab28983
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115343"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598913"
 ---
 # <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Tworzenie kontrolki Numeric Up/Down z zapleczem usługi internetowej (C#)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/numericupdown1.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/numericupdown1CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/numericupdown1.cs.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/numericupdown1CS.pdf)
 
-> Zamiast umożliwienie użytkownikowi wpisz wartość w polu wyboru, liczbowych w górę/dół kontroli (co oznacza, że istnieje na Windows i innych systemów operacyjnych) można udowodnić, że ponieważ coraz więcej doświadczenia. Domyślnie formant NumericUpDown zawsze zwiększa lub zmniejsza wartość 1, ale usługi sieci web okaże bardziej elastyczne.
+> Zamiast zezwalać użytkownikowi na wpisywanie wartości w polu wyboru, kontrolka w górę/w dół (która istnieje w systemie Windows i innych systemach operacyjnych) może być bardziej wygodna. Domyślnie formant NumericUpDown zawsze zwiększa lub zmniejsza wartość o 1, ale usługa sieci Web zapewnia większą elastyczność.
 
 ## <a name="overview"></a>Omówienie
 
-Zamiast umożliwienie użytkownikowi wpisz wartość w polu wyboru, liczbowych w górę/dół kontroli (co oznacza, że istnieje na Windows i innych systemów operacyjnych) można udowodnić, że ponieważ coraz więcej doświadczenia. Domyślnie `NumericUpDown` kontroli zawsze zwiększa lub zmniejsza wartość 1, ale usługi sieci web okaże bardziej elastyczne.
+Zamiast zezwalać użytkownikowi na wpisywanie wartości w polu wyboru, kontrolka w górę/w dół (która istnieje w systemie Windows i innych systemach operacyjnych) może być bardziej wygodna. Domyślnie formant `NumericUpDown` zawsze zwiększa lub zmniejsza wartość o 1, ale usługa sieci Web zapewnia większą elastyczność.
 
 ## <a name="steps"></a>Kroki
 
-ASP.NET AJAX Control Toolkit zawiera `NumericUpDown` rozszerzeń, który automatycznie dodaje dwa przyciski do pola tekstowego: Jedną zwiększenia jego wartość, jedną dla zmniejsza się go. Jednak formant obsługuje również wywołanie usługi sieci web (lub wywołanie metody strony). Zawsze, gdy w górę lub dół przycisk po kliknięciu JavaScript kod łączy się z serwerem sieci web i wykonuje metodę istnieje. Podpis metody jest następujące:
+Zestaw narzędzi ASP.NET AJAX Control Toolkit zawiera rozszerzenie `NumericUpDown`, które automatycznie dodaje dwa przyciski do pola tekstowego: jeden w celu zwiększenia jego wartości, jeden do jego zmniejszenia. Jednak kontrolka obsługuje również wywołanie usługi sieci Web (lub wywołanie metody strony). Za każdym razem, gdy zostanie kliknięty przycisk w górę lub w dół, kod JavaScript nawiązuje połączenie z serwerem sieci Web i wykonuje metodę. Podpis metody jest następujący:
 
 [!code-csharp[Main](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/samples/sample1.cs)]
 
-`current` Argument jest bieżąca wartość w polu tekstowym; `tag` atrybut jest dodatkowy kontekst danych, którą można określić jako właściwość `NumericUpDown` rozszerzeń (ale nie jest wymagane).
+`current` argument jest bieżącą wartością w polu tekstowym; atrybut `tag` to dodatkowe dane kontekstowe, które można ustawić jako właściwość rozszerzenia `NumericUpDown` (ale nie jest to wymagane).
 
-W tym przykładzie kontrolki numeric up/down tylko Zezwalaj na wartości, które są dwa uprawnienia: 1, 2, 4, 8, 16, 32, 64 i tak dalej. W związku z tym metoda wykonania, gdy użytkownik chce, aby zwiększyć wartość należy double stara wartość; inna metoda należy podzielić wartość przez dwa. Oto więc usługę sieci web zakończenie:
+W tym przykładzie numeryczna kontrolka up/down zezwala tylko na wartości, które są następujące: 1, 2, 4, 8, 16, 32, 64 itd. W związku z tym Metoda wykonywana, gdy użytkownik chce zwiększyć wartość, musi być podwójnie stara wartość; Druga metoda musi dzielić wartość o dwa. Oto kompletna usługa sieci Web:
 
 [!code-aspx[Main](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/samples/sample2.aspx)]
 
-Na koniec Utwórz nową stronę programu ASP.NET. Należy w zwykły sposób, `ScriptManager` kontroli `TextBox` kontroli i `NumericUpDownExtender` kontroli. W przypadku drugiego nagłówka musisz podać informacje o usłudze sieci web:
+Na koniec Utwórz nową stronę ASP.NET. Jak zwykle potrzebna jest kontrolka `ScriptManager`, kontrolka `TextBox` i kontrolka `NumericUpDownExtender`. Dla tej ostatniej należy podać informacje o usłudze sieci Web:
 
-- `ServiceDownMethod` Nazwa w dół metodę sieci web lub strony — metoda
-- `ServiceDownPath` Ścieżka do usługi sieci web za pomocą metody dół usługi; pominąć, jeśli używana jest metoda strony
-- `ServiceUpMethod` Nazwa pracy metodę sieci web lub strony — metoda
-- `ServiceUpPath` Ścieżka do usługi sieci web za pomocą metody pracy usługi; pominąć, jeśli używana jest metoda strony
+- Nazwa `ServiceDownMethod` lub metoda strony sieci Web w dół
+- `ServiceDownPath` ścieżkę do usługi sieci Web przy użyciu metody usługi w dół. Pomiń, jeśli używasz metody strony
+- `ServiceUpMethod` nazwę metody sieci Web lub metody strony
+- `ServiceUpPath` ścieżkę do usługi sieci Web przy użyciu metody usługi up; Pomiń, jeśli używasz metody strony
 
-Oto kompletny kod znaczników dla strony:
+Oto kompletna Adiustacja strony:
 
 [!code-aspx[Main](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/samples/sample3.aspx)]
 
-Po uruchomieniu strony, zwróć uwagę, jak wartość w polu tekstowym zawsze podwaja się po kliknięciu przycisk w prawym górnym i filtrach, po kliknięciu przycisku niższe.
+Jeśli uruchomisz stronę, Zauważ, że wartość w polu tekstowym zawsze podwaja się po kliknięciu górnego przycisku i jest wyświetlana po kliknięciu dolnego przycisku.
 
-[![Są wyświetlane tylko cyfry, które są wartością potęgi liczby 2](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image1.png)
+[![wyświetlane są tylko liczby, które są potęgą 2](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image2.png)](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image1.png)
 
-Są wyświetlane tylko cyfry, które są wartością potęgi liczby 2 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))
+Wyświetlane są tylko liczby, które są potęgą 2 ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Next](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)

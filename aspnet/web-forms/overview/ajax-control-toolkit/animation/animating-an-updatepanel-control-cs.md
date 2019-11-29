@@ -1,56 +1,56 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
-title: Animowanie kontrolki UpdatePanel (C#) | Dokumentacja firmy Microsoft
+title: Animowanie kontrolki UpdatePanel (C#) | Microsoft Docs
 author: wenz
-description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości...
+description: Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Dla zawartości...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e57f8c7c-3940-4bc0-9468-3a0ca69158ea
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c403cddd1e3eb5b66f795a2e4032fae63fdb26ca
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8875d750d57c5f4e362bdf461826130a881ab1d4
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130742"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599935"
 ---
 # <a name="animating-an-updatepanel-control-c"></a>Animowanie kontrolki UpdatePanel (C#)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.cs.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1CS.pdf)
 
-> Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości UpdatePanel specjalne rozszerzenia istnieje już intensywnie korzystającej z framework animacji: UpdatePanelAnimation. W tym samouczku pokazano, jak skonfigurować takie animacji dla kontrolki UpdatePanel.
+> Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. W przypadku zawartości elementu UpdatePanel istnieje specjalne rozszerzenie, które opiera się na środowisku animacji: UpdatePanelAnimation. W tym samouczku pokazano, jak skonfigurować takie animacje dla elementu UpdatePanel.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości `UpdatePanel`, specjalne urządzenia extender istnieje która intensywnie korzysta z framework animacji: `UpdatePanelAnimation`. W tym samouczku pokazano, jak skonfigurować animacji dla `UpdatePanel`.
+Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. W przypadku zawartości `UpdatePanel`istnieje specjalne rozszerzenie, które opiera się na środowisku animacji: `UpdatePanelAnimation`. W tym samouczku pokazano, jak skonfigurować taką animację dla `UpdatePanel`.
 
 ## <a name="steps"></a>Kroki
 
-Pierwszym krokiem jest jak zwykle obejmują `ScriptManager` na stronie, aby biblioteka ASP.NET AJAX jest ładowany i można go używać razem sterowania:
+Pierwszym krokiem jest zwykle uwzględnienie `ScriptManager` na stronie, tak aby Biblioteka ASP.NET AJAX została załadowana i można było użyć zestawu narzędzi do sterowania:
 
 [!code-aspx[Main](animating-an-updatepanel-control-cs/samples/sample1.aspx)]
 
-Animacja w tym scenariuszu zostaną zastosowane do programu ASP.NET `Wizard` formantu sieci web znajdującej się w `UpdatePanel`. Trzy kroki (dowolną) zawierają wystarczającej liczby opcji, aby wyzwolić ogłaszania zwrotnego:
+Animacja w tym scenariuszu zostanie zastosowana do kontrolki sieci Web ASP.NET `Wizard` znajdującej się w `UpdatePanel`. Trzy (dowolne) kroki zapewniają wystarczającą ilość opcji wyzwalających ogłaszanie zwrotne:
 
 [!code-aspx[Main](animating-an-updatepanel-control-cs/samples/sample2.aspx)]
 
-Znaczniki, które są niezbędne do `UpdatePanelAnimationExtender` kontroli jest podobna do znaczników używany dla `AnimationExtender`. W `TargetControlID` atrybutu, firma Microsoft zapewnia `ID` z `UpdatePanel` animować; w ramach `UpdatePanelAnimationExtender` kontroli `<Animations>` element posiada znaczników XML dla animation(s). Istnieje jednak jedną różnicą: Kwota zdarzenia i procedury obsługi zdarzeń jest ograniczona w porównaniu z `AnimationExtender`. Aby uzyskać `UpdatePanels`, tylko dwa z nich istnieje:
+Znaczniki wymagane dla formantu `UpdatePanelAnimationExtender` są bardzo podobne do znaczników użytych dla `AnimationExtender`. W `TargetControlID` atrybucie udostępniamy `ID` `UpdatePanel` do animacji; w kontrolce `UpdatePanelAnimationExtender` element `<Animations>` przechowuje znaczniki XML dla animacji. Istnieje jednak jedna różnica: ilość zdarzeń i obsługi zdarzeń jest ograniczona w porównaniu do `AnimationExtender`. W przypadku `UpdatePanels`istnieją tylko dwa z nich:
 
-- `<OnUpdated>` Po zaktualizowaniu kontrolki UpdatePanel
-- `<OnUpdating>` Po rozpoczęciu aktualizowania kontrolki UpdatePanel
+- `<OnUpdated>`, gdy element UpdatePanel został zaktualizowany
+- `<OnUpdating>`, gdy element UpdatePanel rozpocznie aktualizowanie
 
-W tym scenariuszu nowej zawartości `UpdatePanel` (po zwrotu) są zanikanie. Jest to niezbędne znaczników do tego:
+W tym scenariuszu Nowa zawartość `UpdatePanel` (po odświeżeniu zwrotnego) zmienia się w programie. Jest to wymagane oznaczenie:
 
 [!code-aspx[Main](animating-an-updatepanel-control-cs/samples/sample3.aspx)]
 
-Teraz przy każdym wystąpieniu ogłaszania zwrotnego w ramach kontrolki UpdatePanel, nowej zawartości panelu zanikanie.
+Teraz za każdym razem, gdy w elemencie UpdatePanel zostanie przeprowadzone ogłaszanie zwrotne, Nowa zawartość panelu jest płynnie zmieniana.
 
-[![Stopniowe następnego kroku w Kreatorze](animating-an-updatepanel-control-cs/_static/image2.png)](animating-an-updatepanel-control-cs/_static/image1.png)
+[![następnym kroku kreatora zostanie zanikanie](animating-an-updatepanel-control-cs/_static/image2.png)](animating-an-updatepanel-control-cs/_static/image1.png)
 
-Stopniowe następnego kroku w Kreatorze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](animating-an-updatepanel-control-cs/_static/image3.png))
+Następnym krokiem kreatora jest zanikanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](animating-an-updatepanel-control-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](changing-an-animation-using-client-side-code-cs.md)

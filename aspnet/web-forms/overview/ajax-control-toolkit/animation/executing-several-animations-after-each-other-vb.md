@@ -1,63 +1,63 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-vb
-title: Wykonywanie kilku animacji jedna po drugiej (VB) | Dokumentacja firmy Microsoft
+title: Wykonywanie kilku animacji między sobą (VB) | Microsoft Docs
 author: wenz
-description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Umożliwia uruchamianie severa...
+description: Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Umożliwia uruchomienie serwera Sever...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 21ece509-79cc-4d9d-892d-7b6e9c4d3502
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0e0c9aa2c9ce8b55824c24ef43881e35a0788d28
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5034fe905299d4559b713dd841cb166886179c39
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108334"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606853"
 ---
 # <a name="executing-several-animations-after-each-other-vb"></a>Wykonywanie kilku animacji jedna po drugiej (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation3.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation3VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation3.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation3VB.pdf)
 
-> Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Umożliwia uruchamianie kilku animacji jedna po drugiej.
+> Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Umożliwia uruchamianie kilku animacji jeden po drugim.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Umożliwia uruchamianie kilku animacji jedna po drugiej.
+Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Umożliwia uruchamianie kilku animacji jeden po drugim.
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze, obejmują `ScriptManager` w strony, a następnie biblioteki ASP.NET AJAX jest ładowany, dzięki czemu można użyć zestawu narzędzi kontroli:
+Po pierwsze, Uwzględnij `ScriptManager` na stronie; następnie załadowana zostanie Biblioteka ASP.NET AJAX, co umożliwia korzystanie z zestawu narzędzi kontroli:
 
 [!code-aspx[Main](executing-several-animations-after-each-other-vb/samples/sample1.aspx)]
 
-Animacja zostanie zastosowana do panelu tekstu, który wygląda w następujący sposób:
+Animacja zostanie zastosowana do panelu tekstu, który wygląda następująco:
 
 [!code-aspx[Main](executing-several-animations-after-each-other-vb/samples/sample2.aspx)]
 
-W skojarzone klasy CSS do obsługi panelu zdefiniowany jako kolor tła dobre rozwiązanie, a także ustawić stała szerokość panelu:
+W skojarzonej klasie CSS panelu, zdefiniuj kolor tła całkiem, a także Ustaw stałą szerokość panelu:
 
 [!code-css[Main](executing-several-animations-after-each-other-vb/samples/sample3.css)]
 
-Następnie należy dodać `AnimationExtender` do strony, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe `runat="server":`
+Następnie Dodaj `AnimationExtender` do strony, podając `ID`, atrybut `TargetControlID` i obowiązkowe `runat="server":`
 
 [!code-aspx[Main](executing-several-animations-after-each-other-vb/samples/sample4.aspx)]
 
-W ramach `<Animations>` węzła, użyj `<OnLoad>` do uruchamiania animacji, po całkowitym załadowaniu strony. Ogólnie rzecz biorąc `<OnLoad>` akceptuje tylko jednej animacji. Framework animacji umożliwia Cię do dołączenia do kilku animacji w ją przy użyciu `<Sequence>` elementu. Wszystkie animacje w ramach `<Sequence>` są wykonane jeden po drugim. Poniżej przedstawiono możliwe kod znaczników dla `AnimationExtender` kontrolki, najpierw dokonując panelu szerszy i następnie zmniejszenie jego wysokość:
+W węźle `<Animations>` Użyj `<OnLoad>`, aby uruchomić animacje po całkowitym załadowaniu strony. Ogólnie rzecz biorąc, `<OnLoad>` akceptuje tylko jedną animację. Struktura animacji umożliwia sprzęganie kilku animacji w jeden przy użyciu elementu `<Sequence>`. Wszystkie animacje w `<Sequence>` są wykonywane jeden po drugim. Oto możliwe znaczniki dla kontrolki `AnimationExtender`, najpierw czynijąc panel, a następnie zmniejszając jego wysokość:
 
 [!code-aspx[Main](executing-several-animations-after-each-other-vb/samples/sample5.aspx)]
 
-Po uruchomieniu tego skryptu panelu otrzymuje szerszy i następnie mniejsze.
+Po uruchomieniu tego skryptu panel najpierw uzyskuje szerszy rozmiar, a następnie mniejszy.
 
-[![Najpierw jest zwiększana szerokość](executing-several-animations-after-each-other-vb/_static/image2.png)](executing-several-animations-after-each-other-vb/_static/image1.png)
+[![pierwsze zwiększenie szerokości](executing-several-animations-after-each-other-vb/_static/image2.png)](executing-several-animations-after-each-other-vb/_static/image1.png)
 
-Najpierw jest zwiększana szerokość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-vb/_static/image3.png))
+Najpierw Zwiększ szerokość (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-vb/_static/image3.png))
 
-[![Zmniejszy wysokość](executing-several-animations-after-each-other-vb/_static/image5.png)](executing-several-animations-after-each-other-vb/_static/image4.png)
+[![następnie wysokość zostanie zmniejszona](executing-several-animations-after-each-other-vb/_static/image5.png)](executing-several-animations-after-each-other-vb/_static/image4.png)
 
-Następnie zmniejszyła się wysokość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-vb/_static/image6.png))
+Następnie wysokość zostanie zmniejszona ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-vb/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](executing-several-animations-at-the-same-time-vb.md)

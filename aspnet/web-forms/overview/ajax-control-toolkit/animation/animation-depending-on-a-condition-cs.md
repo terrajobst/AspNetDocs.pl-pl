@@ -1,59 +1,59 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
-title: Animacja w zależności od warunku (C#) | Dokumentacja firmy Microsoft
+title: Animacja w zależności od warunku (C#) | Microsoft Docs
 author: wenz
-description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Czy animacja jest...
+description: Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Czy animacja jest...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: b7a28c0d-efb9-443a-80a4-1a5ee54671cd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c5de6541b49495ce4cb1bb7c50e7089a35d50ace
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 476b0cf80fa7c04cd8b8f9a92060ddabb9d14c13
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133931"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599854"
 ---
 # <a name="animation-depending-on-a-condition-c"></a>Animacja w zależności od warunku (C#)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation4.cs.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation4CS.pdf)
 
-> Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Czy animacji jest uruchomiony lub nie może także zależeć od warunku w postaci kodu JavaScript.
+> Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Czy animacja jest uruchamiana, czy nie może również zależeć od warunku w postaci niektórych kodów JavaScript.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Czy animacji jest uruchomiony lub nie może także zależeć od warunku w postaci kodu JavaScript.
+Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Czy animacja jest uruchamiana, czy nie może również zależeć od warunku w postaci niektórych kodów JavaScript.
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze, obejmują `ScriptManager` w strony, a następnie biblioteki ASP.NET AJAX jest ładowany, dzięki czemu można użyć zestawu narzędzi kontroli:
+Po pierwsze, Uwzględnij `ScriptManager` na stronie; następnie załadowana zostanie Biblioteka ASP.NET AJAX, co umożliwia korzystanie z zestawu narzędzi kontroli:
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample1.aspx)]
 
-Animacja zostanie zastosowana do panelu tekstu, który wygląda w następujący sposób:
+Animacja zostanie zastosowana do panelu tekstu, który wygląda następująco:
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample2.aspx)]
 
-W skojarzone klasy CSS do obsługi panelu zdefiniowany jako kolor tła dobre rozwiązanie, a także ustawić stała szerokość panelu:
+W skojarzonej klasie CSS panelu, zdefiniuj kolor tła całkiem, a także Ustaw stałą szerokość panelu:
 
 [!code-css[Main](animation-depending-on-a-condition-cs/samples/sample3.css)]
 
-Następnie należy dodać `AnimationExtender` do strony, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe `runat="server":`
+Następnie Dodaj `AnimationExtender` do strony, podając `ID`, atrybut `TargetControlID` i obowiązkowe `runat="server":`
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample4.aspx)]
 
-W ramach `<Animations>` węzła, użyj `<OnLoad>` do uruchamiania animacji, po całkowitym załadowaniu strony. Zamiast jednej z regularnych animacji `<Condition>` element, który jest dostarczany do gry. Kod JavaScript, podana jako wartość `ConditionScript` atrybutu jest wykonywane w czasie wykonywania. Jeśli ma wartość true, animacji jest wykonywana, w przeciwnym razie nie. Następujące znaczniki zawiera dwa animacji, każdy z nich jest wykonywana w 50% przypadkach na losowe. Ponieważ może istnieć tylko jeden animacji w ramach `<OnLoad>`, dwa `<Condition>` animacji są łączone ze sobą przy użyciu `<Sequence>` elementu:
+W węźle `<Animations>` Użyj `<OnLoad>`, aby uruchomić animacje po całkowitym załadowaniu strony. Zamiast jednego ze zwykłych animacji, element `<Condition>` jest dostępny do odtworzenia. Kod JavaScript podany jako wartość atrybutu `ConditionScript` jest wykonywany w czasie wykonywania. Jeśli wartość jest równa true, animacja jest wykonywana, w przeciwnym razie. Poniższe znaczniki zawierają dwie animacje, z których każdy jest wykonywany w 50% przypadków losowo. Ponieważ w `<OnLoad>`może istnieć tylko jedna animacja, dwa `<Condition>` animacje są sprzężone ze sobą przy użyciu elementu `<Sequence>`:
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample5.aspx)]
 
-Należy pamiętać, że znak mniejszości (`<`) w `ConditionScript` atrybut musi być o zmienionym znaczeniu (). Po uruchomieniu tego skryptu, albo brak uruchomień animacji jest jednym z dwóch lub oba są.
+Należy zauważyć, że znak mniejszości (`<`) w atrybucie `ConditionScript` musi mieć wartość ucieczki (). Po uruchomieniu tego skryptu nie są wykonywane żadne animacje ani jeden z dwóch elementów lub.
 
-[![Panel jest wygaszanie bez zmiany rozmiaru, więc drugiego uruchomienia animacji, pierwszy z nich nie](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
+[![panel jest znikający bez zmiany rozmiarów, więc drugie uruchomienie animacji spowoduje, że pierwszy z nich nie](animation-depending-on-a-condition-cs/_static/image2.png)](animation-depending-on-a-condition-cs/_static/image1.png)
 
-Panel jest wygaszanie bez zmiany rozmiaru, więc drugiego uruchomienia animacji, pierwszy z nich nie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](animation-depending-on-a-condition-cs/_static/image3.png))
+Panel jest odtwarzany bez zmiany rozmiaru, więc drugie uruchomienie animacji, pierwsze, nie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](animation-depending-on-a-condition-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](executing-several-animations-after-each-other-cs.md)

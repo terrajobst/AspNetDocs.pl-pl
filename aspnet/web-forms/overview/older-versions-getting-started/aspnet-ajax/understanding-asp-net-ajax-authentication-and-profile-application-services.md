@@ -1,345 +1,345 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
-title: Opis uwierzytelniania AJAX programu ASP.NET i usług aplikacji w profilu | Dokumentacja firmy Microsoft
+title: Informacje na temat uwierzytelniania i Usługi aplikacji profilu ASP.NET AJAX | Microsoft Docs
 author: scottcate
-description: Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu odbierania pliku cookie uwierzytelniania, a to Usługa bramy, aby umożliwić użytkownikowi niestandardowe...
+description: Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu uzyskania pliku cookie uwierzytelniania i jest usługą bramy zezwalającą na użytkownika niestandardowego...
 ms.author: riande
 ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 1087d9120411e51fd61d073169a88cac6cdaf15b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: cab9acb1ffd75cca87f6c575a6abdd000235828e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109489"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74635679"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Objaśnienie usług uwierzytelniania i profilów ASP.NET AJAX
 
 przez [Scott Cate](https://github.com/scottcate)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
-> Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu odbierania pliku cookie uwierzytelniania i usługi bramy, aby umożliwić profilów użytkownika niestandardowego jest dostarczane przez platformę ASP.NET. Korzystanie z usługi Uwierzytelnianie ASP.NET AJAX jest zgodny z standardowe uwierzytelnianie formularzy programu ASP.NET, dzięki czemu aplikacje, które obecnie z uwierzytelniania formularzy (na przykład za pomocą identyfikatora logowania kontrolować) będzie nie podzielony przez uaktualnienie do usługi uwierzytelniania AJAX.
+> Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu otrzymywania plików cookie uwierzytelniania i jest usługą bramy zezwalającą na niestandardowe profile użytkowników udostępniane przez usługę ASP.NET. Korzystanie z usługi uwierzytelniania ASP.NET AJAX jest zgodne ze standardowym uwierzytelnianiem formularzy ASP.NET, dlatego aplikacje korzystające obecnie z uwierzytelniania formularzy (na przykład z kontrolą logowania) nie zostaną zerwane przez uaktualnienie do usługi uwierzytelniania AJAX.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W ramach programu .NET Framework 3.5 Microsoft świadczy usługi uaktualniania środowiska może być zmieniany. nie tylko nowe środowisko opracowywania dostępne, ale zapowiadane są nowe funkcje Language-Integrated Query (LINQ) i inne rozszerzenia języka. Ponadto niektóre znane funkcje inne zestawy narzędzi, szczególnie rozszerzenia AJAX programu ASP.NET, są uwzględniane jako najwyższej jakości członkowie Biblioteka klas programu .NET Framework Base. Te rozszerzenia umożliwiają wiele nowych funkcji rozbudowanych aplikacji klienckich, w tym częściowe renderowanie stron bez konieczności odświeżenie całej strony, możliwość dostępu do usług sieci Web za pośrednictwem skrypt po stronie klienta (w tym ASP.NET, profilowania API) i rozbudowane API po stronie klienta przeznaczony do utworzenia duplikatów, wiele systemów kontroli w zestaw formantów po stronie serwera ASP.NET.
+W ramach .NET Framework 3,5 Firma Microsoft dostarcza zmiennym uaktualnieniu środowiska; jest to nie tylko nowe środowisko programistyczne, ale nastąpi nowe funkcje języka LINQ (Language-Integrated Query) i inne ulepszenia językowe. Ponadto niektóre znane funkcje innych zestawów narzędzi, w szczególności rozszerzenia AJAX ASP.NET, są dołączane jako członkowie pierwszej klasy .NET Framework biblioteki klas podstawowych. Te rozszerzenia umożliwiają korzystanie z wielu nowych zaawansowanych funkcji klienta, w tym częściowego renderowania stron, bez konieczności odświeżania pełnych stron, możliwość uzyskiwania dostępu do usług sieci Web za pośrednictwem skryptu klienta (w tym interfejsu API profilowania ASP.NET) i szerokiego interfejsu API po stronie klienta zaprojektowana do dublowania wielu schematów formantów widzianych w zestawie kontroli po stronie serwera ASP.NET.
 
-Tym oficjalnym dokumencie patrzy na wdrożenie i stosowanie profilowania ASP.NET i usług uwierzytelniania formularzy, ponieważ są one dostępne po rozszerzenia AJAX programu Microsoft ASP.NET AJAX ExtensionsThe upewnij uwierzytelniania formularzy niezwykle łatwo jest obsługiwać, ponieważ (także Usługi profilowania) jest dostępna za pośrednictwem skryptu serwera proxy usługi sieci Web. Rozszerzenia AJAX również obsługuje niestandardowe uwierzytelnianie za pośrednictwem klasy AuthenticationServiceManager.
+W tym dokumencie przedstawiono implementację i korzystanie z usług ASP.NET profilowanie i usługi uwierzytelniania formularzy, ponieważ są one udostępniane przez rozszerzenia Microsoft ASP.NET AJAX ExtensionsThe AJAX, dzięki czemu uwierzytelnianie formularzy niezwykle łatwą w obsłudze, jak również Usługa profilowania jest udostępniana za pomocą skryptu serwera proxy usługi sieci Web. Rozszerzenia AJAX obsługują również uwierzytelnianie niestandardowe za pomocą klasy AuthenticationServiceManager.
 
-Ten dokument jest oparty na wersji Beta 2 programu Visual Studio 2008 i programu .NET Framework 3.5. Tym oficjalnym dokumencie przyjęto założenie, będzie on pracować przy użyciu programu Visual Studio 2008 Beta 2, nie Visual Web Developer Express, i zapewnia wskazówki, zgodnie z interfejsu użytkownika programu Visual Studio. Przykłady kodu mogą korzystać z szablonów projektów w Visual Web Developer Express.
+Niniejszy dokument jest oparty na wersji beta 2 programu Visual Studio 2008 i .NET Framework 3,5. W tym dokumencie przyjęto również założenie, że użytkownik pracuje z programem Visual Studio 2008 Beta 2, nie Visual Web Developer Express i zapewni wskazówki zgodne z interfejsem użytkownika programu Visual Studio. Niektóre przykłady kodu mogą korzystać z szablonów projektów dostępnych w programie Visual Web Developer Express.
 
-## <a name="profiles-and-authentication"></a>*Profile i uwierzytelniania*
+## <a name="profiles-and-authentication"></a>*Profile i uwierzytelnianie*
 
-Microsoft ASP.NET profilów i usług uwierzytelniania są dostarczane przez system uwierzytelnianie formularzy programu ASP.NET i są składniki standardowe programu ASP.NET. Rozszerzenia AJAX programu ASP.NET umożliwiają skryptu dostęp do tych usług za pomocą skryptu serwerów proxy, za pomocą bardzo prosta modelu w przestrzeni nazw Sys.Services biblioteki klienta AJAX.
+Microsoft ASP.NET Profile i usługi uwierzytelniania są udostępniane przez system uwierzytelniania formularzy ASP.NET i są standardowymi składnikami ASP.NET. Rozszerzenia AJAX ASP.NET zapewniają dostęp do tych usług za pośrednictwem serwerów proxy skryptów za pośrednictwem dość prostego modelu w przestrzeni nazw sys. Services w bibliotece AJAX klienta.
 
-Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu odbierania pliku cookie uwierzytelniania i usługi bramy, aby umożliwić profilów użytkownika niestandardowego jest dostarczane przez platformę ASP.NET. Korzystanie z usługi Uwierzytelnianie ASP.NET AJAX jest zgodny z standardowe uwierzytelnianie formularzy programu ASP.NET, dzięki czemu aplikacje, które obecnie z uwierzytelniania formularzy (na przykład za pomocą identyfikatora logowania kontrolować) będzie nie podzielony przez uaktualnienie do usługi uwierzytelniania AJAX.
+Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu otrzymywania plików cookie uwierzytelniania i jest usługą bramy zezwalającą na niestandardowe profile użytkowników udostępniane przez usługę ASP.NET. Korzystanie z usługi uwierzytelniania ASP.NET AJAX jest zgodne ze standardowym uwierzytelnianiem formularzy ASP.NET, dlatego aplikacje korzystające obecnie z uwierzytelniania formularzy (na przykład z kontrolą logowania) nie zostaną zerwane przez uaktualnienie do usługi uwierzytelniania AJAX.
 
-Usługa profilu umożliwia automatyczne integracji i przechowywanie danych użytkownika na podstawie przynależności do udostępnionych przez usługę uwierzytelniania. Przechowywanych danych jest określona przez plik web.config i różnych dostawców usług profilowania obsługi zarządzania danymi. Podobnie jak w przypadku usługi uwierzytelniania usługa AJAX profilu jest zgodny z standardowa usługą profilów platformy ASP.NET, tak, aby nie należy dzielić stron obecnie włączenie funkcji usługi profil programu ASP.NET, łącznie z obsługą technologii AJAX.
+Usługa profilowania umożliwia automatyczną integrację i przechowywanie danych użytkowników na podstawie członkostwa zgodnie z usługą uwierzytelniania. Przechowywane dane są określane przez plik Web. config, a różne dostawcy usług profilowania obsługują zarządzanie danymi. Podobnie jak w przypadku usługi uwierzytelniania usługa profilu AJAX jest zgodna ze standardową usługą profilu ASP.NET, dzięki czemu strony, które aktualnie obejmują funkcje usługi profilu ASP.NET, nie powinny być dzielone przez włączenie obsługi technologii AJAX.
 
-Dołączanie do aplikacji uwierzytelnianie programu ASP.NET i uwierzytelnienia usługi profilowania, wykracza poza zakres tego dokumentu. Aby uzyskać więcej informacji na temat, zobacz biblioteki MSDN Library odwoływać się do artykułu Zarządzanie użytkownikami przy użyciu członkostwa w [ https://msdn.microsoft.com/library/tw292whz.aspx ](https://msdn.microsoft.com/library/tw292whz.aspx). Program ASP.NET zawiera również narzędzia, aby automatycznie skonfigurować członkostwo z programem SQL Server, która jest domyślnego dostawcę usługi uwierzytelniania dla członkostwa ASP.NET. Aby uzyskać więcej informacji, zobacz artykuł narzędzia rejestracji serwera SQL platformy ASP.NET (Aspnet\_regsql.exe) na [ https://msdn.microsoft.com/library/ms229862(vs.80).aspx ](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
+Dołączanie ASP.NET uwierzytelniania i usług profilowania do aplikacji wykracza poza zakres tego dokumentu. Aby uzyskać więcej informacji na temat tego tematu, zobacz artykuł dotyczący biblioteki MSDN dotyczący zarządzania użytkownikami przy użyciu członkostwa w [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET zawiera również narzędzie do automatycznego konfigurowania członkostwa przy użyciu SQL Server, który jest domyślnym dostawcą usługi uwierzytelniania dla członkostwa ASP.NET. Aby uzyskać więcej informacji, zobacz artykuł ASP.NET SQL Server Registration Tool (ASPNET\_regsql. exe) w [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
-## <a name="using-the-aspnet-ajax-authentication-service"></a>*Przy użyciu usługi uwierzytelniania platformy ASP.NET AJAX*
+## <a name="using-the-aspnet-ajax-authentication-service"></a>*Korzystanie z usługi uwierzytelniania ASP.NET AJAX*
 
-Usługa uwierzytelniania AJAX programu ASP.NET, należy włączyć w pliku web.config:
+W pliku Web. config musi być włączona usługa uwierzytelniania ASP.NET AJAX:
 
 [!code-xml[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample1.xml)]
 
-Usługa uwierzytelniania wymaga uwierzytelniania formularzy programu ASP.NET, aby włączyć i wymaga plików cookie w celu włączenia w przeglądarce klienta (skrypt nie można włączyć cookieless sesji, ponieważ cookieless sesji wymaga parametrów adresu URL.).
+Usługa uwierzytelniania wymaga włączenia uwierzytelniania formularzy ASP.NET i wymaga włączenia plików cookie w przeglądarce klienta (skrypt nie może włączyć sesji bez plików cookie, ponieważ sesje bez plików cookie wymagają parametrów adresu URL).
 
-Gdy usługa uwierzytelniania AJAX jest włączone i skonfigurowane, skrypt po stronie klienta mogą od razu korzystać Sys.Services.AuthenticationService obiektu. Skrypt po stronie klienta będzie przede wszystkim chcesz korzystać z zalet `login` metody i `isLoggedIn` właściwości. Istnieje kilka właściwości do zapewnienia wartości domyślne metody logowania, która może akceptować dużą liczbą parametrów.
+Po włączeniu i skonfigurowaniu usługi uwierzytelniania AJAX skrypt klienta może natychmiast skorzystać z obiektu sys. Services. AuthenticationService. Przede wszystkim skrypt klienta chce skorzystać z metody `login` i właściwości `isLoggedIn`. Istnieje kilka właściwości, aby zapewnić wartości domyślne dla metody logowania, która może akceptować wiele parametrów.
 
-*Sys.Services.AuthenticationService members*
+*Elementy członkowskie sys. Services. AuthenticationService*
 
 *Metoda logowania:*
 
-Metoda: login() rozpoczyna żądanie uwierzytelnienia poświadczeń użytkownika. Ta metoda jest asynchroniczne i nie blokuje wykonywania.
+Metoda Login () rozpoczyna żądanie uwierzytelnienia poświadczeń użytkownika. Ta metoda jest asynchroniczna i nie blokuje wykonywania.
 
-*Parametry:*
-
-| **Nazwa parametru** | **Znaczenie** |
-| --- | --- |
-| userName | Wymagana. Nazwa użytkownika do uwierzytelniania. |
-| password | Atrybut opcjonalny (wartość domyślna to null). Hasło użytkownika. |
-| isPersistent | Atrybut opcjonalny (wartość domyślna to false). Czy plik cookie uwierzytelniania użytkownika ma utrwalić między sesjami. W przypadku wartości FAŁSZ użytkownika powoduje wylogowanie, gdy nastąpi zamknięcie okna przeglądarki lub ważności sesji. |
-| redirectUrl | Atrybut opcjonalny (wartość domyślna to null). Adres URL do przekierowania wyszukiwarki na pomyślne uwierzytelnienie. Jeśli ten parametr ma wartość null lub pusty ciąg, przekierowanie nie występuje. |
-| customInfo | Atrybut opcjonalny (wartość domyślna to null). Ten parametr jest aktualnie używana i jest zarezerwowany do użytku w przyszłości. |
-| loginCompletedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja do wywołania po pomyślnym ukończeniu logowania. Jeśli zostanie określony, ten parametr zastępuje właściwość defaultLoginCompleted. |
-| failedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja wywoływana, gdy nazwa logowania nie powiodła się. Jeśli zostanie określony, ten parametr zastępuje właściwość defaultFailedCallback. |
-| userContext | Atrybut opcjonalny (wartość domyślna to null). Dane kontekstu użytkownika niestandardowego, które powinny być przekazywane do funkcji wywołania zwrotnego. |
-
-*Wartość zwracana:*
-
-Ta funkcja nie ma wartości zwracanej. Jednak wiele zachowań są uwzględniane na wykonanie wywołania tej funkcji:
-
-- Bieżąca strona albo zostanie odświeżona lub zmienić, jeśli `redirectUrl` parametr ma wartość null ani pusty ciąg.
-- Jednakże, jeśli parametr ma wartość null lub pusty ciąg, `loginCompletedCallback` parametru lub `defaultLoginCompletedCallback` nosi nazwę właściwości.
-- Jeśli wywołanie usługi sieci web ulegnie awarii, `failedCallback` parametru `defaultFailedCallback` nosi nazwę właściwości.
-
-*Metoda wylogowania:*
-
-Metoda logout() usuwa plik cookie poświadczenia i wylogowuje bieżącego użytkownika z aplikacji sieci web.
-
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| redirectUrl | Atrybut opcjonalny (wartość domyślna to null). Adres URL do przekierowania wyszukiwarki na pomyślne uwierzytelnienie. Jeśli ten parametr ma wartość null lub pusty ciąg, przekierowanie nie występuje. |
-| logoutCompletedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja do wywołania po pomyślnym ukończeniu wylogowanie. Jeśli zostanie określony, ten parametr zastępuje właściwość defaultLogoutCompleted. |
-| failedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja wywoływana, gdy nazwa logowania nie powiodła się. Jeśli zostanie określony, ten parametr zastępuje właściwość defaultFailedCallback. |
-| userContext | Atrybut opcjonalny (wartość domyślna to null). Dane kontekstu użytkownika niestandardowego, które powinny być przekazywane do funkcji wywołania zwrotnego. |
+| Uż | Wymagany. Nazwa użytkownika do uwierzytelnienia. |
+| hasło | Opcjonalne (Domyślnie wartość null). Hasło użytkownika. |
+| IsPersistent | Opcjonalne (wartość domyślna to false). Czy plik cookie uwierzytelniania użytkownika powinien być utrwalany między sesjami. W przypadku wartości false użytkownik będzie wylogowywał się, gdy przeglądarka zostanie zamknięta lub sesja wygaśnie. |
+| redirectUrl | Opcjonalne (Domyślnie wartość null). Adres URL, pod który ma zostać przekierowany przeglądarka po pomyślnym uwierzytelnieniu. Jeśli ten parametr ma wartość null lub jest pustym ciągiem, nie ma żadnego przekierowania. |
+| customInfo | Opcjonalne (Domyślnie wartość null). Ten parametr jest aktualnie nieużywany i jest zarezerwowany do użytku w przyszłości. |
+| loginCompletedCallback | Opcjonalne (Domyślnie wartość null). Funkcja do wywołania, gdy logowanie zostało pomyślnie zakończone. Jeśli ta wartość jest określona, ten parametr zastępuje właściwość defaultLoginCompleted. |
+| failedCallback | Opcjonalne (Domyślnie wartość null). Funkcja do wywołania, gdy logowanie nie powiodło się. Jeśli ta wartość jest określona, ten parametr zastępuje właściwość defaultFailedCallback. |
+| userContext | Opcjonalne (Domyślnie wartość null). Niestandardowe dane kontekstowe użytkownika, które powinny być przesyłane do funkcji wywołania zwrotnego. |
 
 *Wartość zwracana:*
 
-Ta funkcja nie ma wartości zwracanej. Jednak wiele zachowań są uwzględniane na wykonanie wywołania tej funkcji:
+Ta funkcja nie zawiera wartości zwracanej. Jednak po zakończeniu wywołania tej funkcji są uwzględniane różne zachowania:
 
-- Bieżąca strona albo zostanie odświeżona lub zmienić, jeśli `redirectUrl` parametr ma wartość null ani pusty ciąg.
-- Jednakże, jeśli parametr ma wartość null lub pusty ciąg, `logoutCompletedCallback` parametru lub `defaultLogoutCompletedCallback` nosi nazwę właściwości.
-- Jeśli wywołanie usługi sieci web ulegnie awarii, `failedCallback` parametru `defaultFailedCallback` nosi nazwę właściwości.
+- Bieżąca strona zostanie odświeżona lub zmieniona, jeśli parametr `redirectUrl` nie miał wartości null ani pustego ciągu.
+- Jeśli jednak parametr ma wartość null lub jest pustym ciągiem, parametr `loginCompletedCallback` lub właściwość `defaultLoginCompletedCallback` jest wywoływana.
+- Jeśli wywołanie usługi sieci Web nie powiedzie się, zostanie wywołany parametr `failedCallback` właściwości `defaultFailedCallback`.
 
-*Właściwość defaultFailedCallback (get, set):*
+*Metoda wylogowywania:*
 
-Ta właściwość określa funkcję, która powinna być wywoływana, jeśli wystąpi błąd podczas komunikowania się z usługą sieci web. Otrzymasz delegata (lub odwołanie do funkcji).
+Metoda Wyloguj () usuwa plik cookie poświadczeń i Wylogowuje bieżącego użytkownika z aplikacji sieci Web.
 
-Dokumentacja funkcji określonej przez tę właściwość powinna mieć następujący podpis:
+*Wejściowe*
+
+| **Nazwa parametru** | **Znaczenie** |
+| --- | --- |
+| redirectUrl | Opcjonalne (Domyślnie wartość null). Adres URL, pod który ma zostać przekierowany przeglądarka po pomyślnym uwierzytelnieniu. Jeśli ten parametr ma wartość null lub jest pustym ciągiem, nie ma żadnego przekierowania. |
+| logoutCompletedCallback | Opcjonalne (Domyślnie wartość null). Funkcja do wywołania po pomyślnym zakończeniu wylogowywania. Jeśli ta wartość jest określona, ten parametr zastępuje właściwość defaultLogoutCompleted. |
+| failedCallback | Opcjonalne (Domyślnie wartość null). Funkcja do wywołania, gdy logowanie nie powiodło się. Jeśli ta wartość jest określona, ten parametr zastępuje właściwość defaultFailedCallback. |
+| userContext | Opcjonalne (Domyślnie wartość null). Niestandardowe dane kontekstowe użytkownika, które powinny być przesyłane do funkcji wywołania zwrotnego. |
+
+*Wartość zwracana:*
+
+Ta funkcja nie zawiera wartości zwracanej. Jednak po zakończeniu wywołania tej funkcji są uwzględniane różne zachowania:
+
+- Bieżąca strona zostanie odświeżona lub zmieniona, jeśli parametr `redirectUrl` nie miał wartości null ani pustego ciągu.
+- Jeśli jednak parametr ma wartość null lub jest pustym ciągiem, parametr `logoutCompletedCallback` lub właściwość `defaultLogoutCompletedCallback` jest wywoływana.
+- Jeśli wywołanie usługi sieci Web nie powiedzie się, zostanie wywołany parametr `failedCallback` właściwości `defaultFailedCallback`.
+
+*defaultFailedCallback Właściwość (Get, Set):*
+
+Ta właściwość określa funkcję, która powinna zostać wywołana, jeśli wystąpi błąd komunikacji z usługą sieci Web. Powinien otrzymać delegata (lub odwołanie do funkcji).
+
+Odwołanie do funkcji określone przez tę właściwość powinna mieć następującą sygnaturę:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample2.js)]
 
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
 | error | Określa informacje o błędzie. |
-| userContext | Określa informacje o kontekście użytkownika, które zostały podane podczas logowania lub wylogowywania funkcja została wywołana. |
-| methodName | Nazwa metody wywołującej. |
+| userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji logowania lub wylogowania. |
+| MethodName | Nazwa metody wywołującej. |
 
-*Właściwość defaultLoginCompletedCallback (get, set):*
+*defaultLoginCompletedCallback Właściwość (Get, Set):*
 
-Ta właściwość określa funkcję, która powinna być wywoływana, gdy wywołanie usługi sieci web logowania zostało zakończone. Otrzymasz delegata (lub odwołanie do funkcji).
+Ta właściwość określa funkcję, która ma być wywoływana po zakończeniu wywołania usługi sieci Web logowania. Powinien otrzymać delegata (lub odwołanie do funkcji).
 
-Dokumentacja funkcji określonej przez tę właściwość powinna mieć następujący podpis:
+Odwołanie do funkcji określone przez tę właściwość powinna mieć następującą sygnaturę:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample3.js)]
 
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| validCredentials | Określa, czy użytkownik podał prawidłowe poświadczenia. `true` Jeśli użytkownik pomyślnie zalogował się; w przeciwnym razie `false`. |
-| userContext | Określa informacje kontekstu użytkownika, które są dostarczane, gdy wywołana została funkcja logowania. |
-| methodName | Nazwa metody wywołującej. |
+| validCredentials | Określa, czy użytkownik podał prawidłowe poświadczenia. `true`, jeśli użytkownik zalogował się pomyślnie; w przeciwnym razie `false`. |
+| userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji logowania. |
+| MethodName | Nazwa metody wywołującej. |
 
-*Właściwość defaultLogoutCompletedCallback (get, set):*
+*defaultLogoutCompletedCallback Właściwość (Get, Set):*
 
-Ta właściwość określa funkcję, która powinna być wywoływana po zakończeniu wywołania usługi sieci web wylogowania. Otrzymasz delegata (lub odwołanie do funkcji).
+Ta właściwość określa funkcję, która ma być wywoływana po zakończeniu wywołania usługi sieci Web Wyloguj. Powinien otrzymać delegata (lub odwołanie do funkcji).
 
-Dokumentacja funkcji określonej przez tę właściwość powinna mieć następujący podpis:
+Odwołanie do funkcji określone przez tę właściwość powinna mieć następującą sygnaturę:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample4.js)]
 
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| wynik | Ten parametr będzie zawsze `null`; jest zarezerwowany do użytku w przyszłości. |
-| userContext | Określa informacje kontekstu użytkownika, które są dostarczane, gdy wywołana została funkcja logowania. |
-| methodName | Nazwa metody wywołującej. |
+| wynika | Ten parametr będzie zawsze `null`; jest on zarezerwowany do użytku w przyszłości. |
+| userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji logowania. |
+| MethodName | Nazwa metody wywołującej. |
 
-*Właściwość isLoggedIn (get):*
+*islogowany Właściwość (Get):*
 
-Tej właściwości pobiera bieżący stan uwierzytelniania użytkownika; jest ustawiony przez obiekt ScriptManager w trakcie żądania strony.
+Ta właściwość pobiera bieżący stan uwierzytelniania użytkownika. jest on ustawiany przez obiekt ScriptManager podczas żądania strony.
 
-Ta właściwość zwraca `true` Jeśli użytkownik jest aktualnie zalogowany w; w przeciwnym razie, zwracany jest `false`.
+Ta właściwość zwraca `true`, jeśli użytkownik jest aktualnie zalogowany; w przeciwnym razie zwraca `false`.
 
-*PATH — właściwość (get, set):*
+*Path — właściwość (Get, Set):*
 
-Ta właściwość określa programowo lokalizację uwierzytelniania usługi sieci web. Może służyć do zastępowania domyślnego dostawcę uwierzytelniania, a także jedną deklaratywne Ustawianie we właściwości ścieżki formantu ScriptManager AuthenticationService podrzędnym (Aby uzyskać więcej informacji, zobacz Używanie niestandardowego dostawcę usługi uwierzytelniania temat poniżej).
+Ta właściwość programowo określa lokalizację usługi sieci Web uwierzytelniania. Może służyć do przesłonięcia domyślnego dostawcy uwierzytelniania oraz jednego zestawu w właściwości Path węzła podrzędnego AuthenticationService formantu ScriptManager (Aby uzyskać więcej informacji, zobacz Korzystanie z niestandardowego dostawcy usługi uwierzytelniania. temat poniżej).
 
-Pamiętaj, że nie zmienia lokalizację domyślnej usługi uwierzytelnienia. ASP.NET AJAX pozwala jednak określić lokalizację usługi sieci web, który zawiera ten sam interfejs klasy jako serwer proxy usługi uwierzytelniania ASP.NET AJAX.
+Należy pamiętać, że lokalizacja domyślnej usługi uwierzytelniania nie jest zmieniana. Jednak ASP.NET AJAX pozwala określić lokalizację usługi sieci Web, która zapewnia ten sam interfejs klasy co serwer proxy usługi uwierzytelniania ASP.NET AJAX.
 
-Należy zauważyć, że nie można ustawić tę właściwość na wartość, która kieruje żądanie skryptu zniżki w stosunku do bieżącej lokacji. Ponieważ bieżąca aplikacja nie otrzyma poświadczenia uwierzytelniania, jest bezcelowe; Ponadto AJAX podstawowych technologii nie zadać żądań między witrynami i może generować wyjątek zabezpieczeń w przeglądarce klienta.
+Należy również pamiętać, że ta właściwość nie powinna być ustawiona na wartość, która kieruje żądanie skryptu poza bieżącą lokację. Ponieważ bieżąca aplikacja nie odbiera poświadczeń uwierzytelniania, będzie bezużyteczny; Ponadto, podstawowa technologia AJAX nie powinna ogłaszać żądań między lokacjami i może generować wyjątek zabezpieczeń w przeglądarce klienta.
 
-Ta właściwość jest `String` obiekt reprezentujący ścieżkę do usługi sieci web uwierzytelniania.
+Ta właściwość jest obiektem `String` reprezentującym ścieżkę do usługi sieci Web uwierzytelniania.
 
-*Właściwość limitu czasu (get, set):*
+*Właściwość Timeout (Get, Set):*
 
-Ta właściwość określa, że czas oczekiwania dla usługi uwierzytelniania przed zakładając, że żądanie logowania nie powiodła się. Jeśli upłynie limit czasu podczas oczekiwania na wywołanie, aby zakończyć, zostanie wywołana metoda wywołania zwrotnego żądanie nie powiodło się, a połączenie nie zostanie ukończona.
+Ta właściwość określa czas oczekiwania na zaczekanie usługi uwierzytelniania przed założeniem, że żądanie logowania nie powiodło się. Jeśli upłynął limit czasu podczas oczekiwania na zakończenie wywołania, wywołanie zwrotne żądania nie zostanie wywołane i wywołanie nie zostanie zakończone.
 
-Ta właściwość jest `Number` obiekt reprezentujący liczbę milisekund oczekiwania na wyniki z usługi uwierzytelniania.
+Ta właściwość jest obiektem `Number` reprezentującym liczbę milisekund oczekiwania na wyniki usługi uwierzytelniania.
 
-*Przykładowy kod: Logując się do usługi uwierzytelniania*
+*Przykład kodu: Logowanie do usługi uwierzytelniania*
 
-Następujące znaczniki to przykładowa strona ASP.NET za pomocą wywołania prosty skrypt do zalogowania i wylogowania metod klasy AuthenticationService.
+Poniższy znacznik to przykładowa strona ASP.NET z prostym wywołaniem skryptu do metody logowania i wylogowywania klasy AuthenticationService.
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample5.aspx)]
 
-## <a name="accessing-aspnet-profiling-data-via-ajax"></a>Uzyskiwanie dostępu do danych za pomocą technologii AJAX profilowania ASP.NET
+## <a name="accessing-aspnet-profiling-data-via-ajax"></a>Uzyskiwanie dostępu do danych profilowania ASP.NET za pomocą technologii AJAX
 
-ASP.NET profilowanie usługi również jest dostępna za pośrednictwem rozszerzenia AJAX programu ASP.NET. Ponieważ usługa profilowania ASP.NET udostępnia precyzyjnie interfejsu API za pomocą którego do przechowywania i pobierania danych użytkownika, może to być narzędziem doskonałej produktywności.
+Usługa profilowania ASP.NET jest również dostępna za pomocą rozszerzeń ASP.NET AJAX. Ponieważ usługa profilowania ASP.NET oferuje bogaty, szczegółowy interfejs API, dzięki któremu można przechowywać i pobierać dane użytkowników, może to być doskonałe narzędzie do wydajnej produktywności.
 
-Musi być włączona usługa profilu w pliku web.config; nie jest domyślnie. Aby to zrobić, upewnij się, że `profileService` element podrzędny ma włączone = true określonych w pliku web.config i określeniu właściwości, które może odczytać lub zapisywane w następujący sposób:
+Usługa profilu musi być włączona w pliku Web. config; nie jest to domyślne ustawienie. W tym celu należy się upewnić, że `profileService` element podrzędny Enabled = true określony w pliku Web. config oraz że określono, które właściwości mogą być odczytywane lub zapisywane w następujący sposób:
 
 [!code-xml[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample6.xml)]
 
-Usługa profilu muszą również zostać skonfigurowane. Mimo że konfiguracji usługi profilowania wykracza poza zakres tego dokumentu, warto pamiętać, grupy, zgodnie z definicją w ustawieniach konfiguracji profilu będą dostępne jako właściwości podrzędnych nazwy grupy. Na przykład z poniższej sekcji profilu określony:
+Należy również skonfigurować usługę profilu. Mimo że konfiguracja usługi profilowania znajduje się poza zakresem tego oficjalnego dokumentu, jest to wartościowa, że grupy zdefiniowane w ustawieniach konfiguracji profilu będą dostępne jako właściwości podrzędne nazwy grupy. Na przykład, jeśli określono następującą sekcję profilu:
 
 [!code-xml[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample7.xml)]
 
-Skrypt po stronie klienta będzie mogła uzyskiwać dostęp do nazwy, Address.Line1, Address.Line2, Address.City, Address.State, Address.Zip i BackgroundColor jako właściwości pola właściwości klasy ProfileService.
+Skrypt klienta będzie mógł uzyskać dostęp do nazwy, adresu. wiersz1, Address. wiersz2, Address. City, Address. State, Address. zip i BackgroundColor jako właściwości pola Properties klasy ProfileService.
 
-Po skonfigurowaniu usługi profilowania AJAX będą natychmiast dostępne w stron. jednak ma być załadowana raz przed użyciem.
+Po skonfigurowaniu usługi profilowania AJAX będzie ona natychmiast dostępna na stronach. jednak będzie musiał zostać załadowany raz przed użyciem.
 
-*Sys.Services.ProfileService members*
+*Elementy członkowskie sys. Services. ProfileService*
 
 *pole właściwości:*
 
-Pole właściwości udostępnia wszystkie dane profilu skonfigurowanego jako właściwości podrzędnych, które mogą być przywoływane zgodnie z Konwencją nazwa kropka operator. Właściwości, które są elementami podrzędnymi grup właściwości są określane jako GroupName.PropertyName. W konfiguracji profilu przykład przedstawiony powyżej Aby uzyskać stan użytkownika, można użyć następującego identyfikatora:
+W polu właściwości są ujawniane wszystkie skonfigurowane dane profilu jako właściwości podrzędne, do których można odwoływać się za pomocą Konwencji operatora kropki-nazwy. Właściwości, które są elementami podrzędnymi grup właściwości, są określane jako GroupName. PropertyName. W przykładowej konfiguracji profilu przedstawionej powyżej, aby uzyskać stan użytkownika, można użyć następującego identyfikatora:
 
 [!code-csharp[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample8.cs)]
 
-*Metoda obciążenia:*
+*Metoda ładowania:*
 
-Ładuje właściwości wszystkich lub wybranej listy z serwera.
+Ładuje wybraną listę lub wszystkie właściwości z serwera.
 
-*Parametry:*
-
-| **Nazwa parametru** | **Znaczenie** |
-| --- | --- |
-| propertyNames | Atrybut opcjonalny (wartość domyślna to null). Właściwości, które ma zostać załadowane z serwera. |
-| loadCompletedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja do wywołania po zakończeniu ładowania. |
-| failedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja do wywołania w przypadku wystąpienia błędu. |
-| userContext | Atrybut opcjonalny (wartość domyślna to null). Informacje o kontekście mają być przekazane do funkcji wywołania zwrotnego. |
-
-Funkcja obciążenia nie ma wartości zwracanej. Jeśli wywołanie zostało ukończone pomyślnie, a jej będzie wywoływać parametr albo `loadCompletedCallback` parametru lub `defaultLoadCompletedCallback` właściwości. Jeśli wywołanie nie powiodło się lub upłynął limit czasu, albo `failedCallback` parametru lub `defaultFailedCallback` właściwość zostanie wywołana.
-
-Jeśli `propertyNames` parametr nie jest podany, wszystkie właściwości skonfigurowane odczytu są pobierane z serwera.
-
-*Zapisz metody:*
-
-Metoda Zapisz() zapisuje listę właściwości określonego (lub wszystkie właściwości), do profilu ASP.NET.
-
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| propertyNames | Atrybut opcjonalny (wartość domyślna to null). Właściwości, które mają być zapisane na serwerze. |
-| saveCompletedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja do wywołania podczas zapisywania zostało zakończone. |
-| failedCallback | Atrybut opcjonalny (wartość domyślna to null). Funkcja do wywołania w przypadku wystąpienia błędu. |
-| userContext | Atrybut opcjonalny (wartość domyślna to null). Informacje o kontekście mają być przekazane do funkcji wywołania zwrotnego. |
+| propertyName | Opcjonalne (Domyślnie wartość null). Właściwości, które mają zostać załadowane z serwera. |
+| loadCompletedCallback | Opcjonalne (Domyślnie wartość null). Funkcja do wywołania po zakończeniu ładowania. |
+| failedCallback | Opcjonalne (Domyślnie wartość null). Funkcja wywoływana w przypadku wystąpienia błędu. |
+| userContext | Opcjonalne (Domyślnie wartość null). Informacje kontekstowe do przesłania do funkcji wywołania zwrotnego. |
 
-Zapisz funkcja nie ma wartości zwracanej. Jeśli wywołanie zakończy się pomyślnie, go, wywoła albo `saveCompletedCallback` parametru lub `defaultSaveCompletedCallback` właściwości. Jeśli wywołanie nie powiodło się lub upłynął limit czasu, albo `failedCallback` lub `defaultFailedCallback` właściwość zostanie wywołana.
+Funkcja load nie ma zwracanej wartości. Jeśli wywołanie zakończyło się pomyślnie, wywoła parametr `loadCompletedCallback` lub właściwość `defaultLoadCompletedCallback`. Jeśli wywołanie nie powiodło się lub upłynął limit czasu, zostanie wywołany parametr `failedCallback` lub właściwość `defaultFailedCallback`.
 
-Jeśli `propertyNames` parametr ma wartość null, wszystkie właściwości profilu zostaną wysłane do serwera i serwera podejmie decyzję, właściwości, które mogą być zapisywane, i które nie mogą.
+Jeśli parametr `propertyNames` nie zostanie podany, wszystkie właściwości skonfigurowane do odczytu są pobierane z serwera.
 
-*Właściwość defaultFailedCallback (get, set):*
+*Zapisz metodę:*
 
-Ta właściwość określa funkcję, która powinna być wywoływana, jeśli wystąpi błąd podczas komunikowania się z usługą sieci web. Otrzymasz delegata (lub odwołanie do funkcji).
+Metoda Save () zapisuje określoną listę właściwości (lub wszystkie właściwości) do profilu ASP.NET użytkownika.
 
-Dokumentacja funkcji określonej przez tę właściwość powinna mieć następujący podpis:
+*Wejściowe*
+
+| **Nazwa parametru** | **Znaczenie** |
+| --- | --- |
+| propertyName | Opcjonalne (Domyślnie wartość null). Właściwości, które mają zostać zapisane na serwerze. |
+| saveCompletedCallback | Opcjonalne (Domyślnie wartość null). Funkcja do wywołania po zakończeniu zapisywania. |
+| failedCallback | Opcjonalne (Domyślnie wartość null). Funkcja wywoływana w przypadku wystąpienia błędu. |
+| userContext | Opcjonalne (Domyślnie wartość null). Informacje kontekstowe do przesłania do funkcji wywołania zwrotnego. |
+
+Funkcja Save nie ma zwracanej wartości. Jeśli wywołanie zakończyło się pomyślnie, wywoła Właściwość `saveCompletedCallback` lub `defaultSaveCompletedCallback`. Jeśli wywołanie nie powiodło się lub upłynął limit czasu, zostanie wywołana Właściwość `failedCallback` lub `defaultFailedCallback`.
+
+Jeśli parametr `propertyNames` ma wartość null, wszystkie właściwości profilu zostaną wysłane do serwera, a serwer zdecyduje, które właściwości można zapisać, a które nie.
+
+*defaultFailedCallback Właściwość (Get, Set):*
+
+Ta właściwość określa funkcję, która powinna zostać wywołana, jeśli wystąpi błąd komunikacji z usługą sieci Web. Powinien otrzymać delegata (lub odwołanie do funkcji).
+
+Odwołanie do funkcji określone przez tę właściwość powinna mieć następującą sygnaturę:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample9.js)]
 
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
 | Błąd | Określa informacje o błędzie. |
-| userContext | Określa informacje o kontekście użytkownika, które zostały podane podczas ładowania lub zapisywania funkcja została wywołana. |
-| methodName | Nazwa metody wywołującej. |
+| userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji ładowania lub zapisywania. |
+| MethodName | Nazwa metody wywołującej. |
 
-*Właściwość defaultSaveCompleted (get, set):*
+*defaultSaveCompleted Właściwość (Get, Set):*
 
-Ta właściwość określa funkcję, która powinna być wywoływana po zakończeniu zapisując dane profilu. Otrzymasz delegata (lub odwołanie do funkcji).
+Ta właściwość określa funkcję, która powinna być wywoływana po zakończeniu zapisywania danych profilu użytkownika. Powinien otrzymać delegata (lub odwołanie do funkcji).
 
-Dokumentacja funkcji określonej przez tę właściwość powinna mieć następujący podpis:
+Odwołanie do funkcji określone przez tę właściwość powinna mieć następującą sygnaturę:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample10.js)]
 
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| numPropsSaved | Określa liczbę właściwości, które zostały zapisane. |
-| userContext | Określa informacje o kontekście użytkownika, które zostały podane podczas ładowania lub zapisywania funkcja została wywołana. |
-| methodName | Nazwa metody wywołującej. |
+| numPropsSaved | Określa liczbę zapisanych właściwości. |
+| userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji ładowania lub zapisywania. |
+| MethodName | Nazwa metody wywołującej. |
 
-*Właściwość defaultLoadCompleted (get, set):*
+*defaultLoadCompleted Właściwość (Get, Set):*
 
-Ta właściwość określa funkcję, która powinna być wywoływana po zakończeniu ładowania danych profilu użytkownika. Otrzymasz delegata (lub odwołanie do funkcji).
+Ta właściwość określa funkcję, która powinna być wywoływana po zakończeniu ładowania danych profilu użytkownika. Powinien otrzymać delegata (lub odwołanie do funkcji).
 
-Dokumentacja funkcji określonej przez tę właściwość powinna mieć następujący podpis:
+Odwołanie do funkcji określone przez tę właściwość powinna mieć następującą sygnaturę:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample11.js)]
 
-*Parametry:*
+*Wejściowe*
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| numPropsLoaded | Określa liczbę właściwości ładowane. |
-| userContext | Określa informacje o kontekście użytkownika, które zostały podane podczas ładowania lub zapisywania funkcja została wywołana. |
-| methodName | Nazwa metody wywołującej. |
+| numPropsLoaded | Określa liczbę załadowanych właściwości. |
+| userContext | Określa informacje kontekstu użytkownika podane podczas wywołania funkcji ładowania lub zapisywania. |
+| MethodName | Nazwa metody wywołującej. |
 
-*PATH — właściwość (get, set):*
+*Path — właściwość (Get, Set):*
 
-Ta właściwość określa programowo lokalizacja profilem usługi sieci web. Może służyć do zastępowania domyślnego dostawcę usługi profilu, a także jedną deklaratywne Ustawianie we właściwości ścieżki węzeł podrzędny ProfileService formantu ScriptManager.
+Ta właściwość programowo określa lokalizację usługi sieci Web profilu. Może służyć do przesłonięcia domyślnego dostawcy usługi profilu, a także do jednego zestawu w właściwości Path węzła podrzędnego ProfileService formantu ScriptManager.
 
-Pamiętaj, że nie zmienia lokalizację domyślnej usługi profilu. ASP.NET AJAX pozwala jednak określić lokalizację usługi sieci web, który zawiera ten sam interfejs klasy jako serwer proxy usługi uwierzytelniania ASP.NET AJAX.
+Należy pamiętać, że lokalizacja domyślnej usługi profilu nie jest zmieniana. Jednak ASP.NET AJAX pozwala określić lokalizację usługi sieci Web, która zapewnia ten sam interfejs klasy co serwer proxy usługi uwierzytelniania ASP.NET AJAX.
 
-Należy zauważyć, że nie można ustawić tę właściwość na wartość, która kieruje żądanie skryptu zniżki w stosunku do bieżącej lokacji. AJAX podstawowych technologii nie zadać żądań między witrynami i może generować wyjątek zabezpieczeń w przeglądarce klienta.
+Należy również pamiętać, że ta właściwość nie powinna być ustawiona na wartość, która kieruje żądanie skryptu poza bieżącą lokację. Podstawowa technologia AJAX nie powinna publikować żądań między lokacjami i może generować wyjątek zabezpieczeń w przeglądarce klienta.
 
-Ta właściwość jest `String` obiekt reprezentujący ścieżka do profilu usługi sieci web.
+Ta właściwość jest obiektem `String` reprezentującym ścieżkę do usługi sieci Web profilu.
 
-*Właściwość limitu czasu (get, set):*
+*Właściwość Timeout (Get, Set):*
 
-Ta właściwość określa, że czas oczekiwania dla usługi profilu zakładając, że obciążenie, lub Zapisz żądanie nie powiodło się. Jeśli upłynie limit czasu podczas oczekiwania na wywołanie, aby zakończyć, zostanie wywołana metoda wywołania zwrotnego żądanie nie powiodło się, a połączenie nie zostanie ukończona.
+Ta właściwość określa czas oczekiwania usługi profilu przed założeniem, że żądanie załadowania lub zapisania nie powiodło się. Jeśli upłynął limit czasu podczas oczekiwania na zakończenie wywołania, wywołanie zwrotne żądania nie zostanie wywołane i wywołanie nie zostanie zakończone.
 
-Ta właściwość jest `Number` obiekt reprezentujący liczbę milisekund oczekiwania na wyniki z usługi profilu.
+Ta właściwość jest obiektem `Number` reprezentującym liczbę milisekund oczekiwania na wyniki z usługi profilu.
 
-*Przykładowy kod: Trwa ładowanie profilu danych ładowania strony*
+*Przykład kodu: ładowanie danych profilu podczas ładowania strony*
 
-Poniższy kod zostanie Sprawdź, czy użytkownik jest uwierzytelniany i jeśli tak, ładuje kolor tła preferowany przez użytkownika jako strony.
+Poniższy kod sprawdzi, czy użytkownik jest uwierzytelniony, a jeśli tak, załaduje kolor tła preferowany przez użytkownika jako stronę.
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample12.js)]
 
-## <a name="using-a-custom-authentication-service-provider"></a>*Za pomocą dostawcy usług uwierzytelniania niestandardowego*
+## <a name="using-a-custom-authentication-service-provider"></a>*Korzystanie z niestandardowego dostawcy usługi uwierzytelniania*
 
-Rozszerzenia AJAX programu ASP.NET umożliwiają tworzenie dostawcy usługi uwierzytelniania niestandardowego skryptu, zapewniając swoje funkcje za pośrednictwem usługi sieci web niestandardowego. Aby możliwe było użycie usługi sieci web należy ujawnić dwie metody `Login` i `Logout`; i te metody musi być określona za pomocą tego samego podpisy metod jako domyślnej usługi sieci web ASP.NET AJAX uwierzytelniania.
+Rozszerzenia AJAX ASP.NET umożliwiają tworzenie niestandardowego dostawcy usługi uwierzytelniania skryptów przez udostępnienie funkcjonalności za pomocą niestandardowej usługi sieci Web. Aby można było użyć usługi sieci Web, należy uwidocznić dwie metody, `Login` i `Logout`; te metody muszą być określone przy użyciu tych samych sygnatur metod co domyślna usługa sieci Web uwierzytelniania ASP.NET AJAX.
 
-Po utworzeniu usługi sieci web niestandardowego należy określić ścieżkę do niego deklaratywne na stronie, programowo w kodzie lub za pośrednictwem skryptu klienta.
+Po utworzeniu niestandardowej usługi sieci Web należy określić jej ścieżkę, na przykład na stronie, programowo w kodzie lub za pośrednictwem skryptu klienta.
 
-*Aby ustawić ścieżkę w sposób deklaratywny:*
+*Aby ustawić ścieżkę deklaratywnie:*
 
-Aby ustawić ścieżkę w sposób deklaratywny, obejmują podrzędnych AuthenticationService obiektu ScriptManager na stronie ASP.NET:
+Aby ustawić ścieżkę deklaratywnie, Uwzględnij element podrzędny AuthenticationService obiektu ScriptManager na stronie ASP.NET:
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample13.aspx)]
 
 *Aby ustawić ścieżkę w kodzie:*
 
-Aby programowo ustawić ścieżkę, należy określić ścieżkę za pośrednictwem wystąpienia menedżera skryptu:
+Aby programowo ustawić ścieżkę, określ ścieżkę za pośrednictwem wystąpienia Menedżera skryptów:
 
 [!code-csharp[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample14.cs)]
 
 *Aby ustawić ścieżkę w skrypcie:*
 
-Aby programowo ustawić ścieżkę w skrypcie, wykorzystywać `path` właściwość klasy AuthenticationService:
+Aby programowo ustawić ścieżkę w skrypcie, użyj właściwości `path` klasy AuthenticationService:
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample15.js)]
 
-*Przykładowe usługi sieci Web dla uwierzytelniania niestandardowego*
+*Przykładowa usługa sieci Web na potrzeby uwierzytelniania niestandardowego*
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample16.aspx)]
 
 ## <a name="summary"></a>Podsumowanie
 
-Usługi ASP.NET — w szczególności usługi profilowania, członkostwo i uwierzytelnianie — łatwe są widoczne dla języka JavaScript w przeglądarce klienta. Dzięki temu deweloperzy mogą bezproblemowo integrują się ich kod po stronie klienta przy użyciu mechanizmu uwierzytelniania, bez zależności od kontrolek, takich jak UpdatePanels celu ciężkie obciążenia. Dane profilowe mogą być chronione od klienta, jak również przy użyciu ustawień konfiguracji sieci web; żadne dane nie są domyślnie dostępne, a deweloperzy muszą wyrazić zgodę na właściwości profilu.
+Usługi ASP.NET Services — szczególnie takie jak profilowanie, członkostwo i usługi uwierzytelniania — są łatwo uwidocznione w języku JavaScript w przeglądarce klienta. Dzięki temu deweloperzy mogą bezproblemowo integrować kod po stronie klienta z mechanizmem uwierzytelniania bez względu na kontrolki, takie jak elementy UpdatePanel, aby przeprowadzić duże podnoszenie. Dane profilowe można także chronić z poziomu klienta, wykorzystując ustawienia konfiguracji sieci Web. żadne dane nie są dostępne domyślnie, a deweloperzy muszą wyrazić zgodę na właściwości profilu.
 
-Ponadto tworząc implementacji usługi uproszczone sieci web za pomocą podpisów metody równoważne, deweloperzy mogą tworzyć dostawcy niestandardowego skryptu dla tych wewnętrznych usług ASP.NET. Obsługa tych technik upraszcza tworzenie zaawansowanych aplikacji klienckich, przy jednoczesnym zapewnieniu deweloperom z szerokiej gamy elastyczności w celu spełnienia określonych wymagań.
+Ponadto tworząc uproszczone implementacje usług sieci Web z równoważnymi sygnaturami metod, deweloperzy mogą tworzyć niestandardowych dostawców skryptów dla tych wewnętrznych usług ASP.NET. Obsługa tych technik upraszcza opracowywanie rozbudowanych aplikacji klienckich, dzięki czemu deweloperzy mają szeroką gamę możliwości.
 
-## <a name="bio"></a>*Bio*
+## <a name="bio"></a>*Materiał*
 
-Scott Cate pracował nad przy użyciu technologii Microsoft Web od 1997 r i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacji koncentruje się na rozwiązania programowe wiedzy opartych na. Scott można się skontaktować za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blog znajduje się na [ScottCate.com](http://ScottCate.com)
+Scott Cate pracował z technologiami sieci Web firmy Microsoft od 1997 i jest prezydentem myKB.com ([www.myKB.com](http://www.myKB.com)), w którym wyspecjalizowany jest pisanie aplikacji opartych na ASP.NET, które są zgodne z podstawowymi rozwiązaniami oprogramowania. W witrynie Scotta można skontaktować się z pocztą e-mail na [scott.cate@myKB.com](mailto:scott.cate@myKB.com) lub w blogu w witrynie [ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](understanding-asp-net-ajax-updatepanel-triggers.md)

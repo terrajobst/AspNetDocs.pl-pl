@@ -1,59 +1,59 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-cs
-title: Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (C#) | Dokumentacja firmy Microsoft
+title: Używanie kontrolki hovermenu z kontrolką (C#) | Microsoft Docs
 author: wenz
-description: 'Na formant kontrolki HoverMenu z zestawu narzędzi AJAX Control Toolkit zawiera efekt proste okno podręczne: Po zatrzymaniu wskaźnika myszy nad elementem, pojawi się okno podręczne na specifi...'
+description: 'Kontrolka kontrolki hovermenu w zestawie narzędzi AJAX Control oferuje prosty efekt podręczny: gdy wskaźnik myszy znajduje się nad elementem, pojawi się okno podręczne ze specyfikatorem...'
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e7700e7b-edc3-4183-a713-70e507cc7490
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 01f8d71ef07bd48c16c2e9eb1bb12cd051f7a9e4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3e38b91d837c65191d4b3797fa31ef6112a1f070
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127047"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606720"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-c"></a>Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (C#)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/b/0/6/b06fe835-5b8f-4c00-aef8-062c19d75b95/HoverMenu1.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/hovermenu1CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/b/0/6/b06fe835-5b8f-4c00-aef8-062c19d75b95/HoverMenu1.cs.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/hovermenu1CS.pdf)
 
-> Na formant kontrolki HoverMenu z zestawu narzędzi AJAX Control Toolkit zawiera efekt proste okno podręczne: Po zatrzymaniu wskaźnika myszy nad elementem, pojawi się okno podręczne na określonej pozycji. Użytkownik może również użyć tej kontrolki w elemencie powtarzanym.
+> Kontrolka kontrolki hovermenu w zestawie narzędzi AJAX Control oferuje prosty efekt podręczny: gdy wskaźnik myszy znajduje się nad elementem, zostanie wyświetlone okno podręczne na określonej pozycji. Można również użyć tej kontrolki w ramach wzmacniaka.
 
 ## <a name="overview"></a>Omówienie
 
-`HoverMenu` Formantu w zestawu narzędzi AJAX Control Toolkit zawiera efekt proste okno podręczne: Po zatrzymaniu wskaźnika myszy nad elementem, pojawi się okno podręczne na określonej pozycji. Użytkownik może również użyć tej kontrolki w elemencie powtarzanym.
+Formant `HoverMenu` w zestawie narzędzi AJAX Control udostępnia prosty efekt podręczny: gdy wskaźnik myszy znajduje się nad elementem, pojawi się okno podręczne na określonej pozycji. Można również użyć tej kontrolki w ramach wzmacniaka.
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze źródła danych jest wymagana. Ta próbka używa bazy danych AdventureWorks i Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalnym składnikiem instalacji programu Visual Studio (w tym wersja express) i jest również dostępny jako osobnego pobrania w ramach [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). Bazy danych AdventureWorks jest częścią przykładów programu SQL Server 2005 i przykładowych baz danych (będą pobierane w [ https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp; DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Najprostszym sposobem skonfigurowania bazy danych jest użycie, programu Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp; DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) i dołączyć `AdventureWorks.mdf` plik bazy danych.
+Najpierw wymagane jest źródło danych. Ten przykład używa bazy danych AdventureWorks i Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalną częścią instalacji programu Visual Studio (w tym Express Edition) i jest również dostępna jako oddzielne pobieranie w obszarze [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). Baza danych AdventureWorks jest częścią przykładów SQL Server 2005 i przykładowych baz danych (Pobierz w [https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;D isplaylang = EN](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Najprostszym sposobem ustawienia bazy danych jest użycie Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;D isplaylang = EN](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) i dołączenie pliku bazy danych `AdventureWorks.mdf`.
 
-W tym przykładzie przyjęto założenie, że wystąpienie programu SQL Server 2005 Express Edition jest wywoływana `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci web; jest domyślna konfiguracja. Jeśli różni się konfigurację, trzeba dostosować informacje o połączeniu dla bazy danych.
+W tym przykładzie przyjęto założenie, że wystąpienie SQL Server 2005 Express Edition jest nazywane `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci Web; jest to również konfiguracja domyślna. Jeśli konfiguracja jest inna, należy dostosować informacje o połączeniu dla bazy danych.
 
-W celu włączenia funkcji ASP.NET AJAX i zestaw narzędzi do sterowania `ScriptManager` kontroli muszą znajdować się gdziekolwiek na stronie (ale poziomu `<form>` elementu):
+Aby aktywować funkcje ASP.NET AJAX i zestawu narzędzi sterowania, formant `ScriptManager` musi być umieszczony w dowolnym miejscu na stronie (ale w obrębie elementu `<form>`):
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-cs/samples/sample1.aspx)]
 
-Następnie dodaj źródła danych do strony. Aby skorzystać z ograniczoną ilością danych, możemy wybrać tylko pięć pierwszych wpisów w tabeli Dostawca bazy danych AdventureWorks. Jeśli są przy użyciu Asystenta ustawień programu Visual Studio, aby utworzyć źródło danych, należy uwzględnić następujące kwestie usterkę w bieżącej wersji prefiksu nazwy tabeli (`Vendor`) przy użyciu `Purchasing`. Następujący kod przedstawia poprawnej składni:
+Następnie Dodaj źródło danych do strony. Aby można było używać ograniczonej ilości danych, wybieramy tylko pięć pierwszych wpisów w tabeli dostawcy bazy danych AdventureWorks. Jeśli używasz asystenta programu Visual Studio do utworzenia źródła danych, weź pod uwagę, że usterka w bieżącej wersji nie zawiera prefiksu nazwy tabeli (`Vendor`) z `Purchasing`. Następujące znaczniki pokazują poprawną składnię:
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-cs/samples/sample2.aspx)]
 
-Następnie dodaj panel, który służy jako modalne okno podręczne:
+Następnie Dodaj panel, który służy jako modalne menu podręczne:
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-cs/samples/sample3.aspx)]
 
-Teraz `HoverMenuExtender` trafia do odtwarzania. Tak, aby każdy element w źródle danych uzyskuje swój własny okna podręcznego, urządzenia extender muszą znajdować się w elemencie powtarzanym `<ItemTemplate>` sekcji. Oto znaczniki:
+Teraz `HoverMenuExtender` jest odtwarzany. Aby każdy element w źródle danych otrzymywał własne okno podręczne, rozszerzenie musi zostać umieszczone w sekcji `<ItemTemplate>`ka. Oto znacznik:
 
 [!code-aspx[Main](using-hovermenu-with-a-repeater-control-cs/samples/sample4.aspx)]
 
-Teraz każdy element w źródle danych wyświetla wyskakującego okienka po prawej stronie (`PopupPosition` atrybutu) z opóźnieniem 50 MS (`PopDelay` atrybutu).
+Teraz każdy element w źródle danych wyświetla okno podręczne z prawej strony (`PopupPosition` atrybutu) po opóźnieniu 50 milisekund (`PopDelay` Attribute).
 
-[![W menu po wskazaniu wskaźnikiem pojawia się obok każdego elementu w elemencie powtarzanym](using-hovermenu-with-a-repeater-control-cs/_static/image2.png)](using-hovermenu-with-a-repeater-control-cs/_static/image1.png)
+[![menu aktywacja pojawia się obok każdego elementu w wzmacniake](using-hovermenu-with-a-repeater-control-cs/_static/image2.png)](using-hovermenu-with-a-repeater-control-cs/_static/image1.png)
 
-W menu po wskazaniu wskaźnikiem pojawia się obok każdego elementu w elemencie powtarzanym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-hovermenu-with-a-repeater-control-cs/_static/image3.png))
+Menu aktywacja pojawia się obok każdego elementu w wzmacniake ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-hovermenu-with-a-repeater-control-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Next](using-hovermenu-with-a-repeater-control-vb.md)

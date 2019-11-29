@@ -1,297 +1,297 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Do wdrożenia produkcyjnego | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie w środowisku produkcyjnym | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: b9c4a4d035c78b4f4c53942219ccfa3048c7a82b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ddc3d15f0436c4c3a24491cf0377111768da67df
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133819"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74617644"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie w środowisku produkcyjnym
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku Ustaw konto Microsoft Azure, Utwórz środowiskach przejściowych i produkcyjnych i wdróż aplikację sieci web platformy ASP.NET do wdrażania przejściowego i środowisk produkcyjnych przy użyciu programu Visual Studio jednym kliknięciem publikować funkcji.
+W tym samouczku skonfigurujesz konto Microsoft Azure, tworzysz środowiska przejściowe i produkcyjne oraz wdrażasz aplikację sieci Web ASP.NET w środowiskach tymczasowych i produkcyjnych przy użyciu funkcji publikowania po jednym kliknięciu programu Visual Studio.
 
-Jeśli wolisz, możesz wdrożyć u dostawcy hostingu innych firm. Większość procedur opisanych w tym samouczku, są takie same dla dostawcy hostingu lub na platformie Azure, z tą różnicą, że każdy dostawca ma własny interfejs użytkownika do zarządzania kontem i witryny sieci web. Można znaleźć dostawcę hostingu w [galerii dostawcy](https://www.microsoft.com/web/hosting) w witrynie Microsoft.com.
+Jeśli wolisz, możesz wdrożyć program w ramach dostawcy hostingu innej firmy. Większość procedur opisanych w tym samouczku jest taka sama dla dostawcy hostingu lub platformy Azure, z tą różnicą, że każdy dostawca ma własny interfejs użytkownika do zarządzania kontami i witrynami sieci Web. Dostawcę hostingu można znaleźć w [galerii dostawców](https://www.microsoft.com/web/hosting) w witrynie sieci Web Microsoft.com.
 
-Przypomnienie: Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, koniecznie sprawdź stronę rozwiązywania problemów w tej serii samouczków.
+Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu strony rozwiązywania problemów w tej serii samouczków.
 
-## <a name="get-a-microsoft-azure-account"></a>Załóż konto Microsoft Azure
+## <a name="get-a-microsoft-azure-account"></a>Pobierz konto Microsoft Azure
 
-Jeśli nie masz jeszcze konta platformy Azure, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Jeśli nie masz jeszcze konta platformy Azure, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-## <a name="create-a-staging-environment"></a>Tworzenie środowiska przemieszczania
-
-> [!NOTE]
-> Ponieważ w tym samouczku został napisany, usłudze Azure App Service dodano nową funkcję umożliwiającą zautomatyzowanie wielu procesów tworzenia środowiskach przejściowych i produkcyjnych. Zobacz [Konfigurowanie środowiska tymczasowego dla aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
-
-Jak wyjaśniono w [Wdróż do samouczka środowisko testowe](deploying-to-iis.md), najbardziej środowiska testowego niezawodne to witryna sieci web u dostawcy hostingu, który ma podobnie jak w przypadku witryny sieci web w środowisku produkcyjnym. U wielu dostawców hostingu należy porównać zalety to względem znaczące dodatkowych kosztów, ale na platformie Azure możesz utworzyć dodatkowe bezpłatna aplikacja internetowa jako tymczasowe aplikacji. Należy również bazę danych, a dodatkowe koszty, w tym nad pieniędzy produkcyjnej bazy danych będzie mieć wartość Brak najwyżej minimalnych. Na platformie Azure płacisz ilości magazynu bazy danych, którego używasz, a nie dla każdej bazy danych, a ilość dodatkowego magazynu, które będą używane w środowisku tymczasowym jest minimalny.
-
-Jak wyjaśniono w [Wdróż do samouczka dotyczącego środowiska testowego](deploying-to-iis.md)wśród środowisk przejściowych i produkcyjnych, które zamierzasz wdrożyć dwóch baz danych w jednej bazie danych. Jeśli chcesz zachować oddzielne, proces będzie taki sam poza tym, że należy utworzyć dodatkowej bazy danych dla każdego środowiska i ciąg odpowiedniego miejsca docelowego dla każdej bazy danych należy wybrać podczas tworzenia profilu publikowania.
-
-W tej części samouczka utworzysz aplikację sieci web i bazy danych na potrzeby środowisko przejściowe i będzie wdrażanie w środowisku przejściowym i testowania istnieje, przed utworzeniem i wdrażanie w środowisku produkcyjnym.
+## <a name="create-a-staging-environment"></a>Tworzenie środowiska przejściowego
 
 > [!NOTE]
-> Poniższe kroki pokazują jak utworzyć aplikację sieci web w usłudze Azure App Service przy użyciu portalu zarządzania systemu Azure. W najnowszej wersji zestawu Azure SDK można również w tym bez opuszczania programu Visual Studio za pomocą Eksploratora serwera. W programie Visual Studio 2013 można również utworzyć aplikację sieci web bezpośrednio z poziomu okna dialogowego publikowania. Aby uzyskać więcej informacji, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
+> Ponieważ ten samouczek został zapisany, Azure App Service dodano nową funkcję w celu zautomatyzowania wielu procesów tworzenia środowisk przejściowych i produkcyjnych. Zobacz [Konfigurowanie środowisk przejściowych dla aplikacji sieci Web w Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
-1. W [portalu zarządzania systemu Azure](https://manage.windowsazure.com/), kliknij przycisk **witryn sieci Web**, a następnie kliknij przycisk **New**.
-2. Kliknij przycisk **witryny sieci Web**, a następnie kliknij przycisk **tworzenie niestandardowe**.
+Jak wyjaśniono w [samouczku wdrażanie do środowiska testowego](deploying-to-iis.md), najbardziej niezawodnym środowiskiem testowym jest witryna sieci Web dostawcy hostingu, która jest taka sama jak produkcyjna witryna sieci Web. W przypadku wielu dostawców hostingu należy rozważyć korzyści wynikające z ponoszenia znaczących kosztów, ale na platformie Azure można utworzyć dodatkową bezpłatną aplikację sieci Web jako aplikację przemieszczania. Potrzebna jest również baza danych, a dodatkowe koszty związane z tym kosztem dla produkcyjnej bazy danych będą mieć wartość Brak lub minimum. Na platformie Azure płacisz za ilość używanego magazynu bazy danych, a nie dla każdej bazy danych, a ilość dodatkowego magazynu, który będzie używany w ramach przemieszczania, będzie minimalny.
 
-    **Nowa witryna — tworzenie niestandardowe** zostanie otwarty Kreator. **Tworzenie niestandardowe** Kreator pozwala na tworzenie witryny sieci web i bazy danych w tym samym czasie.
-3. W **Utwórz witrynę sieci Web** kroku kreatora wprowadź ciąg w **adresu URL** pole, aby użyć jako unikatowy adres URL dla aplikacji użytkownika środowiska testowego. Na przykład wprowadź ContosoUniversity-staging123 (w tym liczb losowych na końcu, aby była unikatowa w przypadku, gdy ContosoUniversity przemieszczania jest zajęta).
+Jak wyjaśniono w [samouczku wdrażanie do środowiska testowego](deploying-to-iis.md), w fazie przygotowywania i produkcji można wdrożyć dwie bazy danych w jednej bazie danych. Jeśli chcesz je oddzielić, proces będzie taki sam, z wyjątkiem sytuacji, gdy utworzysz dodatkową bazę danych dla każdego środowiska i wybierasz prawidłowy ciąg docelowy dla każdej bazy danych podczas tworzenia profilu publikowania.
 
-    Pełny adres URL będzie składać się w tym miejscu wprowadź oraz sufiks, który zostanie wyświetlony obok pola tekstowego.
-4. W **Region** listę rozwijaną, wybierz region, który jest najbliżej Ciebie.
+W tej części samouczka utworzysz aplikację sieci Web i bazę danych do użycia w środowisku przejściowym, a wdrożenie zostanie wdrożone w celu przygotowania i przetestowania w środowisku produkcyjnym.
 
-    To ustawienie określa, które centrum danych, aplikacji sieci web jest uruchamiana w.
-5. W **bazy danych** listy rozwijanej wybierz **Tworzenie nowej bazy danych SQL**.
-6. W **nazwa parametrów połączenia bazy danych** pozostaw wartość domyślną *DefaultConnection*.
-7. Kliknij strzałkę po prawej stronie u dołu okna.
+> [!NOTE]
+> Poniższe kroki pokazują, jak utworzyć aplikację sieci Web w Azure App Service przy użyciu portalu zarządzania Azure. W najnowszej wersji zestawu Azure SDK można to zrobić również bez opuszczania programu Visual Studio, używając Eksplorator serwera. W Visual Studio 2013 można również utworzyć aplikację sieci Web bezpośrednio z okna dialogowego publikowanie. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji sieci web ASP.NET w Azure App Service.](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)
 
-    Poniższa ilustracja przedstawia **Utwórz witrynę sieci Web** okna dialogowego wypełniane przykładowymi wartościami w nim. Adres URL i Region, w którym zostały wprowadzone, może się różnić.
+1. Na [platformie Azure Portal zarządzania](https://manage.windowsazure.com/)kliknij pozycję **websites**, a następnie kliknij pozycję **New (nowy**).
+2. Kliknij pozycję **Witryna sieci Web**, a następnie kliknij pozycję **Tworzenie niestandardowe**.
 
-    ![Tworzenie witryny sieci Web krok](deploying-to-production/_static/image1.png)
+    **Nowa witryna sieci Web — Kreator tworzenia niestandardowego** zostanie otwarty. **Niestandardowy Kreator tworzenia** umożliwia tworzenie witryny sieci Web i bazy danych w tym samym czasie.
+3. W kroku **Tworzenie witryny sieci Web** wprowadź ciąg w polu **adresu URL** , który będzie używany jako unikatowy adres URL środowiska przejściowego aplikacji. Na przykład wprowadź ContosoUniversity-staging123 (w tym liczby losowe na końcu, aby była unikatowa w przypadku, gdy podejmowana jest ContosoUniversity — przemieszczenie).
 
-    Kreator prowadzi do **Określ ustawienia bazy danych** kroku.
-8. W **nazwa** wprowadź *ContosoUniversity* oraz liczbę losową, aby była unikatowa, na przykład *ContosoUniversity123*.
-9. W **serwera** wybierz opcję **nowy serwer bazy danych SQL**.
+    Pełny adres URL będzie zawierać dane wprowadzane tutaj oraz sufiks wyświetlany obok pola tekstowego.
+4. Z listy rozwijanej **region** wybierz region znajdujący się najbliżej Ciebie.
+
+    To ustawienie określa centrum danych, w którym będzie działać aplikacja sieci Web.
+5. Z listy rozwijanej **baza danych** wybierz pozycję **Utwórz nową bazę danych SQL**.
+6. W polu **nazwa parametrów połączenia bazy danych** pozostaw wartość domyślną *DefaultConnection*.
+7. Kliknij strzałkę wskazującą w prawo u dołu pola.
+
+    Na poniższej ilustracji przedstawiono okno dialogowe **Tworzenie witryny sieci Web** z przykładowymi wartościami. Wprowadzony adres URL i region będą się różnić.
+
+    ![Utwórz krok witryny sieci Web](deploying-to-production/_static/image1.png)
+
+    Kreator przechodzi do kroku **Określ ustawienia bazy danych** .
+8. W polu **Nazwa** wprowadź *ContosoUniversity* oraz liczbę losową, aby określić ją jako unikatową, na przykład *ContosoUniversity123*.
+9. W polu **serwer** wybierz pozycję **nowy serwer SQL Database**.
 10. Wprowadź nazwę i hasło administratora.
 
-    Nie wprowadzasz istniejącej nazwy i hasła w tym miejscu. Podajesz nową nazwę i hasło, które definiujesz teraz do użycia w przyszłości, gdy uzyskujesz dostęp do bazy danych.
-11. W **Region** wybierz w tym samym regionie, który został wybrany dla aplikacji sieci web.
+    Nie wprowadzasz tutaj istniejącej nazwy i hasła. Wprowadzasz nową nazwę i hasło, które będziesz teraz definiować do późniejszego użycia podczas uzyskiwania dostępu do bazy danych.
+11. W polu **region** wybierz ten sam region, który został wybrany dla aplikacji sieci Web.
 
-    Przechowywanie serwer sieci web a serwerem bazy danych w tym samym regionie zapewnia najlepszą wydajność i minimalizuje koszty.
-12. Kliknij znacznik wyboru w dolnej części pola, aby wskazać, że jesteś gotowy.
+    Utrzymywanie serwera sieci Web i serwera bazy danych w tym samym regionie zapewnia najlepszą wydajność i minimalizuje wydatki.
+12. Kliknij znacznik wyboru u dołu pola, aby wskazać, że wszystko zostało zakończone.
 
-    Poniższa ilustracja przedstawia **Określ ustawienia bazy danych** okna dialogowego wypełniane przykładowymi wartościami w nim. Wartości, które zostały wprowadzone, mogą być inne.
+    Na poniższej ilustracji przedstawiono okno dialogowe **Określanie ustawień bazy danych** z przykładowymi wartościami. Wprowadzone wartości mogą być różne.
 
-    ![Krok ustawienia bazy danych witryny sieci Web, New - tworzenie za pomocą Kreatora bazy danych](deploying-to-production/_static/image2.png)
+    ![Krok ustawień bazy danych nowej witryny sieci Web — Kreator tworzenia z bazą danych](deploying-to-production/_static/image2.png)
 
-    Portal zarządzania zwróci do strony witryny sieci Web i **stan** kolumna pokazuje, że trwa tworzenie aplikacji sieci web. Po chwili (zazwyczaj mniej niż minutę) **stan** kolumnie jest wyświetlana w aplikacji sieci web została pomyślnie utworzona. Na pasku nawigacyjnym po lewej stronie, liczba aplikacji sieci web na swoim koncie możesz mieć pojawia się obok **witryn sieci Web** ikonę i liczby baz danych pojawia się obok **baz danych SQL** ikony.
+    Portal zarządzania powróci do strony witryny sieci Web, a w kolumnie **stan** zostanie wyświetlona aplikacja sieci Web, która jest tworzona. Po czasie (zazwyczaj krótszym niż minutę) kolumna **stan** pokazuje, że aplikacja sieci Web została pomyślnie utworzona. Na pasku nawigacyjnym po lewej stronie liczba aplikacji sieci Web znajdujących się w Twoim koncie pojawia się obok ikony **witryn sieci** Web, a obok ikony **baz danych SQL** jest wyświetlana liczba baz danych.
 
-    ![Strona witryny sieci Web portalu zarządzania, witryna sieci web utworzona](deploying-to-production/_static/image3.png)
+    ![Strona witryny sieci Web portal zarządzania, utworzona witryna sieci Web](deploying-to-production/_static/image3.png)
 
-    Nazwa aplikacji internetowej będą różnić się od Przykładowa aplikacja na ilustracji.
+    Nazwa aplikacji sieci Web różni się od przykładowej aplikacji na ilustracji.
 
-## <a name="deploy-the-application-to-staging"></a>Wdrażanie aplikacji w środowisku przejściowym
+## <a name="deploy-the-application-to-staging"></a>Wdrażanie aplikacji do przemieszczania
 
-Teraz, gdy utworzono aplikację sieci web i bazy danych w środowisku przejściowym, można wdrożyć projektu do niego.
+Po utworzeniu aplikacji sieci Web i bazy danych dla środowiska przejściowego można wdrożyć projekt.
 
 > [!NOTE]
-> Te instrukcje przedstawiają sposób tworzenia profilu publikowania, pobierając *.publishsettings* pliku, który działa nie tylko na platformie Azure ale także w przypadku innych dostawców hostingu. Najnowszy zestaw Azure SDK umożliwia także łączenia bezpośrednio na platformie Azure w programie Visual Studio, a następnie wybierz z listy aplikacji internetowych, które mają na koncie platformy Azure. W programie Visual Studio 2013, możesz zalogować się do platformy Azure — Konferencja **Web Publish** okna dialogowego lub **Eksploratora serwera** okna. Aby uzyskać więcej informacji, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
+> Te instrukcje pokazują, jak utworzyć profil publikowania, pobierając plik *. publishsettings* , który działa nie tylko dla platformy Azure, ale również dla dostawców hostingu innych firm. Najnowsza wersja zestawu Azure SDK umożliwia także bezpośrednie nawiązywanie połączenia z platformą Azure z programu Visual Studio i wybieranie z listy aplikacji sieci Web, które znajdują się na koncie platformy Azure. W Visual Studio 2013 możesz zalogować się do platformy Azure w oknie dialogowym **publikowania w sieci Web** lub w oknie **Eksplorator serwera** . Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji sieci web ASP.NET w Azure App Service](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
-### <a name="download-the-publishsettings-file"></a>Pobierz plik .publishsettings
+### <a name="download-the-publishsettings-file"></a>Pobierz plik. publishsettings
 
-1. Kliknij nazwę aplikacji sieci web, który został utworzony.
+1. Kliknij nazwę aplikacji sieci Web, która została właśnie utworzona.
 
     ![Kliknij witrynę, aby przejść do pulpitu nawigacyjnego](deploying-to-production/_static/image4.png)
-2. W obszarze **Przegląd** w **pulpit nawigacyjny** kliknij pozycję **Pobierz profil publikowania**.
+2. W obszarze **szybkie przeglądy** na karcie **pulpit nawigacyjny** kliknij pozycję **Pobierz profil publikowania**.
 
-    ![Pobierz profil publikowania łącza](deploying-to-production/_static/image5.png)
+    ![Pobierz link do profilu publikowania](deploying-to-production/_static/image5.png)
 
-    Ten krok spowoduje pobranie pliku, który zawiera wszystkie ustawienia które są potrzebne do wdrażania aplikacji do aplikacji sieci web. Ten plik zostanie zaimportowany do programu Visual Studio, aby nie musieli ręcznie wprowadzić te informacje.
-3. Zapisz *.publishsettings* plik w folderze, w której będziesz mieć dostęp z poziomu programu Visual Studio.
+    Ten krok umożliwia pobranie pliku zawierającego wszystkie ustawienia, które są potrzebne w celu wdrożenia aplikacji w aplikacji sieci Web. Ten plik zostanie zaimportowany do programu Visual Studio, aby nie trzeba było wprowadzać tych informacji ręcznie.
+3. Zapisz plik *. publishsettings* w folderze, do którego można uzyskać dostęp z programu Visual Studio.
 
-    ![Zapisywanie pliku .publishsettings](deploying-to-production/_static/image6.png)
+    ![Zapisywanie pliku. publishsettings](deploying-to-production/_static/image6.png)
 
     > [!WARNING]
-    > Zabezpieczenia — *.publishsettings* plik zawiera swoje poświadczenia (Niezakodowane:), które są używane do administrowania subskrypcjami platformy Azure i usług. Najlepszym rozwiązaniem bezpieczeństwa dla tego pliku jest tymczasowo przechowywane poza katalogów źródła (na przykład w folderze Libraries\Documents) i usunąć go po zakończeniu importowania. Złośliwy użytkownik, który uzyskuje dostęp do *.publishsettings* plik można edytować, tworzenia i usuwania usług platformy Azure.
+    > Zabezpieczenia — plik *. publishsettings* zawiera Twoje poświadczenia (niekodowane), które są używane do administrowania subskrypcjami i usługami platformy Azure. Najlepszym rozwiązaniem w zakresie zabezpieczeń dla tego pliku jest przechowywanie go tymczasowo poza katalogami źródłowymi (na przykład w folderze Libraries\Documents), a następnie usunięcie go po zakończeniu importu. Złośliwy użytkownik, który uzyskuje dostęp do pliku *. publishsettings* , może edytować, tworzyć i usuwać usługi platformy Azure.
 
 ### <a name="create-a-publish-profile"></a>Tworzenie profilu publikowania
 
-1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt ContosoUniversity w **Eksploratora rozwiązań** i wybierz **Publikuj** z menu kontekstowego.
+1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt ContosoUniversity w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj** z menu kontekstowego.
 
-    **Publikowanie w sieci Web** zostanie otwarty Kreator.
-2. Kliknij przycisk **profilu** kartę.
-3. Kliknij przycisk **importu**.
-4. Przejdź do *.publishsettings* pliku, dla którego wcześniej pobrany, a następnie kliknij przycisk **Otwórz**.
+    Zostanie otwarty Kreator **publikowania w sieci Web** .
+2. Kliknij kartę **profil** .
+3. Kliknij pozycję **Importuj**.
+4. Przejdź do pliku *publishsettings* , który został pobrany wcześniej, a następnie kliknij przycisk **Otwórz**.
 
-    ![Okno dialogowe Importuj ustawienia publikowania](deploying-to-production/_static/image7.png)
-5. W **połączenia** kliknij pozycję **Waliduj połączenie** aby upewnić się, że ustawienia są poprawne.
+    ![Importowanie ustawień publikowania — okno dialogowe](deploying-to-production/_static/image7.png)
+5. Na karcie **połączenie** kliknij pozycję **Sprawdź poprawność połączenia** , aby upewnić się, że ustawienia są poprawne.
 
-    Po zweryfikowaniu połączenia, zielony znacznik wyboru jest wyświetlany obok pozycji **Waliduj połączenie** przycisku.
+    Po sprawdzeniu poprawności połączenia zostanie wyświetlony zielony znacznik wyboru obok przycisku **Weryfikuj połączenie** .
 
-    Dla niektórych dostawców hostingu, po kliknięciu **Waliduj połączenie**, może zostać wyświetlony **błąd certyfikatu** okno dialogowe. Jeśli to zrobisz, sprawdź, czy nazwa serwera to, czego oczekiwać. Jeśli nazwa serwera jest prawidłowa, wybierz opcję **Zapisz ten certyfikat na potrzeby przyszłych sesji programu Visual Studio** i kliknij przycisk **Akceptuj**. (Ten błąd oznacza, że uniknąć konieczności zakup certyfikatu protokołu SSL dla adresu URL, który jest wdrażany z wybrał dostawcy hostingu. Jeśli chcesz nawiązać bezpiecznego połączenia przy użyciu prawidłowego certyfikatu, skontaktuj się z dostawcą hostingu.)
+    W przypadku niektórych dostawców hostingu po kliknięciu przycisku **Weryfikuj połączenie**może zostać wyświetlone okno dialogowe **błąd certyfikatu** . Jeśli tak jest, sprawdź, czy nazwa serwera jest oczekiwana. Jeśli nazwa serwera jest poprawna, wybierz pozycję **Zapisz ten certyfikat dla przyszłych sesji programu Visual Studio** , a następnie kliknij przycisk **Akceptuj**. (Ten błąd oznacza, że dostawca hostingu zdecydował się uniknąć wydatków zakupu certyfikatu SSL dla adresu URL, który jest wdrażany. Jeśli wolisz nawiązać bezpieczne połączenie przy użyciu ważnego certyfikatu, skontaktuj się z dostawcą hostingu.
 6. Kliknij przycisk **Dalej**.
 
-    ![Ikona pomyślnego połączenia i przycisk Dalej na karcie Połączenie Kreatora](deploying-to-production/_static/image8.png)
-7. W **ustawienia** kartę, a następnie rozwiń **opcji publikowania pliku**, a następnie wybierz pozycję **wykluczanie plików z aplikacji\_folderu danych**.
+    ![ikona pomyślnego połączenia i przycisk Dalej na karcie połączenie](deploying-to-production/_static/image8.png)
+7. Na karcie **Ustawienia** rozwiń węzeł **Opcje publikowania plików**, a następnie wybierz opcję **wyklucz pliki z folderu\_danych aplikacji**.
 
-    Aby uzyskać informacje na temat innych opcji w obszarze **opcji publikowania pliku**, zobacz [wdrażanie w usługach IIS](deploying-to-iis.md) samouczka. Ten pokazuje wynik tego kroku i następujących kroków konfiguracji bazy danych znajduje się na końcu kroków konfiguracji bazy danych zrzut ekranu.
-8. W obszarze **DefaultConnection** w **baz danych** sekcji, skonfiguruj wdrożenie bazy danych dla bazy danych członkostwa.
-9. 1. Wybierz **Aktualizuj bazę danych**.
+    Informacje o innych opcjach w obszarze **Opcje publikowania plików**można znaleźć w samouczku [wdrażanie do usług IIS](deploying-to-iis.md) . Zrzut ekranu pokazujący wynik tego kroku oraz następujące kroki konfiguracji bazy danych znajdują się na końcu kroków konfiguracji bazy danych.
+8. W obszarze **DefaultConnection** w sekcji **Databases (bazy danych** ) Skonfiguruj wdrożenie bazy danych dla bazy danych członkostwa.
+9. 1. Wybierz pozycję **Aktualizuj bazę danych**.
 
-        **Parametry połączenia zdalnego** polu bezpośrednio pod wprowadzonymi **DefaultConnection** jest wypełniony przy użyciu parametrów połączenia z pliku .publishsettings. Parametry połączenia zawierają poświadczenia serwera SQL Server, które są przechowywane w postaci zwykłego tekstu w *.pubxml* pliku. Jeśli nie chcesz przechowywać je trwale istnieje, możesz je usunąć z profilu publikowania, po wdrożeniu bazy danych i przechowywać je na platformie Azure. Aby uzyskać więcej informacji, zobacz [jak zabezpieczyć bazę danych programu ASP.NET parametry połączenia w przypadku wdrażania na platformie Azure ze źródła](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) w blogu Scotta Hanselmana.
-      2. Kliknij przycisk **Konfiguruj aktualizacje bazy danych**.
-      3. W **Konfiguruj aktualizacje bazy danych** okno dialogowe, kliknij przycisk **Dodaj skrypt SQL**.
-      4. W **Dodaj skrypt SQL** , przejdź do *aspnet-data-prod.sql* skrypt, który wcześniej zapisany w folderze rozwiązania, a następnie kliknij przycisk **Otwórz**.
-      5. Zamknij **Konfiguruj aktualizacje bazy danych** okno dialogowe.
-10. W obszarze **SchoolContext** w **baz danych** zaznacz **wykonaj migracje Code First (uruchomieniu aplikacji)**.
+        Pole **ciągu połączenia zdalnego** bezpośrednio poniżej **DefaultConnection** jest wypełnione parametrami połączenia z pliku publishsettings. Parametry połączenia zawierają poświadczenia SQL Server, które są przechowywane w postaci zwykłego tekstu w pliku *. pubxml* . Jeśli wolisz nie przechowywać ich trwale, możesz je usunąć z profilu publikowania po wdrożeniu bazy danych i przechowanie ich na platformie Azure. Aby uzyskać więcej informacji, zobacz [jak zachować bezpieczeństwo parametrów połączenia z bazą danych ASP.NET podczas wdrażania na platformie Azure z poziomu źródła](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) w blogu Scotta Hanselman.
+      2. Kliknij pozycję **Konfiguruj aktualizacje bazy danych**.
+      3. W oknie dialogowym **Konfiguruj aktualizacje bazy danych** kliknij przycisk **Dodaj skrypt SQL**.
+      4. W polu **Dodaj skrypt SQL** przejdź do skryptu *ASPNET-Data-prod. SQL* , który został zapisany wcześniej w folderze rozwiązania, a następnie kliknij przycisk **Otwórz**.
+      5. Zamknij okno dialogowe **Konfigurowanie aktualizacji bazy danych** .
+10. W obszarze **SchoolContext** w sekcji **bazy danych** wybierz pozycję **Wykonaj migracje Code First (uruchamiaj przy uruchamianiu aplikacji)** .
 
-    Visual Studio Wyświetla **wykonaj migracje Code First** zamiast **Aktualizuj bazę danych** dla `DbContext` klasy. Jeśli chcesz używać dostawcy dbDacFx zamiast migracje wdrożyć bazę danych, które są dostępne za pomocą `DbContext` klasy, zobacz [jak wdrożyć Code First bazy danych bez migracje?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w sieci Web wdrożenia — często zadawane pytania dla programu Visual Studio i platformy ASP.NET w witrynie MSDN.
+    Program Visual Studio Wyświetla **migracje Code First wykonywania** zamiast **aktualizacji bazy danych** dla klas `DbContext`. Jeśli chcesz użyć dostawcy dbDacFx zamiast migracji do wdrożenia bazy danych, do której uzyskuje się dostęp przy użyciu klasy `DbContext`, zobacz [Jak mogę wdrożyć bazę danych Code First bez migracji?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w przypadku wdrażania w sieci Web często zadawane pytania dotyczące programu Visual Studio i ASP.NET w witrynie MSDN.
 
-    **Ustawienia** kartę wygląda teraz następująco:
+    Karta **Ustawienia** wygląda teraz tak, jak w poniższym przykładzie:
 
     ![Karta Ustawienia dla przemieszczania](deploying-to-production/_static/image9.png)
-11. Wykonaj poniższe kroki, aby zapisać profil i zmień jej nazwę na *przemieszczania*:
+11. Wykonaj następujące kroki, aby zapisać profil i zmienić jego nazwę na *przejściowy*:
 
-    1. Kliknij przycisk **profilu** kartę, a następnie kliknij przycisk **spravovat profily**.
-    2. Importowanie tworzone są dwa profile nowy, jeden dla protokołu FTP i jeden dla narzędzia Web Deploy. Skonfigurowany profil narzędzia Web Deploy: Zmień nazwę tego profilu do *przemieszczania*.
+    1. Kliknij kartę **profil** , a następnie kliknij pozycję **Zarządzaj profilami**.
+    2. Import utworzył dwa nowe profile, jeden dla usługi FTP i jeden dla Web Deploy. Profil Web Deploy został skonfigurowany: Zmień nazwę tego profilu na *tymczasowy*.
 
-        ![Zmienianie nazwy profilu w środowisku przejściowym](deploying-to-production/_static/image10.png)
-    3. Zamknij **Edytuj profile publikowania w sieci Web** okno dialogowe.
-    4. Zamknij **publikowanie w sieci Web** kreatora.
+        ![Zmień nazwę profilu na tymczasowy](deploying-to-production/_static/image10.png)
+    3. Zamknij okno dialogowe **Edytowanie profilów publikowania w sieci Web** .
+    4. Zamknij kreatora **publikacji w sieci Web** .
 
-### <a name="configure-a-publish-profile-transform-for-the-environment-indicator"></a>Skonfigurować przekształcenia profil publikowania dla wskaźnika środowiska
+### <a name="configure-a-publish-profile-transform-for-the-environment-indicator"></a>Skonfiguruj transformację profilu publikowania dla wskaźnika środowiska
 
 > [!NOTE]
-> W tej sekcji pokazano, jak skonfigurować przekształcenia pliku Web.config dla wskaźnika środowiska. Ponieważ wskaźnik jest w `<appSettings>` elementu, masz inną alternatywą do określania przekształcenie, podczas wdrażania w usłudze Azure App Service. Aby uzyskać więcej informacji, zobacz [określenie ustawienia pliku Web.config na platformie Azure](web-config-transformations.md#watransforms).
+> W tej sekcji pokazano, jak skonfigurować transformację pliku Web. config dla wskaźnika środowiska. Ponieważ wskaźnik znajduje się w `<appSettings>` elementu, istnieje inna alternatywa dla określania transformacji podczas wdrażania do Azure App Service. Aby uzyskać więcej informacji, zobacz [Określanie ustawień sieci Web. config na platformie Azure](web-config-transformations.md#watransforms).
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **właściwości**, a następnie rozwiń węzeł **PublishProfiles**.
-2. Kliknij prawym przyciskiem myszy *Staging.pubxml*, a następnie kliknij przycisk **Dodaj przekształcenia konfiguracji**.
+1. W **Eksplorator rozwiązań**rozwiń węzeł **Właściwości**, a następnie rozwiń węzeł **PublishProfiles**.
+2. Kliknij prawym przyciskiem myszy pozycję *tymczasowy. pubxml*, a następnie kliknij pozycję **Dodaj przekształcenie konfiguracji**.
 
-    ![Dodaj przekształcenie konfiguracji na potrzeby trybu przejściowego](deploying-to-production/_static/image11.png)
+    ![Dodaj transformację konfiguracji dla przemieszczania](deploying-to-production/_static/image11.png)
 
-    Program Visual Studio tworzy *Web.Staging.config* pliku transformacji i otwiera go.
-3. W *Web.Staging.config* pliku przekształcenia, Wstaw następujący kod bezpośrednio po otwarciu `configuration` tagu.
+    Program Visual Studio tworzy plik transformacji *Web. Stag. config* i otwiera go.
+3. W pliku transformacji *Web. stagd. config* Wstaw następujący kod bezpośrednio po tagu otwierającym `configuration`.
 
     [!code-xml[Main](deploying-to-production/samples/sample1.xml)]
 
-    Korzystając z przemieszczania profil publikowania, przekształcenia ustawia wskaźnik środowiska, aby "Prod". W aplikacji wdrożonej w sieci web nie będą widzieć dowolny sufiks, takie jak "(Dev)" lub "(Test)" po nagłówku H1 "Uniwersytet firmy Contoso".
-4. Kliknij prawym przyciskiem myszy *Web.Staging.config* plik i kliknij przycisk **Przekształcanie wersji zapoznawczej** aby upewnić się, że przekształcenie zakodowane produkuje oczekiwane zmiany.
+    W przypadku korzystania z profilu publikowania przemieszczania, to przekształcenie ustawia wskaźnik środowiska na "prod". W wdrożonej aplikacji sieci Web nie zobaczysz żadnego sufiksu, takiego jak "(dev)" lub "(test)" po nagłówku "Contoso University" H1.
+4. Kliknij prawym przyciskiem myszy plik *Web. stagd. config* , a następnie kliknij pozycję **Podgląd transformacji** , aby upewnić się, że zakodowana transformacja generuje oczekiwane zmiany.
 
-    **(Wersja zapoznawcza) w pliku Web.config** okno pokazuje wynik zastosowania zarówno *Web.Release.config* przekształca i *Web.Staging.config* przekształcenia.
+    W oknie **Podgląd pliku Web. config** zostanie wyświetlona informacja o wyniku zastosowania zarówno transformacji *Web. release. config* , jak i *pliku Web. stagd. config* .
 
-### <a name="prevent-public-use-of-the-test-app"></a>Zapobiegaj publicznych korzystanie z aplikacji test
+### <a name="prevent-public-use-of-the-test-app"></a>Zapobiegaj publicznym użyciu aplikacji testowej
 
-Ważną kwestią przemieszczania aplikacji jest będą na żywo w Internecie, że nie ma publicznego z niego korzystać. Aby zminimalizować prawdopodobieństwo, że osoby znajdzie i używać go, można użyć co najmniej jeden z następujących metod:
+Ważnym zagadnieniem dotyczącym aplikacji przemieszczania jest to, że będzie ona aktywna w Internecie, ale nie chcesz, aby była ona używana publicznie. Aby zminimalizować prawdopodobieństwo, że użytkownicy znajdą i korzystają z niej, możesz użyć jednej z następujących metod:
 
-- Ustawianie reguł zapory, zezwalających na dostęp do aplikacji przemieszczania tylko z adresów IP, które można przetestować przemieszczania.
-- Użyj zaciemnionego adresu URL, które byłyby niemożliwe do odgadnięcia.
-- Tworzenie *robots.txt* pliku, aby zapewnić, że aparatów wyszukiwania będzie Przeszukuj łączy aplikację i raportu testu do niego w wynikach wyszukiwania.
+- Ustawianie reguł zapory zezwalających na dostęp do tymczasowej aplikacji tylko z adresów IP używanych do testowania przemieszczania.
+- Użyj zasłoniętego adresu URL, który mógłby być niemożliwy do odgadnięcia.
+- Utwórz plik *robots. txt* , aby upewnić się, że aparaty wyszukiwania nie przeszukają aplikacji testowej i łączy się z nią w wynikach wyszukiwania.
 
-Pierwsza z tych metod jest najbardziej efektywne, ale nie jest omówione w tym samouczku, ponieważ wymagałoby wdrożeniu do usługi Azure Cloud Service, a nie usługi Azure App Service. Aby uzyskać więcej informacji o usługach Cloud Services i ograniczenia adresów IP na platformie Azure, zobacz [Compute Hosting opcji udostępnianych przez platformę Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) i [bloku konkretnych adresów IP, dostęp do roli sieci Web](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Jeśli wdrażasz do dostawcy hostingu innych firm, skontaktuj się z dostawcą, aby dowiedzieć się, jak zaimplementować ograniczenia adresów IP.
+Pierwszy z tych metod jest najbardziej skuteczny, ale nie jest omawiany w tym samouczku, ponieważ wymagało wdrożenia usługi w chmurze platformy Azure, a nie Azure App Service. Aby uzyskać więcej informacji na temat ograniczeń dotyczących Cloud Services i adresów IP na platformie Azure, zobacz [Opcje hostingu obliczeń udostępniane przez platformę Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) i [Blokuj dostęp do roli sieci Web przy użyciu określonych adresów IP](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). W przypadku wdrażania w ramach dostawcy hostingu innej firmy skontaktuj się z dostawcą, aby dowiedzieć się, jak zaimplementować ograniczenia adresów IP.
 
-W tym samouczku utworzysz *robots.txt* pliku.
+W tym samouczku utworzysz plik *robots. txt* .
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt ContosoUniversity i kliknij przycisk **Dodaj nowy element**.
-2. Utwórz nową **plik tekstowy** o nazwie *robots.txt*i umieść następujący tekst w nim:
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt ContosoUniversity i kliknij pozycję **Dodaj nowy element**.
+2. Utwórz nowy **plik tekstowy** o nazwie *robots. txt*i umieść w nim następujący tekst:
 
     [!code-console[Main](deploying-to-production/samples/sample2.cmd)]
 
-    `User-agent` Wiersz zawiera informacje dla aparatów wyszukiwania, które reguły w pliku mają zastosowanie do wszystkich aparatu web przeszukiwarki (robotom) i `Disallow` wiersz określa, że można przeszukać stron w witrynie.
+    Wiersz `User-agent` informuje aparaty wyszukiwania, że reguły w pliku mają zastosowanie do wszystkich przeszukiwań sieci Web aparatu wyszukiwania (robotów), a wiersz `Disallow` określa, że nie należy przeszukiwać stron w witrynie.
 
-    Użytkownik chce aparaty wyszukiwania do wykazu aplikacji produkcyjnych, więc należy wykluczyć ten plik z wdrożenia produkcyjnego. Aby zrobić, należy skonfigurować profil publikowania ustawienie w środowisku produkcyjnym, podczas jego tworzenia.
+    Aby aparaty wyszukiwania mogli wykazać aplikację produkcyjną, należy wykluczyć ten plik z wdrożenia produkcyjnego. W tym celu skonfigurujesz ustawienie w profilu publikowania produkcji podczas jego tworzenia.
 
-### <a name="deploy-to-staging"></a>Wdrażanie w środowisku przejściowym
+### <a name="deploy-to-staging"></a>Wdróż do przemieszczania
 
-1. Otwórz **publikowanie w sieci Web** kreatora, kliknij prawym przyciskiem myszy projekt Contoso University i klikając **Publikuj**.
-2. Upewnij się, że **przemieszczania** profilu jest zaznaczona.
-3. Kliknij przycisk **publikowania**.
+1. Otwórz kreatora **publikacji w sieci Web** , klikając prawym przyciskiem myszy projekt Contoso University i klikając pozycję **Publikuj**.
+2. Upewnij się, że wybrano profil **przemieszczania** .
+3. Kliknij przycisk **Publikuj**.
 
-    **Dane wyjściowe** okno pokazuje, jakie akcje wdrażania zostały wykonane i raporty pomyślne ukończenie wdrożenia. Przeglądarka domyślna automatycznie otwiera adres URL wdrożonej aplikacji internetowej.
+    W oknie **danych wyjściowych** znajdują się informacje o wykonywaniu akcji wdrażania i raporty o pomyślnym zakończeniu wdrożenia. Domyślna przeglądarka automatycznie otwiera adres URL wdrożonej aplikacji sieci Web.
 
 ## <a name="test-in-the-staging-environment"></a>Testowanie w środowisku przejściowym
 
-Zauważ, że wskaźnik środowiska nieobecne (Brak "(testu)" lub "(Dev)" po nagłówku H1, który pokazuje, że *Web.config* transformacji dla wskaźnika środowisko zakończyło się pomyślnie.
+Zwróć uwagę, że wskaźnik środowiska jest nieobecny (nie ma "(test)" lub "(dev)" po nagłówku H1, który pokazuje, że transformacja *pliku Web. config* dla wskaźnika środowiska zakończyła się pomyślnie.
 
-![Strona główna przemieszczania](deploying-to-production/_static/image12.png)
+![Przemieszczanie strony głównej](deploying-to-production/_static/image12.png)
 
-Uruchom **studentów** strony, aby sprawdzić, czy wdrożonej bazy danych jest nie studentów.
+Uruchom stronę **uczniów** , aby sprawdzić, czy wdrożona baza danych nie ma uczniów.
 
-Uruchom **Instruktorzy** stronę, aby sprawdzić, czy Code First zasilany w bazie danych przez instruktorów:
+Uruchom stronę **instruktorów** , aby sprawdzić, czy Code First wypełniania bazy danych za pomocą instruktora:
 
-Wybierz **dodać uczniów** z **studentów** menu Dodaj uczniem, a następnie wyświetlić nowego studenta w **studentów** stronę, aby sprawdzić, czy można pomyślnie zapisać do bazy danych .
+Wybierz pozycję **Dodaj uczniów** z menu **uczniów** , Dodaj ucznia, a następnie Wyświetl nowych uczniów na stronie **uczniów** , aby sprawdzić, czy można pomyślnie zapisywać dane w bazie danych.
 
-Z **kursów** kliknij **aktualizacji środki na korzystanie z**. **Aktualizacji środki na korzystanie z** strony musi mieć uprawnienia administratora, więc **logowanie** zostanie wyświetlona strona. Wprowadź poświadczenia konta administratora, utworzony wcześniej ("admin" i "prodpwd"). **Aktualizacji środki na korzystanie z** zostanie wyświetlona strona, która sprawdza, czy konto administratora, który został utworzony w poprzednim samouczku poprawnie została wdrożona do środowiska testowego.
+Na stronie **kursy** kliknij pozycję **Aktualizuj kredyty**. Strona **kredyty aktualizacji** wymaga uprawnień administratora, więc zostanie wyświetlona strona **logowania** . Wprowadź utworzone wcześniej poświadczenia konta administratora ("admin" i "prodpwd"). Zostanie wyświetlona strona **kredyty aktualizacji** , która sprawdza, czy konto administratora utworzone w poprzednim samouczku zostało prawidłowo wdrożone w środowisku testowym.
 
-Nieprawidłowy adres URL do powodują wystąpienie błędu, że ELMAH będzie śledzić i następnie zażądać raportu o błędach ELMAH żądania. Jeśli wdrażasz do dostawcy hostingu innych firm, prawdopodobnie znajdziesz raport jest pusty dla tego samego powodu, który był pusty w poprzednim samouczku. Należy skonfigurować uprawnienia folderu, aby włączyć ELMAH do zapisu w folderze dziennika przy użyciu narzędzia do zarządzania konta dostawcy hostingu.
+Zażądaj nieprawidłowego adresu URL, aby spowodować błąd, który będzie śledzony przez program ELMAH, a następnie Zażądaj raportu o błędach ELMAH. W przypadku wdrażania w ramach dostawcy hostingu innej firmy prawdopodobnie okaże się, że raport jest pusty z tego samego powodu, gdyby był pusty w poprzednim samouczku. Musisz użyć narzędzi do zarządzania kontami dostawcy hostingu, aby skonfigurować uprawnienia do folderu, aby umożliwić programowi ELMAH zapis w folderze dziennika.
 
-Utworzoną aplikację jest teraz uruchomiona w chmurze w aplikacji sieci web, która działa tak jak będzie on używany w środowisku produkcyjnym. Ponieważ wszystko działa poprawnie, następnym krokiem jest wdrażania w środowisku produkcyjnym.
+Utworzona aplikacja jest teraz uruchomiona w chmurze w aplikacji sieci Web, która jest taka sama jak ta, która będzie używana w środowisku produkcyjnym. Ponieważ wszystko działa prawidłowo, następnym krokiem jest wdrożenie w środowisku produkcyjnym.
 
-## <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
+## <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
 
-Proces tworzenia aplikacji sieci web w środowisku produkcyjnym i wdrażania do środowiska produkcyjnego jest tak samo przemieszczania, z tą różnicą, że należy wykluczyć *robots.txt* z wdrożenia. Aby to zrobić będzie edytować plik profilu publikowania.
+Proces tworzenia produkcyjnej aplikacji sieci Web i wdrażania jej w środowisku produkcyjnym jest taki sam jak w przypadku przemieszczania, z tą różnicą, że należy wykluczyć *plik robots. txt* z wdrożenia. Aby edytować plik profilu publikacji.
 
-### <a name="create-the-production-environment-and-the-production-publish-profile"></a>Tworzenie w środowisku produkcyjnym i produkcji profil publikowania
+### <a name="create-the-production-environment-and-the-production-publish-profile"></a>Utwórz środowisko produkcyjne i profil publikowania produkcji
 
-1. Tworzenie aplikacji sieci web w środowisku produkcyjnym i bazy danych na platformie Azure, zgodnie z tej samej procedury, które jest używane jako przejściowy.
+1. Utwórz produkcyjną aplikację sieci Web i bazę danych na platformie Azure, postępując zgodnie z tą samą procedurą, która była używana do przemieszczania.
 
-    Podczas tworzenia bazy danych, możesz wybrać go umieścić na tym samym serwerze, która została utworzona wcześniej lub utworzyć nowy serwer.
-2. Pobierz *.publishsettings* pliku.
-3. Utwórz profil publikowania, importując produkcji *.publishsettings* pliku, zgodnie z tej samej procedury, które jest używane jako przejściowy.
+    Podczas tworzenia bazy danych można ją umieścić na tym samym serwerze, który został utworzony wcześniej, lub utworzyć nowy serwer.
+2. Pobierz plik *. publishsettings* .
+3. Utwórz profil publikowania przez zaimportowanie pliku Product *. publishsettings* , postępując zgodnie z tą samą procedurą, która była używana do przemieszczania.
 
-    Nie należy zapominać skonfigurować skrypt wdrażania przy użyciu danych **DefaultConnection** w **baz danych** części **ustawienia** kartę.
-4. Zmień nazwę profilu publikowania do *produkcji*.
-5. Konfigurowanie środowiska wskaźnika, zgodnie z tej samej procedury, które jest używane jako przejściowy przekształcenia profilu publikowania...
+    Nie zapomnij skonfigurować skryptu wdrażania danych w obszarze **DefaultConnection** w sekcji **bazy danych** na karcie **Ustawienia** .
+4. Zmień nazwę profilu publikowania na *produkcyjny*.
+5. Skonfiguruj transformację profilu publikowania dla wskaźnika środowiska, wykonując tę samą procedurę, która była używana do przemieszczania...
 
-### <a name="edit-the-pubxml-file-to-exclude-robotstxt"></a>Edytuj plik .pubxml, aby wykluczyć robots.txt
+### <a name="edit-the-pubxml-file-to-exclude-robotstxt"></a>Edytuj plik. pubxml, aby wykluczyć pliki robots. txt
 
-Pliki są nazywane profil publikowania &lt;profilename&gt;*.pubxml* i znajdują się w *PublishProfiles* folderu. *PublishProfiles* znajduje się w folderze *właściwości* folderu w języku C# aplikacji sieci web projektu w obszarze *mój projekt* folderu w projekcie aplikacji sieci web VB lub równy podanemu *Aplikacji\_danych* folderu w projekcie aplikacji sieci web. Każdy *.pubxml* plik zawiera ustawienia, które są stosowane do jednego profilu publikowania. Wartości, które zostały wprowadzone w Kreatorze publikowanie w sieci Web są przechowywane w tych plikach, i można edytować ich do tworzenia lub zmiany ustawień, które nie są dostępne w interfejsie użytkownika programu Visual Studio.
+Pliki profilu publikowania mają nazwę &lt;ProfileName&gt; *. pubxml* i znajdują się w folderze *PublishProfiles* . Folder *PublishProfiles* znajduje się w folderze *Właściwości* w projekcie aplikacji C# sieci Web, w folderze *mój projekt* w projekcie aplikacji sieci web w języku vb lub w folderze *dane\_aplikacji* w projekcie aplikacji sieci Web. Każdy plik *. pubxml* zawiera ustawienia, które dotyczą jednego profilu publikowania. Wartości wprowadzone w Kreatorze publikowania w sieci Web są przechowywane w tych plikach i można je edytować w celu utworzenia lub zmiany ustawień, które nie są dostępne w interfejsie użytkownika programu Visual Studio.
 
-Domyślnie *.pubxml* pliki znajdują się w projekcie, podczas tworzenia profilu publikowania, ale możesz je wykluczyć z projektu programu Visual Studio będą nadal z nich korzystać. Program Visual Studio szuka w *PublishProfiles* folder *.pubxml* plików, niezależnie od tego, czy są one uwzględnione w projekcie.
+Domyślnie pliki *. pubxml* są uwzględniane w projekcie podczas tworzenia profilu publikowania, ale można je wykluczyć z projektu, a program Visual Studio będzie nadal z nich korzystać. Program Visual Studio szuka plików *. pubxml* w folderze *PublishProfiles* , niezależnie od tego, czy są one dołączone do projektu.
 
-Dla każdego *.pubxml* pliku jest *. pubxml.user* pliku. *. Pubxml.user* plik zawiera zaszyfrowane hasło, jeśli została wybrana **Zapisz hasło** opcję i domyślnie jest ona wykluczana z projektu.
+Dla każdego pliku *. pubxml* istnieje plik *. pubxml. User* . Plik *. pubxml. User* zawiera zaszyfrowane hasło w przypadku wybrania opcji **Zapisz hasło** i domyślnie jest wykluczony z projektu.
 
-A *.pubxml* plik zawiera ustawienia, które odnoszą się do profilu publikowania określone. Jeśli chcesz skonfigurować ustawienia, które są stosowane do wszystkich profilów, możesz utworzyć *. wpp.targets* pliku. Proces kompilacji importuje te pliki do *.csproj* lub *.vbproj* pliku projektu, dzięki czemu można skonfigurować większość ustawień, które można skonfigurować w pliku projektu w tych plikach. Aby uzyskać więcej informacji na temat *.pubxml* plików i *. wpp.targets* plików, zobacz [jak: Edytuj ustawienia wdrażania publikowania plików profilu (.pubxml) i. wpp.targets pliku w projektach sieci Web programu Visual Studio](https://msdn.microsoft.com/library/ff398069.aspx).
+Plik *. pubxml* zawiera ustawienia, które odnoszą się do określonego profilu publikacji. Aby skonfigurować ustawienia, które mają zastosowanie do wszystkich profilów, można utworzyć plik *. WPP. targets* . Proces kompilacji importuje te pliki do pliku projektu *. csproj* lub *. vbproj* , dlatego większość ustawień, które można skonfigurować w pliku projektu, można skonfigurować w tych plikach. Aby uzyskać więcej informacji na temat plików *. pubxml* i *. WPP. targets* , zobacz [How to: Edit Settings Deployment (pliki. pubxml) i plik. WPP. targets w projektach internetowych programu Visual Studio](https://msdn.microsoft.com/library/ff398069.aspx).
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **właściwości** i rozwiń **PublishProfiles**.
-2. Kliknij prawym przyciskiem myszy *Production.pubxml* i kliknij przycisk **Otwórz**.
+1. W **Eksplorator rozwiązań**rozwiń węzeł **Właściwości** i rozwiń węzeł **PublishProfiles**.
+2. Kliknij prawym przyciskiem myszy pozycję *Product. pubxml* , a następnie kliknij pozycję **Otwórz**.
 
-    ![Otwórz plik .pubxml](deploying-to-production/_static/image13.png)
-3. Kliknij prawym przyciskiem myszy *Production.pubxml* i kliknij przycisk **Otwórz**.
-4. Dodaj następujące wiersze bezpośrednio przed tagiem zamykającym `PropertyGroup` elementu:
+    ![Otwórz plik. pubxml](deploying-to-production/_static/image13.png)
+3. Kliknij prawym przyciskiem myszy pozycję *Product. pubxml* , a następnie kliknij pozycję **Otwórz**.
+4. Dodaj następujące wiersze bezpośrednio przed zamykającym `PropertyGroup` elementu:
 
     [!code-xml[Main](deploying-to-production/samples/sample3.xml)]
 
-    Plik .pubxml wygląda teraz następująco:
+    Plik. pubxml wygląda teraz podobnie do poniższego przykładu:
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Aby uzyskać więcej informacji o tym, jak wykluczyć pliki i foldery, zobacz [czy można wykluczyć określone pliki lub foldery z wdrożenia?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) w **często zadawane pytania wdrażania w sieci Web dla programu Visual Studio i platformy ASP.NET** w witrynie MSDN.
+    Aby uzyskać więcej informacji na temat wykluczania plików i folderów, zobacz [czy można wykluczać określone pliki lub foldery z wdrożenia?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) w artykule **wdrażanie w sieci Web — często zadawane pytania dotyczące programu Visual Studio i ASP.NET** w witrynie MSDN.
 
-### <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
+### <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
 
-1. Otwórz **publikowanie w sieci Web** kreatora, upewnij się, że **produkcji** profil publikowania jest zaznaczone, a następnie kliknij przycisk **Uruchom Podgląd** na **Podgląd**kartę, aby sprawdzić, czy *robots.txt* pliku nie zostaną skopiowane do aplikacji produkcyjnej.
+1. Otwórz kreatora **publikacji w sieci Web** , upewnij się, że wybrano opcję profil publikowania **produkcyjnego** , a następnie kliknij przycisk **Uruchom podgląd** na karcie **Podgląd** , aby sprawdzić, czy plik *robots. txt* nie zostanie skopiowany do aplikacji produkcyjnej.
 
-    ![Podgląd plików do opublikowania w środowisku produkcyjnym](deploying-to-production/_static/image14.png)
+    ![Wersja zapoznawcza plików do opublikowania w środowisku produkcyjnym](deploying-to-production/_static/image14.png)
 
-    Przejrzyj listę plików, które zostaną skopiowane. Zobaczysz, że wszystkie *.cs* pliki, w tym *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*, i  *Master.Designer.cs* pliki są pomijane. Cały ten kod został skompilowany do *ContosoUniversity.dll* i *ContosoUniversity.pdb* pliki, które znajdują się w *bin* folderu. Ponieważ tylko *.dll* jest potrzebny do uruchomienia aplikacji, a określony wcześniej powinny być wdrażane tylko pliki potrzebne do uruchomienia aplikacji, nie *.cs* pliki zostały skopiowane do lokalizacji docelowej środowisko. *Obj* folder i *ContosoUniversity.csproj* i *. csproj.user* pliki są pomijane dla tego samego powodu.
+    Przejrzyj listę plików, które zostaną skopiowane. Zobaczysz, że wszystkie pliki *. cs* , w tym pliki *. aspx.cs*, *. aspx.Designer.cs*, *Master.cs*i *Master.Designer.cs* , są pomijane. Wszystkie te kody zostały skompilowane do plików *ContosoUniversity. dll* i *ContosoUniversity. pdb* , które znajdują się w folderze *bin* . Ponieważ tylko plik *. dll* jest wymagany do uruchomienia aplikacji i określono wcześniej, że należy wdrożyć tylko pliki potrzebne do uruchomienia aplikacji, żadne pliki *. cs* nie zostały skopiowane do środowiska docelowego. Folder *obj* i pliki *ContosoUniversity. csproj* i *. csproj. User* są pomijane z tego samego powodu.
 
-    Kliknij przycisk **Publikuj** do wdrożenia do środowiska produkcyjnego.
-2. Testowanie w produkcji, zgodnie z tej samej procedury, których użyto podczas przemieszczania.
+    Kliknij pozycję **Publikuj** , aby wdrożyć w środowisku produkcyjnym.
+2. Przetestuj w środowisku produkcyjnym, wykonując tę samą procedurę, która została użyta do przemieszczania.
 
-    Wszystko, co jest taka sama jak przemieszczania, z wyjątkiem adresu URL i braku *robots.txt* pliku.
+    Wszystko jest identyczne z przemieszczeniem poza adresem URL i brakiem pliku *robots. txt* .
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz pomyślnie wdrożyć i przetestować aplikację sieci web i jest dostępny publicznie w Internecie.
+Pomyślnie wdrożono i przetestowasz aplikację internetową, która jest dostępna publicznie przez Internet.
 
-![Strona główna w środowisku produkcyjnym](deploying-to-production/_static/image15.png)
+![Strona główna — produkcja](deploying-to-production/_static/image15.png)
 
-W następnym samouczku możesz zaktualizować kod aplikacji i wdrażanie zmiany w środowiskach testowych, przejściowych i produkcyjnych.
+W następnym samouczku należy zaktualizować kod aplikacji i wdrożyć zmiany w środowiskach testowych, przejściowych i produkcyjnych.
 
 > [!NOTE]
-> Gdy aplikacja jest używana w środowisku produkcyjnym powinny być implementowanie planu odzyskiwania. Oznacza to powinny być okresowo kopie zapasowe baz danych z aplikacji produkcyjnej do lokalizacji bezpiecznego magazynu, a powinien utrzymywanie kilku generacje tych kopii zapasowych. Po zaktualizowaniu bazy danych powinno się wykonanie kopii zapasowej z bezpośrednio przed zmianą. Następnie jeśli popełnienia błędu, a nie odnaleźć go do czasu, po wdrożeniu do środowiska produkcyjnego, nadal będzie można odzyskać bazy danych do stanu, w jakim był, zanim zostanie ona uszkodzona. Aby uzyskać więcej informacji, zobacz [i przywracania kopii zapasowych bazy danych SQL Azure](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
+> Gdy aplikacja jest używana w środowisku produkcyjnym, należy wykonać wdrożenie planu odzyskiwania. Oznacza to, że należy okresowo tworzyć kopie zapasowe baz danych z aplikacji produkcyjnej w bezpiecznej lokalizacji magazynu i należy zachować kilka generacji takich kopii zapasowych. Podczas aktualizowania bazy danych należy wykonać kopię zapasową od razu przed zmianą. Następnie, jeśli wystąpi błąd i nie wykryjesz go, dopóki nie zostanie wdrożony w środowisku produkcyjnym, nadal będzie można odzyskać bazę danych do stanu, w którym była przed uszkodzeniem. Aby uzyskać więcej informacji, zobacz [Azure SQL Database kopia zapasowa i przywracanie](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 > 
 > 
 > [!NOTE]
-> W tym samouczku programu SQL Server edition, w której przeprowadzasz wdrożenie to Azure SQL Database. Podczas procesu wdrażania jest podobny do innych wersjach programu SQL Server, aplikacja rzeczywistej produkcji mogą wymagać specjalnego kodu usługi Azure SQL Database w niektórych scenariuszach. Aby uzyskać więcej informacji, zobacz [pracy z usługą Azure SQL Database](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) i [Wybieranie między programami SQL Server i usługi Azure SQL Database](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
+> W tym samouczku SQL Server Edition, do którego wdrażasz, jest Azure SQL Database. Chociaż proces wdrażania jest podobny do innych wersji SQL Server, prawdziwa aplikacja produkcyjna może wymagać specjalnego kodu dla Azure SQL Database w niektórych scenariuszach. Aby uzyskać więcej informacji, zobacz [Praca z Azure SQL Database](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) i [wybór między SQL Server i Azure SQL Database](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
 > 
 > [!div class="step-by-step"]
 > [Poprzednie](setting-folder-permissions.md)

@@ -1,340 +1,340 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
-title: Tworzenie warstwy dostępu do danych (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie warstwy dostępu do danych (VB) | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku utworzymy zacząć od samego początku wymuszał i tworzenie danych warstwy dostępu (DAL), przy użyciu typizowanych zestawów danych, aby uzyskać dostęp do informacji w bazie danych.
+description: W tym samouczku rozpocznie się rozpoczęcie od bardzo początku i utworzenie warstwy dostępu do danych (DAL), przy użyciu wpisanych zestawów danych, aby uzyskać dostęp do informacji w bazie danych.
 ms.author: riande
 ms.date: 04/05/2010
 ms.assetid: 6227233a-6254-4b6b-9a89-947efef22330
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6199aad8ebe15cefcd6c1b88212e37db87963b8d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 51c9255f80f83a68cf26decf318347752498491a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133480"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74635137"
 ---
 # <a name="creating-a-data-access-layer-vb"></a>Tworzenie warstwy dostępu do danych (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_1_VB.exe) lub [Pobierz plik PDF](creating-a-data-access-layer-vb/_static/datatutorial01vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_1_VB.exe) lub [Pobierz plik PDF](creating-a-data-access-layer-vb/_static/datatutorial01vb1.pdf)
 
-> W tym samouczku utworzymy zacząć od samego początku wymuszał i tworzenie danych warstwy dostępu (DAL), przy użyciu typizowanych zestawów danych, aby uzyskać dostęp do informacji w bazie danych.
+> W tym samouczku rozpocznie się rozpoczęcie od bardzo początku i utworzenie warstwy dostępu do danych (DAL), przy użyciu wpisanych zestawów danych, aby uzyskać dostęp do informacji w bazie danych.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Jako projektantom sieci web nasze życie koncentrują się wokół pracy z danymi. Możemy utworzyć bazy danych do przechowywania danych, kod, aby pobrać i zmodyfikować i stron sieci web do zbierania i podsumowaniu. To jest pierwszy samouczek w długich serii, która będzie Poznaj techniki implementacji tych typowych wzorców w programie ASP.NET 2.0. Zaczniemy od utworzenia [architektury oprogramowania](http://en.wikipedia.org/wiki/Software_architecture) składa się z danych programu Access warstwy (DAL) przy użyciu wpisanych zestawów danych, warstwy logiki biznesowej (LOGIKI) który wymusza stosowanie niestandardowych reguł biznesowych, a warstwa prezentacji składa się z ASP.NET strony, która Udostępniaj wspólne układu strony. Po sekcji tego podwaliny pod Projekt wdrożenia wewnętrznej bazy danych, zmienimy do raportowania, przedstawiający sposób wyświetlania, podsumować, zbieranie i sprawdzanie poprawności danych z aplikacji sieci web. Te samouczki są dostosowane do być zwięzłe i zapewnić instrukcje krok po kroku z dużą ilością zrzuty ekranu wizualnie przeprowadzi Cię przez proces. Każdy samouczek jest dostępny w C# i Visual Basic wersji i obejmuje pobieranie kompletny kod używany. (Tego pierwszego samouczka dotyczącego jest bardzo długi, ale pozostałe są prezentowane w znacznie więcej fragmentów o wysokim strawności).
+Jako Deweloperzy sieci Web, nasza praca zaczyna się na pracy z danymi. Firma Microsoft tworzy bazy danych, aby przechowywać dane, kod do pobrania i modyfikacji oraz strony sieci Web, które mają być zbierane i podsumowywane. Jest to pierwszy samouczek w seriach krótkich, który będzie eksplorować techniki wdrażania tych wspólnych wzorców w ASP.NET 2,0. Zaczniemy od utworzenia [architektury oprogramowania](http://en.wikipedia.org/wiki/Software_architecture) składającej się z warstwy dostępu do danych (dal) przy użyciu zestawów DataSet z określonym typem, warstwy logiki biznesowej (logiki biznesowej), która wymusza niestandardowe reguły biznesowe, a warstwa prezentacji złożona ze stron ASP.NET, które współużytkują wspólny układ strony. Po podstawę tego zaplecza przejdziemy do raportowania, pokazujący, jak wyświetlać, podsumowywać, zbierać i sprawdzać poprawność danych z aplikacji sieci Web. Te samouczki są zwięzłe i zawierają instrukcje krok po kroku dotyczące dużej ilości zrzutów ekranu, aby przeprowadzić Cię przez proces wizualnie. Każdy samouczek jest dostępny w C# systemach i Visual Basic wersje i zawiera pobieranie pełnego użytego kodu. (Pierwszy samouczek jest dość długi, ale pozostałe fragmenty są prezentowane w znacznie większej części digestible).
 
-Te samouczki będziemy używać programu Microsoft SQL Server 2005 Express Edition wersję bazy danych Northwind, umieszczone w `App_Data` katalogu. Oprócz pliku bazy danych `App_Data` folder zawiera także skrypty SQL do tworzenia baz danych, w przypadku, gdy chcesz użyć wersji innej bazy danych. Skrypty te mogą być również [pobrać bezpośrednio z witryny Microsoft](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en), jeśli chcesz użyć. Jeśli używasz innej wersji programu SQL Server, bazy danych Northwind, należy zaktualizować `NORTHWNDConnectionString` ustawienia aplikacji w witrynie `Web.config` pliku. Aplikacja sieci web został skompilowany przy użyciu programu Visual Studio 2005 Professional Edition jako projekt witryny sieci Web opartych na systemie plików. Jednak wszystkie samouczki będzie działać równie dobrze z bezpłatnej wersji usługi Visual Studio 2005, [Visual Web Developer](https://msdn.microsoft.com/vstudio/express/vwd/).
+W przypadku tych samouczków będziemy używać wersji Microsoft SQL Server 2005 Express z bazą danych Northwind umieszczonej w katalogu `App_Data`. Oprócz pliku bazy danych folder `App_Data` zawiera również skrypty SQL służące do tworzenia bazy danych, jeśli chcesz użyć innej wersji bazy danych. Te skrypty można także [pobrać bezpośrednio z firmy Microsoft](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en), jeśli wolisz. W przypadku korzystania z innej wersji SQL Server bazy danych Northwind należy zaktualizować ustawienie `NORTHWNDConnectionString` w pliku `Web.config` aplikacji. Aplikacja sieci Web została skompilowana przy użyciu programu Visual Studio 2005 Professional Edition jako projektu witryny sieci Web opartej na systemie plików. Jednak wszystkie samouczki będą pracować równie dobrze z bezpłatną wersją programu Visual Studio 2005 i [Visual Web Developer](https://msdn.microsoft.com/vstudio/express/vwd/).
 
-W tym samouczku utworzymy zacząć od samego początku wymuszał i tworzenie danych warstwy dostępu (DAL), a następnie tworząc [warstwy logiki biznesowej (LOGIKI)](creating-a-business-logic-layer-vb.md) w drugim samouczku i pracujemy nad [nawigacjiiukładstrony](master-pages-and-site-navigation-vb.md) w trzecim. Samouczki, po trzecie będzie bazują na podstawę głosów pierwsze trzy. Mamy wiele pokrycia w tym pierwszym samouczku, dlatego środowisko Visual Studio i zaczynajmy!
+W tym samouczku rozpocznie się rozpoczęcie od bardzo początku i utworzenie warstwy dostępu do danych (DAL), a następnie utworzenie [warstwy logiki biznesowej (logiki biznesowej)](creating-a-business-logic-layer-vb.md) w drugim samouczku i pracę nad [układem strony i nawigacją](master-pages-and-site-navigation-vb.md) w trzecim. Samouczki po trzecim z nich zostaną skompilowane w oparciu o podstawę określoną w pierwszych trzech. W tym pierwszym samouczku mamy dużą ilość danych, więc Uruchom program Visual Studio i zacznijmy pracę!
 
-## <a name="step-1-creating-a-web-project-and-connecting-to-the-database"></a>Krok 1. Tworzenie projektu sieci Web i połączenie z bazą danych
+## <a name="step-1-creating-a-web-project-and-connecting-to-the-database"></a>Krok 1. Tworzenie projektu sieci Web i nawiązywanie połączenia z bazą danych
 
-Zanim będziemy mogli utworzyć nasze warstwy dostępu do danych (DAL), najpierw należy utworzyć witrynę sieci web i skonfigurować w naszej bazie danych. Rozpocznij od utworzenia nowego pliku w oparciu o system ASP.NET witryny sieci web. Aby to zrobić, przejdź do menu Plik, a następnie wybierz nową witrynę sieci Web w celu wyświetlania okna dialogowego nową witrynę sieci Web. Wybierz szablon witryny sieci Web platformy ASP.NET, zmień wartość na liście rozwijanej lokalizacji w systemie plików, wybierz folder do umieszczenia w witrynie sieci web i ustawienie języka Visual Basic.
+Zanim będziemy mogli utworzyć naszą warstwę dostępu do danych (DAL), najpierw musimy utworzyć witrynę sieci Web i skonfigurować naszą bazę danych. Zacznij od utworzenia nowej witryny sieci Web ASP.NET opartej na systemie plików. Aby to osiągnąć, przejdź do menu plik i wybierz polecenie Nowa witryna sieci Web, wyświetlając okno dialogowe Nowa witryna sieci Web. Wybierz szablon witryna sieci Web ASP.NET, Ustaw listę rozwijaną lokalizacja na system plików, wybierz folder, w którym ma zostać umieszczona witryna sieci Web, i Ustaw język na Visual Basic.
 
-[![Tworzenie nowego pliku w oparciu o System witryny sieci Web](creating-a-data-access-layer-vb/_static/image2.png)](creating-a-data-access-layer-vb/_static/image1.png)
+[![utworzyć nową witrynę sieci Web opartą na systemie plików](creating-a-data-access-layer-vb/_static/image2.png)](creating-a-data-access-layer-vb/_static/image1.png)
 
-**Rysunek 1**: Tworzenie witryny sieci Web New File System-Based ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image3.png))
+**Rysunek 1**. Tworzenie nowej witryny sieci Web opartej na systemie plików ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image3.png))
 
-Spowoduje to utworzenie nowej witryny sieci web za pomocą `Default.aspx` strony ASP.NET `App_Data` folder, a `Web.config` pliku.
+Spowoduje to utworzenie nowej witryny sieci Web z `Default.aspx` strony ASP.NET, `App_Data` folderze i pliku `Web.config`.
 
-Witryny sieci web utworzone następnym krokiem jest dodać odwołanie do bazy danych w Eksploratorze serwera Visual Studio. Dodając bazę danych do Eksploratora serwera można dodać tabel, procedur składowanych, widoków i itd. wszystko z poziomu programu Visual Studio. Można również wyświetlić dane w tabeli lub ręcznie lub graficznie tworzyć własne zapytania za pomocą konstruktora zapytań. Ponadto gdy będziemy tworzyć wpisanych zestawów danych dla warstwy DAL musimy punktu Visual Studio do bazy danych, z którego powinien być konstruowany wpisanych zestawów danych. Gdy firma Microsoft może zapewnić informacje o połączeniu w danym momencie, Visual Studio spowoduje automatyczne wypełnienie listy rozwijanej, baz danych już jest zarejestrowany w Eksploratorze serwera.
+Po utworzeniu witryny sieci Web następnym krokiem jest dodanie odwołania do bazy danych w Eksplorator serwera programu Visual Studio. Dzięki dodaniu bazy danych do Eksplorator serwera można dodawać tabele, procedury składowane, widoki i tak dalej, jak w programie Visual Studio. Możesz również wyświetlać dane tabeli lub tworzyć własne zapytania ręcznie lub graficznie za pośrednictwem Konstruktor zapytań. Ponadto podczas kompilowania wpisanych zestawów danych dla DAL musimy wskazać program Visual Studio do bazy danych, z której mają być zbudowane określone zestawy danych. Chociaż możemy podać te informacje o połączeniu w tym momencie, program Visual Studio automatycznie wypełni listę rozwijaną baz danych, które są już zarejestrowane w Eksplorator serwera.
 
-Kroki umożliwiające dodawanie bazy danych Northwind do Eksploratora serwera zależą od tego, czy chcesz użyć bazy danych programu SQL Server 2005 Express Edition w `App_Data` folderze lub w przypadku programu Microsoft SQL Server 2000 lub Konfiguracja serwera bazy danych 2005, którego chcesz używać Zamiast tego.
+Kroki umożliwiające dodanie bazy danych Northwind do Eksplorator serwera zależą od tego, czy chcesz użyć bazy danych SQL Server 2005 Express Edition w folderze `App_Data` lub w przypadku instalacji serwera bazy danych o Microsoft SQL Server 2000 lub 2005.
 
-## <a name="using-a-database-in-theappdatafolder"></a>Korzystanie z bazy danych w`App_Data`folderu
+## <a name="using-a-database-in-theapp_datafolder"></a>Korzystanie z bazy danych w folderze`App_Data`
 
-Jeśli nie masz programu SQL Server 2000 lub serwer bazy danych 2005, aby nawiązać połączenie, lub po prostu chcesz uniknąć konieczności dodawania bazy danych do serwera bazy danych, można użyć wersji programu SQL Server 2005 Express Edition bazy danych Northwind, która znajduje się w pobranych websit e's `App_Data` folder (`NORTHWND.MDF`).
+Jeśli nie masz serwera bazy danych SQL Server 2000 lub 2005 do nawiązania połączenia lub po prostu chcesz uniknąć konieczności dodawania bazy danych do serwera bazy danych, możesz użyć wersji SQL Server 2005 Express Edition bazy danych Northwind, która znajduje się w folderze `App_Data` pobranej witryny sieci Web (`NORTHWND.MDF`).
 
-Bazy danych są umieszczane w `App_Data` folderu jest automatycznie dodawane do Eksploratora serwera. Przy założeniu, że program SQL Server 2005 Express Edition, na maszynie zainstalowano powinny być widoczne węzła o nazwie NORTHWND. MDF w Eksploratorze serwera, które można rozwijać i zapoznaj się z jego tabele, widoki, procedury składowanej i tak dalej (patrz rysunek 2).
+Baza danych umieszczona w folderze `App_Data` jest automatycznie dodawana do Eksplorator serwera. Przy założeniu, że na maszynie zainstalowano SQL Server 2005 Express Edition, powinien zostać wyświetlony węzeł o nazwie NORTHWND. MDF w Eksplorator serwera, które można rozwijać i eksplorować tabele, widoki, procedury składowane i tak dalej (patrz rysunek 2).
 
-`App_Data` Folderu może też przechowywać Microsoft Access `.mdb` pliki, które podobnie jak ich odpowiedniki programu SQL Server, są automatycznie dodawane do Eksploratora serwera. Jeśli nie chcesz używać żadnych opcji programu SQL Server, zawsze możesz [Pobierz program Microsoft Access wersję pliku bazy danych Northwind](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN) i upuść na `App_Data` katalogu. Zwróć uwagę, jednak baz danych programu Access spoza jako wyposażonym w programie SQL Server i nie są przeznaczone do użytku w scenariuszach witryny sieci web. Ponadto kilka samouczków ponad 35 będzie korzystać z niektórych funkcji poziomu bazy danych, które nie są obsługiwane przez funkcję dostępu.
+Folder `App_Data` może również zawierać pliki programu Microsoft Access `.mdb`, takie jak ich SQL Server odpowiedniki, są automatycznie dodawane do Eksplorator serwera. Jeśli nie chcesz używać żadnej z SQL Server opcji, zawsze możesz [pobrać wersję pliku bazy danych Northwind z programu Microsoft Access](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN) i upuścić ją do katalogu `App_Data`. Należy jednak pamiętać, że bazy danych programu Access nie są tak rozbudowane jako SQL Server i nie są przeznaczone do użycia w scenariuszach witryny sieci Web. Ponadto kilka samouczków 35 + będzie korzystać z pewnych funkcji na poziomie bazy danych, które nie są obsługiwane przez program.
 
-## <a name="connecting-to-the-database-in-a-microsoft-sql-server-2000-or-2005-database-server"></a>Łączenie z bazą danych na serwerze bazy danych programu Microsoft SQL Server 2000 lub 2005
+## <a name="connecting-to-the-database-in-a-microsoft-sql-server-2000-or-2005-database-server"></a>Łączenie z bazą danych na serwerze bazy danych Microsoft SQL Server 2000 lub 2005
 
-Alternatywnie możesz nawiązać bazy danych Northwind zainstalowane na serwerze bazy danych. Jeśli serwer bazy danych nie ma jeszcze zainstalowane bazy danych Northwind, użytkownik musi go najpierw dodać do serwera bazy danych, uruchamiając skrypt instalacyjny zawarte w tym samouczku pobierania lub przez [pobieranie wersji programu SQL Server 2000 bazy danych Northwind i skrypt instalacji](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en) bezpośrednio z witryny sieci web firmy Microsoft.
+Alternatywnie można nawiązać połączenie z bazą danych Northwind zainstalowaną na serwerze bazy danych. Jeśli na serwerze bazy danych nie ma jeszcze zainstalowanej bazy danych Northwind, należy najpierw dodać ją do serwera bazy danych, uruchamiając skrypt instalacyjny zawarty w tym samouczku, pobierając lub wyświetlając [wersję SQL Server 2000 wersji Northwind i skrypt instalacyjny](https://www.microsoft.com/downloads/details.aspx?FamilyID=06616212-0356-46a0-8da2-eebc53a68034&amp;DisplayLang=en) bezpośrednio z witryny sieci Web firmy Microsoft.
 
-Po utworzeniu bazy danych, zainstalowane, przejdź do Eksploratora serwera w programie Visual Studio, kliknij prawym przyciskiem myszy węzła połączenia danych i wybierz polecenie Dodaj połączenie. Jeśli nie widzisz Eksploratora serwera, przejdź do widoku / Server Explorer lub trafień Ctrl + Alt + S. Okno dialogowe Dodawanie połączenia, w którym można określić serwer, aby nawiązać połączenie, spowoduje to wyświetlenie informacji o uwierzytelnianiu i nazwę bazy danych. Po pomyślnym skonfigurowanych informacji dotyczących połączenia bazy danych i kliknięciu przycisku OK, baza danych zostanie dodany jako węzeł poniżej tego węzła połączenia danych. Można rozwinąć węzeł bazy danych, aby eksplorować tabele, widoki, procedury składowane i tak dalej.
+Po zainstalowaniu bazy danych przejdź do Eksplorator serwera w programie Visual Studio, kliknij prawym przyciskiem myszy węzeł połączenia danych, a następnie wybierz polecenie Dodaj połączenie. Jeśli nie widzisz Eksplorator serwera przejdź do widoku/Eksplorator serwera lub naciśnij kombinację klawiszy CTRL + ALT + S. Spowoduje to wyświetlenie okna dialogowego Dodawanie połączenia, w którym można określić serwer, z którym ma zostać nawiązane połączenie, informacje o uwierzytelnianiu i nazwę bazy danych. Po pomyślnym skonfigurowaniu informacji o połączeniu z bazą danych i kliknięciu przycisku OK baza danych zostanie dodana jako węzeł pod węzłem połączenia danych. Węzeł bazy danych można rozwinąć, aby eksplorować tabele, widoki, procedury składowane i tak dalej.
 
-![Dodawanie połączenia do bazy danych Northwind serwer bazy danych](creating-a-data-access-layer-vb/_static/image4.png)
+![Dodawanie połączenia do bazy danych Northwind serwera bazy danych](creating-a-data-access-layer-vb/_static/image4.png)
 
-**Rysunek 2**: Dodawanie połączenia do bazy danych Northwind serwer bazy danych
+**Rysunek 2**. Dodawanie połączenia do bazy danych Northwind serwera bazy danych
 
 ## <a name="step-2-creating-the-data-access-layer"></a>Krok 2. Tworzenie warstwy dostępu do danych
 
-Podczas pracy z jedną z opcji danych jest osadzone logikę specyficzną dla danych bezpośrednio do warstwy prezentacji (aplikacja sieci web składają stron ASP.NET Warstwa prezentacji). Może to potrwać postaci pisania kodu ADO.NET w części kodu strony ASP.NET lub przy użyciu kontrolki SqlDataSource z fragment kodu znaczników. W obu przypadkach to podejście ściśle couples logiką dostępu do danych z warstwą prezentacji. Zalecanym podejściem jest jednak oddzielić logiką dostępu do danych z warstwy prezentacji. Ta warstwa oddzielne nazywa się warstwy dostępu do danych, warstwy DAL w skrócie i jest zwykle implementowany jako oddzielny projekt biblioteki klas. Zalety tej architektury warstwowej są dobrze udokumentowane (zobacz sekcję "Dalsze odczytów" na końcu niniejszego samouczka, aby informacji na temat korzyści te) i jest rozwiązaniem podejmujemy w tej serii.
+Podczas pracy z danymi jedną z opcji jest osadzenie logiki specyficznej dla danych bezpośrednio do warstwy prezentacji (w aplikacji sieci Web, strony ASP.NET tworzą warstwę prezentacji). Może to potrwać pisanie kodu ADO.NET w części kodu strony ASP.NET lub przy użyciu formantu kontrolki SqlDataSource z części znacznika. W obu przypadkach to podejście ściśle Couples logikę dostępu do danych za pomocą warstwy prezentacji. Zalecanym podejściem jest jednak oddzielenie logiki dostępu do danych od warstwy prezentacji. Ta osobna warstwa jest nazywana warstwą dostępu do danych, DAL na krótkie i jest zwykle implementowana jako oddzielny projekt biblioteki klas. Zalety tej architektury warstwowej są dobrze udokumentowane (zobacz sekcję "dalsze odczytywanie" na końcu tego samouczka, aby uzyskać informacje o tych zaletach) i to podejście, które zajmiemy się w tej serii.
 
-Cały kod, który zależy od bazowego źródła danych, takich jak tworzenie połączenia z bazą danych, wydawanie `SELECT`, `INSERT`, `UPDATE`, i `DELETE` polecenia i tak dalej powinien znajdować się w warstwy DAL. Warstwa prezentacji nie powinna zawierać żadnych odwołań do takiego kodu dostępu do danych, ale zamiast tego należy wykonywać wywołania do warstwy DAL wszystkie dane żądań. Warstwy dostępu do danych zwykle zawierają metod dostępu do danych bazowych bazy danych. Bazy danych Northwind, na przykład ma `Products` i `Categories` tabel, służące do rejestrowania produktów, sprzedaż i kategorie, do których należą. W naszym DAL mamy metod, takich jak:
+Cały kod, który jest specyficzny dla bazowego źródła danych, taki jak tworzenie połączenia z bazą danych, wygenerowanie `SELECT`, `INSERT`, `UPDATE`i poleceń `DELETE`, i tak dalej, powinien znajdować się w DAL. Warstwa prezentacji nie powinna zawierać żadnych odwołań do tego kodu dostępu do danych, ale zamiast tego należy wykonać wywołania do DAL dla dowolnych i wszystkich żądań danych. Warstwy dostępu do danych zazwyczaj zawierają metody uzyskiwania dostępu do danych źródłowych bazy danych. Na przykład baza danych Northwind zawiera `Products` i `Categories` tabele, które rejestrują produkty do sprzedaży i kategorie, do których należą. W naszym DAL będziemy korzystać z metod takich jak:
 
-- `GetCategories(),` co spowoduje zwrócenie informacji na temat wszystkich kategorii
-- `GetProducts()`, co spowoduje zwrócenie informacji na temat wszystkich produktów
-- `GetProductsByCategoryID(categoryID)`, co spowoduje zwrócenie wszystkich produktów, które należą do określonej kategorii
-- `GetProductByProductID(productID)`, co spowoduje zwrócenie informacji na temat określonego produktu
+- `GetCategories(),`, które będą zwracać informacje o wszystkich kategoriach
+- `GetProducts()`, która zwróci informacje o wszystkich produktach
+- `GetProductsByCategoryID(categoryID)`, która zwróci wszystkie produkty należące do określonej kategorii
+- `GetProductByProductID(productID)`, która zwróci informacje o określonym produkcie
 
-Te metody, gdy wywoływany, będzie połączenia z bazą danych, wystawiał odpowiednie zapytanie, a następnie zwracają wyniki. Ważne jest jak możemy zwrócić następujące wyniki. Metody te po prostu może zwrócić zestawu danych lub DataReader wprowadzona przez zapytanie bazy danych, ale najlepiej te wyniki powinny być zwracany za pomocą *silnie typizowanych obiektów*. Obiekt silnie typizowane jest jednym którego schemat sztywno jest zdefiniowany w czasie kompilacji, i na odwrót obiekt typowaniem luźnym jest jedną którego schemat nie jest znany aż do czasu.
+Te metody, gdy zostanie wywołane, będą łączyć się z bazą danych, wystawić odpowiednie zapytanie i zwrócić wyniki. Jak zwracamy te wyniki. Metody te mogą po prostu zwracać zestaw danych lub element DataReader wypełniany przez kwerendę bazy danych, ale najlepiej zwrócić te wyniki przy użyciu *obiektów o jednoznacznie określonym typie*. Obiekt o jednoznacznie określonym typie to jeden, którego schemat jest sztywno zdefiniowany w czasie kompilacji, natomiast przeciwieństwo do obiektu o swobodnym typie, jest to jeden, którego schemat nie jest znany do czasu wykonania.
 
-Na przykład elementu DataReader i zestaw danych (domyślnie) to typowaniem luźnym obiekty, ponieważ jego schemat jest definiowany przez kolumny zwracane przez zapytanie bazy danych, używanych do wypełniania je. Dostęp do konkretnej kolumny z typowaniem luźnym DataTable, należy użyć składni, takich jak: `DataTable.Rows(index)("columnName")`. Na obiekt DataTable nie będzie wpisując w tym przykładzie jest ujawnione przez fakt, że potrzebujemy dostęp do nazwy kolumny przy użyciu ciągu lub indeksem. Silnie typizowane DataTable, z drugiej strony, będzie miał każdego z jego kolumn implementowane jako właściwości, co w kodzie, który wygląda następująco: `DataTable.Rows(index).columnName`.
+Na przykład element DataReader i zestaw danych (domyślnie) są obiektami z swobodnym typem, ponieważ ich schemat jest zdefiniowany przez kolumny zwracane przez zapytanie bazy danych używane do ich wypełniania. Aby uzyskać dostęp do określonej kolumny z luźno wpisanej tabeli, należy użyć składni takiej jak: `DataTable.Rows(index)("columnName")`. Luźne wpisywanie danych w tym przykładzie jest zgodne z faktem, że musimy uzyskać dostęp do nazwy kolumny przy użyciu indeksu ciągu lub liczby porządkowej. Z drugiej strony element DataTable o jednoznacznie określonym typie, będzie miał wszystkie kolumny zaimplementowane jako właściwości, w wyniku czego kod wygląda następująco: `DataTable.Rows(index).columnName`.
 
-Aby przywrócić silnie typizowanych obiektów, deweloperzy mogą tworzenie własnych obiektów niestandardowych biznesowych albo użyj wpisanych zestawów danych. Obiekt biznesowy jest implementowany przez dewelopera, ponieważ reprezentuje klasę, której właściwości zwykle odzwierciedla kolumny tabeli podstawowej bazy danych obiektu biznesowego. Wpisany zestaw danych jest klasą wygenerowane automatycznie przez program Visual Studio na podstawie schematu bazy danych i której członkami są silnie typizowaną zgodnie z tym schemacie. Wpisany zestaw danych sam składa się z klas, które rozszerzają klas ADO.NET DataSet, DataTable i DataRow. Oprócz silnie typizowane DataTable wpisanych zestawów danych teraz także TableAdapters, w której przedstawiono klasy z metodami wypełnianie zestawu danych DataTables zmiany i propagowanie zmian w ramach DataTable w bazie danych.
+Aby można było zwracać obiekty o jednoznacznie określonym typie, deweloperzy mogą tworzyć własne niestandardowe obiekty biznesowe lub korzystać z wpisanych zestawów danych. Obiekt biznesowy jest implementowany przez dewelopera jako Klasa, której właściwości zwykle odzwierciedlają kolumny bazowej tabeli bazy danych, reprezentowanego przez obiekt biznesowy. Określony zestaw danych jest klasą wygenerowaną przez program Visual Studio w oparciu o schemat bazy danych, której elementy członkowskie są jednoznacznie wpisane zgodnie z tym schematem. Sam zestaw danych składa się z klas, które poszerzają klasy zestawu danych ADO.NET, DataTable i DataRow. Oprócz jednoznacznie wpisanych tabeli danych, typy zestawów danych zawierają teraz również TableAdapters, które są klasami z metodami służącymi do wypełniania tabel DataTables i propagowania modyfikacji w tabelach DataTables z powrotem do bazy.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat zalet i wad przy użyciu wpisanych zestawów danych i obiektów niestandardowych biznesowych, zobacz [projektowanie składników warstwy danych i przekazywanie danych za pośrednictwem warstw](https://msdn.microsoft.com/library/ms978496.aspx).
+> Aby uzyskać więcej informacji o zaletach i wadach korzystania z wpisanych zestawów danych a niestandardowymi obiektami biznesowymi, zapoznaj się z tematem [projektowanie składników warstwy i przekazywanie danych za pośrednictwem warstw](https://msdn.microsoft.com/library/ms978496.aspx).
 
-Użyjemy silnie typizowane zestawy danych dla tych samouczków architektury. Rysunek 3 ilustruje przepływ pracy między różne warstwy aplikacji, która używa wpisanych zestawów danych.
+Będziemy używać zestawów danych o jednoznacznie określonym typie dla architektury samouczków. Rysunek 3 ilustruje przepływ pracy między różnymi warstwami aplikacji, które korzystają z wpisanych zestawów danych.
 
-[![Cały kod dostępu do danych jest były odpowiedzialne warstwy DAL](creating-a-data-access-layer-vb/_static/image6.png)](creating-a-data-access-layer-vb/_static/image5.png)
+[![cały kod dostępu do danych jest Relegated DAL](creating-a-data-access-layer-vb/_static/image6.png)](creating-a-data-access-layer-vb/_static/image5.png)
 
-**Rysunek 3**: Cały kod dostępu do danych jest były odpowiedzialne z warstwą dal ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image7.png))
+**Rysunek 3**. cały kod dostępu do danych jest RELEGATED do dal ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image7.png))
 
-## <a name="creating-a-typed-dataset-and-table-adapter"></a>Tworzenie zestawu danych i tabeli karty
+## <a name="creating-a-typed-dataset-and-table-adapter"></a>Tworzenie zestawu danych o określonym typie i karty tabeli
 
-Aby rozpocząć tworzenie naszej DAL, Zaczniemy od Dodawanie wpisany zestaw danych do naszego projektu. W tym celu kliknij prawym przyciskiem myszy węzeł projektu w Eksploratorze rozwiązań i wybierz pozycję Dodaj nowy element. Wybierz opcję zestaw danych z listy szablonów, a następnie nadaj mu nazwę `Northwind.xsd`.
+Aby rozpocząć tworzenie naszych DAL, Zacznijmy od dodania do projektu zestawu danych o określonym typie. Aby to osiągnąć, kliknij prawym przyciskiem myszy węzeł projektu w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy element. Wybierz opcję DataSet z listy szablonów i nadaj jej nazwę `Northwind.xsd`.
 
-[![Wybierz dodać nowy zestaw danych do projektu](creating-a-data-access-layer-vb/_static/image9.png)](creating-a-data-access-layer-vb/_static/image8.png)
+[![wybrać, aby dodać nowy zestaw danych do projektu](creating-a-data-access-layer-vb/_static/image9.png)](creating-a-data-access-layer-vb/_static/image8.png)
 
-**Rysunek 4**: Wybierz dodać nowy zestaw danych do projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image10.png))
+**Rysunek 4**. Wybierz, aby dodać nowy zestaw danych do projektu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image10.png))
 
-Po kliknięciu przycisku Dodaj, po wyświetleniu monitu, aby dodać zestaw danych do `App_Code` folderu, kliknij przycisk Tak. Projektant wpisany zestaw danych zostanie wyświetlony, a następnie uruchomi Kreator konfiguracji TableAdapter, umożliwiające dodanie Twojego pierwszego TableAdapter DataSet wpisane.
+Po kliknięciu przycisku Dodaj, gdy zostanie wyświetlony monit o dodanie zestawu danych do folderu `App_Code`, wybierz pozycję tak. Zostanie wyświetlony Projektant określonego zestawu danych i zostanie uruchomiony Kreator konfiguracji TableAdapter, który umożliwi dodanie pierwszego TableAdapter do określonego zestawu danych.
 
-Wpisany zestaw danych jest zbiorem silnie typizowanych danych. składa się z silnie typizowane wystąpień elementu DataTable, z których każdy z kolei składa się z silnie typizowane wystąpień klasy DataRow. Utworzymy tabelę DataTable silnie typizowane dla każdej z tabel bazy danych, potrzebne nam pracować w tej serii samouczków. Zacznijmy od utworzenia elementu DataTable do `Products` tabeli.
+Typ DataSet służy jako kolekcja danych o jednoznacznie określonym typie. składa się z wystąpień typu DataTable o jednoznacznie określonym typie, z których każdy jest z kolei składający się z silnie typu instancji DataRow. Utworzymy silnie typu DataTable dla każdej źródłowej tabeli bazy danych, z którą będziemy musieli współpracować w tej serii samouczków. Zacznijmy od utworzenia elementu DataTable dla tabeli `Products`.
 
-Należy pamiętać o tym, silnie typizowane DataTable nie dołączaj żadnych informacji o tym, jak uzyskać dostęp do danych z ich tabeli źródłowej bazy danych. Aby pobrać dane w celu wypełnienia tabeli DataTable, należy użyć klasy TableAdapter, która działa jako nasze warstwy dostępu do danych. Dla naszych `Products` DataTable, TableAdapter będzie zawierać metod `GetProducts()`, `GetProductByCategoryID(categoryID)`i tak dalej, firma Microsoft będzie wywołania z warstwy prezentacji. Rola tabeli DataTable jest ma pełnić rolę silnie typizowanych obiektów, używany do przekazywania danych między warstwami.
+Należy pamiętać, że jednoznacznie wpisane tabele danych nie zawierają żadnych informacji na temat sposobu uzyskiwania dostępu do danych z ich źródłowej tabeli. Aby można było pobrać dane w celu wypełnienia DataTable, używamy klasy TableAdapter, która działa jako warstwa dostępu do danych. Dla naszego `Products` DataTable, TableAdapter będzie zawierać metody `GetProducts()`, `GetProductByCategoryID(categoryID)`i tak dalej, że wywołamy z warstwy prezentacji. Rola elementu DataTable służy jako obiekty o jednoznacznie określonym typie służące do przekazywania danych między warstwami.
 
-Kreator konfiguracji TableAdapter rozpoczyna się od monit wybierz bazę danych, które chcesz pracować. Na liście rozwijanej przedstawiono tych baz danych w Eksploratorze serwera. Jeśli bazy danych Northwind nie zostały dodane do Eksploratora serwera, możesz kliknąć przycisk nowe połączenie, w tej chwili, aby to zrobić.
+Kreator konfiguracji TableAdapter rozpoczyna się od wyświetlenia monitu o wybranie bazy danych, z którą chcesz współpracować. Lista rozwijana zawiera te bazy danych w Eksplorator serwera. Jeśli baza danych Northwind nie została dodana do Eksplorator serwera, w tym momencie można kliknąć przycisk nowe połączenie.
 
-[![Z listy rozwijanej wybierz opcję bazy danych Northwind](creating-a-data-access-layer-vb/_static/image12.png)](creating-a-data-access-layer-vb/_static/image11.png)
+[![wybrać bazę danych Northwind z listy rozwijanej](creating-a-data-access-layer-vb/_static/image12.png)](creating-a-data-access-layer-vb/_static/image11.png)
 
-**Rysunek 5**: Z listy rozwijanej wybierz opcję bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image13.png))
+**Rysunek 5**. Wybierz z listy rozwijanej bazę danych Northwind (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image13.png))
 
-Po wybraniu bazy danych, a następnie klikając przycisk Dalej, użytkownik zostanie zapytany, czy chcesz zapisać parametry połączenia w `Web.config` pliku. Zapisując parametry połączenia można będzie uniknąć go twardych kodowane w klasach TableAdapter, która upraszcza czynności, jeśli informacje o parametrach połączenia zmieni się w przyszłości. Jeśli wybierzesz opcję Zapisz parametry połączenia w pliku konfiguracji jest umieszczany w `<connectionStrings>` sekcję, co może być [opcjonalnie zaszyfrowanych](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) ulepszone zabezpieczenia, lub zmodyfikować później przy użyciu nowej strony właściwości w wersji 2.0 programu ASP.NET w Narzędzia administracyjnego graficznego interfejsu użytkownika usług IIS, co jest bardziej idealnym rozwiązaniem dla administratorów.
+Po wybraniu bazy danych i kliknięciu przycisku Dalej zostanie wyświetlony monit z prośbą o zapisanie parametrów połączenia w pliku `Web.config`. Przez zapisanie parametrów połączenia, należy unikać, aby był on zakodowany w klasach TableAdapter, co upraszcza działania, jeśli informacje o parametrach połączenia zmieniają się w przyszłości. Jeśli chcesz zapisać parametry połączenia w pliku konfiguracji, zostanie on umieszczony w sekcji `<connectionStrings>`, która może być [Opcjonalnie zaszyfrowana](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) w celu zwiększenia bezpieczeństwa lub zmodyfikowana później za pomocą nowej strony właściwości ASP.NET 2,0 w ramach narzędzia administratora graficznego interfejsu użytkownika usług IIS, co jest bardziej idealne dla administratorów.
 
-[![Zapisz parametry połączenia do pliku Web.config](creating-a-data-access-layer-vb/_static/image15.png)](creating-a-data-access-layer-vb/_static/image14.png)
+[![zapisać parametry połączenia w pliku Web. config](creating-a-data-access-layer-vb/_static/image15.png)](creating-a-data-access-layer-vb/_static/image14.png)
 
-**Rysunek 6**: Zapisz ciąg połączeń do `Web.config` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image16.png))
+**Ilustracja 6**. Zapisz parametry połączenia do `Web.config` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image16.png))
 
-Następnie należy zdefiniować schemat dla pierwszego elementu DataTable silnie typizowane i Udostępnij pierwszą metodę naszych TableAdapter do użycia podczas wypełniania zestawu danych silnie typizowane. Następujące dwa kroki są wykonywane jednocześnie, tworząc kwerendę, która zwraca kolumny z tabeli, że chcemy znajduje odzwierciedlenie w naszym DataTable. Po zakończeniu pracy z kreatorem przedstawimy Nazwa metody do tego zapytania. Gdy który zostało zrobione, ta metoda może być wywoływany z naszych warstwy prezentacji. Metoda będzie wykonaj zapytanie zdefiniowane i wypełnij DataTable silnie typizowane.
+Następnie musimy zdefiniować schemat dla pierwszej jednoznacznie wpisanej tabeli DataTable i podać pierwszą metodę TableAdapter, która będzie używana podczas wypełniania silnie określonego zestawu danych. Te dwa kroki są wykonywane równocześnie przez utworzenie zapytania zwracającego kolumny z tabeli, która ma być odzwierciedlona w naszym elemencie DataTable. Na końcu kreatora przekażemy nazwę metody do tego zapytania. Po wykonaniu tej metody można wywołać ją z naszej warstwy prezentacji. Metoda wykonuje zdefiniowane zapytanie i wypełnia silnie wpisaną wartość DataTable.
 
-Aby rozpocząć pracę, definiując kwerendy SQL musi najpierw wskazaliśmy jak chcemy TableAdapter do wysyłania kwerendy. Możemy użyć instrukcji SQL zapytań ad-hoc, Utwórz nową procedurę składowaną lub użyj istniejącą procedurę składowaną. Dla tych samouczkach użyjemy instrukcji SQL zapytań ad-hoc. Zapoznaj się [NieTak Brian](http://briannoyes.net/)użytkownika artykuł [Tworzenie warstwy dostępu do danych, za pomocą Projektanta obiektów DataSet 2005 Visual Studio](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner) na przykład za pomocą procedur składowanych.
+Aby rozpocząć Definiowanie zapytania SQL, musimy najpierw określić, jak chcemy, aby TableAdapter wystawić zapytanie. Możemy użyć instrukcji SQL ad hoc, utworzyć nową procedurę składowaną lub użyć istniejącej procedury składowanej. Dla tych samouczków będziemy używać instrukcji SQL ad hoc. Zapoznaj się z artykułem [Brian Noyes](http://briannoyes.net/), [Utwórz warstwę dostępu do danych za pomocą projektanta zestawu danych programu Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner) , aby zapoznać się z przykładem korzystania z procedur składowanych.
 
-[![Wykonywanie zapytań o dane za pomocą instrukcji SQL zapytań Ad-Hoc](creating-a-data-access-layer-vb/_static/image18.png)](creating-a-data-access-layer-vb/_static/image17.png)
+[![wykonywanie zapytań dotyczących danych za pomocą instrukcji SQL ad hoc](creating-a-data-access-layer-vb/_static/image18.png)](creating-a-data-access-layer-vb/_static/image17.png)
 
-**Rysunek 7**: Wykonywanie zapytań o dane za pomocą instrukcji SQL zapytań Ad-Hoc ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image19.png))
+**Rysunek 7**. wykonywanie zapytania dotyczącego danych za pomocą instrukcji SQL ad hoc ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image19.png))
 
-W tym momencie możemy można wpisać w kwerendzie SQL ręcznie. Podczas tworzenia pierwszej metody w metodzie TableAdapter ma zazwyczaj kwerenda zwraca te kolumny, które muszą być wyrażone w odpowiedni DataTable. Możemy to zrobić, tworząc zapytania zwracającego wszystkie kolumny i wszystkie wiersze z `Products` tabeli:
+W tym momencie możemy ręcznie wpisać zapytanie SQL. Podczas tworzenia pierwszej metody w TableAdapter zazwyczaj chcesz, aby zapytanie zwracało te kolumny, które muszą być wyrażone w odpowiedniej tabeli DataTable. W tym celu można utworzyć zapytanie, które zwraca wszystkie kolumny i wszystkie wiersze z tabeli `Products`:
 
-[![Wprowadź zapytanie SQL do kontrolki Textbox](creating-a-data-access-layer-vb/_static/image21.png)](creating-a-data-access-layer-vb/_static/image20.png)
+[![wprowadzić zapytanie SQL do pola tekstowego](creating-a-data-access-layer-vb/_static/image21.png)](creating-a-data-access-layer-vb/_static/image20.png)
 
-**Rysunek 8**: Wprowadź SQL zapytań w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image22.png))
+**Ilustracja 8**. wprowadzanie zapytania SQL do pola tekstowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image22.png))
 
-Alternatywnie użyj konstruktora zapytań i graficznie konstruowania zapytania, jak pokazano na rysunku 9.
+Alternatywnie, użyj Konstruktor zapytań i graficznego konstruowania zapytania, jak pokazano na rysunku 9.
 
-[![Utwórz zapytanie w formie graficznej, za pomocą edytora zapytań](creating-a-data-access-layer-vb/_static/image24.png)](creating-a-data-access-layer-vb/_static/image23.png)
+[![utworzyć zapytanie graficznie, za pomocą edytora zapytań](creating-a-data-access-layer-vb/_static/image24.png)](creating-a-data-access-layer-vb/_static/image23.png)
 
-**Rysunek 9**: Utwórz zapytanie graficznie, za pomocą edytora zapytań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image25.png))
+**Rysunek 9**. Tworzenie zapytania graficznie, za pomocą edytora zapytań ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image25.png))
 
-Po utworzeniu zapytania, ale przed przejściem do następnego ekranu kliknij przycisk Opcje zaawansowane. W projektach witryny sieci Web "Generuj Insert, Update i Delete instrukcji" jest jedyną zaawansowana opcja jest zaznaczona domyślnie; Po uruchomieniu tego kreatora z biblioteki klas lub projektu Windows również zostanie wybrana opcja "Użyj optymistycznej współbieżności". Zaznaczaj opcji "Użyj optymistycznej współbieżności" teraz. W samouczkach przyszłych zajmiemy się optymistycznej współbieżności.
+Po utworzeniu zapytania, ale przed przechodzeniem na następny ekran, kliknij przycisk Opcje zaawansowane. W projektach witryn sieci Web "Generuj instrukcje INSERT, Update i Delete" to jedyną zaawansowaną opcją wybraną domyślnie. Jeśli uruchomisz tego kreatora z biblioteki klas lub projektu systemu Windows, również zostanie wybrana opcja "Użyj optymistycznej współbieżności". Pozostaw opcję "Użyj optymistycznej współbieżności", która nie jest zaznaczona. Sprawdzimy optymistyczną współbieżność w przyszłych samouczkach.
 
-[![Wybierz tylko generowanie Insert, Update i Delete instrukcje opcji](creating-a-data-access-layer-vb/_static/image27.png)](creating-a-data-access-layer-vb/_static/image26.png)
+[![wybrać tylko opcję Generuj instrukcje INSERT, Update i DELETE](creating-a-data-access-layer-vb/_static/image27.png)](creating-a-data-access-layer-vb/_static/image26.png)
 
-**Na rysunku nr 10**: Wybierz tylko generowanie Insert, Update i Delete instrukcje opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image28.png))
+**Ilustracja 10**. Wybierz tylko opcję Generuj instrukcje INSERT, Update i Delete (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image28.png))
 
-Po zweryfikowaniu opcje zaawansowane, kliknij przycisk Dalej, aby przejść do końcowej ekranu. W tym miejscu są możemy proszony o wybranie metod, aby dodać do TableAdapter. Istnieją dwa wzorce umożliwiający wypełnianie danych:
+Po sprawdzeniu opcji zaawansowanych kliknij przycisk Dalej, aby przejoć do końcowego ekranu. Oto prośba o wybranie metod do dodania do TableAdapter. Istnieją dwa wzorce do wypełniania danych:
 
-- **Wypełnij DataTable** za pomocą tego podejścia, tworzona jest metoda, która przyjmuje jako parametr DataTable i wypełnia ją na podstawie wyników zapytania. Klasa ADO.NET DataAdapter, na przykład implementuje tego wzorca z jego `Fill()` metody.
-- **Zwraca DataTable** w przypadku tej metody metoda tworzy i wypełnia DataTable dla Ciebie i zwraca go jako metody zwracają wartość.
+- **Wypełnianie DataTable** przy użyciu tego podejścia Metoda jest tworzona, która przyjmuje element DataTable jako parametr i wypełnia je na podstawie wyników zapytania. Klasa ADO.NET DataAdapter, na przykład implementuje ten wzorzec przy użyciu metody `Fill()`.
+- **Zwróć element DataTable** z tym podejściem Metoda tworzy i wypełnia element DataTable dla użytkownika i zwraca go jako metody zwraca wartość.
 
-Może mieć TableAdapter, zaimplementuj jeden lub oba te wzorce. Można również zmienić nazwę metody podane tutaj. Pozostawmy oba pola wyboru zaznaczone, mimo że firma Microsoft będzie używać tylko ten drugi wzorzec w tych samouczkach. Ponadto Zmieńmy nazwy zamiast ogólnych `GetData` metody `GetProducts`.
+TableAdapter może zaimplementować jeden lub oba te wzorce. Możesz również zmienić nazwy metod dostarczonych tutaj. Pozostaw wszystkie zaznaczone pola wyboru, nawet jeśli będziemy używać tylko tego samego wzorca w ramach tych samouczków. Ponadto Zmień nazwę metody `GetData` generycznej na `GetProducts`.
 
-Jeśli zaznaczone, tworzy końcowej pola wyboru "GenerateDBDirectMethods," `Insert()`, `Update()`, i `Delete()` metody TableAdapter. Jeśli zaznaczaj tej opcji wszystkie aktualizacje należy wykonać za pomocą TableAdapter jedynej `Update()` metody, która przyjmuje wpisany zestaw danych, DataTable, pojedynczego elementu DataRow lub tablicę wierszy danych. (Jeśli masz unchecked "Generuj Insert, Update i Delete instrukcje" w opcji Zaawansowane właściwości na rysunku 9 to pole wyboru ustawienia odniesie żadnego skutku.) Teraz należy pozostawić zaznaczone pole wyboru.
+W przypadku zaznaczenia tego pola wyboru, "GenerateDBDirectMethods", tworzy metody `Insert()`, `Update()`i `Delete()` dla TableAdapter. Jeśli ta opcja nie zostanie zaznaczona, wszystkie aktualizacje będą musiały zostać wykonane za pomocą TableAdapterej metody `Update()`, która przyjmuje określony zestaw danych, DataTable, pojedynczy element DataRow lub tablicę DataRows. (Jeśli usunięto zaznaczenie opcji "Generuj instrukcje INSERT, Update i Delete" z właściwości zaawansowanych na rysunku 9, to ustawienie pola wyboru nie będzie miało żadnego efektu). Pozostaw to pole wyboru.
 
-[![Zmień nazwę metody z GetData GetProducts](creating-a-data-access-layer-vb/_static/image30.png)](creating-a-data-access-layer-vb/_static/image29.png)
+[![zmienić nazwy metody z GetData na getproductss](creating-a-data-access-layer-vb/_static/image30.png)](creating-a-data-access-layer-vb/_static/image29.png)
 
-**Rysunek 11**: Zmień nazwę metody `GetData` do `GetProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image31.png))
+**Ilustracja 11**. zmiana nazwy metody z `GetData` na `GetProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image31.png))
 
-Ukończ pracę kreatora, klikając przycisk Zakończ. Po zamknięciu kreatora możemy są zwracane do Projektanta obiektów DataSet, w której przedstawiono DataTable, którą właśnie utworzyliśmy. Można wyświetlić listę kolumn w `Products` DataTable (`ProductID`, `ProductName`i tak dalej), a także metody `ProductsTableAdapter` (`Fill()` i `GetProducts()`).
+Aby zakończyć pracę kreatora, kliknij przycisk Zakończ. Po zamknięciu kreatora zostaną zwrócone do projektanta obiektów DataSet, który pokazuje właśnie utworzoną tabelę. Można wyświetlić listę kolumn w `Products` DataTable (`ProductID`, `ProductName`itd.), a także metody `ProductsTableAdapter` (`Fill()` i `GetProducts()`).
 
-[![DataTable produktów i ProductsTableAdapter zostały dodane do wpisana zestawu danych](creating-a-data-access-layer-vb/_static/image33.png)](creating-a-data-access-layer-vb/_static/image32.png)
+[![produkty DataTable i ProductsTableAdapter zostały dodane do określonego zestawu danych](creating-a-data-access-layer-vb/_static/image33.png)](creating-a-data-access-layer-vb/_static/image32.png)
 
-**Rysunek 12**: `Products` DataTable i `ProductsTableAdapter` zostały dodane do zestawu danych wpisane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image34.png))
+**Ilustracja 12**. `Products` DataTable i `ProductsTableAdapter` zostały dodane do określonego zestawu danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image34.png))
 
-W tym momencie mamy wpisany zestaw danych z pojedynczej tabeli DataTable (`Northwind.Products`) i silnie typizowaną klasę DataAdapter (`NorthwindTableAdapters.ProductsTableAdapter`) przy użyciu `GetProducts()` metody. Te obiekty mogą służyć dostęp do listy wszystkich produktów z kodu, takich jak:
+W tym momencie mamy zestaw danych z jednym elementem DataTable (`Northwind.Products`) i z silnie wpisaną klasą DataAdapter (`NorthwindTableAdapters.ProductsTableAdapter`) metodą `GetProducts()`. Te obiekty mogą służyć do uzyskiwania dostępu do listy wszystkich produktów z kodu, takich jak:
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample1.vb)]
 
-Ten kod nie wymagała nam napisać jeden bit kodu specyficznego dla dostępu do danych. Firma Microsoft nie ma do tworzenia wystąpień dowolnego klas ADO.NET, firma Microsoft nie będzie musiał odwoływać się do żadnych parametrów połączenia zapytania SQL lub procedur składowanych. Zamiast tego TableAdapter zawiera kod dostępu do danych niskiego poziomu dla nas.
+Ten kod nie wymaga od nas zapisania jednego bitu kodu specyficznego dla dostępu do danych. Nie trzeba tworzyć wystąpień żadnych klas ADO.NET, nie musimy odwoływać się do żadnych parametrów połączenia, zapytań SQL ani procedur składowanych. Zamiast tego TableAdapter zapewnia kod dostępu do danych niskiego poziomu.
 
-Każdy obiekt używany w tym przykładzie jest również silnie typizowaną, dzięki czemu Visual Studio, aby zapewnić funkcji IntelliSense i sprawdzanie typów w czasie kompilacji. A najlepsze cechy wszystkich DataTable, które są zwracane przez TableAdapter może być powiązana z formantów sieci Web, takich jak kontrolki GridView, DetailsView, DropDownList, CheckBoxList i kilka innych danych w programie ASP.NET. W poniższym przykładzie pokazano powiązania tabeli DataTable zwróconej przez `GetProducts()` metody w kontrolce GridView po prostu krępowane trzech wierszy kodu w `Page_Load` programu obsługi zdarzeń.
+Każdy obiekt użyty w tym przykładzie jest również silnie wpisany, co pozwala programowi Visual Studio zapewnić sprawdzanie typów funkcji IntelliSense i czasu kompilacji. I najlepsze dla wszystkich tabel danych zwracanych przez TableAdapter można powiązać z kontrolkami sieci Web z danymi ASP.NET, takimi jak GridView, DetailsView, DropDownList, formant CheckBoxList i kilka innych. Poniższy przykład ilustruje powiązanie elementu DataTable zwróconego przez metodę `GetProducts()` z elementem GridView w zaledwie scant trzy wiersze kodu w ramach programu obsługi zdarzeń `Page_Load`.
 
-AllProducts.aspx
+AllProducts. aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample2.aspx)]
 
-AllProducts.aspx.vb
+AllProducts. aspx. vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample3.vb)]
 
-[![Lista produktów są wyświetlane w widoku GridView](creating-a-data-access-layer-vb/_static/image36.png)](creating-a-data-access-layer-vb/_static/image35.png)
+[![Lista produktów zostanie wyświetlona w widoku GridView](creating-a-data-access-layer-vb/_static/image36.png)](creating-a-data-access-layer-vb/_static/image35.png)
 
-**Rysunek 13**: Lista produktów jest wyświetlany w kontrolce GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image37.png))
+**Ilustracja 13**. Lista produktów jest wyświetlana w widoku GridView ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image37.png))
 
-Chociaż w tym przykładzie wymagane, możemy napisać trzech wierszach kodu strony ASP.NET `Page_Load` program obsługi zdarzeń, w przyszłości samouczki zajmiemy się jak za pomocą kontrolki ObjectDataSource deklaratywne pobierania danych z warstwy DAL. Za pomocą kontrolki ObjectDataSource firma Microsoft nie będziesz mieć do pisania kodu i otrzyma obsługi stronicowania i sortowania.
+Chociaż ten przykład wymagał zapisu trzech wierszy kodu na naszej ASP.NET `Page_Load` stronie programu obsługi zdarzeń, w przyszłych samouczkach sprawdzimy, jak używać elementu ObjectDataSource, aby deklaratywnie pobrać dane z DAL. Przy użyciu elementu ObjectDataSource nie będziemy musieli pisać żadnego kodu, a także uzyskać pomocy technicznej dotyczącej stronicowania i sortowania.
 
-## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>Krok 3. Dodawanie sparametryzowane metody służące do warstwy dostępu do danych
+## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>Krok 3. Dodawanie sparametryzowanych metod do warstwy dostępu do danych
 
-W tym momencie nasze `ProductsTableAdapter` klasa ma jednak jedną metodę `GetProducts()`, która zwraca wszystkich produktów w bazie danych. Możliwość pracy w przypadku pozostałych produktów jest zdecydowanie użyteczne, istnieją czasy, kiedy chcemy będzie można pobrać informacji na temat określonego produktu lub wszystkie produkty, które należą do określonej kategorii. Aby dodać funkcjonalność do naszych warstwy dostępu do danych możemy dodać sparametryzowane metody do TableAdapter.
+W tym momencie Nasza Klasa `ProductsTableAdapter` ma inną metodę, `GetProducts()`, która zwraca wszystkie produkty z bazy danych. Chociaż możliwe jest korzystanie z wszystkich produktów, jest to bardzo przydatne, gdy będziemy chciały pobrać informacje o określonym produkcie lub wszystkie produkty należące do określonej kategorii. Aby dodać te funkcje do warstwy dostępu do danych, można dodać sparametryzowane metody do TableAdapter.
 
-Dodajmy `GetProductsByCategoryID(categoryID)` metody. Aby dodać nową metodę do warstwy DAL, wróć do Projektanta obiektów DataSet, kliknij prawym przyciskiem myszy `ProductsTableAdapter` sekcji, a następnie wybierz polecenie Dodaj zapytanie.
+Dodajmy metodę `GetProductsByCategoryID(categoryID)`. Aby dodać nową metodę do DAL, Wróć do projektanta obiektów DataSet, kliknij prawym przyciskiem myszy w sekcji `ProductsTableAdapter` i wybierz polecenie Dodaj zapytanie.
 
-![Kliknij prawym przyciskiem myszy na obiekt TableAdapter i wybierz polecenie Dodaj zapytanie](creating-a-data-access-layer-vb/_static/image38.png)
+![Kliknij prawym przyciskiem myszy TableAdapter i wybierz polecenie Dodaj zapytanie](creating-a-data-access-layer-vb/_static/image38.png)
 
-**Rysunek 14**: Kliknij prawym przyciskiem myszy na obiekt TableAdapter i wybierz polecenie Dodaj zapytanie
+**Ilustracja 14**. Kliknij prawym przyciskiem myszy TableAdapter i wybierz polecenie Dodaj zapytanie
 
-Firma Microsoft są najpierw pojawi się monit dotyczący tego, czy ma dostęp do bazy danych za pomocą instrukcji SQL zapytań ad-hoc lub nowej lub istniejącej procedury składowanej. Wybierzmy użyć instrukcji SQL zapytań ad-hoc ponownie. Są następnie proszeni jakiego typu zapytania SQL prosimy o poświęcenie do użycia. Ponieważ chcemy zwrócić wszystkie produkty, które należą do określonej kategorii, chcemy napisać `SELECT` instrukcji, która zwraca wiersze.
+Pierwszy monit o to, czy chcemy uzyskać dostęp do bazy danych przy użyciu instrukcji SQL ad hoc, czy nowej lub istniejącej procedury składowanej. Zdecydujmy się ponownie użyć instrukcji SQL ad hoc. Następnie pytamy, jakiego typu zapytania SQL chcesz użyć. Ponieważ chcemy zwrócić wszystkie produkty należące do określonej kategorii, chcemy napisać instrukcję `SELECT`, która zwraca wiersze.
 
-[![Utwórz instrukcję SELECT, która zwraca wiersze](creating-a-data-access-layer-vb/_static/image40.png)](creating-a-data-access-layer-vb/_static/image39.png)
+[![utworzyć instrukcji SELECT, która zwraca wiersze](creating-a-data-access-layer-vb/_static/image40.png)](creating-a-data-access-layer-vb/_static/image39.png)
 
-**Rysunek 15**: Możliwość tworzenia `SELECT` instrukcji która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image41.png))
+**Ilustracja 15**. Wybierz, aby utworzyć instrukcję `SELECT`, która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image41.png))
 
-Następnym krokiem jest określenie zapytania SQL używany do uzyskania dostępu do danych. Ponieważ chcemy zwracać tylko te produkty, które należą do określonej kategorii, czy mogę używać tego samego `SELECT` instrukcji z `GetProducts()`, Dodaj następujący kod, ale `WHERE` klauzuli: `WHERE CategoryID = @CategoryID`. `@CategoryID` Parametr wskazuje kreatora TableAdapter, że metoda tworzymy będą wymagały parametr wejściowy odpowiedniego typu (to znaczy, integer dopuszczającego wartość null).
+Następnym krokiem jest zdefiniowanie zapytania SQL służącego do uzyskiwania dostępu do danych. Ponieważ chcemy zwrócić tylko te produkty, które należą do określonej kategorii, używamy tej samej instrukcji `SELECT` z `GetProducts()`, ale Dodaj następującą klauzulę `WHERE`: `WHERE CategoryID = @CategoryID`. Parametr `@CategoryID` wskazuje kreatorowi TableAdapter, że tworzona Metoda będzie wymagała parametru wejściowego odpowiedniego typu (tj. wartości null Integer).
 
-[![Wprowadź zapytanie, aby zwracać tylko produktów w określonej kategorii](creating-a-data-access-layer-vb/_static/image43.png)](creating-a-data-access-layer-vb/_static/image42.png)
+[![wprowadzić zapytanie, aby zwracało tylko produkty w określonej kategorii](creating-a-data-access-layer-vb/_static/image43.png)](creating-a-data-access-layer-vb/_static/image42.png)
 
-**Rysunek 16**: Wprowadź kwerendę tylko zwrócić produktów w określonej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image44.png))
+**Rysunek 16**. wprowadź zapytanie, aby zwrócić tylko produkty w określonej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image44.png))
 
-W ostatnim kroku możemy wybrać który wzorce do użycia, a także dostosować nazwy metody generowane dostępu do danych. Deseń wypełnienia zmienimy nazwę aby `FillByCategoryID` i dotyczące zwracania DataTable zwracają wzorca ( `GetX` metod), użyjemy `GetProductsByCategoryID`.
+W ostatnim kroku możemy wybrać wzorce dostępu do danych, które mają być używane, a także dostosować nazwy wygenerowanych metod. W przypadku deseniu wypełnienia Zmień nazwę na `FillByCategoryID` i dla zwracanego wzorca zwracanego elementu DataTable (metody `GetX`) Użyjmy `GetProductsByCategoryID`.
 
-[![Wybierz nazwy dla metody TableAdapter](creating-a-data-access-layer-vb/_static/image46.png)](creating-a-data-access-layer-vb/_static/image45.png)
+[![wybrać nazwy dla metod TableAdapter](creating-a-data-access-layer-vb/_static/image46.png)](creating-a-data-access-layer-vb/_static/image45.png)
 
-**Rysunek 17**: Wybierz nazwy dla metody TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image47.png))
+**Ilustracja 17**. Wybieranie nazw metod TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image47.png))
 
-Po ukończeniu kreatora, Projektant obiektów DataSet zawiera nowe metody TableAdapter.
+Po zakończeniu działania kreatora Projektant zestawu danych zawiera nowe metody TableAdapter.
 
-![Produkty mogą teraz można wykonywać zapytania według kategorii](creating-a-data-access-layer-vb/_static/image48.png)
+![Teraz można wykonywać zapytania o produkty według kategorii](creating-a-data-access-layer-vb/_static/image48.png)
 
-**Rysunek 18**: Produkty mogą teraz można wykonywać zapytania według kategorii
+**Ilustracja 18**: produkty mogą teraz być odpytane według kategorii
 
-Poświęć chwilę, aby dodać `GetProductByProductID(productID)` metody przy użyciu tej samej techniki.
+Poświęć chwilę, aby dodać metodę `GetProductByProductID(productID)` przy użyciu tej samej techniki.
 
-Można przetestować te zapytania parametrycznego bezpośrednio w Projektancie obiektów DataSet. Kliknij prawym przyciskiem myszy na metodzie, w metodzie TableAdapter, a następnie wybierz Podgląd danych. Następnie wprowadź wartości dla parametrów i kliknij przycisk (wersja zapoznawcza).
+Te zapytania parametryczne można przetestować bezpośrednio z projektanta obiektów DataSet. Kliknij prawym przyciskiem myszy metodę w TableAdapter i wybierz pozycję Podgląd danych. Następnie wprowadź wartości, które mają być używane dla parametrów, a następnie kliknij przycisk Podgląd.
 
-[![Te należące produktów do kategorii Beverages są wyświetlane.](creating-a-data-access-layer-vb/_static/image50.png)](creating-a-data-access-layer-vb/_static/image49.png)
+[![są wyświetlane te produkty należące do kategorii napoje](creating-a-data-access-layer-vb/_static/image50.png)](creating-a-data-access-layer-vb/_static/image49.png)
 
-**Rysunek 19**: Są wyświetlane te należące produktów do kategorii Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image51.png))
+**Ilustracja 19**. pokazywane są te produkty należące do kategorii napoje ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image51.png))
 
-Za pomocą `GetProductsByCategoryID(categoryID)` metody w naszym DAL, teraz można utworzyć strony ASP.NET, która wyświetla tylko te produkty w określonej kategorii. W poniższym przykładzie pokazano wszystkie produkty, które należą do kategorii Beverages, które mają `CategoryID` 1.
+Dzięki metodzie `GetProductsByCategoryID(categoryID)` w naszym DAL możemy teraz utworzyć stronę ASP.NET, która wyświetla tylko te produkty w określonej kategorii. W poniższym przykładzie pokazano wszystkie produkty, które znajdują się w kategorii napoje, które mają `CategoryID` 1.
 
-Beverages.aspx
+Napoje. aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample4.aspx)]
 
-Beverages.aspx.vb
+Napoje. aspx. vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample5.vb)]
 
-[![Tych produktów w należące do tej kategorii są wyświetlane.](creating-a-data-access-layer-vb/_static/image53.png)](creating-a-data-access-layer-vb/_static/image52.png)
+[![są wyświetlane te produkty w kategorii napoje](creating-a-data-access-layer-vb/_static/image53.png)](creating-a-data-access-layer-vb/_static/image52.png)
 
-**Rysunek 20**: Tych produktów w należące do tej kategorii są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image54.png))
+**Ilustracja 20**. wyświetlane są te produkty w kategorii napoje ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image54.png))
 
 ## <a name="step-4-inserting-updating-and-deleting-data"></a>Krok 4. Wstawianie, aktualizowanie i usuwanie danych
 
-Istnieją dwa wzorce często używane do wstawiania, aktualizowania i usuwania danych. Pierwszy wzorzec będzie wywoływany wzorzec bezpośrednie bazy danych obejmuje tworzenie metod, które po wywołaniu, problem `INSERT`, `UPDATE`, lub `DELETE` polecenia do bazy danych, która operuje na rekord pojedynczej bazy danych. Takie metody zwykle są przekazywane w serii wartości skalarnych (liczby całkowite, ciągi, wartości logicznych, Data/Godzina i tak dalej), które odpowiadają wartościom do wstawiania, aktualizacji lub usuwania. Na przykład, w ramach tego wzorca dla `Products` tabeli metodę delete zajmie się parametru liczby całkowitej wskazujący `ProductID` rekordu, aby usunąć, gdy metoda Wstaw zajęłoby w ciągu uzyskać `ProductName`, decimal dla `UnitPrice`, liczbę całkowitą dla `UnitsOnStock`i tak dalej.
+Istnieją dwa wzorce często używane do wstawiania, aktualizowania i usuwania danych. Pierwszy wzorzec, który wywoła wzorzec bezpośredniej bazy danych, obejmuje tworzenie metod, które po wywołaniu generują polecenie `INSERT`, `UPDATE`lub `DELETE` do bazy danych, która działa w ramach pojedynczego rekordu bazy danych. Takie metody są zwykle przesyłane w szeregu wartości skalarnych (liczb całkowitych, ciągów, wartości logicznych, DateTimes itd.), które odpowiadają wartościom do wstawienia, aktualizacji lub usunięcia. Na przykład, przy użyciu tego wzorca dla tabeli `Products` Metoda Delete przyjmuje wartość parametru Integer, wskazując `ProductID` rekordu do usunięcia, podczas gdy metoda Insert przyjmuje ciąg dla `ProductName`, wartość dziesiętną dla `UnitPrice`, liczbę całkowitą dla `UnitsOnStock`itd.
 
-[![Każdy Insert, Update i Usuń żądania, które są wysyłane do bazy danych natychmiast](creating-a-data-access-layer-vb/_static/image56.png)](creating-a-data-access-layer-vb/_static/image55.png)
+[![każde żądanie INSERT, Update i DELETE jest natychmiast wysyłane do bazy danych](creating-a-data-access-layer-vb/_static/image56.png)](creating-a-data-access-layer-vb/_static/image55.png)
 
-**Rysunek 21**: Każdy Insert, Update i Usuń żądania, które są wysyłane do bazy danych od razu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image57.png))
+**Ilustracja 21**. każde żądanie INSERT, Update i DELETE jest natychmiast wysyłane do bazy danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image57.png))
 
-Inne wzorzec, który mogę odnosić się do w partii aktualizacji wzorzec, jest aktualizacji całego zestawu danych, DataTable lub Kolekcja wierszy danych w jednego wywołania metody. W ramach tego wzorca Deweloper usuwa, wstawia modyfikuje wierszy danych w elemencie DataTable i następnie przekazuje do metody aktualizacji tych wierszy danych ani objekt DataTable. Ta metoda następnie wylicza dotyczy to również utworzeń przekazanej, określa, czy są już został zmodyfikowany, dodane lub usunięty (za pośrednictwem elementu DataRow [właściwość RowState](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) wartość) i wystawia żądanie odpowiednią bazę danych dla każdego rekordu.
+Drugim wzorcem, do którego odwołuje się jako wzorzec aktualizacji wsadowej, jest aktualizacja całego zestawu danych, DataTable lub kolekcji obiektów DataRows w jednym wywołaniu metody. W tym wzorcu deweloper usuwa, wstawia i modyfikuje wiersze w elemencie DataTable, a następnie przekazuje te wiersze lub element DataTable do metody Update. Ta metoda wylicza następnie przekazane dane, określa, czy zostały zmodyfikowane, dodane lub usunięte (za pośrednictwem wartości [Właściwości RowState](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) elementu DataRow) i wystawia odpowiednie żądania bazy danych dla każdego rekordu.
 
-[![Wszystkie zmiany są synchronizowane z bazą danych, gdy wywoływana jest metoda aktualizacji](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
+[![wszystkie zmiany są synchronizowane z bazą danych po wywołaniu metody Update](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
 
-**Rysunek 22**: Wszystkie zmiany są synchronizowane z bazą danych, gdy wywoływana jest metoda aktualizacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image60.png))
+**Ilustracja 22**. wszystkie zmiany są synchronizowane z bazą danych po wywołaniu metody Update ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image60.png))
 
-TableAdapter domyślnie używa wzorca aktualizacji usługi batch, ale także obsługuje bezpośredni wzorcu bazy danych. Ponieważ wybrano opcję "Generuj Insert, Update i Delete instrukcji" we właściwościach Zaawansowane przy tworzeniu naszych TableAdapter `ProductsTableAdapter` zawiera `Update()` metody, która implementuje wzorzec aktualizacji usługi batch. W szczególności zawiera TableAdapter `Update()` metody, które mogą być przekazywane wpisane DataSet, DataTable silnie typizowane lub jeden lub więcej wierszy danych. Jeśli pozostawiono zaznaczone pole wyboru "GenerateDBDirectMethods", gdy najpierw tworząc TableAdapter wzorzec bezpośrednie bazy danych będą wprowadzone za pośrednictwem `Insert()`, `Update()`, i `Delete()` metody.
+TableAdapter domyślnie używa wzorca aktualizacji wsadowych, ale również obsługuje wzorzec DB Direct. Ponieważ wybrano opcję "Generuj instrukcje INSERT, Update i Delete" z zaawansowanych właściwości podczas tworzenia naszego TableAdapter, `ProductsTableAdapter` zawiera metodę `Update()`, która implementuje wzorzec aktualizacji wsadowych. W tym celu TableAdapter zawiera metodę `Update()`, która może być przekazywać określony zestaw danych, niejawnie wpisaną wartość DataTable lub co najmniej jeden wiersz DataRows. Jeśli zaznaczono pole wyboru "GenerateDBDirectMethods" po pierwszym utworzeniu TableAdapter wzorzec DB Direct zostanie również wdrożony za pośrednictwem metod `Insert()`, `Update()`i `Delete()`.
 
-Obu wzorców modyfikacji danych użyj TableAdapter `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości, aby wystawić swoje `INSERT`, `UPDATE`, i `DELETE` poleceń w bazie danych. Możesz sprawdzić i modyfikować `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości, klikając na obiekt TableAdapter w Projektancie obiektów DataSet, a następnie przechodząc do okna właściwości. (Pamiętaj, że wybrano TableAdapter oraz że `ProductsTableAdapter` obiekt jest zaznaczony na liście rozwijanej w oknie dialogowym właściwości.)
+Obie wzorce modyfikacji danych wykorzystują `InsertCommand`, `UpdateCommand`i `DeleteCommand` właściwości, aby wystawić `INSERT`, `UPDATE`i `DELETE` polecenia do bazy danych. Możesz sprawdzić i zmodyfikować `InsertCommand`, `UpdateCommand`i `DeleteCommand` właściwości, klikając TableAdapter w Projektancie obiektów DataSet, a następnie przechodząc do okno Właściwości. (Upewnij się, że wybrano TableAdapter i że obiekt `ProductsTableAdapter` jest zaznaczony na liście rozwijanej w okno Właściwości).
 
-[![TableAdapter ma element InsertCommand, elementu UpdateCommand i właściwości elementu DeleteCommand](creating-a-data-access-layer-vb/_static/image62.png)](creating-a-data-access-layer-vb/_static/image61.png)
+[![TableAdapter ma właściwości InsertCommand, UpdateCommand i DeleteCommand](creating-a-data-access-layer-vb/_static/image62.png)](creating-a-data-access-layer-vb/_static/image61.png)
 
-**Ilustracja 23**: TableAdapter ma `InsertCommand`, `UpdateCommand`, i `DeleteCommand` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image63.png))
+**Ilustracja 23**. TableAdapter ma właściwości `InsertCommand`, `UpdateCommand`i `DeleteCommand` (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image63.png))
 
-Aby przejrzeć lub zmodyfikować dowolne z tych właściwości polecenia bazy danych, kliknij pozycję `CommandText` właściwości podrzędnej, co umożliwi wyświetlenie konstruktora zapytań.
+Aby przejrzeć lub zmodyfikować dowolne z tych właściwości polecenia bazy danych, kliknij `CommandText` podwłaściwości, co spowoduje wyświetlenie Konstruktor zapytań.
 
-[![Konfigurowanie INSERT, UPDATE i DELETE instrukcji w Konstruktorze zapytań](creating-a-data-access-layer-vb/_static/image65.png)](creating-a-data-access-layer-vb/_static/image64.png)
+[![skonfigurować instrukcje INSERT, UPDATE i DELETE w Konstruktor zapytań](creating-a-data-access-layer-vb/_static/image65.png)](creating-a-data-access-layer-vb/_static/image64.png)
 
-**Rysunek 24**: Konfigurowanie `INSERT`, `UPDATE`, i `DELETE` instrukcji w Konstruktorze zapytań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image66.png))
+**Rysunek 24**: skonfiguruj instrukcje `INSERT`, `UPDATE`i `DELETE` w Konstruktor zapytań ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image66.png))
 
-Poniższy przykład kodu pokazuje, jak użyć wzorca aktualizacji wsadowych dwukrotnie ceny wszystkich produktów, które nie są przerywane i mają 25 jednostek w magazynie lub mniej:
+Poniższy przykład kodu pokazuje, jak używać wzorca aktualizacji wsadowej do podwójnej ceny wszystkich produktów, które nie zostały wycofane i które mają 25 jednostek w magazynie lub mniej:
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample6.vb)]
 
-Poniższy kod ilustruje sposób użyć wzorca bezpośrednie DB programowo usunąć określonego produktu, a następnie zaktualizować co, a następnie dodaj nowy:
+Poniższy kod ilustruje sposób używania wzorca DB Direct do programistycznego usuwania określonego produktu, a następnie aktualizacji, a następnie dodania nowego:
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample7.vb)]
 
-## <a name="creating-custom-insert-update-and-delete-methods"></a>Tworzenie niestandardowego wstawiania, aktualizowania i usuwania metod
+## <a name="creating-custom-insert-update-and-delete-methods"></a>Tworzenie niestandardowych metod INSERT, Update i DELETE
 
-`Insert()`, `Update()`, I `Delete()` metody tworzone przez metodę bezpośrednie bazy danych może być nieco uciążliwe, szczególnie w przypadku tabel z wieloma kolumnami. Wyszukiwanie w poprzednim przykładzie kodu bez funkcji IntelliSense w pomocy, nie jest szczególnie jasne co `Products` mapuje kolumną tabeli każdego parametru wejściowego `Update()` i `Insert()` metody. Mogą wystąpić sytuacje, kiedy ma być uruchamiany tylko zaktualizować pojedynczej kolumny lub dwóch, lub ma dostosowany `Insert()` metodę, która będzie, zwróć wartość rekordu nowo wstawionej `IDENTITY` pola (automatycznego przyrostu).
+Metody `Insert()`, `Update()`i `Delete()` utworzone przez metodę Direct DB mogą być nieskomplikowaną, szczególnie w przypadku tabel z wieloma kolumnami. Patrząc na poprzedni przykład kodu, bez pomocy IntelliSense, nie jest szczególnie jasne, co `Products` kolumna tabeli mapuje na każdy parametr wejściowy do metody `Update()` i `Insert()`. Mogą wystąpić sytuacje, w których chcemy tylko zaktualizować pojedynczą kolumnę lub dwie lub użyć dostosowanej metody `Insert()`, która prawdopodobnie zwróci wartość pola `IDENTITY` (AutoIncrement) nowo wstawionego rekordu.
 
-Aby utworzyć niestandardową metodę, wróć do Projektanta obiektów DataSet. Kliknij prawym przyciskiem myszy na obiekt TableAdapter i wybierz polecenie Dodaj zapytanie powrotu do kreatora TableAdapter. Na drugim ekranie firma Microsoft może wskazywać typ zapytanie w celu utworzenia. Utwórzmy metodę, która dodaje nowy produkt, a następnie zwraca wartość nowo dodanego rekordu `ProductID`. W związku z tym, wybrać opcję utworzenia `INSERT` zapytania.
+Aby utworzyć taką metodę niestandardową, Wróć do projektanta obiektów DataSet. Kliknij prawym przyciskiem myszy TableAdapter i wybierz polecenie Dodaj zapytanie, zwracając do kreatora TableAdapter. Na drugim ekranie możemy wskazać typ zapytania do utworzenia. Utwórzmy metodę, która dodaje nowy produkt, a następnie zwróci wartość `ProductID`nowo dodanego rekordu. W związku z tym należy wybrać opcję tworzenia zapytania `INSERT`.
 
-[![Utwórz metodę, aby dodać nowy wiersz do tabeli Produkty](creating-a-data-access-layer-vb/_static/image68.png)](creating-a-data-access-layer-vb/_static/image67.png)
+[![utworzyć metodę, aby dodać nowy wiersz do tabeli Products](creating-a-data-access-layer-vb/_static/image68.png)](creating-a-data-access-layer-vb/_static/image67.png)
 
-**Rysunek 25**: Utwórz metodę, aby dodać nowy wiersz do `Products` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image69.png))
+**Ilustracja 25**. Utwórz metodę, aby dodać nowy wiersz do tabeli `Products` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image69.png))
 
-Na następnym ekranie `InsertCommand`firmy `CommandText` pojawia się. Rozszerzaj tego zapytania, dodając `SELECT SCOPE_IDENTITY()` na końcu zapytania, co spowoduje zwrócenie ostatnią wartość tożsamości wstawiony `IDENTITY` kolumny w tym samym zakresie. (Zobacz [dokumentacji technicznej](https://msdn.microsoft.com/library/ms190315.aspx) Aby uzyskać więcej informacji na temat `SCOPE_IDENTITY()` i dlaczego warto [Użyj zakresu\_IDENTITY() proceduralny @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Upewnij się, że końcowy `INSERT` instrukcji za pomocą średnika przed dodaniem `SELECT` instrukcji.
+Na następnym ekranie pojawia się `CommandText` `InsertCommand`. Rozszerzyć to zapytanie, dodając `SELECT SCOPE_IDENTITY()` na końcu zapytania, co spowoduje zwrócenie ostatniej wartości tożsamości wstawionej do kolumny `IDENTITY` w tym samym zakresie. (Zapoznaj się z [dokumentacją techniczną](https://msdn.microsoft.com/library/ms190315.aspx) , aby uzyskać więcej informacji na temat `SCOPE_IDENTITY()` i dlaczego prawdopodobnie chcesz [użyć zakresu\_Identity () zamiast @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx)). Przed dodaniem instrukcji `SELECT` upewnij się, że została zakończona instrukcją `INSERT` z średnikiem.
 
-[![Zapytanie, aby zwrócić wartość SCOPE_IDENTITY() rozszerzyć](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
+[![rozszerzyć zapytanie w celu zwrócenia wartości SCOPE_IDENTITY ()](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
 
-**Rysunek 26**: Rozszerzyć zapytania do zwrócenia `SCOPE_IDENTITY()` wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image72.png))
+**Ilustracja 26**. rozszerzanie zapytania w celu zwrócenia wartości `SCOPE_IDENTITY()` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image72.png))
 
-Na koniec, nadaj nazwę nowej metody `InsertProduct`.
+Na koniec Nazwij nową metodę `InsertProduct`.
 
-[![Ustaw nową nazwę metody InsertProduct](creating-a-data-access-layer-vb/_static/image74.png)](creating-a-data-access-layer-vb/_static/image73.png)
+[![ustawić nową nazwę metody na InsertProduct](creating-a-data-access-layer-vb/_static/image74.png)](creating-a-data-access-layer-vb/_static/image73.png)
 
-**Rysunek 27**: Ustaw nową nazwę metody `InsertProduct` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image75.png))
+**Ilustracja 27**. Ustaw nową nazwę metody na `InsertProduct` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image75.png))
 
-Po powrocie do Projektanta obiektów DataSet, zobaczysz `ProductsTableAdapter` zawiera nową metodę `InsertProduct`. Jeśli ta nowa metoda nie ma parametrów dla każdej kolumny w `Products` tabeli, prawdopodobnie, że nie można zakończyć `INSERT` instrukcji za pomocą średnika. Konfigurowanie `InsertProduct` metody i upewnij się, że rozdzielający je średnikiem `INSERT` i `SELECT` instrukcji.
+Po powrocie do projektanta obiektów DataSet zobaczysz, że `ProductsTableAdapter` zawiera nową metodę, `InsertProduct`. Jeśli nowa metoda nie ma parametru dla każdej kolumny w tabeli `Products`, prawdopodobnie nie pamiętasz o przerwaniu instrukcji `INSERT` z średnikiem. Skonfiguruj metodę `InsertProduct` i upewnij się, że istnieje średnik oddzielający instrukcje `INSERT` i `SELECT`.
 
-Domyślnie Wstaw metody problem niebędącą zapytaniem metod, co oznacza, że zwracają one liczbę wierszy dotyczy. Jednakże, chcemy `InsertProduct` metodę, aby zwrócić wartości zwracanej przez zapytanie, nie liczbę uwzględnionych wierszy. Aby to osiągnąć, należy dostosować `InsertProduct` metody `ExecuteMode` właściwość `Scalar`.
+Domyślnie metody INSERT nie generują metod niezwiązanych z badaniem, co oznacza, że zwracają liczbę odnośnych wierszy. Jednak chcemy, aby Metoda `InsertProduct` zwracała wartość zwróconą przez zapytanie, a nie liczbę wierszy, których to dotyczy. Aby to osiągnąć, Dostosuj Właściwość `ExecuteMode` `InsertProduct` metody do `Scalar`.
 
-[![Zmień tryb ExecuteMode właściwość skalarną](creating-a-data-access-layer-vb/_static/image77.png)](creating-a-data-access-layer-vb/_static/image76.png)
+[![zmienić właściwość Executemode na wartość skalarną](creating-a-data-access-layer-vb/_static/image77.png)](creating-a-data-access-layer-vb/_static/image76.png)
 
-**Rysunek 28**: Zmiana `ExecuteMode` właściwości `Scalar` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image78.png))
+**Ilustracja 28**. zmiana właściwości `ExecuteMode` na `Scalar` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image78.png))
 
-Poniższy kod przedstawia nowy `InsertProduct` metody w akcji:
+Poniższy kod przedstawia tę nową metodę `InsertProduct` w akcji:
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample8.vb)]
 
-## <a name="step-5-completing-the-data-access-layer"></a>Krok 5. Korzystanie z warstwy dostępu do danych
+## <a name="step-5-completing-the-data-access-layer"></a>Krok 5. wykonywanie warstwy dostępu do danych
 
-Należy pamiętać, że `ProductsTableAdapters` klasy zwraca `CategoryID` i `SupplierID` wartości z kolekcji `Products` tabeli, ale nie obejmuje `CategoryName` kolumny z `Categories` tabeli lub `CompanyName` kolumny z `Suppliers` Tabela, mimo że prawdopodobnie są kolumny, które firma Microsoft ma być wyświetlana, gdy są wyświetlane informacje o produkcie. Firma Microsoft może rozszerzyć początkowe metody TableAdapter, `GetProducts()`, aby uwzględnić obie `CategoryName` i `CompanyName` wartości kolumny, które spowoduje zaktualizowanie silnie typizowane DataTable w celu uwzględnienia tych nowych kolumn.
+Należy zauważyć, że Klasa `ProductsTableAdapters` zwraca wartości `CategoryID` i `SupplierID` z tabeli `Products`, ale nie zawiera kolumny `CategoryName` z tabeli `Categories` ani kolumny `CompanyName` z tabeli `Suppliers`, chociaż prawdopodobnie są to kolumny, które mają być wyświetlane podczas wyświetlania informacji o produkcie. Możemy rozszerzyć metodę początkową TableAdapter, `GetProducts()`, aby uwzględnić zarówno wartości kolumn `CategoryName`, jak i `CompanyName`, co spowoduje zaktualizowanie tabeli DataTable o jednoznacznie określonym typie w taki sposób, aby obejmowała również te nowe kolumny.
 
-Może to spowodować problem, jednak jako metody TableAdapter do wstawiania, aktualizowania, i usuwanie danych opierają się poza tym metodę początkowej. Na szczęście metody generowane automatycznie dla Wstawianie, aktualizowanie i usuwanie, nie są wpływ podzapytań w `SELECT` klauzuli. Zwracając szczególną uwagę na naszych zapytania, aby dodać `Categories` i `Suppliers` jako podzapytań, zamiast `JOIN` s, firma Microsoft będzie uniknąć konieczności przerabiać tych metod do modyfikowania danych. Kliknij prawym przyciskiem myszy `GetProducts()` method in Class metoda `ProductsTableAdapter` i wybierz opcję Konfiguruj. Następnie Dostosuj `SELECT` klauzuli tak, aby wyglądał jak:
+Może to stwarzać problem, jednak ponieważ metody TableAdapter do wstawiania, aktualizowania i usuwania danych są oparte na tej metodzie początkowej. Na szczęście w klauzuli `SELECT` nie wpływają na automatycznie generowane metody wstawiania, aktualizowania i usuwania. Pamiętając o tym, aby dodać zapytania do `Categories` i `Suppliers` jako podzapytania, a nie `JOIN` s, unikamy konieczności ponownego wykonywania tych metod w celu modyfikowania danych. Kliknij prawym przyciskiem myszy metodę `GetProducts()` w `ProductsTableAdapter` i wybierz pozycję Konfiguruj. Następnie dostosuj klauzulę `SELECT` tak, aby wyglądała następująco:
 
 [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample9.sql)]
 
-[![Aktualizacja instrukcji SELECT w metodzie GetProducts()](creating-a-data-access-layer-vb/_static/image80.png)](creating-a-data-access-layer-vb/_static/image79.png)
+[![zaktualizować instrukcji SELECT dla metody getProducts ()](creating-a-data-access-layer-vb/_static/image80.png)](creating-a-data-access-layer-vb/_static/image79.png)
 
-**Rysunek 29**: Aktualizacja `SELECT` poufności informacji dotyczące `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image81.png))
+**Ilustracja 29**: aktualizowanie instrukcji `SELECT` dla metody `GetProducts()` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image81.png))
 
-Po zaktualizowaniu `GetProducts()` metodę, aby użyć tego nowego zapytania DataTable będzie zawierać dwie nowe kolumny: `CategoryName` i `SupplierName`.
+Po zaktualizowaniu metody `GetProducts()` w celu użycia nowego zapytania tabela DataTable będzie zawierać dwie nowe kolumny: `CategoryName` i `SupplierName`.
 
-![DataTable produktów ma dwie nowe kolumny](creating-a-data-access-layer-vb/_static/image82.png)
+![Element DataTable produkty ma dwie nowe kolumny](creating-a-data-access-layer-vb/_static/image82.png)
 
-**30 rysunek**: `Products` DataTable ma dwie nowe kolumny
+**Ilustracja 30**: `Products` DataTable ma dwie nowe kolumny
 
-Poświęć chwilę, aby zaktualizować `SELECT` w klauzuli `GetProductsByCategoryID(categoryID)` również metody.
+Poświęć chwilę, aby zaktualizować klauzulę `SELECT` w metodzie `GetProductsByCategoryID(categoryID)`.
 
-Jeśli zaktualizujesz `GetProducts()` `SELECT` przy użyciu `JOIN` składni Projektanta obiektów DataSet nie będzie można automatycznie wygenerować metod wstawiania, aktualizowania, i usuwanie danych bazy danych przy użyciu bazy danych bezpośrednie wzorca. Zamiast tego należy ręcznie utworzyć je podobnie jak postępowanie z `InsertProduct` metoda we wcześniejszej części tego samouczka. Ponadto ręcznie musisz podać `InsertCommand`, `UpdateCommand`, i `DeleteCommand` wartości właściwości, jeśli chcesz używać usługi batch, aktualizowanie wzorca.
+W przypadku aktualizacji `GetProducts()` `SELECT` przy użyciu składni `JOIN`, Projektant zestawu danych nie będzie w stanie automatycznie generować metod wstawiania, aktualizowania i usuwania danych bazy danych przy użyciu wzorca DB Direct. Zamiast tego należy ręcznie utworzyć je podobnie jak w przypadku metody `InsertProduct` opisanej wcześniej w tym samouczku. Ponadto należy ręcznie podać wartości właściwości `InsertCommand`, `UpdateCommand`i `DeleteCommand`, jeśli chcesz użyć wzorca aktualizacji wsadowych.
 
-## <a name="adding-the-remaining-tableadapters"></a>Dodawanie pozostałych TableAdapters
+## <a name="adding-the-remaining-tableadapters"></a>Dodawanie pozostałej TableAdapters
 
-Pory tylko Opisaliśmy Praca z pojedynczy obiekt TableAdapter dla tabeli pojedynczej bazy danych. Jednak bazy danych Northwind zawiera kilka powiązanych tabel, które musisz pracować w naszej aplikacji sieci web. Wpisany zestaw danych może zawierać wiele powiązanych DataTables. W związku z tym aby ukończyć nasze warstwy DAL musimy dodać DataTable dla tabel, który będzie używany w tych samouczkach. Aby dodać nowy obiekt TableAdapter wpisana zestawu danych, Otwórz Projektanta obiektów DataSet, kliknij prawym przyciskiem myszy w Projektancie i wybierz pozycję Dodaj / TableAdapter. Spowoduje to utworzenie nowego elementu DataTable i TableAdapter i przeprowadzą Cię przez kreatora, który zbadaliśmy we wcześniejszej części tego samouczka.
+Do tej pory oglądamy tylko pracę z pojedynczym TableAdapter dla pojedynczej tabeli bazy danych. Jednak baza danych Northwind zawiera kilka powiązanych tabel, z którymi będziemy musieli współpracować w naszej aplikacji sieci Web. Typ DataSet może zawierać wiele powiązanych tabel danych. W związku z tym, aby ukończyć nasze DAL, musimy dodać tabelę DataTables dla innych tabel, z których będziemy korzystać w tych samouczkach. Aby dodać nowy TableAdapter do określonego zestawu danych, Otwórz projektanta obiektów DataSet, kliknij prawym przyciskiem myszy w projektancie, a następnie wybierz polecenie Dodaj/TableAdapter. Spowoduje to utworzenie nowego elementu DataTable i TableAdapter, a następnie przechodzenie przez kreatora w tym samouczku.
 
-Potrwać kilka minut, aby utworzyć następujące TableAdapters i metod za pomocą następujących zapytań. Należy pamiętać, że zapytania w `ProductsTableAdapter` obejmują podzapytania do pobrania nazwy kategorii i dostawcy każdego produktu. Ponadto jeśli wykonywano, dodano już `ProductsTableAdapter` klasy `GetProducts()` i `GetProductsByCategoryID(categoryID)` metody.
+Utworzenie następujących TableAdapters i metod przy użyciu następujących zapytań potrwa kilka minut. Należy zauważyć, że zapytania w `ProductsTableAdapter` zawierają podzapytania, aby uzyskać nazwę kategorii i dostawców każdego produktu. Ponadto, jeśli po wykonaniu tych czynności został już dodany `GetProducts()` i `GetProductsByCategoryID(categoryID)` metod klasy `ProductsTableAdapter`.
 
 - **ProductsTableAdapter**
 
@@ -360,7 +360,7 @@ Potrwać kilka minut, aby utworzyć następujące TableAdapters i metod za pomoc
       [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-  - **GetSuppliers**: 
+  - **Getdostawcy**: 
 
       [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
   - **GetSuppliersByCountry**: 
@@ -381,92 +381,92 @@ Potrwać kilka minut, aby utworzyć następujące TableAdapters i metod za pomoc
 
       [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
 
-[![Projektant obiektów DataSet, po dodaniu cztery TableAdapters](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
+[![projektanta obiektów DataSet po dodaniu czterech TableAdapters](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
 
-**Rysunek 31**: Zestaw danych projektanta po czterech TableAdapters dodano ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image85.png))
+**Rysunek 31**: Projektant zestawu danych po dodaniu czterech TableAdapters ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image85.png))
 
-## <a name="adding-custom-code-to-the-dal"></a>Dodawanie niestandardowego kodu do warstwy DAL
+## <a name="adding-custom-code-to-the-dal"></a>Dodawanie niestandardowego kodu do DAL
 
-TableAdapters i dodane do obiektu DataSet wpisane DataTable są wyrażane jako plik definicji schematu XML (`Northwind.xsd`). Te informacje schematu można wyświetlić, klikając prawym przyciskiem myszy `Northwind.xsd` plików w Eksploratorze rozwiązań i wybierając polecenie Pokaż kod.
+TableAdapters i tabele danych dodawane do określonego typu danych są wyrażane jako plik definicji schematu XML (`Northwind.xsd`). Informacje o schemacie można wyświetlić, klikając prawym przyciskiem myszy plik `Northwind.xsd` w Eksplorator rozwiązań i wybierając polecenie Wyświetl kod.
 
-[![Plik (XSD) definicji schematu XML dla Northwinds Typizowany zestaw danych](creating-a-data-access-layer-vb/_static/image87.png)](creating-a-data-access-layer-vb/_static/image86.png)
+[![plik definicji schematu XML (XSD) dla zestawu danych Northwinds](creating-a-data-access-layer-vb/_static/image87.png)](creating-a-data-access-layer-vb/_static/image86.png)
 
-**Ilustracja 32**: Plik definicji schematu XML (XSD) dla zestawu danych wpisane Northwinds ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image88.png))
+**Rysunek 32**: plik definicji schematu XML (XSD) dla zestawu danych Northwinds ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image88.png))
 
-Informacje o schemacie jest tłumaczona na kod C# lub Visual Basic w czasie projektowania, podczas kompilowania lub w czasie wykonywania (w razie potrzeby), w tym momencie możesz przejrzeć go za pomocą debugera. Aby wyświetlić ten kod wygenerowany automatycznie przejdź do widoku klas i testowania odzyskiwania po awarii w dół do klasy TableAdapter lub wpisana zestawu danych. Jeśli nie widzisz widoku klasy na ekranie, przejdź do menu widoku i wybierz go z tego miejsca lub naciśnij klawisze Ctrl + Shift + C. W widoku klasy widać, właściwości, metod i zdarzeń klasy wpisany zestaw danych i TableAdapter. Aby wyświetlić kod dla konkretnej metody, kliknij dwukrotnie nazwę metody w widoku klas lub kliknij prawym przyciskiem myszy na nim, a następnie wybierz Przejdź do definicji.
+Informacje o schemacie są tłumaczone C# na kod lub Visual Basic w czasie projektowania podczas kompilowania lub w czasie wykonywania (jeśli jest to konieczne), po którym można wykonać krokowo za pomocą debugera. Aby wyświetlić ten automatycznie wygenerowany kod, przejdź do Widok klasy i przechodzenie do szczegółów klasy TableAdapter lub typy zestawów danych. Jeśli nie widzisz Widok klasy na ekranie, przejdź do menu Widok i wybierz go z tego miejsca lub naciśnij klawisze CTRL + SHIFT + C. Z Widok klasy można zobaczyć właściwości, metody i zdarzenia dla wpisanych zestawów danych i klas TableAdapter. Aby wyświetlić kod dla konkretnej metody, kliknij dwukrotnie nazwę metody w Widok klasy lub kliknij ją prawym przyciskiem myszy i wybierz polecenie Przejdź do definicji.
 
-![Sprawdź kod wygenerowany automatycznie po wybraniu polecenia przejdź do definicji z widoku klasy](creating-a-data-access-layer-vb/_static/image89.png)
+![Zbadaj automatycznie wygenerowany kod, wybierając pozycję Przejdź do definicji z Widok klasy](creating-a-data-access-layer-vb/_static/image89.png)
 
-**Ilustracja 33**: Sprawdź kod wygenerowany automatycznie po wybraniu polecenia przejdź do definicji z widoku klasy
+**Rysunek 33**: Zbadaj automatycznie wygenerowany kod, wybierając pozycję Przejdź do definicji z widok klasy
 
-Automatycznie wygenerowany kod może być wygaszacz doskonały moment, kod jest często bardzo ogólny i musi być dostosowane do spełnianie unikatowych potrzeb aplikacji. Ryzyko rozszerzanie automatycznie wygenerowany kod jest jednak, że narzędzia, który wygenerował kod zdecydować, że nadszedł czas na "wygenerować ponownie", a następnie zastąpić dostosowania. Za pomocą nowej koncepcji częściowej klasy .NET 2.0 jest łatwe do podział klasy na wiele plików. Pozwala to nam dodać własne metody, właściwości i zdarzenia do automatycznie generowanej klasy bez konieczności martwienia się o programie Visual Studio, zastępując naszych dostosowania.
+Chociaż wygenerowany automatycznie kod może być doskonałym oszczędzaniem czasu, kod jest często bardzo ogólny i należy go dostosować, aby spełniał unikatowe potrzeby aplikacji. Niemniej ryzyko rozszerzania automatycznie generowanego kodu, że narzędzie, które wygenerowało kod, może zdecydować się na ponowne wygenerowanie i zastąpienie dostosowań. Dzięki nowej koncepcji klasy częściowej .NET 2.0 można łatwo podzielić klasę na wiele plików. Dzięki temu możemy dodawać własne metody, właściwości i zdarzenia do automatycznie generowanych klas bez konieczności przejmowania się informacjami o programie Visual Studio zastępującym dostosowania.
 
-Aby zademonstrować sposobu dostosowywania warstwy DAL, dodamy `GetProducts()` metody `SuppliersRow` klasy. `SuppliersRow` Klasa reprezentuje pojedynczy rekord w `Suppliers` Tabela; każdy dostawca może dostawca zero do wielu produktów, dzięki czemu `GetProducts()` zwróci tych produktów określonego dostawcy. Aby wykonać to utworzenie nowego pliku klasy w `App_Code` folder o nazwie `SuppliersRow.vb` i Dodaj następujący kod:
+Aby zademonstrować sposób dostosowywania DAL, dodajmy metodę `GetProducts()` do klasy `SuppliersRow`. Klasa `SuppliersRow` reprezentuje pojedynczy rekord w tabeli `Suppliers`; Każdy dostawca może być dostawcą zero dla wielu produktów, więc `GetProducts()` zwróci te produkty określonego dostawcy. Aby to zrobić, Utwórz nowy plik klasy w folderze `App_Code` o nazwie `SuppliersRow.vb` i Dodaj następujący kod:
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample22.vb)]
 
-Tej klasy częściowej instruuje kompilator, że w przypadku tworzenia `Northwind.SuppliersRow` klasy, aby uwzględnić `GetProducts()` metoda po prostu zdefiniowana. Jeśli skompilowanie projektu, a następnie powróć do widoku klas zobaczysz `GetProducts()` teraz wymienione jako metoda `Northwind.SuppliersRow`.
+Ta klasa częściowa instruuje kompilator, że podczas kompilowania klasy `Northwind.SuppliersRow` do uwzględnienia metody `GetProducts()`, która została właśnie zdefiniowana. Jeśli kompilujesz projekt, a następnie wrócisz do Widok klasy zobaczysz `GetProducts()` teraz na liście jako metoda `Northwind.SuppliersRow`.
 
-![Metoda GetProducts() jest teraz częścią klasy Northwind.SuppliersRow](creating-a-data-access-layer-vb/_static/image90.png)
+![Metoda getProducts () jest teraz częścią klasy Northwind. SuppliersRow](creating-a-data-access-layer-vb/_static/image90.png)
 
-**Ilustracja 34**: `GetProducts()` Metody jest teraz częścią `Northwind.SuppliersRow` klasy
+**Ilustracja 34**: Metoda `GetProducts()` jest teraz częścią klasy `Northwind.SuppliersRow`
 
-`GetProducts()` Metoda teraz może służyć do wyliczenia zestaw produktów dla określonego dostawcy, co ilustruje poniższy kod:
+Metody `GetProducts()` można teraz użyć do wyliczenia zestawu produktów dla określonego dostawcy, jak pokazano na poniższym kodzie:
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample23.vb)]
 
-Dane te mogą także wyświetlane w dowolnej ASP. Dane firmy NET kontrolki sieci Web. Następująca strona używa kontrolki widoku siatki z dwóch pól:
+Te dane mogą być również wyświetlane w dowolnym z ASP. Kontrolki sieci Web danych netto. Na poniższej stronie jest wykorzystywana kontrolka GridView z dwoma polami:
 
-- Wyświetla nazwę każdego z dostawców elementu BoundField i
-- TemplateField, który zawiera formant BulletedList, który jest powiązany z wyników zwróconych przez `GetProducts()` metody dla każdego dostawcy.
+- BoundField, który wyświetla nazwę każdego dostawcy, i
+- Element TemplateField, który zawiera kontrolkę BulletedList, która jest powiązana z wynikami zwróconymi przez metodę `GetProducts()` dla każdego dostawcy.
 
-Zajmiemy się sposób wyświetlania tych raportów wzorzec / szczegół w przyszłości samouczki. Teraz, w tym przykładzie zaprojektowano w celu zilustrowania przy użyciu metody niestandardowe dodane do `Northwind.SuppliersRow` klasy.
+Sprawdzimy, jak wyświetlać takie raporty o szczegółach głównych w przyszłych samouczkach. Na razie ten przykład został zaprojektowany tak, aby zilustrować użycie metody niestandardowej dodanej do klasy `Northwind.SuppliersRow`.
 
-SuppliersAndProducts.aspx
+SuppliersAndProducts. aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample24.aspx)]
 
-SuppliersAndProducts.aspx.vb
+SuppliersAndProducts. aspx. vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample25.vb)]
 
-[![Nazwa firmy dostawcy jest wyświetlana w kolumnie po lewej stronie, a ich produktów w prawo](creating-a-data-access-layer-vb/_static/image92.png)](creating-a-data-access-layer-vb/_static/image91.png)
+[![nazwa firmy dostawcy znajduje się w lewej kolumnie, w której znajdują się produkty z prawej strony](creating-a-data-access-layer-vb/_static/image92.png)](creating-a-data-access-layer-vb/_static/image91.png)
 
-**Ilustracja 35**: Nazwa firmy dostawcy jest wyświetlana w kolumnie po lewej stronie, a ich produktów w prawo ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image93.png))
+**Ilustracja 35**: Nazwa firmy dostawcy jest wymieniona w lewej kolumnie, ich produkty w prawym okienku ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image93.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Podczas tworzenia aplikacji sieci web, tworzenia warstwy DAL powinien być jednym z w ramach pierwszych kroków występuje przed rozpoczęciem tworzenia warstwą prezentacji. Za pomocą programu Visual Studio tworzenie DAL, w oparciu o wpisanych zestawów danych jest zadanie, które można wykonywać w 10 – 15 minut bez konieczności pisania nawet wiersza kodu. Samouczki, przenoszenie do przodu zostanie bazują na tym warstwy DAL. W [następnego samouczka](creating-a-business-logic-layer-vb.md) utworzymy zdefiniować liczbę reguł biznesowych i zobacz, jak wdrożyć je w oddzielne warstwy logiki biznesowej.
+Podczas kompilowania aplikacji sieci Web tworzącej DAL powinien być jednym z pierwszych kroków, które należy wykonać przed rozpoczęciem tworzenia warstwy prezentacji. W programie Visual Studio tworzenie DAL na podstawie wpisanych zestawów danych to zadanie, które można wykonać w ciągu 10-15 minut bez konieczności pisania wiersza kodu. Samouczki przenoszone do przodu zostaną skompilowane po tym DAL. W [następnym samouczku](creating-a-business-logic-layer-vb.md) zdefiniujemy kilka reguł firmy i zapoznaj się ze sposobem ich implementacji w oddzielnej warstwie logiki biznesowej.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Tworzenie warstwy, za pomocą silnie Typizowane TableAdapters i DataTable w programie VS 2005 i programu ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [Projektowanie składników warstwy danych i przekazywanie danych za pomocą warstw](https://msdn.microsoft.com/library/ms978496.aspx)
-- [Tworzenie warstwy dostępu do danych, za pomocą Projektanta obiektów DataSet 2005 Visual Studio](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
-- [Szyfrowanie informacji o konfiguracji w programie ASP.NET 2.0 aplikacji](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [TableAdapter — Przegląd](https://msdn.microsoft.com/library/bz9tthwx.aspx)
-- [Praca z Typizowany zestaw danych](https://msdn.microsoft.com/library/esbykkzb.aspx)
-- [Przy użyciu dostępu do silnie Typizowanych danych w programie Visual Studio 2005 i platformy ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
-- [Jak rozszerzyć metody TableAdapter](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
-- [Pobieranie danych skalarną z procedury składowanej](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
+- [Tworzenie DAL przy użyciu jednoznacznie wpisanych TableAdapters i tabel DataTables w programie VS 2005 i ASP.NET 2,0](https://weblogs.asp.net/scottgu/435498)
+- [Projektowanie składników warstwy danych i przekazywanie danych przy użyciu warstw](https://msdn.microsoft.com/library/ms978496.aspx)
+- [Tworzenie warstwy dostępu do danych za pomocą projektanta obiektów DataSet programu Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
+- [Szyfrowanie informacji o konfiguracji w aplikacjach ASP.NET 2,0](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
+- [TableAdapter — Omówienie](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Praca z określonym zestawem danych](https://msdn.microsoft.com/library/esbykkzb.aspx)
+- [Używanie dostępu do danych o jednoznacznie określonym typie w programie Visual Studio 2005 i ASP.NET 2,0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
+- [Jak zwiększyć metody TableAdapter](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
+- [Pobieranie danych skalarnych z procedury składowanej](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
-### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenie wideo na tematy zawarte w tym samouczku
+### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenia wideo dotyczące tematów zawartych w tym samouczku
 
 - [Warstwy dostępu do danych w aplikacjach ASP.NET](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
-- [Jak ręcznie powiązanie zestawu danych z elementem Datagrid](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
-- [Jak pracować z zestawami danych i filtrami aplikacji ASP](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
+- [Jak ręcznie powiązać zestaw danych z elementem DataGrid](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
+- [Jak korzystać z zestawów danych i filtrów z aplikacji ASP](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Piotr zielony, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez i Carlos Santos. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci ołowiu dla tego samouczka były Piotr Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez i Carlos Santos. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](master-pages-and-site-navigation-cs.md)

@@ -1,168 +1,168 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
-title: Wyświetlanie niestandardowej strony błędu (VB) | Dokumentacja firmy Microsoft
+title: Wyświetlanie niestandardowej strony błędu (VB) | Microsoft Docs
 author: rick-anderson
-description: Co to użytkownik widział gdy wystąpi błąd środowiska uruchomieniowego w aplikacji sieci web ASP.NET? Odpowiedź zależy od jak witryny sieci Web &lt;customErrors&gt; konfiguracji...
+description: Co widzi użytkownik, gdy wystąpi błąd w czasie wykonywania w aplikacji sieci Web ASP.NET? Odpowiedź zależy od konfiguracji&gt; &lt;customErrors witryny sieci Web...
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 14873c5d-81a9-455b-bd71-30fb555583e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 961959300f5481a297ed8a9a17131c076d1dfd69
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 33367d5e3c4b5c8fa039ee20704054ba508e717a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116702"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614961"
 ---
 # <a name="displaying-a-custom-error-page-vb"></a>Wyświetlanie niestandardowej strony błędu (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_vb.pdf)
+[Pobierz kod](https://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_VB.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_vb.pdf)
 
-> Co to użytkownik widział gdy wystąpi błąd środowiska uruchomieniowego w aplikacji sieci web ASP.NET? Odpowiedź zależy od jak witryny sieci Web &lt;customErrors&gt; konfiguracji. Domyślnie użytkownicy otrzymują ciemniejszego ekranu żółty, proclaiming, że wystąpił błąd w czasie wykonywania. W tym samouczku pokazano, jak dostosować te ustawienia mają być aesthetically atrakcyjne Wyświetlanie niestandardowej strony błędu odpowiadający Twojej witryny wygląd i działanie.
+> Co widzi użytkownik, gdy wystąpi błąd w czasie wykonywania w aplikacji sieci Web ASP.NET? Odpowiedź zależy od konfiguracji&gt; &lt;customErrors witryny sieci Web. Domyślnie użytkownicy są wyświetlani z nieszczegółowym ekranem, który zażądał błędu w czasie wykonywania. W tym samouczku pokazano, jak dostosować te ustawienia, aby wyświetlić stronę błędu niestandardowego atrakcyjne, która pasuje do wyglądu i działania Twojej witryny.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W idealnych byłoby bez błędów czasu wykonywania. Programiści napisać kod, używając n-argumentowości usterkę i walidacji danych wejściowych użytkownika niezawodne i zewnętrznych zasobów, takich jak serwery baz danych i serwerów poczty e-mail czy nigdy nie przejdą w tryb offline. Oczywiście w rzeczywistości błędy są nieuniknione. Klasy w .NET Framework zasygnalizować błąd, zostanie zgłoszony wyjątek. Na przykład element SqlConnection podczas wywoływania metody Open obiektu nawiąże połączenie z określona przez ciąg połączenia bazy danych. Jednakże, jeśli baza danych znajduje się w dół lub poświadczenia w parametrach połączenia są nieprawidłowe następnie metodę Open zgłasza `SqlException`. Wyjątki mogą być obsługiwane przy użyciu `Try/Catch/Finally` bloków. Jeśli kod w ramach `Try` bloku zgłasza wyjątek, kontrola jest przekazywana do bloku catch odpowiednie, gdy deweloper może próbować odzyskać sprawność po błędzie. Jeśli wystąpi nie pasującego bloku catch, lub jeśli kod, który wygenerował wyjątek nie jest w bloku try, wyjątek percolates górę stosu wywołań search z `Try/Catch/Finally` bloków.
+W idealnym świecie nie będzie żadnych błędów w czasie wykonywania. Programiści mogą napisać kod z nary błędu i z niezawodną walidacją danych wejściowych użytkownika, a zasoby zewnętrzne, takie jak serwery baz danych i serwery poczty e-mail, nigdy nie przechodzą do trybu offline. Oczywiście błędy w rzeczywistości są nieuniknione. Klasy w .NET Framework sygnalizujący błąd przez zgłaszanie wyjątku. Na przykład wywołanie metody Open obiektu SqlConnection nawiązuje połączenie z bazą danych określoną przez parametry połączenia. Jeśli jednak baza danych nie działa lub jeśli poświadczenia w parametrach połączenia są nieprawidłowe, Metoda Otwórz zgłosi `SqlException`. Wyjątki mogą być obsługiwane przez użycie bloków `Try/Catch/Finally`. Jeśli kod w bloku `Try` zgłasza wyjątek, formant zostanie przeniesiony do odpowiedniego bloku catch, w którym deweloper może próbować odzyskać sprawność po błędzie. Jeśli nie ma pasującego bloku catch lub kod, który zgłosił wyjątek, nie znajduje się w bloku try, wyjątek percolates stos wywołań w wyszukiwaniu bloków `Try/Catch/Finally`.
 
-Jeśli wyjątek zostanie rozpropagowany aż środowiska uruchomieniowego programu ASP.NET nie jest obsługiwany, [ `HttpApplication` klasy](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)firmy [ `Error` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) jest wywoływane, a także sprawdzić skonfigurowaną *stronę błędu*  jest wyświetlana. Domyślnie platforma ASP.NET wyświetla stronę błędu, który affectionately nazywa się [żółty ekranu śmierci](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Istnieją dwie wersje YSOD: Pokazuje szczegóły wyjątku, ślad stosu i inne informacje pomocne deweloperom debugowanie aplikacji (zobacz **rys.1**); Stany innych po prostu, że wystąpił błąd czasu wykonywania (patrz  **Rysunek 2**).
+Jeśli wyjątek bąbelkowy cały sposób do środowiska uruchomieniowego ASP.NET bez obsługi, zostanie wywołane [zdarzenie`Error`](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) [klasy`HttpApplication`](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)i zostanie wyświetlona skonfigurowana *strona błędu* . Domyślnie ASP.NET wyświetla stronę błędu, która jest affectionately, określana jako [żółty ekran zgonu](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Istnieją dwie wersje YSOD: jeden pokazuje szczegóły wyjątku, ślad stosu i inne informacje pomocne dla deweloperów debugujący aplikację (patrz **rysunek 1**); Druga po prostu wskazuje, że wystąpił błąd czasu wykonywania (patrz **rysunek 2**).
 
-Szczegóły wyjątku YSOD jest bardzo przydatne w przypadku deweloperom debugowanie aplikacji, ale wyświetlanie YSOD dla użytkowników końcowych jest tacky i nieprofesjonalnie. Zamiast tego użytkownicy końcowi należy podjąć w celu strona błędu, która obsługuje witryny wygląd i działanie przy użyciu prose bardziej przyjazny dla użytkownika zawierająca opis sytuacji. Dobra wiadomość jest taka, jest całkiem proste tworzenie strony błędu niestandardowego. Ten samouczek rozpoczyna się od przyjrzeć się ASP. Strony błędów różnych w sieci. Go następnie pokazano, jak skonfigurować aplikację sieci web, aby wyświetlić użytkowników niestandardowej strony błędu w przypadku błędu.
+Szczegóły wyjątku YSOD są bardzo pomocne w przypadku deweloperów, którzy debugują aplikację, ale przedstawiają YSOD użytkownikom końcowym. Zamiast tego użytkownicy końcowi powinni zostać przekierowani do strony błędu, która utrzymuje wygląd witryny i będzie działać z większą liczbą Prose przyjaznych dla użytkownika opisującą sytuację. Dobrym komunikatem jest to, że tworzenie takiej niestandardowej strony błędu jest bardzo proste. Ten samouczek rozpoczyna się od strony ASP. Różne strony błędów w sieci. Następnie pokazano, jak skonfigurować aplikację sieci Web, aby pokazywała użytkownikom niestandardową stronę błędu w przypadku błędu.
 
-### <a name="examining-the-three-types-of-error-pages"></a>Badanie trzy typy stron błędów
+### <a name="examining-the-three-types-of-error-pages"></a>Badanie trzech typów stron błędów
 
-Kiedy nieobsłużony wyjątek pojawia się w aplikacji ASP.NET w jednym z trzech typów stron błędów, które są wyświetlane:
+Gdy wystąpi nieobsługiwany wyjątek w aplikacji ASP.NET, zostanie wyświetlony jeden z trzech typów stron błędu:
 
-- Strona błędu wyjątku szczegóły żółty ekranem śmierci,
-- Strony błędów środowiska uruchomieniowego błąd żółty ekranem śmierci, lub
-- Strona błędu niestandardowego
+- Żółty ekran Szczegóły wyjątku strony błędu śmierci,
+- Żółty ekran błędu środowiska uruchomieniowego strony błędu śmierci lub
+- Niestandardowa strona błędu
 
-Deweloperzy strony błędu są najbardziej znanych jest YSOD szczegóły wyjątków. Domyślnie ta strona będzie wyświetlana użytkownikom, którzy odwiedzają lokalnie i w związku z tym jest strona, która zostanie wyświetlony, gdy wystąpi błąd podczas testowania lokacji w środowisku programistycznym. Jak sugeruje jej nazwa, YSOD szczegóły wyjątków zawiera szczegółowe informacje o wyjątku — typ, wiadomości i ślad stosu. Co więcej jeśli wyjątek został zgłoszony przez kod w klasie CodeBehind strony ASP.NET, a aplikacja jest skonfigurowana do debugowania następnie YSOD szczegóły dotyczące wyjątków zostaną wyświetlone również ten wiersz kodu (i kilka wierszy kodu powyżej i poniżej).
+Najbardziej popularnym projektantem strony błędów są szczegóły wyjątku YSOD. Domyślnie ta strona jest wyświetlana użytkownikom, którzy znajdują się lokalnie, i w związku z tym jest stroną, która jest wyświetlana, gdy wystąpi błąd podczas testowania lokacji w środowisku deweloperskim. Ponieważ jego nazwa to oznacza, szczegóły wyjątku YSOD zawierają szczegóły dotyczące wyjątku — typu, komunikatu i śladu stosu. Co więcej, jeśli wyjątek został zgłoszony przez kod w klasie z kodem ASP.NET strony i jeśli aplikacja jest skonfigurowana do debugowania, YSOD szczegóły wyjątku również pokażą ten wiersz kodu (oraz kilka wierszy kodu powyżej i poniżej niego).
 
-**Rysunek 1** stronę YSOD szczegóły wyjątków. Zanotuj adres URL w przeglądarce adres: `http://localhost:62275/Genre.aspx?ID=foo`. Pamiętamy `Genre.aspx` stronie znajduje się lista przeglądów książki określonego rodzaju. Wymaga, aby `GenreId` wartość ( `uniqueidentifier`) przekazany ciąg zapytania; na przykład używając odpowiedniego adresu URL, aby wyświetlić te przeglądy fikcja jest `Genre.aspx?ID=7683ab5d-4589-4f03-a139-1c26044d0146`. Jeśli innej niż`uniqueidentifier` wartość jest przekazywana w za pośrednictwem ciąg zapytania (na przykład "foo") jest zgłaszany wyjątek.
+**Rysunek 1** przedstawia stronę YSOD szczegóły wyjątku. Zanotuj adres URL w oknie adresu przeglądarki: `http://localhost:62275/Genre.aspx?ID=foo`. Odwołaj się, że strona `Genre.aspx` wyświetla przeglądy książki w określonym gatunku. Wymaga, aby wartość `GenreId` (`uniqueidentifier`) była przenoszona przez ciąg QueryString; na przykład odpowiedni adres URL służący do wyświetlania recenzji fikcyjnej jest `Genre.aspx?ID=7683ab5d-4589-4f03-a139-1c26044d0146`. Jeśli wartość nie`uniqueidentifier` jest przenoszona za pomocą ciągu QueryString (na przykład "foo"), zgłaszany jest wyjątek.
 
 > [!NOTE]
-> Aby odtworzyć ten błąd wystąpił w demonstracyjnej aplikacji internetowej dostępne do pobrania można albo odwiedź `Genre.aspx?ID=foo` bezpośrednio lub kliknij łącze "Generowanie błąd środowiska uruchomieniowego" w `Default.aspx`.
+> Aby odtworzyć ten błąd w demonstracyjnej aplikacji sieci Web dostępnej do pobrania, możesz albo odwiedzić `Genre.aspx?ID=foo` bezpośrednio, albo kliknąć link "Generuj błąd w czasie wykonywania" w `Default.aspx`.
 
-Należy pamiętać, informacje o wyjątku, przedstawione **rys.1**. Komunikat o wyjątku, "Konwersja nie powiodła się podczas konwertowania ciągu znaków na wartość uniqueidentifier" jest obecny w górnej części strony. Typ wyjątku, `System.Data.SqlClient.SqlException`, znajduje się, jak również. Również znajduje się ślad stosu.
+Zanotuj informacje o wyjątku przedstawione na **rysunku 1**. Komunikat o wyjątku "Konwersja ciągu znaków na unikatowy identyfikator" nie powiodła się w górnej części strony. Typ wyjątku, `System.Data.SqlClient.SqlException`, jest również wyświetlany. Istnieje również ślad stosu.
 
 [![](displaying-a-custom-error-page-vb/_static/image2.png)](displaying-a-custom-error-page-vb/_static/image1.png)
 
-**Rysunek 1**: Szczegóły wyjątku YSOD zawiera informacje o wyjątku  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image3.png))
+**Rysunek 1**. Szczegóły wyjątku YSOD zawierają informacje o wyjątku  
+ ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image3.png))
 
-Inny rodzaj YSOD jest YSOD błąd środowiska uruchomieniowego i jest wyświetlany w **na rysunku 2**. YSOD błąd środowiska uruchomieniowego informuje obiekt odwiedzający, który wystąpił błąd w czasie wykonywania, ale nie zawiera żadnych informacji o wyjątku, który został zgłoszony. (Jednak zawierają instrukcje dotyczącymi szczegóły błędu, modyfikując widoczne `Web.config` pliku, który jest częścią co sprawia, że takie YSOD, Szukaj nieprofesjonalnie.)
+Innym typem YSOD jest błąd czasu wykonywania YSOD i przedstawiono na **rysunku 2**. Błąd czasu wykonywania YSOD informuje gościa, że wystąpił błąd w czasie wykonywania, ale nie zawiera żadnych informacji o zgłoszonym wyjątku. (Zawiera jednak instrukcje dotyczące wyświetlania szczegółów błędu poprzez modyfikację pliku `Web.config`, który jest częścią tego, co sprawia, że YSOD wyglądać inaczej).
 
-Domyślnie YSOD błąd środowiska uruchomieniowego jest wyświetlana dla użytkowników odwiedzających zdalnie (za pośrednictwem http://www.yoursite.com), zgodnie z dowodem na adres URL w pasku adresu przeglądarki w **na rysunku 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Dwa różne ekrany YSOD istnieje, ponieważ deweloperzy mają chcą wiedzieć, szczegóły błędu, ale informacje te nie mają być wyświetlane na aktywnej witryny, ponieważ może spowodować ujawnienie potencjalnych luk w zabezpieczeniach lub innych informacji poufnych dla wszystkich osób odwiedzających usługi witryna.
+Domyślnie YSOD błędów środowiska uruchomieniowego jest pokazywany użytkownikom zdalnie (za pomocą http://www.yoursite.com), co zostało potwierdzone przez adres URL na pasku adresu przeglądarki na **rysunku 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Istnieją dwa różne ekrany YSOD, ponieważ deweloperzy chcą znać szczegóły błędu, ale takie informacje nie powinny być wyświetlane w działającej witrynie, ponieważ mogą one ujawnić potencjalne luki w zabezpieczeniach lub inne poufne informacje osobom, które odwiedza lokacji.
 
 > [!NOTE]
-> Jeśli postępujesz zgodnie z i używają DiscountASP.NET jako hosta sieci web, można zauważyć, że YSOD błąd środowiska uruchomieniowego nie są wyświetlane podczas przeglądania witryny na żywo. Jest to spowodowane DiscountASP.NET ma swoje serwery domyślnie skonfigurowana do wyświetlenia YSOD szczegóły wyjątków. Dobra wiadomość jest taka, możesz to zachowanie domyślne można przesłonić, dodając `<customErrors>` sekcję usługi `Web.config` pliku. Sprawdza, czy w sekcji "Konfigurowanie którego strony zostanie wyświetlony błąd" `<customErrors>` sekcji szczegółowo.
+> Jeśli korzystasz z usługi DiscountASP.NET jako hosta sieci Web, możesz zauważyć, że błąd czasu wykonywania YSOD nie jest wyświetlany podczas odwiedzania aktywnej witryny. Wynika to z faktu, że serwery DiscountASP.NET są skonfigurowane tak, aby domyślnie pokazywały szczegóły wyjątku YSOD. Dobrymi wiadomościami jest możliwość zastąpienia tego zachowania domyślnego przez dodanie sekcji `<customErrors>` do pliku `Web.config`. Sekcja "Konfigurowanie, która strona błędu jest wyświetlana" — szczegółowe informacje zawiera sekcja `<customErrors>`.
 
 [![](displaying-a-custom-error-page-vb/_static/image5.png)](displaying-a-custom-error-page-vb/_static/image4.png)
 
-**Rysunek 2**: Błąd w czasie wykonywania YSOD nie zawiera żadnych szczegółów błędu  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image6.png))
+**Rysunek 2**: błąd czasu wykonywania YSOD nie zawiera żadnych szczegółów błędu  
+ ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image6.png))
 
-Trzeci typ strony błędu jest stronę błędu niestandardowego, czyli strony sieci web, którą tworzysz. Zaletą korzystania z niestandardowej strony błędu jest, że masz pełną kontrolę nad informacje, które jest wyświetlane użytkownikowi, wraz ze strony wygląd i działanie; Strona błędu niestandardowego, można użyć tej samej strony wzorcowej i style jako stron sieci. W sekcji "Za pomocą niestandardowej strony błędu" przeprowadzi Tworzenie niestandardowej strony błędu i konfigurując go do wyświetlenia w przypadku nieobsługiwanego wyjątku. **Rysunek 3** udostępnia informacje szczytu tej strony błędu niestandardowego. Jak widać, to wygląd i działanie strony błędu, znacznie więcej profesjonalnych niż albo żółty ekrany śmierci przedstawione na rysunkach 1 i 2.
+Trzeci typ strony błędu to niestandardowa strona błędu, która jest utworzoną przez Ciebie stroną sieci Web. Zaletą niestandardowej strony błędu jest to, że masz pełną kontrolę nad informacjami wyświetlanymi dla użytkownika wraz z wyglądem i działaniem strony; Strona błędu niestandardowego może używać tej samej strony wzorcowej i stylów co inne strony. Sekcja "Używanie niestandardowej strony błędu" zawiera instrukcje tworzenia niestandardowej strony błędu i konfigurowania jej do wyświetlania w zdarzeniu nieobsłużonego wyjątku. **Rysunek 3** oferuje zobaczyć szczyt tej niestandardowej strony błędu. Jak widać, wygląd i działanie strony błędu jest znacznie bardziej profesjonalne — jest to możliwe, ponieważ nie ma żadnego żółtego ekranu zgonu pokazanego na rysunkach 1 i 2.
 
 [![](displaying-a-custom-error-page-vb/_static/image8.png)](displaying-a-custom-error-page-vb/_static/image7.png)
 
-**Rysunek 3**: Strona błędu niestandardowego oferuje lepiej dopasowane wygląd i działanie  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image9.png))
+**Rysunek 3**. niestandardowa strona błędu oferuje bardziej dostosowany wygląd i działanie  
+ ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image9.png))
 
-Poświęć chwilę, aby sprawdzić paska adresu w przeglądarce w **rysunek 3**. Należy pamiętać, że na pasku adresu zawiera adres URL strony błędu niestandardowego (`/ErrorPages/Oops.aspx`). Na rysunkach 1 i 2 ekrany żółty śmierci są wyświetlane w tej samej stronie, błąd pochodzących z (`Genre.aspx`). Strona błędu niestandardowego jest przekazany adres URL strony, w którym wystąpił błąd przy użyciu `aspxerrorpath` parametr querystring.
+Poświęć chwilę na sprawdzenie paska adresu w przeglądarce na **rysunku 3**. Należy zauważyć, że na pasku adresu jest wyświetlany adres URL strony błędu niestandardowego (`/ErrorPages/Oops.aspx`). Na rysunkach 1 i 2 żółte ekrany zgonu są wyświetlane na tej samej stronie, z której pochodzi błąd (`Genre.aspx`). Strona błędu niestandardowego jest przenoszona na adres URL strony, na której wystąpił błąd za pośrednictwem parametru `aspxerrorpath` QueryString.
 
-## <a name="configuring-which-error-page-is-displayed"></a>Konfigurowanie którego strony błędu jest wyświetlana.
+## <a name="configuring-which-error-page-is-displayed"></a>Konfigurowanie, która strona błędu jest wyświetlana
 
-Co trzy strony możliwy błąd ma być wyświetlane opiera się na dwóch zmiennych:
+Zostanie wyświetlona, która z trzech możliwych stron błędu jest oparta na dwóch zmiennych:
 
-- Informacje o konfiguracji w `<customErrors>` sekcji i
-- Czy użytkownik jest następującej witrynie, lokalnie lub zdalnie.
+- Informacje o konfiguracji w sekcji `<customErrors>` i
+- Czy użytkownik odwiedzający witrynę lokalnie czy zdalnie.
 
-[ `<customErrors>` Sekcji](https://msdn.microsoft.com/library/h0hfz6fc.aspx) w `Web.config` ma dwa atrybuty, które mają wpływ na stronę błędu, jakie jest wyświetlany: `defaultRedirect` i `mode`. `defaultRedirect` Atrybut jest opcjonalny. Jeśli nie dostarczono, określa adres URL strony błędu niestandardowego i wskazuje, że zamiast YSOD błąd środowiska uruchomieniowego powinna być wyświetlana strona błędu niestandardowego. `mode` Atrybut jest wymagany i przyjmuje jedną z trzech wartości: `On`, `Off`, lub `RemoteOnly`. Te wartości mogą być następujące zachowanie:
+[Sekcja`<customErrors>`](https://msdn.microsoft.com/library/h0hfz6fc.aspx) w `Web.config` ma dwa atrybuty, które mają wpływ na zawartość wyświetlaną na stronie błędu: `defaultRedirect` i `mode`. Atrybut `defaultRedirect` jest opcjonalny. Jeśli ta wartość jest określona, określa adres URL strony błędu niestandardowego i wskazuje, że zamiast błędu czasu wykonywania należy wyświetlić stronę błędu niestandardowego. Atrybut `mode` jest wymagany i akceptuje jedną z trzech wartości: `On`, `Off`lub `RemoteOnly`. Te wartości mają następujące zachowanie:
 
-- `On` -wskazuje stronę błędu niestandardowego lub YSOD błąd środowiska uruchomieniowego jest wyświetlany dla wszystkich osób odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
-- `Off` -Określa, czy wyjątek YSOD szczegóły są wyświetlane dla wszystkich osób odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
-- `RemoteOnly` — Wskazuje, że strony błędów niestandardowych lub YSOD błąd środowiska uruchomieniowego jest wyświetlany osobom odwiedzającym zdalnego podczas YSOD szczegółów wyjątku jest wyświetlany osobom odwiedzającym lokalnego.
+- `On` — wskazuje, że strona błędu niestandardowego lub błąd czasu wykonania YSOD jest pokazywana wszystkim odwiedzającym, niezależnie od tego, czy są one lokalne, czy zdalne.
+- `Off`-określa, że YSOD szczegóły wyjątku są wyświetlane dla wszystkich odwiedzających, niezależnie od tego, czy są one lokalne, czy zdalne.
+- `RemoteOnly` — wskazuje, że niestandardowa strona błędu lub błąd czasu wykonywania YSOD jest pokazywany zdalnym Gościom, podczas gdy szczegóły wyjątku YSOD są widoczne dla Gości lokalnych.
 
-O ile nie określono inaczej, platformy ASP.NET działa tak, jakby atrybut tryb zostały ustawione `RemoteOnly` i nie podał `defaultRedirect` wartość. Oznacza to domyślnym zachowaniem jest, że podczas YSOD błąd środowiska uruchomieniowego jest wyświetlany osobom odwiedzającym zdalnego YSOD szczegółów wyjątku jest wyświetlany osobom odwiedzającym lokalnego. To zachowanie domyślne można przesłonić, dodając `<customErrors>` sekcji do aplikacji sieci web `Web.config file.`
+O ile nie określono inaczej, ASP.NET działa tak, jakby atrybut Mode został ustawiony na `RemoteOnly` i nie został określony `defaultRedirect` wartość. Innymi słowy, domyślne zachowanie polega na tym, że szczegóły wyjątku YSOD są wyświetlane odwiedzającym lokalnego, podczas gdy błąd czasu wykonywania YSOD jest pokazywany zdalnym osobom odwiedzającym. To zachowanie domyślne można przesłonić, dodając sekcję `<customErrors>` do `Web.config file.` aplikacji sieci Web
 
-## <a name="using-a-custom-error-page"></a>Za pomocą strony błędu niestandardowego
+## <a name="using-a-custom-error-page"></a>Używanie niestandardowej strony błędu
 
-Każda aplikacja sieci web powinien mieć niestandardowej strony błędu. Zapewnia bardziej profesjonalnych zamiast YSOD błąd środowiska uruchomieniowego, ułatwia tworzenie i konfigurowanie aplikacji do korzystania z niestandardowej strony błędu zajmuje tylko chwilę. Pierwszym krokiem jest utworzenie niestandardowej strony błędu. Nowy folder zostały dodane do aplikacji przeglądy książki, o nazwie `ErrorPages` i dodane do, że nowa strona programu ASP.NET o nazwie `Oops.aspx`. Jeszcze strony, użyj tej samej strony wzorcowej jako pozostałe strony w witrynie tak, aby automatycznie dziedziczy tego samego wygląd i działanie.
+Każda aplikacja sieci Web powinna mieć niestandardową stronę błędu. Zapewnia to bardziej profesjonalne, niezawodne rozwiązanie YSOD błędów środowiska uruchomieniowego, można łatwo utworzyć i skonfigurować aplikację do korzystania z niestandardowej strony błędu zajmuje zaledwie kilka minut. Pierwszy krok polega na utworzeniu niestandardowej strony błędu. Dodaliśmy nowy folder do aplikacji przeglądający książki o nazwie `ErrorPages` i dodany do nowej strony ASP.NET o nazwie `Oops.aspx`. Użyj tej samej strony wzorcowej jako reszty stron w witrynie, aby automatycznie dziedziczyć ten sam wygląd i działanie.
 
 [![](displaying-a-custom-error-page-vb/_static/image11.png)](displaying-a-custom-error-page-vb/_static/image10.png)
 
-**Rysunek 4**: Tworzenie niestandardowej strony błędu
+**Ilustracja 4**. Tworzenie niestandardowej strony błędu
 
-Następnie Poświęć kilka minut, tworzenie zawartości strony błędu. Zamiast prostych niestandardowej strony błędu został utworzony za pomocą komunikat wskazujący, że wystąpił nieoczekiwany błąd i łącze z powrotem do strony głównej witryny.
+Następnie Poświęć kilka minut na utworzenie zawartości dla strony błędu. Utworzono nieprostą niestandardową stronę błędu z komunikatem informującym o nieoczekiwanym błędzie i linku z powrotem do strony głównej witryny.
 
 [![](displaying-a-custom-error-page-vb/_static/image13.png)](displaying-a-custom-error-page-vb/_static/image12.png)
 
-**Rysunek 5**: Projektowanie strony błędu niestandardowego  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image14.png))
+**Rysunek 5**. Projektowanie niestandardowej strony błędu  
+ ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image14.png))
 
-Za pomocą strony błędu, zakończone należy skonfigurować aplikację sieci web, aby użyć niestandardowej strony błędu audytów YSOD błąd środowiska uruchomieniowego. Jest to osiągnąć, określając adres URL strony błędu w `<customErrors>` sekcji `defaultRedirect` atrybutu. Dodaj następujący kod do swojej aplikacji `Web.config` pliku:
+Gdy strona błędu została ukończona, skonfiguruj aplikację sieci Web tak, aby korzystała ze strony błędu niestandardowego zamiast YSOD błędów środowiska uruchomieniowego. W tym celu należy określić adres URL strony błędu w atrybucie `defaultRedirect` `<customErrors>` sekcji. Dodaj następujący znacznik do pliku `Web.config` aplikacji:
 
 [!code-xml[Main](displaying-a-custom-error-page-vb/samples/sample1.xml)]
 
-Powyższe znaczników konfiguruje stosowanie przez aplikację do przedstawienia YSOD szczegółów wyjątku użytkowników odwiedzających lokalnie, podczas korzystania z niestandardowej strony błędu Oops.aspx dla tych użytkowników, odwiedzając zdalnie. Aby to zobaczyć w działaniu, wdrażanie witryny sieci Web w środowisku produkcyjnym, a następnie odwiedź stronę Genre.aspx w aktywnej witrynie z wartością nieprawidłowy ciąg zapytania. Powinna zostać wyświetlona strona błędu niestandardowego (odnoszą się do **rysunek 3**).
+Powyższy znacznik służy do konfigurowania aplikacji do wyświetlania szczegółów wyjątku YSOD użytkownikom lokalnie, podczas gdy przy użyciu niestandardowej strony błędu niestety. aspx dla użytkowników odwiedzanych zdalnie. Aby wyświetlić tę akcję, wdróż witrynę internetową w środowisku produkcyjnym, a następnie odwiedź stronę gatunek. aspx w witrynie na żywo z nieprawidłową wartością QueryString. Powinna zostać wyświetlona strona błędu niestandardowego (zapoznaj się z powrotem do **rysunku 3**).
 
-Aby sprawdzić, stronę błędu niestandardowego jest wyświetlana tylko do użytkowników zdalnych, odwiedź stronę `Genre.aspx` strony nieprawidłowy ciąg zapytania ze środowiska projektowego. Nadal powinien zostać wyświetlony YSOD szczegółów wyjątku (odnoszą się do **rys.1**). `RemoteOnly` Ustawienie zapewni, że w środowisku produkcyjnym, odwiedzając witrynę widzą strony błędu niestandardowego podczas deweloperów pracujących lokalnie w dalszym ciągu widzieć szczegóły wyjątku.
+Aby sprawdzić, czy strona błędu niestandardowego jest wyświetlana tylko dla użytkowników zdalnych, odwiedź stronę `Genre.aspx` z nieprawidłowym wyrażeniem QueryString ze środowiska deweloperskiego. Nadal powinny zostać wyświetlone szczegóły wyjątku YSOD (zapoznaj się z powrotem do **rysunku 1**). Ustawienie `RemoteOnly` gwarantuje, że użytkownicy odwiedzający witrynę w środowisku produkcyjnym zobaczą stronę błędu niestandardowego, podczas gdy deweloperzy pracujący lokalnie nadal widzą szczegóły wyjątku.
 
-## <a name="notifying-developers-and-logging-error-details"></a>Powiadamianie deweloperów i rejestrowanie szczegółów błędu
+## <a name="notifying-developers-and-logging-error-details"></a>Powiadamianie deweloperów i szczegóły błędu rejestrowania
 
-Błędy występujące w środowisku programistycznym były spowodowane przez dewelopera, dostępne na swoim komputerze. Ona przedstawiono informacje o wyjątku w YSOD szczegółów wyjątku i wie, jakie kroki ona wykonywała w momencie wystąpienia błędu. Jednak po wystąpieniu błędu w środowisku produkcyjnym, deweloper nie ma informacji, chyba że użytkownik końcowy w witrynie zajmuje czasu, aby zgłosić błąd wystąpił błąd. A nawet wtedy, gdy użytkownik wykracza poza sposób alert zespołem programistycznym, który wystąpił błąd, nie wiedząc o tym, typ wyjątku, komunikat i ślad stosu, może być trudne przyczynę błędu, nie mówiąc go naprawić.
+Błędy występujące w środowisku programistycznym były spowodowane przez dewelopera na komputerze. Pokazuje informacje o wyjątku w YSOD szczegóły wyjątku i wie, jakie kroki były wykonywane po wystąpieniu błędu. Ale jeśli wystąpi błąd w środowisku produkcyjnym, Deweloper nie ma informacji o tym, że wystąpił błąd, chyba że użytkownik końcowy przejdzie do witryny, aby zgłosić błąd. Nawet jeśli użytkownik wyjdzie ze swojego sposobu, aby ostrzec zespół programistyczny, że wystąpił błąd, bez znajomości typu wyjątku, komunikatu i śladu stosu, może być trudne zdiagnozowanie przyczyny błędu, samodzielne rozwiązanie tego problemu.
 
-Z tych powodów, dla których najważniejsze, że wszelkie błędy w środowisku produkcyjnym zostanie zarejestrowany niektóre trwałego magazynu (np. bazy danych), a deweloperzy są alerty wystąpienia tego błędu. Strona błędu niestandardowego może się wydawać dobrym miejscem do śledzenia tego rejestrowania i powiadomień. Niestety stronę błędu niestandardowego nie ma dostępu do szczegóły błędu i nie można używać do logowania się te informacje. Dobra wiadomość jest taka, istnieje kilka sposobów przechwytywać szczegóły błędu i je rejestrować i zapoznaj się z trzech kolejnych samouczków w tym temacie bardziej szczegółowo.
+Z tego względu należy zastanowić się, że każdy błąd w środowisku produkcyjnym jest rejestrowany w magazynie trwałym (takim jak baza danych) i że deweloperzy są powiadamiani o tym błędzie. Niestandardowa strona błędu może wydawać się dobrym miejscem do tego rejestrowania i powiadamiania. Niestety, niestandardowa strona błędu nie ma dostępu do szczegółów błędu i dlatego nie można jej użyć do rejestrowania tych informacji. Dobrą wiadomośćą jest to, że istnieją różne sposoby przechwycenia szczegółów błędu i zarejestrowania ich, a następne trzy samouczki szczegółowo poznają ten temat.
 
-## <a name="using-different-custom-error-pages-for-different-http-error-statuses"></a>Za pomocą różnych błędów niestandardowych stron dla stanów różnych błędów HTTP
+## <a name="using-different-custom-error-pages-for-different-http-error-statuses"></a>Używanie różnych niestandardowych stron błędów dla różnych stanów błędów HTTP
 
-Gdy wyjątek jest generowany przez strony ASP.NET i nie jest obsługiwany, wyjątek percolates do środowiska uruchomieniowego programu ASP.NET, która zostanie wyświetlona strona błędu skonfigurowany. Żądanie trafia do aparatu programu ASP.NET, ale nie można przetworzyć jakiegoś powodu — prawdopodobnie żądany plik jest nie można odnaleźć lub odczytać uprawnienia zostały wyłączone dla pliku — a następnie wywołuje aparat ASP.NET `HttpException`. Ten wyjątek, takich jak wyjątki wywoływane ze stron ASP.NET rozpropagowany do środowiska uruchomieniowego, powodując stronę odpowiedni komunikat o błędzie do wyświetlenia.
+Gdy wyjątek jest zgłaszany przez stronę ASP.NET i nie jest obsługiwany, wyjątek percolates do środowiska uruchomieniowego ASP.NET, który wyświetla skonfigurowaną stronę błędu. Jeśli żądanie znajduje się w aparacie ASP.NET, ale nie można go przetworzyć z jakiegoś powodu — prawdopodobnie nie znaleziono żądanego pliku lub uprawnienia do odczytu zostały wyłączone dla tego pliku, a następnie aparat ASP.NET wywołuje `HttpException`. Ten wyjątek, taki jak wyjątki wywoływane ze stron ASP.NET, bąbelki do środowiska uruchomieniowego, co powoduje wyświetlenie odpowiedniej strony błędu.
 
-Co to oznacza dla aplikacji sieci web w środowisku produkcyjnym jest to, że jeśli użytkownik zażąda strona, która nie zostanie znaleziony, a następnie ich zostanie wyświetlona strona błędu niestandardowego. **Rysunek 6** przedstawiono przykład takiego. Ponieważ żądanie dotyczy nieistniejącej strony (`NoSuchPage.aspx`), `HttpException` jest generowany i zostanie wyświetlona strona błędu niestandardowego (należy pamiętać, odwołanie do `NoSuchPage.aspx` w `aspxerrorpath` parametr querystring).
+Znaczenie tej aplikacji sieci Web w środowisku produkcyjnym polega na tym, że jeśli użytkownik zażąda strony, która nie została znaleziona, zostanie wyświetlona strona błędu niestandardowego. **Rysunek 6** pokazuje taki przykład. Ponieważ żądanie dotyczy nieistniejącej strony (`NoSuchPage.aspx`), zgłaszany jest `HttpException` i zostanie wyświetlona strona błędu niestandardowego (należy zwrócić uwagę do `NoSuchPage.aspx` w `aspxerrorpath` ciągu QueryString).
 
-[![](displaying-a-custom-error-page-vb/_static/image16.png)](displaying-a-custom-error-page-vb/_static/image15.png)**Rysunek 6**: Środowisko uruchomieniowe ASP.NET zostanie wyświetlona strona błędu skonfigurowanych w odpowiedzi na nieprawidłowe żądanie  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image17.png)) 
+[![](displaying-a-custom-error-page-vb/_static/image16.png)](displaying-a-custom-error-page-vb/_static/image15.png) **rysunek 6**: środowisko uruchomieniowe ASP.NET wyświetla skonfigurowaną stronę błędu w odpowiedzi na nieprawidłowe żądanie  
+ ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image17.png)) 
 
-Domyślnie wszystkie typy błędów spowodować, że ten sam niestandardowej strony błędu mają być wyświetlane. Można jednak określić różne niestandardowej strony błędu dla określonych HTTP status code za pomocą `<error>` elementy podrzędne w ramach `<customErrors>` sekcji. Na przykład strona inny błąd wyświetlana w przypadku strony błąd, mającej kod stanu HTTP 404 — Nie znaleziono aktualizacji `<customErrors>` sekcji, aby uwzględnić następujące znaczniki:
+Domyślnie wszystkie typy błędów powodują wyświetlenie tej samej niestandardowej strony błędu. Można jednak określić inną niestandardową stronę błędów dla określonego kodu stanu HTTP przy użyciu elementów podrzędnych `<error>` w sekcji `<customErrors>`. Na przykład aby w zdarzeniu nie znaleziono strony o błędzie o innej stronie, która ma kod stanu HTTP 404, zaktualizuj sekcję `<customErrors>`, aby uwzględnić następujące znaczniki:
 
 [!code-xml[Main](displaying-a-custom-error-page-vb/samples/sample2.xml)]
 
-Dzięki tej zmianie w miejscu zawsze wtedy, gdy użytkownik odwiedzający zdalnie zażąda zasób programu ASP.NET, który nie istnieje, zostanie przekierowany do `404.aspx` niestandardowej strony błędu zamiast `Oops.aspx`. Jako **rysunek 7** ilustruje, `404.aspx` strony może zawierać bardziej szczegółowy komunikat o błędzie niż ogólna niestandardowej strony błędu.
+Po dokonaniu tej zmiany, za każdym razem, gdy użytkownik odwiedzający zdalnie żąda zasobu ASP.NET, który nie istnieje, zostanie przekierowany `404.aspx` do niestandardowej strony błędu, a nie `Oops.aspx`. Jak pokazano na **rysunku 7** , Strona `404.aspx` może zawierać bardziej konkretny komunikat niż ogólna strona błędu niestandardowego.
 
 > [!NOTE]
-> Zapoznaj się z [404 stron błędów, jeden raz z bardziej](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) wskazówki dotyczące tworzenia skutecznych stron powodujących błąd 404.
+> Zapoznaj [się ze stronami błędów 404 jeszcze raz,](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) Aby uzyskać wskazówki dotyczące tworzenia efektywnych stron błędów 404.
 
-[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Rysunek 7**: Strony błędu niestandardowego 404 wyświetla komunikat bardziej precyzyjnie niż `Oops.aspx`  
- ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image20.png)) 
+[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png) **rysunek 7**: Strona błędu niestandardowego 404 wyświetla bardziej skierowany komunikat niż `Oops.aspx`  
+ ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-custom-error-page-vb/_static/image20.png)) 
 
-Ponieważ wiadomo, że `404.aspx` strony jest osiągany dopiero po użytkownik wysyła żądanie dla strony, który nie został znaleziony, można zwiększyć tę stronę błędu niestandardowego, aby oferować takie funkcje, aby pomóc użytkownikowi adresu określonego typu błędu. Na przykład można tworzenie map znane nieprawidłowe adresy URL to dobry adresów URL tabeli bazy danych, a następnie `404.aspx` niestandardowej strony błędu uruchom zapytanie dla tabeli, która zasugerować stron, które użytkownik może próbować dotrzeć do.
+Ponieważ wiesz, że strona `404.aspx` zostanie osiągnięta tylko wtedy, gdy użytkownik wysyła żądanie dotyczące strony, która nie została znaleziona, można rozszerzyć Tę stronę błędu niestandardowego w celu dołączenia funkcji, aby pomóc użytkownikowi rozwiązać ten konkretny typ błędu. Można na przykład utworzyć tabelę bazy danych, która mapuje znane złe adresy URL na dobre adresy URL, a następnie `404.aspx` stronie błędu niestandardowego uruchom zapytanie względem tej tabeli i Sugeruj strony, do których użytkownik może próbować uzyskać dostęp.
 
 > [!NOTE]
-> Tylko zostanie wyświetlona strona błędu niestandardowego, po wysłaniu żądania do zasobu, obsługiwane przez aparat programu ASP.NET. Tak jak Omówiliśmy to w [podstawowe różnice między usług IIS i programem ASP.NET Development Server](core-differences-between-iis-and-the-asp-net-development-server-vb.md) samouczków, serwer sieci web mogą obsługiwać niektórych żądań sam. Domyślnie usługi IIS żądania sieci web serwera procesów dla zawartości statycznej, takich jak obrazy i pliki HTML bez wywoływania aparatu programu ASP.NET. W związku z tym jeśli użytkownik zażąda pliku obrazu nieistniejącej otrzymają one ponownie komunikat błędu 404 domyślny usług IIS, a nie ASP. Strona błędu skonfigurowany w sieci.
+> Strona błędu niestandardowego jest wyświetlana tylko wtedy, gdy żądanie jest wykonywane do zasobu obsługiwanego przez aparat ASP.NET. Zgodnie z opisem w [podstawowych różnicach między usługami IIS a samouczkiem serwera ASP.NET Development](core-differences-between-iis-and-the-asp-net-development-server-vb.md) serwer sieci Web może obsługiwać pewne żądania. Domyślnie serwer sieci Web usług IIS przetwarza żądania dotyczące zawartości statycznej, takiej jak obrazy i pliki HTML bez wywoływania aparatu ASP.NET. W związku z tym, jeśli użytkownik zażąda nieistniejącego pliku obrazu, spowoduje to przywrócenie domyślnego komunikatu o błędzie 404 programu IIS zamiast ASP. Skonfigurowana strona błędu sieci.
 
 ## <a name="summary"></a>Podsumowanie
 
-Po wystąpieniu nieobsługiwanego wyjątku w aplikacji ASP.NET, użytkownik jest wyświetlany jeden z trzech stron błędów: wyjątek szczegóły żółty ekranem śmierci; Błąd w czasie wykonywania, żółte ekran; lub niestandardowej strony błędu. Zostanie wyświetlona strona błędu, który zależy od aplikacji `<customErrors>` konfiguracji i tego, czy użytkownik odwiedził lokalnie lub zdalnie. Zachowanie domyślne jest do przedstawienia YSOD szczegółów wyjątku do lokalnego odwiedzających i YSOD błąd środowiska uruchomieniowego odwiedzających zdalnego.
+Gdy wystąpił nieobsługiwany wyjątek w aplikacji ASP.NET, użytkownik zostanie pokazany na jednej z trzech stron błędu: Szczegóły wyjątku żółty ekran zgonu; Żółty ekran błędu środowiska uruchomieniowego w czasie wykonywania; lub niestandardową stronę błędu. Wyświetlana strona błędu zależy od konfiguracji `<customErrors>` aplikacji oraz tego, czy użytkownik jest odwiedzany lokalnie, czy zdalnie. Domyślnym zachowaniem jest wyświetlenie szczegółów wyjątku YSOD do lokalnych osób odwiedzających i błędu czasu wykonywania YSOD do zdalnych osób odwiedzających.
 
-Gdy YSOD błąd środowiska uruchomieniowego ukrywa informacje o błędzie potencjalnie poufnych przez użytkownika w witrynie, przerywa z witryny wygląd i działanie i sprawia, że wyglądu buggy Twojej aplikacji. Lepszym rozwiązaniem jest użycie niestandardowej strony błędu, co pociąga za sobą tworzenia i projektowania strony błędu niestandardowego i określania jej adresu URL w `<customErrors>` sekcji `defaultRedirect` atrybutu. Można nawet mieć wiele stron błędów niestandardowych dla różnych stanów błąd HTTP.
+Mimo że błąd czasu wykonywania YSOD powoduje ukrycie potencjalnie poufnych informacji o błędach od użytkownika odwiedzającego witrynę, przerwanie od wyglądu i działania witryny oraz sprawia, że aplikacja działa poprawnie. Lepszym rozwiązaniem jest użycie niestandardowej strony błędu, która wiąże się z tworzeniem i projektowaniem niestandardowej strony błędu i określeniu jej adresu URL w atrybucie `defaultRedirect` `<customErrors>` sekcji. Można nawet mieć wiele niestandardowych stron błędów dla różnych stanów błędów HTTP.
 
-Strona błędu niestandardowego jest pierwszym krokiem omyłkowo kompleksowej obsługi strategii dla witryny sieci Web w środowisku produkcyjnym. Alerty dla deweloperów błędu i rejestrowanie szczegółowe informacje są także ważne czynności. Techniki powiadomienia o błędzie i rejestrowania zapoznaj się z trzech kolejnych samouczków.
+Niestandardowa strona błędu to pierwszy krok kompleksowej strategii obsługi błędów dla witryny sieci Web w środowisku produkcyjnym. Należy również pamiętać, aby poinformować dewelopera o błędzie i zalogować się jego szczegóły. Następne trzy samouczki eksplorują techniki powiadamiania o błędach i rejestrowaniu.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
 - [Strony błędów, jeszcze raz](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
 - [Wyjątki — zalecenia dotyczące projektowania](https://msdn.microsoft.com/library/ms229014.aspx)
-- [Strony błędów przyjazny dla użytkownika](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
+- [Strony błędów przyjaznych dla użytkownika](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
 - [Obsługa i zgłaszanie wyjątków](https://msdn.microsoft.com/library/5b2yeyab.aspx)
-- [Prawidłowo przy użyciu strony błędów niestandardowych w programie ASP.NET:](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
+- [Poprawne używanie niestandardowych stron błędów w programie ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 > [!div class="step-by-step"]
 > [Poprzednie](strategies-for-database-development-and-deployment-vb.md)

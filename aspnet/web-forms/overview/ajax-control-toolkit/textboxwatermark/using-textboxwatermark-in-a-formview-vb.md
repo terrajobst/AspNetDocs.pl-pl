@@ -1,55 +1,55 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-vb
-title: Używanie kontrolki TextBoxWatermark w kontrolce FormView (VB) | Dokumentacja firmy Microsoft
+title: Używanie używanie textboxwatermark w widoku FormView (VB) | Microsoft Docs
 author: wenz
-description: Kontrolki TextBoxWatermark w zestawu narzędzi AJAX Control Toolkit rozszerza polu tekstowym, więc, że tekst jest wyświetlany w polu. Gdy użytkownik kliknie w polu, go czy...
+description: Kontrolka używanie textboxwatermark w zestawie narzędzi AJAX Control rozszerza pole tekstowe tak, aby tekst był wyświetlany w polu. Gdy użytkownik kliknie w polu i...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 41497361-7fba-4825-b36c-f58d79522a88
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7dd213e632f6114b0ef468e97943e789e71a474a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 1dd17ed57383680122c4ca613ca71f6682dec40e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124531"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598349"
 ---
 # <a name="using-textboxwatermark-in-a-formview-vb"></a>Używanie kontrolki TextBoxWatermark w kontrolce FormView (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark1VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/TextBoxWatermark1.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/textboxwatermark1VB.pdf)
 
-> Kontrolki TextBoxWatermark w zestawu narzędzi AJAX Control Toolkit rozszerza polu tekstowym, więc, że tekst jest wyświetlany w polu. Gdy użytkownik kliknie w polu, będzie pusta. Jeśli użytkownik opuści pole bez konieczności wprowadzania tekstu, wstępnie wypełnionych tekstu pojawi się ponownie. Ponadto jest to możliwe w kontrolce FormView.
+> Kontrolka używanie textboxwatermark w zestawie narzędzi AJAX Control rozszerza pole tekstowe tak, aby tekst był wyświetlany w polu. Gdy użytkownik kliknie pole, zostanie opróżnione. Jeśli użytkownik opuści pole bez wprowadzania tekstu, zostanie wyświetlony tekst wstępnie wypełniony. Jest to również możliwe w kontrolce FormView.
 
 ## <a name="overview"></a>Omówienie
 
-`TextBoxWatermark` Formantu w zestawu narzędzi AJAX Control Toolkit rozszerza pola tekstowego, więc, że tekst jest wyświetlany w polu. Gdy użytkownik kliknie w polu, będzie pusta. Jeśli użytkownik opuści pole bez konieczności wprowadzania tekstu, wstępnie wypełnionych tekstu pojawi się ponownie. Jest to możliwe w ramach również `FormView` kontroli.
+Kontrolka `TextBoxWatermark` w zestawie narzędzi AJAX Control rozszerza pole tekstowe tak, aby tekst był wyświetlany w polu. Gdy użytkownik kliknie pole, zostanie opróżnione. Jeśli użytkownik opuści pole bez wprowadzania tekstu, zostanie wyświetlony tekst wstępnie wypełniony. Jest to również możliwe w ramach formantu `FormView`.
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze źródła danych jest wymagana. Ta próbka używa bazy danych AdventureWorks i Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalnym składnikiem instalacji programu Visual Studio (w tym wersja express) i jest również dostępny jako osobnego pobrania w ramach [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). Bazy danych AdventureWorks jest częścią przykładów programu SQL Server 2005 i przykładowych baz danych (będą pobierane w [ https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp; DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Najprostszym sposobem skonfigurowania bazy danych jest użycie, programu Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp; DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) i dołączyć `AdventureWorks.mdf` plik bazy danych.
+Najpierw wymagane jest źródło danych. Ten przykład używa bazy danych AdventureWorks i Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalną częścią instalacji programu Visual Studio (w tym Express Edition) i jest również dostępna jako oddzielne pobieranie w obszarze [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). Baza danych AdventureWorks jest częścią przykładów SQL Server 2005 i przykładowych baz danych (Pobierz w [https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;D isplaylang = EN](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Najprostszym sposobem ustawienia bazy danych jest użycie Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;D isplaylang = EN](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) i dołączenie pliku bazy danych `AdventureWorks.mdf`.
 
-W tym przykładzie przyjęto założenie, że wystąpienie programu SQL Server 2005 Express Edition jest wywoływana `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci web; jest domyślna konfiguracja. Jeśli różni się konfigurację, trzeba dostosować informacje o połączeniu dla bazy danych.
+W tym przykładzie przyjęto założenie, że wystąpienie SQL Server 2005 Express Edition jest nazywane `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci Web; jest to również konfiguracja domyślna. Jeśli konfiguracja jest inna, należy dostosować informacje o połączeniu dla bazy danych.
 
-W celu włączenia funkcji ASP.NET AJAX i zestaw narzędzi do sterowania `ScriptManager` kontroli muszą znajdować się gdziekolwiek na stronie (ale poziomu `<form>` elementu):
+Aby aktywować funkcje ASP.NET AJAX i zestawu narzędzi sterowania, formant `ScriptManager` musi być umieszczony w dowolnym miejscu na stronie (ale w obrębie elementu `<form>`):
 
 [!code-aspx[Main](using-textboxwatermark-in-a-formview-vb/samples/sample1.aspx)]
 
-Następnie Dodaj źródło danych do strony, która obsługuje `DELETE`, `INSERT` i `UPDATE` instrukcji języka SQL. Jeśli są przy użyciu Asystenta ustawień programu Visual Studio, aby utworzyć źródło danych, należy uwzględnić następujące kwestie usterkę w bieżącej wersji prefiksu nazwy tabeli (`Vendor`) przy użyciu `Purchasing`. Następujący kod przedstawia poprawnej składni:
+Następnie Dodaj źródło danych do strony, która obsługuje instrukcje SQL `DELETE`, `INSERT` i `UPDATE`. Jeśli używasz asystenta programu Visual Studio do utworzenia źródła danych, weź pod uwagę, że usterka w bieżącej wersji nie zawiera prefiksu nazwy tabeli (`Vendor`) z `Purchasing`. Następujące znaczniki pokazują poprawną składnię:
 
 [!code-aspx[Main](using-textboxwatermark-in-a-formview-vb/samples/sample2.aspx)]
 
-Zapamiętaj nazwę (`ID`) źródła danych, ponieważ będzie on używany w `DataSourceID` właściwość `FormView` kontroli. `<InsertItemTemplate>` Części `FormView` zawiera pole tekstowe, która zostanie rozszerzona `TextBoxWatermarkExtender` kontroli. Upewnij się, że urządzenia extender znajduje się w szablonie, a nie poza nią.
+Zapamiętaj nazwę (`ID`) źródła danych, ponieważ będzie on używany we właściwości `DataSourceID` kontrolki `FormView`. Sekcja `<InsertItemTemplate>` `FormView` zawiera pole tekstowe, które jest rozszerzane przez kontrolkę `TextBoxWatermarkExtender`. Upewnij się, że rozszerzenie znajduje się w szablonie, a nie poza nim.
 
 [!code-aspx[Main](using-textboxwatermark-in-a-formview-vb/samples/sample3.aspx)]
 
-Teraz, gdy użytkownik zmieni do trybu wstawiania `FormView` kontrolować, pole tekstowe dla nowego dostawcy jest wstępnie dzięki `TextBoxWatermarkExtender` kontroli. Kliknij wewnątrz pola tekstowego umożliwia tekstu wypełniacza zniknąć.
+Teraz, gdy użytkownik zmieni tryb wstawiania kontrolki `FormView`, pole tekstowe nowego dostawcy jest wypełniane za pomocą kontrolki `TextBoxWatermarkExtender`. Kliknięcie wewnątrz pola tekstowego umożliwia zniknięcie tekstu Filler.
 
-[![Znak wodny w polu pochodzi z urządzenia extender](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
+[![znak wodny w polu pochodzi z rozszerzenia](using-textboxwatermark-in-a-formview-vb/_static/image2.png)](using-textboxwatermark-in-a-formview-vb/_static/image1.png)
 
-Znak wodny w polu pochodzi z urządzenia extender ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-textboxwatermark-in-a-formview-vb/_static/image3.png))
+Znak wodny w polu pochodzi z rozszerzenia (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](using-textboxwatermark-in-a-formview-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-textboxwatermark-with-validation-controls-cs.md)

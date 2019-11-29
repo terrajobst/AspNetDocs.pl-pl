@@ -1,199 +1,199 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
-title: Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#) | Dokumentacja firmy Microsoft
+title: Implementowanie optymistycznej współbieżności przy użyciuC#kontrolki SqlDataSource () | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku będziemy Przejrzyj podstawowych mechanizmu kontroli optymistycznej współbieżności, a następnie zobacz, jak wdrożyć je przy użyciu kontrolki SqlDataSource.
+description: W tym samouczku zapoznajemy podstawowe informacje o optymistycznej kontroli współbieżności, a następnie zapoznaj się z tematem, jak wdrożyć go przy użyciu formantu kontrolki SqlDataSource.
 ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dd2b44803f00f7e194e2c41f448d579865da58b6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 87fca52e2e8be844411b2fff8382c6002eccbe09
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115117"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598163"
 ---
 # <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>Implementowanie optymistycznej współbieżności przy użyciu kontrolki SqlDataSource (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_CS.exe) lub [Pobierz plik PDF](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/datatutorial50cs1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_50_CS.exe) lub [Pobierz plik PDF](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/datatutorial50cs1.pdf)
 
-> W tym samouczku będziemy Przejrzyj podstawowych mechanizmu kontroli optymistycznej współbieżności, a następnie zobacz, jak wdrożyć je przy użyciu kontrolki SqlDataSource.
+> W tym samouczku zapoznajemy podstawowe informacje o optymistycznej kontroli współbieżności, a następnie zapoznaj się z tematem, jak wdrożyć go przy użyciu formantu kontrolki SqlDataSource.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Jak dodać Wstawianie, aktualizowanie i usuwanie możliwości kontrolki SqlDataSource zbadaliśmy w poprzednim samouczku. Krótko mówiąc, aby zapewnić te funkcje Musieliśmy określ odpowiedni `INSERT`, `UPDATE`, lub `DELETE` instrukcję SQL w formancie s `InsertCommand`, `UpdateCommand`, lub `DeleteCommand` właściwości wraz z odpowiednim Parametry w `InsertParameters`, `UpdateParameters`, i `DeleteParameters` kolekcji. Podczas tych właściwości i kolekcje można określić ręcznie skonfigurować źródło danych Kreatora s Zaawansowana oferuje Generuj `INSERT`, `UPDATE`, i `DELETE` na podstawie wyboru instrukcji, która spowoduje automatyczne tworzenie tych instrukcji `SELECT` instrukcji.
+W poprzednim samouczku sprawdzono, jak dodać funkcje wstawiania, aktualizowania i usuwania do kontrolki kontrolki SqlDataSource. Krótko mówiąc, aby zapewnić te funkcje, które są potrzebne do określenia odpowiednich `INSERT`, `UPDATE`lub `DELETE` instrukcji SQL w obszarze Control s `InsertCommand`, `UpdateCommand`lub `DeleteCommand`, wraz z odpowiednimi parametrami w `InsertParameters`, `UpdateParameters`i `DeleteParameters` kolekcje. Mimo że te właściwości i Kolekcje można określić ręcznie, przycisk Zaawansowane Kreator konfigurowania źródła danych oferuje opcję Generuj `INSERT`, `UPDATE`i `DELETE` instrukcji, które będą automatycznie tworzyć te instrukcje na podstawie instrukcji `SELECT`.
 
-Wraz z Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcje wyboru, okno dialogowe Zaawansowane opcje generowania SQL zawiera opcję Użyj optymistycznej współbieżności (patrz rysunek 1). Po zaznaczeniu tej opcji, `WHERE` klauzul wygenerowany automatycznie `UPDATE` i `DELETE` instrukcje są modyfikowane tylko wykonać aktualizację, lub usunąć, jeśli nie zostały zmodyfikowane podstawowych danych w bazie danych, ponieważ użytkownik ostatniego załadowania danych do siatki.
+Wraz z zaznaczeniem pola wyboru Generuj `INSERT`, `UPDATE`i `DELETE`, zaawansowane opcje generowania instrukcji SQL zawierają opcję Użyj optymistycznej współbieżności (patrz rysunek 1). Po zaznaczeniu tej opcji klauzule `WHERE` w instrukcjach generowanych automatycznie `UPDATE` i `DELETE` są modyfikowane tak, aby wykonywały tylko aktualizację lub usuwanie, jeśli dane źródłowej bazy danych nie zostały zmodyfikowane od czasu ostatniego załadowania danych do siatki.
 
-![Obsługa optymistycznej współbieżności można dodać z zaawansowanych generowanie kodu SQL — okno dialogowe Opcje](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
+![Możesz dodać optymistyczną obsługę współbieżności z okna dialogowego Zaawansowane opcje generowania kodu SQL](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.gif)
 
-**Rysunek 1**: Obsługa optymistycznej współbieżności można dodać z zaawansowanych generowanie kodu SQL — okno dialogowe Opcje
+**Rysunek 1**: możesz dodać optymistyczną obsługę współbieżności z okna dialogowego Zaawansowane opcje generowania kodu SQL
 
-Ponownie [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) zbadaliśmy podstawowe informacje dotyczące mechanizmu kontroli optymistycznej współbieżności oraz sposób dodać go do kontrolki ObjectDataSource samouczka. W tym samouczku utworzymy retuszowanie na podstawowych mechanizmu kontroli optymistycznej współbieżności i następnie zobacz, jak wdrożyć ją za pomocą SqlDataSource.
+Z powrotem w samouczku [wdrażanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) zbadamy podstawy optymistycznej kontroli współbieżności i sposób dodawania jej do elementu ObjectDataSource. W tym samouczku powrócimy do podstawy optymistycznej kontroli współbieżności, a następnie Dowiedz się, jak zaimplementować ją przy użyciu kontrolki SqlDataSource.
 
 ## <a name="a-recap-of-optimistic-concurrency"></a>Podsumowanie optymistycznej współbieżności
 
-Dla aplikacji sieci web, które pozwalają wielu równoczesnych użytkowników, aby edytować lub usunąć tych samych danych, istnieje możliwość, że jeden użytkownik przypadkowo może zastąpić inną zmiany s. W [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) samouczek I podane w poniższym przykładzie:
+W przypadku aplikacji sieci Web, które umożliwiają wielu użytkownikom jednoczesne edytowanie lub usuwanie tych samych danych, istnieje możliwość, że jeden użytkownik może przypadkowo zastąpić inne zmiany s. W samouczku [wdrażanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) podano następujący przykład:
 
-Wyobraź sobie, że dwóch użytkowników, Jisun i Szymon, zostały zarówno odwiedzając strony w aplikacji, która może osoby odwiedzające aktualizowanie i usuwanie produkty za pomocą kontrolki GridView. Tym samym czasie, dla Chai zarówno kliknij przycisk Edytuj. Jisun zmienia nazwę produktu do herbaty Chai i klika przycisk Aktualizuj. Wynikiem jest `UPDATE` instrukcji, które są wysyłane do bazy danych, która ustawia *wszystkich* pól można aktualizować produkt s (mimo że Jisun aktualizowane tylko jedno pole `ProductName`). W tym momencie baza danych ma wartości Chai herbaty, kategorii Beverages, płynów egzotycznych dostawcy, i tak dalej dla tego konkretnego produktu. Jednak GridView na ekranie s Sam nadal zawiera nazwy produktu w można edytować wiersza w widoku GridView jako Chai. Kilka sekund po Jisun s zmiany zostały zatwierdzone, Sam aktualizacje kategorii Condiments i klika aktualizacji. Skutkuje to `UPDATE` instrukcji wysyłane do bazy danych, która ustawia nazwę produktu Chai, `CategoryID` do odpowiedniego Identyfikatora kategorii Condiments i tak dalej. Zostały zastąpione Jisun s zmiany nazwy produktu.
+Załóżmy, że dwaj użytkownicy, Jisun i sam odwiedzają stronę w aplikacji, która umożliwia osobom odwiedzającym aktualizowanie i usuwanie produktów za pomocą kontrolki GridView. W tym samym czasie kliknij przycisk Edytuj dla Chai. Jisun zmienia nazwę produktu na Chai herbata i klika przycisk Aktualizuj. Wynikiem sieci jest instrukcja `UPDATE`, która jest wysyłana do bazy danych, która ustawia *wszystkie* pola do zaktualizowania produktu (nawet jeśli Jisun tylko jedno pole, `ProductName`). W tym momencie baza danych ma wartości Chai herbata, kategorie napoje, egzotyczne płyny i tak dalej dla tego konkretnego produktu. Jednak widok GridView na ekranie sam s nadal pokazuje nazwę produktu w edytowalnym wierszu GridView jako Chai. Kilka sekund po zatwierdzeniu zmian Jisun s, sam aktualizuje kategorię do przypraw i klika przycisk Aktualizuj. Spowoduje to wysłanie instrukcji `UPDATE` do bazy danych, która ustawia nazwę produktu na Chai, `CategoryID` do odpowiedniego identyfikatora kategorii przypraw i tak dalej. Jisun s zmiany nazwy produktu zostały nadpisywane.
 
-Na rysunku 2 przedstawiono ta interakcja.
+Na rysunku 2 przedstawiono tę interakcję.
 
-[![Po dwóch użytkowników jednocześnie zaktualizowania rekordu, istnieje ryzyko s s jeden użytkownik zmieni się na zastąpić inne zasoby](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
+[![, gdy dwaj użytkownicy jednocześnie zaktualizują rekord, a potencjalne dla jednego użytkownika s zmienią się, aby zastąpić inne s](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image1.png)
 
-**Rysunek 2**: Gdy dwóch użytkowników jednoczesne aktualizowanie istnieje rekord s potencjał s jeden użytkownik zmienia się na zastąpić inne zasoby ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))
+**Rysunek 2**. gdy dwaj użytkownicy jednocześnie zaktualizują rekord, a potencjalne dla jednego użytkownika s zmienią się, aby zastąpić inne s ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image2.png))
 
-Aby zapobiec w tym scenariuszu unfolding formę [kontroli współbieżności](http://en.wikipedia.org/wiki/Concurrency_control) musi zostać wdrożone. [Optymistyczna współbieżność](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) fokus w tym samouczku działa przy założeniu, że w chwili, gdy może być konfliktów współbieżności every teraz, a następnie, większość czasu nie będą występować takie konflikty. W związku z tym jeśli wystąpić konflikt, mechanizmu kontroli optymistycznej współbieżności po prostu informuje użytkownika, t może ich zmiany można zapisać, ponieważ inny użytkownik zmodyfikował tych samych danych.
+Aby zapobiec niezgięciu tego scenariusza, należy zaimplementować formularz [kontroli współbieżności](http://en.wikipedia.org/wiki/Concurrency_control) . [Optymistyczne współbieżność](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) ten samouczek działa w oparciu o założenie, że w tym czasie mogą wystąpić konflikty współbieżności co teraz, a następnie, większość czasu taka konfliktów nie będzie się powtarzać. W związku z tym, jeśli wystąpi konflikt, optymistyczna kontrola współbieżności po prostu informuje użytkownika o tym, że zmiany mogą zostać zapisane, ponieważ inny użytkownik zmodyfikował te same dane.
 
 > [!NOTE]
-> W przypadku aplikacji, w którym zakłada się, że będzie istniało wiele konfliktów współbieżności, lub jeśli takie konflikty nie są dopuszczalna następnie mechanizm kontroli pesymistycznej współbieżności można zamiast tego. Odwołaj się do [Implementowanie optymistycznej współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) samouczek bardziej szczegółowe omówienie dotyczące kontroli pesymistycznej współbieżności.
+> W przypadku aplikacji, w których zakłada się, że wystąpią liczne konflikty współbieżności lub takie konflikty nie są dopuszczalne, zamiast tego można użyć metody pesymistycznej współbieżności. Zapoznaj się z artykułem [wdrażanie optymistycznego samouczka współbieżności](../editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs.md) , aby zapoznać się z bardziej dokładną dyskusją na temat współbieżności na serwerze.
 
-Mechanizmu kontroli optymistycznej współbieżności działa przez zapewnienie im rekordu są zaktualizowane lub usunięte ma takie same wartości, tak jak podczas aktualizowania lub usuwania procesu uruchamiania. Na przykład po kliknięciu przycisku edycji w edycji kontrolki GridView wartości rekordu s są odczytu z bazy danych i wyświetlane w polach tekstowych i innych formantów sieci Web. Te oryginalne wartości są zapisywane w widoku GridView. Później, po użytkownik wprowadza swoje zmiany i kliknie przycisk Aktualizuj `UPDATE` instrukcją użytą w należy wziąć pod uwagę oryginalnych wartości, a także nowe wartości i aktualizować tylko podstawowy rekordu bazy danych, jeśli oryginalne wartości, że użytkownik rozpoczął edycję są identyczne do wartości w bazie danych. Rysunek 3 przedstawia następująca sekwencja zdarzeń.
+Optymistyczna kontrola współbieżności działa przez upewnienie się, że aktualizowany lub usuwany rekord ma takie same wartości jak w przypadku uruchomienia procesu aktualizowania lub usuwania. Na przykład po kliknięciu przycisku Edytuj w edytowalnym widoku GridView wartości rekordu s są odczytywane z bazy danych i wyświetlane w polach tekstowych i innych formantach sieci Web. Te oryginalne wartości są zapisywane przez GridView. Później, po wprowadzeniu zmian przez użytkownika i kliknięciu przycisku Aktualizuj, użyta instrukcja `UPDATE` musi uwzględniać pierwotne wartości oraz nowe wartości i aktualizować rekord bazy danych tylko wtedy, gdy pierwotne wartości edytowane przez użytkownika są identyczne z wartościami nadal w bazie danych. Rysunek 3 przedstawia tę sekwencję zdarzeń.
 
-[![Update lub Delete, które zakończyło się sukcesem oryginalne wartości, musi być równa wartości bieżącej bazy danych](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
+[Aby można było pomyślnie zaktualizować lub usunąć ![, oryginalne wartości muszą być równe bieżącym wartościom bazy danych](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image3.png)
 
-**Rysunek 3**: Update lub Delete, aby odnieść sukces, oryginalnym wartości musi być równa wartości bieżącej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))
+**Rysunek 3**. Aby pomyślnie zaktualizować lub usunąć, oryginalne wartości muszą być równe bieżącym wartościom bazy danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.png))
 
-Istnieją różne metody Implementowanie optymistycznej współbieżności (zobacz [Peter A. Bromberg](http://www.eggheadcafe.com/articles/pbrombergresume.asp)firmy [optymistycznej współbieżności aktualizowanie logiki](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki przegląd szereg opcji). Rozszerza technikę, przy użyciu kontrolki SqlDataSource (a także ADO.NET wpisanych zestawów danych używanych w naszej warstwy dostępu do danych) `WHERE` klauzuli obejmujący porównanie wszystkich oryginalnych wartości. Następujące `UPDATE` instrukcji, na przykład aktualizuje nazwę i cena produktu tylko wtedy, gdy wartości bieżącej bazy danych są równe wartości, które zostały pierwotnie pobrany podczas aktualizowania rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały pierwotnie załadowane do kontrolki GridView kliknięcie przycisku Edytuj:
+Istnieją różne podejścia do implementowania optymistycznej współbieżności (zobacz "Bromberg" [optymistycznej logiki aktualizacji współbieżności](http://www.eggheadcafe.com/articles/20050719.asp) [,](http://www.eggheadcafe.com/articles/pbrombergresume.asp)aby skrócić kilka opcji). Technika używana przez kontrolki SqlDataSource (a także przez zestawy danych typu ADO.NET używany w naszej warstwie dostępu do danych) rozszerza klauzulę `WHERE` w celu uwzględnienia porównania wszystkich oryginalnych wartości. Poniższa instrukcja `UPDATE`, na przykład aktualizuje nazwę i cenę produktu, tylko wtedy, gdy bieżące wartości bazy danych są równe wartościom, które zostały pierwotnie pobrane podczas aktualizowania rekordu w widoku GridView. Parametry `@ProductName` i `@UnitPrice` zawierają nowe wartości wprowadzone przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały początkowo załadowane do widoku GridView po kliknięciu przycisku Edytuj:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample1.sql)]
 
-Jak opisano w tym samouczku, włączenie mechanizmu kontroli optymistycznej współbieżności przy użyciu kontrolki SqlDataSource jest tak proste, jak zaznaczenia pola wyboru.
+Jak zobaczymy w tym samouczku, włączenie optymistycznej kontroli współbieżności za pomocą kontrolki SqlDataSource jest tak proste jak zaznaczenie pola wyboru.
 
-## <a name="step-1-creating-a-sqldatasource-that-supports-optimistic-concurrency"></a>Krok 1. Tworzenie SqlDataSource obsługującego optymistycznej współbieżności
+## <a name="step-1-creating-a-sqldatasource-that-supports-optimistic-concurrency"></a>Krok 1. Tworzenie elementu kontrolki SqlDataSource z obsługą optymistycznej współbieżności
 
-Zacznij od otwarcia `OptimisticConcurrency.aspx` strony `SqlDataSource` folderu. Przeciągnij kontrolki SqlDataSource z przybornika w Projektancie ustawień jego `ID` właściwość `ProductsDataSourceWithOptimisticConcurrency`. Następnie kliknij łącze Konfigurowanie źródła danych za pomocą tagu inteligentnego sterowania s. Na pierwszym ekranie kreatora wybierz do pracy z `NORTHWINDConnectionString` i kliknij przycisk Dalej.
+Zacznij od otwarcia strony `OptimisticConcurrency.aspx` z folderu `SqlDataSource`. Przeciągnij formant kontrolki SqlDataSource z przybornika do projektanta, ustawienia jego właściwości `ID`, aby `ProductsDataSourceWithOptimisticConcurrency`. Następnie kliknij link Konfiguruj źródło danych z tagu inteligentnego sterowanie s. Na pierwszym ekranie kreatora wybierz opcję pracy z `NORTHWINDConnectionString` i kliknij przycisk Dalej.
 
-[![Wybierz do pracy z NORTHWINDConnectionString](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
+[![wybrać NORTHWINDConnectionString](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image4.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.png)
 
-**Rysunek 4**: Wybierz do pracy z `NORTHWINDConnectionString` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png))
+**Ilustracja 4**. Wybierz, aby współpracować z `NORTHWINDConnectionString` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.png))
 
-W tym przykładzie będziemy dodawać GridView, która umożliwia użytkownikom edytowanie `Products` tabeli. W związku z Konfiguruj ekranu instrukcji Select, wybierz `Products` tabeli z listy rozwijanej i wybierz `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumn, jak pokazano na rysunku 5.
+Na potrzeby tego przykładu dodamy widok GridView, który umożliwi użytkownikom edytowanie tabeli `Products`. W związku z tym, na ekranie Konfigurowanie instrukcji SELECT wybierz tabelę `Products` z listy rozwijanej i wybierz kolumny `ProductID`, `ProductName`, `UnitPrice`i `Discontinued`, jak pokazano na rysunku 5.
 
-[![Z tabeli Produkty zwracają ProductID, ProductName, UnitPrice i nieobsługiwane kolumny](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
+[![z tabeli Products (produkty) Zwróć kolumny IDProduktu, ProductName, CenaJednostkowa i uncontinued](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image5.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.png)
 
-**Rysunek 5**: Z `Products` tabeli, zwróć `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` kolumn ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png))
+**Rysunek 5**. z tabeli `Products` zwróć kolumny `ProductID`, `ProductName`, `UnitPrice`i `Discontinued` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.png))
 
-Po wybraniu kolumny, kliknij przycisk Zaawansowane, aby wyświetlić okno dialogowe Zaawansowane opcje generowania SQL. Sprawdź Generuj `INSERT`, `UPDATE`, i `DELETE` instrukcji i użyj pól wyboru optymistycznej współbieżności i kliknij przycisk OK (odnoszą się do rysunku 1 dla zrzut ekranu). Ukończ pracę kreatora, klikając przycisk Dalej, a następnie Zakończ.
+Po wybraniu kolumn kliknij przycisk Zaawansowane, aby wyświetlić okno dialogowe Zaawansowane opcje generowania bazy danych SQL. Sprawdź instrukcje Generate `INSERT`, `UPDATE`i `DELETE` i użyj optymistycznych pól wyboru współbieżności, a następnie kliknij przycisk OK (zapoznaj się z powrotem do rysunku 1 w przypadku zrzutu ekranu). Ukończ pracę kreatora, klikając przycisk Dalej, a następnie przycisk Zakończ.
 
-Po zakończeniu pracy kreatora Konfigurowanie źródła danych, Poświęć chwilę na zbadanie wynikowy `DeleteCommand` i `UpdateCommand` właściwości i `DeleteParameters` i `UpdateParameters` kolekcji. W tym celu najłatwiej kliknij w lewym dolnym rogu, aby wyświetlić stronę składni deklaratywnej s na karcie Źródło. Można znaleźć `UpdateCommand` wartość:
+Po zakończeniu działania Kreatora konfiguracji źródła danych Poświęć chwilę, aby przeanalizować wyniki `DeleteCommand` i `UpdateCommand`, a `DeleteParameters` i `UpdateParameters` kolekcje. Najprostszym sposobem jest kliknięcie karty Źródło w lewym dolnym rogu, aby wyświetlić składnię deklaratywną strony. Znajdziesz `UpdateCommand` wartość:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample2.sql)]
 
-Z siedmiu parametrów w `UpdateParameters` kolekcji:
+Z siedem parametrów w kolekcji `UpdateParameters`:
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample3.aspx)]
 
-Podobnie `DeleteCommand` właściwości i `DeleteParameters` kolekcji powinien wyglądać podobnie do poniższego:
+Podobnie Właściwość `DeleteCommand` i kolekcja `DeleteParameters` powinny wyglądać następująco:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample4.sql)]
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample5.aspx)]
 
-Oprócz rozszerzając `WHERE` klauzul `UpdateCommand` i `DeleteCommand` właściwości (i dodawanie dodatkowych parametrów do kolekcji odpowiednich parametrów), wybierając Użyj optymistycznej współbieżności opcja dostosowuje dwie inne Właściwości:
+Oprócz rozszerzania `WHERE` klauzule `UpdateCommand` i `DeleteCommand` właściwości (i dodawania dodatkowych parametrów do odpowiednich kolekcji parametrów), wybranie opcji Użyj optymistycznej współbieżności dostosowuje dwie inne właściwości:
 
-- Zmiany [ `ConflictDetection` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) z `OverwriteChanges` (ustawienie domyślne) do `CompareAllValues`
-- Zmiany [ `OldValuesParameterFormatString` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) z {0} (ustawienie domyślne) do oryginalnego\_ {0} .
+- Zmienia [właściwość`ConflictDetection`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) z `OverwriteChanges` (domyślnie) na `CompareAllValues`
+- Zmienia [właściwość`OldValuesParameterFormatString`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) z {0} (domyślnie) na oryginalny\_{0}.
 
-Gdy dane formantu sieci Web wywołuje SqlDataSource s `Update()` lub `Delete()` metody przekazuje w oryginalnych wartości. Jeśli SqlDataSource s `ConflictDetection` właściwość jest ustawiona na `CompareAllValues`, te oryginalne wartości są dodawane do polecenia. `OldValuesParameterFormatString` Dostarcza wzorzec nazewnictwa używane dla oryginalnej wartości parametrów. Kreator konfigurowania źródła danych przy użyciu oryginalnego\_ {0} oraz nazwy każdego parametru oryginalnego `UpdateCommand` i `DeleteCommand` właściwości i `UpdateParameters` i `DeleteParameters` kolekcji odpowiednio.
+Gdy formant sieci Web danych wywołuje metodę kontrolki SqlDataSource `Update()` lub `Delete()`, zostanie ona przekazana do oryginalnych wartości. Jeśli właściwość kontrolki SqlDataSource s `ConflictDetection` jest ustawiona na `CompareAllValues`, te oryginalne wartości zostaną dodane do polecenia. Właściwość `OldValuesParameterFormatString` zapewnia wzorzec nazewnictwa używany dla tych oryginalnych parametrów wartości. Kreator konfiguracji źródła danych używa oryginalnego\_{0} i nazwy każdego oryginalnego parametru w `UpdateCommand` i `DeleteCommand` właściwości oraz `UpdateParameters` i `DeleteParameters` kolekcje.
 
 > [!NOTE]
-> Ponieważ firma Microsoft re nie używa s kontrolki SqlDataSource Wstawianie możliwości, możesz usunąć `InsertCommand` właściwości i jego `InsertParameters` kolekcji.
+> Ponieważ nie korzystamy z funkcji kontrolki SqlDataSource Control s, możesz usunąć Właściwość `InsertCommand` i jej kolekcję `InsertParameters`.
 
-## <a name="correctly-handlingnullvalues"></a>Obsługa poprawnie`NULL`wartości
+## <a name="correctly-handlingnullvalues"></a>Prawidłowe obsługiwanie wartości`NULL`
 
-Niestety, rozszerzone `UPDATE` i `DELETE` są automatycznie instrukcji wygenerowana przez Kreatora konfigurowania źródła danych, gdy optymistycznej współbieżności *nie* działają z rekordów, które zawierają `NULL` wartości. Aby poznać powody, należy wziąć pod uwagę nasz s SqlDataSource `UpdateCommand`:
+Niestety, rozszerzone `UPDATE` i `DELETE` są automatycznie generowane przez Kreatora konfiguracji źródła danych, gdy użycie optymistycznej współbieżności *nie* współdziała z rekordami zawierającymi wartości `NULL`. Aby zobaczyć dlaczego, weź pod uwagę nasze kontrolki SqlDataSource `UpdateCommand`:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample6.sql)]
 
-`UnitPrice` Kolumny w `Products` tabela może mieć `NULL` wartości. Jeśli określony rekord ma `NULL` wartość `UnitPrice`, `WHERE` część klauzuli `[UnitPrice] = @original_UnitPrice` będzie *zawsze* obliczyć wartość false, ponieważ `NULL = NULL` zawsze zwraca wartość False. W związku z tym, rekordy zawierające `NULL` wartości nie można edytować lub usuwać, jako `UPDATE` i `DELETE` instrukcji `WHERE` klauzule nie zwraca wszystkie wiersze, aby zaktualizować lub usunąć.
+Kolumna `UnitPrice` w tabeli `Products` może mieć wartości `NULL`. Jeśli konkretny rekord ma `NULL` wartość dla `UnitPrice`, `[UnitPrice] = @original_UnitPrice` klauzula `WHERE` jest *zawsze* Szacowana jako FAŁSZ, ponieważ `NULL = NULL` zawsze zwróci wartość false. W związku z tym rekordy, które zawierają wartości `NULL` nie mogą być edytowane ani usuwane, ponieważ `WHERE` instrukcje `UPDATE` i `DELETE` nie zwracają żadnych wierszy do zaktualizowania lub usunięcia.
 
 > [!NOTE]
-> Ta usterka najpierw zostało zgłoszone do firmy Microsoft w czerwcu 2004 r. w [SqlDataSource generuje niepoprawny instrukcji SQL](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937) i zaplanowano powinno zostać rozwiązany w następnej wersji platformy ASP.NET.
+> Ta usterka została po raz pierwszy zgłoszona firmie Microsoft w czerwcu z 2004 w [kontrolki SqlDataSource generuje nieprawidłowe instrukcje SQL](https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=93937) i reportedly zaplanowana w następnej wersji ASP.NET.
 
-Aby rozwiązać ten problem, będziemy musieli ręcznie aktualizować `WHERE` klauzule w obu `UpdateCommand` i `DeleteCommand` właściwości **wszystkich** kolumn, które mogą mieć `NULL` wartości. Ogólnie rzecz biorąc, zmień `[ColumnName] = @original_ColumnName` do:
+Aby rozwiązać ten problem, należy ręcznie zaktualizować klauzule `WHERE` we właściwościach `UpdateCommand` i `DeleteCommand` dla **wszystkich** kolumn, które mogą mieć `NULL` wartości. Ogólnie rzecz biorąc Zmień `[ColumnName] = @original_ColumnName` na:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample7.sql)]
 
-Ta modyfikacja może się bezpośrednio za pośrednictwem oznaczeniu deklaracyjnym, za pośrednictwem opcji UpdateQuery lub DeleteQuery z okna właściwości lub aktualizacja i usuwanie kart w stronie Określ niestandardową instrukcję SQL lub procedury składowanej opcji Konfigurowanie danych Kreator źródła. Ponownie, należy przewidzieć modyfikacji *co* kolumny w `UpdateCommand` i `DeleteCommand` s `WHERE` klauzula, która może zawierać `NULL` wartości.
+Tę modyfikację można wykonać bezpośrednio za pośrednictwem znaczników deklaratywnych za pomocą opcji UpdateQuery lub DeleteQuery z okno Właściwości lub za pomocą kart UPDATE i DELETE w polu Określ niestandardową instrukcję SQL lub procedurę składowaną w obszarze Konfigurowanie danych Kreator źródła. Ponownie należy wprowadzić tę modyfikację dla *każdej* kolumny w `UpdateCommand` i `DeleteCommand` s `WHERE`, która może zawierać `NULL` wartości.
 
-Powoduje zastosowanie do naszego przykładu następujących modyfikacji `UpdateCommand` i `DeleteCommand` wartości:
+Zastosowanie tego do naszego przykładu spowoduje zmodyfikowanie następujących wartości `UpdateCommand` i `DeleteCommand`:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample8.sql)]
 
-## <a name="step-2-adding-a-gridview-with-edit-and-delete-options"></a>Krok 2. Dodawanie GridView z funkcją Edytuj i opcje usuwania
+## <a name="step-2-adding-a-gridview-with-edit-and-delete-options"></a>Krok 2. Dodawanie widoku GridView z opcjami edycji i usuwania
 
-Dzięki użyciu kontrolki SqlDataSource skonfigurowany do obsługi optymistycznej współbieżności pozostaje można dodać danych formantu sieci Web do strony, która korzysta z tej kontroli współbieżności. W tym samouczku umożliwiają s Dodaj GridView zapewniająca zarówno edycji oraz funkcję usuwania. Aby to zrobić, przeciągnij GridView z przybornika do projektanta i ustaw jego `ID` do `Products`. Za pomocą tagu inteligentnego s GridView powiązać `ProductsDataSourceWithOptimisticConcurrency` kontrolki SqlDataSource dodanego w kroku 1. Na koniec sprawdź opcje Włącz edytowanie i usuwanie włączyć za pomocą tagu inteligentnego.
+Kontrolki SqlDataSource skonfigurowany do obsługi optymistycznej współbieżności, to wszystko, co ma na celu dodanie kontrolki sieci Web danych do strony, która korzysta z tej kontroli współbieżności. Na potrzeby tego samouczka Dodaj widok GridView, który zapewnia funkcje edycji i usuwania. Aby to osiągnąć, przeciągnij widok GridView z przybornika do projektanta i ustaw jego `ID` na `Products`. W tagu inteligentnym GridView powiąż go z `ProductsDataSourceWithOptimisticConcurrency` kontrolką kontrolki SqlDataSource dodaną w kroku 1. Na koniec sprawdź opcje Włącz edytowanie i Włącz usuwanie z tagu inteligentnego.
 
-[![Powiąż widoku GridView z kontrolką SqlDataSource i Włącz edytowanie i usuwanie](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
+[![powiązać widok GridView z kontrolki SqlDataSource i Włącz edytowanie i usuwanie](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image6.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.png)
 
-**Rysunek 6**: Powiąż widoku GridView z kontrolką SqlDataSource i Włącz edytowanie i usuwanie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png))
+**Ilustracja 6**. powiązanie widoku GridView z kontrolki SqlDataSource i włączanie edytowania i usuwania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image10.png))
 
-Po dodaniu kontrolki GridView, skonfiguruj jego wygląd poprzez usunięcie `ProductID` elementu BoundField, zmieniając `ProductName` s elementu BoundField `HeaderText` właściwości produktu i aktualizowanie `UnitPrice` elementu BoundField tak, aby jego `HeaderText` właściwość po prostu cena. W idealnym przypadku d zwiększania interfejs edytowania obejmujący RequiredFieldValidator dla `ProductName` wartość i CompareValidator dla `UnitPrice` wartość (tak, aby upewnić się, że prawidłowo sformatowaną wartość liczbową s). Zapoznaj się [Dostosowywanie interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) samouczek dotyczący bardziej przyjrzeć się Dostosowywanie s GridView edytowanie interfejsu.
+Po dodaniu widoku GridView skonfiguruj jego wygląd, usuwając `ProductID` BoundField, zmieniając właściwość `ProductName` BoundField s `HeaderText` na produkt i aktualizując `UnitPrice` BoundField tak, aby jej Właściwość `HeaderText` była po prostu cena. W idealnym przypadku ulepszamy interfejs edycji tak, aby zawierał RequiredFieldValidator dla wartości `ProductName` i CompareValidator dla wartości `UnitPrice` (w celu zapewnienia, że s ma poprawnie sformatowaną wartość liczbową). Zapoznaj się z samouczkiem [Dostosowywanie interfejsu modyfikacji danych,](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) aby zapoznać się z bardziej szczegółowymi krokami dostosowywania interfejsu edytowania GridView.
 
 > [!NOTE]
-> GridView, można włączyć stan widoku s, ponieważ oryginalne wartości, które są przekazywane z kontrolki GridView do SqlDataSource są przechowywane w widoku stanu.
+> Stan widoku GridView s musi być włączony, ponieważ oryginalne wartości przesłane z widoku GridView do kontrolki SqlDataSource są przechowywane w stanie widoku.
 
-Po wprowadzeniu tych zmian do kontrolki GridView, oznaczeniu deklaracyjnym kontrolkami GridView i użyciu kontrolki SqlDataSource powinien wyglądać podobnie do poniższej:
+Po wprowadzeniu tych zmian do widoku GridView, znaczniki deklaracyjne i kontrolki SqlDataSource, powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample9.aspx)]
 
-Aby wyświetlić kontroli optymistycznej współbieżności w akcji, Otwórz dwa okna przeglądarki, a następnie załadować `OptimisticConcurrency.aspx` strony w obu. Kliknij przyciski Edytuj pierwszy produkt w obu przeglądarkach. W jednej przeglądarki Zmień nazwę produktu, a następnie kliknij przycisk aktualizacji. Przeglądarka będzie ogłaszanie zwrotne i widoku GridView powróci do trybu edycji wstępnie przedstawiający nową nazwę produktu dla rekordu, po prostu edytować.
+Aby wyświetlić optymistyczną kontrolę współbieżności w akcji, Otwórz dwa okna przeglądarki i Załaduj stronę `OptimisticConcurrency.aspx` w obu. Kliknij przyciski edycji pierwszego produktu w obu przeglądarkach. W jednej przeglądarce Zmień nazwę produktu, a następnie kliknij przycisk Aktualizuj. Przeglądarka będzie ogłaszać zwrotnie, a widok GridView powróci do trybu sprzed edycji, pokazując nową nazwę produktu dla edytowanego właśnie rekordu.
 
-W drugim oknie przeglądarki Zmień ceny (ale pozostaw nazwę produktu jako początkowej wartości), a następnie kliknij przycisk Aktualizuj. Na odświeżenie strony siatki powraca do trybu edycji wstępnie, ale zmiana ceny nie została zarejestrowana. Drugi przeglądarkę taką samą wartość jak pierwszy z nich Nowa nazwa jest wyświetlana produktu za pomocą stara cena. Zmiany wprowadzone w drugim oknie przeglądarki zostały utracone. Ponadto zmiany zostały utracone zamiast ciche, ponieważ wystąpił bez wyjątku i komunikat informujący o naruszenie współbieżności właśnie wykonana.
+W drugim oknie przeglądarki Zmień cenę (ale pozostaw nazwę produktu jako oryginalną), a następnie kliknij przycisk Aktualizuj. Na stronie ogłaszania zwrotnego siatka powraca do trybu sprzed edycji, ale zmiana ceny nie jest zarejestrowana. Druga przeglądarka pokazuje taką samą wartość jak pierwsza Nowa nazwa produktu ze starą ceną. Zmiany wprowadzone w drugim oknie przeglądarki zostały utracone. Ponadto zmiany zostały utracone w sposób cichy, ponieważ nie wystąpił wyjątek lub komunikat informujący o tym, że wystąpiło naruszenie współbieżności.
 
-[![Zmiany w drugim oknie przeglądarki zostały utracone w trybie dyskretnym](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
+[![zmiany w drugim oknie przeglądarki zostały utracone w trybie dyskretnym](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image7.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image11.png)
 
-**Rysunek 7**: Zmiany w drugim przeglądarki okna zostały dyskretnie utraty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png))
+**Rysunek 7**. zmiany w drugim oknie przeglądarki zostały utracone w trybie dyskretnym ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image12.png))
 
-Był powód, dlaczego drugi przeglądarki s zmiany nie zostały zatwierdzone, ponieważ `UPDATE` instrukcja s `WHERE` klauzula odfiltrowane wszystkie rekordy i w związku z tym, nie wpływa na wszystkich wierszy. Pozwól s Przyjrzyj się `UPDATE` instrukcję ponownie:
+Powód, dla którego nie zostały zatwierdzone zmiany w przeglądarce s, jest to spowodowane tym, że klauzula `UPDATE` s `WHERE` odfiltrowana wszystkie rekordy i w związku z tym nie ma wpływu na żadne wiersze. Pozwól, aby ponownie przyjrzeć się instrukcji `UPDATE`:
 
 [!code-sql[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample10.sql)]
 
-Po drugie okno przeglądarki aktualizuje rekord, oryginalna nazwa produktu określone w `WHERE` klauzuli są zgodne się przy użyciu istniejącej nazwy produktu (ponieważ został on zmieniony przez pierwsze przeglądarki). W związku z tym, instrukcja `[ProductName] = @original_ProductName` zwraca wartość False, a `UPDATE` nie ma wpływu na wszystkie rekordy.
+Gdy drugie okno przeglądarki aktualizuje rekord, oryginalna nazwa produktu określona w klauzuli `WHERE` nie pasuje do istniejącej nazwy produktu (ponieważ została zmieniona przez pierwszą przeglądarkę). W związku z tym, instrukcja `[ProductName] = @original_ProductName` zwraca wartość false, a `UPDATE` nie ma wpływu na żadne rekordy.
 
 > [!NOTE]
-> Usuń działa w taki sam sposób. Za pomocą dwóch okna przeglądarki otwartego Rozpocznij od edycji danego produktu przy użyciu jednego, a następnie zapisanie jej zmiany. Po zapisaniu zmian w jednej przeglądarki, kliknij przycisk Usuń dla tego samego produktu w innym. Ponieważ oryginalne don wartości t dopasować w `DELETE` instrukcja s `WHERE` klauzuli delete dyskretnie nie powiedzie się.
+> Usuwanie działa w ten sam sposób. Po otwarciu dwóch okien przeglądarki Zacznij od edycji danego produktu z jednym, a następnie zapisując zmiany. Po zapisaniu zmian w jednej przeglądarce kliknij przycisk Usuń dla tego samego produktu w drugim. Ponieważ oryginalne wartości nie są zgodne z klauzulą `DELETE` instrukcji s `WHERE`, usuwanie dyskretne zakończy się niepowodzeniem.
 
-Z perspektywy użytkownika końcowego s w drugim oknie przeglądarki po kliknięciu przycisku Aktualizuj siatki powraca do trybu edycji wstępnie, ale ich zmiany zostały utracone. Jednak miejsca s nie wizualną opinię, który nie został trzymaj swoje zmiany. Najlepiej Jeśli zmiany użytkownika s zostaną utracone na naruszenie współbieżności, możemy d powiadamiać użytkowników i, Zachowaj siatki w trybie edycji. Pozwól, s, zobacz, jak to zrobić.
+Z perspektywy użytkownika końcowego w drugim oknie przeglądarki po kliknięciu przycisku Aktualizuj siatka wraca do trybu sprzed edycji, ale ich zmiany zostały utracone. Nie ma jednak żadnych opinii wizualnych, że ich zmiany nie zostały nalepki. W idealnym przypadku, jeśli zmiany użytkownika s zostaną utracone do naruszenia współbieżności, powiadomemy o nich i, prawdopodobnie, Zachowaj siatkę w trybie edycji. Poinformuj o tym, jak to zrobić.
 
 ## <a name="step-3-determining-when-a-concurrency-violation-has-occurred"></a>Krok 3. Określanie, kiedy nastąpiło naruszenie współbieżności
 
-Ponieważ Naruszenie współbieżności odrzuca zmiany, które wprowadził jeden, jest dobre rozwiązanie ostrzec użytkownika, jeśli nastąpiło naruszenie współbieżności. Aby ostrzec użytkownika, umożliwiają s dodać formant etykiety w sieci Web do górnej części strony o nazwie `ConcurrencyViolationMessage` którego `Text` właściwości wyświetla następujący komunikat: Podjęto próbę aktualizacji lub usunięcia rekordu, który jednocześnie został zaktualizowany przez innego użytkownika. . Przejrzyj zmiany wprowadzone przez użytkownika a następnie wykonaj ponownie aktualizacji lub usunięcia. Ustaw formant etykiety s `CssClass` właściwość ostrzeżenie, czyli klasę CSS zdefiniowanych w `Styles.css` który wyświetla tekst czcionką czerwony, kursywy, pogrubiony i dużych. Wreszcie, ustaw właściwość etykiety s `Visible` i `EnableViewState` właściwości `false`. To spowoduje ukrycie etykiety z wyjątkiem tylko ogłaszania, te zwrotnego gdzie możemy jawnie ustawić jej `Visible` właściwość `true`.
+Ponieważ naruszenie współbieżności odrzuci wprowadzone zmiany, warto ostrzec użytkownika o wystąpieniu naruszenia współbieżności. Aby ostrzec użytkownika, Dodaj kontrolkę sieci Web etykieta w górnej części strony o nazwie `ConcurrencyViolationMessage` której Właściwość `Text` wyświetla następujący komunikat: podjęto próbę zaktualizowania lub usunięcia rekordu, który został jednocześnie zaktualizowany przez innego użytkownika. Przejrzyj zmiany wprowadzone przez innych użytkowników, a następnie ponów próbę aktualizacji lub usunięcia. Ustaw właściwość kontrolki etykieta `CssClass` na ostrzeżenie, która jest klasą CSS zdefiniowaną w `Styles.css`, która wyświetla tekst w kolorze czerwonym, kursywą, pogrubioną i dużą czcionką. Na koniec ustaw właściwości label-`Visible` i `EnableViewState` na `false`. Spowoduje to ukrycie etykiety z wyjątkiem tych ogłaszania zwrotnego, w przypadku których jawnie ustawimy Właściwość `Visible` na `true`.
 
-[![Dodaj kontrolkę typu etykieta do strony, aby wyświetlić ostrzeżenia](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
+[![dodać kontrolkę etykieta do strony, aby wyświetlić ostrzeżenie](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image8.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image13.png)
 
-**Rysunek 8**: Dodaj kontrolkę typu etykieta do strony, aby wyświetlić ostrzeżenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png))
+**Ilustracja 8**. Dodawanie kontrolki etykieta do strony, aby wyświetlić ostrzeżenie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image14.png))
 
-Podczas przeprowadzania aktualizacji lub usuwania, GridView s `RowUpdated` i `RowDeleted` procedury obsługi zdarzeń fire po pomyślnym zakończeniu kontroli źródła danych ma żądanego update lub delete. Można określić liczbę wierszy objętych operacji z tych programów obsługi zdarzeń. Jeśli zero wierszy została zmieniona, chcemy wyświetlić `ConcurrencyViolationMessage` etykiety.
+Podczas przeprowadzania aktualizacji lub usuwania programy obsługi zdarzeń GridView `RowUpdated` i `RowDeleted` są uruchamiane po przeprowadzeniu przez kontrolę źródła danych żądanej aktualizacji lub usunięcia. Możemy określić liczbę wierszy, na które miało wpływ operacja z tych programów obsługi zdarzeń. Jeśli miało to wartość zero, chcemy wyświetlić etykietę `ConcurrencyViolationMessage`.
 
-Utwórz procedurę obsługi zdarzeń dla obu `RowUpdated` i `RowDeleted` zdarzeń i Dodaj następujący kod:
+Utwórz procedurę obsługi zdarzeń dla zdarzeń `RowUpdated` i `RowDeleted` i Dodaj następujący kod:
 
 [!code-csharp[Main](implementing-optimistic-concurrency-with-the-sqldatasource-cs/samples/sample11.cs)]
 
-W obu procedurach obsługi zdarzeń sprawdzenie `e.AffectedRows` właściwości i, jeśli jest ona równa 0, ustaw `ConcurrencyViolationMessage` etykiety s `Visible` właściwość `true`. W `RowUpdated` procedura obsługi zdarzeń, możemy również poinstruować GridView pozostanie w trybie edycji przez ustawienie `KeepInEditMode` właściwości na wartość true. W ten sposób, musimy ponownie powiązać dane do siatki, tak aby innych danych użytkowników s jest ładowany do interfejsu edycji. Jest to realizowane przez wywołanie metody GridView s `DataBind()` metody.
+W obu obsłudze zdarzeń sprawdzimy Właściwość `e.AffectedRows` i, jeśli jest równa 0, ustaw właściwość `ConcurrencyViolationMessage` etykieta s `Visible` na `true`. W obsłudze zdarzeń `RowUpdated` poinstruujmy również GridView, aby pozostały w trybie edycji, ustawiając właściwość `KeepInEditMode` na true. W tym celu należy ponownie powiązać dane z siatką, tak aby inne dane użytkownika zostały załadowane do interfejsu edycji. W tym celu należy wywołać metodę `DataBind()` GridView.
 
-Zgodnie z rysunku nr 9 przedstawiono z tych dwóch zdarzenia, bardzo istotne wyświetlany jest komunikat przy każdym wystąpieniu Naruszenie współbieżności.
+Jak pokazano na rysunku 9, za każdym razem, gdy występuje naruszenie współbieżności, zostanie wyświetlony komunikat z tymi dwoma obsłudze zdarzeń.
 
-[![Zostanie wyświetlony komunikat w przypadku naruszenia współbieżności](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
+[![komunikat jest wyświetlany w przypadku naruszenia współbieżności](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image9.gif)](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image15.png)
 
-**Rysunek 9**: Zostanie wyświetlony komunikat w przypadku naruszenia współbieżności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))
+**Ilustracja 9**. komunikat jest wyświetlany w przypadku naruszenia współbieżności ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Podczas tworzenia aplikacji sieci web gdzie wielu równoczesnych użytkowników może edytować tych samych danych, należy rozważyć opcje kontroli współbieżności. Domyślnie dane programu ASP.NET, które kontrolki sieci Web i kontrolki źródła danych nie używają żadnych kontroli współbieżności. Jak firma Microsoft jest opisany w tym samouczku, implementacja mechanizmu kontroli optymistycznej współbieżności przy użyciu kontrolki SqlDataSource jest stosunkowo szybko i łatwo. SqlDataSource obsługuje większość żmudne zadania dla Twojego Dodawanie rozszerzonych `WHERE` klauzul, aby automatycznie wygenerowany `UPDATE` i `DELETE` instrukcji, ale jest kilka precyzyjnie w obsłudze `NULL` wartości kolumn, zgodnie z opisem w Obsługa poprawnie `NULL` wartości sekcji.
+Podczas tworzenia aplikacji sieci Web, w której wielu równoczesnych użytkowników może edytować te same dane, ważne jest, aby wziąć pod uwagę opcje kontroli współbieżności. Domyślnie kontrolki sieci Web ASP.NET danych i kontrolki źródła danych nie używają żadnej kontroli współbieżności. Jak zostało to opisane w tym samouczku, implementacja optymistycznej kontroli współbieżności za pomocą kontrolki SqlDataSource jest stosunkowo szybka i łatwa. Kontrolki SqlDataSource obsługuje większość żmudne zadania dla dodawania rozszerzonych klauzul `WHERE` do `UPDATE` automatycznie generowanych instrukcji i `DELETE`, ale istnieje kilka subtleties w obsłudze kolumn wartości `NULL`, zgodnie z opisem w sekcji prawidłowe obsługiwane wartości `NULL`.
 
-Nasze badania SqlDataSource kończy się w tym samouczku. Naszych pozostałych samouczków powróci do pracy z danymi za pomocą kontrolki ObjectDataSource i architektury warstwowej.
+W tym samouczku zakończymy nasze badanie kontrolki SqlDataSource. Nasze pozostałe samouczki powracają do pracy z danymi przy użyciu warstwy ObjectDataSource i warstwowej.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Poprzednie](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)

@@ -1,53 +1,53 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
-title: Tworzenie wzajemnie wykluczających się pól wyboru (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie wzajemnie wykluczających się pól wyboru (VB) | Microsoft Docs
 author: wenz
-description: 'Jeżeli można wybrać tylko jeden zestaw opcji, przyciski radiowe zwykle są używane. Istnieje jednak wadą: Po jednej w grupie zaznaczona jest opcja...'
+description: 'Gdy można wybrać tylko jeden z zestawów opcji, są zwykle używane przyciski radiowe. Istnieje zwrot, chociaż: wybrano jeden przycisk radiowy w grupie,...'
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5bf96cf287f2fe5f394449587c70d9fc6fb33af9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f33936dd4d71f6bbf08f02966eefe44c8c152eba
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132551"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606455"
 ---
 # <a name="creating-mutually-exclusive-checkboxes-vb"></a>Tworzenie wzajemnie wykluczających się pól wyboru (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/MutuallyExclusiveCheckBox0.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/mutuallyexclusivecheckbox0VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/MutuallyExclusiveCheckBox0.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/mutuallyexclusivecheckbox0VB.pdf)
 
-> Jeżeli można wybrać tylko jeden zestaw opcji, przyciski radiowe zwykle są używane. Istnieje jednak wadą: Po wybraniu jednego przycisku radiowego w grupie nie jest możliwe usunąć zaznaczenie wszystkich przycisków radiowych. Pola wyboru mogą być zaznaczone w dowolnym momencie, jednak nie są wzajemnie się wykluczają. Ten samouczek zawiera najlepsze cechy obu podejść: pola wyboru, które wzajemnie się wykluczają.
+> Gdy można wybrać tylko jeden z zestawów opcji, są zwykle używane przyciski radiowe. Istnieje zwrot, chociaż: po wybraniu jednego przycisku radiowego w grupie nie można usunąć zaznaczenia wszystkich przycisków radiowych. Pola wyboru można zaznaczać w dowolnym momencie, ale nie wykluczają się wzajemnie. Ten samouczek zawiera najlepsze podejścia: pola wyboru, które wzajemnie się wykluczają.
 
 ## <a name="overview"></a>Omówienie
 
-Jeżeli można wybrać tylko jeden zestaw opcji, przyciski radiowe zwykle są używane. Istnieje jednak wadą: Po wybraniu jednego przycisku radiowego w grupie nie jest możliwe usunąć zaznaczenie wszystkich przycisków radiowych. Pola wyboru mogą być zaznaczone w dowolnym momencie, jednak nie są wzajemnie się wykluczają. Ten samouczek zawiera najlepsze cechy obu podejść: pola wyboru, które wzajemnie się wykluczają.
+Gdy można wybrać tylko jeden z zestawów opcji, są zwykle używane przyciski radiowe. Istnieje zwrot, chociaż: po wybraniu jednego przycisku radiowego w grupie nie można usunąć zaznaczenia wszystkich przycisków radiowych. Pola wyboru można zaznaczać w dowolnym momencie, ale nie wykluczają się wzajemnie. Ten samouczek zawiera najlepsze podejścia: pola wyboru, które wzajemnie się wykluczają.
 
 ## <a name="steps"></a>Kroki
 
-ASP.NET AJAX Control Toolkit zawiera MutuallyExclusiveCheckBox urządzenia extender. Dzięki temu programiści przypisać wszystkie pola wyboru do nazwy grupy (`Key` atrybutu). Z wszystkich pól wyboru w ramach tej samej grupy w tym samym czasie można wybrać tylko jeden.
+Zestaw narzędzi ASP.NET AJAX Control Toolkit zawiera rozszerzenie MutuallyExclusiveCheckBox. Dzięki temu programiści mogą przypisywać dowolne pola wyboru do nazwy grupy (`Key` atrybutu). Ze wszystkich pól wyboru w tej samej grupie można wybrać tylko jedną z nich.
 
-Zacznijmy od umieszczenie dwa pola wyboru na nowej stronie ASP.NET. Może istnieć więcej, ale dwa z nich wystarczające, aby zademonstrować zasady:
+Zacznijmy od umieszczenia dwóch pól wyboru na nowej stronie ASP.NET. Może być więcej, ale dwa z nich wystarczą do zademonstrowania zasady:
 
 [!code-aspx[Main](creating-mutually-exclusive-checkboxes-vb/samples/sample1.aspx)]
 
-Oba pola wyboru formantu MutuallyExclusiveCheckBoxExtender musi być wprowadzane na stronie. Obu atrybutów klucza muszą mieć taką samą wartość, podobnie jak wartość atrybutów elementów HTML przycisku radiowego musi być taka sama jak oznaczenia grupy, do których należą. Właściwość TargetControlID punktów rozszerzeń identyfikator pola wyboru.
+Dla obu pól wyboru formant MutuallyExclusiveCheckBoxExtender musi być umieszczony na stronie. Oba atrybuty klucza muszą mieć tę samą wartość, podobnie jak atrybuty wartości elementów przycisku radiowego HTML muszą być identyczne, aby można było zauważyć, do której grupy należą. Właściwość TargetControlID elementu Extender wskazuje identyfikator pola wyboru.
 
 [!code-aspx[Main](creating-mutually-exclusive-checkboxes-vb/samples/sample2.aspx)]
 
-Na koniec obejmują ASP.NET AJAX `ScriptManager` co jest wymagane przez wszystkie elementy ASP.NET AJAX Control Toolkit:
+Na koniec Uwzględnij ASP.NET AJAX `ScriptManager`, który jest wymagany przez wszystkie elementy zestawu narzędzi ASP.NET AJAX Control Toolkit:
 
 [!code-aspx[Main](creating-mutually-exclusive-checkboxes-vb/samples/sample3.aspx)]
 
-Zapisz i uruchom strony: Można sprawdzić i usuń zaznaczenie pola wyboru, ale w żadnym momencie oba pola wyboru można sprawdzić.
+Zapisz i Uruchom stronę: można zaznaczyć i usunąć zaznaczenie obu pól wyboru, jednak w żadnym momencie nie można sprawdzić obu pól wyboru.
 
-[![Można sprawdzić w danym momencie tylko jedno pole wyboru](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)
+[![można sprawdzić tylko jedno pole wyboru w czasie](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)
 
-Można sprawdzić w danym momencie tylko jedno pole wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))
+Tylko jedno pole wyboru może być zaznaczone naraz ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Poprzednie](creating-mutually-exclusive-checkboxes-cs.md)
+> [Ubiegł](creating-mutually-exclusive-checkboxes-cs.md)

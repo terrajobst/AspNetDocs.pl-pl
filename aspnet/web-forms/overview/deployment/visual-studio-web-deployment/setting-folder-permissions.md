@@ -1,77 +1,77 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Ustawianie uprawnień do folderów | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: Ustawianie uprawnień do folderów | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: f25182f3f841c963866319dd934c0c28b4eb95b0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 410525bb2e3f6e5a0be6d7d6b33fb3a40509041a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112899"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74614941"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Ustawianie uprawnień do folderów
+# <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: Ustawianie uprawnień do folderów
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku Ustaw uprawnienia do folderu dla *Elmah* folderu w sieci web wdrożonej lokacji tak, aby aplikacja mogła tworzyć pliki dziennika, w tym folderze.
+W tym samouczku ustawisz uprawnienia folderu dla folderu *ELMAH* w wdrożonej witrynie sieci Web, aby aplikacja mogła tworzyć pliki dziennika w tym folderze.
 
-Podczas testowania aplikacji sieci web w programie Visual Studio przy użyciu serwera wdrożeniowego programu Visual Studio (Cassini) lub usług IIS Express, aplikacja będzie działać w ramach Twojej tożsamości. Prawdopodobnie jesteś administratorem na komputerze deweloperskim i mają pełne uprawnienia do wykonywania wszystkich plików w dowolnym folderze. Jednak po uruchomieniu aplikacji w środowisku usług IIS, jest uruchamiana przy użyciu tożsamości zdefiniowane dla puli aplikacji, przypisany do lokacji. Jest to zazwyczaj konta zdefiniowaną przez system, które ma ograniczone uprawnienia. Domyślnie jej ma uprawnienia odczytu i wykonania do plików i folderów aplikacji sieci web, ale nie ma dostępu do zapisu.
+W przypadku testowania aplikacji sieci Web w programie Visual Studio przy użyciu programu Visual Studio Development Server (Cassini) lub IIS Express aplikacja działa w ramach Twojej tożsamości. Najprawdopodobniej jesteś administratorem na swoim komputerze deweloperskim i masz pełne uprawnienia do dowolnych plików w dowolnym folderze. Jednak gdy aplikacja działa w ramach usług IIS, jest uruchamiana w ramach tożsamości zdefiniowanej dla puli aplikacji, do której jest przypisana lokacja. Jest to zazwyczaj zdefiniowane przez system konto, które ma ograniczone uprawnienia. Domyślnie ma uprawnienia do odczytu i wykonywania w plikach i folderach aplikacji sieci Web, ale nie ma dostępu do zapisu.
 
-Ten staje się problem, jeśli aplikacja tworzy albo pliki aktualizacji, które pojawia się często w aplikacjach sieci web. W aplikacji Contoso University Elmah tworzy pliki XML w *Elmah* folder, aby zapisać szczegółowe informacje o błędach. Nawet wtedy, gdy nie używasz podobny Elmah, witryny sieci mogą zezwolić użytkownikom na przekazywanie plików lub wykonywać inne zadania, które zapisu danych do folderu, w witrynie.
+Jest to problem, jeśli aplikacja tworzy lub aktualizuje pliki, które są typowymi potrzebami w aplikacjach sieci Web. W aplikacji uniwersytetów firmy Contoso program ELMAH tworzy pliki XML w folderze *ELMAH* w celu zapisania szczegółowych informacji o błędach. Nawet jeśli nie używasz czegoś takiego jak ELMAH, witryna może umożliwić użytkownikom przekazywanie plików lub wykonywanie innych zadań, które zapisują dane do folderu w witrynie.
 
-Przypomnienie: Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, należy koniecznie sprawdzić [strona rozwiązywania problemów](troubleshooting.md).
+Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](troubleshooting.md).
 
-## <a name="test-error-logging-and-reporting"></a>Test rejestrowania błędów i raportowanie
+## <a name="test-error-logging-and-reporting"></a>Rejestrowanie i raportowanie błędów testów
 
-Aby zobaczyć, jak aplikacja nie działa prawidłowo w usługach IIS (chociaż rejestrowaniu przetestowano ją w programie Visual Studio), może spowodować błąd, który normalnie zostanie zarejestrowany przez Elmah, a następnie otwórz dziennik błędów Elmah, aby wyświetlić szczegóły. Jeśli Elmah nie mógł utworzyć pliku XML i zapisać szczegóły błędu, zostanie wyświetlony raport o błędach puste.
+Aby zobaczyć, jak aplikacja nie działa prawidłowo w usługach IIS (chociaż została przetestowana w programie Visual Studio), można spowodować błąd, który normalnie będzie rejestrowany przez program ELMAH, a następnie otworzyć dziennik błędów programu ELMAH, aby wyświetlić szczegóły. Jeśli ELMAH nie mógł utworzyć pliku XML i zapisać szczegóły błędu, zobaczysz pusty raport o błędach.
 
-Otwórz przeglądarkę i przejdź do `http://localhost/ContosoUniversity`, a następnie żądają nieprawidłowy adres URL, takich jak *Studentsxxx.aspx*. Zostanie wyświetlona strona błędu generowanych przez system, zamiast *GenericErrorPage.aspx* strony, ponieważ `customErrors` "RemoteOnly" jest ustawione w pliku Web.config i są uruchomione usługi IIS lokalnie:
+Otwórz przeglądarkę i przejdź do `http://localhost/ContosoUniversity`, a następnie Zażądaj nieprawidłowego adresu URL, takiego jak *Studentsxxx. aspx*. Zostanie wyświetlona strona błędu wygenerowana przez system zamiast strony *GenericErrorPage. aspx* , ponieważ ustawienie `customErrors` w pliku Web. config ma wartość "RemoteOnly", a program IIS jest uruchomiony lokalnie:
 
-![Strona błędu 404 protokołu HTTP](setting-folder-permissions/_static/image1.png)
+![Strona błędu HTTP 404](setting-folder-permissions/_static/image1.png)
 
-Teraz uruchom *Elmah.axd* Aby wyświetlić raport o błędach. Po zalogowaniu się przy użyciu poświadczeń konta administratora (&quot;administratora&quot; i &quot;devpwd&quot;), zostanie wyświetlona strona dziennika błędów pusty, ponieważ Elmah nie może utworzyć pliku XML w *Elmah*folderu:
+Teraz uruchom *ELMAH. axd* , aby zobaczyć raport o błędach. Po zalogowaniu się przy użyciu poświadczeń konta administratora (&quot;administrator&quot; i &quot;devpwd&quot;) zostanie wyświetlona pusta strona dziennika błędów, ponieważ program ELMAH nie mógł utworzyć pliku XML w folderze *ELMAH* :
 
-![Pusta dziennik błędów](setting-folder-permissions/_static/image2.png)
+![Pusty dziennik błędów](setting-folder-permissions/_static/image2.png)
 
-## <a name="set-write-permission-on-the-elmah-folder"></a>Ustaw uprawnienia do zapisu do folderu biblioteki Elmah
+## <a name="set-write-permission-on-the-elmah-folder"></a>Ustaw uprawnienie do zapisu w folderze ELMAH
 
-Możesz ręcznie ustawić uprawnienia do folderu, lub możesz przekształcić ją w automatyczne część procesu wdrażania. Dzięki czemu automatycznego wymaga złożonego kodu programu MSBuild, a ponieważ trzeba to zrobić podczas pierwszego wdrażania, następujące kroki jak to zrobić ręcznie. (Aby dowiedzieć się, jak ta część procesu wdrażania, zobacz [Ustawianie uprawnień folderu publikowania w sieci Web](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) na blogu Sayed Hashimi.)
+Uprawnienia do folderów można ustawiać ręcznie lub w ramach procesu wdrażania. Automatyczne wymaganie złożonego kodu MSBuild jest wymagane, a ponieważ trzeba to zrobić przy pierwszym wdrożeniu, należy wykonać następujące czynności, aby zrobić to ręcznie. (Aby uzyskać informacje na temat sposobu wykonywania tej części procesu wdrażania, zobacz [Ustawianie uprawnień do folderu w blogu publikowanie w sieci Web](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) na Sayed Hashimi).
 
-1. W **Eksploratora plików**, przejdź do *C:\inetpub\wwwroot\ContosoUniversity*. Kliknij prawym przyciskiem myszy *Elmah* folderu, wybierz **właściwości**, a następnie wybierz pozycję **zabezpieczeń** kartę.
+1. W **Eksploratorze plików**przejdź do *C:\inetpub\wwwroot\ContosoUniversity*. Kliknij prawym przyciskiem myszy folder *ELMAH* , wybierz polecenie **Właściwości**, a następnie wybierz kartę **zabezpieczenia** .
 2. Kliknij przycisk **Edytuj**.
-3. W **uprawnienia dla biblioteki Elmah** okno dialogowe, wybierz opcję **domyślna pula aplikacji**, a następnie wybierz pozycję **zapisu** pole wyboru w **Zezwalaj** kolumny.
+3. W oknie dialogowym **uprawnienia dla programu ELMAH** wybierz pozycję **Domyślna pula aplikacji**, a następnie zaznacz pole wyboru **zapis** w kolumnie **Zezwalaj** .
 
-    ![Uprawnienia do folderu biblioteki ELMAH](setting-folder-permissions/_static/image3.png)
+    ![Uprawnienia dla folderu ELMAH](setting-folder-permissions/_static/image3.png)
 
-    (Jeśli nie widzisz **DefaultAppPool** w **nazwy grupy lub użytkownika** listy, prawdopodobnie używasz innej metody niż określona w tym samouczku do skonfigurowania usług IIS i platformy ASP.NET 4 na komputerze. W takim przypadku Dowiedz się, jakie tożsamość jest używana przez pulę aplikacji przypisane do aplikacji Contoso University i udzielanie uprawnień do zapisu do tej tożsamości. Zobacz linki dotyczące tożsamości puli aplikacji na końcu tego samouczka). Kliknij przycisk **OK** w obu polach okna dialogowego.
+    (Jeśli na liście **nazw grup lub użytkowników** nie widzisz opcji **Domyślna** , prawdopodobnie użyto innej metody niż określona w tym samouczku, aby skonfigurować usługi IIS i ASP.NET 4 na komputerze. W takim przypadku należy dowiedzieć się, jaka tożsamość jest używana przez pulę aplikacji przypisaną do aplikacji firmy Contoso University, i przyznać uprawnienia do zapisu dla tej tożsamości. Zobacz linki dotyczące tożsamości pul aplikacji na końcu tego samouczka.) Kliknij przycisk **OK** w obu oknach dialogowych.
 
-## <a name="retest-error-logging-and-reporting"></a>Przetestowanie rejestrowania błędów i raportowanie
+## <a name="retest-error-logging-and-reporting"></a>Testowanie rejestrowania błędów i raportowania
 
-Przetestuj, co powoduje wystąpienie błędu, ponownie tak samo jak (żądanie nieprawidłowy adres URL) i uruchom **dziennik błędów** strony. Tym razem ten błąd pojawia się na stronie.
+Przetestuj, powodując błąd ponownie w ten sam sposób (Zażądaj nieprawidłowego adresu URL) i Uruchom stronę **dziennika błędów** . Tym razem błąd pojawia się na stronie.
 
 ![Strona dziennika błędów ELMAH](setting-folder-permissions/_static/image4.png)
 
 ## <a name="summary"></a>Podsumowanie
 
-Ukończono wszystkie zadania, które są niezbędne do doprowadzenia Contoso University działa prawidłowo w usługach IIS na komputerze lokalnym. W następnym samouczku będzie witryna staje się publicznie dostępny przez wdrożenie jej na platformie Azure.
+Wykonano teraz wszystkie zadania niezbędne do poprawnego działania programu Contoso University w usługach IIS na komputerze lokalnym. W następnym samouczku udostępnisz tę witrynę publicznie, wdrażając ją na platformie Azure.
 
 ## <a name="more-information"></a>Więcej informacji
 
-W tym przykładzie powód, dlaczego Elmah nie może zapisywać pliki dziennika było dość oczywiste. Śledzenie usług IIS można użyć w przypadku gdy przyczyną problemu jest nie tak oczywiste; zobacz [rozwiązywania problemów nie powiodło się żądania przy użyciu śledzenia w usługach IIS 7](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) IIS.net w witrynie.
+W tym przykładzie powód, dla którego nie można było zapisać plików dziennika. Śledzenia usług IIS można użyć w przypadkach, gdy przyczyna problemu nie jest tak oczywista; Zobacz [Rozwiązywanie problemów z nieudanymi żądaniami przy użyciu śledzenia w usługach IIS 7](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) w witrynie IIS.NET.
 
-Aby uzyskać więcej informacji na temat sposobu przyznawania uprawnień do tożsamości puli aplikacji, zobacz [tożsamości puli aplikacji](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) i [Zabezpieczanie zawartości w usługach IIS za pomocą list ACL systemu plików](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) IIS.net w witrynie.
+Aby uzyskać więcej informacji na temat przyznawania uprawnień do tożsamości puli aplikacji, zobacz [tożsamość puli aplikacji](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) i [bezpieczna zawartość w usługach IIS za pomocą list ACL systemu plików](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) w witrynie IIS.NET.
 
 > [!div class="step-by-step"]
 > [Poprzednie](deploying-to-iis.md)

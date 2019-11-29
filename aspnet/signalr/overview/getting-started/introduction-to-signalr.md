@@ -1,161 +1,161 @@
 ---
 uid: signalr/overview/getting-started/introduction-to-signalr
-title: Wprowadzenie do SignalR | Dokumentacja firmy Microsoft
+title: Wprowadzenie do sygnalizującego | Microsoft Docs
 author: bradygaster
-description: W tym artykule opisano, co to jest SignalR i niektóre z rozwiązań, który został zaprojektowany do utworzenia.
+description: W tym artykule opisano, co to jest sygnał, i niektóre z rozwiązań, które zostały zaprojektowane do utworzenia.
 ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3598ac3d16a2065d1fb76d1637f0ae84797f630c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 11b494b4839c646b018098c76a8a9ae0a2169757
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65120091"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600491"
 ---
 # <a name="introduction-to-signalr"></a>Wprowadzenie do usługi SignalR
 
-przez [Patrick Fletcher](https://github.com/pfletcher)
+[Fletcher Patryka](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> W tym artykule opisano, co to jest SignalR i niektóre z rozwiązań, który został zaprojektowany do utworzenia. 
+> W tym artykule opisano, co to jest sygnał, i niektóre z rozwiązań, które zostały zaprojektowane do utworzenia. 
 > 
-> ## <a name="questions-and-comments"></a>Pytania i komentarze
+> ## <a name="questions-and-comments"></a>Pytania i Komentarze
 > 
-> Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
+> Prosimy o opinię na temat sposobu, w jaki lubię ten samouczek, i co możemy ulepszyć w komentarzach w dolnej części strony. Jeśli masz pytania, które nie są bezpośrednio związane z samouczkiem, możesz je ogłosić na [forum ASP.NET](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
 
-## <a name="what-is-signalr"></a>Co to jest SignalR?
+## <a name="what-is-signalr"></a>Co to jest sygnał?
 
-Biblioteki SignalR platformy ASP.NET to biblioteka dla deweloperów platformy ASP.NET, która upraszcza proces dodawania funkcji internetowych w czasie rzeczywistym do aplikacji. Funkcje sieci web w czasie rzeczywistym jest możliwość server przekazywanie zawartości przez kod do połączonych klientów natychmiast po jej udostępnieniu, zamiast serwera oczekiwania dla klientów dane nowego żądania.
+ASP.NET sygnalizujący to biblioteka deweloperów ASP.NET, którzy upraszczają proces dodawania funkcji sieci Web w czasie rzeczywistym do aplikacji. Funkcja sieci Web w czasie rzeczywistym to możliwość natychmiastowego pozyskania przez klienta zawartości z kodem serwerowym, gdy będzie ona dostępna, a nie poczekać, aż klient zażąda nowych danych.
 
-Biblioteki SignalR można dodawać dowolny rodzaj funkcji "w czasie rzeczywistym" w sieci web do aplikacji platformy ASP.NET. Podczas rozmowy jest często używana jako przykład, możesz tworzyć wiele więcej. Ilekroć użytkownika odświeża stronę sieci web, aby zobaczyć nowe dane lub strona implementuje [długiego sondowania](http://en.wikipedia.org/wiki/Push_technology#Long_polling) można pobrać nowe dane, jest kandydatem do przy użyciu biblioteki SignalR. Przykłady obejmują pulpity nawigacyjne i monitorowania aplikacji, aplikacji współpracy (na przykład jednoczesne edytowanie dokumentów), zadań, aktualizacje postępu i formularzy w czasie rzeczywistym.
+Sygnalizujący może służyć do dodawania dowolnego rodzaju funkcji sieci Web "w czasie rzeczywistym" do aplikacji ASP.NET. Podczas gdy rozmowa jest często używana jako przykład, można wykonać całą dużo więcej. Za każdym razem, gdy użytkownik Odświeża stronę sieci Web, aby zobaczyć nowe dane, lub strona implementuje [długotrwałe sondowanie](http://en.wikipedia.org/wiki/Push_technology#Long_polling) w celu pobrania nowych danych, jest kandydatem do korzystania z usługi sygnalizującej. Przykłady obejmują pulpity nawigacyjne i aplikacje monitorujące, aplikacje do współpracy (takie jak jednoczesne edytowanie dokumentów), aktualizacje postępu zadań i formularze w czasie rzeczywistym.
 
-SignalR umożliwia również całkowicie nowych typów aplikacji sieci web, które wymagają wysokiej częstotliwości aktualizacji z serwera, na przykład w czasie rzeczywistym gry.
+Program sygnalizujący umożliwia również zupełnie nowe typy aplikacji sieci Web, które wymagają aktualizacji o wysokiej częstotliwości z serwera, na przykład w czasie rzeczywistym.
 
-Biblioteka SignalR udostępnia prosty interfejs API do tworzenia klienta serwera zdalnych wywołań procedur (RPC), które wywołują funkcje języka JavaScript w kliencie przeglądarki (i innych platform klienta) od kodu .NET po stronie serwera. Biblioteka SignalR zawiera też interfejs API umożliwiający zarządzanie połączeniami (na przykład nawiązywać połączenia i zdarzenia rozłączenia) i grupowanie połączeń.
+Sygnalizujący oferuje prosty interfejs API służący do tworzenia zdalnych wywołań procedur (RPC) serwer-klient, które wywołują funkcje języka JavaScript w przeglądarkach klienta (i innych platformach klienckich) z kodu platformy .NET po stronie serwera. Program sygnalizujący obejmuje również interfejs API służący do zarządzania połączeniami (na przykład zdarzenia łączenia i rozłączania) oraz grupowania połączeń.
 
-![Wywoływanie metod przy użyciu SignalR](introduction-to-signalr/_static/image1.png)
+![Wywoływanie metod przy użyciu sygnalizującego](introduction-to-signalr/_static/image1.png)
 
-SignalR automatycznie obsługuje zarządzanie połączeniami i umożliwia emisji komunikaty, aby wszyscy połączeni klienci równocześnie, takich jak pokoju rozmów. Można również wysyłać wiadomości do określonych klientów. Połączenie między klientem i serwerem jest trwała, w odróżnieniu od klasycznego połączenia HTTP, które zostanie ponownie nawiązane dla każdego komunikatu.
+Program sygnalizujący automatycznie obsługuje zarządzanie połączeniami i umożliwia emitowanie komunikatów do wszystkich połączonych klientów jednocześnie, takich jak pokój rozmowy. Możesz również wysyłać komunikaty do określonych klientów. Połączenie między klientem a serwerem jest trwałe, w przeciwieństwie do klasycznego połączenia HTTP, które jest ponownie nawiązane dla każdej komunikacji.
 
-SignalR obsługuje funkcje "serwera wypychania", w którym kod serwera, można umieszczać kodu klienta w przeglądarce, za pomocą zdalnego wywołania procedury (RPC), a nie wspólnego modelu odpowiedź na żądanie w sieci web już dziś.
+Usługa sygnalizująca obsługuje funkcję "wypychania serwera", w której kod serwera może wywoływać kod klienta w przeglądarce przy użyciu zdalnych wywołań procedur (RPC), a nie modelu odpowiedzi na żądanie, który jest często używany w sieci Web.
 
-Aplikacji SignalR można skalować do tysięcy klientów przy użyciu usługi Service Bus, SQL Server lub [Redis](http://redis.io).
+Aplikacje sygnalizujące mogą być skalowane do tysięcy klientów przy użyciu Service Bus, SQL Server lub [Redis](http://redis.io).
 
-SignalR to open source, dostępne za pośrednictwem [GitHub](https://github.com/signalr).
+Sygnalizujący jest otwartym źródłem, dostępnym za poorednictwem usługi [GitHub](https://github.com/signalr).
 
-## <a name="signalr-and-websocket"></a>SignalR i WebSocket
+## <a name="signalr-and-websocket"></a>Sygnalizujący i WebSocket
 
-SignalR używa nowy transport WebSocket, gdzie są dostępne i nastąpi powrót do starszej transportu, gdy jest to konieczne. Gdy bez obaw można zapisać aplikacji bezpośrednio za pomocą protokołu WebSocket, przy użyciu SignalR oznacza wiele dodatkowe funkcje, które trzeba do zaimplementowania zostało już przeprowadzone dla Ciebie. Co najważniejsze oznacza to, czy tworzyć kod aplikacji w taki sposób, aby móc korzystać z protokołu WebSocket, bez konieczności martwienia się o Tworzenie ścieżki osobnego kodu dla starszych klientów. SignalR również ochronnym możesz z konieczności martwienia się o aktualizacjach WebSocket, ponieważ SignalR zostanie zaktualizowany i będzie obsługiwać zmiany w podstawowej transportu, zapewniając spójny interfejs aplikacji wersje protokołu WebSocket.
+Sygnalizujący używa nowego transportu protokołu WebSocket, jeśli jest dostępny, i powraca do starszych transportów, gdy jest to konieczne. Chociaż można napisanie aplikacji przy użyciu protokołu WebSocket bezpośrednio, przy użyciu sygnalizującego oznacza to, że wiele dodatkowych funkcji, które należy zaimplementować, jest już dla Ciebie gotowe. Co ważniejsze, oznacza to, że można pokodować aplikację, aby korzystać z protokołu WebSocket bez konieczności tworzenia oddzielnej ścieżki kodu dla starszych klientów. Sygnalizujący również osłony, które nie mają do obaw o aktualizacje protokołu WebSocket, ponieważ sygnał jest aktualizowany do obsługi zmian w podstawowym transportie, zapewniając spójny interfejs w różnych wersjach protokołu WebSocket.
 
 <a id="transports"></a>
 
-## <a name="transports-and-fallbacks"></a>Transporty i planów awaryjnych
+## <a name="transports-and-fallbacks"></a>Transporty i rezerwy
 
-SignalR to Abstrakcja za pośrednictwem niektórych transportu, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. Połączenia SignalR startuje jako protokołu HTTP, a następnie zostanie podwyższony do połączeń protokołu WebSocket, jeśli jest ona dostępna. Protokół WebSocket jest idealny transport dla elementu SignalR, ponieważ ona sprawia, że najbardziej efektywne wykorzystanie pamięci serwera, ma najniższe opóźnienie i ma większość podstawowych funkcji (na przykład w trybie pełnego dupleksu komunikacji między klientem i serwerem), ale ma on także najbardziej rygorystyczne wymagania: WebSocket wymaga serwera z systemem Windows Server 2012 lub Windows 8 i .NET Framework 4.5. Jeśli te wymagania nie są spełnione, SignalR spróbuje użyć innego transportu się jego połączenia.
+Sygnalizujący jest abstrakcją dla niektórych transportów, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. Połączenie sygnalizujące zaczyna się od protokołu HTTP i jest następnie podwyższane do połączenia WebSocket, jeśli jest dostępne. Protokół WebSocket jest idealnym transportem dla sygnalizującego, ponieważ sprawia, że jest to najbardziej wydajne wykorzystanie pamięci serwera, ma najniższe opóźnienie i ma najbardziej podstawowe funkcje (na przykład komunikacja pełnego dupleksu między klientem a serwerem), ale również najbardziej rygorystyczne wymagania: protokół WebSocket wymaga, aby serwer używa systemu Windows Server 2012 lub Windows 8, a .NET Framework 4,5. Jeśli te wymagania nie są spełnione, program sygnalizujący podejmie próbę użycia innych transportów w celu nawiązania połączenia.
 
-### <a name="html-5-transports"></a>HTML 5 transports
+### <a name="html-5-transports"></a>Transporty HTML 5
 
-Transporty te zależą od pomocy technicznej dla [HTML 5](http://en.wikipedia.org/wiki/HTML5). Jeśli przeglądarka klienta nie obsługuje standardu HTML 5, starsze transportów będą używane.
+Transporty są zależne od obsługi [języka HTML 5](http://en.wikipedia.org/wiki/HTML5). Jeśli przeglądarka klienta nie obsługuje standardu HTML 5, będą używane starsze transporty.
 
-- **WebSocket** (Jeśli zarówno serwer, jak i przeglądarka wskazują, obsługują one Websocket). Protokół WebSocket jest tylko transportu, który ustanawia wartość true, trwały, dwukierunkowe połączenie między klientem i serwerem. Jednak WebSocket ma najbardziej rygorystyczne wymagania; jest w pełni obsługiwana tylko w najnowszych wersjach programu Microsoft Internet Explorer, Google Chrome i Mozilla Firefox, a tylko został wdrożony częściowo w innych przeglądarkach, takie jak Opera i Safari.
-- **Zdarzenia wysyłane serwera**, znanego również jako źródła zdarzeń (Jeśli przeglądarka obsługuje serwer wysyłane zdarzenia, jest zasadniczo wszystkie przeglądarki, z wyjątkiem programu Internet Explorer).
+- **WebSocket** (Jeśli zarówno serwer, jak i przeglądarka wskazują, że mogą obsługiwać protokół WebSocket). Protokół WebSocket jest jedynym transportem, który ustanawia stałe, dwukierunkowe połączenie między klientem a serwerem. Jednak protokół WebSocket ma także najbardziej rygorystyczne wymagania; jest ona w pełni obsługiwana tylko w najnowszych wersjach programu Microsoft Internet Explorer, Google Chrome i Mozilla Firefox. obejmuje tylko częściową implementację w innych przeglądarkach, takich jak Opera i Safari.
+- **Zdarzenia wysłane przez serwer**, znane także jako EventSource (Jeśli przeglądarka obsługuje zdarzenia wysłane przez serwer, czyli wszystkie przeglądarki z wyjątkiem programu Internet Explorer).
 
-### <a name="comet-transports"></a>Transporty comet
+### <a name="comet-transports"></a>Transporty Comet
 
-Następujące transportów opierają się na [Comet](http://en.wikipedia.org/wiki/Comet_(programming)) modelu aplikacji sieci web, w którym przeglądarki lub innych klientów obsługuje żądania HTTP przechowywane przez długi, używane przez serwer do specjalnie wypychanie danych do klienta bez użycia klienta programu żądanie.
+Poniższe transporty opierają się na modelu aplikacji sieci Web [Comet](http://en.wikipedia.org/wiki/Comet_(programming)) , w którym przeglądarka lub inny klient przechowuje długotrwałe żądanie HTTP, którego serwer może użyć do wypychania danych do klienta bez żądania klienta.
 
-- **Nieskończona ramki** (dla programu Internet Explorer tylko). Nieskończona ramki tworzy ukrytego elementu IFrame, który kieruje żądanie do punktu końcowego na serwerze, który nie zostanie zakończone. Serwer następnie stale wysyła skryptu do klienta, które jest wykonywane od razu, zapewniając połączenia jednokierunkowe w czasie rzeczywistym z serwera do klienta. Połączenie od klienta do serwera używa oddzielnego połączenia z serwera do klienta połączenia i jak standardowe żądania HTTP, nowe połączenie jest tworzony dla każdego z nich dane, które muszą być wysyłane.
-- **AJAX długim sondowaniem**. Długim sondowaniem nie tworzy trwałe połączenie, ale zamiast tego sonduje serwer z żądaniem, który pozostanie otwarty, dopóki serwer odpowiada, w tym momencie połączenie zostaje zamknięte, a następnie natychmiast zażądano nowego połączenia. Może to powodować pewne opóźnienie, podczas resetuje połączenie.
+- **Ramka bez ograniczeń** (tylko w przypadku programu Internet Explorer). Ramka bez ograniczeń tworzy ukryty element IFrame, który wysyła żądanie do punktu końcowego na serwerze, który nie został ukończony. Następnie serwer wysyła do klienta skrypt, który jest natychmiast wykonywany, co zapewnia jednokierunkowe połączenie między serwerem a klientem. Połączenie między klientem a serwerem używa oddzielnego połączenia z serwera do połączenia klienta, jak w przypadku standardowego żądania HTTP, tworzone jest nowe połączenie dla każdej części danych, które należy wysłać.
+- **Długoterminowe sondowanie AJAX**. Długotrwałe sondowanie nie powoduje utworzenia połączenia trwałego, ale zamiast tego sonduje serwer przy użyciu żądania, które pozostaje otwarte do momentu odpowiedzi serwera, po upływie którego połączenie zostanie zamknięte i od razu zostanie wysłane nowe połączenie. Może to spowodować pewne opóźnienie podczas resetowania połączenia.
 
-Aby uzyskać więcej informacji na jakie transportów są wspierane w ramach której konfiguracji, zobacz [platformy obsługiwane przez](supported-platforms.md).
+Aby uzyskać więcej informacji na temat tego, które transporty są obsługiwane przez konfiguracje, zobacz [obsługiwane platformy](supported-platforms.md).
 
 ### <a name="transport-selection-process"></a>Proces wyboru transportu
 
-Na poniższej liście przedstawiono kroki, które korzysta z biblioteki SignalR podjęcie decyzji, które transportu do użycia.
+Na poniższej liście przedstawiono kroki, które program sygnalizujący używa do podejmowania decyzji o tym, który transport ma być używany.
 
-1. Jeśli zainstalowano przeglądarkę Internet Explorer 8 lub starszym, długie sondowania jest używany.
-2. Jeśli skonfigurowano JSONP (oznacza to, `jsonp` parametr ma wartość `true` po uruchomieniu połączenia), długie sondowania jest używany.
-3. Jeśli między domenami jest nawiązywane połączenie (to znaczy, jeśli punkt końcowy SignalR nie jest w tej samej domenie co strona macierzysta), następnie WebSocket zostaną użyte, jeśli są spełnione poniższe kryteria:
+1. Jeśli przeglądarka jest Internet Explorer 8 lub wcześniejsza, jest używana długa sondowanie.
+2. Jeśli skonfigurowano JSONP (to oznacza, że parametr `jsonp` jest ustawiany na `true` po rozpoczęciu połączenia), używane jest długie sondowanie.
+3. Jeśli nastąpi nawiązywanie połączenia między domenami (to oznacza, że punkt końcowy sygnalizujący nie znajduje się w tej samej domenie, w której znajduje się Strona hostingu), zostanie użyty protokół WebSocket, jeśli spełnione są następujące kryteria:
 
-   - Klient obsługuje mechanizm CORS (Cross-Origin Resource Sharing). Aby uzyskać szczegółowe informacje, na których klienci obsługują mechanizmu CORS, zobacz [mechanizmu CORS w caniuse.com](http://www.caniuse.com/CORS).
-   - Klient obsługuje WebSocket
-   - Serwer obsługuje WebSocket
+   - Klient obsługuje funkcję CORS (współużytkowanie zasobów między źródłami). Aby uzyskać szczegółowe informacje na temat obsługi mechanizmu CORS przez klientów, zobacz [CORS w CanIUse.com](http://www.caniuse.com/CORS).
+   - Klient obsługuje protokół WebSocket
+   - Serwer obsługuje protokół WebSocket
 
-     Jeśli dowolne z poniższych kryteriów nie są spełnione, długie sondowania będą używane. Aby uzyskać więcej informacji na temat połączeń między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
-4. Jeśli nie skonfigurowano JSONP, połączenie nie jest między domenami WebSocket będą używane, jeżeli klient i serwer obsługuje.
-5. Jeśli klient lub serwer nie obsługują protokołu WebSocket, zdarzenia wysyłane serwera jest używana, jeśli jest ona dostępna.
-6. Jeśli zdarzenia wysyłane serwera nie jest dostępny, zostanie podjęta nieskończona ramki.
-7. W przypadku niepowodzenia nieskończona ramki długie sondowania jest używany.
+     Jeśli którekolwiek z tych kryteriów nie są spełnione, zostanie użyte długie sondowanie. Aby uzyskać więcej informacji na temat połączeń między domenami, zobacz [jak ustanowić połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+4. Jeśli JSONP nie jest skonfigurowany i połączenie nie jest nawiązywane między domenami, zostanie użyta wartość WebSocket, jeśli klient i serwer obsługują tę funkcję.
+5. Jeśli klient lub serwer nie obsługuje protokołu WebSocket, są używane zdarzenia wysłane przez serwer, jeśli są dostępne.
+6. Jeśli zdarzenia wysłane przez serwer nie są dostępne, podejmowana jest próba nieograniczonej ramki.
+7. Jeśli ramka bez ograniczeń nie powiedzie się, zostanie użyta długa sondowanie.
 
 <a id="MonitoringTransports"></a>
-### <a name="monitoring-transports"></a>Monitorowanie transportu
+### <a name="monitoring-transports"></a>Transport monitorujący
 
-Można określić transportu aplikacja wykorzystuje, należy włączyć rejestrowanie w Centrum i otwierając okno konsoli w przeglądarce.
+Możesz określić, który transport jest używany przez aplikację, włączając rejestrowanie w centrum i otwierając okno konsoli w przeglądarce.
 
-Aby włączyć rejestrowanie dla Twojego Centrum zdarzeń w przeglądarce, Dodaj następujące polecenie, aby Twoja aplikacja kliencka:
+Aby włączyć rejestrowanie zdarzeń centrum w przeglądarce, Dodaj następujące polecenie do aplikacji klienckiej:
 
 `$.connection.hub.logging = true;`
 
-- W programie Internet Explorer Otwórz narzędzia deweloperskie, naciskając klawisz F12, a następnie kliknij kartę konsoli.
+- W programie Internet Explorer otwórz narzędzia deweloperskie, naciskając klawisz F12 i klikając kartę Konsola.
 
     ![Konsola programu Microsoft Internet Explorer](introduction-to-signalr/_static/image2.png)
-- W przeglądarce Chrome Otwórz konsolę, naciskając klawisze Ctrl + Shift + J.
+- W programie Chrome Otwórz konsolę, naciskając klawisze Ctrl + Shift + J.
 
-    ![Console in Google Chrome](introduction-to-signalr/_static/image3.png)
+    ![Konsola w przeglądarce Google Chrome](introduction-to-signalr/_static/image3.png)
 
-Otwórz konsolę i Rejestrowanie włączone będzie można zobaczyć, które transportu jest używany przez SignalR.
+Po otwarciu i włączeniu konsoli można zobaczyć, który transport jest używany przez program sygnalizujący.
 
-![Konsoli w programie Internet Explorer, przedstawiający WebSocket transportu](introduction-to-signalr/_static/image4.png)
+![Konsola programu Internet Explorer pokazująca transport WebSocket](introduction-to-signalr/_static/image4.png)
 
 ### <a name="specifying-a-transport"></a>Określanie transportu
 
-Negocjowanie transportu trwa pewien czas i klient/serwer zasobów. Jeśli są znane możliwości klienta, transport można określić po uruchomieniu połączenia klienta. Poniższy fragment kodu przedstawia uruchamianie połączenie za pomocą transportu sondowania długie Ajax zostałyby użyte, jeśli jest znane, klient obsługuje inne protokołu:
+Negocjowanie transportu zajmuje pewien czas i zasoby klienta/serwera. Jeśli są znane możliwości klienta, podczas uruchamiania połączenia klienta można określić transport. Poniższy fragment kodu pokazuje, jak rozpocząć połączenie przy użyciu funkcji wieloportowego sondowania AJAX, tak jak gdyby był wiadomo, że klient nie obsługiwał żadnego innego protokołu:
 
 `connection.start({ transport: 'longPolling' });`
 
-Jeśli klient próby transportów określonych w kolejności, można określić rezerwowego kolejności. Poniższy fragment kodu pokazuje, w trakcie WebSocket i kończy się niepowodzeniem, który, przechodząc bezpośrednio do sondowania długie.
+Aby klient mógł wypróbować określone transporty w podanej kolejności, można określić zamówienie rezerwowe. Poniższy fragment kodu ilustruje próbę wykonania protokołu WebSocket i kończy się niepowodzeniem, przechodząc bezpośrednio do długiego sondowania.
 
 `connection.start({ transport: ['webSockets','longPolling'] });`
 
-Stałe typu string do określania transportów są zdefiniowane w następujący sposób:
+Stałe ciągów do określania transportów są zdefiniowane w następujący sposób:
 
 - `webSockets`
 - `foreverFrame`
 - `serverSentEvents`
 - `longPolling`
 
-## <a name="connections-and-hubs"></a>Połączeniami i koncentratorami
+## <a name="connections-and-hubs"></a>Połączenia i centra
 
-Interfejs API SignalR zawiera dwa modele do komunikacji między klientami a serwerami: Trwałe połączeniami i koncentratorami.
+Interfejs API sygnalizującego zawiera dwa modele komunikacji między klientami i serwerami: trwałe połączenia i centra.
 
-Połączenie reprezentuje proste punktu końcowego do wysyłania wiadomości jednego adresata, pogrupowanych lub emisji. Udostępnia trwałe połączenie interfejsu API (reprezentowane przez klasę PersistentConnection w kodzie .NET), deweloper bezpośredni dostęp do protokołu komunikacyjnego niskiego poziomu, który udostępnia SignalR. Przy użyciu modelu komunikacji połączeń nie będą niczym nowym dla deweloperów, którzy korzystali z opartego na połączeniach interfejsów API, takich jak Windows Communication Foundation.
+Połączenie reprezentuje prosty punkt końcowy do wysyłania komunikatów o pojedynczym odbiorcy, pogrupowanych lub emisji. Interfejs API połączenia trwałego (reprezentowany w kodzie .NET przez klasę PersistentConnection) zapewnia deweloperowi bezpośredni dostęp do protokołu komunikacyjnego niskiego poziomu, który jest ujawniany przez sygnalizujące. Użycie modelu komunikacji połączenia będzie znane dla deweloperów, którzy korzystali z interfejsów API opartych na połączeniach, takich jak Windows Communication Foundation.
 
-Koncentrator jest bardziej ogólny potoku utworzonych na podstawie interfejsu API połączenia, który umożliwia klienta i serwera, bezpośrednie wywoływanie metod na siebie nawzajem. SignalR obsługuje wysyłanie granice maszyny tak, jakby przez magic, umożliwiając klientom wywoływać metody na serwerze, jak łatwo jako metody lokalne i na odwrót. Przy użyciu modelu komunikacji Hubs będą niczym nowym dla deweloperów, którzy użyli zdalnego wywoływania interfejsów API, takich jak wywołaniem funkcji zdalnych .NET. Za pomocą Centrum umożliwia również silnie typizowane parametry są przekazywane do metody, umożliwiając wiązania modelu.
+Koncentrator to bardziej wysoki poziom potoku oparty na interfejsie API połączenia, który umożliwia klientowi i serwerowi bezpośrednie wywoływanie metod. Program sygnalizujący obsługuje wysyłanie między granicami maszyn w taki sposób, aby klienci mogli wywoływać metody na serwerze jako metody lokalne i na odwrót. Korzystanie z modelu komunikacji centrów będzie znane dla deweloperów, którzy korzystali z interfejsów API wywołań zdalnych, takich jak komunikacja zdalna platformy .NET. Użycie centrum umożliwia również przekazywanie parametrów z jednoznacznie określonymi typami do metod, włączając powiązanie modelu.
 
-### <a name="architecture-diagram"></a>Diagram architektury
+### <a name="architecture-diagram"></a>diagram architektury
 
-Na poniższym diagramie przedstawiono relację między koncentratorów, połączeń trwałych i podstawowych technologii używanych dla transportu.
+Na poniższym diagramie przedstawiono relację między centrami, połączeniami trwałymi i podstawowymi technologiami używanymi do transportowania.
 
-![Diagram architektury SignalR, przedstawiający interfejsów API, transportu i klientów](introduction-to-signalr/_static/image5.png)
+![Diagram architektury sygnałów przedstawiający interfejsy API, transporty i klientów](introduction-to-signalr/_static/image5.png)
 
-### <a name="how-hubs-work"></a>Jak działają koncentratory
+### <a name="how-hubs-work"></a>Jak działają centra
 
-Gdy kod po stronie serwera wywołuje metody na kliencie, pakiet jest wysyłany na aktywny transport, który zawiera nazwę i parametry metody do wywołania (gdy obiekt jest wysyłany jako parametru metody, jest serializowany przy użyciu formatu JSON). Klient następnie dopasowuje Nazwa metody do metody zdefiniowane w kodzie po stronie klienta. Jeśli istnieje dopasowanie, metoda klienta będą wykonywane przy użyciu danych zdeserializowany parametru.
+Gdy kod po stronie serwera wywołuje metodę na kliencie, pakiet jest wysyłany przez aktywny transport, który zawiera nazwę i parametry metody do wywołania (gdy obiekt jest wysyłany jako parametr metody, jest serializowany przy użyciu JSON). Następnie klient dopasowuje nazwę metody do metod zdefiniowanych w kodzie po stronie klienta. Jeśli istnieje dopasowanie, Metoda klienta zostanie wykonana przy użyciu deserializowanych danych parametrów.
 
-Wywołania metody które można monitorować za pomocą narzędzi, takich jak [programu Fiddler.](http://fiddler2.com/) Na poniższej ilustracji przedstawiono wywołanie metody wysyłane z serwera biblioteki SignalR do klienta przeglądarki internetowej, w okienku dzienniki programu Fiddler. Wywołania metody które są wysyłane z Centrum o nazwie `MoveShapeHub`, i jest wywoływana metoda jest wywoływana `updateShape`.
+Wywołanie metody może być monitorowane przy użyciu narzędzi, takich jak [programu Fiddler.](http://fiddler2.com/) Na poniższej ilustracji przedstawiono wywołanie metody wysyłane z serwera sygnalizującego do klienta przeglądarki sieci Web w okienku dzienniki programu Fiddler. Wywołanie metody jest wysyłane z centrum o nazwie `MoveShapeHub`, a wywoływana metoda jest nazywana `updateShape`.
 
-![Widok dziennika programu Fiddler przedstawiający ruchu SignalR](introduction-to-signalr/_static/image6.png)
+![Widok dziennika programu Fiddler przedstawiający ruch sygnalizujący](introduction-to-signalr/_static/image6.png)
 
-W tym przykładzie nazwy Centrum jest identyfikowany za pomocą `H` parametru; metoda nazwa jest identyfikowany za pomocą `M` parametrów i danych wysyłanych do metody jest identyfikowany za pomocą `A` parametru. Aplikacja, która wygenerowała ten komunikat zostanie utworzona w [o wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) samouczka.
+W tym przykładzie nazwa centrum jest identyfikowana przy użyciu parametru `H`; Nazwa metody jest identyfikowana przy użyciu parametru `M`, a dane wysyłane do metody są identyfikowane za pomocą parametru `A`. Aplikacja, która wygenerowała ten komunikat, jest tworzona w samouczku [o wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) .
 
 ### <a name="choosing-a-communication-model"></a>Wybieranie modelu komunikacji
 
-Większość aplikacji należy używać interfejsu API centrów. Połączenia interfejsu API można używać w następujących okolicznościach:
+Większość aplikacji powinna używać interfejsu API centrów. Interfejs API połączeń może być używany w następujących okolicznościach:
 
-- Format rzeczywiste wiadomością wysłaną musi być określony.
-- Preferuje projektanta do pracy z modelu obsługi komunikatów i wysyłania, a nie w modelu zdalnego wywoływania.
-- Istniejącą aplikację, która używa modelu obsługi komunikatów są są przenoszone do korzystania z biblioteki SignalR.
+- Należy określić format rzeczywistej wiadomości wysyłanej.
+- Deweloper woli pracować z modelem przesyłania komunikatów i wysyłania wiadomości, a nie z modelem zdalnego wywoływania.
+- Istniejąca aplikacja, która używa modelu obsługi komunikatów, jest przeszukiwana do korzystania z programu sygnalizującego.

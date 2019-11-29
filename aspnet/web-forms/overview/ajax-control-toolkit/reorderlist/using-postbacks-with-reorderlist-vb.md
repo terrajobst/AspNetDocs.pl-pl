@@ -1,68 +1,68 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
-title: Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB) | Dokumentacja firmy Microsoft
+title: Korzystanie z ogłaszania zwrotnego z kontrolki reorderlist (VB) | Microsoft Docs
 author: wenz
-description: Kontrolki kontrolki ReorderList na zestawu narzędzi AJAX Control Toolkit zawiera listy, które można zmienić kolejności przez użytkownika za pomocą przeciągania i upuszczania. Zawsze, gdy lista jest zmieniana, zamówienia zakupu...
+description: Formant kontrolki reorderlist w zestawie narzędzi AJAX Control zawiera listę, którą można zmienić za pomocą przeciągania i upuszczania przez użytkownika. Za każdym razem, gdy lista zostanie zmieniona, a...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e5b6ed70-19ed-4024-ba4f-6d78e8acdc0f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e2ab485d276d62518b6e7317bd76121f18d27ba8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5d6075e40df2c32df6c0d801243eff98fa7790b2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124727"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74611379"
 ---
 # <a name="using-postbacks-with-reorderlist-vb"></a>Używanie ogłaszania zwrotnego z kontrolką ReorderList (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4VB.pdf)
 
-> Kontrolki kontrolki ReorderList na zestawu narzędzi AJAX Control Toolkit zawiera listy, które można zmienić kolejności przez użytkownika za pomocą przeciągania i upuszczania. Zawsze, gdy lista jest zmieniana, odświeżenie strony informuje serwer zmiany.
+> Formant kontrolki reorderlist w zestawie narzędzi AJAX Control zawiera listę, którą można zmienić za pomocą przeciągania i upuszczania przez użytkownika. Za każdym razem, gdy lista zostanie zmieniona, ogłoszenie zwrotne informuje serwer o zmianie.
 
 ## <a name="overview"></a>Omówienie
 
-`ReorderList` Formantu w zestawu narzędzi AJAX Control Toolkit zawiera listy, które można zmienić kolejności przez użytkownika za pomocą przeciągania i upuszczania. Zawsze, gdy lista jest zmieniana, odświeżenie strony informuje serwer zmiany.
+Formant `ReorderList` w zestawie narzędzi AJAX Control zawiera listę, którą można zmienić za pomocą przeciągania i upuszczania przez użytkownika. Za każdym razem, gdy lista zostanie zmieniona, ogłoszenie zwrotne informuje serwer o zmianie.
 
 ## <a name="steps"></a>Kroki
 
-Istnieje kilka źródeł danych dla `ReorderList` kontroli. Jeden jest użycie `XmlDataSource` sterowania:
+Istnieje kilka możliwych źródeł danych dla kontrolki `ReorderList`. Jednym z nich jest użycie kontrolki `XmlDataSource`:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample1.aspx)]
 
-Aby powiązać plik XML do `ReorderList` musi być ustawiona kontroli i włączenie ogłaszania zwrotnego, następujące atrybuty:
+Aby powiązać ten plik XML z kontrolką `ReorderList` i włączyć ogłaszanie zwrotne, należy ustawić następujące atrybuty:
 
-- `DataSourceID`: Identyfikator źródła danych
-- `SortOrderField`: Właściwości, aby posortować według
-- `AllowReorder`: Czy zezwalać na użytkownika zmienić kolejność elementów listy
-- `PostBackOnReorder`: Czy chcesz utworzyć ogłaszania zwrotnego w każdym przypadku, gdy lista jest grupowany
+- `DataSourceID`: identyfikator źródła danych
+- `SortOrderField`: właściwość, według której ma zostać wykonane sortowanie
+- `AllowReorder`: czy zezwolić użytkownikowi na zmianę kolejności elementów listy
+- `PostBackOnReorder`: czy należy utworzyć ogłaszanie zwrotne za każdym razem, gdy lista zostanie przestawiona
 
-Oto odpowiednie kodu znaczników kontrolki:
+Oto odpowiednie znaczniki dla kontrolki:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample2.aspx)]
 
-W ramach `ReorderList` kontrolki, określonych danych ze źródła danych można powiązać, przy użyciu `Eval()` metody:
+W kontrolce `ReorderList` określone dane ze źródła danych mogą być powiązane przy użyciu metody `Eval()`:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample3.aspx)]
 
-W dowolnym położeniu na stronie etykiety będzie wyświetlał informacje po ostatniej zmiany kolejności wystąpił:
+W dowolnym miejscu na stronie etykieta będzie zawierać informacje w przypadku wystąpienia ostatniej zmiany kolejności:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample4.aspx)]
 
-Ta etykieta jest wypełniany tekst w kodzie po stronie serwera, obsługa ogłaszania zwrotnego:
+Etykieta jest wypełniana tekstem w kodzie po stronie serwera, z obsługą ogłaszania zwrotnego:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample5.aspx)]
 
-Na koniec, aby aktywować tę funkcję ASP.NET AJAX i zestaw narzędzi do sterowania `ScriptManager` kontroli muszą znajdować się na stronie:
+Na koniec w celu aktywowania funkcji ASP.NET AJAX i zestawu narzędzi sterowania należy umieścić na stronie formant `ScriptManager`:
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample6.aspx)]
 
-[![Każda zmiana kolejności wyzwala ogłaszania zwrotnego](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
+[![każda zmiana kolejności wyzwala ogłaszanie zwrotne](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
 
-Każda zmiana kolejności wyzwala ogłaszania zwrotnego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-postbacks-with-reorderlist-vb/_static/image3.png))
+Każda zmiana kolejności wyzwala ogłaszanie zwrotne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-postbacks-with-reorderlist-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](drag-and-drop-via-reorderlist-cs.md)

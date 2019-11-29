@@ -1,62 +1,62 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
-title: Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (VB) | Dokumentacja firmy Microsoft
+title: Wykonywanie zapytań o dane za pomocą kontrolki kontrolki SqlDataSource (VB) | Microsoft Docs
 author: rick-anderson
-description: W poprzednich samouczkach użyliśmy kontrolka ObjectDataSource, aby w pełni rozdzielić warstwy prezentacji z warstwy dostępu do danych. Począwszy od tej instruktora...
+description: W poprzednich samouczkach użyto kontrolki ObjectDataSource, aby całkowicie oddzielić warstwę prezentacji od warstwy dostępu do danych. Trwa Rozpoczynanie pracy z tym samouczekem...
 ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9e2689e665c39fda15df27ba03f4dcd44e834bff
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 199ddb46e877c3a0937672d33241a240660684da
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124555"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74606067"
 ---
 # <a name="querying-data-with-the-sqldatasource-control-vb"></a>Wykonywanie zapytań o dane przy użyciu kontrolki SqlDataSource (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_VB.exe) lub [Pobierz plik PDF](querying-data-with-the-sqldatasource-control-vb/_static/datatutorial47vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_47_VB.exe) lub [Pobierz plik PDF](querying-data-with-the-sqldatasource-control-vb/_static/datatutorial47vb1.pdf)
 
-> W poprzednich samouczkach użyliśmy kontrolka ObjectDataSource, aby w pełni rozdzielić warstwy prezentacji z warstwy dostępu do danych. Począwszy od tego samouczka dowie się, jak używać kontrolki SqlDataSource dla prostych aplikacji, które nie wymagają takich ścisłą prezentacji i dostęp do danych.
+> W poprzednich samouczkach użyto kontrolki ObjectDataSource, aby całkowicie oddzielić warstwę prezentacji od warstwy dostępu do danych. Począwszy od tego samouczka, dowiesz się, w jaki sposób formant kontrolki SqlDataSource może być używany w przypadku prostych aplikacji, które nie wymagają takiego dokładnego oddzielenia informacji o prezentacjach i dostępie do danych.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Wszystkie z samouczków firma ve badania do tej pory były używane architektury warstwowej, składający się z prezentacji, logiki biznesowej i warstwy dostępu do danych. Warstwa dostępu do danych (DAL) została specjalnie w pierwszym samouczku ([Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-vb.md)) i warstwę logiki biznesowej w ciągu sekundy ([Tworzenie warstwy logiki biznesowej](../introduction/creating-a-business-logic-layer-vb.md)). Począwszy od [wyświetlanie danych za pomocą kontrolki ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) samouczek widzieliśmy, jak za pomocą nowego formantu ObjectDataSource s ASP.NET 2.0 deklaratywne interfejsu dzięki architekturze z warstwy prezentacji.
+Wszystkie samouczki, które chcielibyśmy zbadać, do tej pory używały architektury warstwowej, która składa się z warstwy prezentacji, logiki biznesowej i dostępu do danych. Warstwa dostępu do danych (DAL) została spreparowana w pierwszym samouczku ([Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-vb.md)) i warstwy logiki biznesowej w drugim ([Tworzenie warstwy logiki biznesowej](../introduction/creating-a-business-logic-layer-vb.md)). Począwszy od [wyświetlanych danych za pomocą](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) samouczka elementu ObjectDataSource, przedstawiono sposób użycia nowej kontrolki objectdatasource ASP.NET 2,0 s do deklaratywnego interfejsu z architekturą z warstwy prezentacji.
 
-Chociaż wszystkich samouczków do tej pory architektury używanych do pracy z danymi, jest również możliwość dostępu, wstawiania, aktualizowania i usuwania bazy danych bezpośrednio ze strony programu ASP.NET, z pominięciem architektury. Ten sposób umieszcza konkretnej bazy danych, zapytań i logikę biznesową bezpośrednio na stronie sieci web. W przypadku aplikacji wystarczająco duży lub złożony zasadnicze znaczenie dla sukcesu, aktualizacji i konserwacji aplikacji jest projektowania, wdrażania i przy użyciu architektury warstwowej. Tworzenie niezawodnych architektury, jednak może być niepotrzebne podczas tworzenia niezwykle proste, jednorazowe aplikacji.
+We wszystkich samouczkach do pracy z danymi można także korzystać z danych, wstawiać, aktualizować i usuwać dane bazy danych bezpośrednio ze strony ASP.NET, pomijając architekturę. Spowoduje to umieszczenie określonych zapytań bazy danych i logiki biznesowej bezpośrednio na stronie sieci Web. W przypadku dostatecznie dużych lub złożonych aplikacji projektowanie, implementowanie i używanie architektury warstwowej jest istotnie ważne dla sukcesu, możliwość aktualizacji i utrzymania aplikacji. Jednak Tworzenie niezawodnej architektury może być niepotrzebne w przypadku tworzenia aplikacji, które nie są jeszcze proste.
 
-ASP.NET 2.0 zapewnia pięć wbudowanych danych źródłowych kontrolek [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [elementu XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx), i [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx). SqlDataSource może służyć do dostępu i modyfikowania danych bezpośrednio z relacyjnej bazy danych, w tym programu Microsoft SQL Server, Microsoft Access, Oracle, MySQL i inne. W tym samouczku i dalej trzech zajmiemy się, jak działa przy użyciu kontrolki SqlDataSource, eksplorowanie, jak wykonywać zapytania i filtrowanie danych bazy danych, a także sposób korzystania z kontrolką SqlDataSource do Wstawianie, aktualizowanie i usuwanie danych.
+ASP.NET 2,0 zapewnia pięć wbudowanych formantów źródła danych [kontrolki SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx)i [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx). Kontrolki SqlDataSource może służyć do uzyskiwania dostępu do danych i modyfikowania ich bezpośrednio z relacyjnej bazy danych, w tym Microsoft SQL Server, Microsoft Access, Oracle, MySQL i innych. W tym samouczku i następnych trzech przeanalizuje sposób pracy z kontrolką kontrolki SqlDataSource, eksplorowania zapytań i filtrowania danych bazy danych oraz jak używać kontrolki SqlDataSource do wstawiania, aktualizowania i usuwania danych.
 
-![Platforma ASP.NET 2.0 obejmuje pięć formantów źródła danych wbudowane](querying-data-with-the-sqldatasource-control-vb/_static/image1.gif)
+![ASP.NET 2,0 obejmuje pięć wbudowanych kontrolek źródła danych](querying-data-with-the-sqldatasource-control-vb/_static/image1.gif)
 
-**Rysunek 1**: Platforma ASP.NET 2.0 obejmuje pięć formantów źródła danych wbudowane
+**Rysunek 1**: ASP.NET 2,0 zawiera pięć wbudowanych kontrolek źródła danych
 
-## <a name="comparing-the-objectdatasource-and-sqldatasource"></a>Porównanie ObjectDataSource i użyciu kontrolki SqlDataSource
+## <a name="comparing-the-objectdatasource-and-sqldatasource"></a>Porównywanie elementu ObjectDataSource i kontrolki SqlDataSource
 
-Model kontrolki ObjectDataSource i użyciu kontrolki SqlDataSource są po prostu serwery proxy usługi danych. Zgodnie z opisem w [wyświetlanie danych za pomocą kontrolki ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) samouczku kontrolki ObjectDataSource ma właściwości, które wskazuje typ obiektu, który zawiera dane i metody do wywołania, aby wybrać, wstawianie, aktualizowanie i usuwanie danych w typie podstawowym obiektu. Po skonfigurowaniu właściwości s ObjectDataSource danych formantu sieci Web, takich jak GridView, DetailsView lub DataList może być powiązana z formantu za pomocą ObjectDataSource s `Select()`, `Insert()`, `Delete()`, i `Update()` metody Korzystaj z podstawową architekturę.
+Koncepcyjnie, zarówno formanty ObjectDataSource, jak i kontrolki SqlDataSource są po prostu serwerami proxy do danych. Zgodnie z opisem w sekcji [Wyświetlanie danych za pomocą](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) samouczka ObjectDataSource, element ObjectDataSource ma właściwości wskazujące typ obiektu, który dostarcza dane, oraz metody, które mają być wywoływane, aby wybierać, wstawiać, aktualizować i usuwać dane z bazowego typu obiektu. Po skonfigurowaniu właściwości ObjectDataSource s, formant sieci Web danych, taki jak GridView, DetailsView lub DataList, można powiązać z kontrolką przy użyciu metod `Select()`, `Insert()`, `Delete()`i `Update()`, aby współistnieć z podstawową architekturą.
 
-SqlDataSource udostępnia taką samą funkcjonalność, ale operacjach relacyjnej bazy danych, a nie z biblioteki. Dzięki użyciu kontrolki SqlDataSource możemy należy określić parametry połączenia bazy danych i zapytania ad hoc SQL lub procedury składowane do wykonywania do wstawiania, aktualizacji, usuwania i pobierania danych. SqlDataSource s `Select()`, `Insert()`, `Update()`, i `Delete()` metod, gdy wywoływany, nawiązać połączenie z określonej bazy danych i wystawiania odpowiednie zapytanie SQL. Jak na poniższym diagramie przedstawiono, te metody są nudną pracą nawiązywania połączenia z bazą danych, zapytania i zwraca wyniki.
+Kontrolki SqlDataSource zapewnia te same funkcje, ale działa w odniesieniu do relacyjnej bazy danych, a nie biblioteki obiektów. Przy użyciu kontrolki SqlDataSource musimy określić parametry połączenia z bazą danych oraz zapytania SQL ad hoc lub procedury składowane do wykonania, aby wstawiać, aktualizować, usuwać i pobierać dane. Metody kontrolki SqlDataSource s `Select()`, `Insert()`, `Update()`i `Delete()`, gdy są wywoływane, nawiązują połączenie z określoną bazą danych i generują odpowiednie zapytanie SQL. Jak przedstawiono na poniższym diagramie, te metody wykonują gruntą połączenie z bazą danych, wysyłając zapytanie i zwracają wyniki.
 
-![SqlDataSource służy jako serwer Proxy do bazy danych](querying-data-with-the-sqldatasource-control-vb/_static/image2.gif)
+![Kontrolki SqlDataSource służy jako serwer proxy dla bazy danych](querying-data-with-the-sqldatasource-control-vb/_static/image2.gif)
 
-**Rysunek 2**: SqlDataSource służy jako serwer Proxy do bazy danych
+**Rysunek 2**. kontrolki SqlDataSource służy jako serwer proxy dla bazy danych
 
 > [!NOTE]
-> W tym samouczku skupimy się na pobieranie danych z bazy danych. W [Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md) samouczków, zobaczymy, jak skonfigurować SqlDataSource umożliwiają wstawianie, aktualizowanie i usuwanie.
+> W tym samouczku będziemy skupić się na pobieraniu danych z bazy danych. W samouczku [Wstawianie, aktualizowanie i usuwanie danych za pomocą kontrolki kontrolki SqlDataSource](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md) zobaczymy, jak skonfigurować kontrolki SqlDataSource do obsługi wstawiania, aktualizowania i usuwania.
 
-## <a name="the-sqldatasource-and-accessdatasource-controls"></a>SqlDataSource i formanty AccessDataSource
+## <a name="the-sqldatasource-and-accessdatasource-controls"></a>Kontrolki kontrolki SqlDataSource i AccessDataSource
 
-Oprócz kontrolki SqlDataSource ASP.NET 2.0 obejmuje również kontrolkę AccessDataSource. Te dwa różne formanty prowadzić wielu programistów jesteś nowym użytkownikiem programu ASP.NET 2.0 podejrzewać, że formant AccessDataSource jest przeznaczona do pracy wyłącznie przy użyciu programu Microsoft Access, przy użyciu kontrolki SqlDataSource przeznaczona do pracy wyłącznie z programu Microsoft SQL Server. Gdy AccessDataSource jest przeznaczona do pracy z programu Microsoft Access, użyciu kontrolki SqlDataSource współpracuje z *wszelkie* relacyjnej bazy danych, który jest możliwy za pośrednictwem platformy .NET. Dotyczy to również wszelkich OLE DB lub ODBC-CLS magazyny danych, takich jak Microsoft SQL Server, Microsoft Access, Oracle, Informix, MySQL i PostgreSQL, wiele innych.
+Oprócz formantu kontrolki SqlDataSource, ASP.NET 2,0 zawiera również formant AccessDataSource. Te dwa różne kontrolki powodują, że wiele deweloperów prowadzi do ASP.NET 2,0, aby podejrzewać, że formant AccessDataSource jest przeznaczony do pracy wyłącznie z programem Microsoft Access z kontrolką kontrolki SqlDataSource zaprojektowaną do pracy wyłącznie z Microsoft SQL Server. Chociaż obiekt AccessDataSource został zaprojektowany z myślą o współpracy z programem Microsoft Access, formant kontrolki SqlDataSource współpracuje z *dowolną* relacyjną bazą danych, do której można uzyskać dostęp za pomocą platformy .NET. Obejmuje to wszystkie magazyny danych zgodne ze standardem OleDb lub ODBC, takie jak Microsoft SQL Server, Microsoft Access, Oracle, Informix, MySQL i PostgreSQL, między wieloma innymi.
 
-Jedyny różnica między kontrolkami AccessDataSource i użyciu kontrolki SqlDataSource polega na tym, jak określono informacje o połączeniu. Kontrolka AccessDataSource wymaga po prostu ścieżkę pliku do pliku bazy danych programu Access. SqlDataSource, z drugiej strony, wymaga pełne parametry połączenia.
+Jedyną różnicą między kontrolkami AccessDataSource i kontrolki SqlDataSource jest określenie, jak są określone informacje o połączeniu z bazą danych. Kontrolka AccessDataSource wymaga tylko ścieżki pliku do pliku bazy danych programu Access. Kontrolki SqlDataSource, z drugiej strony, wymaga kompletnych parametrów połączenia.
 
-## <a name="step-1-creating-the-sqldatasource-web-pages"></a>Krok 1. Tworzenie stron sieci Web z kontrolką SqlDataSource
+## <a name="step-1-creating-the-sqldatasource-web-pages"></a>Krok 1. Tworzenie stron sieci Web kontrolki SqlDataSource
 
-Zanim zaczniemy, eksplorowanie sposób pracy bezpośrednio z bazy danych, przy użyciu kontrolki SqlDataSource, niech s najpierw Poświęć chwilę, do tworzenia stron ASP.NET w naszym projektu witryny sieci Web, który będziemy potrzebować dla tego samouczka i trzy dalej. Rozpocznij od dodania nowy folder o nazwie `SqlDataSource`. Następnie dodaj następujące strony ASP.NET do tego folderu, upewniając się skojarzyć każdą stronę z `Site.master` strona główna:
+Przed rozpoczęciem eksplorowania sposobu pracy bezpośrednio z danymi bazy danych przy użyciu kontrolki kontrolki SqlDataSource poczekaj chwilę na utworzenie stron ASP.NET w naszym projekcie witryny sieci Web, które będą potrzebne w tym samouczku i następnych trzech. Zacznij od dodania nowego folderu o nazwie `SqlDataSource`. Następnie Dodaj następujące strony ASP.NET do tego folderu, aby upewnić się, że każda strona jest skojarzona z `Site.master` stroną wzorcową:
 
 - `Default.aspx`
 - `Querying.aspx`
@@ -64,162 +64,162 @@ Zanim zaczniemy, eksplorowanie sposób pracy bezpośrednio z bazy danych, przy u
 - `InsertUpdateDelete.aspx`
 - `OptimisticConcurrency.aspx`
 
-![Dodawanie stron ASP.NET związane z kontrolką SqlDataSource samouczki](querying-data-with-the-sqldatasource-control-vb/_static/image3.gif)
+![Dodaj strony ASP.NET dla samouczków związanych z kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image3.gif)
 
-**Rysunek 3**: Dodawanie stron ASP.NET związane z kontrolką SqlDataSource samouczki
+**Rysunek 3**. dodawanie stron ASP.NET dla samouczków związanych z kontrolki SqlDataSource
 
-Podobnie jak w przypadku innych folderów `Default.aspx` w `SqlDataSource` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
+Podobnie jak w przypadku innych folderów, `Default.aspx` w folderze `SqlDataSource` wyświetli samouczki w sekcji. Odwołaj się do tego, że formant użytkownika `SectionLevelTutorialListing.ascx` udostępnia tę funkcję. W związku z tym należy dodać tę kontrolkę użytkownika do `Default.aspx`, przeciągając ją z Eksplorator rozwiązań na stronę widok Projekt strony.
 
-[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
+[![dodać kontrolkę użytkownika SectionLevelTutorialListing. ascx do default. aspx](querying-data-with-the-sqldatasource-control-vb/_static/image5.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image4.gif)
 
-**Rysunek 4**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image6.gif))
+**Ilustracja 4**. Dodawanie `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image6.gif))
 
-Wreszcie, Dodaj te cztery strony jako wpisy, aby `Web.sitemap` pliku. Ściślej mówiąc, Dodaj następujący kod po dodawania przycisków niestandardowych do kontrolek DataList i Repeater `<siteMapNode>`:
+Na koniec Dodaj te cztery strony jako wpisy do pliku `Web.sitemap`. Przede wszystkim Dodaj następujące znaczniki po dodaniu przycisków niestandardowych do `<siteMapNode>`DataList i wzmacniak:
 
 [!code-sql[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample1.sql)]
 
-Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web w samouczkach, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementy edytowanie, wstawianie i usuwanie samouczków.
+Po aktualizacji `Web.sitemap`zapoznaj się z witryną internetową samouczków za pomocą przeglądarki. Menu po lewej stronie zawiera teraz elementy do edycji, wstawiania i usuwania samouczków.
 
-![Mapa witryny zawiera teraz wpisy samouczki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image7.gif)
+![Mapa witryny zawiera teraz wpisy dla samouczków kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image7.gif)
 
-**Rysunek 5**: Mapa witryny zawiera teraz wpisy samouczki SqlDataSource
+**Rysunek 5**. Mapa witryny zawiera teraz wpisy dotyczące samouczków kontrolki SqlDataSource
 
-## <a name="step-2-adding-and-configuring-the-sqldatasource-control"></a>Krok 2. Dodawanie i konfigurowanie kontrolki SqlDataSource
+## <a name="step-2-adding-and-configuring-the-sqldatasource-control"></a>Krok 2. Dodawanie i Konfigurowanie kontrolki kontrolki SqlDataSource
 
-Zacznij od otwarcia `Querying.aspx` stronie `SqlDataSource` folderu i przejdź do widoku projektu. Przeciągnij kontrolki SqlDataSource z przybornika do projektanta i ustaw jego `ID` do `ProductsDataSource`. Podobnie jak w przypadku elementu ObjectDataSource, SqlDataSource nie generuje żadnego wyniku renderowany i dlatego jest wyświetlany jako szary prostokąt na powierzchni projektowej. Aby skonfigurować SqlDataSource, kliknij łącze Konfiguruj źródła danych z kontrolką SqlDataSource tagu inteligentnego s.
+Aby rozpocząć, Otwórz stronę `Querying.aspx` w folderze `SqlDataSource` i przejdź do widok Projekt. Przeciągnij kontrolkę kontrolki SqlDataSource z przybornika do projektanta i ustaw jej `ID`, aby `ProductsDataSource`. Podobnie jak w przypadku elementu ObjectDataSource, kontrolki SqlDataSource nie produkuje żadnych renderowanych danych wyjściowych, dlatego pojawia się jako szare pole na powierzchni projektowej. Aby skonfigurować kontrolki SqlDataSource, kliknij link Konfiguruj źródło danych z tagu inteligentnego kontrolki SqlDataSource s.
 
-![Kliknij pozycję Konfiguruj łącze do źródła danych z kontrolką SqlDataSource tagu inteligentnego s](querying-data-with-the-sqldatasource-control-vb/_static/image8.gif)
+![Kliknij link Konfiguruj źródło danych z tagu inteligentnego kontrolki SqlDataSource s](querying-data-with-the-sqldatasource-control-vb/_static/image8.gif)
 
-**Rysunek 6**: Kliknij pozycję Konfiguruj łącze do źródła danych z kontrolką SqlDataSource tagu inteligentnego s
+**Ilustracja 6**. Kliknij link Konfiguruj źródło danych z tagu inteligentnego kontrolki SqlDataSource s
 
-Otwarte kreatora Konfigurowanie źródła danych SqlDataSource kontroli s. Chociaż kroki kreatora s różnią się od formantu ObjectDataSource s, jej celem jest taki sam sposób, aby podać szczegółowe informacje na temat sposobu pobierania, wstawianie, aktualizowanie i usuwanie danych za pośrednictwem źródła danych. Dla SqlDataSource to pociąga za sobą określenie podstawowej bazy danych do użycia i udostępnianie ad-hoc instrukcji SQL lub procedur składowanych.
+Spowoduje to wyświetlenie Kreatora konfiguracji źródła danych kontrolki SqlDataSource sterowania. Mimo że kroki kreatora s różnią się od kontrolki ObjectDataSource, cel końcowy jest taki sam, aby zapewnić szczegóły dotyczące pobierania, wstawiania, aktualizowania i usuwania danych za pośrednictwem źródła danych. W przypadku kontrolki SqlDataSource to pociąga za sobą określenie źródłowej bazy danych, która będzie używana i dostarczająca instrukcje SQL ad hoc lub procedury składowane.
 
-Pierwszego kroku w Kreatorze nam wyświetla monit dotyczący bazy danych. Na liście rozwijanej znajdują się tych baz danych, w tym s aplikacji sieci web `App_Data` folder i te, które zostały dodane do węzła połączenia danych w Eksploratorze serwera. Ponieważ firma Microsoft już dodano ciąg połączenia dla `NORTHWIND.MDF` bazy danych w `App_Data` folder do naszego projektu s `Web.config` pliku, listy rozwijanej zawiera odwołanie do tego ciągu połączenia `NORTHWINDConnectionString`. Wybierz ten element z listy rozwijanej, a następnie kliknij przycisk Dalej.
+Pierwszy krok kreatora poprosi nas o bazę danych. Lista rozwijana zawiera te bazy danych znajdujące się w folderze `App_Data` aplikacji sieci Web, a także te, które zostały dodane do węzła połączenia danych w Eksplorator serwera. Ponieważ już dodaliśmy parametry połączenia dla bazy danych `NORTHWIND.MDF` w folderze `App_Data` do naszego pliku `Web.config` projektu, lista rozwijana zawiera odwołanie do tych parametrów połączenia, `NORTHWINDConnectionString`. Wybierz ten element z listy rozwijanej i kliknij przycisk Dalej.
 
-![Z listy rozwijanej wybierz NORTHWINDConnectionString](querying-data-with-the-sqldatasource-control-vb/_static/image9.gif)
+![Wybierz NORTHWINDConnectionString z listy rozwijanej](querying-data-with-the-sqldatasource-control-vb/_static/image9.gif)
 
-**Rysunek 7**: Wybierz `NORTHWINDConnectionString` z listy rozwijanej
+**Rysunek 7**. Wybierz `NORTHWINDConnectionString` z listy rozwijanej
 
-Po wybraniu bazy danych, kreator poprosi o podanie danych zwracanego przez zapytanie. Firma Microsoft można określić kolumn w tabeli lub widoku, aby zwrócić lub można wprowadzić niestandardową instrukcję SQL lub określić procedury przechowywanej. Można przełączać się między ten wybór za pośrednictwem Określ niestandardową instrukcję SQL lub procedur składowanych i określ kolumny z tabeli lub wyświetlanie przycisków radiowych.
+Po wybraniu bazy danych Kreator pyta o zapytanie, aby zwracało dane. Możemy określić kolumny tabeli lub widoku do zwrócenia lub można wprowadzić niestandardową instrukcję SQL lub określić procedurę przechowywaną. Można przełączać się między tym wyborem za pośrednictwem Określ niestandardową instrukcję SQL lub procedurę składowaną oraz określać kolumny z poziomu tabeli lub przycisków radiowych widok.
 
 > [!NOTE]
-> W tym przykładzie pierwsze umożliwiają s, użyj kolumn Określ z poziomu opcji tabeli lub widoku. Utworzymy wróć do kreatora w dalszej części tego samouczka i Poznaj Określ niestandardową instrukcję SQL lub procedury składowanej opcji.
+> Dla pierwszego przykładu Użyj opcji Określ kolumny z tabeli lub widoku. Powrócimy do kreatora w dalszej części tego samouczka i eksploruje opcję Określ niestandardową instrukcję SQL lub procedurę składowaną.
 
-Rysunek 8 zawiera konfiguracji ekranu instrukcji Select po wybraniu kolumny wybierz przycisk radiowy tabeli lub widoku. Listy rozwijanej zawiera zbiór tabel i widoków w bazie danych Northwind, za pomocą wybranej tabeli lub kolumny s widoku wyświetlane na liście pole wyboru poniżej. W tym przykładzie zwróć umożliwiają s `ProductID`, `ProductName`, i `UnitPrice` kolumny z `Products` tabeli. Jak na rysunku nr 8 przedstawiono po tych wyborów Kreator pokazuje, wynikowa instrukcja SQL `SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`.
+Na rysunku nr 8 przedstawiono ekran Konfiguruj instrukcję, gdy jest zaznaczone pole wyboru Określ kolumny z tabeli lub widoku. Lista rozwijana zawiera zestaw tabel i widoków w bazie danych Northwind z wybraną kolumną tabeli lub widoku wyświetlaną na liście pól wyboru poniżej. Na potrzeby tego przykładu należy zwrócić kolumny `ProductID`, `ProductName`i `UnitPrice` z tabeli `Products`. Jak pokazano na rysunku 8, po dokonaniu wyboru Kreator wyświetli wyniki `SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`instrukcji SQL.
 
-![Zwróć dane z tabeli Produkty](querying-data-with-the-sqldatasource-control-vb/_static/image10.gif)
+![Zwracanie danych z tabeli Products](querying-data-with-the-sqldatasource-control-vb/_static/image10.gif)
 
-**Rysunek 8**: Przywróć dane z `Products` tabeli
+**Ilustracja 8**. Zwracanie danych z tabeli `Products`
 
-Po skonfigurowaniu pracę kreatora Aby zwrócić `ProductID`, `ProductName`, i `UnitPrice` kolumny z `Products` tabelę, kliknij przycisk Dalej. Ten ekran końcowy zapewnia możliwość zbadania wyników kwerendy skonfigurowana w poprzednim kroku. Klikając przycisk Testuj zapytanie wykonuje skonfigurowanych `SELECT` instrukcji i wyświetla wyniki w siatce.
+Po skonfigurowaniu kreatora do zwracania kolumn `ProductID`, `ProductName`i `UnitPrice` z tabeli `Products` kliknij przycisk Dalej. Ten końcowy ekran umożliwia sprawdzenie wyników zapytania skonfigurowanego w poprzednim kroku. Kliknięcie przycisku Testuj zapytanie wykonuje skonfigurowaną instrukcję `SELECT` i wyświetla wyniki w siatce.
 
-![Kliknij przycisk Testuj zapytanie do przeglądania zapytanie SELECT](querying-data-with-the-sqldatasource-control-vb/_static/image11.gif)
+![Kliknij przycisk Testuj zapytanie, aby przejrzeć wybrane zapytanie](querying-data-with-the-sqldatasource-control-vb/_static/image11.gif)
 
-**Rysunek 9**: Kliknij przycisk Testuj zapytanie do przeglądu swojej `SELECT` zapytania
+**Ilustracja 9**. kliknij przycisk Testuj zapytanie, aby przejrzeć zapytanie `SELECT`
 
-Aby zakończyć działanie kreatora, kliknij przycisk Zakończ.
+Aby zakończyć pracę kreatora, kliknij przycisk Zakończ.
 
-Jak za pomocą kontrolki ObjectDataSource, Kreator s SqlDataSource jedynie przypisuje wartości do właściwości kontrolki s, a mianowicie [ `ConnectionString` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) i [ `SelectCommand` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) właściwości. Po ukończeniu kreatora, znaczników deklaratywne s kontrolki SqlDataSource powinien wyglądać podobnie do poniższej:
+Podobnie jak w przypadku elementu ObjectDataSource, Kreator kontrolki SqlDataSource s tylko przypisuje wartości do właściwości kontrolki, a mianowicie [`ConnectionString`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) i [`SelectCommand`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) właściwości. Po zakończeniu działania kreatora znacznik deklaratywny kontrolki SqlDataSource kontrolki powinien wyglądać podobnie do poniższego:
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample2.aspx)]
 
-`ConnectionString` Właściwość zawiera informacje na temat sposobu łączenia z bazą danych. Tej właściwości można przypisać wartość ciągu połączenia pełne, ustaloną lub wskazać parametrów połączenia w `Web.config`. Aby odwołać się w pliku Web.config wartość ciągu połączenia, należy użyć składni `<%$ expressionPrefix:expressionValue %>`. Zazwyczaj *expressionPrefix* jest ConnectionStrings i *expressionValue* jest nazwą ciągu połączenia w `Web.config` [ `<connectionStrings>` sekcji](https://msdn.microsoft.com/library/bf7sd233.aspx). Jednak można użyć składni z odwołaniem `<appSettings>` elementy lub zawartość z plików zasobów. Zobacz [Przegląd wyrażeń ASP.NET](https://msdn.microsoft.com/library/d5bd1tad.aspx) Aby uzyskać więcej informacji na temat tej składni.
+Właściwość `ConnectionString` zawiera informacje na temat łączenia się z bazą danych. Do tej właściwości można przypisać kompletną, zakodowaną wartość parametrów połączenia lub wskazać parametry połączenia w `Web.config`. Aby odwołać się do wartości parametrów połączenia w pliku Web. config, użyj składni `<%$ expressionPrefix:expressionValue %>`. Zazwyczaj *ExpressionPrefix* jest connectionStrings, a *expressionValue* jest nazwą ciągu connect w [sekcji`<connectionStrings>`](https://msdn.microsoft.com/library/bf7sd233.aspx)`Web.config`. Jednak składnia może służyć do odwoływania się do `<appSettings>` elementów lub zawartości z plików zasobów. Aby uzyskać więcej informacji na temat tej składni, zobacz [ASP.NET wyrażeń](https://msdn.microsoft.com/library/d5bd1tad.aspx) .
 
-`SelectCommand` Właściwość określa ad-hoc instrukcji SQL lub procedurę składowaną można wykonać, aby zwrócić dane.
+Właściwość `SelectCommand` określa instrukcję SQL ad hoc lub procedurę przechowywaną do wykonania w celu zwrócenia danych.
 
-## <a name="step-3-adding-a-data-web-control-and-binding-it-to-the-sqldatasource"></a>Krok 3. Dodawanie kontrolki sieci Web danych i powiązanie jej z kontrolką SqlDataSource
+## <a name="step-3-adding-a-data-web-control-and-binding-it-to-the-sqldatasource"></a>Krok 3. Dodawanie kontrolki sieci Web danych i powiązywanie jej z kontrolki SqlDataSource
 
-Po skonfigurowaniu SqlDataSource może być powiązana z danymi formantu sieci Web, takich jak GridView lub DetailsView. W tym samouczku umożliwiają wyświetlanie danych w kontrolce GridView s. Z przybornika przeciągnij GridView na stronę, który należy powiązać `ProductsDataSource` SqlDataSource, wybierając źródło danych z listy rozwijanej w tagu inteligentnego s GridView.
+Po skonfigurowaniu kontrolki SqlDataSource można go powiązać z kontrolką sieci Web danych, taką jak GridView lub DetailsView. W tym samouczku poinformujemy o tym, że dane są wyświetlane w widoku GridView. Z przybornika przeciągnij widok GridView na stronę i powiąż go z `ProductsDataSource` kontrolki SqlDataSource, wybierając źródło danych z listy rozwijanej w tagu inteligentnym GridView.
 
-[![Dodaj GridView i powiązać kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
+[![dodać widoku GridView i powiązać go z kontrolką kontrolki SqlDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image13.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image12.gif)
 
-**Na rysunku nr 10**: Dodaj GridView i powiązać kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image14.gif))
+**Ilustracja 10**. Dodawanie widoku GridView i powiązywanie go z kontrolką kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image14.gif))
 
-Po wybraniu kontrolki SqlDataSource z listy rozwijanej w tagu inteligentnego s GridView był programu Visual Studio spowoduje automatyczne dodanie elementu BoundField lub CheckBoxField do kontrolki GridView dla każdej z kolumn, zwracany przez kontrolę źródła danych. Ponieważ SqlDataSource zwraca trzy bazy danych kolumn `ProductID`, `ProductName`, i `UnitPrice` istnieją trzy pola w widoku GridView.
+Po wybraniu kontrolki kontrolki SqlDataSource z listy rozwijanej w tagu inteligentnym GridView, program Visual Studio automatycznie doda element BoundField lub CheckBoxField do widoku GridView dla każdej z kolumn zwracanych przez formant źródła danych. Ponieważ kontrolki SqlDataSource zwraca trzy kolumny bazy danych `ProductID`, `ProductName`i `UnitPrice` istnieją trzy pola w widoku GridView.
 
-Poświęć chwilę, aby skonfigurować s GridView trzech BoundFields. Zmiana `ProductName` s pola `HeaderText` Właściwość Nazwa produktu i `UnitPrice` s pole ceny. Również sformatować `UnitPrice` polu jako walutę. Po wprowadzeniu tych zmian, deklaratywne kontrolki GridView znaczników w s powinien wyglądać podobnie do poniższej:
+Poświęć chwilę na skonfigurowanie trzech BoundFields. Zmień właściwość `HeaderText` pola `ProductName` na nazwę produktu i `UnitPrice` pole s na Price. Sformatuj również pole `UnitPrice` jako walutę. Po wprowadzeniu tych zmian znaczniki deklaratywne GridView powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample3.aspx)]
 
-Odwiedź tę stronę za pośrednictwem przeglądarki. Jak pokazano na ilustracji 11, widoku GridView wyświetla każdy produkt s `ProductID`, `ProductName`, i `UnitPrice` wartości.
+Odwiedź Tę stronę za pomocą przeglądarki. Jak pokazano na rysunku 11, w widoku GridView są wyświetlane wszystkie wartości `ProductID`produktu, `ProductName`i `UnitPrice`.
 
-[![Kontrolki GridView Wyświetla każdego produktu s ProductID ProductName wartości i cena jednostkowa](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
+[![w widoku GridView są wyświetlane wartości IDProduktu, ProductName i CenaJednostkowa każdego produktu](querying-data-with-the-sqldatasource-control-vb/_static/image16.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image15.gif)
 
-**Rysunek 11**: S GridView wyświetla każdy produkt `ProductID`, `ProductName`, i `UnitPrice` wartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image17.gif))
+**Ilustracja 11**. widok GridView przedstawia każdy produkt `ProductID`, `ProductName`i `UnitPrice` wartości (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image17.gif))
 
-Gdy odwiedzenia strony widoku GridView wywołuje kontrolę źródła danych s `Select()` metody. Gdy firma Microsoft była używana kontrolka ObjectDataSource, to tak zwane `ProductsBLL` klasy s `GetProducts()` metody. Dzięki użyciu kontrolki SqlDataSource, jednak `Select()` metoda nawiąże połączenie z określonej bazy danych i problemów `SelectCommand` (`SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`, w tym przykładzie). SqlDataSource zwraca jego wyniki, które następnie wylicza widoku GridView, tworzenie wiersza w widoku GridView dla każdego rekordu bazy danych zwracane.
+Po odwiedzeniu strony GridView wywołuje metodę `Select()` kontroli źródła danych. W przypadku używania kontrolki ObjectDataSource, nazywana `ProductsBLL` klasą `GetProducts()` Metoda. Kontrolki SqlDataSource jednak Metoda `Select()` nawiązuje połączenie z określoną bazą danych i wystawia `SelectCommand` (`SELECT [ProductID], [ProductName], [UnitPrice] FROM [Products]`w tym przykładzie). Kontrolki SqlDataSource zwraca wyniki, które następnie jest wyliczany przez GridView, tworząc wiersz w widoku GridView dla każdego zwróconego rekordu bazy danych.
 
-## <a name="the-built-in-data-web-control-features-and-the-sqldatasource-control"></a>Funkcje kontroli danych wbudowane w sieci Web i użyciu kontrolki SqlDataSource
+## <a name="the-built-in-data-web-control-features-and-the-sqldatasource-control"></a>Wbudowane funkcje formantu sieci Web danych i formant kontrolki SqlDataSource
 
-Ogólnie rzecz biorąc, funkcje związane z danymi kontrolki sieci Web, stronicowania, sortowanie, edytowanie, usuwanie, wstawianie i tak dalej są specyficzne dla danych kontrolki sieci Web i nie są zależne od kontroli źródła danych, które są używane. Oznacza to wbudowanej stronicowania, sortowanie, edytowanie i usuwanie, czy jest on powiązany z kontrolki ObjectDataSource lub SqlDataSource może korzystać z kontrolki GridView. Jednak niektóre dane funkcje kontroli sieci Web jest wielkość liter, do kontroli źródła danych, które są używane lub w konfiguracji kontroli s źródła danych.
+Ogólnie rzecz biorąc, funkcje związane z kontrolkami sieci Web danych, sortowanie, edytowanie, usuwanie, wstawianie i tak dalej są specyficzne dla formantu sieci Web danych i nie są zależne od używanej kontroli źródła danych. Oznacza to, że widok GridView może korzystać z wbudowanego stronicowania, sortowania, edytowania i usuwania, niezależnie od tego, czy jest on powiązany z elementem ObjectDataSource lub kontrolki SqlDataSource. Jednak niektóre funkcje kontroli sieci Web są poufne dla używanej kontroli źródła danych lub konfiguracji kontroli źródła danych.
 
-Na przykład w [efektywne stronicowanie za pośrednictwem dużych ilości danych](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) samouczku omówiono, jak to zrobić, domyślnie logikę stronicowania danych sieci Web kontroluje naively zwraca *wszystkich* rekordy z podstawową źródła danych i następnie wyświetla odpowiedniego podzestawu rekordów, biorąc pod uwagę indeks bieżącej strony i liczbę rekordów do wyświetlenia na jednej stronie. Ten model jest bardzo mało wydajne, gdy stronicowanie wystarczająco duży zestaw wyników. Na szczęście kontrolki ObjectDataSource można skonfigurować do obsługi stronicowania niestandardowego, zwraca tylko dokładne podzestaw rekordów do wyświetlenia. Kontrolki SqlDataSource jednak brakuje właściwości Implementowanie stronicowania niestandardowego.
+Na przykład w [efektywnej stronicowaniu za pośrednictwem dużych ilości danych](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) opisano, jak domyślnie logika stronicowania dla kontrolek sieci Web danych naively zwraca *wszystkie* rekordy z bazowego źródła danych, a następnie wyświetla tylko odpowiedni podzbiór rekordów o bieżącym indeksie strony oraz liczbę rekordów, które mają być wyświetlane na stronie. Ten model jest wysoce wydajny podczas stronicowania w wystarczająco dużych zestawach wyników. Na szczęście element ObjectDataSource można skonfigurować w taki sposób, aby obsługiwał niestandardowe stronicowanie, które zwraca tylko dokładny podzestaw rekordów do wyświetlenia. Formant kontrolki SqlDataSource nie ma jednak właściwości do implementowania stronicowania niestandardowego.
 
-Innym subtlety z stronicowanie i sortowanie wynikającej z kontrolką SqlDataSource. Domyślnie dane zwrócone z kontrolką SqlDataSource można stronicowane lub sortowane za pośrednictwem widoku GridView. Aby to wykazać, sprawdź włączone stronicowanie i sortowanie Włączanie opcji w kontrolce GridView s tagu w `Querying.aspx` i sprawdź, czy działa zgodnie z oczekiwaniami.
+Inny subtlety z stronicowaniem i sortowaniem powstaje w kontrolki SqlDataSource. Domyślnie dane zwracane z kontrolki SqlDataSource mogą być stronicowane lub sortowane za pośrednictwem widoku GridView. Aby to zademonstrować, zaznacz opcje Włącz stronicowanie i Włącz sortowanie w tagów inteligentnych GridView s w `Querying.aspx` i sprawdź, czy działa ono zgodnie z oczekiwaniami.
 
-Sortowanie i stronicowanie działa, ponieważ SqlDataSource pobiera dane bazy danych do zestawu danych typowaniem luźnym. Całkowita liczba rekordów zwróconych przez zapytanie ważnym aspektem na implementowanie stronicowania można ustalić z zestawu danych. Ponadto można sortować wyniki s zestawu danych za pomocą widoku danych. Te możliwości są automatycznie używane przy użyciu kontrolki SqlDataSource podczas żądania GridView stronicowane lub posortowanych danych.
+Sortowanie i stronicowanie działa, ponieważ kontrolki SqlDataSource pobiera dane bazy danych do swobodnie określonego zestawu danych. Całkowita liczba rekordów zwracanych przez zapytanie, które są istotnym aspektem implementowania stronicowania, można ustalić na podstawie zestawu danych. Ponadto wyniki zestawu danych s mogą być sortowane za pomocą elementu DataView. Te funkcje są automatycznie używane przez kontrolki SqlDataSource, gdy żądanie GridView ma stronicowane lub posortowane dane.
 
-SqlDataSource można skonfigurować do zwracania DataReader zamiast zestawu danych, zmieniając jego [ `DataSourceMode` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) z `DataSet` (ustawienie domyślne) do `DataReader`. Może być preferowane przy użyciu elementu DataReader w sytuacjach, w podczas przekazywania wyniki s SqlDataSource z istniejącym kodem, który oczekuje elementu DataReader. Ponadto ponieważ DataReaders obiektów znacznie prostsze niż zestawy danych, oferują lepszą wydajność. Po wprowadzeniu tej zmiany, jednak dane kontrolki sieci Web nie można sortować ani strony, ponieważ SqlDataSource nie może ustalić, ile rekordy są zwracane przez zapytanie, ani nie elementu DataReader oferują dowolnej techniki sortowanie zwracanych danych.
+Kontrolki SqlDataSource można skonfigurować w taki sposób, aby zwracał element DataReader zamiast zestawu danych przez zmianę jego [właściwości`DataSourceMode`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) z `DataSet` (wartość domyślna) na `DataReader`. Użycie elementu DataReader może być preferowane w sytuacjach, gdy przekazuje wyniki kontrolki SqlDataSource do istniejącego kodu, który oczekuje elementu DataReader. Ponadto ponieważ obiekty odczytujące są znacznie prostsze niż zestawy danych, oferują lepszą wydajność. Jeśli wprowadzisz tę zmianę, jednak kontrolka sieci Web danych nie będzie mogła być sortowana ani stronicowa, ponieważ kontrolki SqlDataSource nie może ustalić, ile rekordów jest zwracanych przez zapytanie, ani nie ma żadnych technik do sortowania zwracanych danych.
 
-## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>Krok 4. Za pomocą instrukcji języka SQL niestandardowych lub procedury składowanej
+## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>Krok 4. Używanie niestandardowej instrukcji SQL lub procedury składowanej
 
-Podczas konfigurowania kontrolki SqlDataSource, zapytanie służy do zwracania danych można określić w jednej z dwóch metod jako niestandardową instrukcję SQL lub procedurę składowaną lub jako kolumny z istniejącej tabeli lub widoku. W kroku 2 zbadaliśmy wybranie kolumn z `Products` tabeli. Pozwól, s, Przyjrzyj się przy użyciu niestandardowych instrukcji języka SQL.
+Podczas konfigurowania formantu kontrolki SqlDataSource, zapytanie używane do zwracania danych można określić w jednym z dwóch metod jako niestandardowa instrukcja SQL lub procedura składowana lub jako kolumny z istniejącej tabeli lub widoku. W kroku 2 sprawdzono wybór kolumn z tabeli `Products`. Zezwól na korzystanie z niestandardowej instrukcji SQL.
 
-Dodaj inną kontrolkę GridView do `Querying.aspx` strony i wybrać opcję utworzenia nowego źródła danych z listy rozwijanej w tagu inteligentnego. Następnie należy wskazać, że dane będzie pobierany z bazy danych to spowoduje utworzenie nowej kontrolki SqlDataSource. Nazwij kontrolkę `ProductsWithCategoryInfoDataSource`.
+Dodaj kolejną kontrolkę GridView do strony `Querying.aspx` i wybierz opcję utworzenia nowego źródła danych z listy rozwijanej w tagu inteligentnym. Następnie wskaż, że dane zostaną pobrane z bazy danych. spowoduje to utworzenie nowej kontrolki kontrolki SqlDataSource. Nadaj nazwę formantowi `ProductsWithCategoryInfoDataSource`.
 
-![Tworzenie nowej kontrolki SqlDataSource o nazwie ProductsWithCategoryInfoDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image18.gif)
+![Utwórz nową kontrolkę kontrolki SqlDataSource o nazwie ProductsWithCategoryInfoDataSource](querying-data-with-the-sqldatasource-control-vb/_static/image18.gif)
 
-**Rysunek 12**: Tworzenie nowej kontrolki SqlDataSource o nazwie `ProductsWithCategoryInfoDataSource`
+**Ilustracja 12**. Tworzenie nowej kontrolki kontrolki SqlDataSource o nazwie `ProductsWithCategoryInfoDataSource`
 
-Następny ekran pyta, czy nami, aby określić bazę danych. Wybierz ile My mieliśmy wstecz na rysunku 7 `NORTHWINDConnectionString` z listy rozwijanej i kliknij przycisk Dalej. W konfiguracji ekranu instrukcji Select wybierz Określ niestandardową instrukcję SQL lub procedury składowanej przycisk radiowy, a następnie kliknij przycisk Dalej. Spowoduje to wyświetlenie ekranu zdefiniować niestandardowe instrukcji lub procedur składowanych, który oferuje zakładki: SELECT, UPDATE, INSERT i DELETE. Na każdej karcie, można wprowadzić niestandardową instrukcję SQL do pola tekstowego lub wybierz procedurę składowaną z listy rozwijanej. W tym samouczku przyjrzymy się wprowadzanie niestandardowych instrukcji języka SQL; Następny samouczek obejmuje przykładowi, który korzysta z procedury składowanej.
+Na następnym ekranie zostanie wyświetlony monit o określenie bazy danych. Po powrocie na rysunek 7 wybierz `NORTHWINDConnectionString` z listy rozwijanej i kliknij przycisk Dalej. Na ekranie Konfigurowanie instrukcji SELECT wybierz przycisk radiowy Określ niestandardową instrukcję SQL lub procedurę składowaną, a następnie kliknij przycisk Dalej. Spowoduje to wyświetlenie ekranu Zdefiniuj niestandardowe instrukcje lub procedury składowane, które oferuje karty z etykietą SELECT, UPDATE, INSERT i DELETE. Na każdej karcie można wprowadzić niestandardową instrukcję SQL do pola tekstowego lub wybrać procedurę przechowywaną z listy rozwijanej. W tym samouczku przejdziemy do wprowadzenia niestandardowej instrukcji SQL. następny samouczek zawiera przykład, który używa procedury składowanej.
 
-![Wprowadź instrukcję SQL niestandardowych lub wybierz procedurę składowaną](querying-data-with-the-sqldatasource-control-vb/_static/image19.gif)
+![Wprowadź niestandardową instrukcję SQL lub wybierz procedurę składowaną](querying-data-with-the-sqldatasource-control-vb/_static/image19.gif)
 
-**Rysunek 13**: Wprowadź instrukcję SQL niestandardowych lub wybierz procedurę składowaną
+**Ilustracja 13**. wprowadzanie NIESTANDARDOWEJ instrukcji SQL lub wybieranie procedury składowanej
 
-Niestandardową instrukcję SQL można ręcznie wprowadzić w polu tekstowym lub być zbudowane w postaci graficznej, klikając przycisk konstruktora zapytań. Konstruktor kwerend lub pola tekstowego, użyj następującego zapytania, aby zwrócić `ProductID` i `ProductName` pola z `Products` tabeli, używając `JOIN` do pobrania produkt s `CategoryName` z `Categories` tabeli:
+Niestandardowe instrukcje SQL można wprowadzać ręcznie do pola tekstowego lub można je utworzyć graficznie, klikając przycisk Konstruktor zapytań. Z poziomu Konstruktor zapytań lub pola tekstowego, użyj następującego zapytania, aby zwrócić wartości `ProductID` i `ProductName` z tabeli `Products` przy użyciu `JOIN` do pobrania `CategoryName` produktu z tabeli `Categories`:
 
 [!code-sql[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample4.sql)]
 
-![Można graficznie skonstruować zapytania za pomocą konstruktora zapytań](querying-data-with-the-sqldatasource-control-vb/_static/image20.gif)
+![Zapytanie można utworzyć graficznie przy użyciu Konstruktor zapytań](querying-data-with-the-sqldatasource-control-vb/_static/image20.gif)
 
-**Rysunek 14**: Można graficznie skonstruować zapytania za pomocą konstruktora zapytań
+**Ilustracja 14**. można utworzyć graficznie zapytanie przy użyciu Konstruktor zapytań
 
-Po określeniu zapytanie, kliknij przycisk Dalej, aby przejść do ekranu Testovat dotaz. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora SqlDataSource.
+Po określeniu zapytania kliknij przycisk Dalej, aby przejoć do ekranu test zapytania. Kliknij przycisk Zakończ, aby zakończyć pracę kreatora kontrolki SqlDataSource.
 
-Po ukończeniu kreatora, widoku GridView będzie mieć trzy BoundFields dodawanych do niego wyświetlanie `ProductID`, `ProductName`, i `CategoryName` kolumn zwróconych przez kwerendę i wynikowa w oznaczeniu deklaracyjnym następujące:
+Po zakończeniu działania kreatora w widoku GridView zostaną dodane trzy BoundFields, które wyświetlają kolumny `ProductID`, `ProductName`i `CategoryName` zwrócone z zapytania i w wyniku następujące znaczniki deklaracyjne:
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample5.aspx)]
 
-[![Każdy identyfikator produktu s Nazwa kategorii nazwę i skojarzonych pokazuje, widoku GridView](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
+[![GridView pokazuje każdy identyfikator produktu, nazwę i nazwę powiązanej kategorii](querying-data-with-the-sqldatasource-control-vb/_static/image22.gif)](querying-data-with-the-sqldatasource-control-vb/_static/image21.gif)
 
-**Rysunek 15**: Identyfikator kontrolki GridView pokazuje każdego produktu, nazwę i skojarzone nazwy kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif))
+**Ilustracja 15**. widok GridView pokazuje każdy identyfikator produktu, nazwę i skojarzoną nazwę kategorii ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](querying-data-with-the-sqldatasource-control-vb/_static/image23.gif))
 
 ## <a name="summary"></a>Podsumowanie
 
-Jak wykonywać zapytania i wyświetlić dane przy użyciu kontrolki SqlDataSource widzieliśmy w ramach tego samouczka. Podobnie jak ObjectDataSource SqlDataSource służy jako serwer proxy, zapewniając deklaratywne podejście do uzyskiwania dostępu do danych. Właściwości Określ bazę danych, aby nawiązać połączenie i SQL `SELECT` Wyślij zapytanie w celu wykonania; mogą być określone w oknie właściwości lub za pomocą Kreatora konfigurowania źródła danych.
+W tym samouczku pokazano, jak wykonywać zapytania i wyświetlać dane przy użyciu formantu kontrolki SqlDataSource. Podobnie jak w przypadku elementu ObjectDataSource, kontrolki SqlDataSource służy jako serwer proxy, zapewniając deklaratywne podejście do uzyskiwania dostępu do danych. Jego właściwości określają bazę danych, z którą ma zostać nawiązane połączenie, oraz kwerendę programu SQL `SELECT` do wykonania; można je określić za pomocą okno Właściwości lub za pomocą Kreatora konfiguracji źródła danych.
 
-`SELECT` Przykłady zapytań zbadaliśmy w tym samouczku zwrócone wszystkie rekordy z określonego zapytania. Kontrolki SqlDataSource, jednak mogą obejmować `WHERE` klauzuli przy użyciu parametrów, których wartości są przypisane programistycznie lub są automatycznie pobierane z określonego źródła. Zajmiemy się jak tworzenie i używanie zapytań sparametryzowanych w następnym samouczku!
+Przykłady zapytań `SELECT`, które zostały zbadane w tym samouczku, zwracają wszystkie rekordy z określonego zapytania. Kontrolka kontrolki SqlDataSource, jednak może zawierać klauzulę `WHERE` z parametrami, których wartości są przypisywane programowo lub są automatycznie ściągane z określonego źródła. Sprawdzimy, jak tworzyć i używać zapytań parametrycznych w następnym samouczku.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Uzyskiwanie dostępu do danych z relacyjnej bazy danych](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
-- [SqlDataSource informacje o formancie](https://msdn.microsoft.com/library/dz12d98w.aspx)
-- [Samouczki szybkiego startu platformy ASP.NET: Kontrolki SqlDataSource](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
-- [Pliku Web.config `<connectionStrings>` — Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
-- [Odwołanie do parametrów połączenia bazy danych](http://www.connectionstrings.com/)
+- [Uzyskiwanie dostępu do danych relacyjnej bazy danych](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
+- [Kontrolki SqlDataSource — informacje o formancie](https://msdn.microsoft.com/library/dz12d98w.aspx)
+- [Samouczki szybkiego startu ASP.NET: formant kontrolki SqlDataSource](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
+- [Plik Web. config `<connectionStrings>` element](https://msdn.microsoft.com/library/bf7sd233.aspx)
+- [Odwołanie do parametrów połączenia z bazą danych](http://www.connectionstrings.com/)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Susan Connery Bernadette Leigh i David Suru. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Susan Connery, Bernadette Leigh i David suru. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)

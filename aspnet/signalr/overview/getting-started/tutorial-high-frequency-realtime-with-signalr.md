@@ -1,190 +1,190 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: 'Samouczek: Tworzenie aplikacji w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 2 | Dokumentacja firmy Microsoft'
+title: 'Samouczek: Tworzenie aplikacji w czasie rzeczywistym o wysokiej częstotliwości z sygnałem 2 | Microsoft Docs'
 author: bradygaster
-description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, która używa biblioteki SignalR platformy ASP.NET w celu zapewnienia wysokiej częstotliwości funkcje obsługi komunikatów.
+description: W tym samouczku pokazano, jak utworzyć aplikację sieci Web korzystającą z sygnalizującego ASP.NET, aby zapewnić funkcję obsługi komunikatów o wysokiej częstotliwości.
 ms.author: bradyg
 ms.date: 01/22/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: 44aaa2b0c059de310e963f642fa56c2f00a7e443
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 2503e90735d6cfa445ee08c9e43f8443aa106096
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066113"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74600451"
 ---
-# <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Samouczek: Tworzenie aplikacji w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 2
+# <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Samouczek: Tworzenie aplikacji w czasie rzeczywistym o wysokiej częstotliwości z sygnałem 2
 
-W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji obsługi wiadomości o wysokiej częstotliwości. W tym przypadku "komunikaty o wysokiej częstotliwości" oznacza, że serwer wysyła aktualizacje według stałej stawki. Możesz wysyłać maksymalnie 10 komunikatów na sekundę.
+W tym samouczku pokazano, jak utworzyć aplikację sieci Web korzystającą z ASP.NET sygnalizującego 2, aby zapewnić funkcję obsługi komunikatów o wysokiej częstotliwości. W takim przypadku "Obsługa komunikatów o wysokiej częstotliwości" oznacza, że serwer wysyła aktualizacje ze stałą stawką. Wysyłasz do 10 wiadomości w drugim.
 
-Aplikacji, którą utworzysz Wyświetla kształtu, w którym można przeciągać użytkowników. Serwer aktualizacji położenie kształtu we wszystkich przeglądarkach połączonych, aby dopasować położenie przeciąganego kształtu przy użyciu Przekroczono limit czasu aktualizacji.
+Utworzona aplikacja wyświetla kształt, który użytkownicy mogą przeciągać. Serwer aktualizuje położenie kształtu we wszystkich połączonych przeglądarkach, aby dopasować położenie przeciąganego kształtu przy użyciu aktualizacji z limitem czasu.
 
-Pojęciami opisanymi w tym samouczku mają aplikacji w czasie rzeczywistym gry i inne aplikacje symulacji.
+Koncepcje wprowadzone w tym samouczku zawierają aplikacje w czasie rzeczywistym oraz inne aplikacje symulacyjne.
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
-> * Tworzenie podstawowej aplikacji
-> * Mapowanie do koncentratora, po uruchomieniu aplikacji
-> * Dodaj klienta
+> * Tworzenie aplikacji podstawowej
+> * Mapuj do centrum podczas uruchamiania aplikacji
+> * Dodawanie klienta
 > * Uruchamianie aplikacji
 > * Dodaj pętlę klienta
 > * Dodaj pętlę serwera
-> * Dodaj płynne animacje
+> * Dodaj gładką animację
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
+* [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i programowaniem w sieci Web** .
 
 ## <a name="set-up-the-project"></a>Konfigurowanie projektu
 
-W tej sekcji utworzysz projekt programu Visual Studio 2017.
+W tej sekcji utworzysz projekt w programie Visual Studio 2017.
 
-W tej sekcji pokazano, jak utworzyć pustą aplikację sieci Web platformy ASP.NET i dodać biblioteki SignalR i jQuery.UI przy użyciu programu Visual Studio 2017.
+W tej sekcji pokazano, jak za pomocą programu Visual Studio 2017 utworzyć pustą aplikację sieci Web ASP.NET i dodać do niej elementy sygnalizujące i jQuery. UI.
 
-1. W programie Visual Studio należy utworzyć aplikację sieci Web platformy ASP.NET.
+1. W programie Visual Studio Utwórz aplikację sieci Web ASP.NET.
 
-    ![Tworzenie sieci web](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
+    ![Tworzenie sieci Web](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
 
-1. W **nowej aplikacji sieci Web ASP.NET - MoveShapeDemo** okna, pozostaw **pusty** zaznaczone, a następnie wybierz **OK**.
+1. W oknie **Nowa aplikacja sieci Web ASP.NET — MoveShapeDemo** , pozostaw **puste** zaznaczone i wybierz **przycisk OK**.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**.
 
-1. W **Dodaj nowy element - MoveShapeDemo**, wybierz opcję **zainstalowane** > **Visual C#**   >  **Web**  >  **SignalR** , a następnie wybierz **klasa Centrum SignalR (v2)**.
+1. W obszarze **Dodaj nowy element — MoveShapeDemo**wybierz pozycję **zainstalowane** > **Visual C#**  > **sieci Web** > **sygnalizujący** , a następnie wybierz pozycję **Klasa centrum sygnałów (v2)** .
 
-1. Nazwa klasy *MoveShapeHub* i dodaj go do projektu.
+1. Nadaj klasie nazwę *MoveShapeHub* i Dodaj ją do projektu.
 
-    Spowoduje to utworzenie *MoveShapeHub.cs* pliku klasy. Jednocześnie dodaje zestaw plików skryptów i odwołania do zestawów, obsługujące bibliotekę SignalR do projektu.
+    Ten krok powoduje utworzenie pliku klasy *MoveShapeHub.cs* . Jednocześnie dodaje zestaw plików skryptów i odwołania do zestawów, które obsługują sygnalizujący do projektu.
 
-1. Wybierz **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
+1. Wybierz kolejno pozycje **narzędzia** > **menedżer pakietów NuGet** > **konsola Menedżera pakietów**.
 
-1. W **Konsola Menedżera pakietów**, uruchom następujące polecenie:
+1. W **konsoli Menedżera pakietów**Uruchom następujące polecenie:
 
     ```console
     Install-Package jQuery.UI.Combined
     ```
 
-    Polecenie instaluje biblioteki interfejsu użytkownika jQuery. Umożliwia ona animować kształt.
+    Polecenie instaluje bibliotekę interfejsu użytkownika jQuery. Służy do animowania kształtu.
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł skryptów.
+1. W **Eksplorator rozwiązań**rozwiń węzeł skrypty.
 
-    ![Odwołania do biblioteki skryptu](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
+    ![Odwołania do biblioteki skryptów](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
 
-    Biblioteki skryptów, jQuery, jQueryUI i SignalR są widoczne w projekcie.
+    Biblioteki skryptów dla jQuery, jQueryUI i sygnalizujący są widoczne w projekcie.
 
-## <a name="create-the-base-application"></a>Tworzenie podstawowej aplikacji
+## <a name="create-the-base-application"></a>Tworzenie aplikacji podstawowej
 
-W tej sekcji utworzysz aplikację przeglądarki. Aplikacja wysyła położenie kształtu do serwera podczas każdego zdarzenie przesunięcia kursora myszy. Serwer wysyła te informacje do wszystkich innych połączonych klientów w czasie rzeczywistym. Dowiesz się więcej na temat tej aplikacji w kolejnych sekcjach.
+W tej sekcji utworzysz aplikację przeglądarki. Aplikacja wysyła lokalizację kształtu do serwera podczas każdego zdarzenia przenoszenia myszy. Serwer emituje te informacje do wszystkich innych podłączonych klientów w czasie rzeczywistym. Więcej informacji na temat tej aplikacji znajdziesz w kolejnych sekcjach.
 
-1. Otwórz *MoveShapeHub.cs* pliku.
+1. Otwórz plik *MoveShapeHub.cs* .
 
-1. Zastąp kod w *MoveShapeHub.cs* pliku przy użyciu tego kodu:
+1. Zastąp kod w pliku *MoveShapeHub.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.cs)]
 
 1. Zapisz plik.
 
-`MoveShapeHub` Klasa jest implementacją Centrum SignalR. Podobnie jak w [wprowadzenie do SignalR](tutorial-getting-started-with-signalr.md) samouczku Centrum ma metodę, która bezpośrednio wywoływać klientów. W tym przypadku klient przesyła obiektu za pomocą nowego X i Y koordynuje kształtu do serwera. Tych współrzędnych Pobierz wysłano do wszystkich innych połączonych klientów. SignalR serializuje automatycznie tego obiektu przy użyciu formatu JSON.
+Klasa `MoveShapeHub` jest implementacją centrum sygnałów. Podobnie jak w przypadku [wprowadzenie z samouczkiem sygnalizującym](tutorial-getting-started-with-signalr.md) , koncentrator ma metodę, którą klienci bezpośrednio wywołują. W takim przypadku klient wysyła obiekt z nowymi współrzędnymi X i Y kształtu do serwera. Te współrzędne są wysyłane do wszystkich innych podłączonych klientów. Program sygnalizujący automatycznie serializować ten obiekt przy użyciu formatu JSON.
 
-Wysyła aplikacji `ShapeModel` obiektu do klienta. Zawiera elementy członkowskie do przechowywania położenie kształtu. Wersja obiektu na serwerze ma również członkiem, aby śledzić przechowywanych danych których klienta. Ten obiekt zapobiega wysłaniem dane klienta z powrotem do samego serwera. Używa tego elementu członkowskiego `JsonIgnore` atrybutu, aby uniemożliwić aplikacji serializacji danych i wysłanie go do klienta.
+Aplikacja wysyła do klienta obiekt `ShapeModel`. Ma elementy członkowskie do przechowywania pozycji kształtu. Wersja obiektu na serwerze ma również element członkowski służący do śledzenia, które dane klienta są przechowywane. Ten obiekt uniemożliwia serwerowi wysyłanie danych klienta z powrotem do samego siebie. Ten element członkowski używa atrybutu `JsonIgnore`, aby uniemożliwić aplikacji Serializowanie danych i wysłanie jej z powrotem do klienta.
 
-## <a name="map-to-the-hub-when-app-starts"></a>Mapowanie do koncentratora, po uruchomieniu aplikacji
+## <a name="map-to-the-hub-when-app-starts"></a>Mapuj do centrum podczas uruchamiania aplikacji
 
-Następnie należy skonfigurować mapowanie do Centrum podczas uruchamiania aplikacji. W SignalR 2 Dodawanie klasy początkowej OWIN tworzy mapowanie.
+Następnie należy skonfigurować mapowanie do centrum podczas uruchamiania aplikacji. W sygnalizacji 2 dodanie klasy uruchomieniowej OWIN powoduje utworzenie mapowania.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**.
 
-1. W **Dodaj nowy element - MoveShapeDemo** wybierz **zainstalowane** > **Visual C#**   >  **Web** a Wybierz **klasy początkowej OWIN**.
+1. W obszarze **Dodaj nowy element — MoveShapeDemo** wybierz pozycję **zainstalowane** >  **C# Visual** > **Web** , a następnie wybierz pozycję **Owin klasy startowej**.
 
-1. Nazwa klasy *uruchamiania* i wybierz **OK**.
+1. Nazwij klasę *uruchamiania* i wybierz **przycisk OK**.
 
-1. Zastąp kod domyślne *Startup.cs* pliku przy użyciu tego kodu:
+1. Zastąp domyślny kod w pliku *Startup.cs* tym kodem:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample2.cs)]
 
-Wywołuje klasę uruchamiania OWIN `MapSignalR` gdy aplikacja wykonuje `Configuration` metody. Aplikacja dodaje Klasa początkowa OWIN dla przetwarzania przy użyciu `OwinStartup` atrybutu zestawu.
+Klasa uruchomieniowa OWIN wywołuje `MapSignalR`, gdy aplikacja wykonuje `Configuration` metodę. Aplikacja dodaje klasę do procesu uruchamiania OWIN przy użyciu atrybutu zestawu `OwinStartup`.
 
-## <a name="add-the-client"></a>Dodaj klienta
+## <a name="add-the-client"></a>Dodawanie klienta
 
 Dodaj stronę HTML dla klienta.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **strony HTML**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **stronę HTML**.
 
-1. Nazwij stronę **domyślne** i wybierz **OK**.
+1. Nadaj nazwę stronie **domyślne** i wybierz przycisk **OK**.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Default.html* i wybierz **Ustaw jako strona startowa**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję *default. html* i wybierz pozycję **Ustaw jako stronę startową**.
 
-1. Zastąp kod domyślne *Default.html* pliku przy użyciu tego kodu:
+1. Zastąp domyślny kod w pliku *default. html* tym kodem:
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample3.html?highlight=14-16)]
 
-1. W **Eksploratora rozwiązań**, rozwiń węzeł **skrypty**.
+1. W **Eksplorator rozwiązań**rozwiń węzeł **skrypty**.
 
-    Biblioteki skryptów, jQuery i SignalR są widoczne w projekcie.
+    Biblioteki skryptów dla jQuery i sygnalizujących są widoczne w projekcie.
 
     > [!IMPORTANT]
-    > Menedżer pakietów instaluje późniejszą wersję skrypty SignalR.
+    > Menedżer pakietów instaluje nowszą wersję skryptów sygnalizujących.
 
-1. Aktualizuj odwołania do skryptu w bloku kodu, aby odpowiadać wersji plików skrypt w projekcie.
+1. Zaktualizuj odwołania do skryptu w bloku kodu, aby odpowiadały wersji plików skryptów w projekcie.
 
-Ten kod HTML i JavaScript tworzy czerwonego `div` o nazwie `shape`. Włącza zachowanie przeciągania kształtu, za pomocą biblioteki jQuery i używa `drag` zdarzenia do wysłania położenie kształtu do serwera.
+Ten kod HTML i JavaScript tworzy czerwoną `div` o nazwie `shape`. Umożliwia ona zachowanie przeciągnięcia kształtu przy użyciu biblioteki jQuery i użycie zdarzenia `drag` do wysłania położenia kształtu do serwera.
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
-Aplikację można uruchomić na se'e pracy. Podczas przeciągania kształtu wokół okna przeglądarki kształt zbyt przenosi w innych przeglądarkach.
+Możesz uruchomić aplikację, aby se'e jej działanie. Po przeciągnięciu kształtu wokół okna przeglądarki, kształt jest również przenoszony w innych przeglądarkach.
 
-1. Na pasku narzędzi, Włącz **debugowanie skryptu** a następnie wybierz przycisk Odtwórz, aby uruchomić aplikację w trybie debugowania.
+1. Na pasku narzędzi Włącz **debugowanie skryptów** , a następnie wybierz przycisk Odtwórz, aby uruchomić aplikację w trybie debugowania.
 
-    ![Zrzut ekranu przedstawiający użytkownika, włączając tryb debugowania i wybierając polecenie play.](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
+    ![Zrzut ekranu przedstawiający Włączanie trybu debugowania przez użytkownika i wybieranie opcji Odtwórz.](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
 
-    Zostanie otwarte okno przeglądarki z czerwonym kształtu w prawym górnym rogu.
+    Zostanie otwarte okno przeglądarki z czerwonym kształtem w prawym górnym rogu.
 
 1. Skopiuj adres URL strony.
 
-1. Otwórz innej przeglądarki i wklej adres URL na pasku adresu.
+1. Otwórz kolejną przeglądarkę i wklej adres URL na pasku adresu.
 
-1. Przeciągnij kształt w jednym z okna przeglądarki. Następuje kształt w oknie przeglądarki.
+1. Przeciągnij kształt w jednym z okien przeglądarki. Poniższy kształt w drugim oknie przeglądarki.
 
-Podczas gdy aplikacji funkcji przy użyciu tej metody, nie jest zalecany model programowania. Nie ma żadnego górnego limitu liczby wiadomości wysyłanych wprowadzenie. W rezultacie klientami a serwerem Pobierz przeciążeniu z wiadomościami i spadku wydajności. Ponadto aplikacja wyświetla rozłączonych animacji na komputerze klienckim. Ta animacja jerky wynika kształt natychmiast przechodzi przez każdą z tych metod. Zaleca kształt bezproblemową do każdej nowej lokalizacji. Następnie dowiesz się, jak rozwiązać te problemy.
+Gdy aplikacja korzysta z tej metody, nie jest to zalecany model programowania. Nie ma górnego limitu liczby wysyłanych komunikatów. W związku z tym klienci i serwery są przeciążone komunikatami i obniżeniem wydajności. Ponadto aplikacja wyświetla rozłączne animacje na kliencie. Ta animacja Jerky ma miejsce, ponieważ kształt jest przesuwany natychmiast przez każdą metodę. Lepiej, jeśli kształt zostanie bezproblemowo przeniesiony do każdej nowej lokalizacji. Następnie dowiesz się, jak rozwiązać te problemy.
 
 ## <a name="add-the-client-loop"></a>Dodaj pętlę klienta
 
-Wysyłanie położenie kształtu na każdym zdarzenie przesunięcia kursora myszy tworzy niepotrzebne ilości ruchu sieciowego. Aplikacja musi ograniczania wiadomości od klienta.
+Wysyłanie lokalizacji kształtu przy każdym zdarzeniu przenoszenia myszy powoduje utworzenie niepotrzebnego ruchu sieciowego. Aplikacja musi ograniczyć komunikaty z klienta.
 
-Użyj javascript `setInterval` funkcję, aby skonfigurować pętlę, która wysyła do serwera według stałej stawki ustalanej nowe informacje pozycji. Ta pętla jest reprezentacją podstawowe "pętli gry". Jest wielokrotnie funkcji obsługujące funkcje gier.
+Użyj funkcji `setInterval` JavaScript, aby skonfigurować pętlę, która wysyła nowe informacje o pozycji do serwera ze stałą stawką. Ta pętla to podstawowa reprezentacja "pętli gry". Jest to wielokrotnie wywoływana funkcja, która steruje wszystkimi funkcjami gry.
 
-1. Zastąp kod klienta w *Default.html* pliku przy użyciu tego kodu:
+1. Zastąp kod klienta w pliku *default. html* tym kodem:
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample4.html?highlight=14-16)]
 
     > [!IMPORTANT]
-    > Musisz ponownie Zamień odwołania do skryptu. Muszą one być zgodne wersje skrypty w projekcie.
+    > Należy ponownie zastąpić odwołania do skryptu. Muszą one być zgodne z wersjami skryptów w projekcie.
 
-    Ten nowy kod dodaje `updateServerModel` funkcji. Pobiera ona wywoływana z częstotliwością, stały. Funkcja wysyła umieszczanie danych do serwera przy każdym `moved` flagi oznacza, że są nowe dane pozycji do wysłania.
+    Ten nowy kod dodaje funkcję `updateServerModel`. Jest wywoływana z ustaloną częstotliwością. Funkcja wysyła dane położenia do serwera za każdym razem, gdy flaga `moved` wskazuje, że nowe dane położenia są wysyłane.
 
 1. Wybierz przycisk Odtwórz, aby uruchomić aplikację
 
 1. Skopiuj adres URL strony.
 
-1. Otwórz innej przeglądarki i wklej adres URL na pasku adresu.
+1. Otwórz kolejną przeglądarkę i wklej adres URL na pasku adresu.
 
-1. Przeciągnij kształt w jednym z okna przeglądarki. Następuje kształt w oknie przeglądarki.
+1. Przeciągnij kształt w jednym z okien przeglądarki. Poniższy kształt w drugim oknie przeglądarki.
 
-Ponieważ aplikacja ogranicza liczbę wiadomości, które są wysyłane do serwera, animacja nie będzie wyświetlane tak dobre, czy na początku.
+Ponieważ aplikacja ogranicza liczbę komunikatów wysyłanych do serwera, animacja nie będzie wyświetlana jako gładka.
 
 ## <a name="add-the-server-loop"></a>Dodaj pętlę serwera
 
-W bieżącej aplikacji komunikatów wysyłanych z serwera do klienta wysyłana tak często, jak ich otrzymaniu. Jak widać na komputerze klienckim, ten ruch sieciowy przedstawia podobny problem.
+W bieżącej aplikacji komunikaty wysyłane z serwera do klienta są wykonywane tak często, jak są odbierane. Ten ruch sieciowy przedstawia podobny problem, który jest widoczny na kliencie.
 
-Aplikacja może wysyłać komunikaty częściej niż zajdzie taka potrzeba. Połączenie może być propagowane w wyniku. Ta sekcja opisuje sposób aktualizacji server, aby dodać czasomierz, co ogranicza współczynnik wiadomości wychodzących.
+Aplikacja może wysyłać komunikaty częściej niż jest to zbędne. Połączenie może zostać zalanie w wyniku. W tej sekcji opisano sposób aktualizowania serwera programu w celu dodania czasomierza, który ogranicza szybkość wychodzących komunikatów.
 
-1. Zastąp zawartość `MoveShapeHub.cs` przy użyciu tego kodu:
+1. Zastąp zawartość `MoveShapeHub.cs` tym kodem:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample5.cs)]
 
@@ -192,23 +192,23 @@ Aplikacja może wysyłać komunikaty częściej niż zajdzie taka potrzeba. Poł
 
 1. Skopiuj adres URL strony.
 
-1. Otwórz innej przeglądarki i wklej adres URL na pasku adresu.
+1. Otwórz kolejną przeglądarkę i wklej adres URL na pasku adresu.
 
-1. Przeciągnij kształt w jednym z okna przeglądarki.
+1. Przeciągnij kształt w jednym z okien przeglądarki.
 
-Ten kod rozwija klienta, aby dodać `Broadcaster` klasy. Nowa klasa ogranicza wiadomości wychodzących za pomocą `Timer` klasy z programu .NET framework.
+Ten kod rozszerza klienta, aby dodać klasę `Broadcaster`. Nowa Klasa ogranicza komunikaty wychodzące przy użyciu klasy `Timer` z programu .NET Framework.
 
-Zaleca się dowiedzieć się, że sam Centrum przejściowe. Jest tworzony za każdym razem, gdy jest to konieczne. Aby aplikacja tworzy `Broadcaster` jako pojedynczą. Używa inicjowania z opóźnieniem mają być odroczone `Broadcaster`jego tworzenia, dopóki nie jest to konieczne. Pozwala to zagwarantować, że aplikacja tworzy pierwsze wystąpienie koncentratora całkowicie przed rozpoczęciem czasomierza.
+Warto dowiedzieć się, że sam koncentrator jest przejściowy. Jest on tworzony za każdym razem, gdy jest to konieczne. Aplikacja tworzy `Broadcaster` jako pojedynczą. Używa inicjalizacji z opóźnieniem, aby odroczyć tworzenie `Broadcaster`do momentu, gdy jest to konieczne. Gwarantuje to, że aplikacja tworzy pierwsze wystąpienie centrum w całości przed rozpoczęciem czasomierza.
 
-Wywołania na klientach `UpdateShape` funkcji są przenoszone poza Centrum `UpdateModel` metody. Nie jest już nazywa się natychmiast, gdy aplikacja odbiera wiadomości przychodzących. Zamiast tego aplikacja wysyła komunikaty do klientów w wysokości 25 wywołania na sekundę. Ten proces odbywa się przez `_broadcastLoop` czasomierza z poziomu `Broadcaster` klasy.
+Wywołanie funkcji `UpdateShape` klientów zostanie następnie przeniesione z metody `UpdateModel` centrum. Nie jest już wywoływana natychmiast po każdym odebraniu wiadomości przychodzących przez aplikację. Zamiast tego aplikacja wysyła komunikaty do klientów z szybkością 25 wywołań na sekundę. Proces jest zarządzany przez `_broadcastLoop` Timer z poziomu klasy `Broadcaster`.
 
-Na koniec, a nie bezpośrednio, wywołanie metody klienta z Centrum `Broadcaster` klasa musi uzyskać odwołanie do aktualnie działających `_hubContext` koncentratora. Pobiera odwołanie z `GlobalHost`.
+Na koniec zamiast wywoływania metody klienta bezpośrednio z poziomu centrum Klasa `Broadcaster` musi uzyskać odwołanie do centrum `_hubContext` operacyjnego. Pobiera odwołanie do `GlobalHost`.
 
-## <a name="add-smooth-animation"></a>Dodaj płynne animacje
+## <a name="add-smooth-animation"></a>Dodaj gładką animację
 
-Aplikacja jest prawie gotowy, ale firma Microsoft może spowodować, że jeden więcej poprawy jakości obsługi. Aplikacja spowoduje przesunięcie kształtu na komputerze klienckim w odpowiedzi na komunikaty serwera. Zamiast ustawiać położenie kształtu do nowej lokalizacji określonej przez serwer, użyj biblioteki interfejsu użytkownika JQuery `animate` funkcji. To płynnie przeniesienie kształt od jego bieżących i nowych pozycji.
+Aplikacja jest niemal zakończona, ale możemy wprowadzić jeszcze jedną poprawę. Aplikacja przenosi kształt na kliencie w odpowiedzi na komunikaty serwera. Zamiast ustawiania położenia kształtu do nowej lokalizacji wskazanej przez serwer, użyj funkcji `animate` biblioteki interfejsu użytkownika JQuery. Może bezproblemowo przenosić kształt między jego bieżącą i nową pozycją.
 
-1. Aktualizacja klienta programu `updateShape` method in Class metoda *Default.html* pliku, aby wyglądał jak wyróżniony kod:
+1. Zaktualizuj metodę `updateShape` klienta w pliku *default. html* , aby wyglądać jak wyróżniony kod:
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample6.html?highlight=33-40)]
 
@@ -216,44 +216,44 @@ Aplikacja jest prawie gotowy, ale firma Microsoft może spowodować, że jeden w
 
 1. Skopiuj adres URL strony.
 
-1. Otwórz innej przeglądarki i wklej adres URL na pasku adresu.
+1. Otwórz kolejną przeglądarkę i wklej adres URL na pasku adresu.
 
-1. Przeciągnij kształt w jednym z okna przeglądarki.
+1. Przeciągnij kształt w jednym z okien przeglądarki.
 
-Przemieszczanie kształtu w innym oknie zostanie wyświetlona mniej jerky. Aplikacja argumentu ruchu za pośrednictwem czasu, a nie raz ustawiany na wiadomości przychodzącej.
+Przenoszenie kształtu w drugim oknie jest mniej Jerky. Aplikacja interpoluje swój ruch w czasie, a nie ustawia raz na komunikat przychodzący.
 
-Ten kod przenosi kształt z poprzedniej lokalizacji na nową. Serwer udostępnia położenie kształtu w miarę upływu interwał animacji. W tym przypadku to 100 milisekund. Aplikacja czyści wszystkie poprzednie animacje systemem kształtu, przed rozpoczęciem nowej animacji.
+Ten kod przenosi kształt ze starej lokalizacji do nowej. Serwer podaje pozycję kształtu w trakcie interwału animacji. W tym przypadku jest to 100 milisekund. Aplikacja czyści wszystkie poprzednie animacje uruchomione na kształcie przed rozpoczęciem nowej animacji.
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Komunikat przedstawia informacje na temat przyjęła przydatne do tworzenia gier online i innych symulacje, takie jak [ShootR gry utworzone przy użyciu SignalR](https://shootr.azurewebsites.net/).
+Właśnie zdobyty model komunikacji jest przydatny do tworzenia gier online i innych symulacji, takich jak [gra w ramach programu do tworzenia sygnałów](https://shootr.azurewebsites.net/).
 
-Aby uzyskać więcej informacji na temat biblioteki SignalR zobacz następujące zasoby:
+Aby uzyskać więcej informacji o sygnalizacji, zobacz następujące zasoby:
 
-* [Projekt SignalR](http://signalr.net)
+* [Projekt sygnalizującego](http://signalr.net)
 
-* [SignalR GitHub i przykłady](https://github.com/SignalR/SignalR)
+* [Usługi GitHub i przykłady dla sygnałów](https://github.com/SignalR/SignalR)
 
-* [Witryny typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)
+* [Strona typu wiki sygnalizująca](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
-> * Podstawowa aplikacja
-> * Mapowany do koncentratora, po uruchomieniu aplikacji
-> * Dodaje klienta
-> * Uruchomienia aplikacji
+> * Utworzono aplikację podstawową
+> * Zamapowane do centrum podczas uruchamiania aplikacji
+> * Dodano klienta
+> * Uruchomiono aplikację
 > * Dodano pętlę klienta
 > * Dodano pętlę serwera
-> * Dodano płynne animacje
+> * Dodano gładką animację
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikację sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera.
+Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikację sieci Web, która korzysta z ASP.NET sygnalizującego 2, aby zapewnić funkcję emisji serwera.
 > [!div class="nextstepaction"]
-> [SignalR 2 i emisji serwera](tutorial-server-broadcast-with-signalr.md)
+> [Sygnalizacja 2 i emisja serwera](tutorial-server-broadcast-with-signalr.md)

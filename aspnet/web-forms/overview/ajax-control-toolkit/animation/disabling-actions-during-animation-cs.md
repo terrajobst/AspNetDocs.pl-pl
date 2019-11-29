@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
-title: Wyłączanie akcji podczas animacji (C#) | Dokumentacja firmy Microsoft
+title: Wyłączanie akcji podczas animacji (C#) | Microsoft Docs
 author: wenz
-description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Obsługuje ona również działanie...
+description: Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Obsługuje również akcję...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 918026b4-2f63-421d-8546-df12856960a8
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dd69317c4a9b5a98302683766e6bc699d3b6396d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e91205ad2f9e6ee1fdd869ceb7587c3a82754772
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108649"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599731"
 ---
 # <a name="disabling-actions-during-animation-c"></a>Wyłączanie akcji podczas animacji (C#)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation7.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation7CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation7.cs.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation7CS.pdf)
 
-> Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Obsługuje ona również akcje, takie jak kliknięcia myszą. Jednak po uruchomieniu przez kliknięcie myszą animacji jest pożądane, aby wyłączyć kliknięć myszą podczas animacji.
+> Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Obsługuje także akcje, takie jak kliknięcia myszą. Jednak po kliknięciu przycisku myszy uruchamia animację, pożądane jest wyłączenie kliknięć myszą podczas animacji.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Obsługuje ona również akcje, takie jak kliknięcia myszą. Jednak po uruchomieniu przez kliknięcie myszą animacji jest pożądane, aby wyłączyć kliknięć myszą podczas animacji.
+Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Obsługuje także akcje, takie jak kliknięcia myszą. Jednak po kliknięciu przycisku myszy uruchamia animację, pożądane jest wyłączenie kliknięć myszą podczas animacji.
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze, obejmują `ScriptManager` w strony, a następnie biblioteki ASP.NET AJAX jest ładowany, dzięki czemu można użyć zestawu narzędzi kontroli:
+Po pierwsze, Uwzględnij `ScriptManager` na stronie; następnie załadowana zostanie Biblioteka ASP.NET AJAX, co umożliwia korzystanie z zestawu narzędzi kontroli:
 
 [!code-aspx[Main](disabling-actions-during-animation-cs/samples/sample1.aspx)]
 
-Animacja zostaną zastosowane do przycisku HTML następująco:
+Animacja zostanie zastosowana do przycisku HTML w następujący sposób:
 
 [!code-aspx[Main](disabling-actions-during-animation-cs/samples/sample2.aspx)]
 
-Należy pamiętać, że formant HTML jest używana zamiast formantu sieci Web, ponieważ nie chcemy przycisk, aby utworzyć zwrotu; po prostu są to uruchomienie animacji po stronie klienta dla nas.
+Należy zauważyć, że kontrolka HTML jest używana zamiast kontrolki sieci Web, ponieważ nie chcę, aby przycisk utworzył ogłaszanie zwrotne; po prostu uruchamia dla nas animację po stronie klienta.
 
-Następnie należy dodać `AnimationExtender` do strony, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe `runat="server"`:
+Następnie Dodaj `AnimationExtender` do strony, podając `ID`, atrybut `TargetControlID` i obowiązkowe `runat="server"`:
 
 [!code-aspx[Main](disabling-actions-during-animation-cs/samples/sample3.aspx)]
 
-W ramach `<Animations>` węzła `<OnClick>` jest odpowiednich elementów do obsługi kliknięcia myszą. Jednak przycisku można kliknął podczas animacji, jak również. `<EnableAction>` Elementu może zajmować się tego. Ustawienie `Enabled="false"` wyłącza przycisk jako część animacji. Ponieważ używamy kilku poszczególnych animacji (wyłączenie przycisku i rzeczywiste animacji), `<Parallel>` element jest wymagany do przyklej jednej animacji ze sobą w jednym. Oto kompletny kod znaczników dla `AnimationExtender`:
+W węźle `<Animations>` `<OnClick>` jest prawym elementem, aby obsłużyć kliknięcie myszą. Jednak przycisk można kliknąć również podczas animacji. Element `<EnableAction>` może zadbać o to. Ustawienie `Enabled="false"` wyłącza przycisk w ramach animacji. Ponieważ korzystamy z kilku indywidualnych animacji (wyłączenie przycisku i rzeczywistych animacji), element `<Parallel>` jest wymagany do przyklejania pojedynczych animacji w jeden. Oto kompletny znacznik dla `AnimationExtender`:
 
 [!code-aspx[Main](disabling-actions-during-animation-cs/samples/sample4.aspx)]
 
-Byłoby to możliwe ponownie włączyć przycisk po animacji, przy użyciu następujących elementów XML na końcu listy:
+Możliwe jest również ponowne włączenie do przycisku po animacji, przy użyciu następującego elementu XML na końcu listy:
 
 [!code-xml[Main](disabling-actions-during-animation-cs/samples/sample5.xml)]
 
-Jednak w danym scenariuszu byłoby to bezcelowe od przycisku znika i nie jest widoczny na końcu animacji.
+Jednak w danym scenariuszu może być bezużyteczny, ponieważ przycisk znika i nie jest widoczny na końcu animacji.
 
-[![Przycisk został wyłączony, tak szybko, jak działa animacji](disabling-actions-during-animation-cs/_static/image2.png)](disabling-actions-during-animation-cs/_static/image1.png)
+[![przycisk jest wyłączony zaraz po uruchomieniu animacji](disabling-actions-during-animation-cs/_static/image2.png)](disabling-actions-during-animation-cs/_static/image1.png)
 
-Przycisk został wyłączony, tak szybko, jak działa animacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](disabling-actions-during-animation-cs/_static/image3.png))
+Przycisk jest wyłączony zaraz po uruchomieniu animacji ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](disabling-actions-during-animation-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](animating-in-response-to-user-interaction-cs.md)

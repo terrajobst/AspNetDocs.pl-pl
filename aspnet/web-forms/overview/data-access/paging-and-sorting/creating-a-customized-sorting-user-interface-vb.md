@@ -1,177 +1,177 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
-title: Tworzenie dostosowanego interfejsu użytkownika sortowania (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie dostosowanego interfejsu użytkownika sortowania (VB) | Microsoft Docs
 author: rick-anderson
-description: Podczas wyświetlania długą listę posortowanych danych, może być bardzo przydatny do grupowania powiązanych danych dzięki zastosowaniu separator wierszy. W tym samouczku zobaczymy, jak poświadczeń...
+description: Podczas wyświetlania długiej listy posortowanych danych może być bardzo przydatna do grupowania powiązanych danych przez wprowadzenie wierszy separatora. W tym samouczku zobaczymy, jak u...
 ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e2c2ab402c1ffeb9a9a54e0097eb4680158169ff
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 66127630560141cd795beb15f525a7fba85f3993
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134282"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74607343"
 ---
 # <a name="creating-a-customized-sorting-user-interface-vb"></a>Tworzenie dostosowanego interfejsu użytkownika sortowania (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_VB.exe) lub [Pobierz plik PDF](creating-a-customized-sorting-user-interface-vb/_static/datatutorial27vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_27_VB.exe) lub [Pobierz plik PDF](creating-a-customized-sorting-user-interface-vb/_static/datatutorial27vb1.pdf)
 
-> Podczas wyświetlania długą listę posortowanych danych, może być bardzo przydatny do grupowania powiązanych danych dzięki zastosowaniu separator wierszy. W tym samouczku opisano sposób tworzenia takiego sortowania interfejs użytkownika.
+> Podczas wyświetlania długiej listy posortowanych danych może być bardzo przydatna do grupowania powiązanych danych przez wprowadzenie wierszy separatora. W tym samouczku dowiesz się, jak utworzyć taki interfejs użytkownika do sortowania.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Podczas wyświetlania długą listę posortowanych danych w przypadku zaledwie kilku różnych wartości w kolumnie posortowany, użytkownik końcowy może okazać się trudne do wykrycia, where, dokładnie granice różnica wystąpić. Na przykład istnieją 81 produktów w bazie danych, ale tylko dziewięć inną kategorię opcji (osiem kategorii unikatowy plus `NULL` opcji). Rozważmy przypadek użytkownika, który jest zainteresowany badanie produktów, które należą do kategorii owoce morza. Ze strony zawierającej zestawienie *wszystkich* produktów w jednym widoku GridView, użytkownik może zrezygnować jej najlepiej sortować wyniki według kategorii, które zostaną zgrupowane wszystkich produktów owoce morza razem. Po sortowaniu według kategorii, użytkownik musi możliwe za pośrednictwem listy, wyszukiwanie, dla których produkty pogrupowane owoce morza rozpoczęcia i zakończenia. Ponieważ wyniki są uporządkowane alfabetycznie według nazwy kategorii znajdowanie produktów owoce morza nie jest trudne, ale nadal wymaga ściśle przeszukaniu listy elementów w siatce.
+W przypadku wyświetlania długiej listy posortowanych danych w przypadku, gdy w sortowanej kolumnie znajduje się tylko kilku różnych wartości, użytkownik końcowy może się przekonać, że rozpoznać, gdzie dokładnie występują granice różnic. Na przykład w bazie danych znajdują się 81 produkty, ale dostępne są tylko dziewięć różnych kategorii (osiem unikatowych kategorii i opcja `NULL`). Rozważmy przypadek przypadku użytkownika, który interesuje badanie produktów, które podlegają kategorii owoce morza. Na stronie, która wyświetla listę *wszystkich* produktów w jednym widoku GridView, użytkownik może zdecydować, aby posortować wyniki według kategorii, które będą grupować razem wszystkie produkty z owoców. Po posortowaniu według kategorii użytkownik musi przeglądać listę, gdzie są organizowane i kończyć produkty pogrupowane. Ponieważ wyniki są uporządkowane alfabetycznie według nazwy kategorii znalezienie produktów morza nie jest trudne, ale nadal wymaga ścisłego skanowania listy elementów w siatce.
 
-Aby wyróżnić granice między grupami posortowany, wiele witryn sieci Web używają interfejsu użytkownika, który dodaje znak oddzielający takich grup. Separatory, jak w powyższym przedstawionej na rysunku 1 umożliwia użytkownikowi szybciej znaleźć określonej grupy i zidentyfikować jego granice, a także upewnić się, jakie różne grupy istnieje w danych.
+Aby wyróżnić granice między posortowanymi grupami, wiele witryn sieci Web korzysta z interfejsu użytkownika, który dodaje separator między tymi grupami. Separatory takie jak pokazane na rysunku 1 umożliwiają użytkownikowi szybsze znalezienie określonej grupy i zidentyfikowanie jej granic, a także ustalenie, jakie odrębne grupy istnieją w danych.
 
-[![Każda kategoria grupa jest jasno określone](creating-a-customized-sorting-user-interface-vb/_static/image2.png)](creating-a-customized-sorting-user-interface-vb/_static/image1.png)
+[![każda grupa kategorii jest jasno zidentyfikowana](creating-a-customized-sorting-user-interface-vb/_static/image2.png)](creating-a-customized-sorting-user-interface-vb/_static/image1.png)
 
-**Rysunek 1**: Każda kategoria grupa jest jasno określone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image3.png))
+**Rysunek 1**. Każda grupa kategorii jest jasno zidentyfikowana ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image3.png))
 
-W tym samouczku opisano sposób tworzenia takiego sortowania interfejs użytkownika.
+W tym samouczku dowiesz się, jak utworzyć taki interfejs użytkownika do sortowania.
 
-## <a name="step-1-creating-a-standard-sortable-gridview"></a>Krok 1. Tworzenie GridView standardowe, sortowanie
+## <a name="step-1-creating-a-standard-sortable-gridview"></a>Krok 1. Tworzenie standardowego, sortowanie GridView
 
-Zanim omówimy sposób rozszerzyć GridView zapewnia rozszerzoną interfejs sortowania, chętnie s GridView standardowe, sortowania, która zawiera listę produktów należy najpierw utworzyć. Zacznij od otwarcia `CustomSortingUI.aspx` stronie `PagingAndSorting` folderu. Na stronie Dodaj GridView, ustaw jego `ID` właściwości `ProductList`i powiąż go do nowego elementu ObjectDataSource. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy s `GetProducts()` metoda wybierania rekordów.
+Przed zapoznawaniem się, jak rozszerzyć widok GridView w celu zapewnienia ulepszonego interfejsu sortowania, pozwól najpierw utworzyć standardowy, do sortowania GridView, który wyświetla listę produktów. Zacznij od otwarcia strony `CustomSortingUI.aspx` w folderze `PagingAndSorting`. Dodaj widok GridView do strony, ustaw jej Właściwość `ID` na `ProductList`i powiąż ją z nowym elementem ObjectDataSource. Skonfiguruj element ObjectDataSource, aby używał metody `ProductsBLL` klasy s `GetProducts()` do wybierania rekordów.
 
-Następnie skonfiguruj widoku GridView w taki sposób, że zawiera on tylko `ProductName`, `CategoryName`, `SupplierName`, i `UnitPrice` BoundFields i CheckBoxField wycofane. Na koniec skonfiguruj GridView do obsługi sortowania, zaznaczając pole wyboru Włącz sortowanie w tagu inteligentnego s kontrolki GridView (lub przez ustawienie jego `AllowSorting` właściwość `true`). Po wprowadzeniu te dodatki do `CustomSortingUI.aspx` stronie oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższego:
+Następnie skonfiguruj widok GridView, tak aby zawierał tylko `ProductName`, `CategoryName`, `SupplierName`i `UnitPrice` BoundFields oraz wycofane CheckBoxField. Na koniec Skonfiguruj widok GridView, aby obsługiwał sortowanie, zaznaczając pole wyboru Włącz sortowanie w tagu inteligentnym "GridView s" (lub ustawiając właściwość `AllowSorting` na `true`). Po wprowadzeniu tych dodatków do strony `CustomSortingUI.aspx`, znaczniki deklaratywne powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](creating-a-customized-sorting-user-interface-vb/samples/sample1.aspx)]
 
-Poświęć chwilę, aby wyświetlić nasz postęp tej pory w przeglądarce. Rysunek 2 przedstawia sortowanie GridView po jego dane są sortowane według kategorii w kolejności alfabetycznej.
+Poświęć chwilę na przejrzenie tego postępu w przeglądarce. Rysunek 2 przedstawia widok GridView do sortowania, gdy jego dane są sortowane według kategorii w kolejności alfabetycznej.
 
-[![S GridView Sortowalna Data są uporządkowane według kategorii](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
+[![dane GridView do sortowania są uporządkowane według kategorii](creating-a-customized-sorting-user-interface-vb/_static/image5.png)](creating-a-customized-sorting-user-interface-vb/_static/image4.png)
 
-**Rysunek 2**: S GridView można sortować dane są uporządkowane według kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image6.png))
+**Rysunek 2**. sortowanie danych w widoku GridView jest uporządkowane według kategorii ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image6.png))
 
-## <a name="step-2-exploring-techniques-for-adding-the-separator-rows"></a>Krok 2. Dodawanie wierszy Separator eksplorowania techniki
+## <a name="step-2-exploring-techniques-for-adding-the-separator-rows"></a>Krok 2. Eksplorowanie technik dodawania wierszy separatora
 
-Za pomocą rodzajowego, sortowania widoku GridView pełną pozostaje aby można było dodać separator wierszy w widoku GridView przed każdej unikatowej grupy posortowany. Ale jak można te wiersze wstrzyknięte do kontrolki GridView? Zasadniczo firma Microsoft należy do iterowania po GridView wierszy s, określić, gdzie występują różnice między wartościami w kolumna posortowanego, a następnie dodaj odpowiedni separator wiersza. Rozważania na temat tego problemu, wygląda na to fizyczne, czy rozwiązanie znajduje się gdzieś w GridView s `RowDataBound` programu obsługi zdarzeń. Tak jak Omówiliśmy to w [niestandardowe formatowanie oparte na danych](../custom-formatting/custom-formatting-based-upon-data-vb.md) samouczków, ta procedura obsługi zdarzeń jest często stosowany podczas stosowania formatowanie na poziomie wierszy na podstawie wiersza s danych. Jednak `RowDataBound` program obsługi zdarzeń nie jest rozwiązanie, w tym miejscu, ponieważ wierszy nie można dodać do widoku GridView programowo z tej obsługi zdarzeń. GridView s `Rows` kolekcji, w rzeczywistości jest tylko do odczytu.
+Dzięki ogólnemu sortowaniu w widoku GridView wszystko to jest możliwe, aby dodać wiersze separatora w widoku GridView przed każdą unikatową grupą sortowania. Ale jak można wprowadzić takie wiersze do widoku GridView? Zasadniczo należy wykonać iterację w wierszach GridView, określić, gdzie występują różnice między wartościami w sortowanej kolumnie, a następnie dodać odpowiedni wiersz separatora. W przypadku wystąpienia tego problemu wydaje się, że rozwiązanie należy do programu obsługi zdarzeń `RowDataBound` GridView. Zgodnie z opisem w temacie [formatowanie niestandardowe oparte](../custom-formatting/custom-formatting-based-upon-data-vb.md) na samouczku danych ten program obsługi zdarzeń jest często używany podczas stosowania formatowania na poziomie wiersza na podstawie danych wiersza. Jednak program obsługi zdarzeń `RowDataBound` nie jest tym rozwiązaniem, ponieważ nie można dodać wierszy do widoku GridView programowo z tego programu obsługi zdarzeń. Kolekcja `Rows` GridView, w rzeczywistości, jest tylko do odczytu.
 
-Aby dodać dodatkowe wiersze do kontrolki GridView mamy trzy opcje:
+Aby dodać dodatkowe wiersze do widoku GridView, mamy trzy opcje:
 
-- Dodaj te wiersze separator metadanych do rzeczywistych danych, który jest powiązany z widoku GridView
-- Po widoku GridView została powiązana z danymi, Dodaj dodatkowe `TableRow` wystąpień GridView s kontrolować zbieranie
-- Utwórz niestandardowy formant serwera w kontrolce GridView i zastępuje te metody, które są odpowiedzialne za konstruowanie struktury s GridView
+- Dodaj te wiersze separatora metadanych do rzeczywistych danych, które są powiązane z elementem GridView
+- Po powiązaniu widoku GridView z danymi Dodaj kolejne wystąpienia `TableRow` do kolekcji formantów GridView
+- Utwórz niestandardową kontrolkę serwera, która rozszerza formant GridView i zastępuje te metody, które są odpowiedzialne za konstruowanie struktury GridView
 
-Tworzenie formantu niestandardowego serwera będzie najlepszym rozwiązaniem, w razie potrzeby ta funkcja została na wielu stronach sieci web lub w kilku witryn sieci Web. Jednak pociąga znacznej kodu i dokładnego badań do odnajdywanie ukrytych wewnętrzne działanie s GridView. W związku z tym firma Microsoft będzie należy traktować tę opcję na potrzeby tego samouczka.
+Tworzenie niestandardowej kontrolki serwerowej byłoby najlepszym rozwiązaniem, jeśli ta funkcja była wymagana na wielu stronach sieci Web lub w kilku witrynach internetowych. Jednak może to pociągnąć za sobą trochę kodu i gruntownie poszukiwanie głębokości wewnętrznych działań w widoku GridView. W związku z tym nie należy uwzględniać tej opcji w tym samouczku.
 
-Pozostałe dwie opcje Dodawanie wierszy separator do bycia w rzeczywistych danych powiązany z kontrolki GridView i manipulowanie nimi kolekcji kontrolki GridView s, po jego został powiązany — inaczej ataki problem i że opiszemy je w dyskusji.
+Pozostałe dwie opcje dodają wiersze separatora do rzeczywistych danych, które są powiązane z widokiem GridView i manipulowania kolekcją formantów GridView, po jej zastosowaniu
 
-## <a name="adding-rows-to-the-data-bound-to-the-gridview"></a>Dodawanie wierszy do danych powiązany z widoku GridView
+## <a name="adding-rows-to-the-data-bound-to-the-gridview"></a>Dodawanie wierszy do danych powiązanych z elementem GridView
 
-Gdy widoku GridView jest powiązana ze źródłem danych, tworzy `GridViewRow` dla każdego rekordu zwrócony przez źródło danych. W związku z tym firma Microsoft wstrzyknąć wierszy separator wymagane przez dodanie separator rekordów do źródła danych przed wiążące go do widoku GridView. Rysunek 3 ilustruje tę koncepcję.
+Gdy widok GridView jest powiązany ze źródłem danych, tworzy `GridViewRow` dla każdego rekordu zwróconego przez źródło danych. W związku z tym możemy wstrzyknąć niezbędne wiersze separatora, dodając rekordy separatora do źródła danych przed powiązaniem go z GridView. Rysunek 3 ilustruje tę koncepcję.
 
-![Jedna z technik polega na dodawaniu Separator wierszy do źródła danych](creating-a-customized-sorting-user-interface-vb/_static/image7.png)
+![Jedna technika obejmuje Dodawanie wierszy separatora do źródła danych](creating-a-customized-sorting-user-interface-vb/_static/image7.png)
 
-**Rysunek 3**: Jedna z technik polega na dodawaniu Separator wierszy do źródła danych
+**Rysunek 3**. jedna technika obejmuje dodanie wierszy separatora do źródła danych
 
-Korzystam z rekordów separator termin w cudzysłowie, ponieważ nie istnieje rekord specjalny separator; przeciwnie firma Microsoft musi jakiś sposób flagi, które określonego rekordu w źródle danych służy jako separator, a nie wiersz zwykłych danych. Dla naszych przykładach, możemy ponownie powiązania `ProductsDataTable` wystąpienie GridView, który składa się z `ProductRows`. Firma Microsoft może Flaga rekordu jako wiersz separatora, ustawiając jego `CategoryID` właściwość `-1` (ponieważ jest to wartość ta nie istnieje zazwyczaj).
+Używam rekordów separatorów terminów w cudzysłowie, ponieważ nie ma specjalnego rekordu separatora; Zamiast tego musimy mieć dowolną flagę, że konkretny rekord w źródle danych służy jako separator, a nie normalny wiersz danych. Nasze przykłady umożliwiają ponowne wiązanie wystąpienia `ProductsDataTable` w widoku GridView, który składa się z `ProductRows`. Możemy oflagować rekord jako wiersz separatora przez ustawienie jego właściwości `CategoryID` na `-1` (ponieważ taka wartość nie może istnieć normalnie).
 
-Korzystanie z tej techniki d należy wykonać następujące czynności:
+Aby użyć tej techniki, należy wykonać następujące czynności:
 
-1. Programowe pobieranie danych do powiązania do kontrolki GridView ( `ProductsDataTable` wystąpienia)
-2. Sortowanie danych w oparciu GridView s `SortExpression` i `SortDirection` właściwości
-3. Iteracyjne przeglądanie `ProductsRows` w `ProductsDataTable`poszukiwaniu gdzie znajdują się różnice w posortowanej kolumny
-4. Na każdej granicy grupy wstawić rekordu separator `ProductsRow` wystąpienie do elementu DataTable, taki, który ma ona s `CategoryID` równa `-1` (lub dowolnych oznaczenia została podjęta podczas do oznaczania rekordu jako separator rekordu)
-5. Po wstawianie wierszy separatora, programowo powiązać dane widoku GridView
+1. Programowe pobieranie danych w celu utworzenia powiązania z elementem GridView (wystąpienie `ProductsDataTable`)
+2. Sortuj dane na podstawie `SortExpression` GridView i właściwości `SortDirection`
+3. Wykonaj iterację `ProductsRows` w `ProductsDataTable`, szukając miejsc, w których znajdują się różnice w sortowanej kolumnie.
+4. W każdej granicy grupy wstrzyknąć rekord separatora `ProductsRow` wystąpienia do elementu DataTable, który ma `CategoryID` z ustawionym na `-1` (lub każde oznaczenie zostało ustalone, aby oznaczyć rekord jako rekord separatora).
+5. Po wprowadzeniu wierszy separatora program programowo wiąże dane z GridView
 
-Oprócz tych pięciu krokach d również należy podać program obsługi zdarzeń dla GridView s `RowDataBound` zdarzeń. W tym miejscu d sprawdzenie każdego `DataRow` i określenie, czy separator wierszy jeden którego `CategoryID` ustawienie zostało `-1`. Jeśli tak, możemy d prawdopodobnie chcesz dostosować formatowanie lub tekst wyświetlany w komórkach.
+Oprócz tych pięciu kroków Ponadto należy zapewnić obsługę zdarzeń dla zdarzenia `RowDataBound` GridView. W tym miejscu należy sprawdzić wszystkie `DataRow` i określić, czy był to wiersz separatora, po którym `-1`zostało `CategoryID` ustawienie. Jeśli tak, to mamy d prawdopodobnie chcieć dostosować formatowanie lub tekst wyświetlany w komórkach.
 
-Ta technika wstrzykiwania sortowania granicami grupy wymaga nieco więcej pracy niż opisane powyżej, jak należy również podać program obsługi zdarzeń dla GridView s `Sorting` zdarzeń i zachować prowadnicy `SortExpression` i `SortDirection` wartości.
+Użycie tej techniki do wstrzykiwania granic grup sortowania wymaga nieco więcej pracy niż opisano powyżej, co jest potrzebne do zapewnienia obsługi zdarzeń dla zdarzenia GridView `Sorting` i śledzenia wartości `SortExpression` i `SortDirection`.
 
-## <a name="manipulating-the-gridview-s-control-collection-after-it-s-been-databound"></a>Manipulowanie GridView s kontrolować zbieranie po nim s została powiązana z danymi
+## <a name="manipulating-the-gridview-s-control-collection-after-it-s-been-databound"></a>Manipulowanie kolekcją formantów GridView
 
-Zamiast wiadomości dane przed wiążące go do widoku GridView, możemy dodać wiersze separator *po* danych została powiązana z kontrolki GridView. Proces wiązania danych są gromadzone hierarchii kontrolki GridView s, który w rzeczywistości jest po prostu `Table` wystąpienia składa się z kolekcji wierszy, każdy z nich składa się z kolekcji komórek. W szczególności zawiera kolekcję kontrolki GridView s `Table` obiektu w jego katalogu głównego, `GridViewRow` (który jest tworzony na podstawie `TableRow` klasy) dla każdego rekordu w `DataSource` powiązany z GridView i `TableCell` obiektu w każdym `GridViewRow` wystąpienia dla każdego pola danych w `DataSource`.
+Zamiast przesyłać komunikaty do danych przed powiązaniem ich z GridView, można dodać wiersze separatora *po* powiązaniu danych z elementem GridView. Proces powiązania danych kompiluje hierarchię formantów GridView, która w rzeczywistości jest po prostu `Table` wystąpieniem składającym się z kolekcji wierszy, z których każdy składa się z kolekcji komórek. W odniesieniu do kolekcji "GridView" w elemencie WebControl zawiera obiekt `Table` w jego elemencie głównym, `GridViewRow` (który pochodzi z klasy `TableRow`) dla każdego rekordu w `DataSource` powiązanego z elementem GridView i `TableCell` obiektu w każdym `GridViewRow` wystąpienia dla każdego pola danych w `DataSource`.
 
-Aby dodać separator wierszy między poszczególnymi grupami sortowania, firma Microsoft bezpośrednio manipulować tej hierarchii kontroli po jego utworzeniu. Firma Microsoft mieć pewność, że utworzono hierarchii kontroli s GridView po raz ostatni przez razem, gdy strona jest renderowany. W związku z tym, ta metoda zastępuje `Page` klasy s `Render` metody, w tym momencie hierarchii kontroli końcowego s GridView została zaktualizowana do wymaganych separatora wierszy. Rysunek 4 przedstawia ten proces.
+Aby dodać wiersze separatora między każdą grupą sortowania, można bezpośrednio manipulować tą hierarchią formantów po jej utworzeniu. Mamy pewność, że hierarchia formantów GridView s została utworzona po raz ostatni przez czas renderowania strony. W związku z tym takie podejście zastępuje metodę `Page` klasy `Render` s, w którym zostanie zaktualizowana Ostatnia hierarchia kontrolki GridView s w celu uwzględnienia wymaganych wierszy separatora. Na rysunku 4 przedstawiono ten proces.
 
-[![Technikę alternatywne manipuluje hierarchii kontroli s GridView](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
+[![technikę alternatywną manipuluje hierarchią formantów GridView](creating-a-customized-sorting-user-interface-vb/_static/image9.png)](creating-a-customized-sorting-user-interface-vb/_static/image8.png)
 
-**Rysunek 4**: Technikę alternatywne manipuluje s GridView hierarchii kontroli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image10.png))
+**Rysunek 4**. Metoda alternatywna manipuluje hierarchią formantów GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image10.png))
 
-W tym samouczku użyjemy to drugie podejście do dostosowywania interfejsu użytkownika sortowania.
+W tym samouczku użyjemy tego ostatniego podejścia do dostosowania środowiska użytkownika do sortowania.
 
 > [!NOTE]
-> Kod I m prezentować w ramach tego samouczka jest oparta na przykład podany w [Teemu Keiski](http://aspadvice.com/blogs/joteke/default.aspx) wpis w blogu s [odtwarzanie bitowej przy użyciu GridView sortowania grupowania](http://aspadvice.com/blogs/joteke/archive/2006/02/11/15130.aspx).
+> Kod I Wyrażam w tym samouczku jest oparty na przykładzie podanym w wpisie na blogu [Teemu Keiski](http://aspadvice.com/blogs/joteke/default.aspx) s, [odtwarzając bit z grupowaniem sortowania GridView](http://aspadvice.com/blogs/joteke/archive/2006/02/11/15130.aspx).
 
-## <a name="step-3-adding-the-separator-rows-to-the-gridview-s-control-hierarchy"></a>Krok 3. Dodawanie wierszy Separator do hierarchii kontroli s GridView
+## <a name="step-3-adding-the-separator-rows-to-the-gridview-s-control-hierarchy"></a>Krok 3. Dodawanie wierszy separatora do hierarchii formantów GridView
 
-Ponieważ chcemy dodać separator wierszy do hierarchii kontroli s GridView, po utworzeniu hierarchii kontroli i utworzony po raz ostatni w tym odwiedź stronę, chcemy wykonać to dodawanie na koniec cyklu życia strony, ale przed rzeczywiste c GridView Hierarchia ontrola zostało wyrenderowane w kodzie HTML. Najnowszy punkt możliwe, w którym firma Microsoft można to zrobić jest `Page` klasy s `Render` zdarzenie, które firma Microsoft może zastąpić w naszych osobna klasa kodu za pomocą następujący podpis metody:
+Ponieważ chcemy dodać wiersze separatora do hierarchii formantów GridView, po utworzeniu hierarchii kontroli i utworzeniu jej po raz ostatni na tej stronie, chcemy wykonać to dodawanie na końcu cyklu życia strony, ale przed rzeczywistym formantem GridView c Hierarchia ontrola została renderowana w kodzie HTML. Ostatnim możliwym punktem, w którym możemy to zrobić, jest zdarzenie `Page` klasy s `Render`, które możemy przesłonić w naszej klasie związanej z kodem przy użyciu następującej sygnatury metody:
 
 [!code-vb[Main](creating-a-customized-sorting-user-interface-vb/samples/sample2.vb)]
 
-Gdy `Page` klasy s, oryginalnym `Render` wywoływana jest metoda `base.Render(writer)` każdej kontrolki na stronie będzie renderowana, generowanie kodu znaczników na podstawie ich hierarchii kontroli. W związku z tym należy bezwzględnie o obu rozmowę `base.Render(writer)`, dzięki czemu wyrenderowaniu strony i możemy manipulować nimi GridView s kontrolować hierarchii przed wywołaniem `base.Render(writer)`, dzięki czemu separator wierszy zostały dodane do hierarchii kontroli s GridView przed nią s został renderowane.
+Gdy metoda pierwotna `Render` klasy `Page` jest wywoływana `base.Render(writer)` każda kontrolka na stronie będzie renderowana, generując znaczniki na podstawie ich hierarchii formantów. W związku z tym należy zastanowić się, że obie metody wywołują `base.Render(writer)`, tak że strona jest renderowana i manipuluje hierarchią formantów GridView, przed wywołaniem `base.Render(writer)`, aby wiersze separatorów zostały dodane do hierarchii formantów GridView.
 
-Można wstrzyknąć nagłówków grup sortowania najpierw należy upewnić się, że użytkownik zażądał, czy dane można sortować. Domyślnie zawartość widoku GridView s nie są sortowane i w związku z tym firma Microsoft don t musisz wprowadzić dowolną grupę sortowanie nagłówków.
+Aby wstrzyknąć nagłówki grup sortowania, najpierw musimy upewnić się, że użytkownik zażądał posortowania danych. Domyślnie zawartość GridView nie jest sortowana i w związku z tym nie trzeba wprowadzać żadnych nagłówków sortowania grup.
 
 > [!NOTE]
-> GridView ma zostać posortowana według określonej kolumny, po pierwszym załadowaniu strony należy wywołać metodę GridView `Sort` metoda pierwszej wizyty strony (ale nie kolejnych ogłaszania zwrotnego). Aby to osiągnąć, należy dodać to wywołanie w `Page_Load` programu obsługi zdarzeń w ramach `if (!Page.IsPostBack)` warunkowe. Odwołaj się do [stronicowanie i sortowanie danych raportu](paging-and-sorting-report-data-vb.md) informacji samouczka, aby uzyskać więcej informacji na temat `Sort` metody.
+> Jeśli chcesz, aby GridView był sortowany według określonej kolumny podczas pierwszego ładowania strony, wywołaj metodę `Sort` GridView na pierwszej stronie odwiedzaj (ale nie na kolejnych ogłaszania zwrotnego). Aby to osiągnąć, należy dodać to wywołanie w obsłudze zdarzeń `Page_Load` w ramach `if (!Page.IsPostBack)` warunkowego. Zapoznaj się z powrotem z informacjami o samouczku dotyczącym [stronicowania i sortowania danych raportu](paging-and-sorting-report-data-vb.md) , aby uzyskać więcej informacji na temat metody `Sort`.
 
-Przy założeniu, że dane zostały posortowane, naszym kolejnym krokiem jest określenie kolumny danych posortowano według, a następnie skanowania wierszy szukasz różnice w tej kolumnie s wartości. Poniższy kod gwarantuje, że dane została posortowana i umożliwia znalezienie kolumny za pomocą którego została posortowana danych:
+Przy założeniu, że dane zostały posortowane, następne zadanie polega na określeniu kolumny, według której dane zostały posortowane, a następnie do skanowania wierszy szukających różnic w tych wartościach kolumn. Poniższy kod gwarantuje, że dane zostały posortowane i znajduje kolumnę, według której zostały posortowane dane:
 
 [!code-vb[Main](creating-a-customized-sorting-user-interface-vb/samples/sample3.vb)]
 
-Jeśli ma widoku GridView jeszcze być sortowane, GridView s `SortExpression` właściwość będzie nie ustawiono. W związku z tym tylko chcemy dodać separator wierszy, jeśli ta właściwość ma kilka wartości. Jeśli tak jest, następnie należy określić indeks kolumny za pomocą którego została posortowana danych. Jest to osiągane przez pętli GridView s `Columns` kolekcji, wyszukując kolumny, których `SortExpression` właściwości jest równa GridView s `SortExpression` właściwości. Oprócz indeksu kolumny s, możemy również Pobierz `HeaderText` właściwość, która jest używana podczas wyświetlania separatora wierszy.
+Jeśli widok GridView nie został jeszcze posortowany, właściwość GridView `SortExpression` nie zostanie ustawiona. W związku z tym chcemy tylko dodać wiersze separatora, jeśli ta właściwość ma pewną wartość. Jeśli tak, następnym musimy określić indeks kolumny, według której zostały posortowane dane. Jest to realizowane przez zapętlenie w kolekcji `Columns` GridView i wyszukiwanie kolumny, której Właściwość `SortExpression` jest równa właściwości GridView w `SortExpression`. Oprócz indeksu kolumn s ponosimy również właściwość `HeaderText`, która jest używana podczas wyświetlania wierszy separatora.
 
-Indeks kolumny, według której dane są sortowane ostatnim krokiem jest wyliczanie wierszy GridView. Dla każdego wiersza należy ustalić, czy wartość s kolumna posortowanego różni się od poprzedniej wartości s kolumny s posortowanych wierszy. Jeśli tak więc należy wstawić nową `GridViewRow` wystąpienia w hierarchii kontroli. Jest to realizowane przy użyciu następującego kodu:
+W przypadku indeksu kolumny, według której są sortowane dane, ostatnim krokiem jest Wyliczenie wierszy widoku GridView. Dla każdego wiersza należy określić, czy posortowana wartość kolumny s różni się od posortowanej wartości kolumny s z poprzedniego wiersza s. Jeśli tak, musimy wstrzyknąć nowe wystąpienie `GridViewRow` do hierarchii formantów. Jest to realizowane przy użyciu następującego kodu:
 
 [!code-vb[Main](creating-a-customized-sorting-user-interface-vb/samples/sample4.vb)]
 
-Ten kod uruchamia programowo odwołując `Table` obiektu znalezione w folderze głównym hierarchii kontroli s GridView i utworzenie zmiennej ciągu o nazwie `lastValue`. `lastValue` Służy do porównywania wartości bieżącego wiersza s sortowane kolumny z poprzedniej wartości wiersza s. Następnie, GridView s `Rows` kolekcji są wyliczane dla każdego wiersza wartości kolumna posortowanego jest ona przechowywana w `currentValue` zmiennej.
+Ten kod jest uruchamiany przez programowe odwołujące się do `Table` obiektu znajdującego się w katalogu głównym hierarchii formantów GridView i tworząc zmienną ciągu o nazwie `lastValue`. `lastValue` służy do porównywania bieżącego wiersza s posortowanej kolumny z poprzednim wierszem wartości. Następnie zostanie wyliczona kolekcja `Rows` GridView i dla każdego wiersza wartość posortowanej kolumny jest przechowywana w zmiennej `currentValue`.
 
 > [!NOTE]
-> Do określenia wartości kolumny określonego wiersza s sortowane używam komórki s `Text` właściwości. To działa dobrze w przypadku BoundFields, ale będzie nie działa zgodnie z potrzebami, w przypadku kontrolek TemplateField, CheckBoxFields i tak dalej. Omówimy sposób konta alternatywne pól GridView wkrótce.
+> Aby określić wartość konkretnej kolumny posortowanej wiersz s, użyj właściwości `Text` komórki. To dobrze sprawdza się w przypadku BoundFields, ale nie będzie działać zgodnie z potrzebami używanie TemplateField, CheckBoxFields i tak dalej. Wkrótce dowiesz się, jak szybko rozróżnić pola GridView.
 
-`currentValue` i `lastValue` zmienne są porównywane. Jeśli będą się różnić musimy dodać nowy wiersz separator do hierarchii kontroli. Jest to realizowane poprzez określenie indeks `GridViewRow` w `Table` obiektu s `Rows` kolekcji, tworzenie nowych `GridViewRow` i `TableCell` wystąpień, a następnie dodając `TableCell` i `GridViewRow` do hierarchii kontroli.
+Zmienne `currentValue` i `lastValue` są porównywane. Jeśli różnią się one, należy dodać nowy wiersz separatora do hierarchii formantów. W tym celu należy określić indeks `GridViewRow` w kolekcji `Table` obiektów `Rows`, tworząc nowe wystąpienia `GridViewRow` i `TableCell`, a następnie dodając `TableCell` i `GridViewRow` do hierarchii formantów.
 
-Należy pamiętać, że separator wierszy s pojedynczy `TableCell` jest sformatowany w taki sposób, że obejmuje całą szerokość GridView, jest formatowana przy użyciu `SortHeaderRowStyle` klasy CSS i jego `Text` takie pokazuje grupy sortowania nazwa właściwości (na przykład kategoria) i Wartość s grupy (na przykład Beverages). Na koniec `lastValue` został zaktualizowany do wartości `currentValue`.
+Należy zauważyć, że wiersz separatora s Lone `TableCell` jest sformatowany w taki sposób, że obejmuje całą szerokość GridView, jest formatowana przy użyciu `SortHeaderRowStyle`j klasy CSS i ma właściwość `Text` w taki sposób, aby pokazywała zarówno nazwę grupy sortowania (na przykład kategorię), jak i wartość grupy (na przykład napoje). Na koniec `lastValue` jest aktualizowana do wartości `currentValue`.
 
-Klasy CSS, używany do formatowania sortowania wiersz nagłówka grupy `SortHeaderRowStyle` musi być określona w `Styles.css` pliku. Możesz skorzystać, niezależnie od ustawienia stylu odwołania się do Ciebie; Czy mogę używane następujące czynności:
+Klasa CSS używana do formatowania wiersza nagłówka grupy sortowania `SortHeaderRowStyle` musi być określona w pliku `Styles.css`. Korzystaj z dowolnych ustawień stylów, które można odwoływać do Ciebie. Zostały użyte następujące elementy:
 
 [!code-css[Main](creating-a-customized-sorting-user-interface-vb/samples/sample5.css)]
 
-Przy użyciu bieżącego kodu interfejsu sortowania dodaje nagłówków grup sortowania, gdy sortowanie według dowolnego elementu BoundField (zobacz rysunek 5, która zawiera zrzut ekranu podczas sortowania przez dostawcę). Jednak podczas sortowania przez inny typ pola (na przykład CheckBoxField lub TemplateField) sortowania grupy nagłówki są nigdzie nie można odnaleźć (patrz rysunek 6).
+W bieżącym kodzie interfejs sortowania dodaje nagłówki grup sortowania podczas sortowania według dowolnego BoundFieldu (zobacz rysunek 5, który pokazuje zrzut ekranu podczas sortowania według dostawcy). Jednak podczas sortowania według dowolnego innego typu pola (na przykład CheckBoxField lub TemplateField) nagłówki grup sortowania są Nowhere (zobacz rysunek 6).
 
-[![Interfejs sortowania zawiera nagłówki Sortuj i Grupuj, gdy sortowanie według BoundFields](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
+[![interfejs sortowania zawiera nagłówki grup sortowania podczas sortowania według BoundFields](creating-a-customized-sorting-user-interface-vb/_static/image12.png)](creating-a-customized-sorting-user-interface-vb/_static/image11.png)
 
-**Rysunek 5**: Sortowanie interfejsu obejmuje sortowania grupy nagłówków podczas sortowania przez BoundFields ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image13.png))
+**Rysunek 5**. interfejs sortowania zawiera nagłówki grup sortowania podczas sortowania według BoundFields ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image13.png))
 
-[![Nagłówki grupy sortowania są, Brak podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image15.png)](creating-a-customized-sorting-user-interface-vb/_static/image14.png)
+[![brak nagłówków grupy sortowania podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image15.png)](creating-a-customized-sorting-user-interface-vb/_static/image14.png)
 
-**Rysunek 6**: Nagłówki grupy sortowania są, Brak podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image16.png))
+**Ilustracja 6**. brak nagłówków grupy sortowania podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image16.png))
 
-Przyczyną nagłówków grup sortowania występują, gdy sortowanie według CheckBoxField jest kod aktualnie używa tylko `TableCell` s `Text` właściwości w celu określenia wartości posortowanej kolumny dla każdego wiersza. Dla CheckBoxFields `TableCell` s `Text` właściwości jest ciągiem pustym; zamiast tego wartość jest dostępna za pośrednictwem formant pola wyboru w sieci Web, który znajduje się w obrębie `TableCell` s `Controls` kolekcji.
+Brak nagłówków grupy sortowania podczas sortowania przez CheckBoxField jest to spowodowane tym, że kod używa obecnie tylko właściwości `TableCell` s `Text` do określenia wartości kolumny posortowanej dla każdego wiersza. W przypadku CheckBoxFields Właściwość `Text` `TableCell` jest pustym ciągiem; Zamiast tego wartość jest dostępna za pomocą kontrolki sieci Web CheckBox, która znajduje się w kolekcji `TableCell` s `Controls`.
 
-Do obsługi pola typów innych niż BoundFields, należy rozszerzyć kod gdzie `currentValue` zmienna jest przypisywana do sprawdzenia istnienia pola wyboru w `TableCell` s `Controls` kolekcji. Zamiast używania `currentValue = gvr.Cells(sortColumnIndex).Text`, Zastąp kod następującym kodem:
+Aby obsłużyć typy pól inne niż BoundFields, musimy rozszerzyć kod, do którego przypisano zmienną `currentValue`, aby sprawdzić obecność pola wyboru w kolekcji `TableCell` s `Controls`. Zamiast używać `currentValue = gvr.Cells(sortColumnIndex).Text`, Zastąp ten kod następującym:
 
 [!code-vb[Main](creating-a-customized-sorting-user-interface-vb/samples/sample6.vb)]
 
-Ten kod sprawdza, czy kolumna posortowanego `TableCell` dla bieżącego wiersza w celu określenia, czy formanty w `Controls` kolekcji. Jeśli istnieją, a pierwszy formant jest to pole wyboru, `currentValue` zmienna jest ustawiona tak lub nie, w zależności od s wyboru `Checked` właściwości. W przeciwnym razie wartość jest pobierana z `TableCell` s `Text` właściwości. Tę logikę można replikować do obsługi sortowania dla wszelkich kontrolek TemplateField, który może znajdować się w widoku GridView.
+Ten kod sprawdza posortowaną kolumnę `TableCell` dla bieżącego wiersza, aby określić, czy w kolekcji `Controls` znajdują się jakiekolwiek kontrolki. Jeśli istnieją, a pierwszy formant to pole wyboru, zmienna `currentValue` jest ustawiona na tak lub nie, w zależności od Właściwości CheckBox `Checked`. W przeciwnym razie wartość jest pobierana z właściwości `Text` `TableCell`. Tę logikę można zreplikować, aby obsłużyć sortowanie dla wszystkich używanie TemplateField, które mogą istnieć w widoku GridView.
 
-Dodając kod powyżej, nagłówków grup sortowania są teraz, gdy sortowanie według CheckBoxField zakończona (zobacz rysunek 7).
+Za pomocą powyższego kodu nagłówki grup sortowania są teraz obecne podczas sortowania przez wycofane CheckBoxField (patrz rysunek 7).
 
-[![Nagłówki grupy sortowania są teraz obecny podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image18.png)](creating-a-customized-sorting-user-interface-vb/_static/image17.png)
+[![nagłówki grup sortowania są teraz obecne podczas sortowania CheckBoxField](creating-a-customized-sorting-user-interface-vb/_static/image18.png)](creating-a-customized-sorting-user-interface-vb/_static/image17.png)
 
-**Rysunek 7**: Nagłówki grupy sortowania są teraz obecny podczas sortowania CheckBoxField ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image19.png))
+**Rysunek 7**. nagłówki grup sortowania są teraz obecne podczas sortowania CheckBoxField (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](creating-a-customized-sorting-user-interface-vb/_static/image19.png))
 
 > [!NOTE]
-> W przypadku produktów dzięki `NULL` bazy danych wartości `CategoryID`, `SupplierID`, lub `UnitPrice` pól, te wartości będą wyświetlane jako puste ciągi w widoku GridView domyślnie, co oznacza separator tekst wiersza s dla tych produktów z `NULL`odczyta wartości takich jak kategoria: (czyli tam s Brak nazwy po kategorii: za pomocą kategorii, takich jak: Beverages). Jeśli chcesz użyć wartości wyświetlane w tym miejscu można ustawić BoundFields [ `NullDisplayText` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) tekstu mają być wyświetlane lub Dodaj instrukcję warunkową w metodzie renderowania podczas przypisywania `currentValue` do separatora Wiersz s `Text` właściwości.
+> Jeśli masz produkty mające `NULL` wartości bazy danych dla pól `CategoryID`, `SupplierID`lub `UnitPrice`, te wartości będą wyświetlane jako puste ciągi w widoku GridView domyślnie, co oznacza, że tekst wiersza separatora dla tych produktów z wartościami `NULL` będzie odczytywany jak Kategoria: (to znaczy, że nie ma nazwy po kategorii: podobnej do kategorii: napoje). Jeśli chcesz wyświetlić wartość w tym miejscu, możesz ustawić [Właściwość BoundFields`NullDisplayText`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) na tekst, który ma być wyświetlany, lub dodać instrukcję warunkową do metody Render podczas przypisywania `currentValue` do właściwości `Text` wiersza separatora.
 
 ## <a name="summary"></a>Podsumowanie
 
-Kontrolki GridView nie zawiera wiele wbudowanych opcji dostosowywania interfejsu sortowania. Jednak w przypadku znacznej liczby niskiego poziomu kodu go s umożliwia dostosowanie hierarchię GridView s kontroli w celu utworzenia bardziej dostosowanego interfejsu. Jak dodać wiersz separatora grupy sortowania dla GridView można sortować, łatwiej identyfikuje różne grupy i tych grup granic widzieliśmy w ramach tego samouczka. Aby uzyskać więcej przykładów niestandardowych interfejsów sortowania, zapoznaj się [Scott Guthrie](https://weblogs.asp.net/scottgu/) s [kilka ASP.NET 2.0 GridView sortowanie porady i wskazówki](https://weblogs.asp.net/scottgu/archive/2006/02/11/437995.aspx) wpis w blogu.
+Widok GridView nie zawiera wielu wbudowanych opcji dostosowywania interfejsu sortowania. Jednak przy użyciu bitu kodu niskiego poziomu można dostosować hierarchię formantów GridView, aby utworzyć bardziej dostosowany interfejs. W tym samouczku dowiesz się, jak dodać wiersz separatora grupy sortowania dla widoku GridView do sortowania, który łatwiej identyfikuje odrębne grupy i te grupy. Aby zapoznać się z dodatkowymi przykładami niestandardowych interfejsów sortowania, zapoznaj się z [Scott Guthrie](https://weblogs.asp.net/scottgu/) s [a ASP.NET 2,0](https://weblogs.asp.net/scottgu/archive/2006/02/11/437995.aspx) .
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
-> [Poprzednie](sorting-custom-paged-data-vb.md)
+> [Ubiegł](sorting-custom-paged-data-vb.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
-title: Część 5. Tworzenie dynamicznego interfejsu użytkownika z użyciem Knockout.js | Dokumentacja firmy Microsoft
+title: 'Część 5: Tworzenie dynamicznego interfejsu użytkownika z odcinaniem. js | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -8,90 +8,90 @@ ms.date: 07/04/2012
 ms.assetid: 9d9cb3b0-f4a7-434e-a508-9fc0ad0eb813
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: b06f738d821d78f74069c3bf0f6c0880796195d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: bbdeba756de7986cfeb92aa10a57f4f101382f99
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393291"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74599995"
 ---
-# <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Część 5. Tworzenie dynamicznego interfejsu użytkownika z użyciem biblioteki Knockout.js
+# <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Część 5. Tworzenie dynamicznego interfejsu użytkownika przy użyciu narzędzia separowania. js
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-a-dynamic-ui-with-knockoutjs"></a>Tworzenie dynamicznego interfejsu użytkownika z użyciem biblioteki Knockout.js
 
-W tej sekcji użyjemy struktura Knockout.js Dodawanie funkcji do widoku administratora.
+W tej sekcji będziemy używać odcinania. js do dodawania funkcji do widoku administratora.
 
-[Struktura Knockout.js](http://knockoutjs.com/) to biblioteka języka Javascript, która ułatwia powiązania kontrolek HTML do danych. Struktura Knockout.js używa wzorca Model-View-ViewModel (MVVM).
+[Separowanie. js](http://knockoutjs.com/) to biblioteka języka JavaScript, która ułatwia powiązanie formantów HTML z danymi. Separowanie. js używa wzorca Model-View-ViewModel (MVVM).
 
-- *Modelu* jest po stronie serwera reprezentacja danych w domenie firmy (w naszym przypadku, produkty i zamówienia).
-- *Widoku* to warstwa prezentacji (HTML).
-- *Model widoku* jest obiekt Javascript, która przechowuje dane modelu. Model widoku jest abstrakcji kodu interfejsu użytkownika. Go nie zna reprezentacji w formacie HTML. Zamiast tego reprezentuje abstrakcyjnej funkcji widoku, takie jak "Lista elementów".
+- *Model* jest reprezentacją po stronie serwera danych w domenie biznesowej (w naszym przypadku, produkty i zamówienia).
+- *Widok* jest warstwą prezentacji (html).
+- *Model widoku* to obiekt JavaScript, który zawiera dane modelu. Model widoku jest abstrakcją kodu interfejsu użytkownika. Nie ma informacji o reprezentacji HTML. Zamiast tego reprezentuje funkcje abstrakcyjne widoku, takie jak "Lista elementów".
 
-Widok jest powiązany z danymi model widoku. Model widoku aktualizacje są automatycznie odzwierciedlane w widoku. Model widoku również pobiera zdarzenia z widoku, takich jak kliknięcia przycisków i wykonuje operacje na modelu, na przykład utworzyć zamówienie.
+Widok jest powiązany z danymi z modelem widoku. Aktualizacje widoku-model są automatycznie odzwierciedlane w widoku. Model widoku również pobiera zdarzenia z widoku, takie jak kliknięcie przycisku i wykonuje operacje na modelu, takie jak tworzenie zamówienia.
 
 ![](using-web-api-with-entity-framework-part-5/_static/image1.png)
 
-Najpierw zdefiniujemy model widoku. Po tym firma Microsoft będzie powiązać kod znaczników HTML model widoku.
+Najpierw zdefiniujemy model widoku. Następnie powiążemy znacznik HTML z modelem widoku.
 
-Dodaj następującą sekcję Razor do Admin.cshtml:
+Dodaj następującą sekcję Razor do admin. cshtml:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample1.cshtml)]
 
-W tej sekcji można dodać w dowolnym miejscu w pliku. Podczas renderowania widoku sekcji pojawi się w dolnej części strony HTML bezpośrednio przed zamykającym &lt;/body&gt; tagu.
+Tę sekcję można dodać w dowolnym miejscu w pliku. Gdy widok jest renderowany, sekcja pojawia się u dołu strony HTML bezpośrednio przed tagiem zamykającym &lt;/Body&gt;.
 
-Wszystkie skrypt na tej stronie zaczną się wewnątrz tagu wskazywanym przez komentarz:
+Cały skrypt dla tej strony zostanie umieszczony wewnątrz tagu skryptu wskazywanym przez komentarz:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample2.html)]
 
-Najpierw należy zdefiniować klasę modelu widoku:
+Najpierw Zdefiniuj klasę widoku-model:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample3.js)]
 
-**ko.observableArray** to specjalny rodzaj obiektu w Knockout, o nazwie *obserwowalnymi*. Z [dokumentacji struktura Knockout.js](http://knockoutjs.com/documentation/observables.html): Możliwość obserwowania jest "JavaScript obiekt, który może generować powiadomienia subskrybentów o zmianach." Po zmianie zawartości możliwość obserwowania, widok jest automatycznie aktualizowana do dopasowania.
+**ko. observableArray** jest specjalnym rodzajem obiektu w odróżnieniu, nazywanym *zauważalnością*. Z [dokumentacji odcinania. js](http://knockoutjs.com/documentation/observables.html): zauważalny jest "obiekt JavaScript, który może powiadamiać subskrybentów o zmianach". Gdy zawartość zauważalnej zmiany, widok zostanie automatycznie zaktualizowany do dopasowania.
 
-Aby wypełnić `products` tablicy, przesyłania żądania AJAX do internetowego interfejsu API. Odwołaj, firma Microsoft przechowywane podstawowy identyfikator URI dla interfejsu API w zbiorze widoku (zobacz [część 4](using-web-api-with-entity-framework-part-4.md) tego samouczka).
+Aby wypełnić tablicę `products`, Utwórz żądanie AJAX do internetowego interfejsu API. Odwołaj, że został zapisany podstawowy identyfikator URI dla interfejsu API w worku widoku (zobacz [część 4](using-web-api-with-entity-framework-part-4.md) samouczka).
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample4.js?highlight=5)]
 
-Następnie dodaj funkcje do modelu widoku na tworzenie, aktualizowanie i usuwanie produktów. Te funkcje przesyłania wywołania AJAX do internetowego interfejsu API i użyj wyników, aby zaktualizować model widoku.
+Następnie Dodaj funkcje do modelu widoku, aby tworzyć, aktualizować i usuwać produkty. Te funkcje przesyłają wywołania AJAX do internetowego interfejsu API i używają wyników do aktualizowania modelu widoku.
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample5.js?highlight=7)]
 
-Teraz najważniejszy element: Gdy DOM jest fulled załadowany, wywołanie **ko.applyBindings** działać, a następnie przekazać nowe wystąpienie klasy `ProductsViewModel`:
+Teraz najważniejszym elementem: gdy DOM jest zapełniony, wywołaj funkcję **ko. applyBindings** i przekaż nowe wystąpienie `ProductsViewModel`:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-5/samples/sample6.js)]
 
-**Ko.applyBindings** metoda aktywuje Knockout i tworzącej powiązania modelu widoku do widoku.
+Metoda **ko. applyBindings** umożliwia aktywowanie odcinania i nacinanie modelu widoku do widoku.
 
-Teraz, gdy model widoku, możemy utworzyć powiązania. W struktura Knockout.js, możesz to zrobić, dodając `data-bind` atrybutów elementów HTML. Na przykład, aby powiązać lista HTML do tablicy, należy użyć `foreach` powiązania:
+Teraz, gdy mamy już model widoku, możemy utworzyć powiązania. W pliku separowania. js można to zrobić, dodając atrybuty `data-bind` do elementów HTML. Na przykład, aby powiązać listę HTML z tablicą, użyj powiązania `foreach`:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample7.html?highlight=1)]
 
-`foreach` Powiązanie dokonuje iteracji tablicy i tworzy elementy dla każdego obiektu podrzędnego w tablicy. Wiązania na elementy podrzędne mogą odwoływać się do właściwości obiektów w tablicy.
+Powiązanie `foreach` wykonuje iterację przez tablicę i tworzy elementy podrzędne dla każdego obiektu w tablicy. Powiązania elementów podrzędnych mogą odwoływać się do właściwości obiektów array.
 
-Dodaj następujące powiązania do listy "update produkty":
+Dodaj następujące powiązania do listy "aktualizacje produktów":
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample8.html)]
 
-`<li>` Element występuje zakresie **foreach** powiązania. Czy oznacza, że będą Knockout renderować element raz dla każdego produktu w `products` tablicy. Wszystkie powiązania w ramach `<li>` element odwołują się do tego wystąpienia produktu. Na przykład `$data.Name` odwołuje się do `Name` właściwość nad produktem.
+Element `<li>` występuje w zakresie powiązania **foreach** . Oznacza to, że odcinanie będzie renderować element jeden raz dla każdego produktu w tablicy `products`. Wszystkie powiązania w ramach elementu `<li>` odwołują się do tego wystąpienia produktu. Na przykład `$data.Name` odwołuje się do właściwości `Name` produktu.
 
-Aby ustawić wartości tekstowe dane wejściowe, użyj `value` powiązania. Przyciski są powiązane z funkcji na widok modelu przy użyciu `click` powiązania. Wystąpienie produktu jest przekazywany jako parametr do każdej funkcji. Aby uzyskać więcej informacji [dokumentacji struktura Knockout.js](http://knockoutjs.com/documentation/observables.html) ma dobrą opisy różnych powiązania.
+Aby ustawić wartości danych wejściowych tekstu, użyj powiązania `value`. Przyciski są powiązane z funkcjami w widoku model, przy użyciu powiązania `click`. Wystąpienie produktu jest przesyłane jako parametr do każdej funkcji. Aby uzyskać więcej informacji, [Dokumentacja dotycząca odcinania. js](http://knockoutjs.com/documentation/observables.html) ma dobre opisy różnych powiązań.
 
-Następnie Dodaj powiązanie dla **przesłać** zdarzeń w formularzu Dodawanie produktu:
+Następnie Dodaj powiązanie dla zdarzenia **Prześlij** na formularzu Dodaj produkt:
 
 [!code-html[Main](using-web-api-with-entity-framework-part-5/samples/sample9.html)]
 
-Wywołuje to powiązanie `create` funkcji na podstawie modelu widoku, aby utworzyć nowy produkt.
+To powiązanie wywołuje funkcję `create` w modelu widoku, aby utworzyć nowy produkt.
 
-Oto kompletny kod dla widoku administratora:
+Oto pełen kod widoku administratora:
 
 [!code-cshtml[Main](using-web-api-with-entity-framework-part-5/samples/sample10.cshtml)]
 
-Uruchom aplikację, zaloguj się przy użyciu konta administratora, a następnie kliknij link "Admin". Należy zapoznać się z listą produktów i mieć możliwość utworzenia, aktualizacji lub usunięcia produktów.
+Uruchom aplikację, zaloguj się przy użyciu konta administratora, a następnie kliknij link "Administrator". Powinna zostać wyświetlona lista produktów i będzie można tworzyć, aktualizować lub usuwać produkty.
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-web-api-with-entity-framework-part-4.md)

@@ -1,118 +1,118 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
-title: Użytkownicy i role w produkcyjnej witrynie internetowej (VB) | Dokumentacja firmy Microsoft
+title: Użytkownicy i role w produkcyjnej witrynie internetowej (VB) | Microsoft Docs
 author: rick-anderson
-description: ASP.NET witryny sieci Web Administracja narzędzia (WSAT) udostępnia interfejs użytkownika oparty na sieci web do konfigurowania ustawień członkostwo i role oraz do tworzenia, edytowania,...
+description: Narzędzie do administrowania witryną sieci Web ASP.NET (WSAT) udostępnia internetowy interfejs użytkownika służący do konfigurowania ustawień członkostwa i ról oraz do tworzenia, edytowania, a...
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df863fc6740847101c9900750a3f257c19ced9fd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: d4ce8b278322684be2d44faefd6e69fc524bbe18
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134204"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74617939"
 ---
 # <a name="users-and-roles-on-the-production-website-vb"></a>Użytkownicy i role w produkcyjnej witrynie internetowej (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial16_CustomAWAT_vb.pdf)
 
-> ASP.NET witryny sieci Web Administracja narzędzia (WSAT) zapewnia interfejs użytkownika oparty na sieci web, do konfigurowania ustawień członkostwo i role oraz tworzenie, edytowanie i usuwanie użytkowników i ról. Niestety WSAT działa tylko po odwiedzeniu z hostem lokalnym, co oznacza, że narzędzie administracyjne w produkcyjnej witrynie internetowej nie może się połączyć za pośrednictwem przeglądarki. Dobra wiadomość jest istnieją obejścia, które umożliwiają zarządzanie użytkownikami i rolami w środowisku produkcyjnym. W tym samouczku patrzy na tego rodzaju obejścia i innym osobom.
+> Narzędzie do administrowania witryną sieci Web ASP.NET (WSAT) udostępnia internetowy interfejs użytkownika służący do konfigurowania ustawień członkostwa i ról oraz do tworzenia, edytowania i usuwania użytkowników i ról. Niestety, WSAT działa tylko po odwiedzeniu z hosta lokalnego, co oznacza, że nie można skontaktować się z narzędziem administracyjnym produkcyjnej witryny sieci Web za pośrednictwem przeglądarki. Dobrym sposobem jest obejście tego problemu, które umożliwiają zarządzanie użytkownikami i rolami w środowisku produkcyjnym. Ten samouczek analizuje te obejścia i inne.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Program ASP.NET 2.0 wprowadzono szereg *usługi aplikacji*, zestawu bloków konstrukcyjnych usługi, które można dodać do aplikacji sieci web, które są. Dodaliśmy usługi członkostwa i ról do witryny sieci Web przeglądy książki z powrotem w [ *Konfigurowanie witryny sieci Web, korzysta z usługi aplikacji* samouczek](configuring-a-website-that-uses-application-services-vb.md). Usługą członkostwa ułatwia tworzenie i zarządzanie nimi kont użytkowników. usługi ról udostępnia interfejs API na potrzeby kategoryzowania użytkowników w grupach. Witryna przeglądy książki ma trzy konta użytkowników — Scott, Jisun i Alicja — i jedną rolę administratora, Scott i Jisun w roli administratora.
+W ASP.NET 2,0 wprowadzono wiele *usług aplikacji*, które stanowią pakiet usług blokowych, które można dodać do aplikacji sieci Web. Dodaliśmy usługi członkostwa i ról do witryny internetowej przeglądów książki w obszarze [ *Konfigurowanie witryny sieci Web korzystającej z usługi aplikacji* samouczka](configuring-a-website-that-uses-application-services-vb.md). Usługa członkostwa ułatwia tworzenie kont użytkowników i zarządzanie nimi; Usługa role oferuje interfejs API do kategoryzowania użytkowników w grupach. Witryna przeglądy książek ma trzy konta użytkowników — Scott, Jisun i Alicja — oraz jedną rolę, administratora, z Scott i Jisun w roli administratora.
 
-ASP. Usługi aplikacji w sieci nie są związane z konkretnej implementacji. Zamiast tego należy wydać polecenie usługi aplikacji, aby użyć określonego *dostawcy*, i że dostawcy implementuje usługę za pomocą określonej technologii. Skonfigurowaliśmy przeglądy książki aplikacji sieci web, użyj `SqlMembershipProvider` i `SqlRoleProvider` dostawcami usług członkostwa i ról. Tych dwóch dostawców przechowywania informacji o kontach i roli użytkownika w bazie danych programu SQL Server i są najczęściej używane dostawców internetowych aplikacji sieci web hostowanych w sieci web firma zapewniająca hosting.
+ASP.NET. Usługi aplikacji sieci nie są powiązane z konkretną implementacją. Zamiast tego należy nakazać usługom aplikacji użycie określonego *dostawcy*, a ten dostawca implementuje usługę przy użyciu określonej technologii. Skonfigurowano aplikację sieci Web przeglądający książki pod kątem używania dostawców `SqlMembershipProvider` i `SqlRoleProvider` dla usług członkostwa i ról. Ci dwaj dostawcy przechowują informacje o koncie użytkownika i roli w bazie danych SQL Server i są najczęściej używanymi dostawcami dla internetowych aplikacji sieci Web hostowanych w firmie hostingu w sieci Web.
 
-Typowe wyzwanie dla deweloperów korzystających z usług członkostwa i ról jest zarządzany, użytkownicy i role w środowisku produkcyjnym. Jak można usunąć konto użytkownika z witryny sieci Web produkcji, dodać nową rolę lub dodać istniejącego użytkownika do istniejącej roli? W tym samouczku przedstawiono różnych technik do zarządzania użytkownikami i rolami w produkcyjnej witrynie internetowej.
+Typowym wyzwaniem dla deweloperów korzystającym z usług członkostwa i ról jest zarządzanie użytkownikami i rolami w środowisku produkcyjnym. Jak usunąć konto użytkownika z produkcyjnej witryny sieci Web, dodać nową rolę lub dodać istniejącego użytkownika do istniejącej roli? W tym samouczku przedstawiono różne techniki zarządzania użytkownikami i rolami w produkcyjnej witrynie sieci Web.
 
-## <a name="using-the-aspnet-web-site-administration-tool"></a>Za pomocą narzędzia do administrowania witryną sieci Web platformy ASP.NET
+## <a name="using-the-aspnet-web-site-administration-tool"></a>Korzystanie z narzędzia do administrowania witryną sieci Web ASP.NET
 
-Program ASP.NET zawiera [narzędzie Administratorskie witryny sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) ułatwia tworzenie i zarządzanie nimi kont użytkowników i ról oraz do określania reguł autoryzacji użytkowników i opartą na roli. Aby użyć WSAT, kliknij ikonę Konfiguracja ASP.NET w Eksploratorze rozwiązań lub przejść do menu witryny sieci Web lub projektu i wybierz opcję Konfiguracja platformy ASP.NET. Każda z tych metod otworzy w przeglądarce sieci web i wskazuje on WSAT pod adresem, takich jak: `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET obejmuje [Narzędzie do administrowania witryną sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT), które ułatwia tworzenie kont i ról użytkowników oraz zarządzanie nimi, a także Określanie reguł autoryzacji opartych na użytkownikach i rolach. Aby użyć WSAT, kliknij ikonę konfiguracji ASP.NET w Eksplorator rozwiązań lub przejdź do menu witryny sieci Web lub projektu i wybierz opcję Konfiguracja ASP.NET. Jedno z metod uruchamia przeglądarkę internetową i wskazuje na WSAT na adres, na przykład: `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT jest podzielony na trzy sekcje:
 
-- **Zabezpieczenia** — Zarządzanie użytkownikami, ról i reguł autoryzacji.
-- **ApplicationConfiguration** — zarządzanie &lt;appSettings&gt; i ustawień SMTP, w tym miejscu. Użytkownik może również nastavit aplikaci offline i zarządzanie debugowania i śledzenia ustawienia w tym miejscu, a także określić domyślną stronę błędu niestandardowego.
-- **ProviderConfiguration** — Konfigurowanie dostawców dla usług aplikacji.
+- **Zabezpieczenia** — zarządzanie użytkownikami, rolami i regułami autoryzacji.
+- **ApplicationConfiguration** — w tym miejscu Zarządzaj &lt;AppSettings&gt; i ustawień SMTP. Możesz również przełączyć aplikację w tryb offline i zarządzać ustawieniami debugowania i śledzenia z tego miejsca, a także określić domyślną stronę błędu niestandardowego.
+- **ProviderConfiguration** — Skonfiguruj dostawców używanych przez usługi aplikacji.
 
-Sekcja zabezpieczeń (objętego **rysunek 1**) zawiera linki do tworzenia nowych użytkowników, zarządzanie użytkownikami, tworzenie i zarządzanie rolami oraz tworzenie i zarządzanie regułami dostępu. W tym miejscu można dodać nową rolę systemu, usuwać użytkowników, lub Dodaj lub Usuń role z określonego konta użytkownika.
+Sekcja zabezpieczenia (pokazana na **rysunku 1**) zawiera linki do tworzenia nowych użytkowników, zarządzania użytkownikami, tworzenia ról i zarządzania nimi oraz tworzenia reguł dostępu i zarządzania nimi. W tym miejscu możesz dodać nową rolę do systemu, usunąć istniejącego użytkownika lub dodać lub usunąć role z określonego konta użytkownika.
 
 [![](users-and-roles-on-the-production-website-vb/_static/image2.png)](users-and-roles-on-the-production-website-vb/_static/image1.png)
 
-**Rysunek 1**: Sekcja zabezpieczeń WSAT obejmuje opcje zarządzania użytkownikami i rolami  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image3.png))
+**Rysunek 1**. sekcja zabezpieczeń WSAT zawiera opcje zarządzania użytkownikami i rolami  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image3.png))
 
-Niestety WSAT jest dostępny tylko lokalnie. Nie można znaleźć WSAT w witrynie internetowej zdalnego w środowisku produkcyjnym; w przypadku odwiedzenia `www.yoursite.com/asp.netwebadminfiles/default.aspx` otrzymasz odpowiedź 404 Nie znaleziono. Kod, który obsługuje używa WSAT `Membership` i `Roles` klasy w .NET Framework do tworzenia, edytowania i usuwania użytkowników i ról. Informacje o konfiguracji aplikacji sieci web, aby określić, jakie dostawcy, które mają być używane; zapoznaj się z tych klas ponownie [ *Konfigurowanie witryny sieci Web, korzysta z usługi aplikacji* samouczek](configuring-a-website-that-uses-application-services-vb.md) będziemy konfigurować książki, przeglądy witryny sieci Web do użycia `SqlMembershipProvider` i `SqlRoleProvider` dostawców. To tytułu, dodając `<membership>` i `<roleManager>` sekcje do `Web.config`.
+Niestety, WSAT jest dostępna tylko lokalnie. Nie można odwiedzić WSAT w zdalnej witrynie produkcyjnej. Jeśli odwiedzasz, `www.yoursite.com/asp.netwebadminfiles/default.aspx` nie znaleziono odpowiedzi 404. Kod, który ma uprawnienia WSAT, używa klas `Membership` i `Roles` w .NET Framework do tworzenia, edytowania i usuwania użytkowników i ról. Te klasy zapoznaj się z informacjami o konfiguracji aplikacji sieci Web w celu określenia dostawcy do użycia; po powrocie do [ *konfigurowania witryny sieci Web korzystającej z usługi aplikacji* samouczka](configuring-a-website-that-uses-application-services-vb.md) skonfigurujemy witrynę internetową Recenzje, aby korzystać z dostawców `SqlMembershipProvider` i `SqlRoleProvider`. To wymagało dodania `<membership>` i `<roleManager>` sekcji do `Web.config`.
 
 [!code-xml[Main](users-and-roles-on-the-production-website-vb/samples/sample1.xml)]
 
-Należy pamiętać, że `<membership>` i `<roleManager>` sekcje odwołanie `SqlMembershipProvider` i `SqlRoleProvider` dostawców w ich `type` atrybutu, odpowiednio. Ci dostawcy przechowywać użytkownika oraz informacje o rolach w określonej bazie danych programu SQL Server. Bazy danych używanej przez takich dostawców jest określona przez `connectionStringName` atrybutu `ReviewsConnectionString`, który jest zdefiniowany w `~/ConfigSections/databaseConnectionStrings.config` pliku. Pamiętamy `databaseConnectionStrings.config` plik w środowisku programistycznym zawiera parametry połączenia w celu tworzenia bazy danych, natomiast `databaseConnectionStrings.config` plik w środowisku produkcyjnym zawiera parametry połączenia do produkcyjnej bazy danych.
+Należy zauważyć, że sekcje `<membership>` i `<roleManager>` odwołują się odpowiednio do dostawców `SqlMembershipProvider` i `SqlRoleProvider` w ich atrybutach `type`. Dostawcy te przechowują informacje o użytkowniku i roli w określonej SQL Server bazie danych. Baza danych używana przez tych dostawców jest określana przez atrybut `connectionStringName`, `ReviewsConnectionString`, który jest zdefiniowany w pliku `~/ConfigSections/databaseConnectionStrings.config`. Odwołaj, że plik `databaseConnectionStrings.config` w środowisku deweloperskim zawiera parametry połączenia z bazą danych programistycznych, a plik `databaseConnectionStrings.config` na etapie produkcji zawiera parametry połączenia z produkcyjną bazą danych.
 
-Mówiąc, WSAT muszą być dostępne lokalnie za pośrednictwem środowiska programistycznego i działa przy użyciu informacji użytkownika i roli bazy danych określonej w `databaseConnectionStrings.config` pliku. W związku z tym jeśli wprowadzimy zmiany w ciągu połączenia w `databaseConnectionStrings.config` plików w środowisku deweloperskim możemy użyć WSAT lokalnie do zarządzania użytkownikami i rolami w środowisku produkcyjnym.
+W Nutshell, WSAT musi być dostępna lokalnie za pomocą środowiska programistycznego i współpracuje z informacjami o użytkowniku i roli w bazie danych określonej w pliku `databaseConnectionStrings.config`. W związku z tym, jeśli zmienimy informacje o parametrach połączenia w pliku `databaseConnectionStrings.config` w środowisku programistycznym, można używać WSAT lokalnie do zarządzania użytkownikami i rolami w środowisku produkcyjnym.
 
-Aby zilustrować tę funkcję, otwórz `databaseConnectionStrings.config` pliku w programie Visual Studio w środowisku deweloperskim i Zastąp parametry połączenia bazy danych rozwoju parametry połączenia bazy danych w środowisku produkcyjnym. Następnie uruchom WSAT, przejdź na kartę Zabezpieczenia i dodać nowego użytkownika o nazwie Sam przy użyciu hasła "password"! (mniej znaków cudzysłowu). **Rysunek 2** wyświetlony ekran WSAT, podczas tworzenia tego konta.
+Aby zilustrować tę funkcję, Otwórz plik `databaseConnectionStrings.config` w programie Visual Studio w środowisku deweloperskim i Zastąp parametry połączenia z bazą danych programu Development parametrami połączenia z produkcyjną bazą danych. Następnie uruchom WSAT, przejdź na kartę Zabezpieczenia i Dodaj nowego użytkownika o nazwie sam z hasłem "Password!" (mniej znaków cudzysłowu). **Rysunek 2** przedstawia ekran WSAT podczas tworzenia tego konta.
 
 [![](users-and-roles-on-the-production-website-vb/_static/image5.png)](users-and-roles-on-the-production-website-vb/_static/image4.png)
 
-**Rysunek 2**: Tworzenie nowego użytkownika o nazwie Sam w środowisku produkcyjnym  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image6.png))
+**Rysunek 2**. Tworzenie nowego użytkownika o nazwie sam w środowisku produkcyjnym  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image6.png))
 
-Ponieważ zmiana parametrów połączenia w `databaseConnectionStrings.config` wskaż serwer produkcyjny w bazie danych Sam został dodany jako użytkownika w środowisku produkcyjnym. Aby to sprawdzić, należy zmienić parametry połączenia w `databaseConnectionStrings.config` plik rozwoju bazy danych, a następnie odwiedź `Login.aspx` strony w środowisku programistycznym. Spróbuj zalogować się jako Sam (zobacz **rysunek 3**).
+Ponieważ Zmieniono parametry połączenia w `databaseConnectionStrings.config`, aby wskazywały na produkcyjny serwer bazy danych, sam został dodany jako użytkownik w środowisku produkcyjnym. Aby to sprawdzić, należy zmienić parametry połączenia w pliku `databaseConnectionStrings.config` z powrotem do programu Development Database, a następnie odwiedzić stronę `Login.aspx` w środowisku deweloperskim. Spróbuj zalogować się jako sam (zobacz **rysunek 3**).
 
 [![](users-and-roles-on-the-production-website-vb/_static/image8.png)](users-and-roles-on-the-production-website-vb/_static/image7.png)
 
-**Rysunek 3**: Nie można zalogować się jako Sam w środowisku programistycznym  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image9.png))
+**Rysunek 3**: nie można zalogować się jako sam w środowisku programistycznym  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image9.png))
 
-Nie możesz zalogować jako Sam w środowisku programistycznym, ponieważ informacje o koncie użytkownika nie istnieje w lokalnej bazie danych. Jest raczej, została dodana do produkcyjnej bazy danych. Aby to sprawdzić wyświetlanie zawartości `aspnet_Users` tabeli w bazach danych środowisk deweloperskich i produkcyjnych. W środowisku programistycznym powinien istnieć tylko dla trzech rekordów dla użytkowników, Scott, Jisun i Alicji. Jednak `aspnet_Users` tabela w produkcyjnej bazy danych ma cztery rekordy: Scott, Jisun, Alice i Sam. W związku z tym Sam zalogować się za pośrednictwem witryny internetowej w środowisku produkcyjnym, ale nie przy użyciu środowiska programistycznego.
+Nie można zalogować się jako sam w środowisku programistycznym, ponieważ informacje o koncie użytkownika nie istnieją w lokalnej bazie danych. Zamiast tego została dodana do produkcyjnej bazy danych. Aby to sprawdzić, zapoznaj się z zawartością tabeli `aspnet_Users` w bazach danych programistycznych i produkcyjnych. W środowisku programistycznym dla użytkowników Scott, Jisun i Alicja powinien istnieć tylko trzy rekordy. Jednak tabela `aspnet_Users` w produkcyjnej bazie danych ma cztery rekordy: Scott, Jisun, Alicja i sam. W związku z tym sam może zalogować się za pomocą witryny sieci Web w środowisku produkcyjnym, ale nie za pomocą środowiska deweloperskiego.
 
 [![](users-and-roles-on-the-production-website-vb/_static/image11.png)](users-and-roles-on-the-production-website-vb/_static/image10.png)
 
-**Rysunek 4**: Sam zalogować się w produkcyjnej witrynie internetowej  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image12.png))
+**Ilustracja 4**. sam zalogowanie się w produkcyjnej witrynie sieci Web  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image12.png))
 
 > [!NOTE]
-> Nie zapomnij zmienić parametry połączenia w `databaseConnectionStrings.config` pliku w bazie danych rozwoju przez ciąg połączenia po zakończeniu pracy z WSAT, w przeciwnym razie będziesz pracować z danymi produkcyjnymi podczas testowania witryny za pomocą programowania środowisko. Należy pamiętać, że gdy technika, którą właśnie Omówiliśmy pozwala nam korzystać WSAT do zdalnego zarządzania użytkownikami i rolami, zmiany do dowolnych innych WSAT konfiguracji opcji (reguły dostępu, SMTP ustawienia, debugowanie oraz śledzenie ustawień i tak dalej) modyfikować `Web.config` pliku. W związku z tym wszelkie zmiany wprowadzone w ustawieniach się do środowiska deweloperskiego, a nie w środowisku produkcyjnym.
+> Nie zapomnij zmienić parametrów połączenia w pliku `databaseConnectionStrings.config` z powrotem do ciągu połączenia z bazą danych deweloperskich po zakończeniu pracy z WSAT, w przeciwnym razie podczas testowania lokacji za pomocą środowiska programistycznego będziesz pracować z danymi produkcyjnymi. Należy również pamiętać, że chociaż opisana przez nas technika pozwala nam używać WSAT do zdalnego zarządzania użytkownikami i rolami, zmiany w dowolnych innych opcjach konfiguracji WSAT (reguły dostępu, ustawienia SMTP, debugowanie i śledzenie itp.) zmodyfikować plik `Web.config`. W związku z tym wszelkie zmiany wprowadzone w ustawieniach dotyczą środowiska programistycznego, a nie środowiska produkcyjnego.
 
-## <a name="creating-custom-user-and-role-management-web-pages"></a>Tworzenie niestandardowych użytkowników i stron sieci Web zarządzania ról
+## <a name="creating-custom-user-and-role-management-web-pages"></a>Tworzenie niestandardowych stron sieci Web zarządzania użytkownikami i rolami
 
-WSAT zawiera poza pole systemu zarządzania użytkownikami i rolami, ale można uruchamiać tylko lokalnie i wymaga wprowadzania zmian w informacje o parametrach połączenia, aby można było zarządzać użytkownicy i role w środowisku produkcyjnym. Większość witryn sieci Web, które obsługują konta użytkowników są także pewną liczbę użytkowników i stron sieci web administracji roli, które umożliwiają administratorom zarządzanie użytkownikami i rolami na stronach w obrębie witryny. Tego rodzaju strony administracji opartej na sieci web znacznie ułatwiają zarządzanie użytkownikami i rolami i mają zasadnicze znaczenie dla witryn w przypadku, gdy może istnieć wiele Administratorzy i Administratorzy, którzy nie mają dostępu do lub wiedzę techniczną do uruchomienia WSAT przy użyciu programu Visual Studio.
+WSAT zapewnia wyjście z systemu Box do zarządzania użytkownikami i rolami, ale można je uruchomić lokalnie i wymaga wprowadzenia zmian parametrów połączenia w celu zarządzania użytkownikami i rolami w środowisku produkcyjnym. Większość witryn sieci Web, które obsługują konta użytkowników, zawiera również wiele stron administracyjnych użytkowników i ról, które umożliwiają administratorom zarządzanie użytkownikami i rolami ze stron w tej witrynie. Takie strony administracyjne oparte na sieci Web znacznie ułatwiają zarządzanie użytkownikami i rolami, a także są niezbędne w przypadku witryn, w których może istnieć wielu administratorów lub administratorów, którzy nie mają dostępu do programu Visual Studio lub w tle technicznym do uruchamiania WSAT.
 
-Program ASP.NET zawiera szereg wbudowanych formantów skojarzone z logowaniem w sieci Web, wchodzące w implementacji wiele z tych administracyjne stron sieci web, tak łatwe przeciąganie i upuszczanie. Na przykład można utworzyć strony dla administratorów utworzyć nowe konto użytkownika, przeciągając kontrolki CreateUserWizard na stronę i ustawiając kilka właściwości. W rzeczywistości, strona tworzenia użytkowników w WSAT objętego **na rysunku 2** korzysta z tej samej kontrolki CreateUserWizard, które można dodać do stron sieci. Ponadto, funkcje usługi członkostwa i ról są dostępne programowo za pośrednictwem `Membership` i `Roles` klas w programie .NET Framework. Z tych klas można napisać kod do tworzenia, edytowania i usuwania użytkowników i ról, a także dodawać lub usuwać użytkowników z ról, aby ustalić, jakie użytkownicy znajdują się w jaki ról i wykonywać inne zadania związane z użytkownikiem i do roli.
+ASP.NET zawiera szereg wbudowanych kontrolek sieci Web związanych z logowaniem, które umożliwiają wdrażanie wielu z tych administracyjnych stron sieci Web jako łatwych do przeciągania i upuszczania. Na przykład możesz utworzyć stronę dla administratorów, aby utworzyć nowe konto użytkownika, przeciągając kontrolkę formancie CreateUserWizard na stronę i ustawiając kilka właściwości. W rzeczywistości Strona do tworzenia użytkowników w WSAT pokazano na **rysunku 2** używa tego samego formantu formancie CreateUserWizard, który można dodać do stron. Ponadto funkcje usług Membership i role Services są dostępne programowo za pomocą klas `Membership` i `Roles` w .NET Framework. Za pomocą tych klas można napisać kod umożliwiający tworzenie, edytowanie i usuwanie użytkowników i ról, a także dodawanie lub usuwanie użytkowników do ról, określanie użytkowników w ramach ról i wykonywanie innych zadań związanych z użytkownikami i rolami.
 
-W [ *Konfigurowanie witryny sieci Web, korzysta z usługi aplikacji* samouczek](configuring-a-website-that-uses-application-services-vb.md) dodano stronę, aby `Admin` folder o nazwie `CreateAccount.aspx`. Ta strona umożliwia administratorowi dodawanie nowego konta użytkownika do witryny i określ, czy nowo utworzony użytkownik ma rolę administratora (zobacz **rysunek 5**).
+W obszarze [ *Konfigurowanie witryny sieci Web korzystającej z usługi aplikacji* samouczka](configuring-a-website-that-uses-application-services-vb.md) dodano stronę do `Admin` folderu o nazwie `CreateAccount.aspx`. Ta strona umożliwia administratorowi dodanie nowego konta użytkownika do lokacji i określenie, czy nowo utworzony użytkownik należy do roli administratora (patrz **rysunek 5**).
 
 [![](users-and-roles-on-the-production-website-vb/_static/image14.png)](users-and-roles-on-the-production-website-vb/_static/image13.png)
 
-**Rysunek 5**: Administratorzy mogą tworzyć nowych kont użytkowników  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image15.png))
+**Rysunek 5**: Administratorzy mogą tworzyć nowe konta użytkowników  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](users-and-roles-on-the-production-website-vb/_static/image15.png))
 
-Aby uzyskać bardziej szczegółowy widok tworzenia użytkownika i roli stron administracyjnych, wraz z instrukcjami krok po kroku na temat korzystania z `Membership` i `Roles` klasy i formanty związane z logowaniem sieci Web programu ASP.NET, należy przeczytać Moje [bezpieczeństwa witryny sieci Web Samouczki](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md). Znajduje się tam wskazówki na temat tworzenia stron sieci web do tworzenia nowych kont, tworzenie i zarządzanie rolami, przypisywanie użytkowników do ról i innych typowych zadań administracyjnych.
+Aby uzyskać bardziej szczegółowy opis tworzenia stron administracyjnych użytkowników i ról oraz instrukcje krok po kroku dotyczące używania klas `Membership` i `Roles` i kontrolek sieci Web ASP.NET związanych z logowaniem, pamiętaj o odczytaniu [samouczków zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md). Znajdziesz wskazówki dotyczące sposobu kompilowania stron sieci Web na potrzeby tworzenia nowych kont, tworzenia ról i zarządzania nimi, przypisywania użytkowników do ról oraz innych typowych zadań administracyjnych.
 
-Do zaimplementowania funkcjonalności przypominającej WSAT w produkcyjnej witrynie internetowej można zawsze tworzyć własne szeregu stron sieci web, które implementują funkcje WSAT. Aby ułatwić rozpoczęcie pracy, zapoznaj się z kodu źródłowego WSAT, który znajduje się w folderze `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\ASP.NETWebAdminFiles`. Innym rozwiązaniem jest użycie zamiast WSAT Dan Clem, który opowiada w swoim artykule [stopniowe Twojej własnej witryny sieci Web narzędzie administracyjne](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx). DaN przedstawiono czytelnicy przez proces tworzenia niestandardowego narzędzia WSAT podobne, kod źródłowy swoich aplikacji do pobrania (w języku C#) i zawiera instrukcje krok po kroku dotyczące dodawania jego WSAT niestandardowych do witryny sieci Web hostowanej.
+Aby zaimplementować funkcje podobne do WSAT w produkcyjnej witrynie sieci Web, zawsze możesz utworzyć własną serię stron sieci Web, które implementują funkcje WSAT. Aby rozpocząć, zapoznaj się z kodem źródłowym WSAT, który znajduje się w folderze `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\ASP.NETWebAdminFiles`. Innym rozwiązaniem jest użycie Clem Dan WSAT, który jest udostępniany w jego artykule, poprzez najęcie nowego [Narzędzia do administrowania witryną sieci Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx). Dan przegląda czytelników przez proces tworzenia niestandardowego narzędzia przypominającego WSAT, zawiera kod źródłowy aplikacji do pobrania (w programie C#) i zawiera instrukcje krok po kroku dotyczące dodawania własnych WSAT do hostowanej witryny sieci Web.
 
 ## <a name="summary"></a>Podsumowanie
 
-ASP.NET witryny sieci Web Administracja narzędzia (WSAT) może służyć w połączeniu z usługi aplikacji członkostwa i ról sekcją do zarządzania informacjami o użytkownika i roli w swojej witryny sieci Web. Niestety WSAT jest dostępna tylko lokalnie, a nie odwiedził w produkcyjnej witrynie internetowej. Jednakże, zmieniając parametry połączenia w trakcie opracowywania środowiska, aby wskazywał produkcyjną bazę danych można użyć WSAT do zarządzania użytkownikami i role w produkcyjnej witrynie internetowej.
+Narzędzia do administrowania witryną sieci Web ASP.NET (WSAT) można używać razem z usługami aplikacji członkostwa i ról do zarządzania informacjami o użytkowniku i rolach witryny sieci Web. Niestety, WSAT jest dostępna tylko lokalnie i nie można go odwiedzać z produkcyjnej witryny sieci Web. Jednak przez zmianę parametrów połączenia w środowisku programistycznym, aby wskazywał produkcyjną bazę danych, można użyć WSAT do zarządzania użytkownikami i rolami w produkcyjnej witrynie sieci Web.
 
-Chociaż podejście WSAT zapewnia szybki i łatwy sposób zarządzania użytkownikami i rolami, będzie wymagało uruchamianie WSAT z programu Visual Studio, a także tymczasowej zmiany do informacji o parametrach połączenia. WSAT zapewnia szybki sposób zarządzania użytkownikami i rolami w środowisku produkcyjnym, ale jest kłopotliwe i nie działa dobrze w przypadku witryn sieci Web z wielu administratorów lub administratorów, którzy nie mają lub nie jest zaznajomiony z programu Visual Studio i WSAT. Z tego względu większość witryn sieci Web, które obsługują konta użytkowników zawierają zestaw stron administracyjnych sieci web. Zestaw stron sieci web eliminuje potrzebę stosowania WSAT i używane przez różnych użytkowników administracyjnych z dowolnego komputera.
+Mimo że podejście WSAT umożliwia szybkie i łatwe zarządzanie użytkownikami i rolami, wymaga ono uruchomienia WSAT z programu Visual Studio, a także tymczasowych zmian informacji o parametrach połączenia. WSAT umożliwia szybkie zarządzanie użytkownikami i rolami w środowisku produkcyjnym, ale jest to bardzo skomplikowane i nie działa dobrze w przypadku witryn sieci Web z wieloma administratorami lub administratorami, którzy nie mają lub nie znają się w programie Visual Studio i WSAT. Z tego względu większość witryn sieci Web, które obsługują konta użytkowników, zawiera zestaw administracyjnych stron internetowych. Taki zestaw stron sieci Web eliminuje potrzebę WSAT i używany przez różnych użytkowników administracyjnych z dowolnego komputera.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Badanie ASP. Członkostwo w sieci, ról i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Stopniowe własne narzędzia do administrowania witryną sieci Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [Omówienie narzędzia do administrowania witryny sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx)
+- [Badanie ASP. Członkostwo, role i profil w sieci](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [Stopniowane narzędzie do administrowania witryną sieci Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [Omówienie narzędzia do administrowania witryną sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]
-> [Poprzednie](precompiling-your-website-vb.md)
+> [Ubiegł](precompiling-your-website-vb.md)

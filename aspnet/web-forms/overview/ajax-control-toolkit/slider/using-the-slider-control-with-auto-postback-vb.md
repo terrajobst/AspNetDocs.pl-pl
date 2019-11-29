@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
-title: Używanie kontrolki Slider z automatycznym ogłaszaniem zwrotnym (VB) | Dokumentacja firmy Microsoft
+title: Korzystanie z kontrolki suwaka z funkcją autoogłaszania zwrotnego (VB) | Microsoft Docs
 author: wenz
-description: Kontrolka suwaka w zestawu narzędzi AJAX Control Toolkit oferuje graficzny suwaka, które mogą być kontrolowane za pomocą myszy. Jest możliwe automatycznie Księguj suwaka...
+description: Kontrolka suwaka w zestawie narzędzi AJAX Control zawiera graficzny suwak, który można kontrolować za pomocą myszy. Możliwe jest, aby suwak był Autopost...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 41d1abba-97a5-4a45-9b44-d05624c19777
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c4ee6642726b4209d09907f615ee3286ca00caa3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e7a3286bcf7ca844f5dcfa4848c15e0bd4767c0f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124616"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74598554"
 ---
-# <a name="using-the-slider-control-with-auto-postback-vb"></a>Używanie kontrolki Slider z automatycznym ogłaszaniem zwrotnym (VB)
+# <a name="using-the-slider-control-with-auto-postback-vb"></a>Korzystanie z kontrolki suwaka z funkcją autoogłaszania zwrotnego (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/Slider1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/slider1VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/Slider1.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/slider1VB.pdf)
 
-> Kontrolka suwaka w zestawu narzędzi AJAX Control Toolkit oferuje graficzny suwaka, które mogą być kontrolowane za pomocą myszy. Istnieje możliwość zmiany autopostback suwaka po jego wartość.
+> Kontrolka suwaka w zestawie narzędzi AJAX Control zawiera graficzny suwak, który można kontrolować za pomocą myszy. Po zmianie wartości na suwaku jest możliwe przeprowadzenie autoogłaszania.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolka suwaka w zestawu narzędzi AJAX Control Toolkit oferuje graficzny suwaka, które mogą być kontrolowane za pomocą myszy. Istnieje możliwość zmiany autopostback suwaka po jego wartość.
+Kontrolka suwaka w zestawie narzędzi AJAX Control zawiera graficzny suwak, który można kontrolować za pomocą myszy. Po zmianie wartości na suwaku jest możliwe przeprowadzenie autoogłaszania.
 
 ## <a name="steps"></a>Kroki
 
-Aby wprowadzić suwak automatycznie zwrotu na zmianę, obu polach tekstowych muszą atrybut `AutoPostBack="true"`: Pole tekstowe, które staną się suwak i pola tekstowego, który przechowuje położenie suwaka. W tym miejscu jest wymagane w tym:
+Aby suwak automatycznie ogłaszał zwrotnie po zmianie, oba pola tekstowe muszą mieć atrybut `AutoPostBack="true"`: pole tekstowe, które zostanie przesunięte do samego suwaka, oraz pole tekstowe, które zawiera położenie suwaka. Oto wymagane znaczniki dla tego:
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-vb/samples/sample1.aspx)]
 
-`SliderExtender` Formantu z ASP.NET AJAX Control Toolkit przypisuje funkcji suwaka do dwóch pól tekstowych:
+Formant `SliderExtender` z zestawu narzędzi ASP.NET AJAX Control przypisuje funkcje suwaka do dwóch pól tekstowych:
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-vb/samples/sample2.aspx)]
 
-Element label dodatkowe posłuży później poinformowania użytkownika o odświeżenie strony:
+Dodatkowy element etykiety będzie później używany do informowania użytkownika o ogłaszaniu zwrotnym:
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-vb/samples/sample3.aspx)]
 
-Na koniec `ScriptManager` kontroli ASP.NET AJAX ładuje wymagany język JavaScript dla kontrolki zestawu narzędzi do pracy:
+Na koniec kontrola `ScriptManager` ASP.NET AJAX ładuje kod JavaScript wymagany do działania zestawu narzędzi sterowania:
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-vb/samples/sample4.aspx)]
 
-Teraz wrócili, publikuje suwaka po stronie serwera to zdarzenie może być przechwycony i podjęto jakieś działanie:
+Teraz suwak jest ogłaszany ponownie; po stronie serwera to zdarzenie może być przechwytywane i podejmowane działania:
 
 [!code-aspx[Main](using-the-slider-control-with-auto-postback-vb/samples/sample5.aspx)]
 
-[![Przesunięcie suwaka wyzwala ogłaszania zwrotnego](using-the-slider-control-with-auto-postback-vb/_static/image2.png)](using-the-slider-control-with-auto-postback-vb/_static/image1.png)
+[![Przesuwanie suwaka wyzwala ogłaszanie zwrotne](using-the-slider-control-with-auto-postback-vb/_static/image2.png)](using-the-slider-control-with-auto-postback-vb/_static/image1.png)
 
-Przesunięcie suwaka wyzwala ogłaszania zwrotnego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-slider-control-with-auto-postback-vb/_static/image3.png))
+Przesuwanie suwaka wyzwala ogłaszanie zwrotne ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-slider-control-with-auto-postback-vb/_static/image3.png))
 
-[![Później Data zmiany są zapisywane w etykiecie](using-the-slider-control-with-auto-postback-vb/_static/image5.png)](using-the-slider-control-with-auto-postback-vb/_static/image4.png)
+[![później, Data tej zmiany jest zapisywana w etykiecie](using-the-slider-control-with-auto-postback-vb/_static/image5.png)](using-the-slider-control-with-auto-postback-vb/_static/image4.png)
 
-Później, Data zmiany są zapisywane w etykiecie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-slider-control-with-auto-postback-vb/_static/image6.png))
+Następnie Data tej zmiany jest zapisywana w etykiecie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-slider-control-with-auto-postback-vb/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](databinding-the-slider-control-cs.md)
