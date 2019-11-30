@@ -1,199 +1,199 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
-title: Obsługa wyjątków LOGIKI i warstwy DAL poziomu strony ASP.NET (C#) | Dokumentacja firmy Microsoft
+title: Obsługa wyjątków na poziomie LOGIKI biznesowej i DAL na stronie ASP.NET (C#) | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku widzimy sposób wyświetlania przyjazny szczegółowy komunikat o błędzie, wystąpi wyjątek podczas wstawiania, aktualizacji lub operacji usuwania...
+description: W tym samouczku zobaczysz, jak wyświetlić przyjazny, informacyjny komunikat o błędzie, jeśli wystąpi wyjątek podczas operacji INSERT, Update lub DELETE...
 ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 49d8a66c-3ea8-4087-839f-179d1d94512a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bf3e7ffe6122db33f8cf28f7544fdfa064f9c612
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2b9cdb5af6f33171b191d5a80473c7796eb098d9
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131166"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74589328"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Obsługa wyjątków na poziomie warstwy logiki biznesowej i warstwy dostępu do danych na stronie platformy ASP.NET (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_18_CS.exe) lub [Pobierz plik PDF](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/datatutorial18cs1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_18_CS.exe) lub [Pobierz plik PDF](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/datatutorial18cs1.pdf)
 
-> W tym samouczku zobaczymy sposób wyświetlania przyjazny szczegółowy komunikat o błędzie, wystąpi wyjątek podczas wstawiania, aktualizacji lub operacja usuwania danych ASP.NET formantu sieci Web.
+> W tym samouczku zobaczysz, jak wyświetlić przyjazny, informacyjny komunikat o błędzie, jeśli wystąpi wyjątek podczas operacji wstawiania, aktualizowania lub usuwania formantu sieci Web danych ASP.NET.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Praca z danymi z aplikacji sieci web ASP.NET przy użyciu architektury aplikacji warstwowych obejmuje następujące trzy kroki ogólne:
+Praca z danymi z aplikacji sieci Web ASP.NET przy użyciu architektury aplikacji warstwowej obejmuje następujące trzy ogólne czynności:
 
-1. Ustal, jakiej metody warstwy logiki biznesowej musi być wywoływany i jakie parametru wartości jego przekazania. Wartość parametru może być zakodowany, programowo przypisane lub danych wejściowych wprowadzonych przez użytkownika.
-2. Wywołanie metody.
-3. Przetwarzanie wyników. Podczas wywoływania metody LOGIKI, która zwraca dane, może to obejmować wiązanie danych z danymi formantu sieci Web. W przypadku metod LOGIKI, które modyfikują dane może to obejmować wykonywania pewnych akcji na podstawie wartości zwracanej i bez problemu zmieniała obsługi każdego wyjątku, który powstał w kroku 2.
+1. Określ, która metoda warstwy logiki biznesowej ma być wywoływana i jakie wartości parametrów należy przekazać. Wartości parametrów mogą być sztywno kodowane, przypisane programowo lub wprowadzane przez użytkownika.
+2. Wywołaj metodę.
+3. Przetwórz wyniki. Podczas wywoływania metody LOGIKI biznesowej, która zwraca dane, może to oznaczać, że dane są powiązane z formantem sieci Web danych. W przypadku metod LOGIKI biznesowej, które modyfikują dane, może to obejmować wykonywanie niektórych akcji na podstawie zwracanej wartości lub bezpieczne obsługiwanie dowolnego wyjątku, który powstał w kroku 2.
 
-Jak widzieliśmy w [poprzedniego samouczka](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md), zarówno w kontrolki ObjectDataSource, jak i w kontrolkach internetowych danych zapewniają punkty rozszerzeń krokach 1 i 3. GridView, na przykład generowane jego `RowUpdating` zdarzeń przed przypisaniem wartości pól do jego kontrolki ObjectDataSource `UpdateParameters` kolekcji; jej `RowUpdated` zdarzenie jest wywoływane po kontrolki ObjectDataSource ukończył operację.
+Jak zostało to opisane w [poprzednim samouczku](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md), zarówno element ObjectDataSource, jak i kontrolki sieci Web danych udostępniają punkty rozszerzalności dla kroków 1 i 3. Widok GridView, na przykład, wyzwala zdarzenie `RowUpdating` przed przypisaniem wartości pól do kolekcji `UpdateParameters` elementu ObjectDataSource; `RowUpdated` zdarzenie jest wywoływane po zakończeniu operacji przez element ObjectDataSource.
 
-Firma Microsoft została już zbadać zdarzenia, które zostanie wyzwolony w kroku 1 i Zauważyliśmy już, jak one można dostosować parametry wejściowe lub anulować operację. W tym samouczku firma Microsoft będzie włączyć naszej uwagi na zdarzenia, które uruchamiają się po ukończeniu tej operacji. Z tych programów obsługi zdarzeń po poziomu, które możemy, między innymi określić, czy wyjątek wystąpił podczas operacji i go bezpiecznie obsłużyć, wyświetlanie przyjazny szczegółowy komunikat o błędzie na ekranie, zamiast przyjęty standardowe platformy ASP.NET Strona wyjątku.
+Zbadamy już zdarzenia wyzwalane w kroku 1 i dowiesz się, jak można je użyć do dostosowania parametrów wejściowych lub anulowania operacji. W tym samouczku powrócimy do zdarzeń wyzwalanych po zakończeniu operacji. Korzystając z tych programów obsługi zdarzeń na poziomie, możemy między innymi ustalić, czy wystąpił wyjątek podczas operacji i obsłużyć go bezpiecznie, wyświetlając przyjazny, informacyjny komunikat o błędzie na ekranie zamiast domyślnego standardu ASP.NET Strona wyjątków.
 
-Aby zilustrować pracę z tych zdarzeń po poziomu, Utwórzmy strona, która zawiera listę produktów w edycji kontrolki GridView. Podczas aktualizacji produktu, jeśli wyjątek jest zgłaszany naszej platformy ASP.NET strony wyświetli krótką wiadomość powyżej GridView wyjaśniające, że wystąpił problem. Zaczynajmy!
+Aby zilustrować pracę z tymi zdarzeniami pocztowymi, Utwórzmy stronę, która wyświetla listę produktów w edytowalnym widoku GridView. Podczas aktualizowania produktu, jeśli zostanie zgłoszony wyjątek, na stronie ASP.NET zostanie wyświetlony krótki komunikat powyżej widoku GridView wyjaśniającego, że wystąpił problem. Zacznijmy!
 
-## <a name="step-1-creating-an-editable-gridview-of-products"></a>Krok 1. Tworzenie można edytować GridView produktów
+## <a name="step-1-creating-an-editable-gridview-of-products"></a>Krok 1. Tworzenie edytowalnego widoku GridView produktów
 
-W poprzednim samouczku utworzyliśmy GridView można edytować za pomocą zaledwie dwóch pól `ProductName` i `UnitPrice`. To wymagane, tworzenie dodatkowych przeciążenie dla elementu `ProductsBLL` klasy `UpdateProduct` metody, który jest akceptowany tylko trzy parametry wejściowe (produktu nazwę, cenę jednostkową i identyfikator) alfanumeryczną parametr dla każdego produktu. W tym samouczku teraz praktyczne tej techniki, tworząc GridView można edytować, który zawiera nazwę produktu, ilość na jednostkę, cenę jednostkową i jednostek w magazynie, ale zezwala tylko nazwę, cenę jednostkową i jednostek w magazynie do edycji.
+W poprzednim samouczku utworzyliśmy edytowalny widok GridView zawierający tylko dwa pola, `ProductName` i `UnitPrice`. Wymaga to utworzenia dodatkowego przeciążenia dla metody `UpdateProduct` klasy `ProductsBLL`, która akceptuje tylko trzy parametry wejściowe (Nazwa produktu, Cena jednostkowa i identyfikator), jako przeciwieństwo parametru dla każdego pola produktu. Na potrzeby tego samouczka należy ponownie wykonać tę technikę, tworząc edytowalny widok GridView, który wyświetla nazwę produktu, ilość na jednostkę, cenę jednostkową i jednostki w magazynie, ale tylko umożliwia edytowanie nazwy, ceny jednostkowej i jednostek w magazynie.
 
-Aby uwzględnić w tym scenariuszu będziemy potrzebować innego przeciążenia metody `UpdateProduct` metody, która przyjmuje cztery parametry: Nazwa produktu, cena jednostkowa, jednostek w magazynie i identyfikator. Dodaj następującą metodę do `ProductsBLL` klasy:
+Aby obsłużyć ten scenariusz, konieczne będzie inne Przeciążenie metody `UpdateProduct`, która akceptuje cztery parametry: nazwę produktu, cenę jednostkową, jednostki w magazynie i identyfikator. Dodaj następującą metodę do klasy `ProductsBLL`:
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample1.cs)]
 
-Przy użyciu tej metody jest pełna możemy przystąpić do tworzenia strony ASP.NET, która umożliwia edytowanie te cztery pola określonego produktu. Otwórz `ErrorHandling.aspx` stronie `EditInsertDelete` folderze i Dodaj GridView na strony za pomocą projektanta. Powiązać widoku GridView nowe kontrolki ObjectDataSource, mapowanie `Select()` metodę, aby `ProductsBLL` klasy `GetProducts()` metody i `Update()` metody `UpdateProduct` przeciążenia, które właśnie utworzony.
+Po ukończeniu tej metody wszystko jest gotowe do utworzenia strony ASP.NET, która umożliwia edytowanie tych czterech konkretnych pól produktu. Otwórz stronę `ErrorHandling.aspx` w folderze `EditInsertDelete` i Dodaj widok GridView do strony za pomocą narzędzia Projektant. Powiąż widok GridView z nowym elementem ObjectDataSource, mapując metodę `Select()` na metodę `GetProducts()` klasy `ProductsBLL` i metodę `Update()` do właśnie utworzonego przeciążenia `UpdateProduct`.
 
-[![Użyj przeciążenia metody UpdateProduct, które przyjmuje cztery parametry wejściowe](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image1.png)
+[![użyć przeciążenia metody UpdateProduct, które akceptuje cztery parametry wejściowe](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image2.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image1.png)
 
-**Rysunek 1**: Użyj `UpdateProduct` metoda przeciążenia, przyjmuje cztery parametry wejściowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image3.png))
+**Rysunek 1**. Użyj przeciążenia metody `UpdateProduct`, która akceptuje cztery parametry wejściowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image3.png))
 
-Spowoduje to utworzenie elementu ObjectDataSource z `UpdateParameters` kolekcji za pomocą czterech parametrów i GridView z polem dla każdego z pól produktu. Przypisuje ObjectDataSource oznaczeniu deklaracyjnym `OldValuesParameterFormatString` właściwości wartość `original_{0}`, co spowoduje wyjątek, ponieważ klasy Nasze LOGIKI oczekują, że parametr wejściowy o nazwie `original_productID` przekazać. Nie zapomnij usunąć tego ustawienia całkowicie, od składni deklaratywnej (lub ustaw go na wartość domyślną `{0}`).
+Spowoduje to utworzenie elementu ObjectDataSource z kolekcją `UpdateParameters` z czterema parametrami i elementem GridView zawierającym pole dla każdego pola produktu. Deklaratywne znaczniki elementu ObjectDataSource przypisuje Właściwość `OldValuesParameterFormatString` wartość `original_{0}`, co spowoduje wyjątek, ponieważ nasze klasy LOGIKI biznesowej nie oczekują parametru wejściowego o nazwie `original_productID` do przekazania. Nie zapomnij usunąć tego ustawienia całkowicie ze składni deklaratywnej (lub ustaw ją na wartość domyślną, `{0}`).
 
-Następnie okrojenia GridView w celu uwzględnienia tylko `ProductName`, `QuantityPerUnit`, `UnitPrice`, i `UnitsInStock` BoundFields. Również możesz zastosować formatowanie na poziomie pola można uznać za niezbędne (takie jak zmienianie docelowej `HeaderText` właściwości).
+Następnie dostosowanie widok GridView, aby uwzględnić tylko `ProductName`, `QuantityPerUnit`, `UnitPrice`i `UnitsInStock` BoundFields. Możesz również zastosować dowolne formatowanie na poziomie pola, które jest uznawane za niezbędne (na przykład zmiana właściwości `HeaderText`).
 
-W poprzednim samouczku zobaczyliśmy, jak sformatować `UnitPrice` elementu BoundField jako waluta, zarówno w trybie tylko do odczytu i w trybie edycji. Wykonamy teraz zadania z tym samym miejscu. Pamiętaj, że to ustawienie wymagane elementu BoundField `DataFormatString` właściwości `{0:c}`, jego `HtmlEncode` właściwości `false`, a jego `ApplyFormatInEditMode` do `true`, jak pokazano na rysunku 2.
+W poprzednim samouczku przedstawiono sposób formatowania `UnitPrice` BoundField jako waluty zarówno w trybie tylko do odczytu, jak i w trybie edycji. Zróbmy to teraz. Odwołaj to wymagające ustawienia właściwości `DataFormatString` BoundField na `{0:c}`, jej Właściwość `HtmlEncode` na `false`i `ApplyFormatInEditMode` do `true`, jak pokazano na rysunku 2.
 
-[![Konfigurowanie elementu UnitPrice BoundField do wyświetlenia jako walutę](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
+[![skonfigurować BoundField CenaJednostkowa do wyświetlania jako waluta](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image5.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image4.png)
 
-**Rysunek 2**: Konfigurowanie `UnitPrice` elementu BoundField do wyświetlenia jako walutę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image6.png))
+**Rysunek 2**. Konfigurowanie `UnitPrice` BoundField do wyświetlania jako waluta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image6.png))
 
-Formatowanie `UnitPrice` jako walutę w interfejsie edycji wymaga tworzenie obsługi zdarzeń dla GridView `RowUpdating` zdarzeń, która analizuje ciąg w formacie waluty w `decimal` wartość. Pamiętamy `RowUpdating` programu obsługi zdarzeń z ostatnich samouczka również sprawdzany w celu upewnij się, że podane przez użytkownika `UnitPrice` wartość. Jednak w tym samouczku zezwolimy na użytkownika pominąć ceny.
+Formatowanie `UnitPrice` jako waluty w interfejsie edycji wymaga utworzenia programu obsługi zdarzeń dla zdarzenia `RowUpdating` GridView, które analizuje ciąg w formacie waluty w wartości `decimal`. Należy odwołać się do procedury obsługi zdarzeń `RowUpdating` z ostatniego samouczka, aby upewnić się, że użytkownik podał `UnitPrice` wartość. Jednak w tym samouczku zezwolisz użytkownikowi na pominięcie ceny.
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample2.cs)]
 
-Obejmuje nasze GridView `QuantityPerUnit` elementu BoundField, ale tego elementu BoundField powinny być tylko do wyświetlania i nie powinny być edytowalny przez użytkownika. W tym po prostu ustaw BoundFields `ReadOnly` właściwość `true`.
+Nasz widok GridView zawiera `QuantityPerUnit` BoundField, ale ten BoundField powinien być tylko do wyświetlania i nie powinien być edytowalny przez użytkownika. Aby to rozmieścić, po prostu ustaw właściwość `ReadOnly` BoundFields ' na `true`.
 
-[![Utworzyć elementu QuantityPerUnit BoundField tylko do odczytu](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image8.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image7.png)
+[![QuantityPerUnit BoundField tylko do odczytu](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image8.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image7.png)
 
-**Rysunek 3**: Wprowadź `QuantityPerUnit` elementu BoundField tylko do odczytu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image9.png))
+**Rysunek 3**. uczyń `QuantityPerUnit` BoundField tylko do odczytu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image9.png))
 
-Koniec sprawdź, czy pole wyboru Włącz edytowanie, z GridView tagu inteligentnego. Po wykonaniu tych kroków `ErrorHandling.aspx` strony projektanta powinien wyglądać podobnie do rysunek 4.
+Na koniec zaznacz pole wyboru Włącz edytowanie w tagu inteligentnym GridView. Po wykonaniu tych kroków Projektant strony `ErrorHandling.aspx` powinien wyglądać podobnie do rysunku 4.
 
-[![Usuń wszystkie oprócz potrzebną BoundFields i sprawdź, czy włączyć edytowanie pola wyboru](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
+[![usunąć wszystkie oprócz wymaganych BoundFields i zaznacz pole wyboru Włącz edycję](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image11.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image10.png)
 
-**Rysunek 4**: Usuń wszystkie elementy oprócz potrzebne BoundFields i Włącz edytowanie zaznacz pole wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image12.png))
+**Ilustracja 4**. Usuń wszystkie oprócz wymaganych BoundFields i zaznacz pole wyboru Włącz edycję ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image12.png))
 
-W tym momencie mamy listę wszystkich produktów `ProductName`, `QuantityPerUnit`, `UnitPrice`, i `UnitsInStock` pola; jednak tylko `ProductName`, `UnitPrice`, i `UnitsInStock` można edytować pola.
+W tym momencie mamy listę wszystkich pól `ProductName`, `QuantityPerUnit`, `UnitPrice`i `UnitsInStock` produktów. można jednak edytować tylko pola `ProductName`, `UnitPrice`i `UnitsInStock`.
 
-[![Użytkownicy teraz można łatwo edytować nazwy produktów, ceny i jednostek standardowych pól](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
+[![użytkownicy mogą teraz łatwo edytować nazwy produktów, ceny i jednostki w polach zasobów](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image14.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image13.png)
 
-**Rysunek 5**: Użytkownicy mogą teraz łatwo edytować produktów nazwy, ceny i jednostek w magazynie pola ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image15.png))
+**Rysunek 5**. Użytkownicy mogą teraz łatwo edytować nazwy produktów, ceny i jednostki w polach podstawowych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image15.png))
 
-## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Krok 2. Bez problemu zmieniała obsługi wyjątków na poziomie warstwy DAL
+## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Krok 2. bezpieczne obsługiwanie wyjątków na poziomie DAL
 
-Natomiast naszych można edytować kontrolki GridView bajeczną działa, gdy użytkownicy wprowadzają wartości prawne na nazwę edytowanego produktu, ceny i jednostek w magazynie, wprowadzanie wartości niedozwolony powoduje wyjątek. Na przykład, pomijając `ProductName` wartość powoduje, że [nonullallowedexception —](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) zostanie wygenerowany od `ProductName` właściwość `ProductsRow` klasa ma jego `AllowDBNull` właściwością `false`; Jeśli Baza danych nie działa, `SqlException` zostaną zgłoszone przez TableAdapter, podczas próby połączenia z bazą danych. Bez podejmowania żadnych działań, tych wyjątków się pojawiać z warstwy dostępu do danych do warstwy logiki biznesowej, a następnie na stronie ASP.NET, a na koniec do środowiska uruchomieniowego programu ASP.NET.
+Mimo że ten edytowalny widok GridView działa bardzo dobrze, gdy użytkownicy wprowadzają wartości prawne dotyczące nazwy, ceny i jednostek edytowanego produktu, wprowadzenie niedozwolonych wartości spowoduje wyjątek. Na przykład pominięcie wartości `ProductName` powoduje zgłoszenie [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) , ponieważ właściwość `ProductName` w klasie `ProductsRow` ma właściwość `AllowDBNull` ustawioną na `false`; Jeśli baza danych nie działa, podczas próby nawiązania połączenia z bazą danych `SqlException` zostanie wygenerowany przez TableAdapter. Bez podejmowania żadnych działań te wyjątki są bąbelkowe w warstwie dostępu do danych do warstwy logiki biznesowej, a następnie do strony ASP.NET, a wreszcie do środowiska uruchomieniowego ASP.NET.
 
-W zależności od sposobu skonfigurowania aplikacji sieci web i czy odwiedzasz aplikacji z `localhost`, nieobsługiwanego wyjątku może spowodować strony ogólny błąd serwera, raport szczegółowy komunikat o błędzie lub strony sieci web przyjazna dla użytkownika. Zobacz [obsługę błędów w programie Web aplikacji na platformie ASP.NET](http://www.15seconds.com/issue/030102.htm) i [customErrors Element](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) więcej informacji na temat sposobu na nieprzechwycony wyjątek środowiska uruchomieniowego programu ASP.NET.
+W zależności od sposobu skonfigurowania aplikacji sieci Web i bez względu na to, czy odwiedzasz aplikację z `localhost`, nieobsługiwany wyjątek może skutkować ogólną stroną serwera — błąd, szczegółowy raport o błędach lub stronę sieci Web przyjazną dla użytkownika. Zobacz [Obsługa błędów aplikacji sieci Web w ASP.NET](http://www.15seconds.com/issue/030102.htm) i [element customErrors](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) , aby uzyskać więcej informacji na temat sposobu, w jaki środowisko uruchomieniowe ASP.NET reaguje na nieprzechwycony wyjątek.
 
-Rysunek 6 przedstawia ekranu podczas próby aktualizacji produktu bez określania `ProductName` wartość. Jest to opcja domyślna raport szczegółowy komunikat o błędzie wyświetlany, gdy przechodzącego przez `localhost`.
+Rysunek 6 przedstawia ekran napotkany podczas próby zaktualizowania produktu bez określania wartości `ProductName`. Jest to domyślny szczegółowy raport o błędach wyświetlany podczas przechodzenia przez `localhost`.
 
-[![Pominięcie szczegóły wyjątku będzie wyświetlana nazwa produktu](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image17.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image16.png)
+[![pominięcie nazwy produktu spowoduje wyświetlenie szczegółów wyjątku](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image17.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image16.png)
 
-**Rysunek 6**: Pominięcie szczegóły wyjątku wyświetlana będzie nazwa produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image18.png))
+**Ilustracja 6**. pominięcie nazwy produktu spowoduje wyświetlenie szczegółów wyjątku ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image18.png))
 
-Takie szczegóły wyjątku są przydatne podczas testowania aplikacji, prezentacja użytkownik końcowy ekran w przypadku wyjątku jest mniej niż idealne rozwiązanie. Użytkownik końcowy prawdopodobnie nie wiedzieli, czego `NoNullAllowedException` jest i dlaczego został spowodowany. Lepszym rozwiązaniem jest przedstawić użytkownikowi bardziej przyjazny dla użytkownika komunikat wyjaśniający, że wystąpiły problemy podczas próby zaktualizowania produktu.
+Te szczegóły wyjątku są przydatne podczas testowania aplikacji, ale użytkownik końcowy z takim ekranem w celu zaprezentowania wyjątku jest mniejszy niż idealny. Użytkownik końcowy prawdopodobnie nie wie, co to jest `NoNullAllowedException` lub dlaczego został on spowodowany. Lepszym rozwiązaniem jest zaprezentowanie użytkownikowi informacji o bardziej przyjaznym dla użytkownika komunikacie wyjaśniającym, że wystąpiły problemy podczas próby zaktualizowania produktu.
 
-Jeśli wystąpi wyjątek podczas wykonywania operacji, zdarzenia po poziomu zarówno kontrolki ObjectDataSource, jak i kontroli danych w sieci Web pozwalają wykryć je i anulować wyjątek z Propagacja do środowiska uruchomieniowego programu ASP.NET. W tym przykładzie utworzymy program obsługi zdarzeń dla GridView `RowUpdated` zdarzenia, które określa, jeśli wyjątek jest uruchamiany i jeśli tak, Wyświetla szczegóły wyjątku w kontrolce etykiety w sieci Web.
+Jeśli wystąpi wyjątek podczas wykonywania operacji, zdarzenia na poziomie źródłowym zarówno w elemencie ObjectDataSource, jak i w kontrolce sieci Web danych zapewniają metodę wykrywania i anulowania wyjątku z propagacji do środowiska uruchomieniowego ASP.NET. W naszym przykładzie utworzymy procedurę obsługi zdarzeń dla zdarzenia `RowUpdated` GridView, które określa, czy wyjątek został wywołany i, jeśli tak, wyświetla szczegóły wyjątku w kontrolce sieci Web etykieta.
 
-Najpierw dodaj etykietę do strony ASP.NET, ustawiając jego `ID` właściwości `ExceptionDetails` i wyczyszczenie jego `Text` właściwości. Aby narysować oka użytkownika do tej wiadomości, ustaw jego `CssClass` właściwości `Warning`, czyli klasy CSS, dodaliśmy do `Styles.css` pliku w poprzednim samouczku. Pamiętaj, że ta klasa CSS powoduje, że tekst etykiety ma być wyświetlany czcionką czerwony, pogrubienie, kursywa bardzo duże.
+Zacznij od dodania etykiety do strony ASP.NET, ustawiając jej Właściwość `ID` na `ExceptionDetails` i czyszcząc jej Właściwość `Text`. Aby narysować oczy użytkownika do tej wiadomości, ustaw jej Właściwość `CssClass` na `Warning`, która jest klasą CSS dodaną do pliku `Styles.css` w poprzednim samouczku. Odwołaj, że ta Klasa CSS powoduje, że tekst etykiety ma być wyświetlany w kolorze czerwonym, kursywą, pogrubieniu, bardzo dużą czcionką.
 
-[![Na stronie Dodaj kontrolkę typu etykieta w sieci Web](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image19.png)
+[![dodać kontrolkę sieci Web etykieta do strony](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image20.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image19.png)
 
-**Rysunek 7**: Na stronie Dodaj kontrolkę typu etykieta w sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image21.png))
+**Rysunek 7**. Dodawanie kontrolki sieci Web etykieta do strony ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image21.png))
 
-Ponieważ chcemy, aby ten formant etykiety w sieci Web był widoczny tylko od razu po Wystąpił wyjątek, ustaw jego `Visible` właściwości na wartość false w `Page_Load` programu obsługi zdarzeń:
+Ponieważ chcę, aby formant sieci Web etykiety był widoczny tylko natychmiast po wystąpieniu wyjątku, ustaw dla jego właściwości `Visible` wartość false w programie obsługi zdarzeń `Page_Load`:
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample3.cs)]
 
-Przy użyciu tego kodu, w pierwszej wizyty strony i kolejne ogłaszania zwrotnego `ExceptionDetails` kontrolka będzie miała jego `Visible` właściwością `false`. W przypadku wyjątku poziom warstwy DAL lub LOGIKI możemy wykryć, czy w kontrolce GridView `RowUpdated` programu obsługi zdarzeń, firma Microsoft ustawi `ExceptionDetails` kontrolki `Visible` właściwości na wartość true. Ponieważ programy obsługi zdarzeń kontrolki sieci Web wystąpić po `Page_Load` programu obsługi zdarzeń w cyklu życia strony etykiety będą wyświetlane. Jednakże w przypadku zwrotu dalej `Page_Load` programu obsługi zdarzeń zostaną przywrócone `Visible` właściwości z powrotem do `false`, ukrywając je ponownie z widoku.
+Przy użyciu tego kodu na pierwszej stronie odwiedzasz i kolejne ogłaszanie zwrotne kontrolki `ExceptionDetails` będą miały Właściwość `Visible` ustawioną na `false`. W przypadku wyjątku na poziomie DAL lub LOGIKI biznesowej, który możemy wykryć w programie obsługi zdarzeń `RowUpdated` GridView, ustawimy Właściwość `Visible` kontrolki `ExceptionDetails` na true. Ponieważ procedury obsługi zdarzeń kontrolki sieci Web występują po obsłudze zdarzeń `Page_Load` w cyklu życia strony, etykieta zostanie wyświetlona. Jednak przy następnym ogłaszaniu zwrotnym `Page_Load` obsługi zdarzeń przywraca Właściwość `Visible` z powrotem do `false`, ukrywając ją z widoku ponownie.
 
 > [!NOTE]
-> Alternatywnie, można usunąć konieczność ustawienie `ExceptionDetails` kontrolki `Visible` właściwości w `Page_Load` , przypisując jej `Visible` właściwość `false` w składni deklaratywnej i wyłączanie swój stan widoku (ustawienie jego `EnableViewState` właściwość `false`). Użyjemy tego alternatywne podejście w przyszłości zapoznać się z samouczkiem.
+> Alternatywnie możemy usunąć konieczność ustawienia właściwości `Visible` kontrolki `ExceptionDetails` w `Page_Load`, przypisując jej Właściwość `Visible` `false` we składni deklaratywnej i wyłączając jej stan widoku (ustawiając jej Właściwość `EnableViewState` na `false`). Ta alternatywna metoda zostanie użyta w przyszłym samouczku.
 
-Za pomocą formantu etykiety dodawane, naszym kolejnym krokiem będzie można utworzyć programu obsługi zdarzeń dla GridView `RowUpdated` zdarzeń. Wybierz kontrolki GridView w projektancie, przejdź do okna właściwości, a następnie kliknij ikonę pioruna, wyświetlanie zdarzeń w widoku GridView. Powinien już istnieć wpis dla kontrolki GridView `RowUpdating` zdarzeń, jak utworzyliśmy program obsługi zdarzeń dla tego zdarzenia we wcześniejszej części tego samouczka. Utwórz procedurę obsługi zdarzeń dla `RowUpdated` także zdarzenia.
+Po dodaniu kontrolki etykieta następnym krokiem jest utworzenie programu obsługi zdarzeń dla zdarzenia `RowUpdated` GridView. Wybierz widok GridView w projektancie, przejdź do okno Właściwości i kliknij ikonę błyskawicy, aby wyświetlić listę zdarzeń GridView. Istnieje już wpis dla zdarzenia `RowUpdating` GridView, ponieważ utworzyliśmy procedurę obsługi zdarzeń dla tego zdarzenia wcześniej w tym samouczku. Utwórz również procedurę obsługi zdarzeń dla zdarzenia `RowUpdated`.
 
-![Tworzenie procedury obsługi zdarzeń dla zdarzenia RowUpdated GridView](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image22.png)
+![Utwórz procedurę obsługi zdarzeń dla zdarzenia RowUpdated GridView](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image22.png)
 
-**Rysunek 8**: Utwórz procedurę obsługi zdarzeń dla GridView `RowUpdated` zdarzeń
+**Ilustracja 8**. Tworzenie obsługi zdarzeń dla zdarzenia `RowUpdated` GridView
 
 > [!NOTE]
-> Można również utworzyć programu obsługi zdarzeń za pomocą listy rozwijanej w górnej części pliku klasy CodeBehind. Z listy rozwijanej, po lewej stronie wybierz widoku GridView i `RowUpdated` zdarzeń od początku po prawej stronie.
+> Obsługę zdarzeń można również utworzyć za pomocą listy rozwijanej w górnej części pliku klasy związanej z kodem. Z listy rozwijanej po lewej stronie `RowUpdated` i po prawej stronie wybierz pozycję GridView.
 
-Ta procedura obsługi zdarzeń tworzenia Dodaj następujący kod do klasy CodeBehind strony ASP.NET:
+Utworzenie tego programu obsługi zdarzeń spowoduje dodanie następującego kodu do klasy związanej z kodem ASP.NET strony:
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample4.cs)]
 
-Drugi parametr wejściowy tej obsługi zdarzeń jest obiektem typu [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), która ma trzy właściwości znaczenie w odniesieniu do obsługi wyjątków:
+Drugi parametr wejściowy programu obsługi zdarzeń jest obiektem typu [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), który ma trzy właściwości istotne dla obsługi wyjątków:
 
-- `Exception` Odwołanie do zgłoszenia wyjątku; Jeśli żaden wyjątek został zgłoszony, ta właściwość będzie miała wartość `null`
-- `ExceptionHandled` wartość logiczna, która wskazuje, czy wyjątek został obsłużony w `RowUpdated` programu obsługi zdarzeń; Jeśli `false` (ustawienie domyślne), wyjątek jest ponownie zgłoszony wypływająca do środowiska uruchomieniowego platformy ASP.NET
-- `KeepInEditMode` Jeśli ustawiono `true` edytowanych wiersza w widoku GridView pozostaje w trybie edycji; Jeśli `false` (ustawienie domyślne), wiersz GridView powróci do trybu tylko do odczytu
+- `Exception` odwołanie do zgłoszonego wyjątku; Jeśli żaden wyjątek nie został zgłoszony, ta właściwość będzie mieć wartość `null`
+- `ExceptionHandled` wartość logiczna, która wskazuje, czy wyjątek został obsłużony w programie obsługi zdarzeń `RowUpdated`; Jeśli `false` (wartość domyślna), wyjątek jest ponownie zgłaszany, percolating do środowiska uruchomieniowego ASP.NET
+- `KeepInEditMode`, jeśli ustawiono, `true` edytowany wiersz GridView pozostaje w trybie edycji; Jeśli `false` (wartość domyślna), wiersz GridView wraca do swojego trybu tylko do odczytu
 
-Naszym kodzie następnie należy sprawdzić, czy `Exception` nie `null`, co oznacza, że wyjątek został zgłoszony podczas wykonywania operacji. Jeśli jest to możliwe, chcemy:
+Nasz kod, a następnie powinien sprawdzić, czy `Exception` nie jest `null`, co oznacza, że wyjątek został zgłoszony podczas wykonywania operacji. W takim przypadku chcemy:
 
-- Wyświetla przyjazny dla użytkownika komunikat w `ExceptionDetails` etykiety
-- Wskazuje, czy wyjątek został obsłużony.
-- Zachowaj wiersza w widoku GridView w trybie edycji
+- Wyświetl przyjazny dla użytkownika komunikat w etykiecie `ExceptionDetails`
+- Wskaż, że wyjątek został obsłużony
+- Zachowaj wiersz GridView w trybie edycji
 
-Ten poniższy kod w ramach tych celów:
+Ten kod realizuje następujące cele:
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample5.cs)]
 
-Ta procedura obsługi zdarzeń rozpoczyna się od sprawdzenia, czy `e.Exception` jest `null`. Jeśli nie jest dostępna, `ExceptionDetails` etykiety `Visible` właściwość jest ustawiona na `true` i jego `Text` właściwość "Wystąpił problem podczas aktualizacji produktu." Szczegółowe informacje o faktyczny wyjątek, który został zgłoszony znajdują się w `e.Exception` obiektu `InnerException` właściwości. Ten wyjątek wewnętrzny jest badany i, jeśli jest określonego typu, komunikat o dodatkowe, pomocne jest dołączany do `ExceptionDetails` etykiety `Text` właściwości. Na koniec `ExceptionHandled` i `KeepInEditMode` właściwości są ustawione na `true`.
+Ta procedura obsługi zdarzeń rozpoczyna się od sprawdzenia, czy `e.Exception` jest `null`. Jeśli tak nie jest, właściwość `Visible` `ExceptionDetails` etykiety jest ustawiona na `true` i jej Właściwość `Text` na "Wystąpił problem podczas aktualizowania produktu". Szczegóły faktycznego wyjątku, który został zgłoszony, znajdują się we właściwości `InnerException` obiektu `e.Exception`. Ten wyjątek wewnętrzny jest sprawdzany i, jeśli jest określonego typu, dodatkowy, przydatny komunikat jest dołączany do właściwości `Text` `ExceptionDetails` etykiety. Na koniec właściwości `ExceptionHandled` i `KeepInEditMode` są ustawione na `true`.
 
-Gdy nazwa produktu; pomijanie rysunku nr 9 przedstawiono zrzut ekranu strony Na rysunku nr 10 przedstawiono wyniki, wprowadzając niedozwolony `UnitPrice` wartość (-50).
+Rysunek 9 przedstawia zrzut ekranu na tej stronie podczas pomijania nazwy produktu. Rysunek 10 pokazuje wyniki podczas wprowadzania niedozwolonej wartości `UnitPrice` (-50).
 
-[![Elementu ProductName BoundField musi zawierać wartość](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image24.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image23.png)
+[![ProductName BoundField musi zawierać wartość](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image24.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image23.png)
 
-**Rysunek 9**: `ProductName` Elementu BoundField musi zawierać wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image25.png))
+**Rysunek 9**: BoundField `ProductName` musi zawierać wartość ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image25.png))
 
-[![Wartości ujemne UnitPrice są niedozwolone](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image27.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image26.png)
+[![ujemne wartości CenaJednostkowa są niedozwolone](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image27.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image26.png)
 
-**Na rysunku nr 10**: Ujemna `UnitPrice` wartości są niedozwolone ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image28.png))
+**Rysunek 10**. ujemne wartości `UnitPrice` są niedozwolone ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image28.png))
 
-Ustawiając `e.ExceptionHandled` właściwości `true`, `RowUpdated` program obsługi zdarzeń wskazuje, że została zapewniona obsługa wyjątku. W związku z tym wyjątek nie będzie propagowane do środowiska uruchomieniowego programu ASP.NET.
+Ustawiając właściwość `e.ExceptionHandled` na `true`, program obsługi zdarzeń `RowUpdated` wskazuje, że obsłużył wyjątek. W związku z tym wyjątek nie zostanie propagowany do środowiska uruchomieniowego ASP.NET.
 
 > [!NOTE]
-> Rysunki 9 i 10 Pokaż łagodne sposób obsługi wyjątków wyzwalanymi z powodu nieprawidłowego użytkownika danych wejściowych. Najlepiej, jeśli jednak takie nieprawidłowe dane wejściowe nigdy nie będzie zasięg warstwy logiki biznesowej w pierwszej kolejności, jak strony ASP.NET należy upewnić się, że dane wejściowe użytkownika są prawidłowe przed wywołaniem `ProductsBLL` klasy `UpdateProduct` metody. W naszym następnego samouczka, zobaczymy, jak dodawanie kontrolek weryfikacji do interfejsów edycji i wstawianie do upewnij się, że dane przesłane do warstwy logiki biznesowej jest zgodny z reguł biznesowych. Formanty sprawdzania poprawności nie tylko przeszkodzi w wywołaniu `UpdateProduct` metody do momentu dane dostarczone przez użytkownika jest prawidłowy, ale również zapewniają większą przyjazność środowisko użytkownika do identyfikowania problemów zapisu danych.
+> Rysunki 9 i 10 przedstawiają płynny sposób obsługi wyjątków zgłoszonych z powodu nieprawidłowych danych wejściowych użytkownika. W idealnym przypadku takie nieprawidłowe dane wejściowe nigdy nie docierają do warstwy logiki biznesowej w pierwszym miejscu, ponieważ strona ASP.NET powinna upewnić się, że dane wejściowe użytkownika są prawidłowe przed wywołaniem metody `UpdateProduct`j klasy `ProductsBLL`. W naszym następnym samouczku dowiesz się, jak dodać kontrolki weryfikacji do edycji i wstawiania interfejsów, aby upewnić się, że dane przesyłane do warstwy logiki biznesowej są zgodne z regułami biznesowymi. Kontrolki walidacji nie tylko uniemożliwiają wywołanie metody `UpdateProduct`, dopóki dane podane przez użytkownika nie będą prawidłowe, ale również zapewniają bardziej szczegółowe środowisko użytkownika do identyfikowania problemów z wprowadzaniem danych.
 
-## <a name="step-3-gracefully-handling-bll-level-exceptions"></a>Krok 3. Bez problemu zmieniała obsługi wyjątków na poziomie LOGIKI
+## <a name="step-3-gracefully-handling-bll-level-exceptions"></a>Krok 3. bezpieczne obsługiwanie wyjątków na poziomie LOGIKI biznesowej
 
-Podczas wstawiania, aktualizowania lub usuwania danych, warstwy dostępu do danych może zgłosić wyjątek w przypadku błędów związanych z danymi. Baza danych może być w trybie offline, kolumnie tabeli wymaganej bazy danych nie może być mogła mieć wartość określoną lub ograniczenie poziomu tabeli zostały naruszone. Oprócz wyjątków ściśle powiązane z danymi warstwy logiki biznesowej można używać wyjątków sygnalizującego, kiedy reguły biznesowe zostały naruszone. W [Tworzenie warstwy logiki biznesowej](../introduction/creating-a-business-logic-layer-cs.md) samouczek, na przykład, dodaliśmy wyboru reguły biznesowe do oryginalnego `UpdateProduct` przeciążenia. Ściślej mówiąc Jeśli użytkownik został oznaczanie produktu, jak wycofana, wprowadziliśmy produktu będzie nie być jedyną dostarczone przez dostawcę. Jeśli ten warunek został naruszony, zwiększyłaby, `ApplicationException` został zgłoszony.
+Podczas wstawiania, aktualizowania lub usuwania danych, warstwa dostępu do danych może zgłosić wyjątek w wyniku błędu związanego z danymi. Baza danych może być w trybie offline, wymagana kolumna tabeli bazy danych może nie mieć określonej wartości lub ograniczenie poziomu tabeli mogło zostać naruszone. Oprócz nieścisłych wyjątków związanych z danymi, Warstwa logiki biznesowej może używać wyjątków, aby wskazać, kiedy reguły biznesowe zostały naruszone. W samouczku [Tworzenie warstwy logiki biznesowej](../introduction/creating-a-business-logic-layer-cs.md) na przykład dodaliśmy sprawdzanie reguły biznesowej do oryginalnego przeciążenia `UpdateProduct`. W przypadku, gdy użytkownik oznaczy produkt jako niegotowy, firma Microsoft zobowiązana, że produkt nie należy do jedynej dostarczonej przez niego dostawcy. Jeśli ten warunek został naruszony, zgłoszono `ApplicationException`.
 
-Dla `UpdateProduct` przeciążenia utworzonych w tym samouczku, możemy dodać regułę biznesową, która zakazuje `UnitPrice` pola z ustawiana na nową wartość, która jest więcej niż dwa razy, oryginalnym `UnitPrice` wartość. Aby to osiągnąć, należy dostosować `UpdateProduct` przeciążenia, który wykonuje to sprawdzenie i zgłasza `ApplicationException` Jeśli zostanie naruszona zasada. Zaktualizowana metoda następująco:
+W przypadku przeciążenia `UpdateProduct` utworzonego w ramach tego samouczka dodamy regułę biznesową, która zabrania, aby pole `UnitPrice` było ustawione na nową wartość, która jest większa niż dwukrotnie oryginalna wartość `UnitPrice`. Aby to osiągnąć, Dostosuj Przeciążenie `UpdateProduct` tak, aby wykonywało to sprawdzenie i zgłosi `ApplicationException`, jeśli reguła zostanie naruszona. Zaktualizowana Metoda jest następująca:
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample6.cs)]
 
-Dzięki tej zmianie spowoduje, że każda aktualizacja cenę, która ceną bezpieczeństwa jest więcej niż dwa razy istniejących `ApplicationException` zostanie wygenerowany. Podobnie jak w przypadku wyjątek zgłoszony z warstwy DAL, w tym zgłoszone LOGIKI `ApplicationException` mogą być wykryte i obsługiwane w GridView `RowUpdated` programu obsługi zdarzeń. W rzeczywistości `RowUpdated` kod obsługi zdarzeń w poprawnie wykryje ten wyjątek i wyświetli `ApplicationException`firmy `Message` wartości właściwości. Na ilustracji 11 pokazano zrzutu, gdy użytkownik próbuje zaktualizować cena Chai 50,00 USD, czyli więcej niż double jego bieżąca cena cenie od 19,95 USD ekranu.
+Wprowadzenie tej zmiany spowoduje, że wszystkie aktualizacje cen, które są większe niż dwa razy w istniejącej cenie, spowodują zgłoszenie `ApplicationException`. Podobnie jak wyjątek wywoływany z DAL, ten LOGIKI biznesowej podniesione `ApplicationException` można wykryć i obsłużyć w programie obsługi zdarzeń `RowUpdated` GridView. W rzeczywistości kod programu obsługi zdarzeń `RowUpdated`, zgodnie z zapisaniem, prawidłowo wykryje ten wyjątek i wyświetli wartość właściwości `Message` `ApplicationException`. Rysunek 11 przedstawia zrzut ekranu, gdy użytkownik próbuje zaktualizować cenę Chai do $50,00, która jest większa niż podwójna cena w wysokości $19,95.
 
-[![Reguły biznesowe nie zezwalaj na wzrost cen, które ponad dwukrotnie cena produktu](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image29.png)
+[![reguły biznesowe nie zezwalają na zwiększenie cen, które przekraczają cenę produktu](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image30.png)](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image29.png)
 
-**Rysunek 11**: Firma reguł wzrostów nie zezwalaj, które ponad dwukrotnie cena produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image31.png))
+**Ilustracja 11**. reguły biznesowe nie zezwalają na zwiększenie cen, które przekraczają cenę produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/_static/image31.png))
 
 > [!NOTE]
-> Najlepiej logiki reguły biznesowe może być refaktoryzowany poza `UpdateProduct` przeciążenia metody do wspólnej metody. To pole pozostanie w charakterze ćwiczenia dla czytnika.
+> Najlepiej, gdy nasze reguły logiki biznesowej byłyby refaktoryzacji z przeciążeń metody `UpdateProduct` i we wspólnej metodzie. Jest to pozostawione jako ćwiczenie dla czytnika.
 
 ## <a name="summary"></a>Podsumowanie
 
-Podczas wstawiania, aktualizowania i usuwania działań kontrolki sieci Web danych i kontrolki ObjectDataSource zaangażowane wyzwalać przed i po poziomu zdarzeń tego zakładkę bieżącej operacji. Jak widzieliśmy w tym samouczku i mieszanego, pracując z GridView można edytować w widoku GridView `RowUpdating` generowane zdarzenie, a następnie ObjectDataSource `Updating` zdarzeń, w tym momencie ObjectDataSource wprowadzania polecenia update obiekt źródłowy. Po ukończeniu tej operacji, ObjectDataSource `Updated` aktywowaniu zdarzenia następuje GridView `RowUpdated` zdarzeń.
+Podczas wstawiania, aktualizowania i usuwania operacji zarówno formant sieci Web danych, jak i element ObjectDataSource są wyzwalane przez zdarzenia poprzedzające i końcowe, które bookendją rzeczywistą operację. Jak już wspomniano w tym samouczku i powyższym, podczas pracy z edytowalnym elementem GridView `RowUpdating` zdarzenie wyzwalane, a następnie zdarzenie `Updating` elementu ObjectDataSource, w którym jest wykonywane polecenie Update w obiekcie źródłowym elementu ObjectDataSource. Po zakończeniu operacji zdarzenie `Updated` elementu ObjectDataSource zostanie wyzwolone, a następnie zdarzenie `RowUpdated` GridView.
 
-Można utworzyć procedury obsługi zdarzeń dla zdarzenia wstępnie poziomu, aby dostosować parametry wejściowe lub po utworzeniu zdarzenia na poziomie w celu inspekcji i reagować na wyniki operacji. Programy obsługi zdarzeń po poziomu są najczęściej używane do wykrywania, czy wystąpił wyjątek podczas operacji. W przypadku wyjątku te programy obsługi zdarzeń po poziom opcjonalnie może obsłużyć wyjątek własnych. W tym samouczku widzieliśmy sposób obsługi takiego wyjątku, wyświetlając przyjazny komunikat o błędzie.
+Możemy utworzyć programy obsługi zdarzeń dla zdarzeń przedpoziomu, aby dostosować parametry wejściowe lub dla zdarzeń na poziomie, aby móc sprawdzać wyniki operacji i odpowiadać na nie. Programy obsługi zdarzeń na poziomie są najczęściej używane do wykrywania, czy wystąpił wyjątek podczas operacji. W przypadku wyjątku te programy obsługi zdarzeń na poziomie mogą opcjonalnie obsłużyć wyjątek samodzielnie. W tym samouczku pokazano, jak obsłużyć taki wyjątek, wyświetlając przyjazny komunikat o błędzie.
 
-W następnym samouczku zobaczymy, jak zmniejszyć prawdopodobieństwo wyjątki powstających problemów formatowania danych (np. wprowadzanie ujemnych `UnitPrice`). W szczególności omówimy sposób dodawania kontrolek weryfikacji do interfejsów edycji i wstawianie.
+W następnym samouczku dowiesz się, jak zmniejszyć prawdopodobieństwo wystąpienia wyjątków wynikających z problemów z formatowaniem danych (takich jak wprowadzanie negatywnej `UnitPrice`). W celu dowiesz się, jak dodać kontrolki weryfikacji do edycji i wstawiania interfejsów.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Liz Shulok. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Liz Shulok. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

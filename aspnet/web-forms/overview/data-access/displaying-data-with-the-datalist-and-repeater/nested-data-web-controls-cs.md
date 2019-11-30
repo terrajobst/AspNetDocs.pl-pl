@@ -1,165 +1,165 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
-title: Zagnieżdżone dane sieci Web kontrolki (C#) | Dokumentacja firmy Microsoft
+title: Zagnieżdżone kontrolki internetowe danychC#() | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku, który przeanalizujemy sposób używania Repeater zagnieżdżone wewnątrz innego elementu powtarzanego. Przykłady przedstawiają sposobu wypełniania wewnętrzny elementu powtarzanego zarówno d...
+description: W tym samouczku dowiesz się, jak używać elementu wzmacniak zagnieżdżonego w innym Wzmacniake. Przykłady pokazują, jak wypełnić wewnętrzny wzmacniak zarówno d...
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 02b5b23120431c5066eb899099c8af3e29d998c5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8ef15bebb2c29976274b0cca1d6ace434ccc55ce
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134529"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74640278"
 ---
 # <a name="nested-data-web-controls-c"></a>Zagnieżdżone kontrolki internetowe danych (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_32_CS.exe) lub [Pobierz plik PDF](nested-data-web-controls-cs/_static/datatutorial32cs1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_32_CS.exe) lub [Pobierz plik PDF](nested-data-web-controls-cs/_static/datatutorial32cs1.pdf)
 
-> W tym samouczku, który przeanalizujemy sposób używania Repeater zagnieżdżone wewnątrz innego elementu powtarzanego. Przykłady przedstawiają sposobu wypełniania wewnętrzny elementu powtarzanego w sposób deklaratywny i programowy.
+> W tym samouczku dowiesz się, jak używać elementu wzmacniak zagnieżdżonego w innym Wzmacniake. Przykłady pokazują, jak wypełnić wewnętrzny wzmacniak jednocześnie i programowo.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Oprócz statyczny kod HTML i składnia wiązania danych szablony mogą również obejmować kontrolki sieci Web oraz użytkownika. Te kontrolki sieci Web może mieć właściwości, ich przypisany za pomocą składni deklaratywnej, powiązań danych, lub można uzyskać programistycznie w procedurach obsługi odpowiedniego zdarzenia po stronie serwera.
+Oprócz statycznej składni HTML i powiązania DataBinding szablony mogą również obejmować formanty sieci Web i kontrolki użytkownika. Te kontrolki sieci Web mogą mieć przypisane do nich właściwości za pośrednictwem instrukcji deklaracyjnej, wiązania z danymi lub można programistycznie uzyskiwać dostęp do odpowiednich programów obsługi zdarzeń po stronie serwera.
 
-Osadzając kontrolki w szablonie, można dostosować i ulepszania wyglądu i interfejsu użytkownika. Na przykład w [za pomocą kontrolek TemplateField w kontrolce GridView](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md) samouczka będziemy pokazaliśmy, jak dostosować wyświetlanie s GridView, dodając kontrolkę kalendarza w TemplateField, aby pokazać pracownika Data zatrudnienia s; w [Dodawanie Kontrolek weryfikacji do edycji i wstawiania interfejsy](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md) i [Dostosowywanie interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) samouczki, widzieliśmy sposobu dostosowywania, edycji i wstawianie interfejsy przez dodawanie sprawdzania poprawności formanty, pola tekstowe, kontrolek DROPDOWNLIST i inne kontrolki sieci Web.
+Osadzając kontrolki w szablonie, można dostosować i ulepszyć środowisko użytkownika. Na przykład w przypadku korzystania z używanie TemplateField w ramach samouczka [kontrolki GridView](../custom-formatting/using-templatefields-in-the-gridview-control-cs.md) dowiesz się, jak dostosować wyświetlanie widoku GridView, dodając kontrolkę Calendar w TemplateField, aby pokazać datę zatrudnienia pracownika. w obszarze [Dodawanie kontrolek weryfikacji do edycji i wstawiania interfejsów](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md) i dostosowywania samouczków dotyczących [interfejsu modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) przedstawiono sposób dostosowywania edycji i wstawiania interfejsów przez dodanie formantów sprawdzania poprawności, pól tekstowych, kontrolek DropDownList i innych kontrolek sieci Web.
 
-Szablony mogą również zawierać inne dane kontrolki sieci Web. Oznacza to, że firma Microsoft może mieć DataList, zawierający inną DataList (lub elementu powtarzanego lub GridView lub DetailsView i tak dalej) w ramach jego szablonów. Żądania z takiego interfejsu jest powiązanie odpowiednie dane do wewnętrznego danych formantu sieci Web. Brak dostępnych kilka różnych metod, począwszy od opcji deklaratywnych za pomocą kontrolki ObjectDataSource tymi programowe.
+Szablony mogą również zawierać inne kontrolki sieci Web danych. Oznacza to, że możemy mieć element DataList, który zawiera inną wartość DataList (lub wzmacniak lub GridView lub DetailsView itd.) w ramach swoich szablonów. Wyzwanie z takim interfejsem wiąże odpowiednie dane z wewnętrznym formantem sieci Web danych. Istnieje kilka różnych metod, od opcji deklaratywnych używających elementu ObjectDataSource do programowania.
 
-W tym samouczku, który przeanalizujemy sposób używania Repeater zagnieżdżone wewnątrz innego elementu powtarzanego. Zewnętrzne elementu powtarzanego będzie zawierać element dla każdej kategorii w bazie danych, wyświetlanie kategorii s nazwę i opis. Każdy element kategorii s wewnętrzny elementu powtarzanego wyświetlane są informacje dotyczące poszczególnych produktów należących do tej kategorii (patrz rysunek 1) na liście punktowanej. Nasze przykłady przedstawiają sposobu wypełniania wewnętrzny elementu powtarzanego w sposób deklaratywny i programowy.
+W tym samouczku dowiesz się, jak używać elementu wzmacniak zagnieżdżonego w innym Wzmacniake. Wzmacniak zewnętrzny będzie zawierać element dla każdej kategorii w bazie danych, wyświetlając nazwę i opis kategorii. Każdy element kategorii-wzmacniak wewnętrzny będzie wyświetlał informacje dla każdego produktu należącego do tej kategorii (patrz rysunek 1) na liście punktowanej. Nasze przykłady pokazują, jak wypełnić wewnętrzny wzmacniak jednocześnie i programowo.
 
-[![Każdej kategorii, wraz z jej produktów są wyświetlane.](nested-data-web-controls-cs/_static/image2.png)](nested-data-web-controls-cs/_static/image1.png)
+[![każdej kategorii wraz z jej produktami są wymienione](nested-data-web-controls-cs/_static/image2.png)](nested-data-web-controls-cs/_static/image1.png)
 
-**Rysunek 1**: Są wyświetlane w każdej kategorii, wraz z jej produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image3.png))
+**Rysunek 1**. na liście są wyświetlane wszystkie kategorie wraz z produktami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image3.png))
 
 ## <a name="step-1-creating-the-category-listing"></a>Krok 1. Tworzenie listy kategorii
 
-Podczas tworzenia stron, która używa zagnieżdżone kontrolki internetowe danych, I przydatne do projektowania, tworzenie i testowanie formantu sieci Web peryferyjnych danych, najpierw bez nawet martwienia się o wewnętrzną kontrolkę zagnieżdżonych. W związku z tym Niech s początek Instruktaż kroki niezbędne do dodania elementu powtarzanego do strony, która wyświetla nazwę i opis dla każdej kategorii.
+Podczas kompilowania strony korzystającej z zagnieżdżonych kontrolek sieci Web, łatwiej jest zaprojektować, utworzyć i przetestować zewnętrzną kontrolkę sieci Web, bez nawet martw się o wewnętrzną kontrolkę zagnieżdżoną. W związku z tym Zacznijmy od kroków niezbędnych do dodania do strony, która zawiera nazwę i opis każdej kategorii.
 
-Zacznij od otwarcia `NestedControls.aspx` strony w `DataListRepeaterBasics` folderu i Dodaj kontrolką elementu powtarzanego do strony, ustawiając jego `ID` właściwość `CategoryList`. Za pomocą tagu inteligentnego Repeater s zdecydować się na utworzenie nowego elementu ObjectDataSource, o nazwie `CategoriesDataSource`.
+Aby rozpocząć, Otwórz stronę `NestedControls.aspx` w folderze `DataListRepeaterBasics` i Dodaj kontrolkę wzmacniak do strony, ustawiając jej Właściwość `ID` na `CategoryList`. Z tagu inteligentnego wzmacniaka wybierz, aby utworzyć nowy element ObjectDataSource o nazwie `CategoriesDataSource`.
 
-[![Nazwa nowego ObjectDataSource CategoriesDataSource](nested-data-web-controls-cs/_static/image5.png)](nested-data-web-controls-cs/_static/image4.png)
+[Nazwa ![nowego elementu ObjectDataSource CategoriesDataSource](nested-data-web-controls-cs/_static/image5.png)](nested-data-web-controls-cs/_static/image4.png)
 
-**Rysunek 2**: Nadaj nazwę nowej kontrolki ObjectDataSource `CategoriesDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image6.png))
+**Rysunek 2**. nazwa nowego `CategoriesDataSource` elementu ObjectDataSource ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](nested-data-web-controls-cs/_static/image6.png))
 
-Skonfigurować kontrolki ObjectDataSource ściągania danych z `CategoriesBLL` klasy s `GetCategories` metody.
+Skonfiguruj element ObjectDataSource w taki sposób, aby pobierał swoje dane z metody `GetCategories` `CategoriesBLL` Class.
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetCategories CategoriesBLL klasy s](nested-data-web-controls-cs/_static/image8.png)](nested-data-web-controls-cs/_static/image7.png)
+[![skonfigurować element ObjectDataSource do używania metody GetCategories klasy CategoriesBLL](nested-data-web-controls-cs/_static/image8.png)](nested-data-web-controls-cs/_static/image7.png)
 
-**Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy s `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image9.png))
+**Rysunek 3**. Konfigurowanie elementu ObjectDataSource do używania metody `GetCategories` `CategoriesBLL` Class (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image9.png))
 
-Aby określić szablon elementu powtarzanego s zawartości należy przejść do widoku źródła i ręcznie wprowadzić składni deklaratywnej. Dodaj `ItemTemplate` wyświetlającą nazwę kategorii s w `<h4>` elementu i opis kategorii s w element akapitu (`<p>`). Ponadto umożliwiają s oddziel poszczególnych kategorii linii poziomej (`<hr>`). Po wprowadzeniu tych zmian strony powinna zawierać składni deklaratywnej dla elementu powtarzanego i kontrolki ObjectDataSource, który jest podobny do następującego:
+Aby określić zawartość szablonu wzmacniaka, należy przejść do widoku źródła i ręcznie wprowadzić składnię deklaratywną. Dodaj `ItemTemplate`, który wyświetla nazwę kategorii w elemencie `<h4>` i opis kategorii s w elemencie Paragraph (`<p>`). Ponadto poinformuj każdą kategorię z regułą poziomą (`<hr>`). Po wprowadzeniu tych zmian strona powinna zawierać składnię deklaratywną dla elementu wzmacniak i ObjectDataSource, która jest podobna do następującej:
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample1.aspx)]
 
-Rysunek 4 pokazuje nasz postęp, podczas wyświetlania za pośrednictwem przeglądarki.
+Na rysunku 4 przedstawiono postęp wyświetlania w przeglądarce.
 
-[![Każda kategoria s Nazwa i opis ma na liście, oddzielone linia pozioma](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
+[![każda nazwa i opis kategorii s są wyświetlane według reguły poziomej](nested-data-web-controls-cs/_static/image11.png)](nested-data-web-controls-cs/_static/image10.png)
 
-**Rysunek 4**: Każda kategoria s Nazwa i opis ma na liście, oddzielone linii poziomej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image12.png))
+**Ilustracja 4**. nazwa i opis kategorii s są wyświetlane według reguły poziomej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image12.png))
 
-## <a name="step-2-adding-the-nested-product-repeater"></a>Krok 2. Dodawanie elementu powtarzanego zagnieżdżonych produktu
+## <a name="step-2-adding-the-nested-product-repeater"></a>Krok 2. Dodawanie zagnieżdżonego wzmacniaka produktu
 
-Z kategorią listę pełną, naszym kolejnym krokiem jest dodanie Repeater do `CategoryList` s `ItemTemplate` , wyświetla informacje o tych produktów należących do odpowiedniej kategorii. Istnieją różne sposoby, można pobierać dane dla tego wewnętrzny elementu powtarzanego, dwie z nich przedstawimy wkrótce. Na razie umożliwiają s po prostu Utwórz produktów Repeater w ramach `CategoryList` Repeater s `ItemTemplate`. W szczególności umożliwiają s ma wyświetlania elementu powtarzanego każdego produktu na liście punktowanej dla każdego elementu listy łącznie z nazwą produktu s i cena produktu.
+Po zakończeniu tworzenia listy kategorii następnym zadaniem jest dodanie wzmacniak do `CategoryList` s `ItemTemplate`, który wyświetla informacje o tych produktach należących do odpowiedniej kategorii. Istnieje kilka sposobów, dla których możemy pobrać dane dla tego dwukierunkowego wzmacniaka, z którego korzystamy wkrótce. Na razie pozwól, aby po prostu utworzyć Wzmacniakę produktów w ramach `ItemTemplate``CategoryList`. W szczególności poinformuj, że każdy produkt na liście punktowanej zawiera wzmacniak z każdym elementem listy, w tym nazwę produktu i cenę.
 
-Do utworzenia tego elementu powtarzanego będziemy musieli ręcznie wprowadzić wewnętrzny elementu powtarzanego s składni deklaratywnej i szablony do `CategoryList` s `ItemTemplate`. Dodaj następujący kod w ramach `CategoryList` Repeater s `ItemTemplate`:
+Aby utworzyć ten wzmacniak, należy ręcznie wprowadzić wewnętrzną składnię i szablony deklaracyjnego wzmacniania w `CategoryList` s `ItemTemplate`. Dodaj następującą adiustację w `ItemTemplate``CategoryList` wzmacniak:
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample2.aspx)]
 
-## <a name="step-3-binding-the-category-specific-products-to-the-productsbycategorylist-repeater"></a>Krok 3. Powiązanie powtarzanego ProductsByCategoryList specyficznego dla kategorii produktów
+## <a name="step-3-binding-the-category-specific-products-to-the-productsbycategorylist-repeater"></a>Krok 3. powiązanie produktów specyficznych dla kategorii z ProductsByCategoryList
 
-W przypadku odwiedzenia strony za pomocą przeglądarki na tym etapie, ekran będzie wyglądać tak samo, jak rysunek 4 ponieważ możemy ve jeszcze żadnych danych można powiązać elementu powtarzanego. Istnieje kilka sposobów, firma Microsoft Pobierz rekordy odpowiedniego produktu i wiązania ich z elementu powtarzanego, niektóre bardziej wydajne niż inne. Głównym wyzwaniem jest powrót odpowiednich produktów dla określonej kategorii.
+Jeśli w tym momencie odwiedzasz stronę za pomocą przeglądarki, Twój ekran będzie wyglądać tak samo jak na rysunku 4, ponieważ jeszcze tu powiążemy wszelkie dane z Wzmacniaką. Istnieje kilka sposobów, dzięki którym możemy pobrać odpowiednie rekordy produktu i powiązać je z Wzmacniaką, a bardziej wydajniej niż inne. Głównym wyzwaniem w tym miejscu jest przywrócenie odpowiednich produktów dla określonej kategorii.
 
-Dane można powiązać z wewnętrznego kontrolce elementu powtarzanego albo są dostępne w sposób deklaratywny, za pomocą kontrolki ObjectDataSource w `CategoryList` Repeater s `ItemTemplate`, lub programowo, ze strony związanym z kodem strony ASP.NET. Podobnie, te dane mogą być powiązane z wewnętrzny elementu powtarzanego albo w sposób deklaratywny — za pośrednictwem wewnętrznego elementu powtarzanego s `DataSourceID` właściwości lub za pomocą składni deklaratywne wiązania danych, albo programowo, odwołując się do wewnętrznego elementu powtarzanego w `CategoryList` Repeater s `ItemDataBound` programu obsługi zdarzeń, programowe ustawianie jego `DataSource` właściwości i wywoływania jego `DataBind()` metody. Pozwól, s, zapoznaj się z każdego z tych sposobów.
+Do danych, które mają być powiązane z wewnętrznym formantem wzmacniania, można uzyskać deklaratywnie dostęp za pośrednictwem elementu ObjectDataSource w `ItemTemplate``CategoryList`ego, lub programowo, na stronie ASP.NET strony z kodem. Podobnie te dane mogą być powiązane z wewnętrznym Wzmacniakem, w sposób deklaratywny przez wewnętrzną właściwość "Wzmacniake" `DataSourceID` lub za pomocą składniowej funkcji DataBinding lub programowo poprzez odwołanie do wewnętrznego wzmacniak w obsłudze zdarzeń `ItemDataBound` wzmacniak `CategoryList`, programowe Ustawianie jego właściwości `DataSource` i wywoływanie jego metody `DataBind()`. Zapoznaj się z każdą z tych metod.
 
-## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>Uzyskiwanie dostępu do danych w sposób deklaratywny za pomocą kontrolki ObjectDataSource i`ItemDataBound`programu obsługi zdarzeń
+## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>Uzyskiwanie dostępu do danych w sposób deklaratywny przy użyciu kontrolki ObjectDataSource i programu obsługi zdarzeń`ItemDataBound`
 
-Ponieważ firma Microsoft był używany ObjectDataSource często w całej tej serii samouczków najbardziej naturalnym wyborem do uzyskiwania dostępu do danych, w tym przykładzie jest się za pomocą kontrolki ObjectDataSource. `ProductsBLL` Klasa ma `GetProductsByCategoryID(categoryID)` metodę, która zwraca informacje na temat tych produktów, które należą do określonego *`categoryID`*. W związku z tym, można dodać kontrolki ObjectDataSource do `CategoryList` Repeater s `ItemTemplate` i skonfiguruj ją, aby uzyskać dostęp do swoich danych z tej metody klasy s.
+Ponieważ niedawno użyto elementu ObjectDataSource w całości w tej serii samouczków, najbardziej naturalną opcją uzyskiwania dostępu do danych na potrzeby tego przykładu jest naklejenie z elementem ObjectDataSource. Klasa `ProductsBLL` ma metodę `GetProductsByCategoryID(categoryID)`, która zwraca informacje o tych produktach, które należą do określonego *`categoryID`* . W związku z tym możemy dodać element ObjectDataSource do `ItemTemplate` `CategoryList` wzmacniak i skonfigurować go do uzyskiwania dostępu do danych z tej metody klasy s.
 
-Niestety Repeater t zezwala na jego szablonów, które mają być edytowana za pomocą widoku projektu, więc musimy dodać składni deklaratywnej dla tego formantu ObjectDataSource ręcznie. Poniższej składni `CategoryList` Repeater s `ItemTemplate` po dodaniu tej nowej kontrolki ObjectDataSource (`ProductsByCategoryDataSource`):
+Niestety, wzmacniak nie zezwoli na edycję jego szablonów za pomocą widok Projekt, dlatego musimy ręcznie dodać składnię deklaratywną dla tej kontrolki ObjectDataSource. Poniższa składnia przedstawia `CategoryList` wzmacniak `ItemTemplate` po dodaniu nowego elementu ObjectDataSource (`ProductsByCategoryDataSource`):
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample3.aspx)]
 
-Korzystając z podejścia ObjectDataSource musimy `ProductsByCategoryList` Repeater s `DataSourceID` właściwości `ID` elementu ObjectDataSource (`ProductsByCategoryDataSource`). Ponadto te Zauważ, że nasze ObjectDataSource ma `<asp:Parameter>` element, który określa *`categoryID`* wartości, które zostaną przekazane do `GetProductsByCategoryID(categoryID)` metody. Ale jak możemy określić tę wartość? W idealnym przypadku d będziemy mogli ustawiliśmy `DefaultValue` właściwość `<asp:Parameter>` elementu przy użyciu składni wiązania danych w następujący sposób:
+W przypadku korzystania z metody ObjectDataSource musimy ustawić właściwość `ProductsByCategoryList` wzmacniak `DataSourceID` do `ID` elementu ObjectDataSource (`ProductsByCategoryDataSource`). Należy również zauważyć, że nasz element ObjectDataSource ma `<asp:Parameter>` elementu, który określa *`categoryID`* wartość, która zostanie przeniesiona do metody `GetProductsByCategoryID(categoryID)`. Ale jak określamy tę wartość? W idealnym przypadku można po prostu ustawić właściwość `DefaultValue` elementu `<asp:Parameter>` przy użyciu składni DataBinding, na przykład:
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample4.aspx)]
 
-Niestety, składnia wiązania danych jest prawidłowy tylko w kontrolkach, które mają `DataBinding` zdarzeń. `Parameter` Klasa zamknięta nie ma takiego zdarzenia, a w związku z tym powyższej składni jest niedozwolony spowoduje błąd w czasie wykonywania.
+Niestety, składnia DataBinding jest prawidłowa tylko w kontrolkach, które mają zdarzenie `DataBinding`. Klasa `Parameter` nie ma takiego zdarzenia, w związku z czym powyższa składnia jest niedozwolona i spowoduje błąd w czasie wykonywania.
 
-Aby ustawić tę wartość, należy utworzyć program obsługi zdarzeń dla `CategoryList` Repeater s `ItemDataBound` zdarzeń. Pamiętamy `ItemDataBound` zdarzeń jest uruchamiana raz dla każdego elementu powtarzanego powiązana. W związku z tym, każdym razem, to zdarzenie jest generowane dla zewnętrznego elementu powtarzanego można przypisywać bieżącego `CategoryID` wartość `ProductsByCategoryDataSource` ObjectDataSource s `CategoryID` parametru.
+Aby ustawić tę wartość, musimy utworzyć procedurę obsługi zdarzeń dla zdarzenia `ItemDataBound` `CategoryList`owego. Odwołaj, że zdarzenie `ItemDataBound` wyzwalane jednokrotnie dla każdego elementu powiązanego z Wzmacniaką. W związku z tym, za każdym razem, gdy to zdarzenie jest wyzwalane przez wzmacniak zewnętrzny, możemy przypisać bieżącą wartość `CategoryID` do parametru `ProductsByCategoryDataSource` ObjectDataSource s `CategoryID`.
 
-Utwórz procedurę obsługi zdarzeń dla `CategoryList` Repeater s `ItemDataBound` zdarzeń z następującym kodem:
+Utwórz procedurę obsługi zdarzeń dla zdarzenia `CategoryList` wzmacniak `ItemDataBound` za pomocą następującego kodu:
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample5.cs)]
 
-Ta procedura obsługi zdarzeń uruchamia, zapewniając, że możemy ponownie radzenia sobie z danymi elementu zamiast elementu nagłówek, stopka lub separatora. Następnie odwołujemy się rzeczywiste `CategoriesRow` wystąpienia, która właśnie została powiązana z bieżącego `RepeaterItem`. Na koniec mamy odwoływać się do elementu ObjectDataSource w `ItemTemplate` i przypisać jej `CategoryID` wartości parametru `CategoryID` bieżącego `RepeaterItem`.
+Ta procedura obsługi zdarzeń rozpoczyna się od zagwarantowania, że będziemy odprowadzić się do elementu danych, a nie nagłówka, stopki lub elementu separatora. Następnie odwołujemy się do rzeczywistego wystąpienia `CategoriesRow`, które zostało właśnie powiązane z bieżącym `RepeaterItem`. Na koniec odwołujemy się do elementu ObjectDataSource w `ItemTemplate` i przypisz jego wartość parametru `CategoryID` do `CategoryID` bieżącej `RepeaterItem`.
 
-Z tej obsługi zdarzeń `ProductsByCategoryList` Repeater w każdym `RepeaterItem` jest powiązany z tych produktów w `RepeaterItem` kategorii s. Rysunek 5. pokazuje zrzut ekranu: dane wyjściowe.
+W przypadku tego programu obsługi zdarzeń `ProductsByCategoryList` wzmacniak w każdym `RepeaterItem` jest powiązany z tymi produktami w kategorii `RepeaterItem` s. Rysunek 5 pokazuje zrzut ekranu przedstawiający wynikowe dane wyjściowe.
 
-[![Zewnętrzne powtarzanego Wyświetla każdej kategorii; Jeden wewnętrzny zawiera listę produktów dla tej kategorii](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
+[![zewnętrzny wzmacniak list każdej kategorii; Wewnętrzny element zawiera listę produktów dla tej kategorii](nested-data-web-controls-cs/_static/image14.png)](nested-data-web-controls-cs/_static/image13.png)
 
-**Rysunek 5**: Zewnętrzne powtarzanego Wyświetla każdej kategorii; Wyświetla jeden wewnętrzny produktów dla tej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](nested-data-web-controls-cs/_static/image15.png))
+**Ilustracja 5**. wzmacniak zewnętrzny wymienia każdą kategorię; Wewnętrzny element zawiera listę produktów dla tej kategorii ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](nested-data-web-controls-cs/_static/image15.png))
 
-## <a name="accessing-the-products-by-category-data-programmatically"></a>Programowe uzyskiwanie dostępu do produktów według kategorii danych
+## <a name="accessing-the-products-by-category-data-programmatically"></a>Programistyczne uzyskiwanie dostępu do produktów według kategorii
 
-Zamiast pobierać produkty dla bieżącej kategorii za pomocą kontrolki ObjectDataSource, możemy utworzyć metodę w naszej platformy ASP.NET strony s osobna klasa kodu (lub `App_Code` folderu lub w osobnym projekcie Biblioteka klas), zwraca odpowiedni zestaw produkty, gdy dane są przekazywane w `CategoryID`. Wyobraź sobie, firma Microsoft ma taką metodę klasy związane z kodem strony s naszej platformy ASP.NET i że nosiła nazwę `GetProductsInCategory(categoryID)`. Przy użyciu tej metody w miejscu firma Microsoft może powiązać produktów dla bieżącej kategorii wewnętrzny elementu powtarzanego przy użyciu poniższej składni deklaratywnej:
+Zamiast używać elementu ObjectDataSource do pobrania produktów dla bieżącej kategorii, możemy utworzyć metodę w klasie ASP.NET strony powiązanej z kodem (lub w folderze `App_Code` lub w oddzielnym projekcie biblioteki klas), która zwraca odpowiedni zestaw produktów w przypadku przekazywania ich do `CategoryID`. Załóżmy, że mamy taką metodę w klasie z kodem związanym ze stroną ASP.NET i że została ona nazwana `GetProductsInCategory(categoryID)`. Przy użyciu tej metody można powiązać produkty z bieżącą kategorią z wewnętrznym Wzmacniakem przy użyciu następującej składni deklaracyjnej:
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample6.aspx)]
 
-Elementu powtarzanego s `DataSource` właściwość używa składni wiązania danych, aby wskazać, czy jego dane pochodzą od `GetProductsInCategory(categoryID)` metody. Ponieważ `Eval("CategoryID")` zwraca wartość typu `Object`, firma Microsoft rzutować obiekt do `Integer` przed przekazaniem go do `GetProductsInCategory(categoryID)` metody. Należy pamiętać, że `CategoryID` używanych w tym miejscu za pomocą wiązania danych składnia jest `CategoryID` w *zewnętrzne* elementu powtarzanego (`CategoryList`), co ten s powiązany z rekordów w `Categories` tabeli. W związku z tym, wiemy, że `CategoryID` nie może być bazą `NULL` wartości, dlatego firma Microsoft może skutkować nieświadomym rzutowany `Eval` metody bez sprawdzania, czy możemy ponownie zajmowanie się `DBNull`.
+Właściwość `DataSource` wzmacniak używa składni wiązania danych, aby wskazać, że jej dane pochodzą z metody `GetProductsInCategory(categoryID)`. Ponieważ `Eval("CategoryID")` zwraca wartość typu `Object`, rzutowanie obiektu na `Integer` przed przekazaniem go do metody `GetProductsInCategory(categoryID)`. Należy pamiętać, że `CategoryID` dostępnym w tym miejscu za pośrednictwem składni wiązania danych jest `CategoryID` w wzmacniake *zewnętrznym* (`CategoryList`), który jest powiązany z rekordami w tabeli `Categories`. W związku z tym wiemy, że `CategoryID` nie może być wartością `NULL` bazy danych, co oznacza, że możemy odrzucać metodę `Eval` bez sprawdzania, czy będziemy ponownie korzystać z `DBNull`.
 
-W przypadku tej metody, musimy utworzyć `GetProductsInCategory(categoryID)` metody i pobrać odpowiedni zestaw produktów, biorąc pod uwagę na podanie *`categoryID`*. Możemy to zrobić, po prostu zwracanie `ProductsDataTable` zwrócone przez `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody. Umożliwiają tworzenie s `GetProductsInCategory(categoryID)` metody w klasie CodeBehind dla naszych `NestedControls.aspx` strony. To zrobić przy użyciu następującego kodu:
+W tym podejściu musimy utworzyć metodę `GetProductsInCategory(categoryID)` i pobrać odpowiedni zestaw produktów z uwzględnieniem podanej *`categoryID`* . Możemy to zrobić, po prostu zwracając `ProductsDataTable` zwrócone przez metodę `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)`. Niech s utworzy metodę `GetProductsInCategory(categoryID)` w klasie powiązanej z kodem dla naszej strony `NestedControls.aspx`. Należy to zrobić przy użyciu następującego kodu:
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample7.cs)]
 
-Ta metoda po prostu tworzy wystąpienie `ProductsBLL` metodę i zwraca wyniki `GetProductsByCategoryID(categoryID)` metody. Należy pamiętać, że metoda musi być oznaczona `Public` lub `Protected`; Jeśli metoda jest oznaczona jako `Private`, nie będą dostępne w oznaczeniu deklaracyjnym strony ASP.NET.
+Ta metoda po prostu tworzy wystąpienie metody `ProductsBLL` i zwraca wyniki metody `GetProductsByCategoryID(categoryID)`. Należy zauważyć, że metoda musi być oznaczona `Public` lub `Protected`; Jeśli metoda jest oznaczona `Private`, nie będzie dostępna ze znaczników deklaratywnych ASP.NET strony.
 
-Po wprowadzeniu tych zmian, aby użyć tej nowej metody, Poświęć chwilę, aby wyświetlić stronę za pośrednictwem przeglądarki. Dane wyjściowe powinny być identyczne dane wyjściowe, gdy za pomocą kontrolki ObjectDataSource i `ItemDataBound` metody obsługi zdarzeń (odnoszą się do rysunku 5, aby wyświetlić zrzut ekranu).
+Po wprowadzeniu tych zmian w celu skorzystania z tej nowej techniki Poświęć chwilę na wyświetlenie strony za pomocą przeglądarki. Dane wyjściowe powinny być identyczne z danymi wyjściowymi przy użyciu metody obsługi zdarzeń ObjectDataSource i `ItemDataBound` (patrz z powrotem do rysunku 5, aby wyświetlić zrzut ekranu).
 
 > [!NOTE]
-> Może się wydawać pracy, aby utworzyć `GetProductsInCategory(categoryID)` metody w klasie CodeBehind strony ASP.NET. Ta metoda po prostu tworzy wystąpienie `ProductsBLL` klasy i zwraca wyniki jego `GetProductsByCategoryID(categoryID)` metody. Dlaczego nie po prostu wywołać tę metodę bezpośrednio z składnia wiązania z danymi w elemencie powtarzanym wewnętrzne, takie jak: `DataSource='<%# ProductsBLL.GetProductsByCategoryID((int)(Eval("CategoryID"))) %>'`? Chociaż ta składnia nie będzie działać z naszych bieżąca implementacja parametru `ProductsBLL` klasy (ponieważ `GetProductsByCategoryID(categoryID)` metoda jest metodą wystąpienia), można zmodyfikować `ProductsBLL` uwzględnianie statycznego `GetProductsByCategoryID(categoryID)` metody lub Klasa statyczna `Instance()` metodę, aby zwrócić nowe wystąpienie klasy `ProductsBLL` klasy.
+> Może się wydawać, że pracy utworzyć metodę `GetProductsInCategory(categoryID)` w klasie z kodem ASP.NET strony. Po wykonaniu tej metody po prostu tworzy wystąpienie klasy `ProductsBLL` i zwraca wyniki metody `GetProductsByCategoryID(categoryID)`. Dlaczego nie tylko Wywołaj tę metodę bezpośrednio ze składni wiązania danych w Wzmacniake wewnętrznym, np. `DataSource='<%# ProductsBLL.GetProductsByCategoryID((int)(Eval("CategoryID"))) %>'`? Mimo że ta składnia nie będzie współdziałać z bieżącą implementacją klasy `ProductsBLL` (ponieważ metoda `GetProductsByCategoryID(categoryID)` jest metodą wystąpienia), można zmodyfikować `ProductsBLL` w celu uwzględnienia statycznej metody `GetProductsByCategoryID(categoryID)` lub dodać do klasy statyczną metodę `Instance()`, aby zwrócić nowe wystąpienie klasy `ProductsBLL`.
 
-Podczas modyfikacji wyeliminować potrzebę `GetProductsInCategory(categoryID)` metody w klasie CodeBehind strony ASP.NET, metody klasy CodeBehind daje większą elastyczność w stosowaniu dane pobrane, jak zajmiemy się wkrótce.
+Chociaż takie modyfikacje eliminują potrzebę `GetProductsInCategory(categoryID)` metody w klasie z kodem związanym ze stroną ASP.NET, metoda klasy związanej z kodem zapewnia większą elastyczność podczas pracy z pobranymi danymi, ponieważ wkrótce zobaczymy.
 
 ## <a name="retrieving-all-of-the-product-information-at-once"></a>Pobieranie wszystkich informacji o produkcie jednocześnie
 
-Dwie techniki poprzedniej możemy ve zbadane pobrania tych produktów dla bieżącej kategorii poprzez wywołanie `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` — metoda (pierwszego podejścia dokonał tego za pośrednictwem ObjectDataSource drugiego do `GetProductsInCategory(categoryID)` method in Class metoda osobna klasa kodu). Każdorazowo ta metoda jest wywoływana, wywołuje warstwę logiki biznesowej do warstwy dostępu do danych, który wysyła zapytanie bazy danych za pomocą instrukcji SQL, która zwraca wiersze z `Products` tabeli, którego `CategoryID` podany parametr wejściowy pasuje do pola.
+Dwie metody poprzedniej zostały zbadane, aby pobrały te produkty dla bieżącej kategorii przez nadanie wywołania metody `GetProductsByCategoryID(categoryID)` klasy `ProductsBLL` (pierwsze podejście zostało wykonane przez element ObjectDataSource, drugi za pomocą metody `GetProductsInCategory(categoryID)` w klasie związanej z kodem). Za każdym razem, gdy ta metoda jest wywoływana, Warstwa logiki biznesowej wywołuje do warstwy dostępu do danych, która wysyła zapytanie do bazy danych za pomocą instrukcji SQL, która zwraca wiersze z tabeli `Products`, której pole `CategoryID` pasuje do podanego parametru wejściowego.
 
-Biorąc pod uwagę *N* kategorie w systemie, to podejście sieci *N* + 1 wywołania zapytanie jednej bazy danych dla bazy danych do wszystkich kategorii a następnie *N* wywołania można pobrać produktów specyficzne dla każdej kategorii. Firma Microsoft może jednak pobrać wszystkie wymagane dane w jednym wywołaniu wywołania tylko dwie bazy danych do wszystkich kategorii, a drugi do wszystkich produktów. Gdy będziemy już mieć wszystkie produkty, możemy filtrować te produkty więc tylko produkty dopasowania bieżącego `CategoryID` są powiązane z tej kategorii s wewnętrzny elementu powtarzanego.
+W systemie nie ma określonych kategorii *n* , tym podejście polega na tym, że połączenie *n* + 1 wywołuje do bazy danych jedno zapytanie bazy danych, aby uzyskać wszystkie kategorie, a następnie *N* wywołania, aby uzyskać odpowiednie produkty dla każdej kategorii. Firma Microsoft może jednak pobrać wszystkie potrzebne dane w zaledwie dwóch wywołaniach, aby pobrać wszystkie kategorie i inne, aby uzyskać wszystkie produkty. Gdy mamy wszystkie produkty, możemy odfiltrować te produkty, aby tylko produkty pasujące do bieżącego `CategoryID` były powiązane z tym Wzmacniakem wewnętrznym kategorii.
 
-Do tej funkcji, tylko musimy upewnić niewielkich modyfikacji do `GetProductsInCategory(categoryID)` metody w naszej platformy ASP.NET strony s osobna klasa kodu. Zamiast bezrefleksyjne zwracania wyników z `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody, możemy zamiast pierwszym uzyskaniu dostępu do *wszystkich* produktów (jeśli one nie uzyskano dostępu już), a następnie powrócić po prostu widok filtrowany produkty oparte na przekazanym `CategoryID`.
+Aby zapewnić tę funkcjonalność, należy jedynie wprowadzić niewielką modyfikację metody `GetProductsInCategory(categoryID)` w naszej klasie z kodem ASP.NET Page s. Zamiast odwracania wyników metody `GetProductsByCategoryID(categoryID)` klasy `ProductsBLL`, można w pierwszej kolejności uzyskać dostęp do *wszystkich* produktów (jeśli nie były już dostępne), a następnie zwrócić tylko przefiltrowany widok produktów w oparciu o zatwierdzono `CategoryID`.
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample8.cs)]
 
-Należy pamiętać, dodanie zmiennej na poziomie strony `allProducts`. To są przechowywane informacje dotyczące wszystkich produktów i jest wypełniana po raz pierwszy `GetProductsInCategory(categoryID)` metoda jest wywoływana. Po upewnieniu się, że `allProducts` obiekt został utworzony i wypełniony, metoda filtruje wyniki s DataTable w taki sposób, że tylko te wiersze, w których `CategoryID` jest zgodny z określonym `CategoryID` są dostępne. Takie podejście zmniejsza liczbę razy, baza danych jest dostępny z *N* + 1 do dwóch.
+Zwróć uwagę na dodanie zmiennej poziomu strony, `allProducts`. Zawiera informacje o wszystkich produktach i jest wypełniane podczas pierwszego wywołania metody `GetProductsInCategory(categoryID)`. Po upewnieniu się, że obiekt `allProducts` został utworzony i wypełniony, Metoda filtruje wyniki tabeli DataTable, tak aby były dostępne tylko wiersze, których `CategoryID` odpowiadają określonym `CategoryID`. Takie podejście zmniejsza liczbę prób uzyskania dostępu do bazy danych z *N* + 1 do dwóch.
 
-To ulepszenie nie wprowadza żadnych zmian renderowanego kodu znaczników strony ani nie powoduje zwracał mniej rekordów niż inne podejście. Po prostu zmniejsza liczbę wezwań do bazy danych.
+To ulepszenie nie wprowadza żadnych zmian do renderowanego oznakowania strony ani nie zmniejsza liczby rekordów niż inne podejście. Po prostu zmniejsza liczbę wywołań do bazy danych.
 
 > [!NOTE]
-> Jeden intuicyjnie przyczyny, że zmniejszenie częstotliwości dostępu do bazy danych będzie assuredly zwiększyć wydajność. Jednak może to nie być wymagane. Jeśli masz dużą liczbę produktów którego `CategoryID` jest `NULL`, aby uzyskać przykład, a następnie wywołania `GetProducts` metoda zwraca liczbę produktów, które nigdy nie są wyświetlane. Ponadto, zwracając wszystkie produkty może być marnotrawstwa Jeśli użytkownik re pokazywane są tylko podzbiór kategorie, które może być w przypadku, jeśli udało Ci się wdrożyć stronicowanie.
+> Jeden z nich może mieć intuicyjny powód, aby zmniejszyć liczbę dostępu do bazy danych. Jednak taka sytuacja może nie być taka sama. Jeśli masz dużą liczbę produktów, których `CategoryID` jest `NULL`, na przykład wywołanie metody `GetProducts` zwraca liczbę produktów, które nigdy nie są wyświetlane. Ponadto zwracanie wszystkich produktów może być wasteful, jeśli zostanie wyświetlony tylko podzbiór kategorii, co może być przypadekem, jeśli wdrożono stronicowanie.
 
-Jak zawsze, gdy chodzi o analizowania wydajności dwie techniki, tylko surefire miary jest kontrolowane testy dostosowane do Twojej aplikacji s typowych scenariuszy przypadków.
+Tak jak zawsze, gdy chodzi o analizowanie wydajności dwóch technik, jedyną miarą Surefire jest uruchamianie kontrolowanych testów, które są dostosowane do typowych scenariuszy przypadków aplikacji.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku widzieliśmy jak zagnieździć danymi formantu sieci Web w innym ciągu, specjalnie badanie sposobu ustawiania zewnętrznego elementu powtarzanego wyświetlania elementu dla każdej kategorii za pomocą wewnętrznego elementu powtarzanego zawierającą listę produktów dla każdej kategorii, na liście punktowanej. Głównym wyzwaniem w tworzeniu interfejsu użytkownika zagnieżdżonych zaletą dostęp i powiązanie poprawne dane z formantu sieci Web wewnętrzny danych. Istnieją różne techniki dostępne dwie z nich zbadaliśmy w ramach tego samouczka. Pierwszą metodę badania używane ObjectDataSource dane zewnętrzne formantu sieci Web s `ItemTemplate` która została powiązana z wewnętrznego danych kontrolki sieci Web za pośrednictwem jego `DataSourceID` właściwości. Druga metoda dostęp do danych za pomocą metody w klasie CodeBehind s strony ASP.NET. Ta metoda może być powiązana następnie wewnętrzny danych formantu sieci Web s `DataSource` właściwości za pomocą składni wiązania danych.
+W tym samouczku przedstawiono sposób zagnieżdżania jednej kontrolki sieci Web danych w innym, szczególnie badanie, w jaki sposób mamy zewnętrzny wzmacniak wyświetlić element dla każdej kategorii z wewnętrznym Wzmacniakem zawierającym listę produktów dla każdej kategorii na liście punktowanej. Głównym wyzwaniem w tworzeniu zagnieżdżonego interfejsu użytkownika jest uzyskiwanie dostępu do i powiązywanie prawidłowych danych w wewnętrznej kontrolce danych w sieci Web. Dostępne są różne techniki, z których każda została sprawdzona w tym samouczku. Pierwsze podejście zbadał użycie elementu ObjectDataSource w zewnętrznym formancie sieci Web `ItemTemplate`, który został powiązany z wewnętrzną kontrolką danych w sieci Web za pomocą właściwości `DataSourceID`. Druga technika uzyskała dostęp do danych za pośrednictwem metody w klasie z kodem ASP.NET Page s. Tę metodę można następnie powiązać z właściwością wewnętrznej formantu sieci Web danych `DataSource` za pomocą składni DataBinding.
 
-Interfejs użytkownika zagnieżdżonych, w tym samouczku używane Repeater zagnieżdżony w elemencie powtarzanym, techniki te mogą obejmować inne kontrolki internetowe danych. Można zagnieżdżać Repeater w obrębie GridView lub GridView w kontrolkach DataList i tak dalej.
+Chociaż zagnieżdżony interfejs użytkownika, który został zbadany w tym samouczku, użył elementu wzmacniak zagnieżdżonego w obrębie wzmacniaka, techniki te można rozszerzyć na inne kontrolki sieci Web danych. Można zagnieżdżać wzmacniak w widoku GridView lub GridView w obrębie elementu DataList i tak dalej.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Zack Jones i Liz Shulok. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Zack Kowalski i Liz Shulok. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](showing-multiple-records-per-row-with-the-datalist-control-cs.md)

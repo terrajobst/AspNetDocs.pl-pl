@@ -1,105 +1,105 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
-title: Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB) | Dokumentacja firmy Microsoft
+title: Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB) | Microsoft Docs
 author: rick-anderson
-description: Temu krótkiemu samouczkowi Przedstawimy sposób dostosowywania układu DataList za pośrednictwem jego właściwości RepeatColumns i RepeatDirection.
+description: W tym krótkim samouczku dowiesz się, jak dostosować układ elementu DataList za pomocą jego właściwości RepeatColumns i RepeatDirection.
 ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: f555c531-bf33-4699-9987-42dbfef23c1f
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 68505a48d7ad6230300579ceb24de8070b1e977f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 17283dae192896fbaa48f1d7fe49afdbaf4c9a02
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116879"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74627534"
 ---
 # <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_31_VB.exe) lub [Pobierz plik PDF](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/datatutorial31vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_31_VB.exe) lub [Pobierz plik PDF](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/datatutorial31vb1.pdf)
 
-> Temu krótkiemu samouczkowi Przedstawimy sposób dostosowywania układu DataList za pośrednictwem jego właściwości RepeatColumns i RepeatDirection.
+> W tym krótkim samouczku dowiesz się, jak dostosować układ elementu DataList za pomocą jego właściwości RepeatColumns i RepeatDirection.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W przykładach DataList możemy ve występuje w ciągu ostatnich dwóch samouczkach spowodował, że każdy rekord ze źródła danych jako wiersz w HTML jednokolumnową `<table>`. Chociaż jest to domyślne zachowanie DataList, jest bardzo proste dostosować wyświetlanie DataList w taki sposób, że elementy źródeł danych są dystrybuowane między tabeli wielokolumnowej, wielowierszowych. Ponadto on możliwość wszystkie dane źródło elementów wyświetlanych w DataList jednowierszowy, wielokolumnowych.
+Przykładowa wartość DataList pojawia się w ostatnich dwóch samouczkach, ponieważ każdy rekord ze źródła danych jest traktowany jako wiersz w jednokolumnowym `<table>`HTML. Chociaż jest to domyślne zachowanie DataList, można bardzo łatwo dostosować wyświetlanie elementu DataList, tak aby elementy źródła danych były rozłożone w wielokolumnowej tabeli wielowierszowej. Ponadto możliwe jest, aby wszystkie elementy źródła danych były wyświetlane w jednym wierszu, wielokolumnowej DataList.
 
-Możemy dostosować układ DataList s za pośrednictwem jego `RepeatColumns` i `RepeatDirection` właściwości, które odpowiednio wskazać liczbę kolumn są renderowane i czy te elementy są ułożone w pionie lub poziomie. Rysunek 1, na przykład pokazuje DataList, który wyświetla informacje o produkcie w tabeli zawierającej trzy kolumny.
+Można dostosować układ DataList s za pomocą jego `RepeatColumns` i właściwości `RepeatDirection`, co oznacza, że liczba kolumn jest renderowana i czy te elementy są ułożone pionowo czy poziomo. Rysunek 1, na przykład, pokazuje element DataList, który wyświetla informacje o produkcie w tabeli z trzema kolumnami.
 
-[![Kontrolki DataList pokazuje trzy produkty na wiersz](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image1.png)
+[![DataList pokazuje trzy produkty na wiersz](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image2.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image1.png)
 
-**Rysunek 1**: DataList pokazuje trzy produkty poszczególnych wierszy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image3.png))
+**Rysunek 1**: DataList pokazuje trzy produkty na wiersz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image3.png))
 
-Poprzez wyświetlanie wielu elementów źródła danych w wierszu, miejsce na ekranie poziomy bardziej efektywne może korzystać z kontrolki DataList. Te dwie właściwości DataList przyjrzymy się temu krótkiemu samouczkowi.
+Pokazując wiele elementów źródła danych na wiersz, element DataList może efektywnie wykorzystać poziome miejsce na ekranie. W tym krótkim samouczku będziemy eksplorować te dwie właściwości DataList.
 
-## <a name="step-1-displaying-product-information-in-a-datalist"></a>Krok 1. Wyświetlanie informacji o produkcie w kontrolkach DataList
+## <a name="step-1-displaying-product-information-in-a-datalist"></a>Krok 1. Wyświetlanie informacji o produkcie w elemencie DataList
 
-Zanim analizujemy `RepeatColumns` i `RepeatDirection` właściwości umożliwiają s najpierw utworzyć kontrolką DataList na naszej stronie zawierającego informacje o produkcie przy użyciu standardowej tabeli jednokolumnowej, wielowierszowych układu. W tym przykładzie umożliwiają s wyświetlanie nazwy s produktu, kategorii i cenę za pomocą następujących znaczników:
+Przed przeprowadzeniem analizy właściwości `RepeatColumns` i `RepeatDirection`, pozwól, aby najpierw utworzyć element DataList na naszej stronie, który zawiera informacje o produkcie przy użyciu standardowego, wielowierszowego układu tabeli. Na potrzeby tego przykładu, aby wyświetlić nazwę produktu, kategorię i cenę, można użyć następujących znaczników:
 
 [!code-html[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample1.html)]
 
-Firma Microsoft ve już, jak powiązać dane z kontrolką DataList w poprzednich przykładach, dzięki czemu można szybko przeniesienie tych kroków. Zacznij od otwarcia `RepeatColumnAndDirection.aspx` stronie `DataListRepeaterBasics` folder i przeciągnij kontrolką DataList z przybornika do projektanta. Za pomocą kontrolek DataList s tagu inteligentnego, zoptymalizowany pod kątem do tworzenia nowego elementu ObjectDataSource i skonfigurować go do ściągania danych z `ProductsBLL` klasy s `GetProducts` metody, wybierając (Brak) opcji za pomocą Kreatora s INSERT, UPDATE i usuwanie kart.
+Dowiesz się, jak powiązać dane z elementem DataList w poprzednich przykładach, aby szybko Przechodź między tymi krokami. Aby rozpocząć, Otwórz stronę `RepeatColumnAndDirection.aspx` w folderze `DataListRepeaterBasics` i przeciągnij element DataList z przybornika na projektanta. W tagu inteligentnym DataList s wybierz opcję Utwórz nowy element ObjectDataSource i skonfiguruj go do ściągania danych z metody `GetProducts` `ProductsBLL` klasy s, wybierając pozycję (brak) z kart kreatora Wstaw, Aktualizuj i Usuń.
 
-Po utworzeniu i powiązanie nowego elementu ObjectDataSource z kontrolki DataList, Visual Studio będzie automatycznie tworzył `ItemTemplate` który wyświetla nazwę i wartość dla każdego pola danych produktu. Dostosuj `ItemTemplate` bezpośrednio w oznaczeniu deklaracyjnym lub Edytuj szablony opcję w tagu inteligentnego DataList s, tak aby używał znaczników, pokazana powyżej, zastępując *nazwa produktu*, *nazwa kategorii* , i *cena* tekstu za pomocą formantów etykiet, korzystających ze składni odpowiednie powiązanie danych można przypisać wartości do ich `Text` właściwości. Po zaktualizowaniu `ItemTemplate`, Twoje oznaczeniu deklaracyjnym strony s powinien wyglądać podobnie do poniższego:
+Po utworzeniu i powiązaniu nowego elementu ObjectDataSource z obiektem DataList program Visual Studio automatycznie utworzy `ItemTemplate`, w którym zostanie wyświetlona nazwa i wartość każdego z pól danych produktu. Dostosuj `ItemTemplate` bezpośrednio za pośrednictwem znaczników deklaratywnych lub z opcji Edytuj szablony w tagu inteligentnym DataList s, tak aby używały oznakowanego powyżej, zastępując *nazwę produktu*, *nazwę kategorii*i tekst *ceny* z kontrolkami etykiet, które używają odpowiedniej składni wiązania danych do przypisywania wartości do ich `Text` właściwości. Po zaktualizowaniu `ItemTemplate`znaczniki deklaratywne strony powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
 
-Zwróć uwagę, ve uwzględnione specyfikatora formatu w `Eval` składnia wiązania danych `UnitPrice`, zwrócona wartość jako walutę — formatowanie `Eval("UnitPrice", "{0:C}").`
+Zwróć uwagę, że w składni powiązań danych `Eval` dla `UnitPrice`został umieszczony element specyfikator formatu, formatowanie zwracanej wartości jako waluty `Eval("UnitPrice", "{0:C}").`
 
-Poświęć chwilę, aby odwiedzić stronę w przeglądarce. Jak pokazano na rysunku 2, kontrolki DataList renderowany jako tabelę jednokolumnową, wielowierszowych produktów.
+Poświęć chwilę na odwiedzenie strony w przeglądarce. Jak pokazano na rysunku 2, element DataList renderuje jako jednokolumnową tabelę z pojedynczym wierszem produktów.
 
-[![Domyślnie renderuje DataList jako tabelę jednokolumnową, wielowierszowych](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image4.png)
+[Domyślnie ![element DataList renderuje jako jednokolumnową tabelę wielowierszową](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image5.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image4.png)
 
-**Rysunek 2**: Domyślnie przez kontrolki DataList renderowany jako jedną kolumną, wielowierszowych tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image6.png))
+**Rysunek 2**. Domyślnie element DataList renderuje jako jednokolumnową tabelę wielowierszową ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image6.png))
 
-## <a name="step-2-changing-the-datalist-s-layout-direction"></a>Krok 2. Zmiana kierunku układu s DataList
+## <a name="step-2-changing-the-datalist-s-layout-direction"></a>Krok 2. zmiana kierunku układu DataList
 
-Podczas domyślne zachowanie dla kontrolki DataList jest układ elementy w pionie w tabelę jednokolumnową, wielowierszowych to zachowanie można łatwo zmienić za pomocą kontrolek DataList s [ `RepeatDirection` właściwość](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Właściwości można zaakceptować jedną z dwóch wartości: `Horizontal` lub `Vertical` (ustawienie domyślne).
+Chociaż domyślnym zachowaniem elementu DataList jest układ elementów w pionie w jednokolumnowej tabeli wielowierszowej, to zachowanie można łatwo zmienić za pomocą [właściwości`RepeatDirection`](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx)DataList s. Właściwość `RepeatDirection` może przyjmować jedną z dwóch możliwych wartości: `Horizontal` lub `Vertical` (wartość domyślna).
 
-Zmieniając `RepeatDirection` właściwość `Vertical` do `Horizontal`, jego rekordów w jednym wierszu, powoduje wyświetlenie elementu DataList tworzenia jedną kolumnę na element źródła danych. Aby zilustrować ten efekt, kliknij DataList w projektancie, a następnie w oknie Właściwości zmień `RepeatDirection` właściwość `Vertical` do `Horizontal`. Natychmiast po wykonaniu tej czynności projektanta dostosowuje układ DataList s tworzenia z pojedynczy wiersz tabeli wielokolumnowej interfejsu (zobacz rysunek 3).
+Zmieniając właściwość `RepeatDirection` z `Vertical` na `Horizontal`, obiekt DataList renderuje swoje rekordy w pojedynczym wierszu, tworząc jedną kolumnę na element źródła danych. Aby zilustrować ten efekt, kliknij ikonę DataList w projektancie, a następnie w okno Właściwości zmień właściwość `RepeatDirection` z `Vertical` na `Horizontal`. Natychmiast po wykonaniu tej czynności Projektant dostosowuje układ DataList s, tworząc jednowierszowy, wielokolumnowy interfejs (patrz rysunek 3).
 
-[![Elementy RepeatDirection właściwości połączenia z opisywanym jak kierunek DataList s są określone w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)
+[![Właściwość RepeatDirection określa kierunek, w jakim są ułożone elementy DataList s](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image8.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image7.png)
 
-**Rysunek 3**: `RepeatDirection` Właściwość określa, jak elementy kierunku DataList s są określone w poziomie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image9.png))
+**Rysunek 3**. Właściwość `RepeatDirection` określa kierunek, w jaki elementy DataList s są układane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image9.png))
 
-Podczas wyświetlania małe ilości danych, pojedynczy wiersz wielokolumnowej tabeli może być to idealny sposób na powierzchnię ekranu. Dla większych ilości danych jednak pojedynczego wiersza będzie wymagać wiele kolumn, które wypchnięć te elementy tego t może mieści się na ekranie wyłączona po prawej stronie. Rysunek 4 przedstawia produktów podczas renderowania w DataList pojedynczy wiersz tabeli. Ponieważ wiele produktów (ponad 80), użytkownik będzie musiał przewiń daleko w prawo, aby wyświetlić informacje o poszczególnych produktów.
+W przypadku wyświetlania małych ilości danych jednowierszowa tabela wielokolumnowa może być idealnym sposobem maksymalizowania nieruchomości ekranu. W przypadku większych ilości danych jeden wiersz będzie wymagał wielu kolumn, które wypychają te elementy, które mogą przyłączyć się na ekranie do prawej strony. Na rysunku 4 przedstawiono produkty, które są renderowane w pojedynczym wierszu DataList. Ponieważ istnieje wiele produktów (ponad 80), użytkownik będzie musiał przewinąć w prawo, aby wyświetlić informacje o każdym z tych produktów.
 
-[![W przypadku źródeł danych wystarczająco dużą DataList jednokolumnową będzie wymagać przewijanie w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image10.png)
+[![dla dostatecznie dużych źródeł danych, jedna kolumna DataList będzie wymagała przewijania w poziomie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image11.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image10.png)
 
-**Rysunek 4**: Wystarczająco dużą źródeł danych, jednej kolumny DataList będzie wymagać przewijanie w poziomie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image12.png))
+**Rysunek 4**. w przypadku dostatecznie dużych źródeł danych jedna kolumna DataList będzie wymagała przewijania w poziomie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image12.png))
 
-## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Krok 3. Wyświetlanie danych w tabeli wielokolumnowej, wielowierszowych
+## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Krok 3. Wyświetlanie danych w wielokolumnowej tabeli wielowierszowej
 
-Aby utworzyć DataList wielokolumnowych, wielowierszowych, musimy [ `RepeatColumns` właściwość](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) do liczby kolumn do wyświetlenia. Domyślnie `RepeatColumns` właściwość jest ustawiona na 0, co spowoduje, że DataList wyświetlić wszystkie jego elementy w pojedynczy wiersz lub kolumnę (w zależności od wartości `RepeatDirection` właściwości).
+Aby utworzyć wielokolumnową kolumnę DataList wielowierszowego, musimy ustawić [właściwość`RepeatColumns`](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) na liczbę kolumn do wyświetlenia. Domyślnie właściwość `RepeatColumns` jest ustawiona na 0, co spowoduje wyświetlenie wszystkich elementów w pojedynczym wierszu lub kolumnie (w zależności od wartości właściwości `RepeatDirection`).
 
-W tym przykładzie umożliwiają s wyświetlane trzy produkty każdego wiersza tabeli. W związku z tym, ustaw `RepeatColumns` właściwości do 3. Po wprowadzeniu tej zmiany, Poświęć chwilę, aby wyświetlić wyniki w przeglądarce. Jak pokazano na rysunku 5, produkty są teraz wymienione w tabeli trzy kolumny, z wieloma wierszami.
+W naszym przykładzie pozwól, aby w wierszu tabeli były wyświetlane trzy produkty. W związku z tym ustaw właściwość `RepeatColumns` na 3. Po wprowadzeniu tej zmiany Poświęć chwilę na wyświetlenie wyników w przeglądarce. Jak pokazano na rysunku 5, produkty są teraz wyświetlane w trzech kolumnach tabeli wielowierszowej.
 
-[![Trzy produkty są wyświetlane w wierszu](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image13.png)
+[![trzy produkty są wyświetlane na wiersz](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image14.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image13.png)
 
-**Rysunek 5**: Trzy produkty są wyświetlane w wierszu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image15.png))
+**Rysunek 5**. trzy produkty są wyświetlane na wiersz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image15.png))
 
-`RepeatDirection` Właściwość ma wpływ na sposób są układane elementów w kontrolce DataList. Rysunek 5. pokazuje wyniki z `RepeatDirection` właściwością `Horizontal`. Należy zauważyć, że pierwsze trzy produkty Chai, zmian centralnych i Syrop anyżowy są ułożone od lewej do prawej i od góry do dołu. Następne trzy produkty (począwszy od programu Chef Jacka s Cajun Seasoning) są wyświetlane w wiersz pod pierwsze trzy. Zmiana `RepeatDirection` właściwości z powrotem do `Vertical`, jednak decydujących o tych produktów, od góry do dołu i od lewej do prawej, tak jak pokazano na rysunku 6.
+Właściwość `RepeatDirection` wpływa na sposób, w jaki elementy w elemencie DataList są układane. Rysunek 5 przedstawia wyniki z właściwością `RepeatDirection` ustawioną na `Horizontal`. Należy zauważyć, że pierwsze trzy produkty Chai, zmian i anyżu syropu są określane od lewej do prawej, od góry do dołu. Kolejne trzy produkty (począwszy od Chef Anton s Cajun) pojawiają się w wierszu poniżej trzech pierwszych. Jednak zmiana właściwości `RepeatDirection` z powrotem na `Vertical`, powoduje, że te produkty są układane od góry do dołu, od lewej do prawej, jak pokazano na rysunku 6.
 
-[![W tym miejscu produkty są ustanowione Out w pionie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image16.png)
+[![tym miejscu produkty są rozłożone w pionie](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image17.png)](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image16.png)
 
-**Rysunek 6**: W tym miejscu produkty są ustanowione się pionowo ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image18.png))
+**Ilustracja 6**. w tym miejscu produkty są ułożone pionowo ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](showing-multiple-records-per-row-with-the-datalist-control-vb/_static/image18.png))
 
-Liczba wierszy wyświetlanych w tabeli wynikowej zależy od liczby całkowitej rekordów powiązany z kontrolki DataList. Mówiąc, jego s Zaokrąglenie w górę łączna liczba elementów źródła danych podzielona przez `RepeatColumns` wartości właściwości. Ponieważ `Products` tabela ma obecnie 84 produktów, które można podzielić przez 3, 28 wierszy. Jeśli liczba elementów w źródle danych i `RepeatColumns` wartość właściwości nie są podzielna, a następnie ostatni wiersz lub kolumna ma puste komórki. Jeśli `RepeatDirection` ustawiono `Vertical`, a następnie w ostatniej kolumnie będą miały puste komórki; Jeśli `RepeatDirection` jest `Horizontal`, ostatni wiersz będzie znajdować się puste komórki, a następnie.
+Liczba wierszy wyświetlanych w tabeli wyników zależy od liczby wszystkich rekordów powiązanych z elementem DataList. Dokładne, a to s górny limit łącznej liczby elementów źródła danych podzielony przez wartość właściwości `RepeatColumns`. Ponieważ tabela `Products` ma obecnie 84 produktów, które są podzielne przez 3, istnieją 28 wierszy. Jeśli liczba elementów w źródle danych i `RepeatColumns` wartość właściwości nie są widoczne, ostatni wiersz lub kolumna będzie zawierać puste komórki. Jeśli `RepeatDirection` jest ustawiona na `Vertical`, Ostatnia kolumna będzie miała puste komórki; Jeśli `RepeatDirection` jest `Horizontal`, ostatni wiersz będzie miał puste komórki.
 
 ## <a name="summary"></a>Podsumowanie
 
-DataList, domyślnie wyświetla jego elementów w jednokolumnowej, wielowierszowych tabeli, która naśladuje układ GridView za pomocą pojedynczego TemplateField. Ten układ domyślny jest dopuszczalne, firma Microsoft może powierzchnię ekranu, wyświetlając wiele elementów źródła danych na wiersz. To jest po prostu kwestią ustawienie DataList s `RepeatColumns` liczbę kolumn w celu wyświetlenia każdego wiersza. Ponadto DataList s `RepeatDirection` właściwość może służyć do wskazania, czy zawartość tabeli wielokolumnowej, wielowierszowych powinny być rozmieszczone poziomo od lewej do prawej i od góry do dołu, czy w pionie od góry do dołu i od lewej do prawej.
+Domyślnie element DataList wyświetla listę elementów w jednokolumnowej tabeli wielowierszowej, która naśladuje układ elementu GridView jednym TemplateField. Gdy ten domyślny układ jest akceptowalny, możemy zmaksymalizować zawartość ekranu, wyświetlając wiele elementów źródła danych na wiersz. W tym celu wystarczy ustawić Właściwość DataList s `RepeatColumns` na liczbę kolumn do wyświetlenia w wierszu. Ponadto Właściwość `RepeatDirection` DataList s może służyć do wskazywania, czy zawartość wielokolumnowej tabeli wielowierszowej powinna być określona w poziomie od lewej do prawej, od góry do dołu lub w pionie od góry do dołu, od lewej do prawej.
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Suru Jan. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka był John suru. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](formatting-the-datalist-and-repeater-based-upon-data-vb.md)

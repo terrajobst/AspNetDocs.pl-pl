@@ -1,63 +1,63 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb
-title: Wyzwalanie animacji w innej kontrolce (VB) | Dokumentacja firmy Microsoft
+title: Wyzwalanie animacji w innej kontrolce (VB) | Microsoft Docs
 author: wenz
-description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Ogólnie rzecz biorąc, uruchamianie...
+description: Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Ogólnie uruchamianie...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 25ebaf1f-5a9f-423d-98c7-1d694e93664f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc27e44ae42865eebbf67da69dbe1aa43a57a4d7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6a4af2324afab7519170c123b6ea7c57ab3e03fb
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128166"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74575027"
 ---
 # <a name="triggering-an-animation-in-another-control-vb"></a>Wyzwalanie animacji w innej kontrolce (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation8.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation8VB.pdf)
 
-> Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Ogólnie rzecz biorąc uruchamianie animacji jest wyzwalana przez interakcji użytkownika z tej samej kontrolki. Jest jednak również możliwość oddziałują na jeden formant, a następnie animacji innej kontrolki.
+> Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Ogólnie uruchamianie animacji jest wyzwalane przez interakcję użytkownika z tą samą kontrolką. Możliwe jest również współdziałanie z jednym formantem, a następnie przeprowadzenie animacji innej kontrolki.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Ogólnie rzecz biorąc uruchamianie animacji jest wyzwalana przez interakcji użytkownika z tej samej kontrolki. Jest jednak również możliwość oddziałują na jeden formant, a następnie animacji innej kontrolki.
+Kontrolka animacji w narzędziu ASP.NET AJAX Control Toolkit nie jest tylko kontrolką, ale całą strukturą służącą do dodawania animacji do kontrolki. Ogólnie uruchamianie animacji jest wyzwalane przez interakcję użytkownika z tą samą kontrolką. Możliwe jest również współdziałanie z jednym formantem, a następnie przeprowadzenie animacji innej kontrolki.
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze, obejmują `ScriptManager` w strony, a następnie biblioteki ASP.NET AJAX jest ładowany, dzięki czemu można użyć zestawu narzędzi kontroli:
+Po pierwsze, Uwzględnij `ScriptManager` na stronie; następnie załadowana zostanie Biblioteka ASP.NET AJAX, co umożliwia korzystanie z zestawu narzędzi kontroli:
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-vb/samples/sample1.aspx)]
 
-Animacja zostanie zastosowana do panelu tekstu, który wygląda w następujący sposób:
+Animacja zostanie zastosowana do panelu tekstu, który wygląda następująco:
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-vb/samples/sample2.aspx)]
 
-W skojarzone klasy CSS do obsługi panelu zdefiniowany jako kolor tła dobre rozwiązanie, a także ustawić stała szerokość panelu:
+W skojarzonej klasie CSS panelu, zdefiniuj kolor tła całkiem, a także Ustaw stałą szerokość panelu:
 
 [!code-css[Main](triggering-an-animation-in-another-control-vb/samples/sample3.css)]
 
-Aby rozpocząć, animowanie panelu, przycisk HTML jest używany. Należy pamiętać, że `<input type="button" />` jest uprzywilejowanym za pośrednictwem `<asp:Button />` ponieważ nie chcemy ogłaszania zwrotnego po kliknięciu tego przycisku przez użytkownika.
+Aby rozpocząć animację panelu, używany jest przycisk HTML. Należy pamiętać, że `<input type="button" />` jest korzystne dla `<asp:Button />`, ponieważ nie ma potrzeby ogłaszania zwrotnego po kliknięciu tego przycisku przez użytkownika.
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-vb/samples/sample4.aspx)]
 
-Następnie należy dodać `AnimationExtender` do strony, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe `runat="server"`. Jest ważne, aby ustawić `TargetControlID` identyfikator przycisku (element wyzwalanie animacji), nie identyfikatorowi panelu (elementu, jest animowany)
+Następnie Dodaj `AnimationExtender` do strony, podając `ID`, atrybut `TargetControlID` i obowiązkowe `runat="server"`. Ważne jest, aby ustawić `TargetControlID` na identyfikator przycisku (element wyzwalający animację), a nie na identyfikator panelu (animowany element).
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-vb/samples/sample5.aspx)]
 
-W ramach `<Animations>` węzła, animacje miejsce w zwykły sposób. Aby stały się zmienić w panelu, ustaw nie przycisk `AnimationTarget` atrybutu dla każdego elementu animacji w ramach `AnimationExtender`. Wartość `AnimationTarget` oczywiście jest to identyfikator panelu. W ten sposób animacji się zdarzyć, za pomocą panelu, nie za pomocą przycisku wyzwalania. Oto `AnimationExtender` znaczników dla tego scenariusza:
+W węźle `<Animations>` Umieść animacje w zwykły sposób. Aby zmienić panel, a nie przycisk, należy ustawić atrybut `AnimationTarget` dla każdego elementu animacji w `AnimationExtender`. Wartość `AnimationTarget` jest IDENTYFIKATORem panelu. W ten sposób animacje są wykonywane z panelem, a nie z przyciskiem wyzwalającym. Oto `AnimationExtender` znaczników w tym scenariuszu:
 
 [!code-aspx[Main](triggering-an-animation-in-another-control-vb/samples/sample6.aspx)]
 
-Należy zwrócić uwagę specjalne kolejność, w jakiej są wyświetlane poszczególne animacji. Po pierwsze przycisk pobiera dezaktywowane, po uruchomieniu animacji. Ponieważ ma nie `AnimationTarget` atrybutu w `<EnableAction>` elementu, ta animacja jest stosowana do sterowania źródłowy: przycisku. Kroki opisane w dwóch następnych animacji przeprowadza się równolegle (`<Parallel>` elementu). Zachowują się ich `AnimationTarget` Ustaw atrybuty `"Panel1"`, dlatego animowanie panelu nie przycisk.
+Zwróć uwagę na kolejność specjalną, w której pojawiają się pojedyncze animacje. Po pierwsze, przycisk zostaje zdezaktywowany po uruchomieniu animacji. Ponieważ nie ma `AnimationTarget` atrybutu w elemencie `<EnableAction>`, ta animacja jest stosowana do formantu źródłowego: przycisk. Następne dwa kroki animacji są wykonywane równolegle (`<Parallel>` elementu). Oba mają atrybuty `AnimationTarget` ustawione na `"Panel1"`, a tym samym animowanie panelu, a nie przycisku.
 
-[![Kliknięcie na przycisk uruchamiania animacji panelu](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
+[![kliknięciu przycisku myszy spowoduje uruchomienie animacji panelu.](triggering-an-animation-in-another-control-vb/_static/image2.png)](triggering-an-animation-in-another-control-vb/_static/image1.png)
 
-Kliknięcie na przycisk uruchamia panel animacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](triggering-an-animation-in-another-control-vb/_static/image3.png))
+Kliknięcie przycisku powoduje uruchomienie animacji panelu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](triggering-an-animation-in-another-control-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](disabling-actions-during-animation-vb.md)

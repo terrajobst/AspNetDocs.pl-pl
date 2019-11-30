@@ -1,183 +1,183 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-cs
-title: Filtrowanie rekordu głównego/szczegółów przy użyciu dwóch kontrolek DROPDOWNLIST (C#) | Dokumentacja firmy Microsoft
+title: Filtrowanie wzorców/szczegółów przy użyciu dwóch kontrolek DropDownListC#() | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku rozwija relacji wzorzec/szczegół, aby dodać warstwę trzeci, za pomocą dwóch kontrolek DropDownList wybrać żądaną recor nadrzędne i nadrzędnych...
+description: Ten samouczek rozszerza relację wzorzec/szczegóły w celu dodania trzeciej warstwy, przy użyciu dwóch kontrolek DropDownList do wybrania żądanych elementów nadrzędnych i nadrzędnego nag...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: ac4b0d77-4816-4ded-afd0-88dab667aedd
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 58ffa99cbe72b2789b8741a8c2378760c2f2c19c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e24b7f91d34fbce1676f7f28ebb7d23903157f7f
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134068"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74626181"
 ---
 # <a name="masterdetail-filtering-with-two-dropdownlists-c"></a>Filtrowanie rekordu głównego/szczegółów przy użyciu dwóch kontrolek DropDownList (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_8_CS.exe) lub [Pobierz plik PDF](master-detail-filtering-with-two-dropdownlists-cs/_static/datatutorial08cs1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_8_CS.exe) lub [Pobierz plik PDF](master-detail-filtering-with-two-dropdownlists-cs/_static/datatutorial08cs1.pdf)
 
-> W tym samouczku rozwija relacji wzorzec/szczegół, aby dodać warstwę trzeci, za pomocą dwóch kontrolek DropDownList do wybierania żądanego rekordów nadrzędnych i nadrzędnych.
+> Ten samouczek rozszerza relację główną/szczegółową, aby dodać trzecią warstwę, przy użyciu dwóch kontrolek DropDownList do wybierania żądanych rekordów nadrzędnych i nadrzędnego.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W [poprzedniego samouczka](master-detail-filtering-with-a-dropdownlist-cs.md) zbadaliśmy sposób wyświetlania raportu proste wzorzec/szczegół za pomocą pojedynczego kontrolki DropDownList wypełniony kategorie i GridView, wyświetlanie tych produktów, które należą do wybranej kategorii. Ten wzorzec raportu dobrze działa w przypadku wyświetlania rekordów relacji jeden do wielu, które można łatwo rozszerzyć, aby działać w przypadku scenariuszy obejmujących wiele relacji jeden do wielu. Na przykład system wprowadzania zamówień musi tabel, które odpowiadają klienci, zamówienia i kolejności pozycji. Dany klient może mieć wiele zamówień za pomocą każdego zamówienia składający się z wielu elementów. Takie dane widoczne dla użytkownika za pomocą dwóch kontrolek DROPDOWNLIST i GridView. Pierwszy DropDownList miałby elementu listy dla każdego klienta w bazie danych, drugi jednostkowego zawartości jest zamówień dla wybranego odbiorcy. GridView zwróciłaby listę pozycji z wybranego zamówienia.
+W [poprzednim samouczku](master-detail-filtering-with-a-dropdownlist-cs.md) sprawdzono sposób wyświetlania prostego raportu wzorzec/szczegóły przy użyciu jednego DropDownList wypełnionego kategoriami i GridView pokazujących te produkty należące do wybranej kategorii. Ten wzorzec raportu działa dobrze, gdy są wyświetlane rekordy, które mają relację "jeden do wielu" i można ją łatwo rozszerzyć na potrzeby scenariuszy obejmujących wiele relacji jeden-do-wielu. Na przykład system wprowadzania zamówień ma tabele, które odpowiadają klientom, zamówieniom i wierszom zamówienia. Dany klient może mieć wiele zamówień z każdą kolejnością składającą się z wielu elementów. Takie dane mogą być prezentowane użytkownikowi przy użyciu dwóch kontrolek DropDownList i GridView. Pierwszy DropDownList będzie miał element listy dla każdego klienta w bazie danych, a druga zawartość jest zamówieniami umieszczonymi przez wybranego klienta. W widoku GridView będą wystawiane elementy wiersza z wybranej kolejności.
 
-Chociaż bazy danych Northwind zawiera informacje canonical szczegóły klienta/zamówienia w jego `Customers`, `Orders`, i `Order Details` tabel, tabele te nie są rejestrowane w naszej architektury. Niemniej jednak firma Microsoft może nadal pokazują przy użyciu dwóch kontrolek DROPDOWNLIST zależnych. Pierwszy DropDownList wyświetli listę kategorii, a druga produktów należących do wybranej kategorii. Element DetailsView zostanie wyświetlona lista szczegółów wybranego produktu.
+Baza danych Northwind zawiera dane kanoniczne dotyczące klienta/zamówienia/zamówienia w tabelach `Customers`, `Orders`i `Order Details`, ale te tabele nie są przechwytywane w naszej architekturze. Mimo to nadal możemy zilustrować użycie dwóch zależnych kontrolek DropDownList. Pierwszy DropDownList wyświetli listę kategorii, a drugi produkty należące do wybranej kategorii. Następnie w widoku DetailsView zostaną wystawione szczegóły wybranego produktu.
 
-## <a name="step-1-creating-and-populating-the-categories-dropdownlist"></a>Krok 1. Tworzenie i wypełnianie DropDownList kategorii
+## <a name="step-1-creating-and-populating-the-categories-dropdownlist"></a>Krok 1. Tworzenie i wypełnianie kategorii DropDownList
 
-Naszym pierwszym celem jest można dodać kontrolki DropDownList, który wyświetla listę kategorii. Te kroki zostały szczegółowo zbadane w poprzednim samouczku, ale są podsumowywane w tym miejscu, aby informacje były kompletne.
+Pierwszym celem jest dodanie DropDownList, który zawiera listę kategorii. Te kroki zostały szczegółowo opisane w poprzednim samouczku, ale zostały podsumowane w tym miejscu pod kątem kompletności.
 
-Otwórz `MasterDetailsDetails.aspx` strony w `Filtering` folderu, na stronie, Dodaj kontrolki DropDownList ustaw jego `ID` właściwości `Categories`, a następnie kliknij łącze Konfiguruj źródła danych w jego tagu inteligentnego. Z Kreatora konfiguracji źródła danych wybierz dodać nowe źródło danych.
+Otwórz stronę `MasterDetailsDetails.aspx` w folderze `Filtering`, Dodaj DropDownList do strony, ustaw jej Właściwość `ID` na `Categories`, a następnie kliknij link Konfiguruj źródło danych w swoim tagu inteligentnym. W Kreatorze konfiguracji źródła danych wybierz, aby dodać nowe źródło danych.
 
-[![Dodaj nowe źródło danych dla metody DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image2.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image1.png)
+[![dodać nowego źródła danych dla DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image2.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image1.png)
 
-**Rysunek 1**: Dodaj nowe źródło danych dla metody DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image3.png))
+**Rysunek 1**. Dodawanie nowego źródła danych dla DropDownList ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image3.png))
 
-Nowe źródło danych należy oczywiście ObjectDataSource. Nazwa tej nowej kontrolki ObjectDataSource `CategoriesDataSource` i Wywołaj `CategoriesBLL` obiektu `GetCategories()` metody.
+Nowe źródło danych powinno, naturalnie, być obiektem ObjectDataSource. Nazwij ten nowy element ObjectDataSource `CategoriesDataSource` i Wywołaj metodę `GetCategories()` obiektu `CategoriesBLL`.
 
-[![Wybierz użyć klasy CategoriesBLL](master-detail-filtering-with-two-dropdownlists-cs/_static/image5.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image4.png)
+[![wybrać użycie klasy CategoriesBLL](master-detail-filtering-with-two-dropdownlists-cs/_static/image5.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image4.png)
 
-**Rysunek 2**: Możliwość użycia `CategoriesBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image6.png))
+**Rysunek 2**. wybór użycia klasy `CategoriesBLL` (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image6.png))
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetCategories()](master-detail-filtering-with-two-dropdownlists-cs/_static/image8.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image7.png)
+[![skonfigurować element ObjectDataSource do korzystania z metody GetCategories ()](master-detail-filtering-with-two-dropdownlists-cs/_static/image8.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image7.png)
 
-**Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetCategories()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image9.png))
+**Rysunek 3**. Konfigurowanie elementu ObjectDataSource do używania metody `GetCategories()` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image9.png))
 
-Po skonfigurowaniu kontrolki ObjectDataSource nadal trzeba określić które pole źródła danych powinny być wyświetlane w `Categories` DropDownList i który z nich powinna być skonfigurowana jako wartość dla elementu listy. Ustaw `CategoryName` pola jako ekran i `CategoryID` jako wartość dla każdego elementu listy.
+Po skonfigurowaniu elementu ObjectDataSource nadal musimy określić, które pole źródła danych ma być wyświetlane w `Categories` DropDownList i który ma być skonfigurowany jako wartość dla elementu listy. Ustaw `CategoryName` pole jako wartość wyświetlaną i `CategoryID` jako wartości dla każdego elementu listy.
 
-[![Masz wyświetlana lista DropDownList na pole CategoryName i użyj CategoryID jako wartość](master-detail-filtering-with-two-dropdownlists-cs/_static/image11.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image10.png)
+[![wyświetlać DropDownList pole CategoryName i używać IDkategorii jako wartości](master-detail-filtering-with-two-dropdownlists-cs/_static/image11.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image10.png)
 
-**Rysunek 4**: Ma ekran DropDownList `CategoryName` pola i użyj `CategoryID` jako wartość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image12.png))
+**Rysunek 4**. DropDownList wyświetlić pola `CategoryName` i użyj `CategoryID` jako wartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image12.png))
 
-W tym momencie mamy kontrolki DropDownList (`Categories`), jest wypełniana przy użyciu rekordów z `Categories` tabeli. Gdy użytkownik wybierze nową kategorię z metody DropDownList chcemy zwrotu wystąpić, aby odświeżyć produktu DropDownList, której będziemy tworzyć w kroku 2. W związku z tym, zaznacz opcję włączenia automatycznego ogłaszania zwrotnego z `categories` DropDownList w tagu inteligentnego.
+W tym momencie mamy kontrolkę DropDownList (`Categories`), która jest wypełniana rekordami z tabeli `Categories`. Gdy użytkownik wybierze nową kategorię z DropDownList, będziemy mieć ogłaszanie zwrotne w celu odświeżenia DropDownList produktu, które zostaną utworzone w kroku 2. W związku z tym zaznacz opcję Włącz autoogłaszanie w tagu inteligentnym `categories` DropDownList.
 
-[![Povolit vlastnost AutoPostBack dla metody DropDownList kategorii](master-detail-filtering-with-two-dropdownlists-cs/_static/image14.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image13.png)
+[![włączyć funkcję autoogłaszania zwrotnego dla kategorii DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image14.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image13.png)
 
-**Rysunek 5**: Povolit vlastnost AutoPostBack dla `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image15.png))
+**Rysunek 5**. Włączanie autoogłaszania zwrotnego dla `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image15.png))
 
-## <a name="step-2-displaying-the-selected-categorys-products-in-a-second-dropdownlist"></a>Krok 2. Wyświetlanie wybranej kategorii produktów w drugiej kontrolki DropDownList
+## <a name="step-2-displaying-the-selected-categorys-products-in-a-second-dropdownlist"></a>Krok 2. Wyświetlanie produktów wybranej kategorii w drugim DropDownList
 
-Za pomocą `Categories` DropDownList zakończona, naszym kolejnym krokiem jest wyświetlenie kontrolki DropDownList produktów należących do wybranej kategorii. W tym celu na stronie o nazwie Dodaj inny DropDownList `ProductsByCategory`. Podobnie jak w przypadku `Categories` DropDownList, Utwórz nowe kontrolki ObjectDataSource dla `ProductsByCategory` DropDownList o nazwie `ProductsByCategoryDataSource`.
+Po zakończeniu `Categories` DropDownList, następnym krokiem jest wyświetlenie DropDownList produktów należących do wybranej kategorii. Aby to osiągnąć, Dodaj kolejną DropDownList do strony o nazwie `ProductsByCategory`. Podobnie jak w przypadku `Categories` DropDownList, Utwórz nowy element ObjectDataSource dla `ProductsByCategory` DropDownList o nazwie `ProductsByCategoryDataSource`.
 
-[![Dodaj nowe źródło danych dla kontrolki ProductsByCategory DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image17.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image16.png)
+[![dodać nowego źródła danych dla ProductsByCategory DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image17.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image16.png)
 
-**Rysunek 6**: Dodaj nowe źródło danych dla `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image18.png))
+**Ilustracja 6**. Dodawanie nowego źródła danych dla `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image18.png))
 
-[![Tworzenie nowego elementu ObjectDataSource, o nazwie ProductsByCategoryDataSource](master-detail-filtering-with-two-dropdownlists-cs/_static/image20.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image19.png)
+[![utworzyć nowego elementu ObjectDataSource o nazwie ProductsByCategoryDataSource](master-detail-filtering-with-two-dropdownlists-cs/_static/image20.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image19.png)
 
-**Rysunek 7**: Utwórz nowy o nazwie elementu ObjectDataSource `ProductsByCategoryDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image21.png))
+**Rysunek 7**. Tworzenie nowego elementu ObjectDataSource o nazwie `ProductsByCategoryDataSource` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image21.png))
 
-Ponieważ `ProductsByCategory` DropDownList potrzeb, aby wyświetlić tylko te produkty należące do wybranej kategorii mają ObjectDataSource wywołania `GetProductsByCategoryID(categoryID)` metody z `ProductsBLL` obiektu.
+Ponieważ `ProductsByCategory` DropDownList musi wyświetlić tylko te produkty należące do wybranej kategorii, element ObjectDataSource wywołuje metodę `GetProductsByCategoryID(categoryID)` z obiektu `ProductsBLL`.
 
-[![Wybierz użyć klasy ProductsBLL](master-detail-filtering-with-two-dropdownlists-cs/_static/image23.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image22.png)
+[![wybrać użycie klasy ProductsBLL](master-detail-filtering-with-two-dropdownlists-cs/_static/image23.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image22.png)
 
-**Rysunek 8**: Możliwość użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image24.png))
+**Ilustracja 8**. wybór użycia klasy `ProductsBLL` (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image24.png))
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductsByCategoryID(categoryID)](master-detail-filtering-with-two-dropdownlists-cs/_static/image26.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image25.png)
+[![skonfigurować element ObjectDataSource do używania metody GetProductsByCategoryID (IDKategorii)](master-detail-filtering-with-two-dropdownlists-cs/_static/image26.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image25.png)
 
-**Rysunek 9**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image27.png))
+**Ilustracja 9**. Konfigurowanie elementu ObjectDataSource do używania metody `GetProductsByCategoryID(categoryID)` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image27.png))
 
-W ostatnim kroku kreatora należy określić wartość *`categoryID`* parametru. Przypisz ten parametr do wybranego elementu z `Categories` DropDownList.
+W ostatnim kroku kreatora musimy określić wartość parametru *`categoryID`* . Przypisz ten parametr do wybranego elementu z `Categories` DropDownList.
 
-[![Ściąganie categoryID wartości parametru z kontrolki DropDownList kategorii](master-detail-filtering-with-two-dropdownlists-cs/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image28.png)
+[![ściągnąć wartość parametru IDKategorii z kategorii DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image28.png)
 
-**Na rysunku nr 10**: Ściągnij *`categoryID`* wartość parametru `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image30.png))
+**Ilustracja 10**. ściąganie wartości parametru *`categoryID`* z `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image30.png))
 
-Za pomocą kontrolki ObjectDataSource skonfigurowane pozostaje tylko do określenia, jakie pola źródła danych są używane do wyświetlania i wartość DropDownList elementów. Wyświetlanie `ProductName` pola, a następnie użyć `ProductID` pola jako wartość.
+Po skonfigurowaniu elementu ObjectDataSource wszystkie pozostałe, które pozostają, określają, które pola źródła danych są używane do wyświetlania i wartości elementów DropDownList. Wyświetl `ProductName` pola i użyj pola `ProductID` jako wartości.
 
-[![Określ pola źródła danych, używany dla tekstu i wartości właściwości ListItems DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image32.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image31.png)
+[![określić pola źródła danych używane dla właściwości "text i value" elementu "DropDownList".](master-detail-filtering-with-two-dropdownlists-cs/_static/image32.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image31.png)
 
-**Rysunek 11**: Określ użyć pola źródła danych dla kontrolki DropDownList `ListItem` s " `Text` i `Value` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image33.png))
+**Ilustracja 11**. Określ pola źródła danych używane dla `Text` DropDownList `ListItem` s i właściwości `Value` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image33.png))
 
-Za pomocą kontrolki ObjectDataSource i `ProductsByCategory` DropDownList skonfigurowane strony wyświetli dwóch kontrolek DROPDOWNLIST: pierwszy spowoduje wyświetlenie listy wszystkich kategorii podczas gdy druga Wyświetla listę tych produktów należących do wybranej kategorii. Gdy użytkownik wybierze nową kategorię z pierwszej metody DropDownList, nastąpi odświeżenie strony i być odbitych drugiej metody DropDownList, wyświetlanie tych produktów, które należą do nowo wybranej kategorii. Rysunki 12 i 13 Pokaż `MasterDetailsDetails.aspx` w akcji podczas wyświetlania za pośrednictwem przeglądarki.
+Za pomocą elementów ObjectDataSource i `ProductsByCategory` skonfigurowanych na naszej stronie zostanie wyświetlonych dwa kontrolek DropDownList: pierwsza spowoduje wyświetlenie listy wszystkich kategorii, a druga spowoduje wyświetlenie listy tych produktów należących do wybranej kategorii. Gdy użytkownik wybierze nową kategorię z pierwszego DropDownListu, odświeżenie zostanie nastąpi, a druga DropDownList zostanie odwiązana, pokazując te produkty należące do nowo wybranej kategorii. Rysunki 12 i 13 pokazują `MasterDetailsDetails.aspx` w akcji podczas przeglądania za pomocą przeglądarki.
 
-[![Po pierwsze, odwiedzając stronę, wybranej kategorii Beverages](master-detail-filtering-with-two-dropdownlists-cs/_static/image35.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image34.png)
+[![podczas pierwszego odwiedzania strony wybrano kategorię napoje](master-detail-filtering-with-two-dropdownlists-cs/_static/image35.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image34.png)
 
-**Rysunek 12**: Po pierwsze, odwiedzając stronę, wybranej kategorii Beverages ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image36.png))
+**Rysunek 12**. podczas pierwszego odwiedzania strony jest wybierana Kategoria napoje ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image36.png))
 
-[![Wybierając inną kategorię Wyświetla nowej kategorii produktów](master-detail-filtering-with-two-dropdownlists-cs/_static/image38.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image37.png)
+[![wybranie innej kategorii spowoduje wyświetlenie produktów nowej kategorii](master-detail-filtering-with-two-dropdownlists-cs/_static/image38.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image37.png)
 
-**Rysunek 13**: Wybieranie różnych ekranów kategorii produktów do nowej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image39.png))
+**Ilustracja 13**. wybranie innej kategorii powoduje wyświetlenie produktów nowej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image39.png))
 
-Obecnie `productsByCategory` jest DropDownList, po zmianie *nie* powoduje odświeżenie strony. Jednakże chcemy zwrotu nastąpi po dodamy DetailsView, aby wyświetlić szczegóły wybranego produktu (krok 3). W związku z tym, zaznacz pole wyboru Włącz automatycznego ogłaszania zwrotnego z `productsByCategory` DropDownList w tagu inteligentnego.
+Obecnie `productsByCategory` DropDownList, gdy zmiana *nie powoduje* odświeżenia. Będziemy jednak chcieć ogłaszać zwrotne po dodaniu widoku DetailsView, aby wyświetlić szczegółowe informacje o wybranym produkcie (krok 3). W związku z tym zaznacz pole wyboru Włącz autoogłaszanie w tagu inteligentnym `productsByCategory` DropDownList.
 
-[![Włącz funkcję automatycznego ogłaszania zwrotnego productsByCategory DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image41.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image40.png)
+[![włączyć funkcję autoogłaszania zwrotnego dla productsByCategory DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image41.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image40.png)
 
-**Rysunek 14**: Włącz funkcję automatycznego ogłaszania zwrotnego `productsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image42.png))
+**Ilustracja 14**. Włączanie funkcji autoogłaszania dla `productsByCategory` DropDownList ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image42.png))
 
-## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>Krok 3. Aby wyświetlić szczegóły dla wybranego produktu przy użyciu DetailsView
+## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>Krok 3. Wyświetlanie szczegółowych informacji o wybranym produkcie przy użyciu widoku DetailsView
 
-Ostatnim krokiem jest, aby wyświetlić szczegóły dotyczące wybranego produktu w DetailsView. Aby to osiągnąć, Dodaj element DetailsView do strony, należy ustawić jego `ID` właściwości `ProductDetails`i Utwórz nowe kontrolki ObjectDataSource dla niego. Konfigurowanie tej kontrolki ObjectDataSource swoich danych z `ProductsBLL` klasy `GetProductByProductID(productID)` metody przy użyciu wybranej wartości `ProductsByCategory` DropDownList dla wartości *`productID`* parametru.
+Ostatnim krokiem jest wyświetlenie szczegółowych informacji o wybranym produkcie w widoku DetailsView. Aby to osiągnąć, Dodaj do strony opcję DetailsView, ustaw jej Właściwość `ID` na `ProductDetails`i Utwórz dla niej nowy element ObjectDataSource. Skonfiguruj ten element ObjectDataSource do ściągania danych z metody `GetProductByProductID(productID)` klasy `ProductsBLL` przy użyciu wybranej wartości `ProductsByCategory` DropDownList dla wartości parametru *`productID`* .
 
-[![Wybierz użyć klasy ProductsBLL](master-detail-filtering-with-two-dropdownlists-cs/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image43.png)
+[![wybrać użycie klasy ProductsBLL](master-detail-filtering-with-two-dropdownlists-cs/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image43.png)
 
-**Rysunek 15**: Możliwość użycia `ProductsBLL` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image45.png))
+**Ilustracja 15**. Wybierz, aby użyć klasy `ProductsBLL` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image45.png))
 
-[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductByProductID(productID)](master-detail-filtering-with-two-dropdownlists-cs/_static/image47.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image46.png)
+[![skonfigurować element ObjectDataSource do korzystania z metody GetProductByProductID (productID)](master-detail-filtering-with-two-dropdownlists-cs/_static/image47.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image46.png)
 
-**Rysunek 16**: Konfigurowanie kontrolki ObjectDataSource do użycia `GetProductByProductID(productID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image48.png))
+**Ilustracja 16**. Konfigurowanie elementu ObjectDataSource do używania metody `GetProductByProductID(productID)` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image48.png))
 
-[![Ściąganie productID wartości parametru z kontrolki ProductsByCategory DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image49.png)
+[![ściągnąć wartość parametru productID z ProductsByCategory DropDownList](master-detail-filtering-with-two-dropdownlists-cs/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image49.png)
 
-**Rysunek 17**: Ściągnij *`productID`* wartość parametru `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image51.png))
+**Ilustracja 17**. ściąganie wartości parametru *`productID`* z `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image51.png))
 
-Można wyświetlić żadnego z dostępnych pól w DetailsView. Czy mogę załączania do usunięcia `ProductID`, `SupplierID`, i `CategoryID` pól i kolejności i sformatowany pozostałych pól. Ponadto, wyczyszczone I DetailsView `Height` i `Width` właściwości, umożliwiając DetailsView rozszerzyć szerokość konieczna najlepszej jakości obrazu swoje dane, niż musieć go ograniczone do określonego rozmiaru. Pełne znaczników pojawia się poniżej:
+Możesz wybrać opcję wyświetlania dowolnego z dostępnych pól w widoku DetailsView. Wybrano, aby usunąć pola `ProductID`, `SupplierID`i `CategoryID` oraz zmienić ich kolejność i sformatować pozostałe pola. Dodatkowo wyczyściłem `Height` i `Width` właściwości, co pozwala na rozwijanie widoku DetailsView do szerokości wymaganej do najlepszego wyświetlenia danych, a nie ograniczenia do określonego rozmiaru. Pełny znacznik jest widoczny poniżej:
 
 [!code-aspx[Main](master-detail-filtering-with-two-dropdownlists-cs/samples/sample1.aspx)]
 
-Poświęć chwilę, aby wypróbować `MasterDetailsDetails.aspx` strony w przeglądarce. Na pierwszy rzut oka może występować, że wszystko działa zgodnie z potrzebami, ale drobny problem. Po wybraniu nowej kategorii `ProductsByCategory` DropDownList została zaktualizowana do tych produktów dla wybranej kategorii, ale `ProductDetails` DetailsView w dalszym ciągu Pokaż poprzednie informacje o produkcie. DetailsView jest aktualizowana, wybierając inny produkt dla wybranej kategorii. Ponadto w przypadku testowania w tyle dokładnie znajdziesz, jeśli stale nowe kategorie (takie jak wybieranie Beverages z `Categories` DropDownList, a następnie Condiments, następnie Confections) każdy wybór kategorii spowoduje `ProductDetails`DetailsView odświeżenia.
+Zapoznaj się z chwilą, aby wypróbować stronę `MasterDetailsDetails.aspx` w przeglądarce. Na pierwszy rzut oka może się wydawać, że wszystko działa zgodnie z potrzebami, ale wystąpił delikatny problem. Po wybraniu nowej kategorii `ProductsByCategory` DropDownList zostanie zaktualizowana w celu uwzględnienia tych produktów dla wybranej kategorii, ale `ProductDetails` DetailsView nadal będzie pokazywała poprzednie informacje o produkcie. W przypadku wybrania innego produktu dla wybranej kategorii jest aktualizowana wartość DetailsView. Ponadto, jeśli testujesz dokładnie tyle, że w przypadku ciągłego wybierania nowych kategorii (takich jak wybór napojów z `Categories` DropDownList, a następnie Przypraws, a następnie wyrobów cukierniczych) każdy inny wybór kategorii spowoduje odświeżenie `ProductDetails` DetailsView.
 
-Aby ułatwić skonkretyzować ten problem, Przyjrzyjmy się konkretnemu przykładowi. Po pierwsze odwiedź stronę do kategorii Beverages jest zaznaczone, a powiązane produkty są ładowane w `ProductsByCategory` DropDownList. Chai jest wybranego produktu i jego szczegóły są wyświetlane w `ProductDetails` DetailsView, jak pokazano na rysunku 18.
+Aby pomóc w skonkretyzować tego problemu, przyjrzyjmy się konkretnemu przykładowi. Po pierwszej wizycie na stronie wybrano kategorię napoje i powiązane produkty są ładowane do `ProductsByCategory` DropDownList. Chai to wybrany produkt, a jego szczegóły są wyświetlane w `ProductDetails` DetailsView, jak pokazano na rysunku 18.
 
-[![Szczegóły produktu wybrana są wyświetlane w widoku DetailsView](master-detail-filtering-with-two-dropdownlists-cs/_static/image53.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image52.png)
+[![szczegóły wybranego produktu są wyświetlane w widoku DetailsView](master-detail-filtering-with-two-dropdownlists-cs/_static/image53.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image52.png)
 
-**Rysunek 18**: Szczegóły produktu wybrana są wyświetlane w widoku DetailsView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image54.png))
+**Ilustracja 18**. szczegóły wybranego produktu są wyświetlane w widoku DetailsView ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image54.png))
 
-Jeśli zmienisz wybór kategorii z Beverages na Condiments występuje odświeżenie strony i `ProductsByCategory` DropDownList jest odpowiednio aktualizowana, ale Chai DetailsView nadal przedstawia szczegółowe informacje.
+Jeśli zmienisz wybór kategorii z napojów na przyprawy, nastąpi odświeżenie, a `ProductsByCategory` DropDownList zostanie odpowiednio zaktualizowany, ale w widoku DetailsView nadal będą wyświetlane szczegółowe informacje o Chai.
 
-[![Szczegóły wcześniej wybrane w produkcie są nadal wyświetlane](master-detail-filtering-with-two-dropdownlists-cs/_static/image56.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image55.png)
+[![informacje o poprzednio wybranym produkcie są nadal wyświetlane](master-detail-filtering-with-two-dropdownlists-cs/_static/image56.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image55.png)
 
-**Rysunek 19**: Szczegóły wcześniej wybrane w produkcie są nadal wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image57.png))
+**Ilustracja 19**. szczegóły poprzednio wybranego produktu są nadal wyświetlane (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image57.png))
 
-Nowy produkt z listy pobrania odświeża DetailsView, zgodnie z oczekiwaniami. W przypadku wybrania nową kategorię po zmianie produktu DetailsView ponownie nie odświeżyć. Jednak jeśli zamiast wybierać nowy produkt został wybrany nową kategorię, DetailsView będzie odświeżyć. Co w świecie dochodzi?
+Wybranie nowego produktu z listy spowoduje odświeżenie widoku DetailsView zgodnie z oczekiwaniami. W przypadku wybrania nowej kategorii po zmianie produktu widok DetailsView ponownie nie zostanie odświeżony. Jednak w przypadku wybrania nowego produktu, który został wybrany nowej kategorii, można odświeżyć widok DetailsView. Co na świecie odbywa się tutaj?
 
-Problem jest błąd chronometrażu w cyklu życia strony. Zawsze, gdy strona jest zażądał przechodzi przez kilka kroków, jako jego renderowania. W jednym z następujących czynności kontrolki ObjectDataSource kontrolki Sprawdź, czy ich `SelectParameters` wartości zostały zmienione. Jeśli tak, kontrolki sieci Web dane powiązane z kontrolki ObjectDataSource wie, musi odświeżyć jego wyświetlania. Na przykład, gdy wybrano nową kategorię, `ProductsByCategoryDataSource` ObjectDataSource wykrywa, czy zmieniono jej wartości parametrów i `ProductsByCategory` DropDownList rebinds, wprowadzenie produktów dla wybranej kategorii.
+Problem dotyczy cyklu życia strony. Za każdym razem, gdy zażądano strony, przejdzie ona przez kilka kroków w miarę renderowania. W jednym z tych kroków kontrolki elementu ObjectDataSource sprawdzają, czy dowolna z wartości `SelectParameters` uległy zmianie. Jeśli tak, formant sieci Web danych powiązany z elementem ObjectDataSource wie, że musi odświeżyć jego ekran. Na przykład po wybraniu nowej kategorii element ObjectDataSource `ProductsByCategoryDataSource` wykrył, że jego wartości parametrów uległy zmianie, a `ProductsByCategory` DropDownList rebind same, pobierając produkty dla wybranej kategorii.
 
-Problem, który pojawia się w tej sytuacji jest występowanie punktu w cyklu życia strony, który ObjectDataSources sprawdzać zmiany parametrów *przed* ponowne wiązanie skojarzonych danych kontrolki sieci Web. W związku z tym wybierając nową kategorię `ProductsByCategoryDataSource` ObjectDataSource wykryje zmianę w wartość jego parametru. Używane przez kontrolki ObjectDataSource `ProductDetails` DetailsView, jednak nie należy pamiętać, wszelkie zmiany ponieważ `ProductsByCategory` DropDownList jeszcze nie być odbitych. Później w cyklu życia `ProductsByCategory` DropDownList rebinds do jego kontrolki ObjectDataSource Przechwytywanie produktów dla nowo wybranej kategorii. Gdy `ProductsByCategory` DropDownList jego wartość została zmieniona, `ProductDetails` DetailsView ObjectDataSource już wykonała wyboru wartość jego parametru; w związku z tym, DetailsView wyświetla jego poprzednie wyniki. Ta interakcja jest przedstawiona na rysunku 20.
+Problem występujący w tej sytuacji polega na tym, że punkt w cyklu życia strony, który sprawdza zmiany parametrów, występuje *przed ponownym* wiązaniem skojarzonych kontrolek sieci Web danych. W związku z tym podczas wybierania nowej kategorii element ObjectDataSource `ProductsByCategoryDataSource` wykrywa zmianę wartości parametru. Element ObjectDataSource używany przez `ProductDetails` DetailsView nie zanotuje żadnych zmian, ponieważ `ProductsByCategory` DropDownList nie zostały jeszcze oddzielone. W dalszej części cyklu życia `ProductsByCategory` DropDownList ponownie powiązania z jego elementem ObjectDataSource, co umożliwia przechwyconie produktów dla nowo wybranej kategorii. Gdy wartość `ProductsByCategory` DropDownList została zmieniona, element ObjectDataSource `ProductDetails` DetailsView już zrobił sprawdzanie wartości parametrów; w związku z tym, DetailsView wyświetla poprzednie wyniki. Ta interakcja jest przedstawiana na rysunku 20.
 
-[![Wartość kontrolki ProductsByCategory DropDownList zmienia się po ObjectDataSource ProductDetails DetailsView sprawdza obecność zmian](master-detail-filtering-with-two-dropdownlists-cs/_static/image59.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image58.png)
+[![zmiany wartości ProductsByCategory DropDownList po przeprowadzeniu testów elementu ObjectDataSource ProductDetails DetailsView dla zmian](master-detail-filtering-with-two-dropdownlists-cs/_static/image59.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image58.png)
 
-**Rysunek 20**: `ProductsByCategory` DropDownList wartość zmiany po `ProductDetails` DetailsView ObjectDataSource sprawdza obecność zmian ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image60.png))
+**Ilustracja 20**: wartość `ProductsByCategory` DropDownList ulega zmianie po `ProductDetails` sprawdzenia elementu ObjectDataSource w widoku DetailsView dla zmian ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image60.png))
 
-Aby temu zapobiec potrzebujemy, aby jawnie ponownie powiązać `ProductDetails` DetailsView po `ProductsByCategory` DropDownList została powiązana. Możemy to zrobić, wywołując `ProductDetails` DetailsView `DataBind()` metody podczas `ProductsByCategory` firmy DropDownList `DataBound` generowane zdarzenie. Dodaj następujący kod procedury obsługi zdarzeń, aby `MasterDetailsDetails.aspx` strony osobna klasa kodu (odnoszą się do "[programowe Ustawianie wartości parametrów elementu ObjectDataSource](../basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)" do dyskusji na temat dodawania programu obsługi zdarzeń):
+Aby rozwiązać ten konieczność, należy jawnie ponownie powiązać `ProductDetails` DetailsView po powiązaniu `ProductsByCategory` DropDownList. Możemy to osiągnąć przez wywołanie metody `DataBind()` `ProductDetails` DetailsView, gdy zostanie wyzwolone zdarzenie `DataBound` `ProductsByCategory`. Dodaj następujący kod obsługi zdarzeń do klasy związanej z kodem `MasterDetailsDetails.aspx` strony (zobacz "[programowo Ustawianie wartości parametrów elementu ObjectDataSource](../basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)" w przypadku dyskusji na temat dodawania obsługi zdarzeń):
 
 [!code-csharp[Main](master-detail-filtering-with-two-dropdownlists-cs/samples/sample2.cs)]
 
-Po tym jawnym wywołaniem `ProductDetails` DetailsView `DataBind()` metoda został dodany, samouczek działa zgodnie z oczekiwaniami. Rysunek 21 najważniejsze funkcje, jak zmieniło się to zostaną usunięte wcześniej problemu.
+Po dodaniu tego jawnego wywołania metody `DataBind()` `ProductDetails` DetailsView, samouczek działa zgodnie z oczekiwaniami. Rysunek 21 przedstawia, w jaki sposób zmiana ta została zmieniona z powodu wcześniejszego problemu.
 
-[![ProductDetails DetailsView jest generowane zdarzenie z danymi jawnie odświeżone po ProductsByCategory DropDownList firmy](master-detail-filtering-with-two-dropdownlists-cs/_static/image62.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image61.png)
+[![ProductDetails DetailsView jest jawnie odświeżany, gdy wyzwalane jest zdarzenie powiązane z danymi DropDownList ProductsByCategory](master-detail-filtering-with-two-dropdownlists-cs/_static/image62.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image61.png)
 
-**Rysunek 21**: `ProductDetails` DetailsView jest jawnie odświeżone po `ProductsByCategory` firmy DropDownList `DataBound` generowane zdarzenie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image63.png))
+**Rysunek 21**. `ProductDetails` DetailsView jest jawnie odświeżany po wypełnieniu zdarzenia `DataBound` `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-cs/_static/image63.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Metody DropDownList służy jako element interfejsu użytkownika idealne rozwiązanie dla rekordu głównego/szczegółów raportów w przypadku, gdy istnieje relacja jeden do wielu między rekordami głównego i szczegółów. Jak filtrować wyświetlane przez wybraną kategorię produkty za pomocą pojedynczej metody DropDownList widzieliśmy w poprzednim samouczku. W tym samouczku będziemy zastępowane GridView produktów przy użyciu kontrolki DropDownList, a używane DetailsView, aby wyświetlić szczegóły dotyczące wybranego produktu. Kwestie omówione w tym samouczku można z łatwością rozszerzyć do modeli danych obejmujących wiele relacji jeden do wielu, takich jak klienci i zamówienia, kolejność elementów. Ogólnie rzecz biorąc można dodać kontrolki DropDownList dla każdej jednostki "jeden" w relacji jeden do wielu.
+DropDownList służy jako idealny element interfejsu użytkownika dla raportów wzorzec/szczegóły, gdy istnieje relacja jeden do wielu między rekordem głównym i szczegółowymi. W poprzednim samouczku przedstawiono sposób użycia jednego DropDownList do filtrowania produktów wyświetlanych przez wybraną kategorię. W tym samouczku zamieniłem GridView produktów na DropDownList i użyto widoku DetailsView, aby wyświetlić szczegóły wybranego produktu. Koncepcje omówione w tym samouczku można łatwo rozszerzyć do modeli danych obejmujących wiele relacji jeden-do-wielu, takich jak klienci, zamówienia i elementy zamówienia. Ogólnie rzecz biorąc, można zawsze dodać DropDownList dla każdej jednostki "jednego" w relacji jeden-do-wielu.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Hilton Giesenow. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Hilton Giesenow. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](master-detail-filtering-with-a-dropdownlist-cs.md)

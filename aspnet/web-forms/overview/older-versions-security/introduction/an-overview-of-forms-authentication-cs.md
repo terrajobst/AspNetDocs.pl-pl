@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: Omówienie uwierzytelniania formularzy (C#) | Dokumentacja firmy Microsoft
+title: Omówienie uwierzytelniania formularzy (C#) | Microsoft Docs
 author: rick-anderson
 description: Tworzenie tras niestandardowych
 ms.author: riande
@@ -8,423 +8,423 @@ ms.date: 01/14/2008
 ms.assetid: de2d65b9-aadc-42ba-abe1-4e87e66521a0
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0dd7c88bb001d326bf415dc3d3e8df0d4e5c77ed
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 009c3f84e00d648ede4a15e530ceac2d23e01eec
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133250"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74620750"
 ---
 # <a name="an-overview-of-forms-authentication-c"></a>Omówienie uwierzytelniania formularzy (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_02_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial02_FormsAuth_cs.pdf)
+[Pobierz kod](https://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/ASPNET_Security_Tutorial_02_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial02_FormsAuth_cs.pdf)
 
-> W tym samouczku będziemy zmieni się z zaledwie dyskusji do wdrożenia; w szczególności omówimy Wdrażanie uwierzytelniania formularzy. Zaczniemy tworzenie w ramach tego samouczka aplikacji sieci web będzie być wbudowane w system w kolejnych samouczkach podczas przenoszenia z uwierzytelniania formularzy proste do członkostwa i ról.
+> W tym samouczku przejdziemy do implementacji zwykłej dyskusji. w szczególności zapoznaj się z zaimplementowaniem uwierzytelniania formularzy. Aplikacja sieci Web, która rozpoczyna konstruowanie w tym samouczku, będzie nadal skompilowana w kolejnych samouczkach, podobnie jak w przypadku przechodzenia z prostego uwierzytelniania formularzy do członkostwa i ról.
 > 
-> Zobacz ten film, aby uzyskać więcej informacji na ten temat: [Za pomocą podstawowe uwierzytelnianie formularzy w programie ASP.NET:](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md).
+> Obejrzyj ten film wideo, aby uzyskać więcej informacji na temat tego tematu: [używanie uwierzytelniania podstawowego formularzy w programie ASP.NET](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md).
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W [poprzedni Samouczek](security-basics-and-asp-net-support-cs.md) Omówiliśmy różne uwierzytelniania, autoryzacji i użytkownika konta opcje dostarczanego przez platformę ASP.NET. W tym samouczku będziemy zmieni się z zaledwie dyskusji do wdrożenia; w szczególności omówimy Wdrażanie uwierzytelniania formularzy. Zaczniemy tworzenie w ramach tego samouczka aplikacji sieci web będzie być wbudowane w system w kolejnych samouczkach podczas przenoszenia z uwierzytelniania formularzy proste do członkostwa i ról.
+W [poprzednim samouczku](security-basics-and-asp-net-support-cs.md) omówiono różne opcje uwierzytelniania, autoryzacji i konta użytkownika udostępniane przez ASP.NET. W tym samouczku przejdziemy do implementacji zwykłej dyskusji. w szczególności zapoznaj się z zaimplementowaniem uwierzytelniania formularzy. Aplikacja sieci Web, która rozpoczyna konstruowanie w tym samouczku, będzie nadal skompilowana w kolejnych samouczkach, podobnie jak w przypadku przechodzenia z prostego uwierzytelniania formularzy do członkostwa i ról.
 
-Ten samouczek rozpoczyna się od przyjrzeć się przepływu pracy uwierzytelniania formularzy, temat, który firma Microsoft korzysta z chwilą w poprzednim samouczku. Poniżej utworzymy w witrynie sieci Web ASP.NET za pomocą którego na targach pojęć dotyczących uwierzytelniania formularzy. Następnie zostaną skonfigurowane lokacji korzystanie z uwierzytelniania formularzy, Utwórz stronę logowania proste i zobacz, jak określić w kodzie, czy użytkownik jest uwierzytelniany, a jeśli tak, nazwy użytkownika, są rejestrowane przy użyciu.
+Ten samouczek rozpoczyna się od szczegółowego wyglądu przepływu pracy związanego z uwierzytelnianiem formularzy, który został rozłożony w poprzednim samouczku. Poniżej zostanie utworzona witryna sieci Web ASP.NET, za pomocą której można obejrzeć koncepcje uwierzytelniania formularzy. Następnie skonfigurujemy lokację do korzystania z uwierzytelniania formularzy, tworzenia prostej strony logowania i Dowiedz się, jak określić, w kodzie, czy użytkownik jest uwierzytelniany, a jeśli tak, to nazwa użytkownika, na którym się zalogowano.
 
-Omówienie formularzy, przepływu pracy uwierzytelniania, włączając je w aplikacji sieci web i tworzenie stron logowania i wylogowywania się wszystkie istotne kroków w tworzeniu aplikacji ASP.NET, która obsługuje konta użytkowników i uwierzytelnia użytkowników za pomocą strony sieci web. W związku z tym — i ponieważ tych samouczków zależą od siebie nawzajem — czy zachęcam Cię do pracy za pomocą tego samouczka w całości przed przejściem do następnego, nawet jeśli masz już mieć środowisko konfigurowania uwierzytelniania formularzy w ciągu ostatnich projektów.
+Zrozumienie przepływu pracy uwierzytelniania formularzy, włączenie go w aplikacji sieci Web, a następnie utworzenie stron logowania i wylogowania to wszystkie istotne kroki w tworzeniu aplikacji ASP.NET, która obsługuje konta użytkowników i uwierzytelnia użytkowników za pomocą strony sieci Web. Ze względu na to, że te samouczki kompilują się po sobie nawzajem — zachęcamy do pracy z tym samouczkiem w całości przed przejściem do kolejnego, nawet jeśli masz już doświadczenie w konfigurowaniu uwierzytelniania formularzy w przeszłych projektach.
 
 ## <a name="understanding-the-forms-authentication-workflow"></a>Informacje o przepływie pracy uwierzytelniania formularzy
 
-Gdy środowisko uruchomieniowe ASP.NET przetwarza żądanie dla zasobu platformy ASP.NET, takich jak strony ASP.NET lub usługi sieci Web platformy ASP.NET, żądanie podnosi liczbę zdarzeń podczas ich cyklu życia. Brak zdarzeń wywołanych z końcem bardzo zaczynające się i bardzo żądań, takich, które jest wywoływane, gdy żądanie jest uwierzytelniane i autoryzacji, zdarzenie zgłaszane w przypadku nieobsługiwanego wyjątku i tak dalej. Aby wyświetlić pełną listę zdarzeń, zobacz [zdarzenia obiektu aplikacji HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication_events.aspx).
+Gdy środowisko uruchomieniowe ASP.NET przetwarza żądanie dla zasobu ASP.NET, takie jak strona ASP.NET lub usługa sieci Web ASP.NET, żądanie zgłasza wiele zdarzeń w cyklu życia. Istnieją zdarzenia zgłoszone na bardzo początku i na końcu żądania, wywoływane, gdy żądanie jest uwierzytelniane i autoryzowane, zdarzenie zgłoszone w przypadku nieobsłużonego wyjątku i tak dalej. Aby wyświetlić pełną listę zdarzeń, zapoznaj się ze [zdarzeniami obiektu elemencie HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication_events.aspx).
 
-*Moduły HTTP* są klasami zarządzanymi, którego kod jest wykonywany w odpowiedzi na konkretne zdarzenie w cyklu życia żądania. ASP.NET jest dostarczany z liczbą moduły HTTP, który wykonywania podstawowych zadań w tle. Są dwa wbudowane moduły HTTP, które są szczególnie istotne w naszym dyskusji:
+*Moduły HTTP* są klasami zarządzanymi, których kod jest wykonywany w odpowiedzi na konkretne zdarzenie w cyklu życia żądania. ASP.NET dostarcza wiele modułów HTTP, które wykonują podstawowe zadania w tle. Dwa wbudowane moduły HTTP, które są szczególnie przydatne w naszej dyskusji:
 
-- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)** — uwierzytelnia użytkownika, sprawdzając biletu uwierzytelniania formularzy, które najczęściej przygotowywanych do uwzględnienia w kolekcji plików cookie przez użytkownika. Jeśli ma nie biletu uwierzytelniania formularzy, użytkownik jest anonimowy.
-- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)** — Określa, czy bieżący użytkownik jest autoryzowany do dostępu do żądanego adresu URL. Ten moduł określa uprawnienia przez zapoznanie się z reguł autoryzacji, określone w plikach konfiguracji aplikacji. Program ASP.NET zawiera również [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) określający urząd, przeglądając pliki żądanej listy ACL.
+- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)** — uwierzytelnia użytkownika, sprawdzając bilet uwierzytelniania formularzy, który zwykle jest zawarty w kolekcji plików cookie użytkownika. Jeśli nie istnieje bilet uwierzytelniania formularzy, użytkownik jest anonimowy.
+- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)** — określa, czy bieżący użytkownik ma uprawnienia dostępu do żądanego adresu URL. Ten moduł określa Urząd zgodnie z regułami autoryzacji określonymi w plikach konfiguracji aplikacji. ASP.NET zawiera również [`FileAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) , które określają urząd, sprawdzając wymagane pliki list ACL.
 
-`FormsAuthenticationModule` Próby uwierzytelnienia użytkownika w programach starszych niż program `UrlAuthorizationModule` (i `FileAuthorizationModule`) wykonywania. Jeżeli użytkownika zgłaszającego żądanie nie ma autoryzacji dostępu do żądanego zasobu, moduł autoryzacji kończy żądanie, a następnie zwraca [HTTP 401 nieautoryzowane](http://www.checkupdown.com/status/E401.html) stanu. W scenariuszach uwierzytelniania Windows stan HTTP 401, jest zwracana do przeglądarki. Ten kod stanu powoduje, że w przeglądarce, monit o podanie swoich poświadczeń za pośrednictwem modalne okno dialogowe. Za pomocą uwierzytelniania formularzy, stan HTTP 401 nieautoryzowane nigdy nie są wysyłane do przeglądarki, ponieważ FormsAuthenticationModule wykrywa ten stan i modyfikuje je, aby przekierować użytkownika do strony logowania, zamiast tego (za pośrednictwem [HTTP 302przekierowania.](http://www.checkupdown.com/status/E302.html) stanu).
+`FormsAuthenticationModule` próbuje uwierzytelnić użytkownika przed wykonaniem `UrlAuthorizationModule` (i `FileAuthorizationModule`). Jeśli użytkownik wykonujący żądanie nie ma uprawnień dostępu do żądanego zasobu, moduł autoryzacji zakończy żądanie i zwróci stan [nieautoryzowany HTTP 401](http://www.checkupdown.com/status/E401.html) . W scenariuszach uwierzytelniania systemu Windows stan HTTP 401 jest zwracany do przeglądarki. Ten kod stanu powoduje, że przeglądarka monituje użytkownika o podanie poświadczeń za pośrednictwem modalnego okna dialogowego. W przypadku uwierzytelniania formularzy nieautoryzowany stan protokołu HTTP 401 nie jest nigdy wysyłany do przeglądarki, ponieważ FormsAuthenticationModule wykrywa ten stan i modyfikuje go, aby przekierować użytkownika do strony logowania (za pośrednictwem stanu [przekierowywania HTTP 302](http://www.checkupdown.com/status/E302.html) ).
 
-Odpowiedzialność strony logowania jest ustalić, czy poświadczenia użytkownika są prawidłowe, i jeśli tak, utworzyć bilet uwierzytelniania formularzy i przekieruje użytkownika z powrotem do strony one próba odwiedź stronę. Bilet uwierzytelniania znajduje się w kolejnych żądań do stron w witrynie sieci Web, która `FormsAuthenticationModule` używa do identyfikowania użytkownika.
+Odpowiedzialność za stronę logowania jest określenie, czy poświadczenia użytkownika są prawidłowe, a jeśli tak, to w celu utworzenia biletu uwierzytelniania formularzy i przekierowania użytkownika z powrotem do strony, którą próbowano odwiedzać. Bilet uwierzytelniania jest uwzględniany w kolejnych żądaniach do stron w witrynie sieci Web, których `FormsAuthenticationModule` używa do identyfikowania użytkownika.
 
 ![Przepływ pracy uwierzytelniania formularzy](an-overview-of-forms-authentication-cs/_static/image1.png)
 
-**Rysunek 1**: Przepływ pracy uwierzytelniania formularzy
+**Rysunek 1**. przepływ pracy uwierzytelniania formularzy
 
-### <a name="remembering-the-authentication-ticket-across-page-visits"></a>Uzupełnij biletu uwierzytelniania między odwiedzin strony
+### <a name="remembering-the-authentication-ticket-across-page-visits"></a>Zapamiętywanie biletu uwierzytelniania między wizytami stron
 
-Po zalogowaniu się w biletu uwierzytelniania formularzy musi zostać odesłana do serwera sieci web na każde żądanie tak, aby użytkownik pozostaje zalogowany, ponieważ przeglądania witryny. Zazwyczaj jest to osiągane przez umieszczenie biletu uwierzytelniania w kolekcji plików cookie przez użytkownika. [Pliki cookie](http://en.wikipedia.org/wiki/HTTP_cookie) to małe pliki tekstowe, które znajdują się na komputerze użytkownika i są przekazywane w nagłówkach HTTP na każde żądanie do witryny sieci Web, która utworzyła plik cookie. W związku z tym po utworzeniu biletu uwierzytelniania formularzy i przechowywane w plikach cookie w przeglądarce każdej kolejnej wizyty do tej lokacji wysyła bilet uwierzytelniania wraz z żądaniem w ten sposób identyfikowania użytkowników.
+Po zalogowaniu biletu uwierzytelniania formularzy należy wysyłać z powrotem do serwera sieci Web w każdym żądaniu, tak aby użytkownik pozostawać zalogowany podczas przeglądania witryny. Jest to zwykle realizowane przez umieszczenie biletu uwierzytelniania w kolekcji plików cookie użytkownika. Pliki [cookie](http://en.wikipedia.org/wiki/HTTP_cookie) to małe pliki tekstowe, które znajdują się na komputerze użytkownika i są przesyłane w nagłówkach HTTP na każde żądanie do witryny sieci Web, która utworzyła plik cookie. W związku z tym po utworzeniu biletu uwierzytelniania formularzy i zapisaniu go w plikach cookie w przeglądarce każda kolejna wizyta w tej witrynie wysyła bilet uwierzytelniania wraz z żądaniem, co oznacza, że użytkownik identyfikuje użytkownika.
 
-Jednym z aspektów plików cookie jest jego wygaśnięcia, czyli Data i godzina, jaką odrzuca wszystkie pliki cookie przeglądarki. Po wygaśnięciu pliku cookie uwierzytelniania formularzy, użytkownik nie jest już może uwierzytelniony i w związku z tym stają się anonimowe. Gdy użytkownik odwiedził z poziomu terminalu publicznych, jest szansa, że chce ich biletu uwierzytelniania wygaśnie przy zamykaniu przeglądarki. Podczas przeglądania w domu, jednak ten sam użytkownik może być biletu uwierzytelniania, należy pamiętać w przeglądarce zostanie ponownie uruchomiony, tak, aby nie są dostępne do ponownego logowania się za każdym razem, mogą odwiedzić witrynę. Ta decyzja często jest wprowadzone przez użytkownika w formie "Zapamiętaj mnie", zaznacz pole wyboru na stronie logowania. W kroku 3 zostanie omówiony sposób implementacji pola wyboru "Zapamiętaj mnie" na stronie logowania. Następującego samouczka adresów ustawienia limitu czasu biletu uwierzytelniania szczegółowo.
+Jednym z aspektów plików cookie jest ich wygaśnięcie, czyli Data i godzina odrzucenia pliku cookie przez przeglądarkę. Gdy plik cookie uwierzytelniania formularzy wygaśnie, użytkownik nie może być już uwierzytelniony i w związku z tym staje się anonimowy. Gdy użytkownik odwiedzający się z terminalu publicznego, może mieć możliwość wygaśnięcia biletu uwierzytelniania po zamknięciu przeglądarki. Podczas odwiedzania z domu jednak ten sam użytkownik może chcieć, aby bilet uwierzytelnienia został zapamiętany przez ponowne uruchomienie przeglądarki, aby nie musiały ponownie rejestrować się za każdym razem, gdy odwiedzają witrynę. Ta decyzja jest często podejmowana przez użytkownika w postaci pola wyboru "Zapamiętaj mnie" na stronie logowania. W kroku 3 sprawdzimy, jak zaimplementować pole wyboru "Zapamiętaj mnie" na stronie logowania. Poniższy samouczek dotyczy szczegółowych ustawień limitu czasu biletu uwierzytelniania.
 
 > [!NOTE]
-> Istnieje możliwość, że agenta użytkownika używane do logowania się do witryny sieci Web mogą nie obsługiwać pliki cookie. W takim przypadku platformy ASP.NET można użyć biletów uwierzytelniania formularzy cookieless. W tym trybie biletu uwierzytelniania jest zakodowany w adresie URL. Przyjrzymy się gdy są używane bilety cookieless uwierzytelniania i jak są tworzone i zarządzane w następnym samouczku.
+> Istnieje możliwość, że agent użytkownika używany do logowania się w witrynie sieci Web może nie obsługiwać plików cookie. W takim przypadku ASP.NET może używać biletów uwierzytelniania formularzy bez plików cookie. W tym trybie bilet uwierzytelniania jest zakodowany w adresie URL. Po użyciu biletów uwierzytelniania bez plików cookie i sposobu ich tworzenia i zarządzania w następnym samouczku zostanie wyświetlona wartość.
 
 ### <a name="the-scope-of-forms-authentication"></a>Zakres uwierzytelniania formularzy
 
-`FormsAuthenticationModule` Jest zarządzanego kodu, który jest częścią środowiska uruchomieniowego programu ASP.NET. Przed firmy Microsoft w wersji 7 [Internet Information Services (IIS)](https://www.iis.net/) serwera sieci web wystąpił distinct barierę między potoku HTTP usług IIS i środowiska uruchomieniowego ASP.NET potoku. Krótko mówiąc, w usługach IIS 6 i starszych `FormsAuthenticationModule` wykonywana tylko wtedy, gdy żądanie jest delegowane za pomocą programu IIS do środowiska uruchomieniowego programu ASP.NET. Domyślnie usługi IIS przetwarzają zawartość statyczną, sam — jak strony HTML i CSS i pliki obrazów — i tylko zdejmowania rąk żądania do środowiska uruchomieniowego programu ASP.NET, czy żądaniu strony z rozszerzeniem .aspx, .asmx i ashx.
+`FormsAuthenticationModule` jest kodem zarządzanym, który jest częścią środowiska uruchomieniowego ASP.NET. W wersji 7 serwera sieci Web [Internet Information Services (IIS)](https://www.iis.net/) firmy Microsoft istnieje odrębna bariera między POTOKIEM http usługi IIS a potokiem środowiska uruchomieniowego ASP.NET. W skrócie w usługach IIS w wersji 6 i starszych `FormsAuthenticationModule` wykonywane tylko wtedy, gdy żądanie jest delegowane z usług IIS do środowiska uruchomieniowego ASP.NET. Domyślnie usługi IIS przetwarzają zawartość statyczną, na przykład strony HTML i pliki CSS i obrazy, a także wyłączają żądania do środowiska uruchomieniowego ASP.NET po zażądaniu strony z rozszerzeniem. aspx,. asmx lub. ashx.
 
-Usługi IIS 7, jednak umożliwia zintegrowanych usług IIS i platformy ASP.NET potoków. Przy użyciu kilku ustawień konfiguracji, można skonfigurować usługi IIS 7 do wywołania FormsAuthenticationModule dla *wszystkich* żądań. Ponadto za pomocą usług IIS 7 można zdefiniować reguły autoryzacji adresów URL dla plików dowolnego typu. Aby uzyskać więcej informacji, zobacz [zmiany między usług IIS 6 i zabezpieczenia usług IIS7](https://www.iis.net/learn/get-started/whats-new-in-iis-7/changes-in-security-between-iis-60-and-iis-7-and-above), [Your zabezpieczenia platformy sieci Web](https://www.iis.net/learn/get-started/whats-new-in-iis-7/iis7-and-above-security-improvements), i [Autoryzacja adresów URL usług IIS7 opis](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization).
+Usługi IIS 7 umożliwiają jednak zintegrowane usługi IIS i potoki ASP.NET. Za pomocą kilku ustawień konfiguracji można skonfigurować usługi IIS 7 do wywoływania FormsAuthenticationModule dla *wszystkich* żądań. Ponadto w przypadku usług IIS 7 można definiować reguły autoryzacji adresów URL dla plików dowolnego typu. Aby uzyskać więcej informacji, zobacz [zmiany między zabezpieczeniami usług IIS 6 i IIS7](https://www.iis.net/learn/get-started/whats-new-in-iis-7/changes-in-security-between-iis-60-and-iis-7-and-above), [zabezpieczenia platformy sieci Web](https://www.iis.net/learn/get-started/whats-new-in-iis-7/iis7-and-above-security-improvements)i [zrozumienie autoryzacji adresów URL IIS7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization).
 
-Długi tekst krótki, w wersjach wcześniejszych niż IIS 7, tylko umożliwia uwierzytelnianie formularzy chronić zasoby obsługiwane przez środowisko uruchomieniowe programu ASP.NET. Podobnie reguły autoryzacji adresów URL są stosowane tylko do zasobów, obsługiwane przez środowisko uruchomieniowe programu ASP.NET. Ale za pomocą usług IIS 7 można go zintegrować FormsAuthenticationModule i UrlAuthorizationModule do potoku HTTP usług IIS, rozszerzając w ten sposób działania tej funkcji na wszystkich żądań.
+Długie scenariusze krótko, w wersjach wcześniejszych niż IIS 7, można używać uwierzytelniania formularzy do ochrony zasobów obsłużonych przez środowisko uruchomieniowe ASP.NET. Podobnie reguły autoryzacji adresów URL są stosowane tylko do zasobów obsłużonych przez środowisko uruchomieniowe ASP.NET. Jednak w przypadku usług IIS 7 można zintegrować FormsAuthenticationModule i UrlAuthorizationModule z potokiem HTTP usług IIS, rozszerzając tę funkcjonalność na wszystkie żądania.
 
-## <a name="step-1-creating-an-aspnet-website-for-this-tutorial-series"></a>Krok 1. Tworzenie witryny sieci Web platformy ASP.NET dla tej serii samouczków
+## <a name="step-1-creating-an-aspnet-website-for-this-tutorial-series"></a>Krok 1. Tworzenie witryny sieci Web ASP.NET dla tej serii samouczków
 
-Aby osiągnąć najszerszych możliwych odbiorców, witryny sieci Web platformy ASP.NET, będziemy budować w całej serii tego zostanie utworzone z firmy Microsoft w bezpłatnej wersji usługi Visual Studio 2008 [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Wprowadzimy `SqlMembershipProvider` magazynem użytkownika w [programu Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) bazy danych. Jeśli używasz programu Visual Studio 2005 lub innej wersji programu Visual Studio 2008 lub SQL Server, nie martw się — kroki będą niemal identyczne, i będzie wskazano różnice nietrywialnymi.
-
-> [!NOTE]
-> Demonstracyjnej aplikacji internetowej używany w każdym samouczku, jest dostępna do pobrania. Ta aplikacja do pobrania został utworzony za pomocą programu Visual Web Developer 2008 przeznaczone dla .NET Framework w wersji 3.5. Ponieważ aplikacja jest przeznaczona dla .NET 3.5, jego plik Web.config zawiera elementy konfiguracji dodatkowych, specyficzne dla 3.5. Długi tekst krótki, jeśli masz jeszcze do zainstalowania programu .NET 3.5 na komputerze, następnie do pobrania aplikacji sieci web programu nie będzie działać bez usuwania znacznika specyficzne dla 3.5 z pliku Web.config.
-
-Zanim można skonfigurować uwierzytelnianie formularzy, najpierw należy w witrynie sieci Web platformy ASP.NET. Rozpocznij od utworzenia nowego pliku w oparciu o system ASP.NET witryny sieci Web. Aby to zrobić, uruchom Visual Web Developer, a następnie przejdź do menu Plik i wybierz nową witrynę sieci Web w celu wyświetlania okna dialogowego nową witrynę sieci Web. Wybierz szablon witryny sieci Web platformy ASP.NET, zmień wartość na liście rozwijanej lokalizacji w systemie plików, wybierz folder do umieszczenia w witrynie sieci web i ustaw języka C#. Spowoduje to utworzenie nowej witryny sieci web za pomocą strony Default.aspx ASP.NET, aplikację\_folderu danych i pliku Web.config.
+Aby dotrzeć do szerokiego grona odbiorców, ASP.NET witrynę sieci Web, którą będziemy kompilować w tej serii, zostanie utworzona za pomocą bezpłatnej wersji programu Visual Studio 2008, [Visual webdeveloper 2008](https://www.microsoft.com/express/vwd/). Zaimplementujemy magazyn `SqlMembershipProvider` użytkowników w bazie danych [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) . Jeśli używasz programu Visual Studio 2005 lub innej wersji programu Visual Studio 2008 lub SQL Server, nie martw się — kroki będą niemal identyczne, a wszystkie nieproste różnice będą wskazywane.
 
 > [!NOTE]
-> Program Visual Studio obsługuje dwa tryby zarządzania projektem: Projektów witryny sieci Web i projektów aplikacji sieci Web. Projektów witryny sieci Web brakuje pliku projektu, a Web Application Projects naśladować architektury projektu w Visual Studio .NET 2002/2003 — Dołącz plik projektu i skompilować kod źródłowy projektu do jednego zestawu, który jest umieszczony w folderze/bin. Visual Studio 2005 projektów początkowo tylko obsługiwane witryny sieci Web, mimo że modelu projektu aplikacji sieci Web została przywrócona z dodatkiem Service Pack 1; Program Visual Studio 2008 oferuje oba modele projektu. Visual Web Developer 2005 i wersji 2008, ale obsługują tylko projektów witryny sieci Web. Czy mogę używać modelu projektu witryny sieci Web. Jeśli używasz wersji non-Express i chcesz użyć [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880%28vs.80%29.aspx) zamiast tego możesz to zrobić, ale należy pamiętać, że może istnieć pewne rozbieżności między wyświetlanych na ekranie oraz czynności należy wykonać w porównaniu z zrzuty ekranu pokazano, jak i instrukcje podane w tych samouczkach.
+> Demonstracja aplikacja sieci Web używana w każdym samouczku jest dostępna do pobrania. Ta aplikacja do pobrania została utworzona przy użyciu programu Visual Web Developer 2008 przeznaczonego dla .NET Framework w wersji 3,5. Ponieważ aplikacja jest przeznaczona dla programu .NET 3,5, jej plik Web. config zawiera dodatkowe elementy konfiguracji specyficzne dla 3,5. Długi scenariusz krótko, jeśli na komputerze nie jest jeszcze zainstalowany program .NET 3,5, aplikacja sieci Web do pobrania nie będzie działała bez uprzedniego usunięcia oznakowania specyficznego dla 3,5 z pliku Web. config.
 
-[![Tworzenie nowego pliku w oparciu o System witryny sieci Web](an-overview-of-forms-authentication-cs/_static/image3.png)](an-overview-of-forms-authentication-cs/_static/image2.png)
+Zanim będziemy mogli skonfigurować uwierzytelnianie formularzy, potrzebujemy najpierw witryny sieci Web ASP.NET. Zacznij od utworzenia nowej witryny sieci Web ASP.NET opartej na systemie plików. Aby to osiągnąć, uruchom program Visual Web Developer, a następnie przejdź do menu plik i wybierz polecenie Nowa witryna sieci Web, wyświetlając okno dialogowe Nowa witryna sieci Web. Wybierz szablon witryna sieci Web ASP.NET, Ustaw listę rozwijaną lokalizacja na system plików, wybierz folder, w którym ma zostać umieszczona witryna sieci Web, i Ustaw język C#na. Spowoduje to utworzenie nowej witryny sieci Web z domyślną stroną ASP.NET. aspx, folderem danych\_i plikiem Web. config.
 
-**Rysunek 2**: Tworzenie witryny sieci Web New File System-Based ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image4.png))
+> [!NOTE]
+> Program Visual Studio obsługuje dwa tryby zarządzania projektami: projekty witryny sieci Web i projekty aplikacji sieci Web. Projekty witryn sieci Web bez pliku projektu, natomiast projekty aplikacji sieci Web naśladuje architekturę projektu w programie Visual Studio .NET 2002/2003 — obejmują one plik projektu i kompilują kod źródłowy projektu w jeden zestaw, który znajduje się w folderze/bin. Program Visual Studio 2005 początkowo tylko obsługiwane projekty witryny sieci Web, mimo że model projektu aplikacji sieci Web został wprowadzony ponownie z dodatkiem Service Pack 1. Program Visual Studio 2008 oferuje modele projektów. Wersje Visual Web Developer 2005 i 2008, jednak obsługują tylko projekty witryn sieci Web. Będę używać modelu projektu witryny sieci Web. Jeśli używasz wersji innej niż Express i chcesz zamiast tego używać [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880%28vs.80%29.aspx) , możesz to zrobić, ale pamiętaj, że mogą wystąpić pewne rozbieżności między tym, co widzisz na ekranie, a także kroki, które należy wykonać, a także instrukcje zawarte w tych samouczkach.
+
+[![utworzyć nową witrynę sieci Web opartą na systemie plików](an-overview-of-forms-authentication-cs/_static/image3.png)](an-overview-of-forms-authentication-cs/_static/image2.png)
+
+**Rysunek 2**. Tworzenie nowej witryny sieci Web opartej na systemie plików ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image4.png))
 
 ### <a name="adding-a-master-page"></a>Dodawanie strony wzorcowej
 
-Następnie dodaj nową stronę wzorcową do lokacji w katalogu głównym o nazwie Site.master. [Strony wzorcowe](https://msdn.microsoft.com/library/wtxbf3hh.aspx) włączyć projektanta strony zdefiniować szablon całej lokacji, które mogą być stosowane do strony ASP.NET. Główną zaletą stron wzorcowych to, że ogólnego wyglądu witryny można zdefiniować w obrębie jednej lokalizacji, co ułatwia aktualizacji lub dostosować układ strony.
+Następnie Dodaj nową stronę wzorcową do lokacji w katalogu głównym o nazwie Site. Master. [Strony wzorcowe](https://msdn.microsoft.com/library/wtxbf3hh.aspx) umożliwiają deweloperom strony Definiowanie szablonu w całej lokacji, który można zastosować do stron ASP.NET. Główną zaletą stron wzorcowych jest to, że ogólny wygląd witryny można zdefiniować w jednej lokalizacji, co ułatwia aktualizowanie lub dostosowywanie układu witryny.
 
-[![Dodaj stronę wzorcową o nazwie Site.master do witryny sieci Web](an-overview-of-forms-authentication-cs/_static/image6.png)](an-overview-of-forms-authentication-cs/_static/image5.png)
+[![dodać strony wzorcowej o nazwie Site. Master do witryny sieci Web](an-overview-of-forms-authentication-cs/_static/image6.png)](an-overview-of-forms-authentication-cs/_static/image5.png)
 
-**Rysunek 3**: Dodaj Site.master o nazwie Master strony do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image7.png))
+**Rysunek 3**. Dodawanie strony wzorcowej o nazwie Site. Master do witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image7.png))
 
-Na stronie głównej, należy zdefiniować tutaj układu strony całej lokacji. Możesz użyć widoku projektu i dodawanie kontrolek niezależnie od układu lub sieci Web, należy, lub można ręcznie dodawać znaczniki ręcznie w widoku źródła. Strukturalnych I układ strony wzorcowej do naśladowania układ używane w mojej *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* serii samouczków (zobacz rysunek 4). Strona główna używa [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i ustawieniami CSS zdefiniowanych w pliku Style.css (która znajduje się w tym samouczku pobieranie skojarzone). Gdy nie można odróżnić od znaczników, pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji &lt;div&gt;firmy zawartości są pozycjonowane absolutnie, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
+W tym miejscu Zdefiniuj układ strony dla całej witryny na stronie wzorcowej. Możesz użyć widok Projekt i dodać wszelkie wymagane przez siebie kontrolki układu lub sieci Web lub ręcznie dodać znaczniki adiustacji do widoku źródła. Struktura układu strony wzorcowej w celu naśladowania układu używanego w *[pracy z danymi w](../../data-access/index.md)* serii samouczków ASP.NET 2,0 (patrz rysunek 4). Na stronie wzorcowej są stosowane [kaskadowe arkusze stylów](http://www.w3schools.com/css/default.asp) do pozycjonowania i stylów z ustawieniami CSS zdefiniowanymi w pliku style. CSS (który jest zawarty w tym samouczku związanym z pobieraniem). Chociaż nie możesz powiedzieć od znaczników przedstawionych poniżej, reguły CSS są zdefiniowane w taki sposób, aby Nawigacja &lt;DIV&gt;zawartość była pozycjonowana absolutnie, tak aby była wyświetlana po lewej stronie i ma stałą szerokość 200 pikseli.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample1.aspx)]
 
-Strona wzorcowa definiuje układ stron statycznych i regiony, które mogą być edytowane przez strony ASP.NET, które używają strony wzorcowej. Te obszary można edytować zawartości są wskazywane przez `ContentPlaceHolder` kontrolki, które są widoczne w zawartości &lt;div&gt;. Nasze strony wzorcowej ma jeden `ContentPlaceHolder` (MainContent), ale strona wzorcowa może mieć wiele kontrolek ContentPlaceHolder.
+Strona wzorcowa definiuje zarówno statyczny układ strony, jak i regiony, które mogą być edytowane przez strony ASP.NET, które korzystają z strony wzorcowej. Te edytowalne regiony zawartości są wskazywane przez kontrolkę `ContentPlaceHolder`, która może być widoczna w obszarze blok zawartości &lt;&gt;. Nasza Strona główna ma jeden `ContentPlaceHolder` (kontrolka mainContent), ale strona wzorcowa może mieć wiele Elementy ContentPlaceHolders.
 
-Ze znacznikami podanymi powyżej przełączanie do widoku projektu zawiera układ strony wzorcowej. Wszystkie strony ASP.NET, które używają tej strony wzorcowej będzie miał ten jednolity układ i możliwość określenia znaczniki dla `MainContent` regionu.
+Po wprowadzeniu znacznika w widok Projekt zostanie wyświetlona strona wzorcowa. Wszystkie strony ASP.NET, które używają tej strony wzorcowej będą miały jednolity układ, z możliwością określenia znaczników dla regionu `MainContent`.
 
-[![Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu](an-overview-of-forms-authentication-cs/_static/image9.png)](an-overview-of-forms-authentication-cs/_static/image8.png)
+[![stronę wzorcową, gdy jest wyświetlany w widoku projektu](an-overview-of-forms-authentication-cs/_static/image9.png)](an-overview-of-forms-authentication-cs/_static/image8.png)
 
-**Rysunek 4**: Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image10.png))
+**Rysunek 4**. Strona wzorcowa wyświetlana w widoku projektu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image10.png))
 
 ### <a name="creating-content-pages"></a>Tworzenie stron zawartości
 
-W tym momencie mamy strony Default.aspx w naszej witryny sieci Web, ale nie używa stronę wzorcową, którą właśnie utworzyliśmy. Chociaż możliwe do manipulowania oznaczeniu deklaracyjnym strony sieci web do użycia na stronę wzorcową, jeśli strona nie zawiera żadnej zawartości jest jeszcze łatwiej jest po prostu usunąć stronę i dodaj go ponownie do projektu, określanie strony wzorcowej do użycia. W związku z tym start, usuwając Default.aspx z projektu.
+W tym momencie mamy domyślną stronę. aspx w naszej witrynie sieci Web, ale nie używa ona właśnie utworzonej strony wzorcowej. Chociaż istnieje możliwość manipulowania deklaratywnym znacznikiem strony sieci Web w celu korzystania z strony wzorcowej, jeśli strona nie zawiera jeszcze żadnej zawartości, łatwiej ją usunąć i ponownie dodać do projektu, określając stronę wzorcową do użycia. W związku z tym Zacznij od usunięcia z projektu default. aspx.
 
-Następnie kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz dodać nowy formularz sieci Web o nazwie Default.aspx. Tym razem, zaznacz pole wyboru "Wybierz stronę wzorcową", a następnie wybierz stronę wzorcową Site.master z listy.
+Następnie kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy formularz sieci Web o nazwie Default. aspx. Tym razem zaznacz pole wyboru "Wybierz stronę wzorcową" i wybierz z listy stronę wzorcową lokacja. Master.
 
-[![Dodawanie nowej strony Default.aspx, wybierając pozycję Wybierz stronę wzorcową](an-overview-of-forms-authentication-cs/_static/image12.png)](an-overview-of-forms-authentication-cs/_static/image11.png)
+[![dodać nową stronę Default. aspx wybierającą stronę wzorcową](an-overview-of-forms-authentication-cs/_static/image12.png)](an-overview-of-forms-authentication-cs/_static/image11.png)
 
-**Rysunek 5**: Dodaj nowe Default.aspx strona wybór opcji wybierz stronę wzorcową ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image13.png))
+**Rysunek 5**. Dodawanie nowej strony Default. aspx Wybieranie strony wzorcowej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image13.png))
 
-![Użyj strony wzorcowej Site.master](an-overview-of-forms-authentication-cs/_static/image14.png)
+![Korzystanie z strony wzorcowej witryny. Master](an-overview-of-forms-authentication-cs/_static/image14.png)
 
-**Rysunek 6**: Użyj strony wzorcowej Site.master
+**Ilustracja 6**. Korzystanie z strony wzorcowej witryny. Master
 
 > [!NOTE]
-> Jeśli używasz modelu projektu aplikacji sieci Web w oknie dialogowym Dodaj nowy element nie zawiera pola wyboru "Wybierz stronę wzorcową". Zamiast tego należy dodać element typu "Formularz zawartości sieci Web." Po wybraniu opcji "Formularz zawartości sieci Web" i klikając przycisk Dodaj, Visual Studio wyświetli wybierz ten sam główny okno dialogowe pokazano na rysunku 6.
+> Jeśli używasz modelu projektu aplikacji sieci Web, okno dialogowe Dodaj nowy element nie zawiera pola wyboru "Wybierz stronę wzorcową". Zamiast tego należy dodać element typu "formularz zawartości sieci Web". Po wybraniu opcji "formularz zawartości sieci Web" i kliknięciu pozycji Dodaj program Visual Studio wyświetli to samo okno dialogowe Wybieranie wzorca pokazane na rysunku 6.
 
-Nowa strona Default.aspx oznaczeniu deklaracyjnym obejmuje tylko @Page dyrektywy, określając ścieżkę do poziomu głównego dla MainContent ContentPlaceHolder strony wzorcowej strony plików i kontrolki zawartości.
+Nowa domyślna Adiustacja strony. aspx zawiera tylko dyrektywę @Page określającą ścieżkę do pliku strony głównej i kontrolkę zawartości dla elementu kontrolka mainContent.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample2.aspx)]
 
-Na razie pozostaw puste Default.aspx. Firma Microsoft będzie zwrócić w dalszej części tego samouczka, aby dodać zawartość.
+Na razie pozostaw puste pole default. aspx. Powrócimy do niego w dalszej części tego samouczka, aby dodać zawartość.
 
 > [!NOTE]
-> Strony głównej zawiera sekcja menu lub innych interfejs nawigacyjny. W przyszłości samouczku utworzymy taki interfejs.
+> Nasza Strona główna zawiera sekcję menu lub inny interfejs nawigacji. Utworzymy taki interfejs w przyszłym samouczku.
 
 ## <a name="step-2-enabling-forms-authentication"></a>Krok 2. Włączanie uwierzytelniania formularzy
 
-Z witryną internetową programu ASP.NET utworzona naszym kolejnym krokiem jest aby włączyć uwierzytelnianie formularzy. Konfiguracja uwierzytelniania aplikacji jest określony za pomocą [ `<authentication>` elementu](https://msdn.microsoft.com/library/532aee0e.aspx) w pliku Web.config. `<authentication>` Element zawiera jeden atrybut o nazwie tryb określający model uwierzytelniania używany przez aplikację. Ten atrybut może mieć jedną z następujących czterech wartości:
+Po utworzeniu witryny sieci Web ASP.NET następnym zadaniem jest włączenie uwierzytelniania formularzy. Konfiguracja uwierzytelniania aplikacji jest określana za pomocą [elementu`<authentication>`](https://msdn.microsoft.com/library/532aee0e.aspx) w pliku Web. config. Element `<authentication>` zawiera nazwany tryb pojedynczego atrybutu, który określa model uwierzytelniania używany przez aplikację. Ten atrybut może mieć jedną z następujących czterech wartości:
 
-- **Windows** — zgodnie z opisem w poprzednim samouczku, gdy aplikacja używa uwierzytelniania Windows odpowiada serwera sieci web do uwierzytelniania obiektu odwiedzającego i zwykle jest to realizowane podstawowe, szyfrowane lub zintegrowane Windows uwierzytelnianie.
-- **Formularze**— użytkownicy są uwierzytelniani za pomocą formularza na stronie sieci web.
-- **Usługa Passport**— użytkownicy są uwierzytelniani za pomocą sieci Passport firmy Microsoft.
-- **Brak**— bez modelu uwierzytelniania jest używany; wszystkie osoby odwiedzające są anonimowe.
+- **System Windows** — zgodnie z opisem w poprzednim samouczku, gdy aplikacja korzysta z uwierzytelniania systemu Windows, jest odpowiedzialny za serwer sieci Web do uwierzytelniania gościa. zwykle jest to realizowane za pośrednictwem podstawowego, szyfrowanego lub zintegrowanego uwierzytelniania systemu Windows.
+- **Formularze**— użytkownicy są uwierzytelniani za pośrednictwem formularza na stronie sieci Web.
+- **Paszport**— użytkownicy są uwierzytelniani przy użyciu usługi Microsoft Passport Network.
+- **Brak**— nie jest używany żaden model uwierzytelniania; Wszyscy Goście są anonimowi.
 
-Domyślnie aplikacje ASP.NET uwierzytelnianie Windows. Aby zmienić typ uwierzytelniania do uwierzytelniania formularzy, następnie należy zmodyfikować `<authentication>` atrybut tryb elementu do formularzy.
+Domyślnie aplikacje ASP.NET używają uwierzytelniania systemu Windows. Aby zmienić typ uwierzytelniania na uwierzytelnianie formularzy, należy zmodyfikować atrybut trybu `<authentication>` elementu na Forms.
 
-Jeśli projekt nie zawiera jeszcze pliku Web.config, należy dodać jeden teraz przez kliknięcie prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, wybierając Dodaj nowy element, a następnie dodanie pliku konfiguracji sieci Web.
+Jeśli projekt nie zawiera jeszcze pliku Web. config, Dodaj go teraz, klikając prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań, wybierając pozycję Dodaj nowy element, a następnie dodając plik konfiguracji sieci Web.
 
-[![Jeśli projekt nie zawiera jeszcze pliku Web.config, dodaj je teraz](an-overview-of-forms-authentication-cs/_static/image16.png)](an-overview-of-forms-authentication-cs/_static/image15.png)
+[![, jeśli projekt nie zawiera jeszcze pliku Web. config, Dodaj go teraz](an-overview-of-forms-authentication-cs/_static/image16.png)](an-overview-of-forms-authentication-cs/_static/image15.png)
 
-**Rysunek 7**: Jeśli Twój projekt jest nie jeszcze dołączyć plik Web.config, Dodaj teraz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image17.png))
+**Rysunek 7**. Jeśli projekt nie zawiera jeszcze pliku Web. config, Dodaj go teraz ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image17.png))
 
-Następnie znajdź `<authentication>` elementu i aktualizacji, aby używał uwierzytelniania formularzy. Po tej zmianie kodu znaczników pliku Web.config powinien wyglądać podobnie do poniższej:
+Następnie Znajdź `<authentication>` element i zaktualizuj go, aby używać uwierzytelniania formularzy. Po tej zmianie znacznik pliku Web. config powinien wyglądać podobnie do poniższego:
 
 [!code-xml[Main](an-overview-of-forms-authentication-cs/samples/sample3.xml)]
 
 > [!NOTE]
-> Ponieważ plik Web.config jest plikiem XML, ważne jest wielkość liter w wyrazie. Upewnij się, że ten atrybut zostanie ustawiony tryb formularzy, z wielkiej litery "F". Jeśli używasz innej wielkości znaków, takich jak "Form", otrzymasz błąd konfiguracji podczas odwiedzania witryn za pośrednictwem przeglądarki.
+> Ponieważ plik Web. config jest plikiem XML, wielkość liter jest ważna. Upewnij się, że ustawisz atrybut Mode na Forms, przy użyciu wielkiej litery "F". Jeśli używasz innej wielkości liter, na przykład "Forms", podczas odwiedzania witryny za pomocą przeglądarki zostanie wyświetlony komunikat o błędzie konfiguracji.
 
-`<authentication>` Elementu może opcjonalnie obejmować `<forms>` elementu podrzędnego, który zawiera ustawienia specyficzne dla uwierzytelniania formularzy. Na razie Przyjrzyjmy wystarczy użyć domyślne ustawienia uwierzytelniania formularzy. Przeanalizujemy `<forms>` element podrzędny bardziej szczegółowo w następnym samouczku.
+Element `<authentication>` może opcjonalnie zawierać `<forms>` elementu podrzędnego, który zawiera ustawienia specyficzne dla uwierzytelniania formularzy. Teraz Użyjmy domyślnych ustawień uwierzytelniania formularzy. W następnym samouczku poszukamy elementu podrzędnego `<forms>` w bardziej szczegółowy sposób.
 
-## <a name="step-3-building-the-login-page"></a>Krok 3. Tworzenie strony logowania
+## <a name="step-3-building-the-login-page"></a>Krok 3. Budowanie strony logowania
 
-Aby obsługiwać uwierzytelnianie formularzy naszej witryny sieci Web musi strony logowania. Zgodnie z opisem w sekcji "Omówienie formularzy przepływ pracy uwierzytelniania" `FormsAuthenticationModule` zostanie automatycznie przekierowanie użytkownika do strony logowania, gdy próbują uzyskać dostęp do strony, które nie są one uprawnienia do wyświetlenia. Dostępne są także formantów sieci Web platformy ASP.NET, które zostanie wyświetlone łącze do strony logowania dla użytkowników anonimowych. Wymaga to pytanie "Jaki jest adres URL strony logowania?"
+Aby można było obsługiwać uwierzytelnianie formularzy, witryna sieci Web wymaga strony logowania. Zgodnie z opisem w sekcji "Omówienie przepływu pracy uwierzytelniania formularzy" `FormsAuthenticationModule` automatycznie przekieruje użytkownika na stronę logowania, jeśli spróbujesz uzyskać dostęp do strony, której nie mają uprawnienia do wyświetlania. Istnieją także ASP.NET formanty sieci Web, które będą wyświetlać link do strony logowania do użytkowników anonimowych. To begs pytanie "jaki jest adres URL strony logowania?"
 
-Domyślnie system uwierzytelniania formularzy oczekuje strony logowania, aby mieć nazwę Login.aspx i umieszczane w katalogu głównym aplikacji sieci web. Jeśli chcesz użyć innej nazwy logowania adresu URL strony, możesz to zrobić, określając je w pliku Web.config. Zobaczymy jak to zrobić w kolejnym samouczku.
+Domyślnie system uwierzytelniania formularzy oczekuje, że strona logowania jest nazywana login. aspx i umieszczona w katalogu głównym aplikacji sieci Web. Jeśli chcesz użyć innego adresu URL strony logowania, możesz to zrobić, określając je w pliku Web. config. Zobaczymy, jak to zrobić w następnym samouczku.
 
 Strona logowania ma trzy obowiązki:
 
-1. Podaj interfejsu, który umożliwia obiektu odwiedzającego wprowadzić swoje poświadczenia.
+1. Podaj interfejs, który umożliwia odwiedzającemu wprowadzanie poświadczeń.
 2. Ustal, czy przesłane poświadczenia są prawidłowe.
-3. "Zaloguj" użytkownika, tworząc bilet uwierzytelniania formularzy.
+3. "Zaloguj się", tworząc bilet uwierzytelniania formularzy.
 
 ### <a name="creating-the-login-pages-user-interface"></a>Tworzenie interfejsu użytkownika strony logowania
 
-Zacznijmy od pierwszego zadania. Dodawanie nowej strony programu ASP.NET do katalogu głównego witryny o nazwie Login.aspx i skojarz go ze stroną wzorcową Site.master.
+Zacznijmy od pierwszego zadania. Dodaj nową stronę ASP.NET do katalogu głównego witryny o nazwie login. aspx i skojarz ją z główną stroną programu site. Master.
 
-[![Dodawanie nowej strony programu ASP.NET o nazwie Login.aspx](an-overview-of-forms-authentication-cs/_static/image19.png)](an-overview-of-forms-authentication-cs/_static/image18.png)
+[![dodać nową stronę ASP.NET o nazwie login. aspx](an-overview-of-forms-authentication-cs/_static/image19.png)](an-overview-of-forms-authentication-cs/_static/image18.png)
 
-**Rysunek 8**: Dodaj nowy ASP.NET strony o nazwie Login.aspx ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image20.png))
+**Ilustracja 8**. Dodawanie nowej strony ASP.NET o nazwie login. aspx ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image20.png))
 
-Interfejs strony logowania typowe składa się z dwóch pól tekstowych — jeden dla nazwy użytkownika, po jednym dla swojego hasła — i przycisk, który można przesłać formularza. Witryny sieci Web często obejmują "Zapamiętaj mnie" pole wyboru, które, w przypadku zaznaczenia pola wyboru, są utrwalane wynikowy biletu uwierzytelniania w ponownego uruchomienia przeglądarki.
+Typowy interfejs strony logowania składa się z dwóch pól tekstowych — jeden dla nazwy użytkownika, jeden dla swojego hasła — i przycisk służący do przesyłania formularza. Często witryn sieci Web zawierają pole wyboru "Zapamiętaj mnie", które w przypadku zaznaczenia tej opcji spowoduje, że w ramach ponownych uruchomień przeglądarki będzie trwały bilet uwierzytelniania.
 
-Dodawanie dwóch pól tekstowych do strony Login.aspx i ustaw ich `ID` właściwości nazwy użytkownika i hasła, odpowiednio. Ustawienia hasła w `TextMode` właściwości hasła. Następnie należy dodać kontrolkę pola wyboru, ustawiając jego `ID` właściwość RememberMe i jego `Text` właściwość "Pamiętaj mnie". Dodać przycisk o nazwie LoginButton, poniżej którego `Text` właściwość jest ustawiona na "Logowanie". Na koniec Dodaj formant etykiety w sieci Web i ustaw jego `ID` właściwości InvalidCredentialsMessage, jego `Text` właściwość "Twoja nazwa użytkownika lub hasło jest nieprawidłowe. Spróbuj ponownie. ", właściwość `ForeColor` właściwości na czerwony i jego `Visible` wartość False dla właściwości.
+Dodaj dwa pola tekstowe do login. aspx i ustaw ich `ID` właściwości odpowiednio do nazwy użytkownika i hasła. Ustaw również właściwość `TextMode` hasła na hasło. Następnie Dodaj kontrolkę CheckBox, ustawiając jej Właściwość `ID` na Kontrolka rememberMe i jej Właściwość `Text` na "Zapamiętaj mnie". Poniżej można dodać przycisk o nazwie LoginButton, którego właściwość `Text` jest ustawiona na wartość "login". Na koniec Dodaj kontrolkę sieci Web etykieta i ustaw jej Właściwość `ID` na InvalidCredentialsMessage, jej Właściwość `Text` na wartość "Twoja nazwa użytkownika lub hasło jest nieprawidłowe. Spróbuj ponownie. ", jego właściwość `ForeColor` na czerwoną i jej Właściwość `Visible` na wartość false.
 
-W tym momencie ekran powinien wyglądać podobnie do ekranu zrzut na rysunku 9, a następnie na stronie składni deklaratywnej zasady powinny budzić zaufanie następujące czynności:
+W tym momencie ekran powinien wyglądać podobnie do zrzutu ekranu na rysunku 9, a składnia deklaracyjnej strony powinna wyglądać następująco:
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample4.aspx)]
 
-[![Na stronie logowania zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę](an-overview-of-forms-authentication-cs/_static/image22.png)](an-overview-of-forms-authentication-cs/_static/image21.png)
+[![Strona logowania zawiera dwa pola tekstowe, pole wyboru, przycisk i etykietę](an-overview-of-forms-authentication-cs/_static/image22.png)](an-overview-of-forms-authentication-cs/_static/image21.png)
 
-**Rysunek 9**: Logowania strona zawiera dwa pola tekstowe, pola wyboru, przycisk i etykietę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image23.png))
+**Ilustracja 9**. Strona logowania zawiera dwa pola tekstowe, pole wyboru, przycisk i etykietę ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image23.png))
 
-Na koniec Utwórz procedurę obsługi zdarzeń Click LoginButton zdarzeń. Przy użyciu projektanta po prostu kliknij dwukrotnie formant przycisku aby utworzyć ten program obsługi zdarzeń.
+Na koniec Utwórz procedurę obsługi zdarzeń dla zdarzenia kliknięcia LoginButton. W projektancie kliknij dwukrotnie formant Button, aby utworzyć ten program obsługi zdarzeń.
 
 ### <a name="determining-if-the-supplied-credentials-are-valid"></a>Określanie, czy podane poświadczenia są prawidłowe
 
-Teraz musisz zaimplementować zadanie 2 w przypadku kliknięcia przycisku program obsługi zdarzeń — Określanie, czy podane poświadczenia są prawidłowe. Aby to zrobić, to musi istnieć w magazynie użytkownika, który przechowuje wszystkie poświadczenia użytkowników, dzięki czemu można określić, jeśli podane poświadczenia zgodny z żadnych znanych poświadczeń.
+Teraz należy zaimplementować zadanie 2 w programie obsługi zdarzeń kliknięcia przycisku — określając, czy podane poświadczenia są prawidłowe. Aby to zrobić, musi to być magazyn użytkowników, który przechowuje wszystkie poświadczenia użytkowników, dzięki czemu można określić, czy podane poświadczenia są zgodne z dowolnymi znanymi poświadczeniami.
 
-Przed ASP.NET 2.0 deweloperzy były odpowiada za zaimplementowanie własnej magazynami użytkowników i pisanie kodu w celu zweryfikowania podanych poświadczeń względem magazynu. Większość programistów będzie implementować magazyn użytkownika w bazie danych, tworzenie tabeli o nazwie Użytkownicy z kolumny, takie jak nazwa użytkownika, hasło, adres E-mail, LastLoginDate i tak dalej. Wówczas, ta tabela będzie miała jeden rekord dla konta użytkownika. Weryfikowanie podanych poświadczeń użytkownika obejmowałaby zapytanie do bazy danych dla dopasowanej nazwy użytkownika i zapewnienie, że podane hasło odpowiadał hasła w bazie danych.
+Przed ASP.NET 2,0 deweloperzy byli zobowiązani do wdrożenia zarówno własnych magazynów użytkowników, jak i pisania kodu w celu zweryfikowania podanych poświadczeń w sklepie. Większość deweloperów implementuje magazyn użytkowników w bazie danych, tworząc tabelę o nazwie Users z kolumnami, takimi jak UserName, Password, email, LastLoginDate i tak dalej. Ta tabela, następnie ma jeden rekord na konto użytkownika. Sprawdzenie, czy poświadczenia podane przez użytkownika będą wymagały wysyłania zapytań do bazy danych pod kątem zgodnej nazwy użytkownika, a następnie zagwarantowania, że hasło w bazie danych odpowiada dostarczonemu hasłu.
 
-Za pomocą programu ASP.NET 2.0 deweloperzy należy używać jednego z dostawców członkostwa do zarządzania magazynie użytkownika. W tej serii samouczków firma Microsoft będzie używać SqlMembershipProvider, która korzysta z bazy danych programu SQL Server dla magazynu użytkowników. Korzystając z SqlMembershipProvider musimy zaimplementować schematu konkretnej bazy danych, który zawiera tabele, widoki i składowane oczekiwany przez dostawcę. Zostanie omówiony sposób implementacji tego schematu w ***tworzenie schematu członkostwa w programie SQL Server*** samouczka. Za pomocą dostawcy członkostwa w miejscu, sprawdzanie poprawności poświadczeń użytkownika jest równie proste co wywołanie metody [klasa członkowska](https://msdn.microsoft.com/library/system.web.security.membership.aspx)firmy [ValidateUser (*username*, *hasło*) Metoda](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), która zwraca wartość logiczną wskazującą czy ważności *username* i *hasło* kombinacji. Obserwowanie, jak możemy jeszcze nie zaimplementowano SqlMembershipProvider magazyn użytkownika, firma Microsoft nie można użyć metody ValidateUser klasy członkostwa w tej chwili.
+W przypadku ASP.NET 2,0 deweloperzy powinni używać jednego z dostawców członkostwa do zarządzania magazynem użytkowników. W tej serii samouczków będziemy korzystać z usługi SqlMembershipProvider, która używa SQL Server bazy danych dla magazynu użytkownika. W przypadku korzystania z SqlMembershipProvider musimy zaimplementować określony schemat bazy danych, który zawiera tabele, widoki i procedury składowane oczekiwane przez dostawcę. Sprawdzimy, jak zaimplementować ten schemat w samouczku ***Tworzenie schematu członkostwa w SQL Server*** . Gdy dostawca członkostwa jest używany, sprawdzanie poprawności poświadczeń użytkownika jest bardzo proste jako wywołanie metody ValidateUser [klasy członkostwa](https://msdn.microsoft.com/library/system.web.security.membership.aspx) [(*username*, *Password*)](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), która zwraca wartość logiczną wskazującą, czy poprawność kombinacji *nazwy użytkownika* i *hasła* . W tej chwili nie możemy używać metody ValidateUser klasy członkostwa, ponieważ nie zaimplementowano jeszcze magazynu użytkownika SqlMembershipProvider.
 
-Zamiast Poświęć chwilę aby tworzyć własne niestandardowe użytkowników tabeli bazy danych (która jest przestarzałe po wdrożyliśmy SqlMembershipProvider), umożliwia zamiast trwale kodować prawidłowe poświadczenia w ramach logowania stronie. Program obsługi zdarzeń kliknięcia, Dodaj następujący kod w LoginButton:
+Zamiast Poświęć czas na skompilowanie własnej niestandardowej tabeli bazy danych użytkowników (która byłaby przestarzała po zaimplementowaniu SqlMembershipProvider), spróbujmy na stałe wprowadzić prawidłowe poświadczenia na stronie logowania. W procedurze obsługi zdarzeń kliknięcia LoginButton Dodaj następujący kod:
 
 [!code-csharp[Main](an-overview-of-forms-authentication-cs/samples/sample5.cs)]
 
-Jak widać, istnieją trzy prawidłowe konta użytkownika — Scott, Jisun i Sam — a wszystkie trzy mają tego samego hasła ("password"). Kod w pętli tablic użytkowników i haseł, szuka dopasowania prawidłową nazwę użytkownika i hasło. Jeśli nazwy użytkownika i hasło są prawidłowe, należy zalogować użytkownika i przekierowywać je do odpowiedniej strony. Jeśli poświadczenia są nieprawidłowe, możemy wyświetlić etykiety InvalidCredentialsMessage.
+Jak widać, istnieją trzy prawidłowe konta użytkowników — Scott, Jisun i sam — a wszystkie trzy mają takie samo hasło ("hasło"). Kod przechodzi przez tablice użytkowników i haseł szukających prawidłowej nazwy użytkownika i hasła. Jeśli nazwa użytkownika i hasło są prawidłowe, musimy zalogować użytkownika, a następnie przekierować je do odpowiedniej strony. Jeśli poświadczenia są nieprawidłowe, zostanie wyświetlona etykieta InvalidCredentialsMessage.
 
-Gdy użytkownik wprowadzi prawidłowe poświadczenia, wspomniałem, następnie nastąpi przekierowanie do "odpowiednie page." Co to jest odpowiedniej strony, mimo że? Pamiętaj, że gdy użytkownik odwiedzi strony, które nie mają uprawnień do wyświetlania, FormsAuthenticationModule automatycznie przekierowuje go do strony logowania. W ten sposób obejmuje żądanego adresu URL w zmiennej querystring za pomocą parametru ReturnUrl. Oznacza to jeśli użytkownik próbował odwiedź ProtectedPage.aspx, a nie miało uprawnień w tym celu, FormsAuthenticationModule będzie przekierowywać je do:
+Po wprowadzeniu prawidłowych poświadczeń przez użytkownika należy wskazać, że są one następnie przekierowywane do odpowiedniej strony. Co to jest odpowiednia strona? Odwołaj ten element, gdy użytkownik odwiedzi stronę, której nie ma uprawnień do wyświetlania, FormsAuthenticationModule automatycznie przekierowuje je na stronę logowania. W takim przypadku zawiera żądany adres URL w ciągu QueryString za pośrednictwem parametru ReturnUrl. Oznacza to, że jeśli użytkownik podjął próbę odwiedzenia ProtectedPage. aspx i nie zezwolił na to, FormsAuthenticationModule przekieruje je do:
 
-Login.aspx?ReturnUrl=ProtectedPage.aspx
+Login. aspx? ReturnUrl = ProtectedPage. aspx
 
-Po pomyślnym zalogowaniu użytkownika powinien być przekierowany z powrotem do ProtectedPage.aspx. Alternatywnie użytkownicy mogą odwiedzić strony logowania na ich własnych volition. W takim przypadku po zalogowaniu się użytkownika powinny być wysłane do strony Default.aspx folderu głównego.
+Po pomyślnym zalogowaniu użytkownik powinien zostać przekierowany z powrotem do ProtectedPage. aspx. Alternatywnie użytkownicy mogą odwiedzić stronę logowania na własnym Volition. W takim przypadku po zalogowaniu się użytkownika należy je wysłać do domyślnej strony. aspx folderu głównego.
 
 ### <a name="logging-in-the-user"></a>Logowanie użytkownika
 
-Przy założeniu, że podane poświadczenia są prawidłowe, należy utworzyć bilet uwierzytelniania formularzy, a tym samym logowania użytkownika do witryny. [Klasy FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthentication.aspx) w [przestrzeń nazw System.Web.Security](https://msdn.microsoft.com/library/system.web.security.aspx) udostępnia są formatowane przy metody do rejestrowania, a następnie wylogowywania użytkowników za pośrednictwem formularzy systemu uwierzytelniania. Istnieje kilka metod w klasie uwierzytelniania formularzy, 3, w którego przypadku interesuje NAS w tym momencie są:
+Przy założeniu, że podane poświadczenia są prawidłowe, musimy utworzyć bilet uwierzytelniania formularzy, co spowoduje Logowanie użytkownika do lokacji. [Klasa FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthentication.aspx) w [przestrzeni nazw System. Web. Security](https://msdn.microsoft.com/library/system.web.security.aspx) zawiera różne metody logowania i wylogowywania użytkowników za pośrednictwem systemu uwierzytelniania formularzy. Chociaż istnieje kilka metod klasy FormsAuthentication, trzy interesy są następujące:
 
-- [GetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.getauthcookie.aspx) — tworzy bilet uwierzytelniania formularzy dla podanej nazwy *username*. Następnie ta metoda tworzy i zwraca obiekt HttpCookie, który znajduje się zawartość biletu uwierzytelniania. Jeśli *persistCookie* ma wartość true, trwały plik cookie jest tworzony.
-- [SetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) — wywołuje GetAuthCookie (*username*, *persistCookie*) metodę w celu wygenerowania pliku cookie uwierzytelniania formularzy. Ta metoda dodaje plik cookie zwrócony przez GetAuthCookie kolekcję plików cookie (przy założeniu formularzy opartych na pliki cookie uwierzytelniania jest używany; w przeciwnym razie, ta metoda wywołuje Klasa wewnętrzna, która obsługuje logiki cookieless biletu).
+- [GetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.getauthcookie.aspx) — tworzy bilet uwierzytelniania formularzy dla podanej nazwy *użytkownika*. Następnie ta metoda tworzy i zwraca obiekt HttpCookie, który przechowuje zawartość biletu uwierzytelniania. Jeśli *persistCookie* ma wartość true, tworzony jest trwały plik cookie.
+- [SetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) — wywołuje metodę GetAuthCookie (*username*, *persistCookie*) do generowania pliku cookie uwierzytelniania formularzy. Następnie ta metoda dodaje plik cookie zwracany przez GetAuthCookie do kolekcji plików cookie (założono, że używane jest uwierzytelnianie formularzy oparte na plikach cookie; w przeciwnym razie ta metoda wywołuje wewnętrzną klasę, która obsługuje logikę biletu bez plików cookie).
 - [RedirectFromLoginPage (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) — ta metoda wywołuje SetAuthCookie (*username*, *persistCookie*), a następnie przekierowuje użytkownika do odpowiedniej strony.
 
-GetAuthCookie jest przydatna, gdy trzeba zmodyfikować biletu uwierzytelniania przed zapisaniem pliku cookie zbioru plików cookie. SetAuthCookie jest przydatne, jeśli chcesz utworzyć bilet uwierzytelniania formularzy i dodać go do kolekcji plików cookie, ale nie chcesz przekierować użytkownika do odpowiedniej strony. Być może chcesz zachować je na stronie logowania lub wysyłać je do niektórych alternatywnej strony.
+GetAuthCookie jest przydatny, gdy trzeba zmodyfikować bilet uwierzytelniania przed zapisaniem pliku cookie w kolekcji plików cookie. SetAuthCookie jest przydatne, jeśli chcesz utworzyć bilet uwierzytelniania formularzy i dodać go do kolekcji plików cookie, ale nie chcesz przekierować użytkownika do odpowiedniej strony. Być może chcesz je zachować na stronie logowania lub wysłać do pewnej strony alternatywnej.
 
-Ponieważ chcemy zalogować użytkownika i Przekierowanie do odpowiedniej strony, użyjemy RedirectFromLoginPage. Aktualizuj LoginButton kliknij obsługi zdarzeń, zastępując dwa wiersze komentarze TODO następującego kodu:
+Ponieważ chcemy zalogować użytkownika i przekierować je do odpowiedniej strony, użyjmy RedirectFromLoginPage. Zaktualizuj procedurę obsługi zdarzeń kliknięcia LoginButton, zastępując dwie Komentarze wierszy do wykonania następującym wierszem kodu:
 
-FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked);
+FormsAuthentication. RedirectFromLoginPage (UserName. text, kontrolka rememberMe. Checked);
 
-Podczas tworzenia biletu uwierzytelniania formularzy używamy właściwości tekstu w polu tekstowym Nazwa użytkownika dla biletu uwierzytelniania formularzy *username* parametr i stan zaznaczenia pola wyboru RememberMe dla  *persistCookie* parametru.
+Podczas tworzenia biletu uwierzytelniania formularzy używamy właściwości text pola tekstowego UserName dla parametru *Nazwa użytkownika* biletu uwierzytelniania formularzy i stan zaznaczenia pola wyboru kontrolka rememberMe dla parametru *persistCookie* .
 
-Aby przetestować stronę logowania, odwiedź stronę w przeglądarce. Rozpocznij, wprowadzając nieprawidłowe poświadczenia, takie jak nazwa "Nope" i hasło "tak". Po kliknięciu przycisku logowania. nastąpi odświeżenie strony i będzie wyświetlana etykieta InvalidCredentialsMessage.
+Aby przetestować stronę logowania, odwiedź ją w przeglądarce. Zacznij od wprowadzenia nieprawidłowych poświadczeń, takich jak nazwa użytkownika "zgadza" i hasło "złe". Po kliknięciu przycisku Zaloguj zostanie wystawiony ogłaszanie zwrotne i zostanie wyświetlona etykieta InvalidCredentialsMessage.
 
-[![Etykieta InvalidCredentialsMessage jest wyświetlany po wprowadzeniu nieprawidłowe poświadczenia](an-overview-of-forms-authentication-cs/_static/image25.png)](an-overview-of-forms-authentication-cs/_static/image24.png)
+[![etykieta InvalidCredentialsMessage jest wyświetlana po wprowadzeniu nieprawidłowych poświadczeń](an-overview-of-forms-authentication-cs/_static/image25.png)](an-overview-of-forms-authentication-cs/_static/image24.png)
 
-**Na rysunku nr 10**: Etykieta InvalidCredentialsMessage jest wyświetlany po wprowadzeniu nieprawidłowych poświadczeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image26.png))
+**Rysunek 10**: etykieta InvalidCredentialsMessage jest wyświetlana po wprowadzeniu nieprawidłowych poświadczeń ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image26.png))
 
-Następnie wprowadź prawidłowe poświadczenia i kliknij przycisk logowania. Tym razem, gdy zwrotu wystąpi biletu uwierzytelniania formularzy jest tworzony i automatycznie nastąpi przekierowanie do Default.aspx. W tym momencie użytkownik zalogował się do witryny sieci Web, mimo że nie ma żadnych podpowiedzi wizualne, aby wskazać, że użytkownik jest aktualnie zalogowany. W kroku 4, należy sprawdzić, jak programowo określić, czy użytkownik jest zalogowany nie, a także sposób identyfikacji użytkownika, odwiedzając stronę.
+Następnie wprowadź prawidłowe poświadczenia i kliknij przycisk Zaloguj się. Tym razem, gdy następuje ogłaszanie zwrotne, zostanie utworzony bilet uwierzytelniania formularzy i nastąpi automatyczne przekierowanie do default. aspx. W tym momencie użytkownik zalogował się w witrynie sieci Web, chociaż nie ma żadnych wskazówek wizualnych wskazujących, że użytkownik jest aktualnie zalogowany. W kroku 4 zobaczymy, jak programowo określić, czy użytkownik jest zalogowany, jak również jak zidentyfikować użytkownika odwiedzającego stronę.
 
-Krok 5 sprawdza technik do logowania użytkownika z witryny sieci Web.
+Krok 5 analizuje techniki rejestrowania użytkownika poza witryną sieci Web.
 
 ### <a name="securing-the-login-page"></a>Zabezpieczanie strony logowania
 
-Gdy użytkownik wprowadzi swoje poświadczenia i przesyła formularz strony logowania, poświadczenia — w tym jej hasła — są przesyłane przez Internet do serwera sieci web w *zwykły tekst*. Oznacza to, że wszelkie haker wykrywanie ruchu sieciowego można zobaczyć, nazwę użytkownika i hasło. Aby temu zapobiec, jest niezbędne do szyfrowania ruchu sieciowego przy użyciu [gniazda warstwy SSL (Secure)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer). Pozwoli to zagwarantować, są zaszyfrowane poświadczenia (a także kod znaczników HTML całą stronę) od momentu jego opuszczają przeglądarki otrzymanie przez serwer sieci web.
+Gdy użytkownik wprowadzi swoje poświadczenia i przesyła formularz strony logowania, poświadczenia — łącznie z jego hasłem — są przesyłane przez Internet do serwera sieci Web w *postaci zwykłego tekstu*. Oznacza to, że każdy haker będący w trakcie wykrywania ruchu sieciowego zobaczy nazwę użytkownika i hasło. Aby tego uniknąć, należy zaszyfrować ruch sieciowy przy użyciu [protokołu SSL (Secure Sockets)](http://en.wikipedia.org/wiki/Secure_Sockets_Layer). Dzięki temu poświadczenia (a także znacznik HTML całej strony) są szyfrowane od momentu opuszczenia przeglądarki do momentu odebrania ich przez serwer sieci Web.
 
-Chyba że witryny sieci Web zawiera poufne informacje, wystarczy do używania protokołu SSL na stronie logowania i na innych stronach których hasło użytkownika, w przeciwnym razie będą przesyłane przez sieć w postaci zwykłego tekstu. Nie trzeba się martwić o zabezpieczaniu biletu uwierzytelniania formularzy, ponieważ, domyślnie jest on zarówno zaszyfrowany i podpisany cyfrowo (w celu uniknięcia niepowołanych manipulacji). Dokładniejsze omówienie na zabezpieczenia biletów uwierzytelniania formularzy jest przedstawiona w następującego samouczka.
+Jeśli witryna sieci Web nie zawiera poufnych informacji, wystarczy użyć protokołu SSL na stronie logowania i na innych stronach, na których hasło użytkownika będzie wysyłane przez sieć w postaci zwykłego tekstu. Nie musisz martwić się o zabezpieczenie biletu uwierzytelniania formularzy, ponieważ domyślnie jest on szyfrowany i podpisany cyfrowo (aby zapobiec manipulowaniu). Dokładniejsze Omówienie zabezpieczeń biletów uwierzytelniania formularzy przedstawiono w poniższym samouczku.
 
 > [!NOTE]
-> Wiele witryn sieci Web finansowych i medycznych są skonfigurowane do używania protokołu SSL na *wszystkich* stron dostępne dla uwierzytelnionych użytkowników. Jeśli tworzysz takie witryny sieci Web systemu uwierzytelniania formularzy można skonfigurować tak, aby biletu uwierzytelniania formularzy są jedynie przesyłane za pośrednictwem bezpiecznego połączenia. Przyjrzymy się różne opcje konfiguracji uwierzytelniania formularzy w następnym samouczku  *[Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane](forms-authentication-configuration-and-advanced-topics-cs.md)*.
+> Wiele witryn sieci Web finansowych i medycznych jest skonfigurowanych do używania protokołu SSL na *wszystkich* stronach dostępnych dla uwierzytelnionych użytkowników. Jeśli tworzysz taką witrynę sieci Web, możesz skonfigurować system uwierzytelniania formularzy tak, aby bilet uwierzytelniania formularzy był przesyłany tylko przez bezpieczne połączenie. W następnym samouczku zostaną omówione różne opcje konfiguracji uwierzytelniania formularzy, *[konfiguracja uwierzytelniania formularzy i Tematy zaawansowane](forms-authentication-configuration-and-advanced-topics-cs.md)* .
 
-## <a name="step-4-detecting-authenticated-visitors-and-determining-their-identity"></a>Krok 4. Wykrywanie uwierzytelnionego odwiedzających i ich identyfikacji
+## <a name="step-4-detecting-authenticated-visitors-and-determining-their-identity"></a>Krok 4. wykrywanie użytkowników uwierzytelnionych i określanie ich tożsamości
 
-W tym momencie możemy włączono uwierzytelniania formularzy oraz utworzone strony logowania podstawowe, ale musimy jeszcze sprawdzić, jak możemy określić, czy użytkownik ma uwierzytelnieni lub anonimowi. W niektórych scenariuszach firma Microsoft chcą wyświetlić inne dane lub informacje w zależności od tego, czy uwierzytelnieni lub anonimowi odwiedzania strony. Ponadto często potrzebujemy muszą znać tożsamość uwierzytelnionego użytkownika.
+W tym momencie włączyłem funkcję uwierzytelniania formularzy i utworzono stronę logowania podstawowe, ale jeszcze nie udało nam się sprawdzić, czy użytkownik jest uwierzytelniany lub anonimowy. W niektórych scenariuszach firma Microsoft może chcieć wyświetlić różne dane lub informacje w zależności od tego, czy strona zostanie odwiedzana przez uwierzytelnionego, czy anonimowego użytkownika. Ponadto często musi znać tożsamość uwierzytelnionego użytkownika.
 
-Możemy rozszerzyć istniejącą stronę Default.aspx w celu przedstawienia tych metod. W Default.aspx Dodaj dwa formanty panelu jeden AuthenticatedMessagePanel o nazwie i inny AnonymousMessagePanel nazwanych. Dodaj kontrolkę typu etykieta o nazwie WelcomeBackMessage w pierwszym panelu. W drugim panelu Dodawanie kontrolki Hiperlinku, ustaw jego właściwość Text na "Log In" i jego właściwość NavigateUrl "~ / Login.aspx". W tym momencie oznaczeniu deklaracyjnym dla Default.aspx powinien wyglądać podobnie do poniższej:
+Uzupełnimy istniejącą stronę Default. aspx, aby zilustrować te techniki. W obszarze default. aspx Dodaj dwa kontrolki panelu, jeden o nazwie AuthenticatedMessagePanel i inny o nazwie AnonymousMessagePanel. Dodaj kontrolkę etykieta o nazwie WelcomeBackMessage na pierwszym panelu. W drugim panelu Dodaj kontrolkę hiperłącze, ustaw jej właściwość Text na wartość "log in" i jej właściwość NavigateUrl na wartość "~/login.aspx". W tym momencie znaczniki deklaratywne dla default. aspx powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample6.aspx)]
 
-Jak ma prawdopodobnie złamać, przeprowadzona, w tym miejscu chodzi o to mają być wyświetlane tylko AuthenticatedMessagePanel uwierzytelnionego odwiedzających i po prostu AnonymousMessagePanel anonimowych gościom. W tym celu należy ustawić tych paneli właściwości widocznych w zależności od tego, czy użytkownik jest zalogowany lub nie.
+Ponieważ teraz prawdopodobnie odwołujesz się do Ciebie, pomysłem jest wyświetlenie tylko AuthenticatedMessagePanel do uwierzytelnionych osób odwiedzających, a tylko do AnonymousMessagePanel anonimowych odwiedzających. Aby to osiągnąć, należy ustawić widoczne właściwości tych paneli w zależności od tego, czy użytkownik jest zalogowany.
 
-[Właściwość Request.IsAuthenticated](https://msdn.microsoft.com/library/system.web.httprequest.isauthenticated.aspx) zwraca wartość logiczną wskazującą, czy żądanie zostało uwierzytelnione. Wprowadź następujący kod do strony\_obciążenia kod procedury obsługi zdarzeń:
+[Właściwość Request. IsAuthenticated](https://msdn.microsoft.com/library/system.web.httprequest.isauthenticated.aspx) zwraca wartość logiczną wskazującą, czy żądanie zostało uwierzytelnione. Wprowadź następujący kod do strony,\_kod procedury obsługi zdarzeń ładowania:
 
 [!code-csharp[Main](an-overview-of-forms-authentication-cs/samples/sample7.cs)]
 
-Przy użyciu tego kodu w miejscu odwiedź stronę Default.aspx za pośrednictwem przeglądarki. Przy założeniu, że masz jeszcze się zalogować, zostanie wyświetlony link do strony logowania (zobacz rysunek 11). Kliknij ten link i zaloguj się do witryny. Jak widzieliśmy w kroku 3, po wprowadzeniu poświadczeń nastąpi powrót do Default.aspx, ale tym razem na stronie znajdują się "Witaj ponownie!" komunikat (zobacz rysunek 12).
+Korzystając z tego kodu, odwiedź stronę Default. aspx za pomocą przeglądarki. Przy założeniu, że użytkownik jest jeszcze zalogowany, zostanie wyświetlony link do strony logowania (patrz rysunek 11). Kliknij ten link, aby zalogować się do witryny. Zgodnie z opisem w kroku 3 po wprowadzeniu poświadczeń nastąpi powrót do default. aspx, ale ten czas na stronie zostanie wyświetlony komunikat "Witamy!" komunikat (patrz rysunek 12).
 
-![Gdy, odwiedzając anonimowo, w dzienniku łącza zostanie wyświetlona](an-overview-of-forms-authentication-cs/_static/image27.png)
+![Po anonimowym odwiedzeniu jest wyświetlane łącze logowanie.](an-overview-of-forms-authentication-cs/_static/image27.png)
 
-**Rysunek 11**: Gdy, odwiedzając anonimowo, w dzienniku łącza zostanie wyświetlona
+**Ilustracja 11**. po anonimowej odwiedzaniu zostanie wyświetlony link logowanie.
 
-![Uwierzytelnieni użytkownicy są wyświetlane.](an-overview-of-forms-authentication-cs/_static/image28.png)
+![Użytkownicy uwierzytelnieni są wyświetlani](an-overview-of-forms-authentication-cs/_static/image28.png)
 
-**Rysunek 12**: Uwierzytelnieni użytkownicy są wyświetlane "Witamy ponownie!" Message
+**Ilustracja 12**. Użytkownicy uwierzytelnieni są pokazani "Witamy!" Komunikat
 
-Można określić aktualnie zalogowanego użytkownika tożsamości za pośrednictwem [obiektu HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)firmy [właściwości użytkownika](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx). Obiektu HttpContext reprezentuje informacje o bieżącym żądaniu i jest główną dla tych wspólnych obiektów ASP.NET jako odpowiedzi, żądania i sesji, między innymi. Właściwości użytkownika reprezentuje w kontekście zabezpieczeń bieżącego żądania HTTP i implementuje [interfejsu IPrincipal](https://msdn.microsoft.com/library/system.security.principal.iprincipal.aspx).
+Możemy określić tożsamość zalogowanego użytkownika za pomocą [właściwości użytkownika](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) [obiektu HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx). Obiekt HttpContext reprezentuje informacje o bieżącym żądaniu i jest domem dla takich typowych obiektów ASP.NET jako odpowiedzi, żądania i sesji, między innymi. Właściwość User reprezentuje kontekst zabezpieczeń bieżącego żądania HTTP i implementuje [Interfejs IPrincipal](https://msdn.microsoft.com/library/system.security.principal.iprincipal.aspx).
 
-Właściwość użytkownika jest ustawiana przez FormsAuthenticationModule. W szczególności jeśli FormsAuthenticationModule znajdzie biletu uwierzytelniania formularzy w żądaniu przychodzącym, jego tworzy nowy obiekt obiektów GenericPrincipal i przypisuje go do właściwości użytkownika.
+Właściwość User jest ustawiana przez FormsAuthenticationModule. W przypadku gdy FormsAuthenticationModule odnajdzie bilet uwierzytelniania formularzy w żądaniu przychodzącym, tworzy nowy obiekt GenericPrincipal — i przypisuje go do właściwości użytkownika.
 
-Obiekty główne (na przykład obiektów GenericPrincipal) zawierają informacje o tożsamości użytkowników i ról, do których należą. Interfejsu IPrincipal definiuje dwa elementy członkowskie:
+Obiekty główne (na przykład GenericPrincipal —) zawierają informacje o tożsamości użytkownika i rolach, do których należą. Interfejs IPrincipal definiuje dwa elementy członkowskie:
 
-- [IsInRole (*roleName*)](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole.aspx) — metodę, która zwraca wartość logiczną wskazującą, czy podmiot zabezpieczeń należy do określonej roli.
-- [Tożsamość](https://msdn.microsoft.com/library/system.security.principal.iprincipal.identity.aspx) — właściwość, która zwraca obiekt, który implementuje [interfejsu IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx). Interfejs IIdentity definiuje trzy właściwości: [Element AuthenticationType](https://msdn.microsoft.com/library/system.security.principal.iidentity.authenticationtype.aspx), [właściwości](https://msdn.microsoft.com/library/system.security.principal.iidentity.isauthenticated.aspx), i [nazwa](https://msdn.microsoft.com/library/system.security.principal.iidentity.name.aspx).
+- [IsInRole (*rolename*)](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole.aspx) — Metoda zwracająca wartość logiczną wskazującą, czy podmiot zabezpieczeń należy do określonej roli.
+- [Identity](https://msdn.microsoft.com/library/system.security.principal.iprincipal.identity.aspx) — Właściwość zwracająca obiekt, który implementuje [interfejs IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx). Interfejs IIdentity definiuje trzy właściwości: [AuthenticationType](https://msdn.microsoft.com/library/system.security.principal.iidentity.authenticationtype.aspx), [IsAuthenticated](https://msdn.microsoft.com/library/system.security.principal.iidentity.isauthenticated.aspx)i [name](https://msdn.microsoft.com/library/system.security.principal.iidentity.name.aspx).
 
-Można określić nazwę bieżącego obiektu odwiedzającego, używając następującego kodu:
+Możemy określić nazwę bieżącego gościa przy użyciu następującego kodu:
 
 ciąg currentUsersName = User.Identity.Name;
 
-Podczas uwierzytelniania, przy użyciu formularzy [obiektu FormsIdentity](https://msdn.microsoft.com/library/system.web.security.formsidentity.aspx) jest tworzona dla obiektów GenericPrincipal właściwości tożsamości. Klasa FormsIdentity zawsze zwraca ciąg "Form" dla jego właściwości AuthenticationType i wartość true dla właściwości jego właściwości. Właściwość Name zwraca nazwę użytkownika określone podczas tworzenia biletu uwierzytelniania formularzy. Oprócz tych trzech właściwości FormsIdentity obejmuje dostęp do podstawowych biletu uwierzytelniania za pośrednictwem jego [biletu właściwość](https://msdn.microsoft.com/library/system.web.security.formsidentity.ticket.aspx). Właściwości Ticket zwraca obiekt typu [FormsAuthenticationTicket](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx), który ma właściwości, takie jak wygaśnięcia, IsPersistent, IssueDate, nazwy i tak dalej.
+W przypadku korzystania z uwierzytelniania formularzy [obiekt FormsIdentity](https://msdn.microsoft.com/library/system.web.security.formsidentity.aspx) jest tworzony dla właściwości Identity GenericPrincipal —. Klasa FormsIdentity zawsze zwraca ciąg "Forms" dla jego właściwości AuthenticationType i ma wartość true dla właściwości IsAuthenticated. Właściwość Name zwraca nazwę użytkownika określoną podczas tworzenia biletu uwierzytelniania formularzy. Oprócz tych trzech właściwości FormsIdentity obejmuje dostęp do podstawowego biletu uwierzytelniania za pośrednictwem jego [Właściwości biletu](https://msdn.microsoft.com/library/system.web.security.formsidentity.ticket.aspx). Właściwość biletu zwraca obiekt typu [FormsAuthenticationTicket](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx), który ma właściwości, takie jak wygaśnięcie, IsPersistent, IssueDate, Name i tak dalej.
 
-Należy koniecznie zwrócić na wynos, w tym miejscu jest to, że *username* parametr określony w FormsAuthentication.GetAuthCookie (*username*, *persistCookie*), FormsAuthentication.SetAuthCookie (*username*, *persistCookie*), a FormsAuthentication.RedirectFromLoginPage (*username*, *persistCookie*) metod jest taka sama wartość zwrócona przez User.Identity.Name. Ponadto biletu uwierzytelniania utworzone przy użyciu tej metody jest dostępna przez rzutowanie User.Identity obiektowi FormsIdentity i następnie uzyskiwanie dostępu do właściwości Ticket:
+Ważną kwestią jest to, że parametr *username* określony w FormsAuthentication. GetAuthCookie (*username*, *PersistCookie*), FormsAuthentication. SetAuthCookie (*username*, *persistCookie*) i FormsAuthentication. RedirectFromLoginPage (*username*, *persistCookie*) Metoda jest taka sama jak wartość zwracana przez User.Identity.Name. Ponadto bilet uwierzytelniania utworzony przez te metody jest dostępny przez rzutowanie User. Identity na obiekt FormsIdentity, a następnie uzyskanie dostępu do właściwości biletu:
 
 [!code-csharp[Main](an-overview-of-forms-authentication-cs/samples/sample8.cs)]
 
-Teraz zawierają bardziej spersonalizowane w Default.aspx. Aktualizuj stronę\_obciążenia programu obsługi zdarzeń, aby właściwość tekst etykiety WelcomeBackMessage przypisano ciąg "Witaj ponownie, *username*!"
+Przekażmy bardziej spersonalizowany komunikat w default. aspx. Zaktualizuj stronę\_obsługi zdarzeń ładowania, tak że właściwość text etykiety WelcomeBackMessage ma przypisany ciąg "Witaj wstecz, *username*!"
 
-WelcomeBackMessage.Text = "Welcome back, " + User.Identity.Name + "!";
+WelcomeBackMessage. text = "Witaj wstecz," + User.Identity.Name + "!";
 
-Rysunek 13 przedstawiono wpływ tej zmiany (po zalogowaniu się jako użytkownik Scott).
+Rysunek 13 przedstawia efekt modyfikacji (podczas logowania użytkownika Scott).
 
-![Wiadomość powitalna obejmuje aktualnie zarejestrowane nazwy użytkownika](an-overview-of-forms-authentication-cs/_static/image29.png)
+![Komunikat powitalny zawiera nazwę aktualnie zalogowanego użytkownika](an-overview-of-forms-authentication-cs/_static/image29.png)
 
-**Rysunek 13**: Wiadomość powitalna obejmuje aktualnie zarejestrowane nazwy użytkownika
+**Ilustracja 13**. Komunikat powitalny zawiera nazwę aktualnie zalogowanego użytkownika
 
-### <a name="using-the-loginview-and-loginname-controls"></a>Przy użyciu widoku logowania i kontroli nazwa logowania
+### <a name="using-the-loginview-and-loginname-controls"></a>Korzystanie z kontrolek widoku logowania i LoginName
 
-Wyświetlanie różnych zawartości do uwierzytelnionego i anonimowych użytkowników jest typowym wymogiem; Dlatego jest wyświetlana nazwa aktualnie zalogowanego użytkownika. Z tego powodu program ASP.NET zawiera dwie kontrolki sieci Web, które zapewniają taką samą funkcjonalność, jak pokazano na rysunku 13, ale bez konieczności pisania nawet wiersza kodu.
+Wyświetlanie innej zawartości do uwierzytelnionych i anonimowych użytkowników jest powszechnym wymaganiem; Wyświetla nazwę aktualnie zalogowanego użytkownika. Z tego powodu ASP.NET obejmuje dwie kontrolki sieci Web, które udostępniają te same funkcje, które przedstawiono na rysunku 13, ale bez konieczności pisania jednego wiersza kodu.
 
-[Kontrolki widoku logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) jest oparty na szablonie formant sieci Web, która ułatwia wyświetlanie różnych danych do użytkowników uwierzytelnionych i anonimowych. Widoku logowania zawiera dwa wstępnie zdefiniowanych szablonów:
+[Formant widoku logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) to formant sieci Web oparty na szablonach, który ułatwia wyświetlanie różnych danych do uwierzytelnionych i anonimowych użytkowników. Widoku logowania zawiera dwa wstępnie zdefiniowane szablony:
 
-- AnonymousTemplate — marżę dodane do tego szablonu jest wyświetlana tylko anonimowych gościom.
-- LoggedInTemplate — znaczników ten szablon jest wyświetlany tylko do uwierzytelnionych użytkowników.
+- AnonymousTemplate — wszystkie znaczniki dodawane do tego szablonu są wyświetlane tylko dla użytkowników anonimowych.
+- LoggedInTemplate — znaczniki tego szablonu są wyświetlane tylko dla uwierzytelnionych użytkowników.
 
-Dodajmy kontrolki widoku logowania do strony głównej w naszej witrynie, Site.master. Zamiast dodawać tylko kontrolki widoku logowania, jednak dodamy zarówno nowy formant ContentPlaceHolder, a następnie umieść kontrolki widoku logowania w ramach tej nowej ContentPlaceHolder. Uzasadnienie dla tej decyzji staną się jasne wkrótce.
+Dodajmy formant widoku logowania do strony głównej witryny, site. Master. Zamiast dodawać tylko formant widoku logowania, należy dodać nową kontrolkę ContentPlaceHolder, a następnie umieścić kontrolkę widoku logowania w tym nowym elemencie ContentPlaceHolder. Uzasadnienie dla tej decyzji będzie widoczne wkrótce.
 
 > [!NOTE]
-> Oprócz AnonymousTemplate i LoggedInTemplate kontrolki widoku logowania mogą obejmować szablony specyficzne dla ról. Szablony specyficzne dla ról Pokaż adiustację tylko do użytkowników należących do określonej roli. W przyszłości samouczka będziemy sprawdzać funkcje kontrolki widoku logowania opartej na rolach.
+> Oprócz AnonymousTemplate i LoggedInTemplate, formant widoku logowania może zawierać szablony specyficzne dla ról. Szablony specyficzne dla ról pokazują adiustację tylko dla tych użytkowników, którzy należą do określonej roli. W przyszłym samouczku sprawdzimy funkcje oparte na rolach kontrolki widoku logowania.
 
-Rozpocznij od dodania ContentPlaceHolder, o nazwie LoginContent do strony wzorcowej w nawigacji &lt;div&gt; elementu. Można po prostu przeciągnij formant ContentPlaceHolder z przybornika do widoku źródła umieszczenie wynikowych znaczników nad "TODO: Menu znajdzie się tutaj..." tekst.
+Zacznij od dodania elementu ContentPlaceHolder o nazwie LoginContent na stronę wzorcową w obszarze nawigacji &lt;bloku DIV&gt; elemencie. Możesz po prostu przeciągnąć kontrolkę ContentPlaceHolder z przybornika na widok źródła, umieszczając w tym miejscu znaczniki. Opis.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample9.aspx)]
 
-Następnie dodaj kontrolki widoku logowania LoginContent ContentPlaceHolder. Zawartość umieszczane kontrolek ContentPlaceHolder strony wzorcowej są traktowane jako *domyślnej zawartości* dla ContentPlaceHolder. Oznacza to stron ASP.NET, które korzystają z tej strony wzorcowej można określić własne zawartości dla każdego ContentPlaceHolder lub użyć zawartości domyślnej strony wzorcowej.
+Następnie Dodaj kontrolkę widoku logowania w elemencie LoginContent ContentPlaceHolder. Zawartość umieszczona w formantach ContentPlaceHolder na stronie wzorcowej jest traktowana jako *zawartość domyślna* dla elementu ContentPlaceHolder. Oznacza to, że strony ASP.NET, które używają tej strony wzorcowej, mogą określić własną zawartość dla każdego elementu ContentPlaceHolder lub użyć domyślnej zawartości strony wzorcowej.
 
-Widoku logowania i inne kontrolki skojarzone z logowaniem znajdują się w karcie logowania przybornika.
+Widoku logowania i inne kontrolki związane z logowaniem znajdują się na karcie Logowanie do przybornika.
 
-![Kontrolki widoku logowania w przyborniku](an-overview-of-forms-authentication-cs/_static/image30.png)
+![Kontrolka widoku logowania w przyborniku](an-overview-of-forms-authentication-cs/_static/image30.png)
 
-**Rysunek 14**: Kontrolki widoku logowania w przyborniku
+**Ilustracja 14**. kontrolka widoku logowania w przyborniku
 
-Następnie dodaj dwa &lt;br /&gt; elementy natychmiast po kontrolki widoku logowania, ale nadal mieszczą się w ContentPlaceHolder. W tym momencie nawigacji &lt;div&gt; znaczników elementu powinien wyglądać podobnie do poniższego:
+Następnie Dodaj dwa &lt;elementy br/&gt; bezpośrednio po kontrolce widoku logowania, ale nadal w elemencie ContentPlaceHolder. W tym momencie, Nawigacja &lt;DIV&gt; znacznik elementu powinien wyglądać następująco:
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample10.aspx)]
 
-Szablony widoku logowania można zdefiniować z projektanta lub oznaczeniu deklaracyjnym. Przy użyciu projektanta programu Visual Studio rozwiń tagu inteligentnego widoku logowania, która wyświetla skonfigurowane szablony na liście rozwijanej. Wpisz tekst "Hello, stranger" do AnonymousTemplate; następnie dodaj kontrolkę Hiperlinku i ustaw jego właściwości tekstu i NavigateUrl do "Logowanie" i "~ / Login.aspx", odpowiednio.
+Szablony widoku logowania można definiować z poziomu projektanta lub znaczników deklaratywnych. W projektancie programu Visual Studio rozwiń tag inteligentny widoku logowania, który wyświetla listę skonfigurowanych szablonów na liście rozwijanej. Wpisz tekst "Hello, dziwnego" do AnonymousTemplate; następnie Dodaj kontrolkę hiperłącze i ustaw jej właściwości text i NavigateUrl na wartość "log in" i "~/login.aspx".
 
-Po skonfigurowaniu AnonymousTemplate, przełącz się do LoggedInTemplate i wprowadzania tekstu, "Witamy z powrotem,". Następnie przeciągnij kontrolki nazwy logowania z przybornika do LoggedInTemplate, umieszczając go bezpośrednio po "Witaj," tekstu. [Kontrolki nazwy logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginname.aspx), jak jego nazwa wskazuje, wyświetla nazwę aktualnie zalogowanego użytkownika. Wewnętrznie kontrolki nazwy logowania po prostu Wyświetla właściwości User.Identity.Name
+Po skonfigurowaniu AnonymousTemplate przejdź do LoggedInTemplate, a następnie wprowadź tekst "Witaj ponownie". Następnie przeciągnij formant LoginName z przybornika do LoggedInTemplate, umieszczając go bezpośrednio po tekście "Witaj wstecz". [Kontrolka LoginName](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginname.aspx), jak jej nazwa oznacza, zawiera nazwę aktualnie zalogowanego użytkownika. Wewnętrznie formant LoginName po prostu wyprowadza Właściwość User.Identity.Name
 
-Po wprowadzeniu te dodatki do szablonów widoku logowania, znaczników powinien wyglądać podobnie do poniższej:
+Po wprowadzeniu tych dodatków do szablonów widoku logowania, znacznik powinien wyglądać podobnie do poniższego:
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample11.aspx)]
 
-Z tym dodatkiem strony wzorcowej Site.master każda strona w naszej witryny sieci Web zostanie wyświetlony komunikat różne w zależności od tego, czy użytkownik jest uwierzytelniony. Rysunek 15 pokazuje strony Default.aspx po odwiedzeniu za pośrednictwem przeglądarki przez użytkownika Jisun. Komunikat "Witaj ponownie Jisun" jest powtórzony dwa razy: jeden raz w sekcji nawigacji strony wzorcowej po lewej stronie (za pomocą kontrolki widoku logowania właśnie dodaliśmy) i jeden raz w Default.aspx zawartość obszaru (za pomocą kontrolki Panel i logiki programowej).
+Dodanie tej opcji do strony wzorcowej site. Master spowoduje wyświetlenie innego komunikatu w zależności od tego, czy użytkownik jest uwierzytelniony. Ilustracja 15 pokazuje domyślną stronę. aspx, gdy jest ona odwiedzana przez użytkownika Jisun. Komunikat "Witaj wstecz, Jisun" jest powtórzony dwukrotnie: raz w sekcji nawigacyjnej strony wzorcowej po lewej stronie (za pośrednictwem dodanej kontrolki widoku logowania) i jeden raz w obszarze zawartości default. aspx (za pomocą kontrolek panelu i logiki programowej).
 
-![Wyświetla kontrolki widoku logowania](an-overview-of-forms-authentication-cs/_static/image31.png)
+![Zostanie wyświetlona kontrolka widoku logowania](an-overview-of-forms-authentication-cs/_static/image31.png)
 
-**Rysunek 15**: Wyświetla kontrolki widoku logowania "Witamy z powrotem, Jisun."
+**Ilustracja 15**. kontrolka widoku logowania wyświetla "Witaj wstecz, Jisun".
 
-Ponieważ dodaliśmy widoku logowania na stronie wzorcowej może znajdować się w każdej strony w naszej witrynie. Jednak mogą istnieć stron sieci web gdy nie chcemy pokazuj tego komunikatu. Jedna takie strona jest strony logowania, ponieważ link do strony logowania jest prawdopodobnie poza ma miejsce. Ponieważ firma Microsoft umieszczone kontrolki widoku logowania w ContentPlaceHolder na stronie głównej, firma Microsoft można zastąpić ten kod znaczników domyślne na naszej stronie zawartości. Otwórz Login.aspx i przejdź do projektanta. Ponieważ firma Microsoft nie został jawnie zdefiniowany kontrolkę zawartości w Login.aspx dla LoginContent ContentPlaceHolder na stronie głównej, na stronie logowania będzie wyświetlana znaczników domyślnej strony wzorcowej dla tego elementu ContentPlaceHolder. Widać to za pomocą projektanta — LoginContent ContentPlaceHolder Pokazuje znaczniki domyślne (kontrolki widoku logowania).
+Ponieważ dodaliśmy widoku logowania do strony wzorcowej, może ona pojawić się na każdej stronie w naszej witrynie. Mogą jednak znajdować się na stronach sieci Web, w których nie ma być pokazywany ten komunikat. Jedną z takich stron jest strona logowania, ponieważ w tym miejscu pojawił się link do strony logowania. Ponieważ na stronie wzorcowej została umieszczona kontrolka widoku logowania, można zastąpić to ustawienie domyślne na naszej stronie zawartości. Otwórz login. aspx i przejdź do projektanta. Ponieważ nie zdefiniowano jawnie kontrolki zawartości w Login. aspx dla LoginContent ContentPlaceHolder na stronie wzorca, na stronie logowania zostanie wyświetlona domyślna Adiustacja strony głównej dla tego elementu ContentPlaceHolder. Można to sprawdzić za pomocą projektanta — LoginContent ContentPlaceHolder pokazuje znaczników domyślnych (kontrolki widoku logowania).
 
-[![Na stronie logowania przedstawiono domyślne zawartości dla strony wzorcowej LoginContent ContentPlaceHolder](an-overview-of-forms-authentication-cs/_static/image33.png)](an-overview-of-forms-authentication-cs/_static/image32.png)
+[![Strona logowania zawiera domyślną zawartość dla LoginContent ContentPlaceHolder strony głównej](an-overview-of-forms-authentication-cs/_static/image33.png)](an-overview-of-forms-authentication-cs/_static/image32.png)
 
-**Rysunek 16**: Na stronie logowania znajdują się domyślne zawartości dla strony wzorcowej LoginContent ContentPlaceHolder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image34.png))
+**Ilustracja 16**. Strona logowania zawiera domyślną zawartość dla LoginContent ContentPlaceHolder strony wzorcowej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image34.png))
 
-Aby zastąpić domyślne znaczniki dla LoginContent ContentPlaceHolder, kliknij prawym przyciskiem myszy na region w Projektancie i wybierz opcję Utwórz zawartość niestandardowe z menu kontekstowego. (Gdy za pomocą programu Visual Studio 2008 ContentPlaceHolder zawiera tag inteligentny, po wybraniu oferuje tę samą opcję.) Spowoduje to dodanie nowego formantu zawartości strony znaczników i tym samym pozwala nam do definiowania niestandardowej zawartości dla tej strony. Można dodać niestandardowy komunikat, takie jak "Zaloguj się cali..", ale możemy po prostu pozostaw to pole puste.
+Aby zastąpić domyślne znaczniki dla LoginContent ContentPlaceHolder, po prostu kliknij prawym przyciskiem myszy region w Projektancie i wybierz opcję Utwórz niestandardową zawartość z menu kontekstowego. (W przypadku korzystania z programu Visual Studio 2008 element ContentPlaceHolder zawiera tag inteligentny, który w przypadku wybrania oferuje tę samą opcję). Spowoduje to dodanie nowej kontrolki zawartości do znacznika strony, co umożliwi nam zdefiniowanie zawartości niestandardowej na tej stronie. W tym miejscu możesz dodać niestandardowy komunikat, taki jak "Zaloguj się...", ale po prostu pozostaw to pole puste.
 
 > [!NOTE]
-> W programie Visual Studio 2005, tworząc niestandardową zawartość utworzy pustą zawartość kontrolki na stronie ASP.NET. W programie Visual Studio 2008 jednak tworzenia niestandardowej zawartości kopiuje zawartość domyślna strony wzorcowej do nowo utworzonego formantu zawartości. Jeśli używasz programu Visual Studio 2008 następnie, po utworzeniu nowej kontrolki zawartości upewnij się umożliwić wyczyszczenie zawartości skopiowanych z strony wzorcowej.
+> W programie Visual Studio 2005 Tworzenie zawartości niestandardowej tworzy pustą kontrolkę zawartości na stronie ASP.NET. Jednak w programie Visual Studio 2008 Tworzenie niestandardowej zawartości powoduje skopiowanie domyślnej zawartości strony wzorcowej do nowo utworzonej kontrolki zawartości. Jeśli używasz programu Visual Studio 2008, po utworzeniu nowej kontrolki zawartości upewnij się, że zawartość skopiowana z strony wzorcowej jest wyczyszczona.
 
-Rysunek 17 pokazuje strony Login.aspx po odwiedzeniu z poziomu przeglądarki po wprowadzeniu tej zmiany. Należy pamiętać, że nie "Hello, stranger" lub "Witaj ponownie, *username*" wiadomości w lewym panelu nawigacyjnym &lt;div&gt; się podczas odwiedzania Default.aspx.
+Rysunek 17 przedstawia stronę login. aspx wyświetlaną w przeglądarce po wprowadzeniu tej zmiany. Zwróć uwagę, że w lewym okienku nawigacyjnym nie ma komunikatu "Hello, dziwnego" lub "Witamy w powrocie *" &lt;* DIV&gt;, ponieważ podczas odwiedzania domyślnego. aspx.
 
-[![Na stronie logowania ukrywa znaczników LoginContent ContentPlaceHolder domyślne](an-overview-of-forms-authentication-cs/_static/image36.png)](an-overview-of-forms-authentication-cs/_static/image35.png)
+[![Strona logowania ukrywa domyślną adiustację LoginContent elementu ContentPlaceHolder](an-overview-of-forms-authentication-cs/_static/image36.png)](an-overview-of-forms-authentication-cs/_static/image35.png)
 
-**Rysunek 17**: Na stronie logowania ukrywa znaczników domyślnych LoginContent ContentPlaceHolder firmy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image37.png))
+**Ilustracja 17**. Strona logowania ukrywa domyślne oznaczenie elementu LoginContent ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image37.png))
 
-## <a name="step-5-logging-out"></a>Krok 5. Wylogowanie
+## <a name="step-5-logging-out"></a>Krok 5. Wylogowywanie
 
-W kroku 3 przyjrzeliśmy się tworzenie strony logowania do logowania się użytkownika w witrynie, ale mamy jeszcze zobaczyć, jak wylogować użytkownika. Oprócz metody logowania użytkownika, klasa FormsAuthentication udostępnia również podpowiedzi [metoda wylogowanie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx). Metoda wylogowanie po prostu niszczy biletu uwierzytelniania formularzy, w tym samym rejestrowanie użytkowników spoza witryny.
+W kroku 3 zawarto informacje na temat tworzenia strony logowania w celu zarejestrowania użytkownika w witrynie, ale jeszcze zapoznaj się z tematem jak wylogować użytkownika. Oprócz metod rejestrowania użytkownika w programie Klasa FormsAuthentication również udostępnia [metodę wylogowaniu](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx). Metoda wylogowaniu po prostu niszczy bilet uwierzytelniania formularzy, a tym samym rejestruje użytkownika poza lokacją.
 
-Oferta wylogowania łącze jest wspólną cechą tego ASP.NET zawiera kontrolkę specjalnie do wylogowania użytkownika. [Kontrolki stanu logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginstatus.aspx) Wyświetla LinkButton "Logowanie" lub element LinkButton "Wylogowania", w zależności od stanu uwierzytelniania użytkownika. LinkButton "Login" jest renderowany dla użytkowników anonimowych, natomiast LinkButton "Wylogowania" jest wyświetlany użytkownikom uwierzytelnionym. Tekst dla "Logowanie" i "Wylogowania" LinkButtons mogą być konfigurowane przez stanu logowania LoginText i LogoutText właściwości.
+Oferowanie linku do wylogowania to typowa funkcja, która ASP.NET zawiera kontrolkę zaprojektowaną specjalnie do rejestrowania użytkownika. [Kontrolka stanu logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginstatus.aspx) wyświetla "login" element LinkButton lub "Wyloguj", w zależności od stanu uwierzytelniania użytkownika. Element LinkButton "login" jest renderowany dla użytkowników anonimowych, podczas gdy dla uwierzytelnionych użytkowników jest wyświetlany komunikat o wylogowaniu "element LinkButton". Tekst dla LinkButtons "login" i "Wyloguj" można skonfigurować za pomocą właściwości LoginText i LogoutText stanu logowania.
 
-Klikając przycisk "Login" łącza powoduje odświeżenie strony, z której wystawiono przekierowanie do strony logowania. Klikając element LinkButton "Wylogowania" powoduje, że kontrolki stanu logowania, można wywołać metody FormsAuthentication.SignOff, a następnie przekierowuje użytkownika do strony. Strona zalogowanego off użytkownik zostaje przekierowany do zależy od właściwości LogoutAction można przypisać do jednej z trzech następujących wartości:
+Kliknięcie elementu "login" element LinkButton powoduje ogłoszenie zwrotne, z którego jest wysyłane przekierowanie na stronę logowania. Kliknięcie przycisku "Wyloguj" element LinkButton powoduje wywołanie przez formant stanu logowania metody FormsAuthentication. przygotowania, a następnie przekierowanie użytkownika do strony. Strona, do której zalogowany jest użytkownik, jest zależna od właściwości LogoutAction, która może być przypisana do jednej z trzech następujących wartości:
 
-- Odśwież — domyślnie; przekierowuje użytkownika do strony, na których zostały one po prostu odwiedzający. Jeśli strony, w której zostały one po prostu odwiedzający nie zezwala na użytkowników anonimowych, następnie FormsAuthenticationModule automatycznie przekierowuje użytkownika do strony logowania.
+- Odśwież — wartość domyślna; przekierowuje użytkownika do właśnie odwiedzanej strony. Jeśli właśnie odwiedzana strona nie zezwala na użytkowników anonimowych, FormsAuthenticationModule automatycznie przekieruje użytkownika na stronę logowania.
 
-Być może zastanawiasz się, by Dlaczego przekierowanie odbywa się w tym miejscu. Jeśli użytkownik chce, aby nadal korzystać z tej samej stronie, dlaczego potrzebę jawnego przekierowania? Przyczyną jest, ponieważ po kliknięciu LinkButton "Wylogowania", użytkownik nadal ma biletu uwierzytelniania formularzy w ich kolekcji plików cookie. W związku z tym żądanie zwrotu jest uwierzytelnionego żądania. Kontrolki stanu logowania wywołuje metodę Wyloguj się, ale tak się stanie po FormsAuthenticationModule uwierzytelnił użytkownika. W związku z tym jawne przekierowanie powoduje, że przeglądarkę, aby ponownie stronę. W czasie, przeglądarce ponownie zgłasza żądanie strony biletu uwierzytelniania formularzy została usunięta, a w związku z tym przychodzące żądanie jest anonimowy.
+W tym miejscu może być chcesz wiedzieć, dlaczego przekierowanie zostało wykonane. Jeśli użytkownik chce pozostawać na tej samej stronie, dlaczego jest to potrzebne w przypadku jawnego przekierowania? Przyczyną jest to, że po kliknięciu element LinkButton "Wyloguj" użytkownik nadal ma bilet uwierzytelniania formularzy w kolekcji plików cookie. W związku z tym żądanie ogłaszania zwrotnego jest żądaniem uwierzytelnionym. Kontrolka stanu logowania wywołuje metodę wylogowaniu, która jest wykonywana po uwierzytelnieniu użytkownika przez FormsAuthenticationModule. W związku z tym jawne przekierowanie powoduje ponowne zażądanie strony przez przeglądarkę. Gdy przeglądarka żąda ponownego żądania strony, bilet uwierzytelniania formularzy został usunięty i w związku z tym żądanie przychodzące jest anonimowe.
 
-- Przekieruj — użytkownik jest przekierowywany do adresu URL określonego przez właściwość LogoutPageUrl stanu logowania.
-- RedirectToLoginPage — użytkownik jest przekierowywany na stronę logowania.
+- Redirect — użytkownik jest przekierowywany do adresu URL określonego przez właściwość LogoutPageUrl stanu logowania.
+- RedirectToLoginPage — użytkownik zostanie przekierowany do strony logowania.
 
-Dodajmy kontrolki stanu logowania na stronie wzorcowej i skonfiguruj go pod kątem użycia opcji przekierowania wysłać użytkownika do strony, która wyświetla komunikat potwierdzający, że ich wylogowano Cię. Rozpocznij od utworzenia strony w katalogu głównym o nazwie Logout.aspx. Należy pamiętać skojarzyć tę stronę z Site.master strony wzorcowej. Następnie wprowadź komunikat w znaczniku strony wyjaśniających użytkownikowi, który został wylogowanie.
+Dodajmy kontrolkę stanu logowania do strony wzorcowej i skonfigurujesz ją do korzystania z opcji przekierowania, aby wysłać użytkownikowi komunikat z potwierdzeniem, że zostały wylogowane. Zacznij od utworzenia strony w katalogu głównym o nazwie Wyloguj. aspx. Nie zapomnij, aby skojarzyć Tę stronę z lokacją. Master Master. Następnie wprowadź komunikat na znaczniku strony, wyjaśniając użytkownikowi, że został wylogowany.
 
-Następnie wróć do strony głównej Site.master i dodać kontrolki stanu logowania pod widoku logowania w LoginContent ContentPlaceHolder. Ustaw właściwość LogoutAction kontrolki stanu logowania przekierowania i jego właściwość LogoutPageUrl "~ / Logout.aspx".
+Następnie wróć do strony wzorcowej site. Master i Dodaj kontrolkę stanu logowania pod widoku logowaniaą w LoginContent ContentPlaceHolder. Ustaw właściwość LogoutAction formantu stanu logowania na wartość redirect i jej Właściwość LogoutPageUrl na wartość "~/Logout.aspx".
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample12.aspx)]
 
-Ponieważ stanu logowania znajduje się poza kontrolki widoku logowania, pojawi się zarówno anonimowych, jak i uwierzytelnionych użytkowników, ale to normalne, ponieważ "Logowanie" lub "Wylogowania" LinkButton będą poprawnie wyświetlać stanu logowania. Dodając kontrolki stanu logowania HyperLink "Logowanie" w AnonymousTemplate jest zbędny, więc można go usunąć.
+Ponieważ stanu logowania znajduje się poza kontrolką widoku logowania, zostanie ona wyświetlona zarówno dla użytkowników anonimowych, jak i uwierzytelnionych, ale jest to poprawne, ponieważ stanu logowania będzie poprawnie wyświetlała element LinkButton "login" lub "Wyloguj". Po dodaniu kontrolki stanu logowania, hiperlink "log in" w AnonymousTemplate jest zbędny, więc usuń go.
 
-Rysunek 18 pokazuje Default.aspx, gdy odwiedza Jisun. Należy zauważyć, że kolumna po lewej stronie wyświetla komunikat "Witaj ponownie, Jisun" wraz z linkiem do logowania. Klikając przycisk wylogowania LinkButton powoduje odświeżenie strony, wylogowania Jisun systemu i przekierowuje jej Logout.aspx. Jak pokazano na rysunku 19, przez razem, gdy Jisun osiągnie Logout.aspx ona już został wyrejestrowany i dlatego jest anonimowy. W związku z tym, kolumna po lewej stronie zawiera tekst "Witaj, stranger" oraz link do strony logowania.
+Na rysunku 18 są wyświetlane wartości Default. aspx podczas odwiedzin Jisun. Zwróć uwagę, że w lewej kolumnie jest wyświetlany komunikat "Witaj wstecz, Jisun" wraz z linkiem do wylogowania. Kliknięcie element LinkButton wylogowania powoduje odświeżenie, podpisanie Jisun z systemu, a następnie przekierowanie do wylogowania. aspx. Jak pokazano na rysunku 19, Jisun osiągnie wylogowanie. aspx został już wylogowany i dlatego jest anonimowy. W związku z tym lewa kolumna zawiera tekst "Welcome, dziwne" i link do strony logowania.
 
-[![Pokazuje default.aspx](an-overview-of-forms-authentication-cs/_static/image39.png)](an-overview-of-forms-authentication-cs/_static/image38.png)
+[![default. aspx zawiera](an-overview-of-forms-authentication-cs/_static/image39.png)](an-overview-of-forms-authentication-cs/_static/image38.png)
 
-**Rysunek 18**: Default.aspx pokazuje "Witamy z powrotem, Jisun" wraz z LinkButton "Wylogowania" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image40.png))
+**Ilustracja 18**. default. aspx pokazuje "Witaj wstecz, Jisun" wraz z element LinkButton "Wyloguj" ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image40.png))
 
-[![Pokazuje Logout.aspx](an-overview-of-forms-authentication-cs/_static/image42.png)](an-overview-of-forms-authentication-cs/_static/image41.png)
+[![Wyloguj. aspx](an-overview-of-forms-authentication-cs/_static/image42.png)](an-overview-of-forms-authentication-cs/_static/image41.png)
 
-**Rysunek 19**: Logout.aspx pokazuje "Witaj, stranger" wraz z LinkButton "Login" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image43.png))
+**Ilustracja 19**. wylogowanie. aspx pokazuje "Welcome, dziwne" i "login" element LinkButton ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image43.png))
 
 > [!NOTE]
-> Zachęcam Cię do dostosowania strony Logout.aspx, aby ukryć LoginContent ContentPlaceHolder strony wzorcowej (takich jak zrobiliśmy Login.aspx w kroku 4). Ponieważ element LinkButton "Login" renderowany przez kontrolki stanu logowania (jeden pod "Hello, stranger") wysyła użytkownika do strony logowania, przekazując parametr querystring ReturnUrl bieżący adres URL. Krótko mówiąc Jeśli użytkownik zalogował się kliknie tego stanu logowania LinkButton "Login", a następnie dzienniki, zostanie przekierowany do Logout.aspx, który można łatwo zirytować użytkownika.
+> Zachęcam do dostosowania strony Wyloguj. aspx, aby ukryć LoginContent ContentPlaceHolder strony wzorcowej (podobnie jak w przypadku logowania. aspx w kroku 4). Przyczyną jest fakt, że element LinkButton "login" renderowany przez formant stanu logowania (jeden pod "Hello, dziwny") wysyła użytkownika do strony logowania przekazującej bieżący adres URL w parametrze QueryString ReturnUrl. W krótkim czasie, jeśli użytkownik, który wyloguje się, kliknie stanu logowania "login", a następnie zaloguje się, zostanie ponownie przekierowany do wylogowania. aspx, który mógłby łatwo pomylić użytkownika.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku będziemy pracę z analizę przepływu pracy uwierzytelniania formularzy i skonfigurowała do wdrażania uwierzytelniania formularzy w aplikacji ASP.NET. Uwierzytelnianie formularzy jest obsługiwana przez FormsAuthenticationModule, która ma dwa obowiązki: Identyfikowanie użytkowników w oparciu o ich biletu uwierzytelniania formularzy i Przekierowanie nieautoryzowanych użytkowników do strony logowania.
+W tym samouczku rozpocząłmy badanie przepływu pracy uwierzytelniania formularzy, a następnie w celu zaimplementowania uwierzytelniania formularzy w aplikacji ASP.NET. Uwierzytelnianie formularzy jest obsługiwane przez FormsAuthenticationModule, który ma dwie obowiązki: Identyfikowanie użytkowników na podstawie biletu uwierzytelniania formularzy i przekierowywanie nieautoryzowanych użytkowników na stronę logowania.
 
-Klasa uwierzytelniania formularzy programu .NET Framework zawiera metody do tworzenia, inspekcja i usuwania biletów uwierzytelniania formularzy. Właściwość Request.IsAuthenticated i obiektu użytkownika zapewnienia dodatkowego wsparcia programowego określająca, czy żądanie jest uwierzytelniane i informacje o tożsamości użytkownika. Dostępne są także formanty widoku logowania, stanu logowania i nazwa logowania w sieci Web, które dają deweloperom sposób szybki, niekorzystające z kodu umożliwiające wykonywanie wielu typowych zadań skojarzone z logowaniem. Będziemy sprawdzać te i inne kontrolki sieci Web skojarzone z logowaniem większej liczby szczegółów przyszłych samouczków.
+Klasa FormsAuthentication .NET Framework obejmuje metody tworzenia, inspekcji i usuwania biletów uwierzytelniania formularzy. Właściwość Request. IsAuthenticated i obiekt User zapewniają dodatkową pomoc techniczną do określenia, czy żądanie jest uwierzytelniane, oraz informacje o tożsamości użytkownika. Dostępne są również kontrolki sieci Web widoku logowania, stanu logowania i LoginName, które umożliwiają deweloperom szybkie i bezpłatne korzystanie z kodu na potrzeby wykonywania wielu typowych zadań związanych z logowaniem. Sprawdzimy te i inne kontrolki sieci Web powiązane z logowaniem bardziej szczegółowo w kolejnych samouczkach.
 
-W tym samouczku pod warunkiem pobieżną omówienie uwierzytelniania formularzy. Firma Microsoft nie Sprawdź opcje konfiguracji są formatowane przy, Przyjrzyj się jak cookieless działania biletów uwierzytelniania formularzy lub Poznaj, jak ASP.NET chroni zawartość biletu uwierzytelniania formularzy. Omówimy te tematy i innych elementów [następnego samouczka](forms-authentication-configuration-and-advanced-topics-cs.md).
+W tym samouczku przedstawiono Omówienie uwierzytelniania formularzy. Nie sprawdzono dostępnych opcji konfiguracji, należy zapoznać się z tematem działania biletów uwierzytelniania formularzy bez plików cookie lub poznać sposób, w jaki ASP.NET chroni zawartość biletu uwierzytelniania formularzy. W [następnym samouczku](forms-authentication-configuration-and-advanced-topics-cs.md)omówiono te tematy i wiele więcej.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Zmian między wersjami usług IIS 6 i zabezpieczeń usług IIS7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
+- [Zmiany między usług IIS 6 i zabezpieczeniami IIS7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
 - [Kontrolki ASP.NET logowania](https://msdn.microsoft.com/library/d51ttbhx.aspx)
-- [Profesjonalne platformy ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [`<authentication>` — Element](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [`<forms>` Element dla `<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [Professional ASP.NET 2,0 — zabezpieczenia, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
+- [Element `<authentication>`](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [Element `<forms>` dla `<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
-### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenie wideo na tematy zawarte w tym samouczku
+### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenia wideo dotyczące tematów zawartych w tym samouczku
 
 - [Korzystanie z uwierzytelniania podstawowego formularzy na platformie ASP.NET](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla...
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został w tym samouczku, który serii został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Jan Suru i Teresa Murphy. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Osoba dokonująca przeglądu potencjalnych klientów dla tego samouczka została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka obejmują Alicja Maziarz, Jan suru i Teresa Murphy. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](security-basics-and-asp-net-support-cs.md)

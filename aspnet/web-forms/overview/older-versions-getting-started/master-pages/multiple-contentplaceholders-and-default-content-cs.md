@@ -1,168 +1,168 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
-title: Wiele kontrolek ContentPlaceHolder i zawartość domyślna (C#) | Dokumentacja firmy Microsoft
+title: Wiele elementów ContentPlaceHolders i zawartości domyślnejC#() | Microsoft Docs
 author: rick-anderson
-description: Sprawdza, czy sposób dodawania wielu posiadaczy zawartości miejsce na stronę wzorcową, a także sposobu określania domyślnej zawartości w posiadaczy miejscu zawartości.
+description: Sprawdza, jak dodać posiadaczy wielu miejsc zawartości do strony wzorcowej, a także jak określić domyślną zawartość w polu posiadacze miejsca zawartości.
 ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: b9b9798b-027d-46cc-9636-473378e437ac
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2196446bf870a3b7ceba01656d0415deac0c7124
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e902bcae05c0e7976a20293f2b01e5f2e2bee13a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106884"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74639453"
 ---
 # <a name="multiple-contentplaceholders-and-default-content-c"></a>Wiele kontrolek ContentPlaceHolder i zawartość domyślna (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
 
-> Sprawdza, czy sposób dodawania wielu posiadaczy zawartości miejsce na stronę wzorcową, a także sposobu określania domyślnej zawartości w posiadaczy miejscu zawartości.
+> Sprawdza, jak dodać posiadaczy wielu miejsc zawartości do strony wzorcowej, a także jak określić domyślną zawartość w polu posiadacze miejsca zawartości.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W poprzednim samouczku zbadaliśmy, jak strony wzorcowe Włącz deweloperów platformy ASP.NET do tworzenia spójnego układu dla całej witryny. Strony wzorcowe zdefiniować znaczniki, które są wspólne dla wszystkich stronach zawartości i regionów, które można dostosować na podstawie strony strona. W poprzednim samouczku utworzyliśmy proste strony wzorcowej (`Site.master`) i zawartości dwóch stronach (`Default.aspx` i `About.aspx`). Nasze strony wzorcowej składa się z dwóch kontrolek ContentPlaceHolder o nazwie `head` i `MainContent`, które znajdowały się w `<head>` elementu i formularz sieci Web, odpowiednio. Gdy stron zawartości ma dwa formanty zawartości, określony tylko znaczników dla nich odpowiadający `MainContent`.
+W poprzednim samouczku sprawdziłmy, jak strony wzorcowe umożliwiają deweloperom ASP.NET tworzenie spójnego układu dla całej lokacji. Strony wzorcowe definiują oba znaczniki, które są wspólne dla wszystkich swoich stron zawartości i regionów, które można dostosować w zależności od strony. W poprzednim samouczku utworzyliśmy prostą stronę wzorcową (`Site.master`) i dwie strony zawartości (`Default.aspx` i `About.aspx`). Nasza Strona główna składa się z dwóch elementów ContentPlaceHolder o nazwie `head` i `MainContent`, które znajdują się odpowiednio w `<head>` element i formularz sieci Web. Gdy każda z nich ma dwie kontrolki zawartości, to tylko określone znaczniki dla danego elementu, które odpowiadają `MainContent`.
 
-Dowodem dwóch kontrolek ContentPlaceHolder w `Site.master`, strona wzorcowa może zawierać wiele kontrolek ContentPlaceHolder. Co więcej strona główna może określić domyślne znaczników dla kontrolek ContentPlaceHolder. Strony zawartości, a następnie, można opcjonalnie określić własny kod znaczników lub znaczniki domyślne. W tym samouczku będziemy Spójrz na używanie wielu kontrolek zawartości na stronie głównej i dowiedzieć się, jak zdefiniować domyślne znaczników do kontrolek ContentPlaceHolder.
+Zgodnie z dowodem dwóch formantów ContentPlaceHolder w `Site.master`, Strona wzorcowa może zawierać wiele elementów ContentPlaceHolder. Co więcej, Strona wzorcowa może określić domyślne znaczniki dla formantów ContentPlaceHolder. Na stronie zawartości można opcjonalnie określić własne znaczniki lub użyć znaczników domyślnych. W tym samouczku Przyjrzyjmy się użyciu wielu kontrolek zawartości na stronie wzorcowej i zobacz, jak definiować znaczniki domyślne w kontrolkach ContentPlaceHolder.
 
-## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>Krok 1. Dodawanie kontrolek ContentPlaceHolder dodatkowe do strony wzorcowej
+## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>Krok 1. Dodawanie dodatkowych kontrolek ContentPlaceHolder do strony wzorcowej
 
-Wiele projektów witryny sieci Web zawiera kilka obszarów na ekranie, które są dostosowywane na podstawie strony strona. `Site.master`, strony wzorcowej utworzonego w poprzednim samouczku zawiera pojedynczy ContentPlaceHolder w obrębie formularza sieci Web o nazwie `MainContent`. W szczególności ten ContentPlaceHolder znajduje się w obrębie `mainContent` `<div>` elementu.
+Wiele projektów witryn sieci Web zawiera kilka obszarów na ekranie, które są dostosowane do poszczególnych stron. `Site.master`, Strona wzorcowa utworzona w poprzednim samouczku zawiera pojedynczy element ContentPlaceHolder w formularzu sieci Web o nazwie `MainContent`. W odróżnieniu od tego element ContentPlaceHolder znajduje się w elemencie `mainContent` `<div>`.
 
-Rysunek 1 pokazuje `Default.aspx` podczas wyświetlania za pośrednictwem przeglądarki. Region zakreślony na czerwono jest specyficzne dla strony kodu znaczników odpowiadający `MainContent`.
+Rysunek 1 przedstawia `Default.aspx`, gdy jest wyświetlany za pomocą przeglądarki. Region w kolorze czerwonym jest znacznikiem specyficznym dla strony odpowiadającym `MainContent`.
 
-[![Region kółku zawiera obszar obecnie można dostosować na podstawie strony strona](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
+[![region w kółku pokazuje obszar aktualnie dostosowywany na stronie](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
 
-**Rysunek 01**: Circled Region pokazuje obszaru aktualnie modyfikowalny na podstawie strony strona ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image3.png))
+**Ilustracja 01**: region w kółku pokazuje obszar aktualnie dostosowywany na stronie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image3.png))
 
-Wyobraź sobie, że oprócz regionów, w przedstawionej na rysunku 1, należy również dodać elementy specyficzne dla strony do lewej kolumnie pod — lekcje i wiadomości sekcje. Aby to osiągnąć, można dodać kolejną kontrolkę ContentPlaceHolder strony wzorcowej. Aby z niego skorzystać, otwórz `Site.master` master strony w Visual Web Developer, a następnie przeciągnij formant ContentPlaceHolder z przybornika w Projektancie po sekcji wiadomości. Ustaw ContentPlaceHolder `ID` do `LeftColumnContent`.
+Załóżmy, że oprócz regionu pokazanego na rysunku 1, należy również dodać elementy specyficzne dla strony do lewej kolumny poniżej sekcji lekcje i wiadomości. Aby to osiągnąć, Dodaj kolejną kontrolkę ContentPlaceHolder do strony wzorcowej. Aby wykonać te czynności, Otwórz stronę wzorcową `Site.master` w programie Visual Web Developer, a następnie przeciągnij formant ContentPlaceHolder z przybornika do projektanta po sekcji wiadomości. Ustaw `ID` elementu ContentPlaceHolder na `LeftColumnContent`.
 
-[![Dodawanie kontrolki ContentPlaceHolder do lewej kolumnie strony wzorcowej](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
+[![dodać kontrolki ContentPlaceHolder do lewej kolumny strony wzorcowej](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
 
-**Rysunek 02**: Dodaj kontrolkę ContentPlaceHolder kolumnę po lewej stronie strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image6.png))
+**Ilustracja 02**. Dodawanie kontrolki ContentPlaceHolder do lewej kolumny strony wzorcowej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image6.png))
 
-Z dodatkiem `LeftColumnContent` ContentPlaceHolder strony wzorcowej, firma Microsoft można zdefiniować zawartość dla tego obszaru na podstawie strony Strona, w tym zawartości formant na stronie, którego `ContentPlaceHolderID` ustawiono `LeftColumnContent`. Sprawdzamy, ten proces w kroku 2.
+Po dodaniu elementu `LeftColumnContent` ContentPlaceHolder do strony głównej można zdefiniować zawartość dla tego regionu na podstawie strony, dołączając kontrolkę zawartość na stronie, której `ContentPlaceHolderID` jest ustawiona na `LeftColumnContent`. Analizujemy ten proces w kroku 2.
 
-## <a name="step-2-defining-content-for-the-new-contentplaceholder-in-the-content-pages"></a>Krok 2. Definiowanie zawartości dla nowych ContentPlaceHolder na stronach zawartości
+## <a name="step-2-defining-content-for-the-new-contentplaceholder-in-the-content-pages"></a>Krok 2. Definiowanie zawartości dla nowego elementu ContentPlaceHolder na stronach zawartości
 
-Podczas dodawania nowej strony zawartości do witryny sieci Web, Visual Web Developer automatycznie tworzy zawartość kontrolki na stronie dla każdego elementu ContentPlaceHolder na wybranej strony wzorcowej. Posiadanie dodano `LeftColumnContent` ContentPlaceHolder do strony głównej w kroku 1. nowy ASP.NET stron będą teraz mieć trzy kontrolki zawartości.
+W przypadku dodawania nowej strony zawartości do witryny sieci Web deweloper internetowy automatycznie tworzy kontrolkę zawartości na stronie dla każdego elementu ContentPlaceHolder na wybranej stronie wzorcowej. Po dodaniu `LeftColumnContent` elementu ContentPlaceHolder do naszej strony głównej w kroku 1 nowe strony ASP.NET będą miały teraz trzy formanty zawartości.
 
-Na przykład Dodaj nową stronę zawartości o nazwie w katalogu głównym `MultipleContentPlaceHolders.aspx` , jest powiązany z `Site.master` strony wzorcowej. Visual Web Developer tworzy tę stronę przy użyciu następujących oznaczeniu deklaracyjnym:
+Aby to zilustrować, Dodaj nową stronę zawartości do katalogu głównego o nazwie `MultipleContentPlaceHolders.aspx`, która jest powiązana z `Site.master` stroną wzorcową. Visual Web Developer tworzy Tę stronę przy użyciu następujących znaczników deklaratywnych:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample1.aspx)]
 
-Wprowadź odpowiednią zawartość do formantu zawartości odwołujące się do `MainContent` kontrolek ContentPlaceHolder (`Content2`). Następnie dodaj następujący kod do `Content3` formantu zawartości (która odwołuje się do `LeftColumnContent` ContentPlaceHolder):
+Wprowadź zawartość do kontrolki zawartości odwołującej się do `MainContent` ContentPlaceHolders (`Content2`). Następnie Dodaj następujący znacznik do kontrolki zawartości `Content3` (która odwołuje się do `LeftColumnContent` ContentPlaceHolder):
 
 [!code-html[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample2.html)]
 
-Po dodaniu ten kod znaczników, odwiedź stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 3, znaczniki są umieszczane w `Content3` formant zawartości jest wyświetlany w lewej kolumnie poniżej sekcji wiadomości (zakreślony na czerwono). Znaczniki są umieszczane w `Content2` jest wyświetlany w prawej części strony (w kółkach w kolorze niebieskim).
+Po dodaniu tego znacznika odwiedź stronę za pomocą przeglądarki. Jak pokazano na rysunku 3, znacznik umieszczony w `Content3` formancie zawartości zostanie wyświetlony w lewej kolumnie poniżej sekcji wiadomości (w kółku na czerwoną). Znacznik umieszczony w `Content2` jest wyświetlany w prawej części strony (koło w kolorze niebieskim).
 
-[![Lewa kolumna zawiera teraz zawartości dla strony poniżej sekcji wiadomości](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
+[![lewa kolumna zawiera teraz zawartość specyficzną dla strony poniżej sekcji wiadomości](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
 
-**Rysunek 03**: Po lewej stronie kolumny teraz obejmuje specyficzne dla strony zawartości pod sekcja wiadomości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))
+**Ilustracja 03**: lewa kolumna zawiera teraz zawartość specyficzną dla strony poniżej sekcji wiadomości ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))
 
-### <a name="defining-content-in-existing-content-pages"></a>Definiowanie zawartości w istniejących stron zawartości
+### <a name="defining-content-in-existing-content-pages"></a>Definiowanie zawartości na istniejących stronach zawartości
 
-Automatyczne tworzenie nowej strony zawartości zawiera kontrolki ContentPlaceHolder zapoczątkowany w kroku 1. Ale dwóch istniejących stron zawartości — `About.aspx` i `Default.aspx` — nie ma zawartości kontrolki dla `LeftColumnContent` ContentPlaceHolder. Aby określić zawartość dla tego elementu ContentPlaceHolder na tych dwóch istniejących stron, musimy dodać kontrolkę zawartości, określić główną przyczynę.
+Utworzenie nowej strony zawartości automatycznie zawiera formant ContentPlaceHolder dodany w kroku 1. Jednak nasze dwie istniejące strony zawartości — `About.aspx` i `Default.aspx` — nie mają kontroli zawartości dla `LeftColumnContent` ContentPlaceHolder. Aby określić zawartość dla tego elementu ContentPlaceHolder na tych dwóch istniejących stronach, musimy dodać wypróbujemy kontrolki zawartości.
 
-W przeciwieństwie do większości formantów sieci Web platformy ASP.NET Visual przybornika dla deweloperów sieci Web nie ma element zawartości formantu. Firma Microsoft ręcznie wpisać w oznaczeniu deklaracyjnym formantu zawartości w widoku źródła, ale łatwiej i szybciej podejściem jest użycie widoku projektu. Otwórz `About.aspx` strony, a następnie przełączyć do widoku projektu. Jak rysunek 4 przedstawia, `LeftColumnContent` ContentPlaceHolder pojawia się w widoku Projekt; Jeśli przesuniesz wskaźnik myszy nad nią odczytuje tytuł widoczny: "LeftColumnContent (Master)." Włączenie gałęzią "główną" w tytule oznacza, że są nie formantu zawartości, które zostały zdefiniowane na stronie dla tego elementu ContentPlaceHolder. Jeśli istnieje kontrolkę zawartości dla ContentPlaceHolder, tak jak w przypadku `MainContent`, odczyta tytułu: "*ContentPlaceHolderID* (niestandardowy)."
+W przeciwieństwie do większości ASP.NETych formantów sieci Web, Przybornik Visual Web Developer nie obejmuje elementu kontroli zawartości. Możemy ręcznie wpisywać znaczniki deklaratywne kontrolki zawartości do widoku źródła, ale łatwiejszym i szybszym podejściem jest użycie widok Projekt. Otwórz stronę `About.aspx` i przejdź do widok Projekt. Jak pokazano na rysunku 4, `LeftColumnContent` ContentPlaceHolder pojawia się w widok Projekt; Po umieszczeniu nad nim wskaźnika myszy wyświetlany jest napis "LeftColumnContent (Master)". Włączenie elementu "Master" w tytule oznacza, że na stronie tego elementu ContentPlaceHolder nie zdefiniowano żadnej kontrolki zawartości. Jeśli istnieje formant zawartości dla elementu ContentPlaceHolder, jak w przypadku `MainContent`, tytuł zostanie odczytany: "*ContentPlaceHolderID* (Custom)".
 
-Aby dodać kontrolkę zawartości dla `LeftColumnContent` ContentPlaceHolder do `About.aspx`, rozwiń tagu inteligentnego ContentPlaceHolder i kliknij link, Utwórz niestandardowe zawartość.
+Aby dodać kontrolkę zawartości dla `LeftColumnContent` ContentPlaceHolder do `About.aspx`, rozwiń tag inteligentny "ContentPlaceHolder" i kliknij link Utwórz zawartość niestandardową.
 
-[![Widok projektu About.aspx pokazuje LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
+[![widok projektu dla elementu about. aspx zawiera LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
 
-**Rysunek 04**: Widok projektu `About.aspx` pokazuje `LeftColumnContent` ContentPlaceHolder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image12.png))
+**Ilustracja 04**: widok projektu dla `About.aspx` pokazuje `LeftColumnContent` ContentPlaceHolder (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image12.png))
 
-Kliknięcie linku Utwórz niestandardowy zawartość generuje niezbędne zawartości kontrolki na stronie i ustawia jego `ContentPlaceHolderID` właściwość ContentPlaceHolder `ID`. Na przykład kliknięcie linku do tworzenia niestandardowych zawartości `LeftColumnContent` regionu w `About.aspx` dodaje następujące oznaczeniu deklaracyjnym strony:
+Kliknięcie linku Utwórz zawartość niestandardową generuje niezbędną kontrolkę zawartości na stronie i ustawia jej Właściwość `ContentPlaceHolderID` na `ID`elementu ContentPlaceHolder. Na przykład kliknięcie linku Utwórz zawartość niestandardową dla `LeftColumnContent` regionu w `About.aspx` dodaje do strony następujący znacznik deklaratywny:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample3.aspx)]
 
-### <a name="omitting-content-controls"></a>Pominięcie formanty zawartości
+### <a name="omitting-content-controls"></a>Pomijanie kontrolek zawartości
 
-Program ASP.NET nie wymaga, że wszystkie strony zawartości zawierają formanty zawartości dla każdego elementu ContentPlaceHolder zdefiniowane na stronie głównej. Jeśli kontrolki zawartości zostanie pominięty, aparat platformy ASP.NET używa znaczników zdefiniowane ContentPlaceHolder na stronie głównej. Ten kod znaczników jest określany jako ContentPlaceHolder *domyślnej zawartości* co jest przydatne w scenariuszach, w którym zawartość dla niektórych region jest wspólne dla większości stron, ale musi można dostosować dla niewielkiej liczby stron. Krok 3 przedstawiono Określanie domyślnej zawartości na stronie głównej.
+ASP.NET nie wymaga, aby wszystkie strony zawartości obejmowały kontrolki zawartości dla każdego i każdego elementu ContentPlaceHolder zdefiniowanego na stronie wzorcowej. Jeśli formant zawartości zostanie pominięty, aparat ASP.NET używa znacznika zdefiniowanego w elemencie ContentPlaceHolder na stronie wzorcowej. Ten znacznik jest określany jako *Domyślna zawartość* elementu ContentPlaceHolder i jest użyteczny w scenariuszach, w których zawartość dla pewnego regionu jest wspólna między większością stron, ale należy ją dostosować w przypadku niewielkiej liczby stron. Krok 3. Eksplorowanie określania zawartości domyślnej na stronie wzorcowej.
 
-Obecnie `Default.aspx` zawiera dwie kontrolki zawartości dla `head` i `MainContent` kontrolek ContentPlaceHolder; nie ma zawartości kontrolki dla `LeftColumnContent`. W związku z tym, kiedy `Default.aspx` jest renderowany `LeftColumnContent` firmy ContentPlaceHolder i zawartość domyślna jest używana. Ponieważ mamy do definiowania zawartości domyślny dla tego elementu ContentPlaceHolder jeszcze efektem sieciowym jest czy żadnych znaczników jest emitowane dla tego regionu. Aby sprawdzić, czy ten problem, odwiedź stronę `Default.aspx` za pośrednictwem przeglądarki. Jak pokazano na rysunku 5, żadnych znaczników jest emitowane w lewej kolumnie poniżej sekcji wiadomości.
+Obecnie `Default.aspx` zawiera dwie kontrolki zawartości dla `head` i `MainContent` elementów ContentPlaceHolders; nie ma kontrolki zawartości dla `LeftColumnContent`. W związku z tym, gdy `Default.aspx` jest renderowany, zostanie użyta domyślna zawartość elementu ContentPlaceHolder `LeftColumnContent`. Ponieważ jeszcze nie zdefiniowano żadnej domyślnej zawartości dla tego elementu ContentPlaceHolder, efektem netto jest to, że żadne znaczniki nie są emitowane dla tego regionu. Aby sprawdzić to zachowanie, odwiedź stronę `Default.aspx` za pomocą przeglądarki. Jak pokazano na rysunku 5, żadne znaczniki nie są emitowane w lewej kolumnie poniżej sekcji wiadomości.
 
-[![Żadna zawartość nie jest renderowany LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
+[![nie jest renderowana żadna zawartość dla LeftColumnContent ContentPlaceHolder](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
 
-**Rysunek 05**: Żadna zawartość nie jest renderowany `LeftColumnContent` ContentPlaceHolder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))
+**Ilustracja 05**: nie jest renderowana żadna zawartość dla `LeftColumnContent` ContentPlaceHolder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))
 
-## <a name="step-3-specifying-default-content-in-the-master-page"></a>Krok 3. Określanie domyślnej zawartości na stronie wzorcowej
+## <a name="step-3-specifying-default-content-in-the-master-page"></a>Krok 3. Określanie zawartości domyślnej na stronie wzorcowej
 
-Niektóre projekty witryny sieci Web obejmują regionu, w których zawartość jest taka sama dla wszystkich stron w witrynie, z wyjątkiem co najmniej dwa wyjątki. Należy wziąć pod uwagę witryny sieci Web, która obsługuje konta użytkowników. Witryny sieci wymaga strony logowania, w którym osoby odwiedzające mogą wprowadzać poświadczeń do logowania do witryny. Aby przyspieszyć proces logowania, projektantom witryn sieci Web mogą zawierać pola tekstowe nazwy użytkownika i hasła w lewym górnym rogu każdej strony, aby zezwolić użytkownikom na logowanie bez konieczności jawnego znajduje się na stronie logowania. Te pola tekstowe nazwy użytkownika i hasła są przydatne w większości stron, są one nadmiarowe na stronie logowania, która już zawiera pola tekstowe, aby uzyskać poświadczenia użytkownika.
+Niektóre projekty witryny sieci Web obejmują region, którego zawartość jest taka sama dla wszystkich stron w lokacji, z wyjątkiem jednego lub dwóch wyjątków. Weź pod uwagę witrynę sieci Web, która obsługuje konta użytkowników. Ta lokacja wymaga strony logowania, na której osoby odwiedzające mogą wprowadzić swoje poświadczenia, aby zalogować się do witryny. Aby przyspieszyć proces logowania, Projektant witryny sieci Web może zawierać pola tekstowe username i Password w lewym górnym rogu każdej strony, aby umożliwić użytkownikom logowanie się bez konieczności jawnego odwiedzenia strony logowania. Chociaż te pola tekstowe nazwy użytkownika i hasła są przydatne na większości stron, są nadmiarowe na stronie logowania, która zawiera już pola tekstowe dla poświadczeń użytkownika.
 
-Aby zaimplementować ten projekt, można utworzyć kontrolki ContentPlaceHolder w lewym górnym rogu strony wzorcowej. Każda strona wymagana w celu wyświetlenia pola tekstowe nazwy użytkownika i hasła w jego lewym górnym rogu będzie utworzyć kontrolkę zawartości dla tego elementu ContentPlaceHolder, a następnie Dodaj interfejs niezbędne. Strony logowania, z drugiej strony, albo może pominąć Dodawanie formantu zawartości dla tego elementu ContentPlaceHolder lub utworzyć zawartość kontrolki z żadnych znaczników zdefiniowane. Wadą tego podejścia jest to, że mamy Pamiętaj, aby dodać pola tekstowe nazwy użytkownika i hasła na każdej stronie, które możemy dodać do lokacji (z wyjątkiem na stronie logowania). Jest to pytanie o problemy. Jesteśmy może zapomniano dodać te pola tekstowe do strony lub dwóch, lub co gorsza, firma Microsoft może nie implementuje interfejsu poprawnie (prawdopodobnie dodanie tylko jednego pola tekstowego zamiast dwóch).
+Aby zaimplementować ten projekt, można utworzyć formant ContentPlaceHolder w lewym górnym rogu strony wzorcowej. Każda Strona, która musi wyświetlić pola tekstowe nazwy użytkownika i hasła w lewym górnym rogu, utworzy kontrolkę zawartości dla tego elementu ContentPlaceHolder i doda wymagany interfejs. Na stronie logowania można pominąć Dodawanie kontrolki zawartości dla tego elementu ContentPlaceHolder lub utworzyć kontrolkę zawartości bez zdefiniowanego znacznika. Minusem tego podejścia polega na tym, że należy pamiętać, aby dodać pola tekstowe username i Password do każdej strony, którą dodamy do witryny (z wyjątkiem strony logowania). Jest to prośba o problemy. Najprawdopodobniej zapomnimy dodać te pola tekstowe do strony lub dwóch lub, co jest bardziej niekorzystniej, możemy nie zaimplementować poprawnie interfejsu (może to spowodować dodanie tylko jednego pola tekstowego zamiast dwóch).
 
-Lepszym rozwiązaniem jest zdefiniowanie pola tekstowe nazwy użytkownika i hasła jako ContentPlaceHolder domyślnej zawartości. Dzięki temu tylko należy zastąpić zawartości tej domyślnej tych kilku stronach, które nie są wyświetlane pola tekstowe nazwy użytkownika i hasła (logowanie strona, na przykład). Aby zilustrować Określanie domyślnej zawartości kontrolki ContentPlaceHolder, Przyjrzyjmy implementować scenariusza omówione tylko.
+Lepszym rozwiązaniem jest zdefiniowanie pól tekstowych username i Password jako zawartości domyślnej elementu ContentPlaceHolder. Dzięki temu wystarczy przesłonić tę zawartość domyślną na kilku stronach, które nie wyświetlają pól tekstowych Nazwa użytkownika i hasło (na przykład strona logowania. Aby zilustrować Określanie zawartości domyślnej dla kontrolki ContentPlaceHolder, zaimplementujmy scenariusz opisany poniżej.
 
 > [!NOTE]
-> W pozostałej części tego samouczka aktualizuje naszej witryny sieci Web, aby uwzględnić interfejs logowania w lewej kolumnie dla wszystkich stron, ale do strony logowania. Jednak w tym samouczku nie analizuje sposób konfigurowania witryny sieci Web do obsługi kont użytkowników. Aby uzyskać więcej informacji na ten temat, zobacz mój [formy uwierzytelniania, autoryzacji, konta użytkowników i ról](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) samouczków.
+> W pozostałej części tego samouczka zostanie zaktualizowana witryna sieci Web w celu uwzględnienia interfejsu logowania w lewej kolumnie dla wszystkich stron, ale na stronie logowania. Ten samouczek nie zawiera jednak sposobu konfigurowania witryny sieci Web do obsługi kont użytkowników. Aby uzyskać więcej informacji na temat tego tematu, zobacz moje samouczki [uwierzytelnianie, autoryzacja, konta użytkowników i role](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) .
 
-### <a name="adding-a-contentplaceholder-and-specifying-its-default-content"></a>Dodawanie ContentPlaceHolder i określanie jego domyślnej zawartości
+### <a name="adding-a-contentplaceholder-and-specifying-its-default-content"></a>Dodawanie elementu ContentPlaceHolder i określanie jego zawartości domyślnej
 
-Otwórz `Site.master` strony wzorcowej i Dodaj następujący kod do lewej kolumnie między `DateDisplay` etykiety i lekcje sekcji:
+Otwórz stronę wzorcową `Site.master` i Dodaj następujące znaczniki do lewej kolumny między sekcją `DateDisplay` etykiety i lekcji:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample4.aspx)]
 
-Po dodaniu ten kod znaczników widoku projektu strony wzorcowej powinien wyglądać podobnie jak rysunek 6.
+Po dodaniu tego znacznika widok Projekt strony głównej powinna wyglądać podobnie do rysunku 6.
 
-[![Strona wzorcowa zawiera kontrolki logowania](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
+[![Strona wzorcowa zawiera kontrolkę logowania](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
 
-**Rysunek 06**: Strona wzorcowa zawiera kontrolkę logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))
+**Ilustracja 06**. Strona wzorcowa zawiera kontrolkę logowania ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))
 
-Ta ContentPlaceHolder `QuickLoginUI`, zawiera formant Web zaloguj się jako jego domyślnej zawartości. Kontrolka Login wyświetla interfejsu użytkownika, który monituje użytkownika dla nazwy użytkownika i hasła oraz przycisk Zaloguj. Po kliknięciu przycisk Zaloguj, kontrolka Login wewnętrznie weryfikuje poświadczenia użytkownika przy użyciu interfejsu API członkostwa. Aby użyć tej kontrolki logowania w praktyce, następnie należy skonfigurować witrynę w taki sposób, aby użyć członkostwa. W tym temacie wykracza poza zakres tego samouczka; można znaleźć Moje [formy uwierzytelniania, autoryzacji, konta użytkowników i ról](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) samouczki, aby uzyskać więcej informacji na temat tworzenia aplikacji sieci web, która obsługuje konta użytkowników.
+Ten element ContentPlaceHolder `QuickLoginUI`ma kontrolkę sieci Web logowania jako domyślną zawartość. Kontrolka logowania wyświetla interfejs użytkownika, który będzie monitował użytkownika o nazwę użytkownika i hasło oraz przycisk Zaloguj. Po kliknięciu przycisku Zaloguj, kontrola logowania wewnętrznie weryfikuje poświadczenia użytkownika względem interfejsu API członkostwa. Aby użyć tej kontrolki logowania w programie, należy skonfigurować witrynę do korzystania z członkostwa. Ten temat wykracza poza zakres tego samouczka; Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci Web, która obsługuje konta użytkowników, zobacz moje samouczki [uwierzytelnianie, autoryzacja, konta użytkowników i role](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) .
 
-Możesz dostosować zachowania i wyglądu kontrolki logowania. Ustawiam dwie właściwości: `TitleText` i `FailureAction`. `TitleText` Wartości właściwości, która domyślnie "Log In", jest wyświetlany w górnej części kontrolki interfejsu użytkownika. Tak, aby wyświetlała tekst "Sign In" jako mają jest ustawić tę właściwość `<h3>` elementu. `FailureAction` Właściwość wskazuje co należy zrobić, jeśli poświadczenia użytkownika są nieprawidłowe. Domyślnie wartość `Refresh`, która pozostawia użytkownika na tej samej stronie i wyświetla komunikat o błędzie w ramach kontrolka Login. Po zmianie jego `RedirectToLoginPage`, która wysyła do strony logowania w przypadku nieprawidłowe poświadczenia użytkownika. Chcę wysłać użytkownika do strony logowania, gdy użytkownik próbuje się zalogować z innej strony, ale kończy się niepowodzeniem, ponieważ na stronie logowania może zawierać dodatkowe informacje i opcje, które nie będzie łatwo mieści się w lewej kolumnie. Na przykład na stronie logowania może obejmować opcje, aby odzyskać zapomniane hasło lub Utwórz nowe konto.
+Możesz dostosowywać zachowanie lub wygląd kontrolki logowania. Mam ustawioną dwie właściwości: `TitleText` i `FailureAction`. Wartość właściwości `TitleText`, która domyślnie jest "log in", jest wyświetlana u góry interfejsu użytkownika formantu. Mam ustawioną tę właściwość, aby wyświetlić tekst "Zaloguj się" jako element `<h3>`. Właściwość `FailureAction` wskazuje, co należy zrobić, jeśli poświadczenia użytkownika są nieprawidłowe. Domyślnie jest to wartość `Refresh`, która pozostawia użytkownika na tej samej stronie i wyświetla komunikat o niepowodzeniu w obrębie formantu logowania. Został zmieniony na `RedirectToLoginPage`, co spowoduje wysłanie użytkownika do strony logowania w przypadku nieprawidłowych poświadczeń. Wolisz wysłać użytkownika do strony logowania, gdy użytkownik próbuje zalogować się z innej strony, ale kończy się niepowodzeniem, ponieważ strona logowania może zawierać dodatkowe instrukcje i opcje, które nie mogą być łatwo dopasowane do lewej kolumny. Na przykład strona logowania może zawierać opcje umożliwiające pobranie zapomnianego hasła lub utworzenie nowego konta.
 
-### <a name="creating-the-login-page-and-overriding-the-default-content"></a>Tworzenie strony logowania i zastąpienie domyślnej zawartości
+### <a name="creating-the-login-page-and-overriding-the-default-content"></a>Tworzenie strony logowania i zastępowanie zawartości domyślnej
 
-Za pomocą strony wzorcowej pełną naszym kolejnym krokiem jest utworzenie strony logowania. Dodawanie strony ASP.NET do katalogu głównego witryny o nazwie `Login.aspx`, wiążące go do `Site.master` strony wzorcowej. To spowoduje utworzenie strony z cztery formanty zawartości, jednej dla każdego z kontrolek ContentPlaceHolder zdefiniowane w `Site.master`.
+Po zakończeniu pracy ze stroną wzorcową następnym krokiem jest utworzenie strony logowania. Dodaj stronę ASP.NET do katalogu głównego witryny o nazwie `Login.aspx`, a następnie powiąż ją ze stroną wzorcową `Site.master`. Spowoduje to utworzenie strony z czterema kontrolkami zawartości, jeden dla każdego elementu ContentPlaceHolders zdefiniowanego w `Site.master`.
 
-Dodawanie kontrolki logowania do `MainContent` formantu zawartości. Podobnie, możesz dodać dowolną zawartość do `LeftColumnContent` regionu. Jednak pamiętaj pozostawić formantu zawartości dla `QuickLoginUI` ContentPlaceHolder puste. Pozwoli to zagwarantować, logowania, formant nie jest wyświetlany w lewej kolumnie strony logowania.
+Dodaj kontrolkę login do kontrolki zawartości `MainContent`. Ponadto możesz bezpłatnie dodać dowolną zawartość do regionu `LeftColumnContent`. Należy jednak pamiętać o pozostawieniu formantu zawartości dla `QuickLoginUI` ContentPlaceHolder puste. Dzięki temu formant logowania nie zostanie wyświetlony w lewej kolumnie strony logowania.
 
-Po zdefiniowaniu zawartość `MainContent` i `LeftColumnContent` regionów, w oznaczeniu deklaracyjnym strony logowania powinien wyglądać podobnie do następującego:
+Po zdefiniowaniu zawartości dla regionów `MainContent` i `LeftColumnContent`, znaczniki deklaratywne strony logowania powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample5.aspx)]
 
-Rysunek nr 7 przedstawia tej strony, podczas wyświetlania za pośrednictwem przeglądarki. Ponieważ ta strona określa kontrolkę zawartości dla `QuickLoginUI` ContentPlaceHolder, zastępuje ona domyślnej zawartości określonego na stronie głównej. Efektem sieciowym jest czy kontrolka Login wyświetlane na liście projektu strony wzorcowej (patrz rysunek 6) nie renderowania widoku na tej stronie.
+Rysunek 7 przedstawia Tę stronę, gdy oglądasz za pomocą przeglądarki. Ponieważ ta strona określa kontrolkę zawartości dla `QuickLoginUI` ContentPlaceHolder, zastępuje domyślną zawartość określoną na stronie wzorcowej. Efektem netto jest to, że kontrolka logowania wyświetlana na widok Projekt stronie wzorcowej (patrz rysunek 6) nie jest renderowana na tej stronie.
 
-[![Na stronie logowania Represses QuickLoginUI ContentPlaceHolder domyślnej zawartości](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
+[![na stronie logowania zostanie wyciśnięty QuickLoginUI domyślna zawartość elementu ContentPlaceHolder](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
 
-**Rysunek 07**: Represses strony logowania `QuickLoginUI` firmy ContentPlaceHolder domyślnej zawartości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))
+**Ilustracja 07**: Strona logowania umożliwia ponowne naciśnięcie `QuickLoginUI` domyślnej zawartości elementu ContentPlaceHolder ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))
 
-### <a name="using-the-default-content-in-new-pages"></a>Przy użyciu domyślnej zawartości w nowych stron
+### <a name="using-the-default-content-in-new-pages"></a>Używanie zawartości domyślnej na nowych stronach
 
-Chcemy wyświetlić kontrolki logowania w lewej kolumnie dla wszystkich stron z wyjątkiem strony logowania. Aby to osiągnąć, stron zawartości z wyjątkiem strony logowania należy pominąć znak kontrolkę zawartości dla `QuickLoginUI` ContentPlaceHolder. Pomijając kontrolkę zawartości, zawartość domyślna ContentPlaceHolder w zamian zostanie użyta.
+Chcemy wyświetlić formant logowania w lewej kolumnie dla wszystkich stron oprócz strony logowania. Aby to osiągnąć, wszystkie strony zawartości z wyjątkiem strony logowania powinny pominąć kontrolkę zawartości dla `QuickLoginUI` ContentPlaceHolder. Pomijając kontrolkę zawartości, zamiast niej zostanie użyta domyślna zawartość elementu ContentPlaceHolder.
 
-Istniejących stron zawartości — `Default.aspx`, `About.aspx`, i `MultipleContentPlaceHolders.aspx` — nie zawierają kontrolki zawartości dla `QuickLoginUI` ponieważ zostały utworzone przed dodaliśmy tę kontrolkę ContentPlaceHolder strony wzorcowej. Dlatego te istniejących stron nie są do zaktualizowania. Jednak nowe strony dodane do witryny sieci Web obejmują formantu zawartości dla `QuickLoginUI` ContentPlaceHolder domyślnie. Możemy więc Pamiętaj, aby usunąć te kontrolki zawartości zawsze możemy dodać nową stronę zawartości (chyba że chcemy zastąpić ContentPlaceHolder domyślnej zawartości, jak w przypadku na stronie logowania).
+Nasze istniejące strony zawartości — `Default.aspx`, `About.aspx`i `MultipleContentPlaceHolders.aspx` — nie Uwzględniaj kontrolki zawartości dla `QuickLoginUI`, ponieważ zostały one utworzone przed dodaniem tej kontrolki ContentPlaceHolder do strony wzorcowej. W związku z tym istniejące strony nie wymagają aktualizacji. Jednak nowe strony dodane do witryny sieci Web domyślnie zawierają kontrolkę zawartości dla `QuickLoginUI` ContentPlaceHolder. W związku z tym należy pamiętać, aby usunąć te kontrolki zawartości przy każdym dodawaniu nowej strony zawartości (chyba że chcemy zastąpić domyślną zawartość elementu ContentPlaceHolder, tak jak w przypadku strony logowania).
 
-Aby usunąć formant zawartości, można ręcznie usunąć jego oznaczeniu deklaracyjnym z widoku źródła lub, w widoku Projekt, wybierz domyślną linku zawartości głównego w tagu inteligentnego. Każda z tych metod usuwa formantu zawartości ze strony i tworzy net taki sam efekt.
+Aby usunąć kontrolkę zawartości, można ręcznie usunąć jej Tagi deklaracyjne z widoku źródła lub z widok Projekt wybrać łącze do zawartości wzorca domyślnego z jego tagu inteligentnego. Jedno z metod usuwa kontrolkę zawartości ze strony i daje ten sam efekt netto.
 
-Rysunek 8 przedstawia `Default.aspx` podczas wyświetlania za pośrednictwem przeglądarki. Pamiętamy `Default.aspx` ma tylko dwie kontrolki zawartości określone w oznaczeniu deklaracyjnym — jeden dla `head` i jeden dla `MainContent`. W wyniku zawartości dla domyślnego `LeftColumnContent` i `QuickLoginUI` kontrolek ContentPlaceHolder są wyświetlane.
+Rysunek 8 przedstawia `Default.aspx`, gdy jest wyświetlany za pomocą przeglądarki. Funkcja odwoływania, która `Default.aspx` ma tylko dwie kontrolki zawartości określone w jego deklaratywnym znaczniku — jeden dla `head` i jeden dla `MainContent`. W efekcie zostanie wyświetlona domyślna zawartość dla `LeftColumnContent` i `QuickLoginUI` Elementy ContentPlaceHolders.
 
-[![Domyślnie zawartość LeftColumnContent i kontrolek ContentPlaceHolder QuickLoginUI są wyświetlane](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
+[![zostanie wyświetlona domyślna zawartość dla elementów ContentPlaceHolder LeftColumnContent i QuickLoginUI](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
 
-**Rysunek 08**: Domyślnie zawartość `LeftColumnContent` i `QuickLoginUI` kontrolek ContentPlaceHolder są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image24.png))
+**Ilustracja 08**: zostanie wyświetlona domyślna zawartość dla `LeftColumnContent` i `QuickLoginUI` Elementy ContentPlaceHolders ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](multiple-contentplaceholders-and-default-content-cs/_static/image24.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Model stronę wzorcową platformy ASP.NET pozwala na dowolną liczbę kontrolek ContentPlaceHolder na stronie głównej. Co to jest więcej, kontrolek ContentPlaceHolder obejmują zawartość domyślna, która jest emitowane w przypadku, że istnieje bez odpowiedniej zawartości kontrolki na stronie zawartości. W tym samouczku widzieliśmy, jak dołączać dodatkowe elementy sterujące ContentPlaceHolder na stronie głównej i jak zdefiniować kontrolek zawartości do tych nowych kontrolek ContentPlaceHolder w istniejących i nowych stron ASP.NET. Również przyjrzeliśmy się określanie ustawień domyślnych zawartość ContentPlaceHolder, co jest przydatne w scenariuszach, gdzie tylko mniejszości stron w zakresie dostosowywania, w przeciwnym razie standaryzowane zawartości w danym regionie.
+Model strony głównej ASP.NET umożliwia użycie dowolnej liczby elementów ContentPlaceHolder na stronie wzorcowej. Co więcej, Elementy ContentPlaceHolders zawierają zawartość domyślną, która jest emitowana w przypadku braku odpowiedniej kontroli zawartości na stronie zawartości. W tym samouczku przedstawiono sposób dołączania dodatkowych kontrolek ContentPlaceHolder na stronie wzorcowej i definiowania kontrolek zawartości dla tych nowych elementów ContentPlaceHolder na nowych i istniejących stronach ASP.NET. Podano również, jak określamy domyślną zawartość w elemencie ContentPlaceHolder, co jest przydatne w scenariuszach, w których tylko niewielka liczba stron musi dostosowywać zawartość znormalizowaną w inny sposób w określonym regionie.
 
-W następnym samouczku zajmiemy się `head` ContentPlaceHolder bardziej szczegółowo, widzisz jak sposób deklaratywny i programowy zdefiniować tytułu, tagów meta i innych nagłówków HTML na podstawie strony strona.
+W następnym samouczku sprawdzimy `head` element ContentPlaceHolder w bardziej szczegółowy sposób, ale widzisz sposób deklaratywny i programistyczny definiowania tytułu, tagów Meta i innych nagłówków HTML na zasadzie strony.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu ASP/ASP.NET książki i założyciel 4GuysFromRolla.com pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog znajduje się na [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu książek ASP/ASP. NET Books i założyciel of 4GuysFromRolla.com, pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 3,5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott można uzyskać w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
-### <a name="special-thanks-to"></a>Specjalne podziękowania dla
+### <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Suchi Banerjee. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został suchi Banerjee. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-a-site-wide-layout-using-master-pages-cs.md)

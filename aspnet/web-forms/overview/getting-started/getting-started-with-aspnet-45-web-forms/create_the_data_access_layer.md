@@ -1,185 +1,185 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
-title: Tworzenie warstwy dostępu do danych | Dokumentacja firmy Microsoft
+title: Tworzenie warstwy dostępu do danych | Microsoft Docs
 author: Erikre
-description: Tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for firma Microsoft...
+description: Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 61a9dae22efed9cb7e8957a8c131396cbdeea3c9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0fcf050474a57be9ed53ec0783a6d6b7dde2bf4c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131356"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74575747"
 ---
 # <a name="create-the-data-access-layer"></a>Tworzenie warstwy dostępu do danych
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-[Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Pobierz program Wingtip zabawki (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
+> Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013 dla sieci Web. Projekt Visual Studio 2013 [z C# kodem źródłowym](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny do tej serii samouczków.
 
-W tym samouczku opisano sposób tworzenia, dostęp i przeglądanie danych z bazy danych przy użyciu formularzy sieci Web ASP.NET i Entity Framework Code First. Ten samouczek opiera się na poprzednim samouczku "Tworzenie projektu" i jest częścią serii samouczków o nazwie Wingtip zabawki Store. Po ukończeniu tego samouczka, dlatego zostanie utworzone grupy klas dostępu do danych, które znajdują się w *modeli* folderu projektu.
+W tym samouczku opisano sposób tworzenia, uzyskiwania dostępu i przeglądania danych z bazy danych przy użyciu formularzy sieci Web ASP.NET i Code First Entity Framework. Ten samouczek kompiluje się w poprzednim samouczku "Tworzenie projektu" i jest częścią serii samouczków dotyczących sklepu Wingtip. Po ukończeniu tego samouczka utworzysz grupę klas dostępu do danych, które znajdują się w folderze *modele* projektu.
 
-## <a name="what-youll-learn"></a>Zawartość:
+## <a name="what-youll-learn"></a>Dowiesz się:
 
-- Jak tworzyć modele danych.
-- Jak zainicjować i Inicjowanie bazy danych.
+- Jak utworzyć modele danych.
+- Jak zainicjować i wypełniać bazę danych.
 - Jak zaktualizować i skonfigurować aplikację do obsługi bazy danych.
 
-### <a name="these-are-the-features-introduced-in-the-tutorial"></a>Poniżej przedstawiono funkcje wprowadzone w tym samouczku:
+### <a name="these-are-the-features-introduced-in-the-tutorial"></a>Oto funkcje wprowadzone w samouczku:
 
-- Entity Framework Code pierwszy
+- Entity Framework Code First
 - LocalDB
 - Adnotacje danych
 
 ## <a name="creating-the-data-models"></a>Tworzenie modeli danych
 
-[Entity Framework](https://msdn.microsoft.com/data/aa937723) to struktura mapowania obiektowo relacyjny (ORM). Dzięki temu można pracować z danymi relacyjnymi jako obiekty, eliminując większość kodu dostępu do danych, który będzie zazwyczaj należy napisać. Używający narzędzia Entity Framework, możesz wykonywać zapytania za pomocą [LINQ](https://msdn.microsoft.com/library/bb397926.aspx), a następnie pobrać i manipulowanie danymi jako silnie typizowanych obiektów. LINQ zapewnia wzorce wykonywania kwerend i aktualizowania danych. Używający narzędzia Entity Framework pozwala skupić się na tworzeniu części aplikacji, zamiast koncentrowania się na dane podstawowe informacje dotyczące dostępu. W dalszej części tej serii samouczków pokażemy sposób użycia danych do wypełnienia zapytań nawigacji i produktu.
+[Entity Framework](https://msdn.microsoft.com/data/aa937723) to struktura mapowania obiektów (ORM). Umożliwia ona korzystanie z danych relacyjnych jako obiektów, eliminując większość kodu dostępu do danych, który zwykle jest potrzebny do zapisu. Za pomocą Entity Framework można wydać zapytania przy użyciu [LINQ](https://msdn.microsoft.com/library/bb397926.aspx), a następnie pobrać i manipulować danymi jako obiektami silnie wpisaną. LINQ zawiera wzorce do wykonywania zapytań i aktualizowania danych. Korzystanie z Entity Framework pozwala skupić się na tworzeniu reszty aplikacji, a nie skoncentrowaniu się na podstawowych podstawach dostępu do danych. W dalszej części tej serii samouczków pokazano, jak używać danych w celu wypełnienia nawigacji i zapytań dotyczących produktów.
 
-Entity Framework obsługuje paradygmat programowania, o nazwie *Code First*. Kod pozwala najpierw zdefiniować swoje modele danych przy użyciu klas. Klasa to konstrukcja, która pozwala na tworzenie własnych typach niestandardowych przez grupowanie zmienne innych typów, metod i zdarzeń. Można mapowania klas istniejącą bazę danych lub ich używać, aby wygenerować bazę danych. W tym samouczku utworzysz modele danych przez napisanie klasy modelu danych. Następnie będzie umożliwiają Entity Framework, utworzyć bazę danych na bieżąco z tych nowych klas.
+Entity Framework obsługuje model programistyczny o nazwie *Code First*. Code First umożliwia definiowanie modeli danych przy użyciu klas. Klasa to konstrukcja, która umożliwia tworzenie własnych typów niestandardowych przez grupowanie zmiennych innych typów, metod i zdarzeń. Można mapować klasy do istniejącej bazy danych lub użyć ich do wygenerowania bazy danych. W tym samouczku utworzysz modele danych przez zapisanie klas modelu danych. Następnie można Entity Framework utworzyć bazę danych na bieżąco z tych nowych klas.
 
-Rozpocznie się przez utworzenie klas jednostek, które definiują modeli danych dla aplikacji formularzy sieci Web. Następnie utworzysz klasy kontekstu, który zarządza klas jednostek i zapewnia dostęp do danych w bazie danych. Zostanie również utworzony klasy inicjatora, który będzie używany do wypełniania bazy danych.
+Zacznij od utworzenia klas jednostek, które definiują modele danych dla aplikacji formularzy sieci Web. Następnie utworzysz klasę kontekstu, która zarządza klasami jednostek i zapewnia dostęp do danych w bazie danych. Utworzysz również klasę inicjatora, która będzie używana do wypełniania bazy danych.
 
-### <a name="entity-framework-and-references"></a>Entity Framework i odwołań
+### <a name="entity-framework-and-references"></a>Entity Framework i odwołania
 
-Domyślnie program Entity Framework jest dołączana w przypadku tworzenia nowego **aplikacji sieci Web ASP.NET** przy użyciu **formularzy sieci Web** szablonu. Entity Framework można zainstalowane, odinstalowane i zaktualizowane jako pakiet NuGet.
+Domyślnie Entity Framework jest uwzględniana podczas tworzenia nowej **aplikacji sieci web ASP.NET** przy użyciu szablonu **formularzy sieci Web** . Entity Framework można instalować, odinstalowywać i aktualizować jako pakiet NuGet.
 
-Ten pakiet NuGet obejmuje następujące elementy **środowiska uruchomieniowego** zespoły w obrębie projektu:
+Ten pakiet NuGet obejmuje następujące zestawy **środowiska uruchomieniowego** w ramach projektu:
 
-- EntityFramework.dll — wszystkie wspólne środowisko uruchomieniowe kod używany przez program Entity Framework
-- EntityFramework.SqlServer.dll — dostawcy programu Microsoft SQL Server dla programu Entity Framework
+- EntityFramework. dll — wszystkie typowe kody środowiska uruchomieniowego używane przez Entity Framework
+- EntityFramework. SqlServer. dll — dostawca Microsoft SQL Server dla Entity Framework
 
-### <a name="entity-classes"></a>Klas jednostek
+### <a name="entity-classes"></a>Klasy jednostek
 
-Klasy, Utwórz zdefiniować schemat danych są nazywane klasami jednostki. Jeśli jesteś nowym użytkownikiem projekt bazy danych, pomyśl o klas jednostek, jak definicje tabel bazy danych. Każda właściwość klasy określa kolumnę w tabeli bazy danych. Te klasy oferują lekki, obiektowo relacyjny interfejs między kodem zorientowane obiektowo i struktury tabeli relacyjnej bazy danych.
+Klasy tworzone w celu zdefiniowania schematu danych są nazywane klasami jednostek. Jeśli dopiero zaczynasz Projektowanie bazy danych, pomyśl o klasach jednostek jako definicje tabel bazy danych. Każda właściwość w klasie Określa kolumnę w tabeli bazy danych. Klasy te zapewniają uproszczony, relacyjny interfejs między kodem zorientowanym na obiekt i strukturą tabeli relacyjnej bazy danych.
 
-W tym samouczku będziesz rozpoczyna pracę przez dodanie klasy proste jednostki reprezentujące schematów i kategorii produktów. Klasa produktów będzie zawierać definicje dla każdego produktu. Nazwa każdego z elementów członkowskich klasy produktu będzie `ProductID`, `ProductName`, `Description`, `ImagePath`, `UnitPrice`, `CategoryID`, i `Category`. Klasa kategorii będzie zawierać definicje dla każdej kategorii, który produkt może należeć do, takie jak samochód, łodzi lub płaszczyzny. Nazwa każdego z członków klasy kategorii będzie `CategoryID`, `CategoryName`, `Description`, i `Products`. Każdy produkt będzie należeć do jednej z kategorii. W ramach tych zajęć jednostki zostanie dodany do istniejącego projektu *modeli* folderu.
+W tym samouczku rozpocznie się dodawanie prostych klas jednostek reprezentujących schematy dla produktów i kategorii. Klasa Products zawiera definicje dla każdego produktu. Nazwa każdego z elementów członkowskich klasy Product będzie `ProductID`, `ProductName`, `Description`, `ImagePath`, `UnitPrice`, `CategoryID`i `Category`. Klasa kategorii będzie zawierać definicje dla każdej kategorii, do której może należeć produkt, np. samochodu, łodzi lub płaszczyzny. Nazwa każdego z elementów członkowskich klasy kategorii będzie `CategoryID`, `CategoryName`, `Description`i `Products`. Każdy produkt należy do jednej z kategorii. Te klasy jednostek zostaną dodane do folderu istniejące *modele* projektu.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *modeli* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**. 
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *modele* , a następnie wybierz pozycję **Dodaj** -&gt; **nowy element**. 
 
-    ![Tworzenie warstwy dostępu do danych — nowy element Menu](create_the_data_access_layer/_static/image1.png)
+    ![Tworzenie warstwy dostępu do danych — menu nowy element](create_the_data_access_layer/_static/image1.png)
 
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. W obszarze **Visual C#** z **zainstalowane** w okienku po lewej stronie, wybierz opcję **kodu**. 
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. W **obszarze C# Wizualizacja** z **zainstalowanego** okienka po lewej stronie wybierz pozycję **kod**. 
 
-    ![Tworzenie warstwy dostępu do danych — nowy element Menu](create_the_data_access_layer/_static/image2.png)
-3. Wybierz **klasy** ze środkowego okienka i nazwij ta nowa klasa *Product.cs*.
+    ![Tworzenie warstwy dostępu do danych — menu nowy element](create_the_data_access_layer/_static/image2.png)
+3. Wybierz pozycję **Klasa** w środkowym okienku i nadaj jej nazwę *Product.cs*.
 4. Kliknij przycisk **Dodaj**.  
-   Plik nowej klasy jest wyświetlany w edytorze.
+   Nowy plik klasy zostanie wyświetlony w edytorze.
 5. Zastąp domyślny kod następującym kodem:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
-6. Tworzenie innej klasy, powtarzając kroki od 1 do 4, jednak nadaj nowej klasie *Category.cs* i zastąpić domyślny kod następującym kodem:  
+6. Utwórz inną klasę przez powtórzenie kroków od 1 do 4, jednak Nadaj nazwę nowej klasie *Category.cs* i Zastąp kod domyślny następującym kodem:  
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample2.cs)]
 
-Jak wcześniej wspomniano, `Category` klasy reprezentuje typ produktu, która aplikacja jest przeznaczona do sprzedaży (takie jak <a id="a"> </a> &quot;samochodów&quot;, &quot;łodzi&quot;, &quot;Rakiet&quot;i tak dalej), a `Product` klasa reprezentuje poszczególnych produktów (zabawki) w bazie danych. Każde wystąpienie `Product` obiektu odnoszą się do wiersza w tabeli relacyjnej bazy danych, a każda właściwość klasy produktu będzie zmapowana do kolumny w tabeli relacyjnej bazy danych. W dalszej części tego samouczka można przejrzeć dane produktu znajdujące się w bazie danych.
+Jak wspomniano wcześniej, Klasa `Category` reprezentuje typ produktu, który ma być sprzedawany przez aplikację (np. <a id="a"></a>&quot;samochodów&quot;, &quot;łodzi&quot;, &quot;rakiet&quot;, i tak dalej), a Klasa `Product` reprezentuje poszczególne produkty (zabawki) w bazie danych. Każde wystąpienie obiektu `Product` będzie odpowiadać wierszowi w tabeli relacyjnej bazy danych, a każda właściwość klasy Product zostanie zamapowana na kolumnę w tabeli relacyjnej bazy danych. W dalszej części tego samouczka przejrzyjesz dane produktu zawarte w bazie danych programu.
 
 ### <a name="data-annotations"></a>Adnotacje danych
 
-Być może zauważono, że określone składowe klasy mają atrybuty określające szczegóły dotyczące elementu członkowskiego, takie jak `[ScaffoldColumn(false)]`. Są to *adnotacje danych*. Atrybuty adnotacji danych opisujący sposób sprawdzania poprawności danych wejściowych użytkownika dla tego elementu członkowskiego, aby określić, formatowanie i określić, jak modelowane po utworzeniu bazy danych.
+Być może zauważono, że niektórzy członkowie klas mają atrybuty określające szczegóły dotyczące elementu członkowskiego, takie jak `[ScaffoldColumn(false)]`. Są to *Adnotacje danych*. Atrybuty adnotacji danych opisują sposób sprawdzania poprawności danych wejściowych użytkownika dla tego elementu członkowskiego, określania jego formatowania i określania sposobu modelowania podczas tworzenia bazy danych.
 
 ### <a name="context-class"></a>Context — Klasa
 
-Aby rozpocząć korzystanie z klas dostępu do danych, należy zdefiniować klasy kontekstu. Jak już wspomniano, klasy kontekstu zarządza klas obiektów (takich jak `Product` klasy i `Category` klasy) i zapewnia dostęp do danych w bazie danych.
+Aby rozpocząć korzystanie z klas do uzyskiwania dostępu do danych, należy zdefiniować klasę kontekstową. Jak wspomniano wcześniej, Klasa kontekstu zarządza klasami jednostek (takimi jak Klasa `Product` i Klasa `Category`) i zapewnia dostęp do danych w bazie danych.
 
-Ta procedura dodaje nowe klasy C# kontekstu do *modeli* folderu.
+Ta procedura powoduje dodanie nowej C# klasy kontekstu do folderu *models* .
 
-1. Kliknij prawym przyciskiem myszy *modeli* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
-   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Wybierz **klasy** ze środkowego okienka, nadaj jej nazwę *ProductContext.cs* i kliknij przycisk **Dodaj**.
-3. Zastąp domyślny kod zawarty w klasie, z następującym kodem:   
+1. Kliknij prawym przyciskiem myszy folder *modele* , a następnie wybierz pozycję **Dodaj** -&gt; **nowy element**.   
+   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Wybierz pozycję **Klasa** w środkowym okienku, nadaj jej nazwę *ProductContext.cs* i kliknij przycisk **Dodaj**.
+3. Zastąp domyślny kod zawarty w klasie następującym kodem:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample3.cs)]
 
-Ten kod dodaje `System.Data.Entity` przestrzeni nazw tak, aby mieć dostęp do wszystkich funkcji podstawowych programu Entity Framework, co obejmuje możliwość zapytania, wstawiania, aktualizowania i usuwania danych dzięki współpracy z silnie typizowanych obiektów.
+Ten kod dodaje `System.Data.Entity` przestrzeń nazw, dzięki czemu masz dostęp do wszystkich podstawowych funkcji Entity Framework, które obejmują możliwość wykonywania zapytań, wstawiania, aktualizowania i usuwania danych przez pracę z silnie określonymi obiektami.
 
-`ProductContext` Klasa reprezentuje produktu kontekst bazy danych platformy Entity Framework, która obsługuje pobieranie, przechowywania i aktualizowania `Product` klasy wystąpień w bazie danych. `ProductContext` Klasa pochodzi od `DbContext` dostarczane przez program Entity Framework klasy bazowej.
+Klasa `ProductContext` reprezentuje kontekst bazy danych produktu Entity Framework, który obsługuje pobieranie, przechowywanie i aktualizowanie wystąpień klasy `Product` w bazie danych. Klasa `ProductContext` pochodzi od klasy bazowej `DbContext` dostarczonej przez Entity Framework.
 
 ### <a name="initializer-class"></a>Klasa inicjatora
 
-Konieczne będzie uruchomienie niestandardowej logiki biznesowej można zainicjować kontekstu jest używana podczas pierwszej bazy danych. Umożliwi to inicjatora dane mają zostać dodane do bazy danych, tak, aby natychmiast wyświetlić produktów i kategorii.
+Musisz uruchomić pewną logikę niestandardową, aby zainicjować bazę danych przy pierwszym użyciu kontekstu. Pozwoli to na dodanie danych inicjatora do bazy danych, dzięki czemu można natychmiast wyświetlić produkty i kategorie.
 
-Ta procedura dodaje nowe klasy C# inicjator do *modeli* folderu.
+Ta procedura powoduje dodanie nowej C# klasy inicjatora do folderu *models* .
 
-1. Utworzyć kolejną `Class` w *modeli* folder i nadaj mu nazwę *ProductDatabaseInitializer.cs*.
-2. Zastąp domyślny kod zawarty w klasie, z następującym kodem:   
+1. Utwórz kolejną `Class` w folderze *modele* i nadaj jej nazwę *ProductDatabaseInitializer.cs*.
+2. Zastąp domyślny kod zawarty w klasie następującym kodem:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample4.cs)]
 
-Jak widać w powyższym kodzie, jeśli baza danych jest tworzony i zainicjowany, `Seed` właściwość jest zastąpione i ustawić. Gdy `Seed` właściwość jest ustawiona, wartości kategorii i produktów są używane do wypełniania bazy danych. Jeśli użytkownik podejmie próbę aktualizacji danych inicjatora, modyfikując kod powyżej, po utworzeniu bazy danych, nie zobaczysz żadnych aktualizacji po uruchomieniu aplikacji sieci Web. Przyczyną jest powyższy kod korzysta z implementacją `DropCreateDatabaseIfModelChanges` klasy, rozpoznawał, jeśli model (schemat) został zmieniony przed zresetowaniem danych inicjatora. Jeśli żadne zmiany nie zostaną wprowadzone do `Category` i `Product` klas jednostek, baza danych nie zostanie zainicjowana ponownie z danymi inicjatora.
+Jak widać w powyższym kodzie, po utworzeniu i zainicjowaniu bazy danych Właściwość `Seed` zostanie zastąpiona i ustawiona. Po ustawieniu właściwości `Seed`, wartości z kategorii i produktów są używane do wypełniania bazy danych. Jeśli spróbujesz zaktualizować dane inicjatora, modyfikując powyższy kod po utworzeniu bazy danych, podczas uruchamiania aplikacji sieci Web nie będą wyświetlane żadne aktualizacje. Przyczyną jest użycie w powyższym kodzie implementacji klasy `DropCreateDatabaseIfModelChanges`, aby rozpoznać, czy model (schemat) został zmieniony przed zresetowaniem danych inicjatora. Jeśli nie wprowadzono żadnych zmian do `Category` i `Product` klas jednostek, baza danych nie zostanie zainicjowana ponownie przy użyciu danych inicjatora.
 
 > [!NOTE] 
 > 
-> Jeśli potrzebowała bazy danych, być odtwarzane przy każdym uruchomieniu aplikacji, można użyć `DropCreateDatabaseAlways` klasy zamiast `DropCreateDatabaseIfModelChanges` klasy. Jednak w tej serii samouczków, należy użyć `DropCreateDatabaseIfModelChanges` klasy.
+> Jeśli chcesz, aby baza danych była ponownie tworzona przy każdym uruchomieniu aplikacji, można użyć klasy `DropCreateDatabaseAlways` zamiast klasy `DropCreateDatabaseIfModelChanges`. Jednak w tej serii samouczków należy użyć klasy `DropCreateDatabaseIfModelChanges`.
 
-W tym momencie w tym samouczku trzeba będzie *modeli* folder o cztery nowe klasy i klasa jeden domyślny:
+W tym punkcie w tym samouczku będziesz mieć folder *modele* z czterema nowymi klasami i jedną domyślną klasą:
 
-![Tworzenie warstwy dostępu do danych — folderu modeli](create_the_data_access_layer/_static/image3.png)
+![Tworzenie folderu modele warstwy dostępu do danych](create_the_data_access_layer/_static/image3.png)
 
 ### <a name="configuring-the-application-to-use-the-data-model"></a>Konfigurowanie aplikacji do korzystania z modelu danych
 
-Teraz, po utworzeniu klasy, które reprezentują dane, należy skonfigurować aplikację do korzystania z klasy. W *Global.asax* pliku, możesz dodać kod, który inicjuje modelu. W *Web.config* pliku, możesz dodać informacje o tym aplikacji, co baza danych będzie używane do przechowywania danych, który jest reprezentowany przez nowe klasy danych. *Global.asax* pliku może służyć do obsługi zdarzeń aplikacji lub metody. *Web.config* plik pozwala modyfikować konfigurację aplikacji sieci web ASP.NET.
+Teraz, po utworzeniu klas, które reprezentują dane, musisz skonfigurować aplikację tak, aby korzystała z klas. W pliku *Global. asax* należy dodać kod, który inicjuje model. W pliku *Web. config* dodawane są informacje informujące aplikację, która baza danych ma być używana do przechowywania danych reprezentowanych przez nowe klasy danych. Plik *Global. asax* może służyć do obsługi zdarzeń lub metod aplikacji. Plik *Web. config* pozwala kontrolować konfigurację aplikacji sieci Web ASP.NET.
 
-#### <a name="updating-the-globalasax-file"></a>Aktualizowanie pliku Global.asax
+#### <a name="updating-the-globalasax-file"></a>Aktualizowanie pliku Global. asax
 
-Aby zainicjować modeli danych, podczas uruchamiania aplikacji, spowoduje zaktualizowanie `Application_Start` obsługi w *Global.asax.cs* pliku.
+Aby zainicjować modele danych podczas uruchamiania aplikacji, należy zaktualizować procedurę obsługi `Application_Start` w pliku *Global.asax.cs* .
 
 > [!NOTE] 
 > 
-> W Eksploratorze rozwiązań, użytkownik może wybrać jedną *Global.asax* pliku lub *Global.asax.cs* plik do edycji *Global.asax.cs* pliku.
+> W Eksplorator rozwiązań można wybrać plik *Global. asax* lub plik *Global.asax.cs* , aby edytować plik *Global.asax.cs* .
 
-1. Dodaj następujący kod wyróżniony na żółto do `Application_Start` method in Class metoda *Global.asax.cs* pliku.   
+1. Dodaj następujący kod wyróżniony kolorem żółtym do metody `Application_Start` w pliku *Global.asax.cs* .   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample5.cs?highlight=9-10,22-23)]
 
 > [!NOTE] 
 > 
-> Przeglądarka musi obsługiwać HTML5, aby wyświetlić kod wyróżniony na żółto, oglądając tę serię samouczków w przeglądarce.
+> Przeglądarka musi obsługiwać kod wyróżniony przy użyciu języka HTML5 podczas wyświetlania tej serii samouczków w przeglądarce.
 
-Jak pokazano w powyższym kodzie, podczas uruchamiania aplikacji, aplikacji określa, że inicjator, które będą uruchamiane podczas pierwszego danych jest dostępny. Dwa dodatkowe przestrzenie nazw są wymagane do dostępu `Database` obiektu i `ProductDatabaseInitializer` obiektu.
+Jak pokazano w powyższym kodzie, gdy aplikacja zostanie uruchomiona, aplikacja określa inicjator, który zostanie uruchomiony podczas pierwszego dostępu do danych. Do uzyskania dostępu do obiektu `Database` i obiektu `ProductDatabaseInitializer` są wymagane dwa dodatkowe przestrzenie nazw.
 
- Modyfikowanie pliku Web.Config 
+ Modyfikowanie pliku Web. config 
 
-Mimo że Entity Framework Code First wygeneruje bazy danych dla Ciebie w lokalizacji domyślnej, gdy baza danych jest wypełniana danymi inicjatora, dodawanie własnych informacji o połączeniu z aplikacją zapewnia kontrolę nad lokalizację bazy danych. Określ tego połączenia z bazą danych przy użyciu parametrów połączenia w aplikacji *Web.config* pliku w folderze głównym projektu. Dodając nowe parametry połączenia, można kierować lokalizacji bazy danych (*wingtiptoys.mdf*) ma zostać utworzony w katalogu danych aplikacji (*aplikacji\_danych*), zamiast domyślnej Lokalizacja. Wprowadzenie tej zmiany pozwoli na znalezienie i sprawdź plik bazy danych w dalszej części tego samouczka.
+Mimo że usługa Entity Framework Code First wygeneruje bazę danych dla Ciebie w domyślnej lokalizacji, gdy baza danych zostanie wypełniona danymi o inicjatorze, dodanie własnych informacji o połączeniu do aplikacji zapewnia kontrolę nad lokalizacją bazy danych. To połączenie z bazą danych należy określić przy użyciu parametrów połączenia w pliku *Web. config* aplikacji w katalogu głównym projektu. Dodając nowe parametry połączenia, można skierować lokalizację bazy danych (*wingtiptoys. mdf*) do skompilowania w katalogu danych aplikacji ( *\_danych aplikacji*), a nie w domyślnej lokalizacji. Wprowadzenie tej zmiany umożliwi znalezienie i inspekcję pliku bazy danych w dalszej części tego samouczka.
 
-1. W **Eksploratora rozwiązań**, znajdowanie i otwieranie *Web.config* pliku.
-2. Dodaj parametry połączenia, wyróżniony na żółto do `<connectionStrings>` części *Web.config* pliku w następujący sposób:  
+1. W **Eksplorator rozwiązań**Znajdź i Otwórz plik *Web. config* .
+2. Dodaj parametry połączenia wyróżnione kolorem żółtym do sekcji `<connectionStrings>` w pliku *Web. config* w następujący sposób:  
 
     [!code-xml[Main](create_the_data_access_layer/samples/sample6.xml?highlight=4-7)]
 
-Gdy aplikacja jest uruchamiana po raz pierwszy, zostanie utworzona baza danych w lokalizacji określonej przez ciąg połączenia. Jednak przed uruchomieniem aplikacji, utworzymy ją najpierw.
+Gdy aplikacja jest uruchamiana po raz pierwszy, spowoduje skompilowanie bazy danych w lokalizacji określonej przez parametry połączenia. Ale przed uruchomieniem aplikacji Utwórzmy ją w pierwszej kolejności.
 
 ## <a name="building-the-application"></a>Kompilowanie aplikacji
 
-Aby upewnić się, czy działają wszystkie klasy i zmian w aplikacji sieci Web, należy skompilować aplikację.
+Aby upewnić się, że wszystkie klasy i zmiany w aplikacji sieci Web działają, należy skompilować aplikację.
 
-1. Z **debugowania** menu, wybierz opcję **kompilacji WingtipToys**.  
- **Dane wyjściowe** zostanie wyświetlone okno, a jeśli wszystko poszło dobrze, zobaczysz *zakończyło się pomyślnie* wiadomości.  
+1. Z menu **Debuguj** wybierz polecenie **Build WingtipToys**.  
+ Zostanie wyświetlone okno **dane wyjściowe** , a jeśli wszystko zostało prawidłowo *wykonane* , zobaczysz komunikat o błędzie.  
 
-    ![Tworzenie warstwy dostępu do danych — Windows danych wyjściowych](create_the_data_access_layer/_static/image4.png)
+    ![Tworzenie warstwy dostępu do danych — okna danych wyjściowych](create_the_data_access_layer/_static/image4.png)
 
-Jeśli napotkasz błąd, ponownie sprawdź powyższe kroki. Informacje przedstawione w **dane wyjściowe** okna będą wskazywać plik, który ma problem, gdzie w pliku zmian jest wymagana. Te informacje pozwoli określić, jaka część powyższej procedury muszą być przejrzane i stałej w projekcie.
+Jeśli wystąpi błąd, ponownie sprawdź powyższe kroki. Informacje w oknie **danych wyjściowych** wskazują, który plik ma problem i gdzie w pliku jest wymagana zmiana. Te informacje umożliwią określenie, jakie części powyższych kroków należy przejrzeć i naprawić w projekcie.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku tej serii możesz mieć utworzony modelu danych, a także, dodać kod, który będzie używany do inicjowania i Inicjowanie bazy danych. Skonfigurowano również aplikacji na używanie modeli danych, gdy aplikacja jest uruchomiona.
+W tym samouczku dla serii, w której utworzono model danych, a także dodano kod, który będzie używany do inicjowania i wypełniania bazy danych. Aplikacja została również skonfigurowana do korzystania z modeli danych podczas uruchamiania aplikacji.
 
-W następnym samouczku dodasz aktualizacji interfejsu użytkownika, nawigacji i pobierać dane z bazy danych. W rezultacie zostanie automatycznie tworzona w oparciu o klas jednostek, które utworzono w ramach tego samouczka bazy danych.
+W następnym samouczku należy zaktualizować interfejs użytkownika, dodać nawigację i pobrać dane z bazy danych. Spowoduje to, że baza danych zostanie automatycznie utworzona na podstawie klas jednostek utworzonych w tym samouczku.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Omówienie programu Entity Framework](https://msdn.microsoft.com/library/bb399567.aspx)   
-[Przewodnik dla początkujących programu ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
-[Pierwszy programowania za pomocą platformy Entity Framework Code](http://www.msteched.com/2010/Europe/DEV212) (wideo)   
-[Kod pierwszego relacje Fluent interfejsu API](https://msdn.microsoft.com/data/hh134698)   
-[Adnotacje danych na pierwszym kodu](https://msdn.microsoft.com/data/gg193958)  
-[Ulepszenia w zakresie produktywności dla programu Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
+[Entity Framework przegląd](https://msdn.microsoft.com/library/bb399567.aspx)   
+[Przewodnik początkującego ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
+[Programowanie Code First przy użyciu Entity Framework](http://www.msteched.com/2010/Europe/DEV212) (wideo)   
+[Code First relacje między interfejsem API Fluent](https://msdn.microsoft.com/data/hh134698)   
+[Code First adnotacje danych](https://msdn.microsoft.com/data/gg193958)  
+[Ulepszenia produktywności Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 > [!div class="step-by-step"]
 > [Poprzednie](create-the-project.md)

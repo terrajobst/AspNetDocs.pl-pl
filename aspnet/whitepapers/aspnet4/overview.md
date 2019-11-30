@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 8c93952adb33d1ce7008ebff9d032a71eb2a5f74
-ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
+ms.openlocfilehash: ecde48f6bd88ee5f569bfeb8b70c26a50bc869c2
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69995394"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74576868"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
 
@@ -23,72 +23,72 @@ ms.locfileid: "69995394"
 
 **Zawartość**
 
-**[Podstawowe usługi] (#0.2__Toc253429238 "_Toc253429238")**  
-[Refaktoryzacja pliku Web. config] (#0.2__Toc253429239 "_Toc253429239")  
-[Rozszerzalne buforowanie danych wyjściowych] (#0.2__Toc253429240 "_Toc253429240")  
-[Autouruchamianie aplikacji sieci Web] (#0.2__Toc253429241 "_Toc253429241")  
-[Trwałe przekierowywanie strony] (#0.2__Toc253429242 "_Toc253429242")  
-[Zmniejszanie stanu sesji] (#0.2__Toc253429243 "_Toc253429243")  
-[Rozszerzanie zakresu dozwolonych adresów URL] (#0.2__Toc253429244 "_Toc253429244")  
-[Rozszerzalne sprawdzanie poprawności żądań] (#0.2__Toc253429245 "_Toc253429245")  
-[Buforowanie obiektów i rozszerzalność buforowania obiektów] (#0.2__Toc253429246 "_Toc253429246")  
-[Rozszerzalne kodowanie HTML, adresu URL i nagłówka HTTP] (#0.2__Toc253429247 "_Toc253429247")  
-[Monitorowanie wydajności dla poszczególnych aplikacji w pojedynczym procesie roboczym] (#0.2__Toc253429248 "_Toc253429248")  
-[Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
+**[Podstawowe usługi](#0.2__Toc253429238 "_Toc253429238")**  
+[Refaktoryzacja pliku Web. config](#0.2__Toc253429239 "_Toc253429239")  
+[Rozszerzalne buforowanie danych wyjściowych](#0.2__Toc253429240 "_Toc253429240")  
+[Autouruchamianie aplikacji sieci Web](#0.2__Toc253429241 "_Toc253429241")  
+[Trwałe przekierowywanie strony](#0.2__Toc253429242 "_Toc253429242")  
+[Zmniejszanie stanu sesji](#0.2__Toc253429243 "_Toc253429243")  
+[Rozszerzanie zakresu dozwolonych adresów URL](#0.2__Toc253429244 "_Toc253429244")  
+[Rozszerzalne sprawdzanie poprawności żądań](#0.2__Toc253429245 "_Toc253429245")  
+[Buforowanie obiektów i rozszerzalność buforowania obiektów](#0.2__Toc253429246 "_Toc253429246")  
+[Rozszerzalne kodowanie HTML, adresu URL i nagłówka HTTP](#0.2__Toc253429247 "_Toc253429247")  
+[Monitorowanie wydajności dla poszczególnych aplikacji w pojedynczym procesie roboczym](#0.2__Toc253429248 "_Toc253429248")  
+[Wiele elementów docelowych](#0.2__Toc253429249 "_Toc253429249")
 
-**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
-[jQuery dołączone do formularzy sieci Web i MVC] (#0.2__Toc253429251 "_Toc253429251")  
-[Obsługa Content Delivery Network] (#0.2__Toc253429252 "_Toc253429252")  
-[Jawne skrypty ScriptManager] (#0.2__Toc253429253 "_Toc253429253")
+**[Języki](#0.2__Toc253429250 "_Toc253429250")**  
+[jQuery dołączone do formularzy sieci Web i MVC](#0.2__Toc253429251 "_Toc253429251")  
+[Obsługa Content Delivery Network](#0.2__Toc253429252 "_Toc253429252")  
+[Jawne skrypty ScriptManager](#0.2__Toc253429253 "_Toc253429253")
 
-**[Formularze sieci Web] (#0.2__Toc253429256 "_Toc253429256")**  
-[Ustawianie tagów Meta przy użyciu właściwości Page. metas i Page. Dbdescription] (#0.2__Toc253429257 "_Toc253429257")  
-[Włączanie stanu widoku dla poszczególnych kontrolek] (#0.2__Toc253429258 "_Toc253429258")  
-[Zmiany w możliwościach przeglądarki] (#0.2__Toc253429259 "_Toc253429259")  
-[Routing w ASP.NET 4] (#0.2__Toc253429260 "_Toc253429260")  
-[Ustawianie identyfikatorów klientów] (#0.2__Toc253429261 "_Toc253429261")  
-[Utrwalanie wyboru wierszy w kontrolkach danych] (#0.2__Toc253429262 "_Toc253429262")  
-[ASP.NET Chart Control](#0.2__Toc253429263 "_Toc253429263")  
-[Filtrowanie danych za pomocą kontrolki QueryExtender] (#0.2__Toc253429264 "_Toc253429264")  
-[Wyrażenia kodu kodowane HTML] (#0.2__Toc253429265 "_Toc253429265")  
-[Zmiany szablonu projektu] (#0.2__Toc253429266 "_Toc253429266")  
-[Udoskonalenia CSS] (#0.2__Toc253429267 "_Toc253429267")  
-[Ukrywanie elementów div wokół ukrytych pól] (#0.2__Toc253429268 "_Toc253429268")  
-[Renderowanie zewnętrznej tabeli dla kontrolek z szablonami] (#0.2__Toc253429269 "_Toc253429269")  
-[Usprawnienia formantów ListView] (#0.2__Toc253429270 "_Toc253429270")  
-[Udoskonalenia formantów formant CheckBoxList i RadioButtonList] (#0.2__Toc253429271 "_Toc253429271")  
-[Ulepszenia kontrolek menu] (#0.2__Toc253429272 "_Toc253429272")  
-[Kreator i kontrolki formancie createuserwizard 56] (#0.2__Toc253429273 "_Toc253429273")
+**[Formularze sieci Web](#0.2__Toc253429256 "_Toc253429256")**  
+[Ustawianie tagów Meta przy użyciu właściwości Page. metas i Page. dbdescription](#0.2__Toc253429257 "_Toc253429257")  
+[Włączanie stanu widoku dla poszczególnych kontrolek](#0.2__Toc253429258 "_Toc253429258")  
+[Zmiany w możliwościach przeglądarki](#0.2__Toc253429259 "_Toc253429259")  
+[Routing w ASP.NET 4](#0.2__Toc253429260 "_Toc253429260")  
+[Ustawianie identyfikatorów klientów](#0.2__Toc253429261 "_Toc253429261")  
+[Utrwalanie wyboru wierszy w kontrolkach danych](#0.2__Toc253429262 "_Toc253429262")  
+[Kontrolka wykresu ASP.NET](#0.2__Toc253429263 "_Toc253429263")  
+[Filtrowanie danych za pomocą kontrolki QueryExtender](#0.2__Toc253429264 "_Toc253429264")  
+[Wyrażenia kodu kodowane HTML](#0.2__Toc253429265 "_Toc253429265")  
+[Zmiany szablonu projektu](#0.2__Toc253429266 "_Toc253429266")  
+[Udoskonalenia CSS](#0.2__Toc253429267 "_Toc253429267")  
+[Ukrywanie elementów div wokół ukrytych pól](#0.2__Toc253429268 "_Toc253429268")  
+[Renderowanie zewnętrznej tabeli dla kontrolek z szablonami](#0.2__Toc253429269 "_Toc253429269")  
+[Usprawnienia formantów ListView](#0.2__Toc253429270 "_Toc253429270")  
+[Udoskonalenia formantów formant CheckBoxList i RadioButtonList](#0.2__Toc253429271 "_Toc253429271")  
+[Ulepszenia kontrolek menu](#0.2__Toc253429272 "_Toc253429272")  
+[Kreator i kontrolki formancie CreateUserWizard 56](#0.2__Toc253429273 "_Toc253429273")
 
 **[ASP.NET MVC](#0.2__Toc253429274 "_Toc253429274")**  
-[Obsługa obszarów] (#0.2__Toc253429275 "_Toc253429275")  
-[Obsługa walidacji atrybutów adnotacji z danymi] (#0.2__Toc253429276 "_Toc253429276")  
-[Pomocnicy] z szablonami (#0.2__Toc253429277 "_Toc253429277")
+[Obsługa obszarów](#0.2__Toc253429275 "_Toc253429275")  
+[Obsługa walidacji atrybutów adnotacji z danymi](#0.2__Toc253429276 "_Toc253429276")  
+[Pomocnicy z szablonami](#0.2__Toc253429277 "_Toc253429277")
 
-**[Dane dynamiczne] (#0.2__Toc253429278 "_Toc253429278")**  
-[Włączanie danych dynamicznych dla istniejących projektów] (#0.2__Toc253429279 "_Toc253429279")  
-[Deklaratywna składnia formantów Menedżera danych dynamicznych] (#0.2__Toc253429280 "_Toc253429280")  
-[Szablony jednostek] (#0.2__Toc253429281 "_Toc253429281")  
-[Nowe szablony pól dla adresów URL i adresów E-mail] (#0.2__Toc253429282 "_Toc253429282")  
-[Tworzenie linków z kontrolką formantem DynamicHyperLink] (#0.2__Toc253429283 "_Toc253429283")  
-[Obsługa dziedziczenia w modelu danych] (#0.2__Toc253429284 "_Toc253429284")  
-[Obsługa relacji wiele-do-wielu (tylko Entity Framework)] (#0.2__Toc253429285 "_Toc253429285")  
-[Nowe atrybuty do kontroli wyświetlania i obsługi] wyliczeń (#0.2__Toc253429286 "_Toc253429286")  
-[Ulepszona obsługa filtrów] (#0.2__Toc253429287 "_Toc253429287")
+**[Dane dynamiczne](#0.2__Toc253429278 "_Toc253429278")**  
+[Włączanie danych dynamicznych dla istniejących projektów](#0.2__Toc253429279 "_Toc253429279")  
+[Deklaratywna składnia formantów Menedżera danych dynamicznych](#0.2__Toc253429280 "_Toc253429280")  
+[Szablony jednostek](#0.2__Toc253429281 "_Toc253429281")  
+[Nowe szablony pól dla adresów URL i adresów E-mail](#0.2__Toc253429282 "_Toc253429282")  
+[Tworzenie linków z kontrolką formantem DynamicHyperLink](#0.2__Toc253429283 "_Toc253429283")  
+[Obsługa dziedziczenia w modelu danych](#0.2__Toc253429284 "_Toc253429284")  
+[Obsługa relacji wiele-do-wielu (tylko Entity Framework)](#0.2__Toc253429285 "_Toc253429285")  
+[Nowe atrybuty do kontroli wyświetlania i obsługi wyliczeń](#0.2__Toc253429286 "_Toc253429286")  
+[Ulepszona obsługa filtrów](#0.2__Toc253429287 "_Toc253429287")
 
-**[Visual Studio 2010 Web Development Improvements](#0.2__Toc253429288 "_Toc253429288")**  
-[Lepsza zgodność stylów CSS] (#0.2__Toc253429289 "_Toc253429289")  
-[Fragmenty kodu HTML i JavaScript] (#0.2__Toc253429290 "_Toc253429290")  
-[Ulepszenia funkcji IntelliSense języka JavaScript] (#0.2__Toc253429291 "_Toc253429291")
+**[Ulepszenia programu Visual Studio 2010 Web Development](#0.2__Toc253429288 "_Toc253429288")**  
+[Lepsza zgodność stylów CSS](#0.2__Toc253429289 "_Toc253429289")  
+[Fragmenty kodu HTML i JavaScript](#0.2__Toc253429290 "_Toc253429290")  
+[Ulepszenia funkcji IntelliSense języka JavaScript](#0.2__Toc253429291 "_Toc253429291")
 
-**[Wdrażanie aplikacji sieci Web za pomocą programu Visual Studio 2010] (#0.2__Toc253429292 "_Toc253429292")**  
-[Web Packaging](#0.2__Toc253429293 "_Toc253429293")  
-[Web.config Transformation](#0.2__Toc253429294 "_Toc253429294")  
-[Wdrażanie bazy danych] (#0.2__Toc253429295 "_Toc253429295")  
-[Publikowanie aplikacji sieci Web jednym kliknięciem] (#0.2__Toc253429296 "_Toc253429296")  
-[Zasoby] (#0.2__Toc253429297 "_Toc253429297")
+**[Wdrażanie aplikacji sieci Web za pomocą programu Visual Studio 2010](#0.2__Toc253429292 "_Toc253429292")**  
+[Pakiet internetowy](#0.2__Toc253429293 "_Toc253429293")  
+[Transformacja pliku Web. config](#0.2__Toc253429294 "_Toc253429294")  
+[Wdrażanie bazy danych](#0.2__Toc253429295 "_Toc253429295")  
+[Publikowanie aplikacji sieci Web jednym kliknięciem](#0.2__Toc253429296 "_Toc253429296")  
+[Zasoby](#0.2__Toc253429297 "_Toc253429297")
 
-**[Oświadczenie] (#0.2__Toc253429298 "_Toc253429298")**
+**[Zastrzeżenie](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -100,7 +100,7 @@ ASP.NET 4 zawiera szereg funkcji ulepszających podstawowe usługi ASP.NET, taki
 
 ### <a name="webconfig-file-refactoring"></a>Refaktoryzacja pliku Web. config
 
-`Web.config` Plik, który zawiera konfigurację aplikacji sieci Web, znacznie wzrosnął do ostatnich kilku wersji .NET Framework, ponieważ dodano nowe funkcje, takie jak AJAX, Routing i integracja z usługami IIS 7. Dzięki temu trudniej jest skonfigurować lub uruchomić nowe aplikacje sieci Web bez narzędzia takiego jak Visual Studio. W programie .NET Framework 4 elementy konfiguracji głównej zostały przeniesione do `machine.config` pliku, a aplikacje teraz dziedziczą te ustawienia. Dzięki `Web.config` temu plik w ASP.NET 4 aplikacji musi być pusty lub zawierać tylko następujące wiersze, które określają dla programu Visual Studio wersję platformy, do której ma zastosowanie aplikacja:
+Plik `Web.config`, który zawiera konfigurację aplikacji sieci Web, znacznie zwiększył się w ciągu ostatnich kilku wersji .NET Framework, ponieważ dodano nowe funkcje, takie jak AJAX, Routing i integracja z usługami IIS 7. Dzięki temu trudniej jest skonfigurować lub uruchomić nowe aplikacje sieci Web bez narzędzia takiego jak Visual Studio. W programie .NET Framework 4 elementy konfiguracji głównej zostały przeniesione do pliku `machine.config`, a aplikacje teraz dziedziczą te ustawienia. Dzięki temu plik `Web.config` w aplikacjach ASP.NET 4 musi być pusty lub zawierać tylko następujące wiersze, które określają dla programu Visual Studio wersję platformy, do której ma zastosowanie aplikacja:
 
 [!code-xml[Main](overview/samples/sample1.xml)]
 
@@ -112,7 +112,7 @@ Od czasu wydania ASP.NET 1,0, buforowanie danych wyjściowych umożliwiło dewel
 
 ASP.NET 4 dodaje punkty rozszerzalności do buforowania danych wyjściowych, które umożliwiają skonfigurowanie co najmniej jednego niestandardowego dostawcy pamięci podręcznej. Dostawcy pamięci podręcznej magazynu mogą używać dowolnego mechanizmu magazynowania, aby zachować zawartość HTML. Dzięki temu można utworzyć niestandardowych dostawców pamięci podręcznej dla różnorodnych mechanizmów trwałości, takich jak dyski lokalne lub zdalne, magazyn w chmurze i rozproszone aparaty pamięci podręcznej.
 
-Utwórz niestandardowego dostawcę wyjściowej pamięci podręcznej jako klasę, która pochodzi od nowego typu *System. Web. cache. OutputCacheProvider* . Następnie można skonfigurować dostawcę w `Web.config` pliku za pomocą podsekcji New *providers* elementu *OutputCache* , jak pokazano w następującym przykładzie:
+Utwórz niestandardowego dostawcę wyjściowej pamięci podręcznej jako klasę, która pochodzi od nowego typu *System. Web. cache. OutputCacheProvider* . Następnie można skonfigurować dostawcę w pliku `Web.config` przy użyciu nowej podsekcji *providers* elementu *OutputCache* , jak pokazano w następującym przykładzie:
 
 [!code-xml[Main](overview/samples/sample2.xml)]
 
@@ -122,7 +122,7 @@ Ponadto można wybrać różne dostawcy wyjściowej pamięci podręcznej na kont
 
 [!code-aspx[Main](overview/samples/sample3.aspx)]
 
-Określenie innego dostawcy wyjściowej pamięci podręcznej dla żądania HTTP wymaga nieco więcej pracy. Zamiast deklaratywnego określania dostawcy, należy zastąpić nową metodę *GetOuputCacheProviderName* w `Global.asax` pliku, aby programowo określić dostawcę, który ma być używany dla określonego żądania. W przykładzie poniżej pokazano, jak to zrobić.
+Określenie innego dostawcy wyjściowej pamięci podręcznej dla żądania HTTP wymaga nieco więcej pracy. Zamiast deklaratywnego określania dostawcy, należy zastąpić nową metodę *GetOuputCacheProviderName* w pliku `Global.asax`, aby programowo określić dostawcę, który ma być używany dla określonego żądania. W przykładzie poniżej pokazano, jak to zrobić.
 
 [!code-csharp[Main](overview/samples/sample4.cs)]
 
@@ -132,9 +132,9 @@ Dzięki dodaniu rozszerzalności dostawcy pamięci podręcznej do ASP.NET 4 moż
 
 ### <a name="auto-start-web-applications"></a>Autouruchamianie aplikacji sieci Web
 
-Niektóre aplikacje sieci Web muszą ładować duże ilości danych lub wykonywać kosztowne przetwarzanie inicjacji przed rozpoczęciem pierwszego żądania. We wcześniejszych wersjach programu ASP.NET, w tych sytuacjach, należało opracować niestandardowe podejścia do "wznawiania" aplikacji ASP.NET, a następnie uruchomić kod inicjujący podczas metody *ładowania\_aplikacji* w `Global.asax` pliku.
+Niektóre aplikacje sieci Web muszą ładować duże ilości danych lub wykonywać kosztowne przetwarzanie inicjacji przed rozpoczęciem pierwszego żądania. We wcześniejszych wersjach programu ASP.NET, w tych sytuacjach, należało opracować niestandardowe podejścia do "wznawiania" aplikacji ASP.NET, a następnie uruchomić kod inicjujący podczas *\_aplikacji Metoda ładowania* w pliku `Global.asax`.
 
-Nowa funkcja skalowalności o nazwie Autostart, która bezpośrednio dotyczy tego scenariusza, jest dostępna, gdy ASP.NET 4 działa w usługach IIS 7,5 w systemie Windows Server 2008 R2. Funkcja Autostart zawiera kontrolowane podejście do uruchamiania puli aplikacji, inicjowania aplikacji ASP.NET, a następnie akceptowania żądań HTTP.
+Nowa funkcja skalowalności o nazwie *Autostart* , która bezpośrednio dotyczy tego scenariusza, jest dostępna, gdy ASP.NET 4 działa w usługach IIS 7,5 w systemie Windows Server 2008 R2. Funkcja Autostart zawiera kontrolowane podejście do uruchamiania puli aplikacji, inicjowania aplikacji ASP.NET, a następnie akceptowania żądań HTTP.
 
 > [!NOTE] 
 > 
@@ -144,21 +144,21 @@ Nowa funkcja skalowalności o nazwie Autostart, która bezpośrednio dotyczy teg
 > 
 > Aby uzyskać więcej informacji, zobacz artykuł [rozgrzewanie aplikacji](https://www.iis.net/extensions/applicationwarmup%20on%20the%20IIS.net) w witrynie sieci Web IIS.NET. Aby zapoznać się z przewodnikiem, który ilustruje sposób korzystania z funkcji rozgrzewania, zobacz [wprowadzenie z modułem rozgrzewania aplikacji usług IIS 7,5](https://www.iis.net/learn/manage) w witrynie sieci Web IIS.NET.
 
-Aby można było korzystać z funkcji automatycznego uruchamiania, administrator usług IIS Ustawia pulę aplikacji w usługach IIS 7,5 do automatycznego uruchamiania przy użyciu następującej konfiguracji w `applicationHost.config` pliku:
+Aby można było korzystać z funkcji automatycznego uruchamiania, administrator usług IIS Ustawia pulę aplikacji w usługach IIS 7,5 do automatycznego uruchamiania przy użyciu następującej konfiguracji w pliku `applicationHost.config`:
 
 [!code-xml[Main](overview/samples/sample5.xml)]
 
-Ponieważ jedna pula aplikacji może zawierać wiele aplikacji, należy określić pojedyncze aplikacje do automatycznego uruchamiania przy użyciu następującej konfiguracji w `applicationHost.config` pliku:
+Ponieważ jedna pula aplikacji może zawierać wiele aplikacji, należy określić pojedyncze aplikacje do automatycznego uruchamiania przy użyciu następującej konfiguracji w pliku `applicationHost.config`:
 
 [!code-xml[Main](overview/samples/sample6.xml)]
 
-Gdy serwer usług IIS 7,5 jest zimny lub w przypadku odtwarzania pojedynczej puli aplikacji, usługi IIS 7,5 używają informacji w `applicationHost.config` pliku, aby określić, które aplikacje sieci Web mają być uruchamiane automatycznie. Dla każdej aplikacji, która jest oznaczona do autostartu, usługi IIS 7.5 wysyłają żądanie do ASP.NET 4, aby uruchomić aplikację w stanie, w którym aplikacja tymczasowo nie akceptuje żądań HTTP. Gdy jest w tym stanie, ASP.NET tworzy wystąpienie typu zdefiniowanego przez atrybut *serviceAutoStartProvider* (jak pokazano w poprzednim przykładzie) i wywołuje do jego publicznego punktu wejścia.
+Gdy serwer usług IIS 7,5 jest zimny lub w przypadku odtwarzania pojedynczej puli aplikacji, usługi IIS 7,5 używają informacji w pliku `applicationHost.config`, aby określić, które aplikacje sieci Web mają być uruchamiane automatycznie. Dla każdej aplikacji, która jest oznaczona do autostartu, usługi IIS 7.5 wysyłają żądanie do ASP.NET 4, aby uruchomić aplikację w stanie, w którym aplikacja tymczasowo nie akceptuje żądań HTTP. Gdy jest w tym stanie, ASP.NET tworzy wystąpienie typu zdefiniowanego przez atrybut *serviceAutoStartProvider* (jak pokazano w poprzednim przykładzie) i wywołuje do jego publicznego punktu wejścia.
 
 Można utworzyć zarządzany typ autostartu z niezbędnym punktem wejścia, implementując Interfejs *IProcessHostPreloadClient* , jak pokazano w następującym przykładzie:
 
 [!code-csharp[Main](overview/samples/sample7.cs)]
 
-Gdy kod inicjujący zostanie uruchomiony w metodzie Preload, a metoda zwróci metodę, aplikacja ASP.NET jest gotowa do przetwarzania żądań.
+Gdy kod inicjujący zostanie uruchomiony w metodzie *Preload* , a metoda zwróci metodę, aplikacja ASP.NET jest gotowa do przetwarzania żądań.
 
 Dodanie autostartu do usług IIS .5 i ASP.NET 4 ma teraz dobrze zdefiniowane podejście do wykonywania kosztownych inicjalizacji aplikacji przed przetworzeniem pierwszego żądania HTTP. Na przykład można użyć nowej funkcji Autostart, aby zainicjować aplikację, a następnie sygnalizować moduł równoważenia obciążenia, że aplikacja została zainicjowana i jest gotowa do akceptowania ruchu HTTP.
 
@@ -184,7 +184,7 @@ ASP.NET 4 wprowadza nową opcję kompresji dla obu rodzajów dostawców stanu se
 
 [!code-xml[Main](overview/samples/sample9.xml)]
 
-Wraz z prostym dodaniem nowego atrybutu do `Web.config` pliku, aplikacje mające zapasowe cykle procesora CPU na serwerach sieci Web mogą mieć znaczny spadek rozmiaru serializowanych danych stanu sesji.
+Wraz z prostym dodaniem nowego atrybutu do pliku `Web.config` aplikacje mające zapasowe cykle procesora CPU na serwerach sieci Web mogą mieć znaczny spadek rozmiaru serializowanych danych stanu sesji.
 
 <a id="0.2__Toc253429244"></a><a id="0.2__Toc243304618"></a>
 
@@ -200,7 +200,7 @@ ASP.NET 4 pozwala także skonfigurować znaki, które są używane przez sprawdz
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Domyślnie atrybut *RequestPathInvalidCharacters* definiuje osiem znaków jako nieprawidłowe. (W ciągu, który jest domyślnie przypisany *do RequestPathInvalidCharacters* , znaki mniejsze niż (&lt;), większe niż (&gt;) i handlowe (&amp;) są kodowane, ponieważ `Web.config` plik jest plikiem XML. W razie konieczności można dostosować zestaw nieprawidłowych znaków.
+Domyślnie atrybut *RequestPathInvalidCharacters* definiuje osiem znaków jako nieprawidłowe. (W ciągu, który jest domyślnie przypisany do *RequestPathInvalidCharacters* , znaki mniejsze niż (&lt;), większe niż (&gt;) i handlowe "(&amp;) są kodowane, ponieważ plik `Web.config` jest plikiem XML. W razie konieczności można dostosować zestaw nieprawidłowych znaków.
 
 > [!NOTE]
 > Uwaga ASP.NET 4 zawsze odrzuca ścieżki URL zawierające znaki w zakresie ASCII od 0x00 do 0x1F, ponieważ są to nieprawidłowe znaki URL, zgodnie z definicją w dokumencie RFC 2396 grupy IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). W wersjach systemu Windows Server z uruchomionymi usługami IIS w wersji 6 lub nowszej sterownik urządzenia http. sys automatycznie odrzuca adresy URL z tymi znakami.
@@ -211,7 +211,7 @@ Domyślnie atrybut *RequestPathInvalidCharacters* definiuje osiem znaków jako n
 
 Walidacja żądania ASP.NET przeszukuje przychodzące dane żądań HTTP dla ciągów, które są często używane w atakach obejmujących wiele lokacji (XSS). Jeśli zostaną znalezione potencjalne ciągi XSS, walidacja żądań flaguje podejrzany ciąg i zwraca błąd. Walidacja wbudowanego żądania zwraca błąd tylko wtedy, gdy znajduje najbardziej typowe ciągi używane w atakach XSS. Poprzednie próby nawiązania bardziej agresywnej weryfikacji XSS spowodowały zbyt wiele fałszywych dodatnich. Jednak klienci mogą chcieć zażądać zweryfikowania żądań, które są bardziej agresywne, lub odwrotnie mogą chcieć celowo złagodzić testy XSS dla określonych stron lub dla określonych typów żądań.
 
-W ASP.NET 4 funkcja walidacji żądania została rozszerzona, aby można było użyć niestandardowej logiki walidacji żądania. Aby można było rozciągnąć sprawdzanie poprawności żądania, należy utworzyć klasę pochodzącą od nowego typu *System. Web. util. RequestValidator* , a następnie skonfigurować aplikację ( w `Web.config` sekcji httpRuntime pliku), aby użyć typu niestandardowego. Poniższy przykład pokazuje, jak skonfigurować niestandardową klasę walidacji żądania:
+W ASP.NET 4 funkcja walidacji żądania została rozszerzona, aby można było użyć niestandardowej logiki walidacji żądania. Aby można było rozciągnąć sprawdzanie poprawności żądania, należy utworzyć klasę pochodzącą od nowego typu *System. Web. util. RequestValidator* , a następnie skonfigurować aplikację (w sekcji *httpRuntime* pliku `Web.config`), aby użyć typu niestandardowego. Poniższy przykład pokazuje, jak skonfigurować niestandardową klasę walidacji żądania:
 
 [!code-xml[Main](overview/samples/sample12.xml)]
 
@@ -225,14 +225,14 @@ W przypadku, gdy nie chcesz sprawdzać danych przychodzącego protokołu HTTP, K
 
 ### <a name="object-caching-and-object-caching-extensibility"></a>Buforowanie obiektów i rozszerzalność buforowania obiektów
 
-Od momentu jego pierwszego wydania ASP.NET dołączyła do pamięci podręcznej obiektów w pamięci (*System. Web. cache. pamięci*podręcznej). Implementacja pamięci podręcznej była tak popularna, że została użyta w aplikacjach innych niż aplikacje sieci Web. Jest to jednak niewygodna dla aplikacji Windows Forms lub WPF, aby dołączać odwołanie do `System.Web.dll` programu, aby można było korzystać z pamięci podręcznej obiektów ASP.NET.
+Od momentu jego pierwszego wydania ASP.NET dołączyła do pamięci podręcznej obiektów w pamięci (*System. Web. cache. pamięci podręcznej*). Implementacja pamięci podręcznej była tak popularna, że została użyta w aplikacjach innych niż aplikacje sieci Web. Jest to jednak niewygodna dla aplikacji Windows Forms lub WPF, aby dołączać odwołanie do `System.Web.dll` tylko do korzystania z pamięci podręcznej obiektów ASP.NET.
 
-Aby udostępnić buforowanie dla wszystkich aplikacji, .NET Framework 4 wprowadza nowy zestaw, nową przestrzeń nazw, typy podstawowe i konkretną implementację pamięci podręcznej. Nowy `System.Runtime.Caching.dll` zestaw zawiera nowy interfejs API buforowania w przestrzeni nazw *System. Runtime. buforowania* . Przestrzeń nazw zawiera dwa podstawowe zestawy klas:
+Aby udostępnić buforowanie dla wszystkich aplikacji, .NET Framework 4 wprowadza nowy zestaw, nową przestrzeń nazw, typy podstawowe i konkretną implementację pamięci podręcznej. Nowy zestaw `System.Runtime.Caching.dll` zawiera nowy interfejs API buforowania w przestrzeni nazw *System. Runtime. buforowania* . Przestrzeń nazw zawiera dwa podstawowe zestawy klas:
 
 - Typy abstrakcyjne, które stanowią podstawę do tworzenia dowolnego typu implementacji niestandardowej pamięci podręcznej.
 - Konkretna implementacja pamięci podręcznej obiektów w pamięci (Klasa *System. Runtime. cache. elemencie MemoryCache* ).
 
-Nowa Klasa *elemencie MemoryCache* jest ściśle modelowana w pamięci podręcznej ASP.NET i udostępnia większość logiki aparatu wewnętrznej pamięci podręcznej z ASP.NET. Mimo że publiczne interfejsy API buforowania w *System. Runtime.* cache zostały zaktualizowane w celu obsługi opracowywania niestandardowych pamięci podręcznych, jeśli użyto obiektu *pamięci* podręcznej ASP.NET, znajdziesz znane koncepcje dotyczące nowych interfejsów API.
+Nowa Klasa *elemencie MemoryCache* jest ściśle modelowana w pamięci podręcznej ASP.NET i udostępnia większość logiki aparatu wewnętrznej pamięci podręcznej z ASP.NET. Mimo że publiczne interfejsy API buforowania w *System. Runtime.* cache zostały zaktualizowane w celu obsługi opracowywania niestandardowych pamięci podręcznych, jeśli użyto obiektu *pamięci podręcznej* ASP.NET, znajdziesz znane koncepcje dotyczące nowych interfejsów API.
 
 Szczegółowe omówienie nowej klasy *elemencie MemoryCache* i obsługi podstawowych interfejsów API wymagały całego dokumentu. Jednak w poniższym przykładzie przedstawiono sposób działania nowego interfejsu API pamięci podręcznej. Przykład został zapisany dla aplikacji Windows Forms bez żadnej zależności od `System.Web.dll`.
 
@@ -249,7 +249,7 @@ W ASP.NET 4 można utworzyć niestandardowe procedury kodowania dla następując
 - Kodowanie atrybutu HTML.
 - Kodowanie wychodzących nagłówków HTTP.
 
-Koder niestandardowy można utworzyć, korzystając z nowego typu *System. Web. util. HttpEncoder* , a następnie konfigurując ASP.NET do używania typu niestandardowego w `Web.config` sekcji *httpRuntime* pliku, jak pokazano w następującym przykładzie:
+Koder niestandardowy można utworzyć, korzystając z nowego typu *System. Web. util. HttpEncoder* , a następnie konfigurując ASP.NET do używania typu niestandardowego w sekcji *httpRuntime* pliku `Web.config`, jak pokazano w następującym przykładzie:
 
 [!code-xml[Main](overview/samples/sample15.xml)]
 
@@ -261,12 +261,12 @@ Po skonfigurowaniu kodera niestandardowego program ASP.NET automatycznie wywołu
 
 W celu zwiększenia liczby witryn sieci Web, które mogą być hostowane na jednym serwerze, wielu hostów dostawcy uruchamia wiele aplikacji ASP.NET w jednym procesie roboczym. Jeśli jednak wiele aplikacji korzysta z jednego udostępnionego procesu roboczego, Administratorzy serwera trudno będzie zidentyfikować poszczególne aplikacje, na których występują problemy.
 
-ASP.NET 4 wykorzystuje nowe funkcje monitorowania zasobów wprowadzone przez środowisko CLR. Aby włączyć tę funkcję, można dodać następujący fragment konfiguracji XML do `aspnet.config` pliku konfiguracji.
+ASP.NET 4 wykorzystuje nowe funkcje monitorowania zasobów wprowadzone przez środowisko CLR. Aby włączyć tę funkcję, można dodać następujący fragment konfiguracji XML do pliku konfiguracji `aspnet.config`.
 
 [!code-xml[Main](overview/samples/sample16.xml)]
 
 > [!NOTE]
-> Należy zauważyć `aspnet.config` , że plik znajduje się w katalogu, w którym zainstalowano .NET Framework. To nie `Web.config` jest plik.
+> Zwróć uwagę, że plik `aspnet.config` znajduje się w katalogu, w którym zainstalowano .NET Framework. Nie jest to plik `Web.config`.
 
 Po włączeniu funkcji *appDomainResourceMonitoring* dostępne są dwa nowe liczniki wydajności w kategorii wydajności "aplikacje ASP.NET": *% czasu procesora zarządzanego* i *używanej pamięci zarządzanej*. Oba te liczniki wydajności używają nowej funkcji zarządzania zasobami aplikacji środowiska CLR do śledzenia szacowanego czasu procesora i wykorzystania pamięci zarządzanej przez poszczególne aplikacje ASP.NET. W związku z ASP.NET 4 Administratorzy mają teraz bardziej szczegółowy wgląd w użycie zasobów przez poszczególne aplikacje działające w pojedynczym procesie roboczym.
 
@@ -274,18 +274,18 @@ Po włączeniu funkcji *appDomainResourceMonitoring* dostępne są dwa nowe licz
 
 ### <a name="multi-targeting"></a>Wielowersyjność kodu
 
-Można utworzyć aplikację, która jest przeznaczona dla określonej wersji .NET Framework. W ASP.NET 4 nowy atrybut w elemencie `Web.config` *kompilacji* pliku umożliwia ukierunkowanie na .NET Framework 4 i nowsze. Jeśli jawnie docelowa jest .NET Framework 4 i jeśli w `Web.config` pliku zostaną uwzględnione opcjonalne elementy, takie jak wpisy dla elementu *System. CodeDom*, te elementy muszą być poprawne dla .NET Framework 4. (Jeśli nie chcesz jawnie określić .NET Framework 4, platforma docelowa zostanie wywnioskowana z braku wpisu w `Web.config` pliku).
+Można utworzyć aplikację, która jest przeznaczona dla określonej wersji .NET Framework. W ASP.NET 4 nowy atrybut w elemencie *prekompilowania* pliku `Web.config` umożliwia kierowanie do .NET Framework 4 i nowszych. W przypadku jawnego określania .NET Framework 4 i w przypadku uwzględnienia opcjonalnych elementów w pliku `Web.config`, takich jak wpisy dla elementu *System. CodeDom*, te elementy muszą być poprawne dla .NET Framework 4. (Jeśli nie jest jawnie przeznaczony dla .NET Framework 4, platforma docelowa zostanie wywnioskowana z braku wpisu w pliku `Web.config`.)
 
-W poniższym przykładzie pokazano użycie atrybutu *TargetFramework* w `Web.config` elemencie *compilation* pliku.
+W poniższym przykładzie pokazano użycie atrybutu *TargetFramework* w elemencie *compilation* pliku `Web.config`.
 
 [!code-xml[Main](overview/samples/sample17.xml)]
 
 Należy zwrócić uwagę na następujące informacje dotyczące określania konkretnej wersji .NET Framework:
 
-- W puli aplikacji .NET Framework 4 system kompilacji ASP.NET zakłada, że .NET Framework 4 jako obiekt docelowy, jeśli `Web.config` plik nie zawiera `Web.config` atrybutu *TargetFramework* lub brakuje pliku. (Może zajść konieczność wprowadzenia zmian kodowania w aplikacji, aby była ona uruchamiana w .NET Framework 4).
-- Jeśli dołączysz atrybut *TargetFramework* , a w `Web.config` pliku jest zdefiniowany element *System. codeDom* , ten plik musi zawierać poprawne wpisy dla .NET Framework 4.
-- Jeśli używasz polecenia *kompilatora ASPNET\_* do prekompilowania aplikacji (na przykład w środowisku kompilacji), musisz użyć poprawnej wersji polecenia *kompilatora ASPNET\_* dla platformy docelowej. Użyj kompilatora, który został dostarczony z .NET Framework 2,0 (%WINDIR%\Microsoft.NET\Framework\v2.0.50727) do kompilowania dla .NET Framework 3,5 i wcześniejszych wersji. Użyj kompilatora, który jest dostarczany z .NET Framework 4 do kompilowania aplikacji utworzonych przy użyciu tej platformy lub nowszych wersji.
-- W czasie wykonywania kompilator korzysta z najnowszych zestawów struktury zainstalowanych na komputerze (i w związku z tym w GAC). Jeśli aktualizacja została wprowadzona w późniejszym czasie do platformy (na przykład w przypadku zainstalowania hipotetycznej wersji 4,1), będzie można używać funkcji w nowszej wersji struktury, nawet jeśli atrybut *TargetFramework* jest przeznaczony dla mniejszej wersji (na przykład 4,0). (Jednak w czasie projektowania w programie Visual Studio 2010 lub w przypadku użycia polecenia *kompilatora\_ASPNET* użycie nowszych funkcji platformy spowoduje błędy kompilatora).
+- W puli aplikacji .NET Framework 4 system kompilacji ASP.NET zakłada, że .NET Framework 4 jako obiekt docelowy, jeśli plik `Web.config` nie zawiera atrybutu *TargetFramework* lub jeśli brakuje pliku `Web.config`. (Może zajść konieczność wprowadzenia zmian kodowania w aplikacji, aby była ona uruchamiana w .NET Framework 4).
+- Jeśli dołączysz atrybut *TargetFramework* , a jeśli element *System. codeDom* jest zdefiniowany w pliku `Web.config`, ten plik musi zawierać poprawne wpisy dla .NET Framework 4.
+- Jeśli używasz *\_polecenia kompilatora ASPNET* do prekompilowania aplikacji (na przykład w środowisku kompilacji), musisz użyć poprawnej wersji poleceń *kompilatora\_ASPNET* dla platformy docelowej. Użyj kompilatora, który został dostarczony z .NET Framework 2,0 (%WINDIR%\Microsoft.NET\Framework\v2.0.50727) do kompilowania dla .NET Framework 3,5 i wcześniejszych wersji. Użyj kompilatora, który jest dostarczany z .NET Framework 4 do kompilowania aplikacji utworzonych przy użyciu tej platformy lub nowszych wersji.
+- W czasie wykonywania kompilator korzysta z najnowszych zestawów struktury zainstalowanych na komputerze (i w związku z tym w GAC). Jeśli aktualizacja została wprowadzona w późniejszym czasie do platformy (na przykład w przypadku zainstalowania hipotetycznej wersji 4,1), będzie można używać funkcji w nowszej wersji struktury, nawet jeśli atrybut *TargetFramework* jest przeznaczony dla mniejszej wersji (na przykład 4,0). (Jednak w czasie projektowania w programie Visual Studio 2010 lub przy użyciu polecenia *aspnet\_Compiler* użycie nowszych funkcji platformy spowoduje błędy kompilatora).
 
 <a id="0.2__Toc224729023"></a><a id="0.2__Toc253429250"></a><a id="0.2__Toc243304624"></a>
 
@@ -311,7 +311,7 @@ Na przykład następująca strona formularzy sieci Web ilustruje, jak za pomocą
 
 ### <a name="content-delivery-network-support"></a>Obsługa Content Delivery Network
 
-Microsoft Ajax Content Delivery Network (CDN) umożliwia łatwe dodawanie skryptów AJAX i jQuery do aplikacji sieci Web. Na przykład możesz zacząć korzystać z biblioteki jQuery po prostu dodając `<script>` do strony tag, który wskazuje na AJAX.Microsoft.com w następujący sposób:
+Microsoft Ajax Content Delivery Network (CDN) umożliwia łatwe dodawanie skryptów AJAX i jQuery do aplikacji sieci Web. Na przykład możesz zacząć korzystać z biblioteki jQuery po prostu dodając do strony tag `<script>`, który wskazuje na Ajax.microsoft.com w następujący sposób:
 
 [!code-html[Main](overview/samples/sample19.html)]
 
@@ -370,13 +370,13 @@ Formularze sieci Web są podstawową funkcją w ASP.NET od momentu wydania ASP.N
 
 ### <a name="setting-meta-tags-with-the-pagemetakeywords-and-pagemetadescription-properties"></a>Ustawianie tagów Meta przy użyciu właściwości Page. metas i Page. dbdescription
 
-ASP.NET 4 dodaje dwie właściwości do klasy *Page* , sqlkeywords i dbdescription. Te dwie właściwości reprezentują odpowiednie *meta* Tagi na stronie, jak pokazano w następującym przykładzie:
+ASP.NET 4 dodaje dwie właściwości do klasy *Page* , *sqlkeywords* i *dbdescription*. Te dwie właściwości reprezentują odpowiednie *meta* Tagi na stronie, jak pokazano w następującym przykładzie:
 
 [!code-aspx[Main](overview/samples/sample23.aspx)]
 
 Te dwie właściwości działają tak samo, jak Właściwość *title* strony. Są one zgodne z następującymi regułami:
 
-1. Jeśli w elemencie nagłówkowym nie ma tagów *meta* , które pasują do nazw właściwości (to znaczy, Name = "keywords" dla *strony. metadanych.* metadanych i Name = "Description" dla *strony. dbdescription*, co oznacza, że te właściwości nie zostały ustawione ) Tagi *meta* zostaną dodane do strony, gdy jest renderowany.
+1. Jeśli w elemencie *nagłówkowym* nie ma tagów *meta* , które pasują do nazw właściwości (to znaczy, Name = "keywords" dla *strony.* metadane i nazwa = "Description" dla *strony. dbdescription*, co oznacza, że te właściwości nie zostały ustawione), Tagi *meta* zostaną dodane do strony, gdy jest renderowany.
 2. Jeśli z tymi nazwami istnieją już Tagi *meta* , te właściwości działają jako metody get i Set dla zawartości istniejących tagów.
 
 Można ustawić te właściwości w czasie wykonywania, co pozwala uzyskać zawartość z bazy danych lub innego źródła, co pozwala na dynamiczne ustawianie tagów w celu opisania określonej strony.
@@ -387,7 +387,7 @@ Możesz również ustawić właściwości *Keywords* i *Description* w dyrektywi
 
 Spowoduje to zastąpienie zawartości znacznika *meta* (jeśli istnieje) już zadeklarowanej na stronie.
 
-Zawartość taga *meta* Description służy do ulepszania podglądów listy wyszukiwania w usłudze Google. (Aby uzyskać szczegółowe informacje, zobacz artykuł [ulepszanie fragmentów kodu z przerabianiaem opisowym](http://googlewebmastercentral.blogspot.com/2007/09/improve-snippets-with-meta-description.html) w blogu Google Webmaster). Usługa Google i usługa Windows Live Search nie używają zawartości słów kluczowych dla wszystkiego, ale mogą to być inne wyszukiwarki. Aby uzyskać więcej informacji, zobacz [porady meta Keywords](http://www.searchengineguide.com/richard-ball/meta-keywords-a.php) w witrynie sieci Web przewodnika po aparacie wyszukiwania.
+Zawartość taga *meta* Description służy do ulepszania podglądów listy wyszukiwania w usłudze Google. (Aby uzyskać szczegółowe informacje, zobacz artykuł [ulepszanie fragmentów kodu z przerabianiaem opisowym](https://googlewebmastercentral.blogspot.com/2007/09/improve-snippets-with-meta-description.html) w blogu Google Webmaster). Usługa Google i usługa Windows Live Search nie używają zawartości słów kluczowych dla wszystkiego, ale mogą to być inne wyszukiwarki. Aby uzyskać więcej informacji, zobacz [porady meta Keywords](http://www.searchengineguide.com/richard-ball/meta-keywords-a.php) w witrynie sieci Web przewodnika po aparacie wyszukiwania.
 
 Nowe właściwości są prostą funkcją, ale zapiszą Cię z wymogu, aby dodać je ręcznie lub pisząc własny kod w celu utworzenia tagów *meta* .
 
@@ -397,25 +397,25 @@ Nowe właściwości są prostą funkcją, ale zapiszą Cię z wymogu, aby dodać
 
 Domyślnie stan widoku jest włączony dla strony, z wynikiem, że każda kontrolka na stronie potencjalnie przechowuje stan widoku, nawet jeśli nie jest to wymagane dla aplikacji. Dane stanu widoku są uwzględniane w znacznikach generowanych przez stronę i zwiększają ilość czasu potrzebną do wysłania strony klienta i jej opublikowania. Przechowywanie większej ilości widoku niż jest to konieczne może spowodować znaczny spadek wydajności. We wcześniejszych wersjach programu ASP.NET deweloperzy mogą wyłączyć stan widoku dla poszczególnych kontrolek w celu zmniejszenia rozmiaru strony, ale wymagało to jawnie dla poszczególnych kontrolek. W ASP.NET 4 formanty serwera sieci Web zawierają Właściwość *ViewStateMode* , która pozwala na wyłączenie stanu widoku domyślnie, a następnie włączenie go tylko dla kontrolek, które go wymagają na stronie.
 
-Właściwość *ViewStateMode* przyjmuje Wyliczenie, które ma trzy wartości: *Włączone*, *wyłączone*i *dziedziczenia*. *Włączone* włącza stan widoku dla tej kontrolki i dla wszystkich kontrolek podrzędnych, które są ustawione na dziedziczenie lub które nie mają ustawionych elementów. Wartość *wyłączone* powoduje wyłączenie stanu widoku i *dziedziczenie* określa, że kontrolka używa ustawienia *ViewStateMode* z kontrolki nadrzędnej.
+Właściwość *ViewStateMode* przyjmuje Wyliczenie, które ma trzy wartości: *włączone*, *wyłączone*i *dziedziczenia*. *Włączone* włącza stan widoku dla tej kontrolki i dla wszystkich kontrolek podrzędnych, które są ustawione na *dziedziczenie* lub które nie mają ustawionych elementów. Wartość *wyłączone* powoduje wyłączenie stanu widoku i *dziedziczenie* określa, że kontrolka używa ustawienia *ViewStateMode* z kontrolki nadrzędnej.
 
-Poniższy przykład pokazuje, jak działa Właściwość ViewStateMode. Znaczniki i kod dla kontrolek na poniższej stronie zawierają wartości właściwości ViewStateMode:
+Poniższy przykład pokazuje, jak działa Właściwość *ViewStateMode* . Znaczniki i kod dla kontrolek na poniższej stronie zawierają wartości właściwości *ViewStateMode* :
 
 [!code-aspx[Main](overview/samples/sample25.aspx)]
 
-Jak widać, kod wyłącza stan widoku dla kontrolki PlaceHolder1. Podrzędna kontrolka Label1 dziedziczy tę wartość właściwości (dziedziczenie jest wartością domyślną dla elementu *ViewStateMode* dla formantów) i w związku z tym nie zapisuje stanu widoku. W kontrolce PlaceHolder2, *ViewStateMode* ma wartość *Enabled*, więc etykiety 2 dziedziczy tę właściwość i zapisuje stan widoku. Po pierwszym załadowaniu strony Właściwość *Text* obu kontrolek *Label* jest ustawiona na ciąg "[wartość dynamiczną]".
+Jak widać, kod wyłącza stan widoku dla kontrolki PlaceHolder1. Podrzędna kontrolka Label1 dziedziczy tę wartość właściwości (*dziedziczenie* jest wartością domyślną dla elementu *ViewStateMode* dla formantów) i w związku z tym nie zapisuje stanu widoku. W kontrolce PlaceHolder2, *ViewStateMode* ma wartość *Enabled*, więc etykiety 2 dziedziczy tę właściwość i zapisuje stan widoku. Po pierwszym załadowaniu strony Właściwość *Text* obu kontrolek *Label* jest ustawiona na ciąg "[wartość dynamiczną]".
 
 Efekt tych ustawień polega na tym, że po pierwszym załadowaniu strony w przeglądarce wyświetlane są następujące dane wyjściowe:
 
-Wyłączony`: [DynamicValue]`
+`: [DynamicValue]` wyłączone
 
-Dostępny`[DynamicValue]`
+Włączone:`[DynamicValue]`
 
 Po odświeżeniu zwrotnego są wyświetlane następujące dane wyjściowe:
 
-Wyłączony`: [DeclaredValue]`
+`: [DeclaredValue]` wyłączone
 
-Dostępny`[DynamicValue]`
+Włączone:`[DynamicValue]`
 
 Formant Label1 (którego wartość *ViewStateMode* jest ustawiona na *Disabled*) nie zachowa wartości, która została ustawiona w kodzie. Jednak formant etykiety 2 (którego wartość *ViewStateMode* jest ustawiona na *Enabled*) zachował swój stan.
 
@@ -425,9 +425,9 @@ Można również ustawić wartość *ViewStateMode* w dyrektywie *@ Page* , jak 
 
 Klasa *strony* jest tylko kolejną kontrolką; działa jako formant nadrzędny dla wszystkich innych kontrolek na stronie. Wartość domyślna elementu *ViewStateMode* jest *włączona* dla wystąpień *strony*. Ponieważ formanty domyślnie *dziedziczą*, formanty będą dziedziczyć wartość właściwości *Enabled* , chyba że ustawisz właściwość *ViewStateMode* na poziomie strony lub formantu.
 
-Wartość właściwości ViewStateMode określa, czy stan widoku jest obsługiwany tylko wtedy, gdy właściwość *EnableViewState* ma *wartość true*. Jeśli właściwość *EnableViewState* ma wartość *false*, stan widoku nie zostanie zachowany, nawet jeśli ustawienie *ViewStateMode* ma wartość *włączone*.
+Wartość właściwości *ViewStateMode* określa, czy stan widoku jest obsługiwany tylko wtedy, gdy właściwość *EnableViewState* ma *wartość true*. Jeśli właściwość *EnableViewState* ma wartość *false*, stan widoku nie zostanie zachowany, nawet jeśli ustawienie *ViewStateMode* ma wartość *włączone*.
 
-Dobrym sposobem na korzystanie z tej funkcji jest użycie formantów *ContentPlaceHolder* na stronach wzorcowych, w których można ustawić właściwość *ViewStateMode* dla strony wzorcowej, a następnie włączyć ją indywidualnie dla kontrolek *ContentPlaceHolder* , które z kolei zawiera kontrolki wymagające stanu widoku.
+Dobrym zastosowaniem tej funkcji jest z kontrolkami elementów *ContentPlaceHolder* na stronach wzorcowych, w których można ustawić właściwość *ViewStateMode* na wartość *Disabled* dla strony wzorcowej, a następnie włączyć ją indywidualnie dla kontrolek *ContentPlaceHolder* , które z kolei zawierają kontrolki wymagające stanu widoku.
 
 <a id="0.2__Toc224729035"></a><a id="0.2__Toc253429259"></a><a id="0.2__Toc243304633"></a>
 
@@ -439,17 +439,17 @@ Obiekt *HttpBrowserCapabilities* jest oparty na zestawie plików definicji przeg
 
 Na poniższej liście przedstawiono nowe pliki definicji przeglądarki:
 
-- *blackberry.browser*
-- *chrome.browser*
-- *Default.browser*
-- *firefox.browser*
-- *gateway.browser*
-- *generic.browser*
-- *ie.browser*
-- *iemobile.browser*
-- *iphone.browser*
-- *opera.browser*
-- *safari.browser*
+- *BlackBerry. Browser*
+- *Chrome. Browser*
+- *Domyślna przeglądarka*
+- *Firefox. Browser*
+- *Brama. przeglądarka*
+- *ogólna przeglądarka*
+- *IE. Browser*
+- *Iemobile. Browser*
+- *iPhone. Browser*
+- *Opera. Browser*
+- *Przeglądarka Safari. Browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Korzystanie z dostawców możliwości przeglądarki
 
@@ -463,13 +463,13 @@ W programie ASP.NET w wersji 3,5 Service Pack 1 można zdefiniować możliwości
 
 - [!code-console[Main](overview/samples/sample28.cmd)]
 
-- W przypadku pojedynczej aplikacji utworzysz `.browser` plik w `App_Browsers` folderze aplikacji.
+- W przypadku pojedynczej aplikacji utworzysz plik `.browser` w folderze `App_Browsers` aplikacji.
 
-Te podejścia wymagają zmiany plików XML i zmiany na poziomie komputera, należy ponownie uruchomić aplikację po uruchomieniu procesu ASPNET\_RegBrowsers. exe.
+Te podejścia wymagają zmiany plików XML, a w przypadku zmian na poziomie komputera należy ponownie uruchomić aplikację po uruchomieniu programu ASPNET\_RegBrowsers. exe.
 
-ASP.NET 4 zawiera funkcję nazywaną dostawcami *możliwości przeglądarki*. Jak sugeruje nazwa, umożliwia to utworzenie dostawcy, który z kolei umożliwia użycie własnego kodu do określenia możliwości przeglądarki.
+ASP.NET 4 zawiera funkcję nazywaną *dostawcami możliwości przeglądarki*. Jak sugeruje nazwa, umożliwia to utworzenie dostawcy, który z kolei umożliwia użycie własnego kodu do określenia możliwości przeglądarki.
 
-W tym przypadku deweloperzy często nie definiują możliwości niestandardowej przeglądarki. Pliki przeglądarki są trudne do zaktualizowania, proces aktualizacji jest dość skomplikowany, a składnia XML dla `.browser` plików może być złożona do użycia i zdefiniowania. Ten proces jest znacznie łatwiejszy w przypadku istnienia typowej składni definicji przeglądarki lub bazy danych, która zawierała aktualne definicje przeglądarki, a nawet usługa sieci Web dla tej bazy danych. Nowe funkcje usługodawców przeglądarki zapewniają, że te scenariusze są możliwe i praktyczne dla deweloperów innych firm.
+W tym przypadku deweloperzy często nie definiują możliwości niestandardowej przeglądarki. Pliki przeglądarki są trudne do zaktualizowania, proces aktualizacji jest dość skomplikowany, a składnia XML dla plików `.browser` może być złożona do użycia i zdefiniowania. Ten proces jest znacznie łatwiejszy w przypadku istnienia typowej składni definicji przeglądarki lub bazy danych, która zawierała aktualne definicje przeglądarki, a nawet usługa sieci Web dla tej bazy danych. Nowe funkcje usługodawców przeglądarki zapewniają, że te scenariusze są możliwe i praktyczne dla deweloperów innych firm.
 
 Istnieją dwa główne podejścia do korzystania z nowej funkcji dostawcy możliwości przeglądarki ASP.NET 4: rozszerzanie funkcji definicji możliwości przeglądarki ASP.NET lub całkowite zastąpienie. W poniższych sekcjach opisano najpierw sposób zastąpienia funkcji, a następnie sposób jej rozbudowania.
 
@@ -484,7 +484,7 @@ Aby całkowicie zastąpić funkcję definicji możliwości przeglądarki ASP.NET
     Kod w tym przykładzie tworzy nowy obiekt *HttpBrowserCapabilities* , określając tylko możliwości o nazwie Browser i ustawiając tę funkcję na MyCustomBrowser.
 2. Zarejestruj dostawcę w aplikacji. 
 
-    Aby można było użyć dostawcy z aplikacją, należy dodać atrybut *dostawcy* do `Web.config` sekcji browserCaps w plikach lub. `Machine.config` (Można również zdefiniować atrybuty dostawcy w elemencie *Location* dla określonych katalogów w aplikacji, na przykład w folderze dla określonego urządzenia przenośnego). Poniższy przykład pokazuje, jak ustawić atrybut *dostawcy* w pliku konfiguracji:
+    Aby można było użyć dostawcy z aplikacją, należy dodać atrybut *dostawcy* do sekcji *browserCaps* w plikach `Web.config` lub `Machine.config`. (Można również zdefiniować atrybuty dostawcy w elemencie *Location* dla określonych katalogów w aplikacji, na przykład w folderze dla określonego urządzenia przenośnego). Poniższy przykład pokazuje, jak ustawić atrybut *dostawcy* w pliku konfiguracji:
 
     [!code-xml[Main](overview/samples/sample30.xml)]
 
@@ -492,7 +492,7 @@ Aby całkowicie zastąpić funkcję definicji możliwości przeglądarki ASP.NET
 
     [!code-csharp[Main](overview/samples/sample31.cs)]
 
-    Ten kod musi być uruchomiony w zdarzeniu `Global.asax` początkowym *aplikacji\_* pliku. Wszelkie zmiany klasy *BrowserCapabilitiesProvider* muszą wystąpić przed wykonaniem dowolnego kodu w aplikacji, aby upewnić się, że pamięć podręczna pozostaje w prawidłowym stanie dla rozpoznanego obiektu *HttpCapabilitiesBase* .
+    Ten kod musi działać w *aplikacji\_uruchomieniu* zdarzenia `Global.asax` pliku. Wszelkie zmiany klasy *BrowserCapabilitiesProvider* muszą wystąpić przed wykonaniem dowolnego kodu w aplikacji, aby upewnić się, że pamięć podręczna pozostaje w prawidłowym stanie dla rozpoznanego obiektu *HttpCapabilitiesBase* .
 
 #### <a name="caching-the-httpbrowsercapabilities-object"></a>Buforowanie obiektu HttpBrowserCapabilities
 
@@ -513,7 +513,7 @@ W poprzedniej sekcji opisano sposób tworzenia nowego obiektu *HttpBrowserCapabi
 
     [!code-csharp[Main](overview/samples/sample33.cs)]
 
-    Ten kod najpierw używa funkcji możliwości przeglądarki ASP.NET, aby spróbować zidentyfikować przeglądarkę. Jeśli jednak żadna przeglądarka nie zostanie zidentyfikowana na podstawie informacji zdefiniowanych w żądaniu (oznacza to, że jeśli właściwość *przeglądarki* obiektu *HttpBrowserCapabilities* jest ciągiem "Unknown"), kod wywołuje niestandardowego dostawcę ( MyBrowserCapabilitiesEvaluator), aby zidentyfikować przeglądarkę.
+    Ten kod najpierw używa funkcji możliwości przeglądarki ASP.NET, aby spróbować zidentyfikować przeglądarkę. Jeśli jednak żadna przeglądarka nie zostanie zidentyfikowana na podstawie informacji zdefiniowanych w żądaniu (oznacza to, że jeśli właściwość *przeglądarki* obiektu *HttpBrowserCapabilities* jest ciągiem "nieznany"), kod wywołuje dostawcę niestandardowego (MyBrowserCapabilitiesEvaluator) w celu zidentyfikowania przeglądarki.
 2. Zarejestruj dostawcę w aplikacji zgodnie z opisem w poprzednim przykładzie.
 
 #### <a name="extending-browser-capabilities-functionality-by-adding-new-capabilities-to-existing-capabilities-definitions"></a>Rozszerzanie funkcji możliwości przeglądarki przez dodawanie nowych funkcji do istniejących definicji możliwości
@@ -531,7 +531,7 @@ Oprócz tworzenia niestandardowego dostawcy definicji przeglądarki i dynamiczne
     Kod może następnie dodać lub zmodyfikować możliwość dla tej przeglądarki. Istnieją dwa sposoby, aby określić nową funkcję przeglądarki:
 
     - Dodaj parę klucz/wartość do obiektu *IDictionary* , który jest udostępniany przez właściwość *Capabilities* obiektu *HttpCapabilitiesBase* . W poprzednim przykładzie kod dodaje funkcję o nazwie wielodotyku o wartości *true*.
-    - Ustaw istniejące właściwości obiektu *HttpCapabilitiesBase* . W poprzednim przykładzie kod ustawia właściwość Frames na *true*. Ta właściwość jest po prostu metodą dostępu dla obiektu *IDictionary* , który jest udostępniany przez właściwość *Capabilities* . 
+    - Ustaw istniejące właściwości obiektu *HttpCapabilitiesBase* . W poprzednim przykładzie kod ustawia właściwość *Frames* na *true*. Ta właściwość jest po prostu metodą dostępu dla obiektu *IDictionary* , który jest udostępniany przez właściwość *Capabilities* . 
 
         > [!NOTE]
         > Zwróć uwagę, że ten model ma zastosowanie do dowolnej właściwości *HttpBrowserCapabilities*, w tym adapterów kontroli.
@@ -549,7 +549,7 @@ Za pomocą routingu można skonfigurować aplikację tak, aby akceptowała nast�
 
 [!code-console[Main](overview/samples/sample37.cmd)]
 
-Routing jest dostępny od wersji ASP.NET 3,5 z dodatkiem SP1. (Aby zapoznać się z przykładem użycia routingu w programie ASP.NET 3,5 z dodatkiem SP1, zobacz wpis [przy użyciu pozycji Routing z WebForms](http://haacked.com/archive/2008/03/11/using-routing-with-webforms.aspx "tego wpisu.") na blogu Krzysztof Haack). ASP.NET 4 zawiera jednak pewne funkcje, które ułatwiają korzystanie z routingu, w tym następujące:
+Routing jest dostępny od wersji ASP.NET 3,5 z dodatkiem SP1. (Aby zapoznać się z przykładem używania routingu w programie ASP.NET 3,5 z dodatkiem SP1, zobacz wpis [przy użyciu usługi Routing z WebForms](http://haacked.com/archive/2008/03/11/using-routing-with-webforms.aspx "Tytuł tego wpisu.") w blogu Krzysztof Haack). ASP.NET 4 zawiera jednak pewne funkcje, które ułatwiają korzystanie z routingu, w tym następujące:
 
 - Klasa *PageRouteHandler* , która jest prostą obsługą protokołu HTTP, która jest używana podczas definiowania tras. Klasa przekazuje dane na stronę, do której jest kierowane żądanie.
 - Nowe właściwości *HttpRequest. RequestContext* i *Page. RouteData* (który jest serwerem proxy dla obiektu *HttpRequest. RequestContext. RouteData* ). Te właściwości ułatwiają dostęp do informacji przesyłanych z trasy.
@@ -572,15 +572,15 @@ Kod w przykładzie mapuje trasę na stronę fizyczną (w pierwszej trasie do `~/
 
 Metoda *MapPageRoute* obsługuje następujące przeciążenia metod:
 
-- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess)*
+- *MapPageRoute (String RouteName, String routeUrl, String physicalFile, bool checkPhysicalUrlAccess)*
 - *MapPageRoute (String RouteName, String routeUrl, String physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary Defaults)*
 - *MapPageRoute (String RouteName, String routeUrl, String physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary defaults, RouteValueDictionary ograniczenia)*
 
-Parametr *checkPhysicalUrlAccess* określa, czy trasa ma sprawdzać uprawnienia zabezpieczeń do wysyłanej strony fizycznej (w tym przypadku wyszukiwania. aspx) oraz uprawnienia do PRZYCHODZĄCEGO adresu URL (w tym przypadku wyszukiwania/{SearchTerm}). Jeśli wartość *checkPhysicalUrlAccess* ma wartość *false*, sprawdzane są tylko uprawnienia przychodzącego adresu URL. Te uprawnienia są zdefiniowane w `Web.config` pliku przy użyciu następujących ustawień:
+Parametr *checkPhysicalUrlAccess* określa, czy trasa ma sprawdzać uprawnienia zabezpieczeń do wysyłanej strony fizycznej (w tym przypadku wyszukiwania. aspx) oraz uprawnienia do PRZYCHODZĄCEGO adresu URL (w tym przypadku wyszukiwania/{SearchTerm}). Jeśli wartość *checkPhysicalUrlAccess* ma wartość *false*, sprawdzane są tylko uprawnienia przychodzącego adresu URL. Te uprawnienia są zdefiniowane w pliku `Web.config` przy użyciu następujących ustawień:
 
 [!code-xml[Main](overview/samples/sample40.xml)]
 
-W przykładowej konfiguracji dostęp zostaje odrzucony na stronie `search.aspx` fizycznej dla wszystkich użytkowników z wyjątkiem tych, którzy znajdują się w roli administratora. Gdy parametr *checkPhysicalUrlAccess* ma wartość *true* (jest to wartość domyślna), tylko użytkownicy administracyjni mogą uzyskiwać dostęp do adresu URL/Search/{SearchTerm}, ponieważ Strona fizyczna Search. aspx jest ograniczona do użytkowników w tej roli. Jeśli *checkPhysicalUrlAccess* ma wartość *Fałsz* , a lokacja jest skonfigurowana tak, jak pokazano w poprzednim przykładzie, Wszyscy uwierzytelnieni użytkownicy mogą uzyskiwać dostęp do adresu URL/Search/{SearchTerm}.
+W przykładowej konfiguracji dostęp jest zabroniony do `search.aspx` strony fizycznej dla wszystkich użytkowników z wyjątkiem tych, którzy znajdują się w roli administratora. Gdy parametr *checkPhysicalUrlAccess* ma wartość *true* (jest to wartość domyślna), tylko użytkownicy administracyjni mogą uzyskiwać dostęp do adresu URL/Search/{SearchTerm}, ponieważ Strona fizyczna Search. aspx jest ograniczona do użytkowników w tej roli. Jeśli *checkPhysicalUrlAccess* ma wartość *Fałsz* , a lokacja jest skonfigurowana tak, jak pokazano w poprzednim przykładzie, Wszyscy uwierzytelnieni użytkownicy mogą uzyskiwać dostęp do adresu URL/Search/{SearchTerm}.
 
 #### <a name="reading-routing-information-in-a-web-forms-page"></a>Odczytywanie informacji o routingu na stronie formularzy sieci Web
 
@@ -592,11 +592,11 @@ Kod wyodrębnia wartość, która została przeniesiona do parametru SearchTerm,
 
 [!code-console[Main](overview/samples/sample42.cmd)]
 
-Po wykonaniu tego żądania słowo "Scott" byłoby renderowane na `search.aspx` stronie.
+Po wykonaniu tego żądania słowo "Scott" byłoby renderowane na stronie `search.aspx`.
 
 #### <a name="accessing-routing-information-in-markup"></a>Uzyskiwanie dostępu do informacji routingu w znaczniku
 
-Metoda opisana w poprzedniej sekcji pokazuje, jak uzyskać dane trasy w kodzie na stronie formularzy sieci Web. Można również używać wyrażeń w znacznikach, które dają dostęp do tych samych informacji. Konstruktory wyrażeń to zaawansowany i elegancki sposób pracy z kodem deklaratywnym. (Aby uzyskać więcej informacji, zapoznaj [](http://haacked.com/archive/2006/11/29/Express_Yourself_With_Custom_Expression_Builders.aspx) się z wpisem.
+Metoda opisana w poprzedniej sekcji pokazuje, jak uzyskać dane trasy w kodzie na stronie formularzy sieci Web. Można również używać wyrażeń w znacznikach, które dają dostęp do tych samych informacji. Konstruktory wyrażeń to zaawansowany i elegancki sposób pracy z kodem deklaratywnym. (Aby uzyskać więcej informacji, zapoznaj [się z wpisem](http://haacked.com/archive/2006/11/29/Express_Yourself_With_Custom_Expression_Builders.aspx) .
 
 ASP.NET 4 zawiera dwa nowe konstruktory wyrażeń dla routingu formularzy sieci Web. Poniższy przykład pokazuje, jak z nich korzystać.
 
@@ -624,7 +624,7 @@ Klasa *RouteParameter* pozwala określić dane trasy jako wartość parametru dl
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-W takim przypadku wartość parametru trasy SearchTerm zostanie użyta dla @companyname parametru w instrukcji *SELECT* .
+W takim przypadku wartość parametru trasy SearchTerm zostanie użyta dla parametru @companyname w instrukcji *SELECT* .
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -632,7 +632,7 @@ W takim przypadku wartość parametru trasy SearchTerm zostanie użyta dla @comp
 
 Nowa właściwość *ClientIDMode* odnosi się do długiego problemu w ASP.NET, mianowicie, jak formanty tworzą atrybut *ID* dla elementów, które są przez nich renderowane. Znajomość atrybutu *ID* dla renderowanych elementów jest ważna, jeśli aplikacja zawiera skrypt klienta, który odwołuje się do tych elementów.
 
-Atrybut *ID* w kodzie HTML, który jest renderowany dla kontrolek serwera sieci Web, jest generowany na podstawie właściwości *ClientID* formantu. Do ASP.NET 4 algorytm generowania atrybutu *ID* we właściwości *ClientID* ma na celu połączenie kontenera nazw (jeśli istnieje) z identyfikatorem i w przypadku powtórzonych kontrolek (jak w kontrolkach danych), aby dodać prefiks i sekwencyjny Liczba. Mimo że zawsze gwarantujemy, że identyfikatory kontrolek na stronie są unikatowe, algorytm spowodował nieprzewidywalne identyfikatory sterowania i dlatego trudno się odwołać w skrypcie klienta.
+Atrybut *ID* w kodzie HTML, który jest renderowany dla kontrolek serwera sieci Web, jest generowany na podstawie właściwości *ClientID* formantu. Do ASP.NET 4 algorytm generowania atrybutu *ID* we właściwości *ClientID* ma na celu połączenie kontenera nazw (jeśli istnieje) z identyfikatorem i w przypadku powtórzonych kontrolek (jak w kontrolkach danych), aby dodać prefiks i numer sekwencyjny. Mimo że zawsze gwarantujemy, że identyfikatory kontrolek na stronie są unikatowe, algorytm spowodował nieprzewidywalne identyfikatory sterowania i dlatego trudno się odwołać w skrypcie klienta.
 
 Nowa właściwość *ClientIDMode* pozwala na dokładniejsze określenie identyfikatora klienta dla kontrolek. Właściwość *ClientIDMode* można ustawić dla każdej kontrolki, w tym dla strony. Dostępne są następujące ustawienia:
 
@@ -657,7 +657,7 @@ Jak wspomniano wcześniej, wartość właściwości *ClientID* jest pochodną ko
 
 [!code-html[Main](overview/samples/sample49.html)]
 
-Mimo że element *wejściowy* widoczny w znaczniku (z kontrolki *TextBox* ) ma tylko dwa kontenery nazewnictwa głębokie na stronie (zagnieżdżone kontrolki *ContentPlaceHolder* ), ze względu na sposób przetwarzania stron wzorcowych, wynik końcowy to Identyfikator kontrolki podobny do następującego:
+Mimo że element *wejściowy* widoczny w znaczniku (z formantu *TextBox* ) ma tylko dwa kontenery nazewnictwa na stronie (zagnieżdżone kontrolki *ContentPlaceHolder* ), ze względu na sposób przetwarzania stron WZORCOWych, wynik końcowy jest identyfikatorem kontrolki podobnym do poniższego:
 
 [!code-console[Main](overview/samples/sample50.cmd)]
 
@@ -694,7 +694,7 @@ W poprzednim przykładzie właściwości *ClientIDMode* i *RowClientIDRowSuffix*
 
 - W takim przypadku końcowy 1 jest wyprowadzany z identyfikatora produktu bieżącego elementu danych.
 
-- Formant wzmacniania — ten formant nie obsługuje właściwości *ClientIDRowSuffix* . W kontrolce *wzmacnia* indeks bieżącego wiersza. Jeśli używasz ClientIDMode = "przewidywalne" z kontrolką , generowane są identyfikatory klientów o następującym formacie:
+- Formant *wzmacniania* — ten formant nie obsługuje właściwości *ClientIDRowSuffix* . W kontrolce *wzmacnia* indeks bieżącego wiersza. Jeśli używasz ClientIDMode = "przewidywalne" *z kontrolką* , generowane są identyfikatory klientów o następującym formacie:
 
 - [!code-console[Main](overview/samples/sample56.cmd)]
 
@@ -737,7 +737,7 @@ Poniższe ilustracje przedstawiają przykłady wykresów finansowych, które są
 
 <a id="0.2_graphic17"></a>![](overview/_static/image1.png)
 
-Rysunek 2. Przykłady kontrolek wykresu ASP.NET
+Rysunek 2: przykłady kontrolki wykresu ASP.NET
 
 Aby uzyskać więcej przykładów użycia kontrolki wykresu ASP.NET, Pobierz przykładowy kod na stronie [kontrolki wykresu dla programu Microsoft Chart](https://go.microsoft.com/fwlink/?LinkId=128300) w witrynie MSDN w sieci Web. Więcej przykładów zawartości społeczności można znaleźć na [forum formantów wykresów](https://go.microsoft.com/fwlink/?LinkId=128713).
 
@@ -757,11 +757,11 @@ Na poniższym rysunku przedstawiono wykres trójwymiarowy z czterema seriami typ
 
 <a id="0.2_graphic18"></a>![](overview/_static/image2.png)
 
-Rysunek 3. Wykres słupkowy 3-D
+Rysunek 3:3-D wykres słupkowy
 
 #### <a name="using-scale-breaks-and-logarithmic-scales"></a>Korzystanie z podziałów skali i skal logarytmicznych
 
-Podziały skali i skale logarytmiczne są dwa dodatkowe sposoby dodawania złożoności do wykresu. Te funkcje są specyficzne dla każdej osi w obszarze wykresu. Na przykład, aby użyć tych funkcji na podstawowej osi Y obszaru wykresu, należy użyć właściwości *AxisY.* islogarytmiczne i *ScaleBreakStyle* w obiekcie *obszar wykresu* . Poniższy fragment kodu pokazuje, jak używać podziałów skali na podstawowej osi Y.
+Podziały skali i skale logarytmiczne są dwa dodatkowe sposoby dodawania złożoności do wykresu. Te funkcje są specyficzne dla każdej osi w obszarze wykresu. Na przykład, aby użyć tych funkcji na podstawowej osi Y obszaru wykresu, należy użyć właściwości *AxisY. Islogarytmiczne* i *ScaleBreakStyle* w obiekcie *obszar wykresu* . Poniższy fragment kodu pokazuje, jak używać podziałów skali na podstawowej osi Y.
 
 [!code-aspx[Main](overview/samples/sample60.aspx)]
 
@@ -769,7 +769,7 @@ Na poniższym rysunku przedstawiono oś Y z włączonymi przerwami skalowania.
 
 <a id="0.2_graphic19"></a>![](overview/_static/image3.png)
 
-Rysunek 4. Podziały skali
+Ilustracja 4. skalowanie podziałów
 
 <a id="0.2__QueryExtender"></a><a id="0.2__Toc224729041"></a><a id="0.2__Toc253429264"></a><a id="0.2__Toc243304638"></a>
 
@@ -783,19 +783,19 @@ Kontrolka *QueryExtender* obsługuje wiele opcji filtrów. W poniższych sekcjac
 
 #### <a name="search"></a>Wyszukaj
 
-W przypadku opcji Search formant *QueryExtender* wykonuje wyszukiwanie w określonych polach. W poniższym przykładzie kontrolka używa tekstu wprowadzonego w kontrolce TextBoxSearch i wyszukuje jego zawartość w `ProductName` kolumnach i `Supplier.CompanyName` danych zwracanych przez formant *LinqDataSource* .
+W przypadku opcji Search formant *QueryExtender* wykonuje wyszukiwanie w określonych polach. W poniższym przykładzie formant używa tekstu wprowadzonego w kontrolce TextBoxSearch i wyszukuje jego zawartość w `ProductName` i `Supplier.CompanyName` kolumny w danych, które są zwracane przez formant *LinqDataSource* .
 
 [!code-aspx[Main](overview/samples/sample61.aspx)]
 
 #### <a name="range"></a>Zakres
 
-Opcja zakres jest podobna do opcji Search, ale określa parę wartości, aby zdefiniować zakres. W poniższym przykładzie formant *QueryExtender* przeszukuje `UnitPrice` kolumnę w danych zwróconych przez formant *LinqDataSource* . Zakres jest odczytywany z kontrolek TextBoxFrom i TextBoxTo na stronie.
+Opcja zakres jest podobna do opcji Search, ale określa parę wartości, aby zdefiniować zakres. W poniższym przykładzie formant *QueryExtender* przeszukuje kolumnę `UnitPrice` w danych zwróconych przez formant *LinqDataSource* . Zakres jest odczytywany z kontrolek TextBoxFrom i TextBoxTo na stronie.
 
 [!code-aspx[Main](overview/samples/sample62.aspx)]
 
 #### <a name="propertyexpression"></a>PropertyExpression
 
-Opcja wyrażenia właściwości pozwala zdefiniować porównanie wartości właściwości. Jeśli wyrażenie zwróci *wartość true*, zwracane są testowane dane. W poniższym przykładzie formant *QueryExtender* filtruje dane, porównując dane w `Discontinued` kolumnie z wartością z formantu CheckBoxDiscontinued na stronie.
+Opcja wyrażenia właściwości pozwala zdefiniować porównanie wartości właściwości. Jeśli wyrażenie zwróci *wartość true*, zwracane są testowane dane. W poniższym przykładzie formant *QueryExtender* filtruje dane przez porównanie danych w kolumnie `Discontinued` do wartości z kontrolki CheckBoxDiscontinued na stronie.
 
 [!code-aspx[Main](overview/samples/sample63.aspx)]
 
@@ -815,7 +815,7 @@ Te przykłady pokazują tylko jedno wyrażenie używane w kontrolce *QueryExtend
 
 ### <a name="html-encoded-code-expressions"></a>Wyrażenia kodu kodowane HTML
 
-Niektóre lokacje ASP.NET (zwłaszcza z ASP.NET MVC) polegają na `<%` użyciu =  `expression %>` składni (często nazywanej "Code nuggets") w celu zapisania tekstu w odpowiedzi. W przypadku używania wyrażeń kodowych można łatwo zapomnieć, aby kod HTML zakodować tekst, jeśli tekst pochodzi z danych wejściowych użytkownika, może pozostawiać strony otwarte do ataku typu XSS (cross-site scripting).
+Niektóre lokacje ASP.NET (zwłaszcza z ASP.NET MVC) opierają się na użyciu składni `<%`= `expression %>` (często nazywanej "kodem nuggets") w celu zapisania tekstu w odpowiedzi. W przypadku używania wyrażeń kodowych można łatwo zapomnieć, aby kod HTML zakodować tekst, jeśli tekst pochodzi z danych wejściowych użytkownika, może pozostawiać strony otwarte do ataku typu XSS (cross-site scripting).
 
 ASP.NET 4 wprowadza następującą nową składnię dla wyrażeń kodu:
 
@@ -825,7 +825,7 @@ Ta składnia domyślnie używa kodowania HTML podczas zapisywania w odpowiedzi. 
 
 [!code-aspx[Main](overview/samples/sample67.aspx)]
 
-Na przykład &lt;%: Żądanie ["UserInput"]%&gt; wykonuje kodowanie HTML na wartość *żądania ["UserInput"]* .
+Na przykład &lt;%: Request ["UserInput"]%&gt; wykonuje kodowanie HTML na wartość *żądania ["UserInput"]* .
 
 Celem tej funkcji jest możliwość zastąpienia wszystkich wystąpień starej składni nową składnią, tak aby nie było wymuszane podejmowanie decyzji o każdym kroku, który ma być używany. Istnieją jednak przypadki, w których tekst danych wyjściowych jest przeznaczony do pliku HTML lub jest już zakodowany, w takim przypadku może to prowadzić do podwójnego kodowania.
 
@@ -843,7 +843,7 @@ Podobnie, składnia nie wykonuje kodowania JavaScript, na przykład podczas twor
 
 ### <a name="project-template-changes"></a>Zmiany szablonu projektu
 
-W starszych wersjach programu ASP.NET, gdy program Visual Studio jest używany do tworzenia nowego projektu witryny sieci Web lub projektu aplikacji sieci Web, wynikowe projekty zawierają tylko domyślną stronę. aspx, plik `Web.config` domyślny `App_Data` i folder, jak pokazano w poniższym przykładzie ilustracji
+W starszych wersjach programu ASP.NET, gdy program Visual Studio jest używany do tworzenia nowego projektu witryny sieci Web lub projektu aplikacji sieci Web, wynikowe projekty zawierają tylko domyślną stronę. aspx, domyślny plik `Web.config` i folder `App_Data`, jak pokazano na poniższej ilustracji:
 
 <a id="0.2_graphic1A"></a>![](overview/_static/image4.png)
 
@@ -865,7 +865,7 @@ Podczas tworzenia pustej aplikacji sieci Web ASP.NET program Visual Studio tworz
 
 <a id="0.2_graphic1D"></a>![](overview/_static/image9.png)
 
-Jest to podobne do układu pustej witryny sieci Web z wcześniejszych wersji programu ASP.NET z jednym wyjątkiem. W programie Visual Studio 2010 puste aplikacje sieci Web i puste projekty witryny sieci Web zawierają następujący `Web.config` minimalny plik, który zawiera informacje używane przez program Visual Studio do identyfikacji struktury docelowej dla projektu:
+Jest to podobne do układu pustej witryny sieci Web z wcześniejszych wersji programu ASP.NET z jednym wyjątkiem. W programie Visual Studio 2010 puste aplikacje sieci Web i puste projekty witryny sieci Web zawierają następujący minimalny `Web.config` pliku, który zawiera informacje używane przez program Visual Studio do identyfikowania struktury, do której odnosi się projekt:
 
 <a id="0.2_graphic1E"></a>![](overview/_static/image10.png)
 
@@ -877,13 +877,13 @@ Pozostałe dwa nowe szablony projektów, które są dostarczane z programem Visu
 
 - <a id="0.2_graphic1F"></a>![](overview/_static/image11.png)
 
-Projekt zawiera kilka plików, które nie zostały utworzone we wcześniejszych wersjach. Ponadto nowy projekt aplikacji sieci Web jest skonfigurowany z podstawowymi funkcjami członkostwa, dzięki czemu można szybko rozpocząć Zabezpieczanie dostępu do nowej aplikacji. Ze względu na to, `Web.config` że plik nowego projektu zawiera wpisy, które są używane do konfigurowania członkostwa, ról i profilów. Poniższy przykład pokazuje `Web.config` plik dla nowego projektu aplikacji sieci Web. (W tym przypadku *rolamanager* jest wyłączona).
+Projekt zawiera kilka plików, które nie zostały utworzone we wcześniejszych wersjach. Ponadto nowy projekt aplikacji sieci Web jest skonfigurowany z podstawowymi funkcjami członkostwa, dzięki czemu można szybko rozpocząć Zabezpieczanie dostępu do nowej aplikacji. Ze względu na to, że plik `Web.config` dla nowego projektu zawiera wpisy, które są używane do konfigurowania członkostwa, ról i profilów. Poniższy przykład przedstawia plik `Web.config` dla nowego projektu aplikacji sieci Web. (W tym przypadku *rolamanager* jest wyłączona).
 
 [![](overview/_static/image13.png)](overview/_static/image12.png)
 
 ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](overview/_static/image14.png))
 
-Projekt zawiera również drugi `Web.config` plik `Account` w katalogu. Drugi plik konfiguracyjny zapewnia sposób zabezpieczania dostępu do strony ChangePassword. aspx dla niezalogowanych użytkowników. Poniższy przykład pokazuje zawartość drugiego `Web.config` pliku.
+Projekt zawiera również drugi `Web.config` plik w katalogu `Account`. Drugi plik konfiguracyjny zapewnia sposób zabezpieczania dostępu do strony ChangePassword. aspx dla niezalogowanych użytkowników. Poniższy przykład pokazuje zawartość drugiego pliku `Web.config`.
 
 ![](overview/_static/image15.png)
 
@@ -899,7 +899,7 @@ Załóżmy na przykład, że dla nowej aplikacji sieci Web chcesz zmienić niekt
 
 <a id="0.2_graphic23"></a>![](overview/_static/image19.png)
 
-Aby dodać obraz do strony, Otwórz `Site.Master` plik, Znajdź, gdzie jest zdefiniowany tekst aplikacji My ASP.NET, i zastąp go elementem *Image* , którego atrybut *src* jest ustawiony na nowy obraz logo, jak w poniższym przykładzie:
+Aby dodać obraz do strony, Otwórz plik `Site.Master`, Znajdź miejsce zdefiniowania tekstu aplikacji My ASP.NET i zastąp go elementem *Image* , którego atrybut *src* jest ustawiony na nowy obraz logo, jak w poniższym przykładzie:
 
 [![](overview/_static/image21.png)](overview/_static/image20.png)
 
@@ -921,14 +921,14 @@ Jednym z głównych obszarów pracy w programie ASP.NET 4 jest ułatwienie rende
 
 #### <a name="compatibility-setting-for-rendering"></a>Ustawienie zgodności dla renderowania
 
-Domyślnie, gdy aplikacja sieci Web lub witryna sieci Web jest przeznaczona dla .NET Framework 4, atrybut *controlRenderingCompatibilityVersion* elementu *Pages* ma wartość "4,0". Ten element jest zdefiniowany w pliku na poziomie `Web.config` komputera i domyślnie stosuje się do wszystkich aplikacji ASP.NET 4:
+Domyślnie, gdy aplikacja sieci Web lub witryna sieci Web jest przeznaczona dla .NET Framework 4, atrybut *controlRenderingCompatibilityVersion* elementu *Pages* ma wartość "4,0". Ten element jest zdefiniowany w pliku `Web.config` na poziomie komputera i domyślnie dotyczy wszystkich aplikacji ASP.NET 4:
 
 [!code-xml[Main](overview/samples/sample69.xml)]
 
 Wartość dla *controlRenderingCompatibility* jest ciągiem, który umożliwia potencjalne nowe definicje wersji w przyszłych wydaniach. W bieżącej wersji dla tej właściwości obsługiwane są następujące wartości:
 
-- "3.5". To ustawienie wskazuje na starsze renderowanie i adiustację. Znaczniki renderowane przez kontrolki są zgodne z poprzednimi wersjami (100%), a ustawienie właściwości *xhtmlConformance* jest honorowane.
-- "4.0". Jeśli właściwość ma to ustawienie, ASP.NET kontroluje serwer sieci Web:
+- "3,5". To ustawienie wskazuje na starsze renderowanie i adiustację. Znaczniki renderowane przez kontrolki są zgodne z poprzednimi wersjami (100%), a ustawienie właściwości *xhtmlConformance* jest honorowane.
+- "4,0". Jeśli właściwość ma to ustawienie, ASP.NET kontroluje serwer sieci Web:
 - Właściwość *xhtmlConformance* jest zawsze traktowana jako "Strict". W efekcie formanty renderują znaczniki języka XHTML 1,0 Strict.
 - Wyłączenie formantów innych niż wejściowe nie powoduje już renderowania nieprawidłowych stylów.
 - elementy *DIV* wokół ukrytych pól są teraz zgodne z stylami, więc nie zakłócają reguł CSS utworzonych przez użytkownika.
@@ -956,7 +956,7 @@ W ASP.NET 4 można ustawić *controlRenderingCompatibilityVersion* na "4,0". W t
 
 [!code-html[Main](overview/samples/sample73.html)]
 
-Wartością domyślną dla klasy określonej dla tej kontrolki jest "aspNetDisabled". Można jednak zmienić tę wartość domyślną, ustawiając statyczną Właściwość static *DisabledCssClass* klasy WebControl. Dla deweloperów kontroli, zachowanie, które ma być używane dla konkretnej kontrolki, można również zdefiniować za pomocą właściwości *SupportsDisabledAttribute* .
+Wartością domyślną dla klasy określonej dla tej kontrolki jest "aspNetDisabled". Można jednak zmienić tę wartość domyślną, ustawiając statyczną Właściwość static *DisabledCssClass* klasy *WebControl* . Dla deweloperów kontroli, zachowanie, które ma być używane dla konkretnej kontrolki, można również zdefiniować za pomocą właściwości *SupportsDisabledAttribute* .
 
 <a id="0.2__Toc253429268"></a><a id="0.2__Toc243304642"></a>
 
@@ -980,8 +980,8 @@ Domyślnie następujące kontrolki serwera sieci Web ASP.NET, które obsługują
 - *Identyfikatorów*
 - *PasswordRecovery*
 - *ChangePassword*
-- *Kreator*
-- *CreateUserWizard*
+- *Kreatora*
+- *Formancie CreateUserWizard*
 
 Do tych kontrolek dodano nową właściwość o nazwie *RenderOuterTable* , która umożliwia usunięcie tabeli zewnętrznej z znaczników. Rozważmy na przykład poniższy przykład kontrolki *FormView* :
 
@@ -1022,7 +1022,7 @@ W ASP.NET 4 formant *ListView* nie wymaga szablonu układu. Adiustację pokazan�
 
 W programie ASP.NET 3,5 można określić układ dla *formant CheckBoxList* i *RadioButtonList* przy użyciu następujących dwóch ustawień:
 
-- *Przepływ*. Formant renderuje elementy, aby zawierały jego zawartość.
+- *Przepływ*. Formant *renderuje* elementy, aby zawierały jego zawartość.
 - *Tabela*. Kontrolka renderuje element *tabeli* , aby zawierał jego zawartość.
 
 Poniższy przykład pokazuje znaczniki dla każdej z tych kontrolek.
@@ -1065,7 +1065,7 @@ Gdy strona renderuje, formant tworzy następujący kod HTML (kod *onkliknięcia*
 
 [!code-html[Main](overview/samples/sample86.html)]
 
-Oprócz ulepszeń renderowania Nawigacja w menu została ulepszona przy użyciu funkcji zarządzania fokusem. Gdy formant *menu* staje się fokusem, możesz użyć klawiszy strzałek, aby nawigować po elementach. Kontrolka *menu* również dołącza dostępne zaawansowane role i atrybuty aplikacji internetowych (Aria) następującymi regułami[, które](http://www.w3.org/TR/wai-aria-practices/#menu "")mają ulepszone ułatwienia dostępu.
+Oprócz ulepszeń renderowania Nawigacja w menu została ulepszona przy użyciu funkcji zarządzania fokusem. Gdy formant *menu* staje się fokusem, możesz użyć klawiszy strzałek, aby nawigować po elementach. Kontrolka *menu* również dołącza dostępne zaawansowane role i atrybuty aplikacji internetowych (Aria) następującymi regułami[w](http://www.w3.org/TR/wai-aria-practices/#menu "Menu ARIA wytyczne")celu zwiększenia dostępności.
 
 Style kontrolki menu są renderowane w bloku stylów w górnej części strony, a nie w wierszu z renderowanymi elementami HTML. Aby przejąć pełną kontrolę nad stylem kontrolki, można ustawić *wartość false*dla właściwości New *IncludeStyleBlock* , w takim przypadku blok style nie jest emitowany. Jednym ze sposobów korzystania z tej właściwości jest użycie funkcji autoformat w projektancie programu Visual Studio w celu ustawienia wyglądu menu. Następnie można uruchomić stronę, otworzyć źródło strony, a następnie skopiować renderowany blok stylu do zewnętrznego pliku CSS. W programie Visual Studio Cofnij style i ustaw *IncludeStyleBlock* na *false*. W wyniku tego wygląd menu jest definiowany przy użyciu stylów w zewnętrznym arkuszu stylów.
 
@@ -1114,7 +1114,7 @@ Obszary umożliwiają grupowanie kontrolerów i widoków w sekcje dużej aplikac
 
 ### <a name="data-annotation-attribute-validation-support"></a>Obsługa walidacji atrybutów adnotacji z danymi
 
-Atrybuty DataAnnotations umożliwiają dołączenie logiki walidacji do modelu przy użyciu atrybutów metadanych. Atrybuty DataAnnotation zostały wprowadzone w danych dynamicznych ASP.NET w ASP.NET 3,5 SP1. Te atrybuty zostały zintegrowane z domyślnym spinaczem modelu i zapewniają metodę opartą na metadanych do weryfikacji danych wejściowych użytkownika.
+Atrybuty *DataAnnotations* umożliwiają dołączenie logiki walidacji do modelu przy użyciu atrybutów metadanych. Atrybuty *DataAnnotation* zostały wprowadzone w danych dynamicznych ASP.NET w ASP.NET 3,5 SP1. Te atrybuty zostały zintegrowane z domyślnym spinaczem modelu i zapewniają metodę opartą na metadanych do weryfikacji danych wejściowych użytkownika.
 
 <a id="0.2__Toc253429277"></a>
 
@@ -1178,7 +1178,7 @@ Formant *Menedżera danych dynamicznych* został ulepszony, dzięki czemu można
 
 [!code-aspx[Main](overview/samples/sample94.aspx)]
 
-Ten znacznik umożliwia dynamiczne zachowanie danych dla formantu GridView1, do którego odwołuje się sekcja DataControls formantu *Menedżera danych dynamicznych* .
+Ten znacznik umożliwia dynamiczne zachowanie danych dla formantu GridView1, do którego odwołuje się sekcja *DataControls* formantu *Menedżera danych dynamicznych* .
 
 <a id="0.2__Toc224729044"></a><a id="0.2__Toc253429281"></a><a id="0.2__Toc243304652"></a>
 
@@ -1190,7 +1190,7 @@ Na poniższej liście przedstawiono nowy układ katalogu projektu, który zawier
 
 [!code-console[Main](overview/samples/sample95.cmd)]
 
-`EntityTemplate` Katalog zawiera szablony służące do wyświetlania obiektów modelu danych. Domyślnie obiekty są renderowane przy użyciu `Default.ascx` szablonu, który zapewnia znaczniki, które wyglądają podobnie jak znaczniki utworzone przez formant *DetailsView* używany przez dane dynamiczne w ASP.NET 3,5 SP1. W poniższym przykładzie pokazano znaczniki dla `Default.ascx` kontrolki:
+Katalog `EntityTemplate` zawiera szablony służące do wyświetlania obiektów modelu danych. Domyślnie obiekty są renderowane przy użyciu szablonu `Default.ascx`, który zapewnia znaczniki, które wyglądają podobnie jak znaczniki utworzone przez formant *DetailsView* używany przez dane dynamiczne w ASP.NET 3,5 SP1. Poniższy przykład pokazuje znaczniki dla kontrolki `Default.ascx`:
 
 [!code-aspx[Main](overview/samples/sample96.aspx)]
 
@@ -1210,7 +1210,7 @@ Nowe szablony jednostek są wyświetlane na stronie przy użyciu nowej kontrolki
 
 ### <a name="new-field-templates-for-urls-and-email-addresses"></a>Nowe szablony pól dla adresów URL i adresów E-mail
 
-ASP.NET 4 wprowadza dwa nowe wbudowane szablony `EmailAddress.ascx` pól i. `Url.ascx` Te szablony są używane dla pól, które są oznaczone jako *EmailAddress* lub *URL* z atrybutem *DataType* . W przypadku obiektów *EmailAddress* pole jest wyświetlane jako hiperłącze, które jest tworzone przy użyciu protokołu *mailto:* . Po kliknięciu linku przez użytkownika zostanie otwarty klient poczty e-mail użytkownika i zostanie utworzony komunikat szkieletowy. Obiekty wpisywane jako *adresy URL* są wyświetlane jako zwykłe hiperłącza.
+ASP.NET 4 wprowadza dwa nowe wbudowane szablony pól, `EmailAddress.ascx` i `Url.ascx`. Te szablony są używane dla pól, które są oznaczone jako *EmailAddress* lub *URL* z atrybutem *DataType* . W przypadku obiektów *EmailAddress* pole jest wyświetlane jako hiperłącze, które jest tworzone przy użyciu protokołu *mailto:* . Po kliknięciu linku przez użytkownika zostanie otwarty klient poczty e-mail użytkownika i zostanie utworzony komunikat szkieletowy. Obiekty wpisywane jako *adresy URL* są wyświetlane jako zwykłe hiperłącza.
 
 Poniższy przykład pokazuje, jak można oznaczyć pola.
 
@@ -1224,27 +1224,27 @@ Dane dynamiczne korzystają z nowej funkcji routingu dodanej w .NET Framework 3,
 
 [!code-aspx[Main](overview/samples/sample101.aspx)]
 
-Ten znacznik tworzy łącze wskazujące stronę listy dla `Products` tabeli w oparciu o trasy, które są zdefiniowane `Global.asax` w pliku. Kontrolka automatycznie używa domyślnej nazwy tabeli, na której opiera się Strona dane dynamiczne.
+Ten znacznik tworzy łącze wskazujące stronę listy dla tabeli `Products` w oparciu o trasy, które są zdefiniowane w pliku `Global.asax`. Kontrolka automatycznie używa domyślnej nazwy tabeli, na której opiera się Strona dane dynamiczne.
 
 <a id="0.2__Toc224729047"></a><a id="0.2__Toc253429284"></a><a id="0.2__Toc243304655"></a>
 
 ### <a name="support-for-inheritance-in-the-data-model"></a>Obsługa dziedziczenia w modelu danych
 
-Zarówno Entity Framework, jak i LINQ to SQL obsługują dziedziczenie w swoich modelach danych. Przykładem może być baza danych `InsurancePolicy` z tabelą. Może również zawierać `CarPolicy` `HousePolicy` tabele, które mają te same pola co `InsurancePolicy` , a następnie dodać więcej pól. Dane dynamiczne zostały zmodyfikowane w celu zrozumienia dziedziczonych obiektów w modelu danych i obsługi szkieletów dla dziedziczonych tabel.
+Zarówno Entity Framework, jak i LINQ to SQL obsługują dziedziczenie w swoich modelach danych. Przykładem może być baza danych z tabelą `InsurancePolicy`. Może również zawierać `CarPolicy` i `HousePolicy` tabel, które mają takie same pola jak `InsurancePolicy`, a następnie dodać więcej pól. Dane dynamiczne zostały zmodyfikowane w celu zrozumienia dziedziczonych obiektów w modelu danych i obsługi szkieletów dla dziedziczonych tabel.
 
 <a id="0.2__Toc224729048"></a><a id="0.2__Toc253429285"></a><a id="0.2__Toc243304656"></a>
 
 ### <a name="support-for-many-to-many-relationships-entity-framework-only"></a>Obsługa relacji wiele-do-wielu (tylko Entity Framework)
 
-Entity Framework ma rozbudowaną obsługę relacji wiele-do-wielu między tabelami, które są implementowane przez ujawnienie relacji jako kolekcji w obiekcie *Entity* . Dodano `ManyToMany.ascx` szablony `ManyToMany_Edit.ascx` nowych i pól w celu zapewnienia obsługi wyświetlania i edytowania danych, które są związane z relacjami wiele-do-wielu.
+Entity Framework ma rozbudowaną obsługę relacji wiele-do-wielu między tabelami, które są implementowane przez ujawnienie relacji jako kolekcji w obiekcie *Entity* . Dodano nowe szablony pól `ManyToMany.ascx` i `ManyToMany_Edit.ascx`, aby zapewnić obsługę wyświetlania i edytowania danych, które są związane z relacjami wiele-do-wielu.
 
 <a id="0.2__Toc224729049"></a><a id="0.2__Toc253429286"></a><a id="0.2__Toc243304657"></a>
 
 ### <a name="new-attributes-to-control-display-and-support-enumerations"></a>Nowe atrybuty do kontroli wyświetlania i obsługi wyliczeń
 
-Został dodany, aby dać dodatkową kontrolę nad sposobem wyświetlania pól. Atrybut *DisplayName* we wcześniejszych wersjach danych dynamicznych umożliwiał zmianę nazwy, która jest używana jako napis dla pola. Nowa Klasa inplayattribute pozwala określić więcej opcji wyświetlania pola, takich jak kolejność, w której pole jest wyświetlane i czy pole będzie używane jako filtr. Ten atrybut zapewnia również niezależną kontrolę nazwy używanej dla etykiet w formancie *GridView* , nazwy używanej w kontrolce *DetailsView* , tekstu pomocy dla pola i znaku wodnego używanego dla pola (Jeśli pole przyjmuje tekst wejściowy).
+Został *dodany, aby* dać dodatkową kontrolę nad sposobem wyświetlania pól. Atrybut *DisplayName* we wcześniejszych wersjach danych dynamicznych umożliwiał zmianę nazwy, która jest używana jako napis dla pola. Nowa Klasa *inplayattribute* pozwala określić więcej opcji wyświetlania pola, takich jak kolejność, w której pole jest wyświetlane i czy pole będzie używane jako filtr. Ten atrybut zapewnia również niezależną kontrolę nazwy używanej dla etykiet w formancie *GridView* , nazwy używanej w kontrolce *DetailsView* , tekstu pomocy dla pola i znaku wodnego używanego dla pola (Jeśli pole przyjmuje tekst wejściowy).
 
-Dodano klasę *EnumDataTypeAttribute* , aby umożliwić Mapowanie pól na wyliczenia. Po zastosowaniu tego atrybutu do pola należy określić typ wyliczeniowy. Dane dynamiczne używają nowego `Enumeration.ascx` szablonu pola do tworzenia interfejsu użytkownika do wyświetlania i edytowania wartości wyliczania. Szablon mapuje wartości z bazy danych do nazw w wyliczeniu.
+Dodano klasę *EnumDataTypeAttribute* , aby umożliwić Mapowanie pól na wyliczenia. Po zastosowaniu tego atrybutu do pola należy określić typ wyliczeniowy. Dane dynamiczne używają nowego szablonu pola `Enumeration.ascx` do tworzenia interfejsu użytkownika do wyświetlania i edytowania wartości wyliczenia. Szablon mapuje wartości z bazy danych do nazw w wyliczeniu.
 
 <a id="0.2__Toc224729050"></a><a id="0.2__Toc253429287"></a><a id="0.2__Toc243304658"></a>
 
@@ -1252,7 +1252,7 @@ Dodano klasę *EnumDataTypeAttribute* , aby umożliwić Mapowanie pól na wylicz
 
 Dane dynamiczne 1,0 dostarczone z wbudowanymi filtrami dla kolumn logicznych i kolumn klucza obcego. Filtry nie pozwalają na określenie, czy były wyświetlane lub w jakiej kolejności. Nowy atrybut *playattribute* dotyczy obydwu tych problemów, dając kontrolę nad tym, czy kolumna jest wyświetlana jako filtr, i w jakiej kolejności będzie wyświetlana.
 
-Dodatkowe Ulepszenie polega na tym, że obsługa filtrowania została zaprojektowana[w celu korzystania z nowej]funkcji(#0.2__QueryExtender "_QueryExtender") formularzy sieci Web. Pozwala to na tworzenie filtrów bez znajomości kontroli źródła danych, z którą będą korzystać filtry. Wraz z tymi rozszerzeniami filtry zostały również włączone w kontrolkach szablonów, co pozwala na dodawanie nowych. Na koniec, wymieniona wcześniej Klasa umożliwia przesłanianie domyślnego filtru w taki sam sposób, w jaki *UIHint* zezwala na zastąpienie domyślnego szablonu pola kolumny.
+Dodatkowe Ulepszenie polega na tym, że obsługa filtrowania została[zaprojektowana w celu użycia nowej](#0.2__QueryExtender "_QueryExtender") funkcji formularzy sieci Web. Pozwala to na tworzenie filtrów bez znajomości kontroli źródła danych, z którą będą korzystać filtry. Wraz z tymi rozszerzeniami filtry zostały również włączone w kontrolkach szablonów, co pozwala na dodawanie nowych. Na *koniec, wymieniona wcześniej Klasa umożliwia* przesłanianie domyślnego filtru w taki sam sposób, w jaki *UIHint* zezwala na zastąpienie domyślnego szablonu pola kolumny.
 
 <a id="0.2__Toc224729051"></a><a id="0.2__Toc253429288"></a><a id="0.2__Toc243304659"></a>
 
@@ -1272,7 +1272,7 @@ Program Visual Web Developer Designer w programie Visual Studio 2010 został zak
 
 W edytorze HTML, funkcja IntelliSense uzupełnia nazwy tagów autouzupełniania. Fragmenty kodu IntelliSense wypełniają funkcję autouzupełniania całych tagów i nie tylko. W programie Visual Studio 2010 fragmenty kodu IntelliSense są obsługiwane dla języka JavaScript C# oraz Visual Basic, które były obsługiwane we wcześniejszych wersjach programu Visual Studio.
 
-Program Visual Studio 2010 zawiera ponad 200 wstawek, które ułatwiają Autouzupełnianie typowych tagów ASP.NET i HTML, w tym wymaganych atrybutów (takich jak runat = "Server") i wspólnych atrybutów specyficznych dla tagu (takich jak *ID*, *DataSourceID*,  *ControlToValidate obiektu*i *Text*).
+Program Visual Studio 2010 zawiera ponad 200 wstawek, które ułatwiają Autouzupełnianie typowych tagów ASP.NET i HTML, w tym wymaganych atrybutów (takich jak runat = "Server") i wspólnych atrybutów specyficznych dla tagu (takich jak *ID*, *DataSourceID*, *ControlToValidate obiektu*i *Text*).
 
 Możesz pobrać dodatkowe fragmenty kodu lub napisać własne fragmenty kodu, które hermetyzują bloki znaczników, których ty lub Twój zespół używa do wykonywania typowych zadań.
 
@@ -1321,13 +1321,13 @@ Program Visual Studio 2010 zawiera wbudowane zadania i elementy docelowe program
 
 ### <a name="webconfig-transformation"></a>Transformacja pliku Web. config
 
-W przypadku wdrażania aplikacji sieci Web program Visual Studio 2010 wprowadza transformację [dokumentu XML (XDT)](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html), która jest funkcją, która umożliwia `Web.config` przekształcanie plików z ustawień deweloperskich na ustawienia produkcyjne. Ustawienia transformacji są określone w plikach transformacji o `web.debug.config`nazwach, `web.release.config`i tak dalej. (Nazwy tych plików są zgodne z konfiguracjami programu MSBuild). Plik transformacji zawiera tylko zmiany, które należy wprowadzić do wdrożonego `Web.config` pliku. Zmiany należy określić przy użyciu prostej składni.
+W przypadku wdrażania aplikacji sieci Web program Visual Studio 2010 wprowadza [transformację dokumentu XML (XDT)](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html), która jest funkcją, która umożliwia przekształcanie pliku `Web.config` z ustawień deweloperskich na ustawienia produkcyjne. Ustawienia transformacji są określone w plikach transformacji o nazwach `web.debug.config`, `web.release.config`i tak dalej. (Nazwy tych plików są zgodne z konfiguracjami programu MSBuild). Plik transformacji zawiera tylko zmiany, które należy wprowadzić do wdrożonego pliku `Web.config`. Zmiany należy określić przy użyciu prostej składni.
 
-Poniższy przykład przedstawia część `web.release.config` pliku, który może zostać wygenerowany do wdrożenia konfiguracji wydania. Słowo kluczowe Replace w przykładzie określa, że podczas wdrażania węzeł *ConnectionString* w `Web.config` pliku zostanie zastąpiony wartościami wymienionymi w przykładzie.
+Poniższy przykład przedstawia część pliku `web.release.config`, który może zostać wygenerowany do wdrożenia konfiguracji wydania. Słowo kluczowe Replace w przykładzie określa, że podczas wdrażania węzeł *ConnectionString* w pliku `Web.config` zostanie zastąpiony wartościami wymienionymi w przykładzie.
 
 [!code-xml[Main](overview/samples/sample102.xml)]
 
-Aby uzyskać więcej informacji, zobacz [składnia transformacji Web. config dla wdrożenia projektu aplikacji sieci Web](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx) w <a id="0.2_a"></a> witrynie MSDN Web[i Web Deployment: Transformacja](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) pliku Web. config na blogu Vishal Joshi.
+Aby uzyskać więcej informacji, zobacz [składnia transformacji Web. config dla wdrożenia projektu aplikacji sieci](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx) Web w <a id="0.2_a"></a> witrynie MSDN Web i[Web Deployment: Web. config Transformation](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) in Vishal Joshi.
 
 <a id="0.2__Toc224729058"></a><a id="0.2__Toc253429295"></a><a id="0.2__Toc243304666"></a>
 
@@ -1335,7 +1335,7 @@ Aby uzyskać więcej informacji, zobacz [składnia transformacji Web. config dla
 
 Pakiet wdrożeniowy programu Visual Studio 2010 może zawierać zależności dotyczące SQL Server baz danych. W ramach definicji pakietu podajesz parametry połączenia dla źródłowej bazy danych. Podczas tworzenia pakietu sieci Web program Visual Studio 2010 tworzy skrypty SQL dla schematu bazy danych i opcjonalnie dla danych, a następnie dodaje je do pakietu. Można również udostępnić niestandardowe skrypty SQL i określić sekwencję, w jakiej powinny być uruchamiane na serwerze. W czasie wdrażania należy podać parametry połączenia, które są odpowiednie dla serwera docelowego; proces wdrażania używa tych parametrów połączenia do uruchamiania skryptów, które tworzą schemat bazy danych i dodają dane.
 
-Ponadto przy użyciu funkcji publikowania jednym kliknięciem można skonfigurować wdrożenie w celu opublikowania bazy danych bezpośrednio po opublikowaniu aplikacji w zdalnej udostępnionej lokacji hostingu. Aby uzyskać więcej informacji, zobacz [jak: Wdróż bazę danych z projektem](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx) aplikacji sieci Web w witrynie MSDN i w ramach [wdrażania bazy danych z programem vs 2010](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) na blogu Vishal Joshi.
+Ponadto przy użyciu funkcji publikowania jednym kliknięciem można skonfigurować wdrożenie w celu opublikowania bazy danych bezpośrednio po opublikowaniu aplikacji w zdalnej udostępnionej lokacji hostingu. Aby uzyskać więcej informacji, zobacz [jak: Wdrażanie bazy danych z projektem aplikacji sieci](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx) Web w witrynie sieci Web MSDN i [wdrażanie bazy danych za pomocą programu VS 2010](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) na blogu Vishal Joshi.
 
 <a id="0.2__Toc224729059"></a><a id="0.2__Toc253429296"></a><a id="0.2__Toc243304667"></a>
 
@@ -1343,19 +1343,19 @@ Ponadto przy użyciu funkcji publikowania jednym kliknięciem można skonfigurow
 
 Program Visual Studio 2010 umożliwia również publikowanie aplikacji sieci Web na serwerze zdalnym za pomocą zdalnej usługi zarządzania usługami IIS. Można utworzyć profil publikowania dla konta hostingu lub do testowania serwerów lub serwerów przejściowych. Każdy profil może bezpiecznie zapisywać odpowiednie poświadczenia. Następnie można wykonać wdrożenie na dowolnym serwerze docelowym za pomocą jednego kliknięcia, korzystając z paska narzędzi do publikowania w sieci Web. Program Visual Studio 2010 umożliwia również publikowanie przy użyciu wiersza polecenia programu MSBuild. Pozwala to na skonfigurowanie środowiska kompilacji zespołu w taki sposób, aby obejmowało publikowanie w modelu ciągłej integracji.
 
-Aby uzyskać więcej informacji, zobacz [jak: Wdróż projekt aplikacji sieci Web za pomocą jednego kliknięcia przycisku Publikuj i](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx) Web Deploy w witrynie MSDN w sieci Web i w [sieci Web 1 — kliknij pozycję Publikuj w programie vs 2010](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) na blogu Vishal Joshi. Aby wyświetlić prezentacje wideo dotyczące wdrażania aplikacji sieci Web w programie Visual Studio 2010, zobacz artykuł [VS 2010 for Web Developer](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Preview w blogu Vishal Joshi.
+Aby uzyskać więcej informacji, zobacz [jak: wdrażanie projektu aplikacji sieci Web za pomocą jednego kliknięcia przycisk Publikuj i Web Deploy](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx) w witrynie MSDN w sieci Web i w [sieci Web 1 — kliknij pozycję Publikuj w programie vs 2010](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) na blogu Vishal Joshi. Aby wyświetlić prezentacje wideo dotyczące wdrażania aplikacji sieci Web w programie Visual Studio 2010, zobacz artykuł [VS 2010 for Web Developer](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Preview w blogu Vishal Joshi.
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
-### <a name="resources"></a>Zasoby
+### <a name="resources"></a>Resources
 
 Poniższe witryny sieci Web zawierają dodatkowe informacje na temat ASP.NET 4 i programu Visual Studio 2010.
 
 - [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — Oficjalna dokumentacja dla ASP.NET 4 w witrynie MSDN w sieci Web.
-- [https://www.asp.net/](https://www.asp.net/)— Witryna sieci Web zespołu ASP.NET.
-- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx)i [ASP.NET dynamiczną mapę zawartości danych](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — zasoby online w witrynie zespołu ASP.NET i w oficjalnej dokumentacji dotyczącej ASP.NET danych dynamicznych.
-- [https://www.asp.net/ajax/](../../ajax/index.md)— Główny zasób sieci Web do programowania aplikacji ASP.NET AJAX.
-- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/)— Blog zespołu programu Visual Web Developer, który zawiera informacje o funkcjach w programie Visual Studio 2010.
+- [https://www.asp.net/](https://www.asp.net/) — witryna sieci Web zespołu ASP.NET.
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) i [ASP.NET dynamiczną mapę zawartości danych](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — zasoby Online w witrynie zespołu ASP.NET i w oficjalnej dokumentacji dotyczącej ASP.NET danych dynamicznych.
+- [https://www.asp.net/ajax/](../../ajax/index.md) — główny zasób sieci Web do programowania aplikacji ASP.NET AJAX.
+- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Blog zespołu programu Visual Web Developer, który zawiera informacje o funkcjach w programie Visual Studio 2010.
 - [ASP.NET webstack](https://github.com/aspnet/AspNetWebStack) — główny zasób sieci Web na potrzeby wersji zapoznawczej programu ASP.NET.
 
 <a id="0.2__Toc224729061"></a><a id="0.2__Toc253429298"></a><a id="0.2__Toc243304669"></a>

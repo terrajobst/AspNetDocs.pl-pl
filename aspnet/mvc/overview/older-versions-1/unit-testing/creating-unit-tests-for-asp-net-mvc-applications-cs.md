@@ -1,115 +1,115 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
-title: Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (C#) | Dokumentacja firmy Microsoft
+title: Tworzenie testów jednostkowych dla aplikacji ASP.NET MVCC#() | Microsoft Docs
 author: StephenWalther
-description: 'Informacje o sposobie tworzenia testów jednostkowych dla akcji kontrolera. W tym samouczku Walther Autor: Stephen pokazuje, jak sprawdzić, czy akcja kontrolera zwraca częśći...'
+description: Dowiedz się, jak tworzyć testy jednostkowe dla akcji kontrolera. W tym samouczku Stephen Walther demonstruje, w jaki sposób sprawdzić, czy akcja kontrolera zwraca element Parti...
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 633e28a100937c5d40d62fe5cc151e613171cc8f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 35fd0d85c63e5bd196394ce11b851c822a6405d9
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126878"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595295"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (C#)
 
-przez [Walther Autor: Stephen](https://github.com/StephenWalther)
+Autor [Stephen Walther](https://github.com/StephenWalther)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
 
-> Informacje o sposobie tworzenia testów jednostkowych dla akcji kontrolera. W tym samouczku Walther Autor: Stephen pokazuje, jak sprawdzić, czy akcji kontrolera zwraca określonego widoku, zwraca wartość określonego zestawu danych lub zwraca inny typ wyniku akcji.
+> Dowiedz się, jak tworzyć testy jednostkowe dla akcji kontrolera. W tym samouczku Stephen Walther demonstruje, jak sprawdzić, czy akcja kontrolera zwraca określony widok, zwraca określony zestaw danych lub zwraca inny typ wyniku działania.
 
-Celem tego samouczka jest pokazują, jak pisać testy jednostkowe dla kontrolerów w Twojej aplikacji ASP.NET MVC aplikacji. Będziemy omawiać sposób tworzenia trzech różnych rodzajów testów jednostkowych. Dowiesz się, jak Podgląd zwróconej przez akcję kontrolera testów, jak dane widoku, zwrócone przez akcji kontrolera testów i jak sprawdzić, czy jedna akcja kontrolera przekieruje Cię do drugiej akcji kontrolera.
+Celem tego samouczka jest przedstawienie, jak można napisać testy jednostkowe dla kontrolerów w aplikacjach ASP.NET MVC. Omawiamy, jak utworzyć trzy różne typy testów jednostkowych. Dowiesz się, jak przetestować widok zwracany przez akcję kontrolera, jak przetestować dane widoku zwrócone przez akcję kontrolera i jak sprawdzić, czy jedna akcja kontrolera przekierowuje użytkownika do drugiej akcji kontrolera.
 
-## <a name="creating-the-controller-under-test"></a>Tworzenie kontrolera w ramach testu
+## <a name="creating-the-controller-under-test"></a>Tworzenie testowanego kontrolera
 
-Zacznijmy od utworzenia kontrolera, które Chcieliśmy przeprowadzić test. Kontroler, o nazwie `ProductController`, znajduje się w ofercie 1.
+Zacznijmy od utworzenia kontrolera, który ma zostać przetestowany. Kontroler o nazwie `ProductController`znajduje się na liście 1.
 
-**1 — Lista `ProductController.cs`**
+**Lista 1 — `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample1.cs)]
 
-`ProductController` Zawiera dwie metody akcji, o nazwie `Index()` i `Details()`. Obie metody akcji zwracają widoku. Należy zauważyć, że `Details()` akcji akceptuje parametr o nazwie identyfikatora.
+`ProductController` zawiera dwie metody akcji o nazwach `Index()` i `Details()`. Obie metody akcji zwracają widok. Zwróć uwagę, że akcja `Details()` akceptuje parametr o nazwie ID.
 
-## <a name="testing-the-view-returned-by-a-controller"></a>Testowanie widoku zwrócony przez kontroler
+## <a name="testing-the-view-returned-by-a-controller"></a>Testowanie widoku zwróconego przez kontroler
 
-Wyobraź sobie, że chcemy sprawdzić czy `ProductController` zwraca widok z prawej strony. Chcemy upewnić się, że w przypadku `ProductController.Details()` akcja jest wywoływana, jest zwracany w widoku szczegółów. Klasy testowej w ofercie 2 zawiera testu jednostkowego do testowania widoku zwrócony przez `ProductController.Details()` akcji.
+Załóżmy, że chcemy sprawdzić, czy `ProductController` zwraca odpowiedni widok. Chcemy upewnić się, że po wywołaniu akcji `ProductController.Details()` zostanie zwrócony widok szczegółów. Klasa testowa na liście 2 zawiera test jednostkowy do testowania widoku zwróconego przez akcję `ProductController.Details()`.
 
-**2 — Lista `ProductControllerTest.cs`**
+**Lista 2 — `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample2.cs)]
 
-Klasa w ofercie 2 obejmuje metody testowej, o nazwie `TestDetailsView()`. Ta metoda zawiera trzy wiersze kodu. Pierwszy wiersz kodu tworzy nowe wystąpienie klasy `ProductController` klasy. Drugi wiersz kodu wywołuje kontrolera `Details()` metody akcji. Na koniec, ostatni wiersz sprawdza kod określa, czy widok jest zwracany przez `Details()` akcja jest widok szczegółów.
+Klasa na liście 2 zawiera metodę testową o nazwie `TestDetailsView()`. Ta metoda zawiera trzy wiersze kodu. Pierwszy wiersz kodu tworzy nowe wystąpienie klasy `ProductController`. Drugi wiersz kodu wywołuje metodę akcji `Details()` kontrolera. Na koniec ostatni wiersz kodu sprawdza, czy widok zwrócony przez akcję `Details()` jest widokiem szczegółowym.
 
-`ViewResult.ViewName` Właściwość reprezentuje nazwę widoku, który został zwrócony przez kontroler. Jeden duży ostrzeżenie dotyczące testowania tej właściwości. Istnieją dwa sposoby, że kontroler może zwrócić widok. Kontroler może zwrócić jawnie widoku następująco:
+Właściwość `ViewResult.ViewName` reprezentuje nazwę widoku zwróconego przez kontroler. Jedno duże ostrzeżenie dotyczące testowania tej właściwości. Istnieją dwa sposoby, aby kontroler mógł zwrócić widok. Kontroler może jawnie zwrócić widok podobny do tego:
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample3.cs)]
 
-Alternatywnie Nazwa widoku można wywnioskować na podstawie nazwę akcji kontrolera następująco:
+Alternatywnie można wywnioskować nazwę widoku na podstawie nazwy akcji kontrolera podobnej do:
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample4.cs)]
 
-Ta akcja kontroler zwraca również wartość widoku o nazwie `Details`. Jednak nazwa widoku jest wnioskowany na podstawie nazwy akcji. Jeśli chcesz przetestować nazwy widoku, następnie jawnie wróć nazwy widoku z akcji kontrolera.
+Ta akcja kontrolera zwraca również widok o nazwie `Details`. Jednak nazwa widoku jest wywnioskowana na podstawie nazwy akcji. Jeśli chcesz przetestować nazwę widoku, należy jawnie zwrócić nazwę widoku z akcji kontrolera.
 
-Możesz uruchomić test jednostki w ofercie 2, wprowadzając kombinacja klawiszy **Ctrl-R, A** lub przez kliknięcie przycisku **Uruchom wszystkie testy w rozwiązaniu** przycisku (patrz rysunek 1). Jeśli test zakończy się pomyślnie, zostanie wyświetlone okno wyników testu na rysunku 2.
+Test jednostkowy można uruchomić na liście 2, wprowadzając kombinację **klawiszy Ctrl-R, A** lub klikając przycisk **Uruchom wszystkie testy w rozwiązaniu** (patrz rysunek 1). Jeśli test zakończy się powodzeniem, zobaczysz okno Wyniki testów na rysunku 2.
 
-[![Uruchom wszystkie testy w rozwiązaniu](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
+[![uruchomić wszystkie testy w rozwiązaniu](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image2.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image1.png)
 
-**Rysunek 01**: Uruchom wszystkie testy w rozwiązaniu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
+**Ilustracja 01**. uruchamianie wszystkich testów w rozwiązaniu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image3.png))
 
-[![SUKCES!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
+[![powodzenie!](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image5.png)](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image4.png)
 
-**Rysunek 02**: SUKCES! ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
+**Ilustracja 02**: sukces! ([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-unit-tests-for-asp-net-mvc-applications-cs/_static/image6.png))
 
-## <a name="testing-the-view-data-returned-by-a-controller"></a>Testowanie dane zwracane przez kontroler
+## <a name="testing-the-view-data-returned-by-a-controller"></a>Testowanie danych widoku zwróconych przez kontroler
 
-Kontroler MVC przekazuje dane do widoku przy użyciu coś, co jest nazywane *`View Data`*. Załóżmy, że chcesz wyświetlić szczegółowe informacje dotyczące konkretnego produktu po wywołaniu `ProductController Details()` akcji. W takim przypadku można utworzyć wystąpienia `Product` klasy (zdefiniowanymi w modelu) i przekaż wystąpienie `Details` widoku, wykorzystując `View Data`.
+Kontroler MVC przekazuje dane do widoku przy użyciu czegoś o nazwie *`View Data`* . Załóżmy na przykład, że chcesz wyświetlić szczegóły dotyczące określonego produktu po wywołaniu akcji `ProductController Details()`. W takim przypadku można utworzyć wystąpienie klasy `Product` (zdefiniowane w modelu) i przekazać wystąpienie do widoku `Details`, wykorzystując zalety `View Data`.
 
-Zmodyfikowanego `ProductController` w ofercie 3 zawiera zaktualizowanego `Details()` akcję, która zwraca produktu.
+Zmodyfikowane `ProductController` na liście 3 zawiera zaktualizowaną akcję `Details()`, która zwraca produkt.
 
-**3 — lista `ProductController.cs`**
+**Lista 3 — `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample5.cs)]
 
-Po pierwsze, `Details()` akcja tworzy nowe wystąpienie klasy `Product` klasa, która reprezentuje komputera przenośnego. Następnie, wystąpienie `Product` klasy jest przekazywany jako drugi parametr `View()` metody.
+Najpierw akcja `Details()` tworzy nowe wystąpienie klasy `Product`, która reprezentuje komputer przenośny. Następnie wystąpienie klasy `Product` jest przesyłane jako drugi parametr do metody `View()`.
 
-Można pisać testy jednostkowe do sprawdzenia, czy oczekiwanych danych znajdujących się w widoku danych. Testów jednostkowych w testach listę 4, czy produkt reprezentujące komputer przenośny jest jest zwracany, jeśli wywołujesz `ProductController Details()` metody akcji.
+Można napisać testy jednostkowe, aby sprawdzić, czy oczekiwane dane są zawarte w danych widoku. Test jednostkowy na liście 4 testuje, czy produkt reprezentujący komputer przenośny jest zwracany po wywołaniu metody akcji `ProductController Details()`.
 
-**4 — lista `ProductControllerTest.cs`**
+**Lista 4 — `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample6.cs)]
 
-W ofercie 4 `TestDetailsView()` metoda sprawdza dane widoku, zwracany przez wywołanie `Details()` metody. `ViewData` Jest uwidaczniany jako właściwość w `ViewResult` zwracany przez wywołanie `Details()` metody. `ViewData.Model` Właściwość zawiera produktu przekazywane do widoku. Po prostu ten test sprawdza, czy produktu zawarty w widoku danych ma nazwę komputera przenośnego.
+W przypadku listy 4 Metoda `TestDetailsView()` testuje dane widoku zwrócone przez wywołanie metody `Details()`. `ViewData` jest uwidoczniona jako właściwość na `ViewResult` zwrócone przez wywołanie metody `Details()`. Właściwość `ViewData.Model` zawiera produkt przesłany do widoku. Test po prostu weryfikuje, czy produkt zawarty w danych widoku ma nazwę laptop.
 
-## <a name="testing-the-action-result-returned-by-a-controller"></a>Testując otrzymany wynik akcji zwrócony przez kontroler
+## <a name="testing-the-action-result-returned-by-a-controller"></a>Testowanie wyniku działania zwróconego przez kontroler
 
-Bardziej złożone akcji kontrolera może być zwracanie różnych typów wyników akcji w zależności od wartości parametrów przekazanych do akcji kontrolera. Akcja kontrolera może zwracać różne typy wyników akcji, w tym `ViewResult`, `RedirectToRouteResult`, lub `JsonResult`.
+Bardziej złożona akcja kontrolera może zwracać różne typy wyników akcji w zależności od wartości parametrów przesyłanych do akcji kontrolera. Akcja kontrolera może zwracać różne typy wyników akcji, w tym `ViewResult`, `RedirectToRouteResult`lub `JsonResult`.
 
-Na przykład zmodyfikowane `Details()` zwraca akcji w ofercie 5 `Details` widoku, gdy przekazujesz prawidłowy identyfikator produktu do akcji. W przypadku przekazania nieprawidłowy identyfikator — identyfikator produktu o wartości, mniej niż 1 — a następnie zostanie przekierowany do `Index()` akcji.
+Na przykład zmodyfikowana akcja `Details()` na liście 5 zwraca widok `Details`, gdy do akcji zostanie przekazany prawidłowy identyfikator produktu. Jeśli przekażesz nieprawidłowy identyfikator produktu — identyfikator o wartości mniejszej niż 1, nastąpi przekierowanie do akcji `Index()`.
 
-**5 — lista `ProductController.cs`**
+**Lista 5 — `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample7.cs)]
 
-Możesz przetestować działanie `Details()` akcji z testu jednostkowego w ofercie 6. Test jednostkowy w ofercie 6 sprawdza, czy nastąpi przekierowanie do `Index` widoku, gdy identyfikatora o wartości -1 jest przekazywany do `Details()` metody.
+Możesz przetestować zachowanie akcji `Details()` z testem jednostkowym na liście 6. Test jednostkowy na liście 6 sprawdza, czy nastąpiło przekierowanie do widoku `Index`, gdy identyfikator o wartości-1 jest przesyłany do metody `Details()`.
 
-**6 — lista `ProductControllerTest.cs`**
+**Lista 6 — `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample8.cs)]
 
-Gdy wywołujesz `RedirectToAction()` zwraca akcji kontrolera metody akcji kontrolera, `RedirectToRouteResult`. Sprawdzanie badania czy `RedirectToRouteResult` spowoduje przekierowanie użytkownika do akcji kontrolera, o nazwie `Index`.
+Po wywołaniu metody `RedirectToAction()` w akcji kontrolera akcja kontrolera zwraca `RedirectToRouteResult`. Test sprawdza, czy `RedirectToRouteResult` przekieruje użytkownika do akcji kontrolera o nazwie `Index`.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku przedstawiono sposób tworzenia testów jednostkowych dla akcji kontrolera MVC. Po pierwsze pokazaliśmy ci, jak sprawdzić, czy widok z prawej strony jest zwracany przez akcji kontrolera. Przedstawiono sposób użycia `ViewResult.ViewName` właściwości, aby sprawdzić nazwę widoku.
+W tym samouczku przedstawiono sposób kompilowania testów jednostkowych dla akcji kontrolera MVC. Po pierwsze przedstawiono sposób sprawdzania, czy prawy Widok jest zwracany przez akcję kontrolera. Wiesz już, jak użyć właściwości `ViewResult.ViewName` do zweryfikowania nazwy widoku.
 
-Następnie zbadaliśmy, jak można sprawdzić zawartość `View Data`. Pokazaliśmy ci, jak sprawdzić, czy prawy produkt został zwrócony w `View Data` po wywołaniu akcji kontrolera.
+Następnie zbadamy, jak można testować zawartość `View Data`. Wiesz już, jak sprawdzić, czy odpowiedni produkt został zwrócony w `View Data` po wywołaniu akcji kontrolera.
 
-Na koniec omówiono, jak można sprawdzić, czy zwracane są różnych typów wyników akcji z akcji kontrolera. Przedstawiono sposób sprawdzić, czy kontroler zwraca `ViewResult` lub `RedirectToRouteResult`.
+Wreszcie omówione zostało, jak można sprawdzić, czy w akcji kontrolera są zwracane różne typy wyników akcji. Wiesz już, jak sprawdzić, czy kontroler zwraca `ViewResult` lub `RedirectToRouteResult`.
 
 > [!div class="step-by-step"]
 > [Next](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

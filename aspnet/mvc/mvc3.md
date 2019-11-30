@@ -1,156 +1,156 @@
 ---
 uid: mvc/mvc3
-title: ASP.NET MVC 3 | Microsoft Docs
+title: ASP.NET MVC 3
 author: rick-anderson
-description: (obejmuje kwietnia 2011 narzędzia aktualizacji) ASP.NET MVC 3 to architektura służąca do tworzenia skalowalnych, oparte na standardach aplikacji sieci web przy użyciu wzorca projektowego sprawdzone...
+description: (obejmuje aktualizację narzędzi 2011 kwietnia) ASP.NET MVC 3 to platforma do tworzenia skalowalnych, opartych na standardach aplikacji sieci Web korzystających z dobrze ustanowionego wzorca projektowego...
 ms.author: riande
 ms.date: 10/05/2010
 ms.assetid: dddc8812-a0bc-49f9-aafb-caf2064c2b8c
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 0ff5e6244cb4c6ea15297272af85d91d469da6d0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 421a06c89d4dbcb05d4080033813cc6558b7c698
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121340"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74586750"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
-> *(obejmuje kwietnia 2011 narzędzia aktualizacji)*
+> *(obejmuje aktualizację narzędzi 2011 kwietnia)*
 > 
-> ASP.NET MVC 3 to architektura służąca do tworzenia skalowalnych, oparte na standardach aplikacji sieci web przy użyciu wzorców projektowych sprawdzone oraz dzięki możliwościom platformy ASP.NET i .NET Framework.
+> ASP.NET MVC 3 to platforma służąca do tworzenia skalowalnych, opartych na standardach aplikacji sieci Web przy użyciu dobrze ustanowionych wzorców projektowych oraz możliwości ASP.NET i .NET Framework.
 > 
-> Instaluje side-by-side przy użyciu wzorca ASP.NET MVC 2, więc Zacznij dzisiaj za pomocą!
+> Jest on instalowany równolegle z ASP.NET MVC 2, więc Zacznij korzystać z niego już dziś!
 > 
-> Pobierz [Instalatora w tym miejscu](https://go.microsoft.com/fwlink/?LinkID=208140)
+> Pobierz [Instalatora tutaj](https://go.microsoft.com/fwlink/?LinkID=208140)
 
 ## <a name="top-features"></a>Najważniejsze funkcje
 
-- Zintegrowany system Scaffoldingu rozszerzalny za pośrednictwem pakietu NuGet
-- HTML włączone szablony projektów 5
-- Widoki ekspresyjny, łącznie z nowego aparatu widoku Razor
-- Zaawansowane punkty zaczepienia przy użyciu iniekcji zależności i globalne filtry akcji
-- Pomoc techniczna zaawansowane JavaScript z dyskretnego kodu JavaScript, jQuery sprawdzania poprawności i powiązania JSON
-- *Zapoznać się z listą funkcji pełnego [poniżej](#overview)*
+- Zintegrowany system tworzenia szkieletów rozszerzalny za pomocą narzędzia NuGet
+- Szablony projektów z włączoną obsługą języka HTML 5
+- Widoki ekspresowe, w tym nowy aparat widoku Razor
+- Zaawansowane punkty zaczepienia z iniekcją zależności i globalnymi filtrami akcji
+- Rozbudowana obsługa języka JavaScript z niewygodnym kodem JavaScript, walidacją jQuery i powiązaniem JSON
+- *Przeczytaj pełną listę funkcji [poniżej](#overview)*
 
-## <a name="top-links"></a>Najważniejsze linki
+## <a name="top-links"></a>Górne linki
 
-Co nowego we wzorcu ASP.NET MVC 3
+Co nowego w ASP.NET MVC 3
 
-- Phil Haack: [ASP.NET MVC 3 Released](http://haacked.com/archive/2011/01/13/aspnetmvc3-released.aspx)
-- Scott Hanselman: [Aplikacji ASP.NET MVC3 programu WebMatrix, NuGet, usługi IIS Express i Orchard wydane - stycznia firmy Microsoft w sieci Web wersji w kontekście](http://www.hanselman.com/blog/ASPNETMVC3WebMatrixNuGetIISExpressAndOrchardReleasedTheMicrosoftJanuaryWebReleaseInContext.aspx)
-- Scott Guthrie: [Ogłaszamy wydanie programu ASP.NET MVC 3, usług IIS Express, SQL CE 4, struktura farmy sieci Web, witryny systemu Orchard, programu WebMatrix](https://weblogs.asp.net/scottgu/archive/2011/01/13/announcing-release-of-asp-net-mvc-3-iis-express-sql-ce-4-web-farm-framework-orchard-webmatrix.aspx)
-- [Informacje o wersji dla platformy ASP.NET MVC 3](../whitepapers/mvc3-release-notes.md)
+- Krzysztof Haack: [wydano ASP.NET MVC 3](http://haacked.com/archive/2011/01/13/aspnetmvc3-released.aspx)
+- Scott Hanselman: [ASP.NET MvC3, WebMatrix, NuGet, IIS Express i sadu wydana — wydanie sieci Web Microsoft styczeń w kontekście](http://www.hanselman.com/blog/ASPNETMVC3WebMatrixNuGetIISExpressAndOrchardReleasedTheMicrosoftJanuaryWebReleaseInContext.aspx)
+- Scott Guthrie: [ogłasza wydanie ASP.NET MVC 3, IIS Express, SQL CE 4, Web Farm Framework, sadu, WebMatrix](https://weblogs.asp.net/scottgu/archive/2011/01/13/announcing-release-of-asp-net-mvc-3-iis-express-sql-ce-4-web-farm-framework-orchard-webmatrix.aspx)
+- [Informacje o wersji dla ASP.NET MVC 3](../whitepapers/mvc3-release-notes.md)
 
-Instalacja i pomocy
+Instalacja i pomoc
 
-- Instalowane przy użyciu platformy ASP.NET MVC 3 [Instalatora platformy sieci Web (zalecane)](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MVC3)
-- Instalowane przy użyciu platformy ASP.NET MVC 3 [Instalatora wykonywalnego](https://go.microsoft.com/fwlink/?LinkID=208140)
+- Zainstaluj ASP.NET MVC 3 przy użyciu [Instalatora platformy sieci Web (zalecane)](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MVC3)
+- Zainstaluj ASP.NET MVC 3 przy użyciu [pliku wykonywalnego instalatora](https://go.microsoft.com/fwlink/?LinkID=208140)
 - Zainstaluj [ASP.NET MVC 3 dla programu Visual Studio 11 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=208140)
-- Odczyt [wprowadzenie do samouczka platformy ASP.NET MVC 3](overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)
-- Uzyskaj Pomoc i omawiania ASP.NET MVC 3 w [forów](https://forums.asp.net/1146.aspx)
+- Przeczytaj [wprowadzenie do ASP.NET MVC 3 — samouczek](overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)
+- Uzyskaj pomoc i omów ASP.NET MVC 3 na [forach](https://forums.asp.net/1146.aspx)
 
 <a id="overview"></a>
-## <a name="aspnet-mvc-3-overview"></a>Omówienie platformy ASP.NET MVC 3
+## <a name="aspnet-mvc-3-overview"></a>ASP.NET MVC 3 — Omówienie
 
-ASP.NET MVC 3 opiera się na platformy ASP.NET MVC 1 i 2, dodawanie wspaniałe funkcje zarówno uprościć kod i umożliwić bardziej rozszerzalności. W tym temacie omówiono wiele nowych funkcji, które znajdują się w tej wersji, podzielone na następujące sekcje:
+ASP.NET MVC 3 korzysta z ASP.NET MVC 1 i 2, dodając doskonałe funkcje, które upraszczają kod i umożliwiają dokładniejsze rozszerzanie. Ten temat zawiera omówienie wielu nowych funkcji uwzględnionych w tej wersji, zorganizowanych w następujące sekcje:
 
-- [Rozszerzalne szkieletu z integracją MvcScaffold](#BM_MvcScaffolding)
-- [HTML włączone szablony projektów 5](#BM_HTML5)
+- [Rozszerzalne tworzenie szkieletów z integracją MvcScaffold](#BM_MvcScaffolding)
+- [Szablony projektów z włączoną obsługą języka HTML 5](#BM_HTML5)
 - [Aparat widoku Razor](#BM_TheRazorViewEngine)
 - [Obsługa wielu aparatów widoku](#BM_Support_for_Multiple_View_Engines)
 - [Ulepszenia kontrolera](#BM_Controller_Improvements)
-- [JavaScript oraz Ajax](#BM_JavaScript_and_Ajax_Improvements)
-- [Ulepszenia sprawdzania poprawności modelu](#BM_Model_Validation_Improvements)
-- [Ulepszenia wstrzykiwania zależności](#BM_Dependency_Injection_Improvements)
+- [JavaScript i AJAX](#BM_JavaScript_and_Ajax_Improvements)
+- [Ulepszenia weryfikacji modelu](#BM_Model_Validation_Improvements)
+- [Ulepszenia iniekcji zależności](#BM_Dependency_Injection_Improvements)
 - [Inne nowe funkcje](#BM_Other_New_Features)
 
 <a id="BM_MvcScaffolding"></a>
 
-## <a name="extensible-scaffolding-with-mvcscaffold-integration"></a>Rozszerzalne szkieletu z integracją MvcScaffold
+## <a name="extensible-scaffolding-with-mvcscaffold-integration"></a>Rozszerzalne tworzenie szkieletów z integracją MvcScaffold
 
-Nowy system Scaffoldingu ułatwia przejmą i rozpocząć korzystanie z wydajnie całkowicie nowych do struktury, jak i do automatyzacji typowych zadań programistycznych, jeśli jesteś doświadczonym i już wiesz, co robisz.
+Nowy system tworzenia szkieletów ułatwia szybkie i szybkie rozpoczęcie pracy w przypadku, gdy jest to zupełnie nowe środowisko i automatyzuje typowe zadania programistyczne, jeśli masz doświadczenie i już wiesz, co robisz.
 
-Jest to obsługiwane przez nowe NuGet *tworzenia szkieletów* pakiet o nazwie **MvcScaffolding**. Termin "Tworzenia szkieletów" jest używany przez wiele technologii oprogramowania oznacza "szybkie generowanie podstawowy zarys swoje oprogramowanie, które można następnie edytowanie i dostosowywanie". Pakietu tworzenia szkieletów, które tworzymy dla platformy ASP.NET MVC jest bardzo korzystne w kilku scenariuszach:
+Jest to obsługiwane przez nowy pakiet *szkieletu* NuGet o nazwie **MvcScaffolding**. Termin "rusztowania" jest używany przez wiele technologii oprogramowania do oznaczania "szybkiego generowania podstawowego konspektu oprogramowania, które można następnie edytować i dostosowywać". Pakiet szkieletu tworzony przez nas dla ASP.NET MVC jest znacznie korzystny w kilku scenariuszach:
 
-- **W przypadku platformy ASP.NET MVC zapoznawania się po raz pierwszy**, ponieważ zapewnia szybki sposób uzyskać niektóre przydatne kod pracy, w którym można edytować i dostosować zgodnie z potrzebami. Zapisuje możesz z urazem spojrzenie na pustej strony, których nie wiadomo jak zacząć!
-- **Jeśli dobrze znana platformy ASP.NET MVC, a teraz analizowania niektóre nowej technologii dodatek** takich jak maper obiektowo relacyjny, aparat widoku, bibliotekę testów itp., ponieważ twórca technologia ta może również utworzony pakiet tworzenia szkieletów dla niego.
-- **Jeśli pracy polega na wielokrotne tworzenie podobnych klas lub pliki jakieś**, ponieważ można utworzyć generatory niestandardowych, które zwracają świetlnymi testów, skryptów wdrażania lub czegokolwiek innego potrzebujesz. Każdy członek zespołu można użyć Twojego niestandardowego generatory zbyt.
+- **Jeśli ASP.NET MVC po raz pierwszy**, ponieważ umożliwia szybkie uzyskanie przydatnego, działającego kodu, który można następnie edytować i dostosować zgodnie z potrzebami. Zapisuje Cię z Trauma na pustej stronie i nie ma pomysłu, gdzie zacząć!
+- **Jeśli wiesz, że ASP.NET MVC i teraz eksplorujemy kilka nowych technologii** , takich jak mapowanie relacyjne obiektów, aparat widoku, biblioteka testowa, itp., ponieważ twórca tej technologii mógł także utworzyć dla niego pakiet szkieletu.
+- **Jeśli prace wymagają wielokrotnego tworzenia podobnych klas lub plików z pewnej kolejności**, ponieważ można utworzyć niestandardowe generatory, które umożliwiają testowanie armatury, skryptów wdrażania lub innych potrzeb. Wszyscy członkowie zespołu mogą również używać niestandardowych szkieletów.
 
-Inne funkcje w MvcScaffolding:
+Inne funkcje w programie MvcScaffolding obejmują:
 
-- Pomoc techniczna dla projektów C# i VB
-- Pomoc techniczna dotycząca Razor i ASPX widok aparaty
-- Obsługuje tworzenia szkieletów w obszarach platformy ASP.NET MVC i używa widoku niestandardowego układy/wzorców
-- Dane wyjściowe można łatwo dostosować, edytując szablony T4
-- Możesz dodać całkowicie nowe generatory za pomocą niestandardowej logiki programu PowerShell i niestandardowe szablony T4. Te (oraz wszelkie parametry niestandardowe, został przez Ciebie udzielony) automatycznie są wyświetlane na liście uzupełniania po naciśnięciu tabulatora konsoli.
-- Możesz uzyskać pakietach NuGet zawierających dodatkowe generatory dla różnych technologii (np. jest z koncepcji jeden dla programu LINQ to SQL teraz) i mieszać je oraz je ze sobą zgodne
+- Obsługa i C# projekty w języku VB
+- Obsługa aparatów widoku Razor i ASPX
+- Obsługuje tworzenie szkieletów w obszarach ASP.NET MVC i używanie układów widoków niestandardowych/wzorców
+- Możesz łatwo dostosować dane wyjściowe, edytując szablony T4
+- Można dodać zupełnie nowych szkieletów przy użyciu niestandardowych logiki programu PowerShell i niestandardowych szablonów T4. Te (i wszystkie podane przez Ciebie parametry niestandardowe) są automatycznie wyświetlane na liście uzupełniania na karcie konsoli.
+- Pakiety NuGet zawierające dodatkowe rusztowania mogą być dostępne dla różnych technologii (np. istnieje Weryfikacja koncepcji jeden dla LINQ to SQL teraz) i mieszanie ich razem
 
-ASP.NET MVC 3 Tools Update obsługuje doskonałe programu Visual Studio dla tego systemu tworzenia szkieletów, takich jak:
+Aktualizacja narzędzi ASP.NET MVC 3 obejmuje doskonałą obsługę programu Visual Studio dla tego systemu szkieletowego, na przykład:
 
-- Dodaj okno dialogowe kontroler obsługuje teraz szkieletu pełnej automatycznego tworzenia, odczytu, aktualizacji i usuwania działań kontrolera i odpowiednie widoki. Domyślnie to szkielety mechanizmów kod dostępu do danych za pomocą funkcji EF Code First.
-- Dodaj okno dialogowe kontroler obsługuje *extensible szkielety mechanizmów* za pośrednictwem pakietu NuGet takie jak pakiety *MvcScaffolding*. Umożliwia to podłączenie niestandardowe szkielety mechanizmów do okna dialogowego, które pozwoli na tworzenie szkielety mechanizmów dla innych technologii dostępu do danych, takich jak NHibernate lub nawet JET przy użyciu ODBCDirect, jeśli jest więc pochylone!
+- Okno dialogowe Dodawanie kontrolera obsługuje teraz pełne automatyczne tworzenie szkieletu akcji tworzenia, odczytywania, aktualizowania i usuwania kontrolerów oraz odpowiednich widoków. Domyślnie to szkielety kodu uzyskują dostęp do danych przy użyciu EF Code First.
+- Okno dialogowe Dodawanie kontrolera obsługuje *rozszerzalne szkielety* za pośrednictwem pakietów NuGet, takich jak *MvcScaffolding*. Dzięki temu można podłączać się do okna dialogowego, które umożliwią tworzenie szkieletów dla innych technologii dostępu do danych, takich jak NHibernate, lub nawet JET z ODBCDirect, jeśli są one nachylone!
 
-Aby uzyskać więcej informacji na temat tworzenia szkieletów w ASP.NET MVC 3 zobacz następujące zasoby:
+Aby uzyskać więcej informacji na temat tworzenia szkieletów w ASP.NET MVC 3, zobacz następujące zasoby:
 
-- Steve sanderson o po serii, w tym: 
+- Steve Sanderson, w tym: 
 
-    1. [Wprowadzenie: Tworzenia szkieletu z pakietem MvcScaffolding projektu ASP.NET MVC 3](http://blog.stevensanderson.com/2011/01/13/scaffold-your-aspnet-mvc-3-project-with-the-mvcscaffolding-package/)
-    2. [Użycie standardowych: Typowe przypadki użycia i opcji](http://blog.stevensanderson.com/2011/01/13/mvcscaffolding-standard-usage/)
+    1. [Wprowadzenie: tworzenie szkieletu projektu ASP.NET MVC 3 z pakietem MvcScaffolding](http://blog.stevensanderson.com/2011/01/13/scaffold-your-aspnet-mvc-3-project-with-the-mvcscaffolding-package/)
+    2. [Standardowe użycie: typowe przypadki użycia i opcje](http://blog.stevensanderson.com/2011/01/13/mvcscaffolding-standard-usage/)
     3. [Relacje jeden do wielu](http://blog.stevensanderson.com/2011/01/28/mvcscaffolding-one-to-many-relationships/)
-    4. [Akcje tworzenia szkieletu i testów jednostkowych](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
-    5. [Zastępowanie szablony T4](http://blog.stevensanderson.com/2011/04/06/mvcscaffolding-overriding-the-t4-templates/)
-    6. [Ten wpis: Tworzenie niestandardowych generatory](http://blog.stevensanderson.com/2011/04/07/mvcscaffolding-creating-custom-scaffolders/)
-- Scott Hanselman wpis sesja podstawowego kontrolera domeny 2010 [tworzenia blogu z firmą Microsoft "Bez nazwy pakietu z sieci Web Love"](http://www.hanselman.com/blog/PDC10BuildingABlogWithMicrosoftUnnamedPackageOfWebLove.aspx)
-- [Informacje o wersji platformy MVC 3](../whitepapers/mvc3-release-notes.md)
+    4. [Akcje tworzenia szkieletu i testy jednostkowe](http://blog.stevensanderson.com/2011/03/28/scaffolding-actions-and-unit-tests-with-mvcscaffolding/)
+    5. [Zastępowanie szablonów T4](http://blog.stevensanderson.com/2011/04/06/mvcscaffolding-overriding-the-t4-templates/)
+    6. [Ten wpis: Tworzenie niestandardowych szkieletów](http://blog.stevensanderson.com/2011/04/07/mvcscaffolding-creating-custom-scaffolders/)
+- Wpis Scott Hanselman z własnej sesji kontrolera PDC 2010 [Tworzenie blogu z nienazwanym pakietem Webmiłości firmy Microsoft "](http://www.hanselman.com/blog/PDC10BuildingABlogWithMicrosoftUnnamedPackageOfWebLove.aspx)
+- [Informacje o wersji MVC 3](../whitepapers/mvc3-release-notes.md)
 
 <a id="BM_HTML5"></a>
 
-## <a name="html-5-project-templates"></a>Szablony projektów 5 HTML
+## <a name="html-5-project-templates"></a>Szablony projektów HTML 5
 
-Okna dialogowego Nowy projekt zawiera pole wyboru Włącz HTML 5 wersje szablonów projektu. Te szablony wykorzystać Modernizr 1.7, aby zapewnić zgodność obsługę języków HTML 5 i CSS 3 w przeglądarkach niskiego poziomu.
+Okno dialogowe Nowy projekt zawiera pole wyboru Włącz wersje HTML 5 szablonów projektu. Te szablony wykorzystują modernizację 1,7, aby zapewnić obsługę zgodności dla języków HTML 5 i CSS 3 w przeglądarkach niskiego poziomu.
 
 <a id="BM_TheRazorViewEngine"></a>
 
 ## <a name="the-razor-view-engine"></a>Aparat widoku Razor
 
-ASP.NET MVC 3 obejmuje nowy aparat widoków o nazwie Razor, który zapewnia następujące korzyści:
+ASP.NET MVC 3 jest dostarczany z nowym aparatem widoku o nazwie Razor, który oferuje następujące korzyści:
 
-- Składnia razor jest czyste i zwięzłe, wymaganie minimalnej liczby naciśnięć klawiszy.
-- Razor jest łatwe dowiedzieć się, w części, ponieważ jest on oparty na istniejących w językach C# i Visual Basic.
-- Visual Studio zawiera funkcję IntelliSense i kod kolorowanie składni Razor.
-- Widokami razor można jednostki przetestowane bez konieczności uruchamiania aplikacji, lub uruchomić serwera sieci web.
+- Składnia Razor jest czysty i zwięzły, co wymaga minimalnej liczby naciśnięć klawiszy.
+- Razor można łatwo dowiedzieć się, w części, ponieważ jest ona oparta na istniejących C# językach, takich jak i Visual Basic.
+- Program Visual Studio zawiera funkcję IntelliSense i kolorowanie kodu dla składnia Razor.
+- Widoki Razor mogą być badane jednostkowo bez konieczności uruchamiania aplikacji lub uruchamiania serwera sieci Web.
 
-Niektóre nowe funkcje aparatu Razor są następujące:
+Dostępne są następujące nowe funkcje Razor:
 
-- `@model` Składnia określająca typ są przekazywane do widoku.
-- `@* *@` składnia komentarza.
-- Możliwość określenia wartości domyślnych (takie jak `layoutpage`) jeden raz dla całej witryny.
-- `Html.Raw` Metody do wyświetlania tekstu bez kodowania HTML go.
-- Obsługa udostępniania kodu między wiele widoków (*\_viewstart.cshtml* lub  *\_viewstart.vbhtml* plików).
+- Składnia `@model` do określania typu, który jest przesyłany do widoku.
+- Składnia komentarza `@* *@`.
+- Możliwość określenia wartości domyślnych (takich jak `layoutpage`) jednokrotnie dla całej lokacji.
+- Metoda `Html.Raw` do wyświetlania tekstu bez kodowania kodu HTML.
+- Obsługa udostępniania kodu w wielu widokach ( *\_viewstart. cshtml* lub *\_viewstart. vbhtml* ).
 
-Razor zawiera również nowe pomocników HTML, takie jak następujące:
+Razor również zawiera nowych pomocników HTML, takich jak:
 
-- `Chart`. Renderowanie wykresu, oferuje te same funkcje jak formant wykresu w programie ASP.NET 4.
-- `WebGrid`. Wyświetla siatkę danych, wraz z funkcjonalności stronicowania i sortowania.
-- `Crypto`. Algorytmy, aby utworzyć poprawnie wyznaczania wartości skrótu ciągu inicjującego i skrótu hasła.
+- `Chart`. Renderuje wykres, oferując te same funkcje co formant wykresu w ASP.NET 4.
+- `WebGrid`. Renderuje siatkę danych, dokończ przy użyciu funkcji stronicowania i sortowania.
+- `Crypto`. Używa algorytmów wyznaczania wartości skrótu do prawidłowego tworzenia haseł solonych i skrótów.
 - `WebImage`. Renderuje obraz.
 - `WebMail`. Wysyła wiadomość e-mail.
 
-Aby uzyskać więcej informacji na temat Razor zobacz następujące zasoby:
+Aby uzyskać więcej informacji na temat Razor, zobacz następujące zasoby:
 
-- [Wprowadzenie do aparatu Razor wpis w blogu Scotta Guthrie](https://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx)
-- [Wprowadzenie do wpis w blogu Scotta guthrie'a zatytułowany @model — słowo kluczowe](https://weblogs.asp.net/scottgu/archive/2010/10/19/asp-net-mvc-3-new-model-directive-support-in-razor.aspx)
-- [Wprowadzenie do układów Razor wpis w blogu Scotta Guthrie](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)
-- [Odwołanie API szybkie razor](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
-- [Informacje o wersji platformy MVC 3](../whitepapers/mvc3-release-notes.md)
+- [Wpis w blogu Scott Guthrie wprowadzający Razor](https://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx)
+- [Wpis w blogu Scott Guthrie wprowadzający słowo kluczowe @model](https://weblogs.asp.net/scottgu/archive/2010/10/19/asp-net-mvc-3-new-model-directive-support-in-razor.aspx)
+- [Wpis w blogu Scott Guthrie wprowadzający układy Razor](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)
+- [Krótki przewodnik po interfejsie API Razor](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
+- [Informacje o wersji MVC 3](../whitepapers/mvc3-release-notes.md)
 
 <a id="BM_Support_for_Multiple_View_Engines"></a>
 
 ## <a name="support-for-multiple-view-engines"></a>Obsługa wielu aparatów widoku
 
-**Dodaj widok** okno dialogowe w ASP.NET MVC 3 pozwala wybrać aparat widoku chcesz pracować, i **nowy projekt** okno dialogowe pozwala określić domyślny aparat widoku w projekcie. Możesz wybrać aparat widoku formularzy sieci Web (ASPX), Razor lub aparat typu open-source view takich jak [Spark](http://sparkviewengine.com/), [NHaml](https://code.google.com/p/nhaml/), lub [NDjango](http://ndjango.org/).
+Okno dialogowe **Dodawanie widoku** w ASP.NET MVC 3 umożliwia wybranie aparatu widoku, z którym chcesz współpracować, a okno dialogowe **Nowy projekt** umożliwia określenie domyślnego aparatu widoku dla projektu. Można wybrać aparat widoku formularzy sieci Web (ASPX), Razor lub aparatu widoku typu open source, taki jak [Spark](http://sparkviewengine.com/), [NHaml](https://code.google.com/p/nhaml/)lub [NDjango](http://ndjango.org/).
 
 <a id="BM_Controller_Improvements"></a>
 
@@ -158,157 +158,157 @@ Aby uzyskać więcej informacji na temat Razor zobacz następujące zasoby:
 
 ### <a name="global-action-filters"></a>Globalne filtry akcji
 
-Czasami chcesz wykonać logikę, przed uruchomieniem metody akcji lub po uruchomieniu metody akcji. Aby to umożliwić, ASP.NET MVC 2 podana filtrów akcji. Filtry akcji są atrybutów niestandardowych, które zapewniają deklaracyjne oznacza, że można dodać zachowanie akcja przed i po działaniu do metody akcji kontrolera określonej. Jednak w niektórych przypadkach można określić zachowanie akcja przed lub po akcji, która ma zastosowanie do wszystkich metod akcji. MVC 3 umożliwia określenie filtry globalne przez dodanie ich do `GlobalFilters` kolekcji. Aby uzyskać więcej informacji na temat globalne filtry akcji zobacz następujące zasoby:
+Czasami chcesz przeprowadzić logikę przed uruchomieniem metody akcji lub po uruchomieniu metody akcji. Aby można było go obsługiwać, dostępne są filtry akcji ASP.NET MVC 2. Filtry akcji są atrybutami niestandardowymi, które zapewniają deklaratywny sposób dodawania działań przed akcjami i po akcji do określonych metod akcji kontrolera. Jednak w niektórych przypadkach może być konieczne określenie zachowania przed akcją lub po akcji, które ma zastosowanie do wszystkich metod akcji. MVC 3 pozwala określić filtry globalne, dodając je do kolekcji `GlobalFilters`. Aby uzyskać więcej informacji na temat globalnych filtrów akcji, zobacz następujące zasoby:
 
-- [Blog Scotta Guthrie Podgląd MVC 3](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [Filtrowanie na platformie ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
+- [Blog Scott Guthrie w wersji zapoznawczej MVC 3](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
+- [Filtrowanie w ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
-### <a name="new-viewbag-property"></a>Nowa właściwość "Obiekt ViewBag."
+### <a name="new-viewbag-property"></a>Nowa właściwość "ViewBag"
 
-Obsługa kontrolerów MVC 2 `ViewData` właściwość, która umożliwia przekazywanie danych do szablonu widoku przy użyciu interfejsu API z późnym wiązaniem słownika. W MVC 3, można również użyć składni nieco prostsza `ViewBag` właściwości, aby osiągnąć ten sam cel. Na przykład zamiast zapisywania `ViewData["Message"]="text"`, można napisać `ViewBag.Message="text"`. Nie musisz zdefiniować silnie typizowanych klas do użycia `ViewBag` właściwości. Ponieważ właściwość dynamiczna, zamiast tego można po prostu pobrać lub ustawić właściwości i zostanie rozwiązany je dynamicznie w czasie wykonywania. Wewnętrznie `ViewBag` właściwości są przechowywane jako pary nazwa/wartość w `ViewData` słownika. (Uwaga: w większości wersji wstępnych programu MVC 3 `ViewBag` nosiła nazwę właściwości `ViewModel` właściwości.)
+Kontrolery MVC 2 obsługują Właściwość `ViewData`, która umożliwia przekazywanie danych do szablonu widoku przy użyciu interfejsu API z późnym wiązaniem. W MVC 3 można również użyć nieco prostszej składni z właściwością `ViewBag`, aby wykonać to samo przeznaczenie. Na przykład zamiast pisania `ViewData["Message"]="text"`można pisać `ViewBag.Message="text"`. Nie trzeba definiować żadnych klas o jednoznacznie określonym typie, aby użyć właściwości `ViewBag`. Ponieważ jest to właściwość dynamiczna, można w zamian pobrać lub ustawić właściwości, co spowoduje ich dynamiczne rozwiązanie w czasie wykonywania. Wewnętrznie właściwości `ViewBag` są przechowywane jako pary nazwa/wartość w słowniku `ViewData`. (Uwaga: w większości wstępnych wersji MVC 3 Właściwość `ViewBag` miała nazwę właściwości `ViewModel`.)
 
 ### <a name="new-actionresult-types"></a>Nowe typy "ActionResult"
 
-Następujące `ActionResult` typy i odpowiedniej metody pomocnicze są nowe lub udoskonalone w MVC 3:
+Następujące typy `ActionResult` i odpowiednie metody pomocnika są nowe lub udoskonalone w MVC 3:
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Zwraca kod stanu 404 protokołu HTTP do klienta.
-- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Zwraca Przekierowanie tymczasowe (kod stanu HTTP 302) lub trwałe przekierowanie (kod stanu HTTP 301), w zależności od parametrów typu Boolean. W połączeniu z tą zmianą [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) klasa ma teraz trzy metody służące do wykonywania przekierowania stałych: `RedirectPermanent`, `RedirectToRoutePermanent`, i `RedirectToActionPermanent`. Te metody zwracają wystąpienie `RedirectResult` z `Permanent` właściwością `true`.
-- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Zwraca kod stanu HTTP określonych przez użytkownika.
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Zwraca kod stanu HTTP 404 dla klienta.
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Zwraca tymczasowe przekierowanie (kod stanu HTTP 302) lub trwałe przekierowanie (kod stanu HTTP 301), w zależności od parametru logicznego. W połączeniu z tą zmianą Klasa [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) ma teraz trzy metody wykonywania trwałych przekierowań: `RedirectPermanent`, `RedirectToRoutePermanent`i `RedirectToActionPermanent`. Te metody zwracają wystąpienie `RedirectResult` z właściwością `Permanent` ustawioną na `true`.
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Zwraca kod stanu HTTP określony przez użytkownika.
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
-## <a name="javascript-and-ajax-improvements"></a>Ulepszenia technologii Ajax i JavaScript
+## <a name="javascript-and-ajax-improvements"></a>Ulepszenia języka JavaScript i AJAX
 
-Domyślnie obiekty pomocnicze technologii Ajax i sprawdzania poprawności w MVC 3 używają podejście dyskretnego kodu JavaScript. Pozwala uniknąć dyskretny kod JavaScript, wprowadza liniowy JavaScript w kodzie HTML. To sprawia, że HTML mniejsze i mniej zatłoczoną i ułatwia wymienić lub dostosować bibliotek JavaScript. Pomocnicy sprawdzania poprawności w MVC 3 również użyć `jQueryValidate` wtyczki domyślnie. Jeśli chcesz, aby zachowanie MVC 2, można wyłączyć dyskretnego kodu JavaScript przy użyciu *web.config* pliku ustawień. Aby uzyskać więcej informacji na temat ulepszenia języka JavaScript oraz Ajax zobacz następujące zasoby:
+Domyślnie pomocnicy technologii AJAX i walidacji w MVC 3 używają niezauważalnego podejścia JavaScript. Niezauważalne środowisko JavaScript zapobiega wprowadzaniu w kodzie HTML wbudowanego języka JavaScript. Dzięki temu kod HTML jest mniejszy i mniej czytelny oraz ułatwia wymianę lub dostosowywanie bibliotek języka JavaScript. Pomocnicy weryfikacji w MVC 3 również domyślnie używają wtyczki `jQueryValidate`. Jeśli chcesz zachowania MVC 2, możesz wyłączyć oddyskretny kod JavaScript przy użyciu ustawienia pliku *Web. config* . Aby uzyskać więcej informacji na temat ulepszeń JavaScript i AJAX, zobacz następujące zasoby:
 
-- [Wstęp do dyskretnego kodu JavaScript w witrynie Wikipedia](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript)
-- [Brad Wilson dyskretnego kodu JavaScript wpis](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-ajax.html)
-- [Wpis sprawdzania poprawności dyskretnego kodu JavaScript Brad Wilson](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
-- [Tworzenie aplikacji MVC 3 ze składnią Razor i dyskretny kod JavaScript](overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md) (samouczek w witrynie programu ASP.NET)
-- [Informacje o wersji platformy MVC 3](../whitepapers/mvc3-release-notes.md)
+- [Podstawowe wprowadzenie do niewygodnego języka JavaScript w witrynie Wikipedia](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript)
+- [Niewygodny wpis języka JavaScript w programie Brad Wilson](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-ajax.html)
+- [Wpis do sprawdzania poprawności kodu JavaScript w programie Brad Wilson](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
+- [Tworzenie aplikacji MVC 3 z użyciem Razor i niewygodnego języka JavaScript](overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md) (samouczek w witrynie ASP.NET)
+- [Informacje o wersji MVC 3](../whitepapers/mvc3-release-notes.md)
 
-### <a name="client-side-validation-enabled-by-default"></a>Weryfikacja po stronie klienta, domyślnie włączone
+### <a name="client-side-validation-enabled-by-default"></a>Sprawdzanie poprawności po stronie klienta jest domyślnie włączone
 
-We wcześniejszych wersjach programu MVC, należy jawnie wywołać `Html.EnableClientValidation` metody z widoku w celu włączenia weryfikacji po stronie klienta. W MVC 3 to nie jest już wymagane, ponieważ Weryfikacja po stronie klienta jest domyślnie włączona. (Tę opcję można wyłączyć przy użyciu ustawień w *web.config* pliku.)
+We wcześniejszych wersjach składnika MVC należy jawnie wywołać metodę `Html.EnableClientValidation` z widoku, aby umożliwić weryfikację po stronie klienta. W MVC 3 nie jest to już wymagane, ponieważ Walidacja po stronie klienta jest domyślnie włączona. (Można wyłączyć tę funkcję przy użyciu ustawienia w pliku *Web. config* ).
 
-Aby weryfikacji po stronie klienta do pracy nadal należy odwoływać się do odpowiednich technologii jQuery i bibliotek weryfikacji jQuery w Twojej lokacji. Można udostępniać tych bibliotek na własnym serwerze lub odwoływać się do nich z sieci dostarczania zawartości (CDN), takich jak sieci CDN, od firmy Microsoft lub Google.
+Aby Walidacja po stronie klienta działała, nadal trzeba odwoływać się do odpowiednich bibliotek walidacji jQuery i jQuery w Twojej lokacji. Te biblioteki można hostować na własnym serwerze lub odwoływać się do nich za pośrednictwem usługi Content Delivery Network (CDN), takiej jak sieci CDN firmy Microsoft lub Google.
 
-### <a name="remote-validator"></a>Zdalnego modułu weryfikacji
+### <a name="remote-validator"></a>Zdalny moduł sprawdzania poprawności
 
-ASP.NET MVC 3 obsługuje nową [RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) klasę, która umożliwia korzystanie z zalet jQuery weryfikacji dodatków plug-in jego obsługa zdalnego modułu weryfikacji. Dzięki temu biblioteki weryfikacji po stronie klienta i automatycznie wywoływać metodę niestandardową, definiujące na serwerze, aby można było wykonać logikę weryfikacji, który jest możliwe tylko po stronie serwera.
+ASP.NET MVC 3 obsługuje nową klasę [remoteattribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) , która pozwala korzystać z obsługi zdalnego modułu sprawdzania poprawności dla wtyczki. Dzięki temu Biblioteka walidacji po stronie klienta może automatycznie wywołać metodę niestandardową, która została zdefiniowana na serwerze w celu wykonania logiki walidacji, którą można wykonać tylko po stronie serwera.
 
-W poniższym przykładzie `Remote` atrybut określa, czy sprawdzanie poprawności klienta wywoła akcję o nazwie `UserNameAvailable` na `UsersController` klasy w celu zweryfikowania `UserName` pola.
+W poniższym przykładzie atrybut `Remote` określa, że Walidacja klienta wywoła akcję o nazwie `UserNameAvailable` na klasie `UsersController` w celu sprawdzenia poprawności pola `UserName`.
 
 [!code-csharp[Main](mvc3/samples/sample1.cs)]
 
-Poniższy przykład pokazuje odpowiedniego kontrolera.
+Poniższy przykład pokazuje odpowiedni kontroler.
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-Aby uzyskać więcej informacji o sposobie używania `Remote` atrybutów, zobacz [jak: Zaimplementować weryfikację zdalną we wzorcu ASP.NET MVC](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) w bibliotece MSDN.
+Aby uzyskać więcej informacji na temat korzystania z atrybutu `Remote`, zobacz [How to: Implementuj zdalne sprawdzanie poprawności w ASP.NET MVC](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) w bibliotece MSDN.
 
 ### <a name="json-binding-support"></a>Obsługa powiązań JSON
 
-ASP.NET MVC 3 ma wbudowaną funkcję obsługi powiązania JSON, umożliwiająca metody akcji odbierać dane zakodowane w formacie JSON oraz wiązanie modeli go do parametrów metody akcji. Ta możliwość jest przydatne w scenariuszach związanych z szablonów klienta i powiązanie danych. (Szablony klienta umożliwiają formatowania i wyświetlania danych pojedynczy element lub zbiór elementów danych przy użyciu szablonów, które są wykonywane na komputerze klienckim.) MVC 3 pozwala na łatwe łączenie szablonów klienta za pomocą metod akcji na serwerze, które wysyłać i odbierać dane JSON. Aby uzyskać więcej informacji na temat obsługi powiązania JSON, zobacz **JavaScript oraz AJAX ulepszenia** części [MVC 3 w wersji zapoznawczej w blogu Scotta guthrie'a zatytułowany](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx).
+ASP.NET MVC 3 zawiera wbudowaną obsługę powiązań JSON, która umożliwia metodom działania otrzymywanie danych i modelu z kodowaniem JSON — powiązanie ich z parametrami akcji-metody. Ta funkcja jest przydatna w scenariuszach obejmujących szablony klientów i powiązania danych. (Szablony klienta umożliwiają formatowanie i wyświetlanie pojedynczego elementu danych lub zestawu elementów danych przy użyciu szablonów, które są wykonywane na kliencie). MVC 3 umożliwia łatwe łączenie szablonów klientów z metodami akcji na serwerze, który wysyła i odbiera dane JSON. Aby uzyskać więcej informacji na temat obsługi powiązań JSON, zobacz sekcję **ulepszenia języka JavaScript i technologii AJAX** w [blogu Guthrie MVC 3 w wersji zapoznawczej](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx).
 
 <a id="BM_Model_Validation_Improvements"></a>
 
-## <a name="model-validation-improvements"></a>Ulepszenia sprawdzania poprawności modelu
+## <a name="model-validation-improvements"></a>Ulepszenia weryfikacji modelu
 
-### <a name="dataannotations-metadata-attributes"></a>Atrybuty metadanych na "DataAnnotations"
+### <a name="dataannotations-metadata-attributes"></a>Atrybuty metadanych "DataAnnotations"
 
-Obsługuje platformy ASP.NET MVC 3 `DataAnnotations` metadanych atrybutów, takich jak `DisplayAttribute`.
+ASP.NET MVC 3 obsługuje atrybuty metadanych `DataAnnotations`, takie jak `DisplayAttribute`.
 
 ### <a name="validationattribute-class"></a>Klasa "ValidationAttribute"
 
-`ValidationAttribute` Klasy poprawiła w .NET Framework 4, aby obsługiwać nowe `IsValid` przeciążenia, które zawiera więcej informacji na temat bieżącego kontekstu sprawdzania poprawności, takich jak jak obiekt jest weryfikowany. Dzięki temu bogatsze scenariusze, w którym można sprawdzić bieżącą wartość na podstawie innej właściwości w modelu. Na przykład nowy `CompareAttribute` atrybut ten umożliwia porównanie wartości dwóch właściwości modelu. W poniższym przykładzie `ComparePassword` właściwość musi być zgodna `Password` pola, aby był prawidłowy.
+Ulepszona Klasa `ValidationAttribute` w .NET Framework 4, aby obsługiwała nowe Przeciążenie `IsValid`, które zawiera więcej informacji na temat bieżącego kontekstu walidacji, takich jak sprawdzanie poprawności obiektu. Umożliwia to bogatsze scenariusze, w których można sprawdzić bieżącą wartość w oparciu o inną właściwość modelu. Na przykład nowy atrybut `CompareAttribute` umożliwia porównanie wartości dwóch właściwości modelu. W poniższym przykładzie właściwość `ComparePassword` musi być zgodna z polem `Password`, aby było prawidłowe.
 
 [!code-csharp[Main](mvc3/samples/sample3.cs)]
 
-### <a name="validation-interfaces"></a>Sprawdzanie poprawności interfejsów
+### <a name="validation-interfaces"></a>Interfejsy walidacji
 
-[IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) interfejs umożliwia wykonywanie walidacji na poziomie modelu i pozwala ona na celu udostępnienia weryfikacji komunikaty o błędach, które są specyficzne dla stanu ogólnym modelu lub między nimi dwie właściwości w modelu . MVC 3 pobiera błędy z `IValidatableObject` interfejs podczas wiązania modelu i automatycznie flagi najważniejsze funkcje wpływ na co najmniej pól w widoku, używając wbudowanych pomocników HTML w formularzu.
+Interfejs [IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) umożliwia wykonywanie walidacji na poziomie modelu i umożliwia podanie komunikatów o błędach walidacji, które są specyficzne dla stanu ogólnego modelu lub między dwiema właściwościami w modelu. MVC 3 teraz pobiera błędy z interfejsu `IValidatableObject` podczas powiązania modelu i automatycznie flaguje lub wyróżnia pola, których dotyczy ten widok, przy użyciu wbudowanych pomocników formularzy HTML.
 
-[IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfejs umożliwia platformy ASP.NET MVC w celu odnalezienia w czasie wykonywania, czy moduł weryfikacji obsługuje weryfikację klienta. Ten interfejs został zaprojektowany tak, aby go można zintegrować z różnych platform sprawdzania poprawności.
+Interfejs [IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) umożliwia ASP.NET MVC odnajdywanie w czasie wykonywania, niezależnie od tego, czy moduł sprawdzania poprawności obsługuje walidację klienta. Ten interfejs został zaprojektowany tak, aby można było zintegrować go z różnymi platformami sprawdzania poprawności.
 
-Aby uzyskać więcej informacji o interfejsach weryfikacji, zobacz **ulepszenia sprawdzania poprawności modelu** części [MVC 3 w wersji zapoznawczej w blogu Scotta guthrie'a zatytułowany](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). (Pamiętaj jednak, że odwołania do "IValidateObject" w blogu powinny być "IValidatableObject".)
+Aby uzyskać więcej informacji na temat interfejsów walidacji, zobacz sekcję **ulepszenia walidacji modelu** w [blogu Scott Guthrie w wersji zapoznawczej](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). Należy jednak zauważyć, że odwołanie do "IValidateObject" w blogu powinno mieć wartość "IValidatableObject".
 
 <a id="BM_Dependency_Injection_Improvements"></a>
 
-## <a name="dependency-injection-improvements"></a>Ulepszenia wstrzykiwania zależności
+## <a name="dependency-injection-improvements"></a>Ulepszenia iniekcji zależności
 
-ASP.NET MVC 3 oferuje lepszą obsługę stosowania wstrzykiwanie zależności (DI) oraz integracji z usługą kontenerów wstrzykiwanie zależności lub Inwersja kontroli (IOC). Obsługa DI został dodany w następujących obszarach:
+ASP.NET MVC 3 oferuje lepszą obsługę stosowania iniekcji zależności (DI) oraz do integrowania przy użyciu iniekcji zależności lub kontenerów kontroli wersji (IOC). Obsługa funkcji DI została dodana w następujących obszarach:
 
-- Kontrolery (rejestrowanie i wprowadza fabryki kontrolerów, wprowadza kontrolerów).
-- Widoki (rejestrowanie i wprowadza aparatów widoku, wstrzykiwania zależności do widoku strony).
-- Filtry akcji (lokalizowanie i wprowadza filtry).
-- Integratorów modelu (rejestrowanie i wprowadza).
-- Dostawców weryfikacji modelu (rejestrowanie i wprowadza).
-- Dostawcy metadanych modelu (rejestrowanie i wprowadza).
-- Dostawców wartości (rejestrowanie i wprowadza).
+- Kontrolery (rejestrowanie i wtryskiwanie fabryk kontrolerów, iniekcja kontrolerów).
+- Widoki (rejestrowanie i wtryskiwanie aparatów wyświetlania, wprowadzanie zależności do stron widoku).
+- Filtry akcji (lokalizowanie i wtryskiwanie filtrów).
+- Powiązania modelu (rejestrowanie i wtryskiwanie).
+- Dostawcy walidacji modelu (rejestrowanie i iniekcja).
+- Dostawcy metadanych modelu (rejestrowanie i wtryskiwanie).
+- Dostawcy wartości (rejestrowanie i wtryskiwanie).
 
-MVC 3 obsługuje [wspólnego lokalizatora usług](https://github.com/unitycontainer/commonservicelocator) biblioteki i dowolnego kontenera DI, która obsługuje tej biblioteki `IServiceLocator` interfejsu. Obsługuje ona również nową `IDependencyResolver` interfejsu, który ułatwia integrowanie DI struktur.
+MVC 3 obsługuje bibliotekę [Common Service Locator](https://github.com/unitycontainer/commonservicelocator) i wszystkie di kontener obsługujące interfejs `IServiceLocator` tej biblioteki. Obsługuje również nowy interfejs `IDependencyResolver`, który ułatwia integrację DI Frameworks.
 
-Aby uzyskać więcej informacji na temat DI w MVC 3 zobacz następujące zasoby:
+Aby uzyskać więcej informacji na temat DI w MVC 3, zobacz następujące zasoby:
 
-- [Brad Wilson serię wpisów w blogu usługi lokalizacji](http://bradwilson.typepad.com/blog/2010/07/service-location-pt1-introduction.html)
-- [Informacje o wersji platformy MVC 3](../whitepapers/mvc3-release-notes.md)
+- [Seria wpisów w blogu Brada Wilson w lokalizacji usługi](http://bradwilson.typepad.com/blog/2010/07/service-location-pt1-introduction.html)
+- [Informacje o wersji MVC 3](../whitepapers/mvc3-release-notes.md)
 
 <a id="BM_Other_New_Features"></a>
 
 ## <a name="other-new-features"></a>Inne nowe funkcje
 
-### <a name="nuget-integration"></a>Integracja z NuGet
+### <a name="nuget-integration"></a>Integracja z pakietem NuGet
 
-ASP.NET MVC 3 automatycznie instaluje i włącza NuGet jako część jego instalacji. NuGet to Menedżer bezpłatny pakiet typu open source, który można łatwo znaleźć, instalowanie i używanie bibliotek platformy .NET i narzędzi w swoich projektach. Działa z typami projektu Visual Studio (w tym ASP.NET Web Forms i ASP.NET MVC).
+ASP.NET MVC 3 automatycznie instaluje i włącza pakiet NuGet w ramach instalacji. NuGet to bezpłatny Menedżer pakietów typu "open source", który ułatwia znajdowanie, Instalowanie i używanie bibliotek i narzędzi platformy .NET w projektach. Działa ze wszystkimi typami projektów programu Visual Studio (w tym ASP.NET Web Forms i ASP.NET MVC).
 
-NuGet umożliwia deweloperom, którzy obsługują projektów typu open source (na przykład, projektów, takich jak Moq, NHibernate, Ninject, StructureMap, NUnit, Windsor, RhinoMocks i Elmah) spakować bibliotek i zarejestrować je w galerii w trybie online. Następnie jest dla deweloperów platformy .NET, którzy chcą korzystać z jednej z tych bibliotek można znaleźć pakietu i zainstaluj go w projektach, które działają na jest łatwe.
+Narzędzia NuGet umożliwiają deweloperom, którzy utrzymują projekty typu Open Source (na przykład projekty, takie jak MOQ, NHibernate, Ninject, StructureMap, NUnit, Windsor, RhinoMocks i ELMAH), w celu spakowania ich bibliotek i zarejestrowania ich w galerii w trybie online. Jest to łatwe dla deweloperów platformy .NET, którzy chcą korzystać z jednej z tych bibliotek, aby znaleźć pakiet i zainstalować go w projektach, nad którymi pracują.
 
-Za pomocą programu ASP.NET 3 Tools Update szablony projektów obejmują JavaScript bibliotek wstępnie zainstalowanych pakietów NuGet, dzięki czemu są one można aktualizować za pośrednictwem pakietu NuGet. Entity Framework Code First jest również wstępnie zainstalowany jako pakiet NuGet.
+W przypadku aktualizacji narzędzi ASP.NET 3 szablony projektów obejmują wstępnie zainstalowane pakiety NuGet w bibliotekach języka JavaScript, dzięki czemu są one aktualizowalne za pośrednictwem programu NuGet. Code First Entity Framework jest również wstępnie instalowany jako pakiet NuGet.
 
-Aby uzyskać więcej informacji na temat programu NuGet, zobacz [dokumentacja programu NuGet](https://docs.microsoft.com/nuget/).
+Więcej informacji o narzędziu NuGet można znaleźć w [dokumentacji programu NuGet](https://docs.microsoft.com/nuget/).
 
-### <a name="partial-page-output-caching"></a>Buforowaniu danych wyjściowych stron częściowych
+### <a name="partial-page-output-caching"></a>Częściowe buforowanie danych wyjściowych strony
 
-ASP.NET MVC ma obsługiwane buforowania danych wyjściowych pełnej strony odpowiedzi od wersji 1. MVC 3 obsługuje również buforowania danych wyjściowych części strony, która pozwala na łatwe regionów pamięci podręcznej lub fragmenty odpowiedzi. Aby uzyskać więcej informacji na temat buforowania, zobacz **częściowe buforowania danych wyjściowych strony** części [wpis w blogu Scotta guthrie'a zatytułowany w wersji Release candidate MVC 3](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx) i **podrzędne działania buforowania danych wyjściowych** części [MVC 3 — informacje o wersji](../whitepapers/mvc3-release-notes.md).
+ASP.NET MVC obsługuje buforowanie danych wyjściowych odpowiedzi pełnej strony od wersji 1. MVC 3 obsługuje również buforowanie danych wyjściowych częściowej strony, co pozwala łatwo buforować regiony lub fragmenty odpowiedzi. Aby uzyskać więcej informacji na temat buforowania, zobacz sekcję **częściowe buforowanie danych wyjściowych** [w blogu Scott GUTHRIE w sekcji MVC 3 Release Candidate](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx) i **podrzędnej pamięci podręcznej akcji** w [informacjach o wersji MVC 3](../whitepapers/mvc3-release-notes.md).
 
-### <a name="granular-control-over-request-validation"></a>Ścisła kontrola nad weryfikacji żądań
+### <a name="granular-control-over-request-validation"></a>Szczegółową kontrolę nad sprawdzaniem poprawności żądania
 
-ASP.NET MVC jest weryfikacja żądań wbudowanych, który automatycznie zapewnia lepszą ochronę przed atakami polegającymi na iniekcji XSS, jak i HTML. Jednak czasami trzeba jawnie wyłącz żądania weryfikacji, np. Jeśli chcesz umożliwić użytkownikom wysyłanie HTML zawartości (na przykład w wpisy w blogu lub zawartości CMS). Teraz możesz dodać [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) atrybut do modeli lub wyświetl modele, aby wyłączyć sprawdzanie poprawności żądań na podstawie poszczególnych właściwości podczas wiązania modelu. Aby uzyskać więcej informacji na temat weryfikacji żądań zobacz następujące zasoby:
+ASP.NET MVC ma wbudowaną weryfikację żądań, która automatycznie pomaga chronić przed atakami typu XSS i kodu HTML. Jednak czasami chcesz jawnie wyłączyć weryfikację żądań, na przykład jeśli chcesz zezwolić użytkownikom na publikowanie zawartości HTML (na przykład wpisów w blogu lub zawartości CMS). Teraz można dodać atrybut [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) do modeli lub wyświetlić modele, aby wyłączyć weryfikację żądań dla poszczególnych właściwości podczas powiązania modelu. Aby uzyskać więcej informacji na temat weryfikacji żądań, zobacz następujące zasoby:
 
-- **Dyskretnego kodu JavaScript i sprawdzanie poprawności** sekcji [wpis w blogu Scotta guthrie'a zatytułowany w wersji Release candidate MVC 3](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
-- [Informacje o wersji platformy MVC 3](../whitepapers/mvc3-release-notes.md)
+- **Niewygodna sekcja JavaScript i walidacja** w [blogu Scotta GUTHRIE w witrynie MVC 3 Release Candidate](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
+- [Informacje o wersji MVC 3](../whitepapers/mvc3-release-notes.md)
 
-### <a name="extensible-new-project-dialog-box"></a>Rozszerzalne "nowego projektu" okno dialogowe
+### <a name="extensible-new-project-dialog-box"></a>Rozszerzalne okno dialogowe "nowy projekt"
 
-W ASP.NET MVC 3, można dodać szablony projektów, aparatów widoków i struktury projektu do testów jednostkowych **nowy projekt** okno dialogowe.
+W ASP.NET MVC 3 można dodawać szablony projektów, wyświetlać aparaty i struktury projektu testów jednostkowych do okna dialogowego **Nowy projekt** .
 
-### <a name="template-scaffolding-improvements"></a>Ulepszenia tworzenia szkieletów szablonu
+### <a name="template-scaffolding-improvements"></a>Ulepszenia tworzenia szkieletów szablonów
 
-Szablony tworzenia szkieletu ASP.NET MVC 3 wykonywanie lepszej pracy identyfikujące właściwości klucza podstawowego w modelach i całościowo odpowiednio niż we wcześniejszych wersjach programu MVC. (Na przykład szablony tworzenia szkieletów teraz upewnij się, że klucz podstawowy nie jest szkieletu jako pole edytowalnego formularza.)
+Szablony szkieletowe ASP.NET MVC 3 to lepsze zadanie identyfikacji głównych właściwości klucza dla modeli i obsługiwania ich odpowiednio w starszych wersjach składnika MVC. (Na przykład szablony tworzenia szkieletów powinny teraz upewnić się, że klucz podstawowy nie jest szkieletem jako pole formularza do edycji).
 
-Domyślnie używają teraz tworzyć i edytować szkielety mechanizmów `Html.EditorFor` pomocnika zamiast `Html.TextBoxFor` pomocnika. Zwiększa to obsługę metadanych modelu w postaci danych adnotacji atrybutów, kiedy **Dodaj widok** okno dialogowe generuje widoku.
+Domyślnie szkielety tworzenia i edytowania używają teraz pomocnika `Html.EditorFor` zamiast pomocnika `Html.TextBoxFor`. Poprawia to obsługę metadanych w modelu w postaci atrybutów adnotacji danych, gdy okno dialogowe **Dodawanie widoku** generuje widok.
 
-### <a name="new-overloads-for-htmllabelfor-and-htmllabelformodel"></a>Nowe przeciążenia dla "Html.LabelFor" i "Html.LabelForModel"
+### <a name="new-overloads-for-htmllabelfor-and-htmllabelformodel"></a>Nowe przeciążenia dla "html. LabelFor" i "html. LabelForModel"
 
-Dodano nowe przeciążenia metody `LabelFor` i `LabelForModel` metody pomocnika. Nowe przeciążenia pozwalają na określenie lub Zastąp tekst etykiety.
+Dodano nowe przeciążenia metody dla `LabelFor` i `LabelForModel` metod pomocniczych. Nowe przeciążenia umożliwiają określanie lub zastępowanie tekstu etykiety.
 
-### <a name="sessionless-controller-support"></a>Obsługa Bezsesyjne kontrolera
+### <a name="sessionless-controller-support"></a>Obsługa kontrolera bezsesyjnego
 
-W ASP.NET MVC 3, można wskazać, czy klasa kontrolera, aby używać stanu sesji, a jeśli tak, czy stan sesji powinien być odczytu/zapisu lub tylko do odczytu. Aby uzyskać więcej informacji na temat obsługi kontrolera Bezsesyjne zobacz [MVC 3 — informacje o wersji](../whitepapers/mvc3-release-notes.md).
+W ASP.NET MVC 3 możesz wskazać, czy chcesz, aby Klasa kontrolera korzystała z stanu sesji, a jeśli tak, to czy stan sesji powinien mieć wartość odczyt/zapis lub tylko do odczytu. Aby uzyskać więcej informacji na temat obsługi kontrolera bezsesyjnego, zobacz [Informacje o wersji MVC 3](../whitepapers/mvc3-release-notes.md).
 
 ### <a name="new-additionalmetadataattribute-class"></a>Nowa klasa "AdditionalMetadataAttribute"
 
-Możesz użyć [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) atrybutu, aby wypełnić `ModelMetadata.AdditionalValues` słownik właściwości modelu. Na przykład jeśli model widoku ma właściwość, która powinna być wyświetlana tylko dla administratora, można dodać adnotacje tę właściwość zgodnie z poniższym przykładem:
+Można użyć atrybutu [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) do wypełniania słownika `ModelMetadata.AdditionalValues` dla właściwości modelu. Na przykład jeśli model widoku ma właściwość, która powinna być wyświetlana tylko administrator, można dodać adnotacje do tej właściwości, jak pokazano w następującym przykładzie:
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 
-Te metadane ma zostać udostępnione dowolnego szablonu ekranu lub edytorze, po wyrenderowaniu modelu widoku produktu. Jest do interpretacji informacji o metadanych.
+Te metadane są udostępniane w dowolnym szablonie wyświetlania lub edytora, gdy jest renderowany model widoku produktu. Można interpretować informacje o metadanych.
 
-### <a name="accountcontroller-improvements"></a>Ulepszenia elementu AccountController
+### <a name="accountcontroller-improvements"></a>Udoskonalenia elementu AccountController
 
-Elementu AccountController w szablonie projektu internetowego została znacznie ulepszona.
+Elementu AccountController w szablonie projektu Internet został znacznie ulepszony.
 
-### <a name="new-intranet-project-template"></a>Nowy szablon projektu sieci Intranet
+### <a name="new-intranet-project-template"></a>Nowy szablon projektu intranetowego
 
-Nowy szablon projektu sieci Intranet jest uwzględniany który umożliwia użycie uwierzytelniania Windows i spowoduje usunięcie elementu AccountController.
+Dołączany jest nowy szablon projektu intranetowego, który umożliwia uwierzytelnianie systemu Windows i usuwa elementu AccountController.

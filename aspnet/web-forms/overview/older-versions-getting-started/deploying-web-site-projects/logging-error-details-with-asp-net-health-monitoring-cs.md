@@ -1,151 +1,151 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
-title: Rejestrowanie szczegółów błędów za pomocą programu Health ASP.NET Monitoring (C#) | Dokumentacja firmy Microsoft
+title: Rejestrowanie szczegółów błędu za pomocą monitorowania kondycjiC#ASP.NET () | Microsoft Docs
 author: rick-anderson
-description: System monitorowania kondycji przez firmę Microsoft umożliwia łatwe i możliwe do dostosowania do rejestrowania różnych zdarzeń w sieci web, łącznie z nieobsługiwanych wyjątków. W tym samouczku przedstawiono t...
+description: System monitorowania kondycji firmy Microsoft zapewnia łatwy i dostosowywalny sposób rejestrowania różnych zdarzeń sieci Web, w tym nieobsłużonych wyjątków. Ten samouczek przeprowadzi Cię przez prz...
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: b1abb452-642a-4ff3-8504-37b85590ff79
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6b444de67f3bce3d09dd8c3c172895cf07f58df8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e52ed94f78d053701771690fce432d5a1d465b62
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134413"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74637328"
 ---
 # <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Rejestrowanie szczegółów błędu za pomocą monitorowania kondycji ASP.NET (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_13_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial13_HealthMonitoring_cs.pdf)
+[Pobierz kod](https://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_13_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial13_HealthMonitoring_cs.pdf)
 
-> System monitorowania kondycji przez firmę Microsoft umożliwia łatwe i możliwe do dostosowania do rejestrowania różnych zdarzeń w sieci web, łącznie z nieobsługiwanych wyjątków. W tym samouczku przedstawiono konfigurowanie kondycji systemu monitorowania, rejestrowania nieobsługiwanych wyjątków z bazą danych i deweloperom za pośrednictwem wiadomości e-mail powiadamiania.
+> System monitorowania kondycji firmy Microsoft zapewnia łatwy i dostosowywalny sposób rejestrowania różnych zdarzeń sieci Web, w tym nieobsłużonych wyjątków. Ten samouczek przeprowadzi Cię przez proces konfigurowania systemu monitorowania kondycji w celu rejestrowania nieobsłużonych wyjątków w bazie danych i powiadamiania deweloperów za pośrednictwem wiadomości e-mail.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Rejestrowanie jest użytecznym narzędziem do monitorowania kondycji wdrożoną aplikację i diagnozowania wszelkich problemów, które mogą wystąpić. Jest to szczególnie ważne rejestrować błędy występujące we wdrożonej aplikacji, dzięki czemu można naprawić. `Error` Zdarzenie jest wywoływane zawsze wtedy, gdy wystąpił nieobsługiwany wyjątek występuje w aplikacji ASP.NET; [poprzedni Samouczek](processing-unhandled-exceptions-cs.md) pokazano, jak dziennika jego szczegóły, tworząc program obsługi zdarzeń dla ipowiadamiadeweloperabłąd`Error` zdarzeń. Jednak tworzenie `Error` program obsługi zdarzeń, aby rejestrować szczegóły błędu i powiadamia dewelopera jest zbędne, ponieważ to zadanie może zostać wykonana przez ASP. NET firmy *system monitorowania kondycji*.
+Rejestrowanie to przydatne narzędzie do monitorowania kondycji wdrożonej aplikacji oraz do diagnozowania wszelkich problemów, które mogą wystąpić. Jest to szczególnie ważne, aby rejestrować błędy występujące we wdrożonej aplikacji, dzięki czemu można je rozwiązać. Zdarzenie `Error` jest zgłaszane, gdy wystąpi nieobsługiwany wyjątek w aplikacji ASP.NET. w [poprzednim samouczku](processing-unhandled-exceptions-cs.md) przedstawiono sposób powiadamiania dewelopera o błędzie i rejestrowania jego szczegółów przez utworzenie programu obsługi zdarzeń dla zdarzenia `Error`. Jednak utworzenie procedury obsługi zdarzeń `Error` w celu zarejestrowania szczegółów błędu i powiadomienia dewelopera jest niezbędna, ponieważ to zadanie może być wykonywane przez ASP. *System monitorowania kondycji*sieci.
 
-Kondycja systemu monitorującego została wprowadzona w programie ASP.NET 2.0 i służy do monitorowania prawidłowości wdrożonej aplikacji ASP.NET przez rejestrowania zdarzeń, które występują podczas okresu istnienia żądania lub aplikacji. Zdarzenia zarejestrowane przez kondycji systemu monitorowania są określane jako *zdarzeń monitorowania kondycji* lub *Web zdarzenia*i obejmują:
+System monitorowania kondycji został wprowadzony w ASP.NET 2,0 i jest przeznaczony do monitorowania kondycji wdrożonej aplikacji ASP.NET przez rejestrowanie zdarzeń występujących w okresie istnienia aplikacji lub żądania. Zdarzenia zarejestrowane przez system monitorowania kondycji są określane jako *zdarzenia monitorowania kondycji* lub *zdarzenia sieci Web*i obejmują:
 
-- Zdarzenia okresu istnienia aplikacji, takich jak podczas uruchomienia lub zatrzymania w aplikacji
-- Zdarzenia zabezpieczeń, w tym nieudanych prób zalogowania i adres URL autoryzacji żądania zakończone niepowodzeniem
-- Błędy aplikacji, w tym nieobsługiwane wyjątki, stan widoku analizowania wyjątki, żądania weryfikacji wyjątki i błędy kompilacji, wśród innych typów błędów.
+- Zdarzenia okresu istnienia aplikacji, takie jak uruchomienie lub zatrzymanie aplikacji
+- Zdarzenia zabezpieczeń, w tym nieudane próby logowania i Nieudane żądania autoryzacji adresu URL
+- Błędy aplikacji, w tym Nieobsłużone wyjątki, Wyświetlanie wyjątków analizy stanu, wyjątki walidacji żądań i błędy kompilacji, między innymi typami błędów.
 
-Gdy jest wywoływane zdarzenie monitorowania kondycji mogą być rejestrowane do dowolnej liczby określonej *dziennika źródła*. Kondycja systemu monitorowania jest dostarczany z źródeł dziennika, które rejestrowania zdarzeń w sieci Web do bazy danych programu Microsoft SQL Server, w dzienniku zdarzeń Windows lub za pośrednictwem wiadomości e-mail, między innymi. Można również utworzyć własne źródła dzienników.
+Po podniesieniu zdarzenia monitorowania kondycji można je zalogować do dowolnej liczby określonych *źródeł dzienników*. System monitorowania kondycji jest dostarczany ze źródłami dzienników, które rejestrują zdarzenia sieci Web w bazie danych Microsoft SQL Server, w dzienniku zdarzeń systemu Windows lub za pośrednictwem wiadomości e-mail, między innymi. Możesz również utworzyć własne źródła dzienników.
 
-Zdarzenia kondycji systemu monitorowania dzienników wraz z dziennika źródła danych, są definiowane w `Web.config`. Przy użyciu kilku wierszy kodu znaczników konfiguracji można użyć monitorowania logowania wszystkie nieobsłużone wyjątki bazy danych i powiadamiać Cię o wyjątku za pośrednictwem poczty e-mail kondycji.
+Zdarzenia dzienników systemu monitorowania kondycji wraz z użytymi źródłami dzienników są zdefiniowane w `Web.config`. Za pomocą kilku wierszy znaczników konfiguracji można użyć monitorowania kondycji, aby rejestrować wszystkie Nieobsłużone wyjątki do bazy danych i powiadamiać o wyjątku za pośrednictwem poczty e-mail.
 
-## <a name="exploring-the-health-monitoring-systems-configuration"></a>Eksplorowanie monitorowania konfiguracji systemu kondycji
+## <a name="exploring-the-health-monitoring-systems-configuration"></a>Eksplorowanie konfiguracji systemu monitorowania kondycji
 
-Kondycja monitorowanie zachowania systemu jest definiowany przez jej informacje o konfiguracji, który znajduje się w [ `<healthMonitoring>` elementu](https://msdn.microsoft.com/library/2fwh2ss9.aspx) w `Web.config`. Ta sekcja konfiguracji zdefiniowano, między innymi następujące trzy ważne informacje:
+Zachowanie systemu monitorowania kondycji jest definiowane przez informacje o konfiguracji, które znajdują się w [elemencie`<healthMonitoring>`](https://msdn.microsoft.com/library/2fwh2ss9.aspx) w `Web.config`. Ta sekcja konfiguracji definiuje między innymi następujące trzy ważne informacje:
 
-1. Zdarzeń monitorowania kondycji, gdy wywoływane, powinny być rejestrowane,
+1. Zdarzenia monitorowania kondycji, które zostały zgłoszone, powinny być rejestrowane,
 2. Źródła dzienników i
-3. Jak monitorowania zdarzeń zdefiniowanych w (1) każdego kondycji jest mapowany do źródła dzienników zdefiniowane w (2).
+3. Jak każde zdarzenie monitorowania kondycji zdefiniowane w (1) jest zamapowane na źródła dzienników zdefiniowane w (2).
 
-Informacja ta jest określona przez trzy elementy podrzędne elementy konfiguracji: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), i [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx), odpowiednio.
+Te informacje są określone za poorednictwem trzech elementów konfiguracji podrzędnych: odpowiednio [`<eventMappings>`](https://msdn.microsoft.com/library/yc5yk01w.aspx), [`<providers>`](https://msdn.microsoft.com/library/zaa41kz1.aspx)i [`<rules>`](https://msdn.microsoft.com/library/fe5wyxa0.aspx).
 
-Kondycja domyślne monitorowanie informacji o konfiguracji systemu znajdują się w `Web.config` w pliku `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` folderu. Domyślne informacje konfiguracyjne z niektórych znaczników usunięte w celu skrócenia programu, znajdują się poniżej:
+Informacje o konfiguracji domyślnej systemu monitorowania kondycji znajdują się w pliku `Web.config` w `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` folderze. Te domyślne informacje o konfiguracji z usuniętym znacznikiem dla zwięzłości są przedstawione poniżej:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample1.xml)]
 
-Kondycja interesujących Cię wydarzeń monitorowania są zdefiniowane w `<eventMappings>` element, który umożliwia nadanie nazwy przyjaznego dla człowieka klasy zdarzeń monitorowania kondycji. W powyższym znaczników `<eventMappings>` element przypisuje nazwę przyjaznego dla człowieka "Wszystkie błędy" do monitorowania zdarzeń typu kondycji `WebBaseErrorEvent` i nazwie "Błąd audytów" zdarzeń typu monitorowania kondycji `WebFailureAuditEvent`.
+Zdarzenia monitorowania kondycji są zdefiniowane w `<eventMappings>` elementu, który daje przyjazną nazwę dla klasy zdarzeń monitorowania kondycji. W powyższym znaczniku element `<eventMappings>` przypisuje przyjazną dla człowieka nazwę "wszystkie błędy" do zdarzeń monitorowania kondycji typu `WebBaseErrorEvent` i nazwę "inspekcje niepowodzeń" do zdarzeń monitorowania kondycji typu `WebFailureAuditEvent`.
 
-`<providers>` Element definiuje źródła dzienników, dając im nazw przyjaznych dla człowieka i określając dziennika specyficznymi dla źródła informacji o konfiguracji. Pierwszy `<add>` element definiuje dostawcę "EventLogProvider", która tworzy dzienniki monitorowania zdarzeń za pomocą kondycji określony `EventLogWebEventProvider` klasy. `EventLogWebEventProvider` Klasy rejestruje zdarzenie w dzienniku zdarzeń Windows. Drugi `<add>` element definiuje dostawcę "SqlWebEventProvider", która tworzy dzienniki zdarzeń do bazy danych programu Microsoft SQL Server za pośrednictwem `SqlWebEventProvider` klasy. Konfiguracja "SqlWebEventProvider" Określa parametry połączenia bazy danych (`connectionStringName`) wśród innych opcji konfiguracji.
+Element `<providers>` definiuje źródła dzienników, dając im przyjazną nazwę i określając wszystkie informacje o konfiguracji specyficzne dla źródła dziennika. Pierwszy `<add>` element definiuje dostawcę "EventLogProvider", który rejestruje określone zdarzenia monitorowania kondycji przy użyciu klasy `EventLogWebEventProvider`. Klasa `EventLogWebEventProvider` rejestruje zdarzenie w dzienniku zdarzeń systemu Windows. Drugi `<add>` element definiuje dostawcę "SqlWebEventProvider", który rejestruje zdarzenia do bazy danych Microsoft SQL Server za pośrednictwem klasy `SqlWebEventProvider`. Konfiguracja "SqlWebEventProvider" określa parametry połączenia bazy danych (`connectionStringName`) między innymi opcjami konfiguracji.
 
-`<rules>` Element mapy zdarzeń określony w `<eventMappings>` elementu, aby zalogować się źródeł `<providers>` elementu. Domyślnie aplikacji sieci web ASP.NET rejestrowania wszystkich nieobsługiwanych wyjątków i niepowodzeń w dzienniku zdarzeń Windows.
+Element `<rules>` mapuje zdarzenia określone w elemencie `<eventMappings>`, aby rejestrować źródła w `<providers>` elemencie. Domyślnie aplikacje sieci Web ASP.NET rejestrują wszystkie Nieobsłużone wyjątki i błędy inspekcji w dzienniku zdarzeń systemu Windows.
 
-## <a name="logging-events-to-a-database"></a>Rejestrowanie zdarzeń do bazy danych
+## <a name="logging-events-to-a-database"></a>Rejestrowanie zdarzeń w bazie danych
 
-Kondycja monitorowania konfiguracji domyślnego systemu można dostosować na podstawie aplikacji sieci web aplikacji sieci web, dodając `<healthMonitoring>` sekcji z aplikacją `Web.config` pliku. Może zawierać dodatkowe elementy w `<eventMappings>`, `<providers>`, i `<rules>` sekcje przy użyciu `<add>` elementu. Aby usunąć ustawienie z domyślnie używają konfiguracji `<remove>` elementu lub użyj `<clear />` do usuwania wszystkich wartości domyślnych jedna z nich. Skonfigurujmy aplikacji sieci web przeglądy książki do logowania się wszystkie nieobsłużone wyjątki bazy danych programu Microsoft SQL Server przy użyciu `SqlWebEventProvider` klasy.
+Domyślną konfigurację systemu monitorowania kondycji można dostosować w zależności od aplikacji sieci Web, dodając sekcję `<healthMonitoring>` do pliku `Web.config` aplikacji. Można uwzględnić dodatkowe elementy w sekcjach `<eventMappings>`, `<providers>`i `<rules>` przy użyciu elementu `<add>`. Aby usunąć ustawienie z konfiguracji domyślnej, użyj elementu `<remove>` lub użyj `<clear />`, aby usunąć wszystkie wartości domyślne z jednej z tych sekcji. Skonfigurujmy aplikację sieci Web przeglądający książki, aby rejestrować wszystkie Nieobsłużone wyjątki do bazy danych Microsoft SQL Server przy użyciu klasy `SqlWebEventProvider`.
 
-`SqlWebEventProvider` Klasa jest częścią systemu monitorowania zdrowia i dzienniki zdarzeń na określonej bazy danych SQL Server do monitorowania kondycji. `SqlWebEventProvider` Klasy oczekuje, że określona baza danych zawiera procedury składowanej o nazwie `aspnet_WebEvent_LogEvent`. Tę procedurę składowaną jest przekazywany szczegóły zdarzenia i podobne zadanie zostanie przypisane przechowywanie szczegółów zdarzenia. Dobra wiadomość jest konieczne do utworzenia tego przechowywane procedury, ani tabelę do przechowywania szczegóły zdarzenia. Te obiekty można dodać do bazy danych za pomocą `aspnet_regsql.exe` narzędzia.
+Klasa `SqlWebEventProvider` jest częścią systemu monitorowania kondycji i rejestruje zdarzenie monitorowania kondycji w określonej SQL Server bazie danych. Klasa `SqlWebEventProvider` oczekuje, że określona baza danych zawiera procedurę przechowywaną o nazwie `aspnet_WebEvent_LogEvent`. Ta procedura składowana przekazuje szczegółowe informacje o zdarzeniu i jest z nim wykonywane zadanie przechowywania szczegółów zdarzenia. Dobrą wiadomośćą jest to, że nie trzeba tworzyć tej procedury składowanej ani tabeli do przechowywania szczegółów zdarzenia. Te obiekty można dodać do bazy danych za pomocą narzędzia `aspnet_regsql.exe`.
 
 > [!NOTE]
-> `aspnet_regsql.exe` Narzędzie została omówiona w [ *Konfigurowanie witryny sieci Web, korzysta z usługi aplikacji* samouczek](configuring-a-website-that-uses-application-services-cs.md) po Dodaliśmy obsługę dla stron ASP. Usługi aplikacji w sieci. W związku z tym, przeglądy książki witryny internetowej baza danych zawiera już `aspnet_WebEvent_LogEvent` procedurą składowaną, która przechowuje informacje o zdarzeniu do tabeli o nazwie `aspnet_WebEvent_Events`.
+> Narzędzie `aspnet_regsql.exe` zostało omówione z powrotem w temacie [ *Konfigurowanie witryny sieci Web używającej usługi aplikacji* samouczka,](configuring-a-website-that-uses-application-services-cs.md) gdy dodaliśmy obsługę środowiska ASP. Usługi aplikacji sieci. W związku z tym baza danych witryny sieci Web przeglądający książkę zawiera już `aspnet_WebEvent_LogEvent` procedury składowanej, która przechowuje informacje o zdarzeniu w tabeli o nazwie `aspnet_WebEvent_Events`.
 
-Po utworzeniu niezbędnych procedur składowanych i tabela dodawane do bazy danych pozostaje nakazać kondycji monitorowania, aby rejestrować wszystkie nieobsłużone wyjątki w bazie danych. To osiągnąć, dodając następujący kod do witryny sieci Web `Web.config` pliku:
+Gdy masz niezbędną procedurę składowaną i tabelę dodaną do bazy danych, to wszystko, co pozostanie, powoduje, że monitorowanie kondycji rejestruje wszystkie Nieobsłużone wyjątki w bazie danych. W tym celu Dodaj następujące znaczniki do pliku `Web.config` witryny sieci Web:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample2.xml)]
 
-Monitorowania znaczników konfiguracji powyżej używa kondycji `<clear />` elementy, aby wyczyścić monitorowania informacji o konfiguracji z kondycji wstępnie zdefiniowanych `<eventMappings>`, `<providers>`, i `<rules>` sekcje. Następnie dodaje pojedynczy wpis dla każdego z tych sekcji.
+Powyższy znacznik konfiguracji monitorowania kondycji używa `<clear />` elementów do czyszczenia wstępnie zdefiniowanych informacji konfiguracyjnych monitorowania kondycji z sekcji `<eventMappings>`, `<providers>`i `<rules>`. Następnie dodaje jeden wpis do każdej z tych sekcji.
 
-- `<eventMappings>` Element definiuje pojedynczy kondycji monitorowania zdarzenia o nazwie "Wszystkie błędy", które jest wywoływane po każdym wystąpieniu nieobsługiwanego wyjątku.
-- `<providers>` Element definiuje pojedynczy dziennik źródła o nazwie "SqlWebEventProvider", który używa `SqlWebEventProvider` klasy. `connectionStringName` Atrybut został ustawiony na "ReviewsConnectionString", która jest nazwą połączenia naszej parametrów zdefiniowanych w `<connectionStrings>` sekcji.
-- Na koniec &lt;reguły&gt; element wskazuje, że gdy zdarzenie "Wszystkie błędy" wynika, że jej powinny być rejestrowane przy użyciu dostawcy "SqlWebEventProvider".
+- Element `<eventMappings>` definiuje pojedyncze zdarzenie monitorowania kondycji o nazwie "wszystkie błędy", które jest zgłaszane w przypadku wystąpienia nieobsługiwanego wyjątku.
+- Element `<providers>` definiuje pojedyncze Źródło dziennika o nazwie "SqlWebEventProvider", które używa klasy `SqlWebEventProvider`. Atrybut `connectionStringName` został ustawiony na wartość "ReviewsConnectionString", czyli nazwę naszych parametrów połączenia zdefiniowanych w sekcji `<connectionStrings>`.
+- Na koniec &lt;reguł&gt; element wskazuje, że gdy zdarzenie "wszystkie błędy" transpires, że powinno być rejestrowane przy użyciu dostawcy "SqlWebEventProvider".
 
-Te informacje o konfiguracji powoduje, że monitorowania systemu, aby rejestrować wszystkie nieobsłużone wyjątki w bazie danych przeglądy książki kondycji.
+Te informacje o konfiguracji instruują system monitorowania kondycji, aby rejestrował wszystkie Nieobsłużone wyjątki do bazy danych przeglądów książki.
 
 > [!NOTE]
-> `WebBaseErrorEvent` Zdarzenie jest zgłaszane tylko w błędów serwera; nie jest inicjowane dla błędów HTTP, takich jak żądania dla zasobu ASP.NET, które nie zostało odnalezione. To różni się od zachowania `HttpApplication` klasy `Error` zdarzenie, które jest wywoływane dla serwera i błędów HTTP.
+> Zdarzenie `WebBaseErrorEvent` jest wywoływane tylko w przypadku błędów serwera; nie zostało zgłoszone do błędów HTTP, takich jak żądanie dla zasobu ASP.NET, którego nie znaleziono. Różni się to od zachowania zdarzenia `Error` klasy `HttpApplication`, które jest zgłaszane dla błędów serwera i HTTP.
 
-Aby wyświetlić kondycję systemu w działaniu monitorowania, odwiedź witrynę internetową i wygenerować błąd w czasie wykonywania, odwiedzając stronę `Genre.aspx?ID=foo`. Zobaczyć stronę odpowiedni komunikat o błędzie — wyjątek szczegóły żółty ekranem śmierci (gdy użytkownik odwiedzi lokalnie) lub niestandardowej strony błędu (podczas odwiedzania witryn w środowisku produkcyjnym). Za kulisami kondycji systemu monitorującego rejestrowane informacje o błędzie do bazy danych. Należy do jednego rekordu w `aspnet_WebEvent_Events` tabeli (zobacz **rys.1**); ten rekord zawiera informacje o błąd w czasie wykonywania, który właśnie wykonana.
+Aby wyświetlić system monitorowania kondycji w działaniu, odwiedź witrynę sieci Web i Wygeneruj błąd czasu wykonania, odwiedzając `Genre.aspx?ID=foo`. Powinna zostać wyświetlona odpowiednia strona błędu — szczegóły wyjątku żółtego ekranu zgonu (podczas odwiedzania lokalnego) lub strony błędu niestandardowego (podczas odwiedzania witryny w środowisku produkcyjnym). W tle system monitorowania kondycji zarejestrował informacje o błędzie w bazie danych. W tabeli `aspnet_WebEvent_Events` powinien znajdować się jeden rekord (patrz **rysunek 1**); Ten rekord zawiera informacje o błędzie środowiska uruchomieniowego, który właśnie wystąpił.
 
 [![](logging-error-details-with-asp-net-health-monitoring-cs/_static/image2.png)](logging-error-details-with-asp-net-health-monitoring-cs/_static/image1.png)
 
-**Rysunek 1**: Szczegóły błędu zostały zarejestrowane do `aspnet_WebEvent_Events` tabeli  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-asp-net-health-monitoring-cs/_static/image3.png))
+**Rysunek 1**. szczegóły błędu zostały zarejestrowane w tabeli `aspnet_WebEvent_Events`  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-asp-net-health-monitoring-cs/_static/image3.png))
 
 ### <a name="displaying-the-error-log-in-a-web-page"></a>Wyświetlanie dziennika błędów na stronie sieci Web
 
-Za pomocą bieżącej konfiguracji witryny sieci Web kondycji systemu monitorującego rejestruje wszystkie nieobsłużone wyjątki bazy danych. Monitorowanie kondycji zapewnia jednak każdy mechanizm, aby wyświetlić dziennik błędów, za pośrednictwem strony sieci web. Jednak można utworzyć strony ASP.NET, która wyświetla te informacje z bazy danych. (Ponieważ zajmiemy się tym chwilowo, możesz zdecydować się na szczegóły błędu wysłana do Ciebie w wiadomości e-mail.)
+W przypadku bieżącej konfiguracji witryny sieci Web system monitorowania kondycji rejestruje wszystkie Nieobsłużone wyjątki w bazie danych. Jednak monitorowanie kondycji nie udostępnia żadnego mechanizmu wyświetlania dziennika błędów przez stronę sieci Web. Można jednak utworzyć stronę ASP.NET, która wyświetla te informacje z bazy danych. (W miarę jak zobaczysz chwilę, możesz wybrać opcję wysłania szczegółów błędu w wiadomości e-mail).
 
-Jeśli tworzysz takiej strony, upewnij się, że należy wykonać czynności, aby zezwolić tylko autoryzowani użytkownicy wyświetlić szczegóły błędu. Jeśli witryna już wykorzystuje kont użytkowników, możesz użyć reguł autoryzacji adresów URL, aby ograniczyć dostęp do strony, aby niektórych użytkowników lub ról. Aby uzyskać więcej informacji na temat sposobu przyznawanie lub ograniczanie dostępu do stron sieci web na podstawie zalogowanego użytkownika, zobacz mój [samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
+W przypadku utworzenia takiej strony należy wykonać kroki, aby zezwolić tylko autoryzowanym użytkownikom na wyświetlanie szczegółów błędu. Jeśli witryna korzysta już z kont użytkowników, można użyć reguł autoryzacji adresów URL, aby ograniczyć dostęp do strony do określonych użytkowników lub ról. Aby uzyskać więcej informacji na temat udzielania lub ograniczania dostępu do stron sieci Web na podstawie zalogowanego użytkownika, zapoznaj się z [samouczkami dotyczącymi zabezpieczeń w witrynie sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
 
 > [!NOTE]
-> W tym samouczku kolejnych przedstawiono alternatywnych Błąd rejestrowania i powiadomień systemu o nazwie ELMAH. ELMAH zawiera wbudowany mechanizm, aby wyświetlić dziennik błędów, ze strony sieci web oraz jako źródła danych RSS.
+> W kolejnym samouczku przedstawiono alternatywny dziennik błędów i system powiadomień o nazwie ELMAH. Program ELMAH zawiera wbudowany mechanizm wyświetlania dziennika błędów zarówno ze strony sieci Web, jak i kanału informacyjnego RSS.
 
-## <a name="logging-events-to-email"></a>Rejestrowanie zdarzeń do poczty E-mail
+## <a name="logging-events-to-email"></a>Rejestrowanie zdarzeń w wiadomości E-mail
 
-Kondycja systemu monitorowania obejmuje dzienników dostawcy źródła "rejestruje" zdarzenie do wiadomości e-mail. Źródło dziennika zawiera te same informacje, które są rejestrowane w bazie danych w treści wiadomości e-mail. Możesz używać tego źródła dziennika, aby powiadomić deweloperem, gdy wystąpi określone zdarzenie monitorowania kondycji.
+System monitorowania kondycji zawiera dostawcę źródła dziennika, który "rejestruje" zdarzenie w wiadomości e-mail. Źródło dziennika zawiera te same informacje, które są rejestrowane w bazie danych w treści wiadomości e-mail. To źródło dziennika służy do powiadamiania dewelopera o wystąpieniu określonego zdarzenia monitorowania kondycji.
 
-Zaktualizujmy przeglądy książki konfiguracji witryny sieci Web tak, aby firma Microsoft otrzyma wiadomość e-mail, gdy wyjątek występuje. W tym celu należy wykonać trzy zadania:
+Zaktualizujmy konfigurację witryny sieci Web przeglądów książek, aby otrzymywać wiadomości e-mail za każdym razem, gdy wystąpi wyjątek. Aby to osiągnąć, musimy wykonać trzy zadania:
 
-1. Konfigurowanie aplikacji sieci web ASP.NET do wysyłania wiadomości e-mail. Jest to realizowane przez określenie, jak wiadomości e-mail są wysyłane za pośrednictwem `<system.net>` element konfiguracji. Więcej informacji na temat wysyłania wiadomości w aplikacji ASP.NET można znaleźć [wysyłania wiadomości E-mail w programie ASP.NET:](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
-2. Zarejestruj dostawcę poczty e-mail dziennika źródła w `<providers>` elementu, a
-3. Dodaj wpis do `<rules>` element, który mapuje zdarzeń "Wszystkie błędy" dostawca źródło dziennika dodanej w kroku (2).
+1. Skonfiguruj aplikację sieci Web ASP.NET do wysyłania wiadomości e-mail. W tym celu należy określić sposób wysyłania wiadomości e-mail za pośrednictwem `<system.net>` elementu konfiguracji. Aby uzyskać więcej informacji na temat wysyłania wiadomości e-mail w aplikacji ASP.NET, odwołaj się do [wysyłania wiadomości e-mail w ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) i [System .NET. mail — często zadawane pytania](http://systemnetmail.com/).
+2. Zarejestruj dostawcę źródła dziennika poczty e-mail w elemencie `<providers>` i
+3. Dodaj wpis do elementu `<rules>`, który mapuje zdarzenie "wszystkie błędy" do dostawcy źródła dziennika dodanego w kroku (2).
 
-Kondycji systemu monitorowania zawiera dwie klasy dostawcy źródła wiadomości e-mail dziennika: `SimpleMailWebEventProvider` i `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) wysyła wiadomości e-mail w formacie zwykłego tekstu, która zawiera zdarzenia szczegółowych informacji i umożliwia dostosowanie mało treść wiadomości e-mail. Za pomocą [ `TemplatedMailWebEventProvider` klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) określić strony ASP.NET, w których renderowanego kodu znaczników jest używana jako treść wiadomości e-mail. [ `TemplatedMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) zapewnia znacznie większą kontrolę nad zawartość i format wiadomości e-mail, ale wymaga nieco więcej pracy ponoszonych z góry, jak należy utworzyć strony ASP.NET, która generuje treść wiadomości e-mail. Ten samouczek koncentruje się na temat korzystania z `SimpleMailWebEventProvider` klasy.
+System monitorowania kondycji obejmuje dwie klasy dostawcy źródła dziennika poczty e-mail: `SimpleMailWebEventProvider` i `TemplatedMailWebEventProvider`. [Klasa`SimpleMailWebEventProvider`](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) wysyła wiadomość e-mail w postaci zwykłego tekstu, która zawiera szczegóły zdarzenia i zapewnia niewielkie dostosowanie treści wiadomości e-mail. Za pomocą [klasy`TemplatedMailWebEventProvider`](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) należy określić stronę ASP.NET, której renderowane znaczniki służy jako treść wiadomości e-mail. [Klasa`TemplatedMailWebEventProvider`](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) zapewnia znacznie większą kontrolę nad zawartością i formatem wiadomości e-mail, ale wymaga nieco większej liczby zadań z góry, aby utworzyć stronę ASP.NET, która generuje treść wiadomości e-mail. Ten samouczek koncentruje się na korzystaniu z klasy `SimpleMailWebEventProvider`.
 
-Aktualizuj monitorowania systemu kondycji `<providers>` element `Web.config` pliku, aby uwzględnić źródło dziennika `SimpleMailWebEventProvider` klasy:
+Zaktualizuj element `<providers>` systemu monitorowania kondycji w pliku `Web.config`, aby uwzględnić Źródło dziennika dla klasy `SimpleMailWebEventProvider`:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample3.xml)]
 
-Używa znaczników powyżej `SimpleMailWebEventProvider` klasy jako dostawcę dziennika źródła i przypisuje mu przyjazna nazwa "EmailWebEventProvider". Ponadto `<add>` atrybut zawiera dodatkowe opcje konfiguracji, takich jak na i z adresów e-mail.
+Powyższy znacznik używa klasy `SimpleMailWebEventProvider` jako dostawcy źródła dzienników i przypisuje mu przyjazną nazwę "EmailWebEventProvider". Ponadto atrybut `<add>` zawiera dodatkowe opcje konfiguracji, takie jak do i z adresów wiadomości e-mail.
 
-Przy użyciu źródła dziennika wiadomości e-mail zdefiniowane pozostaje nakazać kondycji monitorowania systemu, aby używać tego źródła "rejestrowania" nieobsługiwanych wyjątków. Jest to osiągane przez dodanie nowej reguły w `<rules>` sekcji:
+Zdefiniowano Źródło dziennika poczty e-mail, które pozostanie, że system monitorowania kondycji ma korzystać z tego źródła do nieobsłużonych wyjątków "log". W tym celu należy dodać nową regułę w sekcji `<rules>`:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample4.xml)]
 
-`<rules>` Sekcja zawiera teraz dwie reguły. Pierwszy z nich, o nazwie "Wszystkie błędy do wiadomości E-mail", wysyła wszystkie nieobsłużone wyjątki źródło dziennika "EmailWebEventProvider". Ta zasada obowiązuje wysłać szczegółowe informacje o błędach w witrynie internetowej do określonego adresu. Zasada "Wszystkie błędy w bazie danych" rejestruje szczegóły błędu w bazie danych lokacji. W związku z tym po zmianie nieobsługiwany wyjątek w witrynie jego szczegóły są obie rejestrowane w bazie danych i wysłany na określony adres e-mail.
+Sekcja `<rules>` zawiera teraz dwie reguły. Pierwszy z nich o nazwie "wszystkie błędy do poczty E-mail" wysyła wszystkie Nieobsłużone wyjątki do źródła dziennika "EmailWebEventProvider". Ta reguła ma wpływ na wysyłanie szczegółowych informacji o błędach w witrynie sieci Web do określonego adresu. Zasada "wszystkie błędy do bazy danych" rejestruje szczegóły błędu w bazie danych lokacji. W związku z tym zawsze, gdy wystąpi nieobsługiwany wyjątek w lokacji, jego szczegóły są rejestrowane w bazie danych i wysyłane na określony adres e-mail.
 
-**Rysunek 2** pokazuje wiadomości e-mail generowanych przez `SimpleMailWebEventProvider` klasy podczas odwiedzania `Genre.aspx?ID=foo`.
+**Rysunek 2** przedstawia wiadomość e-mail wygenerowaną przez klasę `SimpleMailWebEventProvider` podczas odwiedzania `Genre.aspx?ID=foo`.
 
 [![](logging-error-details-with-asp-net-health-monitoring-cs/_static/image5.png)](logging-error-details-with-asp-net-health-monitoring-cs/_static/image4.png)
 
-**Rysunek 2**: Szczegóły błędu są wysyłane w wiadomościach E-mail  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-asp-net-health-monitoring-cs/_static/image6.png))
+**Rysunek 2**. szczegóły błędu są wysyłane w wiadomości e-mail  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-asp-net-health-monitoring-cs/_static/image6.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-System monitorowania kondycji ASP.NET została zaprojektowana do umożliwiają administratorom monitorowanie kondycji wdrożoną aplikacją internetową. Zdarzenia monitorowania kondycji są wywoływane, gdy ujawniać pewnych działań, np. po zatrzymaniu aplikacji, jeśli pomyślnie zalogował się użytkownik witryny lub po wystąpieniu nieobsługiwanego wyjątku. Te zdarzenia mogą być rejestrowane do dowolnej liczby źródła dzienników. W tym samouczku pokazano, jak rejestrować szczegóły nieobsługiwanych wyjątków z bazą danych i za pośrednictwem wiadomości e-mail.
+System monitorowania kondycji ASP.NET został zaprojektowany tak, aby umożliwić administratorom monitorowanie kondycji wdrożonej aplikacji sieci Web. Zdarzenia monitorowania kondycji są wywoływane, gdy pewne akcje unfold, takie jak gdy aplikacja zostanie zatrzymana, gdy użytkownik pomyślnie zaloguje się do lokacji lub wystąpił nieobsługiwany wyjątek. Te zdarzenia mogą być rejestrowane w dowolnej liczbie źródeł dzienników. W tym samouczku pokazano, jak rejestrować szczegóły nieobsłużonych wyjątków do bazy danych i za pośrednictwem wiadomości e-mail.
 
-Ten samouczek koncentruje się na korzystanie z programu health monitorowania do rejestrowania nieobsługiwanych wyjątków, ale należy pamiętać, że monitorowanie kondycji służy do mierzenia ogólną kondycję wdrożonej aplikacji ASP.NET i zawiera wiele zdarzeń monitorowania kondycji i nie rejestrować źródła przedstawione tutaj. Co to jest więcej, możesz utworzyć własne kondycji, monitorowanie zdarzeń i dziennika źródła, jeśli będzie to potrzebne wystąpić. Jeśli chcesz dowiedzieć się więcej informacji na temat monitorowania kondycji, dobrze jest najpierw do przeczytania przez czytelników [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)firmy [często zadawane pytania dotyczące monitorowania kondycji](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Poniżej, zapoznaj się z [How to: Użyj monitorowania kondycji w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx).
+Ten samouczek koncentruje się na korzystaniu z monitorowania kondycji w celu rejestrowania nieobsłużonych wyjątków, ale należy pamiętać, że monitorowanie kondycji zaprojektowano w celu mierzenia ogólnej kondycji wdrożonej aplikacji ASP.NET i obejmuje mnóstwo zdarzeń monitorowania kondycji i źródeł dzienników. zbadano tutaj. Co więcej, możesz utworzyć własne zdarzenia monitorowania kondycji i źródła dzienników, jeśli zajdzie taka potrzeba. Jeśli chcesz dowiedzieć się więcej o monitorowaniu kondycji, dobrym pierwszym krokiem jest zapoznanie się z artykułem [monitorowanie kondycji](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)programu [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). W tym celu należy zapoznać się z [tematem jak: użyć monitorowania kondycji w programie ASP.NET 2,0](https://msdn.microsoft.com/library/ms998306.aspx).
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Omówienie monitorowania kondycji ASP.NET](https://msdn.microsoft.com/library/bb398933.aspx)
-- [Konfigurowanie i dostosowywanie monitorowania systemu ASP.NET kondycji](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
-- [Często zadawane pytania — monitorowanie kondycji w programie ASP.NET 2.0](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Instrukcje: Wyślij wiadomość E-Mail dla powiadomień dotyczących monitorowania kondycji](https://msdn.microsoft.com/library/ms227553.aspx)
-- [Instrukcje: Użyj monitorowania kondycji w programie ASP.NET:](https://msdn.microsoft.com/library/ms998306.aspx)
-- [Monitorowanie kondycji w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
+- [Monitorowanie kondycji ASP.NET — Omówienie](https://msdn.microsoft.com/library/bb398933.aspx)
+- [Konfigurowanie i Dostosowywanie systemu monitorowania kondycji programu ASP.NET](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
+- [Często zadawane pytania — monitorowanie kondycji w ASP.NET 2,0](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
+- [Instrukcje: wysyłanie wiadomości E-Mail na potrzeby powiadomień dotyczących monitorowania kondycji](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Instrukcje: korzystanie z monitorowania kondycji w ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
+- [Monitorowanie kondycji w ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 > [!div class="step-by-step"]
 > [Poprzednie](processing-unhandled-exceptions-cs.md)

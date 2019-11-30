@@ -1,236 +1,236 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
-title: Kontrolowanie identyfikator nazewnictwa na stronach zawartości (C#) | Dokumentacja firmy Microsoft
+title: Nazewnictwo identyfikatorów kontrolek na stronachC#zawartości () | Microsoft Docs
 author: rick-anderson
-description: Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindControl)...
+description: Ilustruje sposób, w jaki formanty ContentPlaceHolder służy jako kontener nazewnictwa i w związku z tym sprawiają, że programistycznie pracuje z kontrolką (za pośrednictwem FindControl)...
 ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: 1c7d0916-0988-4b4f-9a03-935e4b5af6af
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6096e7b8b11f1c014d93fc9a1f857cd02c8958b0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e849e5860dc988e112cc3a65d976c16ecdf77416
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134636"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74624470"
 ---
 # <a name="control-id-naming-in-content-pages-c"></a>Nazewnictwo identyfikatorów kontrolek na stronach zawartości (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_05_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_05_CS.pdf)
 
-> Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindControl). Analizuje tego problemu i jego rozwiązania. Omówiono również sposób programowego dostępu wynikowej wartości identyfikatora klienta.
+> Ilustruje sposób, w jaki formanty ContentPlaceHolder służy jako kontener nazewnictwa i w związku z tym sprawiają, że programistycznie pracuje z kontrolką (za pośrednictwem FindControl). Analizuje ten problem i obejścia. Omówiono również sposób programowego uzyskiwania dostępu do wyników ClientID.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Obejmują wszystkie formanty serwera ASP.NET `ID` właściwość, która jednoznacznie identyfikuje formant, a to oznacza, że za pomocą którego kontrolki programowo odbywa się w klasie CodeBehind. Podobnie, może zawierać elementów w dokumencie HTML `id` atrybut, który unikatowo identyfikuje element; te `id` wartości są często używane w skrypcie po stronie klienta do programowego odwołuje się do określonego elementu HTML. Biorąc pod uwagę to, użytkownik może przyjęto założenie, że podczas renderowania do formatu HTML, formant serwera ASP.NET jego `ID` wartość jest używana jako `id` wartość renderowanego elementu HTML. Nie jest tak, ponieważ w pewnych okolicznościach pojedynczy kontrolować za pomocą jednego `ID` wartości mogą pojawić się wiele razy w renderowanego kodu znaczników. Należy wziąć pod uwagę obejmującą TemplateField za pomocą kontrolki etykiety w sieci Web przy użyciu kontrolki GridView `ID` wartość ProductName. Widoku GridView jest powiązany z innym źródłem danych w czasie wykonywania, ta etykieta jest powtarzany jeden raz dla każdego wiersza w widoku GridView. Każdy renderowane potrzeb etykiety unikatową `id` wartość.
+Wszystkie kontrolki serwera ASP.NET obejmują Właściwość `ID`, która jednoznacznie identyfikuje kontrolkę i jest środkiem, do którego kontrolka jest używana programowo w klasie powiązanej z kodem. Podobnie elementy w dokumencie HTML mogą zawierać atrybut `id`, który jednoznacznie identyfikuje element; te `id` wartości są często używane w skrypcie po stronie klienta do programistycznego odwoływania się do określonego elementu HTML. Z tego względu można założyć, że gdy formant serwera ASP.NET jest renderowany w kodzie HTML, jego wartość `ID` jest używana jako wartość `id` renderowanego elementu HTML. Nie jest to konieczne, ponieważ w pewnych okolicznościach pojedynczy formant z pojedynczą wartością `ID` może występować wiele razy w renderowanej adjustacji. Rozważmy kontrolkę GridView, która zawiera TemplateField z kontrolką kontrolki sieci Web o wartości `ID` ProductName. Gdy widok GridView jest powiązany ze źródłem danych w czasie wykonywania, Ta etykieta jest powtarzana jednokrotnie dla każdego wiersza GridView. Każda renderowana etykieta musi mieć unikatową wartość `id`.
 
-Do obsługi takich scenariuszy, ASP.NET umożliwia pewnych formantów zostać oznaczone jako nazewnictwa kontenerów. Kontener nazewnictwa stanowi nową `ID` przestrzeni nazw. Wszystkie formanty serwera, które pojawiają się w kontenerze nazewnictwa ma ich renderowanych `id` wartość prefiks `ID` kontrolki kontenera nazewnictwa. Na przykład `GridView` i `GridViewRow` klasy są oba nazewnictwa kontenerów. W związku z tym, formant etykiety zdefiniowane w GridView TemplateField z `ID` ProductName otrzymuje renderowanych `id` wartość `GridViewID_GridViewRowID_ProductName`. Ponieważ *GridViewRowID* jest unikatowy dla każdego wiersza w widoku GridView, wynikowy `id` wartości są unikatowe.
+Aby obsłużyć takie scenariusze, ASP.NET umożliwia określenie określonych kontrolek jako kontenerów nazw. Kontener nazewnictwa służy jako nowa przestrzeń nazw `ID`. Wszystkie kontrolki serwera, które znajdują się w kontenerze nazewnictwa, mają renderowane `id` wartość poprzedzoną `ID` kontrolki kontenera nazw. Na przykład klasy `GridView` i `GridViewRow` są kontenerami nazw. W związku z tym kontrolka etykieta zdefiniowana w elemencie GridView TemplateField z `ID` ProductName otrzymuje `id` wartość `GridViewID_GridViewRowID_ProductName`. Ponieważ *GridViewRowID* jest unikatowy dla każdego wiersza GridView, wyniki `id` są unikatowe.
 
 > [!NOTE]
-> [ `INamingContainer` Interfejsu](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) jest używany do wskazania, że określonego formant serwera ASP.NET powinien działać jako kontenera nazewnictwa. `INamingContainer` Interfejsu nie zawierają bardziej dowolnej metody, które należy zaimplementować formant serwera; zamiast jest używany jako znacznik. Podczas generowania renderowanego kodu znaczników, jeśli kontrolka implementuje ten interfejs następnie aparatu ASP.NET automatycznie prefiksy jego `ID` renderowane wartość do jego elementów potomnych `id` wartości atrybutów. Ten proces jest omówiona bardziej szczegółowo w kroku 2.
+> [Interfejs`INamingContainer`](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) służy do wskazywania, że konkretna kontrolka serwera ASP.NET powinna działać jako kontener nazewnictwa. Interfejs `INamingContainer` nie sprawdza żadnych metod, które musi zaimplementować formant serwera; Zamiast tego jest używany jako znacznik. W przypadku generowania renderowanego znacznika, Jeśli kontrolka implementuje ten interfejs, aparat ASP.NET automatycznie prefiksuje wartość `ID` do wartości atrybutów renderowanych `id`. Ten proces został szczegółowo omówiony w kroku 2.
 
-Nazewnictwa kontenerów nie należy zmieniać tylko renderowanych `id` wartość atrybutu, ale również wpływa na sposób kontrolki odwołania mogą dotyczyć programowo z klasy CodeBehind strony ASP.NET. `FindControl("controlID")` Metoda jest najczęściej używany do programowego przywołać kontrolki sieci Web. Jednak `FindControl` nie przechodzić przez za pośrednictwem nazewnictwa kontenerów. W związku z tym, nie możesz bezpośrednio użyć `Page.FindControl` metodę, aby odwoływać się do kontrolki GridView lub innego kontenera nazewnictwa.
+Kontenery nazewnictwa nie tylko zmieniają renderowane `id` wartość atrybutu, ale również mają wpływ na sposób programistyczny przywoływany przez klasę ASP.NET strony z kodem. Metoda `FindControl("controlID")` jest często używana do programistycznego odwoływania się do kontrolki sieci Web. Jednak `FindControl` nie przechodzą przez kontenery nazw. W związku z tym nie można bezpośrednio użyć metody `Page.FindControl`, aby odwoływać się do kontrolek w obrębie elementu GridView lub innego kontenera nazw.
 
-Ponieważ użytkownik może mieć surmised, stron wzorcowych i kontrolek ContentPlaceHolder są zarówno implementowane jako nazewnictwa kontenerów. W tym samouczku sprawdzamy, jak głównego elementu HTML mogą wpłynąć na stronach `id` wartości i informacje o tym, jak programowo odwołują się do formantów sieci Web w obrębie strony zawartości za pomocą `FindControl`.
+Ponieważ możliwe jest surmised, strony wzorcowe i elementy ContentPlaceHolder są implementowane jako kontenery nazewnictwa. W tym samouczku sprawdzimy, jak strony wzorcowe wpływają na elementy HTML `id` wartości i sposoby programistycznego odwoływania się do kontrolek sieci Web na stronie zawartości przy użyciu `FindControl`.
 
-## <a name="step-1-adding-a-new-aspnet-page"></a>Krok 1. Dodawanie nowej strony programu ASP.NET
+## <a name="step-1-adding-a-new-aspnet-page"></a>Krok 1. Dodawanie nowej strony ASP.NET
 
-Aby zademonstrować kwestie omówione w tym samouczku, Dodajmy nowej strony programu ASP.NET do naszej witryny sieci Web. Utwórz nową stronę zawartości o nazwie `IDIssues.aspx` w folderze głównym wiążące go do `Site.master` strony wzorcowej.
+Aby zademonstrować koncepcje omówione w tym samouczku, dodajmy nową stronę ASP.NET do naszej witryny sieci Web. Utwórz nową stronę zawartości o nazwie `IDIssues.aspx` w folderze głównym, a następnie powiąż ją ze stroną wzorcową `Site.master`.
 
-![Dodawanie zawartości IDIssues.aspx strony do folderu głównego](control-id-naming-in-content-pages-cs/_static/image1.png)
+![Dodawanie strony zawartości IDIssues. aspx do folderu głównego](control-id-naming-in-content-pages-cs/_static/image1.png)
 
-**Rysunek 01**: Dodawanie strony zawartości `IDIssues.aspx` do folderu głównego
+**Ilustracja 01**. Dodawanie strony zawartości `IDIssues.aspx` do folderu głównego
 
-Visual Studio automatycznie tworzy kontrolkę zawartości dla każdego z czterech kontrolek ContentPlaceHolder strony wzorcowej. Jak wspomniano w [ *wiele kontrolek ContentPlaceHolder i zawartość domyślna* ](multiple-contentplaceholders-and-default-content-cs.md) samouczków, jeśli nie ma zawartości kontrolki zawartości ContentPlaceHolder domyślnej strony wzorcowej jest emitowane zamiast tego. Ponieważ `QuickLoginUI` i `LeftColumnContent` kontrolek ContentPlaceHolder zawierają znaczników domyślne odpowiednie dla tej strony, przejdź dalej i usuń odpowiednie kontrolki zawartości z `IDIssues.aspx`. W tym momencie oznaczeniu deklaracyjnym strony zawartości powinien wyglądać następująco:
+Program Visual Studio automatycznie tworzy kontrolkę zawartości dla każdej z czterech elementów ContentPlaceHolder na stronie głównej. Jak zostało to opisane w samouczku dotyczącym [*wielu elementów ContentPlaceHolders i domyślnej zawartości*](multiple-contentplaceholders-and-default-content-cs.md) , Jeśli kontrolka zawartości nie jest obecna, zamiast tego zostanie wyemitowana domyślna zawartość elementu ContentPlaceHolder strony głównej. Ponieważ `QuickLoginUI` i `LeftColumnContent` Elementy ContentPlaceHolders zawierają odpowiedni znacznik domyślny dla tej strony, przejdź dalej i usuń odpowiednie kontrolki zawartości z `IDIssues.aspx`. Na tym etapie deklaracyjne znaczniki strony zawartości powinny wyglądać następująco:
 
 [!code-aspx[Main](control-id-naming-in-content-pages-cs/samples/sample1.aspx)]
 
-W [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) samouczku utworzyliśmy klasy niestandardowej strony podstawowej (`BasePage`), zostaną automatycznie skonfigurowane tytuł strony po nie jest jawnie ustawione. Aby uzyskać `IDIssues.aspx` strony mogą wykorzystać tę funkcję, strony osobna klasa kodu musi pochodzić od klasy `BasePage` klasy (zamiast `System.Web.UI.Page`). Zmodyfikuj definicję klasy związane z kodem, tak, aby go wygląda podobnie do poniższego:
+W samouczku [*Określanie tytułu, Meta tagów i innych nagłówków HTML na stronie wzorcowej*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) utworzono niestandardową klasę strony podstawowej (`BasePage`), która automatycznie konfiguruje tytuł strony, jeśli nie jest on jawnie ustawiony. Aby strona `IDIssues.aspx` mogła korzystać z tej funkcji, Klasa odnosząca się do kodu strony musi być pochodną klasy `BasePage` (zamiast `System.Web.UI.Page`). Zmodyfikuj definicję klasy związanej z kodem, aby wyglądać następująco:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample2.cs)]
 
-Na koniec zaktualizuj `Web.sitemap` plik, aby dołączyć wpis dla tej lekcji nowe. Dodaj `<siteMapNode>` element i ustaw jego `title` i `url` atrybuty dla "Kontrolki identyfikator nazewnictwa problemy z" i `~/IDIssues.aspx`, odpowiednio. Po wprowadzeniu to dodanie Twojej `Web.sitemap` pliku znaczników powinien wyglądać podobnie do poniższego:
+Na koniec Zaktualizuj plik `Web.sitemap`, aby zawierał wpis dla tej nowej lekcji. Dodaj element `<siteMapNode>` i ustaw jego atrybuty `title` i `url` na "problemy z nazewnictwem identyfikatorów kontrolek" i `~/IDIssues.aspx`odpowiednio. Po dokonaniu tego dodawania znacznik pliku `Web.sitemap` powinien wyglądać podobnie do poniższego:
 
 [!code-xml[Main](control-id-naming-in-content-pages-cs/samples/sample3.xml)]
 
-Tak jak pokazano na rysunku 2, nowy wpis mapy witryny w `Web.sitemap` jest natychmiast odzwierciedlana w sekcji lekcje w lewej kolumnie.
+Jak pokazano na rysunku 2, nowy wpis mapy witryny w `Web.sitemap` jest natychmiast widoczny w sekcji lekcji w lewej kolumnie.
 
-![Sekcja lekcje zawiera teraz łącza do &quot;nazewnictwa problemów identyfikator formantu&quot;](control-id-naming-in-content-pages-cs/_static/image2.png)
+![Sekcja lekcji zawiera teraz łącze do &quot;problemów z nazewnictwem identyfikatorów sterowania&quot;](control-id-naming-in-content-pages-cs/_static/image2.png)
 
-**Rysunek 02**: W sekcji lekcje teraz łącze umożliwiające "Problemy z nazewnictwo identyfikatorów kontrolek"
+**Ilustracja 02**. sekcja lekcji zawiera teraz łącze do problemów z nazewnictwem identyfikatorów kontrolek.
 
-## <a name="step-2-examining-the-renderedidchanges"></a>Krok 2. Badanie renderowanych`ID`zmiany
+## <a name="step-2-examining-the-renderedidchanges"></a>Krok 2: badanie przetworzonych`ID`zmian
 
-Aby lepiej zrozumieć modyfikacje ASP.NET aparatowi do renderowanej `id` kontroluje wartości serwera, dodamy kilka formantów sieci Web do `IDIssues.aspx` strony, a następnie Wyświetl renderowanego kodu znaczników, wysyłany do przeglądarki. Ściślej mówiąc, wpisz tekst ", wprowadź swój wiek:" następuje formantu sieci Web w polu tekstowym. Więcej szczegółów na stronie Dodaj formant przycisku w sieci Web i formant etykiety w sieci Web. Ustaw pole tekstowe `ID` i `Columns` właściwości `Age` i 3, odpowiednio. Ustaw właściwość `Text` i `ID` właściwości "Prześlij" i `SubmitButton`. Czyści etykiety `Text` właściwości i ustaw jego `ID` do `Results`.
+Aby lepiej zrozumieć modyfikacje wprowadzone przez aparat ASP.NET do renderowanych wartości `id` formantów serwera, dodajmy kilka kontrolek sieci Web do strony `IDIssues.aspx`, a następnie Wyświetlaj renderowane znaczniki wysyłane do przeglądarki. W tym celu wpisz tekst "Wprowadź swój wiek:", a po nim kontrolkę TextBox w sieci Web. Na stronie Dodaj kontrolkę sieci Web przycisk i kontrolkę etykieta sieci Web. Ustaw właściwości `ID` i `Columns` pola tekstowego na odpowiednio `Age` i 3. Ustaw właściwości `Text` i `ID` przycisku na "Prześlij" i `SubmitButton`. Wyczyść Właściwość `Text` etykiety i ustaw jej `ID` na `Results`.
 
-W tym momencie oznaczeniu deklaracyjnym formantu zawartości powinien wyglądać podobnie do poniższej:
+W tym momencie znaczniki deklaratywne kontrolki zawartości powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](control-id-naming-in-content-pages-cs/samples/sample4.aspx)]
 
-Rysunek 3 przedstawia stronę oglądany przez projektanta programu Visual Studio.
+Rysunek 3 przedstawia stronę wyświetlaną za pomocą projektanta programu Visual Studio.
 
-[![Strona zawiera trzy kontrolki sieci Web: pole tekstowe, przycisków i etykiet](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
+[![Strona zawiera trzy kontrolki sieci Web: pole tekstowe, przycisk i etykieta](control-id-naming-in-content-pages-cs/_static/image4.png)](control-id-naming-in-content-pages-cs/_static/image3.png)
 
-**Rysunek 03**: Strona zawiera trzy kontrolki sieci Web: pole tekstowe, przycisk i etykietę ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image5.png))
+**Ilustracja 03**: Strona zawiera trzy kontrolki sieci Web: pole tekstowe, przycisk i etykieta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image5.png))
 
-Odwiedź stronę za pośrednictwem przeglądarki, a następnie Wyświetl źródło HTML. Jako kod znaczników, poniżej przedstawiono `id` wartości elementów kodu HTML dla formantów pola tekstowego, przycisk i etykietę w sieci Web są kombinacją `ID` wartości kontrolki sieci Web i `ID` wartości nazewnictwa kontenerów na stronie.
+Odwiedź stronę za pomocą przeglądarki, a następnie Wyświetl źródło HTML. Jak pokazano poniżej, `id` wartości elementów HTML dla kontrolek tekstowych, przycisków i etykiet sieci Web są kombinacją `ID` wartości formantów sieci Web i `ID` wartości kontenerów nazw na stronie.
 
 [!code-html[Main](control-id-naming-in-content-pages-cs/samples/sample5.html)]
 
-Jak wspomniano wcześniej w tym samouczku, zarówno strony wzorcowej, jak i jej kontrolek ContentPlaceHolder pełnić rolę nazewnictwa kontenerów. W związku z tym, zarówno współtworzyć renderowanych `ID` wartości ich zagnieżdżonych formantów. Pole tekstowe zająć `id` atrybut, na przykład: `ctl00_MainContent_Age`. Pamiętaj, że formant pola tekstowego `ID` wartość była `Age`. To jest poprzedzony znakiem do jego kontrolki ContentPlaceHolder `ID` wartość `MainContent`. Ponadto, ta wartość jest poprzedzony ze stroną wzorcową `ID` wartość `ctl00`. Efektem sieciowym jest `id` wartość atrybutu składający się z `ID` wartości strony wzorcowej, kontrola ContentPlaceHolder i pole tekstowe, sam.
+Jak wspomniano wcześniej w tym samouczku, zarówno strona wzorcowa, jak i jej elementy ContentPlaceHolder, pełnią rolę kontenerów nazw. W związku z tym oba współtworzą renderowane `ID` wartości formantów zagnieżdżonych. Weź atrybut `id` TextBox, na przykład: `ctl00_MainContent_Age`. Odwołaj, czy `ID` wartość kontrolki TextBox została `Age`. Ta wartość jest poprzedzona wartością `ID` formantu ContentPlaceHolder, `MainContent`. Ponadto ta wartość jest poprzedzona wartością `ID`ną na stronie wzorcowej `ctl00`. Efektem netto jest `id` wartość atrybutu składająca się z `ID` wartości strony głównej, formantu ContentPlaceHolder i samego pola tekstowego.
 
-Rysunek 4 przedstawia tego zachowania. Aby określić renderowanych `id` z `Age` pola tekstowego, rozpoczyna się od `ID` wartość formant pola tekstowego `Age`. Następnie sposobu pracy użytkownika w hierarchii kontroli. Na każdy kontener nazewnictwa (te węzły kolorem brzoskwini), prefiks bieżącego renderowane `id` za pomocą kontenera nazewnictwa `id`.
+Na rysunku 4 przedstawiono takie zachowanie. Aby określić renderowany `id` pola tekstowego `Age`, Zacznij od wartości `ID` formantu TextBox, `Age`. Następnie popracuj nad hierarchią formantów. W każdym kontenerze nazewnictwa (te węzły z kolorem brzoskwini), poprzedź bieżącą renderowane `id` przy użyciu `id`kontenera nazw.
 
-![Atrybuty identyfikatora Rendered są oparte na wartości Identyfikatora nazewnictwa kontenerów](control-id-naming-in-content-pages-cs/_static/image6.png)
+![Renderowane atrybuty identyfikatora są oparte na wartościach identyfikatora kontenerów nazw](control-id-naming-in-content-pages-cs/_static/image6.png)
 
-**Rysunek 04**: Rendered `id` atrybuty są na podstawie `ID` wartości nazewnictwa kontenerów
+**Ilustracja 04**: renderowane `id` atrybuty są oparte na wartościach `ID` kontenerów nazw
 
 > [!NOTE]
-> Tak jak Omówiliśmy, `ctl00` część renderowanych `id` stanowi atrybutu `ID` wartość strony wzorcowej, ale być może zastanawiasz się jak ta `ID` wartość pochodzi. Firma Microsoft nie określa go dowolnym miejscu w naszym głównym lub zawartości na stronie. Większość formantów serwera na stronie ASP.NET są jawnie dodawane w oznaczeniu deklaracyjnym strony. `MainContent` Jawnie określono kontrolkę ContentPlaceHolder w znaczniku elementu `Site.master`; `Age` pola tekstowego została zdefiniowana `IDIssues.aspx`firmy znaczników. Można określić `ID` wartości dla tych typów formantów w oknie właściwości lub składni deklaratywnej. Inne formanty, takie jak strony wzorcowej, nie są zdefiniowane w oznaczeniu deklaracyjnym. W związku z tym ich `ID` wartości muszą być generowane automatycznie dla nas. ASP.NET ustawia aparat `ID` wartości w czasie wykonywania dla tych kontrolek, których identyfikatory nie zostały jawnie ustawione. Używa wzorca nazewnictwa `ctlXX`, gdzie *XX* jest sekwencyjnie zwiększa wartość całkowitą.
+> W miarę omawianej `ctl00` część renderowanego `id` atrybutu stanowi `ID` wartość strony głównej, ale może być zastanawiasz się, jak to `ID` wartość. Nie została ona określona w dowolnym miejscu w naszej głównej lub stronie zawartości. Większość formantów serwera na stronie ASP.NET są dodawane jawnie za pomocą znaczników deklaratywnych strony. Formant `MainContent` ContentPlaceHolder został jawnie określony w znacznikach `Site.master`; `Age` pole tekstowe zostało zdefiniowane `IDIssues.aspx`znaczników. Możemy określić wartości `ID` dla tych typów formantów za pośrednictwem okno Właściwości lub ze składni deklaratywnej. Inne kontrolki, takie jak sama strona wzorcowa, nie są zdefiniowane w znacznikach deklaratywnych. W związku z tym ich wartości `ID` muszą być automatycznie generowane dla nas. Aparat ASP.NET ustawia wartości `ID` w czasie wykonywania dla tych kontrolek, których identyfikatory nie zostały jawnie ustawione. Używa wzorca nazewnictwa `ctlXX`, gdzie *XX* jest sekwencyjnie rosnącej wartości całkowitej.
 
-Ponieważ wzorzec stronie służy jako kontener nazewnictwa, kontrolki sieci Web zdefiniowany w stronę wzorcową również zmieniają się renderowany `id` wartości atrybutów. Na przykład `DisplayDate` etykiety dodaliśmy strony wzorcowej w [ *tworzenie układu dla całej witryny za pomocą stron wzorcowych* ](creating-a-site-wide-layout-using-master-pages-cs.md) samouczek ma renderowania kodu znaczników:
+Ponieważ sama strona wzorcowa służy jako kontener nazewnictwa, kontrolki sieci Web zdefiniowane na stronie wzorcowej mają również zmienione renderowane `id` wartości atrybutów. Na przykład etykieta `DisplayDate` dodana do strony wzorcowej w temacie [*Tworzenie układu dla całej witryny ze stronami wzorcowymi*](creating-a-site-wide-layout-using-master-pages-cs.md) ma następujące renderowane znaczniki:
 
 [!code-html[Main](control-id-naming-in-content-pages-cs/samples/sample6.html)]
 
-Należy pamiętać, że `id` atrybut zawiera zarówno strony wzorcowej firmy `ID` wartość (`ctl00`) i `ID` wartość kontrolki etykiety w sieci Web (`DateDisplay`).
+Należy zauważyć, że `id` atrybut zawiera zarówno wartość `ID` strony głównej (`ctl00`), jak i `ID` wartość kontrolki sieci Web etykiety (`DateDisplay`).
 
-## <a name="step-3-programmatically-referencing-web-controls-viafindcontrol"></a>Krok 3. Programowe odwoływanie się do formantów sieci Web za pośrednictwem`FindControl`
+## <a name="step-3-programmatically-referencing-web-controls-viafindcontrol"></a>Krok 3. programowe odwoływanie się do formantów sieci Web za pośrednictwem`FindControl`
 
-Każdy formant serwera ASP.NET zawiera `FindControl("controlID")` metodę, która wyszukuje elementy potomne kontrolki, dla formantu o nazwie *controlID*. Jeśli zostanie znaleziony taki formant, jest zwracana; Jeśli nie może kontrolować dopasowania zostanie znaleziony, `FindControl` zwraca `null`.
+Każda kontrolka serwera ASP.NET zawiera metodę `FindControl("controlID")`, która przeszukuje elementy potomne formantu o nazwie *controlID*. Jeśli taki formant zostanie znaleziony, zostanie zwrócony; Jeśli nie zostanie znaleziona zgodna kontrolka, `FindControl` zwraca `null`.
 
-`FindControl` jest przydatne w sytuacjach, gdy trzeba kontroli dostępu, ale nie ma bezpośredniego odwołania do niego. Podczas pracy z danymi kontrolki sieci Web, takich jak GridView, na przykład kontrolek w obrębie pola GridView zdefiniowano jeden raz w składni deklaratywnej, ale w czasie wykonywania jest tworzone wystąpienie kontrolki, dla każdego wiersza w widoku GridView. W związku z tym istnieją środki generowane w czasie wykonywania, ale nie ma bezpośredniego odwołania dostępne od klasy CodeBehind. Dlatego musimy użyć `FindControl` Aby programowo pracować z określonej kontrolki GridView pola. (Aby uzyskać więcej informacji na temat korzystania z `FindControl` Aby uzyskać dostęp do formantów w szablonach formantów sieci Web danych, zobacz [niestandardowe formatowanie oparte na danych](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) W tym scenariuszu tej samej sytuacji: dynamiczne dodawanie formantów sieci Web do formularza sieci Web, temat omówione w [tworzenie dynamicznych danych wpis interfejsy użytkownika](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl` jest przydatne w scenariuszach, w których trzeba uzyskać dostęp do kontrolki, ale nie masz bezpośredniego odwołania do niego. Podczas pracy z kontrolkami sieci Web danych, takimi jak GridView, na przykład kontrolki w polach GridView są definiowane raz w składni deklaracyjnej, ale w czasie wykonywania wystąpienie kontrolki jest tworzone dla każdego wiersza GridView. W związku z tym kontrolki generowane w czasie wykonywania istnieją, ale nie ma bezpośredniego odwołania z klasy powiązanej z kodem. W związku z tym musimy używać `FindControl` do programistycznego działania z określoną kontrolką w polach GridView. (Aby uzyskać więcej informacji na temat używania `FindControl` do uzyskiwania dostępu do formantów w szablonach kontrolki sieci Web danych, zobacz [niestandardowe formatowanie oparte na danych](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Ten sam scenariusz występuje, gdy dynamiczne dodawanie kontrolek sieci Web do formularza sieci Web, temat opisany w temacie [Tworzenie interfejsów użytkownika dynamicznego wprowadzania danych](https://msdn.microsoft.com/library/aa479330.aspx).
 
-Aby zilustrować, za pomocą `FindControl` metoda ma szukać kontrolek w obrębie strony zawartości, utworzyć program obsługi zdarzeń dla `SubmitButton`firmy `Click` zdarzeń. W procedurze obsługi zdarzeń Dodaj następujący kod, który odwołuje się do programowego `Age` pole tekstowe i `Results` etykiety za pomocą `FindControl` metody, a następnie wyświetla komunikat w `Results` na podstawie danych wejściowych użytkownika.
+Aby zilustrować użycie metody `FindControl` w celu wyszukania formantów na stronie zawartości, Utwórz procedurę obsługi zdarzeń dla zdarzenia `Click` `SubmitButton`. W programie obsługi zdarzeń Dodaj następujący kod, który programowo odwołuje się do `Age` TextBox i `Results` etykieta przy użyciu metody `FindControl`, a następnie wyświetla komunikat w `Results` na podstawie danych wejściowych użytkownika.
 
 > [!NOTE]
-> Oczywiście nie trzeba używać `FindControl` do odwołują się do formantów etykiet i pole tekstowe, w tym przykładzie. Firma Microsoft może odwoływać się do nich bezpośrednio za pośrednictwem ich `ID` wartości właściwości. Czy mogę używać `FindControl` tutaj, aby zilustrować, co się dzieje w przypadku korzystania z `FindControl` ze strony zawartość.
+> Oczywiście nie musimy używać `FindControl` do odwoływania się do kontrolek etykieta i TextBox w tym przykładzie. Możemy odwoływać się do nich bezpośrednio za pośrednictwem ich `ID` wartości właściwości. Używam `FindControl` tutaj, aby zilustrować, co się dzieje w przypadku używania `FindControl` ze strony zawartości.
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample7.cs)]
 
-Składnia używana do wywołania podczas `FindControl` metoda różni się nieco pierwsze dwa wiersze `SubmitButton_Click`, są semantycznie równoważne. Odwołania, który zawiera wszystkie formanty serwera ASP.NET `FindControl` metody. Obejmuje to `Page` klasy, z których wszystkie platformy ASP.NET klasy CodeBehind muszą pochodzić od. Dlatego wywołanie `FindControl("controlID")` jest równoważne z wywoływaniem `Page.FindControl("controlID")`, zakładając, że nie zostały zastąpione `FindControl` metodę w klasie CodeBehind lub w niestandardowej klasy bazowej.
+Mimo że składnia używana do wywołania metody `FindControl` różni się nieco w pierwszych dwóch wierszach `SubmitButton_Click`, są one semantycznie równoważne. Odwołaj, że wszystkie kontrolki serwera ASP.NET obejmują metodę `FindControl`. Obejmuje to klasę `Page`, z której wszystkie klasy związane z kodem ASP.NET muszą pochodzić od. W związku z tym, wywołanie `FindControl("controlID")` jest równoważne wywołaniu `Page.FindControl("controlID")`, przy założeniu, że metoda `FindControl` nie została zastąpiona w klasie związanej z kodem lub w niestandardowej klasie bazowej.
 
-Po wprowadzeniu tego kodu, odwiedź stronę `IDIssues.aspx` stronie za pośrednictwem przeglądarki, wprowadź swój wiek, a następnie kliknij przycisk "Przekaż". Po kliknięciu przycisku "Prześlij" `NullReferenceException` jest wywoływane (zobacz rysunek 5).
+Po wprowadzeniu tego kodu odwiedź stronę `IDIssues.aspx` za pomocą przeglądarki, wprowadź swój wiek, a następnie kliknij przycisk "Prześlij". Po kliknięciu przycisku "Prześlij" zostanie zgłoszone `NullReferenceException` (patrz rysunek 5).
 
-[![Obiektu NullReferenceException jest wywoływane.](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
+[![jest wywoływane NullReferenceException](control-id-naming-in-content-pages-cs/_static/image8.png)](control-id-naming-in-content-pages-cs/_static/image7.png)
 
-**Rysunek 05**: A `NullReferenceException` jest wywoływane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image9.png))
+**Ilustracja 05**: wywołano `NullReferenceException` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image9.png))
 
-Jeśli ustawisz punkt przerwania w `SubmitButton_Click` programu obsługi zdarzeń, zobaczysz, że oba wywołania `FindControl` zwracają `null` wartość. `NullReferenceException` Jest zgłaszane w przypadku próby uzyskania dostępu `Age` pola `Text` właściwości.
+W przypadku ustawienia punktu przerwania w programie obsługi zdarzeń `SubmitButton_Click` zobaczysz, że oba wywołania `FindControl` zwracają wartość `null`. `NullReferenceException` jest zgłaszane, gdy spróbujemy uzyskać dostęp do właściwości `Text` pola tekstowego `Age`.
 
-Problemu jest to, że `Control.FindControl` przeszukuje tylko *kontroli*jego elementy potomne, które są *w tym samym kontenerze nazewnictwa*. Ponieważ strony wzorcowej stanowi nowy kontener nazewnictwa wywołanie `Page.FindControl("controlID")` nigdy nie permeates obiekt strony wzorcowej `ctl00`. (Zobacz rysunek 4, aby wyświetlić hierarchii kontroli, który pokazuje `Page` obiektów jako nadrzędny obiekt strony wzorcowej `ctl00`.) W związku z tym `Results` etykiety i `Age` nie znaleziono pola tekstowego i `ResultsLabel` i `AgeTextBox` przypisanych wartości `null`.
+Problem polega na tym, że `Control.FindControl` jedynie elementy potomne *kontrolki*, które znajdują się *w tym samym kontenerze nazewnictwa*. Ze względu na to, że strona wzorcowa stanowi nowy kontener nazewnictwa, wywołanie do `Page.FindControl("controlID")` nigdy nie permeates obiektu strony wzorcowej `ctl00`. (Zapoznaj się z powrotem do rysunku 4, aby wyświetlić hierarchię formantów, która wyświetla obiekt `Page` jako element nadrzędny obiektu strony wzorcowej `ctl00`.) W związku z tym nie znaleziono etykiety `Results` ani pola tekstowego `Age`, a `ResultsLabel` i `AgeTextBox` są przypisane wartości `null`.
 
-Istnieją dwa obejścia problemu do tego wyzwania: Firma Microsoft może przejść do szczegółów jednego kontenera nazewnictwa naraz, właściwej opcji kontroli; lub możesz stworzyć własną `FindControl` metodę, która permeates nazewnictwa kontenerów. Przeanalizujmy każdej z tych opcji.
+Istnieją dwa obejścia tego problemu: możemy przechodzenie do szczegółów, jednego kontenera nazw w danym momencie do odpowiedniej kontrolki; Możemy też utworzyć własną metodę `FindControl`, która permeates nazewnictwa kontenerów. Sprawdźmy każdą z tych opcji.
 
-### <a name="drilling-into-the-appropriate-naming-container"></a>Przechodzenie do szczegółów do odpowiedniej nazwy kontenera
+### <a name="drilling-into-the-appropriate-naming-container"></a>Przechodzenie do odpowiedniego kontenera nazewnictwa
 
-Do użycia `FindControl` do odwołania `Results` etykiety lub `Age` pole tekstowe, należy wywołać `FindControl` z elementu nadrzędnego kontrolki w tym samym kontenerze nazewnictwa. Jak rysunek 4 wykazało, `MainContent` ContentPlaceHolder formant jest tylko element nadrzędny elementu `Results` lub `Age` to w ramach tego samego kontenera nazewnictwa. Innymi słowy, wywołanie `FindControl` metody z `MainContent` kontroli, jak pokazano w poniższym fragmencie kodu prawidłowo zwraca odwołanie do `Results` lub `Age` kontrolki.
+Aby użyć `FindControl` do odwoływania się do etykiety `Results` lub pola tekstowego `Age`, musimy wywołać `FindControl` z kontrolki nadrzędnej w tym samym kontenerze nazewnictwa. Jak pokazano na rysunku 4, formant `MainContent` ContentPlaceHolder jest jedynym elementem nadrzędnym `Results` lub `Age` znajdującym się w tym samym kontenerze nazewnictwa. Innymi słowy wywoływanie metody `FindControl` z kontrolki `MainContent`, jak pokazano w poniższym fragmencie kodu, prawidłowo zwraca odwołanie do kontrolek `Results` lub `Age`.
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample8.cs)]
 
-Jednakże, nie będziemy pracować z `MainContent` ContentPlaceHolder z naszej strony zawartości osobna klasa kodu przy użyciu powyższej składni, ponieważ ContentPlaceHolder jest zdefiniowana na stronie głównej. Zamiast tego, musimy użyć `FindControl` można pobrać odwołania do `MainContent`. Zastąp kod w `SubmitButton_Click` programu obsługi zdarzeń z następującymi zmianami:
+Nie możemy jednak korzystać z `MainContent` elementu ContentPlaceHolder z klasy związanej z kodem na stronie zawartości przy użyciu powyższej składni, ponieważ elementy ContentPlaceHolder są zdefiniowane na stronie wzorcowej. Zamiast tego należy użyć `FindControl`, aby uzyskać odwołanie do `MainContent`. Zastąp kod w obsłudze zdarzeń `SubmitButton_Click` następującymi modyfikacjami:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample9.cs)]
 
-W przypadku odwiedzenia strony za pośrednictwem przeglądarki, wprowadź swój wiek i kliknij przycisk "Prześlij" `NullReferenceException` jest wywoływane. Jeśli ustawisz punkt przerwania w `SubmitButton_Click` programu obsługi zdarzeń, zobaczysz, że ten wyjątek występuje podczas próby wywołania `MainContent` obiektu `FindControl` metody. `MainContent` Obiekt jest `null` ponieważ `FindControl` metody nie można zlokalizować obiektu o nazwie "MainContent". Główną przyczynę wysokiej skuteczności jest taka sama jak za pomocą `Results` etykiety i `Age` kontrolki TextBox: `FindControl` rozpoczyna się wyszukiwanie od początku hierarchii kontroli, a nie przechodzić przez nazewnictwa kontenerów, ale `MainContent` jest ContentPlaceHolder w obrębie strony wzorcowej, czyli kontenera nazewnictwa.
+Jeśli odwiedzasz stronę za pomocą przeglądarki, wprowadź swój wiek, a następnie kliknij przycisk "Prześlij", zostanie zgłoszony `NullReferenceException`. Jeśli ustawisz punkt przerwania w programie obsługi zdarzeń `SubmitButton_Click`, zobaczysz, że ten wyjątek występuje podczas próby wywołania metody `FindControl` obiektu `MainContent`. Obiekt `MainContent` jest `null`, ponieważ metoda `FindControl` nie może zlokalizować obiektu o nazwie "kontrolka mainContent". Przyczyna podstawowa jest taka sama jak w przypadku etykiet `Results` i `Age` pól tekstowych: `FindControl` rozpoczyna wyszukiwanie od góry hierarchii formantów i nie przechodzą na kontenery nazw, ale `MainContent` element ContentPlaceHolder znajduje się na stronie wzorcowej, która jest kontenerem nazewnictwa.
 
-Firma Microsoft może korzystać z `FindControl` można pobrać odwołania do `MainContent`, najpierw należy odwołanie do formantu strony wzorcowej. Gdy będziemy już mieć odwołania do strony wzorcowej firma Microsoft może odwołać się do `MainContent` ContentPlaceHolder za pośrednictwem `FindControl` i z tego miejsca odwołania do `Results` etykiety i `Age` pola tekstowego (ponownie za pomocą `FindControl`). Ale jak możemy uzyskać odwołanie do strony głównej? Sprawdzając `id` atrybutów w renderowanego kodu znaczników jest oczywiste, że strony wzorcowej `ID` wartość jest `ctl00`. W związku z tym, moglibyśmy użyć `Page.FindControl("ctl00")` Aby odwołać się do strony głównej, a następnie użyj tego obiektu można pobrać odwołania do `MainContent`i tak dalej. Poniższy fragment kodu ilustruje tę logikę:
+Zanim będziemy mogli używać `FindControl`, aby uzyskać odwołanie do `MainContent`, najpierw potrzebujemy odwołania do kontrolki strony wzorcowej. Gdy mamy odwołanie do strony wzorcowej, możemy uzyskać odwołanie do `MainContent` ContentPlaceHolder za pośrednictwem `FindControl` i, w tym miejscu, odwołań do etykiety `Results` i pola tekstowego `Age` (ponownie przy użyciu `FindControl`). Ale jak uzyskać odwołanie do strony głównej? Sprawdzając, czy atrybuty `id` w renderowanej adjustacji są widoczne, że `ID` wartość strony wzorcowej to `ctl00`. W związku z tym możemy użyć `Page.FindControl("ctl00")`, aby uzyskać odwołanie do strony głównej, a następnie użyć tego obiektu, aby uzyskać odwołanie do `MainContent`i tak dalej. Poniższy fragment kodu ilustruje tę logikę:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample10.cs)]
 
-Podczas, gdy ten kod bez obaw będzie działać, przyjęto założenie, że wygenerowany automatycznie strony wzorcowej `ID` zawsze będzie `ctl00`. Nigdy nie jest dobry pomysł, aby wprowadzić założeń o wartościach wygenerowany automatycznie.
+Chociaż ten kod będzie działać, zakłada się, że automatycznie wygenerowana `ID` strony głównej będzie zawsze `ctl00`. Nigdy nie warto tworzyć założeń dotyczących automatycznie generowanych wartości.
 
-Na szczęście odwołania do strony wzorcowej jest dostępny za pośrednictwem `Page` klasy `Master` właściwości. Dlatego zamiast `FindControl("ctl00")` można pobrać odwołania do strony wzorcowej, aby uzyskać dostęp do `MainContent` ContentPlaceHolder, można zamiast tego użyć `Page.Master.FindControl("MainContent")`. Aktualizacja `SubmitButton_Click` programu obsługi zdarzeń z następującym kodem:
+Na szczęście odwołanie do strony głównej jest dostępne za pomocą właściwości `Master` klasy `Page`. W związku z tym, zamiast używać `FindControl("ctl00")`, aby uzyskać odwołanie do strony głównej w celu uzyskania dostępu do `MainContent` ContentPlaceHolder, zamiast tego można użyć `Page.Master.FindControl("MainContent")`. Zaktualizuj procedurę obsługi zdarzeń `SubmitButton_Click` przy użyciu następującego kodu:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample11.cs)]
 
-Tym razem, odwiedzając stronę za pośrednictwem przeglądarki sieci, wprowadzając Twój wiek, a następnie klikając przycisk "Prześlij", wyświetla komunikat w `Results` etykiety, zgodnie z oczekiwaniami.
+Tym razem odwiedzasz stronę za pomocą przeglądarki, przechodząc do swojego wieku, a kliknięcie przycisku "Prześlij" spowoduje wyświetlenie komunikatu na etykiecie `Results` zgodnie z oczekiwaniami.
 
-[![Wieku użytkownika jest wyświetlany w etykiecie](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
+[![wiek użytkownika jest wyświetlany w etykiecie](control-id-naming-in-content-pages-cs/_static/image11.png)](control-id-naming-in-content-pages-cs/_static/image10.png)
 
-**Rysunek 06**: Wieku użytkownika jest wyświetlany w etykiecie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image12.png))
+**Ilustracja 06**. wiek użytkownika jest wyświetlany w etykiecie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image12.png))
 
-### <a name="recursively-searching-through-naming-containers"></a>Rekursywnie przeszukiwania nazewnictwa kontenerów
+### <a name="recursively-searching-through-naming-containers"></a>Cykliczne wyszukiwanie przy użyciu kontenerów nazw
 
-Przyczyna poprzedniego przykładu kodu, do których odwołuje się `MainContent` ContentPlaceHolder kontroli ze strony głównej, a następnie `Results` etykiety i `Age` formanty TextBox z `MainContent`, ponieważ `Control.FindControl` przeszukuje tylko co — metoda w ramach *kontroli*nazewnictwa kontenerów. Posiadanie `FindControl` pobytu w ramach kontenera nazewnictwa sens, w większości przypadków ponieważ dwóch kontrolek w dwóch różnych kontenerów nazewnictwa może mieć taką samą `ID` wartości. Rozważmy przypadek GridView, który definiuje formant etykiety w sieci Web o nazwie `ProductName` w jednej z jej kontrolek TemplateField. Gdy dane jest powiązana z GridView w czasie wykonywania, `ProductName` zostaje utworzone etykieta dla każdego wiersza w widoku GridView. Jeśli `FindControl` przeszukiwane za pośrednictwem wszystkich nazw i kontenery wywoływane `Page.FindControl("ProductName")`, jakie wystąpienie etykieta powinna `FindControl` zwracają? `ProductName` Etykiet w pierwszym wierszu GridView? Co w ostatnim wierszu?
+Przykładem tego, że powyższy kod odwołuje się do formantu `MainContent` ContentPlaceHolder ze strony wzorcowej, a następnie `Results` etykieta i `Age` TextBox formantów z `MainContent`, jest ponieważ metoda `Control.FindControl` przeszukuje tylko wewnątrz kontenera nazw *kontrolek*. Posiadanie `FindControl` pozostać w kontenerze nazewnictwa ma sens w większości scenariuszy, ponieważ dwie kontrolki w dwóch różnych kontenerach nazewnictwa mogą mieć te same wartości `ID`. Rozważmy przypadek GridView, który definiuje kontrolkę sieci Web etykieta o nazwie `ProductName` w ramach jednej z używanie TemplateField. Gdy dane są powiązane z elementem GridView w czasie wykonywania, dla każdego wiersza GridView zostanie utworzona etykieta `ProductName`. Jeśli `FindControl` przeszukiwane przez wszystkie kontenery nazewnictwa i wywołane `Page.FindControl("ProductName")`, jakie wystąpienie etykiety ma zwrócić `FindControl`? Etykieta `ProductName` w pierwszym wierszu GridView? W ostatnim wierszu?
 
-Dlatego po `Control.FindControl` wyszukiwanie tylko *kontroli*nazewnictwa kontenera ma sens w większości przypadków. Ale w innych przypadkach, takich jak jednego połączonego z nami, gdy będziemy mieć unikatową `ID` we wszystkich nazewnictwa kontenerów i chcesz uniknąć konieczności lubiane odwoływać się do każdego kontenera nazewnictwa w hierarchii kontroli do kontroli dostępu. Posiadanie `FindControl` wariant, który zbyt sens rekursywnie wyszukuje sprawia, że wszystkie kontenery nazewnictwa. Niestety .NET Framework nie ma taką metodę.
+Dzięki temu `Control.FindControl` przeszukiwania kontenera nazw *formantów*ma sens w większości przypadków. Istnieją jednak inne przypadki, takie jak te, które pozostały w firmie US, w których mamy unikatowy `ID` we wszystkich kontenerach nazw i chcesz uniknąć lubiane odwołania do każdego kontenera nazw w hierarchii formantów w celu uzyskania dostępu do formantu. Posiadanie `FindControl` Variant, która rekursywnie przeszukuje wszystkie kontenery nazw. Niestety .NET Framework nie obejmuje takiej metody.
 
-Dobra wiadomość jest taka, możemy utworzyć własną `FindControl` metoda tym rekursywnie wyszukuje wszystkie kontenery nazewnictwa. W rzeczywistości przy użyciu *metody rozszerzenia* firma Microsoft może kat `FindControlRecursive` metody `Control` klasy, która ma towarzyszyć istniejące `FindControl` metody.
+Dobra wiadomość polega na tym, że możemy utworzyć własną metodę `FindControl`, która rekursywnie przeszukuje wszystkie kontenery nazw. W rzeczywistości przy użyciu *metod rozszerzających* można wyrównać metodę `FindControlRecursive` do klasy `Control`, aby dołączyć do istniejącej metody `FindControl`.
 
 > [!NOTE]
-> Metody rozszerzenia są funkcją nowego języka C# 3.0 i 9 Visual Basic, które są to języki, które są dostarczane z .NET Framework w wersji 3.5 i Visual Studio 2008. Krótko mówiąc metody rozszerzające umożliwiają deweloperem utworzyć nowe metody istniejącego typu klasy przy użyciu specjalnej składni. Aby uzyskać więcej informacji na temat tej funkcji pomocnych się Moje artykułem [rozszerzanie funkcjonalności typ podstawowy za pomocą metody rozszerzenia](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx).
+> Metody rozszerzające to funkcja New do C# 3,0 i Visual Basic 9, które są językami dostarczanymi z .NET Framework wersja 3,5 i Visual Studio 2008. Krótko mówiąc, metody rozszerzające pozwalają deweloperowi utworzyć nową metodę dla istniejącego typu klasy za pomocą specjalnej składni. Aby uzyskać więcej informacji na temat tej przydatnej funkcji, zapoznaj się z artykułem, [rozszerzając podstawowe funkcje typu przy użyciu metod rozszerzających](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx).
 
-Aby utworzyć metodę rozszerzenia, Dodaj nowy plik do `App_Code` folder o nazwie `PageExtensionMethods.cs`. Dodaj metodę rozszerzenia o nazwie `FindControlRecursive` która przyjmuje jako dane wejściowe `string` parametr o nazwie `controlID`. Dla metody rozszerzenia zapewnić prawidłowe działanie, koniecznie samej klasy i jego metod rozszerzenia oznaczane `static`. Ponadto, należy zaakceptować wszystkie metody rozszerzenia, zgodnie z ich pierwszy parametr, obiekt tego typu, do której stosują się metody rozszerzenia, a ten parametr wejściowy musi być poprzedzona słowem kluczowym `this`.
+Aby utworzyć metodę rozszerzenia, Dodaj nowy plik do folderu `App_Code` o nazwie `PageExtensionMethods.cs`. Dodaj metodę rozszerzenia o nazwie `FindControlRecursive`, która przyjmuje jako wejściowy parametr `string` o nazwie `controlID`. Aby metody rozszerzające działały prawidłowo, należy się upewnić, że sama klasa i jej metody rozszerzające są oznaczone `static`. Ponadto wszystkie metody rozszerzające muszą przyjmować jako ich pierwszy parametr obiekt typu, do którego stosowana jest metoda rozszerzająca, a ten parametr wejściowy musi być poprzedzony słowem kluczowym `this`.
 
-Dodaj następujący kod do `PageExtensionMethods.cs` plik klasy do definiowania tej klasy i `FindControlRecursive` — metoda rozszerzenia:
+Dodaj następujący kod do pliku klasy `PageExtensionMethods.cs`, aby zdefiniować tę klasę i metodę rozszerzenia `FindControlRecursive`:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample12.cs)]
 
-Przy użyciu tego kodu w miejscu, wróć do `IDIssues.aspx` z kodem klasę i komentarz dla bieżącej strony `FindControl` wywołania metody. Zastąp je wywołaniami do `Page.FindControlRecursive("controlID")`. Ładnie dotyczących metod rozszerzających jest to, że pojawiają się bezpośrednio z poziomu listy rozwijane IntelliSense. Jak pokazano na rysunku 7, po wpisaniu strony i okres, kliknij przycisk `FindControlRecursive` metoda znajduje się w rozwijanej wraz z innych funkcji IntelliSense `Control` metody klasy.
+Korzystając z tego kodu, Wróć do klasy powiązanej z kodem `IDIssues.aspx` strony i Skomentuj bieżące wywołania metody `FindControl`. Zastąp je wywołaniami `Page.FindControlRecursive("controlID")`. Nowości dotyczące metod rozszerzania są widoczne bezpośrednio na listach rozwijanych IntelliSense. Jak pokazano na rysunku 7, gdy wpiszesz stronę i okres trafień, Metoda `FindControlRecursive` jest dołączona do listy rozwijanej IntelliSense wraz z innymi metodami klasy `Control`.
 
-[![Metody rozszerzenia są uwzględnione w funkcji IntelliSense rozwijanych](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
+[Metody rozszerzenia ![są zawarte w listach rozwijanych IntelliSense](control-id-naming-in-content-pages-cs/_static/image14.png)](control-id-naming-in-content-pages-cs/_static/image13.png)
 
-**Rysunek 07**: Metody rozszerzenia są uwzględnione w funkcji IntelliSense rozwijanych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image15.png))
+**Ilustracja 07**. metody rozszerzające są zawarte w listach rozwijanych IntelliSense ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](control-id-naming-in-content-pages-cs/_static/image15.png))
 
-Wprowadź następujący kod do `SubmitButton_Click` program obsługi zdarzeń, a następnie przetestować, odwiedzając stronę, wprowadzając Twój wiek i klikając przycisk "Przekaż". Pokazany ponownie na rysunku 6, dane wyjściowe będą komunikat, "Są wiek lat!"
+Wprowadź następujący kod do programu obsługi zdarzeń `SubmitButton_Click`, a następnie przetestuj go, odwiedzając stronę, wprowadzając swój wiek, a następnie klikając przycisk "Prześlij". Jak pokazano na rysunku 6, wynikowe wyniki otrzymają komunikat "Jesteś w wieku lat"
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample13.cs)]
 
 > [!NOTE]
-> Ponieważ jesteś nowym użytkownikiem języka C# 3.0 i 9 Visual Basic, jeśli używasz programu Visual Studio 2005 metody rozszerzenia nie można używać metod rozszerzenia. Zamiast tego musisz zaimplementować `FindControlRecursive` metodę w klasie pomocnika. [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx) ma takie przykładem w jego wpis w blogu [strony maserowy ASP.NET i `FindControl` ](http://www.west-wind.com/WebLog/posts/5127.aspx).
+> Ponieważ metody rozszerzające są nowe C# do 3,0 i Visual Basic 9, w przypadku korzystania z programu Visual Studio 2005 nie można używać metod rozszerzających. Zamiast tego należy zaimplementować metodę `FindControlRecursive` w klasie pomocnika. [Rick Strahl](http://www.west-wind.com/WebLog/default.aspx) to przykład w swoim wpisie w blogu, [ASP.NET Maser strony i `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx).
 
-## <a name="step-4-using-the-correctidattribute-value-in-client-side-script"></a>Krok 4. Przy użyciu prawidłowego`id`atrybutu wartości w skryptu po stronie klienta
+## <a name="step-4-using-the-correctidattribute-value-in-client-side-script"></a>Krok 4. Używanie poprawnej wartości atrybutu`id`w skrypcie po stronie klienta
 
-Jak wspomniano w tym samouczku wprowadzenia, firmy renderowania formantu sieci Web `id` atrybut jest często używany w skrypcie po stronie klienta do programowo odwołuje się do określonego elementu HTML. Na przykład następujący kod JavaScript odwołuje się element HTML, jego `id` , a następnie wyświetla jego wartość w polu modalne komunikatu:
+Jak wskazano w tym samouczku, `id` atrybut renderowany przez formant sieci Web jest używany w skrypcie po stronie klienta do programistycznego odwoływania się do określonego elementu HTML. Na przykład poniższy kod JavaScript odwołuje się do elementu HTML za pomocą jego `id` a następnie wyświetla jego wartość w oknie komunikatu modalnego:
 
 [!code-csharp[Main](control-id-naming-in-content-pages-cs/samples/sample14.cs)]
 
-Odwołania, że w programie ASP.NET stron, które nie zawierają nazw kontenera, renderowanego elementu HTML `id` atrybutu jest taka sama jak kontrolki sieci Web `ID` wartości właściwości. W związku z tym jest kuszące do twarde kodu w `id` wartości atrybutów w kodzie JavaScript. Oznacza to, jeśli znasz chcesz uzyskać dostęp do `Age` formantu sieci Web w polu tekstowym za pomocą skryptu po stronie klienta, to zrobić za pomocą wywołania `document.getElementById("Age")`.
+Odwołaj ten element na stronach ASP.NET, które nie zawierają kontenera nazewnictwa, atrybut `id` renderowanego elementu HTML jest identyczny z wartością właściwości `ID` formantu sieci Web. W związku z tym jest to skłonność do twardych kodów w `id` wartości atrybutów do kodu JavaScript. Oznacza to, że jeśli wiesz, że chcesz uzyskać dostęp do kontrolki sieci Web `Age` TextBox za pośrednictwem skryptu po stronie klienta, zrób to za pośrednictwem wywołania `document.getElementById("Age")`.
 
-Problem z tym podejściem jest fakt, że za pomocą stron wzorcowych (lub innych nazw kontrole kontenerów), kod HTML renderowany `id` nie jest równoznaczny z formantu sieci Web `ID` właściwości. Twoje pierwsze nachylenie może być do odwiedzenia strony za pośrednictwem przeglądarki i Wyświetl źródło w celu określenia rzeczywistego `id` atrybutu. Jeśli znasz już renderowanych `id` wartości, możesz wkleić go do wywołania `getElementById` umożliwiają dostęp do elementu HTML, musisz pracować za pośrednictwem skryptu po stronie klienta. Ta metoda jest mniej niż idealne rozwiązanie, ponieważ pewne zmiany na stronę kontroli hierarchii lub zmiany `ID` właściwości formantów nazewnictwa zmieni wartość wynikowa `id` atrybut, co istotne kodu JavaScript.
+Problem z tym podejściem polega na tym, że w przypadku używania stron wzorcowych (lub innych formantów kontenera nazw) renderowane `id` HTML nie jest równoznaczne z właściwością `ID` formantu sieci Web. Pierwszym nachyleniem może być odwiedzenie strony za pomocą przeglądarki i wyświetlenie źródła w celu ustalenia rzeczywistego atrybutu `id`. Po poznaniu wartości renderowanej `id` można wkleić ją do wywołania `getElementById`, aby uzyskać dostęp do elementu HTML, z którym należy się połączyć za pomocą skryptu po stronie klienta. Takie podejście jest mniejsze niż idealne, ponieważ pewne zmiany w hierarchii formantów strony lub zmiany właściwości `ID` kontrolek nazewnictwa spowodują zmianę podanego atrybutu `id`, co spowoduje przerwanie kodu JavaScript.
 
-Dobra wiadomość jest fakt, że `id` wartość atrybutu, który jest renderowany jest dostępny w kodzie po stronie serwera za pomocą kontrolki sieci Web [ `ClientID` właściwość](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx). Należy używać tej właściwości, aby określić `id` atrybutu wartość używana przez skrypt po stronie klienta. Na przykład, aby dodać funkcję JavaScript do strony, gdy zostanie wywołana, wyświetlana jest wartość `Age` pole tekstowe w oknie komunikatu modalne, Dodaj następujący kod do `Page_Load` program obsługi zdarzeń:
+Dobrą wiadomość jest to, że renderowana wartość atrybutu `id` jest dostępna w kodzie po stronie serwera za pomocą [właściwości`ClientID`](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx)kontrolki sieci Web. Tej właściwości należy użyć do określenia `id` wartości atrybutu używanej w skrypcie po stronie klienta. Na przykład, aby dodać funkcję JavaScript do strony, która po wywołaniu wyświetla wartość pola tekstowego `Age` w modalnym oknie komunikatu, Dodaj następujący kod do programu obsługi zdarzeń `Page_Load`:
 
 [!code-javascript[Main](control-id-naming-in-content-pages-cs/samples/sample15.js)]
 
-Powyższy kod wprowadza wartość `Age` w polu tekstowym właściwości identyfikatora klienta do wywołania języka JavaScript, aby `getElementById`. Jeśli tę stronę za pośrednictwem przeglądarki i wyświetlić źródło HTML, można znaleźć następujący kod JavaScript:
+Powyższy kod wprowadza `Age` wartość właściwości ClientID pola tekstowego w wywołaniu JavaScript, aby `getElementById`. Jeśli odwiedzasz Tę stronę za pomocą przeglądarki i zobaczysz źródło HTML, znajdziesz następujący kod JavaScript:
 
 [!code-html[Main](control-id-naming-in-content-pages-cs/samples/sample16.html)]
 
-Zwróć uwagę jak poprawny `id` wartość atrybutu, `ctl00_MainContent_Age`, pojawi się w wywołaniu `getElementById`. Ponieważ ta wartość jest obliczana w czasie wykonywania, działa niezależnie od tego, późniejsze zmiany hierarchii kontroli strony.
+Zwróć uwagę, jak poprawna wartość atrybutu `id`, `ctl00_MainContent_Age`, pojawia się w wywołaniu `getElementById`. Ponieważ ta wartość jest obliczana w czasie wykonywania, działa bez względu na późniejsze zmiany w hierarchii formantów strony.
 
 > [!NOTE]
-> W tym przykładzie JavaScript jedynie przedstawiono sposób dodawania funkcji JavaScript, która poprawnie odwołuje się do elementu HTML renderowany przez formant serwera. Aby użyć tej funkcji należy tworzyć dodatkowe JavaScript do wywołania funkcji podczas ładowania dokumentu lub techniczną niektóre akcje określonego użytkownika. Aby uzyskać więcej informacji na ten temat i materiały pokrewne, przeczytaj [pracy za pomocą skryptu po stronie klienta](https://msdn.microsoft.com/library/aa479302.aspx).
+> Ten przykładowy kod JavaScript pokazuje, jak dodać funkcję języka JavaScript, która poprawnie odwołuje się do elementu HTML renderowanego przez formant serwera. Aby użyć tej funkcji, należy utworzyć dodatkowy kod JavaScript do wywołania funkcji po załadowaniu dokumentu lub gdy określona akcja użytkownika transpires. Aby uzyskać więcej informacji na temat tych i powiązanych tematów, przeczytaj artykuł [Praca z skrypt po stronie klienta](https://msdn.microsoft.com/library/aa479302.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
-Niektóre formanty serwera ASP.NET działają jak kontenery nazewnictwa, co ma wpływ na renderowanych `id` atrybutu wartości swoich formantów podrzędnych, a także zakres formantów canvassed przez `FindControl` metody. W odniesieniu do stron wzorcowych zarówno strony wzorcowej, sam, jak i jej kontrolek ContentPlaceHolder są nazewnictwa kontenerów. W związku z tym, trzeba umieścić ogłoszonym trochę więcej pracy programowo odwołują się do formantów w obrębie strony zawartości, za pomocą `FindControl`. W tym samouczku zbadaliśmy dwie techniki: przechodzenia do szczegółów w formancie ContentPlaceHolder i wywoływania jego `FindControl` metody i wycofania własną `FindControl` implementacji tego rekursywnie wyszukuje za pośrednictwem wszystkich nazewnictwa kontenerów.
+Niektóre formanty serwera ASP.NET działają jako kontenery nazewnictwa, które mają wpływ na renderowane `id` wartości atrybutów ich formantów potomnych, a także zakres formantów canvassed przez metodę `FindControl`. W odniesieniu do stron wzorcowych zarówno sama strona wzorcowa, jak i jej elementy sterujące są kontenerami nazw. W związku z tym musimy umieścić nieco więcej pracy w celu programistycznego odwoływania się do kontrolek na stronie zawartości przy użyciu `FindControl`. W tym samouczku zbadamy dwie techniki: przechodzenie do kontrolki ContentPlaceHolder i wywoływanie jej metody `FindControl`; i przetoczmy własną implementację `FindControl`, która rekursywnie przeszukuje wszystkie kontenery nazw.
 
-Oprócz problemów po stronie serwera, wprowadzenie nazewnictwa kontenerów w odniesieniu do odwołuje się do formantów sieci Web są również problemy po stronie klienta. W przypadku braku nazewnictwa kontenerów, kontrolki sieci Web firmy `ID` wartość właściwości renderowana `id` wartość atrybutu są w taki sam. Z dodatkową kontenera nazewnictwa renderowanych `id` atrybut zawiera zarówno `ID` wartości kontrolki sieci Web i nazewnictwa kontenerów w jego hierarchii kontroli pochodzenie. Te rozważania nazewnictwa są inne niż problem, tak długo, jak używać kontrolki sieci Web `ClientID` właściwości w celu określenia renderowanych `id` atrybutu wartości za pomocą skryptu po stronie klienta.
+Oprócz błędów kontenerów nazewnictwa po stronie serwera wprowadza się w odniesieniu do kontrolek sieci Web, występują również problemy po stronie klienta. W przypadku braku kontenerów nazewnictwa wartość właściwości `ID` formantu sieci Web i renderowane `id` wartość atrybutu jest taka sama. Ale przy dodawaniu kontenera nazw renderowany `id` atrybut zawiera zarówno `ID` wartości kontrolki sieci Web, jak i kontenerów nazewnictwa w pochodzenie hierarchii formantów. Te problemy związane z nazewnictwem są nieproblemowe, o ile jest używana Właściwość `ClientID` formantu sieci Web do określenia renderowanej wartości atrybutu `id` w skrypcie po stronie klienta.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Stron wzorcowych platformy ASP.NET i `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Tworzenie interfejsów użytkownika wprowadzania danych dynamicznych](https://msdn.microsoft.com/library/aa479330.aspx)
-- [Rozszerzanie funkcjonalności typu podstawowego, za pomocą metody rozszerzenia](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [Instrukcje: Zawartość strony odwołanie wzorcową platformy ASP.NET](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
-- [Sprawa strony: Porady, sztuczki i pułapki](http://www.odetocode.com/articles/450.aspx)
-- [Praca z skryptu po stronie klienta](https://msdn.microsoft.com/library/aa479302.aspx)
+- [ASP.NET strony wzorcowe i `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [Tworzenie dynamicznych interfejsów użytkownika dla wpisów danych](https://msdn.microsoft.com/library/aa479330.aspx)
+- [Rozszerzanie podstawowych funkcji typu przy użyciu metod rozszerzających](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
+- [Instrukcje: odwołanie do zawartości strony wzorcowej ASP.NET](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
+- [Strony Mater: porady, wskazówki i pułapki](http://www.odetocode.com/articles/450.aspx)
+- [Praca z skryptem po stronie klienta](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu ASP/ASP.NET książki i założyciel 4GuysFromRolla.com pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog znajduje się na [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu książek ASP/ASP. NET Books i założyciel of 4GuysFromRolla.com, pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 3,5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott można uzyskać w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
-### <a name="special-thanks-to"></a>Specjalne podziękowania dla
+### <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Zack Jones i Suchi Barnerjee. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Zack Kowalski i suchi Barnerjee. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Poprzednie](urls-in-master-pages-cs.md)

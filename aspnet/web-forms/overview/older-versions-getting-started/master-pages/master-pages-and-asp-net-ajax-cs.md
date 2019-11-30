@@ -1,235 +1,235 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
-title: Strony wzorcowe i ASP.NET AJAX (C#) | Dokumentacja firmy Microsoft
+title: Strony wzorcowe i ASP.NET AJAXC#() | Microsoft Docs
 author: rick-anderson
-description: W tym artykule omówiono opcje przy użyciu rozszerzeń ASP.NET AJAX i stron wzorcowych. Analizuje przy użyciu klasy serwera proxy menedżera skryptów; w tym artykule omówiono, jak różne pliki JS są ładowane dependi...
+description: W tym artykule omówiono opcje używania ASP.NET AJAX i stron wzorcowych. Sprawdza przy użyciu klasy ScriptManagerProxy; w tym artykule omówiono sposób ładowania różnych plików JS dependi...
 ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 0c55eb66-ba44-4d49-98e8-5c87fd9b1111
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0880b2d6666ec3ae618573aa3a884ca4865c317c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8cd1d57b4d2aa01654da53ab2b1cc01f71ad8a87
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132811"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74639655"
 ---
 # <a name="master-pages-and-aspnet-ajax-c"></a>Strony wzorcowe i ASP.NET AJAX (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_08_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_08_CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_08_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_08_CS.pdf)
 
-> W tym artykule omówiono opcje przy użyciu rozszerzeń ASP.NET AJAX i stron wzorcowych. Analizuje przy użyciu klasy serwera proxy menedżera skryptów; w tym artykule omówiono, jak różne pliki JS są ładowane w zależności od tego, czy funkcja ScriptManager jest używany w bazie danych Master lub strony zawartości.
+> W tym artykule omówiono opcje używania ASP.NET AJAX i stron wzorcowych. Sprawdza przy użyciu klasy ScriptManagerProxy; w tym artykule omówiono sposób ładowania różnych plików JS w zależności od tego, czy element ScriptManager jest używany na stronie wzorcowej, czy na stronie zawartości.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W ciągu ostatnich kilku lat deweloperzy coraz więcej zostały tworzenia [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))-aplikacji sieci web. Witryny sieci Web obsługujące technologie AJAX korzysta z wielu technologii pokrewnych w sieci web oferuje bardziej dynamiczne środowisko użytkownika. Tworzenie aplikacji platformy ASP.NET z włączoną obsługą technologii AJAX jest niezwykle proste dzięki firmy Microsoft [framework ASP.NET AJAX](../../../../ajax/index.md). ASP.NET AJAX jest wbudowana w programie ASP.NET 3.5 i Visual Studio 2008; jest również dostępna do pobrania osobno dla aplikacji programu ASP.NET 2.0.
+W ciągu ostatnich kilku lat więcej deweloperów korzystających z aplikacji sieci Web obsługujących technologię [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming)). Witryna internetowa z obsługą technologii AJAX korzysta z wielu powiązanych technologii sieci Web, aby lepiej reagować na środowisko użytkownika. Tworzenie aplikacji ASP.NET z obsługą technologii AJAX jest bardzo proste dzięki [architekturze ASP.NET AJAX](../../../../ajax/index.md)firmy Microsoft. ASP.NET AJAX jest wbudowana w ASP.NET 3,5 i Visual Studio 2008; jest on również dostępny jako osobny plik do pobrania dla aplikacji ASP.NET 2,0.
 
-Podczas kompilowania z włączoną obsługą technologii AJAX stron sieci web za pomocą programu ASP.NET AJAX framework, należy dodać dokładnie jeden [formantu ScriptManager](https://msdn.microsoft.com/library/bb398863.aspx) do każdej strony, która wykorzystuje platformę. Jak sugeruje jej nazwa, funkcja ScriptManager zarządza skryptu po stronie klienta, używane na stronach sieci web z włączoną obsługą technologii AJAX. Jako minimum funkcja ScriptManager emituje kod HTML, który przekazuje przeglądarce instrukcje pobrania plików JavaScript tego korzeń biblioteki klienckiej AJAX programu ASP.NET. Może również służyć do zarejestrowania niestandardowych plików JavaScript, usług sieci web obsługujących przez skrypt i funkcjonalności usług aplikacji niestandardowych.
+Podczas tworzenia stron sieci Web obsługujących technologię AJAX przy użyciu ASP.NET AJAX Framework należy dodać precyzyjną [kontrolkę ScriptManager](https://msdn.microsoft.com/library/bb398863.aspx) do każdej i każdej strony korzystającej z platformy. Ponieważ jego nazwa wskazuje, element ScriptManager zarządza skrypt po stronie klienta używany na stronach sieci Web obsługujących technologię AJAX. Jako minimum, obiekt ScriptManager emituje kod HTML, który nakazuje przeglądarce pobranie plików JavaScript, które korzeń bibliotekę kliencką ASP.NET AJAX. Można go również użyć do zarejestrowania niestandardowych plików JavaScript, usług sieci Web obsługujących skrypty i funkcji niestandardowych usług aplikacji.
 
-Jeśli Twoja witryna używa stron wzorcowych (zgodnie z oczekiwaniami), z nie koniecznie trzeba dodać formantu ScriptManager do każdej pojedynczej strony zawartości; przeciwnie można dodać formantu ScriptManager strony wzorcowej. W tym samouczku przedstawiono sposób dodawania formantu ScriptManager strony wzorcowej. Monitoruje również sposób zarejestrować niestandardowych skryptów i usług skryptu w określonej strony zawartości przy użyciu kontrolki serwera proxy menedżera skryptów.
+Jeśli witryna używa stron wzorcowych (zgodnie z oczekiwaniami), nie trzeba dodawać kontrolki ScriptManager do każdej strony pojedynczej zawartości; Zamiast tego można dodać kontrolkę ScriptManager do strony wzorcowej. Ten samouczek pokazuje, jak dodać formant ScriptManager do strony wzorcowej. Przedstawiono w nim również, jak używać formantu ScriptManagerProxy do rejestrowania niestandardowych skryptów i usług skryptów na określonej stronie zawartości.
 
 > [!NOTE]
-> W tym samouczku nie eksplorować, projektowania i tworzenia aplikacji sieci web z włączoną obsługą technologii AJAX przy użyciu framework ASP.NET AJAX. Aby uzyskać więcej informacji na temat korzystania z technologii AJAX zapoznaj się z [wideo ASP.NET AJAX](../../../videos/aspnet-ajax/index.md) i [samouczki](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md), jak również jako zasobów wymienionych w sekcji dalsze informacje na końcu tego samouczka.
+> Ten samouczek nie eksploruje projektowania ani tworzenia aplikacji sieci Web obsługujących technologię AJAX przy użyciu platformy ASP.NET AJAX. Aby uzyskać więcej informacji na temat korzystania z technologii AJAX, zapoznaj się z [filmami wideo](../../../videos/aspnet-ajax/index.md) i [samouczkami](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)ASP.NET AJAX, a także zasobami wymienionymi w sekcji dalsze informacje na końcu tego samouczka.
 
-## <a name="examining-the-markup-emitted-by-the-scriptmanager-control"></a>Badanie znaczników wyemitowane przez formantu ScriptManager
+## <a name="examining-the-markup-emitted-by-the-scriptmanager-control"></a>Badanie znaczników emitowanych przez kontrolkę ScriptManager
 
-Formantu ScriptManager emituje kod znaczników, który powoduje, że przeglądarki, aby pobrać pliki JavaScript tego korzeń biblioteki klienckiej AJAX programu ASP.NET. Dodaje także znacznej liczby liniowy JavaScript do strony, która inicjuje tej biblioteki. Następujący kod przedstawia zawartość, która jest dodawana do wyniku renderowania strony, która obejmuje formantu ScriptManager:
+Kontrolka ScriptManager emituje znaczniki, które instruują przeglądarkę, aby pobierali pliki JavaScript, które korzeń bibliotekę kliencką ASP.NET AJAX. Dodaje również bit wbudowanego kodu JavaScript do strony, która inicjuje tę bibliotekę. Poniższe znaczniki pokazują zawartość dodaną do renderowanego danych wyjściowych strony zawierającej formant ScriptManager:
 
 [!code-html[Main](master-pages-and-asp-net-ajax-cs/samples/sample1.html)]
 
-`<script src="url"></script>` Tagi poinstruować przeglądarki, aby pobrać i uruchomić plik JavaScript na *adresu url*. Funkcja ScriptManager emituje trzech takich znaczników; odwołuje się do jednego pliku `WebResource.axd`, a pozostałe dwa odwołania pliku `ScriptResource.axd`. Te pliki nie istnieją faktycznie jako pliki w witrynie sieci Web. Po odebraniu żądania dla dowolnej z tych plików na serwerze sieci web, aparatu ASP.NET sprawdza, czy ciąg zapytania i zwraca odpowiednią zawartość JavaScript. Skryptu podane przez te trzy zewnętrzne pliki JavaScript tworzą biblioteki klienta platformę ASP.NET AJAX. Druga `<script>` tagi wyemitowane przez funkcja ScriptManager zawierają wbudowany skrypt, który inicjuje tej biblioteki.
+Tagi `<script src="url"></script>` instruują przeglądarkę, aby pobierali i wykonywały plik JavaScript pod *adresem URL*. Element ScriptManager emituje trzy takie znaczniki; jeden odwołuje się do pliku `WebResource.axd`, natomiast pozostałe dwa odwołują się do pliku `ScriptResource.axd`. Te pliki nie istnieją w rzeczywistości jako pliki w witrynie sieci Web. Zamiast tego, gdy żądanie jednego z tych plików dociera do serwera sieci Web, aparat ASP.NET analizuje ciąg QueryString i zwraca odpowiednią zawartość JavaScript. Skrypt dostarczany przez te trzy zewnętrzne pliki JavaScript stanowi bibliotekę kliencką ASP.NET AJAX Framework. Inne Tagi `<script>` emitowane przez element ScriptManager obejmują skrypt wbudowany, który inicjuje tę bibliotekę.
 
-Odwołania do skryptu zewnętrznego i wyemitowane przez funkcja ScriptManager wykonanie wbudowanego skryptu są istotne dla strony, która wykorzystuje platformę ASP.NET AJAX, ale nie jest wymagany dla stron, które nie używają programu framework. W związku z tym przyczyny, jest idealnym rozwiązaniem do Menedżera skryptów należy dodawać tylko do tych stron, które korzystaj z platformy ASP.NET AJAX. Jest to wystarczające, a jeśli masz wiele stron, które korzystają z programu framework będzie znajdą Dodawanie formantu ScriptManager do wszystkich stron — powtarzających się zadań, powiedzieć najmniejszej. Alternatywnie możesz dodać ScriptManager strony wzorcowej następnie wprowadza ten skrypt niezbędne do wszystkich stron zawartości. W przypadku tej metody nie trzeba pamiętać dodać element ScriptManager do nowej strony, która używa platformę ASP.NET AJAX, ponieważ jest już uwzględniony przez stronę wzorcową. Krok 1 przeszukiwania przez proces dodawania ScriptManager strony wzorcowej.
-
-> [!NOTE]
-> Jeśli planujesz w tym funkcji interfejsu AJAX w interfejsie użytkownika strony wzorcowej, możesz nie mieć wyboru w sprawie — funkcja ScriptManager musi zawierać na stronie głównej.
-
-Jedną wadą Dodawanie funkcja ScriptManager strony wzorcowej jest, że powyższy skrypt jest emitowane w *co* stronę, niezależnie od tego, czy jego potrzebne. Prowadzi to wyraźnie nieużywanego przepustowości dla tych stron, które ScriptManager uwzględniony (przy użyciu strony wzorcowej), ale nie należy używać żadnych funkcji platformę ASP.NET AJAX. Ale dwunasty zostanie zmarnowane przepustowości?
-
-- Rzeczywista zawartość wyemitowane przez ScriptManager (jak pokazano powyżej) sumuje nieco ponad 1KB.
-- Trzy pliki skryptu zewnętrznego odwołuje się `<script>` elementu, obejmuje jednak około 450 KB danych bez kompresji; w witrynie internetowej, która używa kompresji gzip, można zmniejszyć tego całkowitej przepustowości prawie 100 KB. Jednak te pliki skryptów są buforowane przez przeglądarkę dla jednego roku, co oznacza, że muszą zostać pobrane raz, a następnie można będzie wykorzystać ponownie w innych stron w witrynie.
-
-W najlepszy przypadek następnie, kiedy pliki skryptów są buforowane, całkowity koszt jest 1KB, co jest niewielki. W najgorszym przypadku jednak — czyli po pliki skryptów nie została jeszcze pobrana i serwera sieci web jest nie za pomocą dowolnej formie kompresji — trafień przepustowości jest około 450KB, który można dodać w dowolnym miejscu z sekundy lub dwóch za pośrednictwem połączenia szerokopasmowego maksymalnie minutę dla  użytkowników za pośrednictwem modemów. Dobra wiadomość jest taka, ponieważ pliki skryptu zewnętrznego są buforowane przez przeglądarkę, scenariusz najgorszego przypadku występuje rzadko.
+Zewnętrzne odwołania do skryptu i skrypt wbudowany emitowane przez ScriptManager są niezbędne dla strony korzystającej z ASP.NET AJAX Framework, ale nie są potrzebne dla stron, które nie używają struktury. W związku z tym może być najlepszym rozwiązaniem, aby dodać element ScriptManager do tych stron, które używają ASP.NET AJAX Framework. Jest to wystarczające, ale jeśli masz wiele stron, które wykorzystują platformę, można dokończyć Dodawanie kontrolki ScriptManager do wszystkich stron — powtarzalne zadanie, aby wypowiedzieć najmniejszy. Alternatywnie można dodać ScriptManager do strony wzorcowej, która następnie wprowadza ten skrypt do wszystkich stron zawartości. Korzystając z tej metody, nie trzeba pamiętać, aby dodać ScriptManager do nowej strony, która używa ASP.NET AJAX Framework, ponieważ jest ona już zawarta na stronie wzorcowej. Krok 1 przeprowadzi Cię przez dodanie elementu ScriptManager do strony głównej.
 
 > [!NOTE]
-> Jeśli nadal niepewne, umieszczając formantu ScriptManager w stronę wzorcową, należy wziąć pod uwagę formularz sieci Web ( `<form runat="server">` znaczników na stronie głównej). Każdej strony ASP.NET, która używa modelu zwrotu musi zawierać dokładnie jeden formularz sieci Web. Dodawanie formularza sieci Web dodaje dodatkową zawartość: liczba pól formularza, `<form>` tag, i w razie potrzeby JavaScript funkcji inicjowania zwrotu ze skryptu. Ten kod znaczników jest wykorzystywana dla stron, które nie ogłaszanie zwrotne. Ten kod nadmiarowe znaczników można wyeliminować, usuwając formularz sieci Web z strony wzorcowej i ręczne dodanie do każdej strony zawartości, które tego wymagają. Jednak korzyści formularz sieci Web na stronie głównej przeważają wady trzeba dodać niepotrzebnie do niektórych stron zawartości.
+> Jeśli planujesz włączenie funkcji AJAX w interfejsie użytkownika strony wzorcowej, nie masz wyboru w temacie, musisz dołączyć element ScriptManager na stronie wzorcowej.
 
-## <a name="step-1-adding-a-scriptmanager-control-to-the-master-page"></a>Krok 1. Dodawanie formantu ScriptManager do strony wzorcowej
+Jednym minusemem dodawania elementu ScriptManager do strony głównej jest wyemitowanie powyższego skryptu na *każdej* stronie, niezależnie od tego, czy jest to konieczne. To wyraźnie prowadzi do bezstratnej przepustowości dla tych stron, które mają dołączony element ScriptManager (za pośrednictwem strony głównej), ale nie używają żadnych funkcji ASP.NET AJAX Framework. Ale tylko ilość zajętej przepustowości?
 
-Każdej strony sieci web, który używa struktury ASP.NET AJAX musi zawierać dokładnie jeden formantu ScriptManager. Ze względu na to wymaganie zazwyczaj warto umieścić jednego formantu ScriptManager na stronie wzorcowej tak, aby wszystkie strony zawartości mają formantu ScriptManager automatycznie dołączane. Ponadto funkcja ScriptManager musi występować przed każdą formanty serwera ASP.NET AJAX, takich jak kontrolki UpdatePanel i UpdateProgress. Dlatego najlepiej umieścić ScriptManager przed wszystkimi formantami ContentPlaceHolder w obrębie formularza sieci Web.
+- Rzeczywista zawartość emitowana przez ScriptManager (pokazana powyżej) sumuje nieco od rozmiarze 1 KB.
+- Trzy zewnętrzne pliki skryptów, do których odwołuje się element `<script>`, jednak zawierają około 450KB nieskompresowanych danych; w witrynie sieci Web, która korzysta z kompresji gzip, tę łączną przepustowość można zmniejszyć blisko 100KB. Jednak te pliki skryptów są przechowywane w pamięci podręcznej przez przeglądarkę przez jeden rok, co oznacza, że muszą zostać pobrane tylko raz, a następnie mogą być ponownie używane na innych stronach w witrynie.
 
-Otwórz `Site.master` strony wzorcowej i dodawanie formantu ScriptManager do strony w formularzu sieci Web, lecz przed `<div id="topContent">` — element (patrz rysunek 1). Jeśli używasz programu Visual Web Developer 2008 lub Visual Studio 2008 formantu ScriptManager znajduje się w przyborniku, na karcie rozszerzenia AJAX. Jeśli używasz programu Visual Studio 2005, należy najpierw zainstalować platformę ASP.NET AJAX i dodać formanty do przybornika. Odwiedź stronę [ASP.NET AJAX stron typu Wiki](https://github.com/DevExpress/AjaxControlToolkit/wiki) można uzyskać platformę ASP.NET w wersji 2.0.
+W najlepszym przypadku, gdy pliki skryptów są buforowane, łączny koszt to rozmiarze 1 KB, co jest znikome. W najgorszym przypadku, jednak gdy pliki skryptów nie zostały jeszcze pobrane, a serwer sieci Web nie używa żadnej formy kompresji — osiągnięta przepustowość jest około 450KB, która może dodawać dowolne miejsce od drugiego lub dwóch połączeń szerokopasmowych do minuty dla  Użytkownicy korzystający z modemów telefonicznych. Dobrą wiadomość polega na tym, że ponieważ zewnętrzne pliki skryptów są buforowane przez przeglądarkę, ten najgorszy scenariusz występuje rzadko.
 
-Po dodaniu funkcja ScriptManager do strony, należy zmienić jego `ID` z `ScriptManager1` do `MyManager`.
+> [!NOTE]
+> Jeśli w dalszym ciągu nie dowiesz się, jak umieścić formant ScriptManager na stronie wzorcowej, weź pod uwagę formularz sieci Web (`<form runat="server">` znacznik na stronie wzorcowej). Każda strona ASP.NET, która używa modelu ogłaszania zwrotnego, musi zawierać dokładnie jeden formularz sieci Web. Dodawanie formularza sieci Web dodaje dodatkową zawartość: kilka ukrytych pól formularzy, `<form>` znacznika i, w razie potrzeby, funkcję JavaScript do inicjowania ogłaszania zwrotnego ze skryptu. Ten znacznik jest niezbędny dla stron, które nie są ogłaszane zwrotnie. To nadmiarowe znaczniki można wyeliminować, usuwając formularz sieci Web ze strony wzorcowej i ręcznie dodając go do każdej strony zawartości, która ją potrzebuje. Jednak korzyści wynikające z posiadania formularza sieci Web na stronie wzorcowej zwiększają wady, które Dodaliśmy niepotrzebnie do niektórych stron zawartości.
 
-[![Dodaj funkcja ScriptManager do strony wzorcowej](master-pages-and-asp-net-ajax-cs/_static/image2.png)](master-pages-and-asp-net-ajax-cs/_static/image1.png)
+## <a name="step-1-adding-a-scriptmanager-control-to-the-master-page"></a>Krok 1. Dodawanie kontrolki ScriptManager do strony wzorcowej
 
-**Rysunek 01**: Dodaj funkcja ScriptManager do strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image3.png))
+Każda Strona sieci Web, która używa ASP.NET AJAX Framework, musi zawierać dokładnie jedną kontrolkę ScriptManager. Ze względu na to wymaganie, zazwyczaj warto umieścić pojedynczą kontrolkę ScriptManager na stronie wzorcowej, aby wszystkie strony zawartości miały automatycznie dołączoną kontrolkę ScriptManager. Ponadto element ScriptManager musi znajdować się przed dowolnymi kontrolkami serwera ASP.NET AJAX, takimi jak kontrolki UpdatePanel i UpdateProgress. Dlatego najlepiej umieścić element ScriptManager przed dowolnymi kontrolkami ContentPlaceHolder w formularzu sieci Web.
 
-## <a name="step-2-using-the-aspnet-ajax-framework-from-a-content-page"></a>Krok 2. Przy użyciu platformy ASP.NET AJAX ze strony zawartości
+Otwórz stronę wzorcową `Site.master` i Dodaj kontrolkę ScriptManager do strony w formularzu sieci Web, ale przed elementem `<div id="topContent">` (patrz rysunek 1). Jeśli używasz programu Visual Web Developer 2008 lub Visual Studio 2008, formant ScriptManager znajduje się w przyborniku na karcie rozszerzenia AJAX. Jeśli używasz programu Visual Studio 2005, musisz najpierw zainstalować ASP.NET AJAX Framework i dodać kontrolki do przybornika. Odwiedź witrynę [typu Wiki ASP.NET AJAX](https://github.com/DevExpress/AjaxControlToolkit/wiki) , aby uzyskać strukturę ASP.NET 2,0.
 
-Za pomocą formantu ScriptManager dodał do strony głównej można teraz dodamy funkcje struktury ASP.NET AJAX do dowolnej strony zawartości. Utwórzmy nowej strony programu ASP.NET, która wyświetla wybrany produkt z bazy danych Northwind. Użyjemy kontrolka czasomierza platformę ASP.NET AJAX do aktualizacji na tym ekranie co 15 sekund, przedstawiający nowy produkt.
+Po dodaniu ScriptManager do strony Zmień jej `ID` z `ScriptManager1` na `MyManager`.
 
-Rozpocznij od utworzenia nowej strony w katalogu głównym o nazwie `ShowRandomProduct.aspx`. Nie zapomnij o tej nowej strony, aby powiązać `Site.master` strony wzorcowej.
+[![dodać ScriptManager do strony wzorcowej](master-pages-and-asp-net-ajax-cs/_static/image2.png)](master-pages-and-asp-net-ajax-cs/_static/image1.png)
 
-[![Dodawanie nowej strony programu ASP.NET do witryny sieci Web](master-pages-and-asp-net-ajax-cs/_static/image5.png)](master-pages-and-asp-net-ajax-cs/_static/image4.png)
+**Ilustracja 01**. Dodawanie ScriptManager do strony wzorcowej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image3.png))
 
-**Rysunek 02**: Dodawanie nowej strony programu ASP.NET do witryny internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image6.png))
+## <a name="step-2-using-the-aspnet-ajax-framework-from-a-content-page"></a>Krok 2. Korzystanie z ASP.NET AJAX Framework ze strony zawartości
 
-Pamiętaj, że w [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) samouczek tworzenia niestandardowej strony podstawowej klasy o nazwie `BasePage` , generowane tytuł strony, jeśli było nie jest jawnie ustawione. Przejdź do `ShowRandomProduct.aspx` kodem strony klasy i jest pochodną `BasePage` (zamiast z `System.Web.UI.Page`).
+Po dodaniu kontrolki ScriptManager do strony wzorcowej możemy teraz dodać funkcję ASP.NET AJAX Framework do dowolnej strony zawartości. Utwórzmy nową stronę ASP.NET, która wyświetla losowo wybrany produkt z bazy danych Northwind. Użyjemy kontrolki czasomierza ASP.NET AJAX Framework, aby zaktualizować ten ekran co 15 sekund, pokazując nowy produkt.
 
-Na koniec zaktualizuj `Web.sitemap` plik, aby dołączyć wpis dla tej lekcji. Dodaj następujący kod pod `<siteMapNode>` wzorca do interakcji z zawartością strony lekcji:
+Zacznij od utworzenia nowej strony w katalogu głównym o nazwie `ShowRandomProduct.aspx`. Nie zapomnij, aby powiązać tę nową stronę ze stroną wzorcową `Site.master`.
+
+[![dodać nową stronę ASP.NET do witryny sieci Web](master-pages-and-asp-net-ajax-cs/_static/image5.png)](master-pages-and-asp-net-ajax-cs/_static/image4.png)
+
+**Ilustracja 02**. Dodawanie nowej strony ASP.NET do witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image6.png))
+
+Odwołaj ten element w [*temacie Określanie tytułu, Meta tagów i innych nagłówków HTML na stronie wzorcowej*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) — samouczek został utworzony za pomocą niestandardowej klasy strony podstawowej o nazwie `BasePage`, która wygenerowała tytuł strony, jeśli nie została ustawiona jawnie. Przejdź do klasy powiązanej z kodem `ShowRandomProduct.aspx` strony i utwórz ją od `BasePage` (zamiast z `System.Web.UI.Page`).
+
+Na koniec Zaktualizuj plik `Web.sitemap`, aby zawierał wpis do tej lekcji. Dodaj następujące oznakowanie poniżej `<siteMapNode>` na potrzeby lekcji wzorzec do interakcji ze stroną zawartości:
 
 [!code-xml[Main](master-pages-and-asp-net-ajax-cs/samples/sample2.xml)]
 
-Dodanie tego `<siteMapNode>` element jest widoczny w lekcji listy (zobacz rysunek 5).
+Dodanie tego elementu `<siteMapNode>` jest odzwierciedlone na liście lekcji (patrz rysunek 5).
 
-### <a name="displaying-a-randomly-selected-product"></a>Wyświetlanie losowo wybrany produkt
+### <a name="displaying-a-randomly-selected-product"></a>Wyświetlanie losowo wybranego produktu
 
-Wróć do `ShowRandomProduct.aspx`. Z projektanta, przeciągnij kontrolki UpdatePanel z przybornika do `MainContent` formantu zawartości i ustaw jego `ID` właściwość `ProductPanel`. Kontrolki UpdatePanel reprezentuje region na ekranie, które mogą być aktualizowane asynchronicznie za pośrednictwem ogłaszania zwrotnego strony częściowe.
+Wróć do `ShowRandomProduct.aspx`. Z poziomu projektanta przeciągnij formant UpdatePanel z przybornika do kontrolki zawartości `MainContent` i ustaw jej Właściwość `ID` na `ProductPanel`. Element UpdatePanel reprezentuje region na ekranie, który można zaktualizować asynchronicznie za pomocą częściowego ogłaszania zwrotnego strony.
 
-Naszym pierwszym zadaniem jest aby wyświetlić informacje o losowo wybranych produktów w obrębie kontrolki UpdatePanel. Rozpocznij, przeciągając kontrolki widoku szczegółów do kontrolki UpdatePanel. Ustaw kontrolce DetailsView `ID` właściwości `ProductInfo` i wyczyszczenie jego `Height` i `Width` właściwości. Rozwiń DetailsView tagu inteligentnego, a następnie z listy rozwijanej wybierz źródło danych, wybierz powiązać DetailsView z kontrolką SqlDataSource o nazwie `RandomProductDataSource`.
+Pierwsze zadanie polega na wyświetleniu informacji o losowo wybranym produkcie w elemencie UpdatePanel. Zacznij od przeciągnięcia kontrolki DetailsView do elementu UpdatePanel. Ustaw właściwość `ID` formantu DetailsView na `ProductInfo` i wyczyść `Height` i `Width` właściwości. Rozwiń tag inteligentny DetailsView i na liście rozwijanej wybierz źródło danych wybierz opcję powiązania widoku DetailsView z nową kontrolką kontrolki SqlDataSource o nazwie `RandomProductDataSource`.
 
-[![Powiązywanie DetailsView nowej kontrolki SqlDataSource](master-pages-and-asp-net-ajax-cs/_static/image8.png)](master-pages-and-asp-net-ajax-cs/_static/image7.png)
+[![powiązać widoku DetailsView z nową kontrolką kontrolki SqlDataSource](master-pages-and-asp-net-ajax-cs/_static/image8.png)](master-pages-and-asp-net-ajax-cs/_static/image7.png)
 
-**Rysunek 03**: Powiązywanie DetailsView nowej kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image9.png))
+**Ilustracja 03**. powiązanie widoku DetailsView z nową kontrolką kontrolki SqlDataSource ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image9.png))
 
-Konfigurowanie kontrolki SqlDataSource nawiązywania połączenia z bazą danych Northwind za pośrednictwem `NorthwindConnectionString` (które utworzyliśmy w [ *interakcja ze stroną wzorcową z poziomu strony zawartości* ](interacting-with-the-content-page-from-the-master-page-cs.md) samouczka). Podczas konfigurowania instrukcji select chce określić niestandardową instrukcję SQL, a następnie wprowadź następujące zapytanie:
+Skonfiguruj kontrolkę kontrolki SqlDataSource, aby połączyć się z bazą danych Northwind za pośrednictwem `NorthwindConnectionString` (utworzonego w ramach [*współpracy ze stroną wzorcową z samouczka dotyczącego strony zawartości*](interacting-with-the-content-page-from-the-master-page-cs.md) ). Podczas konfigurowania instrukcji SELECT wybierz opcję, aby określić niestandardową instrukcję SQL, a następnie wprowadź następujące zapytanie:
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-`TOP 1` — Słowo kluczowe w `SELECT` klauzula zwraca tylko pierwszy rekord zwróconych przez zapytanie. [ `NEWID()` Funkcja](https://msdn.microsoft.com/library/ms190348.aspx) generuje nowy [wartość Unikatowy identyfikator globalny (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) i mogą być używane w `ORDER BY` klauzuli, która zwraca rekordy w tabeli w kolejności losowej.
+Słowo kluczowe `TOP 1` w klauzuli `SELECT` zwraca tylko pierwszy rekord zwrócony przez zapytanie. [Funkcja`NEWID()`](https://msdn.microsoft.com/library/ms190348.aspx) generuje nową [globalnie unikatową wartość identyfikatora (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) i może być używana w klauzuli `ORDER BY` do zwracania rekordów tabeli w losowej kolejności.
 
-[![Konfigurowanie SqlDataSource do zwrócenia pojedynczego, wybrany rekord](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
+[![skonfigurować kontrolki SqlDataSource, aby zwracał pojedynczy, losowo wybrany rekord](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
 
-**Rysunek 04**: Konfigurowanie SqlDataSource zwracać jeden losowo wybrany rekord ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image12.png))
+**Rysunek 04**: Konfigurowanie kontrolki SqlDataSource w celu zwrócenia pojedynczego, losowo wybranego rekordu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image12.png))
 
-Po zakończeniu działania kreatora programu Visual Studio tworzy elementu BoundField dla dwóch kolumn będących jej zwróconych przez zapytanie powyżej. W tym momencie oznaczeniu deklaracyjnym strony powinien wyglądać podobnie do poniższej:
+Po zakończeniu działania kreatora program Visual Studio tworzy BoundField dla dwóch kolumn zwracanych przez powyższe zapytanie. W tym momencie znaczniki deklaratywne strony powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample4.aspx)]
 
-Rysunek 5. pokazuje `ShowRandomProduct.aspx` stronie podczas przeglądania za pośrednictwem przeglądarki. Kliknij przycisk Odśwież w przeglądarce, aby ponownie załadować stronę; powinien zostać wyświetlony `ProductName` i `UnitPrice` wartości dla nowego rekordu losowo wybrany.
+Rysunek 5 przedstawia stronę `ShowRandomProduct.aspx` wyświetlaną w przeglądarce. Kliknij przycisk Odśwież przeglądarki, aby ponownie załadować stronę. należy zobaczyć wartości `ProductName` i `UnitPrice` dla nowego losowo wybranego rekordu.
 
-[![Jest wyświetlana nazwa i cena losowe produktu](master-pages-and-asp-net-ajax-cs/_static/image14.png)](master-pages-and-asp-net-ajax-cs/_static/image13.png)
+[![zostanie wyświetlona losowa nazwa i cena produktu](master-pages-and-asp-net-ajax-cs/_static/image14.png)](master-pages-and-asp-net-ajax-cs/_static/image13.png)
 
-**Rysunek 05**: Jest wyświetlana nazwa i cena losowe produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image15.png))
+**Ilustracja 05**. zostanie wyświetlona losowa nazwa i cena produktu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image15.png))
 
 ### <a name="automatically-displaying-a-new-product-every-15-seconds"></a>Automatyczne wyświetlanie nowego produktu co 15 sekund
 
-Struktura ASP.NET AJAX obejmuje kontrolka czasomierza, który wykonuje ogłaszania zwrotnego o określonej godzinie; na ogłaszanie zwrotne czasomierza `Tick` zdarzenie jest wywoływane. Kontrolka czasomierza jest umieszczony w obrębie UpdatePanel wyzwala strona częściowa odświeżenie strony, w którym możemy ponownie powiązać dane DetailsView, aby wyświetlić nowy, losowo wybranego produktu.
+ASP.NET AJAX Framework zawiera kontrolkę Timer, która wykonuje odświeżenie w określonym czasie. na stronie ogłaszania zwrotnego jest zgłaszane zdarzenie `Tick` czasomierza. Jeśli kontrolka czasomierza jest umieszczana w elemencie UpdatePanel, wyzwala częściowe ogłaszanie zwrotne strony, podczas którego możemy ponownie powiązać dane z DetailsView, aby wyświetlić nowy losowo wybrany produkt.
 
-Aby to zrobić, przeciągnij czasomierz z przybornika i upuść go w UpdatePanel. Zmień czasomierza `ID` z `Timer1` do `ProductTimer` i jego `Interval` właściwość 60000 15000. `Interval` Właściwość wskazuje liczbę milisekund między ogłoszeniami wstecznymi; ustawienie jej 15000 powoduje, że czasomierza wyzwolić zwrotu strona częściowa co 15 sekund. W tym momencie usługi czasomierza oznaczeniu deklaracyjnym powinien wyglądać podobny do następującego:
+Aby to osiągnąć, przeciągnij czasomierz z przybornika i upuść go w elemencie UpdatePanel. Zmień `ID` czasomierza z `Timer1` na `ProductTimer` i jej Właściwość `Interval` od 60000 do 15000. Właściwość `Interval` wskazuje liczbę milisekund między ogłaszaniem zwrotnym; ustawienie go na 15000 powoduje, że czasomierz wyzwala częściowe ogłaszanie zwrotne strony co 15 sekund. W tym momencie znaczniki deklaratywne czasomierza powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample5.aspx)]
 
-Utwórz procedurę obsługi zdarzeń dla czasomierza `Tick` zdarzeń. W tej obsługi zdarzeń, będziemy musieli ponownie powiązać dane DetailsView przez wywołanie metody DetailsView `DataBind` metody. To powoduje, że DetailsView ponownie pobrać dane z kontroli źródła danych, co spowoduje zaznaczyć i wyświetlić nowy, losowo wybrany rekord (podobnie jak podczas ponownego ładowania strony przez kliknięcie przycisku Odśwież w przeglądarce).
+Utwórz procedurę obsługi zdarzeń dla zdarzenia `Tick` czasomierza. W tym obsłudze zdarzeń musimy ponownie powiązać dane z DetailsView, wywołując metodę `DataBind` w widoku DetailsView. Wykonanie tej czynności powoduje, że formant DetailsView ponownie pobierze dane z kontroli źródła danych, co spowoduje wybranie i wyświetlenie nowego losowo wybranego rekordu (podobnie jak podczas ponownego ładowania strony przez kliknięcie przycisku Odśwież przeglądarki).
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample6.cs)]
 
-To wszystko. Ponownie stronę za pośrednictwem przeglądarki. Początkowo wyświetlane są informacje losowe produktu. Możesz obejrzeć cierpliwie ekranu można zauważyć, że po 15 sekundach informacji na temat nowego produktu magiczny sposób zastępuje istniejące wyświetlania.
+To wszystko. Odwiedź stronę ponownie za pomocą przeglądarki. Początkowo wyświetlane są informacje losowe o produkcie. Jeśli zauważysz, że na ekranie zobaczysz, że po 15 sekundach informacje o nowym produkcie zastępują istniejący ekran.
 
-Aby lepiej widzieć, co się dzieje, Dodajmy kontrolkę typu etykieta do kontrolki UpdatePanel wyświetlającą czas, wyświetlanie ostatniej aktualizacji. Dodaj kontrolkę etykiety w sieci Web w obrębie kontrolki UpdatePanel, ustaw jego `ID` do `LastUpdateTime`i usuń zaznaczenie jej `Text` właściwości. Następnie należy utworzyć procedurę obsługi zdarzeń dla kontrolki UpdatePanel `Load` zdarzeń i wyświetlanie bieżący czas w etykiecie. (UpdatePanel `Load` zdarzenie jest wywoływane na każdy ogłaszania zwrotnego strony pełnej lub częściowej.)
+Aby lepiej zobaczyć, co się dzieje w tym miejscu, dodajmy kontrolkę etykieta do elementu UpdatePanel, który wyświetla czas ostatniej aktualizacji wyświetlania. Dodaj kontrolkę sieci Web etykieta w elemencie UpdatePanel, ustaw jej `ID` na `LastUpdateTime`i wyczyść jej Właściwość `Text`. Następnie Utwórz procedurę obsługi zdarzeń dla zdarzenia `Load` elementu UpdatePanel i Wyświetl bieżącą godzinę w etykiecie. (Zdarzenie `Load` elementu UpdatePanel jest uruchamiane na wszystkich pełnych lub częściowych stronach ogłaszania zwrotnego.)
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample7.cs)]
 
-Dzięki tej zmianie pełna strona zawiera czas wyświetlonego produktu została załadowana. Rysunek 6 przedstawia stronę po raz pierwszy odwiedzony. Rysunek 7 przedstawia stronę 15 sekund później po kontrolka czasomierza ma "wpisać" i kontrolki UpdatePanel zostały odświeżone do wyświetlania informacji na temat nowych produktów.
+Po wykonaniu tej zmiany Strona zawiera godzinę załadowania aktualnie wyświetlanego produktu. Rysunek 6 przedstawia stronę podczas pierwszej wizyty. Rysunek 7 pokazuje stronę 15 sekund później po "taktie kontrolki czasomierza", a element UpdatePanel został odświeżony w celu wyświetlenia informacji o nowym produkcie.
 
-[![Losowo wybrany produkt jest wyświetlany podczas ładowania strony](master-pages-and-asp-net-ajax-cs/_static/image17.png)](master-pages-and-asp-net-ajax-cs/_static/image16.png)
+[![losowo wybrany produkt jest wyświetlany podczas ładowania strony](master-pages-and-asp-net-ajax-cs/_static/image17.png)](master-pages-and-asp-net-ajax-cs/_static/image16.png)
 
-**Rysunek 06**: Losowo wybrany produkt jest wyświetlany podczas ładowania strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image18.png))
+**Ilustracja 06**: losowo wybrany produkt jest wyświetlany podczas ładowania strony ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image18.png))
 
-[![Co 15 sekund, wyświetlany jest nowy losowo wybrany produkt](master-pages-and-asp-net-ajax-cs/_static/image20.png)](master-pages-and-asp-net-ajax-cs/_static/image19.png)
+[![co 15 sekund, zostanie wyświetlony nowy losowo wybrany produkt](master-pages-and-asp-net-ajax-cs/_static/image20.png)](master-pages-and-asp-net-ajax-cs/_static/image19.png)
 
-**Rysunek 07**: Co 15 sekund jest wyświetlany nowy losowo wybrany produkt ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image21.png))
+**Ilustracja 07**: co 15 sekund jest wyświetlany nowy losowo wybrany produkt ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image21.png))
 
-## <a name="step-3-using-the-scriptmanagerproxy-control"></a>Krok 3. Używanie kontrolki serwera proxy menedżera skryptów
+## <a name="step-3-using-the-scriptmanagerproxy-control"></a>Krok 3. Korzystanie z formantu ScriptManagerProxy
 
-Funkcja ScriptManager wraz z tym konieczne skryptu dla platformy ASP.NET AJAX biblioteki klienta, również zarejestrować niestandardowych plików JavaScript odwołań do usług sieci Web z obsługą skryptów i niestandardowego uwierzytelniania, autoryzacji i usług profilu. Zwykle takie dostosowania są specyficzne dla konkretnej strony. Jednak jeśli niestandardowego skryptu, pliki, odwołania do usług sieci Web lub uwierzytelniania, autoryzacji lub profilu usługi odwołuje się funkcja ScriptManager na stronie głównej, a następnie są one uwzględnione w *wszystkich* stron w witrynie sieci Web.
+Wraz z uwzględnieniem wymaganego skryptu dla biblioteki klienta ASP.NET AJAX Framework, ScriptManager może również rejestrować niestandardowe pliki JavaScript, odwołania do usług sieci Web obsługujących skrypty oraz niestandardowe uwierzytelnianie, autoryzację i usługi profilowania. Zwykle takie dostosowania są specyficzne dla określonej strony. Jeśli jednak do niestandardowych plików skryptu, odwołań do usługi sieci Web lub uwierzytelniania, autoryzacji lub usług profilów odwołuje się element ScriptManager na stronie wzorcowej, zostaną one dołączone do *wszystkich* stron w witrynie sieci Web.
 
-Aby dodać powiązane ScriptManager dostosowania dla strony strona formant serwera proxy menedżera skryptów. Można dodać serwera proxy menedżera skryptów do strony zawartości, a następnie Zarejestruj niestandardowy plik JavaScript, odwołanie do usługi sieci Web, lub uwierzytelniania, autoryzacji lub usługi profilu z serwera proxy menedżera skryptów; ma to wpływ rejestrowania tych usług do określonej strony zawartości.
+Aby dodać dostosowania powiązane z obiektem ScriptManager na zasadzie stronicowania, użyj formantu ScriptManagerProxy. Możesz dodać ScriptManagerProxy do strony zawartości, a następnie zarejestrować niestandardowy plik JavaScript, odwołanie do usługi sieci Web lub uwierzytelnianie, autoryzację lub usługę profilu z ScriptManagerProxy; ma to wpływ na rejestrację tych usług na określonej stronie zawartości.
 
 > [!NOTE]
-> Strony ASP.NET może zawierać tylko co najwyżej jeden formantu ScriptManager obecne. W związku z tym nie można dodać formantu ScriptManager do strony zawartości, jeśli formantu ScriptManager już jest zdefiniowana na stronie głównej. Wyłącznie do celów serwera proxy menedżera skryptów jest sposób deweloperzy mogą zdefiniować funkcja ScriptManager na stronie głównej, ale nadal mieć możliwość dodawania ScriptManager dostosowań na podstawie strony strona.
+> Na stronie ASP.NET może znajdować się tylko jedna kontrolka ScriptManager. W związku z tym nie można dodać kontrolki ScriptManager do strony zawartości, Jeśli kontrolka ScriptManager jest już zdefiniowana na stronie wzorcowej. Jedynym celem ScriptManagerProxy jest umożliwienie deweloperom zdefiniowania elementu ScriptManager na stronie wzorcowej, ale nadal istnieje możliwość dodawania dostosowań ScriptManager do poszczególnych stron.
 
-Aby wyświetlić formant serwera proxy menedżera skryptów w działaniu, możemy rozszerzyć UpdatePanel w `ShowRandomProduct.aspx` obejmujący przycisk, który używa skryptów po stronie klienta, aby wstrzymać lub wznowić kontrolka czasomierza. Kontrolka czasomierza ma trzy metody po stronie klienta, które możemy użyć, aby osiągnąć ten odpowiednich funkcji:
+Aby wyświetlić formant ScriptManagerProxy w działaniu, uzupełnimy element UpdatePanel w `ShowRandomProduct.aspx`, aby uwzględnić przycisk, który używa skryptu po stronie klienta do wstrzymania lub wznowienia kontroli czasomierza. Kontrolka Timer ma trzy metody po stronie klienta, których można użyć do osiągnięcia odpowiedniej funkcjonalności:
 
-- `_startTimer()` -rozpoczyna się kontrolka czasomierza
-- `_raiseTick()` -powoduje, że kontrolka czasomierza, aby "znaczników", a tym samym odświeżania i wywoływanie jej `Tick` zdarzeń na serwerze
-- `_stopTimer()` -Zatrzymuje kontrolka czasomierza
+- `_startTimer()` — uruchamia formant czasomierza
+- `_raiseTick()` — powoduje, że kontrolka czasomierza jest "Tick", co oznacza ponowne zaksięgowanie i podnoszenie zdarzenia `Tick` na serwerze
+- `_stopTimer()` — wyłącza kontrolkę Timer
 
-Utwórz plik języka JavaScript przy użyciu zmiennej o nazwie `timerEnabled` i funkcję o nazwie `ToggleTimer`. `timerEnabled` Zmiennej wskazuje, czy kontrolka czasomierza jest aktualnie włączone lub wyłączone; jego wartość domyślna to true. `ToggleTimer` Funkcja przyjmuje dwa parametry wejściowe: odwołanie do przycisku wstrzymywanie i wznawianie i po stronie klienta `id` wartość kontrolki czasomierza. Funkcja ta wartość Włącza/wyłącza `timerEnabled`, pobiera odwołanie do formantu czasomierza, uruchomienia lub zatrzymania czasomierza (w zależności od wartości `timerEnabled`) i aktualizuje tekst wyświetlany na przycisku "Wstrzymaj" lub "Resume". Ta funkcja będzie wywoływana zawsze wtedy, gdy kliknięto przycisk wstrzymywanie i wznawianie.
+Utwórzmy plik JavaScript z zmienną o nazwie `timerEnabled` i funkcją o nazwie `ToggleTimer`. Zmienna `timerEnabled` wskazuje, czy kontrolka czasomierza jest obecnie włączona, czy wyłączona; Domyślna wartość to true. Funkcja `ToggleTimer` akceptuje dwa parametry wejściowe: odwołanie do przycisku pauzy/wznowienia oraz wartość `id` formantu Timer po stronie klienta. Ta funkcja włącza wartość `timerEnabled`, pobiera odwołanie do kontrolki Timer, uruchamia lub zatrzymuje czasomierz (w zależności od wartości `timerEnabled`) i aktualizuje tekst wyświetlany przycisku na "wstrzymanie" lub "wznowienie". Ta funkcja będzie wywoływana za każdym razem, gdy zostanie kliknięty przycisk Wstrzymaj/Wznów.
 
-Najpierw utwórz nowy folder w witrynie sieci Web o nazwie `Scripts`. Następnie dodaj nowy plik do folderu skryptów o nazwie `TimerScript.js` typu plik języka JScript.
+Zacznij od utworzenia nowego folderu w witrynie sieci Web o nazwie `Scripts`. Następnie Dodaj nowy plik do folderu Scripts o nazwie `TimerScript.js` typu plik JScript.
 
-[![Dodaj nowy plik JavaScript na Folder skryptów](master-pages-and-asp-net-ajax-cs/_static/image23.png)](master-pages-and-asp-net-ajax-cs/_static/image22.png)
+[![dodać nowego pliku JavaScript do folderu Scripts](master-pages-and-asp-net-ajax-cs/_static/image23.png)](master-pages-and-asp-net-ajax-cs/_static/image22.png)
 
-**Rysunek 08**: Dodaj nowy plik JavaScript do `Scripts` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image24.png))
+**Ilustracja 08**: Dodawanie nowego pliku JavaScript do folderu `Scripts` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image24.png))
 
-[![Nowy plik JavaScript został dodany do witryny sieci Web](master-pages-and-asp-net-ajax-cs/_static/image26.png)](master-pages-and-asp-net-ajax-cs/_static/image25.png)
+[![dodano nowy plik JavaScript do witryny sieci Web](master-pages-and-asp-net-ajax-cs/_static/image26.png)](master-pages-and-asp-net-ajax-cs/_static/image25.png)
 
-**Rysunek 09**: Nowy plik JavaScript został dodany do witryny internetowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image27.png))
+**Ilustracja 09**. Dodano nowy plik JavaScript do witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image27.png))
 
-Następnie dodaj następujący skrypt służy do pliku TimerScript.js:
+Następnie Dodaj następujący scrip do pliku TimerScript. js:
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample8.cs)]
 
-Teraz musisz zarejestrować tego niestandardowego pliku JavaScript w `ShowRandomProduct.aspx`. Wróć do `ShowRandomProduct.aspx` i dodać kontrolki serwera proxy menedżera skryptów do strony; ustaw jego `ID` do `MyManagerProxy`. Aby zarejestrować niestandardowych skryptów JavaScript plik wybierz formant serwera proxy menedżera skryptów w Projektancie i przejdź do okna właściwości. Jedna z właściwości jest zatytułowana skryptów. Wybranie tej właściwości powoduje wyświetlenie edytora kolekcji ScriptReference pokazano na rysunku nr 10. Kliknij przycisk Dodaj, aby uwzględnić nowe odwołania do skryptu, a następnie wprowadź ścieżkę do pliku skryptu we właściwości ścieżki: `~/Scripts/TimerScript.js`.
+Teraz będziemy musieli zarejestrować ten niestandardowy plik JavaScript w `ShowRandomProduct.aspx`. Wróć do `ShowRandomProduct.aspx` i Dodaj kontrolkę ScriptManagerProxy do strony; Ustaw `ID`, aby `MyManagerProxy`. Aby zarejestrować niestandardowy plik JavaScript, wybierz kontrolkę ScriptManagerProxy w projektancie, a następnie przejdź do okno Właściwości. Jedna z właściwości jest zatytułowana skrypty. Wybranie tej właściwości powoduje wyświetlenie edytora kolekcji odwołanie do skryptu pokazanego na rysunku 10. Kliknij przycisk Dodaj, aby dodać nowe odwołanie do skryptu, a następnie wprowadź ścieżkę do pliku skryptu we właściwości Path: `~/Scripts/TimerScript.js`.
 
-[![Dodaj odwołanie skryptu do kontrolki serwera proxy menedżera skryptów](master-pages-and-asp-net-ajax-cs/_static/image29.png)](master-pages-and-asp-net-ajax-cs/_static/image28.png)
+[![dodać odwołania do skryptu do kontrolki ScriptManagerProxy](master-pages-and-asp-net-ajax-cs/_static/image29.png)](master-pages-and-asp-net-ajax-cs/_static/image28.png)
 
-**Na rysunku nr 10**: Dodaj odwołanie skryptu do kontrolki serwera proxy menedżera skryptów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image30.png))
+**Ilustracja 10**. Dodawanie odwołania do skryptu do formantu ScriptManagerProxy ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image30.png))
 
-Po Dodawanie odwołania do skryptu serwera proxy menedżera skryptów kontrolki użytkownika deklaratywne znaczników została zaktualizowana do `<Scripts>` kolekcji za pomocą jednego `ScriptReference` wpisu jako następujący fragment kodu znaczników przedstawia:
+Po dodaniu odwołania do skryptu, Zaktualizowano znaczniki deklaratywne kontrolki ScriptManagerProxy w celu uwzględnienia kolekcji `<Scripts>` z pojedynczym wpisem `ScriptReference`, jak ilustruje poniższy fragment kodu:
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample9.aspx)]
 
-`ScriptReference` Wpisu powoduje, że serwera proxy menedżera skryptów, które mają zostać objęte odwołanie do pliku JavaScript jego renderowanego kodu znaczników. Oznacza to, rejestrując niestandardowy skrypt w serwera proxy menedżera skryptów `ShowRandomProduct.aspx` wyniku renderowania strony zawiera teraz innego `<script src="url"></script>` tagu: `<script src="Scripts/TimerScript.js" type="text/javascript"></script>`.
+Wpis `ScriptReference` instruuje ScriptManagerProxy, aby dołączył odwołanie do pliku JavaScript w jego renderowanym znaczniku. Oznacza to, że przez zarejestrowanie skryptu niestandardowego w ScriptManagerProxy wyrenderowane dane wyjściowe na stronie `ShowRandomProduct.aspx` teraz zawiera inny tag `<script src="url"></script>`: `<script src="Scripts/TimerScript.js" type="text/javascript"></script>`.
 
-Teraz możemy wywołać `ToggleTimer` funkcję zdefiniowaną w `TimerScript.js` ze skryptem klienta w `ShowRandomProduct.aspx` strony. Dodaj poniższy kod HTML w ramach kontrolki UpdatePanel:
+Teraz możemy wywołać funkcję `ToggleTimer` zdefiniowaną w `TimerScript.js` ze skryptu klienta na stronie `ShowRandomProduct.aspx`. Dodaj następujący kod HTML w elemencie UpdatePanel:
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample10.aspx)]
 
-Spowoduje to wyświetlenie przycisk z tekstem "Wstrzymaj". Zawsze, gdy kliknięciu, funkcja JavaScript `ToggleTimer` jest wywoływana, przekazując odwołanie do przycisku i formant Timer wartości identyfikatora (`ProductTimer`). Należy pamiętać, składnia uzyskania `id` wartość kontrolki czasomierza. `<%=ProductTimer.ClientID%>` emituje wartość `ProductTimer` kontrolka czasomierza `ClientID` właściwości. W [ *nazwy Identyfikatora formantów na stronach zawartości* ](control-id-naming-in-content-pages-cs.md) samouczku omówiono różnice między po stronie serwera `ID` wartość i wynikowy klienta `id` wartości i w jaki sposób `ClientID` zwraca po stronie klienta `id`.
+Spowoduje to wyświetlenie przycisku z tekstem "pauza". Za każdym razem, gdy zostanie kliknięty, funkcja JavaScript `ToggleTimer` jest wywoływana, przekazując odwołanie do przycisku i wartość identyfikatora formantu czasomierza (`ProductTimer`). Zwróć uwagę na składnię uzyskiwania `id` wartości formantu Timer. `<%=ProductTimer.ClientID%>` emituje wartość właściwości `ClientID` kontrolki czasomierza `ProductTimer`. W opisie [*identyfikatora formantu na stronach zawartości*](control-id-naming-in-content-pages-cs.md) samouczek omawiał różnice między wartością `ID` po stronie serwera a wynikową wartością `id` po stronie klienta i jak `ClientID` zwraca `id`po stronie klienta.
 
-Na ilustracji 11 pokazano tej strony, gdy pierwszy odwiedzony za pośrednictwem przeglądarki. Czasomierz są uruchomione i aktualizuje informacje wyświetlane produktu co 15 sekund. Rysunek 12 pokazuje ekran, po kliknięciu przycisk Wstrzymaj. Klikając przycisk Wstrzymaj zatrzymuje Timer i aktualizuje tekst przycisku "Resume". Informacje o produkcie odświeżania (i kontynuować odświeżanie co 15 sekund) po użytkownik kliknie przycisk Wznów.
+Rysunek 11 przedstawia Tę stronę podczas pierwszej wizyty w przeglądarce. Czasomierz jest obecnie uruchomiony i aktualizuje informacje o wyświetlanych produktach co 15 sekund. Rysunek 12 przedstawia ekran po kliknięciu przycisku wstrzymania. Kliknięcie przycisku wstrzymania powoduje zatrzymanie czasomierza i zaktualizowanie tekstu przycisku na "wznowienie". Informacje o produkcie będą odświeżane (i nadal odświeżane co 15 sekund), gdy użytkownik kliknie przycisk Wznów.
 
-[![Kliknij przycisk Wstrzymaj, aby zatrzymać kontrolka czasomierza](master-pages-and-asp-net-ajax-cs/_static/image32.png)](master-pages-and-asp-net-ajax-cs/_static/image31.png)
+[![kliknij przycisk Wstrzymaj, aby zatrzymać kontrolkę Timer](master-pages-and-asp-net-ajax-cs/_static/image32.png)](master-pages-and-asp-net-ajax-cs/_static/image31.png)
 
-**Rysunek 11**: Kliknij przycisk Wstrzymaj, aby zatrzymać kontrolka czasomierza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image33.png))
+**Ilustracja 11**. kliknij przycisk Wstrzymaj, aby zatrzymać kontrolkę Timer ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image33.png))
 
-[![Kliknij przycisk Wznów, aby ponownie uruchomić czasomierza](master-pages-and-asp-net-ajax-cs/_static/image35.png)](master-pages-and-asp-net-ajax-cs/_static/image34.png)
+[![kliknij przycisk Wznów, aby ponownie uruchomić czasomierz](master-pages-and-asp-net-ajax-cs/_static/image35.png)](master-pages-and-asp-net-ajax-cs/_static/image34.png)
 
-**Rysunek 12**: Kliknij przycisk Wznów, aby ponownie uruchomić czasomierza ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image36.png))
+**Ilustracja 12**. kliknij przycisk Wznów, aby ponownie uruchomić czasomierz ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-asp-net-ajax-cs/_static/image36.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Podczas tworzenia aplikacji sieci web z włączoną obsługą technologii AJAX przy użyciu platformy ASP.NET AJAX jest konieczne, że każdej strony sieci web z włączoną obsługą technologii AJAX obejmują formantu ScriptManager. Aby ułatwić ten proces, możemy dodać Menedżera skryptów do strony wzorcowej, niż musieć go Pamiętaj, aby dodać element ScriptManager do każdej strony zawartość. Krok 1 pokazano, jak dodać funkcja ScriptManager strony wzorcowej podczas kroku 2 przyjrzano się implementowania funkcji interfejsu AJAX na stronie zawartości.
+Podczas kompilowania aplikacji sieci Web obsługujących technologię AJAX przy użyciu ASP.NET AJAX Framework, każda Strona sieci Web obsługująca technologię AJAX zawiera kontrolkę ScriptManager. Aby ułatwić ten proces, można dodać element ScriptManager do strony wzorcowej, zamiast pamiętać o dodaniu elementu ScriptManager do każdej strony zawartości. Krok 1 pokazano, jak dodać element ScriptManager do strony wzorcowej, podczas gdy krok 2 ogląda się w temacie Implementowanie funkcji AJAX na stronie zawartości.
 
-Jeśli zachodzi konieczność dodania skryptów niestandardowych, odwołania do usług sieci Web z obsługą skryptów lub niestandardowe uwierzytelnianie, autoryzacja lub usług profilu do określonej strony zawartości, Dodaj formant serwera proxy menedżera skryptów do strony zawartości, a następnie skonfiguruj Brak dostosowań. Krok 3 zbadać, jak zarejestrować niestandardowy plik JavaScript w określonej strony zawartości za pomocą serwera proxy menedżera skryptów.
+Jeśli zachodzi potrzeba dodania niestandardowych skryptów, odwołań do usług sieci Web z obsługą skryptów lub niestandardowych usług uwierzytelniania, autoryzacji lub profilu do określonej strony zawartości, Dodaj kontrolkę ScriptManagerProxy do strony zawartość, a następnie skonfiguruj w tym miejscu dostosowania. Krok 3 zbadano, jak używać ScriptManagerProxy do rejestrowania niestandardowego pliku JavaScript na określonej stronie zawartości.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [ASP.NET AJAX Framework](../../../../ajax/index.md)
-- [ASP.NET AJAX Tutorials](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
-- [ASP.NET AJAX Videos](../../../videos/aspnet-ajax/index.md)
-- [Tworzenie interakcyjny interfejs użytkownika za pomocą platformy Microsoft ASP.NET AJAX](http://aspnet.4guysfromrolla.com/articles/101007-1.aspx)
-- [Za pomocą NEWID losowo sortowanie rekordów](http://www.sqlteam.com/article/using-newid-to-randomly-sort-records)
-- [Używanie formantu czasomierza](http://aspnet.4guysfromrolla.com/articles/061808-1.aspx)
+- [ASP.NET — architektura AJAX](../../../../ajax/index.md)
+- [Samouczki ASP.NET AJAX](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
+- [Wideo ASP.NET AJAX](../../../videos/aspnet-ajax/index.md)
+- [Kompilowanie interaktywnego interfejsu użytkownika za pomocą Microsoft ASP.NET AJAX](http://aspnet.4guysfromrolla.com/articles/101007-1.aspx)
+- [Losowe sortowanie rekordów przy użyciu NEWID](http://www.sqlteam.com/article/using-newid-to-randomly-sort-records)
+- [Korzystanie z kontrolki Timer](http://aspnet.4guysfromrolla.com/articles/061808-1.aspx)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu ASP/ASP.NET książki i założyciel 4GuysFromRolla.com pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog znajduje się na [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu książek ASP/ASP. NET Books i założyciel of 4GuysFromRolla.com, pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 3,5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott można uzyskać w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
-### <a name="special-thanks-to"></a>Specjalne podziękowania dla
+### <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](interacting-with-the-content-page-from-the-master-page-cs.md)

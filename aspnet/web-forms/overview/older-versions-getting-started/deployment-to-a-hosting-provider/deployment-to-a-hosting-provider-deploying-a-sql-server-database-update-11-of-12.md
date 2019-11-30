@@ -1,173 +1,173 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
-title: 'Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Wdrażanie aktualizacji bazy danych serwera SQL - 11, 12 | Dokumentacja firmy Microsoft'
+title: 'Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: wdrażanie aktualizacji bazy danych SQL Server Database-11 z 12 | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) programu ASP.NET projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) projekt aplikacji sieci Web ASP.NET, który zawiera bazę danych SQL Server Compact przy użyciu stu Visual...
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: 5e2bb092-cb22-4511-ad0a-22ae12dd99b3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b653a2475eaa89cf493c2ecc099888a81349a444
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 0894c0ac24737e66b6960ef3d48aa17f78c6aa1d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132332"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621081"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Wdrażanie aktualizacji bazy danych serwera SQL - 11, 12
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: wdrażanie aktualizacji SQL Server Database — 11 z 12
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Pobierz projekt początkowy](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) ASP.NET projektu aplikacji sieci web, która zawiera bazę danych programu SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC for Web. Umożliwia także programu Visual Studio 2010 po zainstalowaniu aktualizacji publikowania w sieci Web. Aby zapoznać się z wprowadzeniem do serii, zobacz [pierwszym samouczku tej serii](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) projekt aplikacji sieci Web ASP.NET, który zawiera bazę danych SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC dla sieci Web. Możesz również użyć programu Visual Studio 2010, jeśli zostanie zainstalowana aktualizacja publikacji w sieci Web. Aby zapoznać się z wprowadzeniem do serii, zobacz [pierwszy samouczek w serii](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
-> Aby uzyskać samouczek, który zawiera funkcje wdrażania wprowadzone po wersji RC programu Visual Studio 2012, pokazuje, jak wdrażać wersje programu SQL Server, innym niż SQL Server Compact i pokazuje, jak wdrożyć do Windows Azure Web Sites, zobacz [wdrażanie aplikacji internetowych ASP.NET za pomocą programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> Aby zapoznać się z samouczkiem zawierającym funkcje wdrażania wprowadzone po wydaniu wersji RC programu Visual Studio 2012, pokazano, jak wdrożyć wersje SQL Server inne niż SQL Server Compact i jak wdrożyć je w witrynach sieci Web systemu Windows Azure, zobacz [ASP.NET Web Deployment za pomocą programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku przedstawiono sposób wdrażania aktualizacji bazy danych do pełnego bazy danych programu SQL Server. Ponieważ migracje Code First wykonuje całą pracę aktualizowania bazy danych, proces jest niemal identyczny jak dla programu SQL Server Compact w [wdrażanie aktualizacji bazy danych](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md) samouczka.
+W tym samouczku pokazano, jak wdrożyć aktualizację bazy danych w pełnej SQL Server bazie danych. Ponieważ Migracje Code First wykonuje wszystkie czynności związane z aktualizacją bazy danych, proces jest niemal identyczny z tym, co zostało zrobione SQL Server Compact w samouczku [wdrażanie aktualizacji bazy danych](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md) .
 
-Przypomnienie: Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, należy koniecznie sprawdzić [strona rozwiązywania problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
 
 ## <a name="adding-a-new-column-to-a-table"></a>Dodawanie nowej kolumny do tabeli
 
-W tej części samouczka wprowadzisz zmiany bazy danych i odpowiednich zmian w kodzie, Testuj je w programie Visual Studio w ramach przygotowania do wdrażania ich w środowiskach testowych i produkcyjnych. Zmiana obejmuje dodanie `OfficeHours` kolumny `Instructor` jednostki i wyświetlanie nowych informacji w **Instruktorzy** strony sieci web.
+W tej części samouczka wprowadzisz zmiany w bazie danych i odpowiednie zmiany w kodzie, a następnie przetestuj je w programie Visual Studio w celu wdrożenia ich w środowisku testowym i produkcyjnym. Zmiana obejmuje Dodawanie kolumny `OfficeHours` do jednostki `Instructor` i wyświetlanie nowych informacji na stronie sieci Web **instruktorów** .
 
-W projekcie ContosoUniversity.DAL Otwórz *Instructor.cs* i dodaj następującą właściwość między `HireDate` i `Courses` właściwości:
+W projekcie ContosoUniversity. DAL Otwórz *Instructor.cs* i Dodaj następującą właściwość między `HireDate` i `Courses` właściwości:
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample1.cs)]
 
-Klasa inicjatora należy zaktualizować tak, aby go inicjowania inicjuje nową kolumnę z danymi. Otwórz *Migrations\Configuration.cs* i Zastąp blok kodu, który rozpoczyna się `var instructors = new List<Instructor>` z poniższy blok kodu, który zawiera nową kolumnę:
+Zaktualizuj klasę inicjatora, aby umożliwić jej odsiewanie nowej kolumny przy użyciu danych testowych. Otwórz *Migrations\Configuration.cs* i Zastąp blok kodu, który rozpoczyna się `var instructors = new List<Instructor>` z następującym blokiem kodu, który zawiera nową kolumnę:
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample2.cs)]
 
-W projekcie ContosoUniversity Otwórz *Instructors.aspx* i dodać nowe pole szablonu dla godzin pracy zaraz przed zamknięciem `</Columns>` tagu w pierwszym `GridView` sterowania:
+W projekcie ContosoUniversity Otwórz *instruktors. aspx* i Dodaj nowe pole szablonu dla godzin pracy tuż przed tagiem zamykającym `</Columns>` w pierwszej kontrolce `GridView`:
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample3.aspx)]
 
 Skompiluj rozwiązanie.
 
-Otwórz **Konsola Menedżera pakietów** okna, a następnie wybierz opcję ContosoUniversity.DAL jako **projekt domyślny**.
+Otwórz okno **konsoli Menedżera pakietów** i wybierz pozycję CONTOSOUNIVERSITY. dal jako **Projekt domyślny**.
 
 Wprowadź następujące polecenia:
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample4.ps1)]
 
-Uruchom aplikację, a następnie wybierz **Instruktorzy** strony. Strona trwa nieco dłużej niż zwykle załadować, ponieważ platforma Entity Framework ponownie tworzy bazę danych i inicjowania inicjuje ją z danymi.
+Uruchom aplikację i wybierz stronę **Instruktorzy** . Ładowanie strony trwa nieco dłużej niż zwykle, ponieważ usługa Entity Framework ponownie tworzy bazę danych i wystawia ją z danymi testowymi.
 
 [![Instructors_page_with_office_hours](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image1.png)
 
-## <a name="deploying-the-database-update-to-the-test-environment"></a>Wdrażanie aktualizacji bazy danych do środowiska testowego
+## <a name="deploying-the-database-update-to-the-test-environment"></a>Wdrażanie aktualizacji bazy danych w środowisku testowym
 
-Możesz użyć migracje Code First, metodę wdrażania zmianę w bazie danych programu SQL Server jest takie same jak dla programu SQL Server Compact. Jednak trzeba zmienić testu profil publikowania, ponieważ jest nadal wybrana do migracji z programu SQL Server Compact do programu SQL Server.
+W przypadku korzystania z Migracje Code First Metoda wdrażania bazy danych zmiana na SQL Server jest taka sama jak w przypadku SQL Server Compact. Należy jednak zmienić profil publikowania testowego, ponieważ nadal jest on skonfigurowany do migracji z SQL Server Compact do SQL Server.
 
-Pierwszym krokiem jest do usunięcia przekształcenia ciągu połączenia, które zostały utworzone w poprzednim samouczku. Te nie są już potrzebne, ponieważ w profilu publikowania, należy podać przekształcenia parametry połączenia tak jak przed skonfigurowano **Pakuj/Publikuj SQL** kartę pod kątem migracji do programu SQL Server.
+Pierwszym krokiem jest usunięcie przekształceń parametrów połączenia utworzonych w poprzednim samouczku. Te nie są już potrzebne, ponieważ w profilu publikacji określisz przekształcenia parametrów połączenia, tak jak wcześniej przed skonfigurowaniem na karcie **pakiet/publikowanie danych SQL** na potrzeby migracji do SQL Server.
 
-Otwórz *Web.Test.config* pliku i usuwania `connectionStrings` elementu. Tylko transformacji pozostałe w *Web.Test.config* plik jest przeznaczony dla `Environment` wartość w `appSettings` elementu.
+Otwórz plik *Web. test. config* i usuń element `connectionStrings`. Jedyna pozostała transformacja w pliku *Web. test. config* dotyczy wartości `Environment` w elemencie `appSettings`.
 
-Teraz można zaktualizować profilu publikowania i Publikuj do środowiska testowego.
+Teraz można zaktualizować profil publikowania i opublikować go w środowisku testowym.
 
-Otwórz **publikowanie w sieci Web** kreatora, a następnie przejdź do **profilu** kartę.
+Otwórz kreatora **publikacji w sieci Web** , a następnie przejdź do karty **profil** .
 
-Wybierz **testu** profilu publikowania.
+Wybierz profil publikowania **testowego** .
 
-Wybierz **ustawienia** kartę.
+Wybierz kartę **Ustawienia** .
 
-Kliknij przycisk **Włącz nowe ulepszenia dotyczące publikowania bazy danych**.
+Kliknij pozycję **Włącz nowe ulepszenia publikowania bazy danych**.
 
-W polu ciągu połączenia dla **SchoolContext**, wprowadź tę samą wartość, która została użyta w *Web.Test.config* plik przekształcenia w poprzednim samouczku:
+W polu ciąg połączenia dla **SchoolContext**wprowadź tę samą wartość, która była używana w pliku transformacji *Web. test. config* w poprzednim samouczku:
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample5.cmd)]
 
-Wybierz **wykonaj migracje Code First (uruchomieniu aplikacji)**. (W używanej wersji programu Visual Studio może być oznaczony jako pole wyboru **zastosować migracje Code First**.)
+Wybierz pozycję **wykonaj migracje Code First (uruchamiaj przy uruchamianiu aplikacji)** . (W używanej wersji programu Visual Studio, pole wyboru może mieć etykietę **zastosuj migracje Code First**.)
 
-W polu ciągu połączenia dla **DefaultConnection**, wprowadź tę samą wartość, która została użyta w *Web.Test.config* plik przekształcenia w poprzednim samouczku:
+W polu ciąg połączenia dla **DefaultConnection**wprowadź tę samą wartość, która była używana w pliku transformacji *Web. test. config* w poprzednim samouczku:
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample6.cmd)]
 
-Pozostaw **Aktualizuj bazę danych** wyczyszczone.
+Pozostaw wyczyszczone **aktualizacje bazy danych** .
 
-Kliknij przycisk **publikowania**.
+Kliknij przycisk **Publikuj**.
 
-Visual Studio wdroży zmian kodu do środowiska testowego i otwiera przeglądarkę na stronę główną University firmy Contoso.
+Program Visual Studio wdraża zmiany kodu w środowisku testowym i otwiera przeglądarkę na stronie głównej firmy Contoso University.
 
 Wybierz stronę instruktorów.
 
-Gdy aplikacja zostanie uruchomiona na tej stronie, próbuje dostęp do bazy danych. Migracje Code First sprawdza, czy baza danych jest aktualny i znajduje się, że najnowsze migracji nie została zastosowana jeszcze. Migracje Code First dotyczy najnowszej migracji, uruchamia `Seed` metody, a następnie stronę działa normalnie. Zobaczysz nową kolumnę godzinami pracy z wprowadzonych danych.
+Gdy aplikacja uruchamia Tę stronę, próbuje uzyskać dostęp do bazy danych. Migracje Code First sprawdza, czy baza danych jest aktualna, i stwierdza, że nie zastosowano jeszcze najnowszej migracji. Migracje Code First stosuje najnowszą migrację, uruchamia metodę `Seed`, a następnie strona działa normalnie. Zostanie wyświetlona kolumna nowe godziny pracy z danymi z rozrzutu.
 
 [![Instructors_page_with_OfficeHours_Test](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image3.png)
 
-## <a name="deploying-the-database-update-to-the-production-environment"></a>Wdrażanie aktualizacji bazy danych do środowiska produkcyjnego
+## <a name="deploying-the-database-update-to-the-production-environment"></a>Wdrażanie aktualizacji bazy danych w środowisku produkcyjnym
 
-Należy również zmienić profil publikowania dla środowiska produkcyjnego. W tym przypadku będzie Usuń istniejący profil i Utwórz nową, importując plik .publishsettings zaktualizowane. Zaktualizowany plik będzie zawierać parametry połączenia dla bazy danych programu SQL Server w Cytanium.
+Należy również zmienić profil publikowania dla środowiska produkcyjnego. W takim przypadku należy usunąć istniejący profil i utworzyć nowy, importując zaktualizowany plik. publishsettings. Zaktualizowany plik będzie zawierać parametry połączenia dla bazy danych SQL Server w Cytanium.
 
-Jak podczas wdrażania do środowiska testowego, nie potrzebujesz już przekształcenia parametrów połączenia w *Web.Production.config* plik przekształcenia. Otwarcie tego pliku, a następnie usuń `connectionStrings` elementu. Pozostałe przekształcenia są dla `Environment` wartość w `appSettings` elementu i `location` element, który ogranicza dostęp do raportów o błędach Elmah.
+Podczas wdrażania w środowisku testowym nie są już potrzebne transformacje parametrów połączenia w pliku transformacji *Web. Production. config* . Otwórz ten plik i Usuń element `connectionStrings`. Pozostałe przekształcenia dotyczą wartości `Environment` w elemencie `appSettings` i elementu `location`, który ogranicza dostęp do raportów o błędach ELMAH.
 
-Przed utworzeniem nowego profilu publikowania w środowisku produkcyjnym należy pobrać plik .publishsettings zaktualizowane tak samo jak wcześniej w [wdrażanie w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) samouczka. (W Panelu sterowania Cytanium kliknij **witryn sieci Web**, a następnie kliknij przycisk **contosouniversity.com** witryny sieci Web. Wybierz **publikowania w sieci Web** kartę, a następnie kliknij przycisk **Pobierz profil publikowania dla tej witryny sieci web**.) Powodów, dla którego to robią to aby pobrać parametry połączenia bazy danych w pliku .publishsettings. Parametry połączenia nie była dostępna został pobrany plik, ponieważ był używany program SQL Server Compact i nie zostało jeszcze utworzone bazy danych programu SQL Server w Cytanium po raz pierwszy.
+Przed utworzeniem nowego profilu publikowania dla środowiska produkcyjnego Pobierz zaktualizowany plik. publishsettings w taki sam sposób jak wcześniej w samouczku [wdrażanie w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) . (W panelu sterowania Cytanium kliknij pozycję **witryny sieci Web**, a następnie kliknij witrynę internetową **contosouniversity.com** . Wybierz kartę **Publikowanie w sieci Web** , a następnie kliknij pozycję **Pobierz profil publikowania dla tej witryny sieci Web**. Przyczyną tego problemu jest pobranie parametrów połączenia bazy danych w pliku. publishsettings. Parametry połączenia nie były dostępne przy pierwszym pobraniu pliku, ponieważ nadal używasz SQL Server Compact i nie utworzyć SQL Server bazę danych w Cytanium.
 
-Teraz można zaktualizować profilu publikowania i Publikuj do środowiska produkcyjnego.
+Teraz można zaktualizować profil publikowania i opublikować go w środowisku produkcyjnym.
 
-Otwórz **publikowanie w sieci Web** kreatora, a następnie przejdź do **profilu** kartę.
+Otwórz kreatora **publikacji w sieci Web** , a następnie przejdź do karty **profil** .
 
-Kliknij przycisk **spravovat profily**, a następnie usuń profil produkcji.
+Kliknij pozycję **Zarządzaj profilami**, a następnie Usuń profil produkcyjny.
 
-Zamknij **publikowanie w sieci Web** kreatora, aby zapisać tę zmianę.
+Zamknij kreatora **publikacji w sieci Web** , aby zapisać tę zmianę.
 
-Otwórz **publikowanie w sieci Web** kreatora ponownie, a następnie kliknij przycisk **importu**.
+Otwórz ponownie kreatora **publikacji sieci Web** , a następnie kliknij przycisk **Importuj**.
 
-Na **połączenia** kartę, zmień **docelowy adres URL** odpowiednią wartość, korzystając z tymczasowego adresu URL.
+Na karcie **połączenie** Zmień **docelowy adres URL** na odpowiednią wartość, jeśli używasz tymczasowego adresu URL.
 
 Kliknij przycisk **Dalej**.
 
-Na **ustawienia** kliknij pozycję **Włącz nowe ulepszenia dotyczące publikowania bazy danych**.
+Na karcie **Ustawienia** kliknij pozycję **Włącz nowe ulepszenia publikowania bazy danych**.
 
-Na liście rozwijanej ciąg połączenia dla **SchoolContext**, wybierz Cytanium parametry połączenia.
+Z listy rozwijanej parametry połączenia dla **SchoolContext**Wybierz parametry połączenia Cytanium.
 
 ![Selecting_Cytanium_connection_string](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image5.png)
 
-Wybierz **migracje wykonania Code First (uruchomieniu aplikacji)**.
+Wybierz pozycję **Wykonaj migracje Code First (działa przy uruchamianiu aplikacji)** .
 
-Na liście rozwijanej ciąg połączenia dla **DefaultConnection**, wybierz Cytanium parametry połączenia.
+Z listy rozwijanej parametry połączenia dla **DefaultConnection**Wybierz parametry połączenia Cytanium.
 
-Wybierz **profilu** kliknij pozycję **spravovat profily**i Zmień nazwę profilu z "contosouniversity.com — narzędzie Web Deploy" na "Produkcyjne".
+Wybierz kartę **profil** , kliknij pozycję **Zarządzaj**profilami, a następnie zmień nazwę profilu z "contosouniversity.com Web Deploy" na "produkcja".
 
-Zamknij profil publikowania, aby zapisać wprowadzone zmiany, a następnie otwórz go ponownie.
+Zamknij profil publikowania, aby zapisać zmiany, a następnie otwórz je ponownie.
 
-Kliknij przycisk **publikowania**. (Rzeczywistej produkcji witryny sieci Web może spowodować skopiowanie *aplikacji\_offline.htm* do produkcji i umieść go w folderze projektu przed opublikowaniem, następnie usunięcia go po zakończeniu wdrożenia.)
+Kliknij przycisk **Publikuj**. (W przypadku rzeczywistej produkcyjnej witryny sieci Web należy skopiować *aplikację\_offline. htm* do środowiska produkcyjnego i umieścić ją w folderze projektu przed opublikowaniem, a następnie usunąć ją po zakończeniu wdrażania.)
 
-Visual Studio wdroży zmian kodu do środowiska testowego i otwiera przeglądarkę na stronę główną University firmy Contoso.
+Program Visual Studio wdraża zmiany kodu w środowisku testowym i otwiera przeglądarkę na stronie głównej firmy Contoso University.
 
 Wybierz stronę instruktorów.
 
-Migracje Code First aktualizuje bazę danych w taki sam sposób jak w środowisku testowym. Zobaczysz nową kolumnę godzinami pracy z wprowadzonych danych.
+Migracje Code First aktualizuje bazę danych w taki sam sposób jak w środowisku testowym. Zostanie wyświetlona kolumna nowe godziny pracy z danymi z rozrzutu.
 
 ![Instructors_page_with_OfficeHours_Prod](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image6.png)
 
-Teraz pomyślnie wdrożono aktualizację aplikacji, która obejmuje zmianę bazy danych przy użyciu bazy danych programu SQL Server.
+Pomyślnie wdrożono aktualizację aplikacji, która obejmowała zmianę bazy danych, przy użyciu bazy danych SQL Server.
 
 ## <a name="more-information"></a>Więcej informacji
 
-Na tym kończy się w tej serii samouczków na temat wdrażania aplikacji sieci web ASP.NET u dostawcy hostingu innych firm. Aby uzyskać więcej informacji na temat dowolny z tematów omówione w tych samouczkach zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) w witrynie MSDN.
+Ta seria samouczków dotyczy wdrażania aplikacji sieci Web ASP.NET w ramach dostawcy hostingu innej firmy. Aby uzyskać więcej informacji na temat tematów omówionych w tych samouczkach, zobacz [mapę zawartości wdrożenia ASP.NET](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) w witrynie MSDN w sieci Web.
 
-## <a name="acknowledgements"></a>Potwierdzanie
+## <a name="acknowledgements"></a>Podziękowania
 
-Chcę otrzymywać podziękować następujących osób, które istotny wkład w zawartości w tej serii samouczków:
+Chcę podziękowanie następujące osoby, które złożyły znaczące wkłady w zawartość tej serii samouczków:
 
 - [Alberto Poblacion, MVP &amp; MCT, Hiszpania](https://mvp.support.microsoft.com/profile/Alberto)
-- Jarod Ferguson, programowanie na platformie danych MVP, Stany Zjednoczone
-- Ostrym Mittal, Microsoft
+- Jarod Ferguson, SPECJALISTa ds. projektowania platformy danych, Stany Zjednoczone
+- Harsh Mittal, Microsoft
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
-- [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
+- [Jan Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft
 - [Raffaele Rialdi, Włochy](http://www.iamraf.net/)
-- [Rick Anderson firmy Microsoft](https://blogs.msdn.com/b/rickandy/)
-- [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
-- [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
-- [Scott Hunter, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
+- [Rick Anderson, Microsoft](https://blogs.msdn.com/b/rickandy/)
+- [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [@sayedihashimi](http://twitter.com/sayedihashimi))
+- [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [@shanselman](http://twitter.com/shanselman))
+- [Scott myśliwy, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [@coolcsh](http://twitter.com/coolcsh))
 - [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
-- [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
+- [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [@vishalrjoshi](http://twitter.com/vishalrjoshi))
 
 > [!div class="step-by-step"]
 > [Poprzednie](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)

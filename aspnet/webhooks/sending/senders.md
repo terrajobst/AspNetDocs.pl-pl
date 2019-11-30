@@ -1,18 +1,18 @@
 ---
 uid: webhooks/senders
-title: Elementy Webhook ASP.NET nadawców | Dokumentacja firmy Microsoft
+title: Nadawcy elementów webhook ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Nadawców elementów Webhook programu ASP.NET
+description: Nadawcy elementów webhook ASP.NET
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 33001ae2-8e1b-4807-8b02-16c7fd8ad38d
-ms.openlocfilehash: 08f155aa0d01d875b6011908fa5683a75c136c70
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: f5253a30024ae509221f0b5270d5bad74a214701
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57074858"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74569784"
 ---
-# <a name="aspnet-webhook-senders"></a>Nadawców elementu WebHook platformy ASP.NET
+# <a name="aspnet-webhook-senders"></a>ASP.NET nadawcy elementu webhook
 
-Zobacz w blogu [wysyłania elementów Webhook z elementów Webhook programu ASP.NET w wersji zapoznawczej](http://blogs.msdn.com/b/webdev/archive/2015/09/15/sending-webhooks-with-asp-net-webhooks-preview.aspx) Aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz blog [wysyłanie elementów webhook z programem ASP.NET webhooks Preview](https://blogs.msdn.com/b/webdev/archive/2015/09/15/sending-webhooks-with-asp-net-webhooks-preview.aspx) .

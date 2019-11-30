@@ -1,138 +1,138 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
-title: Dodawanie kolumny pól wyboru (VB) do kontrolki GridView | Dokumentacja firmy Microsoft
+title: Dodawanie kolumny elementu Checkboxs w widoku GridView (VB) | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku pokazano, jak można dodać kolumny pól wyboru do kontrolki GridView, aby przyznać użytkownikowi intuicyjny sposób wybierania wielu wierszy G....
+description: W tym samouczku pokazano, jak dodać kolumnę pól wyboru do kontrolki GridView, aby zapewnić użytkownikowi intuicyjny sposób wybierania wielu wierszy w G...
 ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 39253d05-75c0-41c7-b9d4-a6c58ecf69ce
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc16464ab02b9ea5ef329c58bdf51c26d8d1eec9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c620b2eac5844d4030c1309b45e7d6a72d1f386a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108202"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592428"
 ---
 # <a name="adding-a-gridview-column-of-checkboxes-vb"></a>Dodawanie kolumny pól wyboru do kontrolki GridView (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_52_VB.exe) lub [Pobierz plik PDF](adding-a-gridview-column-of-checkboxes-vb/_static/datatutorial52vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_52_VB.exe) lub [Pobierz plik PDF](adding-a-gridview-column-of-checkboxes-vb/_static/datatutorial52vb1.pdf)
 
-> W tym samouczku pokazano, jak można dodać kolumny pól wyboru do kontrolki widoku siatki, aby przyznać użytkownikowi intuicyjny sposób wybierania wielu wierszy GridView.
+> W tym samouczku pokazano, jak dodać kolumnę pól wyboru do kontrolki GridView, aby zapewnić użytkownikowi intuicyjny sposób wybierania wielu wierszy widoku GridView.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W poprzednim samouczku zbadaliśmy sposób dodawania kolumny przycisków radiowych do kontrolki GridView na potrzeby wybranie określonego rekordu. Kolumny przycisków radiowych jest odpowiedni interfejs, gdy użytkownik jest ograniczona do wybierania co najwyżej jeden element z siatki. Czasami jednak warto umożliwić użytkownikowi wybrać dowolną liczbę elementów z siatki. Oparte na sieci Web klientów poczty e-mail, na przykład zazwyczaj wyświetlić listę komunikatów z kolumny pól wyboru. Użytkownik może wybrać dowolną liczbę komunikatów, a następnie wykonaj pewne akcje, takie jak przenoszenie wiadomości e-mail do innego folderu lub usuwając je.
+W poprzednim samouczku sprawdziłem, jak dodać kolumnę przycisków radiowych do widoku GridView na potrzeby wyboru określonego rekordu. Kolumna przycisków radiowych jest odpowiednim interfejsem użytkownika, gdy użytkownik jest ograniczony do wybierania maksymalnie jednego elementu z siatki. Czasami jednak może chcieć zezwolić użytkownikowi na wybranie dowolnej liczby elementów z siatki. Klienci poczty e-mail opartej na sieci Web, na przykład, zazwyczaj wyświetlają listę komunikatów z kolumną pól wyboru. Użytkownik może wybrać dowolną liczbę komunikatów, a następnie wykonać pewne czynności, takie jak przeniesienie wiadomości e-mail do innego folderu lub usunięcie.
 
-W tym samouczku zobaczymy, jak dodawanie kolumny pól wyboru i jak określić, jakie pola wyboru zostały sprawdzone na zwrot. W szczególności utworzymy przykładowi, który ścisłe naśladowanie interfejsu użytkownika klienta e-mail opartego na sieci web. Naszym przykładzie będzie zawierać stronicowane GridView zawierającą listę produktów w `Products` tabeli bazy danych za pomocą pola wyboru w każdym wierszu (patrz rysunek 1). Usuń wybrane produkty po kliknięciu przycisku, spowoduje to usunięcie tych produktów, wybrane.
+W tym samouczku dowiesz się, jak dodać kolumnę pól wyboru i jak określić, które pola wyboru zostały sprawdzone na serwerze ogłaszania zwrotnego. W szczególności utworzymy przykład, który ściśle naśladuje interfejs użytkownika klienta poczty e-mail w sieci Web. Nasz przykład zawiera widok z stronicowaną stroną zawierającą produkty w `Products` tabeli bazy danych z CheckBox w każdym wierszu (patrz rysunek 1). Przycisk Usuń wybrane produkty, gdy zostanie kliknięty, spowoduje usunięcie wybranych produktów.
 
-[![Każdy wiersz produktu zawiera pola wyboru](adding-a-gridview-column-of-checkboxes-vb/_static/image1.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image1.png)
+[![każdy wiersz produktu zawiera pole wyboru](adding-a-gridview-column-of-checkboxes-vb/_static/image1.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image1.png)
 
-**Rysunek 1**: Każdy wiersz produktu zawiera pola wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image2.png))
+**Rysunek 1**. Każdy wiersz produktu zawiera pole wyboru ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image2.png))
 
-## <a name="step-1-adding-a-paged-gridview-that-lists-product-information"></a>Krok 1. Dodawanie GridView stronicowane, zawierającego informacje o produkcie
+## <a name="step-1-adding-a-paged-gridview-that-lists-product-information"></a>Krok 1. Dodawanie stronicowanego elementu GridView zawierającego listę informacji o produkcie
 
-Zanim będziemy zajmować Dodawanie kolumny pól wyboru, chętnie s pierwszy skupić się na wyświetlanie listy produktów w widoku GridView, która obsługuje stronicowanie. Zacznij od otwarcia `CheckBoxField.aspx` strony w `EnhancedGridView` folder i przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` do `Products`. Następnie wybierz powiązać widoku GridView nowe kontrolki ObjectDataSource, o nazwie `ProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `ProductsBLL` klasy wywoływania `GetProducts()` metodę, aby zwrócić dane. Ponieważ tego widoku GridView będzie tylko do odczytu, ustawić list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak).
+Przed zajęciem dalszych informacji o dodawaniu kolumny pól wyboru poczekaj, aż zamienisz produkty w GridView, który obsługuje stronicowanie. Zacznij od otwarcia strony `CheckBoxField.aspx` w folderze `EnhancedGridView` i przeciągnij widok GridView z przybornika do projektanta, ustawiając jego `ID` na `Products`. Następnie wybierz opcję powiązania widoku GridView z nowym elementem ObjectDataSource o nazwie `ProductsDataSource`. Skonfiguruj element ObjectDataSource, aby używał klasy `ProductsBLL`, wywołując metodę `GetProducts()` w celu zwrócenia danych. Ponieważ ten element GridView będzie tylko do odczytu, Ustaw listę rozwijaną na kartach UPDATE, INSERT i DELETE na wartość (brak).
 
-[![Tworzenie nowego elementu ObjectDataSource, o nazwie ProductsDataSource](adding-a-gridview-column-of-checkboxes-vb/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image3.png)
+[![utworzyć nowego elementu ObjectDataSource o nazwie ProductsDataSource](adding-a-gridview-column-of-checkboxes-vb/_static/image2.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image3.png)
 
-**Rysunek 2**: Utwórz nowy o nazwie elementu ObjectDataSource `ProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image4.png))
+**Rysunek 2**. Utwórz nowy element ObjectDataSource o nazwie `ProductsDataSource` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image4.png))
 
-[![Konfigurowanie kontrolki ObjectDataSource do pobierania danych przy użyciu metody GetProducts()](adding-a-gridview-column-of-checkboxes-vb/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image5.png)
+[![skonfigurować element ObjectDataSource do pobierania danych za pomocą metody getproductss ()](adding-a-gridview-column-of-checkboxes-vb/_static/image3.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image5.png)
 
-**Rysunek 3**: Konfigurowanie kontrolki ObjectDataSource pobierania danych przy użyciu `GetProducts()` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image6.png))
+**Rysunek 3**. Konfigurowanie elementu ObjectDataSource do pobierania danych przy użyciu metody `GetProducts()` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image6.png))
 
-[![Ustaw list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak)](adding-a-gridview-column-of-checkboxes-vb/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image7.png)
+[![ustawić listy rozwijane na kartach Aktualizuj, Wstaw i Usuń do (brak).](adding-a-gridview-column-of-checkboxes-vb/_static/image4.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image7.png)
 
-**Rysunek 4**: Ustaw listy rozwijane w aktualizacji, WSTAWIANIA i usuwania karty (Brak) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image8.png))
+**Rysunek 4**. Ustawianie list rozwijanych w kartach Aktualizuj, Wstaw i Usuń do (brak) ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image8.png))
 
-Po zakończeniu pracy kreatora Konfigurowanie źródła danych, program Visual Studio automatycznie utworzy BoundColumns i CheckBoxColumn dla pól danych dotyczących produktu. Jak Przeprowadziliśmy w poprzednim samouczku, Usuń wszystkie elementy oprócz `ProductName`, `CategoryName`, i `UnitPrice` BoundFields i zmień `HeaderText` właściwości, aby produkt, kategoria i ceny. Konfigurowanie `UnitPrice` elementu BoundField tak, aby jego wartość jest formatowana jako walutę. Również skonfigurować GridView do obsługi stronicowania, zaznaczając pole wyboru Włącz stronicowania z tagu inteligentnego.
+Po zakończeniu działania Kreatora konfiguracji źródła danych program Visual Studio automatycznie utworzy elementy BoundColumn i CheckBoxColumn dla pól danych związanych z produktem. Podobnie jak w poprzednim samouczku, Usuń wszystkie oprócz `ProductName`, `CategoryName`i `UnitPrice` BoundFields, a następnie zmień właściwości `HeaderText` na Product, Category i Price. Skonfiguruj `UnitPrice` BoundField tak, aby jego wartość była sformatowana jako waluta. Ponadto skonfiguruj widok GridView, aby obsługiwał stronicowanie, zaznaczając pole wyboru Włącz stronicowanie z tagu inteligentnego.
 
-Pozwól s również dodać interfejsu użytkownika dla usuwania wybranych produktów. Dodawanie kontrolki przycisku w sieci Web pod GridView, ustawiając jego `ID` do `DeleteSelectedProducts` i jego `Text` właściwość, aby usunąć wybrane produkty. Zamiast faktycznego usuwania produktów z bazy danych, w tym przykładzie firma Microsoft będzie po prostu wyświetlony komunikat informujący o produktów, które będą usunięte. Aby to umożliwić, należy dodać formant etykiety w sieci Web, poniżej przycisku. Ustawić jej identyfikator na `DeleteResults`, wyczyść się jego `Text` właściwości, a następnie ustaw jego `Visible` i `EnableViewState` właściwości `False`.
+Zezwól również na dodanie interfejsu użytkownika do usuwania wybranych produktów. Dodaj kontrolkę sieci Web przycisku poniżej widoku GridView, ustawiając jej `ID` na `DeleteSelectedProducts` i jej Właściwość `Text`, aby usunąć wybrane produkty. Zamiast usuwać produkty z bazy danych, w tym przykładzie po prostu zostanie wyświetlony komunikat z informacją o produktach, które zostałyby usunięte. Aby to umożliwić, Dodaj kontrolkę sieci Web etykieta pod przyciskiem. Ustaw jej identyfikator na `DeleteResults`, wyczyść Właściwość `Text` i ustaw jej właściwości `Visible` i `EnableViewState` na `False`.
 
-Po wprowadzeniu tych zmian, GridView, ObjectDataSource, przycisk i etykietę s oznaczeniu deklaracyjnym powinien podobny do następującego:
+Po wprowadzeniu tych zmian znaczniki deklaratywne, ObjectDataSource, Button i Label s powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample1.aspx)]
 
-Poświęć chwilę, aby wyświetlić stronę w przeglądarce (zobacz rysunek 5). W tym momencie powinien zostać wyświetlony, nazwa, kategoria i ceny produktów pierwszych dziesięciu.
+Poświęć chwilę na wyświetlenie strony w przeglądarce (patrz rysunek 5). W tym momencie powinna zostać wyświetlona nazwa, Kategoria i cena pierwszych dziesięciu produktów.
 
-[![Nazwa, kategoria i ceny produktów pierwsze dziesięć są wyświetlane.](adding-a-gridview-column-of-checkboxes-vb/_static/image5.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image9.png)
+[![nazwa, Kategoria i cena pierwszych dziesięciu produktów znajduje się na liście](adding-a-gridview-column-of-checkboxes-vb/_static/image5.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image9.png)
 
-**Rysunek 5**: Są wyświetlane nazwy, kategorii i ceny produktów pierwsze dziesięć ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image10.png))
+**Rysunek 5**: nazwa, Kategoria i cena pierwszych dziesięciu produktów są wymienione na liście ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image10.png))
 
 ## <a name="step-2-adding-a-column-of-checkboxes"></a>Krok 2. Dodawanie kolumny pól wyboru
 
-Ponieważ ASP.NET 2.0 obejmuje CheckBoxField, jeden wydaje się, może służyć do dodawania kolumny pól wyboru w kontrolce GridView. Niestety, który nie jest tak, ponieważ CheckBoxField jest przeznaczona do pracy z polem danych logicznych. Oznacza to aby można było używać CheckBoxField możemy określić podstawowej pola danych, którego wartość konsultacji w celu określenia, czy renderowanych pole wyboru jest zaznaczone. Firma Microsoft nie można użyć CheckBoxField po prostu dołączyć kolumnę nie zaznaczone pola wyboru.
+Ponieważ ASP.NET 2,0 zawiera CheckBoxField, może to oznaczać, że można go użyć do dodania kolumny pól wyboru do widoku GridView. Niestety, nie jest to przypadek, ponieważ CheckBoxField jest przeznaczony do pracy z polem danych wartości logicznych. Oznacza to, że w celu użycia CheckBoxField musimy określić bazowe pole danych, którego wartość jest konsultowana, aby określić, czy renderowane pole wyboru jest zaznaczone. Nie można użyć CheckBoxField do dołączenia kolumny niezaznaczonych pól wyboru.
 
-Zamiast tego, możemy dodać TemplateField i dodać kontrolkę pola wyboru w sieci Web do jej `ItemTemplate`. Przejdź dalej i Dodaj TemplateField do `Products` GridView, co pierwsze pole (lewej). Za pomocą tagu inteligentnego s GridView kliknij link Edytuj szablony, a następnie przeciągnij formant pola wyboru w sieci Web z przybornika do `ItemTemplate`. Ustaw to pole wyboru s `ID` właściwość `ProductSelector`.
+Zamiast tego należy dodać TemplateField i dodać kontrolkę sieci Web CheckBox do `ItemTemplate`. Przejdź dalej i Dodaj TemplateField do `Products` GridView i wprowadź pierwsze (daleko do lewej) pole. W tagu inteligentnym GridView kliknij link Edytuj szablony, a następnie przeciągnij formant sieci Web CheckBox z przybornika do `ItemTemplate`. Ustaw tę właściwość `ID` CheckBox na `ProductSelector`.
 
-[![Dodaj kontrolkę pola wyboru w sieci Web o nazwie ProductSelector do właściwości ItemTemplate TemplateField s](adding-a-gridview-column-of-checkboxes-vb/_static/image6.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image11.png)
+[![dodać kontrolkę sieci Web CheckBox o nazwie ProductSelector do TemplateField s ItemTemplate](adding-a-gridview-column-of-checkboxes-vb/_static/image6.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image11.png)
 
-**Rysunek 6**: Dodaj nazwę formantu sieci Web zaznacz pole wyboru `ProductSelector` s TemplateField `ItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image12.png))
+**Ilustracja 6**. Dodawanie kontrolki sieci Web CheckBox o nazwie `ProductSelector` do `ItemTemplate` TemplateField ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image12.png))
 
-Za pomocą kontrolki TemplateField i zaznacz pole wyboru w sieci Web dodany każdy wiersz zawiera teraz pola wyboru. Rysunek nr 7 przedstawia tę stronę, podczas wyświetlania za pośrednictwem przeglądarki, po dodaniu TemplateField i pól wyboru.
+Po dodaniu kontrolki sieci Web TemplateField i CheckBox każdy wiersz zawiera teraz pole wyboru. Rysunek 7 przedstawia Tę stronę, gdy jest wyświetlany za pomocą przeglądarki, po dodaniu pola wyboru TemplateField i.
 
-[![Każdy wiersz produktu zawiera teraz pola wyboru](adding-a-gridview-column-of-checkboxes-vb/_static/image7.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image13.png)
+[![każdy wiersz produktu zawiera teraz pole wyboru](adding-a-gridview-column-of-checkboxes-vb/_static/image7.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image13.png)
 
-**Rysunek 7**: Każdy wiersz produktu zawiera teraz pola wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image14.png))
+**Rysunek 7**: każdy wiersz produktu zawiera teraz pole wyboru ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image14.png))
 
-## <a name="step-3-determining-what-checkboxes-were-checked-on-postback"></a>Krok 3. Określenie, jakie pola wyboru zostały sprawdzone na odświeżenie strony
+## <a name="step-3-determining-what-checkboxes-were-checked-on-postback"></a>Krok 3. Określanie, które pola wyboru zostały sprawdzone na ogłaszaniu zwrotnym
 
-W tym momencie mamy kolumny pól wyboru, ale nie sposobem ustalenia, jakie pola wyboru zostały sprawdzone na zwrot. Po kliknięciu przycisku Usuń wybrane produkty, musimy wiedzieć, jakie pola wyboru zostały zaewidencjonowane w celu usunięcia tych produktów.
+W tym momencie mamy kolumnę pól wyboru, ale nie chcesz określać, które pola wyboru zostały sprawdzone w odniesieniu do ogłaszania zwrotnego. Po kliknięciu przycisku Usuń wybrane produkty należy wiedzieć, jakie pola wyboru zostały zaznaczone, aby usunąć te produkty.
 
-GridView s [ `Rows` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) zapewnia dostęp do wierszy danych w widoku GridView. Firma Microsoft może wykonać iterację te wiersze programowego dostępu do kontrolki pola wyboru, a następnie zapoznaj się z jego `Checked` właściwości w celu określenia, czy pole wyboru zostało zaznaczone.
+Właściwość GridView s [`Rows`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) zapewnia dostęp do wierszy danych w widoku GridView. Możemy wykonać iterację tych wierszy, programowo uzyskać dostęp do kontrolki CheckBox, a następnie zajrzeć do jej właściwości `Checked`, aby określić, czy pole wyboru zostało zaznaczone.
 
-Utwórz procedurę obsługi zdarzeń dla `DeleteSelectedProducts` formant przycisku w sieci Web s `Click` zdarzeń i Dodaj następujący kod:
+Utwórz procedurę obsługi zdarzeń dla `DeleteSelectedProducts` przycisku `Click` kontrolki sieci Web, a następnie Dodaj następujący kod:
 
 [!code-vb[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample2.vb)]
 
-`Rows` Właściwość zwraca kolekcję `GridViewRow` wystąpień tego korzeń wiersze danych s GridView. `For Each` Pętli tutaj wylicza tej kolekcji. Dla każdego `GridViewRow` obiektu wiersz s pole wyboru jest programowo uzyskać dostęp przy użyciu `row.FindControl("controlID")`. Jeśli pole wyboru jest zaznaczone, odpowiedni wiersz s `ProductID` wartość jest pobierana z `DataKeys` kolekcji. W tym ćwiczeniu możemy po prostu wyświetlić komunikat informacyjny w `DeleteResults` etykiety, mimo że w działającej aplikacji możemy d zamiast wywoływania `ProductsBLL` klasy s `DeleteProduct(productID)` metody.
+Właściwość `Rows` zwraca kolekcję wystąpień `GridViewRow`, które korzeń wiersze danych GridView. W tym miejscu `For Each` pętla wylicza tę kolekcję. Dla każdego obiektu `GridViewRow` pole wyboru wiersza s jest dostępne programowo przy użyciu `row.FindControl("controlID")`. Jeśli pole wyboru jest zaznaczone, wiersz s odpowiadający wartości `ProductID` jest pobierany z kolekcji `DataKeys`. W tym ćwiczeniu po prostu wyświetlamy komunikat informacyjny w etykiecie `DeleteResults`, chociaż w działającej aplikacji My d zamiast tego nastąpi wywołanie metody `DeleteProduct(productID)` `ProductsBLL` klasy s.
 
-Wyświetla teraz kliknięcie przycisku Usuń wybrane produkty dodając ten program obsługi zdarzeń `ProductID` s wybranych produktów.
+Po dodaniu tego programu obsługi zdarzeń kliknięcie przycisku Usuń wybrane produkty spowoduje wyświetlenie `ProductID` s wybranych produktów.
 
-[![Po kliknięciu przycisku Usuń produktów wybrane ProductIDs wybrane produkty są wyświetlane](adding-a-gridview-column-of-checkboxes-vb/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image15.png)
+[![po kliknięciu przycisku Usuń wybrane produkty zostaną wyświetlone wybrane produkty ProductID](adding-a-gridview-column-of-checkboxes-vb/_static/image8.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image15.png)
 
-**Rysunek 8**: Po kliknięciu przycisku Usuń produkty wybrane produkty wybrane `ProductID` należą s ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image16.png))
+**Ilustracja 8**. po kliknięciu przycisku Usuń wybrane produkty na liście zostaną wyświetlone wybrane produkty `ProductID` s ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image16.png))
 
-## <a name="step-4-adding-check-all-and-uncheck-all-buttons"></a>Krok 4. Dodawanie Zaznacz wszystko i usuń zaznaczenie wszystkich przycisków
+## <a name="step-4-adding-check-all-and-uncheck-all-buttons"></a>Krok 4. dodanie opcji Zaznacz wszystko i usuń zaznaczenie wszystkich przycisków
 
-Jeśli użytkownik chce, aby usunąć wszystkie produkty na bieżącej stronie, musisz sprawdzić każdy dziesięć pola wyboru. Możemy pomóc przyspieszyć ten proces, dodając wszystkie zaznacz przycisk, który, po kliknięciu zaznaczenie wszystkich pól wyboru w siatce. Usuń zaznaczenie wszystkich przycisk będzie równie przydatne.
+Jeśli użytkownik chce usunąć wszystkie produkty na bieżącej stronie, musi zaznaczyć każdy z dziesięciu pól wyboru. Możemy pomóc przyspieszyć ten proces, dodając przycisk Zaznacz wszystko, który po kliknięciu zaznacza wszystkie pola wyboru w siatce. Przycisk Usuń wszystko jest równie przydatny.
 
-Dodaj dwie kontrolki przycisku w sieci Web do strony, umieszczając je powyżej widoku GridView. Ustaw najpierw jeden s `ID` do `CheckAll` i jego `Text` właściwość, aby sprawdzić wszystkie; Ustaw drugi jeden s `ID` do `UncheckAll` i jego `Text` Usuń zaznaczenie wszystkich właściwości.
+Dodaj dwa kontrolki sieci Web Button do strony, umieszczając je nad GridView. Ustaw `ID` pierwszej `CheckAll` i Właściwość `Text` do sprawdzenia wszystkich; Ustaw drugą `ID` s `UncheckAll` i jej Właściwość `Text`, aby usunąć zaznaczenie wszystkiego.
 
 [!code-aspx[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample3.aspx)]
 
-Następnie należy utworzyć metodę w klasie CodeBehind o nazwie `ToggleCheckState(checkState)` , po wywołaniu, wylicza `Products` GridView s `Rows` kolekcji i ustawia s każdego pola wyboru `Checked` właściwości do wartości przekazanych w *wartość checkState*  parametru.
+Następnie Utwórz metodę w klasie związanej z kodem o nazwie `ToggleCheckState(checkState)`, która po wywołaniu powoduje Wyliczenie `Products` widoku GridView `Rows` i ustawia każdą właściwość CheckBox s `Checked` na wartość przekazaną w parametrze *wartość CheckState zaznaczonego* .
 
 [!code-vb[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample4.vb)]
 
-Następnie należy utworzyć `Click` programy obsługi zdarzeń dla `CheckAll` i `UncheckAll` przycisków. W `CheckAll` s programu obsługi zdarzeń po prostu wywołanie `ToggleCheckState(True)`; w `UncheckAll`, wywołaj `ToggleCheckState(False)`.
+Następnie utwórz obsługę zdarzeń `Click` dla przycisków `CheckAll` i `UncheckAll`. W programie obsługi zdarzeń `CheckAll` s po prostu wywołaj `ToggleCheckState(True)`; w `UncheckAll`Wywołaj `ToggleCheckState(False)`.
 
 [!code-vb[Main](adding-a-gridview-column-of-checkboxes-vb/samples/sample5.vb)]
 
-Przy użyciu tego kodu klikając przycisk Zaznacz wszystko powoduje odświeżenie strony i sprawdza wszystkie pola wyboru w widoku GridView. Podobnie klikając polecenie Usuń zaznaczenie wszystkich usuwa wszystkie pola wyboru. Po sprawdzeniu przycisk Sprawdź wszystkie rysunku nr 9 przedstawiono ekranu.
+Po wybraniu tego kodu po kliknięciu przycisku Zaznacz wszystko powoduje ogłoszenie zwrotne i sprawdza wszystkie pola wyboru w widoku GridView. Analogicznie, kliknięcie pozycji Usuń wszystkie powoduje usunięcie zaznaczenia wszystkich pól wyboru. Rysunek 9 przedstawia ekran po sprawdzeniu, czy przycisk Sprawdź wszystko zostało zaznaczone.
 
-[![Kliknięcie test, który przycisk wszystkich spowoduje zaznaczenie wszystkich pól wyboru](adding-a-gridview-column-of-checkboxes-vb/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image17.png)
+[![kliknięcie przycisku Zaznacz wszystko powoduje zaznaczenie wszystkich pól wyboru](adding-a-gridview-column-of-checkboxes-vb/_static/image9.gif)](adding-a-gridview-column-of-checkboxes-vb/_static/image17.png)
 
-**Rysunek 9**: Kliknięcie przycisku Sprawdź wszystkie przycisk wybiera wszystkie pola wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image18.png))
+**Ilustracja 9**. kliknięcie przycisku Zaznacz wszystko powoduje zaznaczenie wszystkich pól wyboru ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-a-gridview-column-of-checkboxes-vb/_static/image18.png))
 
 > [!NOTE]
-> Podczas wyświetlania kolumny pól wyboru, jednym z podejść zaznaczania lub unselecting wszystkie pola wyboru jest za pośrednictwem pola wyboru w wierszu nagłówka. Ponadto bieżące Zaznacz wszystko / Usuń zaznaczenie wszystkich wdrożenie wymaga ogłaszania zwrotnego. Zaznacz pola wyboru może być zaznaczony lub niezaznaczony, jednak całkowicie za pomocą skryptu po stronie klienta, zapewniając w ten sposób skrócenie środowisko użytkownika. Aby eksplorować wyboru wiersz nagłówka Zaznacz wszystko i usuń zaznaczenie wszystkich szczegółowo, wraz z dyskusję na temat korzystania z technik po stronie klienta, zapoznaj się z [sprawdzanie wszystkich pól wyboru skryptu po stronie klienta przy użyciu GridView i wszystkie pola wyboru Sprawdź](http://aspnet.4guysfromrolla.com/articles/053106-1.aspx).
+> Podczas wyświetlania kolumny pól wyboru jedno z metod zaznaczania lub zaznaczania zaznaczenia wszystkich pól wyboru jest za pomocą pola wyboru w wierszu nagłówka. Ponadto bieżąca klauzula Check All/Usuń zaznaczenie wszystkich implementacji wymaga odświeżenia. Pola wyboru można sprawdzić lub zaznaczyć, całkowicie za pomocą skryptu po stronie klienta, zapewniając tym samym środowisko użytkownika snappier. Aby eksplorować przy użyciu pola wyboru wiersza nagłówka dla opcji Zaznacz wszystko i odznacz wszystkie szczegóły, a także dyskusje na temat korzystania z technik po stronie klienta, sprawdź [zaznaczenie wszystkich pól wyboru w widoku GridView przy użyciu skryptu po stronie klienta i pola wyboru Zaznacz wszystko](http://aspnet.4guysfromrolla.com/articles/053106-1.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
-W przypadkach, w których należy powiadomić użytkowników, wybierz dowolną liczbę wierszy z GridView przed kontynuowaniem Dodawanie kolumny pól wyboru jest jedną z opcji. Jak widzieliśmy w ramach tego samouczka, w tym kolumny pól wyboru w widoku GridView pociąga za sobą Dodawanie TemplateField za pomocą kontrolki CheckBox w sieci Web. Za pomocą formantu sieci Web (a nie zostanie wstrzyknięta znaczników bezpośrednio w szablonie, ile My mieliśmy w poprzednim samouczku) ASP.NET pamięta automatycznie co pola wyboru były i nie zostały zaznaczone w zwrotu. Możemy też programowo uzyskać dostęp do pola wyboru w kodzie do określenia, czy zaznaczono opcję danego pola wyboru lub zmienić stan zaznaczenia.
+W przypadkach, gdy musisz zezwolić użytkownikom na wybranie dowolnej liczby wierszy z widoku GridView przed kontynuowaniem, Dodawanie kolumny pól wyboru jest jedną z opcji. Jak zostało to opisane w tym samouczku, wraz z kolumną pól wyboru w widoku GridView pociąga za sobą dodanie TemplateField z kontrolką sieci Web CheckBox. Za pomocą kontrolki sieci Web (w przeciwieństwie do dodawania znaczników bezpośrednio do szablonu, jak w poprzednim samouczku) ASP.NET automatycznie zapamiętuje pola wyboru i nie zostały zaewidencjonowane przez ogłaszanie zwrotne. Możemy również programowo uzyskać dostęp do pól wyboru w kodzie, aby określić, czy dane pole wyboru jest zaznaczone, lub zmienić stan zaznaczenia.
 
-W tym samouczku oraz ostatnią przyjrzano się dodanie selektora kolumnę do widoku GridView. W naszym następnym samouczku zajmiemy się, jak to zrobić, bit pracy, możemy dodać możliwości wstawianie do kontrolki GridView.
+W tym samouczku i ostatnim z nich Oglądano Dodawanie kolumny selektora wierszy do widoku GridView. W naszym następnym samouczku sprawdzimy, w jaki sposób, z chwilą pracy, możemy dodać możliwości wstawiania do widoku GridView.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Poprzednie](adding-a-gridview-column-of-radio-buttons-vb.md)

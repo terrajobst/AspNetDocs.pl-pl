@@ -1,144 +1,144 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie z wiersza polecenia | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrożenie wiersza polecenia | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e6fc995ca812a461247989204caff580d06e2343
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 13cfe4492398b59f2c80394689cc113ccb218c60
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134269"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74634204"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie z wiersza polecenia
+# <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrożenie wiersza polecenia
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku przedstawiono sposób wywołania sieci web programu Visual Studio publikowania potoku z poziomu wiersza polecenia. Jest to przydatne w scenariuszach, w którym chcesz [zautomatyzować proces wdrażania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) zamiast to zrobić ręcznie w programie Visual Studio, zwykle za pomocą [systemu kontroli wersji kodu źródła](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md).
+W tym samouczku pokazano, jak wywoływać potok publikacji w sieci Web w programie Visual Studio z poziomu wiersza polecenia. Jest to przydatne w scenariuszach, w których [proces wdrażania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) ma być zautomatyzowany, zamiast ręcznie w programie Visual Studio, zazwyczaj przy użyciu [systemu kontroli wersji kodu źródłowego](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md).
 
-## <a name="make-a-change-to-deploy"></a>Wprowadź zmiany do wdrożenia
+## <a name="make-a-change-to-deploy"></a>Wprowadź zmianę do wdrożenia
 
-Obecnie na stronie Informacje przedstawia kod szablonu.
+Obecnie Strona informacje zawiera kod szablonu.
 
-![Informacje o stronie przy użyciu kodu szablonu](command-line-deployment/_static/image1.png)
+![Informacje o stronie z kodem szablonu](command-line-deployment/_static/image1.png)
 
-Zastąpisz, z kodem, który wyświetla podsumowanie rejestracji dla uczniów.
+Spowoduje to zamianę na kod, który wyświetla podsumowanie rejestracji ucznia.
 
-Otwórz *About.aspx* strony, Usuń wszystkie znaczniki wewnątrz `MainContent` `Content` elementu i Wstaw następujący kod w jego miejsce:
+Otwórz stronę *about. aspx* , Usuń wszystkie znaczniki wewnątrz elementu `MainContent` `Content` i Wstaw następujące znaczniki w miejscu:
 
 [!code-aspx[Main](command-line-deployment/samples/sample1.aspx)]
 
-Uruchom projekt i wybierz **o** strony.
+Uruchom projekt i wybierz stronę **informacje** .
 
 ![Informacje o stronie](command-line-deployment/_static/image2.png)
 
-## <a name="deploy-to-test-by-using-the-command-line"></a>Wdrażanie do testu przy użyciu wiersza polecenia
+## <a name="deploy-to-test-by-using-the-command-line"></a>Wdróż do testowania przy użyciu wiersza polecenia
 
-Nie będzie wdrażanie inną zmianę w bazie danych, tak wyłączenie dbDacFx wdrożenia bazy danych dla bazy danych aspnet ContosoUniversity. Otwórz **publikowanie w sieci Web** kreatora i we wszystkich trzech profilów, wyczyść publikowania **Aktualizuj bazę danych** pole wyboru na **ustawienia** kartę.
+Nie zostanie wdrożona inna zmiana bazy danych, dlatego należy wyłączyć wdrażanie bazy danych dbDacFx dla bazy danych ASPNET-ContosoUniversity. Otwórz kreatora **publikacji w sieci Web** i w każdym z trzech profilów publikowania wyczyść pole wyboru **Aktualizuj bazę danych** na karcie **Ustawienia** .
 
-Na stronie początkowy systemu Windows 8, wyszukaj **wiersz polecenia programisty dla VS2012**.
+Na stronie startowej systemu Windows 8 Wyszukaj **wiersz polecenia dla deweloperów VS2012**.
 
-Kliknij prawym przyciskiem myszy ikonę **wiersz polecenia programisty dla VS2012** i kliknij przycisk **Uruchom jako administrator**.
+Kliknij prawym przyciskiem myszy ikonę **wiersz polecenia dla deweloperów dla VS2012** , a następnie kliknij pozycję **Uruchom jako administrator**.
 
-Wprowadź następujące polecenie w wierszu polecenia, zastępując ścieżkę do pliku rozwiązania przy użyciu ścieżki do pliku rozwiązania:
+Wprowadź następujące polecenie w wierszu polecenia, zastępując ścieżkę do pliku rozwiązania ścieżką do pliku rozwiązania:
 
 [!code-console[Main](command-line-deployment/samples/sample2.cmd)]
 
-Program MSBuild kompiluje rozwiązanie i wdraża ją do środowiska testowego.
+Program MSBuild kompiluje rozwiązanie i wdraża je w środowisku testowym.
 
 ![Dane wyjściowe wiersza polecenia](command-line-deployment/_static/image3.png)
 
-Otwórz przeglądarkę i przejdź do `http://localhost/ContosoUniversity`, następnie kliknij przycisk **o** stronę, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
+Otwórz przeglądarkę i przejdź do `http://localhost/ContosoUniversity`, a następnie kliknij stronę **informacje** , aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
 
-Jeśli nie utworzono żadnych studentów w teście, zobaczysz pusta strona w obszarze **statystyki treści uczniów** nagłówka. Przejdź do **studentów** kliknij **dodać uczniów**i Dodaj pewne studenci, a następnie wróć do **o** stronę, aby wyświetlić statystyki dla uczniów.
+Jeśli nie utworzono uczniów w teście, zobaczysz pustą stronę w nagłówku **statystyki treści ucznia** . Przejdź do strony **uczniów** , kliknij pozycję **Dodaj uczniów**i Dodaj wybranych uczniów, a następnie wróć do strony **informacje** , aby wyświetlić statystyki uczniów.
 
 ![Informacje o stronie w środowisku testowym](command-line-deployment/_static/image4.png)
 
-## <a name="key-command-line-options"></a>Opcje klucza wiersza polecenia
+## <a name="key-command-line-options"></a>Opcje wiersza polecenia klucza
 
-Polecenie, które zostały wprowadzone, przekazywane do MSBuild ścieżka pliku rozwiązania i dwie właściwości:
+Wprowadzone polecenie przekazało ścieżkę pliku rozwiązania i dwie właściwości do programu MSBuild:
 
 [!code-console[Main](command-line-deployment/samples/sample3.cmd)]
 
-### <a name="deploying-the-solution-versus-deploying-individual-projects"></a>Wdrażanie rozwiązania i wdrażania poszczególnych projektów
+### <a name="deploying-the-solution-versus-deploying-individual-projects"></a>Wdrażanie rozwiązania i wdrażanie pojedynczych projektów
 
-Określanie pliku rozwiązania powoduje, że wszystkie projekty w rozwiązaniu, które ma zostać utworzony. Jeśli masz wiele projektów sieci web w rozwiązaniu, mają zastosowanie następujące zachowanie programu MSBuild:
+Określenie pliku rozwiązania powoduje skompilowanie wszystkich projektów w rozwiązaniu. Jeśli masz wiele projektów sieci Web w rozwiązaniu, stosuje się następujące zachowanie MSBuild:
 
-- Właściwości, należy określić w wierszu polecenia, które są przekazywane do każdego projektu. W związku z tym każdy projekt sieci web musi mieć profil publikowania o podanej nazwie. Jeśli określisz `/p:PublishProfile=Test`, każdy projekt sieci web musi mieć profil publikowania o nazwie *testu*.
-- Jeden projekt może opublikowanie, gdy inny nawet nie da się skompilować. Aby uzyskać więcej informacji, zobacz wątek w witrynie stackoverflow [MSBuild nie powiedzie się z dwóch pakietów](http://stackoverflow.com/questions/14226451/msbuild-fails-with-two-packages).
+- Właściwości określone w wierszu polecenia są przesyłane do każdego projektu. W związku z tym każdy projekt sieci Web musi mieć profil publikacji o określonej nazwie. Jeśli określisz `/p:PublishProfile=Test`, każdy projekt sieci Web musi mieć profil publikacji o nazwie *test*.
+- Możesz pomyślnie opublikować jeden projekt, gdy inny nie będzie jeszcze kompilować. Aby uzyskać więcej informacji, zobacz StackOverflow wątku programu [MSBuild kończy się niepowodzeniem z dwoma pakietami](http://stackoverflow.com/questions/14226451/msbuild-fails-with-two-packages).
 
-Jeśli określisz pojedynczego projektu zamiast rozwiązania, należy dodać parametr określający używaną wersję programu Visual Studio. Jeśli używasz programu Visual Studio 2012 w wierszu polecenia będzie podobny do poniższego przykładu:
+Jeśli określisz indywidualny projekt zamiast rozwiązania, musisz dodać parametr, który określa wersję programu Visual Studio. Jeśli używasz programu Visual Studio 2012, wiersz polecenia będzie wyglądać podobnie do poniższego przykładu:
 
 [!code-console[Main](command-line-deployment/samples/sample4.cmd?highlight=1)]
 
-Numer wersji dla programu Visual Studio 2010 jest 10.0. Aby uzyskać więcej informacji, zobacz [zgodność projektu programu Visual Studio i VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) na blogu Sayed Hashimi.
+Numer wersji dla programu Visual Studio 2010 to 10,0. Aby uzyskać więcej informacji, zobacz blog programu [Visual Studio — zgodność i VisualStudioVersion](http://sedodream.com/2012/08/19/VisualStudioProjectCompatabilityAndVisualStudioVersion.aspx) na blogu Sayed Hashimi.
 
 ### <a name="specifying-the-publish-profile"></a>Określanie profilu publikowania
 
-Można określić profil publikowania, według nazwy lub pełną ścieżkę do *.pubxml* pliku, jak pokazano w poniższym przykładzie:
+Możesz określić profil publikacji według nazwy lub pełną ścieżkę do pliku *. pubxml* , jak pokazano w następującym przykładzie:
 
 [!code-console[Main](command-line-deployment/samples/sample5.cmd?highlight=1)]
 
-### <a name="web-publish-methods-supported-for-command-line-publishing"></a>W sieci Web publikowanie metody obsługiwany w przypadku publikowania wiersza polecenia
+### <a name="web-publish-methods-supported-for-command-line-publishing"></a>Metody publikowania w sieci Web obsługiwane w przypadku publikowania w wierszu polecenia
 
-Publikowanie trzy metody są obsługiwane w przypadku publikowania w wierszu polecenia:
+Trzy metody publikowania są obsługiwane w przypadku publikowania w wierszu polecenia:
 
-- `MSDeploy` -Publikowanie za pomocą narzędzia Web Deploy.
-- `Package` -Opublikować, tworząc pakiet wdrażania sieci Web. Musisz zainstalować pakiet, niezależnie od polecenia programu MSBuild, które tworzy go.
-- `FileSystem` -Opublikować kopiować pliki do określonego folderu.
+- `MSDeploy` — Publikowanie przy użyciu Web Deploy.
+- `Package` — Publikuj przez utworzenie pakietu Web Deploy. Należy zainstalować pakiet niezależnie od polecenia MSBuild, które go tworzy.
+- `FileSystem` — Publikuj przez kopiowanie plików do określonego folderu.
 
-### <a name="specifying-the-build-configuration-and-platform"></a>Określenie konfiguracji kompilacji i platformy
+### <a name="specifying-the-build-configuration-and-platform"></a>Określanie konfiguracji i platformy kompilacji
 
-W programie Visual Studio lub w wierszu polecenia można ustawić konfigurację kompilacji i platformy. Profile publikowania zawierają właściwości, które są nazywane `LastUsedBuildConfiguration` i `LastUsedPlatform`, ale nie ustawisz tych właściwości w celu określenia, jak projekt jest kompilowany. Aby uzyskać więcej informacji, zobacz [MSBuild: sposób ustawiania właściwości konfiguracji](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) na blogu Sayed Hashimi.
+Konfiguracja kompilacji i platforma musi być ustawiona w programie Visual Studio lub w wierszu polecenia. Profile publikowania obejmują właściwości o nazwie `LastUsedBuildConfiguration` i `LastUsedPlatform`, ale nie można ustawić tych właściwości w celu określenia sposobu kompilowania projektu. Aby uzyskać więcej informacji, zobacz [MSBuild: jak ustawić właściwość konfiguracji](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) na blogu Sayed Hashimi.
 
-## <a name="deploy-to-staging"></a>Wdrażanie w środowisku przejściowym
+## <a name="deploy-to-staging"></a>Wdróż do przemieszczania
 
-Aby wdrożyć na platformie Azure, należy dodać hasło w wierszu polecenia. Jeśli hasło jest zapisywane w profilu publikowania w programie Visual Studio, została zapisana w zaszyfrowanym formacie w swojej *. pubxml.user* pliku. Ten plik nie jest dostępny przez program MSBuild, po wykonaniu wdrażanie z wiersza polecenia, więc trzeba przekazać hasło parametr wiersza polecenia.
+Aby wdrożyć na platformie Azure, musisz dodać hasło do wiersza polecenia. Jeśli hasło zostało zapisane w profilu publikowania w programie Visual Studio, zostało zapisane w postaci zaszyfrowanej w pliku *. pubxml. User* . Ten plik nie jest używany przez program MSBuild podczas wdrażania wiersza polecenia, więc musisz przekazać hasło w parametrze wiersza polecenia.
 
-1. Skopiuj hasło, które wymagają od *.publishsettings* pliku, który został pobrany wcześniej dla tymczasowej witryny sieci web. Hasło jest wartością `userPWD` atrybutu dla narzędzia Web Deploy `publishProfile` elementu.
+1. Skopiuj wymagane hasło z pliku *publishsettings* , który został wcześniej pobrany dla tymczasowej witryny sieci Web. Hasło jest wartością atrybutu `userPWD` dla elementu Web Deploy `publishProfile`.
 
-    ![Web Deploy hasła](command-line-deployment/_static/image5.png)
-2. Na stronie początkowy systemu Windows 8, wyszukaj **wiersz polecenia programisty dla VS2012**, a następnie kliknij ikonę, aby otworzyć wiersz polecenia. (Nie trzeba otworzyć go jako administratora tej chwili, ponieważ nie są wdrażanie w usługach IIS, na komputerze lokalnym).
-3. Wprowadź następujące polecenie w wierszu polecenia, zastępując ścieżkę do pliku rozwiązania przy użyciu ścieżki do pliku rozwiązania i hasło, za pomocą hasła:
+    ![Web Deploy hasło](command-line-deployment/_static/image5.png)
+2. Na stronie startowej systemu Windows 8 Wyszukaj pozycję **wiersz polecenia dla deweloperów for VS2012**, a następnie kliknij ikonę, aby otworzyć wiersz polecenia. (Nie musisz otwierać go jako administrator tego czasu, ponieważ nie są wdrażane w usługach IIS na komputerze lokalnym).
+3. Wprowadź następujące polecenie w wierszu polecenia, zastępując ścieżkę do pliku rozwiązania ścieżką do pliku rozwiązania i hasłem hasła:
 
     [!code-console[Main](command-line-deployment/samples/sample6.cmd)]
 
-    Zwróć uwagę, że ten wiersz polecenia zawiera dodatkowy parametr: `/p:AllowUntrustedCertificate=true`. Podczas zapisywania w tym samouczku `AllowUntrustedCertificate` podczas publikowania na platformie Azure z poziomu wiersza polecenia, należy ustawić właściwość. Po zwolnieniu poprawkę dotyczącą tej usterki nie wymaga tego parametru.
-4. Otwórz przeglądarkę i przejdź do adresu URL witryny tymczasowej, a następnie kliknij **o** stronę, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
+    Należy zauważyć, że ten wiersz polecenia zawiera dodatkowy parametr: `/p:AllowUntrustedCertificate=true`. W trakcie pisania tego samouczka Właściwość `AllowUntrustedCertificate` musi być ustawiona podczas publikowania na platformie Azure z poziomu wiersza polecenia. Gdy poprawka dla tej usterki zostanie wydana, ten parametr nie jest potrzebny.
+4. Otwórz przeglądarkę i przejdź do adresu URL witryny tymczasowej, a następnie kliknij stronę **informacje** , aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
 
-    Jak przedstawiono wcześniej dla środowiska testowego, być może trzeba utworzyć Niektórzy studenci, aby wyświetlić statystyki na **o** strony.
+    Jak widać wcześniej w środowisku testowym, może być konieczne utworzenie niektórych uczniów, aby wyświetlić statystyki na stronie **informacje** .
 
-## <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
+## <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
 
-Proces wdrażania w środowisku produkcyjnym jest podobny do procesu przejściowego.
+Proces wdrażania w środowisku produkcyjnym jest podobny do procesu przemieszczania.
 
-1. Skopiuj hasło, które wymagają od *.publishsettings* pliku, który został pobrany wcześniej dla witryny sieci web w środowisku produkcyjnym.
-2. Otwórz **wiersz polecenia programisty dla VS2012**.
-3. Wprowadź następujące polecenie w wierszu polecenia, zastępując ścieżkę do pliku rozwiązania przy użyciu ścieżki do pliku rozwiązania i hasło, za pomocą hasła:
+1. Skopiuj wymagane hasło z pliku *publishsettings* , który został pobrany wcześniej dla produkcyjnej witryny sieci Web.
+2. Otwórz **wiersz polecenia dla deweloperów dla VS2012**.
+3. Wprowadź następujące polecenie w wierszu polecenia, zastępując ścieżkę do pliku rozwiązania ścieżką do pliku rozwiązania i hasłem hasła:
 
     [!code-console[Main](command-line-deployment/samples/sample7.cmd)]
 
-    Dla witryny rzeczywistej produkcji, jeśli została również zmianę w bazie danych, będzie zazwyczaj kopiujesz *aplikacji\_offline.htm* plików do lokacji, przed przystąpieniem do wdrożenia i usuniesz go po pomyślnym wdrożeniu.
-4. Otwórz przeglądarkę i przejdź do adresu URL witryny tymczasowej, a następnie kliknij **o** stronę, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
+    W przypadku rzeczywistej lokacji produkcyjnej, jeśli wprowadzono również zmiany w bazie danych, należy zwykle skopiować *aplikację\_pliku offline. htm* do lokacji przed wdrożeniem i usunąć ją po pomyślnym wdrożeniu.
+4. Otwórz przeglądarkę i przejdź do adresu URL witryny tymczasowej, a następnie kliknij stronę **informacje** , aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
 
 ## <a name="summary"></a>Podsumowanie
 
-Masz teraz wdrożyć aktualizację aplikacji przy użyciu wiersza polecenia.
+Aktualizacja aplikacji została wdrożona przy użyciu wiersza polecenia.
 
 ![Informacje o stronie w środowisku testowym](command-line-deployment/_static/image6.png)
 
-W następnym samouczku, zostanie wyświetlony przykładem sposobu rozszerzenia sieci web potoku publikowania. Przykład będzie pokazują, jak wdrożyć pliki, które nie są uwzględnione w projekcie.
+W następnym samouczku zobaczysz przykład sposobu rozszerania potoku publikowania w sieci Web. W przykładzie pokazano, jak wdrożyć pliki, które nie są uwzględnione w projekcie.
 
 > [!div class="step-by-step"]
 > [Poprzednie](deploying-a-database-update.md)

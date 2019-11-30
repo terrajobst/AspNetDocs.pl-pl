@@ -1,104 +1,104 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie dodatkowych plików | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie dodatkowych plików | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 03/23/2015
 ms.assetid: 1cd91055-84bc-42c6-9d80-646f41429d4d
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: 03afcf91b79bc7d7d294eae3dc43a8f780d94e20
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: eaa3141c22980f0c816e2f33b5597ac9fe69c23c
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131914"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594908"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie dodatkowych plików
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie dodatkowych plików
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku pokazano, jak rozszerzyć potoku w celu dodatkowego zadania podczas wdrażania programu Visual Studio, publikowanie w sieci web. Zadanie jest do skopiowania dodatkowe pliki, które nie znajdują się w folderze projektu do docelowej witryny sieci web.
+W tym samouczku pokazano, jak wdrożyć potok publikacji w sieci Web w programie Visual Studio, aby wykonać dodatkowe zadanie podczas wdrażania. Zadaniem jest skopiowanie dodatkowych plików, które nie znajdują się w folderze projektu do docelowej witryny sieci Web.
 
-W tym samouczku będzie skopiować jeden dodatkowy plik: *robots.txt*. Chcesz wdrożyć ten plik do wdrażania przejściowego, ale nie do środowiska produkcyjnego. W [wdrażanie w środowisku produkcyjnym](deploying-to-production.md) samouczków, dodać ten plik do projektu i skonfigurowano produkcji profilu w celu wykluczenia go opublikować. W tym samouczku zobaczysz alternatywną metodę, aby obsłużyć taką sytuację, taki, który będzie przydatna dla wszystkich plików, które mają zostać wdrożone, ale nie powinny zostać uwzględnione w projekcie.
+W tym samouczku skopiujesz jeden dodatkowy plik: *robots. txt*. Chcesz wdrożyć ten plik do przemieszczania, ale nie do środowiska produkcyjnego. W samouczku [wdrażanie do produkcji](deploying-to-production.md) dodano ten plik do projektu i skonfigurowano profil publikowania produkcyjnego w celu wykluczenia go. W tym samouczku zobaczysz alternatywną metodę obsługi tej sytuacji, która będzie przydatna dla wszystkich plików, które chcesz wdrożyć, ale nie chcesz ich uwzględnić w projekcie.
 
-## <a name="move-the-robotstxt-file"></a>Przenieś plik robots.txt
+## <a name="move-the-robotstxt-file"></a>Przenoszenie pliku robots. txt
 
-Aby przygotować się do innej metody obsługi *robots.txt*, w tej części samouczka plik zostanie przeniesiony do folderu, który nie znajduje się w projekcie i usuniesz *robots.txt* z obszaru przemieszczania środowisko. Należy usunąć plik z tymczasowej, aby sprawdzić, czy nową metodę wdrażania pliku w tym środowisku działa poprawnie.
+Aby przygotować się do innej metody obsługi pliku *robots. txt*, w tej części samouczka przeniesiesz plik do folderu, który nie znajduje się w projekcie, i usuniesz pliki *robots. txt* ze środowiska przejściowego. Konieczne jest usunięcie pliku z przemieszczania, aby można było sprawdzić, czy nowa metoda wdrażania pliku w tym środowisku działa poprawnie.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *robots.txt* plik i kliknij przycisk **Wyklucz z projektu**.
-2. Za pomocą Eksploratora plików Windows, Utwórz nowy folder w folderze rozwiązania i nadaj mu nazwę *ExtraFiles*.
-3. Przenieś *robots.txt* plik wchodzącej w skład *ContosoUniversity* folderu projektu do *ExtraFiles* folderu.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy plik *robots. txt* , a następnie kliknij pozycję **Wyklucz z projektu**.
+2. Korzystając z Eksploratora plików systemu Windows, Utwórz nowy folder w folderze rozwiązania i nadaj mu nazwę *ExtraFiles*.
+3. Przenieś plik *robots. txt* z folderu projektu *ContosoUniversity* do folderu *ExtraFiles* .
 
-    ![ExtraFiles folder](deploying-extra-files/_static/image1.png)
-4. Za pomocą narzędzia usługi FTP, Usuń *robots.txt* plik tymczasowej witryny sieci web.
+    ![Folder ExtraFiles](deploying-extra-files/_static/image1.png)
+4. Za pomocą narzędzia FTP Usuń plik *robots. txt* z tymczasowej witryny sieci Web.
 
-    Alternatywnie, możesz wybrać **Usuń dodatkowe pliki w lokalizacji docelowej** w obszarze **opcji publikowania pliku** na **ustawienia** karta profilu publikowania przemieszczania, i ponownie opublikować do wdrażania przejściowego.
+    Alternatywnie można wybrać opcję **Usuń dodatkowe pliki w miejscu docelowym** w obszarze **Opcje publikowania plików** na karcie **Ustawienia** w profilu publikowania przemieszczania i ponownie opublikować ją w celu przygotowania.
 
 ## <a name="update-the-publish-profile-file"></a>Aktualizowanie pliku profilu publikowania
 
-Dzięki temu wystarczy *robots.txt* przejściowy, dlatego przemieszczania jest to jedyny profil publikowania należy zaktualizować w celu jej wdrożenia.
+*Plik robots. txt* jest wymagany tylko w przypadku przemieszczania, więc należy zaktualizować tylko profil publikowania, aby wdrożyć go w ramach wdrożenia.
 
-1. W programie Visual Studio, otwórz *Staging.pubxml*.
-2. Na koniec pliku przed tagiem zamykającym `</Project>` tag, Dodaj następujący kod:
+1. W programie Visual Studio Otwórz pozycję *tymczasowy. pubxml*.
+2. Na końcu pliku przed tagiem zamykającym `</Project>` Dodaj następujący znacznik:
 
     [!code-xml[Main](deploying-extra-files/samples/sample1.xml)]
 
-    Ten kod tworzy nową *docelowej* który będzie zbierać dodatkowe pliki do wdrożenia. Obiekt docelowy składa się z jednego lub większej liczby zadań, wykonujących MSBuild na podstawie warunków przez użytkownika.
+    Ten kod tworzy nowy *obiekt docelowy* , który będzie zbierać dodatkowe pliki do wdrożenia. Element docelowy składa się z co najmniej jednego zadania, które będzie wykonywane przez program MSBuild na podstawie określonych kryteriów.
 
-    `Include` Atrybut określa, że folder, w którym można znaleźć plików *ExtraFiles*, który znajduje się na tym samym poziomie jak folder projektu. Program MSBuild będzie zbierać wszystkie pliki z tego folderu i cyklicznie w podfolderach (podwójny gwiazdki określa cykliczne podfolderów). Przy użyciu tego kodu można umieścić wielu plików i pliki w podfolderach wewnątrz *ExtraFiles* folder i wszystkie zostaną wdrożone.
+    Atrybut `Include` określa, że folder, w którym mają znajdować się pliki, jest *ExtraFiles*, znajduje się na tym samym poziomie co folder projektu. Program MSBuild zbierze wszystkie pliki z tego folderu i rekursywnie z dowolnego podfolderu (podwójna gwiazdka określa podfoldery cykliczne). Za pomocą tego kodu można umieścić wiele plików i plików w podfolderach w folderze *ExtraFiles* , a wszystkie zostaną wdrożone.
 
-    `DestinationRelativePath` Element określa, że foldery i pliki zostaną skopiowane do folderu głównego w witrynie sieci web, w tej samej strukturze plików i folderów znajdują się one w *ExtraFiles* folderu. Jeśli chcesz skopiować *ExtraFiles* sam folder, `DestinationRelativePath` wartość będzie wynosić *ExtraFiles\%(RecursiveDir)%(Filename)%(Extension)*.
-3. Na koniec pliku przed tagiem zamykającym `</Project>` tag, Dodaj następujący kod znaczników, który określa, kiedy należy wykonać nowy obiekt docelowy.
+    `DestinationRelativePath` element określa, że foldery i pliki powinny być kopiowane do folderu głównego docelowej witryny sieci Web, w tej samej strukturze plików i folderów, co znajdują się w folderze *ExtraFiles* . Jeśli chcesz skopiować folder *ExtraFiles* , wartość `DestinationRelativePath` będzie *ExtraFiles\%(RecursiveDir)% (filename)% (rozszerzenie)* .
+3. Na końcu pliku przed tagiem zamykającym `</Project>` Dodaj następujący znacznik, który określa, kiedy należy wykonać nowy element docelowy.
 
     [!code-xml[Main](deploying-extra-files/samples/sample2.xml)]
 
-    Ten kod powoduje, że nowe `CustomCollectFiles` docelowych, które mają być wykonane w każdym przypadku, gdy docelowy, który kopiuje pliki do folderu docelowego jest wykonywany. Ma oddzielne docelowe do publikowania i tworzenie pakietu wdrożenia i nowy obiekt docelowy jest wprowadzony w obu elementów docelowych, w przypadku, gdy użytkownik chce wdrożyć przy użyciu pakietu wdrożeniowego zamiast publikowania.
+    Ten kod powoduje, że nowy element docelowy `CustomCollectFiles` być wykonywany przy każdym wykonaniu elementu docelowego, który kopiuje pliki do folderu docelowego. Istnieje osobny cel dla tworzenia pakietu do opublikowania i wdrożenia, a nowy element docelowy jest wstrzykiwany w obu obiektach docelowych w przypadku, gdy użytkownik zdecyduje się na wdrożenie przy użyciu pakietu wdrożeniowego zamiast publikowania.
 
-    *.Pubxml* pliku wygląda teraz następująco:
+    Plik *. pubxml* wygląda teraz podobnie do poniższego przykładu:
 
     [!code-xml[Main](deploying-extra-files/samples/sample3.xml?highlight=53-71)]
-4. Zapisz i Zamknij *Staging.pubxml* pliku.
+4. Zapisz i zamknij plik *przemieszczania pubxml* .
 
-## <a name="publish-to-staging"></a>Publikowanie w środowisku przejściowym
+## <a name="publish-to-staging"></a>Publikowanie do przemieszczania
 
-Publikowanie za pomocą jednego kliknięcia lub wiersza polecenia, Opublikuj aplikację, korzystając z profilu tymczasowego.
+Za pomocą jednego kliknięcia przycisku Publikuj lub w wierszu polecenia Opublikuj aplikację przy użyciu profilu przemieszczania.
 
-Jeśli używasz jednym kliknięciem publikować, można sprawdzić w **Podgląd** okna, *robots.txt* zostaną skopiowane. W przeciwnym razie użyj narzędzie FTP, aby sprawdzić, czy *robots.txt* plik znajduje się w folderze głównym witryny sieci web po wdrożeniu.
+Jeśli używasz publikowania jednym kliknięciem, możesz sprawdzić, czy w oknie **podglądu** zostanie skopiowany *plik robots. txt* . W przeciwnym razie użyj narzędzia FTP, aby sprawdzić, czy plik *robots. txt* znajduje się w folderze głównym witryny sieci Web po wdrożeniu.
 
 ## <a name="summary"></a>Podsumowanie
 
-Na tym kończy się w tej serii samouczków na temat wdrażania aplikacji sieci web ASP.NET u dostawcy hostingu innych firm. Aby uzyskać więcej informacji na temat dowolny z tematów omówione w tych samouczkach zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://go.microsoft.com/fwlink/p/?LinkId=282413).
+Ta seria samouczków dotyczy wdrażania aplikacji sieci Web ASP.NET w ramach dostawcy hostingu innej firmy. Aby uzyskać więcej informacji na temat tematów omówionych w tych samouczkach, zobacz [mapa zawartości wdrożenia ASP.NET](https://go.microsoft.com/fwlink/p/?LinkId=282413).
 
 ## <a name="more-information"></a>Więcej informacji
 
-Jeśli wiesz, jak pracować z plikami programu MSBuild, możesz zautomatyzować wiele zadań wdrażania przez napisanie kodu *.pubxml* plików (w przypadku zadań specyficznych dla danego profilu) lub projektu *. wpp.targets* pliku (dla zadania, mają zastosowanie do wszystkich profilów). Aby uzyskać więcej informacji na temat *.pubxml* i *. wpp.targets* plików, zobacz [jak: Edytuj ustawienia wdrażania publikowania plików profilu (.pubxml) i. wpp.targets pliku w projektach sieci Web programu Visual Studio](https://msdn.microsoft.com/library/ff398069). Podstawowe wprowadzenie do kodu programu MSBuild, zobacz **Anatomia pliku projektu** w [wdrożenia w przedsiębiorstwie, seria: Objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Aby dowiedzieć się, jak pracować z plikami programu MSBuild do wykonywania zadań dla własnych scenariuszy, zobacz tę książkę: [W aparacie kompilacji firmy Microsoft: Przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi i William Bartholomew.
+Jeśli wiesz, jak korzystać z plików MSBuild, Możesz zautomatyzować wiele innych zadań wdrażania, pisząc kod w plikach *. pubxml* (dla zadań specyficznych dla profilu) lub pliku Project *. WPP. targets* (dla zadań, które mają zastosowanie do wszystkich profilów). Aby uzyskać więcej informacji na temat plików *. pubxml* i *. WPP. targets* , zobacz [How to: Edit Settings Deployment (pliki. pubxml) i plik. WPP. targets w projektach internetowych programu Visual Studio](https://msdn.microsoft.com/library/ff398069). Aby zapoznać się z podstawowymi informacjami o kodzie programu MSBuild, zobacz **anatomię pliku projektu** w [serii wdrożenia w przedsiębiorstwie: Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Aby dowiedzieć się, jak korzystać z plików MSBuild do wykonywania zadań we własnych scenariuszach, zobacz tę książkę: [wewnątrz Microsoft Build Engine: korzystanie z programu MSBuild i Team Foundation Build](http://msbuildbook.com) przez Sayed Ibraham Hashimi i William Bartholomew.
 
-## <a name="acknowledgements"></a>Potwierdzanie
+## <a name="acknowledgements"></a>Podziękowania
 
-Chcę otrzymywać podziękować następujących osób, które istotny wkład w zawartości w tej serii samouczków:
+Chcę podziękowanie następujące osoby, które złożyły znaczące wkłady w zawartość tej serii samouczków:
 
 - [Alberto Poblacion, MVP &amp; MCT, Hiszpania](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
-- Jarod Ferguson, programowanie na platformie danych MVP, Stany Zjednoczone
-- Ostrym Mittal, Microsoft
-- [Jan Galloway'em](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
+- Jarod Ferguson, SPECJALISTa ds. projektowania platformy danych, Stany Zjednoczone
+- Harsh Mittal, Microsoft
+- [Jan Galloway](https://weblogs.asp.net/jgalloway) (twitter: [@jongalloway](http://twitter.com/jongalloway))
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
-- [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
+- [Jan Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft
 - [Raffaele Rialdi, Włochy](http://www.iamraf.net/)
-- [Rick Anderson firmy Microsoft](https://blogs.msdn.com/b/rickandy/)
-- [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
-- [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
-- [Scott Hunter, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
+- [Rick Anderson, Microsoft](https://blogs.msdn.com/b/rickandy/)
+- [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [@sayedihashimi](http://twitter.com/sayedihashimi))
+- [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [@shanselman](http://twitter.com/shanselman))
+- [Scott myśliwy, Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [@coolcsh](http://twitter.com/coolcsh))
 - [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
-- [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
+- [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [@vishalrjoshi](http://twitter.com/vishalrjoshi))
 
 > [!div class="step-by-step"]
 > [Poprzednie](command-line-deployment.md)

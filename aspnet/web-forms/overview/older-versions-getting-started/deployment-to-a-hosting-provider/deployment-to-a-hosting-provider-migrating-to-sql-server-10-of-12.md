@@ -1,448 +1,448 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: 'Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Migracja do programu SQL Server — 10 12 | Dokumentacja firmy Microsoft'
+title: 'Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: Migrowanie do SQL Server-10 z 12 | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) programu ASP.NET projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) projekt aplikacji sieci Web ASP.NET, który zawiera bazę danych SQL Server Compact przy użyciu stu Visual...
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: cc4db5b1fcedca675a18f1b78e28f65e51b6cf09
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c5281a42596d95e725b32e652c75785abe0fd64e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132755"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74640553"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Migracja do programu SQL Server — 10 12
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: Migrowanie do SQL Server-10 z 12
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Pobierz projekt początkowy](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) ASP.NET projektu aplikacji sieci web, która zawiera bazę danych programu SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC for Web. Umożliwia także programu Visual Studio 2010 po zainstalowaniu aktualizacji publikowania w sieci Web. Aby zapoznać się z wprowadzeniem do serii, zobacz [pierwszym samouczku tej serii](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) projekt aplikacji sieci Web ASP.NET, który zawiera bazę danych SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC dla sieci Web. Możesz również użyć programu Visual Studio 2010, jeśli zostanie zainstalowana aktualizacja publikacji w sieci Web. Aby zapoznać się z wprowadzeniem do serii, zobacz [pierwszy samouczek w serii](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
-> Aby uzyskać samouczek, który zawiera funkcje wdrażania wprowadzone po wersji RC programu Visual Studio 2012, pokazuje, jak wdrażać wersje programu SQL Server, innym niż SQL Server Compact i pokazuje, jak wdrożyć w usłudze Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET za pomocą programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> Aby zapoznać się z samouczkiem zawierającym funkcje wdrażania wprowadzone po wydaniu wersji RC programu Visual Studio 2012, przedstawiono sposób wdrażania wersji SQL Server innych niż SQL Server Compact i przedstawiono sposób wdrażania programu w Azure App Service Web Apps, zobacz [ASP.NET Web Deployment using Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku dowiesz się, jak przeprowadzić migrację z programu SQL Server Compact do programu SQL Server. Jest jednym z powodów warto to zrobić z zalet funkcji programu SQL Server, SQL Server Compact nie obsługiwanych, takie jak procedur składowanych, wyzwalaczy, widoków ani replikacji. Aby uzyskać więcej informacji na temat różnic między programu SQL Server Compact i SQL Server, zobacz [wdrażania programu SQL Server Compact](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) samouczka.
+W tym samouczku pokazano, jak przeprowadzić migrację z SQL Server Compact do SQL Server. Jednym z powodów, które warto wykonać, jest skorzystanie z funkcji SQL Server, które nie są obsługiwane przez SQL Server Compact, takich jak procedury składowane, wyzwalacze, widoki lub replikacja. Aby uzyskać więcej informacji o różnicach między SQL Server Compact i SQL Server, zobacz samouczek [wdrażania SQL Server Compact](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) .
 
-### <a name="sql-server-express-versus-full-sql-server-for-development"></a>SQL Server Express w stosunku do pełnej wersji SQL Server do tworzenia
+### <a name="sql-server-express-versus-full-sql-server-for-development"></a>SQL Server Express a pełny SQL Server do programowania
 
-Po podjęciu uaktualnienia do programu SQL Server, można użyć programu SQL Server lub SQL Server Express w środowiskach tworzenia i testowania. Oprócz różnice w obsłudze narzędzia i funkcje aparatu bazy danych ma różnic w implementacji dostawcy programu SQL Server Compact i innych wersjach programu SQL Server. Te różnice można spowodować, że ten sam kod można wygenerować różne wyniki. W związku z tym Jeśli zdecydujesz się zachować programu SQL Server Compact jako rozwoju bazy danych, należy dokładnie przetestować witryny programu SQL Server lub SQL Server Express w środowisku testowym przed przystąpieniem do każdego wdrożenia do środowiska produkcyjnego.
+Po podjęciu decyzji o przeprowadzeniu uaktualnienia do SQL Server warto użyć SQL Server lub SQL Server Express w środowiskach deweloperskich i testowych. Oprócz różnic w obsłudze narzędzi i funkcji aparatu bazy danych istnieją różnice w implementacji dostawców między SQL Server Compact i innymi wersjami SQL Server. Różnice te mogą spowodować, że ten sam kod generuje różne wyniki. W związku z tym, jeśli zdecydujesz się na zachowanie SQL Server Compact jako bazy danych programistycznych, należy dokładnie przetestować lokację w SQL Server lub SQL Server Express w środowisku testowym przed każdym wdrożeniem do produkcji.
 
-W przeciwieństwie do programu SQL Server Compact SQL Server Express jest zasadniczo tego samego aparatu bazy danych i używa tego samego dostawcy .NET jako pełnej wersji programu SQL Server. Podczas testowania za pomocą programu SQL Server Express, można mieć pewność, te same wyniki pobierania, jak będzie z programem SQL Server. Za pomocą większość tych samych narzędzi bazy danych programu SQL Server Express używanej z programem SQL Server (Trwa istotne wyjątek [programu SQL Server Profiler](https://msdn.microsoft.com/library/ms181091.aspx)), i obsługuje inne funkcje programu SQL Server, takich jak procedury składowane, widoki, wyzwalacze, i replikacji. (Zazwyczaj musisz jednak użyć pełnej wersji programu SQL Server w produkcyjnej witrynie internetowej. Program SQL Server Express można uruchomić w środowisku współdzielonym hostingu, ale nie był projektowany do tego, a wielu dostawców hostingu nie obsługują.)
+W przeciwieństwie do SQL Server Compact, SQL Server Express to ten sam aparat bazy danych i używa tego samego dostawcy platformy .NET jak pełnych SQL Server. Podczas testowania za pomocą SQL Server Express można mieć pewność, że uzyskasz te same wyniki, co w przypadku SQL Server. Większość z tych samych narzędzi bazy danych może być używana z SQL Server Express, których można używać z SQL Server (istotny wyjątek [SQL Server Profiler](https://msdn.microsoft.com/library/ms181091.aspx)) i obsługuje inne funkcje SQL Server, takie jak procedury składowane, widoki, wyzwalacze i replikacja. (Zazwyczaj należy używać pełnych SQL Server w produkcyjnej witrynie sieci Web. SQL Server Express można uruchamiać w udostępnionym środowisku hostingu, ale nie została ona zaprojektowana dla tego programu, a wielu dostawców hostingu nie obsługuje tej funkcji.
 
-Jeśli używasz programu Visual Studio 2012, zazwyczaj wybierasz programu SQL Server Express LocalDB środowiska deweloperskiego ponieważ jest to, co jest instalowany domyślnie w programie Visual Studio. Jednak LocalDB nie działa w usługach IIS, dzięki czemu do danego środowiska testowego należy użyć programu SQL Server lub SQL Server Express.
+W przypadku korzystania z programu Visual Studio 2012 zwykle wybiera się SQL Server Express LocalDB dla środowiska deweloperskiego, ponieważ jest to co jest instalowane domyślnie z programem Visual Studio. Jednak LocalDB nie działa w usługach IIS, dlatego dla środowiska testowego należy użyć SQL Server lub SQL Server Express.
 
-### <a name="combining-databases-versus-keeping-them-separate"></a>Łączenie baz danych i zapewnienie ich w oddzielnych
+### <a name="combining-databases-versus-keeping-them-separate"></a>Łączenie baz danych w zależności od ich oddzielenia
 
-Aplikacja Contoso University ma dwie bazy danych programu SQL Server Compact: bazy danych członkostwa (*aspnet.sdf*) i bazy danych aplikacji (*School.sdf*). Podczas migracji, można przeprowadzić migrację tych baz danych, dwie osobne bazy danych lub pojedynczą bazę danych. Możesz chcieć połączyć je w celu ułatwienia sprzężenia bazy danych między bazy danych aplikacji i bazy danych członkostwa. Plan hostingu może również podać przyczynę do ich łączenia. Na przykład dostawcy hostingu mogą pobierać tylko dla wielu baz danych lub może nawet zezwala na więcej niż jednej bazy danych. To w przypadku konta, który jest używany na potrzeby tego samouczka, który umożliwia tylko jednej bazy danych SQL Server hostingu Lite Cytanium.
+Aplikacja firmy Contoso University ma dwie SQL Server Compact bazy danych: bazę danych członkostwa (*ASPNET. sdf*) i bazę danych aplikacji (*szkoła. sdf*). Podczas migracji można migrować te bazy danych do dwóch oddzielnych baz danych lub do pojedynczej bazy danych. Warto połączyć je w celu ułatwienia sprzężenia bazy danych między bazą danych aplikacji i bazą danych członkostwa. Twój plan hostingu może również stanowić powód, aby połączyć się z nimi. Na przykład dostawca hostingu może obciążać więcej dla wielu baz danych lub nawet nie zezwalać na więcej niż jedną bazę danych. Jest to przypadek z kontem hostingu usługi Cytanium w wersji Lite używanym w ramach tego samouczka, który umożliwia tylko jedną bazę danych SQL Server.
 
-W tym samouczku będziesz migracja dwóch baz danych w ten sposób:
+W tym samouczku przeprowadzisz migrację dwóch baz danych w następujący sposób:
 
-- Przeprowadź migrację do dwóch LocalDB baz danych w środowisku programistycznym.
-- Przeprowadź migrację do dwóch programu SQL Server Express bazy danych w środowisku testowym.
-- Przeprowadź migrację do jednego połączonego pełnej bazy danych SQL Server w środowisku produkcyjnym.
+- Migruj do dwóch LocalDB baz danych w środowisku deweloperskim.
+- Przeprowadź migrację do dwóch baz danych SQL Server Express w środowisku testowym.
+- Przeprowadź migrację do jednej połączonej pełnej bazy danych SQL Server w środowisku produkcyjnym.
 
-Przypomnienie: Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, należy koniecznie sprawdzić [strona rozwiązywania problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
 
-## <a name="installing-sql-server-express"></a>Instalowanie programu SQL Server Express
+## <a name="installing-sql-server-express"></a>Instalowanie SQL Server Express
 
-SQL Server Express jest automatycznie instalowany domyślnie w programie Visual Studio 2010, ale domyślnie nie jest zainstalowany za pomocą programu Visual Studio 2012. Aby zainstalować program SQL Server 2012 Express, kliknij poniższe łącze
+Program SQL Server Express jest automatycznie instalowany domyślnie z programem Visual Studio 2010, ale domyślnie nie jest instalowany z programem Visual Studio 2012. Aby zainstalować SQL Server 2012 Express, kliknij poniższy link
 
 - [SQL Server Express 2012](https://www.microsoft.com/download/details.aspx?id=29062)
 
-Wybierz *ENU/x64/SQLEXPR\_x64\_ENU.exe* lub *ENU/x86/SQLEXPR\_x86\_ENU.exe*i zaakceptuj wartość domyślną w Kreatorze instalacji Ustawienia. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Instalowanie programu SQL Server 2012 za pomocą Kreatora instalacji (Instalatora)](https://msdn.microsoft.com/library/ms143219.aspx).
+Wybierz pozycję *plk/x64/sqlexpr\_x64\_plk. exe* lub *plk/x86/sqlexpr\_x86\_plk. exe*, a w Kreatorze instalacji zaakceptuj ustawienia domyślne. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [instalowanie SQL Server 2012 w Kreatorze instalacji (Instalator)](https://msdn.microsoft.com/library/ms143219.aspx).
 
-## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>Tworzenie bazy danych programu SQL Server Express dla środowiska testowego
+## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>Tworzenie SQL Server Express baz danych dla środowiska testowego
 
-Następnym krokiem jest do tworzenia członkostwa ASP.NET i bazy danych School.
+Następnym krokiem jest utworzenie bazy danych ASP.NET i szkoły.
 
-Z **widoku** menu wybierz opcję **Eksploratora serwera** (**Eksplorator bazy danych** w Visual Web Developer), a następnie kliknij prawym przyciskiem myszy **połączeń danych**i wybierz **Tworzenie nowej bazy danych SQL Server**.
+Z menu **Widok** wybierz pozycję **Eksplorator serwera** (**Eksplorator bazy danych** w Visual Web Developer), a następnie kliknij prawym przyciskiem myszy pozycję **połączenia danych** i wybierz polecenie **Utwórz nową SQL Server bazę danych**.
 
 ![Selecting_Create_New_SQL_Server_Database](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image1.png)
 
-W **Tworzenie nowej bazy danych SQL Server** okna dialogowego wprowadź ". \SQLExpress" w **nazwy serwera** pole i "aspnet-Test" w **nazwę nowej bazy danych** polu, a następnie kliknij przycisk **OK**.
+W oknie dialogowym **Utwórz nową bazę danych SQL Server** wprowadź wartość ".\SQLEXPRESS" w polu **Nazwa serwera** i "ASPNET-test" w polu **Nazwa nowej bazy danych** , a następnie kliknij przycisk **OK**.
 
 ![Create_New_SQL_Server_Database_aspnet](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image2.png)
 
-Postępuj zgodnie z tą samą procedurą, aby utworzyć nową bazę danych programu SQL Server Express School o nazwie "School-Test".
+Postępuj zgodnie z tą samą procedurą, aby utworzyć nową bazę danych szkoły SQL Server Express o nazwie "Szkoła-test".
 
-(Dołączasz "Test" do tych nazw baz danych, ponieważ później utworzymy dodatkowe wystąpienia każdej bazy danych w środowisku deweloperskim i muszą mieć możliwość rozróżnienia dwóch zestawów baz danych.)
+(Do tych nazw baz danych są dołączane "testy", ponieważ w przyszłości utworzysz dodatkowe wystąpienie każdej bazy danych dla środowiska programistycznego i musisz mieć możliwość odróżnienia dwóch zestawów baz danych).
 
-**Eksplorator serwera** pojawi się na dwóch nowych baz danych.
+**Eksplorator serwera** teraz pokazuje dwie nowe bazy danych.
 
 ![New_databases_in_Server_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image3.png)
 
-## <a name="creating-a-grant-script-for-the-new-databases"></a>Tworzenie skryptu Grant dla nowych baz danych
+## <a name="creating-a-grant-script-for-the-new-databases"></a>Tworzenie skryptu dotacji dla nowych baz danych
 
-Po uruchomieniu aplikacji w usługach IIS na komputerze deweloperskim w aplikacji uzyskuje dostęp do bazy danych przy użyciu poświadczeń domyślnej puli aplikacji. Jednak domyślnie tożsamość puli aplikacji nie ma uprawnień do otwierania bazy danych. Dlatego należy uruchomić skrypt, aby przyznać to uprawnienie. W tej sekcji utworzysz skrypt, uruchomisz nowszej, aby upewnić się, że aplikacja będzie mógł otworzyć baz danych po uruchomieniu w usługach IIS.
+Gdy aplikacja jest uruchamiana w usługach IIS na komputerze deweloperskim, aplikacja uzyskuje dostęp do bazy danych przy użyciu poświadczeń domyślnej puli aplikacji. Jednak domyślnie tożsamość puli aplikacji nie ma uprawnień do otwierania baz danych. Aby udzielić tego uprawnienia, należy uruchomić skrypt. W tej sekcji utworzysz skrypt, który zostanie uruchomiony później, aby upewnić się, że aplikacja może otworzyć bazy danych w programie IIS.
 
-W rozwiązaniu *SolutionFiles* folder, który został utworzony w [wdrażanie w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) samouczka, Utwórz nowy plik SQL o nazwie *Grant.sql*. Skopiuj poniższe polecenia SQL do pliku, a następnie zapisz i zamknij plik:
+W folderze *SolutionFiles* rozwiązania, który został utworzony w samouczku [wdrażanie do środowiska produkcyjnego](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) , Utwórz nowy plik SQL o nazwie *Grant. SQL*. Skopiuj następujące polecenia SQL do pliku, a następnie Zapisz i zamknij plik:
 
 [!code-sql[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample1.sql)]
 
 > [!NOTE]
-> Ten skrypt jest przeznaczony do pracy z programu SQL Server 2008 i ustawienia programu IIS w Windows 7, ponieważ są one określone w tym samouczku. Jeśli używasz innej wersji programu SQL Server lub Windows, czy należy zainstalować program IIS na komputerze inaczej, zmiany w tym skrypcie może być wymagane. Aby uzyskać więcej informacji na temat skrypty programu SQL Server, zobacz [programu SQL Server — książki Online](https://go.microsoft.com/fwlink/?LinkId=132511).
+> Ten skrypt jest przeznaczony do pracy z SQL Server 2008 i z ustawieniami usług IIS w systemie Windows 7, zgodnie z opisem w tym samouczku. Jeśli używasz innej wersji SQL Server lub systemu Windows lub jeśli program IIS zostanie skonfigurowany na komputerze inaczej, może być wymagane wprowadzenie zmian w tym skrypcie. Aby uzyskać więcej informacji na temat skryptów SQL Server, zobacz [SQL Server Books Online](https://go.microsoft.com/fwlink/?LinkId=132511).
 
 > [!NOTE] 
 > 
-> **Uwaga dotycząca zabezpieczeń** ten skrypt umożliwia db\_uprawnienia właściciela do użytkownika, który uzyskuje dostęp do bazy danych w czasie wykonywania, który jest uzyskasz w środowisku produkcyjnym. W niektórych scenariuszach możesz chcieć określić użytkownika, która ma schemat pełnej bazy danych, zaktualizować uprawnienia tylko do wdrożenia i określ czas wykonywania inny użytkownik z uprawnieniami tylko do odczytu i zapisu danych. Aby uzyskać więcej informacji, zobacz **przeglądanie automatyczne zmiany w pliku Web.config na potrzeby migracji Code First** w [wdrażanie w usługach IIS jako środowisku testowym](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md).
+> **Uwaga dotycząca zabezpieczeń** Ten skrypt daje użytkownikowi\_uprawnienia właściciela bazy danych, który uzyskuje dostęp do tej samej bazie w czasie wykonywania, czyli w środowisku produkcyjnym. W niektórych scenariuszach możesz określić użytkownika, który ma pełne uprawnienia do aktualizacji schematu bazy danych tylko do wdrożenia, i określić dla czasu wykonywania inny użytkownik, który ma uprawnienia tylko do odczytu i zapisu danych. Aby uzyskać więcej informacji, zobacz **przeglądanie automatycznych zmian w pliku Web. config dla migracje Code First** w [ramach wdrażania do usług IIS jako środowiska testowego](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md).
 
 ## <a name="configuring-database-deployment-for-the-test-environment"></a>Konfigurowanie wdrażania bazy danych dla środowiska testowego
 
-Następnie należy skonfigurować program Visual Studio, dzięki czemu będzie on wykonywać następujące zadania dla każdej bazy danych:
+Następnie skonfigurujesz program Visual Studio tak, aby wykonał następujące zadania dla każdej bazy danych:
 
-- Generuj skrypt SQL, który tworzy struktury źródłowej bazy danych (tabele, kolumny, ograniczenia, itp.) w docelowej bazie danych.
-- Generuj skrypt SQL, który wstawia dane źródłowej bazy danych w tabelach w docelowej bazie danych.
-- Uruchom wygenerowanych skryptów oraz skrypt Grant, utworzone w docelowej bazie danych.
+- Wygeneruj skrypt SQL, który tworzy strukturę źródłowej bazy danych (tabele, kolumny, ograniczenia itp.) w docelowej bazie danych.
+- Wygeneruj skrypt SQL, który wstawia dane źródłowej bazy danych do tabel w docelowej bazie danych.
+- Uruchom wygenerowane skrypty i utworzony skrypt przydzielenia w docelowej bazie danych.
 
-Otwórz **właściwości projektu** okna, a następnie wybierz pozycję **Pakuj/Publikuj SQL** kartę.
+Otwórz okno **właściwości projektu** i wybierz kartę **pakowanie/publikowanie SQL** .
 
-Upewnij się, że **aktywny (wersja)** lub **wersji** wybrano **konfiguracji** listy rozwijanej.
+Upewnij się, że na liście rozwijanej **Konfiguracja** została wybrana wartość **Active (wersja)** lub **Zwolnij** .
 
-Kliknij przycisk **Włącz tę stronę**.
+Kliknij pozycję **Włącz tę stronę**.
 
 ![Package_Publish_SQL_tab_Enable_This_page](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image4.png)
 
-**Pakuj/Publikuj SQL** karta zwykle została wyłączona, ponieważ określa on metodę wdrożenie starszego typu. W większości przypadków należy skonfigurować wdrożenie bazy danych w **publikowanie w sieci Web** kreatora. Migrowanie z programu SQL Server Compact do programu SQL Server lub SQL Server Express jest szczególnym przypadkiem, dla którego ta metoda jest dobrym wyborem.
+Karta **pakiet/publikowanie SQL** jest zwykle wyłączona, ponieważ określa starszą metodę wdrażania. W przypadku większości scenariuszy należy skonfigurować wdrażanie bazy danych w kreatorze **publikowania w sieci Web** . Migracja z SQL Server Compact do SQL Server lub SQL Server Express jest szczególnym przypadkiem, dla którego ta metoda jest dobrym rozwiązaniem.
 
-Kliknij przycisk **Import z pliku Web.config**.
+Kliknij pozycję **Importuj z pliku Web. config**.
 
-![Selecting_Import_from_Web.config](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image5.png)
+![Selecting_Import_from_Web. config](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image5.png)
 
-Visual Studio szuka parametry połączenia w *Web.config* plik, znajduje się jeden dla bazy danych członkostwa i jeden dla bazy danych School i dodaje wiersz odpowiadający każdego ciągu połączenia w **wpisy w bazie danych**  tabeli. Parametry połączenia, znajdzie się dla istniejących baz danych programu SQL Server Compact i następnym krokiem będzie można skonfigurować sposób i miejsce do wdrożenia tych baz danych.
+Program Visual Studio szuka parametrów połączenia w pliku *Web. config* , znajduje jeden dla bazy danych członkostwa i jeden dla bazy danych szkoły i dodaje wiersz odpowiadający poszczególnym parametrom połączenia w tabeli **wpisów bazy danych** . Znalezione parametry połączenia są dla istniejących SQL Server Compact baz danych, a następnym krokiem będzie skonfigurowanie sposobu i miejsca wdrożenia tych baz danych.
 
-Wprowadź ustawienia wdrażania bazy danych **szczegóły wpisu w bazie danych** poniżej **wpisy w bazie danych** tabeli. Wprowadź ustawienia wymienione w **szczegóły wpisu w bazie danych** sekcji odnoszą się do zależności wiersz w **wpisy w bazie danych** tabeli jest zaznaczone, jak pokazano na poniższej ilustracji.
+W sekcji **szczegóły wpisu bazy** danych wprowadź ustawienia wdrażania bazy danych poniżej tabeli **wpisy** bazy danych. Ustawienia wyświetlane w sekcji **szczegóły wpisu bazy danych** dotyczą dowolnego wiersza w tabeli **wpisy bazy danych** , jak pokazano na poniższej ilustracji.
 
 ![Database_Entry_Details_section_of_Package_Publish_SQL_tab](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image6.png)
 
 ### <a name="configuring-deployment-settings-for-the-membership-database"></a>Konfigurowanie ustawień wdrożenia dla bazy danych członkostwa
 
-Wybierz **wdrożenia DefaultConnection** wiersz w **wpisy w bazie danych** tabeli w celu skonfigurowania ustawień, które są stosowane do bazy danych członkostwa.
+Wybierz wiersz **DefaultConnection-Deployment** w tabeli **wpisy bazy danych** , aby skonfigurować ustawienia, które mają zastosowanie do bazy danych członkostwa.
 
-W **parametry połączenia dla docelowej bazy danych**, wprowadź ciąg połączenia wskazujący nowego programu SQL Server Express bazie danych członkostwa. Możesz uzyskać parametry połączenia w **Eksploratora serwera**. W **Eksploratora serwera**, rozwiń węzeł **połączeń danych** i wybierz **aspnetTest** bazy danych, następnie z **właściwości** okno kopiowania **Parametry połączenia** wartość.
+W polu **Parametry połączenia dla docelowej bazy danych**wprowadź parametry połączenia wskazujące nową bazę danych członkostwa SQL Server Express. Parametry połączenia, które są potrzebne, można uzyskać z **Eksplorator serwera**. W **Eksplorator serwera**rozwiń węzeł **połączenia danych** i wybierz bazę danych **aspnetTest** , a następnie w oknie **Właściwości** skopiuj wartość **Parametry połączenia** .
 
 ![aspnet_connection_string_in_Server_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image7.png)
 
-Tych samych parametrach połączenia jest przedstawiony tutaj:
+Te same parametry połączenia są odtwarzane tutaj:
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample2.cmd)]
 
-Skopiuj i Wklej parametry połączenia do **parametry połączenia dla docelowej bazy danych** w **Pakuj/Publikuj SQL** kartę.
+Skopiuj i wklej te parametry połączenia do **parametrów połączenia dla docelowej bazy danych** na karcie **pakowanie/publikowanie SQL** .
 
-Upewnij się, że **pobierania danych i/lub schemat z istniejącej bazy danych** jest zaznaczone. Jest to, co powoduje, że skrypty SQL, aby automatycznie generowane i uruchamiane w docelowej bazie danych.
+Upewnij się, że wybrano **dane i/lub schemat z istniejącej bazy danych** . Powoduje to, że skrypty SQL mają być automatycznie generowane i uruchamiane w docelowej bazie danych.
 
-**Parametry połączenia dla źródłowej bazy danych** wartości są wyodrębniane z *Web.config* plików i punkty w bazie danych programu SQL Server Compact rozwoju. Jest to źródłowej bazy danych, która będzie służyć do generowania skryptów, które będą działać dalej w docelowej bazie danych. Ponieważ jednak planujesz Wdrażanie wersji produkcyjnych bazy danych, należy zmienić "aspnet Dev.sdf" na "aspnet Prod.sdf".
+**Parametry połączenia dla wartości źródłowej bazy danych** są wyodrębniane z pliku *Web. config* i wskazują na bazę danych SQL Server Compact deweloperskich. Jest to źródłowa baza danych, która zostanie użyta do wygenerowania skryptów, które będą uruchamiane później w docelowej bazie danych. Ponieważ chcesz wdrożyć wersję produkcyjną bazy danych, Zmień wartość "aspnet-Dev. sdf" na "aspnet-Prod. sdf".
 
-Zmiana **opcje obsługi skryptów bazy danych** z **tylko schemat** do **schemat i dane**na to, że chcesz skopiować dane (konta użytkowników i ról) oraz struktury bazy danych.
+Zmień **Opcje skryptów bazy danych** ze **schematu tylko** na **schemat i dane**, ponieważ chcesz skopiować dane (konta i role użytkowników), a także strukturę bazy danych.
 
-Aby skonfigurować wdrożenie na uruchamianie skryptów grant utworzone wcześniej, należy dodać je do **skryptów bazy danych** sekcji. Kliknij przycisk **Dodaj skrypt**, a następnie w **Dodaj skrypty SQL** okno dialogowe, przejdź do folderu przechowywania skryptów przydział (jest to folder, który zawiera plik rozwiązania). Wybierz plik o nazwie *Grant.sql*i kliknij przycisk **Otwórz**.
+Aby skonfigurować wdrożenie do uruchamiania utworzonych wcześniej skryptów dotacji, należy dodać je do sekcji **skrypty bazy danych** . Kliknij przycisk **Dodaj skrypt**, a następnie w oknie dialogowym **Dodawanie skryptów SQL** przejdź do folderu, w którym zapisano skrypt Grant (jest to folder zawierający plik rozwiązania). Wybierz plik o nazwie *Grant. SQL*, a następnie kliknij przycisk **Otwórz**.
 
 [![Select_File_dialog_box_grant_script](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image9.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image8.png)
 
-Ustawienia dla **wdrożenia DefaultConnection** wiersz w **wpisy w bazie danych** teraz wyglądać podobnie do poniższej ilustracji:
+Ustawienia wiersza **DefaultConnection-Deployment** w **wpisach bazy danych** wyglądają teraz tak, jak na poniższej ilustracji:
 
 ![Database_Entry_Details_for_DefaultConnection_Test](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image10.png)
 
-### <a name="configuring-deployment-settings-for-the-school-database"></a>Konfigurowanie ustawień wdrożenia dla bazy danych School
+### <a name="configuring-deployment-settings-for-the-school-database"></a>Konfigurowanie ustawień wdrożenia dla bazy danych szkoły
 
-Następnie wybierz pozycję **wdrożenia SchoolContext** wiersz w **wpisy w bazie danych** tabeli w celu skonfigurowania ustawień wdrożenia dla bazy danych School.
+Następnie wybierz wiersz **SchoolContext-Deployment** w tabeli **wpisy bazy danych** w celu skonfigurowania ustawień wdrożenia dla bazy danych szkoły.
 
-Można użyć tej samej metody, które było wcześniej używane do pobieranie parametrów połączenia dla nowej bazy danych programu SQL Server Express. Skopiuj te parametry połączenia do **parametry połączenia dla docelowej bazy danych** w **Pakuj/Publikuj SQL** kartę.
+Możesz użyć tej samej metody, która została wcześniej użyta w celu uzyskania parametrów połączenia dla nowej bazy danych SQL Server Express. Skopiuj te parametry połączenia do **parametrów połączenia dla docelowej bazy danych** na karcie **pakowanie/publikowanie SQL** .
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample3.cmd)]
 
-Upewnij się, że **pobierania danych i/lub schemat z istniejącej bazy danych** jest zaznaczone.
+Upewnij się, że wybrano **dane i/lub schemat z istniejącej bazy danych** .
 
-**Parametry połączenia dla źródłowej bazy danych** wartości są wyodrębniane z *Web.config* plików i punkty w bazie danych programu SQL Server Compact rozwoju. Zmień "School Dev.sdf" na "School-Prod.sdf" do wdrożenia produkcyjnego wersję bazy danych. (Nigdy nie utworzony plik Prod.sdf służbowe w aplikacji\_folderu danych, dzięki czemu będzie skopiować ten plik ze środowiska testowego do aplikacji\_folderu danych w folderze projektu ContosoUniversity później.)
+**Parametry połączenia dla wartości źródłowej bazy danych** są wyodrębniane z pliku *Web. config* i wskazują na bazę danych SQL Server Compact deweloperskich. Zmień wartość "School-Dev. sdf" na "School-Prod. sdf", aby wdrożyć wersję produkcyjną bazy danych. (Nigdy nie utworzono pliku School-Prod. sdf w folderze danych\_aplikacji, więc skopiujesz go ze środowiska testowego do folderu dane\_aplikacji w folderze projektu ContosoUniversity).
 
-Zmiana **opcje obsługi skryptów bazy danych** do **schemat i dane**.
+Zmień **Opcje obsługi skryptów bazy danych** na **schemat i dane**.
 
-Użytkownik chce również uruchomić skrypt, aby udzielić odczytu i zapisu dla tej bazy danych do odpowiedniej tożsamości puli aplikacji, więc Dodaj *Grant.sql* plik skryptu, tak jak dla bazy danych członkostwa.
+Należy również uruchomić skrypt, aby przyznać uprawnienia do odczytu i zapisu dla tej bazy danych w tożsamości puli aplikacji, więc Dodaj plik skryptu *Grant. SQL* tak, jak w przypadku bazy danych członkostwa.
 
-Gdy wszystko będzie gotowe, ustawienia **wdrożenia SchoolContext** wiersz w **wpisy w bazie danych** wyglądać podobnie do poniższej ilustracji:
+Po zakończeniu ustawienia dla wiersza **SchoolContext-Deployment** w **pozycji bazy danych** wyglądają podobnie jak na poniższej ilustracji:
 
 ![Database_Entry_Details_for_SchoolContext_Test](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image11.png)
 
-Czy zapisać zmiany **Pakuj/Publikuj SQL** kartę.
+Zapisz zmiany na karcie **pakowanie/publikowanie SQL** .
 
-Kopiuj *School-Prod.sdf* plik z *c:\inetpub\wwwroot\ContosoUniversity\App\_danych* folder do *aplikacji\_danych* folderu w Projekt ContosoUniversity.
+Skopiuj plik *School-prod. sdf* z folderu *danych c:\inetpub\wwwroot\ContosoUniversity\App\_* do folderu *\_danych aplikacji* w projekcie ContosoUniversity.
 
-### <a name="specifying-transacted-mode-for-the-grant-script"></a>Określanie trybu transakcyjne dla skryptu przydział
+### <a name="specifying-transacted-mode-for-the-grant-script"></a>Określanie trybu transakcyjnego dla skryptu dotacji
 
-Proces wdrażania generuje skrypty, które wdrożyć schemat bazy danych i danych. Domyślnie te skrypty są uruchamiane w ramach transakcji. Niestandardowych skryptów (takich jak skrypty przydział) domyślnie nie należy uruchamiać w ramach transakcji. Jeśli proces wdrażania napisana tryby transakcji, możesz otrzymać błąd upływu limitu czasu uruchamiania skryptów podczas wdrażania. W tej sekcji możesz edytować plik projektu, aby skonfigurować niestandardowe skrypty do uruchomienia w ramach transakcji.
+Proces wdrażania generuje skrypty, które wdrażają schemat bazy danych i dane. Domyślnie te skrypty są uruchamiane w transakcji. Jednak skrypty niestandardowe (takie jak skrypty grantu) domyślnie nie są uruchamiane w transakcji. Jeśli proces wdrażania miesza tryby transakcji, może wystąpić błąd limitu czasu, gdy skrypty są uruchamiane podczas wdrażania. W tej sekcji edytujesz plik projektu w celu skonfigurowania skryptów niestandardowych do uruchamiania w transakcji.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **ContosoUniversity** projektu, a następnie wybierz **Zwolnij projekt**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ContosoUniversity** i wybierz polecenie **Zwolnij projekt**.
 
 ![Unload_Project_in_Solution_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image12.png)
 
-Następnie ponownie kliknij prawym przyciskiem myszy projekt i wybierz **Edytuj ContosoUniversity.csproj**.
+Następnie ponownie kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Edytuj ContosoUniversity. csproj**.
 
 ![Edit_Project_in_Solution_Explorer](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image13.png)
 
-Edytor programu Visual Studio pokazuje zawartość XML w pliku projektu. Należy zauważyć, że istnieje kilka `PropertyGroup` elementów. (Na ilustracji zawartość `PropertyGroup` elementy zostały pominięte.)
+Edytor programu Visual Studio pokazuje zawartość XML pliku projektu. Zwróć uwagę, że istnieje kilka `PropertyGroup` elementów. (W obrazie zawartość `PropertyGroup` elementów została pominięta.)
 
-![Okno edytora pliku projektu](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image15.png)
+![Okno edytora plików projektu](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image15.png)
 
-Pierwszy z nich, które nie ma `Condition` atrybut, za ustawienia, które są stosowane niezależnie od tego, konfiguracja kompilacji. Jeden `PropertyGroup` element ma zastosowanie tylko do konfiguracji kompilacji debugowania (Uwaga `Condition` atrybut), jednego ma zastosowanie tylko do konfiguracji kompilacji wydania i jeden ma zastosowanie tylko do testu konfiguracji kompilacji. W ramach `PropertyGroup` elementu dla konfiguracji kompilacji wydania, zobaczysz `PublishDatabaseSettings` element, który zawiera ustawienia wprowadzone na **Pakuj/Publikuj SQL** kartę. Brak `Object` element, który odnosi się do wszystkich skryptów grant określone (Zwróć uwagę dwa wystąpienia elementu "Grant.sql"). Domyślnie `Transacted` atrybutu `Source` elementu dla każdego skryptu grant `False`.
+Pierwszy, który nie ma `Condition` atrybutu, jest przeznaczony dla ustawień, które są stosowane niezależnie od konfiguracji kompilacji. Jeden `PropertyGroup` element ma zastosowanie tylko do konfiguracji kompilacji debugowania (należy zauważyć, że atrybut `Condition`), jeden ma zastosowanie tylko do konfiguracji kompilacji wydania, a jeden ma zastosowanie tylko do konfiguracji kompilacji testowej. W ramach elementu `PropertyGroup` w konfiguracji kompilacji wydania zostanie wyświetlony element `PublishDatabaseSettings`, który zawiera ustawienia wprowadzone na karcie **pakowanie/publikowanie SQL** . Istnieje element `Object`, który odpowiada każdemu z określonych skryptów grantu (należy zauważyć dwa wystąpienia "Grant. SQL"). Domyślnie atrybut `Transacted` elementu `Source` dla każdego skryptu przydzielenia jest `False`.
 
 ![Transacted_false](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image16.png)
 
-Zmień wartość właściwości `Transacted` atrybutu `Source` elementu `True`.
+Zmień wartość atrybutu `Transacted` elementu `Source` na `True`.
 
 ![Transacted_true](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image17.png)
 
-Zapisz i zamknij plik projektu i kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **Załaduj ponownie projekt**.
+Zapisz i zamknij plik projektu, a następnie kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** a następnie wybierz polecenie **Załaduj ponownie projekt**.
 
 ![Reload_project](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image18.png)
 
-## <a name="setting-up-webconfig-transformations-for-the-connection-strings"></a>Definiowanie transformacje pliku Web.Config dla parametrów połączenia
+## <a name="setting-up-webconfig-transformations-for-the-connection-strings"></a>Konfigurowanie transformacji Web. config dla parametrów połączenia
 
-Połączenie ciągów dla nowego programu SQL Express baz danych, jak wprowadzona **Pakuj/Publikuj SQL** karty są używane przez narzędzie Web Deploy, tylko w przypadku aktualizowania docelowej bazy danych podczas wdrażania. Nadal jest konieczne konfigurowanie *Web.config* przekształcenia tak, aby połączenie ciągów w wdrożonych *Web.config* pliku wskaż nowych baz danych programu SQL Server Express. (Jeśli używasz **Pakuj/Publikuj SQL** karcie Parametry połączenia nie można skonfigurować w profilu publikowania.)
+Parametry połączenia dla nowych baz danych SQL Express wprowadzonych na karcie **pakiet/publikowanie SQL** są używane przez Web Deploy tylko do aktualizowania docelowej bazy danych podczas wdrażania. Nadal trzeba skonfigurować przekształcenia *Web. config* , tak aby parametry połączenia we wdrożonym pliku *Web. config* wskazywały nowe bazy danych SQL Server Express. (W przypadku używania karty **pakowanie/publikowanie SQL** nie można skonfigurować parametrów połączenia w profilu publikowania).
 
-Otwórz *Web.Test.config* i Zastąp `connectionStrings` element z `connectionStrings` elementu w poniższym przykładzie. (Upewnij się, że kopiujesz tylko element connectionStrings, a nie otaczającego kod, który znajduje się tutaj do zapewniania kontekstu).
+Otwórz *plik Web. test. config* i Zastąp element `connectionStrings` elementem `connectionStrings` w poniższym przykładzie. (Upewnij się, że kopiujesz tylko element connectionStrings, a nie otaczający kod, który jest wyświetlany w tym miejscu, aby zapewnić kontekst).
 
 [!code-xml[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample4.xml?highlight=2-11)]
 
-Ten kod powoduje `connectionString` i `providerName` atrybuty każdego `add` element ma zostać zastąpione w wdrożonych *Web.config* pliku. Te parametry połączenia nie są identyczne z tymi, które zostały wprowadzone w **Pakuj/Publikuj SQL** kartę. Ustawienie "MultipleActiveResultSets = True", ponieważ jest to wymagane dla programu Entity Framework i dostawców uniwersalnych została dodana do nich.
+Ten kod powoduje, że atrybuty `connectionString` i `providerName` każdego elementu `add` zostaną zastąpione we wdrożonym pliku *Web. config* . Te parametry połączenia nie są identyczne z tymi, które zostały wprowadzone w zakładce **pakowanie/publikowanie SQL** . Ustawienie "MultipleActiveResultSets = true" zostało dodane do nich, ponieważ jest wymagane dla Entity Framework i dostawców uniwersalnych.
 
-## <a name="installing-sql-server-compact"></a>Instalowanie programu SQL Server Compact
+## <a name="installing-sql-server-compact"></a>Instalowanie SQL Server Compact
 
-Pakiet SqlServerCompact NuGet zawiera bazy danych programu SQL Server Compact zestawów aparatu dla aplikacji Contoso University. Ale teraz nie jest aplikacja, ale narzędzie Web Deploy, który musi mieć możliwość odczytu baz danych programu SQL Server Compact, aby można było utworzyć skrypty do uruchomienia w bazach danych programu SQL Server. Aby włączyć narzędzie Web Deploy do odczytu baz danych programu SQL Server Compact, zainstalować SQL Server Compact na komputerze deweloperskim, korzystając z następującego linku: [Microsoft SQL Server Compact 4.0](https://www.microsoft.com/downloads/details.aspx?FamilyID=15F7C9B3-A150-4AD2-823E-E4E0DCF85DF6).
+Pakiet NuGet SqlServerCompact zapewnia zestawy aparatów bazy danych SQL Server Compact dla aplikacji firmy Contoso University. Ale teraz nie jest to aplikacja, ale Web Deploy, która musi mieć możliwość odczytywania SQL Server Compact baz danych, aby można było uruchamiać skrypty w SQL Server bazach danych. Aby umożliwić Web Deploy odczytywanie SQL Server Compact baz danych, zainstaluj SQL Server Compact na komputerze deweloperskim, używając następującego linku: [Microsoft SQL Server Compact 4,0](https://www.microsoft.com/downloads/details.aspx?FamilyID=15F7C9B3-A150-4AD2-823E-E4E0DCF85DF6).
 
-## <a name="deploying-to-the-test-environment"></a>Wdrażanie do środowiska testowego
+## <a name="deploying-to-the-test-environment"></a>Wdrażanie w środowisku testowym
 
-Aby można było opublikować w środowisku testowym, należy utworzyć profil publikowania, który jest skonfigurowany do używania **Pakuj/Publikuj SQL** kartę publikowania zamiast ustawień bazy danych profilu publikowania bazy danych.
+Aby można było publikować w środowisku testowym, należy utworzyć profil publikowania skonfigurowany do korzystania z karty **pakiet/publikowanie SQL** na potrzeby publikowania bazy danych zamiast ustawień bazy danych profilu publikowania.
 
 Najpierw usuń istniejący profil testu.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt ContosoUniversity i kliknij przycisk **Publikuj**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt ContosoUniversity, a następnie kliknij pozycję **Publikuj**.
 
-Wybierz **profilu** kartę.
+Wybierz kartę **profil** .
 
-Kliknij przycisk **Zarządzanie profilami**.
+Kliknij pozycję **Zarządzaj profilami**.
 
-Wybierz **testu**, kliknij przycisk **Usuń**, a następnie kliknij przycisk **Zamknij**.
+Wybierz pozycję **test**, kliknij pozycję **Usuń**, a następnie kliknij przycisk **Zamknij**.
 
-Zamknij **publikowanie w sieci Web** kreatora, aby zapisać tę zmianę.
+Zamknij kreatora **publikacji w sieci Web** , aby zapisać tę zmianę.
 
-Następnie utwórz nowy profil testu i umożliwia publikowanie projektu.
+Następnie utwórz nowy profil testu i użyj go do opublikowania projektu.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt ContosoUniversity i kliknij przycisk **Publikuj**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt ContosoUniversity, a następnie kliknij pozycję **Publikuj**.
 
-Wybierz **profilu** kartę.
+Wybierz kartę **profil** .
 
-Wybierz **&lt;nowy... &gt;** z listy rozwijanej listy, a następnie wprowadź "Test" jako nazwy profilu.
+Wybierz pozycję **&lt;nowy...&gt;** z listy rozwijanej, a następnie wprowadź "test" jako nazwę profilu.
 
-W **adres URL usługi** wprowadź *localhost*.
+W polu **adres URL usługi** wprowadź wartość *localhost*.
 
-W **witryny/aplikacji** wprowadź *domyślnej witryny sieci Web/ContosoUniversity*.
+W polu **Witryna/aplikacja** wprowadź *domyślną witrynę sieci Web/ContosoUniversity*.
 
-W **docelowy adres URL** wprowadź `http://localhost/ContosoUniversity/`.
+W polu **docelowy adres URL** wprowadź `http://localhost/ContosoUniversity/`.
 
 Kliknij przycisk **Dalej**.
 
-**Ustawienia** kartę ostrzega, że **Pakuj/Publikuj SQL** karta została skonfigurowana i daje możliwość je zastąpić, klikając przycisk Włącz nowe ulepszenia dotyczące publikowania bazy danych. W przypadku tego wdrożenia nie chcesz zastąpić **Pakuj/Publikuj SQL** karcie Ustawienia, więc po prostu kliknij **dalej**.
+Na karcie **Ustawienia** zostanie wyświetlone ostrzeżenie, że została skonfigurowana karta **pakowanie/publikowanie SQL** i umożliwia ona przesłonięcie ich przez kliknięcie pozycji Włącz nowe ulepszenia publikowania bazy danych. W przypadku tego wdrożenia nie chcesz przesłonić ustawień na karcie **pakiet/publikacja SQL** , więc kliknij przycisk **dalej**.
 
 ![Publish_Web_wizard_Settings_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image19.png)
 
-Komunikat na **(wersja zapoznawcza)** karcie wskazuje, że **nie wybrano baz danych do publikowania**, ale oznacza to jedynie, że publikowanie bazy danych nie jest skonfigurowany w profilu publikowania.
+Komunikat na karcie **Podgląd** wskazuje, że **nie wybrano żadnych baz danych do opublikowania**, ale oznacza to, że publikowanie bazy danych nie jest skonfigurowane w profilu publikowania.
 
-Kliknij przycisk **publikowania**.
+Kliknij przycisk **Publikuj**.
 
 ![Publish_Web_wizard_Preview_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image20.png)
 
-Visual Studio wdroży aplikację i otwiera przeglądarkę na stronę główną witryny w środowisku testowym. Uruchom na stronie instruktorów, aby zobaczyć, wyświetla te same dane, które były wyświetlane wcześniej. Uruchom **dodać uczniów** się dodać nowego Studenta, a następnie Wyświetl nowego studenta w **studentów** strony. Sprawdza, czy można zaktualizować bazy danych. Wybierz **aktualizacji środki na korzystanie z** strony (należy się zalogować), aby sprawdzić, czy została wdrożona w bazie danych członkostwa i masz do niego dostęp.
+Program Visual Studio wdroży aplikację i otworzy przeglądarkę na stronie głównej witryny w środowisku testowym. Uruchom stronę instruktorów, aby zobaczyć, że są wyświetlane te same dane, które zostały wcześniej wyświetlone. Uruchom stronę **Dodawanie uczniów** , Dodaj nowego ucznia, a następnie Wyświetl nowych uczniów na stronie **uczniów** . Spowoduje to sprawdzenie, czy można zaktualizować bazę danych. Wybierz stronę **Aktualizowanie kredytów** (musisz się zalogować), aby sprawdzić, czy baza danych członkostwa została wdrożona i czy masz do niej dostęp.
 
-## <a name="creating-a-sql-server-database-for-the-production-environment"></a>Tworzenie bazy danych programu SQL Server w środowisku produkcyjnym
+## <a name="creating-a-sql-server-database-for-the-production-environment"></a>Tworzenie bazy danych SQL Server dla środowiska produkcyjnego
 
-Teraz, gdy wdrożono do środowiska testowego, możesz skonfigurować wdrożenie w środowisku produkcyjnym. Możesz rozpocząć, tak jak dla środowiska testowego, tworząc bazę danych do wdrożenia. Tak jak pamiętasz od omówienia Cytanium Lite planu hostingu zezwala tylko pojedynczej bazy danych programu SQL Server, więc zostanie skonfigurowane tylko jedną bazę danych, nie dwa. Wszystkie tabele i dane z członkostwa i bazy danych School programu SQL Server Compact będzie można wdrożyć w jednej bazie danych SQL Server w środowisku produkcyjnym.
+Teraz, gdy wdrożono go w środowisku testowym, można przystąpić do konfigurowania wdrożenia do produkcji. Począwszy od środowiska testowego, należy utworzyć bazę danych do wdrożenia. W miarę odwoływania się z przeglądu plan hostingu Cytanium w języku Lite zezwala tylko na pojedynczą bazę danych SQL Server, więc zostanie skonfigurowana tylko jedna baza danych, a nie dwie. Wszystkie tabele i dane z baz danych SQL Server Compact członkostwa i szkoły zostaną wdrożone w jednej SQL Server bazie danych w środowisku produkcyjnym.
 
-Przejdź do panelu sterowania Cytanium w [ http://panel.cytanium.com ](http://panel.cytanium.com). Umieść wskaźnik myszy nad **baz danych** a następnie kliknij przycisk **programu SQL Server 2008**.
+Przejdź do panelu sterowania Cytanium w [http://panel.cytanium.com](http://panel.cytanium.com). Przytrzymaj mysz nad **bazami danych** , a następnie kliknij **SQL Server 2008**.
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
-W **programu SQL Server 2008** kliknij **Create Database**.
+Na stronie **SQL Server 2008** kliknij pozycję **Utwórz bazę danych**.
 
 [![Selecting_Create_Database](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image24.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image23.png)
 
-Nazwa bazy danych "Służbowego", a następnie kliknij przycisk **Zapisz**. (Strona automatycznie dodaje prefiksu "contosou", więc obowiązywać nazwą będzie "contosouSchool".)
+Nazwij bazę danych "Szkoła" i kliknij przycisk **Zapisz**. (Strona automatycznie dodaje prefiks "contosou", więc rzeczywista nazwa to "contosouSchool").
 
 [![Naming_the_database](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image26.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image25.png)
 
-W tej samej stronie, kliknij polecenie **Create User**. Na serwerach Cytanium firmy, a nie korzysta ze zintegrowanych zabezpieczeń Windows, jak i umożliwienie tożsamość puli aplikacji Otwórz swoją bazę danych utworzymy użytkownika, który ma uprawnienia do otwierania bazy danych. Należy dodać poświadczenia użytkownika do parametrów połączenia, które bardziej szczegółowo w produkcji *Web.config* pliku. W tym kroku utworzysz tych poświadczeń.
+Na tej samej stronie kliknij pozycję **Utwórz użytkownika**. Na serwerach Cytanium zamiast korzystania ze zintegrowanych zabezpieczeń systemu Windows i umożliwiających tożsamość puli aplikacji otwieranie bazy danych, utworzysz użytkownika, który ma uprawnienia do otwierania bazy danych. Poświadczenia użytkownika zostaną dodane do parametrów połączenia, które przechodzą w produkcyjny plik *Web. config* . W tym kroku utworzysz te poświadczenia.
 
 [![Creating_a_database_user](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image28.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image27.png)
 
-Wypełnij wymagane pola w **właściwości użytkownika SQL** strony:
+Wypełnij pola wymagane na stronie **właściwości użytkownika SQL** :
 
-- Wprowadź "ContosoUniversityUser" jako nazwę.
+- Wprowadź wartość "ContosoUniversityUser" jako nazwę.
 - Wprowadź hasło.
-- Wybierz **contosouSchool** jako domyślna baza danych.
-- Wybierz **contosouSchool** pole wyboru.
+- Wybierz **contosouSchool** jako domyślną bazę danych.
+- Zaznacz pole wyboru **contosouSchool** .
 
 [![SQL_User_Properties_page](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image30.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image29.png)
 
-## <a name="configuring-database-deployment-for-the-production-environment"></a>Konfigurowanie wdrażania bazy danych w środowisku produkcyjnym
+## <a name="configuring-database-deployment-for-the-production-environment"></a>Konfigurowanie wdrażania bazy danych dla środowiska produkcyjnego
 
-Teraz możesz przystąpić do konfigurowania ustawień wdrażania bazy danych w **Pakuj/Publikuj SQL** karcie, tak jak wcześniej dla środowiska testowego.
+Teraz możesz przystąpić do konfigurowania ustawień wdrażania bazy danych na karcie **pakowanie/publikowanie SQL** , tak jak wcześniej dla środowiska testowego.
 
-Otwórz **właściwości projektu** wybierz **Pakuj/Publikuj SQL** kartę i upewnij się, że **aktywny (wersja)** lub **wersji** jest wybrane w **konfiguracji** listy rozwijanej.
+Otwórz okno **właściwości projektu** , wybierz kartę **pakowanie/publikowanie SQL** i upewnij się, że na liście rozwijanej **Konfiguracja** wybrano pozycję **Active (wersja)** lub **Zwolnij** .
 
-Podczas konfigurowania ustawień wdrożenia dla każdej bazy danych jest główną różnicą między co zrobić w przypadku środowisk produkcyjnych i testowych, w jaki sposób będziesz konfigurować parametry połączenia. Dla środowiska testowego wprowadzić parametry połączenia bazy danych w różnych miejsc docelowych, ale w środowisku produkcyjnym ciąg połączenia docelowy jest taki sam dla obu baz danych. Jest to spowodowane obu bazach danych jest wdrażany z jedną bazę danych w środowisku produkcyjnym.
+W przypadku konfigurowania ustawień wdrożenia dla każdej bazy danych, kluczową różnicą między działaniem w środowisku produkcyjnym i testowym jest konfiguracja parametrów połączenia. Dla środowiska testowego wprowadzono różne parametry połączenia z bazą danych docelowych, ale dla środowiska produkcyjnego parametry połączenia docelowego będą takie same dla obu baz danych. Wynika to z faktu, że wdrażasz obie bazy danych w jednej bazie danych w środowisku produkcyjnym.
 
 ### <a name="configuring-deployment-settings-for-the-membership-database"></a>Konfigurowanie ustawień wdrożenia dla bazy danych członkostwa
 
-Aby skonfigurować ustawienia, które są stosowane do bazy danych członkostwa, wybierz **wdrożenia DefaultConnection** wiersz w **wpisy w bazie danych** tabeli.
+Aby skonfigurować ustawienia, które mają zastosowanie do bazy danych członkostwa, wybierz wiersz **DefaultConnection-Deployment** w tabeli **wpisy bazy danych** .
 
-W **parametry połączenia dla docelowej bazy danych**, wprowadź parametry połączenia, które wskazują na nowo utworzoną bazę danych programu SQL Server produkcji nowe. Parametry połączenia można uzyskać z powitalnej wiadomości e-mail. Odpowiednie części wiadomości e-mail zawiera następujące przykładowe parametry połączenia:
+W polu **Parametry połączenia dla docelowej bazy danych**wprowadź parametry połączenia wskazujące nową utworzoną SQL Server produkcyjnej bazy danych. Parametry połączenia można uzyskać z powitalnej wiadomości e-mail. Odpowiednia część wiadomości e-mail zawiera następujące przykładowe parametry połączenia:
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample5.cmd)]
 
-Po zamianie trzech zmiennych ciągu połączenia, które są potrzebne będzie wyglądać następująco:
+Po zamianie trzech zmiennych, potrzebne parametry połączenia wyglądają następująco:
 
 [!code-console[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample6.cmd)]
 
-Skopiuj i Wklej parametry połączenia do **parametry połączenia dla docelowej bazy danych** w **Pakuj/Publikuj SQL** kartę.
+Skopiuj i wklej te parametry połączenia do **parametrów połączenia dla docelowej bazy danych** na karcie **pakowanie/publikowanie SQL** .
 
-Upewnij się, że **pobierania danych i/lub schemat z istniejącej bazy danych** jest nadal zaznaczone oraz że **opcje obsługi skryptów bazy danych** jest nadal **schemat i dane**.
+Upewnij się, że **dane ściągania i/lub schemat z istniejącej bazy danych** są nadal zaznaczone, a **Opcje skryptów bazy danych** nadal są **schematem i danymi**.
 
-W **skryptów bazy danych** polu, wyczyść pole wyboru obok skryptu Grant.sql.
+W polu **skrypty bazy danych** wyczyść pole wyboru obok skryptu Grant. SQL.
 
 ![Disable_Grant_script](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image31.png)
 
-### <a name="configuring-deployment-settings-for-the-school-database"></a>Konfigurowanie ustawień wdrożenia dla bazy danych School
+### <a name="configuring-deployment-settings-for-the-school-database"></a>Konfigurowanie ustawień wdrożenia dla bazy danych szkoły
 
-Następnie wybierz pozycję **wdrożenia SchoolContext** wiersz w **wpisy w bazie danych** tabeli w celu skonfigurowania ustawień bazy danych School.
+Następnie wybierz wiersz **SchoolContext-Deployment** w tabeli **wpisy bazy danych** w celu skonfigurowania ustawień bazy danych szkoły.
 
-Skopiuj te same parametry połączenia do **parametry połączenia dla docelowej bazy danych** skopiowany do tego pola dla bazy danych członkostwa.
+Skopiuj te same parametry połączenia do **parametrów połączenia dla docelowej bazy danych** , która została skopiowana do tego pola dla bazy danych członkostwa.
 
-Upewnij się, że **pobierania danych i/lub schemat z istniejącej bazy danych** jest nadal zaznaczone oraz że **opcje obsługi skryptów bazy danych** jest nadal **schemat i dane**.
+Upewnij się, że **dane ściągania i/lub schemat z istniejącej bazy danych** są nadal zaznaczone, a **Opcje skryptów bazy danych** nadal są **schematem i danymi**.
 
-W **skryptów bazy danych** polu, wyczyść pole wyboru obok skryptu Grant.sql.
+W polu **skrypty bazy danych** wyczyść pole wyboru obok skryptu Grant. SQL.
 
-Czy zapisać zmiany **Pakuj/Publikuj SQL** kartę.
+Zapisz zmiany na karcie **pakowanie/publikowanie SQL** .
 
-## <a name="setting-up-webconfig-transforms-for-the-connection-strings-to-production-databases"></a>Konfigurowanie pliku Web.Config przekształcenia na parametry połączenia do produkcyjnych bazach danych
+## <a name="setting-up-webconfig-transforms-for-the-connection-strings-to-production-databases"></a>Konfigurowanie transformacji Web. config dla parametrów połączenia do produkcyjnych baz danych
 
-Następnie należy skonfigurować *Web.config* przekształcenia tak, aby połączenie ciągów w wdrożonych *Web.config* pliku, aby wskazywał nową bazę danych w środowisku produkcyjnym. Parametry połączenia, który został wprowadzony na **Pakuj/Publikuj SQL** kartę dla narzędzia Web Deploy do użycia jest taka sama jak aplikacja musi używać, z wyjątkiem dodawania `MultipleResultSets` opcji.
+Następnie skonfigurujesz przekształcenia *Web. config* , tak aby parametry połączenia we wdrożonym pliku *Web. config* wskazywały nową produkcyjną bazę danych. Parametry połączenia wprowadzone na karcie **pakiet/Publikuj SQL** na potrzeby Web Deploy są takie same, jak w przypadku tej aplikacji, z wyjątkiem dodania opcji `MultipleResultSets`.
 
-Otwórz *Web.Production.config* i Zastąp `connectionStrings` element z `connectionStrings` element, który wygląda podobnie jak w poniższym przykładzie. (Tylko kopiowanie `connectionStrings` elementu, nie otaczającego tagi, które są dostarczane do wyświetlenia w kontekście.)
+Otwórz *plik Web. Product. config* i Zastąp element `connectionStrings` elementem `connectionStrings`, który wygląda podobnie do poniższego przykładu. (Skopiuj tylko `connectionStrings` element, a nie otaczające znaczniki, które są podane w celu wyświetlenia kontekstu).
 
 [!code-xml[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample7.xml?highlight=2-11)]
 
-Czasami napotkać informację, że informuje zawsze Szyfruj parametry połączenia w *Web.config* pliku. Może to być przydatne, jeśli były wdrażane do serwerów w sieci własnej firmy. W przypadku wdrażania współużytkowanym środowisku hostingu, jednak masz zaufanie, rozwiązania w zakresie zabezpieczeń dostawcy hostingu i nie jest konieczne lub praktycznego do szyfrowania parametrów połączenia.
+Czasami widzisz porady z informacją, że należy zawsze szyfrować parametry połączenia w pliku *Web. config* . Może to być odpowiednie w przypadku wdrożenia na serwerach w sieci firmowej. W przypadku wdrażania w udostępnionym środowisku hostingu, chociaż użytkownik ufa praktykom dotyczącym zabezpieczeń dostawcy hostingu i nie jest konieczne ani praktyczne do szyfrowania parametrów połączenia.
 
 ## <a name="deploying-to-the-production-environment"></a>Wdrażanie w środowisku produkcyjnym
 
-Teraz możesz przystąpić do wdrażania w środowisku produkcyjnym. Narzędzie Web Deploy odczyta baz danych programu SQL Server Compact do projektu *aplikacji\_danych* folder i ponowne utworzenie wszystkich swoich tabel i danych w produkcyjnej bazy danych programu SQL Server. Aby można było opublikować za pomocą **pakowaniu/publikowaniu Web** karcie Ustawienia, należy utworzyć nowy profil publikowania w środowisku produkcyjnym.
+Teraz wszystko jest gotowe do wdrożenia w środowisku produkcyjnym. Web Deploy odczyta SQL Server Compact bazy danych w aplikacji projektu\_folderze *danych* i ponownie utworzysz wszystkie tabele i dane w produkcyjnej SQL Server bazie danych. Aby można było opublikować program przy użyciu ustawień karty **sieci Web pakowanie/publikowanie** , należy utworzyć nowy profil publikowania dla środowiska produkcyjnego.
 
-Najpierw usuń istniejący profil produkcji, tak jak wcześniej profilu testowego.
+Najpierw usuń istniejący profil produkcyjny zgodnie z wcześniejszym profilem testowym.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt ContosoUniversity i kliknij przycisk **Publikuj**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt ContosoUniversity, a następnie kliknij pozycję **Publikuj**.
 
-Wybierz **profilu** kartę.
+Wybierz kartę **profil** .
 
-Kliknij przycisk **Zarządzanie profilami**.
+Kliknij pozycję **Zarządzaj profilami**.
 
-Wybierz **produkcji**, kliknij przycisk **Usuń**, a następnie kliknij przycisk **Zamknij**.
+Wybierz pozycję **produkcja**, kliknij pozycję **Usuń**, a następnie kliknij przycisk **Zamknij**.
 
-Zamknij **publikowanie w sieci Web** kreatora, aby zapisać tę zmianę.
+Zamknij kreatora **publikacji w sieci Web** , aby zapisać tę zmianę.
 
-Następnie utwórz nowy profil produkcji i umożliwia publikowanie projektu.
+Następnie utwórz nowy profil produkcyjny i użyj go do opublikowania projektu.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt ContosoUniversity i kliknij przycisk **Publikuj**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt ContosoUniversity, a następnie kliknij pozycję **Publikuj**.
 
-Wybierz **profilu** kartę.
+Wybierz kartę **profil** .
 
-Kliknij przycisk **importu**, a następnie wybierz plik .publishsettings, który został wcześniej pobrany.
+Kliknij przycisk **Importuj**, a następnie wybierz pobrany wcześniej plik. publishsettings.
 
-Na **połączenia** kartę, zmień **docelowy adres URL** poprawny adres URL tymczasowy, który w tym przykładzie jest http://contosouniversity.com.vserver01.cytanium.com.
+Na karcie **połączenie** Zmień **docelowy adres URL** na prawidłowy tymczasowy adres URL, który w tym przykładzie jest http://contosouniversity.com.vserver01.cytanium.com.
 
-Zmień nazwę tego profilu do środowiska produkcyjnego. (Wybierz **profilu** kartę, a następnie kliknij przycisk **spravovat profily** Aby to zrobić).
+Zmień nazwę profilu na produkcyjny. (Wybierz kartę **profil** , a następnie kliknij pozycję **Zarządzaj profilami** , aby to zrobić).
 
-Zamknij **publikowanie w sieci Web** kreatora, aby zapisać zmiany.
+Zamknij kreatora **publikacji w sieci Web** , aby zapisać zmiany.
 
-W rzeczywistej aplikacji, w którym baza danych była aktualizowana w środowisku produkcyjnym należy dwa dodatkowe kroki teraz przed opublikowaniem:
+W prawdziwej aplikacji, w której baza danych była aktualizowana w środowisku produkcyjnym, przed opublikowaniem należy wykonać dwa dodatkowe kroki:
 
-1. Przekaż *aplikacji\_offline.htm*, jak pokazano na [wdrażanie w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) samouczka.
-2. Użyj **Menedżera plików** funkcji Panelu sterowania Cytanium, aby skopiować *aspnet Prod.sdf* i *School-Prod.sdf* plików z lokacji produkcyjnej do *Aplikacji\_danych* folderu projektu ContosoUniversity. Daje to gwarancję, że dane, które wdrażasz do nowej bazy danych programu SQL Server zawiera najnowsze aktualizacje wprowadzone w produkcyjnej witrynie internetowej.
+1. Przekaż *aplikację\_offline. htm*, jak pokazano w samouczku [wdrażanie do środowiska produkcyjnego](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) .
+2. Użyj funkcji **Menedżer plików** w panelu sterowania Cytanium, aby skopiować pliki *ASPNET-prod. sdf* i *School-prod. sdf* z lokacji produkcyjnej do folderu *danych\_aplikacji* w projekcie ContosoUniversity. Dzięki temu dane wdrażane do nowej bazy danych SQL Server zawierają najnowsze aktualizacje wprowadzone przez produkcyjną witrynę sieci Web.
 
-W **Web publikacja w pojedynczym kliknięciem** narzędzi, upewnij się, że **produkcji** profilu jest zaznaczona, a następnie kliknij przycisk **Publikuj**.
+Na pasku narzędzi **kliknij przycisk Publikuj w sieci Web** , upewnij się, że wybrano pozycję Profil **produkcyjny** , a następnie kliknij pozycję **Publikuj**.
 
-Jeśli przekazano <em>aplikacji\_offline.htm</em> przed opublikowaniem, trzeba użyć <strong>Menedżera plików</strong> narzędzie w Panelu sterowania Cytanium, aby usunąć <em>aplikacji\_w trybie offline.</em> htm przed testowaniem. Można również jednocześnie usunąć <em>.sdf</em> plików ze <em>aplikacji\_danych</em> folderu.
+Jeśli aplikacja została przekazana <em>\_offline. htm</em> przed opublikowaniem, musisz użyć narzędzia <strong>Menedżer plików</strong> w panelu sterowania Cytanium, aby usunąć <em>aplikację\_offline.</em> htm przed przetestem. Możesz również w tym samym czasie usunąć pliki <em>. sdf</em> z folderu <em>danych\_aplikacji</em> .
 
-Możesz teraz Otwórz przeglądarkę i przejdź do adresu URL witryny w sieci publicznej, aby przetestować aplikację w taki sam sposób, które były wykonane po wdrożeniu do środowiska testowego.
+Teraz możesz otworzyć przeglądarkę i przejść do adresu URL witryny publicznej w celu przetestowania aplikacji w taki sam sposób, jak po wdrożeniu w środowisku testowym.
 
-## <a name="switching-to-sql-server-express-localdb-in-development"></a>Przełączanie do programu SQL Server Express LocalDB w trakcie opracowywania
+## <a name="switching-to-sql-server-express-localdb-in-development"></a>Przełączanie do SQL Server Express LocalDB w trakcie opracowywania
 
-Jak wyjaśniono w przeglądzie, zazwyczaj najlepiej jest używać tego samego aparatu bazy danych w rozwoju, którego używasz w testowym i produkcyjnym. (Należy pamiętać, że przy użyciu programu SQL Server Express w rozwoju zaletą jest to czy baza danych będzie działać tak samo w środowiskach programowania, testowania i produkcji). W tej sekcji należy skonfigurować projekt ContosoUniversity można użyć programu SQL Server Express LocalDB, po uruchomieniu aplikacji w programie Visual Studio.
+Jak wyjaśniono w przeglądzie, najlepszym rozwiązaniem jest użycie tego samego aparatu bazy danych w środowisku programistycznym, który jest używany w testach i produkcyjnych. (Należy pamiętać, że zalety korzystania z SQL Server Express podczas opracowywania polega na tym, że baza danych będzie działała tak samo w środowiskach programistycznych, testowych i produkcyjnych). W tej sekcji skonfigurujesz projekt ContosoUniversity do użycia SQL Server Express LocalDB podczas uruchamiania aplikacji z programu Visual Studio.
 
-Najprostszym sposobem przeprowadzania migracji jest umożliwienie Code First i system członkostwa tworzyć zarówno nowe rozwoju bazy danych dla Ciebie. Aby przeprowadzić migrację za pomocą tej metody wymaga wykonania trzech kroków:
+Najprostszym sposobem przeprowadzenia migracji jest umożliwienie Code First i systemu członkostwa w tworzeniu nowych baz danych programistycznych. Zastosowanie tej metody do migracji wymaga wykonania trzech kroków:
 
-1. Zmień parametry połączenia, aby określić nowe bazy danych programu SQL Express LocalDB.
-2. Uruchom narzędzie Administratorskie witryny sieci Web, aby utworzyć użytkownika administrator. Spowoduje to utworzenie bazy danych członkostwa.
-3. Tworzenie i Inicjowanie bazy danych aplikacji, należy użyć polecenia update-database migracje Code First.
+1. Zmień parametry połączenia, aby określić nowe bazy danych SQL Express LocalDB.
+2. Uruchom narzędzie do administrowania witryną sieci Web, aby utworzyć użytkownika administratora. Spowoduje to utworzenie bazy danych członkostwa.
+3. Za pomocą polecenia Migracje Code First Update-Database Utwórz i wypełnianie bazy danych aplikacji.
 
-### <a name="updating-connection-strings-in-the-webconfig-file"></a>Aktualizowanie parametrów połączenia w pliku Web.config
+### <a name="updating-connection-strings-in-the-webconfig-file"></a>Aktualizowanie parametrów połączenia w pliku Web. config
 
-Otwórz *Web.config* i Zastęp `connectionStrings` element następującym kodem:
+Otwórz plik *Web. config* i zastąp `connectionStrings` element następującym kodem:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample8.xml)]
 
 ### <a name="creating-the-membership-database"></a>Tworzenie bazy danych członkostwa
 
-W **Eksploratora rozwiązań**, wybierz projekt ContosoUniversity, a następnie kliknij **Konfiguracja ASP.NET** w **projektu** menu.
+W **Eksplorator rozwiązań**wybierz projekt ContosoUniversity, a następnie kliknij pozycję **Konfiguracja ASP.NET** w menu **projekt** .
 
 Wybierz kartę Zabezpieczenia.
 
-Kliknij przycisk **tworzenia lub Zarządzaj rolami**, a następnie utwórz **administratora** roli.
+Kliknij przycisk **Utwórz role lub zarządzaj nimi**, a następnie Utwórz rolę **administratora** .
 
-Wróć do karty Zabezpieczenia.
+Wróć do karty zabezpieczenia.
 
-Kliknij przycisk **Utwórz użytkownika**, a następnie wybierz pozycję **administratora** pole wyboru, a następnie utworzyć użytkownika o nazwie administratora.
+Kliknij przycisk **Utwórz użytkownika**, a następnie zaznacz pole wyboru **administrator** i Utwórz użytkownika o nazwie admin.
 
-Zamknij **narzędzie Administratorskie witryny sieci Web**.
+Zamknij **Narzędzie do administrowania witryną sieci Web**.
 
-### <a name="creating-the-school-database"></a>Tworzenie bazy danych School
+### <a name="creating-the-school-database"></a>Tworzenie bazy danych szkoły
 
 Otwórz okno konsoli Menedżera pakietów.
 
-W **projekt domyślny** listę rozwijaną, wybierz projekt ContosoUniversity.DAL na liście.
+Z listy rozwijanej **Projekt domyślny** wybierz projekt CONTOSOUNIVERSITY. dal.
 
 Wprowadź następujące polecenie:
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/samples/sample9.ps1)]
 
-Migracje Code First dotyczą migracji początkowego, który tworzy bazę danych, a następnie stosuje migracji AddBirthDate, a następnie działa Seed — metoda
+Migracje Code First stosuje migrację początkową, która tworzy bazę danych, a następnie stosuje migrację DataUrodzenia, a następnie uruchamia metodę inicjatora.
 
-Uruchamianie witryny, naciskając klawisz F5 kontroli. Tak jak w przypadku środowisk testowych i produkcyjnych, uruchom **dodać uczniów** się dodać nowego Studenta, a następnie Wyświetl nowego studenta w **studentów** strony. Sprawdza, czy bazy danych School zostało utworzone i zainicjowane, a po ich przeczytaniu, a dostęp do zapisu do niego.
+Uruchom witrynę, naciskając klawisz CONTROL-F5. Tak jak w przypadku środowisk testowych i produkcyjnych, Uruchom stronę **Dodawanie uczniów** , Dodaj nowego ucznia, a następnie Wyświetl nowych uczniów na stronie **uczniów** . Umożliwia to sprawdzenie, czy baza danych szkoły została utworzona i zainicjowana oraz że masz do niej dostęp do odczytu i zapisu.
 
-Wybierz **aktualizacji środki na korzystanie z** strony, a następnie zaloguj się, aby sprawdzić, czy bazy danych członkostwa został wdrożony i czy masz do niego dostęp. Nie w przypadku migrowania kont użytkowników, tworzenie konta administratora, a następnie wybierz pozycję **aktualizacji środki na korzystanie z** strony, aby sprawdzić, czy działa.
+Wybierz stronę **Aktualizuj kredyty** i zaloguj się, aby sprawdzić, czy baza danych członkostwa została wdrożona i czy masz do niej dostęp. Jeśli nie przeprowadzisz migracji kont użytkowników, Utwórz konto administratora, a następnie wybierz stronę **Aktualizuj kredyty** , aby sprawdzić, czy działa.
 
-## <a name="cleaning-up-sql-server-compact-files"></a>Czyszczenie plików programu SQL Server Compact
+## <a name="cleaning-up-sql-server-compact-files"></a>Czyszczenie SQL Server Compact plików
 
-Nie są już potrzebne pliki i pakiety NuGet, które zostały dodane w celu obsługi programu SQL Server Compact. Jeśli chcesz (ten krok nie jest wymagane), możesz wyczyścić niepotrzebnych plików i odwołań.
+Nie są już potrzebne pliki i pakiety NuGet dołączone do obsługi SQL Server Compact. Jeśli chcesz (ten krok nie jest wymagany), możesz wyczyścić niepotrzebne pliki i odwołania.
 
-W **Eksploratora rozwiązań**, Usuń *.sdf* plików ze *aplikacji\_danych* folder i *amd64* i *x86* folderów z *bin* folderu.
+W **Eksplorator rozwiązań**Usuń pliki *. sdf* z folderu *\_aplikacji* i *amd64* i *x86* z folderu *bin* .
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy rozwiązanie (nie jednego z projektów), a następnie kliknij przycisk **Zarządzaj pakietami NuGet dla rozwiązania**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy Rozwiązanie (nie jeden z projektów), a następnie kliknij pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
-W okienku po lewej stronie **Zarządzaj pakietami NuGet** okno dialogowe, wybierz opcję **zainstalowanych pakietów**.
+W lewym okienku okna dialogowego **Zarządzanie pakietami NuGet** wybierz pozycję **zainstalowane pakiety**.
 
-Wybierz **EntityFramework.SqlServerCompact** pakietu, a następnie kliknij przycisk **Zarządzaj**.
+Wybierz pakiet **EntityFramework. SqlServerCompact** , a następnie kliknij pozycję **Zarządzaj**.
 
-W **Wybierz projekty** okno dialogowe, oba projekty są zaznaczone. Aby odinstalować pakiet w obu projektach, wyczyść pola wyboru, a następnie kliknij przycisk **OK**.
+W oknie dialogowym **Wybierz projekty** są wybrane oba projekty. Aby odinstalować pakiet w obu projektach, wyczyść oba pola wyboru, a następnie kliknij przycisk **OK**.
 
-W oknie dialogowym z pytaniem, jeśli chcesz również odinstalować zależne pakiety, kliknij przycisk nie. Jeden z nich jest pakietu programu Entity Framework, który trzeba będzie przechowywać.
+W oknie dialogowym z pytaniem, czy chcesz odinstalować pakiety zależne, kliknij przycisk nie. Jeden z nich to pakiet Entity Framework, który należy zachować.
 
-Wykonaj tę samą procedurę, aby odinstalować **SqlServerCompact** pakietu. (Pakiety muszą zostać odinstalowane w podanej kolejności, ponieważ **EntityFramework.SqlServerCompact** pakiet jest zależny od **SqlServerCompact** pakietu.)
+Postępuj zgodnie z tą samą procedurą, aby odinstalować pakiet **SqlServerCompact** . (Pakiety muszą zostać odinstalowane w tej kolejności, ponieważ pakiet **EntityFramework. SqlServerCompact** zależy od pakietu **SqlServerCompact** ).
 
-Możesz teraz pomyślnie przeprowadzono migrację do programu SQL Server Express i pełnej wersji programu SQL Server. W następnym samouczku wprowadzisz inną zmianę w bazie danych, a opisano sposób wdrażania zmian w bazie danych, używając testowych i produkcyjnych baz danych programu SQL Server Express i pełnej wersji programu SQL Server.
+Pomyślnie wykonano migrację do SQL Server Express i pełnych SQL Server. W następnym samouczku wprowadzisz inną zmianę bazy danych i zobaczysz, jak wdrożyć zmiany w bazie danych, gdy bazy danych testowych i produkcyjnych używają SQL Server Express i pełnych SQL Server.
 
 > [!div class="step-by-step"]
 > [Poprzednie](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)

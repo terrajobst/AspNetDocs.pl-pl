@@ -1,142 +1,142 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: 'Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio: Wprowadzenie — 1 z 12 | Dokumentacja firmy Microsoft'
+title: 'Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio: wprowadzenie-1 z 12 | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) programu ASP.NET projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) projekt aplikacji sieci Web ASP.NET, który zawiera bazę danych SQL Server Compact przy użyciu stu Visual...
 ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 838ee5b3620c50ca5f29ff8cb2c2ac876d3041d8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ea88da1e6d510f706fc7ca370cfa32974c1243f8
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133309"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74587741"
 ---
-# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio: Wprowadzenie — 1 z 12
+# <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio: wprowadzenie-1 z 12
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Pobierz projekt początkowy](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) ASP.NET projektu aplikacji sieci web, która zawiera bazę danych programu SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC for Web. Umożliwia także programu Visual Studio 2010 po zainstalowaniu aktualizacji publikowania w sieci Web.
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) projekt aplikacji sieci Web ASP.NET, który zawiera bazę danych SQL Server Compact przy użyciu programu Visual Studio 2012 RC lub Visual Studio Express 2012 RC dla sieci Web. Możesz również użyć programu Visual Studio 2010, jeśli zostanie zainstalowana aktualizacja publikacji w sieci Web.
 > 
-> Aby uzyskać samouczek, który zawiera funkcje wdrażania wprowadzone po wersji RC programu Visual Studio 2012, pokazuje, jak wdrażać wersje programu SQL Server, innym niż SQL Server Compact i pokazuje, jak wdrożyć w usłudze Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET za pomocą programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> Aby zapoznać się z samouczkiem zawierającym funkcje wdrażania wprowadzone po wydaniu wersji RC programu Visual Studio 2012, przedstawiono sposób wdrażania wersji SQL Server innych niż SQL Server Compact i przedstawiono sposób wdrażania programu w Azure App Service Web Apps, zobacz [ASP.NET Web Deployment using Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 > 
-> Te Samouczki pomagają kroków wdrażania najpierw w usługach IIS na lokalnym komputerze deweloperskim do testowania, a następnie do dostawcy hostingu innych firm. Aplikacja, która będzie wdrażana korzysta z bazy danych aplikacji i bazy danych członkostwa ASP.NET. Uruchom przy użyciu programu SQL Server Compact i wdrożenie programu SQL Server Compact i kolejnych samouczkach dowiesz się, jak wdrażać zmiany w bazie danych i jak przeprowadzić migrację do programu SQL Server.
+> Te samouczki przeprowadzą Cię przez proces wdrażania usług IIS na lokalnym komputerze deweloperskim do testowania, a następnie do dostawcy hostingu innej firmy. Wdrażana aplikacja korzysta z bazy danych aplikacji i bazy danych członkostwa ASP.NET. Zacznij korzystać z usługi SQL Server Compact i wdrażania na SQL Server Compact, a w dalszych samouczkach pokazano, jak wdrożyć zmiany bazy danych i jak przeprowadzić migrację do SQL Server.
 > 
-> Samouczki przyjęto założenie, że wiesz, jak pracować z programem ASP.NET w programie Visual Studio. Jeśli nie istnieje, jest dobrym miejscem do rozpoczęcia [podstawowego samouczka formularzy sieci Web platformy ASP.NET](../tailspin-spyworks/tailspin-spyworks-part-1.md) lub [podstawowego samouczka MVC ASP.NET](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md).
+> W samouczkach założono, że wiesz, jak korzystać z ASP.NET w programie Visual Studio. Jeśli nie, dobrym miejscem do rozpoczęcia jest [podstawowy samouczek dotyczący formularzy sieci Web w ASP.NET](../tailspin-spyworks/tailspin-spyworks-part-1.md) lub [podstawowy samouczek MVC ASP.NET](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md).
 > 
-> Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum wdrażania ASP.NET](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment).
+> Jeśli masz pytania, które nie są bezpośrednio związane z samouczkiem, możesz je ogłosić na [forum wdrażania ASP.NET](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment).
 
 ## <a name="overview"></a>Omówienie
 
-Te Samouczki pomagają kroków wdrażania najpierw w usługach IIS na lokalnym komputerze deweloperskim do testowania, a następnie do dostawcy hostingu innych firm. Aplikacja, która będzie wdrażana korzysta z bazy danych aplikacji i bazy danych członkostwa ASP.NET. Uruchom przy użyciu programu SQL Server Compact i wdrożenie programu SQL Server Compact i kolejnych samouczkach dowiesz się, jak wdrażać zmiany w bazie danych i jak przeprowadzić migrację do programu SQL Server.
+Te samouczki przeprowadzą Cię przez proces wdrażania usług IIS na lokalnym komputerze deweloperskim do testowania, a następnie do dostawcy hostingu innej firmy. Wdrażana aplikacja korzysta z bazy danych aplikacji i bazy danych członkostwa ASP.NET. Zacznij korzystać z usługi SQL Server Compact i wdrażania na SQL Server Compact, a w dalszych samouczkach pokazano, jak wdrożyć zmiany bazy danych i jak przeprowadzić migrację do SQL Server.
 
-Liczba samouczków — 11 we wszystkich oraz stronę rozwiązywania problemów — może uniemożliwić procesu wdrażania wydają się czasochłonnym zadaniem. W rzeczywistości ale podstawowe procedury dotyczące wdrażania witryny tworzą stosunkowo niewielką część zestawie samouczków. Jednak w rzeczywistych warunkach często konieczne informacje dotyczące pewnych aspektów dodatkowe małą ale ważną wdrożenia — na przykład, ustawianie uprawnień do folderów na serwerze docelowym. Wprowadziliśmy wiele z tych dodatkowych metod w samouczkach, za pomocą nadzieję, że informacje, które mogą uniemożliwić pomyślne wdrożenie rzeczywistej aplikacji nie może pozostać samouczków.
+Liczba samouczków — 11 we wszystkich i stronach rozwiązywania problemów — może spowodować, że proces wdrażania będzie zniechęcające. W rzeczywistości podstawowe procedury wdrażania lokacji składają się na stosunkowo małą część zestawu samouczków. Jednak w rzeczywistych sytuacjach często potrzebne są informacje o niewielkim, ale istotnym dodatkowym aspekcie wdrożenia — na przykład ustawiając uprawnienia do folderu na serwerze docelowym. W samouczkach dodaliśmy wiele z tych dodatkowych technik, z tą różnicą, że samouczki nie pozostawiają informacji, które mogą uniemożliwić pomyślne wdrożenie rzeczywistej aplikacji.
 
-Samouczki są zaprojektowane do uruchamiania w sekwencji, a każda część kompilacji w poprzedniej części. Jednakże, możesz pominąć części, które nie są odpowiednie do swojej sytuacji. (Pomijanie części może wymagać dostosowania procedury opisane w kolejnych samouczkach.)
+Samouczki zostały zaprojektowane tak, aby były uruchamiane w kolejności, a każda z nich kompiluje się w poprzedniej części. Można jednak pominąć części, które nie są związane z twoją sytuacją. (Części pomijające mogą wymagać dostosowania procedur w kolejnych samouczkach).
 
-## <a name="intended-audience"></a>Odbiorców
+## <a name="intended-audience"></a>Zamierzone odbiorcy
 
-Samouczki mają na celu deweloperów platformy ASP.NET, którzy pracują w małych organizacjach lub w innych środowiskach gdzie:
+Samouczki mają na celu ASP.NET deweloperów, którzy pracują w małych organizacjach i innych środowiskach, w których:
 
-- Proces ciągłej integracji (zautomatyzowane kompilacje i wdrożenia) nie jest używany.
-- W środowisku produkcyjnym jest dostawcą hostingu innych firm.
-- Jedna osoba zwykle wypełnia wiele ról (ta sama osoba odpowiedzialny za rozwój, testy i wdraża).
+- Proces ciągłej integracji (zautomatyzowane kompilacje i wdrażanie) nie jest używany.
+- Środowisko produkcyjne jest dostawcą hostingu innej firmy.
+- Jedna osoba zwykle wypełnia wiele ról (ta sama osoba opracowuje, testuje i wdraża).
 
-W środowiskach przedsiębiorstw jest bardziej typowego w celu zaimplementowania procesów ciągłej integracji, a w środowisku produkcyjnym jest ono zwykle hostowane przez serwery firmy. Różne osoby również zwykle wykonują różne role. Aby uzyskać informacji na temat wdrażania w przedsiębiorstwie, zobacz [wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
+W środowiskach korporacyjnych jest bardziej typowym wdrożeniem procesów ciągłej integracji, a środowisko produkcyjne jest zwykle hostowane przez własne serwery firmy. Różne osoby również zwykle wykonują różne role. Aby uzyskać informacje o wdrażaniu w przedsiębiorstwie, zobacz [wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Organizacje o dowolnym rozmiarze, można także wdrożyć aplikacje sieci web na platformie Azure, a większość z procedurami przedstawionymi w tych samouczkach mają również zastosowanie do aplikacji sieci Web usługi aplikacji Azure. Wprowadzenie do platformy Azure, zobacz [ https://azure.microsoft.com ](https://azure.microsoft.com).
+Organizacje wszystkich rozmiarów mogą również wdrażać aplikacje sieci Web na platformie Azure, a większość procedur przedstawionych w tych samouczkach ma zastosowanie również do usługi Azure App Services Web Apps. Aby zapoznać się z wprowadzeniem do platformy Azure, zobacz [https://azure.microsoft.com](https://azure.microsoft.com).
 
-## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Dostawca hostingu wyświetlane w ramach samouczków
+## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Dostawca hostingu widoczny w samouczkach
 
-Samouczki prowadzą użytkownika przez proces konfigurowania konta z firmy hostingowej i wdrażanie aplikacji do tego dostawcy hostingu. Określone firmę hostingową został wybrany tak, aby samouczków można zilustrować kompleksowe środowisko wdrażania w aktywnej witrynie sieci Web. Każda firma hostingu zapewnia różne funkcje i środowisko wdrażania serwerów różni się nieco; jednak procesu opisanego w tym samouczku jest typowe dla całego procesu.
+Samouczki przeprowadzi Cię przez proces konfigurowania konta z firmą hostingową i wdrażania aplikacji dla tego dostawcy usług hostingowych. Określona firma hostingu została wybrana, aby samouczki mogły zilustrować pełne środowisko wdrażania w działającej witrynie sieci Web. Każda firma hostingu oferuje różne funkcje, a środowisko wdrażania na ich serwerach różni się nieco. Jednak proces opisany w tym samouczku jest typowy dla całego procesu.
 
-Dostawcy hostingu używane w tym samouczku Cytanium.com, jest jednym z wielu, które są dostępne, a jej użycie w ramach tego samouczka nie stanowi poręczenia lub zalecenia.
+Dostawca hostingu używany w tym samouczku, Cytanium.com, jest jednym z dostępnych, a jego użycie w tym samouczku nie stanowi adnotacji ani rekomendacji.
 
-## <a name="deploying-web-site-projects"></a>Wdrażanie projektów witryn internetowych
+## <a name="deploying-web-site-projects"></a>Wdrażanie projektów witryny sieci Web
 
-Uniwersytet firmy Contoso jest projektu aplikacji sieci web programu Visual Studio. Większość metod wdrażania i narzędzia, przedstawione w tym samouczku nie dotyczą [projektów witryny sieci Web](https://msdn.microsoft.com/library/dd547590.aspx). Aby uzyskać informacje o sposobie wdrażania projektów witryny sieci web, zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
+Firma Contoso University to projekt aplikacji sieci Web programu Visual Studio. Większość metod wdrażania i narzędzi w tym samouczku nie ma zastosowania do [projektów witryny sieci Web](https://msdn.microsoft.com/library/dd547590.aspx). Aby uzyskać informacje na temat sposobu wdrażania projektów witryn sieci Web, zobacz [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
-## <a name="deploying-aspnet-mvc-projects"></a>Wdrażanie projektów platformy ASP.NET MVC
+## <a name="deploying-aspnet-mvc-projects"></a>Wdrażanie projektów ASP.NET MVC
 
-W tym samouczku wdrożyć projekt formularzy sieci Web ASP.NET, ale wszystko dowiesz się, jak to zrobić stosuje się do platformy ASP.NET MVC oraz. Projekt programu Visual Studio MVC jest po prostu innej formy projektu aplikacji sieci web. Jedyną różnicą jest to, że jeśli wdrażasz do dostawcy usług hosta, który nie obsługuje platformy ASP.NET MVC lub wersji docelowej ją, należy się upewnić, że masz zainstalowaną odpowiednią ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0) lub [MVC 4](http://nuget.org/packages/aspnetmvc)) Pakietu NuGet w projekcie.
+W tym samouczku wdrażany jest projekt ASP.NET Web Forms, ale wszystko, co należy zrobić, ma zastosowanie również do ASP.NET MVC. Projekt programu Visual Studio MVC jest po prostu kolejną formą projektu aplikacji sieci Web. Jedyną różnicą jest to, że jeśli wdrażasz program w ramach dostawcy hostingu, który nie obsługuje ASP.NET MVC lub wersji docelowej, musisz upewnić się, że zainstalowano odpowiedni pakiet NuGet ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0) lub [MVC 4](http://nuget.org/packages/aspnetmvc)) w projekcie.
 
 ## <a name="programming-language"></a>Język programowania
 
-Przykładowa aplikacja używa języka C#, ale samouczków nie wymagają znajomości języka C# i techniki wdrażania, wyświetlane według samouczków nie są specyficzne dla języka.
+Aplikacja Przykładowa używa C# programu C#, ale samouczki nie wymagają znajomości, a techniki wdrażania wyświetlane w samouczkach nie są specyficzne dla języka.
 
 ## <a name="troubleshooting-during-this-tutorial"></a>Rozwiązywanie problemów w ramach tego samouczka
 
-Po wystąpieniu błędu podczas wdrażania lub witrynę wdrożoną nie działa poprawnie, komunikaty o błędach nie zawsze stanowią rozwiązanie. Do udzielenia odpowiedzi na kilka typowych scenariuszy problem [Rozwiązywanie problemów z strona referencyjna](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md) jest dostępna. Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczków, pamiętaj sprawdzić stronę rozwiązywania problemów.
+Gdy wystąpi błąd podczas wdrażania lub wdrożona witryna nie działa prawidłowo, komunikaty o błędach nie zawsze zapewniają rozwiązanie. Aby ułatwić Ci typowe scenariusze problemu, dostępna jest [Strona referencyjna dotycząca rozwiązywania problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md) . Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie zadziała podczas wykonywania samouczków, pamiętaj, aby sprawdzić stronę rozwiązywania problemów.
 
-## <a name="comments-welcome"></a>Uwagi — Zapraszamy!
+## <a name="comments-welcome"></a>Komentarze — Zapraszamy!
 
-Komentarze dotyczące samouczków są powitalnej, a po zaktualizowaniu samouczka wszelkich starań, będzie nawiązywane w przypadku uwzględnienia poprawki konta lub sugestie dotyczące ulepszeń, które znajdują się w samouczku komentarzy.
+Komentarze samouczków są powitane, a po zaktualizowaniu samouczka zostanie podjęta potrzeba wprowadzenia poprawek lub sugestii dotyczących ulepszeń, które są dostępne w komentarzach samouczka.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że masz Windows 7 lub nowszy, a jeden z następujących produktów zainstalowany na komputerze:
+Przed rozpoczęciem upewnij się, że na komputerze jest zainstalowany system Windows 7 lub nowszy oraz jeden z następujących produktów:
 
-- [Visual Studio 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
-- [Visual Web Developer Express 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VWD2010SP1Pack)
-- [Visual Studio 2012 RC or Visual Studio Express 2012 RC for Web](https://go.microsoft.com/fwlink/?LinkId=240162)
+- [Program Visual Studio 2010 z dodatkiem SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
+- [Visual Web Developer Express 2010 z dodatkiem SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VWD2010SP1Pack)
+- [Visual Studio 2012 RC lub Visual Studio Express 2012 RC dla sieci Web](https://go.microsoft.com/fwlink/?LinkId=240162)
 
-Jeśli masz program Visual Studio 2010 z dodatkiem SP1 lub Visual Web Developer Express 2010 z dodatkiem SP1, zainstaluj również następujące produkty:
+Jeśli masz program Visual Studio 2010 z dodatkiem SP1 lub Visual Web Developer Express 2010 SP1, Zainstaluj następujące produkty również:
 
-- [Zestaw Azure SDK dla platformy .NET (VS 2010 z dodatkiem SP1)](https://go.microsoft.com/fwlink/?LinkID=208120) (w tym aktualizacji publikowania w sieci Web)
-- [Microsoft Visual Studio 2010 SP1 Tools for SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCEVSTools)
+- [Zestaw Azure SDK dla programu .NET (VS 2010 z dodatkiem SP1)](https://go.microsoft.com/fwlink/?LinkID=208120) (obejmuje aktualizację publikacji w sieci Web)
+- [Narzędzia Microsoft Visual Studio 2010 SP1 dla SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCEVSTools)
 
-Niektóre inne oprogramowanie jest wymagane w celu ukończenia tego samouczka, ale nie trzeba tego jeszcze załadowany. Samouczek przeprowadzi Cię kroki instalacji, gdy ich potrzebujesz.
+Inne oprogramowanie jest wymagane w celu ukończenia tego samouczka, ale nie trzeba go jeszcze ładować. Ten samouczek przeprowadzi Cię przez kroki instalacji tego programu w razie potrzeby.
 
 ## <a name="downloading-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
-W przypadku wdrażania aplikacji o nazwie Contoso University i został już utworzony dla Ciebie. Jest uproszczoną wersję university witryny sieci web, luźno na podstawie Contoso University aplikacji opisane w [samouczki platformy Entity Framework w witrynie programu ASP.NET](https://asp.net/entity-framework/tutorials).
+Wdrażana aplikacja ma nazwę Contoso University i została już utworzona. Jest to uproszczona wersja witryny sieci Web University, oparta na luźnej aplikacji firmy Contoso University opisana w [samouczkach Entity Framework w witrynie ASP.NET](https://asp.net/entity-framework/tutorials).
 
-Jeśli masz zainstalowane warunki wstępne, Pobierz [aplikacji sieci web firmy Contoso University](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b). *Zip* plik zawiera wiele wersji projektu i pliku PDF, która zawiera wszystkie samouczki 12. Do pracy, kolejne kroki tego samouczka, rozpoczynać się ContosoUniversity Begin. Aby zobaczyć, jak wygląda projektu na końcu samouczków, otwórz ContosoUniversity-End. Aby zobaczyć, jak wygląda projektu przed migracją do pełnej wersji programu SQL Server w ramach samouczka 10, otwórz ContosoUniversity AfterTutorial09.
+Po zainstalowaniu wymagań wstępnych Pobierz [aplikację sieci Web firmy Contoso University](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b). Plik *. zip* zawiera wiele wersji projektu i plik PDF zawierający wszystkie 12 samouczków. Aby wykonać kroki samouczka, Zacznij od ContosoUniversity — BEGIN. Aby zobaczyć, jak wygląda projekt na końcu samouczków, Otwórz ContosoUniversity-end. Aby zobaczyć, jak wygląda projekt przed migracją do pełnego SQL Server w samouczku 10, Otwórz ContosoUniversity-AfterTutorial09.
 
-Aby przygotować się do pracy za pośrednictwem kroki samouczka, należy zapisać ContosoUniversity Begin do folderu, niezależnie od użycia podczas pracy z projektami Visual Studio. Domyślnie jest to następujący folder:
+Aby przygotować się do wykonania kroków samouczka, Zapisz ContosoUniversity — Rozpocznij pracę z dowolnym folderem używanym do pracy z projektami programu Visual Studio. Domyślnie jest to następujący folder:
 
 `C:\Users\<username>\Documents\Visual Studio 2012\Projects`
 
-(Do zrzutów ekranu w tym samouczku, folderu projektu znajduje się w katalogu głównym na `C`: dysk.)
+(W przypadku zrzutów ekranu w tym samouczku folder projektu znajduje się w katalogu głównym na `C`: dysk).
 
-Uruchom program Visual Studio, otwórz projekt, a następnie naciśnij klawisz CTRL-F5, aby go uruchomić.
+Uruchom program Visual Studio, Otwórz projekt i naciśnij klawisze CTRL-F5, aby go uruchomić.
 
 [![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
-Na stronach witryny sieci Web są dostępne z paska menu i umożliwiają wykonywanie następujących funkcji:
+Strony witryny sieci Web są dostępne z paska menu i umożliwiają wykonywanie następujących zadań:
 
-- Wyświetlanie statystyk dla uczniów (strona informacje).
-- Wyświetlanie, edytowanie, usuwanie i dodanie uczniów.
+- Wyświetlanie statystyk uczniów (strona informacje).
+- Wyświetlanie, edytowanie, usuwanie i Dodawanie uczniów.
 - Wyświetlanie i edytowanie kursów.
 - Wyświetlanie i edytowanie instruktorów.
 - Wyświetlanie i edytowanie działów.
 
-Poniżej przedstawiono zrzuty ekranu na kilku stronach językiem.
+Poniżej przedstawiono zrzuty ekranu kilku reprezentatywnych stron.
 
 [![Students_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image4.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image3.png)
 
 [![Add_Students_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image6.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image5.png)
 
-## <a name="reviewing-application-features-that-affect-deployment"></a>Przegląd funkcji aplikacji, które mają wpływ na wdrożenie
+## <a name="reviewing-application-features-that-affect-deployment"></a>Przeglądanie funkcji aplikacji, które mają wpływ na wdrażanie
 
-Następujące funkcje aplikacji wpływa na sposób wdrażania lub co musisz zrobić, aby wdrożyć go. Każdy z nich jest omówione bardziej szczegółowo w następujących samouczkach z tej serii.
+Poniższe funkcje aplikacji mają wpływ na sposób ich wdrażania lub czynności, które należy wykonać w celu wdrożenia. Każdy z tych informacji został szczegółowo opisany w następujących samouczkach w serii.
 
-- Uniwersytet contoso używa bazę danych programu SQL Server Compact do przechowywania danych aplikacji, takich jak nazwy dla uczniów i instruktora. Baza danych zawiera zarówno dane testowe i danymi produkcyjnymi, a podczas wdrażania w środowisku produkcyjnym należy wykluczyć dane testowe. W dalszej części tej serii samouczka będzie migracji z programu SQL Server Compact do programu SQL Server.
-- Aplikacja korzysta z systemu członkostwa programu ASP.NET, która przechowuje informacje o koncie użytkownika w bazie danych programu SQL Server Compact. Aplikacja definiuje użytkownika administracyjnego, który ma dostęp do niektórych z chronionych informacji. Należy wdrożyć w członkowskiej bazie danych bez konta testowego, ale jedno konto administratora.
-- Ponieważ bazy danych aplikacji i bazie danych członkostwa użyć programu SQL Server Compact jako aparat bazy danych, musisz wdrożyć aparatu bazy danych dostawcy usług hosta, a także samych bazach danych.
-- Aplikacja korzysta z dostawców uniwersalnych członkostwa ASP.NET, aby system członkostwa może przechowywać swoje dane w bazie danych programu SQL Server Compact. Zestaw, który zawiera dostawców uniwersalnych członkostwa musi zostać wdrożony z aplikacją.
-- Aplikacja korzysta z programu Entity Framework 5.0 dostępu do danych w bazie danych aplikacji. Zestaw, który zawiera program Entity Framework 5.0 musi zostać wdrożony z aplikacją.
-- Aplikacja używa błąd innej firmy, rejestrowania i raportowania narzędzia. To narzędzie znajduje się w zestawie, który musi zostać wdrożony z aplikacją.
-- Błąd narzędzia rejestrowania zapisuje informacje o błędzie w plikach XML w folderze plików. Masz upewnij się, że ASP.NET działa w witrynę wdrożoną konto ma uprawnienia do zapisu do tego folderu i należy wykluczyć ten folder z wdrożenia. (W przeciwnym razie błąd dane dzienników ze środowiska testowego, może być wdrażana w środowisku produkcyjnym i/lub plików dziennika błędów produkcyjnych może zostać usunięty.)
-- Aplikacja zawiera niektóre ustawienia, które musi zostać zmienione w wdrożonych *Web.config* pliku, w zależności od środowiska docelowego (testowym lub produkcyjnym) i inne ustawienia, które musi zostać zmienione w zależności od kompilacji Konfiguracja (debugowanie lub wydanie).
-- Rozwiązanie programu Visual Studio zawiera projekt biblioteki klas. Powinny być wdrażane tylko zestaw, który generuje ten projekt, nie projekt.
+- Firma Contoso University używa bazy danych SQL Server Compact do przechowywania danych aplikacji, takich jak uczniowie i nazwiska instruktorów. Baza danych zawiera kombinację danych testowych i danych produkcyjnych, a podczas wdrażania programu w środowisku produkcyjnym należy wykluczyć dane testowe. W dalszej części samouczka przeprowadzisz migrację z SQL Server Compact do SQL Server.
+- Aplikacja używa systemu członkostwa ASP.NET, który przechowuje informacje o koncie użytkownika w bazie danych SQL Server Compact. Aplikacja definiuje użytkownika administratora, który ma dostęp do niektórych informacji z ograniczeniami. Należy wdrożyć bazę danych członkostwa bez kont testowych, ale przy użyciu jednego konta administratora.
+- Ponieważ baza danych aplikacji i baza danych członkostwa korzystają SQL Server Compact jako aparat bazy danych, należy wdrożyć aparat bazy danych dla dostawcy hostingu, a także same bazy danych.
+- Aplikacja korzysta z uniwersalnych dostawców członkostwa ASP.NET, aby system członkostwa mógł przechowywać swoje dane w bazie danych SQL Server Compact. Zestaw zawierający dostawców uniwersalnego członkostwa musi być wdrożony z aplikacją.
+- Aplikacja używa Entity Framework 5,0 do uzyskiwania dostępu do danych w bazie danych aplikacji. Zestaw zawierający Entity Framework 5,0 musi być wdrożony razem z aplikacją.
+- Aplikacja używa narzędzia do rejestrowania błędów innych firm i raportowania. To narzędzie jest dostępne w zestawie, który musi zostać wdrożony z aplikacją.
+- Narzędzie rejestrowania błędów zapisuje informacje o błędach w plikach XML do folderu plików. Musisz się upewnić, że konto, które ASP.NET jest uruchamiane w ramach wdrożonej lokacji, ma uprawnienie do zapisu w tym folderze, a ty musisz wykluczyć ten folder z wdrożenia. (W przeciwnym razie dane dziennika błędów ze środowiska testowego mogą zostać wdrożone w produkcji i/lub pliki dzienników błędów produkcyjnych mogą zostać usunięte).
+- Aplikacja zawiera pewne ustawienia, które należy zmienić we wdrożonym pliku *Web. config* w zależności od środowiska docelowego (test lub produkcja), a także inne ustawienia, które należy zmienić w zależności od konfiguracji kompilacji (debugowanie lub wydanie).
+- Rozwiązanie programu Visual Studio zawiera projekt biblioteki klas. Należy wdrożyć tylko zestaw, który zostanie wygenerowany przez ten projekt, a nie sam projekt.
 
-W ramach tego pierwszego samouczka z tej serii pobrać przykładowy projekt programu Visual Studio i przeglądane funkcje witryny, które wpływają na sposób wdrażania aplikacji. W ramach następujących samouczków przygotowanie się do wdrożenia, konfigurując niektóre z tych czynności, które mają być obsługiwane automatycznie. Inne, które należy zadbać o ręcznie.
+W tym pierwszym samouczku w serii pobrano przykładowy projekt programu Visual Studio i przegląd funkcji witryny, które mają wpływ na sposób wdrażania aplikacji. W poniższych samouczkach przygotowano do wdrożenia przez skonfigurowanie niektórych z tych elementów do obsługi automatycznej. Inne osoby, które postanowisz ręcznie.
 
 > [!div class="step-by-step"]
 > [Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

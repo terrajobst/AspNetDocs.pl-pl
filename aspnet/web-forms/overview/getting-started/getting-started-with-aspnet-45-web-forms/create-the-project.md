@@ -1,196 +1,196 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
-title: Utwórz projekt | Dokumentacja firmy Microsoft
+title: Utwórz projekt | Microsoft Docs
 author: Erikre
-description: Tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for firma Microsoft...
+description: Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 1819704a4cfd3e6b82de1d8db916e729459d244f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 62918b17f42e54dfe4e45a08927b1039dcbb7012
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130913"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74576066"
 ---
 # <a name="create-the-project"></a>Tworzenie projektu
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-[Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Pobierz program Wingtip zabawki (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
+> Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013 dla sieci Web. Projekt Visual Studio 2013 [z C# kodem źródłowym](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny do tej serii samouczków.
 
-W tym samouczku zostanie tworzenia, przejrzyj i uruchamiania domyślny projekt w programie Visual Studio, która pozwala zapoznać się z funkcjami platformy ASP.NET. Ponadto należy przejrzeć środowiska Visual Studio.
+W tym samouczku utworzysz, przeglądasz i uruchomisz projekt domyślny w programie Visual Studio, który umożliwi zapoznanie się z funkcjami ASP.NET. Należy również zapoznać się ze środowiskiem programu Visual Studio.
 
-## <a name="what-youll-learn"></a>Zawartość:
+## <a name="what-youll-learn"></a>Dowiesz się:
 
 - Jak utworzyć nowy projekt formularzy sieci Web.
 - Struktura pliku projektu formularzy sieci Web.
 - Jak uruchomić projekt w programie Visual Studio.
 - Różne funkcje domyślnej aplikacji formularzy sieci Web.
-- Pewne podstawowe informacje o sposobie używania środowiska Visual Studio.
+- Niektóre podstawowe informacje na temat używania środowiska programu Visual Studio.
 
 ## <a name="creating-the-project"></a>Tworzenie projektu
 
 1. Otwórz program Visual Studio.
-2. Wybierz **nowy projekt** z **pliku** menu w programie Visual Studio. 
+2. Wybierz pozycję **Nowy projekt** z menu **plik** w programie Visual Studio. 
 
-    ![Utwórz projekt — nowy element Menu projektu](create-the-project/_static/image1.png)
-3. Wybierz **szablony**  - &gt; **Visual C#**  - &gt; **Web** grupy szablonów po lewej stronie.
-4. Wybierz **aplikacji sieci Web ASP.NET** szablonu w środkowej kolumnie.  
- W tej serii samouczków jest przy użyciu platformy .NET Framework 4.5.2.
-5. Nazwij swój projekt *WingtipToys* i wybierz polecenie **OK** przycisku. 
+    ![Utwórz projekt — element menu Nowy projekt](create-the-project/_static/image1.png)
+3. Wybierz kolejno pozycje **Szablony** -&gt;  **C# Visual** -&gt; szablon **sieci Web** po lewej stronie.
+4. Wybierz szablon **aplikacji sieci Web ASP.NET** w środkowej kolumnie.  
+ Ta seria samouczków korzysta z .NET Framework 4.5.2.
+5. Nazwij projekt *WingtipToys* i wybierz przycisk **OK** . 
 
-    ![Tworzenie projektu — okno dialogowe nowego projektu](create-the-project/_static/image2.png)
+    ![Tworzenie projektu — okno dialogowe Nowy projekt](create-the-project/_static/image2.png)
 
     > [!NOTE]
-    > Nazwa projektu w tej serii samouczków jest **WingtipToys**. Zaleca się, że możesz użyć tego *dokładnie* nazwy projektu, dzięki czemu kod przedstawionych w tej serii samouczka funkcji zgodnie z oczekiwaniami.
+    > Nazwa projektu w tej serii samouczków to **WingtipToys**. Zaleca się użycie tej *dokładnej* nazwy projektu, aby kod podany w całej serii samouczków działa zgodnie z oczekiwaniami.
 
-6. Kliknij przycisk **Zmień uwierzytelnianie** przycisku. Wybierz **indywidualne konta użytkowników** i kliknij przycisk **OK** przycisku.
+6. Kliknij przycisk **Zmień uwierzytelnianie** . Wybierz pozycję **indywidualne konta użytkowników** , a następnie kliknij przycisk **OK** .
 
-7. Wybierz **formularzy sieci Web** szablon i kliknij przycisk **OK** przycisku.
+7. Wybierz szablon **formularzy sieci Web** i kliknij przycisk **OK** .
 
-    ![Utwórz projekt — nowy szablon projektu](create-the-project/_static/image3.png)
+    ![Tworzenie projektu — nowy szablon projektu](create-the-project/_static/image3.png)
 
-Projekt zajmie trochę czasu, aby utworzyć. Gdy wszystko będzie gotowe, otwórz **Default.aspx** strony.
+Tworzenie projektu zajmie trochę czasu. Gdy wszystko będzie gotowe, Otwórz stronę **default. aspx** .
 
-![Utwórz projekt — nowy szablon projektu](create-the-project/_static/image4.png)
+![Tworzenie projektu — nowy szablon projektu](create-the-project/_static/image4.png)
 
-Możesz przełączać się między **projektowania** widoku i **źródła** widoku, zaznaczając odpowiednią opcję w dolnej części okna center. **Projekt** widoku są wyświetlane strony ASP.NET Web pages, strony wzorcowe, zawartości strony, strony HTML oraz formanty użytkownika przy użyciu widoku w trybie WYSIWYG. **Źródło** widok przedstawia kod znaczników HTML dla strony sieci Web, który można edytować.
+Możesz przełączać się między widokiem **projektu** a widokiem **źródła** , wybierając opcję w dolnej części okna środkowego. Widok **projektu** przedstawia ASP.NET stron sieci Web, stron wzorcowych, stron zawartości, stron HTML i kontrolek użytkownika przy użyciu widoku niemal-WYSIWYG. Widok **źródła** wyświetla znaczniki HTML dla strony sieci Web, którą można edytować.
 
 > [!TIP] 
 > 
-> **Omówienie platformy ASP.NET**
+> **Informacje o strukturach ASP.NET**
 > 
-> ASP.NET Web Forms umożliwia kompilacji dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej oraz setkom kontrolek i składników pozwalają szybko tworzyć złożone, zaawansowane witryny opartej na interfejsie użytkownika z dostępem do danych. Store zabawki Wingtip opiera się na formularzach sieci Web platformy ASP.NET, ale wiele koncepcji, których można dowiedzieć się w tej serii samouczków mają zastosowanie do wszystkich aplikacji ASP.NET.
+> Formularze sieci Web ASP.NET umożliwiają tworzenie dynamicznych witryn internetowych przy użyciu znanych modeli typu "przeciągnij i upuść". Powierzchnia projektowa i setki kontrolek i składników pozwalają na szybkie tworzenie zaawansowanych, zaawansowanych witryn opartych na interfejsie użytkownika z dostępem do danych. Wingtip zabawka jest oparta na formularzach sieci Web ASP.NET, ale wiele koncepcji, które uczysz się w tej serii samouczków, ma zastosowanie do wszystkich ASP.NET.
 > 
-> Program ASP.NET oferuje cztery podstawowego rozwoju platform:
+> ASP.NET oferuje cztery podstawowe platformy programistyczne:
 > 
 > - [ASP.NET Web Forms](../../../index.md)  
->  Środowiska formularzy sieci Web jest przeznaczony dla deweloperów, którzy wolą opartych na kontroli i deklaratywne programowania, takich jak Microsoft Windows Forms (WinForms) i WPF/XAML/Silverlight. Oferuje ona modelem WYSIWYG projektowania opartego na projektanta, więc popularne wśród deweloperów szukających środowisko projektowe (RAD) szybkie aplikacji służące do tworzenia aplikacji sieci web. Jeśli rozpoczynasz programowanie sieci web i zapoznać się z tradycyjnych narzędzi deweloperskich klienta RAD firmy Microsoft (na przykład w przypadku języka Visual Basic i Visual C#), można szybko zbudować aplikację sieci web bez doświadczenia w kodzie HTML i JavaScript.
+>  Struktura formularzy sieci Web jest przeznaczona dla deweloperów, którzy preferują programowanie deklaracyjne i oparte na kontroli, takie jak Microsoft Windows Forms (WinForms) i WPF/XAML/Silverlight. Oferuje model programistyczny oparty na projektancie w języku WYSIWYG, więc jest to popularne dla deweloperów szukających środowiska tworzenia aplikacji w sieci Web. Jeśli jesteś nowym programem do programowania w sieci Web i znasz tradycyjne narzędzia programistyczne klienta Microsoft RAD (na przykład dla Visual Basic i wizualizacji C#), możesz szybko utworzyć aplikację sieci Web bez obsługi języka HTML i języka JavaScript.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
->  ASP.NET MVC jest przeznaczony dla deweloperów, którzy są zainteresowani wzorców i zasad, takich jak programowania sterowanego testami, separacji Inwersja kontroli (IoC) i wstrzykiwanie zależności (DI). Ta struktura zachęca oddzielenie warstwy logiki biznesowej aplikacji sieci web od jej warstwy prezentacji.
+>  ASP.NET MVC są przeznaczone dla deweloperów, którzy są zainteresowani wzorcami i zasadami, takimi jak Programowanie oparte na testach, oddzielenie problemów, niewersja kontroli (IoC) i iniekcja zależności (DI). Ta struktura zachęca do rozdzielania warstwy logiki biznesowej aplikacji sieci Web od jej warstwy prezentacji.
 > - [ASP.NET Web Pages](../../../../web-pages/index.md)  
->  ASP.NET Web Pages jest przeznaczony dla deweloperów, którzy chcą wątku rozwoju prostą, wzdłuż linii PHP. W modelu stron sieci Web tworzyć strony HTML, a następnie dodać kod na serwerze do strony, aby dynamicznie kontrolować sposób renderowania tego znacznika. Strony sieci Web została opracowana jako lekka framework i jest najprostszym punkt wejścia do programu ASP.NET dla osób, które znasz HTML, ale może nie mieć szerokie możliwości programowania — na przykład, studentów lub hobbystów. Jest również dobrym sposobem dla deweloperów sieci web, którzy nie znają języka PHP lub podobnych platform, aby rozpocząć korzystanie z platformy ASP.NET.
-> - [ASP.NET pojedynczej strony aplikacji](../../../../single-page-application/index.md)  
->  ASP.NET pojedynczej strony aplikacji (SPA) pomaga w tworzeniu aplikacji, które zawierają istotne interakcji po stronie klienta przy użyciu języków HTML 5, CSS 3 i JavaScript. Program ASP.NET i Web Tools 2012.2 Update jest dostarczany nowy szablon do tworzenia aplikacji jednostronicowej przy użyciu struktura knockout.js i Web API platformy ASP.NET. Oprócz nowy szablon SPA nowych szablonów utworzonych przez społeczność SPA są także dostępne do pobrania.
+>  ASP.NET strony sieci Web są przeznaczone dla deweloperów, którzy chcą utworzyć prostą historię sieci Web, wraz z wierszami języka PHP. W modelu Web Pages utworzysz strony HTML, a następnie dodasz kod oparty na serwerze na stronie w celu dynamicznego sterowania sposobem renderowania tego znacznika. Strony sieci Web są przeznaczone specjalnie do uproszczonej struktury i są najłatwiejszym punktem wejścia do ASP.NET dla osób znających kod HTML, ale mogą nie mieć szerokiego doświadczenia programistycznego — na przykład uczniów lub hobby. Jest to dobre rozwiązanie dla deweloperów sieci Web, którzy znają język PHP lub podobne platformy, aby zacząć korzystać z ASP.NET.
+> - [ASP.NET aplikacji jednostronicowej](../../../../single-page-application/index.md)  
+>  Aplikacja jednostronicowa ASP.NET (SPA) ułatwia tworzenie aplikacji, które obejmują znaczące interakcje po stronie klienta przy użyciu języka HTML 5, CSS 3 i JavaScript. Aktualizacja ASP.NET and Web Tools 2012,2 dostarcza nowy szablon służący do tworzenia aplikacji jednostronicowych przy użyciu narzędzia separowania. js i interfejsu API sieci Web ASP.NET. Oprócz nowego szablonu SPA nowe szablony SPA utworzone przez społeczność są również dostępne do pobrania.
 > 
-> Oprócz cztery struktur głównych rozwoju program ASP.NET oferuje również dodatkowych technologii, które są ważne, aby mieć świadomość i zapoznać się z, ale nie zostały omówione w tej serii samouczków:
+> Oprócz czterech głównych platform programistycznych ASP.NET oferuje również dodatkowe technologie, które są ważne, aby mieć świadomość i znać, ale nie zostały omówione w tej serii samouczków:
 > 
-> - [ASP.NET Web API](../../../../web-api/index.md) -umożliwiająca tworzenie usług HTTP, docierających do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych.
-> - [ASP.NET SignalR](../../../../signalr/index.md) -bibliotekę, która ułatwia opracowywanie funkcji sieci web w czasie rzeczywistym.
+> - [ASP.NET Web API](../../../../web-api/index.md) — środowisko do tworzenia usług http, które docierają do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych.
+> - [ASP.NET sygnalizujący](../../../../signalr/index.md) — biblioteka, która ułatwia tworzenie funkcji sieci Web w czasie rzeczywistym.
 
 ### <a name="reviewing-the-project"></a>Przeglądanie projektu
 
-W programie Visual Studio **Eksploratora rozwiązań** okno umożliwia zarządzanie plikami projektu. Przyjrzyjmy się w folderach, które zostały dodane do aplikacji w **Eksploratora rozwiązań**. Szablon aplikacji sieci web dodaje strukturę folderów podstawowe:
+W programie Visual Studio okno **Eksplorator rozwiązań** umożliwia zarządzanie plikami dla projektu. Spójrzmy na foldery, które zostały dodane do aplikacji w **Eksplorator rozwiązań**. Szablon aplikacji sieci Web dodaje podstawową strukturę folderów:
 
-![Utwórz projekt — Eksplorator rozwiązań](create-the-project/_static/image5.png)
+![Tworzenie projektu — Eksplorator rozwiązań](create-the-project/_static/image5.png)
 
-Program Visual Studio tworzy niektóre początkowej foldery i pliki w projekcie. Pierwszy pliki, które będziesz pracować z później w tym samouczku są następujące:
+Program Visual Studio tworzy początkowe foldery i pliki dla projektu. Pierwsze pliki, do których będziesz pracować w dalszej części tego samouczka, są następujące:
 
-| **Plik** | **Cel** |
+| **Rozszerzeniem** | **Cel** |
 | --- | --- |
-| *Default.aspx* | Zazwyczaj pierwsza strona wyświetlana, gdy aplikacja jest uruchamiana w przeglądarce. |
-| *Site.Master* | Strona, która pozwala na tworzenie spójne zachowanie standardowego układu i użycie stron w aplikacji. |
-| *Global.asax* | Opcjonalny plik, który zawiera kod w odpowiedzi na poziomie aplikacji i poziom sesji zdarzenia wywoływane przez platformę ASP.NET lub przez moduły HTTP. |
-| *Web.config* | Dane konfiguracji dla aplikacji. |
+| *Default. aspx* | Zazwyczaj pierwsza strona wyświetlana, gdy aplikacja jest uruchamiana w przeglądarce. |
+| *Site. Master* | Strona, która umożliwia tworzenie spójnego układu i używanie standardowego zachowania dla stron w aplikacji. |
+| *Global. asax* | Opcjonalny plik, który zawiera kod odpowiadający zdarzeniom na poziomie aplikacji i na poziomie sesji wywoływanym przez ASP.NET lub moduły HTTP. |
+| *Plik Web. config* | Dane konfiguracji aplikacji. |
 
 ### <a name="running-the-default-web-application"></a>Uruchamianie domyślnej aplikacji sieci Web
 
-Domyślnej aplikacji sieci Web zapewnia bogate, na podstawie wbudowanej funkcjonalności i pomocy technicznej. Bez wprowadzania zmian w domyślny projekt formularzy sieci Web aplikacja jest gotowa do uruchomienia w przeglądarce sieci Web w lokalnych.
+Domyślna aplikacja sieci Web zapewnia bogate środowisko w oparciu o wbudowaną funkcję i pomoc techniczną. Bez żadnych zmian w domyślnym projekcie formularzy sieci Web aplikacja jest gotowa do uruchomienia w lokalnej przeglądarce sieci Web.
 
-1. Naciśnij klawisz ***F5*** klucza podczas w programie Visual Studio.   
- Aplikacja będzie tworzyć i wyświetlać w przeglądarce sieci Web.  
+1. Naciśnij klawisz ***F5*** w programie Visual Studio.   
+ Aplikacja zostanie utworzona i wyświetlona w przeglądarce sieci Web.  
 
     ![Tworzenie projektu — strona domyślna](create-the-project/_static/image6.png)
-2. Po utworzeniu przeglądu ukończone w uruchomionej aplikacji, zamknij okno przeglądarki.
+2. Po zakończeniu przeglądania działającej aplikacji Zamknij okno przeglądarki.
 
-Istnieją trzy główne strony, w tym domyślnej aplikacji sieci Web: *Default.aspx* (dom), *About.aspx*, i *Contact.aspx*. Każda z tych stron jest osiągalna z górnego paska nawigacyjnego. Dostępne są także dwie dodatkowe strony znajdujące się w folderze konta, strona Register.aspx i strony Login.aspx. Te dwie strony pozwalają na wykorzystanie możliwości członkostwa programu ASP.NET do tworzenia, przechowywania i sprawdzanie poprawności poświadczeń użytkownika.
+W tej domyślnej aplikacji sieci Web istnieją trzy główne strony: *default. aspx* (Home), *about. aspx*i *Contact. aspx*. Każdą z tych stron można uzyskać od górnego paska nawigacyjnego. W folderze kont znajdują się również dwie dodatkowe strony, na stronie register. aspx i login. aspx. Te dwie strony umożliwiają korzystanie z funkcji członkostwa ASP.NET w celu tworzenia, przechowywania i weryfikowania poświadczeń użytkownika.
 
-## <a name="aspnet-web-forms-background"></a>Tła formularzy sieci Web ASP.NET
+## <a name="aspnet-web-forms-background"></a>Tło formularzy sieci Web ASP.NET
 
-ASP.NET Web Forms są stron, które są oparte na technologii Microsoft ASP.NET, w którym kod, który działa na serwerze dynamicznie generuje danych wyjściowych strony sieci Web do przeglądarki lub klienta urządzenia. Na stronie ASP.NET Web Forms automatycznie renderuje poprawne zgodne z przeglądarki HTML, dla funkcji, takich jak style, układ i tak dalej. Formularze sieci Web są zgodne z dowolnym językiem, obsługiwane przez .NET środowisko uruchomieniowe języka wspólnego, takich jak Microsoft Visual Basic i Microsoft Visual C#. Ponadto formularzy sieci Web są oparte na [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), który zapewnia korzyści w środowisku zarządzanym, bezpieczeństwo typów i dziedziczenia.
+ASP.NET Web Forms są stronami opartymi na technologii Microsoft ASP.NET, w których kod uruchomiony na serwerze dynamicznie generuje dane wyjściowe stron sieci Web do przeglądarki lub urządzenia klienckiego. Na stronie formularzy sieci Web ASP.NET jest automatycznie renderowany prawidłowy kod HTML zgodny z przeglądarką dla funkcji, takich jak style, układ i tak dalej. Formularze sieci Web są zgodne z dowolnym językiem obsługiwanym przez środowisko uruchomieniowe języka wspólnego platformy .NET, takim jak C#Microsoft Visual Basic i Microsoft Visual. Ponadto formularze sieci Web są oparte na [platformie Microsoft .NET](https://msdn.microsoft.com/vstudio/aa496123), która zapewnia takie korzyści, jak środowisko zarządzane, bezpieczeństwo typów i dziedziczenie.
 
-Po uruchomieniu strony formularzy sieci Web platformy ASP.NET, strona przechodzi przez cyklu życia, w którym wykonuje szereg kroków przetwarzania. Te kroki obejmują inicjowania wystąpienia kontrolki, przywracania i zachowaniem stanu, uruchomiony kod procedury obsługi zdarzeń, a renderowania. Zgodnie z bardziej zapoznanie się z możliwościami formularzy sieci Web ASP.NET jest ważne zrozumieć [cyklu życia strony ASP.NET](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) tak, aby na etapie odpowiednie cyklu życia dla efektu planowane można napisać kod.
+Po uruchomieniu strony formularzy sieci Web ASP.NET Strona przechodzi przez cykl życia, w którym wykonuje serię etapów przetwarzania. Te kroki obejmują inicjalizację, tworzenie wystąpienia kontrolek, przywracanie i konserwowanie stanu, uruchamianie kodu programu obsługi zdarzeń oraz renderowanie. Tak samo jak w przypadku ASP.NETych formularzy sieci Web, ważne jest, aby zrozumieć [cykl życia strony ASP.NET](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) , dzięki czemu można napisać kod na odpowiednim etapie cyklu życia dla danego efektu.
 
-Gdy serwer sieci Web odbiera żądanie dla strony, jego znajduje stronę, przetwarza je, wysyła go do przeglądarki i odrzuca wszystkie informacje ze strony. Jeśli użytkownik zażąda tej samej stronie ponownie, serwer powtarza całą sekwencję, ponownego przetworzenia strony od podstaw. Innymi słowy, serwer ma Brak pamięci stron, że ma on przetworzony strony są bezstanowe. Architektura strony ASP.NET automatycznie obsługuje zadanie obsługi stanu strony i jego formantów i umożliwia jawne sposoby zarządzania stanem informacji specyficznych dla aplikacji.
+Gdy serwer sieci Web odbiera żądanie dla strony, odnajdzie stronę, przetwarza ją, wysyła do przeglądarki, a następnie odrzuca wszystkie informacje o stronie. Jeśli użytkownik zażąda tej samej strony ponownie, serwer powtarza całą sekwencję, przetwarzanie strony od podstaw. W innym przypadku serwer nie ma pamięci stron, które zostały przetworzone — strony nie są bezstanowe. Struktura strony ASP.NET automatycznie obsługuje zadanie utrzymania stanu strony i jego kontrolek, a także zapewnia jawne sposoby utrzymania stanu informacji specyficznych dla aplikacji.
 
 > [!TIP] 
 > 
 > **Funkcje aplikacji sieci Web w szablonie aplikacji formularzy sieci Web**
 > 
-> Szablon aplikacji formularzy sieci Web ASP.NET udostępnia bogaty zestaw wbudowanych funkcji. Nie tylko zapewnia użytkownikowi *Home.aspx* stronie *About.aspx* stronie *Contact.aspx* strony, ale oferuje także funkcjonalności członkostwa, który rejestruje użytkowników i zapisuje swoje poświadczenia, aby ich zalogować się do witryny sieci Web. Ten przegląd zawiera więcej informacji na temat niektóre funkcje zawarte w szablonie aplikacji formularzy sieci Web ASP.NET i jak są używane w aplikacji Wingtip Toys.
+> Szablon aplikacji ASP.NET Web Forms oferuje bogaty zestaw wbudowanych funkcji. Zawiera ona nie tylko stronę *Home. aspx* , stronę *about. aspx* , stronę *Contact. aspx* , ale również zawiera funkcje członkostwa, które rejestrują użytkowników i zapisują swoje poświadczenia, dzięki czemu mogą logować się do witryny sieci Web. To omówienie zawiera więcej informacji na temat niektórych funkcji zawartych w szablonie aplikacji ASP.NET Web Forms i sposobu ich użycia w aplikacji Wingtip zabawki.
 > 
 > **Członkostwo**
 > 
-> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) tożsamości przechowuje poświadczenia użytkownika w bazie danych utworzonych przez aplikację. Podczas logowania się użytkowników aplikacji sprawdza poprawność poświadczeń, zapoznając się bazy danych. Projektu *konta* folder zawiera pliki, które implementują różne części członkostwa: rejestracji, logowania, zmiana haseł i autoryzowanie dostępu. Ponadto formularzy sieci Web programu ASP.NET obsługuje OAuth i OpenID. Te ulepszenia uwierzytelniania zezwolić użytkownikom na logowanie się do witryny przy użyciu bieżących poświadczeń z konta, takie jak Facebook, Twitter, Windows Live i Google.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) Tożsamość przechowuje poświadczenia użytkowników w bazie danych utworzonej przez aplikację. Gdy użytkownicy logują się, aplikacja sprawdza poprawność swoich poświadczeń, odczytując bazę danych. Folder *konta* projektu zawiera pliki implementujące różne części członkostwa: rejestrowanie, logowanie, zmiana hasła i Autoryzowanie dostępu. Ponadto ASP.NET Web Forms obsługuje uwierzytelnianie OAuth i OpenID Connect. Te ulepszenia uwierzytelniania umożliwiają użytkownikom logowanie się do witryny przy użyciu istniejących poświadczeń, takich jak Facebook, Twitter, Windows Live i Google.
 > 
-> ![Utwórz projekt — Eksploratora rozwiązań (produktu ASP.NET Identity)](create-the-project/_static/image7.png)
+> ![Tworzenie projektu — Eksplorator rozwiązań (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
-> Domyślnie ten szablon tworzy bazy danych członkostwa przy użyciu domyślnej nazwy bazy danych w wystąpieniu programu SQL Server Express LocalDB, serwer bazy danych rozwoju, dostarczanego z Visual Studio Express 2013 for Web.
+> Domyślnie szablon tworzy bazę danych członkostwa przy użyciu domyślnej nazwy bazy danych w wystąpieniu SQL Server Express LocalDB, serwer bazy danych programistycznej, który jest dostarczany z Visual Studio Express 2013 dla sieci Web.
 > 
 > **SQL Server Express LocalDB**
 > 
-> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) to Uproszczona wersja programu SQL Server, który ma wiele funkcji programowania bazy danych programu SQL Server. SQL Server Express LocalDB działa w trybie użytkownika i ma szybką, niewymagającą konfiguracji instalację, który ma krótką listę wymagań wstępnych instalacji. W programie Microsoft SQL Server, bazę danych lub kod języka Transact-SQL może zostać przeniesiona z programu SQL Server Express LocalDB do programu SQL Server i SQL Azure bez konieczności uaktualnień. Tak SQL Server Express LocalDB może służyć jako środowiska deweloperskiego dla aplikacji przeznaczonych dla wszystkich wersji programu SQL Server. SQL Server Express LocalDB włącza funkcje, takie jak procedury składowane, funkcje zdefiniowane przez użytkownika i agregacji, integracji .NET Framework, typów przestrzennych i inne, które nie są dostępne w dokumentacji programu SQL Server Compact.
+> [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) to uproszczona wersja SQL Server, która ma wiele funkcji programowalności bazy danych SQL Server. SQL Server Express działa w trybie użytkownika i ma szybką instalację o zerowej konfiguracji, która ma krótką listę wymagań wstępnych instalacji. W Microsoft SQL Server każda baza danych lub kod języka Transact-SQL można przenieść z SQL Server Express LocalDB do SQL Server i SQL Azure bez żadnych kroków uaktualniania. Dlatego SQL Server Express LocalDB może służyć jako środowisko deweloperskie dla aplikacji przeznaczonych dla wszystkich wersji SQL Server. SQL Server Express LocalDB umożliwia korzystanie z funkcji takich jak procedury składowane, funkcje zdefiniowane przez użytkownika i agregacje, integracja .NET Frameworka, typy przestrzenne i inne, które nie są dostępne w SQL Server Compact.
 > 
 > **Strony wzorcowe**
 > 
-> [Strona wzorcowa ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx) definiuje spójny wygląd i zachowanie dla wszystkich stron w aplikacji. Układ strony wzorcowej jest scalana z zawartości z poszczególnych stron zawartości, aby wygenerować na ostatniej stronie, widziany przez użytkownika. W aplikacji Wingtip Toys zmodyfikujesz *Site.master* strony wzorcowej, tak aby wszystkich stron w witrynie sieci Web firmy Wingtip Toys udostępnianie tego samego szczególne paska logo i nawigacji.
+> [Strona wzorcowa ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx) definiuje spójny wygląd i zachowanie dla wszystkich stron w aplikacji. Układ strony wzorcowej jest scalany z zawartością z pojedynczej strony zawartości, aby utworzyć końcową stronę, którą widzi użytkownik. W aplikacji Wingtip zabawki należy zmodyfikować stronę wzorcową *lokacja. Master* , tak aby wszystkie strony w witrynie sieci Web Wingtip zabawki miały ten sam logo charakterystyczne i pasek nawigacyjny.
 > 
 > **HTML5**
 > 
-> Szablon aplikacji formularzy sieci Web programu ASP.NET obsługuje [HTML5](http://www.w3schools.com/html/html5_intro.asp), który jest najnowszą wersję języka znaczników HTML. HTML5 obsługuje nowe elementy i funkcje, które ułatwiają tworzenie witryn sieci Web.
+> Szablon aplikacji ASP.NET Web Forms obsługuje [HTML5](http://www.w3schools.com/html/html5_intro.asp), czyli najnowszą wersję języka HTML Markup Language. Program HTML5 obsługuje nowe elementy i funkcje, które ułatwiają tworzenie witryn sieci Web.
 > 
-> **Modernizr**
+> **Modernizacja**
 > 
-> Dla przeglądarek, które nie obsługują HTML5, możesz użyć [Modernizr](http://www.modernizr.com/). Modernizr to biblioteka języka JavaScript typu open source, która może wykryć, czy przeglądarka obsługuje funkcje HTML5 i je włączyć, jeśli nie jest. W szablonie aplikacji formularzy sieci Web ASP.NET Modernizr jest instalowany jako pakiet NuGet.
+> W przypadku przeglądarek, które nie obsługują języka HTML5, można użyć programu [unowocześnienie](http://www.modernizr.com/). Modernizacja to biblioteka języka JavaScript typu open source, która umożliwia wykrywanie, czy przeglądarka obsługuje funkcje HTML5, i włączać je, jeśli nie. W szablonie aplikacji ASP.NET Web Forms program modernizacja jest instalowany jako pakiet NuGet.
 > 
 > **Bootstrap**
 > 
-> Szablony projektu Visual Studio 2013 korzystają [Bootstrap](http://getbootstrap.com/), układ i motywów framework, utworzone przez usługi Twitter. Usługa ładowania początkowego używa CSS3, aby zapewnić elastyczne, co oznacza, że układy dynamicznie dostosowują się do innej przeglądarki rozmiary okna. Można również użyć funkcji motywów Bootstrap firmy, można łatwo dokonać zmian w aplikacji wyglądu i działania. Domyślnie szablon aplikacji sieci Web ASP.NET w programie Visual Studio 2013 zawiera narzędzia Bootstrap jako pakiet NuGet.
+> Szablony projektów Visual Studio 2013 używają [Bootstrap](http://getbootstrap.com/), układu i struktury z motywem utworzonym przez serwis Twitter. Funkcja ładowania początkowego korzysta z CSS3 w celu zapewnienia, że program umożliwia dynamiczne dostosowanie do różnych rozmiarów okna przeglądarki. Możesz również użyć funkcji obsługi motywów Bootstrap, aby łatwo zmienić wygląd i działanie aplikacji. Domyślnie szablon aplikacji sieci Web ASP.NET w Visual Studio 2013 zawiera polecenie Bootstrap jako pakiet NuGet.
 > 
-> **NuGet Packages**
+> **Pakiety NuGet**
 > 
-> Szablon aplikacji formularzy sieci Web ASP.NET zawiera zbiór [NuGet](http://www.nuget.org/) pakietów. Te pakiety oferuje składającej w formularzu, narzędzi i bibliotek typu open source. Istnieje szereg pakietów, aby ułatwić tworzenie i testowanie aplikacji. Program Visual Studio ułatwia dodawanie, usuwanie i aktualizowanie pakietów NuGet. Deweloperzy mogą tworzyć i dodawać pakiety NuGet także.
+> Szablon aplikacji ASP.NET Web Forms zawiera zestaw pakietów [NuGet](http://www.nuget.org/) . Te pakiety zapewniają składniki funkcji w postaci bibliotek i narzędzi typu open source. Istnieje szeroka gama pakietów, które ułatwiają tworzenie i testowanie aplikacji. Program Visual Studio ułatwia dodawanie, usuwanie i aktualizowanie pakietów NuGet. Deweloperzy mogą również tworzyć i dodawać pakiety do narzędzia NuGet.
 > 
-> ![Tworzenie projektu — okno dialogowe NuGet](create-the-project/_static/image8.png)
+> ![Tworzenie projektu — okno dialogowe programu NuGet](create-the-project/_static/image8.png)
 > 
-> Podczas instalowania pakietu NuGet kopiuje pliki do rozwiązania i automatycznie tworzy wszelkie potrzebne są zmiany, takie jak dodawanie odwołania i zmiany konfiguracji skojarzone z aplikacją sieci Web. Jeśli zdecydujesz się usunąć biblioteki NuGet usuwa pliki i odwraca wszelkie zmiany wprowadzone w projekcie, dzięki czemu pozostanie nie zaśmiecania. NuGet jest dostępne z **narzędzia** menu w programie Visual Studio.
+> Podczas instalacji pakietu NuGet kopiuje pliki do rozwiązania i automatycznie wprowadza wszelkie zmiany, takie jak Dodawanie odwołań i zmiana konfiguracji skojarzonej z aplikacją sieci Web. Jeśli zdecydujesz się usunąć bibliotekę, pakiet NuGet usunie pliki i wycofa wszelkie zmiany wprowadzone w projekcie, aby nie było żadnego bałaganu. Pakiet NuGet jest dostępny w menu **Narzędzia** w programie Visual Studio.
 > 
 > **jQuery**
 > 
-> [jQuery](http://jquery.com/) jest szybkie i zwięzłe biblioteka języka JavaScript, która upraszcza przechodzenie dokumentu HTML, obsługa zdarzeń, animowanie i interakcje Ajax do tworzenia aplikacji internetowych szybkie. Biblioteka JavaScript jQuery znajduje się w szablonie aplikacji formularzy sieci Web platformy ASP.NET jako pakiet NuGet.
+> [jQuery](http://jquery.com/) to szybka i zwięzła biblioteka języka JavaScript, która upraszcza przechodzenie do dokumentów HTML, obsługę zdarzeń, animowanie i interakcje AJAX na potrzeby szybkiego tworzenia aplikacji internetowych. Biblioteka jQuery JavaScript jest dołączona do szablonu aplikacji ASP.NET Web Forms jako pakiet NuGet.
 > 
-> **Sprawdzania poprawności dyskretnego kodu**
+> **Niezauważalna weryfikacja**
 > 
-> Wbudowany moduł sprawdzania poprawności formantów zostały skonfigurowane na potrzeby dyskretny kod JavaScript logiki weryfikacji po stronie klienta. To znacznie zmniejsza ilość kodu JavaScript renderowane w tekście w znaczniku strony i zmniejsza całkowity rozmiar strony. Szablon aplikacji formularzy sieci Web platformy ASP.NET na podstawie ustawienia w dodaje się globalnie sprawdzania poprawności dyskretnego kodu &lt;appSettings&gt; elementu *Web.config* pliku w katalogu głównym aplikacji.
+> Wbudowane kontrolki walidatora zostały skonfigurowane do korzystania z niewygodnego języka JavaScript dla logiki walidacji po stronie klienta. Znacznie zmniejsza to ilość kodu JavaScript renderowanego wewnętrznie w znaczniku strony i zmniejsza całkowity rozmiar strony. Niedyskretna weryfikacja jest dodawana globalnie do szablonu aplikacji ASP.NET Web Forms na podstawie ustawienia w &lt;appSettings&gt; element pliku *Web. config* w katalogu głównym aplikacji.
 > 
-> **Entity Framework Code pierwszy**
+> **Entity Framework Code First**
 > 
-> Oprócz funkcji w szablonie aplikacji formularzy sieci Web ASP.NET, używane przez aplikację Wingtip Toys [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), czyli biblioteki NuGet, która umożliwia programowanie skoncentrowane na kodzie podczas pracy z danymi. Najprościej mówiąc, tworzy bazy danych części aplikacji na podstawie kodu, który należy napisać. Używający narzędzia Entity Framework, możesz pobrać i manipulowanie danymi jako silnie typizowanych obiektów. Pozwala to skupić się na logice biznesowej w aplikacji, a nie szczegóły sposób dostęp do danych.
+> Oprócz funkcji w szablonie aplikacji ASP.NET Web Forms, aplikacja Wingtip zabawki używa [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), która jest biblioteką NuGet, która umożliwia programowanie zorientowane na kod podczas pracy z danymi. Po prostu tworzy część bazy danych aplikacji na podstawie kodu, który napiszesz. Korzystając z Entity Framework, pobierasz dane i manipulujesz nimi jako obiekty silnie wpisane. Dzięki temu można skoncentrować się na logice biznesowej w aplikacji, a nie na szczegółach sposobu uzyskiwania dostępu do danych.
 > 
-> Aby uzyskać dodatkowe informacje o bibliotekach zainstalowanych i pakietów zawartych w szablonie formularzy sieci Web ASP.NET zobacz listę zainstalowanych pakietów NuGet. Aby to zrobić, w programie Visual Studio Utwórz nowy projekt formularzy sieci Web, wybierz opcję **narzędzia** > **Menedżera pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**i wybierz **zainstalowanych pakietów** w **Zarządzaj pakietami NuGet** okno dialogowe.
+> Aby uzyskać dodatkowe informacje na temat zainstalowanych bibliotek i pakietów zawartych w szablonie formularzy sieci Web ASP.NET, zobacz listę zainstalowanych pakietów NuGet. W tym celu w programie Visual Studio Utwórz nowy projekt formularzy sieci Web, wybierz pozycję **narzędzia** > **menedżer pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **zainstalowane pakiety** w oknie dialogowym **Zarządzanie pakietami NuGet** .
 
-### <a name="touring-visual-studio"></a>Touring Visual Studio
+### <a name="touring-visual-studio"></a>Przewodnik po programie Visual Studio
 
-Podstawowy system windows w programie Visual Studio zawiera **Eksploratora rozwiązań**, **Eksploratora serwera** (**Eksplorator bazy danych** w wersji Express), **właściwości Okno**, **przybornika**, **narzędzi**i **okna dokumentu**.
+Podstawowe okna programu Visual Studio obejmują **Eksplorator rozwiązań**, **Eksplorator serwera** (**Eksplorator bazy danych** w programie Express), **okno właściwości**, **Przybornik**, **pasek narzędzi**i **okno dokumentu**.
 
-![Tworzenie projektu — okno dialogowe NuGet](create-the-project/_static/image9.png)
+![Tworzenie projektu — okno dialogowe programu NuGet](create-the-project/_static/image9.png)
 
-Aby uzyskać więcej informacji na temat programu Visual Studio, zobacz [przewodnik wizualny po Visual Web Developer](https://msdn.microsoft.com/library/ee410104.aspx).
+Aby uzyskać więcej informacji na temat programu Visual Studio, zobacz [przewodnik wizualny do Visual Web Developer](https://msdn.microsoft.com/library/ee410104.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
-W ramach tego samouczka utworzone, przejrzeniu i uruchomić domyślnej aplikacji formularzy sieci Web. Przejrzeniu różne funkcje domyślnej aplikacji formularzy sieci Web i przedstawiono pewne podstawowe informacje o sposobie używania środowiska Visual Studio. W ramach następujących samouczków utworzysz warstwy dostępu do danych.
+W tym samouczku została utworzona, sprawdzona i uruchomiona domyślna aplikacja formularzy sieci Web. Sprawdzono różne funkcje domyślnej aplikacji formularzy sieci Web i przedstawiono podstawowe informacje dotyczące korzystania ze środowiska programu Visual Studio. W poniższych samouczkach utworzysz warstwę dostępu do danych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 [Wybieranie odpowiedniego modelu programowania](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Web Application Projects versus Web Site Projects](https://msdn.microsoft.com/library/dd547590.aspx)   
-[Omówienie stron formularzy sieci Web ASP.NET](https://msdn.microsoft.com/library/428509ah.aspx)
+[Projekty aplikacji sieci Web i projekty witryn sieci web](https://msdn.microsoft.com/library/dd547590.aspx)   
+[ASP.NET stron formularzy sieci Web — Omówienie](https://msdn.microsoft.com/library/428509ah.aspx)
 
 > [!div class="step-by-step"]
 > [Poprzednie](introduction-and-overview.md)

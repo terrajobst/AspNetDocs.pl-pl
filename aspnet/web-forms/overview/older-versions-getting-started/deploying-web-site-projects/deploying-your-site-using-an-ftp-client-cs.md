@@ -1,58 +1,58 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
-title: Wdrażanie witryny przy użyciu klienta FTP (C#) | Dokumentacja firmy Microsoft
+title: Wdrażanie witryny przy użyciu klienta FTP (C#) | Microsoft Docs
 author: rick-anderson
-description: Najprostszym sposobem wdrażania aplikacji ASP.NET jest ręcznie skopiuj niezbędne pliki ze środowiska projektowego w środowisku produkcyjnym. Ten...
+description: Najprostszym sposobem wdrożenia aplikacji ASP.NET jest ręczne skopiowanie niezbędnych plików ze środowiska programistycznego do środowiska produkcyjnego. Thi...
 ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: a3599cf7-8474-4006-954a-3bc693736b66
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6adbb245ce534c15ac1adac722b8621002ab15
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a3474650939ee220b3fd712e9f5a6cf3db11db09
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127050"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621124"
 ---
 # <a name="deploying-your-site-using-an-ftp-client-c"></a>Wdrażanie witryny przy użyciu klienta FTP (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_03_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial03_DeployingViaFTP_cs.pdf)
+[Pobierz kod](https://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_03_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial03_DeployingViaFTP_cs.pdf)
 
-> Najprostszym sposobem wdrażania aplikacji ASP.NET jest ręcznie skopiuj niezbędne pliki ze środowiska projektowego w środowisku produkcyjnym. W tym samouczku pokazano, jak pobierać pliki z komputera do dostawcy hosta sieci web za pomocą klienta FTP.
+> Najprostszym sposobem wdrożenia aplikacji ASP.NET jest ręczne skopiowanie niezbędnych plików ze środowiska programistycznego do środowiska produkcyjnego. W tym samouczku pokazano, jak za pomocą klienta FTP pobrać pliki z pulpitu do dostawcy hosta sieci Web.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Do poprzedniego samouczka wprowadziliśmy prostą aplikację sieci web ASP.NET przeglądu książki, który składa się kilka stron ASP.NET, strony wzorcowej, niestandardowe baza `Page` klasy liczbę obrazów, i arkusze stylów CSS trzy. Teraz jesteśmy gotowi wdrożyć tę aplikację sieci web dostawcy hosta, w tym momencie aplikacji będą dostępne dla wszystkich osób z połączeniem z Internetem!
+W poprzednim samouczku wprowadzono prostą ASP.NETą aplikację sieci Web, która składa się z kilku stron ASP.NET, strony wzorcowej, niestandardowej klasy podstawowej `Page`, wielu obrazów i trzech arkuszy stylów CSS. Teraz wszystko jest gotowe do wdrożenia tej aplikacji dla dostawcy hosta sieci Web. w takim przypadku aplikacja będzie dostępna dla wszystkich użytkowników mających połączenie z Internetem.
 
-Z naszych rozmów w [ *określająca, które pliki muszą zostać wdrożone* ](determining-what-files-need-to-be-deployed-cs.md) samouczków, wiemy, że pliki muszą być kopiowane do dostawcy hosta sieci web. (Pamiętaj, że jakie pliki są kopiowane zależy od tego, czy aplikacja jest jawnie lub automatycznie kompilowana). Ale jak możemy doprowadzić pliki ze środowiska projektowego (nasze dla komputerów stacjonarnych) do środowiska produkcyjnego (zarządzane przez dostawcę sieci web hosta serwera sieci web)? [ **F** IK **T** przesyłania **P** rotocol (FTP)](http://en.wikipedia.org/wiki/File_Transfer_Protocol) jest protokołem często używane do kopiowania plików z jednego komputera do drugiego za pośrednictwem sieci. Innym rozwiązaniem jest rozszerzeń serwera FrontPage (FPSE). Ten samouczek koncentruje się na temat korzystania z autonomicznej oprogramowanie klienckie FTP do wdrażania niezbędne pliki ze środowiska projektowego w środowisku produkcyjnym.
+Z naszych dyskusji w temacie [*określanie plików wymagających wdrożenia*](determining-what-files-need-to-be-deployed-cs.md) samouczka wiemy, które pliki muszą zostać skopiowane do dostawcy hosta sieci Web. (Należy odwołać się do tego, jakie pliki są kopiowane, zależy od tego, czy aplikacja jest jawnie czy automatycznie skompilowana). Ale jak można pobrać pliki ze środowiska programistycznego (naszego pulpitu) do środowiska produkcyjnego (serwera sieci Web zarządzanego przez dostawcę hosta sieci Web)? [ Iku **T** ransfer **p** rotocol (FTP)](http://en.wikipedia.org/wiki/File_Transfer_Protocol) jest powszechnie używanym protokołem do kopiowania plików z jednego komputera do drugiego za pośrednictwem sieci. Inna opcja to rozszerzenia FrontPage Server Extensions (FPSE). Ten samouczek koncentruje się na korzystaniu z autonomicznego oprogramowania klienckiego FTP do wdrażania niezbędnych plików ze środowiska programistycznego w środowisku produkcyjnym.
 
 > [!NOTE]
-> Program Visual Studio zawiera narzędzia służące do publikowania witryny sieci Web za pośrednictwem protokołu FTP; te narzędzia, a także poznać narzędzia, które używają FPSE, zostały uwzględnione w następnym samouczku.
+> Program Visual Studio zawiera narzędzia do publikowania witryn sieci Web za pośrednictwem protokołu FTP; te narzędzia, a także Przyjrzyj się narzędziom, które używają rozszerzeń FPSE, zostały omówione w następnym samouczku.
 
-Aby skopiować pliki przy użyciu protokołu FTP, potrzebujemy *klienta FTP* w środowisku programistycznym. Klient FTP to aplikacja, która jest przeznaczona do kopiowania plików na komputerze jest zainstalowany na komputerze, na którym uruchomiono *serwera FTP*. (Jeśli Twój dostawca hosta sieci web obsługuje transfery plików za pośrednictwem protokołu FTP, tak jak większość, następnie jest uruchomione na serwerach sieci web serwera FTP.) Liczba aplikacje klienckie FTP są dostępne. Przeglądarki sieci web, można nawet dwukrotnie jako klient FTP. Moje ulubione klienta FTP i co mogę używać na potrzeby tego samouczka jest [FileZilla](http://filezilla-project.org/), bezpłatny, open source klienta FTP, który jest dostępny dla Windows, Linux i Mac. Dowolny klient FTP będzie działać, więc możesz użyć dowolnego klienta potrafisz najbardziej.
+Aby skopiować pliki przy użyciu protokołu FTP, musimy mieć *klienta FTP* w środowisku deweloperskim. Klient FTP to aplikacja, która jest przeznaczona do kopiowania plików z komputera, który jest instalowany na komputerze z uruchomionym *serwerem FTP*. (Jeśli dostawca hosta sieci Web obsługuje transfery plików za pośrednictwem protokołu FTP, to na serwerze sieci Web jest uruchomiony serwer FTP). Istnieje wiele dostępnych aplikacji klienckich FTP. Przeglądarka sieci Web może nawet dwukrotnie być klientem FTP. Moim ulubionym klientem FTP, który będzie używany w tym samouczku, jest [FileZilla](http://filezilla-project.org/), bezpłatny klient FTP typu open source dostępny dla systemów Windows, Linux i Mac. Każdy klient FTP będzie działał, ale może korzystać z dowolnego klienta, który z największym doświadczeniem.
 
-Jeśli wykonujesz wzdłuż można będzie potrzebne tworzenia konta u dostawcy usług hosta sieci web przed można wykonać w tym samouczku lub kolejne. Jak wspomniano w poprzednim samouczku, są gaggle firm dostawcy hosta sieci web, za pomocą szerokie spektrum ceny, funkcje i jakości usługi. W tej serii samouczków I będzie korzystać z [ASP.NET z rabatami](http://discountasp.net) jako Mój hosta sieci web dostawcy, ale skorzystaj z dowolnego dostawcy hosta sieci web tak długo, jak obsługują verze technologie ASP.NET opracowanym w lokacji. (Te samouczki zostały utworzone przy użyciu ASP.NET 3.5.) Ponieważ firma Microsoft będzie można kopiowanie plików do dostawcy hosta sieci web przy użyciu protokołu FTP, w tym samouczku i w przyszłości takich, które jest także imperatywnego, że Twój dostawca hosta sieci web obsługuje FTP dostęp do swoich serwerów sieci web. Praktycznie wszystkich dostawców usług hosta sieci web oferuje tę funkcję, ale powinien być dokładnie przed utworzeniem nowego.
+Jeśli jesteś następnym, musisz utworzyć konto z dostawcą hosta sieci Web, aby móc ukończyć ten samouczek lub kolejne. Jak wspomniano w poprzednim samouczku, istnieje Gaggle firm dostawcy hosta sieci Web z szeroką gamę cen, funkcji i jakości usług. W tej serii samouczków użyjemy [rabatu ASP.NET](http://discountasp.net) jako dostawcy hosta sieci Web, ale możesz wykonać te czynności razem z dowolnym dostawcą hosta sieci Web, o ile będą one obsługiwały wersję ASP.NET, w której jest opracowywana witryna. (Te samouczki zostały utworzone przy użyciu ASP.NET 3,5). Ponadto, ponieważ pliki zostaną skopiowane do dostawcy hosta sieci Web przy użyciu protokołu FTP w tym samouczku i w przyszłości będzie to konieczne, aby dostawca hosta sieci Web obsługiwał dostęp za pośrednictwem protokołu FTP do swoich serwerów sieci Web. Praktycznie wszyscy dostawcy hosta sieci Web oferują tę funkcję, ale należy dokładnie sprawdzić przed zarejestrowaniem się.
 
-## <a name="deploying-the-book-review-web-application-project"></a>Wdrażanie projektu aplikacji sieci Web Przejrzyj książki
+## <a name="deploying-the-book-review-web-application-project"></a>Wdrażanie projektu aplikacji sieci Web Recenzja książki
 
-Pamiętaj, że istnieją dwie wersje książki przeglądanie aplikacji sieci web: jeden implementowane przy użyciu modelu projektu aplikacji sieci Web (BookReviewsWAP), a druga za pomocą modelu projektu witryny sieci Web (BookReviewsWSP). Typ projektu ma wpływ, czy witryna jest kompilowany automatycznie lub jawnie i modelu kompilacji decyduje, które pliki muszą zostać wdrożone. W związku z tym będziemy sprawdzać wdrażania projektów BookReviewsWAP i BookReviewsWSP oddzielnie, począwszy od BookReviewsWAP. Poświęć chwilę, aby pobrać te dwie aplikacje ASP.NET, jeśli nie zostało to jeszcze zrobione.
+Odwołaj się, że istnieją dwie wersje aplikacji sieci Web przeglądu książki: jeden zaimplementowany przy użyciu modelu projektu aplikacji sieci Web (BookReviewsWAP), a drugi przy użyciu modelu projektu witryny sieci Web (BookReviewsWSP). Typ projektu ma wpływ na to, czy lokacja jest skompilowana automatycznie, czy jawnie, i czy ten model kompilacji określa, jakie pliki muszą zostać wdrożone. W związku z tym sprawdzimy osobno wdrażanie projektów BookReviewsWAP i BookReviewsWSP, rozpoczynając od BookReviewsWAP. Poświęć chwilę na pobranie tych dwóch aplikacji ASP.NET, jeśli jeszcze tego nie zrobiono.
 
-Uruchom projekt BookReviewsWAP, przechodząc do `BookReviewsWAP` folder i dwukrotne kliknięcie `BookReviewsWAP.sln` pliku. Przed przystąpieniem do wdrażania projektu jest ważne, aby skompiluj go, aby upewnić się, że zmiany do kodu źródłowego są uwzględniane w skompilowanym zestawie. Aby skompilować projekt przejdź do menu kompilacji, a następnie wybierz opcję menu BookReviewsWAP kompilacji. To kompiluje kod źródłowy w projekcie w jednym zestawie `BookReviewsWAP.dll`, który jest umieszczany w `Bin` folderu.
+Uruchom projekt BookReviewsWAP, przechodząc do folderu `BookReviewsWAP`, a następnie klikając dwukrotnie plik `BookReviewsWAP.sln`. Przed wdrożeniem projektu należy go skompilować, aby upewnić się, że wszystkie zmiany w kodzie źródłowym zostaną uwzględnione w skompilowanym zestawie. Aby skompilować projekt, przejdź do menu Kompilacja i wybierz opcję menu Kompilacja BookReviewsWAP. Spowoduje to skompilowanie kodu źródłowego w projekcie do jednego zestawu, `BookReviewsWAP.dll`, który znajduje się w folderze `Bin`.
 
-Teraz możemy przystąpić do wdrażania niezbędne pliki! Uruchom klienta FTP i połączyć się z serwerem sieci web u Twojego dostawcy hosta sieci web. (Po zarejestrowaniu się przy użyciu hostingu firmy mogą Ci wiadomość e-mail informacji na temat łączenia się z serwerem FTP; obejmuje to adres serwera FTP oraz nazwy użytkownika i hasło).
+Teraz wszystko jest gotowe do wdrożenia wymaganych plików. Uruchom klienta FTP i Połącz się z serwerem sieci Web u dostawcy hosta sieci Web. (Po zarejestrowaniu się w firmie hostingowej w sieci Web wyśle ona pocztą e-mail informacje dotyczące sposobu nawiązywania połączenia z serwerem FTP; obejmuje to adres serwera FTP oraz nazwę użytkownika i hasło).
 
-Skopiuj następujące pliki z komputera do głównego folderu witryny sieci Web u Twojego dostawcy hosta sieci web. Jeśli FTP do serwera sieci web w sieci web dostawcy prawdopodobnie w katalogu głównym witryny sieci Web. Jednak niektóre dostawców usług hosta sieci web ma podfolder o nazwie `www` lub `wwwroot` służy jako folder główny dla plików witryny sieci Web. Na koniec podczas FTPing plików może być konieczne utworzenie odpowiedniego struktury folderów w środowisku produkcyjnym — `Bin` folderze `Fiction` folderze `Images` folder i tak dalej.
+Skopiuj następujące pliki z pulpitu do folderu głównego witryny sieci Web na swoim dostawcy hosta. Gdy korzystasz z protokołu FTP na serwerze sieci Web u dostawcy hosta sieci Web, najkorzystniej znajduje się w katalogu głównej witryny internetowej. Niektórzy dostawcy hosta sieci Web mają jednak podfolder o nazwie `www` lub `wwwroot`, który służy jako folder główny plików witryny sieci Web. Na koniec podczas FTPing plików może być konieczne utworzenie odpowiedniej struktury folderów w środowisku produkcyjnym — folder `Bin`, folder `Fiction`, folder `Images` i tak dalej.
 
 - `~/Default.aspx`
 - `~/About.aspx`
 - `~/Site.master`
 - `~/Web.config`
 - `~/Web.sitemap`
-- Pełna zawartość `Styles` folderu
-- Pełna zawartość `Images` folder (oraz w jego podfolderze `BookCovers`)
+- Pełna zawartość folderu `Styles`
+- Pełna zawartość folderu `Images` (wraz z jego podfolderem `BookCovers`)
 - `~/Fiction/Default.aspx`
 - `~/Fiction/Blaze.aspx`
 - `~/Tech/Default.aspx`
@@ -60,36 +60,36 @@ Skopiuj następujące pliki z komputera do głównego folderu witryny sieci Web 
 - `~/Tech/TYASP35.aspx`
 - `~/Bin/BookReviewsWAP.dll`
 
-Rysunek 1 pokazuje FileZilla po niezbędne pliki zostały skopiowane. FileZilla Wyświetla pliki na komputerze lokalnym z lewej strony oraz pliki na komputerze zdalnym po prawej stronie. Jak rysunek 1 pokazuje, w plikach kodu źródłowego programu ASP.NET, takich jak `About.aspx.cs`, znajdują się na komputerze lokalnym (środowisko programistyczne), ale nie zostały skopiowane do dostawcy hosta sieci web (środowisko produkcyjne), ponieważ nie trzeba wdrożyć, korzystając z plików kodu kompilację typu Explicit.
+Rysunek 1 przedstawia FileZilla po skopiowaniu wymaganych plików. FileZilla Wyświetla pliki na komputerze lokalnym po lewej stronie i pliki na komputerze zdalnym po prawej stronie. Jak pokazano na rysunku 1, pliki kodu źródłowego ASP.NET, takie jak `About.aspx.cs`, znajdują się na komputerze lokalnym (środowisku programistycznym), ale nie zostały skopiowane do dostawcy hosta sieci Web (środowisko produkcyjne), ponieważ pliki kodu nie muszą zostać wdrożone podczas korzystania z kompilacji jawnej.
 
 > [!NOTE]
-> Jak są one ignorowane nie powoduje żadnych problemów, że w plikach kodu źródłowego na serwerze produkcyjnym. ASP.NET zabrania żądania HTTP do plików kodu źródłowego domyślnie, tak aby nawet, jeśli pliki kodu źródłowego są obecne na serwerze produkcyjnym są niedostępne dla odwiedzający witrynę sieci Web. (To znaczy, jeśli użytkownik próbuje znaleźć `http://www.yoursite.com/Default.aspx.cs` otrzymają one stronę błędu, który objaśnia, że te typy plików — `.cs` plików — jest zabronione.)
+> Nie ma żadnego uszkodzenia plików kodu źródłowego na serwerze produkcyjnym, ponieważ są one ignorowane. ASP.NET domyślnie zabrania żądań HTTP do plików kodu źródłowego, tak że nawet jeśli pliki kodu źródłowego są obecne na serwerze produkcyjnym, są niedostępne dla odwiedzających witrynę sieci Web. (Oznacza to, że jeśli użytkownik próbuje odwiedzić `http://www.yoursite.com/Default.aspx.cs` zostanie wykorzystana strona błędu, która wyjaśnia, że te typy plików — `.cs` plików — są zabronione).
 
-[![Klient FTP umożliwia skopiuj niezbędne pliki z komputera z serwerem sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
+[![użyć klienta FTP do skopiowania niezbędnych plików z pulpitu do serwera sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image2.png)](deploying-your-site-using-an-ftp-client-cs/_static/image1.png)
 
-**Rysunek 1**: Używany klient FTP do skopiowania niezbędne pliki swój pulpit na serwerze sieci Web u dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image3.png))
+**Rysunek 1**. Użyj klienta FTP, aby skopiować wymagane pliki z pulpitu do serwera sieci Web u dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image3.png))
 
-Po wdrożeniu witryny Poświęć chwilę, aby przetestować w witrynie. Jeśli możesz zakupić nazwę domeny i skonfigurowano ustawienia DNS poprawnie, możesz odwiedzić stronę witryny, wprowadzając nazwę domeny. Alternatywnie dostawcą hosta sieci web powinna wprowadzonych w możesz przy użyciu adresu URL do witryny, której będą wyglądać mniej więcej tak *accountname*. *webhostprovider*.com lub *webhostprovider*.com /*accountname*. Na przykład adres URL mojego konta na platformie ASP.NET z rabatu jest: `http://httpruntime.web703.discountasp.net`.
+Po wdrożeniu witryny Poświęć chwilę na przetestowanie lokacji. Jeśli zakupiono nazwę domeny i skonfigurowano ustawienia DNS poprawnie, można odwiedzić witrynę, wprowadzając nazwę domeny. Alternatywnie dostawca hosta sieci Web powinien przekazać Ci adres URL do witryny, która będzie wyglądać podobnie do tego *konta*. *webhostprovider*. com lub *webhostprovider*. com/*AccountName*. Na przykład adres URL dla mojego konta w przypadku rabatu ASP.NET to: `http://httpruntime.web703.discountasp.net`.
 
-Rysunek 2 przedstawia witrynę wdrożoną przeglądy książki. Należy pamiętać o tym, czy podczas oglądania go na Discount ASP. Serwery w sieci u `http://httpruntime.web703.discountasp.net`. W tym momencie każdy z połączeniem z Internetem może wyświetlać Moja witryna sieci Web! Czy oczekujemy, witryna wygląda i zachowuje się tak samo jak podczas testowania go w środowisku programistycznym.
-
-> [!NOTE]
-> Jeśli wystąpi błąd podczas wyświetlania aplikacji Poświęć chwilę, aby upewnić się, że Ci się wdrożyć poprawny zestaw plików. Następnie sprawdź komunikat o błędzie, aby zobaczyć, jeśli go, co spowoduje wyświetlenie wszelkie wskazówki dotyczące problemu. Poniżej można włączyć do działu pomocy technicznej Twojej firmy hosta sieci web lub opublikuj swoje pytanie na forum odpowiednie [fora ASP.NET](https://forums.asp.net/).
-
-[![Witryna przeglądy książki jest teraz dostępny dla każdego, kto połączenie z Internetem](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
-
-**Rysunek 2**: Witryna przeglądy książki jest teraz dostępny dla każdego, kto połączenie z Internetem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image6.png))
-
-## <a name="deploying-the-book-review-web-site-project"></a>Wdrażanie projektu witryny sieci Web Przejrzyj książki
-
-W przypadku wdrażania aplikacji platformy ASP.NET, która używa automatyczne kompilowanie, takich jak BookReviewsWSP projektu witryny sieci Web, nie ma żadnych skompilowanego zestawu w `Bin` folderu. W rezultacie pliki kodu źródłowego aplikacji sieci web musi zostać wdrożony w środowisku produkcyjnym. Przejdźmy teraz przez ten proces.
-
-Jak za pomocą projektu aplikacji sieci Web jest poddanie pierwsza Kompilacja aplikacji przed jego wdrożeniem. Podczas kompilowania projektu witryny sieci Web nie powoduje utworzenia zestawu, sprawdza pod kątem błędów kompilacji, na stronie. Lepsze można teraz znaleźć te błędy, a nie o odwiedzającą witrynę odnajdywać dla Ciebie!
-
-Po pomyślnym utworzeniu projektu, umożliwia klienta FTP skopiuj następujące pliki do głównego folderu witryny sieci Web u Twojego dostawcy hosta sieci web. Może być konieczne utworzenie odpowiedniego struktury folderów w środowisku produkcyjnym.
+Rysunek 2 przedstawia witrynę wdrożone przeglądy książki. Zauważ, że wyświetlam je w ramach rabatu ASP. Serwery sieci, w `http://httpruntime.web703.discountasp.net`. W tym momencie każda osoba z połączeniem z Internetem może wyświetlić moją witrynę internetową. Zgodnie z oczekiwaniami witryna wygląda i zachowuje się tak samo, jak podczas testowania w środowisku programistycznym.
 
 > [!NOTE]
-> Jeśli wdrożono już BookReviewsWAP projektu ale chcesz wypróbować wdrażanie projektu BookReviewsWSP, najpierw usuń wszystkie pliki na serwerze sieci web, które zostały przekazane podczas wdrażania BookReviewsWAP, a następnie wdrożyć pliki dla BookReviewsWSP.
+> Jeśli wystąpi błąd podczas wyświetlania aplikacji, poświęć chwilę, aby upewnić się, że wdrożono poprawny zestaw plików. Następnie sprawdź komunikat o błędzie, aby zobaczyć, czy ujawnia on wszelkie wskazówki dotyczące problemu. Poniżej można włączyć pomoc techniczną firmy hosta sieci Web lub opublikować pytanie na odpowiednim forum na [forach ASP.NET](https://forums.asp.net/).
+
+[![witryna przeglądy książek jest teraz dostępna dla wszystkich użytkowników z połączeniem internetowym](deploying-your-site-using-an-ftp-client-cs/_static/image5.png)](deploying-your-site-using-an-ftp-client-cs/_static/image4.png)
+
+**Rysunek 2**. witryna przeglądy książki jest teraz dostępna dla wszystkich użytkowników z połączeniem internetowym ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image6.png))
+
+## <a name="deploying-the-book-review-web-site-project"></a>Wdrażanie projektu witryny sieci Web przegląd książki
+
+Podczas wdrażania aplikacji ASP.NET, która używa automatycznej kompilacji, takiej jak projekt witryny sieci Web BookReviewsWSP, nie ma skompilowanego zestawu w folderze `Bin`. W związku z tym pliki kodu źródłowego aplikacji sieci Web muszą zostać wdrożone w środowisku produkcyjnym. Przeprowadzimy Cię przez ten proces.
+
+Podobnie jak w przypadku projektu aplikacji sieci Web, warto najpierw skompilować aplikację przed jej wdrożeniem. Podczas kompilowania projektu witryny sieci Web nie tworzy zestawu, sprawdza wszystkie błędy czasu kompilacji na stronie. Lepiej, aby znaleźć te błędy, a nie wyszukiwać ich przez odwiedzających witrynę!
+
+Po pomyślnym skompilowaniu projektu Użyj klienta FTP, aby skopiować następujące pliki do folderu głównego witryny sieci Web u dostawcy hosta. Może być konieczne utworzenie odpowiedniej struktury folderów w środowisku produkcyjnym.
+
+> [!NOTE]
+> Jeśli projekt BookReviewsWAP został już wdrożony, ale nadal chcesz spróbować wdrożyć projekt BookReviewsWSP, najpierw usuń wszystkie pliki na serwerze sieci Web, które zostały przekazane podczas wdrażania BookReviewsWAP, a następnie wdróż pliki dla BookReviewsWSP.
 
 - `~/Default.aspx`
 - `~/Default.aspx.cs`
@@ -99,8 +99,8 @@ Po pomyślnym utworzeniu projektu, umożliwia klienta FTP skopiuj następujące 
 - `~/Site.master.cs`
 - `~/Web.config`
 - `~/Web.sitemap`
-- Pełna zawartość `Styles` folderu
-- Pełna zawartość `Images` folder (oraz w jego podfolderze `BookCovers`)
+- Pełna zawartość folderu `Styles`
+- Pełna zawartość folderu `Images` (wraz z jego podfolderem `BookCovers`)
 - `~/App_Code/BasePage.cs`
 - `~/Fiction/Default.aspx`
 - `~/Fiction/Default.aspx.cs`
@@ -113,38 +113,38 @@ Po pomyślnym utworzeniu projektu, umożliwia klienta FTP skopiuj następujące 
 - `~/Tech/TYASP35.aspx`
 - `~/Tech/TYASP35.aspx.cs`
 
-Rysunek 3 przedstawia FileZilla po skopiowaniu zapasowej wymaganych plików. Jak widać, platformy ASP.NET pliki kodów źródłowych, takich jak `About.aspx.cs`, znajdują się na komputerze lokalnym (środowisko programistyczne) i dostawcy hosta sieci web (środowisko produkcyjne), ponieważ pliki kodu, które muszą zostać wdrożone w przypadku korzystania z automatycznego Kompilacja.
+Rysunek 3 przedstawia FileZilla po skopiowaniu wymaganych plików. Jak widać, pliki kodu źródłowego ASP.NET, takie jak `About.aspx.cs`, znajdują się na komputerze lokalnym (środowisku programistycznym) i dostawcy hosta sieci Web (środowisku produkcyjnym), ponieważ pliki kodu muszą zostać wdrożone podczas korzystania z automatycznej kompilacji.
 
-[![Klient FTP umożliwia skopiuj niezbędne pliki z komputera z serwerem sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
+[![użyć klienta FTP do skopiowania niezbędnych plików z pulpitu do serwera sieci Web u dostawcy hosta sieci Web](deploying-your-site-using-an-ftp-client-cs/_static/image8.png)](deploying-your-site-using-an-ftp-client-cs/_static/image7.png)
 
-**Rysunek 3**: Używany klient FTP do skopiowania niezbędne pliki swój pulpit na serwerze sieci Web u dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image9.png))
+**Rysunek 3**. Używanie klienta FTP do kopiowania niezbędnych plików z pulpitu do serwera sieci Web u dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-an-ftp-client-cs/_static/image9.png))
 
-Środowisko użytkownika nie ma wpływu modelu kompilacji aplikacji. Tej samej strony ASP.NET są dostępne, a ich wygląd i działa tak samo, czy witryna sieci Web została utworzona przy użyciu modelu projektu aplikacji sieci Web lub modelu projektu witryny sieci Web.
+Model kompilacji aplikacji nie ma wpływ na środowisko użytkownika. Te same strony ASP.NET są dostępne i wyglądają i zachowują się tak samo, niezależnie od tego, czy witryna sieci Web została utworzona przy użyciu modelu projektu aplikacji internetowej czy modelu projektu witryny sieci Web.
 
 ### <a name="updating-a-web-application-on-production"></a>Aktualizowanie aplikacji sieci Web w środowisku produkcyjnym
 
-Opracowywanie aplikacji sieci Web i wdrażania są jednorazowy proces. Na przykład podczas tworzenia witryny sieci Web Przejrzyj książki I oparta na różnych stronach i napisał towarzyszący kod na Mój komputer osobisty (środowisko programistyczne). Po osiągnięciu niektórych stabilne, wdrożono aplikację tak, aby inne osoby mogą odwiedź witrynę i odczytu Moje recenzje. Ale wdrożenia nie oznacza koniec Moje rozwoju w tej witrynie. Czy mogę dodać więcej recenzji książki lub implementowania nowych funkcji, na przykład pozwala Moje osoby odwiedzające współczynnik książki lub umieszczać swoje własne komentarze. Takie ulepszenia będą opracowywane w środowisku deweloperskim, a po zakończeniu musi zostać wdrożone. Programowania i wdrażania, dlatego są cykliczne. Tworzenie aplikacji, a następnie wdrożyć go. Gdy lokacja znajduje się na żywo i w środowisku produkcyjnym są dodawane nowe funkcje i błędy zostały usunięte wraz z upływem czasu, która wymaga ponownego wdrażania aplikacji. I tak dalej i tak dalej.
+Tworzenie i wdrażanie aplikacji sieci Web nie jest procesem jednorazowym. Załóżmy na przykład, że podczas tworzenia witryny sieci Web przegląd książki zostały skompilowane różne strony i zapisano kod towarzyszący na komputerze osobistym (środowisko programistyczne). Po osiągnięciu pewnego stabilnego stanu wdrożono moją aplikację, tak aby inni mogli odwiedzić witrynę i przeczytać moje recenzje. Ale wdrożenie nie oznacza końca mojego rozwoju w tej witrynie. Mogę dodać więcej przeglądów książki lub zaimplementować nowe funkcje, takie jak umożliwienie Gościom oceniania książek lub pozostawiania własnych komentarzy. Takie udoskonalenia byłyby opracowywane w środowisku programistycznym i, po zakończeniu, muszą zostać wdrożone. Tworzenie i wdrażanie, w związku z tym, są cykliczne. Tworzysz aplikację, a następnie ją wdróżesz. Gdy witryna działa i w środowisku produkcyjnym, nowe funkcje są dodawane, a błędy są rozwiązane z upływem czasu, co wymaga ponownego wdrożenia aplikacji. Itd.
 
-Zgodnie z oczekiwaniami, podczas ponownego wdrażania aplikacji sieci web, należy skopiować nowe i zmienione pliki. Nie ma potrzeby ponownie wdrożyć stron bez zmian lub pliki obsługi serwera lub klienta (mimo że nie ma żadnych szkód w ten sposób).
+Zgodnie z oczekiwaniami, podczas ponownego wdrażania aplikacji sieci Web wystarczy tylko skopiować nowe i zmienione pliki. Nie ma potrzeby ponownego wdrażania niezmienionych stron lub plików obsługi po stronie serwera lub klienta (choć nie jest to szkodliwe).
 
 > [!NOTE]
-> Warto pamiętać podczas przy użyciu kompilację typu explicit jest dowolnym Dodawanie nowej strony programu ASP.NET do projektu, lub wprowadzić zmiany dotyczące kodu, należy ponownie skompilować projekt, który aktualizuje zestaw na `Bin` folderu. W związku z tym należy skopiować tego zaktualizowanego zestawu do produkcji, podczas aktualizowania aplikacji sieci web na produkcyjne (wraz z innymi nowych i zaktualizowanych zawartości).
+> Należy pamiętać, że podczas korzystania z jawnej kompilacji jest to, że w dowolnym momencie dodasz nową stronę ASP.NET do projektu lub wprowadzisz wszelkie zmiany związane z kodem, należy ponownie skompilować projekt, który zaktualizuje zestaw w folderze `Bin`. W związku z tym należy skopiować ten zaktualizowany zestaw do środowiska produkcyjnego podczas aktualizowania aplikacji sieci Web w środowisku produkcyjnym (wraz z inną nową i zaktualizowaną zawartością).
 
-Również zrozumienie wszelkich zmian do `Web.config` lub pliki w `Bin` directory zatrzymuje się i ponowne uruchomienie puli aplikacji witryny sieci Web. Jeśli Twoje stan sesji jest przechowywany przy użyciu `InProc` trybu (ustawienie domyślne), a następnie odwiedzających witryny spowoduje utratę ich stanu sesji, zawsze wtedy, gdy te pliki klucza są modyfikowane. Aby uniknąć tej niedogodności, należy rozważyć przechowywanie sesji przy użyciu `StateServer` lub `SQLServer` tryby. Aby uzyskać więcej informacji na ten temat, przeczytaj [tryby stanu sesji](https://msdn.microsoft.com/library/ms178586.aspx).
+Należy również zrozumieć, że wszelkie zmiany `Web.config` lub plików w katalogu `Bin` zatrzymają i ponownie uruchamiają pulę aplikacji witryny sieci Web. Jeśli stan sesji jest przechowywany przy użyciu trybu `InProc` (domyślnie), osoby odwiedzające witrynę utracą swój stan sesji przy każdej modyfikacji tych plików kluczy. Aby uniknąć tego Pitfall, należy rozważyć zapisanie sesji przy użyciu trybów `StateServer` lub `SQLServer`. Aby uzyskać więcej informacji na temat tego tematu, zobacz [tryby stanu sesji](https://msdn.microsoft.com/library/ms178586.aspx).
 
-Na koniec należy pamiętać, że ponownego wdrażania aplikacji może potrwać od kilku sekund do kilku minut w zależności od liczby i rozmiaru plików, które mają zostać skopiowane do środowiska produkcyjnego. W tym czasie użytkowników odwiedzających witrynę, mogą wystąpić błędy lub nietypowego zachowania. Użytkownik może "turn off" całej aplikacji, dodając stronę o nazwie `App_Offline.htm` do katalogu głównego aplikacji, który wyjaśnia użytkownikom czy lokacja nie działa konserwacji (lub cokolwiek innego) i będzie można wykonać kopię zapasową wkrótce. Gdy `App_Offline.htm` pliku, środowisko uruchomieniowe ASP.NET przekierowuje wszystkie żądania przychodzące do tej strony.
+Na koniec należy pamiętać, że ponowne wdrażanie aplikacji może potrwać od kilku sekund do kilku minut, w zależności od liczby i rozmiaru plików, które muszą być skopiowane do środowiska produkcyjnego. W tym czasie użytkownicy odwiedzający witrynę mogą napotkać błędy lub niezachowanie nieparzyste. Możesz "wyłączyć całą aplikację, dodając stronę o nazwie `App_Offline.htm` do katalogu głównego aplikacji, która wyjaśnia użytkownikom, że witryna nie działa do konserwacji (lub niezależnie od tego) i wkrótce zostanie utworzona kopia zapasowa. Gdy plik `App_Offline.htm` jest obecny, środowisko uruchomieniowe ASP.NET przekierowuje wszystkie żądania przychodzące do tej strony.
 
 ## <a name="summary"></a>Podsumowanie
 
-Wdrażanie aplikacji sieci web wymaga kopiowania plików na potrzeby ze środowiska projektowego w środowisku produkcyjnym. Najbardziej typowe oznacza, że za pomocą której pliki są przesyłane za pośrednictwem sieci jest protokół transferu plików (FTP), a większość dostawców usług hosta sieci web pomocy technicznej FTP dostęp do swoich serwerów sieci web. Jak wdrożyć wymagane pliki do serwera sieci web za pomocą klienta FTP widzieliśmy w ramach tego samouczka. Po wdrożeniu witryny sieci Web można kontrolowane przez każdy z połączeniem z Internetem!
+Wdrożenie aplikacji sieci Web wiąże się z kopiowaniem niezbędnych plików ze środowiska deweloperskiego do środowiska produkcyjnego. Najczęstszym sposobem transferu plików za pośrednictwem sieci jest usługa protokół transferu plików (FTP), a większość dostawców hosta sieci Web obsługuje dostęp do usługi FTP do swoich serwerów sieci Web. W tym samouczku przedstawiono sposób użycia klienta FTP do wdrożenia wymaganych plików na serwerze sieci Web. Po wdrożeniu witryna sieci Web może być odwiedzana przez dowolną osobę z połączeniem z Internetem.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Aplikacja\_Offline.htm i Praca wokół funkcji "Przyjazne IE błędy"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
+- [Aplikacja\_w trybie offline. htm i działa wokół funkcji "przyjazne błędy programu IE"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
 - [Tryby stanu sesji](https://msdn.microsoft.com/library/ms178586.aspx)
 
 > [!div class="step-by-step"]

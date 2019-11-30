@@ -1,249 +1,249 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
-title: Tworzenie ról i zarządzanie nimi (C#) | Dokumentacja firmy Microsoft
+title: Tworzenie ról i zarządzanie nimiC#() | Microsoft Docs
 author: rick-anderson
-description: Ten samouczek analizuje kroki niezbędne do skonfigurowania w ramach ról. Poniżej utworzymy stron sieci web do tworzenia i usuwania ról.
+description: W tym samouczku przedstawiono kroki niezbędne do skonfigurowania struktury role. Poniżej przedstawiono kompilację stron sieci Web do tworzenia i usuwania ról.
 ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: 113f10b3-a19a-471b-8ff6-db3c79ce8a91
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a4028abf8b1593c98cb3daad03d8699a13af447d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a7883d0b05f2fa5a3fdac887f8c8b39d70418fb3
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132038"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595804"
 ---
 # <a name="creating-and-managing-roles-c"></a>Tworzenie ról i zarządzanie nimi (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.09.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_cs.pdf)
+[Pobierz kod](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/CS.09.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/6/0/3/6032582f-360d-4739-b935-38721fdb86ea/aspnet_tutorial09_CreatingRoles_cs.pdf)
 
-> Ten samouczek analizuje kroki niezbędne do skonfigurowania w ramach ról. Poniżej utworzymy stron sieci web do tworzenia i usuwania ról.
+> W tym samouczku przedstawiono kroki niezbędne do skonfigurowania struktury role. Poniżej przedstawiono kompilację stron sieci Web do tworzenia i usuwania ról.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W <a id="_msoanchor_1"> </a> [ *autoryzacja na podstawie użytkownika* ](../membership/user-based-authorization-cs.md) samouczka będziemy przyjrzano się przy użyciu Autoryzacja adresów URL do ograniczenia dostępu w przypadku niektórych użytkowników zestaw stron oraz zbadano deklaracyjne i programowe techniki dostosowywania funkcji strony ASP.NET na podstawie zaproszonych użytkownika. Udzielanie uprawnień dostępu do strony lub funkcji na podstawie użytkownika przez użytkownika, jednak może stać się okropnej konserwacji, w scenariuszach w przypadku, gdy istnieje wiele kont użytkowników, lub gdy uprawnienia użytkowników zmieniają się często. Ilekroć użytkownika zyskuje lub traci autoryzacji do wykonania określonego zadania, administrator musi zaktualizować odpowiednich reguł autoryzacji adresów URL, deklaratywne znaczników i kodu.
+<a id="_msoanchor_1"> </a>W samouczku dotyczącym [*autoryzacji opartej na użytkownikach*](../membership/user-based-authorization-cs.md) sprawdzono, jak korzystać z autoryzacji adresów URL w celu ograniczenia funkcjonalności niektórych użytkowników z zestawu stron oraz eksplorowania metod deklaratywnych i programistycznych umożliwiających Dostosowywanie funkcji strony ASP.NET na podstawie odwiedzanego użytkownika. Przyznanie uprawnień dostępu do stron lub funkcji na podstawie użytkownika, jednak może być okropnej konserwacji w scenariuszach, w których istnieje wiele kont użytkowników lub często zmieniają się uprawnienia użytkowników. Za każdym razem, gdy użytkownik uzyska lub utraci autoryzację do wykonania określonego zadania, administrator musi zaktualizować odpowiednie reguły autoryzacji adresów URL, znaczniki deklaratywne i kod.
 
-Niemniej przykład często pomoże do klasyfikowania użytkowników do grup lub *role* a następnie zastosować uprawnienia na podstawie roli przez rolę. Na przykład większość aplikacji sieci web ma określony zestaw stron lub zadania, które są przeznaczone tylko do użytkowników administracyjnych. Za pomocą technik wyniesione *autoryzacja na podstawie użytkownika* samouczku dodamy odpowiednie reguły autoryzacji adresów URL, deklaratywne znaczników i kodu, aby umożliwić określone konta użytkowników do wykonywania zadań administracyjnych. Ale jeśli dodano nowego administratora lub istniejącego administratora niezbędnych do jej prawa administracyjne odwołany, firma Microsoft musiałaby wróć i aktualizować pliki konfiguracji i stron sieci web. Przy użyciu ról jednak można utworzyć rolę o nazwie Administratorzy i przypisz tych zaufanych użytkowników do roli Administratorzy. Następnie dodamy odpowiednie reguły autoryzacji adresów URL, deklaratywne znaczników i kodu, aby umożliwić roli Administratorzy w celu wykonywania różnych zadań administracyjnych. Dzięki tej infrastruktury w miejscu Dodawanie nowych administratorów do witryny lub usunięcie istniejących jest proste i polega na tym lub usuwanie użytkownika z rolą administratora. Nie konfiguracji, oznaczeniu deklaracyjnym lub zmian w kodzie są niezbędne.
+Zwykle ułatwia klasyfikowanie użytkowników do grup lub *ról* , a następnie stosowanie uprawnień do poszczególnych ról. Na przykład większość aplikacji sieci Web ma określony zestaw stron lub zadań, które są zarezerwowane tylko dla użytkowników administracyjnych. Korzystając z metod opisanych w samouczku dotyczącym *autoryzacji na podstawie użytkownika* , dodamy odpowiednie reguły autoryzacji adresów URL, znaczniki deklaratywne i kod, aby umożliwić określonym kontom użytkowników wykonywanie zadań administracyjnych. Ale jeśli został dodany nowy administrator lub jeśli istniejący administrator musi mieć odwołane prawa administracyjne, będziemy musieli zwrócić i zaktualizować pliki konfiguracji oraz strony sieci Web. W przypadku ról można jednak utworzyć rolę o nazwie Administratorzy i przypisać tych zaufanych użytkowników do roli Administratorzy. Następnie dodamy odpowiednie reguły autoryzacji adresów URL, znaczniki deklaratywne i kod, aby umożliwić roli administratorów wykonywanie różnych zadań administracyjnych. W przypadku tej infrastruktury Dodawanie nowych administratorów do lokacji lub usuwanie istniejących jest bardzo proste, w tym m.in. lub usuwających użytkownika z roli Administratorzy. Nie są wymagane żadne zmiany w konfiguracji, znaczników deklaratywnych ani w kodzie.
 
-Program ASP.NET oferuje role umożliwiająca Definiowanie ról i skojarzenie ich z kontami użytkowników. Za pomocą framework ról, firma Microsoft można tworzyć i usuwać role należy dodać użytkowników lub usunąć użytkowników z roli, określić zbiór użytkowników, które należą do określonej roli i sprawdzić, czy użytkownik należy do określonej roli. Skonfigurowane w ramach ról firma Microsoft może ograniczyć dostęp do stron, na podstawie roli roli przy użyciu reguł autoryzacji adresów URL i Pokaż lub Ukryj dodatkowe informacje i funkcje na stronie, na podstawie ról aktualnie zalogowanego użytkownika.
+ASP.NET oferuje strukturę ról do definiowania ról i kojarzenia ich z kontami użytkowników. Za pomocą platformy role możemy tworzyć i usuwać role, dodawać użytkowników do ról i usuwać ich z niej, określać zestaw użytkowników należących do określonej roli i dowiedzieć się, czy użytkownik należy do określonej roli. Po skonfigurowaniu struktury ról można ograniczyć dostęp do stron w oparciu o rolę według ról przy użyciu reguł autoryzacji adresów URL oraz pokazać lub ukryć dodatkowe informacje lub funkcje na stronie na podstawie aktualnie zalogowanych ról użytkownika.
 
-Ten samouczek analizuje kroki niezbędne do skonfigurowania w ramach ról. Poniżej utworzymy stron sieci web do tworzenia i usuwania ról. W <a id="_msoanchor_2"> </a> [ *przypisywanie ról do użytkowników* ](assigning-roles-to-users-cs.md) samouczka przyjrzymy się jak dodawać i usuwać użytkowników z ról. A następnie w <a id="_msoanchor_3"> </a> [ *autoryzacji opartej na rolach* ](role-based-authorization-cs.md) samouczek, należy sprawdzić, jak ograniczyć dostęp do stron, na podstawie roli według roli oraz jak dostosować zależności funkcji strony w roli zaproszonych użytkowników. Zaczynajmy!
+W tym samouczku przedstawiono kroki niezbędne do skonfigurowania struktury role. Poniżej przedstawiono kompilację stron sieci Web do tworzenia i usuwania ról. <a id="_msoanchor_2"> </a>W samouczku [*Przypisywanie ról do użytkowników*](assigning-roles-to-users-cs.md) dowiesz się, jak dodawać i usuwać użytkowników z ról. W <a id="_msoanchor_3"> </a>samouczku dotyczącym [*autoryzacji opartej na rolach*](role-based-authorization-cs.md) zobaczymy, jak ograniczyć dostęp do stron w poszczególnych rolach, a także jak dostosować funkcje strony w zależności od roli użytkownika. Zacznijmy!
 
-## <a name="step-1-adding-new-aspnet-pages"></a>Krok 1. Dodawanie nowej strony ASP.NET
+## <a name="step-1-adding-new-aspnet-pages"></a>Krok 1. Dodawanie nowych stron ASP.NET
 
-W tym samouczku i kolejne dwa firma Microsoft będzie mieć badanie różnych funkcji związanych z ról i funkcji. Musimy szereg stron ASP.NET do zaimplementowania tematy dotyczące badania w tych samouczkach. Umożliwia tworzenie tych stron i zaktualizuj mapy witryny.
+W tym samouczku i następnych dwóch będziemy przeanalizować różne funkcje i możliwości związane z rolami. Potrzebujemy serii stron ASP.NET, aby zaimplementować tematy zbadane w ramach tych samouczków. Utwórzmy te strony i zaktualizujesz mapę witryny.
 
-Rozpocznij od utworzenia nowego folderu w projekcie o nazwie `Roles`. Następnie dodaj cztery nowe strony programu ASP.NET do `Roles` folderze łączenia każdego stronę z `Site.master` strony wzorcowej. Nazwa strony:
+Zacznij od utworzenia nowego folderu w projekcie o nazwie `Roles`. Następnie Dodaj cztery nowe strony ASP.NET do folderu `Roles`, łącząc każdą stronę ze stroną wzorcową `Site.master`. Nazwij strony:
 
 - `ManageRoles.aspx`
 - `UsersAndRoles.aspx`
 - `CreateUserWizardWithRoles.aspx`
 - `RoleBasedAuthorization.aspx`
 
-Na tym etapie projektu w Eksploratorze rozwiązań powinny wyglądać podobnie do ekranu zrzut, jak pokazano na rysunku 1.
+W tym momencie Eksplorator rozwiązań projektu powinien wyglądać podobnie do zrzutu ekranu pokazanego na rysunku 1.
 
-[![Cztery nowe strony zostały dodane do folderu ról](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
+[do folderu role dodano ![cztery nowe strony](creating-and-managing-roles-cs/_static/image2.png)](creating-and-managing-roles-cs/_static/image1.png)
 
-**Rysunek 1**: Cztery nowe strony zostały dodane do `Roles` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image3.png))
+**Rysunek 1**. dodano cztery nowe strony do folderu `Roles` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image3.png))
 
-Każda strona w tym momencie powinna mieć dwóch kontrolek zawartości, jeden dla każdej strony wzorcowej kontrolek ContentPlaceHolder: `MainContent` i `LoginContent`.
+Każda Strona powinna, w tym momencie, mieć dwie kontrolki zawartości, jedną dla każdej strony głównej: `MainContent` i `LoginContent`.
 
 [!code-aspx[Main](creating-and-managing-roles-cs/samples/sample1.aspx)]
 
-Pamiętamy `LoginContent` firmy ContentPlaceHolder domyślne znaczników Wyświetla łącze do logowania się lub wylogowywania z lokacji, w zależności od tego, czy użytkownik jest uwierzytelniony. Obecność `Content2` zawartości kontrolki na stronie ASP.NET, jednak zastępuje znaczników domyślnej strony wzorcowej. Tak jak Omówiliśmy to w <a id="_msoanchor_4"> </a> [ *omówienie uwierzytelniania formularzy* ](../introduction/an-overview-of-forms-authentication-cs.md) samouczek, Zastępowanie domyślnego języka znaczników przydaje się na stronach, gdy nie chcemy wyświetlić skojarzone z logowaniem Opcje w lewej kolumnie.
+Odwołaj się do `LoginContent` domyślnego znaczników elementu ContentPlaceHolder wyświetla link do logowania lub wylogowywania lokacji w zależności od tego, czy użytkownik jest uwierzytelniony. Obecność `Content2` kontrolki zawartości na stronie ASP.NET zastępuje domyślne znaczniki strony wzorcowej. Zgodnie z opisem w <a id="_msoanchor_4"> </a>temacie Omówienie samouczka [*związanego z uwierzytelnianiem formularzy*](../introduction/an-overview-of-forms-authentication-cs.md) zastępowanie znaczników domyślnych jest przydatne na stronach, w których nie chcesz wyświetlać opcji związanych z logowaniem w lewej kolumnie.
 
-Te cztery stron, chcemy wyświetlić znaczników domyślną stronę wzorcową dla `LoginContent` ContentPlaceHolder. W związku z tym, Usuń oznaczeniu deklaracyjnym dla `Content2` formantu zawartości. Po wykonaniu tej czynności, wszystkich znaczników cztery strony powinna zawierać tylko jeden formant zawartości.
+Jednak w przypadku tych czterech stron chcemy wyświetlić domyślne znaczniki strony głównej dla `LoginContent` ContentPlaceHolder. W związku z tym usuń znaczniki deklaratywne dla kontrolki zawartości `Content2`. Po wykonaniu tej czynności każdy znak z czterech stron powinien zawierać tylko jedną kontrolkę zawartości.
 
-Na koniec zaktualizuj mapy witryny (`Web.sitemap`) do uwzględnienia tych nowych stron sieci web. Dodaj następujący kod XML po `<siteMapNode>` dodaliśmy samouczki członkostwa.
+Na koniec zaktualizujmy mapę witryny (`Web.sitemap`) tak, aby obejmowała te nowe strony sieci Web. Dodaj następujący kod XML po `<siteMapNode>` dodanej do samouczków dotyczących członkostwa.
 
 [!code-xml[Main](creating-and-managing-roles-cs/samples/sample2.xml)]
 
-Za pomocą mapy witryny aktualizacji odwiedź witrynę za pośrednictwem przeglądarki. Jak pokazano na rysunku 2, nawigacji po lewej stronie teraz zawiera elementy samouczki ról.
+Po zaktualizowaniu mapy witryny odwiedź witrynę za pomocą przeglądarki. Jak pokazano na rysunku 2, Nawigacja po lewej stronie zawiera teraz elementy samouczków ról.
 
-[![Cztery nowe strony zostały dodane do folderu ról](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
+[do folderu role dodano ![cztery nowe strony](creating-and-managing-roles-cs/_static/image5.png)](creating-and-managing-roles-cs/_static/image4.png)
 
-**Rysunek 2**: Cztery nowe strony zostały dodane do `Roles` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image6.png))
+**Rysunek 2**. do folderu `Roles` dodano cztery nowe strony ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image6.png))
 
-## <a name="step-2-specifying-and-configuring-the-roles-framework-provider"></a>Krok 2. Określanie i Konfigurowanie dostawcy Framework ról
+## <a name="step-2-specifying-and-configuring-the-roles-framework-provider"></a>Krok 2. Określanie i Konfigurowanie dostawcy struktury ról
 
-Jak w ramach członkostwa w ramach ról jest kompilowanych na podstawie modelu dostawców. Zgodnie z opisem w <a id="_msoanchor_5"> </a> [ *podstawy zabezpieczeń i Obsługa platformy ASP.NET* ](../introduction/security-basics-and-asp-net-support-cs.md) samouczek, .NET Framework jest dostarczany z trzech dostawców wbudowanych ról: [ `AuthorizationStoreRoleProvider` ](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) , [ `WindowsTokenRoleProvider` ](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx), i [ `SqlRoleProvider` ](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx). W tej serii samouczków skupia się na `SqlRoleProvider`, który używa jako magazynu ról bazy danych programu Microsoft SQL Server.
+Podobnie jak w przypadku struktury członkostwa, struktura ról jest skompilowana korzystającego modelem dostawcy. Zgodnie z opisem w <a id="_msoanchor_5"> </a>samouczku [*podstawy zabezpieczeń i pomocy technicznej ASP.NET*](../introduction/security-basics-and-asp-net-support-cs.md) .NET Framework są dostarczane z trzema wbudowanymi dostawcami ról: [`AuthorizationStoreRoleProvider`](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx), [`WindowsTokenRoleProvider`](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx)i [`SqlRoleProvider`](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx). Ta seria samouczków koncentruje się na `SqlRoleProvider`, która używa Microsoft SQL Server bazy danych jako magazynu roli.
 
-Wewnętrznie framework ról i `SqlRoleProvider` działają podobnie jak w ramach członkostwa i `SqlMembershipProvider`. .NET Framework zawiera `Roles` klasy, która służy jako interfejs API, aby w ramach ról. `Roles` Klasa zawiera metody statyczne, takie jak `CreateRole`, `DeleteRole`, `GetAllRoles`, `AddUserToRole`, `IsUserInRole`, i tak dalej. Podczas wywoływania jednej z następujących metod `Roles` klasy deleguje wywołanie skonfigurowany dostawca. `SqlRoleProvider` Współpracuje z tabel pełnionymi (`aspnet_Roles` i `aspnet_UsersInRoles`) w odpowiedzi.
+Poniżej omówiono strukturę ról i `SqlRoleProvider` działają podobnie jak struktura członkostwa i `SqlMembershipProvider`. .NET Framework zawiera klasę `Roles`, która służy jako interfejs API dla struktury role. Klasa `Roles` ma metody statyczne, takie jak `CreateRole`, `DeleteRole`, `GetAllRoles`, `AddUserToRole`, `IsUserInRole`i tak dalej. Po wywołaniu jednej z tych metod Klasa `Roles` deleguje wywołanie do skonfigurowanego dostawcy. `SqlRoleProvider` współpracuje z tabelami specyficznymi dla roli (`aspnet_Roles` i `aspnet_UsersInRoles`) w odpowiedzi.
 
-Aby można było używać `SqlRoleProvider` dostawcy w naszej aplikacji, należy określić, jakie bazy danych do użycia jako magazyn. `SqlRoleProvider` Oczekuje sklepu określoną rolę, aby mieć określone tabele bazy danych, widoków i procedur składowanych. Te obiekty wymagania bazy danych można dodać za pomocą [ `aspnet_regsql.exe` narzędzie](https://msdn.microsoft.com/library/ms229862.aspx). W tym momencie mamy już bazę danych przy użyciu schematu, które są niezbędne do `SqlRoleProvider`. Ponownie <a id="_msoanchor_6"> </a> [ *tworzenie schematu członkostwa w programie SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) samouczku utworzyliśmy bazę danych o nazwie `SecurityTutorials.mdf` i używać `aspnet_regsql.exe` umożliwiające dodanie aplikacji usługi, które uwzględnione obiekty bazy danych wymagane przez `SqlRoleProvider`. W związku z tym musimy poinformować szablon role, aby włączyć obsługę roli oraz używanie `SqlRoleProvider` z `SecurityTutorials.mdf` baza danych jako magazynu ról.
+Aby móc korzystać z dostawcy `SqlRoleProvider` w aplikacji, należy określić bazę danych, która ma być używana jako magazyn. `SqlRoleProvider` oczekuje, że określony magazyn ról ma niektóre tabele, widoki i procedury składowane bazy danych. Te wymagane obiekty bazy danych można dodać za pomocą [narzędzia`aspnet_regsql.exe`](https://msdn.microsoft.com/library/ms229862.aspx). W tym momencie mamy już bazę danych ze schematem niezbędnym dla `SqlRoleProvider`. Po <a id="_msoanchor_6"> </a>powrocie do [*tworzenia schematu członkostwa w SQL Server*](../membership/creating-the-membership-schema-in-sql-server-cs.md) samouczku została utworzona baza danych o nazwie `SecurityTutorials.mdf` i użyta `aspnet_regsql.exe` do dodania usług aplikacji, które obejmowały obiekty bazy danych wymagane przez `SqlRoleProvider`. W związku z tym wystarczy poinformować strukturę role, aby włączyć obsługę ról i użyć `SqlRoleProvider` z bazą danych `SecurityTutorials.mdf` jako magazynem roli.
 
-W ramach ról jest skonfigurowany za pośrednictwem &lt; `roleManager` &gt; element aplikacji w witrynie `Web.config` pliku. Domyślnie obsługa roli jest wyłączona. Aby ją włączyć, należy ustawić [ &lt; `roleManager` &gt; ](https://msdn.microsoft.com/library/ms164660.aspx) elementu `enabled` atrybutu `true` w następujący sposób:
+Struktura ról jest konfigurowana za pomocą &lt;`roleManager`&gt; elementu w pliku `Web.config` aplikacji. Domyślnie obsługa ról jest wyłączona. Aby włączyć tę funkcję, należy ustawić atrybut `enabled` elementu [&gt;&lt;`roleManager`](https://msdn.microsoft.com/library/ms164660.aspx) , aby `true`:
 
 [!code-xml[Main](creating-and-managing-roles-cs/samples/sample3.xml)]
 
-Domyślnie wszystkie aplikacje sieci web mają dostawcy ról, o nazwie `AspNetSqlRoleProvider` typu `SqlRoleProvider`. Ten dostawca domyślny jest zarejestrowany w `machine.config` (znajdujący się w `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG`):
+Domyślnie wszystkie aplikacje sieci Web mają dostawcę ról o nazwie `AspNetSqlRoleProvider` typu `SqlRoleProvider`. Ten domyślny dostawca jest zarejestrowany w `machine.config` (znajdujący się w `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG`):
 
 [!code-xml[Main](creating-and-managing-roles-cs/samples/sample4.xml)]
 
-Dostawcy `connectionStringName` atrybut określa magazynu ról, które jest używane. `AspNetSqlRoleProvider` Dostawcy ustawia ten atrybut `LocalSqlServer`, który również jest zdefiniowany w `machine.config` i punkty, domyślnie do bazy danych programu SQL Server 2005 Express Edition w `App_Data` folder o nazwie `aspnet.mdf`.
+Atrybut `connectionStringName` dostawcy określa używany magazyn ról. Dostawca `AspNetSqlRoleProvider` ustawia ten atrybut na `LocalSqlServer`, który jest również zdefiniowany w `machine.config` i wskazuje domyślnie do bazy danych SQL Server 2005 Express Edition w folderze `App_Data` o nazwie `aspnet.mdf`.
 
-W związku z tym jeśli bez określania żadnych informacji o dostawcy w naszej aplikacji możemy po prostu włącz framework role `Web.config` plik, aplikacja używa domyślnego zarejestrowany dostawca ról, `AspNetSqlRoleProvider`. Jeśli `~/App_Data/aspnet.mdf` bazy danych nie istnieje, środowisko uruchomieniowe ASP.NET utworzyć automatycznie i Dodaj schemat usług aplikacji. Jednak firma Microsoft nie chcesz używać `aspnet.mdf` bazy danych; zamiast chcemy do użycia `SecurityTutorials.mdf` bazy danych, który możemy wcześniej utworzony i dodany schemat usług aplikacji. Ta modyfikacja można zrobić na dwa sposoby:
+W związku z tym, jeśli po prostu włączysz strukturę role bez określania informacji o dostawcy w pliku `Web.config` aplikacji, aplikacja używa domyślnego dostawcy zarejestrowanych ról, `AspNetSqlRoleProvider`. Jeśli baza danych `~/App_Data/aspnet.mdf` nie istnieje, środowisko uruchomieniowe programu ASP.NET automatycznie utworzy ją i doda schemat usług aplikacji. Nie chcemy jednak korzystać z bazy danych `aspnet.mdf`. Zamiast tego chcemy użyć bazy danych `SecurityTutorials.mdf`, która została już utworzona i dodaliśmy do niej schemat usług aplikacji. Tę modyfikację można wykonać na jeden z dwóch sposobów:
 
-- <strong>Określ wartość dla</strong><strong>`LocalSqlServer`</strong><strong>nazwa parametrów połączenia w</strong><strong>`Web.config`</strong><strong>.</strong> Przez zastąpienie `LocalSqlServer` wartość Nazwa parametrów połączenia w `Web.config`, możemy użyć domyślnej zarejestrowany dostawca ról (`AspNetSqlRoleProvider`) i jest poprawnie pracować `SecurityTutorials.mdf` bazy danych. Aby uzyskać więcej informacji na temat tej techniki, zobacz [Scott Guthrie](https://weblogs.asp.net/scottgu/)firmy wpis w blogu [Konfigurowanie platformy ASP.NET 2.0 usługi aplikacji, użyj programu SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- <strong>Dodaj nowego dostawcę zarejestrowanego typu</strong><strong>`SqlRoleProvider`</strong><strong>i konfigurowania jej</strong><strong>`connectionStringName`</strong><strong>ustawienie, aby wskazywał</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>bazy danych.</strong> Jest to metoda zalecana i używane w <a id="_msoanchor_7"> </a> [ *tworzenie schematu członkostwa w programie SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) samouczek to podejście będę używać w tym samouczku, jak również.
+- <strong>Określ wartość</strong> <strong>`LocalSqlServer`</strong> <strong>nazwy parametrów połączenia w</strong> <strong>`Web.config`</strong> <strong>.</strong> Zastępując `LocalSqlServer` wartość nazwy parametrów połączenia w `Web.config`, możemy użyć domyślnego dostawcy zarejestrowanej ról (`AspNetSqlRoleProvider`) i prawidłowo współpracować z `SecurityTutorials.mdf` bazą danych. Aby uzyskać więcej informacji na temat tej techniki, zobacz wpis w blogu [Scott Guthrie](https://weblogs.asp.net/scottgu/), [konfigurowanie ASP.NET 2,0 Usługi aplikacji do użycia SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Dodaj nowego zarejestrowanego dostawcę typu</strong> <strong>`SqlRoleProvider`</strong> <strong>i skonfiguruj</strong> ustawienia<strong>`connectionStringName`</strong>, <strong>aby wskazywały</strong> <strong>bazę danych</strong> <strong>`SecurityTutorials.mdf`</strong>. Jest to metoda zalecana i użyta w przypadku <a id="_msoanchor_7"> </a> [*tworzenia schematu członkostwa w SQL Server*](../membership/creating-the-membership-schema-in-sql-server-cs.md) samouczku i jest to podejście, które zostanie użyte również w tym samouczku.
 
-Dodaj następujące role konfiguracji znaczników `Web.config` pliku. Ten kod znaczników rejestruje nowego dostawcę o nazwie `SecurityTutorialsSqlRoleProvider`.
+Dodaj do pliku `Web.config` następujące znaczniki konfiguracji ról. Ten znacznik rejestruje nowego dostawcę o nazwie `SecurityTutorialsSqlRoleProvider`.
 
 [!code-xml[Main](creating-and-managing-roles-cs/samples/sample5.xml)]
 
-Definiuje znaczniki powyżej `SecurityTutorialsSqlRoleProvider` jako domyślnego dostawcę (za pośrednictwem `defaultProvider` atrybutu w `<roleManager>` elementu). Ustawia również `SecurityTutorialsSqlRoleProvider`firmy `applicationName` ustawienie `SecurityTutorials`, która jest taka sama `applicationName` ustawienia używane przez dostawcy członkostwa (`SecurityTutorialsSqlMembershipProvider`). Gdy nie są wyświetlane w tym miejscu [ `<add>` elementu](https://msdn.microsoft.com/library/ms164662.aspx) dla `SqlRoleProvider` może również zawierać `commandTimeout` atrybutu, aby określić wartość limitu czasu bazy danych w ciągu kilku sekund. Wartość domyślna to 30.
+Powyższy znacznik definiuje `SecurityTutorialsSqlRoleProvider` jako domyślnego dostawcę (za pośrednictwem atrybutu `defaultProvider` w elemencie `<roleManager>`). Ustawia również ustawienie `applicationName` `SecurityTutorialsSqlRoleProvider`na `SecurityTutorials`, która jest tym samym ustawieniem `applicationName` używanym przez dostawcę członkostwa (`SecurityTutorialsSqlMembershipProvider`). Chociaż nie pokazano tego tutaj, [element`<add>`](https://msdn.microsoft.com/library/ms164662.aspx) dla `SqlRoleProvider` może również zawierać atrybut `commandTimeout`, aby określić czas trwania limitu czasu bazy danych (w sekundach). Wartość domyślna to 30.
 
-Za pomocą tej konfiguracji znaczników w miejscu jesteśmy gotowi rozpocząć korzystanie z funkcji ról w ramach naszej aplikacji.
-
-> [!NOTE]
-> Powyższe znaczników konfiguracji ilustruje użycie &lt; `roleManager` &gt; elementu `enabled` i `defaultProvider` atrybutów. Istnieje szereg innych atrybutów, które mają wpływ na sposób w ramach ról kojarzy informacje o roli na podstawie użytkownika według. Będziemy sprawdzać tych ustawień w <a id="_msoanchor_8"> </a> [ *autoryzacji opartej na rolach* ](role-based-authorization-cs.md) samouczka.
-
-## <a name="step-3-examining-the-roles-api"></a>Krok 3. Badanie interfejs API ról
-
-Funkcje w ramach ról jest uwidaczniany za pomocą [ `Roles` klasy](https://msdn.microsoft.com/library/system.web.security.roles.aspx), zawierającą trzynaście metody statyczne do wykonywania operacji opartej na rolach. Gdy przyjrzymy się tworzenia i usuwania ról w kroki 4 i 6 użyjemy [ `CreateRole` ](https://msdn.microsoft.com/library/system.web.security.roles.createrole.aspx) i [ `DeleteRole` ](https://msdn.microsoft.com/library/system.web.security.roles.deleterole.aspx) metody, które dodać lub usunąć rolę z systemu.
-
-Aby uzyskać listę wszystkich ról w systemie, użyj [ `GetAllRoles` metoda](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx) (zobacz krok 5). [ `RoleExists` Metoda](https://msdn.microsoft.com/library/system.web.security.roles.roleexists.aspx) zwraca wartość logiczną wskazującą, czy określona rola istnieje.
-
-W następnym samouczku będziemy sprawdzać Tworzenie skojarzeń użytkowników z rolami. `Roles` Klasy [ `AddUserToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx), [ `AddUserToRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertoroles.aspx), [ `AddUsersToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.adduserstorole.aspx), i [ `AddUsersToRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.adduserstoroles.aspx) metody Dodaj co najmniej jednego użytkownika do co najmniej jedną rolę. Aby usunąć użytkowników z ról, należy użyć [ `RemoveUserFromRole` ](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx), [ `RemoveUserFromRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromroles.aspx), [ `RemoveUsersFromRole` ](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromrole.aspx), lub [ `RemoveUsersFromRoles` ](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromroles.aspx) metody.
-
-W <a id="_msoanchor_9"> </a> [ *autoryzacji opartej na rolach* ](role-based-authorization-cs.md) samouczku przedstawiony zostanie sposób programowo pokazać lub ukryć funkcji na podstawie roli aktualnie zalogowanego użytkownika. Aby to osiągnąć, możemy użyć `Role` klasy [ `FindUsersInRole` ](https://msdn.microsoft.com/library/system.web.security.roles.findusersinrole.aspx), [ `GetRolesForUser` ](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx), [ `GetUsersInRole` ](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx), lub [ `IsUserInRole` ](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx) metody.
+W przypadku tego oznakowania konfiguracji wszystko jest gotowe do rozpoczęcia korzystania z funkcji roli w naszej aplikacji.
 
 > [!NOTE]
-> Należy pamiętać o tym, które jest wywoływane, ilekroć jednej z następujących metod, `Roles` klasy deleguje wywołanie skonfigurowany dostawca. W naszym przypadku oznacza to, że wywołanie jest wysyłany do `SqlRoleProvider`. `SqlRoleProvider` Następnie wykonuje operację z odpowiednią bazą danych, na podstawie wywoływanej metody. Na przykład, kod `Roles.CreateRole("Administrators")` skutkuje `SqlRoleProvider` wykonywania `aspnet_Roles_CreateRole` procedurą składowaną, która wstawia nowy rekord do `aspnet_Roles` tabelę o nazwie Administratorzy.
+> Powyższe oznakowanie konfiguracji ilustruje użycie &lt;`roleManager`&gt; elementu `enabled` i `defaultProvider`. Istnieje wiele innych atrybutów, które mają wpływ na sposób kojarzenia informacji o rolach przez strukturę role w zależności od użytkownika. Będziemy przeanalizować te ustawienia w <a id="_msoanchor_8"> </a>samouczku dotyczącym [*autoryzacji opartej na rolach*](role-based-authorization-cs.md) .
 
-W pozostałej części tego samouczka analizuje przy użyciu `Roles` klasy `CreateRole`, `GetAllRoles`, i `DeleteRole` metody do zarządzania rolami w systemie.
+## <a name="step-3-examining-the-roles-api"></a>Krok 3. Badanie interfejsu API ról
+
+Funkcje struktury ról są udostępniane za pośrednictwem [klasy`Roles`](https://msdn.microsoft.com/library/system.web.security.roles.aspx), która zawiera trzynaście metod statycznych do wykonywania operacji opartych na rolach. Podczas tworzenia i usuwania ról w krokach 4 i 6 będziemy używać metod [`CreateRole`](https://msdn.microsoft.com/library/system.web.security.roles.createrole.aspx) i [`DeleteRole`](https://msdn.microsoft.com/library/system.web.security.roles.deleterole.aspx) , które dodają lub usuwają rolę z systemu.
+
+Aby uzyskać listę wszystkich ról w systemie, użyj [metody`GetAllRoles`](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx) (zobacz krok 5). [Metoda`RoleExists`](https://msdn.microsoft.com/library/system.web.security.roles.roleexists.aspx) zwraca wartość logiczną wskazującą, czy istnieje określona rola.
+
+W następnym samouczku sprawdzimy, jak skojarzyć użytkowników z rolami. Metody [`AddUserToRole`](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx), [`AddUserToRoles`](https://msdn.microsoft.com/library/system.web.security.roles.addusertoroles.aspx), [`AddUsersToRole`](https://msdn.microsoft.com/library/system.web.security.roles.adduserstorole.aspx)i [`AddUsersToRoles`](https://msdn.microsoft.com/library/system.web.security.roles.adduserstoroles.aspx) klasy `Roles` umożliwiają dodanie jednego lub większej liczby użytkowników do co najmniej jednej roli. Aby usunąć użytkowników z ról, użyj metod [`RemoveUserFromRole`](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx), [`RemoveUserFromRoles`](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromroles.aspx), [`RemoveUsersFromRole`](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromrole.aspx)lub [`RemoveUsersFromRoles`](https://msdn.microsoft.com/library/system.web.security.roles.removeusersfromroles.aspx) .
+
+<a id="_msoanchor_9"> </a>W samouczku dotyczącym [*autoryzacji opartej na rolach*](role-based-authorization-cs.md) zawarto instrukcje programistyczne pokazywania lub ukrywania funkcji na podstawie aktualnie zalogowanego użytkownika. W tym celu możemy użyć metod [`FindUsersInRole`](https://msdn.microsoft.com/library/system.web.security.roles.findusersinrole.aspx), [`GetRolesForUser`](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx), [`GetUsersInRole`](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx)i [`IsUserInRole`](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx) klasy `Role`.
+
+> [!NOTE]
+> Należy pamiętać, że po wywołaniu jednej z tych metod Klasa `Roles` deleguje wywołanie do skonfigurowanego dostawcy. W naszym przypadku oznacza to, że wywołanie jest wysyłane do `SqlRoleProvider`. `SqlRoleProvider` następnie wykonuje odpowiednią operację bazy danych na podstawie wywołanej metody. Na przykład kod `Roles.CreateRole("Administrators")` powoduje `SqlRoleProvider` wykonywania `aspnet_Roles_CreateRole` procedury składowanej, która wstawia nowy rekord do tabeli `aspnet_Roles` o nazwie Administratorzy.
+
+W pozostałej części tego samouczka pokazano, jak `Roles` klasy `CreateRole`, `GetAllRoles`i `DeleteRole` do zarządzania rolami w systemie.
 
 ## <a name="step-4-creating-new-roles"></a>Krok 4. Tworzenie nowych ról
 
-Role umożliwiają arbitralnie grupy użytkowników i najczęściej ta metoda grupowania jest używana do bardziej wygodne stosuje reguły autoryzacji. Jednak aby można było używać ról jako mechanizmu autoryzacji, najpierw należy zdefiniować role, jakie istnieje w aplikacji. Niestety program ASP.NET nie ma kontroli CreateRoleWizard. Aby dodać nowe role musimy utworzyć interfejs użytkownika odpowiedni i wywołania interfejsu API ról, określić główną przyczynę. Dobra wiadomość jest to bardzo łatwe.
+Role oferują sposób arbitralnej grupy użytkowników, a najczęściej takie grupowanie jest używane do bardziej wygodnego sposobu stosowania reguł autoryzacji. Jednak aby używać ról jako mechanizmu autoryzacji, najpierw musimy określić, jakie role istnieją w aplikacji. Niestety, ASP.NET nie zawiera kontrolki CreateRoleWizard. Aby dodać nowe role, należy utworzyć odpowiedni interfejs użytkownika i wywołać interfejs API ról wypróbujemy. Dobrą nowością jest to, że jest to bardzo proste.
 
 > [!NOTE]
-> W trakcie nie formantu sieci CreateRoleWizard Web ma [narzędzie Administratorskie witryny sieci Web platformy ASP.NET](https://msdn.microsoft.com/library/ms228053.aspx), czyli lokalnej aplikacji platformy ASP.NET zaprojektowany na potrzeby przeglądania i zarządzania konfiguracją aplikacji sieci web. Jednak nie mam duże fanem narzędzie Administratorskie witryny sieci Web platformy ASP.NET z dwóch przyczyn. Najpierw jest nieco pracowały i środowisko użytkownika pozostawia znacznie być wskazane. Po drugie narzędzie Administratorskie witryny sieci Web platformy ASP.NET jest przeznaczony do działają tylko lokalnie, co oznacza, że konieczne będzie można utworzyć własną rolę zarządzania stron sieci web, jeśli trzeba zarządzać zdalnie ról w działającej witrynie. Tych dwóch powodów w tym samouczku, a następnie koncentruje się na tworzenie roli niezbędne narzędzia do zarządzania na stronie sieci web, a nie opierając się na narzędzie Administratorskie witryny sieci Web platformy ASP.NET.
+> Chociaż nie istnieje CreateRoleWizarda kontrolka sieci Web, istnieje [Narzędzie do administrowania witryną sieci web ASP.NET](https://msdn.microsoft.com/library/ms228053.aspx), które jest lokalną aplikacją ASP.NET zaprojektowaną w celu ułatwienia wyświetlania konfiguracji aplikacji sieci Web i zarządzania nią. Nie jest to jednak duże wentylator narzędzia do administrowania witryną sieci Web ASP.NET z dwóch przyczyn. Po pierwsze, jest to bit debugowany, a środowisko użytkownika opuszcza dużo potrzebnych. Drugie narzędzie do administrowania witryną sieci Web ASP.NET jest przeznaczone tylko lokalnie, co oznacza, że konieczne będzie skompilowanie własnych stron sieci Web zarządzania rolami, jeśli trzeba zdalnie zarządzać rolami w działającej witrynie. Z tych dwóch powodów ten samouczek i następne zależą od tworzenia niezbędnych narzędzi do zarządzania rolami na stronie sieci Web, a nie polegania na narzędziu do administrowania witryną sieci Web ASP.NET.
 
-Otwórz `ManageRoles.aspx` stronie `Roles` folderu oraz dodawać do strony pola tekstowego i kontrolki przycisku w sieci Web. Ustaw formant pola tekstowego `ID` właściwości `RoleName` i przycisku `ID` i `Text` właściwości w celu `CreateRoleButton` i Utwórz rolę, odpowiednio. W tym momencie oznaczeniu deklaracyjnym strony powinien wyglądać podobnie do poniższej:
+Otwórz stronę `ManageRoles.aspx` w folderze `Roles` i Dodaj do niej kontrolkę pole tekstowe i przycisk sieci Web. Ustaw właściwość `ID` kontrolki TextBox na `RoleName`, `ID` i właściwości `Text` przycisku, aby `CreateRoleButton` i utworzyć rolę odpowiednio. W tym momencie znaczniki deklaratywne strony powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](creating-and-managing-roles-cs/samples/sample6.aspx)]
 
-Następnie kliknij dwukrotnie `CreateRoleButton` formantu w projektancie, aby utworzyć przycisk `Click` program obsługi zdarzeń, a następnie dodaj następujący kod:
+Następnie kliknij dwukrotnie kontrolkę przycisk `CreateRoleButton` w projektancie, aby utworzyć procedurę obsługi zdarzeń `Click`, a następnie Dodaj następujący kod:
 
 [!code-csharp[Main](creating-and-managing-roles-cs/samples/sample7.cs)]
 
-Powyższy kod uruchamia, przypisując Nazwa roli przycięty, wprowadzić w `RoleName` polu tekstowym `newRoleName` zmiennej. Następnie `Roles` klasy `RoleExists` metoda jest wywoływana w celu określenia, czy rola `newRoleName` już istnieje w systemie. Jeśli rola nie istnieje, jest tworzony przez wywołanie `CreateRole` metody. Jeśli `CreateRole` metody jest przekazywana nazwa roli, która już istnieje w systemie, `ProviderException` wyjątku. Dlatego kod najpierw sprawdza, aby upewnić się, że rola nie istnieje już w systemie przed wywołaniem `CreateRole`. `Click` Programu obsługi zdarzeń stwierdza, usuwając `RoleName` pola `Text` właściwości.
+Powyższy kod zaczyna od przypisania przyciętej nazwy roli wprowadzonej w polu tekstowym `RoleName` do zmiennej `newRoleName`. Następnie Metoda `RoleExists` klasy `Roles` jest wywoływana, aby określić, czy rola `newRoleName` już istnieje w systemie. Jeśli rola nie istnieje, jest tworzona za pośrednictwem wywołania metody `CreateRole`. Jeśli `CreateRole` Metoda zostanie przeniesiona o nazwę roli, która już istnieje w systemie, zostanie zgłoszony wyjątek `ProviderException`. Z tego powodu kod najpierw sprawdza, czy rola jeszcze nie istnieje w systemie przed wywołaniem `CreateRole`. Procedura obsługi zdarzeń `Click` kończy przez wyczyszczenie właściwości `Text` pola tekstowego `RoleName`.
 
 > [!NOTE]
-> Możesz się zastanawiać, co się stanie, jeśli użytkownik nie wprowadzić dowolną wartość w `RoleName` pola tekstowego. Jeśli wartość przekazywana do `CreateRole` metodą jest `null` lub pustym ciągiem, wyjątek jest zgłaszany. Podobnie jeśli nazwa roli zawiera przecinek jest zgłaszany wyjątek. W związku z tym strony powinna zawierać kontrolek weryfikacji, aby upewnić się, użytkownik musi wprowadzić roli i że nie zawiera żadnych przecinkami. Opuścić w charakterze ćwiczenia dla czytnika.
+> Możesz zastanawiać się, co się stanie, jeśli użytkownik nie wprowadzi żadnej wartości w polu tekstowym `RoleName`. Jeśli wartość przeniesiona do metody `CreateRole` jest `null` lub pustego ciągu, zostanie zgłoszony wyjątek. Podobnie, jeśli nazwa roli zawiera przecinek, wyjątek jest wywoływany. W związku z tym strona powinna zawierać kontrolki walidacji, aby upewnić się, że użytkownik wprowadzi rolę i nie zawiera żadnych przecinki. Pozostawiam jako ćwiczenie dla czytnika.
 
-Utwórz rolę o nazwie Administratorzy. Odwiedź stronę `ManageRoles.aspx` stronie za pośrednictwem przeglądarki, wpisz w polu tekstowym administratorów (patrz rysunek 3), a następnie kliknij przycisk Utwórz rolę.
+Utwórzmy rolę o nazwie Administratorzy. Odwiedź stronę `ManageRoles.aspx` za pomocą przeglądarki, wpisz w polu Administratorzy (zobacz rysunek 3), a następnie kliknij przycisk Utwórz rolę.
 
-[![Utworzenie roli administratorów](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
+[![utworzyć rolę administratorów](creating-and-managing-roles-cs/_static/image8.png)](creating-and-managing-roles-cs/_static/image7.png)
 
-**Rysunek 3**: Utworzenie roli administratorów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image9.png))
+**Rysunek 3**. Tworzenie roli administratorów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image9.png))
 
-Co się dzieje? Występuje odświeżenie strony, ale nie ma żadnych wizualnych oznak aktywacji, który faktycznie został rolę dodawane do systemu. Firma Microsoft aktualizuje tę stronę w kroku 5, aby uwzględnić wizualną opinię. Teraz, jednak możesz sprawdzić, przechodząc do utworzono rolę `SecurityTutorials.mdf` bazy danych i wyświetlanie danych za pomocą `aspnet_Roles` tabeli. Jak pokazano na rysunku 4, `aspnet_Roles` tabela zawiera rekord o rolach administratorów po prostu dodanego przez producenta.
+Co się dzieje? Następuje ogłaszanie zwrotne, ale nie ma wizualizacji wskazującej, że rola została faktycznie dodana do systemu. Ta strona zostanie zaktualizowana w kroku 5 w celu uwzględnienia opinii wizualnych. Na razie można jednak sprawdzić, czy rola została utworzona, przechodząc do bazy danych `SecurityTutorials.mdf` i wyświetlając dane z tabeli `aspnet_Roles`. Jak pokazano na rysunku 4, tabela `aspnet_Roles` zawiera rekord dla ról tylko dodani Administratorzy.
 
-[![Aspnet_Roles tabela zawiera wiersz dla administratorów](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
+[![tabela aspnet_Roles ma wiersz dla administratorów](creating-and-managing-roles-cs/_static/image11.png)](creating-and-managing-roles-cs/_static/image10.png)
 
-**Rysunek 4**: `aspnet_Roles` Tabela zawiera wiersz dla administratorów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image12.png))
+**Rysunek 4**. tabela `aspnet_Roles` ma wiersz dla administratorów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image12.png))
 
 ## <a name="step-5-displaying-the-roles-in-the-system"></a>Krok 5. Wyświetlanie ról w systemie
 
-Możemy rozszerzyć `ManageRoles.aspx` strony, aby dołączyć listę bieżących ról w systemie. W tym celu należy dodać kontrolki widoku siatki do strony i ustaw jego `ID` właściwość `RoleList`. Następnie dodaj metodę do klasy CodeBehind strony o nazwie `DisplayRolesInGrid` przy użyciu następującego kodu:
+Uzupełnimy stronę `ManageRoles.aspx`, aby dołączyć listę bieżących ról w systemie. Aby to osiągnąć, Dodaj kontrolkę GridView do strony i ustaw jej Właściwość `ID` na `RoleList`. Następnie Dodaj metodę do klasy powiązanej z kodem strony o nazwie `DisplayRolesInGrid` przy użyciu następującego kodu:
 
 [!code-csharp[Main](creating-and-managing-roles-cs/samples/sample8.cs)]
 
-`Roles` Klasy `GetAllRoles` metoda zwraca wszystkie role w systemie jako tablicę ciągów. Ta tablica ciągów następnie jest powiązany z kontrolki GridView. Aby powiązać listę ról w widoku GridView ładowaniu strony, należy wywołać `DisplayRolesInGrid` metody na stronie `Page_Load` programu obsługi zdarzeń. Poniższy kod wywołuje tę metodę, gdy najpierw odwiedzenia strony, ale nie na kolejne ogłaszania zwrotnego.
+Metoda `GetAllRoles` klasy `Roles` zwraca wszystkie role w systemie jako tablicę ciągów. Ta tablica ciągów jest następnie powiązana z elementem GridView. Aby powiązać listę ról z rolą GridView podczas pierwszego ładowania strony, musimy wywołać metodę `DisplayRolesInGrid` ze strony programu obsługi zdarzeń `Page_Load`. Poniższy kod wywołuje tę metodę podczas pierwszej wizyty strony, ale nie na kolejnych ogłaszania zwrotnego.
 
 [!code-csharp[Main](creating-and-managing-roles-cs/samples/sample9.cs)]
 
-Przy użyciu tego kodu w miejscu odwiedź stronę za pośrednictwem przeglądarki. Jak pokazano na rysunku 5, powinien zostać wyświetlony siatkę z jedną kolumną etykietą elementu. Siatka zawiera wiersz dla roli Administratorzy, dodane w kroku 4.
+Korzystając z tego kodu, odwiedź stronę za pomocą przeglądarki. Jak pokazano na rysunku 5, powinna zostać wyświetlona siatka z pojedynczą kolumną z etykietą. Siatka zawiera wiersz dla roli Administratorzy dodanej w kroku 4.
 
-[![Kontrolki GridView są wyświetlane role w jednej kolumnie](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
+[![GridView wyświetla role w jednej kolumnie](creating-and-managing-roles-cs/_static/image14.png)](creating-and-managing-roles-cs/_static/image13.png)
 
-**Rysunek 5**: Kontrolki GridView są wyświetlane role w jednej kolumnie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image15.png))
+**Rysunek 5**. widok GridView wyświetla role w pojedynczej kolumnie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image15.png))
 
-Kontrolki GridView wyświetla pojedynczy kolumnę z etykietą elementu, ponieważ w widoku GridView `AutoGenerateColumns` właściwość jest ustawiona na wartość True (domyślnie), co powoduje, że GridView automatycznie utworzyć kolumnę dla każdej właściwości w jego `DataSource`. Tablica ma tylko jedną właściwość, która reprezentuje elementów w tablicy, dlatego jednej kolumny w widoku GridView.
+W widoku GridView jest wyświetlana kolumna Lone, ponieważ właściwość `AutoGenerateColumns` GridView jest ustawiona na wartość true (domyślnie), co powoduje, że GridView automatycznie tworzy kolumnę dla każdej właściwości w jej `DataSource`. Tablica ma pojedynczą właściwość, która reprezentuje elementy w tablicy, a tym samym kolumnę w widoku GridView.
 
-Podczas wyświetlania danych przy użyciu GridView, chcę jawnie Definiowanie kolumn, a nie ich generowane niejawnie, przy widoku GridView. Jawne określenie kolumny jest znacznie łatwiejsze do formatowania danych, zmienić kolejność kolumn i wykonywania innych typowych zadań. W związku z tym zaktualizuj GridView oznaczeniu deklaracyjnym tak, aby jej kolumn są jawnie zdefiniowane.
+Gdy wyświetlasz dane za pomocą widoku GridView, wolisz jawnie definiować moje kolumny, a nie mają być niejawnie generowane przez GridView. Jawnie definiując kolumny, które znacznie ułatwiają formatowanie danych, rozmieszczenie kolumn i wykonywanie innych typowych zadań. W związku z tym zaktualizujmy znaczniki deklaratywne GridView, tak aby jego kolumny były jawnie zdefiniowane.
 
-Rozpocznij od GridView `AutoGenerateColumns` wartość False dla właściwości. Następnie dodaj TemplateField do siatki, ustaw jego `HeaderText` właściwość role i skonfiguruj jego `ItemTemplate` tak, aby wyświetlał zawartości tablicy. Aby to osiągnąć, należy dodać formant etykiety w sieci Web o nazwie `RoleNameLabel` do `ItemTemplate` i powiąż jego `Text` właściwość `Container.DataItem`.
+Zacznij od ustawienia właściwości `AutoGenerateColumns` GridView na wartość false. Następnie Dodaj TemplateField do siatki, ustaw jej Właściwość `HeaderText` na role i skonfiguruj jej `ItemTemplate` tak, aby wyświetlała zawartość tablicy. Aby to osiągnąć, Dodaj kontrolkę sieci Web etykieta o nazwie `RoleNameLabel` do `ItemTemplate` i powiąż jej Właściwość `Text` z `Container.DataItem`.
 
-Te właściwości i `ItemTemplate`jego zawartość, można ustawić deklaratywne lub przy użyciu GridView pola, okno dialogowe i Edytuj szablony interfejsu. Aby uzyskać dostęp do pola okno dialogowe, kliknij łącze Edytowanie kolumn w tagu inteligentnego GridView. Następnie usunąć zaznaczenie pola wyboru pól Generuj automatycznie, aby ustawić `AutoGenerateColumns` właściwości na wartość False i Dodaj TemplateField w kontrolce GridView, ustawiając jego `HeaderText` właściwości roli. Aby zdefiniować `ItemTemplate`firmy zawartości, wybierz opcję Edytuj szablony z GridView tagu inteligentnego. Przeciągnij formant etykiety w sieci Web na `ItemTemplate`, ustaw jego `ID` właściwości `RoleNameLabel`oraz skonfigurować jego ustawienia powiązań danych, aby jego `Text` właściwość jest powiązana z `Container.DataItem`.
+Te właściwości i zawartość `ItemTemplate`można ustawić deklaratywnie lub za pomocą okna dialogowego pola GridView i edytowanie interfejsu szablonów. Aby uzyskać dostęp do okna dialogowego pola, kliknij link Edytuj kolumny w tagu inteligentnym GridView. Następnie usuń zaznaczenie pola wyboru Automatyczne generowanie pól, aby ustawić właściwość `AutoGenerateColumns` na FAŁSZ, a następnie Dodaj TemplateField do widoku GridView, ustawiając jej Właściwość `HeaderText` na role. Aby zdefiniować zawartość `ItemTemplate`, wybierz opcję Edytuj szablony z tagu inteligentnego GridView. Przeciągnij kontrolkę sieci Web etykieta na `ItemTemplate`, ustaw jej Właściwość `ID` na `RoleNameLabel`i skonfiguruj jej ustawienia wiązania, tak aby jej Właściwość `Text` była powiązana z `Container.DataItem`.
 
-Niezależnie od tego, jakie podejście, możesz użyć wynikowy oznaczeniu deklaracyjnym GridView powinien wyglądać podobnie do następujących, gdy wszystko będzie gotowe.
+Bez względu na to, z jakiego podejścia korzystasz, efekt deklaratywnego znacznika w GridView powinien wyglądać podobnie do poniższego, gdy skończysz.
 
 [!code-aspx[Main](creating-and-managing-roles-cs/samples/sample10.aspx)]
 
 > [!NOTE]
-> Zawartość tablicy są wyświetlane przy użyciu składni wiązania danych `<%# Container.DataItem %>`. Dokładny opis dlaczego ta składnia jest używana podczas wyświetlania zawartości tablicy powiązany z kontrolki GridView wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji dotyczących tej kwestii, zobacz [powiązanie tablicy skalarną z formantu sieci Web danych](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx).
+> Zawartość tablicy jest wyświetlana przy użyciu składni wiązania danych `<%# Container.DataItem %>`. Dokładny opis przyczyny użycia tej składni podczas wyświetlania zawartości tablicy powiązanej z elementem GridView wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na ten temat, zapoznaj się z tematem [Powiązywanie tablicy skalarnej z kontrolką sieci Web danych](http://aspnet.4guysfromrolla.com/articles/082504-1.aspx).
 
-Obecnie `RoleList` GridView tylko jest powiązana z listy ról, jeśli najpierw odwiedzenia strony. Musimy odświeżyć siatki, po każdym dodaniu nowej roli. Aby to zrobić, należy zaktualizować `CreateRoleButton` przycisku `Click` programu obsługi zdarzeń, tak że wywołuje `DisplayRolesInGrid` metodę, jeśli utworzono nową rolę.
+Obecnie `RoleList` GridView jest powiązany tylko z listą ról podczas pierwszej wizyty strony. Musimy odświeżyć siatkę za każdym razem, gdy zostanie dodana nowa rola. W tym celu należy zaktualizować program obsługi zdarzeń `Click` `CreateRoleButton`, tak aby wywoła metodę `DisplayRolesInGrid`, jeśli zostanie utworzona nowa rola.
 
 [!code-csharp[Main](creating-and-managing-roles-cs/samples/sample11.cs)]
 
-Teraz, gdy użytkownik dodaje nową rolę `RoleList` GridView zawiera po prostu dodać roli w zwrotu, zapewniając wizualną opinię, że rola została pomyślnie utworzona. Na przykład można znaleźć `ManageRoles.aspx` strony za pośrednictwem przeglądarki, a następnie dodaj rolę o nazwie nadzorców. Po kliknięciu przycisku Utwórz rolę nastąpi odświeżenie strony i siatki zostanie zaktualizowana, aby obejmować administratorów, a także nową rolę, nadzorców.
+Teraz, gdy użytkownik doda nową rolę, w `RoleList` GridView zostanie wyświetlona rola dodana po stronie ogłaszania zwrotnego, która zapewnia wizualne Opinie, że rola została pomyślnie utworzona. Aby to zilustrować, odwiedź stronę `ManageRoles.aspx` za pomocą przeglądarki i dodaj rolę o nazwie kierownicy. Po kliknięciu przycisku Utwórz rolę zostanie nastąpi odświeżenie, a siatka zostanie zaktualizowana w celu uwzględnienia administratorów, a także nowej roli, opiekunów.
 
-[![Rola nadzorców ma, zostały dodane](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
+[![dodano rolę kierownicy](creating-and-managing-roles-cs/_static/image17.png)](creating-and-managing-roles-cs/_static/image16.png)
 
-**Rysunek 6**: Rola nadzorców ma, dodano ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image18.png))
+**Ilustracja 6**. Rola kierownicy została dodana ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image18.png))
 
 ## <a name="step-6-deleting-roles"></a>Krok 6. Usuwanie ról
 
-W tym momencie użytkownik może utworzyć nową rolę i wyświetlić wszystkie istniejące role z `ManageRoles.aspx` strony. Teraz użytkownicy również usuwania ról. `Roles.DeleteRole` Metoda ma dwa przeciążenia:
+W tym momencie użytkownik może utworzyć nową rolę i wyświetlić wszystkie istniejące role ze strony `ManageRoles.aspx`. Zezwól użytkownikom na także usuwanie ról. Metoda `Roles.DeleteRole` ma dwa przeciążenia:
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) -Usuwa rolę *roleName*. Wyjątek jest generowany, jeśli rola zawiera co najmniej jednego członka.
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) -Usuwa rolę *roleName*. Jeśli *throwOnPopulateRole* jest `true`, a następnie jest zgłaszany wyjątek, jeśli rola zawiera co najmniej jednego członka. Jeśli *throwOnPopulateRole* jest `false`, a następnie rola zostanie usunięty, czy zawiera on żadnych elementów członkowskich, czy nie. Wewnętrznie `DeleteRole(roleName)` wywołania metody `DeleteRole(roleName, true)`.
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) — usuwa rolę roli *role*. Wyjątek jest zgłaszany, Jeśli rola zawiera co najmniej jednego członka.
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) — usuwa rolę roli *role*. Jeśli *throwOnPopulateRole* jest `true`, zostanie zgłoszony wyjątek, Jeśli rola zawiera co najmniej jednego członka. Jeśli *throwOnPopulateRole* jest `false`, rola zostaje usunięta, niezależnie od tego, czy zawiera żadnych członków, czy nie. Wewnętrznie metoda `DeleteRole(roleName)` wywołuje `DeleteRole(roleName, true)`.
 
-`DeleteRole` Metoda również spowoduje zgłoszenie wyjątku, jeśli *roleName* jest `null` ani być pustym ciągiem lub jeśli *roleName* zawiera przecinek. Jeśli *roleName* nie istnieje w systemie, `DeleteRole` zakończy się niepowodzeniem w trybie dyskretnym, bez zgłaszania wyjątku.
+Metoda `DeleteRole` generuje również wyjątek, jeśli *rolename* jest `null` lub pusty ciąg lub jeśli *rolename* zawiera przecinek. Jeśli *rolename* nie istnieje w systemie, `DeleteRole` w trybie dyskretnym, nie wywołując wyjątku.
 
-Możemy rozszerzyć GridView w `ManageRoles.aspx` obejmujący usuwania przycisku, po kliknięciu spowoduje usunięcie wybranej roli. Rozpocznij, dodając do kontrolki GridView przycisk Usuń, przechodząc do okna dialogowego pól i dodawanie przycisk Usuń, który znajduje się w obszarze opcji CommandField. Wprowadzić Delete znajdujący się po lewej stronie kolumny i ustaw jego `DeleteText` właściwości do usunięcia roli.
+Uzupełnimy widok GridView w `ManageRoles.aspx`, aby uwzględnić przycisk usuwania, który po kliknięciu spowoduje usunięcie wybranej roli. Zacznij od dodania przycisku Usuń do widoku GridView, przechodząc do okna dialogowego pola i dodając przycisk Usuń, który znajduje się w opcji CommandField. Zwolnij przycisk Usuń w lewej kolumnie i ustaw jej Właściwość `DeleteText` na wartość Usuń rolę.
 
-[![Dodaj przycisk usuwania do kontrolki RoleList GridView](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
+[![dodać przycisk usuwania do widoku GridView RoleList](creating-and-managing-roles-cs/_static/image20.png)](creating-and-managing-roles-cs/_static/image19.png)
 
-**Rysunek 7**: Przycisk Usuń, aby dodać `RoleList` kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-and-managing-roles-cs/_static/image21.png))
+**Rysunek 7**. Dodawanie przycisku usuwania do `RoleList` GridView ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-and-managing-roles-cs/_static/image21.png))
 
-Po dodaniu przycisk Usuń, oznaczeniu deklaracyjnym w widoku GridView powinien wyglądać podobnie do poniższej:
+Po dodaniu przycisku Usuń znaczniki deklaratywne GridView powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](creating-and-managing-roles-cs/samples/sample12.aspx)]
 
-Następnie należy utworzyć procedurę obsługi zdarzeń dla GridView `RowDeleting` zdarzeń. To zdarzenie, które jest wywoływane na odświeżenie strony, po kliknięciu przycisku Usuń rolę. Dodaj następujący kod do narzędzia obsługi zdarzeń.
+Następnie Utwórz procedurę obsługi zdarzeń dla zdarzenia `RowDeleting` GridView. Jest to zdarzenie zgłaszane w przypadku ogłaszania zwrotnego po kliknięciu przycisku Usuń rolę. Dodaj następujący kod do programu obsługi zdarzeń.
 
 [!code-csharp[Main](creating-and-managing-roles-cs/samples/sample13.cs)]
 
-Zaczyna się kod, odwołując się do programowego `RoleNameLabel` formant w wierszu kliknięcia przycisku którego usunięcia roli sieci Web. `Roles.DeleteRole` Następnie wywoływana jest metoda, przekazując `Text` z `RoleNameLabel` i `false`, a tym samym usunąć rolę, niezależnie od tego, czy znajdują się użytkownicy, wszelkie skojarzone z rolą. Na koniec `RoleList` GridView są odświeżane, tak aby po prostu usunąć roli nie będzie już wyświetlany w siatce.
+Kod jest uruchamiany przez programowe odwołujące się do `RoleNameLabel` formantu sieci Web w wierszu, którego przycisk usuwania roli został kliknięty. Metoda `Roles.DeleteRole` jest następnie wywoływana, przekazanie do `Text` `RoleNameLabel` i `false`, usuwając rolę niezależnie od tego, czy istnieją wszyscy użytkownicy skojarzeni z tą rolą. Na koniec `RoleList` GridView jest odświeżane, dzięki czemu rola usunięta tylko w siatce nie będzie już widoczna.
 
 > [!NOTE]
-> Przycisk Usuń rolę nie wymaga dowolny rodzaj potwierdzenie od użytkownika przed usunięciem roli. Jednym z najprostszych sposobów, aby potwierdzić akcję jest poprzez okno dialogowe Potwierdź po stronie klienta. Aby uzyskać więcej informacji na temat tej techniki, zobacz [dodawanie potwierdzenia po stronie klienta podczas usuwania](https://asp.net/learn/data-access/tutorial-42-cs.aspx).
+> Przycisk Usuń rolę nie wymaga żadnych potwierdzeń użytkownika przed usunięciem roli. Jednym z najprostszych sposobów potwierdzania akcji jest użycie okna dialogowego potwierdzenia po stronie klienta. Aby uzyskać więcej informacji na temat tej techniki, zobacz [Dodawanie potwierdzenia po stronie klienta podczas usuwania](https://asp.net/learn/data-access/tutorial-42-cs.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
-Wiele aplikacji sieci web ma niektórych reguł autoryzacji lub funkcji na poziomie strony, które jest dostępne tylko dla niektórych klas użytkowników. Na przykład może być zestaw stron sieci web, które tylko administratorzy będą mieć dostęp. Zamiast definiować te reguły autoryzacji na podstawie użytkownika według, często jest bardziej użyteczny do zdefiniowania reguł na podstawie roli. Zamiast jawnie, umożliwiając użytkownikom Scott i Jisun dostępu administracyjnego stron sieci web, będzie łatwiejszy w utrzymaniu podejście jest aby umożliwić członkom roli Administratorzy programu dostęp do tych stron, a następnie do oznaczania Scott i Jisun jako należące do użytkowników Grupy administratorów.
+Wiele aplikacji sieci Web ma pewne reguły autoryzacji lub funkcje na poziomie strony, które są dostępne tylko dla niektórych klas użytkowników. Na przykład może istnieć zestaw stron sieci Web, do których mają dostęp tylko Administratorzy. Zamiast definiować te reguły autoryzacji dla poszczególnych użytkowników, często bardziej przydatne do definiowania reguł opartych na roli. Oznacza to, że zamiast jawnie Zezwalanie użytkownikom Scotta i Jisun na dostęp do administracyjnych stron sieci Web, bardziej łatwość utrzymania jest umożliwienie członkom roli Administratorzy dostępu do tych stron, a następnie do oznaczania Scott i Jisun jako użytkowników należących do Rola Administratorzy.
 
-W ramach ról ułatwia tworzenie ról i zarządzanie nimi. W tym samouczku zbadaliśmy sposobu skonfigurowania struktury role, aby użyć `SqlRoleProvider`, który używa jako magazynu ról bazy danych programu Microsoft SQL Server. Utworzyliśmy również strony sieci web, która wyświetla istniejące role w systemie i pozwala dotyczące nowych ról, które ma zostać utworzony i istniejące do usunięcia. W kolejnych samouczkach zobaczymy, jak przypisać użytkowników do ról i sposób stosowania autoryzacji opartej na rolach.
+Struktura ról ułatwia tworzenie ról i zarządzanie nimi. W tym samouczku opisano sposób konfigurowania struktury ról do korzystania z `SqlRoleProvider`, która używa Microsoft SQL Server bazy danych jako magazynu roli. Utworzyliśmy również stronę sieci Web, która wyświetla listę istniejących ról w systemie i umożliwia tworzenie nowych ról i istniejących do usunięcia. W kolejnych samouczkach zobaczymy, jak przypisać użytkowników do ról i jak zastosować autoryzację opartą na rolach.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Badanie programu ASP.NET 2.0 na członkostwo, role i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Instrukcje: Za pomocą menedżera ról na platformie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998314.aspx)
-- [Dostawców ról](https://msdn.microsoft.com/library/aa478950.aspx)
-- [Stopniowe własne narzędzia do administrowania witryny sieci Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [Dokumentacja techniczna dotycząca `<roleManager>` — Element](https://msdn.microsoft.com/library/ms164660.aspx)
-- [Przy użyciu członkostwa i interfejsów API Manager roli](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/membership.aspx)
+- [Badanie członkostwa, ról i profilu w programie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [Instrukcje: korzystanie z menedżera ról w ASP.NET 2,0](https://msdn.microsoft.com/library/ms998314.aspx)
+- [Dostawcy ról](https://msdn.microsoft.com/library/aa478950.aspx)
+- [Stopniowa narzędzie do administrowania witryną sieci Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
+- [Dokumentacja techniczna elementu `<roleManager>`](https://msdn.microsoft.com/library/ms164660.aspx)
+- [Korzystanie z interfejsów API członkostwa i programu role Manager](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/membership.aspx)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Pracował nad Bento Scottem, autor wiele książek ASP/ASP.NET i założyciel 4GuysFromRolla.com, przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena  *[Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott można z Tobą skontaktować w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blog znajduje się na [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Scott Mitchell, autor wielu książek ASP/ASP. NET Books i założyciel of 4GuysFromRolla.com, pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to *[Sams ASP.NET 2,0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* . Scott można uzyskać w [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem swojego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
-### <a name="special-thanks-to"></a>Specjalne podziękowania dla
+### <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Suchi Banerjee i Teresa Murphy. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka obejmują Alicja Maziarz, suchi Banerjee i Teresa Murphy. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](assigning-roles-to-users-cs.md)

@@ -1,178 +1,178 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
-title: Dodawanie kontrolek weryfikacji do elementu DataList jego edytowania interfejsu (VB) | Dokumentacja firmy Microsoft
+title: Dodawanie kontrolek weryfikacji do interfejsu edycji elementu DataList (VB) | Microsoft Docs
 author: rick-anderson
-description: W tym samouczku zobaczymy, jak łatwo jest dodawanie kontrolek weryfikacji do DataList EditItemTemplate zapewnić bardziej niezawodne edycji int. użytkownika...
+description: W tym samouczku dowiesz się, jak łatwo można dodać kontrolki walidacji do EditItemTemplatea elementu DataList, aby zapewnić większą foolproof edycji int użytkownika...
 ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cbf0c5f15399e49673f7c77006211ccff953346d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f952a7bb95e956a2ad935f8bdef5c3efa7437ecb
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108793"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621961"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe) lub [Pobierz plik PDF](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe) lub [Pobierz plik PDF](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
 
-> W tym samouczku zobaczymy, jak łatwo jest dodawanie kontrolek weryfikacji do DataList EditItemTemplate zapewnić bardziej niezawodne edycji interfejsu użytkownika.
+> W tym samouczku dowiesz się, jak łatwo można dodać kontrolki weryfikacji do EditItemTemplatea elementu DataList, aby zapewnić bardziej foolproofy interfejs użytkownika.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W elemencie DataList samouczki do tej pory edycji DataLists edycji interfejsów nie zostały uwzględnione wszelkie walidacji danych wejściowych użytkownika aktywnego, mimo że nieprawidłowego użytkownika dane wejściowe np. Brak nazwy produktu lub ceny powoduje wyjątek. W [poprzedni Samouczek](handling-bll-and-dal-level-exceptions-vb.md) zbadaliśmy sposób dodawania kodu do DataList s obsługi wyjątków `UpdateCommand` program obsługi zdarzeń, aby przechwycić i bez problemu zmieniała wyświetlać informacje na temat wyjątków, które zostały zgłoszone. W idealnym przypadku jednak interfejs edytowania obejmuje kontrolek weryfikacji, aby uniemożliwić użytkownikowi wprowadzanie takich nieprawidłowe dane w pierwszej kolejności.
+W tym przypadku w samouczkach do edycji elementu DataList te interfejsy edytowania danych nie zawierały żadnych funkcji weryfikacji aktywnego użytkownika, nawet jeśli nieprawidłowe dane wejściowe użytkownika, takie jak brakująca Nazwa produktu lub cena ujemna, powodują wyjątek. W [poprzednim samouczku](handling-bll-and-dal-level-exceptions-vb.md) sprawdziłmy, jak dodać kod obsługi wyjątków do procedury obsługi zdarzeń `UpdateCommand` DataList, aby przechwycić i bezpiecznie wyświetlić informacje o wszelkich zgłoszonych wyjątkach. W idealnym przypadku interfejs edytowania obejmuje kontrolki sprawdzania poprawności, które uniemożliwiają użytkownikowi wprowadzanie takich nieprawidłowych danych w pierwszym miejscu.
 
-W tym samouczku zobaczymy, jak łatwo jest dodawanie kontrolek weryfikacji do DataList s `EditItemTemplate` zapewnić bardziej niezawodne edycji interfejsu użytkownika. W szczególności w tym samouczku przyjmuje przykład utworzonej w poprzednim samouczku i rozszerzają interfejs edytowania obejmujący odpowiednie sprawdzania poprawności.
+W tym samouczku dowiesz się, jak łatwo można dodać kontrolki walidacji do `EditItemTemplate` DataList, aby zapewnić bardziej foolproofą edycję interfejsu użytkownika. W tym samouczku przedstawiono przykład utworzony w poprzednim samouczku i rozszerza interfejs edycji w celu uwzględnienia odpowiedniej weryfikacji.
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>Krok 1. Replikowanie przykładu z[Obsługa wyjątków na poziomie warstwy DAL i LOGIKI](handling-bll-and-dal-level-exceptions-vb.md)
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>Krok 1. replikowanie przykładu z[obsługi wyjątków logiki biznesowej i dal](handling-bll-and-dal-level-exceptions-vb.md)
 
-W [obsługi LOGIKI i wyjątków na poziomie warstwy DAL](handling-bll-and-dal-level-exceptions-vb.md) samouczka utworzona strona, która wymienione nazwy i ceny produktów w DataList dwie kolumny, można edytować. Naszym celem na potrzeby tego samouczka jest rozszerzyć interfejsu edycji s DataList obejmujący kontrolkami walidacji. W szczególności naszych logikę weryfikacji wykonują następujące czynności:
+W samouczku [Obsługa wyjątków logiki biznesowej-i dal](handling-bll-and-dal-level-exceptions-vb.md) została utworzona strona z nazwami i cenami produktów w dwukolumnowej, edytowalnej nazwie DataList. Naszym celem tego samouczka jest rozszerzenie interfejsu edycji DataList s w celu uwzględnienia formantów walidacji. W szczególności nasza logika walidacji będzie:
 
-- Wymaga podania nazwy produktu s
-- Upewnij się, że wartość wprowadzona w cenie formacie waluty prawidłowe
-- Upewnij się, że wartość wprowadzona dla cena jest większa lub równa zero, ponieważ ujemnych `UnitPrice` wartość jest niedozwolona
+- Wymagaj podania nazwy produktu
+- Upewnij się, że wartość wprowadzona dla ceny jest prawidłowym formatem waluty
+- Upewnij się, że wartość wprowadzona dla ceny jest większa lub równa zero, ponieważ ujemna `UnitPrice` wartość jest niedozwolona
 
-Zanim można przyjrzymy się rozszerzając poprzedniego przykładu, aby uwzględnić sprawdzania poprawności, najpierw trzeba replikować przykładu z `ErrorHandling.aspx` strony w `EditDeleteDataList` folderu do strony, w tym samouczku `UIValidation.aspx`. W tym potrzebujemy do skopiowania zarówno `ErrorHandling.aspx` strony oznaczeniu deklaracyjnym s i jego kod źródłowy. Najpierw skopiuj oznaczeniu deklaracyjnym, wykonując następujące czynności:
+Zanim będziemy mogli zapoznać się z poprzednim przykładem w celu uwzględnienia weryfikacji, najpierw musimy replikować przykład ze strony `ErrorHandling.aspx` w folderze `EditDeleteDataList` na stronie tego samouczka `UIValidation.aspx`. Aby to osiągnąć, należy skopiować zarówno znacznik deklaratywny `ErrorHandling.aspx` strony, jak i jego kod źródłowy. Najpierw należy skopiować znaczniki deklaratywne, wykonując następujące czynności:
 
-1. Otwórz `ErrorHandling.aspx` strony w programie Visual Studio
-2. Przejdź do strony s oznaczeniu deklaracyjnym (kliknij przycisk źródło w dolnej części strony)
-3. Kopiuj tekst w obrębie `<asp:Content>` i `</asp:Content>` tagi (linie 3 – 32), jak pokazano na rysunku 1.
+1. Otwórz stronę `ErrorHandling.aspx` w programie Visual Studio
+2. Przejdź do znacznika deklaracyjnego strony (kliknij przycisk Źródło w dolnej części strony).
+3. Skopiuj tekst w `<asp:Content>` i `</asp:Content>` tagów (wiersze od 3 do 32), jak pokazano na rysunku 1.
 
-[![Kopiuj tekst w &lt;asp: Content&gt; kontroli](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
+[![skopiować tekst w &lt;ASP: zawartość kontrolki&gt;](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
 
-**Rysunek 2**: Kopiuj tekst w `<asp:Content>` kontroli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png))
+**Rysunek 2**. Skopiuj tekst w kontrolce `<asp:Content>` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png))
 
-1. Otwórz `UIValidation.aspx` strony
-2. Przejdź do strony s oznaczeniu deklaracyjnym
-3. Wklej tekst w obrębie `<asp:Content>` kontroli.
+1. Otwórz stronę `UIValidation.aspx`
+2. Przejdź do znacznika deklaracyjnego strony
+3. Wklej tekst w kontrolce `<asp:Content>`.
 
-Aby skopiować kod źródłowy, otwórz `ErrorHandling.aspx.vb` strony i skopiować właśnie tekst *w ramach* `EditDeleteDataList_ErrorHandling` klasy. Skopiuj obsługi trzech zdarzeń (`Products_EditCommand`, `Products_CancelCommand`, i `Products_UpdateCommand`) wraz z `DisplayExceptionDetails` metody, ale czy **nie** skopiuj deklaracji klasy lub `using` instrukcji. Wklej skopiowany tekst *w ramach* `EditDeleteDataList_UIValidation` klasy w `UIValidation.aspx.vb`.
+Aby skopiować kod źródłowy, Otwórz stronę `ErrorHandling.aspx.vb` i skopiuj tylko tekst *w* klasie `EditDeleteDataList_ErrorHandling`. Skopiuj trzy procedury obsługi zdarzeń (`Products_EditCommand`, `Products_CancelCommand`i `Products_UpdateCommand`) wraz z metodą `DisplayExceptionDetails`, ale **nie** Kopiuj deklaracji klasy ani instrukcji `using`. Wklej *skopiowany tekst w* klasie `EditDeleteDataList_UIValidation` w `UIValidation.aspx.vb`.
 
-Po przeniesieniu za pośrednictwem treści i kodu z `ErrorHandling.aspx` do `UIValidation.aspx`, Poświęć chwilę, w celu przetestowania stron w przeglądarce. Należy wyświetlić ten sam wynik i środowisko funkcji w każdym z tych dwóch stronach (patrz rysunek 2).
+Po przeniesieniu zawartości i kodu z `ErrorHandling.aspx` do `UIValidation.aspx`Poświęć chwilę na przetestowanie stron w przeglądarce. Te same dane wyjściowe powinny być widoczne dla każdej z tych dwóch stron (patrz rysunek 2).
 
-[![Na stronie UIValidation.aspx naśladuje funkcjonalność ErrorHandling.aspx](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
+[![Strona UIValidation. aspx naśladuje funkcjonalność w ErrorHandling. aspx](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
 
-**Rysunek 2**: `UIValidation.aspx` Strony naśladuje funkcjonalność `ErrorHandling.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png))
+**Rysunek 2**. Strona `UIValidation.aspx` naśladuje funkcjonalność w `ErrorHandling.aspx` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png))
 
-## <a name="step-2-adding-the-validation-controls-to-the-datalist-s-edititemtemplate"></a>Krok 2. Dodawanie kontrolek weryfikacji do DataList s EditItemTemplate
+## <a name="step-2-adding-the-validation-controls-to-the-datalist-s-edititemtemplate"></a>Krok 2. Dodawanie kontrolek walidacji do elementu DataList s EditItemTemplate
 
-Podczas tworzenia formularzy wprowadzania danych, ważne jest użytkownikom wprowadzanie wszystkie wymagane pola, a wszystkie ich podane dane wejściowe są wartości prawne, niepoprawnie sformatowany. Aby upewnić się, że s danych wprowadzonych przez użytkownika są prawidłowe, ASP.NET zawiera pięć formantów wbudowanych sprawdzania poprawności, które są przeznaczone do sprawdzenia wartości pojedynczej kontrolki wprowadzania w sieci Web:
+Podczas konstruowania formularzy wprowadzania danych ważne jest, aby użytkownicy wprowadzali wszystkie wymagane pola, a wszystkie podane dane wejściowe są prawidłowymi, właściwie sformatowanymi wartościami. Aby zapewnić, że dane wejściowe użytkownika są prawidłowe, ASP.NET zapewnia pięć wbudowanych kontrolek weryfikacji, które są przeznaczone do sprawdzania poprawności wartości pojedynczej wejściowej kontrolki sieci Web:
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) gwarantuje, że podać wartość
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) sprawdza poprawność wartości z inną wartością formantu sieci Web lub wartości stałej lub gwarantuje, że format wartości s jest dozwolony dla określonego typu danych
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) gwarantuje, że została podana wartość
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) sprawdza wartość pod kątem innej wartości kontrolki sieci Web lub wartości stałej lub gwarantuje, że format wartości s jest dozwolony dla określonego typu danych
 - [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) gwarantuje, że wartość znajduje się w zakresie wartości
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) weryfikuje czy wartość [wyrażeń regularnych](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) weryfikuje czy wartość niestandardowych, zdefiniowanych przez użytkownika — metoda
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) sprawdza poprawność wartości względem [wyrażenia regularnego](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) sprawdza poprawność wartości względem niestandardowej, zdefiniowanej przez użytkownika metody
 
-Aby uzyskać więcej informacji na temat tych pięć formantów odnoszą się do [Dodawanie kontrolek weryfikacji do edycji i wstawiania interfejsy](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) samouczka lub zapoznaj się [sekcji kontrolkami walidacji](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) z [Samouczki Szybki Start platformy ASP.NET](https://quickstarts.asp.net).
+Aby uzyskać więcej informacji na temat tych pięciu kontrolek, zapoznaj się z artykułem [Dodawanie kontrolek walidacji do edycji i wstawiania interfejsów](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) lub zapoznaj się z [sekcją kontroli walidacji](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) [samouczków szybkiego startu ASP.NET](https://quickstarts.asp.net).
 
-W naszym samouczku musimy użyć RequiredFieldValidator, aby upewnić się, że została podana wartość dla nazwy produktu i CompareValidator, aby upewnić się, czy wprowadzona cena ma wartość większą niż lub równa 0 i są prezentowane w formacie waluty prawidłowe.
+W naszym samouczku będziemy musieli użyć elementu RequiredFieldValidator, aby upewnić się, że podano wartość dla nazwy produktu i CompareValidator, aby zapewnić, że wprowadzona cena ma wartość większą lub równą 0 i jest prezentowana w prawidłowym formacie waluty.
 
 > [!NOTE]
-> Podczas gdy ASP.NET 1.x miał tych tych samych kontrolek pięć sprawdzania poprawności, ASP.NET 2.0 dodał szereg ulepszeń, głównym, dwa skryptu po stronie klienta jest obsługa przeglądarek, oprócz programu Internet Explorer i możliwość partycji sprawdzania poprawności formantów na stronie do Sprawdzanie poprawności grupy. Aby uzyskać więcej informacji na temat nowych funkcji kontroli sprawdzania poprawności w wersji 2.0, zobacz [analiza formanty sprawdzania poprawności w programie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx).
+> Chociaż ASP.NET 1. x miała te same pięć kontrolek weryfikacyjnych, ASP.NET 2,0 dodaliśmy kilka ulepszeń, główne dwa z nich obsługują skrypty po stronie klienta dla przeglądarek oprócz programu Internet Explorer i możliwość partycjonowania formantów walidacji na stronie do grupy walidacji. Aby uzyskać więcej informacji na temat nowych funkcji kontroli walidacji w 2,0, zapoznaj się z artykułem dotyczącym wypełniania [kontrolek weryfikacji w ASP.NET 2,0](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx).
 
-Pozwól s początek Dodawanie kontrolek weryfikacji niezbędne do DataList s `EditItemTemplate`. To zadanie można wykonać za pomocą projektanta, klikając link Edytuj szablony z tagu inteligentnego s DataList lub za pomocą składni deklaratywnej. Pozwól s kroku przez proces, korzystając z opcji Edytuj szablony z widoku Projekt. Po wybraniu do edycji kontrolki DataList s `EditItemTemplate`, Dodaj RequiredFieldValidator, przeciągając go z przybornika do interfejsu edycji szablonu, umieszczając go po `ProductName` pola tekstowego.
+Aby rozpocząć, Dodaj wymagane kontrolki weryfikacji do `EditItemTemplate`DataList. To zadanie można wykonać za pomocą projektanta, klikając łącze Edytuj szablony z taga inteligentnego DataList s lub stosując składnię deklaratywną. Pozwól na przechodzenie przez proces przy użyciu opcji Edytuj szablony z widok Projekt. Po wybraniu edycji `EditItemTemplate`DataList, Dodaj element RequiredFieldValidator, przeciągając go z przybornika do interfejsu edycji szablonu, umieszczając go po `ProductName` polu tekstowym.
 
-[![Dodaj RequiredFieldValidator do EditItemTemplate po ProductName pole tekstowe](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
+[![dodać RequiredFieldValidator do EditItemTemplate po polu tekstowym ProductName](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
 
-**Rysunek 3**: Dodaj RequiredFieldValidator do `EditItemTemplate After` `ProductName` pola tekstowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png))
+**Rysunek 3**. Dodawanie RequiredFieldValidator do `EditItemTemplate After` `ProductName` pole tekstowe (kliknij,[Aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png))
 
-Wszystkie formanty sprawdzania poprawności działa, sprawdzając poprawność danych wejściowych z jednego formantu sieci Web platformy ASP.NET. W związku z tym, należy wskazać, że RequiredFieldValidator właśnie dodaliśmy, należy przeprowadzić walidacji względem `ProductName` pole tekstowe; odbywa się przez ustawienie sprawdzania poprawności s [ `ControlToValidate` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) do `ID` programu odpowiednie kontrolki sieci Web (`ProductName`, w tym wystąpieniu). Następnym etapem jest skonfigurowanie [ `ErrorMessage` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) do należy podać nazwę produktu s i [ `Text` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) do \*. `Text` Wartość właściwości podana, czy tekst, który jest wyświetlany przez kontrolkę sprawdzania poprawności w przypadku niepowodzenia weryfikacji. `ErrorMessage` Wartości właściwości, która jest wymagana, jest używana przez kontrolki podsumowania walidacji; Jeśli `Text` wartość właściwości jest pominięty, `ErrorMessage` wartość właściwości jest wyświetlany formantu sprawdzania poprawności na nieprawidłowe dane wejściowe.
+Wszystkie kontrolki walidacji działają, sprawdzając poprawność danych wejściowych pojedynczej kontrolki sieci Web ASP.NET. W związku z tym musimy wskazać, że dodaliśmy RequiredFieldValidator powinna sprawdzić poprawność względem pola tekstowego `ProductName`; w tym celu należy ustawić [właściwość`ControlToValidate`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) kontrolki walidacji na `ID` odpowiedniej kontrolce sieci Web (`ProductName`w tym wystąpieniu). Następnie ustaw [właściwość`ErrorMessage`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) na wartość należy podać nazwę produktu i [Właściwość`Text`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) , aby \*. Wartość właściwości `Text`, jeśli podana, to tekst wyświetlany przez kontrolkę walidacji w przypadku niepowodzenia walidacji. Wartość właściwości `ErrorMessage`, która jest wymagana, jest używana przez formant podsumowania walidacji; w przypadku pominięcia wartości właściwości `Text` Właściwość `ErrorMessage` zostanie wyświetlona przez kontrolkę walidacji dla nieprawidłowych danych wejściowych.
 
-Po ustawieniu tych trzech właściwości RequiredFieldValidator, ekran powinien wyglądać podobnie jak rysunek 4.
+Po ustawieniu tych trzech właściwości RequiredFieldValidator ekran powinien wyglądać podobnie do rysunku 4.
 
-[![Ustaw ControlToValidate RequiredFieldValidator s obiektu, komunikat o błędzie i właściwości tekstu](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
+[![ustawić właściwości RequiredFieldValidator s ControlToValidate obiektu, ErrorMessage i text](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
 
-**Rysunek 4**: Ustaw RequiredFieldValidator s `ControlToValidate`, `ErrorMessage`, i `Text` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))
+**Rysunek 4**. Ustawianie właściwości RequiredFieldValidator `ControlToValidate`, `ErrorMessage`i `Text` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))
 
-Za pomocą RequiredFieldValidator dodane do `EditItemTemplate`, wszystkie, że pozostaje tylko dodać niezbędne sprawdzanie poprawności dla cena produktu s pola tekstowego. Ponieważ `UnitPrice` jest opcjonalny podczas edytowania rekordu, firma Microsoft don t trzeba dodać RequiredFieldValidator. Jednak zrobić należy dodać CompareValidator, aby upewnić się, że `UnitPrice`, jeśli zostanie podany, jest poprawnie sformatowany jako walutę i jest większa lub równa 0.
+Po dodaniu RequiredFieldValidator do `EditItemTemplate`wszystko to, co ma na celu dodanie niezbędnej weryfikacji dla pola tekstowego cena produktu. Ponieważ `UnitPrice` jest opcjonalne podczas edytowania rekordu, nie musimy dodawać RequiredFieldValidator. Należy jednak dodać CompareValidator, aby upewnić się, że `UnitPrice`, jeśli jest podany, jest poprawnie sformatowana jako waluta i jest większa lub równa 0.
 
-Dodaj CompareValidator do `EditItemTemplate` i ustaw jego `ControlToValidate` właściwości `UnitPrice`, jego `ErrorMessage` właściwość cena musi być większa lub równa zero i nie może zawierać symbolu waluty i jego `Text` właściwości \*. Aby wskazać, że `UnitPrice` wartość musi być większa lub równa 0, ustaw CompareValidator s [ `Operator` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) do `GreaterThanEqual`, jego [ `ValueToCompare` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0, i jego [ `Type` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) do `Currency`.
+Dodaj CompareValidator do `EditItemTemplate` i ustaw jej Właściwość `ControlToValidate` na `UnitPrice`, jej Właściwość `ErrorMessage` na wartość Price musi być większa lub równa zero i nie może zawierać symbolu waluty oraz jego właściwości `Text`, aby \*. Aby wskazać, że wartość `UnitPrice` musi być większa lub równa 0, ustaw właściwość CompareValidator s [`Operator`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) na `GreaterThanEqual`, jej [Właściwość`ValueToCompare`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) na wartość 0, a jej [Właściwość`Type`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) na `Currency`.
 
-Po dodaniu tych dwóch weryfikacji kontrolek DataList s `EditItemTemplate` składni deklaratywnej s powinien wyglądać podobnie do poniższego:
+Po dodaniu tych dwóch kontrolek walidacji, składnia deklaracyjne s `EditItemTemplate` s powinna wyglądać podobnie do poniższego:
 
 [!code-aspx[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample1.aspx)]
 
-Po wprowadzeniu tych zmian, otwórz stronę w przeglądarce. Jeśli użytkownik spróbuje pominąć nazwę lub wprowadź wartość Nieprawidłowa cena podczas edytowania produktu, gwiazdkę pojawia się obok pola tekstowego. Jak pokazano na rysunku 5, która zawiera symbol waluty, takich jak cenie od 19,95 USD wartość cena jest uznawane za nieprawidłowe. CompareValidator s `Currency` `Type` umożliwia separatory cyfr (na przykład kropki, w zależności od ustawień kultury i przecinki) i wiodący znak plus lub minus, ale *nie* zezwala na symbol waluty. To zachowanie może perplex użytkowników interfejsu edycji obecnie renderowanie `UnitPrice` przy użyciu formatu waluty.
+Po wprowadzeniu tych zmian Otwórz stronę w przeglądarce. Jeśli spróbujesz pominąć nazwę lub wprowadzić nieprawidłową wartość ceny podczas edytowania produktu, obok pola tekstowego pojawia się gwiazdka. Jak pokazano na rysunku 5, wartość ceny, która zawiera symbol waluty, na przykład $19,95, jest uznawana za nieprawidłową. CompareValidator s `Currency` `Type` umożliwia używanie separatorów cyfr (takich jak przecinki lub kropki, w zależności od ustawień kultury) i wiodącego znaku plus lub minus, ale *nie zezwala na* symbol waluty. Takie zachowanie może Perplex użytkowników jako interfejs edycji obecnie renderuje `UnitPrice` przy użyciu formatu waluty.
 
-[![Gwiazdka pojawia się obok pola tekstowe z nieprawidłowe dane wejściowe](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
+[![gwiazdki pojawia się obok pól tekstowych z nieprawidłowymi danymi wejściowymi](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
 
-**Rysunek 5**: Gwiazdka pojawia się obok pola tekstowe z nieprawidłowe dane wejściowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))
+**Ilustracja 5**. obok pól tekstowych pojawia się gwiazdka z nieprawidłowymi danymi wejściowymi ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))
 
-Podczas sprawdzania poprawności działania — jest, użytkownik będzie musiał ręcznie usunąć symbol waluty, podczas edytowania rekordu, który nie jest dopuszczalna. Ponadto istnieją nieprawidłowe dane wejściowe, edycji interfejs żadna aktualizacja ani Anuluj przyciski, po kliknięciu wywoła ogłaszania zwrotnego. W idealnym przypadku przycisku Anuluj zwróci kontrolki DataList stan wstępnie edycji niezależnie od ważności danych s wprowadzonych przez użytkownika. Ponadto należy upewnić się, że dane strony s są prawidłowe przed zaktualizowaniem informacje o produkcie w elemencie DataList s `UpdateCommand` program obsługi zdarzeń jako logiki po stronie klienta, co może prowadzić przez użytkowników, których przeglądarki albo don obsługuje język JavaScript, masz formanty sprawdzania poprawności jej obsługa jest wyłączona.
+Gdy walidacja działa tak, jak to jest, użytkownik musi ręcznie usunąć symbol waluty podczas edytowania rekordu, co nie jest akceptowalne. Ponadto jeśli w interfejsie edycyjnym są nieprawidłowe dane wejściowe, a przyciski Aktualizuj i Anuluj nie zostaną wywołane, program wywoła ogłaszanie zwrotne. Najlepiej, gdy przycisk Anuluj zwróci wartość DataList do stanu sprzed edycji, niezależnie od ważności danych wejściowych użytkownika. Ponadto musimy upewnić się, że dane strony są prawidłowe przed zaktualizowaniem informacji o produkcie w programie obsługi zdarzeń DataList s `UpdateCommand`, ponieważ sprawdzanie poprawności logiki po stronie klienta może zostać pominięte przez użytkowników, których przeglądarki nie obsługują języka JavaScript lub których obsługa została wyłączona.
 
-## <a name="removing-the-currency-symbol-from-the-edititemtemplate-s-unitprice-textbox"></a>Usuwanie symbolu waluty z EditItemTemplate s UnitPrice TextBox
+## <a name="removing-the-currency-symbol-from-the-edititemtemplate-s-unitprice-textbox"></a>Usuwanie symbolu waluty z pola tekstowego CenaJednostkowa EditItemTemplate s
 
-Korzystając z CompareValidator s `Currency``Type`, sprawdzają poprawność danych wejściowych nie może zawierać dowolny symbol waluty. Obecność takich symboli powoduje, że CompareValidator do oznaczania danych wejściowych jako nieprawidłowy. Jednak interfejsu edycji obecnie zawiera symbol waluty w `UnitPrice` pola tekstowego, co oznacza, użytkownik musi jawnie usunąć symbol waluty przed zapisaniem zmian. Aby rozwiązać ten problem mamy trzy opcje:
+W przypadku używania CompareValidator s `Currency``Type`sprawdzanie poprawności nie może zawierać żadnych symboli walut. Obecność takich symboli powoduje, że CompareValidator oznacza, że dane wejściowe są nieprawidłowe. Jednak nasz interfejs edycji zawiera obecnie symbol waluty w `UnitPrice` TextBox, co oznacza, że użytkownik musi jawnie usunąć symbol waluty przed zapisaniem zmian. Aby rozwiązać ten sposób, mamy trzy opcje:
 
-1. Konfigurowanie `EditItemTemplate` tak, aby `UnitPrice` wartość pola tekstowego jest sformatowana jako walutę.
-2. Zezwalaj użytkownikowi wprowadzanie symbolu waluty, usuwając CompareValidator i zamianę RegularExpressionValidator, która sprawdza, czy wartość waluty poprawnie sformatowana. Żądanie, w tym miejscu jest wyrażenie regularne, aby sprawdzić wartość waluty nie jest tak proste jak CompareValidator i wymagałoby pisanie kodu, jeśli chcemy dołączyć ustawienia kultury.
-3. Całkowicie usunąć formant sprawdzania poprawności i polegają na logikę niestandardowego sprawdzania poprawności po stronie serwera w GridView s `RowUpdating` programu obsługi zdarzeń.
+1. Skonfiguruj `EditItemTemplate` tak, aby wartość TextBox `UnitPrice` nie była sformatowana jako waluta.
+2. Zezwalaj użytkownikowi na wprowadzanie symbolu waluty przez usunięcie CompareValidator i zastąpienie go RegularExpressionValidator, który sprawdza prawidłowo sformatowaną wartość waluty. Wezwanie w tym miejscu polega na tym, że wyrażenie regularne służące do sprawdzania poprawności wartości walutowej nie jest tak proste jak CompareValidator i wymagało pisania kodu, jeśli chcemy uwzględnić ustawienia kultury.
+3. Całkowicie Usuń kontrolkę walidacji i zależą od niestandardowej logiki walidacji po stronie serwera w programie obsługi zdarzeń `RowUpdating` GridView.
 
-Pozwól s zawsze pod ręką opcja 1 na potrzeby tego samouczka. Obecnie `UnitPrice` są sformatowane jako wartość waluty z powodu wyrażenia wiązania danych dla pola tekstowego w `EditItemTemplate`: `<%# Eval("UnitPrice", "{0:c}") %>`. Zmiana `Eval` instrukcję, aby `Eval("UnitPrice", "{0:n2}")`, która formatuje wynik jako liczbę z dwoma cyframi precyzji. Można to zrobić bezpośrednio za pomocą składni deklaratywnej lub klikając łącze edycji powiązania danych z `UnitPrice` pole tekstowe w elemencie DataList s `EditItemTemplate`.
+Zezwól na pracę z opcją 1 dla tego samouczka. Obecnie `UnitPrice` jest sformatowana jako wartość walutowa ze względu na wyrażenie wiązania danych dla pola tekstowego w `EditItemTemplate`: `<%# Eval("UnitPrice", "{0:c}") %>`. Zmień instrukcję `Eval` na `Eval("UnitPrice", "{0:n2}")`, która formatuje wynik jako liczbę z dwiema cyframi precyzji. Można to zrobić bezpośrednio poprzez składnię deklaratywną lub klikając łącze Edytuj powiązania danych z `UnitPrice` TextBox w `EditItemTemplate`DataList.
 
-Dzięki tej zmianie sformatowane ceny w interfejsie edycji zawiera przecinki jako separator grup i kropki jako separatora dziesiętnego, ale pozostawia off symbol waluty.
+W przypadku tej zmiany sformatowana cena w interfejsie edycji obejmuje przecinki jako separator grupy i kropkę jako separator dziesiętny, ale pozostawia symbol waluty.
 
 > [!NOTE]
-> Podczas usuwania format waluty z interfejsu, które można edytować, czy Zajmuję się umieścić symbol waluty jako tekst poza pole tekstowe. Stanowi wskazówkę użytkownika, który nie ma potrzeby zapewnienie symbol waluty.
+> W przypadku usuwania formatu waluty z interfejsu edytowalnego warto ułatwić umieszczenie symbolu waluty jako tekstu spoza pola tekstowego. Służy to jako Wskazówka dla użytkownika, że nie muszą podawać symbolu waluty.
 
-## <a name="fixing-the-cancel-button"></a>Naprawianie przycisk Anuluj
+## <a name="fixing-the-cancel-button"></a>Naprawianie przycisku Anuluj
 
-Domyślnie formanty sprawdzania poprawności w sieci Web emitować JavaScript do wykonywania sprawdzania poprawności po stronie klienta. Po kliknięciu przycisku, element LinkButton lub ImageButton, formanty sprawdzania poprawności na stronie są sprawdzane po stronie klienta, zanim nastąpi odświeżenie strony. W przypadku wszelkich nieprawidłowych danych zwrotu zostało anulowane. W przypadku niektórych przycisków jednak ważności danych mogą być nieistotne; w takim przypadku zwrotu anulowana z powodu nieprawidłowych danych jest uciążliwy.
+Domyślnie formanty sieci Web walidacji emitują kod JavaScript, aby przeprowadzić walidację po stronie klienta. Gdy zostanie kliknięty przycisk, element LinkButton lub kliknięto element ImageButton, kontrolki walidacji na stronie są sprawdzane po stronie klienta przed wykonaniem ogłaszania zwrotnego. Jeśli istnieją jakieś nieprawidłowe dane, ogłaszanie zwrotne zostanie anulowane. W przypadku niektórych przycisków ważność danych może być nieistotna. w takim przypadku unieważnienie ogłaszania zwrotnego zostało anulowane z powodu nieprawidłowych danych.
 
-Przykładem takiego znajduje się w przycisk Anuluj. Wyobraź sobie, czy użytkownik wprowadzi nieprawidłowe dane, takie jak nazwa produktu s, pomijając decyduje o nagrywa t chcesz przecież zapisanie produktu i trafienia przycisk Anuluj. Obecnie przycisku Anuluj wyzwala formanty sprawdzania poprawności na stronie, które wysyłają raporty, nazwa produktu brakujących elementów i zapobiec zwrotu. Nasze użytkownik będzie musiał wpisać jakiś tekst do `ProductName` TextBox tylko do anulujesz proces edycji.
+Przycisk Anuluj to przykład. Załóżmy, że użytkownik wprowadza nieprawidłowe dane, takie jak pominięcie nazwy produktu, a następnie decydowanie o tym, że nie chcesz, aby zapisał produkt po wszystko i trafi przycisk Anuluj. Obecnie przycisk Anuluj wyzwala kontrolki walidacji na stronie, w której raport nie ma nazwy produktu i uniemożliwia ogłaszanie zwrotne. Użytkownik musi wpisać jakiś tekst w polu tekstowym `ProductName` po prostu, aby anulować proces edycji.
 
-Na szczęście mają Button, element LinkButton i ImageButton [ `CausesValidation` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx) , można wskazać, czy kliknięcie przycisku powinno zainicjować logikę weryfikacji (wartość domyślna to `True`). Ustaw s przycisku Anuluj `CausesValidation` właściwość `False`.
+Na szczęście przycisk, element LinkButton i kliknięto element ImageButton mają [właściwość`CausesValidation`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx) , która może wskazywać, czy kliknięcie przycisku powinno inicjować logikę walidacji (domyślnie `True`). Ustaw właściwość `CausesValidation` przycisku Anuluj na `False`.
 
-## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>Zapewniając dane wejściowe są prawidłowe w elementu UpdateCommand program obsługi zdarzeń
+## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>Upewnienie się, że dane wejściowe są prawidłowe w programie obsługi zdarzeń elementu UpdateCommand
 
-Ze względu na skrypt po stronie klienta, wyemitowane przez formanty sprawdzania poprawności, jeśli użytkownik wprowadzi nieprawidłowe dane wejściowe formanty sprawdzania poprawności anulować wszelkie ogłaszania zwrotnego inicjowane przez przycisk LinkButton, lub ImageButton kontrolki, których `CausesValidation` właściwości są `True` ( ustawienie domyślne). Jednak jeśli użytkownik odwiedził z antiquated przeglądarki lub których obsługa języka JavaScript została wyłączona, nie będą wykonywane sprawdzanie poprawności po stronie klienta.
+Ze względu na skrypt po stronie klienta emitowany przez kontrolki walidacji, jeśli użytkownik wprowadzi nieprawidłowe dane wejściowe, kontrolki walidacji anulują wszelkie ogłaszania zwrotne zainicjowane przez przycisk, element LinkButton lub kliknięto element ImageButton, których właściwości `CausesValidation` są `True` (wartość domyślna). Jeśli jednak użytkownik zostanie odwiedzany przy użyciu przeglądarki antiquated lub jednej z nich, której obsługa języka JavaScript została wyłączona, sprawdzanie poprawności po stronie klienta nie zostanie wykonane.
 
-Wszystkie formanty weryfikacji platformy ASP.NET Powtórz logikę weryfikacji natychmiast po ogłaszania zwrotnego i raportowania ogólnej poprawność danych wejściowych strony s za pośrednictwem [ `Page.IsValid` właściwość](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx). Jednak przepływ strona nie zostanie przerwana lub zatrzymany w dowolny sposób na podstawie wartości `Page.IsValid`. Jako programiści, odpowiada za naszych upewnij się, że `Page.IsValid` właściwość ma wartość `True` przed kontynuowaniem kod, który zakłada prawidłowe dane wejściowe.
+Wszystkie kontrolki walidacji ASP.NET powtarzają swoją logikę weryfikacji natychmiast po odświeżeniu i raportują ogólną ważność danych wejściowych stron za pośrednictwem [właściwości`Page.IsValid`](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx). Jednak przepływ strony nie zostanie przerwany ani zatrzymany w sposób oparty na wartości `Page.IsValid`. Deweloperzy mogą upewnić się, że właściwość `Page.IsValid` ma wartość `True` przed kontynuowaniem kodu, który przyjmuje prawidłowe dane wejściowe.
 
-Jeśli użytkownik ma Obsługa skryptów JavaScript wyłączona, odwiedzić naszą stronę, edytuje produktu, wprowadza wartość ceny zbyt kosztowne i kliknięciu przycisku Aktualizuj weryfikacji po stronie klienta zostanie pominięta, a następnie nastąpi odświeżenie strony. Na odświeżenie strony, ASP.NET, strona s `UpdateCommand` wykonuje program obsługi zdarzeń i zgłaszany jest wyjątek podczas próby przeprowadzenia analizy zbyt kosztowne `Decimal`. Ponieważ mamy obsługi wyjątków, bez problemu zmieniała obsługi takiego wyjątku, ale firma Microsoft może uniemożliwić nieprawidłowe dane poślizg w pierwszej kolejności za pomocą tylko kontynuowanie przy użyciu `UpdateCommand` programu obsługi zdarzeń Jeśli `Page.IsValid` ma wartość `True`.
+Jeśli użytkownik ma wyłączony kod JavaScript, odwiedza naszą stronę, edytuje produkt, wprowadza wartość ceny zbyt kosztowną i klika przycisk Aktualizuj, po stronie klienta zostanie pominięte, a proces ogłaszania zwrotnego zostanie przesunięty. W przypadku ogłaszania zwrotnego ASP.NET stronę `UpdateCommand` s programu obsługi zdarzeń i występuje wyjątek podczas próby przeanalizowania zbyt kosztownych `Decimal`. Ze względu na to, że mamy obsługę wyjątków, taki wyjątek będzie obsłużony w sposób płynny, ale możemy zapobiec poślizgu nieprawidłowych danych w pierwszym miejscu przez wykonanie procedury obsługi zdarzeń `UpdateCommand`, jeśli `Page.IsValid` ma wartość `True`.
 
-Dodaj następujący kod na początku `UpdateCommand` programu obsługi zdarzeń bezpośrednio przed `Try` bloku:
+Dodaj następujący kod na początku procedury obsługi zdarzeń `UpdateCommand` bezpośrednio przed blokiem `Try`:
 
 [!code-vb[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample2.vb)]
 
-Dodając ten produkt będzie podejmować próby można zaktualizować tylko wtedy, gdy przesłane dane są prawidłowe. Większość użytkowników nie będzie mógł ogłaszanie zwrotne nieprawidłowych danych z powodu skrypty po stronie klienta formanty sprawdzania poprawności, ale użytkowników, których przeglądarek don t obsługuje języka JavaScript lub, obsługą języka JavaScript wyłączona, można pominąć sprawdzanie po stronie klienta i przesłać nieprawidłowe dane.
+Dzięki temu produkt będzie podejmować próby aktualizacji tylko wtedy, gdy przesłane dane są prawidłowe. Większość użytkowników nie będzie w stanie ogłaszać nieprawidłowych danych z powodu weryfikacji skryptów po stronie klienta, ale użytkownicy, których przeglądarki nie obsługują języka JavaScript lub których obsługa języka JavaScript została wyłączona, mogą ominąć sprawdzanie po stronie klienta i przesłać nieprawidłowe dane.
 
 > [!NOTE]
-> Uważni czytnik będzie przypominać podczas aktualizowania danych widoku GridView, musimy nie zostały jawnie sprawdziła `Page.IsValid` właściwości w klasie CodeBehind nasze strony s. Jest to spowodowane konsultować się z widoku GridView `Page.IsValid` właściwości dla nas i tylko przychody z aktualizacją update tylko wtedy, gdy zwraca wartość `True`.
+> Czytnik uważni będzie się odwoływać, gdy aktualizujesz dane przy użyciu widoku GridView, nie musimy jawnie sprawdzać właściwości `Page.IsValid` w klasie powiązanej z kodem strony. Jest to spowodowane tym, że widok GridView sprawdza Właściwość `Page.IsValid` dla nas i tylko kontynuuje aktualizację tylko wtedy, gdy zwróci wartość `True`.
 
-## <a name="step-3-summarizing-data-entry-problems"></a>Krok 3. Podsumowanie problemów zapis danych
+## <a name="step-3-summarizing-data-entry-problems"></a>Krok 3. podsumowanie problemów z wprowadzaniem danych
 
-Oprócz pięciu sprawdzania poprawności formantów, program ASP.NET zawiera [kontrolki podsumowania walidacji](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), który wyświetla `ErrorMessage` s te mechanizmy sprawdzania poprawności wykryto nieprawidłowe dane. Te dane podsumowania mogą być wyświetlane w postaci tekstu na stronie sieci web lub za pośrednictwem messagebox modalne, po stronie klienta. Pozwól s zwiększenia tego samouczka, aby uwzględnić messagebox po stronie klienta, podsumowanie problemów weryfikacji.
+Oprócz pięciu kontrolek weryfikacyjnych ASP.NET zawiera [kontrolkę podsumowania walidacji](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), która wyświetla `ErrorMessage` s tych kontrolek sprawdzania poprawności, które wykryły nieprawidłowe dane. Te dane podsumowujące mogą być wyświetlane jako tekst na stronie sieci Web lub przez modalne, po stronie klienta. Pozwól usłudze s ulepszyć ten samouczek, aby dołączyć element MessageBox po stronie klienta podsumowujący wszelkie problemy z walidacją.
 
-Aby to zrobić, przeciągnij kontrolki podsumowania walidacji z przybornika do projektanta. Lokalizacja t kontrolki podsumowania walidacji naprawdę są ważne, ponieważ możemy ponownie w celu skonfigurowania go, aby tylko wyświetlić podsumowanie jako komunikat messagebox. Po dodaniu kontrolki, ustaw jego [ `ShowSummary` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) do `False` i jego [ `ShowMessageBox` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) do `True`. Dodając ten wszelkie błędy sprawdzania poprawności są podsumowane w messagebox po stronie klienta (patrz rysunek 6).
+Aby to osiągnąć, przeciągnij formant podsumowania walidacji z przybornika do projektanta. Lokalizacja kontrolki podsumowania walidacji jest niezależna, ponieważ będziemy ją skonfigurować tak, aby wyświetlała tylko podsumowanie jako element MessageBox. Po dodaniu kontrolki ustaw jej [właściwość`ShowSummary`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) na `False` i jej [właściwość`ShowMessageBox`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) na `True`. W tym przypadku wszelkie błędy sprawdzania poprawności są podsumowywane w elemencie MessageBox po stronie klienta (patrz rysunek 6).
 
-[![Błędy sprawdzania poprawności są podsumowane w Messagebox po stronie klienta](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
+[![błędy walidacji są sumowane w elemencie MessageBox po stronie klienta](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
 
-**Rysunek 6**: Błędy sprawdzania poprawności są podsumowane w Messagebox po stronie klienta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
+**Ilustracja 6**. błędy sprawdzania poprawności są sumowane w elemencie MessageBox po stronie klienta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku widzieliśmy jak zmniejszyć prawdopodobieństwo wyjątków za pomocą kontrolek weryfikacji do aktywnego upewnij się, że dane wejściowe naszych użytkowników prawidłowy przed podjęciem próby ich używać w przepływie pracy aktualizacji. Program ASP.NET zapewnia pięć formantów sieci Web sprawdzania poprawności, które są przeznaczone do wglądu namierzenie internetowego kontrolować dane wejściowe s i raportować o ważności s danych wejściowych. W ramach tego samouczka użyliśmy dwa z tych pięć formantów RequiredFieldValidator i CompareValidator zapewnienie podano nazwę produktu s i że cena miał format waluty z wartością większą niż lub równą zero.
+W tym samouczku przedstawiono sposób zmniejszania prawdopodobieństwa wyjątków przy użyciu kontrolek weryfikacji, aby aktywnie upewnić się, że nasze dane wejściowe użytkowników są prawidłowe przed podjęciem próby użycia ich w przepływie aktualizacji. Program ASP.NET zapewnia pięć kontrolek sieci Web weryfikacji, które są przeznaczone do inspekcji określonego danych wejściowych kontrolki sieci Web i raportują z powrotem do danych wejściowych. W tym samouczku użyto dwóch z pięciu kontrolek RequiredFieldValidator i CompareValidator, aby upewnić się, że podano nazwę produktu i że cena miała format waluty o wartości większej lub równej zero.
 
-Dodawanie kontrolek weryfikacji do s DataList edytowanie interfejsu wystarczy przeciągnąć je na `EditItemTemplate` z przybornika i ustawienie niewielki podzbiór właściwości. Domyślnie formanty sprawdzania poprawności automatycznie emitują skrypt weryfikacji po stronie klienta; zapewniają także weryfikacji po stronie serwera na odświeżenie strony, przechowywania zbiorczą wynik w `Page.IsValid` właściwości. Aby pominąć weryfikację po stronie klienta, po kliknięciu przycisku, element LinkButton lub ImageButton, ustaw s `CausesValidation` właściwość `False`. Ponadto, przed przystąpieniem do wykonywania wszystkich zadań z danymi na odświeżenie strony, upewnij się, że `Page.IsValid` właściwość zwraca `True`.
+Dodawanie kontrolek weryfikacji do interfejsu edycji DataList s jest tak proste, jak przeciąganie ich do `EditItemTemplate` z przybornika i Ustawianie kilku właściwości. Domyślnie formanty walidacji automatycznie emitują skrypt walidacji po stronie klienta; udostępniają one również weryfikację po stronie serwera na serwerze ogłaszania zwrotnego, przechowując łączny wynik we właściwości `Page.IsValid`. Aby pominąć walidację po stronie klienta po kliknięciu przycisku, element LinkButton lub kliknięto element ImageButton, należy ustawić właściwość Button-`CausesValidation` na `False`. Ponadto przed wykonaniem jakichkolwiek zadań z danymi przesłanymi na stronie ogłaszania zwrotnego upewnij się, że właściwość `Page.IsValid` zwraca `True`.
 
-Wszystkie samouczki edycji kontrolki DataList możemy ve badania do tej pory były bardzo proste interfejsy edycji pole tekstowe nazwy produktu s i inny wpis dla ceny. Edytowanie interfejsu może jednak zawierać kombinację różnych formantów sieci Web, takich jak kontrolek DropDownList, kalendarze, przyciski radiowe, pola wyboru i tak dalej. W naszym następnym samouczku Zapoznamy się kompilowanie interfejs, który korzysta z rozmaitych kontrolki sieci Web.
+Wszystkie samouczki edycji elementu DataList zostały zbadane, więc bardzo proste edytowanie interfejsów to pole tekstowe dla nazwy produktu i innej ceny. Interfejs edytowania, jednak może zawierać kombinację różnych kontrolek sieci Web, takich jak kontrolek DropDownList, Calendars, RadioButtons, CheckBoxs i tak dalej. W naszym następnym samouczku dowiesz się, jak utworzyć interfejs, który używa różnych kontrolek sieci Web.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Dennis Patterson, Krzysztof Pespisa i Liz Shulok. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Dennis Patterson, Krzysztof Pespisa i Liz Shulok. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](handling-bll-and-dal-level-exceptions-vb.md)

@@ -1,194 +1,194 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
-title: Wzorzec pracy skoncentrowany na kolejkach (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
+title: Wzorzec pracy skoncentrowanej na kolejkach (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure) | Microsoft Docs
 author: MikeWasson
-description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
+description: Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 9081691207a1a8ccd58e1a93a0be06af15c0b2d0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c73b070f11366e781bcea70ffc84fd49a47d469a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118704"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582765"
 ---
-# <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Wzorzec pracy skoncentrowany na kolejkach (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+# <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Wzorzec pracy skoncentrowanej na kolejkach (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure** jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc w pomyślnym tworzeniu aplikacji sieci Web dla chmury. Aby uzyskać informacje na temat książki elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
-Wcześniej widzieliśmy, że przy użyciu wielu usług może spowodować "złożona" umowa SLA, gdzie jest umowa SLA skutecznych aplikacji *produktu* indywidualnych umów SLA. Na przykład aplikacji naprawić używa, Web Sites, Storage i bazy danych SQL. Jeśli dowolny z tych usług nie powiedzie się, aplikacja zwróci błąd do użytkownika.
+Wcześniej dodaliśmy, że korzystanie z wielu usług może skutkować umową SLA "złożona", w której obowiązująca umowa SLA aplikacji jest *produktem* poszczególnych umowy SLA. Na przykład aplikacja do rozwiązywania problemów używa witryn sieci Web, magazynu i SQL Database. Jeśli jakakolwiek z tych usług ulegnie awarii, aplikacja zwróci błąd do użytkownika.
 
-Buforowanie jest dobrym sposobem obsługi błędów przejściowych dla zawartości tylko do odczytu. Ale co zrobić, jeśli Twoja aplikacja potrzebuje do pracy? Na przykład, gdy użytkownik przesyła nowe rozwiązać go zadanie, aplikacja nie można po prostu umieścić zadania w pamięci podręcznej. Aplikacja musi można zapisać zadania naprawić w trwałym magazynie danych, dzięki czemu mogą być przetwarzane.
+Buforowanie jest dobrym sposobem obsługi błędów przejściowych dla zawartości tylko do odczytu. Ale co zrobić, jeśli aplikacja wymaga wykonania pracy? Na przykład gdy użytkownik prześle nowe zadanie poprawki IT, aplikacja nie może po prostu umieścić zadania w pamięci podręcznej. Aplikacja musi napisać to zadanie Fix it do trwałego magazynu danych, aby można było je przetworzyć.
 
-To, skąd pochodzą wzorzec pracy skoncentrowany na kolejkach. Ten wzorzec umożliwia tym luźne powiązanie warstwa sieci web i usługi zaplecza.
+Jest to miejsce, w którym znajduje się wzorzec pracy skoncentrowanej na kolejce. Ten wzorzec umożliwia swobodne sprzęganie między warstwą sieci Web i usługą zaplecza.
 
-Oto, jak działa wzorzec. Gdy aplikacja odbiera żądanie, umieszcza element roboczy do kolejki i natychmiast zwraca odpowiedź. Następnie proces zaplecza oddzielne ściąga elementy robocze z kolejki i wykonuje pracę.
+Oto jak działa wzorzec. Gdy aplikacja uzyskuje żądanie, umieszcza element roboczy w kolejce i natychmiast zwraca odpowiedź. Następnie oddzielny proces zaplecza Pobiera elementy robocze z kolejki i wykonuje prace.
 
-Wzorzec pracy skoncentrowany na kolejkach przydaje się do:
+Wzorzec pracy skoncentrowanej na kolejce jest przydatny dla:
 
-- Praca jest czasochłonne (duże opóźnienie).
-- Pracy, która wymaga usługi zewnętrznej, która może być niedostępne.
-- Oznacza to praca dużej ilości zasobów (wysokie użycie procesora CPU).
-- Praca używającym współczynnik wyrównywanie (zależnie od obciążenia nagłe wzrosty).
+- Pracy, która jest czasochłonna (duże opóźnienie).
+- Działanie, które wymaga usługi zewnętrznej, która może być niezawsze dostępna.
+- Pracuj intensywnie korzystające z zasobów (High CPU).
+- Działa, które byłyby korzystne w przypadku bilansowania (z uwzględnieniem nagłych obciążeń obciążenia).
 
-## <a name="reduced-latency"></a>Zmniejszenie opóźnienia
+## <a name="reduced-latency"></a>Ograniczone opóźnienie
 
-Kolejki są przydatne w każdym razem, gdy robią czasochłonne. Jeśli zadanie trwa kilka sekund lub dłużej, zamiast blokowanie użytkownika końcowego, umieść element roboczy do kolejki. Monituj użytkownika, "Pracujemy nad jej", a następnie użyj odbiornika kolejki, do przetwarzania zadań w tle.
+Kolejki są przydatne podczas czasochłonnych zadań. Jeśli zadanie trwa kilka sekund lub dłużej, zamiast blokować użytkownika końcowego, umieść element roboczy w kolejce. Poinformuj użytkownika o tym, że pracujemy nad nim, a następnie przetwórz zadanie w tle za pomocą odbiornika kolejki.
 
-Na przykład podczas dokonywania zakupów w sklepie internetowym, witryny sieci web potwierdza natychmiast zamówienia. Ale nie oznacza to, że ciężarówki dostarczany jest już Twoich rzeczy. Umieszczają zadania w kolejce, a w tle są podczas sprawdzania kredytu przygotowywanie elementów do wysyłki i tak dalej.
+Jeśli na przykład kupisz coś w sprzedaży detalicznej, witryna sieci Web natychmiast potwierdzi zamówienie. Ale nie oznacza to, że Twoje rzeczy są już w trakcie dostarczania samochodów. Umieszczają zadania w kolejce, a w tle przeprowadzają kontrolę kredytową, przygotowując elementy do wysyłki i tak dalej.
 
-W scenariuszach z krótkim czasem oczekiwania całkowity czas end-to-end może być dłużej, przy użyciu kolejki, w porównaniu z synchronicznie wykonywania zadania. Ale nawet wówczas, inne korzyści mogą być większe niż tej wady.
+W przypadku scenariuszy z krótkim opóźnieniem całkowity czas od końca do końca może już być używany w kolejce w porównaniu z wykonywaniem zadania synchronicznie. Jednak nawet inne korzyści mogą przeważyć tę wadą.
 
-## <a name="increased-reliability"></a>Większa niezawodność
+## <a name="increased-reliability"></a>Zwiększona niezawodność
 
-W wersji rozwiązać go, że firma Microsoft już został patrząc do tej pory frontonu sieci web jest ściśle powiązany z zapleczem bazy danych SQL. Jeśli usługa SQL database jest niedostępna, użytkownik pobiera błąd. Jeśli ponownych prób nie działa (oznacza to, że błąd jest więcej niż przejściowe), jedyną czynnością, możesz zrobić, jest wyświetlany błąd i poprosić użytkownika, aby spróbować ponownie później.
+W wersji poprawki, która została już przeszukana, fronton sieci Web jest ściśle połączony z zaplecem SQL Database. Jeśli usługa SQL Database jest niedostępna, użytkownik otrzymuje błąd. Jeśli ponawianie próby nie zadziała (oznacza to, że awaria jest większa niż przejściowa), jedyną czynnością, którą można zrobić, jest wyświetlenie błędu i poproszenie użytkownika o próbę ponowienie próby później.
 
-![Diagram przedstawiający frontonu sieci web w przypadku braku Jeśli wewnętrznej bazy danych SQL nie powiodło się](queue-centric-work-pattern/_static/image1.png)
+![Diagram przedstawiający niepowodzenie frontonu sieci Web w przypadku niepowodzenia SQL Database zaplecza](queue-centric-work-pattern/_static/image1.png)
 
-Korzystanie z kolejek, gdy użytkownik przesyła zadanie napraw go, aplikacja zapisuje komunikat do kolejki. Ładunek komunikatu jest [JSON](http://json.org/) reprezentację zadania. Gdy tylko zostanie napisany komunikat do kolejki, aplikacja zwraca i natychmiast pokazuje komunikat o powodzeniu użytkownikowi.
+Przy użyciu kolejek, gdy użytkownik przesyła zadanie poprawki IT, aplikacja zapisuje komunikat do kolejki. Ładunek wiadomości jest reprezentacją [JSON](http://json.org/) zadania. Natychmiast po zapisaniu komunikatu w kolejce aplikacja zwraca i natychmiast wyświetla komunikat o powodzeniu dla użytkownika.
 
-Dowolną z usług wewnętrznej bazy danych — takich jak bazy danych SQL lub odbiornik kolejki — przejdą w tryb offline, użytkownicy nadal możesz przesłać nowe rozwiązać go zadania. Komunikaty po prostu może umieścić w kolejce do czasu ponownie usługi wewnętrznej bazy danych są dostępne. W tym momencie usługi wewnętrznej bazy danych będzie nadrób zaległości w zaległości.
+Jeśli którykolwiek z usług zaplecza, takich jak baza danych SQL lub odbiornik kolejki — przejdź do trybu offline, użytkownicy nadal będą mogli przesłać nowe zadania poprawki. Komunikaty będą po prostu umieszczane w kolejce do momentu ponownego udostępnienia usług zaplecza. W tym momencie usługi zaplecza będą przechwycić w zaległości.
 
-![Diagram przedstawiający sieci web frontonu w dalszym ciągu działać, gdy występuje błąd bazy danych SQL](queue-centric-work-pattern/_static/image2.png)
+![Diagram przedstawiający funkcję frontonu internetowego kontynuuje działanie w przypadku wystąpienia błędu SQL Database](queue-centric-work-pattern/_static/image2.png)
 
-Ponadto teraz możesz dodać więcej logikę zaplecza bez martwienia się o odporności frontonu. Na przykład można wysłać wiadomości e-mail lub wiadomości SMS do właściciela, zawsze wtedy, gdy nowe rozwiązać je przypisano. Adres e-mail lub usługa programu SMS jest niedostępny, można przetwarzać wszystkie inne elementy i następnie umieścić komunikatu w oddzielnej kolejki dla wysyłania wiadomości e-mail/SMS.
+Ponadto teraz można dodać więcej logiki zaplecza bez konieczności odporności frontonu. Na przykład możesz chcieć wysłać wiadomość e-mail lub wiadomości SMS do właściciela po każdym przypisaniu nowej poprawki. Jeśli poczta e-mail lub usługa programu SMS stanie się niedostępna, możesz przetwarzać wszystko inne, a następnie umieścić komunikat w osobnej kolejce do wysyłania wiadomości e-mail/SMS.
 
-Wcześniej był aplikacji sieci Web w umowach SLA skuteczne &times; magazynu &times; bazy danych SQL Database = 99.7%. (Zobacz [projektowanie pod kątem przetrwania awarii](design-to-survive-failures.md).)
+Wcześniej nasza obowiązująca umowa SLA była Web Apps &times; magazynu &times; SQL Database = 99,7%. (Zobacz [projekt, aby przetrwać awarie](design-to-survive-failures.md)).
 
-Gdy zmienimy aplikacji na używanie kolejki, fronton sieci web zależy od tylko aplikacje sieci Web i pamięci masowej, dla złożonego SLA 99,8%. (Zwróć uwagę, czy kolejek są częścią usługi Azure storage, dzięki czemu są one uwzględnione w tej samej umowy SLA jako magazynu obiektów blob).
+Gdy zmienimy aplikację w taki sposób, aby korzystała z kolejki, fronton sieci Web będzie zależny od Web Apps i magazynu dla złożonej umowy SLA 99,8%. (Należy zauważyć, że kolejki są częścią usługi Azure Storage, dlatego są uwzględnione w tej samej umowie SLA co magazyn obiektów BLOB).
 
-Jeśli potrzebujesz jeszcze lepsze niż 99,8%, można utworzyć dwie kolejki w dwóch różnych regionach. Wyznaczyć jeden jako podstawowy, a drugi jako pomocniczy. W aplikacji nie za pośrednictwem kolejki dodatkowej Jeśli kolejki głównej nie jest dostępna. Ryzyko jest niedostępna w tym samym czasie jest bardzo mały.
+Jeśli potrzebujesz jeszcze lepszego niż 99,8%, możesz utworzyć dwie kolejki w dwóch różnych regionach. Wyznacz jeden jako podstawowy, a drugi jako pomocniczy. Jeśli kolejka główna jest niedostępna w aplikacji, przełącz się do kolejki pomocniczej. Prawdopodobieństwo, że oba są niedostępne w tym samym czasie, jest bardzo mały.
 
-## <a name="rate-leveling-and-independent-scaling"></a>Wyrównywanie szybkości i niezależne skalowanie
+## <a name="rate-leveling-and-independent-scaling"></a>Skalowanie na poziomie i niezależność
 
-Kolejki są także przydatne coś, co jest nazywane *szybkości wyrównywanie* lub *wyrównywanie obciążenia*.
+Kolejki są również przydatne w przypadku czegoś *o nazwie lub* *wyrównywania obciążeń*.
 
-Aplikacje sieci Web często są podatne na nagłe wzrosty ruchu. Podczas skalowania automatycznego można użyć do automatycznego dodawania serwerów sieci web do obsługi ruchu w sieci web zwiększona, skalowanie automatyczne może nie móc wystarczająco szybko reagować na obsługi nagłych wzrostów obciążenia. Jeśli na serwerach sieci web można odciążyć niektóre czynności, które muszą zrobić przez napisanie wiadomości do kolejki, ich obsługi większego ruchu. Usługa zaplecza można odczytywać komunikaty z kolejki i przetwarzać je. Głębokość kolejki będzie rosnąć lub maleć, jak w zależności od zmian obciążenia przychodzącego.
+Aplikacje sieci Web są często podatne na nagłe rozerwania ruchu. Funkcja automatycznego skalowania umożliwia automatyczne dodawanie serwerów sieci Web w celu obsługi zwiększonego ruchu w sieci Web, jednak skalowanie automatyczna może nie być w stanie szybko reagować w celu obsługi nieoczekiwanych obciążeń. Jeśli serwery sieci Web mogą odciążać część pracy, którą trzeba wykonać, pisząc komunikat do kolejki, może obsłużyć więcej ruchu. Usługa zaplecza może następnie odczytywać komunikaty z kolejki i przetwarzać je. Głębokość kolejki zostanie powiększana lub zmniejszana, gdy obciążenie przychodzące będzie się różnić.
 
-Za pomocą wielu czasochłonne zadania rozładowany do usługi zaplecza warstwa sieci web można łatwiej odpowiedzieć skokami ruchu. I zaoszczędź pieniądze, ponieważ wszelkie określoną ilość ruchu sieciowego może zostać obsłużony przez mniejszej liczby serwerów sieci web.
+W przypadku wielu czasochłonnych zadań załadowanych do usługi zaplecza warstwa sieci Web może łatwiej reagować na nagłe skoki ruchu. Można zaoszczędzić pieniądze, ponieważ każdy ruch może być obsługiwany przez mniejszą liczbę serwerów sieci Web.
 
-Możesz skalować warstwa sieci web i usługi wewnętrznej bazy danych niezależnie od siebie. Na przykład możesz potrzebować trzech serwerów sieci web, ale tylko jeden serwer przetwarzania kolejki komunikatów. Lub Jeśli uruchamiasz zadanie wymagające wielu obliczeń w tle, możesz potrzebować więcej serwerów wewnętrznej bazy danych.
+Warstwę sieci Web i usługę zaplecza można skalować niezależnie. Na przykład mogą być potrzebne trzy serwery sieci Web, ale tylko jeden komunikat kolejki przetwarzania serwera. Lub jeśli uruchamiasz zadanie intensywnie korzystające z obliczeń w tle, może być konieczne zwiększenie liczby serwerów zaplecza.
 
 ![](queue-centric-work-pattern/_static/image3.png)
 
-Skalowanie automatyczne działa z usługami zaplecza, a także od warstwy sieci web. Możesz skalować w górę lub Skaluj w dół liczbę maszyn wirtualnych, które są przetwarzania zadań w kolejce na podstawie użycia procesora CPU zaplecza maszyn wirtualnych. Można też skalowania automatycznego w oparciu o liczbę elementów znajdują się w kolejce. Na przykład można stwierdzić, funkcja skalowania automatycznego ma próbować zachować co najwyżej 10 elementów w kolejce. Jeśli więcej niż 10 elementów do kolejki, skalowanie automatyczne spowoduje dodanie maszyn wirtualnych. Oni zapoznać się z nimi, automatycznego skalowania będzie zatrzymywania dodatkowe maszyny wirtualne.
+Skalowanie automatyczne współpracuje z usługami zaplecza oraz z warstwą sieci Web. Można skalować w górę lub w dół liczbę maszyn wirtualnych, które przetwarzają zadania w kolejce, w oparciu o użycie procesora na maszynach wirtualnych zaplecza. Możesz też automatycznie skalować w zależności od liczby elementów znajdujących się w kolejce. Na przykład możesz powiedzieć automatyczne skalowanie, aby nie przechowywać więcej niż 10 elementów w kolejce. Jeśli kolejka ma więcej niż 10 elementów, automatyczne skalowanie doda maszyny wirtualne. Po przechwyceniu automatyczne skalowanie spowoduje rozbicie dodatkowych maszyn wirtualnych.
 
-## <a name="adding-queues-to-the-fix-it-application"></a>Dodawanie do poprawki umieszcza je w kolejce aplikacji
+## <a name="adding-queues-to-the-fix-it-application"></a>Dodawanie kolejek do aplikacji poprawki IT
 
-Aby zaimplementować wzorzec kolejki, musimy upewnić dwie zmiany do aplikacji naprawić.
+Aby zaimplementować wzorzec kolejki, musimy wprowadzić dwie zmiany w aplikacji poprawki IT.
 
-- Gdy użytkownik przesyła nowe rozwiązać go zadanie, należy umieścić zadania w kolejce, zamiast zapisuje je w bazie danych.
-- Tworzenie usługi zaplecza, która przetwarza wiadomości w kolejce.
+- Gdy użytkownik przesyła nowe zadanie poprawki IT, należy umieścić zadanie w kolejce, zamiast zapisywać je w bazie danych.
+- Utwórz usługę zaplecza, która przetwarza wiadomości w kolejce.
 
-W kolejce, użyjemy [usługi Azure Queue Storage](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Innym rozwiązaniem jest użycie [usługi Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+W przypadku kolejki będziemy używać [usługi Azure queue storage](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Innym rozwiązaniem jest użycie [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
-Aby zdecydować, której usługi kolejki użyć, należy wziąć pod uwagę sposób Twoja aplikacja wymaga do wysyłania i odbierania wiadomości w kolejce:
+Aby określić, która usługa kolejki ma być używana, należy wziąć pod uwagę, w jaki sposób aplikacja musi wysyłać i odbierać komunikaty w kolejce:
 
-- Jeśli masz, współpracujących producentów i odbiorców konkurencyjnych, należy wziąć pod uwagę przy użyciu usługi Azure Queue Storage. "Współpracujących producentów" oznacza, że wiele procesów dodawania komunikatów do kolejki. "Konkurujących odbiorców" oznacza wiele procesów ściągają wiadomości w kolejce do ich przetworzenia, ale każdy komunikat danego mogą być przetwarzane tylko przez jednego "użytkownika". Jeśli potrzebujesz więcej przepływności, nie można uzyskać z pojedynczą kolejką, użyj dodatkowe kolejki i/lub dodatkowych kont magazynu.
-- Jeśli potrzebujesz [modelu publikowania/subskrybowania](http://en.wikipedia.org/wiki/Publish/subscribe), rozważ użycie kolejek usługi Azure Service Bus.
+- Jeśli masz producentów współpracujących i konkurujących klientów, rozważ użycie usługi Azure Queue Storage. "Producenci współpracująci" to wiele procesów, które dodają komunikaty do kolejki. "Konkurujący konsumenci" to wiele procesów ściągających komunikaty z kolejki w celu ich przetworzenia, ale każdy komunikat może być przetwarzany tylko przez jeden "konsument". Jeśli potrzebujesz większej przepływności niż możesz uzyskać dostęp do jednej kolejki, użyj dodatkowych kolejek i/lub dodatkowych kont magazynu.
+- Jeśli potrzebujesz [modelu publikowania/subskrybowania](http://en.wikipedia.org/wiki/Publish/subscribe), rozważ użycie kolejek Azure Service Bus.
 
-Aplikacja naprawić dostosowane do potrzeb współpracujących producentów i konkurujących konsumentów modelu.
+Poprawka aplikacji IT pasuje do współpracujących producentów i modelu konkurujących odbiorców.
 
-Kolejna kwestia jest związana dostępności aplikacji. Usługi Queue Storage jest częścią tej samej usługi, które firma Microsoft korzysta z usługi blob storage, więc za jego pomocą nie ma wpływu na umowie SLA. Usługa Azure Service Bus jest oddzielną usługą za pomocą swoje własne umowy SLA. Jeśli użyto kolejek usługi Service Bus, firma Microsoft musiałaby wziąć pod uwagę dodatkową wartość procentowa umów SLA i naszych złożona umowa SLA będzie niższa. Wybierając usługi kolejki, upewnij się, że rozumiesz wpływ wybranego na dostępność aplikacji. Aby uzyskać więcej informacji, zobacz [zasobów](#resources) sekcji.
+Inną kwestią jest dostępność aplikacji. Usługa Queue Storage jest częścią tej samej usługi, która jest używana w usłudze BLOB Storage, dzięki czemu nie ma wpływu na naszą umowę SLA. Azure Service Bus jest oddzielną usługą z własną umową SLA. Jeśli korzystamy z kolejek Service Bus, będziemy musieli wziąć udział w dodatkowej umowie SLA, a nasza umowa SLA będzie niższa. Po wybraniu usługi kolejek upewnij się, że rozumiesz wpływ wyboru na dostępność aplikacji. Aby uzyskać więcej informacji, zobacz sekcję [resources](#resources) .
 
-## <a name="creating-queue-messages"></a>Tworzenie wiadomości w kolejce
+## <a name="creating-queue-messages"></a>Tworzenie komunikatów w kolejce
 
-Aby umieścić zadanie poprawka w kolejce, fronton sieci web wykonuje następujące czynności:
+Aby można było wykonać zadanie poprawki IT w kolejce, fronton sieci Web wykonuje następujące czynności:
 
-1. Tworzenie [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) wystąpienia. `CloudQueueClient` Wystąpienia jest używana do wykonywania żądań dotyczących usługi kolejki.
-2. Utworzenie kolejki, jeśli go jeszcze nie istnieje.
-3. Serializacja zadań naprawić.
-4. Wywołaj [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) umieścić komunikat do kolejki.
+1. Utwórz wystąpienie [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) . Wystąpienie `CloudQueueClient` jest używane do wykonywania żądań względem usługi kolejki.
+2. Utwórz kolejkę, jeśli jeszcze nie istnieje.
+3. Serializacja zadania Fix it.
+4. Wywołaj [CloudQueue. AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) , aby umieścić komunikat w kolejce.
 
-Wykonamy tę pracę w Konstruktorze i `SendMessageAsync` nową metodę `FixItQueueManager` klasy.
+Wykonamy tę prace w konstruktorze i `SendMessageAsync` metodzie nowej klasy `FixItQueueManager`.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample1.cs?highlight=11-12,16,18-25)]
 
-Tutaj używamy [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) biblioteki do serializacji automatyczne do formatu JSON. Możesz użyć dowolnego podejście serializacji, użytkownik sobie tego życzy. JSON ma tę zaletę jest czytelny dla człowieka, będąc mniej szczegółowe informacje, niż XML.
+W tym miejscu korzystamy z biblioteki [JSON.NET](https://github.com/JamesNK/Newtonsoft.Json) do serializacji fixit do formatu JSON. Możesz użyć dowolnego preferowanego podejścia serializacji. Usługa JSON ma zalety odczytywania danych przez człowieka, ale jest mniej pełnych niż język XML.
 
-Kodu o jakości produkcyjnej będzie dodać logikę obsługi błędu, zatrzymać, gdy baza danych stała się niedostępna, bardziej obsługi odzyskiwania, utworzyć kolejkę przy uruchamianiu aplikacji i zarządzanie "[skażone" wiadomości](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Zarządzanie skażonymi komunikatami jest komunikat, który nie można przetworzyć przyczyny. Nie chcesz skażone komunikaty znajdują się w kolejce, w którym rola procesu roboczego stale spróbuje je przetworzyć, zakończyć się niepowodzeniem, spróbuj ponownie, zakończyć się niepowodzeniem i tak dalej.)
+Kod jakości produkcji mógłby dodać logikę obsługi błędów, wstrzymać, jeśli baza danych stanie się niedostępna, obsłużyć odzyskiwanie bardziej czyste, utworzyć kolejkę przy uruchamianiu aplikacji i zarządzać[komunikatami "trujące"](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Trująca wiadomość jest komunikatem, którego nie można przetworzyć z jakiegoś powodu. Nie chcesz, aby trujące komunikaty były umieszczane w kolejce, w której rola proces roboczy będzie stale próbować je przetworzyć, Niepowodzenie, spróbuj ponownie, zakończył się niepowodzeniem itd.)
 
-W aplikacji MVC frontonu należy zaktualizować kod, który tworzy nowe zadanie. Zamiast umieszczać zadania do repozytorium, należy wywołać `SendMessageAsync` metod przedstawionych powyżej.
+W aplikacji MVC frontonu musimy zaktualizować kod, który tworzy nowe zadanie. Zamiast przełączać zadanie do repozytorium, wywołaj metodę `SendMessageAsync` pokazaną powyżej.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample2.cs?highlight=10)]
 
 ## <a name="processing-queue-messages"></a>Przetwarzanie komunikatów w kolejce
 
-Przetwarzanie komunikatów w kolejce, utworzymy usługi zaplecza. Usługa zaplecza zostanie uruchomiona nieskończoną pętlę, która wykonuje następujące czynności:
+Aby przetwarzać komunikaty w kolejce, utworzymy usługę zaplecza. Usługa zaplecza uruchomi nieskończoną pętlę, która wykonuje następujące czynności:
 
-1. Pobieranie następnego komunikatu z kolejki.
-2. Deserializacji komunikatu do zadania rozwiązać go.
-3. Zadanie naprawić zapisu w bazie danych.
+1. Pobierz następną wiadomość z kolejki.
+2. Deserializacja komunikatu do zadania poprawki IT.
+3. Napisz zadanie Fix it do bazy danych.
 
-Aby hostować usługi zaplecza, utworzymy usługi Azure Cloud Service, która zawiera *roli procesu roboczego*. Rola procesu roboczego składa się z co najmniej jeden maszyn wirtualnych, które można wykonać przetwarzanie zaplecza. Kod, który jest uruchamiany na tych maszynach wirtualnych każda będzie ściągać komunikaty z kolejki w miarę ich udostępniania. Dla każdego komunikatu utworzymy deserializacji ładunek w formacie JSON i zapisywać wystąpienie jednostki rozwiązać go zadania w bazie danych przy użyciu tego samego repozytorium, której użyliśmy we wcześniejszej części warstwa sieci web.
+Aby hostować usługę zaplecza, utworzymy usługę w chmurze platformy Azure, która zawiera *rolę procesu roboczego*. Rola procesu roboczego składa się z co najmniej jednej maszyny wirtualnej, która może przeprowadzić przetwarzanie zaplecza. Kod, który jest uruchamiany w tych maszynach wirtualnych, będzie ściągał komunikaty z kolejki, gdy staną się dostępne. Dla każdego komunikatu będziemy deserializować ładunek JSON i napisać wystąpienie obiektu Fix it do bazy danych przy użyciu tego samego repozytorium, które zostało użyte wcześniej w warstwie sieci Web.
 
-Poniższe kroki pokazują jak dodać procesu roboczego projektu roli do rozwiązania, które ma projekt sieci web standard. Napraw go projektu, którą można pobrać już zostały wykonane następujące kroki.
+Poniższe kroki pokazują, jak dodać projekt roli procesu roboczego do rozwiązania, które ma standardowy projekt sieci Web. Te kroki zostały już wykonane w projekcie poprawki IT, który można pobrać.
 
-Najpierw Dodaj projekt usługi w chmurze do rozwiązania Visual Studio. Kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Dodaj**, następnie **nowy projekt**. W okienku po lewej stronie rozwiń **Visual C#** i wybierz **chmury**.
+Najpierw Dodaj projekt usługi w chmurze do rozwiązania programu Visual Studio. Kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz polecenie **Dodaj**, a następnie pozycję **Nowy projekt**. W okienku po lewej stronie rozwiń **pozycję C# Wizualizacja** i wybierz pozycję **chmura**.
 
 [![](queue-centric-work-pattern/_static/image5.png)](queue-centric-work-pattern/_static/image4.png)
 
-W **nową usługę w chmurze Azure** okna dialogowego, rozwiń węzeł **Visual C#** węzła w okienku po lewej stronie. Wybierz **roli procesu roboczego** i kliknij ikonę strzałki w prawo.
+W oknie dialogowym **Nowa usługa w chmurze Azure** rozwiń węzeł **wizualizacji C#**  w okienku po lewej stronie. Wybierz **rolę proces roboczy** , a następnie kliknij ikonę strzałki w prawo.
 
 ![](queue-centric-work-pattern/_static/image6.png)
 
-(Zwróć uwagę, że można również dodać *roli sieci web*. Firma Microsoft może rozwiązać ją uruchomić frontonu w tej samej usłudze w chmurze zamiast uruchamiać go w witrynie sieci Web systemu Azure. Który ma kilka zalet w ułatwianie koordynowania połączenia między aplikacją frontonu i zaplecza. Jednak w celu uproszczenia tego pokazu, firma Microsoft jest przechowywanie frontonu w usłudze Azure App Service Web Apps i uruchamiania tylko serwer zaplecza w usłudze w chmurze.)
+(Należy zauważyć, że można również dodać *rolę sieci Web*. W tej samej usłudze w chmurze zamiast uruchamiania jej w witrynie sieci Web systemu Azure można uruchomić ten sam fronton. Ma pewne zalety, aby ułatwić koordynację połączeń między frontonem a zapleczem. Aby jednak zapewnić prostotę tego pokazu, utrzymujemy fronton w aplikacji internetowej Azure App Service i uruchomiono tylko zaplecze w usłudze w chmurze.)
 
-Nazwa domyślna jest przypisany do roli procesu roboczego. Aby zmienić nazwę, umieść kursor myszy nad roli procesu roboczego w okienku po prawej stronie, a następnie kliknij ikonę ołówka.
+Nazwa domyślna jest przypisana do roli procesu roboczego. Aby zmienić nazwę, umieść kursor myszy nad rolą proces roboczy w prawym okienku, a następnie kliknij ikonę ołówka.
 
 ![](queue-centric-work-pattern/_static/image7.png)
 
-Kliknij przycisk **OK** do ukończenia okna dialogowego. Spowoduje to dodanie dwa projekty do rozwiązania Visual Studio.
+Kliknij przycisk **OK** , aby zakończyć okno dialogowe. Spowoduje to dodanie dwóch projektów do rozwiązania programu Visual Studio.
 
-- Projekt platformy Azure, który definiuje usługę w chmurze, w tym informacje o konfiguracji.
-- Projekt roli proces roboczy, który definiuje roli procesu roboczego.
+- projekt platformy Azure, który definiuje usługę w chmurze, w tym informacje o konfiguracji.
+- Projekt roli procesu roboczego, który definiuje rolę procesu roboczego.
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie projektu platformy Azure z programem Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
+Aby uzyskać więcej informacji, zobacz [Tworzenie projektu platformy Azure za pomocą programu Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
-W roli procesu roboczego, możemy sondowania pod kątem komunikatów przez wywołanie metody `ProcessMessageAsync` metody `FixItQueueManager` klasy, którą widzieliśmy wcześniej.
+W ramach roli procesu roboczego sonduje komunikaty, wywołując metodę `ProcessMessageAsync` klasy `FixItQueueManager`, która została wcześniej wykorzystana.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample3.cs?highlight=25)]
 
-`ProcessMessagesAsync` Metoda sprawdza, czy istnieje komunikat oczekujący. Jeśli istnieje, jej deserializuje wiadomość do `FixItTask` jednostki i zapisuje jednostkę w bazie danych. Go w pętli do momentu kolejka jest pusta.
+Metoda `ProcessMessagesAsync` sprawdza, czy istnieje komunikat oczekujący. Jeśli istnieje, deserializacji komunikat do jednostki `FixItTask` i zapisuje jednostkę w bazie danych. Pętle do momentu, gdy kolejka jest pusta.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample4.cs)]
 
-Sondowania komunikatów w kolejce jest naliczana małych transakcji jest opłata w wysokości, więc jeśli nie ma oczekujących na przetworzenie, rola procesu roboczego `RunAsync` metoda oczekuje chwilę przed sondowania ponownie przez wywołanie metody `Task.Delay(1000)`.
+Sondowanie w poszukiwaniu komunikatów w kolejce powoduje niewielką opłatą za transakcje, więc gdy nie ma oczekujących na przetworzenie komunikatu, Metoda `RunAsync` roli procesu roboczego czeka sekundę przed ponownym sondowaniem, wywołując `Task.Delay(1000)`.
 
-W projekcie sieci web dodając kod asynchroniczny automatycznie poprawić wydajność ponieważ usługi IIS zarządza z puli wątków ograniczone. To nie jest w przypadku projektu roli proces roboczy. Aby poprawić skalowalność roli procesu roboczego, pisania kodu wielowątkowego lub użycie kodu asynchronicznego w celu zaimplementowania [programowania równoległego](https://msdn.microsoft.com/library/ff963553.aspx). Przykład nie implementuje programowania równoległego, ale pokazuje, jak kod asynchroniczny, dzięki czemu można zaimplementować programowania równoległego.
+W projekcie sieci Web Dodawanie kodu asynchronicznego może automatycznie zwiększyć wydajność, ponieważ program IIS zarządza ograniczoną pulą wątków. To nie jest przypadek w projekcie roli procesu roboczego. Aby zwiększyć skalowalność roli proces roboczy, można napisać kod wielowątkowy lub użyć kodu asynchronicznego do wdrożenia [programowania równoległego](https://msdn.microsoft.com/library/ff963553.aspx). Przykład nie implementuje programowania równoległego, ale pokazuje, w jaki sposób kod powinien być asynchroniczny, aby można było zaimplementować programowanie równoległe.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym rozdziale przedstawiono jak poprawić czas odpowiedzi aplikacji, niezawodność i skalowalność poprzez implementację wzorzec pracy skoncentrowany na kolejkach.
+W tym rozdziale pokazano, jak poprawić czas reakcji, niezawodność i skalowalność aplikacji, implementując wzorzec pracy skoncentrowanej na kolejkach.
 
-Jest to ostatnia wzorców 13 omówione w tej książce elektronicznej, ale oczywiście istnieje wiele innych wzorców i praktyk, które ułatwiają tworzenie aplikacji w chmurze pomyślne. [Końcowe rozdziału](more-patterns-and-guidance.md) zawiera linki do zasobów dla tematów, które nie zostały omówione w tych wzorców 13.
+Jest to ostatnie 13 wzorców objętych tą książką elektroniczną, ale istnieje wiele innych wzorców i rozwiązań, które mogą pomóc w tworzeniu udanych aplikacji w chmurze. [Rozdział końcowy](more-patterns-and-guidance.md) zawiera linki do zasobów dla tematów, które nie zostały omówione w tych 13 wzorcach.
 
 <a id="resources"></a>
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji na temat kolejek zobacz następujące zasoby.
+Aby uzyskać więcej informacji o kolejkach, zobacz następujące zasoby.
 
-Dokumentacja:
+Łączoną
 
-- [Microsoft Azure Storage kolejek część 1: Wprowadzenie do](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Article by Roman Schacherl.
-- [Wykonywanie zadań w tle](https://msdn.microsoft.com/library/ff803365.aspx), rozdział 5 [przenoszenie aplikacji do chmury, wersja 3](https://msdn.microsoft.com/library/ff728592.aspx) z Microsoft Patterns and Practices. (W szczególności i sekcji ["Za pomocą kolejek usługi Azure Storage"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
-- [Najlepsze praktyki w maksymalnie wykorzystać skalowalność i ekonomiczność kolejki komunikatów rozwiązań na platformie Azure](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Oficjalny dokument przez Valery Mizonov.
-- [Porównanie kolejek platformy Azure i kolejek usługi Service Bus](https://msdn.microsoft.com/magazine/jj159884.aspx). Artykuł w MSDN Magazine zawiera dodatkowe informacje, które mogą pomóc w wyborze odpowiedniej usługi kolejki. Artykuł wspomniany, że usługi Service Bus jest zależna od usługi ACS do uwierzytelniania, co oznacza, że Twoje kolejek SB byłyby niedostępne, gdy usługa ACS jest niedostępny. Jednak ponieważ artykuł został napisany, SB został zmieniony w celu umożliwienia używania [tokeny sygnatur dostępu Współdzielonego](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) jako alternatywę dla usługi ACS.
-- [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz podstawy asynchronicznej obsługi komunikatów, wzorzec potoków i filtrów, wzorzec transakcji wyrównującej, wzorzec konkurujących odbiorców, wzorca CQRS.
-- [CQRS Journey](https://msdn.microsoft.com/library/jj554200). Książka elektroniczna o CQRS przez Microsoft Patterns and Practices.
+- [Kolejki Microsoft Azure Storage część 1: wprowadzenie](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/microsoft-azure-storage-queues-part-1-getting-started/). Artykuł Schacherl Roman.
+- [Wykonywanie zadań w tle](https://msdn.microsoft.com/library/ff803365.aspx), rozdział 5 [przenoszonych aplikacji do chmury, trzecia wersja](https://msdn.microsoft.com/library/ff728592.aspx) z wzorców i praktyk firmy Microsoft. (W szczególności Sekcja ["Korzystanie z kolejek usługi Azure Storage"](https://msdn.microsoft.com/library/ff803365.aspx#sec7)).
+- [Najlepsze rozwiązania dotyczące maksymalizowania skalowalności i opłacalności rozwiązań do obsługi komunikatów opartych na kolejkach na platformie Azure](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Oficjalny dokument przez Valery Mizonov.
+- [Porównywanie kolejek platformy Azure i kolejek Service Bus](https://msdn.microsoft.com/magazine/jj159884.aspx). Artykuł Magazyn MSDN zawiera dodatkowe informacje, które mogą pomóc wybrać usługę kolejki do użycia. Artykuł zawiera informacje o tym, że Service Bus jest zależne od usługi ACS do uwierzytelniania, co oznacza, że kolejki SB byłyby niedostępne, gdy Usługa ACS jest niedostępna. Jednak ze względu na to, że artykuł został zapisany, SB został zmieniony, aby umożliwić korzystanie z [tokenów SAS](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) jako alternatywy dla usługi ACS.
+- [Wzorce i praktyki firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zapoznaj się z wzorcem obsługi komunikatów asynchronicznych, wzorca potoków i filtrów, wzorcem transakcji kompensacyjnej, wzorcem konkurujących odbiorców, wzorcem CQRS.
+- [CQRS](https://msdn.microsoft.com/library/jj554200). Książka elektroniczna dotycząca CQRS według wzorców i praktyk firmy Microsoft.
 
-Wideo:
+Plików
 
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia informacje o szczegółowo pojęcia i zasady dotyczące architektury w sposób bardzo dostępny i interesujące z historii z doświadczenia zespołu doradczego klientów firmy Microsoft (CAT) z klientów. Wprowadzenie do usługi Azure Storage i kolejki Zobacz odcinek 5 zaczynając od 35:13.
+- [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria wideo dziewięć części przez Ulrich Homann, Marc Mercuri i marking SIMM. Prezentuje koncepcje wysokiego poziomu i zasady architektury w bardzo dostępnym i interesującym scenariuszu, w tym scenariusze opracowane przez firmę Microsoft Customer Advisory Team (CAT) z rzeczywistymi klientami. Aby zapoznać się z wprowadzeniem do usługi Azure Storage i kolejek, zobacz epizod 5 od 35:13.
 
 > [!div class="step-by-step"]
 > [Poprzednie](distributed-caching.md)

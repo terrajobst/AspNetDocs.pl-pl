@@ -1,130 +1,130 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
-title: Więcej wzorców i wskazówki (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
+title: Więcej wzorców i wskazówek (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure) | Microsoft Docs
 author: MikeWasson
-description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
+description: Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 42066d4154758fce7ebd1529edf41ba49df07d93
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: afade34477d1136883e7543d09e73dfbe435690e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118701"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585363"
 ---
-# <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Więcej wzorców i wskazówki (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+# <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Więcej wzorców i wskazówek (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure** jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc w pomyślnym tworzeniu aplikacji sieci Web dla chmury. Aby uzyskać informacje na temat książki elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
-Masz teraz widziany 13 wzorców, które zawierają wskazówki dotyczące odnieść sukces w chmurze obliczeniowej. Oto kilka wzorców, które są stosowane do aplikacji w chmurze. Poniżej przedstawiono niektóre więcej zagadnień związanych z chmurą obliczeniową i zasoby, które pomogą im:
+Zobaczysz już 13 wzorców, które zapewniają wskazówki dotyczące pomyślnego działania w chmurze obliczeniowej. Są to tylko kilka wzorców, które mają zastosowanie do aplikacji w chmurze. Poniżej przedstawiono kilka dodatkowych tematów dotyczących przetwarzania w chmurze i zasobów ułatwiających ich korzystanie z nich:
 
 - Migrowanie istniejących aplikacji lokalnych do chmury. 
 
-    - [Przenoszenie aplikacji do chmury](https://msdn.microsoft.com/library/ff728592.aspx). Książka elektroniczna przez Microsoft Patterns and Practices. Dostępnym także jako [drukowanego podręcznika wydruku](https://www.amazon.com/dp/1621140202).
-    - [Migrowanie programu Microsoft ASP.NET i IIS.NET](https://go.microsoft.com/fwlink/?LinkId=400656). Analiza przypadku przez Robert McMurray.
-    - [Przenoszenie 4 &amp; burmistrz do witryny sieci Web systemu Azure](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/). Wpis w blogu przez Jeff Wilcox chronicling doświadczenie związane z programem przenoszenie aplikacji internetowej z usług Amazon Web Services w aplikacjach sieci Web w usłudze Azure App Service.
-    - [Przenoszenie aplikacji na platformie Azure: Jakie zmiany?](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) Krótki klip wideo od Stefan Schackow, wyjaśnia dostępu do systemu plików w usłudze Web Apps w usłudze Azure App Service.
-    - [Chmura hybrydowa Azure](https://www.amazon.com/dp/B00EOP4UQW). Książki pisemnie lub e-book, Danny Garber, Jamal Malik i Adam Fazio.
-- Zabezpieczenia, uwierzytelnianie i autoryzacja problemów unikatowe dla aplikacji w chmurze
+    - [Przeniesienie aplikacji do chmury](https://msdn.microsoft.com/library/ff728592.aspx). Książka elektroniczna według wzorców i praktyk firmy Microsoft. Dostępna również jako [twarda kopia drukowanego podręcznika](https://www.amazon.com/dp/1621140202).
+    - [Migrowanie ASP.NET i IIS.NET firmy Microsoft](https://go.microsoft.com/fwlink/?LinkId=400656). Analiza przypadku przez Robert McMurraya.
+    - [Przeniesienie czwartego &amp; Mayor do witryny sieci Web systemu Azure](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/). Wpis w blogu firmy Jan Wilcox chroniczne środowisko w celu przeniesienia aplikacji internetowej z Amazon Web Services do Web Apps w Azure App Service.
+    - [Przenosisz aplikacje na platformę Azure: jakie zmiany?](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) Krótkie wideo według Stefan Schackow, objaśnia dostęp do systemu plików w Web Apps w Azure App Service.
+    - [Chmura hybrydowa platformy Azure](https://www.amazon.com/dp/B00EOP4UQW). Książka Hardcopy lub książka elektroniczna według Danny Garber, Jamal Malik i Adam Fazio.
+- Problemy dotyczące zabezpieczeń, uwierzytelniania i autoryzacji, które są unikatowe dla aplikacji w chmurze
 
     - [Wskazówki dotyczące zabezpieczeń platformy Azure](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
-    - [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wzorzec strażnika, wzorzec tożsamości federacyjnej.
-    - [Usługa Azure Network Security](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). Oficjalny dokument przez Palekarem Ashin.
+    - [Wzorce i praktyki firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wzorzec strażnika, wzorzec tożsamości federacyjnej.
+    - [Zabezpieczenia sieci platformy Azure](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). Oficjalny dokument przez Ashin Palekarem.
 
-Zobacz też dodatkowe chmury obliczeniowej wzorców i wskazówek dostępnych pod adresem [Microsoft Patterns and Practices — wskazówki dotyczące Azure](https://msdn.microsoft.com/library/dn568099.aspx).
+Zobacz również dodatkowe wzorce obliczeniowe chmury i wskazówki dotyczące [wzorców i praktyk firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx).
 
 <a id="resources"></a>
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Każdy w działach w tej książce elektronicznej zawiera łącza do zasobów, aby uzyskać więcej informacji na temat tego określonego tematu. Poniższa lista zawiera łącza do omówienia zalecane wzorców i najlepszych rozwiązań do tworzenia pomyślne chmurze dzięki platformie Azure.
+Każdy rozdział w tej książce elektronicznej zawiera linki do zasobów, aby uzyskać więcej informacji na temat tego konkretnego tematu. Poniższa lista zawiera linki do omówienia najlepszych rozwiązań i zalecanych wzorców związanych z pomyślnym programowaniem w chmurze przy użyciu platformy Azure.
 
 Dokumentacja
 
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usługach Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument — Markiem Simmsem i Michael Thomassy.
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury na temat odporności chmury](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument, Marc Mercuri, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web przed uszkodzeniami serii filmów wideo.
-- [Wskazówki dotyczące platformy Azure](https://azure.microsoft.com/develop/net/guidance/) strony portalu dokumentacji oficjalnego związane z tworzenia aplikacji dla platformy Azure.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usłudze Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument ze znakami SIMM i Michael Thomassy.
+- [Failsafe: wskazówki dotyczące odpornych architektur chmurowych](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument według wytłoczyn Mercuri, Ulrich Homann i Andrew TOWNHILL. Wersja strony sieci Web serii wideo FailSafe.
+- [Wskazówki dotyczące platformy Azure](https://azure.microsoft.com/develop/net/guidance/) Strona portalu do oficjalnej dokumentacji dotyczącej tworzenia aplikacji dla platformy Azure.
 
 Wideo
 
-- [Tworzenie rzeczywistych aplikacji w chmurze z systemem Azure — część 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324) i [część 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325). Film wideo: prezentacja przez Scotta Guthrie'a, w oparciu o tę książkę elektroniczną. Przedstawione w Australii Ed Tech września 2013 r. Starszą wersję tej samej prezentacji zostało dostarczone na norweskiej deweloperów (ndc Developers Conference) w czerwcu 2013: [Część ndc Developers 1](http://vimeo.com/68215538), [ndc Developers część 2](http://vimeo.com/68215602).
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia widok 400-level jak zaprojektować aplikacje w chmurze. Ta seria skupia się na teorii i powodów zalecane wzorców; szczegółowe instrukcje Zobacz Tworzenie dużych szeregi według — Markiem Simmsem.
-- [Tworzenie dużych: Lekcje wyniesione z klientów platformy Azure — część 1](https://channel9.msdn.com/Events/Build/2012/3-029) i [część 2](https://channel9.msdn.com/Events/Build/2012/3-030). Seria filmów legalną dwuczęściową Simon Davies i — Markiem Simmsem, podobnie jak seria przed uszkodzeniami, ale więcej zorientowane na obiekty w kierunku praktyczne wykonanie.
+- [Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure — część 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324) i [część 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325). Film wideo przedstawiający prezentację przez Scott Guthrie, na której bazuje ta książka elektroniczna. Przedstawione na konferencji Tech Ed Australia we wrześniu 2013. Starsza wersja tej samej prezentacji została dostarczona na konferencji norweski Developers (NDC) w czerwcu 2013: [NDC część 1](http://vimeo.com/68215538), [NDC część 2](http://vimeo.com/68215602).
+- [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria wideo dziewięć części przez Ulrich Homann, Marc Mercuri i marking SIMM. Przedstawia widok 400 na poziomie tworzenia architektury aplikacji w chmurze. Ta seria koncentruje się na teorii i przyczynach związanych z zalecanymi wzorcami; Aby uzyskać więcej informacji na temat szczegółów, zobacz Tworzenie dużych serii przez znaczniki SIMM.
+- [Tworzenie dużych: lekcje uzyskane od klientów platformy Azure — część 1](https://channel9.msdn.com/Events/Build/2012/3-029) i [część 2](https://channel9.msdn.com/Events/Build/2012/3-030). Seria wideo z dwoma częściami przez Simon Davies i Markuje moduły SIMM, podobnie jak seria FailSafe, ale zorientowane się bardziej na praktyczne wdrożenie.
 
 Przykładowy kod
 
-- [Poprawka aplikacji znajdująca się na tę książkę elektroniczną](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002).
-- [Podstawy usługi na platformie Azure w języku C# dla programu Visual Studio 2012 w chmurze](https://aka.ms/csf). Projekt do pobrania w witrynie Microsoft Code Gallery obejmuje zarówno kod, jak i dokumentacji opracowany przez Microsoft klienta Advisory Team (CAT). Przedstawia liczbę najlepszych rozwiązań, które są zalecane w serii wideo przed uszkodzeniami i tworzenie dużych i przed uszkodzeniami oficjalny dokument. Na stronie galerii kodów również linki do obszerną dokumentację przez autorów projektu — Zobacz szczególnie [kolekcji witryny typu wiki Cloud Service Fundamentals](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) łącze w niebieskim polu w górnej części opis projektu. Ten projekt i dokumentację dla niego nadal aktywnie opracowywane, ułatwiając lepszym wyborem informacji na temat wiele tematów niż podobne, ale starsze oficjalne dokumenty.
+- [Poprawka do tej książki elektronicznej](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002).
+- [Podstawy usługi w chmurze na platformie Azure C# w programie dla programu Visual Studio 2012](https://aka.ms/csf). Projekt do pobrania w witrynie galerii kodu firmy Microsoft zawiera kod i dokumentację opracowaną przez zespół ds. pomocy technicznej firmy Microsoft. Demonstruje wiele najlepszych rozwiązań, które zostały zaprezentowane w FailSafe i tworzeniu dużych serii wideo i FailSafe oficjalny dokument. Strona Galeria kodu łączy się również z obszerną dokumentacją przez autorów projektu — Zobacz szczególnie łącze [Kolekcja stron typu wiki usługi w chmurze](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) w niebieskim polu w górnej części opisu projektu. Ten projekt i dokumentacja nadal aktywnie opracowywanych, dzięki czemu jest to lepszy wybór w celu uzyskania informacji na temat wielu tematów, takich jak podobne, ale starsze dokumenty.
 
-Książki kopii
+Książki z kopiami
 
-- [Cloud Computing biblijny](https://www.amazon.com/dp/0470903562). Przez Barrie Sosinsky.
-- [Zwolnij go! Projektowanie i wdrażanie oprogramowania gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Przez Michaela Nygarda T.
-- [Wzorce architektury chmury: Korzystanie z platformy Microsoft Azure](http://shop.oreilly.com/product/0636920023777.do). Przez Wilder rachunku.
-- [Windows platformy Azure](https://www.amazon.com/dp/1430235632). Autorstwa Tejaswi Redkara.
-- [Windows Azure wzorców programowania dla startupów](https://www.amazon.com/dp/1849685606). Według: Riccardo Becker.
-- [Podręcznik programowania dla platformy Azure Microsoft Windows](https://www.amazon.com/dp/1849682224). Przez Neila Mackenzie.
+- [Chmura obliczeniowa Bible](https://www.amazon.com/dp/0470903562). Autor Barrie Sosinsky.
+- [Wydanie, aby projektować i wdrażać oprogramowanie gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Przez Jan T. Nygarda.
+- [Wzorce architektury chmury: używanie Microsoft Azure](http://shop.oreilly.com/product/0636920023777.do). Według rachunku Wilder.
+- [Platforma Windows Azure](https://www.amazon.com/dp/1430235632). Autor Tejaswi Redkara.
+- [Wzorce programowania systemu Windows Azure dla uruchamiania](https://www.amazon.com/dp/1849685606). Autor Riccardo Becker.
+- [Microsoft Windows Azure Development Cookbook](https://www.amazon.com/dp/1849682224). Autor Neila Mackenzie.
 
-Na koniec gdy ci zacząć tworzyć praktyczne aplikacje i uruchamianie ich na platformie Azure, wcześniej czy później będzie prawdopodobnie potrzebna jest pomoc od ekspertów. Można zadawać pytań w funkcji witryn społeczności, takie jak [fora poświęcone platformie Azure lub w witrynie StackOverflow](https://azure.microsoft.com/support/forums/), firmy Microsoft mogą skontaktować się bezpośrednio do pomocy technicznej platformy Azure. Firma Microsoft oferuje kilka poziomów pomocy technicznej platformy Azure: Podsumowanie i porównanie opcji, zobacz [pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+Na koniec po rozpoczęciu tworzenia rzeczywistych aplikacji i uruchamiania ich na platformie Azure prawdopodobnie będziesz potrzebować pomocy od ekspertów. Możesz zadawać pytania w witrynach społeczności, takich jak [fora platformy Azure lub StackOverflow](https://azure.microsoft.com/support/forums/), albo skontaktować się bezpośrednio z firmą Microsoft w celu uzyskania pomocy technicznej platformy Azure. Firma Microsoft oferuje kilka poziomów pomocy technicznej platformy Azure: Aby zapoznać się z podsumowaniem i porównaniem opcji, zobacz [Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/plans/).
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>Potwierdzenia
+## <a name="acknowledgments"></a>Potwierdzeń
 
-Ta zawartość został napisany przez Tom Dykstra Rick Anderson i Mike Wasson. Większość oryginalną zawartość pochodzi z [Scott Guthrie](https://weblogs.asp.net/scottgu/), a on z kolei narysowane na materiały z — Markiem Simmsem i firmy Microsoft Customer Advisory Team (CAT).
+Ta zawartość została zapisywana przez Tomasz Dykstra, Rick Anderson i Jan Wasson. Większość oryginalnej zawartości pochodzi z [Scott Guthrie](https://weblogs.asp.net/scottgu/), a firma z kolei nanosi materiały z znaczników SIMM i działu Doradczego firmy Microsoft (Cat).
 
-Wielu współpracownikom w firmie Microsoft przejrzane i komentarz projektów i kodu:
+Wielu innych współpracowników w firmie Microsoft zrecenzowany i dodał komentarze dotyczące wersji roboczych i kodu:
 
-- Tim Ammann - przeglądowi rozdział automatyzacji.
-- Christopher Bennage - sprawdzone i przetestowane kodu naprawić.
-- RYAN jagód - przeglądowi rozdział ciągłego Dostarczania/ciągłej integracji.
-- Vittorio Bertocci - przeglądowi rozdział logowania jednokrotnego.
-- Chris Clayton - pomogły rozwiązać problemy techniczne w skryptach programu PowerShell.
-- Conor Cunningham - przeglądowi rozdział opcje magazynu danych.
-- Carlos Farre - sprawdzone i przetestowane kodu rozwiązać go związane z zabezpieczeniami.
-- Franks Larry'ego - przeglądowi telemetrii i rozdział monitorowania.
-- Jonathan Gao - przeglądowi usług Hadoop i sekcje MapReduce rozdziału opcje magazynu danych.
-- Higa Sidneya - przeglądowi wszystkich działach.
-- Gordon Hogenson - przeglądowi rozdział kontroli źródła.
-- Tamra Myers — opcje magazynowania danych przeglądu, obiektów blob i kolejek rozdziały.
-- Autorem jest Pranav Rastogi - przeglądowi rozdział logowania jednokrotnego.
-- Blender czerwca Rogers — dodano obsługę błędów i pomoc, aby skrypty automatyzacji programu PowerShell.
-- Specjalne Subramanian — analizie wszystkich działach i prowadzone Przegląd kodu i procesu testowania kodu naprawić.
-- Shaun Tinline-Jones - przeglądowi partycjonowanie rozdział danych.
-- Selcin Tukarslan - rozdziały przeglądu, które obejmują bazy danych SQL i programu SQL Server.
-- Edward Wu - podano przykładowy kod w rozdziale logowania jednokrotnego.
-- Guang Yang - napisał skryptów automatyzacji programu PowerShell.
+- Tim Ammann — zbadano rozdział usługi Automation.
+- Christopher Bennage — sprawdzona i przetestowana poprawka kodu IT.
+- Ryanów z przejrzałych.
+- Vittorio Bertocci — przegląd rozdziału logowania jednokrotnego.
+- Krzysztof Clayton — pomaga rozwiązywać problemy techniczne ze skryptami programu PowerShell.
+- Conor Cunningham — Przegląd opcji magazynu danych.
+- Carlos Farre — sprawdzona i przetestowana poprawka kodu dla problemów z zabezpieczeniami.
+- Larry Piotrs — przegląd działu telemetrii i monitorowania.
+- Jonathana Gao — przeanalizowane sekcje Hadoop i MapReduce w rozdziale opcje magazynu danych.
+- Sidney Higa — przeanalizowane wszystkie rozdziały.
+- Gordon Hogenson — przegląd rozdziału kontroli źródła.
+- Tamra Myers — Przegląd opcji magazynu danych, obiektów blob i kolejek.
+- Pranav Rastogi — przegląd rozdziału logowania jednokrotnego.
+- Czerwiec Blender Rogers — dodano obsługę błędów i pomoc dotyczącą skryptów automatyzacji programu PowerShell.
+- Mani Subramanian — sprawdzono wszystkie rozdziały i przeprowadził proces przeglądu kodu i testowania dla tego kodu.
+- Shaun Tinline-Kowalski-zbadano rozdział partycjonowania danych.
+- Selcine Tukarslan — analizowane rozdziały obejmujące SQL Database i SQL Server.
+- Edward Wu — podano przykładowy kod dla rozdziału logowania jednokrotnego.
+- Guang przerywają Yang — Zapisano skrypty automatyzacji programu PowerShell.
 
-Elementy członkowskie [Advisory Council wskazówki dla deweloperów Microsoft](https://aka.ms/DGAC) (DGAC) również przejrzeć i komentarz wersje robocze:
+Członkowie [Rady Doradczej wskazówki dla deweloperów firmy Microsoft](https://aka.ms/DGAC) (DGAC) również przeglądali i komentarz dotyczący wersji roboczych:
 
 - Jean-Luc Boucho
 - Catalin Gheorghiu
-- Wouter de Kort
+- Wouter de kort
 - Carlos dos Santos
-- Neil Mackenzie
+- Neila Mackenzie
 - Dennis Persson
-- Sabat Sabine
+- Sunil Saba
 - [Aleksey Sinyagin](http://www.linkedin.com/in/sinyagin)
-- Wagnera rachunku
-- Michael Wood
+- Wagner rachunku
+- Michael drewno
 
-Inni członkowie DGAC przejrzane i komentarz konspektu wstępnego:
+Inni członkowie DGAC zrecenzowani i komentarze do wstępnego konspektu:
 
 - Damir Arh
 - Edward Bakker
 - Srdjan Bozovic
-- Kanał Man Ming
+- Kanał Ming Man
 - Gianni Rosa Gallina
 - Paulo Morgado
 - Jason Oliveira
 - Alberto Poblacion
-- RYAN Riley
-- Tsisah PEREZ Jones
+- Ryan Riley
+- Perez Nowak Tsisah
 - Roger Whitehead
 - Pawel Wilkosz
 

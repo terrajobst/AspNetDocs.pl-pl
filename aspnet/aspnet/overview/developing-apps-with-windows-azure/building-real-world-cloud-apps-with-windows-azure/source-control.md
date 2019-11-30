@@ -1,214 +1,214 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: Źródło sterowania (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
+title: Kontrola źródła (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure) | Microsoft Docs
 author: MikeWasson
-description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
+description: Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą...
 ms.author: riande
 ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 7effc0194541afe766a6202f527d36d96f3007f2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: a6f445e46d41b646cf6c25af2e65bc73e831d5ed
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381370"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583708"
 ---
-# <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kontroli źródła (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+# <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kontrola źródła (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure** jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc w pomyślnym tworzeniu aplikacji sieci Web dla chmury. Aby uzyskać informacje na temat książki elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
-Kontrola źródła ma zasadnicze znaczenie dla wszystkich projektów rozwoju chmury, nie tylko środowiska zespołowe. W takich sytuacjach przydałaby traktować edycji kodu źródłowego lub nawet dokumentu programu Word bez funkcji cofania i automatycznego tworzenia kopii zapasowej i kontroli źródła zapewnia te funkcje na poziomie projektu, w którym można zapisać jeszcze więcej czasu, gdy coś pójdzie nie tak. Dzięki usługom kontroli źródła w chmurze nie masz już martwić się o Konfigurowanie skomplikowane, a następnie można użyć kontroli źródła repozytoriów platformy Azure jest bezpłatna dla maksymalnie 5 użytkowników.
+Kontrola źródła jest istotna dla wszystkich projektów programowania w chmurze, a nie tylko środowisk zespołowych. Nie będzie można edytować kodu źródłowego, nawet dokumentu programu Word bez funkcji Undo i automatycznych kopii zapasowych, a kontrola źródła udostępnia te funkcje na poziomie projektu, gdzie mogą zaoszczędzić jeszcze więcej czasu, gdy coś się nie stało. Dzięki usługom kontroli źródła w chmurze nie trzeba już martwić się o skomplikowaną konfigurację i można użyć Azure Repos kontroli źródła bezpłatnie dla maksymalnie 5 użytkowników.
 
-Pierwsza część w tym rozdziale opisano trzy kluczowe najlepszych rozwiązań, aby pamiętać:
+W pierwszej części tego rozdziału objaśniono trzy najważniejsze wskazówki, które należy wziąć pod uwagę:
 
-- [Traktuj skryptów automatyzacji, jak kod źródłowy](#scripts) i wersji je wraz z kodu aplikacji.
-- [Nigdy nie ewidencjonuj w wpisów tajnych](#secrets) (poufne dane takie jak poświadczeń) w repozytorium kodu źródłowego.
-- [Konfigurowanie gałęzi źródłowych](#devops) umożliwiające przepływ pracy DevOps.
+- [Traktuj skrypty automatyzacji jako kod źródłowy](#scripts) i wersje ich razem z kodem aplikacji.
+- [Nigdy nie zaznaczaj wpisów tajnych](#secrets) (danych poufnych, takich jak poświadczenia) w repozytorium kodu źródłowego.
+- [Skonfiguruj gałęzie źródłowe](#devops) , aby włączyć przepływ pracy DevOps.
 
-W pozostałej części rozdział zapewnia niektóre przykładowe implementacje tych wzorców w Visual Studio, platformy Azure i repozytoriów platformy Azure:
+W pozostałej części rozdziału przedstawiono przykładowe implementacje tych wzorców w programie Visual Studio, na platformie Azure i Azure Repos:
 
-- [Dodaj skrypty do kontroli źródła w programie Visual Studio](#vsscripts)
-- [Store poufnych danych na platformie Azure](#appsettings)
-- [Za pomocą narzędzia Git w programie Visual Studio i repozytoriów platformy Azure](#gittfs)
+- [Dodawanie skryptów do kontroli źródła w programie Visual Studio](#vsscripts)
+- [Przechowywanie poufnych danych na platformie Azure](#appsettings)
+- [Korzystanie z usługi Git w programie Visual Studio i Azure Repos](#gittfs)
 
 <a id="scripts"></a>
-## <a name="treat-automation-scripts-as-source-code"></a>Traktuj skryptów automatyzacji, jak kod źródłowy
+## <a name="treat-automation-scripts-as-source-code"></a>Traktuj skrypty automatyzacji jako kod źródłowy
 
-Podczas pracy nad projektem w chmurze często zmieniasz rzeczy, i chcesz móc szybko reagować na problemy zgłaszane przez klientów. Szybkie reagowanie polega na użyciu skryptów automatyzacji, jak wyjaśniono w [Automatyzowanie wszystkiego](automate-everything.md) rozdziale. Wszystkie skrypty, które służy do tworzenia środowiska, wdrażać, Skaluj ją itp., muszą być zsynchronizowane z kodu źródłowego aplikacji.
+Podczas pracy nad projektem w chmurze często zmienia się elementy i chcesz szybko reagować na problemy zgłoszone przez klientów. Szybkie reagowanie polega na użyciu skryptów automatyzacji, jak wyjaśniono w rozdziale [Automatyzowanie wszystkiego](automate-everything.md) . Wszystkie skrypty, które są używane do tworzenia środowiska, wdrażania na nim, skalowania go itp., muszą być zsynchronizowane z kodem źródłowym aplikacji.
 
-Aby zsynchronizować skryptów przy użyciu kodu, należy przechowywać je w systemie kontroli źródła. Następnie w razie konieczności wycofania zmian lub wprowadzić szybkiej poprawki w kodzie produkcyjnym, która różni się od tworzenia kodu, nie trzeba marnowania czasu próby śledzenie ustawienia, które zostały zmienione lub których członkowie zespołu mają kopii wersji, które są potrzebne. Możesz teraz pewność, że skrypty, potrzebne są zsynchronizowane z bazy kodu, należy je w celu, która jest pewność, że wszyscy członkowie zespołu pracy przy użyciu tych samych skryptów. Następnie czy trzeba zautomatyzować testowanie i wdrażanie poprawki do produkcji lub opracowanie nowych funkcji, będziesz mieć prawo skryptu dla kodu, który musi zostać zaktualizowany.
+Aby zachować synchronizację skryptów z kodem, należy je zapisać w systemie kontroli źródła. Jeśli kiedykolwiek zajdzie potrzeba wycofania zmian lub dokonania szybkiej naprawy kodu produkcyjnego, który jest inny niż kod programistyczny, nie trzeba tracić czasu na próbę śledzenia ustawień, które uległy zmianie lub których członkowie zespołu mają kopie potrzebnej wersji. Masz pewność, że potrzebne skrypty są zsynchronizowane z bazą kodu, w której są potrzebne, i masz pewność, że wszyscy członkowie zespołu pracują z tymi samymi skryptami. Następnie, niezależnie od tego, czy musisz zautomatyzować testowanie i wdrażanie gorącej poprawki w środowisku produkcyjnym, czy nowej funkcji, masz odpowiedni skrypt dla kodu, który należy zaktualizować.
 
 <a id="secrets"></a>
-## <a name="dont-check-in-secrets"></a>Nie można zaewidencjonować wpisów tajnych
+## <a name="dont-check-in-secrets"></a>Nie sprawdzaj wpisów tajnych
 
-Repozytorium kodu źródłowego jest zazwyczaj dostępny zbyt wiele osób dla niego się odpowiednio bezpieczne miejsce, poufnych danych, takie jak hasła. Jeśli skrypty wpisy tajne, takie jak hasła, należy zdefiniować parametry te ustawienia, które nie są zapisywane w kodzie źródłowym oraz przechowywanie wpisów tajnych gdzie indziej.
+Repozytorium kodu źródłowego jest zazwyczaj dostępne dla zbyt wielu osób, aby było odpowiednie bezpieczne miejsce na poufne dane, takie jak hasła. Jeśli skrypty są zależne od wpisów tajnych, takich jak hasła, Sparametryzuj te ustawienia, aby nie zapisywali ich w kodzie źródłowym i przechowywać wpisy tajne w innym miejscu.
 
-Na przykład Azure umożliwia pobieranie plików, które zawierają opublikować ustawienia w celu automatyzacji tworzenia profilów publikowania. Te pliki obejmują nazwy użytkownika i hasła, które są autoryzowane do zarządzania usługami platformy Azure. Jeśli używasz tego metodą tworzenia profilów publikowania, a po zaewidencjonowaniu tych plików do kontroli źródła, każda osoba mająca dostęp do repozytorium zobaczyć te nazwy użytkownika i hasła. Można bezpiecznie przechowywać hasło w profilu publikowania, sam, ponieważ jest on zaszyfrowany i znajduje się w *. pubxml.user* pliku, która domyślnie nie jest uwzględniony w kontroli źródła.
+Na przykład platforma Azure umożliwia pobieranie plików zawierających ustawienia publikowania w celu zautomatyzowania tworzenia profilów publikacji. Te pliki obejmują nazwy użytkowników i hasła, które są autoryzowane do zarządzania usługami platformy Azure. Jeśli ta metoda zostanie użyta do utworzenia profilów publikowania i w przypadku zaewidencjonowania tych plików w kontroli źródła, każda osoba mająca dostęp do repozytorium będzie widziała te nazwy użytkowników i hasła. Hasło można bezpiecznie zapisać w samym profilu publikacji, ponieważ jest ono zaszyfrowane i znajduje się w pliku *. pubxml. User* , który domyślnie nie jest uwzględniony w kontroli źródła.
 
 <a id="devops"></a>
-## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>Struktura gałęzi źródłowych w celu ułatwienia przepływ pracy DevOps
+## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>Gałęzie źródłowe struktury do ułatwienia przepływu pracy DevOps
 
-Jak zaimplementować gałęzi w repozytorium ma wpływ na możliwości rozwijania nowych funkcji i rozwiązywanie problemów w środowisku produkcyjnym. Poniżej przedstawiono wzorzec, że wiele średniej wielkości zespoły wykorzystują:
+Zaimplementowanie gałęzi w repozytorium ma wpływ na możliwość tworzenia nowych funkcji i rozwiązywania problemów w środowisku produkcyjnym. Oto wzorzec, z którego korzystają wiele zespołów o średniej wielkości:
 
-![Struktura gałęzi źródłowej](source-control/_static/image1.png)
+![Źródłowa struktura gałęzi](source-control/_static/image1.png)
 
-Gałąź główna jest zawsze zgodny kod, który znajduje się w środowisku produkcyjnym. Gałęzie poniżej wzorca odpowiadają różnych etapach cyklu rozwoju. Gałąź rozwoju polega na tym, gdzie wdrożyć nowe funkcje. Dla małych zespołów może być konieczne jest tylko główny i rozwoju, ale często zaleca się osób tymczasowej gałęzi między środowiskami deweloperskim i master. Przemieszczania służy do końcowego integracji testowania przed aktualizacji jest przenoszony do środowiska produkcyjnego.
+Gałąź główna zawsze jest zgodna z kodem, który znajduje się w środowisku produkcyjnym. Gałęzie pod wzorcem odpowiadają różnym etapom cyklu życia deweloperskiego. Gałąź programistyczna to miejsce wdrożenia nowych funkcji. W przypadku małego zespołu może być tylko główny i programistyczny, ale często zalecamy, aby ludzie mieli rozgałęzienie przejściowe między programowaniem a serwerem głównym. Można użyć przemieszczania na potrzeby końcowego testowania integracji przed przeniesieniem aktualizacji do środowiska produkcyjnego.
 
-Dla dużych zespołów mogą być osobnych oddziałach dla każdej nowej funkcji; dla mniejszych zespołów Niewykluczone, że wszyscy ewidencjonowanie z gałęzią rozwoju.
+W przypadku dużych zespołów może istnieć osobne rozgałęzienia dla każdej nowej funkcji; w przypadku mniejszych zespołów może się zdarzyć, że wszyscy znajdą się w gałęzi programowanie.
 
-Jeśli masz gałąź dla każdej funkcji, gdy funkcja A jest gotowy możesz scalania jego zmiany kodu źródłowego się do rozwoju gałęzi i w dół na inne gałęzie funkcji. Ten kod źródłowy procesu scalania może być czasochłonne i aby uniknąć tej pracy, jednocześnie zachowując osobne funkcje, niektóre zespoły wdrożenia o nazwie zamiast *[Włącza lub wyłącza funkcję](http://en.wikipedia.org/wiki/Feature_toggle)* (znanego również jako *flag funkcji*). Oznacza to, cały kod dla wszystkich funkcji znajduje się w tej samej gałęzi, ale można włączyć lub wyłączyć poszczególne funkcje przy użyciu przełączników w kodzie. Na przykład załóżmy, że funkcja A jest nowe pole dla napraw go zadania związane z aplikacjami, a funkcja B dodaje funkcje pamięci podręcznej. Kod dla obu funkcji mogą znajdować się w gałęzi rozwoju, ale wyświetlanie tylko aplikacji będzie nowego pola, gdy zmienna jest ustawiona na wartość true, a będzie używać tylko buforowania, gdy różne zmienna jest ustawiona na wartość true. Jeśli funkcja A nie jest gotowy do zajęcia miejsca, ale funkcja B jest gotowy, możesz podwyższyć poziom całego kodu do środowiska produkcyjnego z przełącznikiem funkcji A wyłączone, a funkcja B przełączyć się. Można następnie Zakończ funkcja A programu i Promuj go później, wszystko nie scalania kodu źródłowego.
+Jeśli masz gałąź dla każdej funkcji, podczas gdy funkcja A jest gotowa, należy scalić kod źródłowy zmiany w gałęzi deweloperskiej i w dół w innych gałęziach funkcji. Ten proces scalania kodu źródłowego może być czasochłonny, a aby uniknąć tego, że nadal pracują z innymi funkcjami, niektóre zespoły implementują alternatywną nazwę *[przełączników funkcji](http://en.wikipedia.org/wiki/Feature_toggle)* (nazywanych również *flagami funkcji*). Oznacza to, że cały kod dla wszystkich funkcji znajduje się w tej samej gałęzi, ale każdą funkcję można włączać lub wyłączać za pomocą przełączników w kodzie. Załóżmy na przykład, że funkcja A to nowe pole do naprawienia zadań aplikacji IT, a funkcja B dodaje funkcję buforowania. Kod dla obu funkcji może znajdować się w gałęzi deweloperskiej, ale aplikacja wyświetli nowe pole tylko wtedy, gdy zmienna jest ustawiona na wartość true i będzie używać buforowania tylko wtedy, gdy zmienna ma ustawioną wartość true. Jeśli funkcja A nie jest gotowa do awansowania, ale funkcja B jest gotowa, można podwyższyć poziom całego kodu do środowiska produkcyjnego za pomocą funkcji przełącznika i przełączyć funkcję B. Następnie można zakończyć funkcję A i podnieść ją później, bez scalania kodu źródłowego.
 
-Czy używasz gałęzi lub włącza lub wyłącza funkcje, rozgałęziona struktura następująco umożliwia przepływ kodu od projektowania do produkcji w sposób agile i powtarzalne.
+Niezależnie od tego, czy używasz gałęzi, czy przełączników dla funkcji, struktura rozgałęzienia, taka jak ta, umożliwia przepływ kodu od projektowania do produkcji w sposób Agile i powtarzalny.
 
-Ta struktura pozwala również szybko reagować na opinie klientów. Jeśli musisz wprowadzić szybkiej poprawki do środowiska produkcyjnego, możesz również tworzyć, efektywnie elastyczne. Możesz utworzyć gałąź zniżki w stosunku do głównego lub tymczasowego i kiedy będzie gotowy scalić się master i w dół do gałęzi funkcji i rozwoju.
+Ta struktura umożliwia również szybkie reagowanie na Opinie klientów. Jeśli musisz wprowadzić szybką poprawkę do środowiska produkcyjnego, możesz to zrobić efektywnie w sposób Agile. Można utworzyć gałąź poza główną lub przejściową, a gdy jest ona gotowa do scalenia z gałęziami tworzenia i działania.
 
-![W gałęzi poprawek](source-control/_static/image2.png)
+![Rozgałęzienie poprawek](source-control/_static/image2.png)
 
-Bez rozgałęziona struktura następująco z jego separacji dla środowiska produkcyjnego, gałęzie problem produkcji umieścić możesz w pozycji o podwyższenie poziomu nowego kodu funkcji wraz z produkcji rozwiązanie problemu. Nowy kod funkcji może nie być w pełni przetestowane i gotowe do produkcji i trzeba będzie wykonać dużo pracy tworzenia kopii wprowadzonych zmian, które nie są gotowe. Możesz też opóźnienie poprawkę w taki sposób, aby można było przetestować zmiany i przygotowania ich do wdrożenia.
+Bez struktury rozgałęziania, takiej jak w przypadku rozdzielenia gałęzi produkcyjnych i programistycznych, problem produkcyjny może pomieścić się w sytuacji, w której można promować nowy kod funkcji wraz z poprawkami produkcyjnymi. Nowy kod funkcji może nie być w pełni przetestowany i gotowy do produkcji. może być konieczne wykonanie wielu zadań związanych z tworzeniem kopii zapasowych, które nie są gotowe. Lub może zajść konieczność opóźnienia poprawki w celu przetestowania zmian i przygotowania ich do wdrożenia.
 
-Następnie zobaczysz przykłady sposobu wdrożenia tych trzech wzorców w Visual Studio, platformy Azure i repozytoriów platformy Azure. Oto przykłady zamiast szczegółowe instrukcje krok po kroku jak-to-it; Aby uzyskać szczegółowe instrukcje, zapewniających wszystkie niezbędne kontekstu, zobacz [zasobów](#resources) sekcji na końcu rozdziale.
+Następnie zobaczysz przykłady sposobów implementacji tych trzech wzorców w programie Visual Studio, na platformie Azure i Azure Repos. Są to przykłady, a nie szczegółowe instrukcje krok po kroku do wykonania. Szczegółowe instrukcje, które zawierają wszystkie wymagane kontekstu, można znaleźć w sekcji [Resources (zasoby](#resources) ) na końcu rozdziału.
 
 <a id="vsscripts"></a>
-## <a name="add-scripts-to-source-control-in-visual-studio"></a>Dodaj skrypty do kontroli źródła w programie Visual Studio
+## <a name="add-scripts-to-source-control-in-visual-studio"></a>Dodawanie skryptów do kontroli źródła w programie Visual Studio
 
-Istnieje możliwość dodania skryptów z kontrolą źródła w programie Visual Studio, umieszczając je w folderze rozwiązania programu Visual Studio (przy założeniu, że projekt jest w kontroli źródła). Oto jeden ze sposobów, aby to zrobić.
+Skrypty można dodawać do kontroli źródła w programie Visual Studio, dołączając je do folderu rozwiązania programu Visual Studio (przy założeniu, że projekt jest w kontroli źródła). Oto jeden ze sposobów, aby to zrobić.
 
-Utwórz folder dla skryptów w folderze rozwiązania (tym samym folderze, który ma swoje *.sln* pliku).
+Utwórz folder dla skryptów w folderze rozwiązania (ten sam folder, w którym znajduje się plik *. sln* ).
 
-![Folder usługi Automation](source-control/_static/image3.png)
+![Folder automatyzacji](source-control/_static/image3.png)
 
 Skopiuj pliki skryptów do folderu.
 
 ![Zawartość folderu automatyzacji](source-control/_static/image4.png)
 
-W programie Visual Studio należy dodać folder rozwiązania do projektu.
+W programie Visual Studio Dodaj do projektu folder rozwiązania.
 
-![Nowy Folder rozwiązania menu wyboru](source-control/_static/image5.png)
+![Wybór menu nowego folderu rozwiązania](source-control/_static/image5.png)
 
 I Dodaj pliki skryptów do folderu rozwiązania.
 
-![Dodaj istniejący element menu wyboru](source-control/_static/image6.png)
+![Wybór menu Dodaj istniejący element](source-control/_static/image6.png)
 
-![Dodaj istniejący element — okno dialogowe](source-control/_static/image7.png)
+![Okno dialogowe Dodawanie istniejącego elementu](source-control/_static/image7.png)
 
-Pliki skryptów znajdują się teraz w projekcie i ich zmiany wersji wraz z odpowiedniej zmiany kodu źródłowego służy do śledzenia kontroli źródła.
+Pliki skryptów są teraz zawarte w projekcie i kontrola źródła śledzi zmiany wersji wraz z odpowiednimi zmianami kodu źródłowego.
 
 <a id="appsettings"></a>
-## <a name="store-sensitive-data-in-azure"></a>Store poufnych danych na platformie Azure
+## <a name="store-sensitive-data-in-azure"></a>Przechowywanie poufnych danych na platformie Azure
 
-Po uruchomieniu aplikacji w witrynie sieci Web systemu Azure jest jednym ze sposobów, aby uniknąć przechowywania poświadczeń w kontroli źródła, przechowywania ich na platformie Azure.
+Jeśli aplikacja jest uruchamiana w witrynie sieci Web systemu Azure, jeden ze sposobów na uniknięcie przechowywania poświadczeń w kontroli źródła polega na tym, że przechowuje je na platformie Azure.
 
-Na przykład aplikacja naprawić przechowuje w jego pliku Web.config pliku dwa ciągi połączeń, które będą miały haseł w środowisku produkcyjnym i klucz, który zapewnia dostęp do konta usługi Azure storage.
+Na przykład poprawka IT jest przechowywana w pliku Web. config dwa parametry połączenia, które będą miały hasła w środowisku produkcyjnym i klucz zapewniający dostęp do konta usługi Azure Storage.
 
 [!code-xml[Main](source-control/samples/sample1.xml?highlight=2-3,11)]
 
-Jeśli umieścisz rzeczywistej produkcji wartości tych ustawień w Twojej *Web.config* pliku, czy umieść je w *Web.Release.config* pliku, aby skonfigurować przekształcenia pliku Web.config, aby wstawić je podczas wdrażania będą one przechowywane, w repozytorium źródłowym. Jeśli możesz wprowadzić parametry połączenia bazy danych do produkcji profil publikowania, hasło nie będzie w swojej *.pubxml* pliku. (Można wykluczyć *.pubxml* plików z kontroli źródła, ale następnie utracisz korzyści wynikające z innych ustawień wdrażania związanych z udostępnianiem.)
+Jeśli wprowadzisz rzeczywiste wartości produkcyjne dla tych ustawień w pliku *Web. config* lub umieścisz je w pliku *Web. release. config* , aby skonfigurować transformację pliku Web. config w celu wstawienia ich podczas wdrażania, zostaną one zapisane w repozytorium źródłowym. W przypadku wprowadzenia parametrów połączenia bazy danych do profilu publikowania produkcyjnego hasło będzie w pliku *. pubxml* . (Można wykluczyć plik *pubxml* z kontroli źródła, ale utracisz korzyści wynikające z udostępniania wszystkich innych ustawień wdrożenia).
 
-Platforma Azure zapewnia alternatywę dla **appSettings** i połączenia ciągi sekcje *Web.config* pliku. Oto odpowiednia część **konfiguracji** kartę dla witryny sieci web w portalu zarządzania systemu Azure:
+Platforma Azure oferuje alternatywę dla sekcji **AppSettings** i parametrów połączenia w pliku *Web. config* . Poniżej znajduje się odpowiednia część karty **Konfiguracja** witryny sieci Web w portalu zarządzania systemu Azure:
 
-![sekcji appSettings i connectionStrings w portalu](source-control/_static/image8.png)
+![appSettings i connectionStrings w portalu](source-control/_static/image8.png)
 
-Podczas wdrażania projektu do tej witryny sieci web i uruchamiania aplikacji, niezależnie od wartości, które mają być przechowywane na platformie Azure zastąpienie wszelkich wartości znajdują się w pliku Web.config.
+Podczas wdrażania projektu w tej witrynie sieci Web i uruchamiania aplikacji, wszelkie wartości przechowywane na platformie Azure zastępują wszelkie wartości w pliku Web. config.
 
-Te wartości zostaną ustawione na platformie Azure przy użyciu portalu zarządzania lub skryptów. Skrypt automatyzacji tworzenia środowiska przedstawionego [Automatyzowanie wszystkiego](automate-everything.md) rozdział tworzy usługi Azure SQL Database, pobiera magazynu i parametry połączenia bazy danych SQL i przechowuje tych kluczy tajnych w ustawieniach witryny sieci web.
+Te wartości można ustawić na platformie Azure przy użyciu portalu zarządzania lub skryptów. Skrypt automatyzacji tworzenia środowiska, który został wyświetlony w rozdziale [Automatyzacja wszystkiego](automate-everything.md) , tworzy Azure SQL Database, pobiera parametry połączenia magazynu i SQL Database i przechowuje te wpisy tajne w ustawieniach witryny sieci Web.
 
 [!code-powershell[Main](source-control/samples/sample2.ps1)]
 
 [!code-powershell[Main](source-control/samples/sample3.ps1)]
 
-Należy zauważyć, że skrypty są parametryzowane tak, aby rzeczywiste wartości nie uzyskać utrwalone w repozytorium źródłowym.
+Zauważ, że skrypty są sparametryzowane, aby wartości rzeczywiste nie były utrwalane w repozytorium źródłowym.
 
-Po uruchomieniu w środowisku projektowym lokalnie aplikacji odczytuje lokalny plik Web.config i połączenie punktów ciąg do bazy danych LocalDB programu SQL Server w *aplikacji\_danych* folderu projektu sieci web. Po uruchomieniu aplikacji na platformie Azure i aplikacja próbuje odczytać te wartości z pliku Web.config, co otrzymuje i używa są wartości przechowywane dla witryny sieci Web, a nie co faktycznie znajduje się w pliku Web.config.
+Po uruchomieniu lokalnie w środowisku deweloperskim aplikacja odczytuje lokalny plik Web. config, a parametry połączenia wskazują na bazę danych LocalDB SQL Server w folderze *dane\_aplikacji* projektu sieci Web. Po uruchomieniu aplikacji na platformie Azure, gdy aplikacja próbuje odczytać te wartości z pliku Web. config, jego zawartość jest powracana i jest zastosowana dla witryny sieci Web, a nie w rzeczywistości w pliku Web. config.
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-azure-devops"></a>Za pomocą narzędzia Git w programie Visual Studio i DevOps platformy Azure
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Korzystanie z narzędzia Git w programie Visual Studio i platformie Azure DevOps
 
-Do zaimplementowania DevOps rozgałęziona struktura przedstawiony wcześniej, można użyć dowolnego środowiska kontroli źródła. Aby rozproszone zespoły [Rozproszony system kontroli wersji](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) mogą działać najlepiej; w przypadku innych zespołów [scentralizowane system](http://en.wikipedia.org/wiki/Revision_control) może działać lepiej.
+W celu zaimplementowania struktury rozgałęziania DevOps przedstawionej wcześniej można użyć dowolnego środowiska kontroli źródła. W przypadku zespołów rozproszonych [system kontroli wersji rozproszonej](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) może najlepiej współpracować z systemem w przypadku innych zespołów [scentralizowany system](http://en.wikipedia.org/wiki/Revision_control) może usprawnić działanie.
 
-[Git](http://git-scm.com/) to popularne Rozproszony system kontroli wersji. Kiedy używasz Git do kontroli źródła, masz pełną kopię repozytorium z całą historią na komputerze lokalnym. Wiele osób wolą, ponieważ jest łatwiejsza zatwierdzenia, aby kontynuować pracę, gdy nie masz połączenia z siecią — może być nadal wykonywać i wycofywanie zmian, Utwórz i przełączania gałęzi i tak dalej. Nawet wtedy, gdy masz połączenie z siecią, jest to, łatwiej i szybciej tworzyć gałęzie i przełączania gałęzi, gdy wszystko jest lokalny. Możesz również tworzyć lokalnych zatwierdzeń i wycofywanie zmian, bez mających wpływ na innym deweloperom. I wsadowego zatwierdzenia przed wysłaniem ich do serwera.
+[Git](http://git-scm.com/) to popularny system kontroli wersji rozproszonej. W przypadku korzystania z narzędzia Git na potrzeby kontroli źródła masz kompletną kopię repozytorium ze wszystkimi swoimi historiami na komputerze lokalnym. Wiele osób preferuje, aby łatwiej kontynuować pracę, gdy nie masz połączenia z siecią — możesz kontynuować zatwierdzanie i wycofywanie, tworzenie i przełączanie gałęzi itd. Nawet jeśli masz połączenie z siecią, łatwiej i szybciej twórz gałęzie i przełączaj gałęzie, gdy wszystko jest lokalne. Możesz również wykonywać lokalne zatwierdzenia i wycofywania bez wpływu na innych deweloperów. Można też wykonać zadania wsadowe przed wysłaniem ich do serwera.
 
-[Azure repozytoriów](/azure/devops/repos/index?view=vsts) oferuje zarówno [Git](/azure/devops/repos/git/?view=vsts) i [Team Foundation Version Control](/azure/devops/repos/tfvc/index?view=vsts) (TFVC; scentralizowane kontroli źródła). Rozpoczynanie pracy z usługą Azure DevOps [tutaj](https://app.vsaex.visualstudio.com/signup).
+[Azure Repos](/azure/devops/repos/index?view=vsts) oferuje zarówno usługę [git](/azure/devops/repos/git/?view=vsts) , jak i [Kontrola wersji serwera Team Foundation](/azure/devops/repos/tfvc/index?view=vsts) (TFVC; scentralizowana kontrola źródła). Zacznij korzystać z usługi Azure DevOps [tutaj](https://app.vsaex.visualstudio.com/signup).
 
-Visual Studio 2017 zawiera wbudowane najwyższej jakości [obsługi systemu Git](https://msdn.microsoft.com/library/hh850437.aspx). Poniżej przedstawiono krótki pokaz usługi jak to działa.
+Program Visual Studio 2017 zawiera wbudowaną, pierwszą w swojej klasie [obsługę usługi git](https://msdn.microsoft.com/library/hh850437.aspx). Oto krótki pokaz, jak to działa.
 
-Mając otwarty w programie Visual Studio projekt, kliknij prawym przyciskiem myszy rozwiązanie w **Eksploratora rozwiązań**, a następnie wybierz **Dodaj rozwiązanie do kontroli źródła**.
+Mając otwarty projekt w programie Visual Studio, kliknij prawym przyciskiem myszy rozwiązanie w **Eksplorator rozwiązań**, a następnie wybierz polecenie **Dodaj rozwiązanie do kontroli źródła**.
 
 ![Dodaj rozwiązanie do kontroli źródła](source-control/_static/image9.png)
 
-Visual Studio Wyświetla prośbę, jeśli chcesz użyć (scentralizowany system kontroli wersji) TFVC lub Git.
+Program Visual Studio pyta, czy chcesz używać TFVC (scentralizowany system kontroli wersji) czy usługi git.
 
 ![Wybierz kontrolę źródła](source-control/_static/image10.png)
 
-Po wybierz Git i kliknięciu **OK**, program Visual Studio tworzy nowego lokalnego repozytorium Git w folderze rozwiązania. Nowe repozytorium nie ma jeszcze; plików należy dodać je do repozytorium, wykonując zatwierdzeń usługi Git. Kliknij prawym przyciskiem myszy rozwiązanie w **Eksploratora rozwiązań**, a następnie kliknij przycisk **zatwierdzić**.
+Po wybraniu usługi git i kliknięciu przycisku **OK**program Visual Studio tworzy nowe lokalne repozytorium Git w folderze rozwiązania. Nowe repozytorium nie ma jeszcze żadnych plików; musisz dodać je do repozytorium, wykonując zatwierdzenie git. Kliknij prawym przyciskiem myszy rozwiązanie w **Eksplorator rozwiązań**, a następnie kliknij pozycję **Zatwierdź**.
 
-![Zatwierdzenia](source-control/_static/image11.png)
+![Zleca](source-control/_static/image11.png)
 
-Program Visual Studio automatycznie przygotowuje wszystkie pliki projektu do zatwierdzenia i wyświetla je w **Team Explorer** w **uwzględnione zmiany** okienka. (Jeśli wystąpiły niektóre nie chcesz, aby uwzględnić w zatwierdzeniu, można wybrać je, kliknij prawym przyciskiem myszy, a następnie kliknij przycisk **wykluczyć**.)
+Program Visual Studio automatycznie etapuje wszystkie pliki projektu dla zatwierdzenia i wyświetla je w **Team Explorer** w okienku **uwzględnione zmiany** . (Jeśli niektóre z nich nie zostały uwzględnione w zatwierdzeniu, można je zaznaczyć, kliknąć prawym przyciskiem myszy, a następnie kliknąć pozycję **Wyklucz**).
 
 ![Team Explorer](source-control/_static/image12.png)
 
-Wprowadź komentarz zatwierdzenia, a następnie kliknij przycisk **zatwierdzenia**, i Visual Studio wykonuje zatwierdzenia i wyświetla identyfikator zatwierdzenia.
+Wprowadź komentarz dotyczący zatwierdzania, a następnie kliknij przycisk **Zatwierdź**, a program Visual Studio wykonuje zatwierdzenie i wyświetla identyfikator zatwierdzenia.
 
 ![Team Explorer zmiany](source-control/_static/image13.png)
 
-Teraz po zmianie kodu, aby go różni się od co znajduje się w repozytorium łatwo wyświetlać różnice. Kliknij prawym przyciskiem myszy plik, który zmieniono, wybierz **porównania z Unmodified**, i Uzyskaj wyświetlania porównanie, który zawiera niezatwierdzone zmiany.
+Teraz jeśli zmienisz jakiś kod, tak aby różnił się od tego, co znajduje się w repozytorium, możesz łatwo wyświetlić te różnice. Kliknij prawym przyciskiem myszy plik, który został zmieniony, a następnie wybierz pozycję **Porównaj z niezmodyfikowanym**, a następnie Wyświetl widok z porównaniem, który pokazuje Niezatwierdzone zmiany.
 
 ![Porównaj z niezmodyfikowanym](source-control/_static/image14.png)
 
-![Diff wyświetlanie zmiany](source-control/_static/image15.png)
+![Różnice pokazujące zmiany](source-control/_static/image15.png)
 
-Można łatwo sprawdzenia, jakie zmiany wprowadzania i zaewidencjonuj je.
+Możesz łatwo zobaczyć, jakie zmiany są wprowadzane, i zapoznaj się z nimi.
 
-Załóżmy, że należy wprowadzić gałąź — możesz to zrobić w programie Visual Studio za. W **Team Explorer**, kliknij przycisk **nową gałąź**.
+Załóżmy, że trzeba utworzyć gałąź — można to zrobić w programie Visual Studio. W **Team Explorer**kliknij pozycję **nowe rozgałęzienie**.
 
-![Team Explorer nowa gałąź](source-control/_static/image16.png)
+![Team Explorer nowe rozgałęzienie](source-control/_static/image16.png)
 
-Wprowadź nazwę gałęzi, kliknij przycisk **utwórz gałąź**, a w przypadku wybrania **Wyewidencjonuj gałąź**, Visual Studio automatycznie sprawdza out nowej gałęzi.
+Wprowadź nazwę gałęzi, kliknij pozycję **Utwórz gałąź**i w przypadku wybrania **gałęzi wyewidencjonowania**program Visual Studio automatycznie wyewidencjonuje nową gałąź.
 
-![Team Explorer nowa gałąź](source-control/_static/image17.png)
+![Team Explorer nowe rozgałęzienie](source-control/_static/image17.png)
 
-Można teraz wprowadzić zmiany do plików i zaewidencjonować je w tej gałęzi. I można łatwo przełączać między gałęziami i programu Visual Studio automatycznie synchronizuje pliki do gałęzi, w której zostały wyewidencjonowane. W tym przykładzie tytułu strony sieci web, w  *\_Layout.cshtml* została zmieniona na "Odpowiednia poprawka 1" w Poprawka1 gałęzi.
+Teraz można wprowadzać zmiany w plikach i zaewidencjonować je do tej gałęzi. Można łatwo przełączać się między gałęziami i program Visual Studio automatycznie synchronizuje pliki z niezależną gałęzią, która została sprawdzona. W tym przykładzie tytuł strony sieci Web w *\_Layout. cshtml* został zmieniony na "gorąca poprawka 1" w gałęzi gałąź poprawka1.
 
-![Poprawka1 gałęzi](source-control/_static/image18.png)
+![Gałąź gałąź poprawka1](source-control/_static/image18.png)
 
-Po przejściu do poziomu głównego gałęzi, zawartość  *\_Layout.cshtml* pliku automatycznie przywrócić są w gałęzi głównej.
+Jeśli przełączysz się z powrotem do gałęzi głównej, zawartość pliku *\_Layout. cshtml* automatycznie powraca do wartości znajdujących się w gałęzi głównej.
 
 ![Gałąź główna](source-control/_static/image19.png)
 
-Ten prosty przykład jak szybko utworzyć gałąź i przerzucanie i z powrotem między gałęziami. Ta funkcja umożliwia bardzo elastyczne przepływu pracy przy użyciu strukturę gałęzi i skrypty automatyzacji są prezentowane w [Automatyzowanie wszystkiego](automate-everything.md) rozdziale. Na przykład może być pracy w gałęzi rozwoju, tworzenie gałęzi poprawki zniżki w stosunku do głównego, przełącz się do nowej gałęzi, wprowadzać w nim zmian i zatwierdzić je i przejdź z powrotem do gałęzi rozwoju i kontynuować wykonywanych wcześniej czynności.
+Ten prosty przykład sposobu, w jaki można szybko utworzyć gałąź i odwrócić i przejść między gałęziami. Ta funkcja umożliwia przepływ pracy wysoce Agile przy użyciu struktury gałęzi i skryptów automatyzacji przedstawionych w rozdziale [Automatyzowanie wszystkiego](automate-everything.md) . Na przykład możesz pracować w gałęzi deweloperskiej, utworzyć rozgałęzienie gorącej poprawki z klasy głównej, przełączyć się do nowej gałęzi, wprowadzić zmiany i zatwierdzić je, a następnie przełączyć się z powrotem do gałęzi deweloperskiej i kontynuować działanie.
 
-Opisane w tym miejscu jest sposób pracy z lokalnego repozytorium Git w programie Visual Studio. W środowisku zespołowym, można zwykle także Wypchnij zmiany typowe repozytorium. Narzędzia programu Visual Studio umożliwiają również wskaż zdalne repozytorium Git. W tym celu można użyć GitHub.com, możesz też [Git i repozytoriów platformy Azure](/azure/devops/repos/git/overview?view=vsts) zintegrowane z wszystkich innych funkcji metodyki DevOps platformy Azure, takich jak element roboczy i śledzenia usterek.
+Informacje o tym, co było widoczne w tym miejscu, to sposób pracy z lokalnym repozytorium Git w programie Visual Studio. W środowisku zespołu zwykle są również wypychane zmiany do wspólnego repozytorium. Narzędzia programu Visual Studio pozwalają również wskazać zdalne repozytorium git. Możesz użyć GitHub.com do tego celu lub użyć usług [git i Azure Repos](/azure/devops/repos/git/overview?view=vsts) zintegrowanych ze wszystkimi innymi funkcjami DevOps platformy Azure, takimi jak elementy robocze i śledzenie błędów.
 
-Nie jest to jedyny sposób można zaimplementować agile strategii rozgałęziania, oczywiście. Można włączyć tego samego przepływu pracy agile, przy użyciu repozytorium kontroli źródła scentralizowany.
+Nie jest to jedyny sposób, w jaki można wdrożyć strategię rozgałęziania Agile. Ten sam przepływ pracy Agile można włączyć przy użyciu scentralizowanego repozytorium kontroli źródła.
 
 ## <a name="summary"></a>Podsumowanie
 
-Ma być mierzony sukces system kontroli źródła na podstawie jak szybko wprowadzić zmianę i pobierz go na żywo w sposób bezpieczny i przewidywalne. Jeśli zaczniesz Przerażony wprowadzić zmiany, ponieważ trzeba dzień lub dwa testami ręcznymi w nim, możesz zadawać sobie co musisz zrobić process-wise lub test-wise, tak aby było wprowadzać zmiany w ciągu kilku minut lub najgorszy już niż godzina. Jedną ze strategii dla tych czynności jest do zaimplementowania ciągłej integracji i ciągłego dostarczania, które omówiono w [następny rozdział](continuous-integration-and-continuous-delivery.md).
+Zmierz sukces systemu kontroli źródła w zależności od tego, jak szybko możesz wprowadzić zmianę i uzyskać ją na żywo w bezpieczny i przewidywalny sposób. Jeśli okaże się, że Obawialiśmy się zmienić, ponieważ trzeba wykonać dzień lub dwa testy ręczne, możesz zadawać sobie informacje o tym, co należy zrobić, aby wykonać tę zmianę w ciągu kilku minut lub najgorszenia czasu. Jedną z strategii wykonywania tej czynności jest zaimplementowanie ciągłej integracji i ciągłego dostarczania, które zajmiemy się w [następnym rozdziale](continuous-integration-and-continuous-delivery.md).
 
 <a id="resources"></a>
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji na temat strategii rozgałęziania zobacz następujące zasoby:
+Aby uzyskać więcej informacji na temat strategii rozgałęziania, zobacz następujące zasoby:
 
-- [Tworzenie potoku wersji przy użyciu serwera Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Dokumentacja firmy Microsoft Patterns and Practices. Zobacz rozdział 6 dyskusję na temat strategii rozgałęziania. Funkcja ambasadorzy przełącza za pośrednictwem gałęzie funkcji i gałęzie funkcji są używane, promuje zapewnienie ich krótkotrwałe (godzin lub dni, co najwyżej).
-- [Przewodnik kontroli wersji](https://aka.ms/vsarsolutions). Przewodnik dotyczący strategii rozgałęziania przez ALM Rangers. Zobacz rozgałęzianie Strategies.pdf na kartę pliki do pobrania.
-- [Tworzenie oprogramowania za pomocą przełączników funkcji](https://msdn.microsoft.com/magazine/dn683796.aspx). Artykuł w MSDN Magazine.
-- [Funkcja przełączania](http://martinfowler.com/bliki/FeatureToggle.html). Wprowadzenie do funkcji włącza/wyłącza / flagi funkcji w blogu Martina Fowlera.
-- [Włącza lub wyłącza vs gałęzie funkcji są wyposażone w](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Inny wpis w blogu Włącza lub wyłącza funkcję, przez Dylan Smith.
+- [Tworzenie potoku wydania z Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Dokumentacja dotycząca wzorców i praktyk firmy Microsoft. Zobacz rozdział 6, aby zapoznać się z omówieniem strategii rozgałęzień. W przypadku korzystania z funkcji użytkownicy mogą przełączać gałęzie funkcji, a jeśli są używane gałęzie funkcji, są one niekrótsze (w godzinach lub w dniach).
+- [Przewodnik kontroli wersji](https://aka.ms/vsarsolutions). Przewodnik po rozgałęzieniu strategii przez zakresy ALM. Zobacz rozgałęzianie strategii. PDF na karcie pliki do pobrania.
+- [Programowanie oprogramowania z przełącznikami funkcji](https://msdn.microsoft.com/magazine/dn683796.aspx). Artykuł magazynu MSDN.
+- [Przełącznik funkcji](http://martinfowler.com/bliki/FeatureToggle.html). Wprowadzenie do funkcji przełączania/flagi funkcji w blogu Fowlera.
+- [Funkcja przełącza gałęzie funkcji vs](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Inny wpis w blogu dotyczący przełączników funkcji, Dylan Smith.
 
-Aby uzyskać więcej informacji na temat obsługi poufne informacje, które nie powinny być przechowywane w poziomie repozytoriów kontroli źródła zobacz następujące zasoby:
+Aby uzyskać więcej informacji o sposobie obsługi poufnych informacji, które nie powinny być przechowywane w repozytoriach kontroli źródła, zobacz następujące zasoby:
 
-- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i usłudze Azure App Service](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-- [Azure Web Sites: Sposób działania ciągów Application Strings and połączenia](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Wyjaśnia, funkcja platformy Azure, która zastępuje `appSettings` i `connectionStrings` dane w *Web.config* pliku.
-- [Niestandardowe ustawienia konfiguracji i aplikacji w usłudze Azure witryn sieci Web — za pomocą Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
+- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych w ASP.NET i Azure App Service](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+- [Witryny sieci Web systemu Azure: sposób działania ciągów aplikacji i parametrów połączenia](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Wyjaśnia funkcję platformy Azure, która zastępuje `appSettings` i `connectionStrings` dane w pliku *Web. config* .
+- [Niestandardowe ustawienia konfiguracji i aplikacji w witrynach sieci Web systemu Azure — z Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
 
-Aby uzyskać informacje o innych metodach przechowywanie poufnych informacji poza kontrolą źródła, zobacz [platformy ASP.NET MVC: Zachowaj prywatne poza ustawienia kontroli źródła](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
+Aby uzyskać informacje o innych metodach utrzymywania poufnych informacji z kontroli źródła, zobacz [ASP.NET MVC: utrzymywanie ustawień prywatnych poza kontrolą źródła](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
 > [!div class="step-by-step"]
 > [Poprzednie](automate-everything.md)

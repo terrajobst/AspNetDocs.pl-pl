@@ -1,92 +1,92 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
-title: ASP.NET obsługującego opcje (C#) | Dokumentacja firmy Microsoft
+title: Opcje hostingu ASP.NET (C#) | Microsoft Docs
 author: rick-anderson
-description: Aplikacje sieci web platformy ASP.NET zwykle nie mają utworzony i testowane w lokalne Środowisko deweloperskie i muszą zostać wdrożone do o środowisku produkcyjnym...
+description: Aplikacje sieci Web ASP.NET są zwykle zaprojektowane, tworzone i testowane w lokalnym środowisku programistycznym i muszą zostać wdrożone w środowisku produkcyjnym o...
 ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 89a1d2bc-fdfd-4c5c-a3b0-49a08baaf63a
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ec92a3b719116d8ef457156788ac451a300dbfc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2eafa750167d89fa996a442633e79dce3d5b85bd
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130664"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74620774"
 ---
 # <a name="aspnet-hosting-options-c"></a>Opcje hostingu platformy ASP.NET (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_cs.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial01_Basics_cs.pdf)
 
-> Aplikacji sieci web ASP.NET są zazwyczaj zaprojektowane, tworzone i testowane w lokalnym środowisku programowania i konieczności można wdrożyć w środowisku produkcyjnym, gdy wszystko będzie gotowe do wydania. Ten samouczek zawiera ogólne omówienie procesu wdrażania i służy jako wprowadzenie do tej serii samouczków.
+> Aplikacje sieci Web ASP.NET są zwykle zaprojektowane, tworzone i testowane w lokalnym środowisku programistycznym i muszą zostać wdrożone w środowisku produkcyjnym, gdy będzie gotowe do wydania. Ten samouczek zawiera ogólne omówienie procesu wdrażania i służy jako wprowadzenie do tej serii samouczków.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Aplikacje sieci Web są zazwyczaj zaprojektowane, utworzone i przetestowane w środowisku deweloperskim, który jest dostępny tylko dla programistów pracy w witrynie. Gdy aplikacja jest gotowa do wydania, jest przenoszony do środowiska produkcyjnego gdzie lokacji są dostępne dla wszystkich użytkowników Internetu. Ten proces wdrażania wprowadza wiele wyzwań:
+Aplikacje sieci Web są zwykle zaprojektowane, tworzone i testowane w środowisku programistycznym, które jest dostępne tylko dla programistów pracujących w tej witrynie. Gdy aplikacja będzie gotowa do zwolnienia, zostanie przeniesiona do środowiska produkcyjnego, w którym można uzyskać dostęp do witryny przez dowolnego użytkownika w Internecie. W tym procesie wdrażania wprowadzono kilka wyzwań:
 
-- W środowisku produkcyjnym, musi istnieć i być prawidłowo skonfigurowane, przed wdrożeniem aplikacji ASP.NET; Ponadto w środowisku produkcyjnym muszą być przechowywane na bieżąco otrzymywać najnowsze poprawki zabezpieczeń.
-- Prawidłowy zbiór plików znaczników, pliki kodu i pliki obsługi muszą zostać skopiowane ze środowiska projektowego do środowiska produkcyjnego. W przypadku aplikacji opartych na danych może to wymagać kopiowania schemat bazy danych i/lub dane, jak również.
-- Może to być różnice konfiguracji między dwoma środowiskami. Serwer ciągu lub wiadomości e-mail połączenie bazy danych używane w środowisku programistycznym będzie prawdopodobnie inny niż w środowisku produkcyjnym. Co więcej zachowanie aplikacji może zależeć na środowisko. Na przykład po wystąpieniu błędu w trakcie opracowywania szczegóły błędu mogą być wyświetlane na ekranie, ale po wystąpieniu błędu w środowisku produkcyjnym, stronę błędu przyjazny dla użytkownika, które powinny być wyświetlane zamiast i szczegóły błędu pocztą e-mail do deweloperów.
+- Środowisko produkcyjne musi istnieć i być prawidłowo skonfigurowane, aby można było wdrożyć aplikację ASP.NET; Ponadto środowisko produkcyjne musi być aktualizowane przy użyciu najnowszych poprawek zabezpieczeń.
+- Prawidłowy zestaw plików znaczników, plików kodu i plików obsługi należy skopiować ze środowiska programistycznego do środowiska produkcyjnego. W przypadku aplikacji opartych na danych może to wymagać również skopiowania schematu bazy danych i/lub danych.
+- Mogą istnieć różnice między tymi dwoma środowiskami. Parametry połączenia z bazą danych lub serwer poczty e-mail używane w środowisku programistycznym będą prawdopodobnie inne niż środowisko produkcyjne. Co więcej, zachowanie aplikacji może zależeć od środowiska. Na przykład w przypadku wystąpienia błędu podczas programowania szczegóły błędu mogą być wyświetlane na ekranie, ale w przypadku wystąpienia błędu w środowisku produkcyjnym powinna zostać wyświetlona strona błędu przyjazna dla użytkownika, a szczegóły błędu będą wysyłane do deweloperów.
 
-Aby uniknąć pierwszego wyzwania — definiowanie i utrzymywanie w środowisku produkcyjnym — wiele osób i firm zlecają obsługę środowisk produkcyjnych, aby *dostawcy hostingu w sieci web*. Dostawca hostingu w sieci web to firma, która zarządza środowiska produkcyjnego w Twoim imieniu. Istnieją niezliczone web dostawców hosta, każdy z różnymi cenami i poziomów usług; w sekcji "Wyszukiwanie w sieci Web hosta Provider" porady dotyczące lokalizacji dostawcy usług.
+Aby uniknąć pierwszego wyzwania — skonfigurowanie i utrzymywanie środowiska produkcyjnego — wiele osób i firm udostępnia swoje środowiska produkcyjne *dostawcom hostingu w sieci Web*. Dostawca hostingu w sieci Web to firma, która zarządza środowiskiem produkcyjnym w Twoim imieniu. Istnieją dostawcy hosta sieci Web niezliczone, każdy z różnymi cenami i poziomami usług. Zapoznaj się z sekcją "Znajdowanie dostawcy hosta sieci Web", aby uzyskać porady dotyczące lokalizowania tego dostawcy usług.
 
-Jest to pierwszy z serii samouczków, które wyglądają na etapy wdrażania aplikacji sieci web ASP.NET w środowisku produkcyjnym, zarządzana przez dostawcę hosta sieci web. W trakcie tego samouczka będziemy sprawdzać:
+Jest to pierwsza z wielu samouczków, które zapoznają się z krokami związanymi z wdrażaniem aplikacji sieci Web ASP.NET w środowisku produkcyjnym zarządzanym przez dostawcę hosta sieci Web. W ramach tego samouczka będziemy analizować:
 
-- Które pliki muszą zostać wdrożone do dostawcy hosta sieci web.
-- Narzędzia do co usprawnia proces wdrażania.
+- Jakie pliki należy wdrożyć dla dostawcy hosta sieci Web.
+- Narzędzia do usprawniania procesu wdrażania.
 - Jak wdrożyć bazę danych.
-- Wskazówki dotyczące wdrażania bazy danych, która używa [dostawcy SQL na podstawie członkostwa i ról](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md), oraz metody, aby mógł naśladować narzędzia administracyjnego witryny sieci Web w środowisku produkcyjnym.
-- Strategie płynnie zaktualizowanie bazy danych w środowisku produkcyjnym ze zmianami wprowadzonymi podczas programowania.
-- Techniki rejestrowanie błędów, występujących w produkcji i sposoby Powiadom deweloperów, gdy wystąpi błąd.
+- Wskazówki dotyczące wdrażania bazy danych korzystającej [z dostawcy członkostwa i ról opartego na języku SQL](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md), a także sposoby naśladowania narzędzia administracyjnego witryny sieci Web w środowisku produkcyjnym.
+- Strategie umożliwiające bezproblemowe aktualizowanie bazy danych w środowisku produkcyjnym przy użyciu zmian wprowadzonych podczas opracowywania.
+- Techniki rejestrowania błędów występujących w środowisku produkcyjnym oraz sposoby powiadamiania deweloperów o wystąpieniu błędu.
 
-Te samouczki są dostosowane zwięzłe i zapewnić instrukcje krok po kroku z dużą ilością zrzuty ekranu wizualnie przeprowadzi Cię przez proces. W tym samouczku inauguracyjnym zawiera omówienie procesu wdrażania platformy ASP.NET i porady dotyczące znajdowania dostawcy hostingu w sieci web. Zaczynajmy!
+Te samouczki są zwięzłe i zawierają instrukcje krok po kroku dotyczące dużej ilości zrzutów ekranu, aby przeprowadzić Cię przez proces wizualnie. Ten samouczek Inaugural zawiera omówienie procesu wdrażania ASP.NET oraz porady dotyczące znajdowania dostawcy hostingu w sieci Web. Zacznijmy!
 
-## <a name="an-overview-of-the-aspnet-deployment-process"></a>Omówienie procesu wdrażania platformy ASP.NET
+## <a name="an-overview-of-the-aspnet-deployment-process"></a>Przegląd procesu wdrażania ASP.NET
 
-Wdrażanie aplikacji ASP.NET mówiąc, obejmuje trzy kroki:
+W Nutshell wdrażanie aplikacji ASP.NET obejmuje następujące trzy kroki:
 
-1. Konfigurowanie aplikacji sieci web, serwer sieci web i bazy danych w środowisku produkcyjnym.
-2. Synchronizuj strony ASP.NET, pliki kodu, zestawów w `Bin` folder i pliki pomocnicze związane z kodu HTML, takich jak pliki CSS i JavaScript.
-3. Synchronizuj schemat bazy danych i/lub danych.
+1. Skonfiguruj aplikację sieci Web, serwer sieci Web i bazę danych w środowisku produkcyjnym.
+2. Synchronizowanie stron ASP.NET, plików kodu, zestawów w folderze `Bin` i plików obsługi związanych z HTML, takich jak pliki CSS i JavaScript.
+3. Zsynchronizuj schemat bazy danych i/lub dane.
 
-Informacje o konfiguracji dla aplikacji sieci web znajduje się w `Web.config` pliku i zawiera parametry połączenia bazy danych, obsługa błędów kryteriów, adres URL poprawiania reguły i informacje o serwerze poczty e-mail. Często tych informacji różni się dla aplikacji w trakcie opracowywania w porównaniu z tej samej aplikacji w środowisku produkcyjnym. Na przykład przy tworzeniu aplikacji jest najlepiej użyć rozwoju bazy danych, tak aby nie testujesz względem produkcyjnej bazy danych. W wyniku parametry połączenia bazy danych zazwyczaj różnią się między aplikacjami, deweloperskich i produkcyjnych. Ze względu na różnice te części wdrożenia konieczne jest wprowadzenie zmian do informacji o konfiguracji aplikacji sieci web.
+Informacje o konfiguracji aplikacji sieci Web znajdują się zwykle w pliku `Web.config` i zawierają parametry połączenia bazy danych, kryteria obsługi błędów, reguły ponownego zapisywania adresów URL i informacje o serwerze poczty e-mail. Często te informacje różnią się w przypadku aplikacji w programowaniu i tej samej aplikacji w środowisku produkcyjnym. Na przykład podczas tworzenia aplikacji najlepiej używać programistycznej bazy danych, aby nie przeprowadzać testów względem produkcyjnej bazy danych. W związku z tym parametry połączenia bazy danych są zwykle różne dla aplikacji deweloperskich i produkcyjnych. Ze względu na te różnice część wdrożenia obejmuje wprowadzanie zmian w informacjach konfiguracyjnych aplikacji sieci Web.
 
-Oprócz zmian w konfiguracji aplikacji sieci web krok 1 również może pociągać za sobą konfiguracji dla serwera sieci web i bazy danych. Na przykład jeśli strona ASP.NET tworzy lub usuwa pliki z katalogu na serwerze sieci web serwera sieci web musi skonfigurować tak, aby zezwolić na te modyfikacje systemu plików. Podobnie może być uprawnień lub ustawienia uwierzytelniania, które należy podjąć w bazie danych.
+Oprócz zmian konfiguracji aplikacji sieci Web, krok 1 może również pociągnąć za sobą konfigurację serwera sieci Web i bazy danych. Na przykład jeśli strona ASP.NET tworzy lub usuwa pliki z katalogu na serwerze sieci Web, należy skonfigurować serwer sieci Web tak, aby zezwalał na modyfikacje systemu plików. Podobnie mogą istnieć uprawnienia lub ustawienia uwierzytelniania, które należy wykonać w bazie danych.
 
-Krok 2 obejmuje synchronizowanie zestaw zasadniczych stron ASP.NET i pliki obsługi między środowiskami deweloperskim i produkcyjnym. Zestawy ASP. Pliki związane z usługą NET, które muszą zostać zsynchronizowane między dwoma środowiskami zależy od typu projektu, zostanie utworzony w programie Visual Studio i dyskusji w następnym samouczku [ *określająca, które pliki muszą zostać wdrożone*](determining-what-files-need-to-be-deployed-cs.md). Samouczki trzecia i czwarta — [ *wdrażanie Twojej witryny przy użyciu protokołu FTP* ](deploying-your-site-using-an-ftp-client-cs.md) i [ *wdrażanie Twojej witryny przy użyciu programu Visual Studio* ](deploying-your-site-using-visual-studio-cs.md) — Sprawdź różne narzędzia i techniki do synchronizowania tych plików.
+Krok 2 obejmuje synchronizowanie zestawu podstawowych stron ASP.NET i obsługi plików między środowiskami deweloperskimi i produkcyjnymi. Określony zestaw plików powiązanych z ASP.NET, które muszą być synchronizowane między dwoma środowiskami, zależy od typu projektu utworzonego w programie Visual Studio, a także jest to dyskusja w następnym samouczku, [*określająca, które pliki muszą zostać wdrożone*](determining-what-files-need-to-be-deployed-cs.md). Trzeci i czwarty samouczki — [*wdrażanie witryny przy użyciu protokołu FTP*](deploying-your-site-using-an-ftp-client-cs.md) i [*wdrażanie witryny przy użyciu programu Visual Studio*](deploying-your-site-using-visual-studio-cs.md) — Sprawdź różne narzędzia i techniki do synchronizowania tych plików.
 
-Podczas kompilowania aplikacji opartych na danych, są zazwyczaj dwie bazy danych używane: jeden dla rozwoju i jeden w środowisku produkcyjnym. Podczas tworzenia aplikacji schemat rozwoju bazy danych może być modyfikowane w celu uwzględnienia nowych tabel, kolumn, procedury składowane i wyzwalacze lub może zostać zmodyfikowana, aby usunąć lub zmienić istniejące obiekty bazy danych. Między tych zmian czas i czas, w których aplikacja jest wdrażana w środowisku produkcyjnym deweloperskich i produkcyjnych baz danych nie są zsynchronizowane. Ten asynchroniczności musi być ustalone podczas procesu wdrażania. Te problemy zostaną sprawdzone w przyszłości samouczków.
+Podczas tworzenia aplikacji opartych na danych są zazwyczaj używane dwie bazy danych: jeden do programowania i jeden w środowisku produkcyjnym. Podczas opracowywania schemat bazy danych programistycznych może być modyfikowany w taki sposób, aby zawierał nowe tabele, kolumny, procedury składowane i wyzwalacze, lub być modyfikowane w celu usunięcia lub zmiany nazwy istniejących obiektów bazy danych. Między czasem wprowadzenia tych zmian i czasem wdrożenia aplikacji w środowisku produkcyjnym bazy danych programistycznych i produkcyjnych nie są zsynchronizowane. Ten asynchroniczności należy naprawić w procesie wdrażania. Te wyzwania będą badane w przyszłości samouczków.
 
-## <a name="finding-a-web-host-provider"></a>Wyszukiwanie dostawcy hosta sieci Web
+## <a name="finding-a-web-host-provider"></a>Znajdowanie dostawcy hosta sieci Web
 
-Aplikacje ASP.NET można wdrożyć na dowolnym serwerze sieci web, .NET Framework i Internet Information Services (IIS). Można hostować witrynę z komputera osobistego przy założeniu, że miał połączenie szerokopasmowe z Internetem i wie, jak skonfigurować router w taki sposób, aby umożliwić przychodzących żądań sieci web. Może również udostępnić lokacji z komputera w sieci intranet, jak wiele firm. Celem tych samouczków, jednak jest hostem witryny sieci Web u dostawcy usług hosta sieci web.
-
-> [!NOTE]
-> [Usługi IIS](https://www.iis.net/) to serwer sieci web przeznaczonych dla przedsiębiorstw firmy Microsoft. Jest dostarczany z-Home systemu Windows, takich jak Windows Server 2008 i niektóre wersje systemu Windows Vista. Nie trzeba zainstalować usługi IIS do obsługi aplikacji programu ASP.NET w środowisku deweloperskim, jak program Visual Studio obejmuje serwer sieci Web programu ASP.NET Development. Jednak serwer sieci Web programu ASP.NET Development akceptuje tylko połączenia lokalne i w związku z tym nie można używać w środowisku produkcyjnym.
-
-Przed wdrożeniem witryny dostawcy hosta sieci web musi najpierw zdecyduj jaki firmy do prowadzenia działalności z. Dostępne są niezliczone firmy w portalu marketplace; hostingu w sieci web Wyszukaj "hostingu w sieci web firmy" zwraca więcej niż pięć milionów wyników. Jak można znaleźć ten, który jest odpowiedni dla Ciebie? Ulubiona Wyszukiwarka jest dobrym miejscem począwszy od witryn sieci Web, takich jak [TopHosts](http://www.tophosts.com/) i [HostCritique](http://www.hostcritique.net/), który Porównaj i zestaw różnych usług hostingu. Czy mogę poinformować o żadnych zaleceń dotyczących; współpracowników i współpracowników można również zadawać na zalecenia [hostingu Otwórz Forum](https://forums.asp.net/158.aspx) tutaj na [fora ASP.NET](https://forums.asp.net/).
-
-Firm zajmujących się hostingiem w sieci Web zwykle oferują udostępnione plany hostingu i plany hostingu w wersji dedykowanej. Udostępniony hostingu jednej sieci web hostów serwera dziesiątki, jeśli nie setki różnych witryn sieci Web. Przy użyciu wyspecjalizowanego hostingu dzierżawy jest komputer z firmy, która służy lokacji i lokacji. Udostępnione planu hostingu może obejmować obsługę strony ASP.NET, pracy z baz danych Microsoft Access, 5 GB miejsca na dysku i 100 GB dotyczący miesięcznego ruchu przepustowości dla $9.95 miesięcznie. Inny plan hostingu udostępnionej może obejmują obsługę strony ASP.NET, dostęp do serwera bazy danych Microsoft SQL Server 2008, 10 GB miejsca na dysku i 250 GB przepustowości dotyczący miesięcznego ruchu cenie od 19,95 USD miesięcznie. Plany hostingu w wersji dedykowanej są zazwyczaj znacznie bardziej kosztowne i wyceny kilka dolarów kilkuset na miesiąc, ale zapewniają lepszą wydajność i większą kontrolę niż udostępnionej opcji hostingu. Jakiego planu, możesz wybrać zależy od Twojego budżetu, ilość ruchu odbiera witryny sieci Web i funkcji, możesz przewidywać będziesz potrzebować.
-
-Dwie ważne uwagi podczas wybierania dostawcy hosta sieci web są dział obsługi klienta i jakości usługi. Jeśli masz pytanie lub problem z konfiguracją, jak długo trwa przesyłanie problem do działu pomocy technicznej hosta sieci web, dopóki nie uzyskasz odpowiedzi? Jak niezawodne są usługi firmy? Często mają awarii bazy danych? Jak często jego serwerem poczty e-mail przejdą w tryb offline? Można zawsze Pytaj firmy zawierają szczegółowe informacje dotyczące ich czas pracy i uzyskiwanie informacji o zasadach usługi swoich klientów, ale bardziej surefire sposobem jest poproś o opinię bieżącej i wcześniejszych klientów, można to zrobić za pośrednictwem forów w trybie online, grupy dyskusyjne i listservs wiadomości e-mail .
+Aplikacje ASP.NET można wdrożyć na dowolnym serwerze sieci Web, na którym zainstalowano .NET Framework i Internet Information Services (IIS). Lokację można hostować z komputera osobistego, przy założeniu, że masz połączenie szerokopasmowe z Internetem i jak skonfigurować router tak, aby zezwalał na przychodzące żądania sieci Web. Lokację można również hostować z komputera w intranecie, tak jak wiele firm. Te samouczki udostępniają jednak witrynę internetową z dostawcą hosta sieci Web.
 
 > [!NOTE]
-> Niektóre firmy hostingu w sieci web skoncentrować swoją działalność na stosie określonej technologii, takich jak .NET lub [LAMP](http://en.wikipedia.org/wiki/LAMP_stack) (**L** inux, **A** pache, **M** ySQL, i **P** HP), dlatego należy upewnić się, że firmy, możesz wybrać obsługuje aplikacje platformy ASP.NET. Również Sprawdź, czy obsługują one wersję platformy ASP.NET, którego używasz do budowania aplikacji. I kompilowania aplikacji opartych na danych, upewnij się, że host sieci web zapewnia tego samego serwera bazy danych i wersji, którego używasz.
+> [Usługi IIS](https://www.iis.net/) to serwer sieci Web klasy korporacyjnej firmy Microsoft. Jest on dostarczany z wersjami systemu Windows, które nie są w wersji Home, takich jak Windows Server 2008 i niektóre wersje systemu Windows Vista. Nie trzeba instalować usług IIS, aby obsługiwały aplikacje ASP.NET w środowisku deweloperskim, ponieważ program Visual Studio zawiera serwer ASP.NET Development Web Server. Jednak serwer sieci Web ASP.NET Development akceptuje tylko połączenia lokalne i dlatego nie może być używany w środowisku produkcyjnym.
+
+Aby można było wdrożyć lokację na potrzeby dostawcy hosta sieci Web, należy najpierw wybrać firmę, z którą firma ma wykonać działalność. W portalu Marketplace są niezliczone firmy hostingowe w sieci Web. wyszukiwanie "Firma hostingu internetowego" zwraca więcej niż 5 000 000 wyników. Jak znaleźć tę, która jest odpowiednia dla Ciebie? Ulubiony aparat wyszukiwania jest dobrym miejscem, podobnie jak w przypadku witryn internetowych, takich jak [TopHosts](http://www.tophosts.com/) i [HostCritique](http://www.hostcritique.net/), które porównują i różnią się w różnych usługach hostingowych. Zaleca się także zaproszenie współpracowników i współpracowników o wszelkie zalecenia; Możesz również zadawać zalecenia na [forum hostingu otwartym](https://forums.asp.net/158.aspx) tutaj na [forach ASP.NET](https://forums.asp.net/).
+
+Firmy obsługujące hosting w sieci Web zazwyczaj oferują udostępnione plany hostingu i dedykowane plany hostingu. Dzięki udostępnianiu hostingu pojedynczy serwer sieci Web jest hostem dziesiątek, jeśli nie ma setek różnych witryn sieci Web. Dzięki dedykowanemu hostingowi możesz dzierżawić komputer od firmy, która obsługuje daną lokację i swoją lokację. Współużytkowany plan hostingu może obejmować obsługę stron ASP.NET, możliwość pracy z bazami danych programu Microsoft Access, 5 GB miejsca na dysku i 100 GB miesięcznego ruchu sieciowego dla $9,95 miesięcznie. Inny udostępniony plan hostingu może obejmować obsługę stron ASP.NET, dostęp do serwera bazy danych Microsoft SQL Server 2008, 10 GB miejsca na dysku i 250 GB miesięcznego ruchu sieciowego w przypadku $19,95 miesięcznie. Dedykowane plany hostingu są zwykle znacznie droższe, a koszty obejmują kilka stu dolarów miesięcznie, ale oferują lepszą wydajność i większą kontrolę niż w przypadku udostępnionych opcji hostingu. Wybór wybranego planu zależy od budżetu, ilości ruchu otrzymanego w witrynie sieci Web oraz przewidywanych funkcji.
+
+W przypadku wybrania dostawcy hosta sieci Web należy wziąć pod uwagę dwa ważne zagadnienia. Jeśli masz pytania lub problemy z konfiguracją, jak długo trwa przesyłanie problemu do pomocy technicznej hosta sieci Web do momentu otrzymania odpowiedzi? Jak są niezawodne usługi firmy? Czy często występuje awaria bazy danych? Jak często serwer poczty e-mail przechodzi w tryb offline? Zawsze możesz pozyskać firmę, aby przedstawić szczegółowe informacje o ich okresie działania oraz uzyskać informacje o ich zasadach obsługi klienta, ale bardziej surefireą metodą jest zażądanie opinii o bieżących i wcześniejszych klientach, które można wykonać za pomocą forów online, grup dyskusyjnych i wiadomości e-mail listservs .
+
+> [!NOTE]
+> Niektóre firmy obsługujące sieci Web koncentrują się na konkretnym stosie technologii, takim jak .NET lub [Lampa](http://en.wikipedia.org/wiki/LAMP_stack) (**L** Inux **, Pache,** **M** ySQL i **P** HP), dlatego należy się upewnić, że wybrana Firma obsługuje aplikacje ASP.NET. Sprawdź również, czy obsługują one wersję ASP.NET używaną do kompilowania aplikacji. W przypadku tworzenia aplikacji opartej na danych upewnij się, że host sieci Web oferuje ten sam serwer bazy danych i wersję, której używasz.
 
 ## <a name="summary"></a>Podsumowanie
 
-Aplikacji sieci web ASP.NET są zazwyczaj zaprojektowane, tworzone i testowane w lokalne Środowisko deweloperskie. Gdy wersja jest gotowy do wydania, jest przenoszony do środowiska produkcyjnego. Choć jest możliwe do hosta ASP.NET witryn sieci Web na komputerze osobistym lub na serwerach w firmie, wielu firm i osób chce oddelegowanie hostingu dostawcy hosta sieci web.
+Aplikacje sieci Web ASP.NET są zwykle zaprojektowane, utworzone i przetestowane w lokalnym środowisku programistycznym. Gdy wersja jest gotowa do wydania, jest przenoszona do środowiska produkcyjnego. Chociaż istnieje możliwość hostowania witryn sieci Web ASP.NET na komputerze osobistym lub na serwerach w firmie, wiele firm i osób wybierają Źródło hostingu do dostawcy hosta sieci Web.
 
-W tej serii samouczków sprawdza, czy kroki wdrażania aplikacji ASP.NET do dostawcy hosta sieci web, eksplorowanie najczęstsze wyzwania. W tym samouczku oferowana ogólne omówienie procesu wdrażania platformy ASP.NET i udostępniła porady służące do znajdowania dostawca hosta w odpowiedniej sieci web. Następny samouczek analizuje pliki związane z ASP.NET muszą być kopiowane do środowiska produkcyjnego, w przypadku wdrażania witryny sieci Web.
+W tej serii samouczków przedstawiono kroki wdrażania aplikacji ASP.NET dla dostawcy hosta sieci Web, badając typowe wyzwania. Ten samouczek oferuje ogólne omówienie procesu wdrażania ASP.NET oraz porady dotyczące znajdowania odpowiedniego dostawcy hosta sieci Web. W następnym samouczku przedstawiono, jakie pliki związane z ASP.NETmi muszą zostać skopiowane do środowiska produkcyjnego podczas wdrażania witryny sieci Web.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla...
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Teresa Murphy. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Teresa Murphy. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Next](determining-what-files-need-to-be-deployed-cs.md)

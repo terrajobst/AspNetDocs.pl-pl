@@ -1,168 +1,168 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Wdrażanie dziedziczenia z programu Entity Framework w aplikacji ASP.NET MVC (8, 10) | Dokumentacja firmy Microsoft
+title: Implementowanie dziedziczenia przy użyciu Entity Framework w aplikacji ASP.NET MVC (8 z 10) | Microsoft Docs
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio...
+description: Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET MVC 4 przy użyciu Code First Entity Framework 5 i programu Visual Studio...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: a5c3feff-5335-4cdd-a97d-f7a8785c2494
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d61d02e23bbcaf9eff910613880ac49f79c15cac
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9507cba71b976825257cc9948d54f2651355959d
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112392"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74595320"
 ---
-# <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Wdrażanie dziedziczenia z programu Entity Framework w aplikacji ASP.NET MVC (8, 10)
+# <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Implementowanie dziedziczenia przy użyciu Entity Framework w aplikacji ASP.NET MVC (8 z 10)
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Można uruchomić tej serii samouczka od początku lub [pobrać projekt startowy w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
+> Przykładowa aplikacja internetowa Contoso University pokazuje, jak tworzyć aplikacje ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacje na temat serii samouczków, zobacz [pierwszy samouczek w serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Możesz uruchomić serię samouczków od początku lub [pobrać początkowy projekt dla tego rozdziału](building-the-ef5-mvc4-chapter-downloads.md) i Zacznij tutaj.
 > 
 > > [!NOTE] 
 > > 
-> > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Jeśli wystąpi problem, którego nie można rozwiązać, [Pobierz ukończony rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Ogólnie rzecz biorąc, można znaleźć rozwiązanie problemu, porównując kod z kompletnym kodem. Niektóre typowe błędy i sposoby ich rozwiązywania można znaleźć w temacie [błędy i obejścia.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
-W poprzednim samouczku obsługiwane są wyjątki współbieżności. Ten samouczek przedstawia sposób implementowania dziedziczenia w modelu danych.
+W poprzednim samouczku zostały obsłużone wyjątki współbieżności. W tym samouczku pokazano, jak zaimplementować dziedziczenie w modelu danych.
 
-W programowanie zorientowane obiektowo, można użyć dziedziczenia, aby wyeliminować nadmiarowy kod. W tym samouczku poznasz, jak zmienić `Instructor` i `Student` klasy tak, że pochodzą one od `Person` podstawowej klasy, która zawiera właściwości, takie jak `LastName` , które są wspólne dla instruktorów i studentów. Nie będzie dodać lub zmienić dowolnymi stronami sieci web, ale zmienisz część kodu, a te zmiany są automatycznie odzwierciedlane w bazie danych.
+W programowaniu zorientowanym obiektowo można użyć dziedziczenia, aby wyeliminować nadmiarowy kod. W tym samouczku zmienisz klasy `Instructor` i `Student` tak, aby znajdowały się one w `Person` klasie bazowej, która zawiera właściwości, takie jak `LastName`, które są wspólne dla instruktorów i studentów. Nie dodasz ani nie zmienisz żadnych stron sieci Web, ale zmienisz część kodu, a zmiany zostaną automatycznie odzwierciedlone w bazie danych.
 
-## <a name="table-per-hierarchy-versus-table-per-type-inheritance"></a>Tabela wg hierarchii i tabeli na typ dziedziczenia
+## <a name="table-per-hierarchy-versus-table-per-type-inheritance"></a>Dziedziczenie na poziomie hierarchii w zależności od typu tabeli
 
-W programowanie zorientowane obiektowo, można użyć dziedziczenia w celu ułatwienia pracy z powiązanymi klasami. Na przykład `Instructor` i `Student` klas w `School` modelu danych udostępnianie kilka właściwości, które powoduje nadmiarowy kod:
+W programowaniu zorientowanym obiektowo można użyć dziedziczenia, aby ułatwić pracę z powiązanymi klasami. Na przykład klasy `Instructor` i `Student` w modelu danych `School` współdzielą kilka właściwości, co powoduje nadmiarowy kod:
 
 ![Student_and_Instructor_classes](https://asp.net/media/2578113/Windows-Live-Writer_58f5a93579b2_CC7B_Student_and_Instructor_classes_e7a32f99-8bc4-48ce-aeaf-216a18071a8b.png)
 
-Załóżmy, że chcesz wyeliminować nadmiarowy kod dla właściwości, które są współużytkowane przez `Instructor` i `Student` jednostek. Można utworzyć `Person` klasy, która zawiera tylko te właściwości udostępnionego podstawowej, a następnie wprowadź `Instructor` i `Student` jednostek dziedziczą z tej klasy bazowej, jak pokazano na poniższej ilustracji:
+Załóżmy, że chcesz wyeliminować nadmiarowy kod dla właściwości, które są współużytkowane przez `Instructor` i `Student` jednostek. Można utworzyć `Person` klasę bazową, która zawiera tylko te właściwości udostępnione, a następnie uczynić jednostki `Instructor` i `Student` dziedziczone z tej klasy bazowej, jak pokazano na poniższej ilustracji:
 
 ![Student_and_Instructor_classes_deriving_from_Person_class](https://asp.net/media/2578119/Windows-Live-Writer_58f5a93579b2_CC7B_Student_and_Instructor_classes_deriving_from_Person_class_671d708c-cbb8-454a-a8f8-c2d99439acd9.png)
 
-Istnieje kilka sposobów, w których ta struktura dziedziczenia, mogą być reprezentowane w bazie danych. Może mieć `Person` tabelę, która zawiera informacje na temat uczniów i Instruktorzy w jednej tabeli. Niektóre kolumny można zastosować tylko do Instruktorzy (`HireDate`), niektóre tylko dla uczniów i studentów (`EnrollmentDate`), niektóre na wartość oba (`LastName`, `FirstName`). Zazwyczaj trzeba *dyskryminatora* kolumny, aby wskazać, jakiego typu każdy wiersz reprezentuje. Na przykład kolumna dyskryminatora może być "Instruktora" instruktorów i "Student" dla uczniów lub studentów.
+Istnieje kilka sposobów reprezentowania tej struktury dziedziczenia w bazie danych. Możesz mieć `Person` tabelę zawierającą informacje o studentach i instruktorach w pojedynczej tabeli. Niektóre kolumny mogą dotyczyć tylko instruktorów (`HireDate`), tylko dla studentów (`EnrollmentDate`), niektórych do obu (`LastName`, `FirstName`). Zazwyczaj masz kolumnę *rozróżniacza* , aby wskazać, który typ reprezentuje każdy wiersz. Na przykład kolumna rozróżniacza może mieć "instruktor" dla instruktorów i "Student" dla studentów.
 
-![Table-per-hierarchy_example](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
+![Tabela na hierarchy_example](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
 
-Ten wzorzec generowania struktury dziedziczenie jednostki z tabeli pojedynczej bazy danych jest nazywany *Tabela wg hierarchii* dziedziczenia (TPH).
+Ten wzorzec generowania struktury dziedziczenia jednostek z pojedynczej tabeli bazy danych jest nazywany dziedziczeniem *na hierarchię* (TPH).
 
-Alternatywą jest, aby wyglądała bardziej jak struktury dziedziczenia bazę danych. Na przykład można mieć tylko pola nazwy `Person` tabeli i mieć osobne `Instructor` i `Student` tabele z polami daty.
+Alternatywą jest, aby baza danych wyglądała podobnie jak struktura dziedziczenia. Na przykład można mieć tylko pola nazw w tabeli `Person` i mieć osobne tabele `Instructor` i `Student` z polami daty.
 
-![Table-per-type_inheritance](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
+![Tabela na type_inheritance](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
 
-Ten wzorzec polegający na wprowadzaniu tabeli bazy danych dla każdej klasie jednostki jest wywoływana *tabeli na typ* dziedziczenia (TPT).
+Ten wzorzec tworzenia tabeli bazy danych dla każdej klasy jednostek jest nazywany dziedziczeniem *tabeli na typ* (TPT).
 
-Wzorce dziedziczenia TPH ogólnie zapewniają lepszą wydajność platformy Entity Framework niż TPT dziedziczenia wzorców, ponieważ wzorców TPT może spowodować sprzężenie złożonych zapytań. Ten samouczek demonstruje sposób implementacji TPH dziedziczenia. Należy to zrobić, wykonując następujące czynności:
+Wzorce dziedziczenia TPH ogólnie zapewniają lepszą wydajność w Entity Framework niż wzorce dziedziczenia TPT, ponieważ wzorce TPT mogą powodować złożone zapytania sprzężenia. W tym samouczku pokazano, jak wdrożyć dziedziczenie TPH. Można to zrobić, wykonując następujące czynności:
 
-- Tworzenie `Person` klasy i zmień `Instructor` i `Student` pochodzi od klasy `Person`.
-- Dodaj mapowanie modelu w bazie danych kod do klasy kontekstu bazy danych.
-- Zmiana `InstructorID` i `StudentID` odwołania w całym projekcie, aby `PersonID`.
+- Utwórz klasę `Person` i Zmień klasy `Instructor` i `Student` na pochodne od `Person`.
+- Dodaj kod mapowania model-do-Database do klasy kontekstu bazy danych.
+- Zmień `InstructorID` i `StudentID` odwołania w projekcie do `PersonID`.
 
-## <a name="creating-the-person-class"></a>Tworzenie klasy osoby
+## <a name="creating-the-person-class"></a>Tworzenie klasy Person
 
- Uwaga: Nie można skompilować projektu po utworzeniu klasy poniżej, dopóki nie zaktualizujesz kontrolerów, które korzysta z tych klas. 
+ Uwaga: nie będzie możliwe skompilowanie projektu po utworzeniu poniższych klas do momentu zaktualizowania kontrolerów, które korzystają z tych klas. 
 
-W *modeli* folderze utwórz *osoba.cs* i Zastąp kod szablonu poniższym kodem:
+W folderze *modele* Utwórz *Person.cs* i Zastąp kod szablonu następującym kodem:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-W *Instructor.cs*, pochodzi `Instructor` klasy z `Person` klasy, a następnie usuń klucza i nazwy pola. Ten kod będzie wyglądać następująco:
+W *Instructor.cs*należy utworzyć klasę `Instructor` z klasy `Person` i usunąć pola klucza i nazwy. Kod będzie wyglądać podobnie do poniższego przykładu:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Wprowadzić zmiany podobne do *Student.cs*. `Student` Klasy będzie wyglądać następująco:
+Wprowadź podobne zmiany w *student.cs*. Klasa `Student` będzie wyglądać podobnie do poniższego przykładu:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-## <a name="adding-the-person-entity-type-to-the-model"></a>Dodawanie osoby typu jednostki do modelu
+## <a name="adding-the-person-entity-type-to-the-model"></a>Dodawanie typu jednostki osoby do modelu
 
-W *SchoolContext.cs*, Dodaj `DbSet` właściwość `Person` typ jednostki:
+W *SchoolContext.cs*dodaj Właściwość `DbSet` dla typu jednostki `Person`:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-To wszystko, co wymaga programu Entity Framework, w celu skonfigurowania Tabela wg hierarchii dziedziczenia. Jak można zauważyć, gdy baza danych jest ponownie utworzyć jej `Person` tabeli zamiast `Student` i `Instructor` tabel.
+To wszystko, co Entity Framework potrzebuje w celu skonfigurowania dziedziczenia w hierarchii na poziomie tabeli. Jak zobaczysz, gdy baza danych zostanie utworzona, będzie miała `Person` tabeli zamiast tabel `Student` i `Instructor`.
 
-## <a name="changing-instructorid-and-studentid-to-personid"></a>Zmiana InstructorID i StudentID PersonID
+## <a name="changing-instructorid-and-studentid-to-personid"></a>Zmiana InstructorID i StudentID na PersonID
 
-W *SchoolContext.cs*, w instrukcji mapowania kurs przez instruktorów, zmień `MapRightKey("InstructorID")` do `MapRightKey("PersonID")`:
+W *SchoolContext.cs*, w instrukcji szkolenia instruktora, Zmień `MapRightKey("InstructorID")` na `MapRightKey("PersonID")`:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs?highlight=4)]
 
-Ta zmiana nie jest wymagane; po prostu zmienia nazwę kolumny InstructorID w tabeli sprzężenia wiele do wielu. Jeśli nazwa jako InstructorID, aplikacja nadal będzie działać poprawnie. Poniżej przedstawiono ukończoną *SchoolContext.cs*:
+Ta zmiana nie jest wymagana; po prostu zmienia nazwę kolumny InstructorID w tabeli sprzężeń wiele-do-wielu. Jeśli pozostawiłeś nazwę jako InstructorID, aplikacja nadal będzie działała poprawnie. Oto zakończono *SchoolContext.cs*:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs?highlight=15,24)]
 
-Następnie należy zmienić `InstructorID` do `PersonID` i `StudentID` do `PersonID` w całym projekcie ***z wyjątkiem*** w plikach z sygnaturami czasowymi migracje *migracje* folder. Aby to zrobić można będzie znaleźć otwierać tylko pliki, które muszą zostać zmienione, a następnie wykonać globalne zmiany w otwartych plików. To jedyny plik w *migracje* folder, należy zmienić to *Migrations\Configuration.cs.*
+Następnie należy zmienić `InstructorID` na `PersonID` i `StudentID` `PersonID` w całym projekcie, ***z wyjątkiem*** plików migracji sygnatur czasowych w folderze *migracji* . W tym celu można znaleźć i otworzyć tylko te pliki, które należy zmienić, a następnie wprowadzić globalną zmianę w otwartych plikach. Jedynym plikiem w folderze *migracji* , który należy zmienić, jest *Migrations\Configuration.cs.*
 
 1. > [!IMPORTANT]
-   > Rozpocznij od zamyka wszystkie otwarte pliki w programie Visual Studio.
-2. Kliknij przycisk **Znajdź i Zamień — wszystkie pliki** w **Edytuj** menu, a następnie wyszukaj wszystkie pliki w projekcie, które zawierają `InstructorID`.  
+   > Zacznij od zamykania wszystkich otwartych plików w programie Visual Studio.
+2. Kliknij przycisk **Znajdź i Zamień — Znajdź wszystkie pliki** w menu **Edycja** , a następnie wyszukaj wszystkie pliki w projekcie zawierającym `InstructorID`.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-3. Otwórz każdy plik w **Find Results** okna ***z wyjątkiem*** &lt;sygnatura czasowa&gt;*\_.cs* migracji plików w *Migracje* folderu, klikając dwukrotnie jeden wiersz dla każdego pliku.  
+3. Otwórz każdy plik w oknie **Znajdź wyniki** , ***z wyjątkiem*** &lt;sygnatury czasowej&gt;plików migracji *CS\_* w folderze *migracje* , klikając dwukrotnie jeden wiersz dla każdego pliku.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-4. Otwórz **Zamień w plikach** okno dialogowe i zmień **przeszukania** do **wszystkimi otwartymi dokumentami**.
-5. Użyj **Zamień w plikach** okna dialogowego, aby zmienić wszystkie `InstructorID` do `PersonID.`  
+4. Otwórz okno dialogowe **Zastąp w plikach** i Zmień **wygląd** na **wszystkie otwarte dokumenty**.
+5. Użyj okna dialogowego **Zastąp w plikach** , aby zmienić wszystkie `InstructorID` na `PersonID.`  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-6. Znajdź wszystkie pliki w projekcie, który zawiera `StudentID`.
-7. Otwórz każdy plik w **Find Results** okna ***z wyjątkiem*** &lt;sygnatura czasowa&gt;*\_\*.cs* plików migracji w *migracje* folderu, klikając dwukrotnie jeden wiersz dla każdego pliku.  
+6. Znajdź wszystkie pliki w projekcie, które zawierają `StudentID`.
+7. Otwórz każdy plik w oknie **Znajdź wyniki** , ***z wyjątkiem*** &lt;sygnatury czasowej&gt; *\_\*. cs* plików migracji w folderze *migracji* , klikając dwukrotnie jeden wiersz dla każdego pliku.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-8. Otwórz **Zamień w plikach** okno dialogowe i zmień **przeszukania** do **wszystkimi otwartymi dokumentami**.
-9. Użyj **Zamień w plikach** okna dialogowego, aby zmienić wszystkie `StudentID` do `PersonID`.   
+8. Otwórz okno dialogowe **Zastąp w plikach** i Zmień **wygląd** na **wszystkie otwarte dokumenty**.
+9. Użyj okna dialogowego **Zastąp w plikach** , aby zmienić wszystkie `StudentID` `PersonID`.   
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 10. Skompiluj projekt.
 
-(Należy pamiętać, że w tym przykładzie pokazano *wadą* z `classnameID` wzorzec nazewnictwa kluczy podstawowych. Jeśli klucze podstawowe identyfikator miał nazwę bez poprzedzania ich nazwą klasy, *nie* zmiana nazwy konieczna może być teraz.)
+(Należy zauważyć, że ilustruje to *niekorzyść* wzorca `classnameID` do nazewnictwa kluczy podstawowych. Jeśli masz nazwane identyfikatory kluczy podstawowych bez poprzedzania nazwy klasy, *nie* trzeba teraz zmieniać nazwy.)
 
-## <a name="create-and-update-a-migrations-file"></a>Tworzenie i aktualizowanie plików migracji
+## <a name="create-and-update-a-migrations-file"></a>Tworzenie i aktualizowanie pliku migracji
 
 W konsoli Menedżera pakietów (PMC) wprowadź następujące polecenie:
 
 `Add-Migration Inheritance`
 
-Uruchom `Update-Database` polecenia w konsoli zarządzania Pakietami. Polecenie będzie działać na tym etapie, ponieważ będziemy mieć istniejące dane migracji nie wie, jak obsługiwać. Zostanie wyświetlony następujący błąd:
+Uruchom `Update-Database` polecenie w obszarze PMC. Polecenie zakończy się niepowodzeniem w tym momencie, ponieważ mamy istniejące dane, które nie wiedzą, jak obsłużyć migracje. Zostanie wyświetlony następujący błąd:
 
-*Instrukcja ALTER TABLE konflikt z ograniczeniem klucza OBCEGO "klucza Obcego\_dbo. Dział\_dbo. Osoby\_PersonID ". Konflikt wystąpił w bazie danych "ContosoUniversity" table "dbo. Osoba", kolumna"PersonID".*
+*Instrukcja ALTER TABLE spowodowała konflikt z ograniczeniem klucza obcego "FK\_dbo. Dział\_dbo. Osoba\_PersonID ". Konflikt wystąpił w bazie danych "ContosoUniversity", tabela "dbo. Osoba ", kolumna" PersonID ".*
 
-Otwórz *migracje\&lt; sygnatura czasowa&gt;\_Inheritance.cs* i Zastąp `Up` metoda następującym kodem:
+Otwórz *migracje\&lt; sygnatura czasowa&gt;\_Inheritance.cs* i Zastąp metodę `Up` następującym kodem:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs?highlight=25,29-40)]
 
-Uruchom `update-database` ponownie polecenie.
+Uruchom ponownie polecenie `update-database`.
 
 > [!NOTE]
-> Istnieje możliwość uzyskać inne błędy, podczas migracji danych i wprowadzania zmian schematu. Jeśli występują błędy migracji nie można rozwiązać, możesz kontynuować samouczek, zmieniając parametry połączenia w *Web.config* pliku lub usunięcie bazy danych. Najprostszą metodą jest zmiana nazwy bazy danych w *Web.config* pliku. Na przykład zmienić nazwę bazy danych do pojemności\_testów, jak pokazano w poniższym przykładzie:
+> Podczas migrowania danych i wprowadzania zmian w schemacie można uzyskać inne błędy. Jeśli wystąpią błędy migracji, nie można rozwiązać tego problemu, możesz kontynuować pracę z samouczkiem, zmieniając parametry połączenia w pliku *Web. config* lub usuwając bazę danych. Najprostszym podejściem jest zmiana nazwy bazy danych w pliku *Web. config* . Na przykład zmień nazwę bazy danych na CU\_test, jak pokazano w następującym przykładzie:
 > 
 > [!code-xml[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.xml?highlight=1-2)]
 > 
-> Za pomocą nowej bazy danych, nie ma żadnych danych, aby przeprowadzić migrację oraz `update-database` polecenia jest znacznie bardziej prawdopodobne zakończyć bez błędów. Aby uzyskać instrukcje dotyczące sposobu usuwania z bazy danych, zobacz [jak usunąć bazę danych z programu Visual Studio 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/). Jeśli w przypadku zastosowania tego podejścia, aby można było kontynuować z tego samouczka, należy pominąć krok wdrożenia na końcu tego samouczka, ponieważ witrynę wdrożoną otrzymamy ten sam błąd, gdy migracja jest uruchamiany automatycznie. Jeśli chcesz rozwiązać błąd migracji, zostanie najlepszy zasób jest jednym z forów platformy Entity Framework lub StackOverflow.com.
+> W przypadku nowej bazy danych nie ma żadnych danych do migrowania, a `update-database` polecenie jest znacznie bardziej prawdopodobnie wykonane bez błędów. Aby uzyskać instrukcje dotyczące sposobu usuwania bazy danych, zobacz [Jak usunąć bazę danych z programu Visual Studio 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/). Jeśli ta metoda zostanie zastosowana w celu kontynuowania samouczka, pomiń krok wdrożenia na końcu tego samouczka, ponieważ wdrożona witryna uzyska ten sam błąd podczas automatycznego uruchamiania migracji. Jeśli chcesz rozwiązać problem z błędami migracji, najlepszym zasobem jest jedno z forów Entity Framework lub StackOverflow.com.
 
 ## <a name="testing"></a>Testowanie
 
-Uruchamianie witryny, a następnie spróbuj różnych stronach. Wszystko działa to tak jak poprzednio.
+Uruchom witrynę i wypróbuj różne strony. Wszystko działa tak samo jak wcześniej.
 
-W **Eksploratora serwera** rozwiń **SchoolContext** i następnie **tabel**, i zobaczysz, że **uczniów** i **przez instruktorów**  tabele zostały zastąpione przez **osoby** tabeli. Rozwiń **osoby** tabeli i zawiera wszystkie kolumny, które wcześniej w **uczniów** i **przez instruktorów** tabel.
+W **Eksplorator serwera** rozwiń węzeł **SchoolContext** , a następnie **tabele**i sprawdź, czy tabele **student** i **instruktor** zostały zastąpione przez tabelę **Person** . Rozwiń tabelę **Person** i zobaczysz, że zawiera ona wszystkie kolumny, które były używane do znajdowania w tabelach **studenta** i **instruktora** .
 
 ![Server_Explorer_showing_Person_table](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Kliknij prawym przyciskiem myszy tabeli osób, a następnie kliknij przycisk **Pokaż dane tabeli** się kolumna dyskryminatora.
+Kliknij prawym przyciskiem myszy tabelę osoba, a następnie kliknij polecenie **Pokaż dane tabeli** , aby wyświetlić kolumnę rozróżniacza.
 
 ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-Na poniższym diagramie przedstawiono strukturę nową bazę danych School:
+Na poniższym diagramie przedstawiono strukturę nowej szkolnej bazy danych:
 
 ![School_database_diagram](https://asp.net/media/2578143/Windows-Live-Writer_58f5a93579b2_CC7B_School_database_diagram_6350a801-7199-413f-bbac-4a2009ed19d7.png)
 
 ## <a name="summary"></a>Podsumowanie
 
-Tabela wg hierarchii dziedziczenia teraz została wdrożona w celu `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji na temat tego i innych struktur dziedziczenia, zobacz [Strategie mapowania dziedziczenia](https://weblogs.asp.net/manavi/archive/2010/12/24/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-1-table-per-hierarchy-tph.aspx) na blogu Morteza Manavi. W następnym samouczku zobaczysz niektóre sposoby zaimplementowania repozytorium i jednostki pracy.
+Dziedziczenie na poziomie tabeli jest teraz zaimplementowane dla klas `Person`, `Student`i `Instructor`. Aby uzyskać więcej informacji na temat tej i innych struktur dziedziczenia, zobacz [dziedziczenie strategii mapowania](https://weblogs.asp.net/manavi/archive/2010/12/24/inheritance-mapping-strategies-with-entity-framework-code-first-ctp5-part-1-table-per-hierarchy-tph.aspx) na blogu Morteza Manavi. W następnym samouczku zobaczysz kilka sposobów implementacji wzorców repozytorium i jednostki pracy.
 
-Linki do innych zasobów platformy Entity Framework można znaleźć w [Mapa zawartości dostępu do danych ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
+Linki do innych zasobów Entity Framework można znaleźć w [mapie zawartości dostęp do danych ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

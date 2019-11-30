@@ -1,248 +1,248 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
-title: Rejestrowanie szczegółów błędów za pomocą biblioteki ELMAH (C#) | Dokumentacja firmy Microsoft
+title: Rejestrowanie szczegółów błędów za pomocą bibliotekiC#ELMAH () | Microsoft Docs
 author: rick-anderson
-description: Błąd rejestrowania moduły i programy obsługi (ELMAH) oferuje innego podejścia do rejestrowania błędów środowiska uruchomieniowego w środowisku produkcyjnym. ELMAH błędu bezpłatnej, typu open source...
+description: Rejestrowanie błędów modułów i programów obsługi (ELMAH) oferuje inne podejście do rejestrowania błędów czasu wykonywania w środowisku produkcyjnym. ELMAH to bezpłatny błąd typu open source...
 ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 11f6fe44-64ef-4a38-a3b4-35c7bb992352
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fedf3261fd1c73107575ea94186c6c895a7fd529
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5018023eced23e7a70eab90e649f85862c548940
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127905"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74570496"
 ---
 # <a name="logging-error-details-with-elmah-c"></a>Rejestrowanie szczegółów błędów za pomocą biblioteki ELMAH (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_cs.pdf)
+[Pobierz kod](https://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_cs.pdf)
 
-> Błąd rejestrowania moduły i programy obsługi (ELMAH) oferuje innego podejścia do rejestrowania błędów środowiska uruchomieniowego w środowisku produkcyjnym. ELMAH jest biblioteką rejestrowania Błąd bezpłatnej, typu open source, która zawiera funkcje, takie jak filtrowanie błędów i możliwość Wyświetl dziennik błędów, ze strony sieci web jako źródła danych RSS lub pobrać go w formacie rozdzielanym przecinkami. Ten samouczek przeprowadzi pobieranie i konfigurowanie ELMAH.
+> Rejestrowanie błędów modułów i programów obsługi (ELMAH) oferuje inne podejście do rejestrowania błędów czasu wykonywania w środowisku produkcyjnym. ELMAH to bezpłatna Biblioteka rejestrowania błędów typu open source, która obejmuje funkcje takie jak filtrowanie błędów i możliwość wyświetlania dziennika błędów ze strony sieci Web jako źródła danych RSS lub pobierania ich jako pliku rozdzielanego przecinkami. Ten samouczek przeprowadzi Cię przez proces pobierania i konfigurowania ELMAH.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-[Poprzedni Samouczek](logging-error-details-with-asp-net-health-monitoring-cs.md) zbadane ASP. Kondycja firmy NET monitorowania systemu, które oferuje poza bibliotekę okno rejestrowania szeroką gamę zdarzenia sieci Web. Wielu programistów korzystać z programu health monitorowania do logowania się i wiadomości e-mail szczegółowe informacje o nieobsługiwanych wyjątków. Istnieje jednak kilka słabe punkty z tym systemem. Najpierw jest brak dowolny rodzaj interfejs użytkownika służący do wyświetlania informacji dotyczących zarejestrowanych zdarzeń. Jeśli chcesz wyświetlić podsumowanie 10 ostatnich błędów lub wyświetlić szczegóły błędu, które wystąpiły w ostatnim tygodniu, musisz albo umieszczanie za pośrednictwem bazy danych, skanowania za pośrednictwem skrzynki odbiorczej poczty e-mail lub tworzenia strony sieci web, który wyświetla informacje z `aspnet_WebEvent_Events` tabeli.
+[Poprzedni samouczek](logging-error-details-with-asp-net-health-monitoring-cs.md) zbadał ASP. System monitorowania kondycji sieci, który oferuje out z biblioteki Box do rejestrowania szerokiej gamy zdarzeń sieci Web. Wielu deweloperów korzysta z monitorowania kondycji, aby rejestrować i wysłać pocztą e-mail szczegóły nieobsłużonych wyjątków. Istnieje jednak kilka problemów w tym systemie. Pierwszy i najbardziej do przodu to brak żadnego rodzaju interfejsu użytkownika do wyświetlania informacji o rejestrowanych zdarzeniach. Jeśli chcesz zobaczyć podsumowanie 10 ostatnich błędów lub wyświetlić szczegóły błędu, który wystąpił w ubiegłym tygodniu, musisz albo poke za pośrednictwem bazy danych, skanować za pośrednictwem skrzynki odbiorczej poczty e-mail, albo utworzyć stronę sieci Web, która wyświetla informacje z tabeli `aspnet_WebEvent_Events`.
 
-Inny punkt ból koncentruje się wokół złożoności monitorowanie kondycji. Ponieważ monitorowanie kondycji może służyć do rejestrowania mnóstwo różnych zdarzeń, a istnieją różne opcje instruowania, jak i kiedy zdarzenia są rejestrowane, poprawne skonfigurowanie kondycji systemu monitorowania może być uciążliwe. Na koniec występują problemy ze zgodnością. Ponieważ monitorowanie kondycji najpierw został dodany do programu .NET Framework w wersji 2.0, nie jest dostępna dla starszych aplikacji sieci web utworzone przy użyciu platformy ASP.NET w wersji 1.x. Ponadto `SqlWebEventProvider` klasy, której użyto w poprzednim samouczku, aby szczegóły błędu dzienniki do bazy danych działa tylko z baz danych programu Microsoft SQL Server. Należy utworzyć klasę dostawcy dziennika niestandardowego, potrzebujesz rejestrować błędy do magazynu danych alternatywnych, takich jak plik XML lub Oracle database.
+Inne bólu wskazują na złożoność monitorowania kondycji. Ze względu na to, że można użyć monitorowania kondycji w celu rejestrowania mnóstwo różnych zdarzeń i ponieważ istnieją różne opcje dotyczące sposobu, w jaki są rejestrowane zdarzenia, prawidłowe skonfigurowanie systemu monitorowania kondycji może być uciążliwym zadaniem. Na koniec występują problemy ze zgodnością. Ponieważ monitorowanie kondycji zostało po raz pierwszy dodane do .NET Framework w wersji 2,0, nie jest dostępne dla starszych aplikacji sieci Web utworzonych przy użyciu ASP.NET w wersji 1. x. Ponadto Klasa `SqlWebEventProvider`, która została użyta w poprzednim samouczku do rejestrowania szczegółów błędów w bazie danych, działa tylko z bazami danych Microsoft SQL Server. Należy utworzyć niestandardową klasę dostawcy dziennika, aby rejestrować błędy w alternatywnym magazynie danych, takim jak plik XML lub baza danych Oracle.
 
-Alternatywa dla kondycji systemu monitorowania jest błąd rejestrowania moduły i programy obsługi (ELMAH), system rejestrowania błędów bezpłatny, open source, utworzone przez [Atif Aziz](http://www.raboof.com/). Najbardziej znacząca różnica między dwoma systemami jest zdolność ELAMH firmy, aby wyświetlić listę błędów oraz szczegóły dotyczące określonego błędu ze strony sieci web i źródła danych RSS. ELMAH jest łatwiejsze do skonfigurowania niż monitorowanie kondycji, ponieważ tylko rejestruje błędy. Ponadto ELMAH obsługuje 1.x ASP.NET, aplikacji programu ASP.NET 2.0 i programie ASP.NET 3.5 i dostarczany z różnych dostawców źródło dziennika.
+Alternatywą dla systemu monitorowania kondycji są błędy rejestrowania modułów i programów obsługi (ELMAH) — bezpłatny system rejestrowania błędów typu "open source" utworzony przez [Atif Aziz](http://www.raboof.com/). Najbardziej istotną różnicą między tymi dwoma systemami jest ELAMHa możliwość wyświetlania listy błędów i szczegółów konkretnego błędu ze strony sieci Web oraz źródła danych RSS. Program ELMAH jest łatwiejszy do skonfigurowania niż monitorowanie kondycji, ponieważ tylko rejestruje błędy. Ponadto program ELMAH obejmuje obsługę aplikacji ASP.NET 1. x, ASP.NET 2,0 i ASP.NET 3,5 oraz są dostarczane z różnymi dostawcami źródeł dzienników.
 
-W tym samouczku przedstawiono kroki związane z dodawania ELMAH do aplikacji ASP.NET. Zaczynajmy!
-
-> [!NOTE]
-> Kondycja monitorowania systemu i ELMAH mają własne zestawy zalety i wady. Czy mogę zachęcamy do spróbuj obu systemów i zdecyduj, jakie jeden najlepiej odpowiadające Twoich potrzeb.
-
-## <a name="adding-elmah-to-an-aspnet-web-application"></a>Dodawanie biblioteki ELMAH do aplikacji sieci Web platformy ASP.NET
-
-Integrowanie ELMAH nowej lub istniejącej aplikacji ASP.NET jest to proste i łatwe proces, który zajmuje mniej niż pięć minut. Mówiąc wymaga czterech prostych kroków:
-
-1. Pobierz biblioteki ELMAH i Dodaj `Elmah.dll` zestawu do aplikacji sieci web
-2. Rejestrowanie firmy ELMAH moduły HTTP i obsługi w `Web.config`,
-3. Określ opcje konfiguracji ELMAH firmy, a
-4. Utwórz infrastrukturze źródłowej dziennik błędów, jeśli to konieczne.
-
-Przejdźmy teraz przez każdy z tych czterech kroków pojedynczo.
-
-### <a name="step-1-downloading-the-elmah-project-files-and-addingelmahdllto-your-web-application"></a>Krok 1. Pobieranie biblioteki ELMAH pliki projektu i dodawanie`Elmah.dll`do aplikacji sieci Web
-
-ELMAH 1.0 BETA 3 (Tworzenie 10617) najnowszej wersji w czasie pisania, znajduje się do pobrania, które są dostępne z tego samouczka. Alternatywnie, możesz odwiedzić [ELMAH witryny sieci Web](https://code.google.com/p/elmah/) Aby uzyskać najbardziej aktualną wersję lub pobrać kod źródłowy. Wyodrębnij pobierania ELMAH do folderu na komputerze, a następnie zlokalizuj plik zestawu biblioteki ELMAH (`Elmah.dll`).
+Ten samouczek przeprowadzi Cię przez kroki związane z dodawaniem programu ELMAH do aplikacji ASP.NET. Zacznijmy!
 
 > [!NOTE]
-> `Elmah.dll` Znajduje się plik do pobrania `Bin` folder, który zawiera podfoldery dla różnych wersji programu .NET Framework i wersji wydania i debugowe kompilacji. Na użytek odpowiednią wersję kompilacji wydania. Na przykład jeśli tworzysz aplikację sieci web ASP.NET 3.5, skopiuj `Elmah.dll` plik wchodzącej w skład `Bin\net-3.5\Release` folderu.
+> System monitorowania kondycji i program ELMAH mają własne zestawy informatyków i wad. Zachęcam do wypróbowania obu systemów i zdecydowania, co najlepiej odpowiada Twoim potrzebom.
 
-Następnie otwórz program Visual Studio i dodać zestaw do projektu, klikając prawym przyciskiem myszy nazwę witryny sieci Web w Eksploratorze rozwiązań i wybierając pozycję Dodaj odwołanie z menu kontekstowego. Wywołuje okno dialogowe Dodaj odwołanie. Przejdź do karty Przeglądaj, a następnie wybierz `Elmah.dll` pliku. Ta akcja spowoduje dodanie `Elmah.dll` plików do aplikacji sieci web `Bin` folderu.
+## <a name="adding-elmah-to-an-aspnet-web-application"></a>Dodawanie programu ELMAH do aplikacji sieci Web ASP.NET
+
+Integrowanie programu ELMAH z nową lub istniejącą aplikacją ASP.NET jest łatwym i prostym procesem, który jest wymagany w ciągu pięciu minut. W Nutshell, obejmuje cztery proste kroki:
+
+1. Pobierz program ELMAH i Dodaj zestaw `Elmah.dll` do aplikacji sieci Web.
+2. Rejestrowanie modułów i obsługi HTTP programu ELMAH w `Web.config`,
+3. Określ opcje konfiguracji programu ELMAH i
+4. Utwórz infrastrukturę źródłową dziennika błędów, w razie konieczności.
+
+Przechodźmy po jednym z tych czterech kroków, po jednej naraz.
+
+### <a name="step-1-downloading-the-elmah-project-files-and-addingelmahdllto-your-web-application"></a>Krok 1. Pobieranie plików projektu ELMAH i Dodawanie`Elmah.dll`do aplikacji sieci Web
+
+Program ELMAH 1,0 BETA 3 (kompilacja 10617), Najnowsza wersja w momencie pisania, jest uwzględniony w pobieraniu dostępnym w tym samouczku. Alternatywnie możesz odwiedzić [witrynę internetową programu ELMAH](https://code.google.com/p/elmah/) , aby uzyskać najnowszą wersję lub pobrać kod źródłowy. Wyodrębnij pobieranie pliku ELMAH do folderu na pulpicie i zlokalizuj plik zestawu ELMAH (`Elmah.dll`).
 
 > [!NOTE]
-> Typ projektu aplikacji sieci Web (WAP) nie są wyświetlane `Bin` folder w Eksploratorze rozwiązań. Zamiast tego zawiera listę tych elementów w folderze odwołania.
+> Plik `Elmah.dll` znajduje się w folderze `Bin` pobierania, który ma podfoldery dla różnych wersji .NET Framework oraz dla kompilacji wydań i debugowania. Użyj kompilacji wydania dla odpowiedniej wersji platformy. Na przykład jeśli tworzysz aplikację sieci Web ASP.NET 3,5, skopiuj plik `Elmah.dll` z folderu `Bin\net-3.5\Release`.
 
-`Elmah.dll` Zestawu zawierają klasy używane przez ELMAH system. Te klasy można podzielić na trzy kategorie:
+Następnie otwórz program Visual Studio i Dodaj zestaw do projektu, klikając prawym przyciskiem myszy nazwę witryny sieci Web w Eksplorator rozwiązań i wybierając pozycję Dodaj odwołanie z menu kontekstowego. Spowoduje to wyświetlenie okna dialogowego Dodawanie odwołania. Przejdź do karty Przeglądaj i wybierz plik `Elmah.dll`. Ta akcja powoduje dodanie pliku `Elmah.dll` do folderu `Bin` aplikacji sieci Web.
 
-- **Moduły HTTP** — moduł HTTP to klasa, która definiuje obsługę zdarzeń dla `HttpApplication` zdarzenia, takie jak `Error` zdarzeń. ELMAH zawiera wiele modułów HTTP, trzy najbardziej istotnego te są: 
+> [!NOTE]
+> Typ projektu aplikacji sieci Web (WAP) nie pokazuje folderu `Bin` w Eksplorator rozwiązań. Zamiast tego wyświetla listę tych elementów w folderze References.
 
-    - `ErrorLogModule` -Źródło dziennika rejestruje nieobsługiwanych wyjątków.
-    - `ErrorMailModule` -Wysyła szczegóły nieobsługiwany wyjątek w wiadomości e-mail.
-    - `ErrorFilterModule` -stosuje określony dla deweloperów filtry, aby ustalić, jakie wyjątki są rejestrowane i co te są ignorowane.
-- **Programy obsługi HTTP** -programu obsługi HTTP, to klasa, która jest odpowiedzialny za generowanie kodu znaczników dla danego typu żądania. ELMAH obejmuje funkcje obsługi protokołu HTTP, renderowanie szczegóły błędu, jako stronę sieci web, jako źródło danych RSS lub jako pliku rozdzielanego przecinkami (CSV).
-- **Źródła do dziennika błędów** — gotowych ELMAH mogą logować się błędów pamięci, w bazie danych programu Microsoft SQL Server, bazy danych Microsoft Access, aby baza danych Oracle na plik XML do bazy danych SQLite lub z bazą danych Vista DB. Np. monitorowania kondycji systemu architektura ELMAH firmy został skompilowany przy użyciu modelu dostawcy, co oznacza, że można tworzyć i bezproblemową integrację własnych dostawców źródła dzienników niestandardowych, jeśli to konieczne.
+Zestaw `Elmah.dll` obejmuje klasy używane przez system ELMAH. Te klasy należą do jednej z trzech kategorii:
 
-### <a name="step-2-registering-elmahs-http-module-and-handler"></a>Krok 2. Rejestrowanie HTTP modułu i obsługi ELMAH firmy
+- **Moduły HTTP** — moduł http to Klasa, która definiuje programy obsługi zdarzeń dla zdarzeń `HttpApplication`, takich jak zdarzenie `Error`. ELMAH zawiera wiele modułów HTTP, trzy najbardziej niemieckie: 
 
-Gdy `Elmah.dll` plik zawiera moduły HTTP i obsługi potrzebne do automatycznego rejestrowania nieobsługiwanych wyjątków i wyświetlić szczegóły błędu ze strony sieci web, te muszą być jawnie rejestrowane w konfiguracji aplikacji sieci web. `ErrorLogModule` Subskrybuje moduł HTTP, gdy zarejestrowana, `HttpApplication`firmy `Error` zdarzeń. To zdarzenie jest wywoływane zawsze, gdy `ErrorLogModule` rejestruje szczegółowe informacje o wyjątku do źródła określonego dziennika. Zobaczymy, jak zdefiniować dzienników dostawcy źródła w następnej sekcji "Konfigurowanie ELMAH." `ErrorLogPageFactory` Fabryka programów obsługi HTTP jest odpowiedzialny za Generowanie języka znaczników, wyświetlając dziennik błędów, ze strony sieci web.
+    - `ErrorLogModule` — rejestruje Nieobsłużone wyjątki w źródle dziennika.
+    - `ErrorMailModule` — wysyła szczegóły nieobsłużonego wyjątku w wiadomości e-mail.
+    - `ErrorFilterModule` — stosuje filtry określone przez dewelopera, aby określić, które wyjątki są rejestrowane i jakie są ignorowane.
+- **Obsługa protokołu HTTP** — obsługa protokołu HTTP jest klasą odpowiedzialną za generowanie znaczników dla określonego typu żądania. ELMAH obejmuje procedury obsługi protokołu HTTP, które renderują szczegóły błędów jako stronę sieci Web, jako źródło danych RSS lub plik rozdzielany przecinkami (CSV).
+- **Źródła dzienników błędów** — w polu ELMAH można rejestrować błędy do pamięci, Microsoft SQL Server do bazy danych programu Microsoft Access, do bazy danych w bazie danych firmy Oracle, do pliku XML, do bazy danych oprogramowania SQLite lub bazy danych systemu Vista DB. Podobnie jak w przypadku systemu monitorowania kondycji, architektura programu ELMAH została skompilowana przy użyciu modelu dostawcy, co oznacza, że można utworzyć i bezproblemowo zintegrować własnych niestandardowych dostawców źródeł dzienników, jeśli jest to konieczne.
 
-Określonej składni rejestrowania moduły HTTP do programów obsługi, zależy od serwera sieci web, która jest najważniejsza lokacji. ASP.NET Development Server i firmy Microsoft IIS w wersji 6.0 i starsze, moduły HTTP do programów obsługi są zarejestrowane w usłudze `<httpModules>` i `<httpHandlers>` sekcje, które są wyświetlane w ramach `<system.web>` elementu. Jeśli używasz usług IIS 7.0, a następnie muszą być zarejestrowane w `<system.webServer>` elementu `<modules>` i `<handlers>` sekcje. Na szczęście możesz zdefiniować moduły HTTP i obsługi w *zarówno* umieszcza niezależnie od tego, serwer sieci web używane. Ta opcja jest większość przenośnych jeden, ponieważ pozwala ono taką samą konfigurację można używać w środowiskach deweloperskich i produkcyjnych, niezależnie od tego, serwer sieci web używane.
+### <a name="step-2-registering-elmahs-http-module-and-handler"></a>Krok 2. Rejestrowanie modułu i obsługi HTTP programu ELMAH
 
-Rozpocznij, rejestrując `ErrorLogModule` moduł HTTP i `ErrorLogPageFactory` programu obsługi HTTP w `<httpModules>` i `<httpHandlers>` sekcji `<system.web>`. Jeśli Twoja konfiguracja już definiuje tych dwóch elementach następnie po prostu Dołącz `<add>` elementem ELMAH przez moduł HTTP i obsługi.
+Plik `Elmah.dll` zawiera moduły HTTP i program obsługi, które są niezbędne do automatycznego rejestrowania nieobsłużonych wyjątków i wyświetlania szczegółów błędów ze strony sieci Web, muszą być jawnie zarejestrowane w konfiguracji aplikacji sieci Web. `ErrorLogModule` moduł HTTP, po zarejestrowaniu, subskrybuje zdarzenie `Error` `HttpApplication`. Każde zdarzenie zostanie zgłoszone `ErrorLogModule` rejestruje szczegóły wyjątku w określonym źródle dziennika. Zobaczymy, jak zdefiniować dostawcę źródła dziennika w następnej sekcji "Konfigurowanie programu ELMAH". Fabryka obsługi HTTP `ErrorLogPageFactory` jest odpowiedzialna za generowanie znaczników podczas wyświetlania dziennika błędów ze strony sieci Web.
+
+Określona Składnia służąca do rejestrowania modułów i obsługi HTTP zależy od serwera sieci Web, na którym jest włączana lokacja. W przypadku serwera ASP.NET Development i usług IIS firmy Microsoft w wersji 6,0 lub starszej moduły HTTP i programy obsługi są zarejestrowane w sekcjach `<httpModules>` i `<httpHandlers>`, które znajdują się w `<system.web>` elemencie. Jeśli używasz usług IIS 7,0, muszą one być zarejestrowane w sekcjach `<modules>` i `<handlers>` elementu `<system.webServer>`. Na szczęście można zdefiniować moduły i programy obsługi HTTP w *obu* miejscach niezależnie od używanego serwera sieci Web. Ta opcja jest najbardziej przenośnym serwerem, ponieważ umożliwia korzystanie z tej samej konfiguracji w środowiskach deweloperskich i produkcyjnych niezależnie od używanego serwera sieci Web.
+
+Zacznij od zarejestrowania modułu `ErrorLogModule` HTTP i procedury obsługi protokołu HTTP `ErrorLogPageFactory` w sekcji `<httpModules>` i `<httpHandlers>` w `<system.web>`. Jeśli konfiguracja już definiuje te dwa elementy, wystarczy po prostu dodać element `<add>` dla modułu HTTP i procedury obsługi.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample1.xml)]
 
-Następnie Zarejestruj moduł HTTP ELMAH firmy i obsługi w `<system.webServer>` elementu. Tak jak poprzednio Jeśli ten element nie jest już obecny w konfiguracji następnie dodać go.
+Następnie zarejestruj moduł i program obsługi protokołu HTTP programu ELMAH w elemencie `<system.webServer>`. Tak jak wcześniej, jeśli ten element nie jest jeszcze obecny w konfiguracji, Dodaj go.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample2.xml)]
 
-Domyślnie usługi IIS 7 narzeka, jeśli moduły HTTP do programów obsługi są zarejestrowane w usłudze `<system.web>` sekcji. `validateIntegratedModeConfiguration` Atrybutu w `<validation>` elementu powoduje, że usługi IIS 7, aby pominąć takich komunikatów o błędach.
+Domyślnie usługi IIS 7 zgłaszają skargę, jeśli moduły i programy obsługi HTTP są zarejestrowane w sekcji `<system.web>`. Atrybut `validateIntegratedModeConfiguration` w elemencie `<validation>` instruuje usługi IIS 7, aby pominąć takie komunikaty o błędach.
 
-Należy pamiętać, że składnia rejestrowania `ErrorLogPageFactory` zawiera program obsługi HTTP `path` atrybut, który jest równa `elmah.axd`. Ten atrybut informuje aplikację sieci web, że jeśli żądanie dociera do strony o nazwie `elmah.axd` , a następnie można przetworzyć żądania, przez `ErrorLogPageFactory` programu obsługi HTTP. Zobaczymy `ErrorLogPageFactory` programu obsługi HTTP w działaniu w dalszej części tego samouczka.
+Należy zauważyć, że Składnia służąca do rejestrowania programu obsługi protokołu HTTP `ErrorLogPageFactory` zawiera atrybut `path`, który jest ustawiony na `elmah.axd`. Ten atrybut informuje aplikację sieci Web, że jeśli żądanie dotarło do strony o nazwie `elmah.axd`, żądanie powinno być przetwarzane przez `ErrorLogPageFactory` procedurę obsługi protokołu HTTP. W dalszej części tego samouczka zobaczysz procedurę obsługi protokołu HTTP `ErrorLogPageFactory` w działaniu.
 
-### <a name="step-3-configuring-elmah"></a>Krok 3. Konfigurowanie biblioteki ELMAH
+### <a name="step-3-configuring-elmah"></a>Krok 3. Konfigurowanie ELMAH
 
-ELMAH wyszukuje dostępne opcje konfiguracji w witrynie internetowej `Web.config` pliku w sekcji Konfiguracja niestandardowa o nazwie `<elmah>`. Aby można było używać niestandardowego tematu `Web.config` najpierw musi być zdefiniowany w `<configSections>` elementu. Otwórz `Web.config` pliku i Dodaj następujący kod do `<configSections>`:
+Program ELMAH szuka opcji konfiguracji w pliku `Web.config` witryny sieci Web w sekcji konfiguracji niestandardowej o nazwie `<elmah>`. Aby można było użyć sekcji niestandardowej w `Web.config`, musi ona zostać najpierw zdefiniowana w elemencie `<configSections>`. Otwórz plik `Web.config` i Dodaj następujący znacznik do `<configSections>`:
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample3.xml)]
 
 > [!NOTE]
-> Jeśli konfigurujesz ELMAH dla aplikacji ASP.NET 1.x następnie usuń `requirePermission="false"` atrybut z `<section>` elementów wymienionych powyżej.
+> Jeśli konfigurujesz program ELMAH dla aplikacji ASP.NET 1. x, Usuń atrybut `requirePermission="false"` z powyższych elementów `<section>`.
 
-Powyższej składni rejestruje niestandardowej `<elmah>` sekcji i jego podsekcje: `<security>`, `<errorLog>`, `<errorMail>`, i `<errorFilter>`.
+Powyższa składnia rejestruje sekcję `<elmah>` niestandardowego i jej podsekcje: `<security>`, `<errorLog>`, `<errorMail>`i `<errorFilter>`.
 
-Następnie dodaj `<elmah>` sekcji `Web.config`. W tej sekcji powinien pojawić się na tym samym poziomie co `<system.web>` elementu. Wewnątrz `<elmah>` sekcji Dodaj `<security>` i `<errorLog>` sekcje w następujący sposób:
+Następnie Dodaj sekcję `<elmah>`, aby `Web.config`. Ta sekcja powinna pojawić się na tym samym poziomie co element `<system.web>`. W sekcji `<elmah>` Dodaj `<security>` i `<errorLog>` w taki sposób:
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample4.xml)]
 
-`<security>` Sekcji `allowRemoteAccess` atrybut wskazuje, czy jest dozwolony dostęp zdalny. Jeśli ta wartość jest równa 0, następnie na stronie sieci web dziennik błędów mogą być przeglądane tylko lokalnie. Jeśli ten atrybut jest ustawiony na wartość 1 na stronie sieci web dziennik błędów jest włączone dla osoby odwiedzające zarówno zdalnych i lokalnych. Na razie Przyjrzyjmy Wyłącz strony sieci web dziennik błędów dla zdalnego użytkowników zewnętrznych. Firma Microsoft będzie zezwala na zdalny dostęp później po wygenerowaniu szansy sprzedaży w celu omówienia ich bezpieczeństwem w ten sposób.
+Atrybut `allowRemoteAccess` `<security>` sekcji wskazuje, czy dostęp zdalny jest dozwolony. Jeśli ta wartość jest równa 0, Strona sieci Web dziennika błędów może być wyświetlana tylko lokalnie. Jeśli ten atrybut jest ustawiony na 1, Strona sieci Web dziennika błędów jest włączona zarówno dla odwiedzających zdalnego, jak i lokalnych. Na razie wyłączmy stronę sieci Web dziennika błędów dla zdalnych osób odwiedzających. Zezwolimy na dostęp zdalny później, gdy będziemy mogli omówić problemy związane z bezpieczeństwem.
 
-`<errorLog>` Sekcja definiuje źródło dziennika błędów, które określają, w którym rejestrowane są szczegóły błędu; jest on podobny do `<providers>` sekcji kondycji systemu monitorowania. Określa powyższej składni `SqlErrorLog` klasy jako źródło dziennika błędów, które rejestruje błędy z bazą danych programu Microsoft SQL Server, określony przez `connectionStringName` wartość atrybutu.
+Sekcja `<errorLog>` definiuje Źródło dziennika błędów, które określa, gdzie są rejestrowane szczegóły błędu; jest podobna do sekcji `<providers>` w systemie monitorowania kondycji. Powyższa składnia określa klasę `SqlErrorLog` jako źródło dziennika błędów, która rejestruje błędy w bazie danych Microsoft SQL Server określonej przez `connectionStringName` wartość atrybutu.
 
 > [!NOTE]
-> ELMAH jest dostarczany z dostawców dzienników dodatkowe błędów, które mogą służyć do logowania błędy do pliku XML, bazę danych Microsoft Access, bazy danych Oracle i innych magazynów danych. Zobacz przykład `Web.config` pliku dostarczonego z pobranymi ELMAH, aby uzyskać informacje dotyczące sposobu używania tych dostawców dziennika błędów alternatywne.
+> Program ELMAH jest dostarczany z dodatkowymi dostawcami dzienników błędów, których można użyć do rejestrowania błędów w pliku XML, bazy danych programu Microsoft Access, bazy danych Oracle i innych magazynach danych. Zapoznaj się z przykładowym plikiem `Web.config`, który jest dołączony do pobierania programu ELMAH, aby uzyskać informacje na temat korzystania z tych alternatywnych dostawców dzienników błędów.
 
-### <a name="step-4-creating-the-error-log-source-infrastructure"></a>Krok 4. Tworzenie infrastruktury źródło dziennika błędów
+### <a name="step-4-creating-the-error-log-source-infrastructure"></a>Krok 4. Tworzenie infrastruktury źródłowej dziennika błędów
 
-Firmy ELMAH `SqlErrorLog` dostawcy rejestruje informacje o błędzie do określonej bazy danych programu Microsoft SQL Server. `SqlErrorLog` Dostawcy oczekuje, że masz tabelę o nazwie tej bazy danych `ELMAH_Error` i trzech procedur składowanych: `ELMAH_GetErrorsXml`, `ELMAH_GetErrorXml`, i `ELMAH_LogError`. Pobierany ELMAH zawiera plik o nazwie `SQLServer.sql` w `db` folder, który zawiera języka T-SQL do tworzenia tej tabeli oraz tych procedur składowanych. Musisz uruchomić te instrukcje w bazie danych do użycia `SqlErrorLog` dostawcy.
+Dostawca `SqlErrorLog` ELMAH rejestruje szczegóły błędu w określonej Microsoft SQL Server bazie danych. Dostawca `SqlErrorLog` oczekuje, że ta baza danych ma tabelę o nazwie `ELMAH_Error` i trzy procedury składowane: `ELMAH_GetErrorsXml`, `ELMAH_GetErrorXml`i `ELMAH_LogError`. Pobieranie pliku ELMAH obejmuje plik o nazwie `SQLServer.sql` w folderze `db` zawierającym język T-SQL do tworzenia tej tabeli i tych procedur składowanych. Musisz uruchomić te instrukcje w bazie danych, aby użyć dostawcy `SqlErrorLog`.
 
-**Rysunek 1** i **2** Pokaż Eksplorator bazy danych w programie Visual Studio po obiekty bazy danych wymagane przez `SqlErrorLog` dodano dostawcę.
+**Rysunki 1** i **2** pokazują Eksplorator bazy danych w programie Visual Studio po dodaniu obiektów bazy danych wymaganych przez dostawcę `SqlErrorLog`.
 
 [![](logging-error-details-with-elmah-cs/_static/image2.png)](logging-error-details-with-elmah-cs/_static/image1.png)
 
-**Rysunek 1**: `SqlErrorLog` Dostawcy rejestruje błędy, aby `ELMAH_Error` tabeli
+**Rysunek 1**: dostawca `SqlErrorLog` rejestruje błędy w tabeli `ELMAH_Error`
 
 [![](logging-error-details-with-elmah-cs/_static/image4.png)](logging-error-details-with-elmah-cs/_static/image3.png)
 
-**Rysunek 2**: `SqlErrorLog` Dostawca używa trzech procedur składowanych
+**Rysunek 2**: dostawca `SqlErrorLog` używa trzech procedur składowanych
 
-## <a name="elmah-in-action"></a>ELMAH w działaniu
+## <a name="elmah-in-action"></a>ELMAH w akcji
 
-W tym momencie dodaliśmy ELMAH do aplikacji sieci web, zarejestrowane `ErrorLogModule` moduł HTTP i `ErrorLogPageFactory` programu obsługi HTTP, określony przez ELMAH opcje konfiguracji w `Web.config`i dodano obiekty bazy danych potrzebne do `SqlErrorLog` Dostawca dziennika błędów. Teraz jesteśmy gotowi zobaczyć ELMAH w działaniu! Odwiedź witrynę sieci Web książki przeglądów i odwiedź stronę, która generuje błąd w czasie wykonywania, takie jak `Genre.aspx?ID=foo`, lub nieistniejącej strony, takich jak `NoSuchPage.aspx`. Zobacz podczas odwiedzania tych stron jest zależna od `<customErrors>` konfiguracji i w przypadku odwiedzania lokalnie lub zdalnie. (Zobacz [ *wyświetlania strony błędu niestandardowego* samouczek](displaying-a-custom-error-page-cs.md) dla przypomnienia informacji na ten temat.)
+W tym momencie dodaliśmy ELMAH do aplikacji sieci Web, zarejestrowano moduł `ErrorLogModule` HTTP i `ErrorLogPageFactory` obsługi protokołu HTTP, określono opcje konfiguracji programu ELMAH w `Web.config`i dodaliśmy odpowiednie obiekty bazy danych dla dostawcy dziennika błędów `SqlErrorLog`. Teraz można przystąpić do wyświetlania obiektu ELMAH w akcji. Odwiedź witrynę sieci Web przeglądający książki i odwiedź stronę, która generuje błąd czasu wykonywania, taką jak `Genre.aspx?ID=foo`lub nieistniejąca Strona, taka jak `NoSuchPage.aspx`. Elementy wyświetlane podczas odwiedzania tych stron są zależne od konfiguracji `<customErrors>` i tego, czy odwiedzasz lokalnie czy zdalnie. (Zapoznaj się z powrotem z samouczkiem dotyczącym [ *wyświetlania strony błędu niestandardowego* ](displaying-a-custom-error-page-cs.md) dla odświeżacza w tym temacie).
 
-ELMAH nie ma wpływu na zawartość, jest wyświetlany użytkownikowi, gdy wystąpi nieobsługiwany wyjątek; rejestruje tylko jego szczegóły. Ten dziennik błędów jest dostępny na stronie sieci web `elmah.axd` z katalogu głównego witryny sieci Web, takich jak `http://localhost/BookReviews/elmah.axd`. (Ten plik nie fizycznie istnieje w projekcie, ale gdy nadejdzie żądanie `elmah.axd` środowisko uruchomieniowe wywołuje jego `ErrorLogPageFactory` obsługi HTTP, który generuje znaczników wysyłanych z powrotem do przeglądarki.)
+Obiekt ELMAH nie ma wpływu na zawartość pokazywaną użytkownikowi, gdy wystąpi nieobsługiwany wyjątek; po prostu rejestruje szczegółowe informacje. Ten dziennik błędów jest dostępny ze strony sieci Web `elmah.axd` z katalogu głównego witryny sieci Web, np. `http://localhost/BookReviews/elmah.axd`. (Ten plik nie istnieje fizycznie w projekcie, ale gdy żądanie jest wysyłane do `elmah.axd` środowisko uruchomieniowe wysyła je do `ErrorLogPageFactory` obsługi protokołu HTTP, która generuje znaczniki wysłane z powrotem do przeglądarki).
 
 > [!NOTE]
-> Można również użyć `elmah.axd` strony, aby nakazać ELMAH wygenerować błąd testu. Odwiedzający `elmah.axd/test` (na przykład `http://localhost/BookReviews/elmah.axd/test`) powoduje, że ELMAH zgłosić wyjątek typu `Elmah.TestException`, która zawiera komunikat o błędzie: " Jest to wyjątek testu, który można bezpiecznie zignorować."
+> Możesz również użyć strony `elmah.axd`, aby nakazać programowi ELMAH wygenerowanie błędu testu. Odwiedzenie `elmah.axd/test` (jak w `http://localhost/BookReviews/elmah.axd/test`) powoduje zgłoszenie wyjątku typu `Elmah.TestException`, który zawiera komunikat o błędzie: "to jest wyjątek testu, który można bezpiecznie zignorować".
 
-**Rysunek 3** zawiera dziennik błędów podczas odwiedzania `elmah.axd` ze środowiska projektowego.
+**Rysunek 3** przedstawia dziennik błędów podczas odwiedzania `elmah.axd` ze środowiska deweloperskiego.
 
 [![](logging-error-details-with-elmah-cs/_static/image6.png)](logging-error-details-with-elmah-cs/_static/image5.png)
 
-**Rysunek 3**: `Elmah.axd` Wyświetla dziennik błędów, ze strony sieci Web  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image7.png))
+**Rysunek 3**. `Elmah.axd` wyświetla dziennik błędów ze strony sieci Web  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image7.png))
 
-Zaloguj się do niego błąd **rysunek 3** zawiera sześć zapisy błędów. Każdy wpis zawiera kod stanu HTTP (404 lub 500 błędów), typ, opis, nazwa zalogowanego użytkownika w momencie wystąpienia błędu, Data i godzina. Kliknięcie linku szczegóły zawiera strona, która zawiera ten sam komunikat o błędzie objętego błąd szczegóły żółty ekranem śmierci (zobacz **rysunek 4**) wraz z wartości zmiennych serwera w momencie wystąpienia błędu (zobacz  **Rysunek 5**). Można również wyświetlić XML raw, w którym zapisywane są informacje o błędzie, który zawiera dodatkowe informacje, takie jak wartości w nagłówku żądania HTTP POST.
+Dziennik błędów na **rysunku 3** zawiera sześć wpisów błędów. Każdy wpis zawiera kod stanu HTTP (404 lub 500, dla tych błędów), typ, opis, nazwę zalogowanego użytkownika, gdy wystąpił błąd, oraz datę i godzinę. Kliknięcie linku szczegóły powoduje wyświetlenie strony zawierającej ten sam komunikat o błędzie wyświetlany w oknie Szczegóły błędu żółtego ekranu o śmierci (zobacz **rysunek 4**) wraz z wartościami zmiennych serwera w czasie błędu (patrz **rysunek 5**). Możesz również wyświetlić nieprzetworzony kod XML, w którym zapisywane są szczegóły błędu, w tym dodatkowe informacje, takie jak wartości w nagłówku POST protokołu HTTP.
 
 [![](logging-error-details-with-elmah-cs/_static/image9.png)](logging-error-details-with-elmah-cs/_static/image8.png)
 
-**Rysunek 4**: Wyświetl szczegóły błędu YSOD  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image10.png))
+**Rysunek 4**. Wyświetl szczegóły błędu YSOD  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image10.png))
 
 [![](logging-error-details-with-elmah-cs/_static/image12.png)](logging-error-details-with-elmah-cs/_static/image11.png)
 
-**Rysunek 5**: Zapoznaj się z wartości kolekcji zmiennych serwera w momencie wystąpienia błędu  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image13.png))
+**Rysunek 5**. Eksplorowanie wartości kolekcji zmiennych serwera w czasie błędu  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image13.png))
 
-Wdrażanie biblioteki ELMAH produkcyjnej witrynie internetowej pociąga za sobą:
+Wdrożenie programu ELMAH do produkcyjnej witryny sieci Web wiąże się z:
 
-- Kopiowanie `Elmah.dll` plik `Bin` folderu w środowisku produkcyjnym
-- Kopiowanie ustawień konfiguracyjnych specyficznych dla biblioteki ELMAH `Web.config` plik używany w środowisku produkcyjnym, i
-- Dodawanie infrastrukturze źródłowej dziennika błędów do produkcyjnej bazy danych.
+- Kopiowanie pliku `Elmah.dll` do folderu `Bin` w środowisku produkcyjnym,
+- Kopiowanie ustawień konfiguracji specyficznych dla programu ELMAH do pliku `Web.config` używanego w środowisku produkcyjnym i
+- Dodanie infrastruktury źródłowej dziennika błędów do produkcyjnej bazy danych.
 
-Po rozważyliśmy technik kopiowania plików od projektowania do produkcji w poprzednich samouczkach. Być może Najprostszym sposobem, aby zyskać infrastrukturę źródło dziennika błędów w produkcyjnej bazy danych jest Użyj programu SQL Server Management Studio, aby nawiązać połączenie z produkcyjną bazą danych, a następnie wykonaj `SqlServer.sql` pliku skryptu, który spowoduje utworzenie tabeli wymagane i przechowywane procedury.
+W poprzednich samouczkach zostały omówione techniki kopiowania plików z programowania do produkcji. Prawdopodobnie najprostszym sposobem pobrania infrastruktury źródłowej dziennika błędów w produkcyjnej bazie danych jest użycie SQL Server Management Studio do nawiązania połączenia z produkcyjną bazą danych, a następnie wykonanie pliku skryptu `SqlServer.sql`, co spowoduje utworzenie wymaganej tabeli i procedur składowanych.
 
-### <a name="viewing-the-error-details-page-on-production"></a>Wyświetlanie strony szczegółów błędu w środowisku produkcyjnym
+### <a name="viewing-the-error-details-page-on-production"></a>Wyświetlanie strony Szczegóły błędu w środowisku produkcyjnym
 
-Po wdrożeniu witryny do środowiska produkcyjnego, odwiedź witrynę sieci Web produkcji i generować nieobsługiwany wyjątek. Tak jak w środowisku deweloperskim ELMAH nie ma wpływu na stronę błędu, wyświetlane po wystąpieniu nieobsługiwanego wyjątku; Zamiast tego należy jedynie rejestruje błąd. Jeśli użytkownik podejmie próbę można znaleźć na stronie dziennik błędów (`elmah.axd`) w środowisku produkcyjnym będzie można dostępnych jest ze stroną zabronione wyświetlane w **rysunek 6**.
+Po wdrożeniu lokacji w środowisku produkcyjnym odwiedź witrynę produkcyjną i Wygeneruj nieobsługiwany wyjątek. Podobnie jak w środowisku programistycznym, ELMAH nie ma wpływu na stronę błędu wyświetlaną w przypadku wystąpienia nieobsługiwanego wyjątku; Zamiast tego tylko rejestruje błąd. Jeśli spróbujesz odwiedzić stronę dziennika błędów (`elmah.axd`) ze środowiska produkcyjnego, pozostanie powitanie za pomocą strony zabronionej pokazanej na **rysunku 6**.
 
 [![](logging-error-details-with-elmah-cs/_static/image15.png)](logging-error-details-with-elmah-cs/_static/image14.png)
 
-**Rysunek 6**: Domyślnie osoby odwiedzające zdalnego nie można wyświetlić strony sieci Web dziennik błędów  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image16.png))
+**Ilustracja 6**. Domyślnie zdalne osoby odwiedzające nie mogą wyświetlić strony sieci Web dziennika błędów  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image16.png))
 
-Pamiętamy w konfiguracji biblioteki ELMAH `<security>` sekcji ustawimy `allowRemoteAccess` atrybut na wartość 0, co użytkownicy nie mogą zdalne wyświetlanie dziennika błędów. Jest ważne uniemożliwić anonimowe osobom odwiedzającym przeglądanie dziennik błędów, jako szczegóły błędu może ujawnić luk w zabezpieczeniach lub innych informacji poufnych. Jeśli zdecydujesz się ten atrybut jest ustawiony na 1 i włączyć dostęp zdalny do dziennika błędów, to ważne jest, aby blokowanie `elmah.axd` ścieżki, tak że tylko autoryzowane osoby odwiedzające do niego dostęp. Można to osiągnąć przez dodanie `<location>` elementu `Web.config` pliku.
+Odwołaj się do sekcji `<security>` konfiguracji programu ELMAH, ustawiamy atrybut `allowRemoteAccess` na 0, co uniemożliwia użytkownikom zdalnym Wyświetlanie dziennika błędów. Ważne jest, aby uniemożliwić anonimowym osobom odwiedzającym wyświetlanie dziennika błędów, ponieważ szczegóły błędu mogą ujawnić luki w zabezpieczeniach lub inne poufne informacje. Jeśli zdecydujesz się ustawić ten atrybut na 1 i włączyć dostęp zdalny do dziennika błędów, należy zablokować ścieżkę `elmah.axd` tak, aby tylko autoryzowani osoby odwiedzające mogli uzyskać do niej dostęp. Można to osiągnąć przez dodanie elementu `<location>` do pliku `Web.config`.
 
-Następująca konfiguracja zezwala na tylko użytkownicy w roli administratora, aby uzyskać dostęp do strony sieci web dziennika błędów:
+Następująca konfiguracja zezwala na dostęp do strony sieci Web dziennika błędów tylko użytkownikom z roli administratora:
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample5.xml)]
 
 > [!NOTE]
-> Rola administratora i trzech użytkowników w systemie — Scott, Jisun i Alicja — zostały dodane w [ *Konfigurowanie witryny sieci Web, korzysta z usługi aplikacji* samouczek](configuring-a-website-that-uses-application-services-cs.md). Scott użytkowników i Jisun należą do roli administratora. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji, zobacz mój [samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
+> Rola administratora i trzech użytkowników w systemie — Scott, Jisun i Alicja — zostały dodane do [ *konfigurowania witryny sieci Web korzystającej z usługi aplikacji* samouczka](configuring-a-website-that-uses-application-services-cs.md). Użytkownicy Scott i Jisun są członkami roli administratora. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji, zapoznaj się z [samouczkami dotyczącymi zabezpieczeń w witrynie sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
 
-Teraz można wyświetlić dziennik błędów w środowisku produkcyjnym przez użytkowników zdalnych; Odwołaj się do **rysunki 3**, **4**, i **5** do zrzutów ekranu, strony sieci web, dziennik błędów. Jednak jeśli użytkownik anonimowy lub inny administrator próbuje wyświetlić na stronie dziennik błędów zostanie automatycznie przekierowany do strony logowania (`Login.aspx`), jako **rysunek 7** pokazuje.
+Dziennik błędów w środowisku produkcyjnym może teraz być wyświetlany przez użytkowników zdalnych; Zapoznaj się z powrotem z **ilustracjami 3**, **4**i **5** na potrzeby zrzutów ekranu na stronie sieci Web dziennik błędów. Jeśli jednak użytkownik anonimowy lub niebędący administratorem próbuje wyświetlić stronę dziennika błędów, automatycznie przekierowywać do strony logowania (`Login.aspx`), jak pokazano na **rysunku 7** .
 
 [![](logging-error-details-with-elmah-cs/_static/image18.png)](logging-error-details-with-elmah-cs/_static/image17.png)
 
-**Rysunek 7**: Nieautoryzowani użytkownicy są automatycznie przekierowywane do strony logowania  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image19.png))
+**Rysunek 7**: nieautoryzowani użytkownicy są automatycznie przekierowywani do strony logowania  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image19.png))
 
 ### <a name="programmatically-logging-errors"></a>Programowe rejestrowanie błędów
 
-Firmy ELMAH `ErrorLogModule` źródło określony dziennik modułu HTTP automatycznie rejestruje nieobsługiwanych wyjątków. Alternatywnie można zarejestrować błąd, bez konieczności podniesienia nieobsługiwany wyjątek przy użyciu `ErrorSignal` klasy i jego `Raise` metody. `Raise` Metody jest przekazywana `Exception` obiektu i rejestruje go tak, jakby ten wyjątek gdyby były zgłaszane i osiągnął środowiska uruchomieniowego programu ASP.NET nie jest obsługiwany. Różnica, jest jednak, że żądanie nadal normalnie po wykonywania `Raise` wywołaniu metody, natomiast wyjątek zgłoszony, nieobsługiwany przerywa wykonywanie normalne żądania i powoduje, że środowisko uruchomieniowe ASP.NET wyświetlić ze skonfigurowanym ustawieniem Strona błędu.
+Moduł protokołu HTTP `ErrorLogModule` ELMAH automatycznie rejestruje Nieobsłużone wyjątki do określonego źródła dziennika. Alternatywnie można rejestrować błąd bez konieczności zgłaszania nieobsłużonego wyjątku przy użyciu klasy `ErrorSignal` i jej metody `Raise`. Metoda `Raise` jest przenoszona do obiektu `Exception` i rejestruje je tak, jakby ten wyjątek został zgłoszony i osiągnął środowisko uruchomieniowe ASP.NET bez obsługi. Jednak różnica polega na tym, że żądanie nadal wykonuje się normalnie po wywołaniu metody `Raise`, podczas gdy zgłoszono, nieobsłużony wyjątek przerywa normalne wykonywanie żądania i powoduje, że środowisko uruchomieniowe ASP.NET wyświetla skonfigurowaną stronę błędu.
 
-`ErrorSignal` Klasa jest przydatna w sytuacjach, w której istnieje pewne akcje, które może zakończyć się niepowodzeniem, ale jego awarii nie jest krytycznego do ogólnej wykonywanej operacji. Na przykład witryny sieci Web mogą zawierać formularz, który akceptuje dane wejściowe użytkownika, zapisuje go w bazie danych, a następnie wysyła użytkownikowi wiadomość e-mail informującą ich o, informacji została przetworzona. Co ma się zdarzyć, jeśli informacje są zapisywane do bazy danych pomyślnie, ale występuje błąd podczas wysyłania wiadomości e-mail? Jedną z opcji jest zgłoszenie wyjątku i wysłać użytkownika do strony błędu. Jednak może to mylić użytkownika w przekonaniu, że informacje wprowadzone nie został zapisany. Innym rozwiązaniem byłoby dziennika błędów związanych z pocztą e-mail, ale nie zmieniają środowisko użytkownika w dowolny sposób. Jest to miejsce `ErrorSignal` klasa jest przydatna.
+Klasa `ErrorSignal` jest przydatna w sytuacjach, gdy istnieje pewna akcja, która może zakończyć się niepowodzeniem, ale jej awaria nie jest krytyczna dla wykonywanej operacji. Na przykład witryna sieci Web może zawierać formularz, który pobiera dane wejściowe użytkownika, zapisuje je w bazie danych, a następnie wysyła użytkownikowi wiadomość e-mail informującą o tym, że informacje zostały przetworzone. Co powinno się zdarzyć, jeśli informacje zostały pomyślnie zapisane w bazie danych, ale podczas wysyłania wiadomości e-mail Wystąpił błąd? Jedną z opcji jest zgłoszenie wyjątku i wysłanie go do strony błędu. Jednak może to spowodować, że użytkownik zauważa, że wprowadzone informacje nie zostały zapisane. Innym podejściem jest zarejestrowanie błędu związanego z wiadomościami e-mail, ale nie zmiana środowiska użytkownika w jakikolwiek sposób. Jest to miejsce, w którym Klasa `ErrorSignal` jest przydatna.
 
 [!code-csharp[Main](logging-error-details-with-elmah-cs/samples/sample6.cs)]
 
-## <a name="error-notification-via-email"></a>Powiadomienia o błędzie za pośrednictwem poczty E-mail
+## <a name="error-notification-via-email"></a>Powiadomienie o błędzie za pośrednictwem poczty E-mail
 
-Wraz z rejestrowanie błędów do bazy danych biblioteki ELMAH można również skonfigurować do określonego adresata poczty e-mail szczegóły błędu. Ta funkcjonalność jest dostarczana przez `ErrorMailModule` modułu HTTP; w związku z tym, należy zarejestrować ten moduł HTTP w `Web.config` wysyłanie szczegółów błędów za pośrednictwem poczty e-mail.
+Wraz z błędami rejestrowania w bazie danych, można również skonfigurować w taki sposób, aby szczegółowe informacje o błędach były wysyłane do określonego adresata. Ta funkcja jest udostępniana przez moduł `ErrorMailModule` HTTP; w związku z tym należy zarejestrować ten moduł HTTP w `Web.config`, aby można było wysłać szczegóły błędu za pośrednictwem poczty e-mail.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample7.xml)]
 
-Następnie podaj informacje o błędzie wiadomość e-mail w `<elmah>` elementu `<errorMail>` sekcji wskazujący adresu e-mail nadawcy i adresata, temat, czy zostanie wysłana wiadomość e-mail asynchronicznie.
+Następnie podaj informacje o błędzie wiadomości e-mail w sekcji `<errorMail>` elementu `<elmah>`, wskazujące nadawcę i odbiorcę wiadomości e-mail, podmiot oraz informację o tym, czy wiadomość e-mail jest wysyłana asynchronicznie.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample8.xml)]
 
-Przy użyciu powyższych ustawień w miejscu, kiedy środowisko uruchomieniowe pojawia się błąd ELMAH wysyła wiadomość e-mail na adres support@example.com przy użyciu szczegółów błędu. Wiadomość e-mail z błędów ELMAH firmy zawiera te same informacje, które są wyświetlane na stronie błędu web szczegółowe informacje, a mianowicie komunikat o błędzie, śladu stosu i zmiennych serwera (odnoszą się do **rysunki 4** i **5**). Błąd wiadomości e-mail zawiera również zawartość wyjątku szczegóły żółty ekranem śmierci jako załącznik (`YSOD.html`).
+Za każdym razem, gdy wystąpi błąd w czasie wykonywania, w przypadku wystąpienia błędu programu ELMAH wysyła wiadomość e-mail w celu support@example.com ze szczegółowymi informacjami o błędzie. Wiadomość e-mail dotycząca błędu programu ELMAH zawiera te same informacje, które są wyświetlane na stronie sieci Web szczegóły błędu, mianowicie komunikat o błędzie, ślad stosu i zmienne serwerowe (patrz z powrotem do **ilustracji 4** i **5**). Wiadomość e-mail z błędami zawiera również żółty ekran z informacjami o śmierci w postaci załącznika (`YSOD.html`).
 
-**Rysunek 8** pokazuje e-mail błędów ELMAH firmy wygenerowane, odwiedzając stronę `Genre.aspx?ID=foo`. Gdy **rysunek 8** pokazuje tylko błąd wiadomości i ślad stosu, zmiennych serwera są uwzględniane w dalszej części w treści wiadomości e-mail.
+Na **rysunku nr 8** przedstawiono wiadomość e-mail z BŁĘDem ELMAH wygenerowanego przez odwiedzenie `Genre.aspx?ID=foo`. Na **rysunku 8** przedstawiono tylko komunikat o błędzie i ślad stosu, natomiast Zmienne serwera są uwzględniane w treści wiadomości e-mail.
 
 [![](logging-error-details-with-elmah-cs/_static/image21.png)](logging-error-details-with-elmah-cs/_static/image20.png)
 
-**Rysunek 8**: Można skonfigurować ELMAH, aby wysłać szczegóły błędu, za pośrednictwem poczty E-mail  
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image22.png))
+**Ilustracja 8**. możesz skonfigurować ELMAH, aby wysyłał szczegóły błędu pocztą e-mail  
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](logging-error-details-with-elmah-cs/_static/image22.png))
 
-## <a name="only-logging-errors-of-interest"></a>Tylko rejestrowanie błędów zainteresowania
+## <a name="only-logging-errors-of-interest"></a>Rejestrowane są tylko błędy związane z zainteresowaniami
 
-Domyślnie ELMAH rejestruje szczegółowe informacje o każdej nieobsłużony wyjątek, w tym 404 i inne błędy HTTP. Można poinstruować ELMAH do zignorowania tych lub innych rodzajów błędów za pomocą filtrowanie błędów. Logikę filtrowania odbywa się przez firmy ELMAH `ErrorFilterModule` moduł HTTP, który należy zarejestrować w `Web.config` aby można było używać logikę filtrowania. Reguły filtrowania są określone w `<errorFilter>` sekcji.
+Domyślnie program ELMAH rejestruje szczegóły każdego nieobsługiwanego wyjątku, w tym 404 i inne błędy HTTP. Można wydać polecenie ELMAH, aby zignorować te lub inne typy błędów przy użyciu filtrowania błędów. Logika filtrowania jest wykonywana przez moduł HTTP `ErrorFilterModule`, który należy zarejestrować w `Web.config`, aby można było użyć logiki filtrowania. Reguły filtrowania są określone w sekcji `<errorFilter>`.
 
-Następujące znaczniki powoduje, że ELMAH nie rejestrować błędy 404.
+Poniższe znaczniki instruują ELMAH, aby nie rejestrował błędów 404.
 
 [!code-xml[Main](logging-error-details-with-elmah-cs/samples/sample9.xml)]
 
 > [!NOTE]
-> Pamiętaj, aby można było używać filtrowanie błędów, należy zarejestrować `ErrorFilterModule` moduł HTTP.
+> Nie zapomnij, aby użyć filtrowania błędów, należy zarejestrować moduł `ErrorFilterModule` HTTP.
 
-`<equal>` Element wewnątrz `<test>` sekcja nazywa się potwierdzenie. Jeśli potwierdzenia zwraca wartość true, błąd jest filtrowana ELMAH w dzienniku. Istnieją inne potwierdzenia niedostępnych, w tym: `<greater>`, `<greater-or-equal>`, `<not-equal>`, `<lesser>`, `<lesser-or-equal>`i tak dalej. Można także połączyć potwierdzenia używając `<and>` i `<or>` operatorów logicznych. Co więcej można nawet zawierać proste wyrażenie języka JavaScript jako potwierdzenie, lub napisać własny asercji w języku C# lub Visual Basic.
+Element `<equal>` wewnątrz sekcji `<test>` jest określany jako potwierdzenie. Jeśli potwierdzenie zwróci wartość true, błąd jest filtrowany z dziennika programu ELMAH. Dostępne są inne potwierdzenia, w tym: `<greater>`, `<greater-or-equal>`, `<not-equal>`, `<lesser>`, `<lesser-or-equal>`itd. Można również łączyć potwierdzenia przy użyciu `<and>` i `<or>` operatory logiczne. Co więcej, możesz nawet uwzględnić proste wyrażenie JavaScript jako potwierdzenie lub napisać własne potwierdzenia w C# lub Visual Basic.
 
-Aby uzyskać więcej informacji na temat błędów ELMAH firmy możliwości filtrowania, zobacz [sekcji Filtrowanie błędów](https://code.google.com/p/elmah/wiki/ErrorFiltering) w [witryny typu wiki biblioteki ELMAH](https://code.google.com/p/elmah/w/list).
+Aby uzyskać więcej informacji na temat możliwości filtrowania błędów w programie ELMAH, zapoznaj się z [sekcją filtrowanie błędów](https://code.google.com/p/elmah/wiki/ErrorFiltering) w [witrynie typu wiki programu ELMAH](https://code.google.com/p/elmah/w/list).
 
 ## <a name="summary"></a>Podsumowanie
 
-ELMAH zapewnia proste, ale zaawansowany mechanizm rejestrowanie błędów w aplikacji sieci web ASP.NET. System monitorowania kondycji firmy Microsoft, np. biblioteki ELMAH może rejestrować błędy z bazą danych i może wysyłać szczegóły błędów do deweloperów za pośrednictwem poczty e-mail. W przeciwieństwie do monitorowania kondycji systemu ELMAH obejmuje poza pole obsługę szerszego zakresu magazyny danych dziennika błędów, w tym: Microsoft SQL Server, Microsoft Access, Oracle, pliki XML i kilka innych. Ponadto ELMAH oferuje wbudowany mechanizm do wyświetlania dziennik błędów i szczegółowe informacje dotyczące określonego błędu ze strony sieci web `elmah.axd`. `elmah.axd` Strony umożliwia również renderowanie informacje o błędzie jako źródła danych RSS lub pliku wartości rozdzielanych przecinkami (CSV), który może odczytać, za pomocą programu Microsoft Excel. Można również poinstruować ELMAH filtrować błędy w dzienniku za pomocą potwierdzenia zaznacza deklaratywne lub programowy. I ELMAH mogą być używane z aplikacji programu ASP.NET w wersji 1.x.
+Program ELMAH oferuje prosty, ale wydajny mechanizm rejestrowania błędów w aplikacji sieci Web ASP.NET. Podobnie jak w przypadku systemu monitorowania kondycji firmy Microsoft, ELMAH może rejestrować błędy w bazie danych i wysyłać szczegóły błędu do dewelopera za pośrednictwem poczty e-mail. W przeciwieństwie do systemu monitorowania kondycji, program ELMAH obejmuje obsługę usługi Box dla szerszego zakresu magazynów danych dzienników błędów, w tym: Microsoft SQL Server, Microsoft Access, Oracle, plików XML i kilku innych. Ponadto program ELMAH oferuje wbudowany mechanizm wyświetlania dziennika błędów i szczegółowych informacji o konkretnym błędzie ze strony sieci Web, `elmah.axd`. Na stronie `elmah.axd` można także renderować informacje o błędach jako źródło danych RSS lub plik z wartościami rozdzielanymi przecinkami (CSV), który można odczytać przy użyciu programu Microsoft Excel. Można również nakazać programowi ELMAH filtrowanie błędów z dziennika przy użyciu deklaratywnych lub programistycznych zatwierdzeń. I programu ELMAH można używać z aplikacjami ASP.NET w wersji 1. x.
 
-Każdej wdrożonej aplikacji powinna mieć pewien mechanizm dla automatycznego rejestrowania nieobsługiwanych wyjątków i wysyłania powiadomień do zespołu programistycznego. Czy to odbywa się za pomocą monitorowania kondycji lub ELMAH to dodatkowa baza danych. Innymi słowy tak naprawdę nie ma znaczenia znacznie tego, czy używasz monitorowanie kondycji lub ELMAH; Ocena obu systemów, a następnie wybierz ten, który najlepiej spełnia Twoje potrzeby. Co to jest zasadniczo ważne jest umieszczana mechanizmu w miejscu do rejestrowania nieobsługiwanych wyjątków w środowisku produkcyjnym.
+Każda wdrożona aplikacja powinna mieć jakiś mechanizm automatycznego rejestrowania nieobsłużonych wyjątków i wysyłania powiadomień do zespołu programistycznego. Niezależnie od tego, czy jest to realizowane przy użyciu monitorowania kondycji, czy ELMAH jest pomocniczy. Innymi słowy, nie ma znaczenia, czy używasz monitorowania kondycji, czy ELMAH; Oceń oba systemy, a następnie wybierz te, które najlepiej pasują do Twoich potrzeb. Podstawowe znaczenie polega na tym, że w środowisku produkcyjnym można rejestrować Nieobsłużone wyjątki.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [ELMAH — moduły rejestrowania błędów i procedury obsługi](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
-- [Strona projektu biblioteki ELMAH](https://code.google.com/p/elmah/) (źródła kodu, próbek, stron typu wiki)
-- [Podłączanie ELMAH do aplikacji sieci Web można przechwycić nieobsługiwane wyjątki](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (wideo)
+- [ELMAH — rejestrowanie błędów modułów i programów obsługi](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
+- [Strona projektu ELMAH](https://code.google.com/p/elmah/) (kod źródłowy, przykłady, wiki)
+- [Podłączanie programu ELMAH do aplikacji sieci Web w celu przechwycenia nieobsłużonych wyjątków](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (wideo)
 - [Strony dziennika błędów zabezpieczeń](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
-- [Tworzenie składników podłączanych ASP.NET przy użyciu moduły HTTP do programów obsługi](https://msdn.microsoft.com/library/aa479332.aspx)
+- [Tworzenie podłączanych składników ASP.NET za pomocą modułów i programów HTTP](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]

@@ -1,166 +1,166 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
-title: Wyświetlanie tabeli danych bazy danych (VB) | Dokumentacja firmy Microsoft
+title: Wyświetlanie tabeli danych bazy danych (VB) | Microsoft Docs
 author: microsoft
-description: W tym samouczku pokazują I, wyświetlany jest zestaw rekordów bazy danych na dwa sposoby. Czy mogę Pokaż dwie metody formatowania zestaw rekordów bazy danych w formacie HTML danych...
+description: W tym samouczku przedstawiono dwie metody wyświetlania zestawu rekordów bazy danych. Pokazujemy dwie metody formatowania zestawu rekordów bazy danych w HTML...
 ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9bb26e4364d1e32a428b34bd03918303206d21c9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f2e2489ac8455913f55c746dbe05b9fe8272285b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122428"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74590912"
 ---
 # <a name="displaying-a-table-of-database-data-vb"></a>Wyświetlanie tabeli danych bazy danych (VB)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_VB.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_VB.pdf)
 
-> W tym samouczku pokazują I, wyświetlany jest zestaw rekordów bazy danych na dwa sposoby. Czy mogę wyświetlić dwie metody formatowania zestaw rekordów bazy danych w tabeli HTML. Po pierwsze I pokazują, jak można sformatować rekordów bazy danych bezpośrednio z poziomu widoku. Następnie I pokazują, jak można korzystać z zalet częściowych podczas formatowania rekordów bazy danych.
+> W tym samouczku przedstawiono dwie metody wyświetlania zestawu rekordów bazy danych. Pokazujemy dwie metody formatowania zestawu rekordów bazy danych w tabeli HTML. Po pierwsze pokazuje, jak można formatować rekordy bazy danych bezpośrednio w widoku. Następnie pokazuje, jak można wykorzystać części częściowe podczas formatowania rekordów bazy danych.
 
-Celem tego samouczka jest wyjaśniają, jak można wyświetlić tabeli HTML danych bazy danych w aplikacji ASP.NET MVC. Po pierwsze dowiesz się, jak używać narzędzia do tworzenia szkieletów zawarte w Visual Studio do generowania widoku, który automatycznie wyświetla zestaw rekordów. Następnie dowiesz się, jak używać częściowym jako szablon, podczas formatowania rekordów bazy danych.
+Celem tego samouczka jest wyjaśnienie, jak można wyświetlić tabelę HTML danych bazy danych w aplikacji ASP.NET MVC. Najpierw dowiesz się, jak używać narzędzi do tworzenia szkieletów zawartych w programie Visual Studio, aby generować widok, który automatycznie wyświetla zestaw rekordów. Następnie dowiesz się, jak używać częściowej jako szablonu podczas formatowania rekordów bazy danych.
 
 ## <a name="create-the-model-classes"></a>Tworzenie klas modelu
 
-Firma Microsoft zamierza wyświetlić zestaw rekordów z tabeli bazy danych filmów. Tabela bazy danych filmów zawiera następujące kolumny:
+Będziemy wyświetlać zestaw rekordów z tabeli bazy danych filmów. Tabela bazy danych filmów zawiera następujące kolumny:
 
 <a id="0.4_table01"></a>
 
 | **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
-| Id | int | False |
-| Tytuł | Nvarchar(200) | False |
-| Dyrektor ds. | NVarchar(50) | False |
-| DateReleased | DataGodzina | False |
+| #C1 | int | Fałsz |
+| Tytuł | Nvarchar (200) | Fałsz |
+| General | NVarchar (50) | Fałsz |
+| DateReleased | DataGodzina | Fałsz |
 
-Aby móc przedstawić w tabeli filmów w naszej aplikacji ASP.NET MVC, należy utworzyć klasę modelu. W tym samouczku używamy Microsoft Entity Framework do tworzenia klas w naszym modelu.
+Aby przedstawić tabelę filmów w aplikacji ASP.NET MVC, musimy utworzyć klasę modelu. W tym samouczku użyjemy Entity Framework firmy Microsoft do tworzenia naszych klas modelu.
 
 > [!NOTE] 
 > 
-> W tym samouczku używamy Microsoft Entity Framework. Jednak ważne jest zrozumienie, czy można użyć szereg różnych technologie do interakcji z bazą danych z aplikacji ASP.NET MVC, w tym LINQ to SQL i NHibernate, ADO.NET.
+> W tym samouczku użyjemy Entity Framework firmy Microsoft. Jednak ważne jest, aby zrozumieć, że można użyć różnych technologii do współdziałania z bazą danych z poziomu aplikacji ASP.NET MVC, w tym LINQ to SQL, NHibernate lub ADO.NET.
 
-Wykonaj następujące kroki, aby uruchomić Kreator modelu danych jednostki:
+Wykonaj następujące kroki, aby uruchomić Kreatora Entity Data Model:
 
-1. Kliknij prawym przyciskiem myszy folderu modeli w oknie Eksploratora rozwiązań i wybierz opcję menu **Dodaj, nowy element**.
-2. Wybierz **danych** kategorii, a następnie wybierz **ADO.NET Entity Data Model** szablonu.
-3. Nadaj nazwę modelu danych *MoviesDBModel.edmx* i kliknij przycisk **Dodaj** przycisku.
+1. Kliknij prawym przyciskiem myszy folder modele w oknie Eksplorator rozwiązań i wybierz opcję menu **Dodaj, nowy element**.
+2. Wybierz kategorię **dane** i wybierz szablon **Entity Data Model ADO.NET** .
+3. Nadaj modelowi danych nazwę *MoviesDBModel. edmx* , a następnie kliknij przycisk **Dodaj** .
 
-Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator modelu Entity Data Model (patrz rysunek 1). Wykonaj następujące kroki, aby zakończyć działanie kreatora:
+Po kliknięciu przycisku Dodaj zostanie wyświetlony Kreator Entity Data Model (patrz rysunek 1). Wykonaj następujące kroki, aby zakończyć działanie kreatora:
 
-1. W **wybierz zawartość modelu** kroku, wybierz pozycję **Generuj z bazy danych** opcji.
-2. W **wybierz połączenie danych** kroku, należy użyć *MoviesDB.mdf* połączenia danych i nazwę *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **dalej** przycisku.
-3. W **wybierz obiekty bazy danych** kroku, rozwiń węzeł tabele, wybierz tabelę filmów. Wprowadź przestrzeń nazw *modeli* i kliknij przycisk **Zakończ** przycisku.
+1. W kroku **Wybierz zawartość modelu** wybierz opcję **Generuj z bazy danych** .
+2. W kroku **Wybierz połączenie danych** Użyj połączenia danych *MoviesDB. mdf* oraz nazwy *MoviesDBEntities* dla ustawień połączenia. Kliknij przycisk **dalej** .
+3. W kroku **Wybierz obiekty bazy danych** rozwiń węzeł tabele, a następnie wybierz tabelę filmy. Wprowadź *modele* przestrzeni nazw i kliknij przycisk **Zakończ** .
 
-[![Tworzenie zapytań LINQ do klas SQL](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
+[![tworzenia klas LINQ to SQL](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
 
-**Rysunek 01**: Tworzenie zapytań LINQ do klas SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image2.png))
+**Ilustracja 01**. tworzenie klas LINQ to SQL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image2.png))
 
-Po zakończeniu działania Kreator modelu Entity Data Model, zostanie otwarty projektant modelu danych jednostki. Projektant powinien być wyświetlany jednostki filmy (patrz rysunek 2).
+Po ukończeniu pracy Kreatora Entity Data Model zostanie otwarty projektant Entity Data Model. Projektant powinien wyświetlić jednostkę filmów (patrz rysunek 2).
 
-[![Projektant modelu danych jednostki](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
+[![projektanta Entity Data Model](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
 
-**Rysunek 02**: Projektant modelu danych jednostki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image4.png))
+**Ilustracja 02**: Projektant Entity Data Model ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image4.png))
 
-Należy wprowadzić zmianę jeden, przed kontynuowaniem. Kreator modelu Entity Data generuje klasę modelu o nazwie *filmy* reprezentujący tabelę bazy danych filmów. Ponieważ będziemy korzystać do reprezentowania filmu konkretnej klasy filmy, należy zmodyfikować nazwę klasy, która ma być *filmu* zamiast *filmy* (pojedynczej zamiast liczba mnoga).
+Przed kontynuowaniem musimy wprowadzić jedną zmianę. Kreator danych jednostki generuje klasy modelu o nazwie *filmy* , które reprezentują tabelę bazy danych filmów. Ponieważ będziemy używać klasy filmów do reprezentowania określonego filmu, musimy zmodyfikować nazwę klasy jako *Movie* zamiast *filmów* (pojedynczo, a nie plural).
 
-Kliknij dwukrotnie nazwę klasy na powierzchni projektowej i Zmień nazwę klasy z filmy filmu. Po wprowadzeniu tej zmiany, kliknij przycisk **Zapisz** przycisk (ikona dysku), aby wygenerować klasę filmu.
+Kliknij dwukrotnie nazwę klasy na powierzchni projektanta i Zmień nazwę klasy z filmów na film. Po wprowadzeniu tej zmiany kliknij przycisk **Zapisz** (ikona dyskietki) w celu wygenerowania klasy filmu.
 
-## <a name="create-the-movies-controller"></a>Tworzenie kontrolera filmy
+## <a name="create-the-movies-controller"></a>Tworzenie kontrolera filmów
 
-Teraz, gdy mamy już sposobem reprezentowania naszych danych bazy danych, możemy utworzyć kontroler, który zwraca kolekcję filmów. W oknie Eksploratora rozwiązań w usłudze Visual Studio kliknij prawym przyciskiem myszy folder kontrolerów, a następnie wybierz opcję menu **Dodaj, kontroler** (zobacz rysunek 3).
+Teraz, gdy mamy możliwość reprezentowania rekordów bazy danych, możemy utworzyć kontroler, który zwraca kolekcję filmów. W oknie Eksplorator rozwiązań programu Visual Studio kliknij prawym przyciskiem myszy folder controllers (kontrolery) i wybierz opcję menu **Dodaj, kontroler** (zobacz rysunek 3).
 
-[![Dodawanie kontrolera Menu](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
+[![menu Dodaj kontroler](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
 
-**Rysunek 03**: Dodawanie kontrolera Menu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image6.png))
+**Ilustracja 03**: menu Dodaj kontroler ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image6.png))
 
-Gdy **Dodaj kontroler** zostanie wyświetlone okno dialogowe, wprowadź nazwę kontrolera MovieController (zobacz rysunek 4). Kliknij przycisk **Dodaj** przycisk, aby dodać nowy kontroler.
+Gdy pojawi się okno dialogowe **Dodaj kontroler** , wprowadź nazwę kontrolera MovieController (zobacz rysunek 4). Kliknij przycisk **Dodaj** , aby dodać nowy kontroler.
 
-[![Okno dialogowe Dodawanie kontrolera](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
+[![oknie dialogowym Dodawanie kontrolera](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
 
-**Rysunek 04**: Okno dialogowe Dodawanie kontrolera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image8.png))
+**Ilustracja 04**: okno dialogowe Dodawanie kontrolera ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image8.png))
 
-Należy zmodyfikować akcję indeks() udostępnianych przez kontroler filmu, tak aby zwraca zestaw rekordów bazy danych. Tak, aby wyglądało kontrolera w ofercie 1, należy zmodyfikować kontrolera.
+Musimy zmodyfikować akcję index () uwidocznioną przez kontroler filmu, aby zwracała zestaw rekordów bazy danych. Zmodyfikuj kontroler tak, aby wyglądał jak kontroler na liście 1.
 
-**Wyświetlanie listy 1 – Controllers\MovieController.vb**
+**Lista 1 – Controllers\MovieController.vb**
 
 [!code-vb[Main](displaying-a-table-of-database-data-vb/samples/sample1.vb)]
 
-W ofercie 1 klasa MoviesDBEntities jest używana do reprezentowania MoviesDB bazy danych. Wyrażenie *jednostek. MovieSet.ToList()* zwraca zestaw wszystkich filmów z tabeli bazy danych filmów.
+Na liście 1 Klasa MoviesDBEntities jest używana do reprezentowania bazy danych MoviesDB. Jednostki wyrażenia *. MovieSet. ToList — ()* zwraca zestaw wszystkich filmów z tabeli bazy danych filmów.
 
-## <a name="create-the-view"></a>Tworzenie widoku
+## <a name="create-the-view"></a>Utwórz widok
 
-Najprostszym sposobem wyświetlania zestawu rekordów bazy danych w tabeli HTML jest korzystanie z zalet tworzenia szkieletów udostępniane przez program Visual Studio.
+Najprostszym sposobem wyświetlania zestawu rekordów bazy danych w tabeli HTML jest skorzystanie z szkieletu zapewnianego przez program Visual Studio.
 
-Kompiluj aplikację, wybierając opcję menu **twórz, Kompiluj rozwiązanie**. Należy skompilować aplikację przed otwarciem **Dodaj widok** okna dialogowego lub klas usługi danych nie będzie wyświetlane w oknie dialogowym.
+Skompiluj aplikację, wybierając opcję menu **kompilacja, Kompiluj rozwiązanie**. Musisz skompilować aplikację przed otwarciem okna dialogowego **Dodaj widok** lub klasy danych nie będą wyświetlane w oknie dialogowym.
 
-Kliknij prawym przyciskiem myszy działanie indeks() i wybierz opcję menu **Dodaj widok** (zobacz rysunek 5).
+Kliknij prawym przyciskiem myszy akcję indeks () i wybierz opcję menu **Dodaj widok** (patrz rysunek 5).
 
 [![Dodawanie widoku](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
 
-**Rysunek 05**: Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image10.png))
+**Ilustracja 05**. Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image10.png))
 
-W **Dodaj widok** okno dialogowe, zaznacz pola wyboru **utworzyć widok silnie typizowane**. Wybierz klasę filmu jako **wyświetlić klasy danych**. Wybierz *listy* jako **wyświetlanie zawartości** (patrz rysunek 6). Zaznaczenie tych opcji spowoduje wygenerowanie silnie typizowane widoku, który wyświetla listę filmów.
+W oknie dialogowym **Dodawanie widoku** zaznacz pole wyboru z etykietą **Utwórz widok o jednoznacznie określonym typie**. Wybierz klasę filmu jako **klasę danych widoku**. Wybierz pozycję *Lista* jako **zawartość widoku** (zobacz rysunek 6). Wybranie tych opcji spowoduje wygenerowanie widoku o jednoznacznie określonym typie, który wyświetla listę filmów.
 
-[![Okno dialogowe dodawania widoku](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
+[![oknie dialogowym Dodawanie widoku](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
 
-**Rysunek 06**: Okno dialogowe Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image12.png))
+**Ilustracja 06**. okno dialogowe Dodawanie widoku ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image12.png))
 
-Po kliknięciu **Dodaj** przycisk, widok w ofercie 2 jest generowany automatycznie. Ten widok zawiera kod wymagany do iterowania po kolekcji filmów i wyświetlane poszczególne właściwości filmu.
+Po kliknięciu przycisku **Dodaj** widok w liście 2 zostanie wygenerowany automatycznie. Ten widok zawiera kod wymagany do iteracji w kolekcji filmów i wyświetlania każdej z właściwości filmu.
 
-**Wyświetlanie listy 2 — Views\Movie\Index.aspx**
+**Lista 2 — Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample2.aspx)]
 
-Możesz uruchomić aplikację, wybierając opcję menu **debugowania i Rozpocznij debugowanie** (lub naciskając klawisz F5). Uruchomiona jest aplikacja uruchomi program Internet Explorer. Jeśli przejdziesz do adresu URL /Movie, a następnie zobaczysz stronę na rysunku 7.
+Możesz uruchomić aplikację, wybierając opcję menu **Debuguj, Rozpocznij debugowanie** (lub naciskając klawisz F5). Uruchomienie aplikacji powoduje uruchomienie programu Internet Explorer. Jeśli przejdziesz do adresu URL/Movie, zobaczysz stronę na rysunku 7.
 
-[![Tabelę filmy](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
+[![tabeli filmów](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
 
-**Rysunek 07**: Tabela filmów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image14.png))
+**Ilustracja 07**: tabela filmów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](displaying-a-table-of-database-data-vb/_static/image14.png))
 
-Jeśli nie potrzebujesz nic o wyglądzie siatki rekordów bazy danych na rysunku 7 można po prostu zmodyfikuj widok indeksu. Na przykład można zmienić *DateReleased* nagłówka do *Data wydania* przez zmodyfikowanie widoku indeksu.
+Jeśli nie chcesz niczego o wyglądzie siatki rekordów bazy danych na rysunku 7, możesz po prostu zmodyfikować widok indeksu. Na przykład można zmienić nagłówek *DateReleased* na *Data zwolnienia* , modyfikując widok indeksu.
 
-## <a name="create-a-template-with-a-partial"></a>Tworzenie szablonu z częściowym
+## <a name="create-a-template-with-a-partial"></a>Tworzenie szablonu z częściową
 
-Jeśli widok pobiera zbyt skomplikowane, jest dobry pomysł, aby uruchomić podzielenie widoku na częściowych. Za pomocą częściowych ułatwia widoków do zrozumienia i utrzymania. Utworzymy częściowym, możemy użyć jako szablonu, aby sformatować listę rekordów bazy danych filmów.
+Gdy widok jest zbyt skomplikowany, dobrym pomysłem jest rozpoczęcie dzielenia widoku na częściowe. Korzystanie ze stron częściowych sprawia, że Twoje widoki są łatwiejsze do zrozumienia i utrzymania. Utworzymy częściową, której będzie można użyć jako szablonu do formatowania każdego rekordu bazy danych filmów.
 
-Wykonaj następujące kroki, aby utworzyć częściowego:
+Wykonaj następujące kroki, aby utworzyć częściowy:
 
-1. Kliknij prawym przyciskiem myszy Views\Movie folder i wybierz opcję menu **Dodaj widok**.
-2. Zaznacz pola wyboru *tworzenia widoku częściowego (.ascx)*.
-3. Nadaj nazwę częściowego *MovieTemplate*.
-4. Zaznacz pola wyboru **utworzyć widok silnie typizowane**.
-5. Wybierz filmu jako *wyświetlić klasy danych*.
-6. Wybierz pusty jako *wyświetlanie zawartości*.
-7. Kliknij przycisk **Dodaj** przycisk, aby dodać części do projektu.
+1. Kliknij prawym przyciskiem myszy folder Views\Movie i wybierz opcję menu **Dodaj widok**.
+2. Zaznacz pole wyboru z etykietą *Utwórz widok częściowy (. ascx)* .
+3. Nazwij część *MovieTemplate*.
+4. Zaznacz pole wyboru z etykietą **Utwórz widok o jednoznacznie określonym typie**.
+5. Wybierz pozycję film jako *klasę danych widoku*.
+6. Wybierz opcję pusty jako *zawartość widoku*.
+7. Kliknij przycisk **Dodaj** , aby dodać część częściową do projektu.
 
-Po wykonaniu tych kroków, należy zmodyfikować MovieTemplate częściowe wyglądać lista 3.
+Po wykonaniu tych kroków zmodyfikuj MovieTemplate częściowy, aby wyglądać jak lista 3.
 
-**Listing 3 – Views\Movie\MovieTemplate.ascx**
+**Lista 3 — Views\Movie\MovieTemplate.ascx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample3.aspx)]
 
-Partial w ofercie 3 zawiera szablon w pojedynczym wierszu rekordów.
+Częściowa lista 3 zawiera szablon dla pojedynczego wiersza rekordów.
 
-Zmodyfikowany widok indeksu w ofercie 4 używa MovieTemplate częściowe.
+Widok zmodyfikowany indeks w liście 4 używa częściowej MovieTemplate.
 
-**Wyświetlanie listy 4 — Views\Movie\Index.aspx**
+**Lista 4 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample4.aspx)]
 
-Widok w ofercie 4 zawiera dla każdej pętli, który iteruje po wszystkich filmów. Dla każdego filmu częściowe MovieTemplate jest używany do formatowania filmu. MovieTemplate jest renderowany przez wywołanie metody pomocnika RenderPartial().
+Widok w liście 4 zawiera pętlę dla każdej pętli, która iteruje przez wszystkie filmy. Dla każdego filmu MovieTemplate częściowa służy do formatowania filmu. MovieTemplate jest renderowany przez wywołanie metody pomocnika RenderPartial ().
 
-Zmodyfikowany widok indeksu powoduje wyświetlenie tej samej tabeli HTML rekordów bazy danych. Jednak widok został znacznie uproszczony.
+Zmodyfikowany widok indeksu służy do renderowania tej samej tabeli HTML rekordów bazy danych. Jednak widok został znacznie uproszczony.
 
-Metoda RenderPartial() jest inne niż większość pozostałych metod pomocniczych, ponieważ nie zwraca ciąg. W związku z tym, należy wywołać przy użyciu metody RenderPartial() &lt;Html.RenderPartial() %&gt; zamiast &lt;% = Html.RenderPartial() %&gt;.
+Metoda RenderPartial () różni się od większości innych metod pomocnika, ponieważ nie zwraca ciągu. W związku z tym należy wywołać metodę RenderPartial () przy użyciu &lt;% html. RenderPartial ()%&gt; zamiast &lt;% = html. RenderPartial ()%&gt;.
 
 ## <a name="summary"></a>Podsumowanie
 
-Celem tego samouczka było wyjaśniają, jak można wyświetlić zestaw rekordów bazy danych w tabeli HTML. Po pierwsze wiesz, jak można zwrócić zestaw rekordów bazy danych w ramach akcji kontrolera, wykorzystując Microsoft Entity Framework. Następnie omówiono na potrzeby tworzenia szkieletów programu Visual Studio wygenerowania widoku, który automatycznie wyświetla zbiór elementów. Na koniec pokazaliśmy ci, jak uprościć widok, korzystając z częściowego. Przedstawiono sposób użycia częściowym jako szablon, dzięki czemu można formatować każdy rekord bazy danych.
+Celem tego samouczka jest wyjaśnienie, jak można wyświetlić zestaw rekordów bazy danych w tabeli HTML. Najpierw wiesz już, jak zwrócić zestaw rekordów bazy danych z akcji kontrolera, wykorzystując Entity Framework firmy Microsoft. Następnie pokazano, jak używać szkieletu programu Visual Studio do generowania widoku, który wyświetla kolekcję elementów automatycznie. Wreszcie wiesz już, jak uprościć widok, korzystając ze częściowej. Wiesz już, jak używać częściowej jako szablonu, aby można było sformatować każdy rekord bazy danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-model-classes-with-linq-to-sql-vb.md)

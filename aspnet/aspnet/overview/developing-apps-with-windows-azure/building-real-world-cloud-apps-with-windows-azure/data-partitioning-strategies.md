@@ -1,43 +1,43 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
-title: (Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) strategie partycjonowania danych | Dokumentacja firmy Microsoft
+title: Strategie partycjonowania danych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure) | Microsoft Docs
 author: MikeWasson
-description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
+description: Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 3aecd64bc59ffa961aa97dd30b037f9aeb2acdd8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2f79b1f459aff3e81dab7ea7eb4ebf3f71084463
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118894"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585816"
 ---
-# <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>(Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) strategie partycjonowania danych
+# <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Strategie partycjonowania danych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacje na temat serii, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure** jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc w pomyślnym tworzeniu aplikacji sieci Web dla chmury. Informacje o serii znajdują [się w pierwszym rozdziale](introduction.md).
 
-Wcześniej widzieliśmy się, jak łatwo jest skalowanie warstwy internetowej, aplikacji w chmurze, dodając i usuwając serwerów sieci web. Ale jeśli one występują wszystkie tego samego magazynu danych, wąskich gardeł w aplikacji, zostanie przeniesiony z frontonu do zaplecza, a warstwa danych jest najtrudniejsze skalowania. W tym rozdziale przedstawiony sposób zapewniania warstwie danych skalowalne, dzieląc dane na wiele relacyjnych baz danych lub łącząc magazynu relacyjnej bazy danych w innych opcjach magazynu danych.
+Wcześniej zawarto jak łatwo skalować warstwę sieci Web aplikacji w chmurze, dodając i usuwając serwery sieci Web. Ale jeśli wszyscy naprzódją ten sam magazyn danych, wąskie gardła aplikacji przemieszcza się z frontonu do zaplecza, a warstwa danych jest najtrudniejsza do skalowania. W tym rozdziale zawarto informacje na temat skalowania warstwy danych przez Partycjonowanie danych do wielu relacyjnych baz danych lub łączenie magazynu relacyjnej bazy danych z innymi opcjami przechowywania danych.
 
-Konfigurowanie schematu partycjonowania jest najlepsze gotowe się frontonu z tego samego powodu, o których wspomniano wcześniej: bardzo trudno zmienić swoją strategię magazynu danych, po aplikacji znajduje się w środowisku produkcyjnym. Należy rozważać twardych na początku różne metody, można uniknąć, posiadające "Twitter momencie" aplikacja ulegnie awarii lub ulegnie przez długi czas, gdy reorganizowanie danych i kod dostępu do danych aplikacji.
+Konfigurowanie schematu partycjonowania najlepiej naprzód z tego samego powodu wymienionego wcześniej: bardzo trudno jest zmienić strategię magazynowania danych, gdy aplikacja jest w środowisku produkcyjnym. Jeśli myślisz o różnych podejściach, możesz uniknąć wystąpienia "w serwisie Twitter", gdy aplikacja ulegnie awarii lub przez długi czas, w trakcie ponownego organizowania danych i kodu dostępu do danych aplikacji.
 
-## <a name="the-three-vs-of-data-storage"></a>Trzy Vs magazynu danych
+## <a name="the-three-vs-of-data-storage"></a>Trzy a przechowywanie danych
 
-W celu ustalenia, czy potrzebujesz strategii partycjonowania i co powinno być, należy wziąć pod uwagę trzy pytania dotyczące danych:
+Aby określić, czy potrzebna jest strategia partycjonowania i jakie powinna być, weź pod uwagę trzy pytania dotyczące danych:
 
-- Wolumin — jak dużo danych będziesz ostatecznie przechowywać? Kilka gigabajtów? Kilka gigabajtów kilkuset? Terabajty? Petabajtów?
-- Szybkość pracy — co to szybkość, z jaką dane będzie się zwiększać? Jest aplikacją wewnętrzną, która nie jest generowanie dużej ilości danych? Zewnętrznych aplikacji, którą klienci będą przekazywania, obrazy i filmy wideo do?
-- Różne — typ danych będzie można przechowywać? Relacyjne, obrazy, pary klucz wartość i grafów społecznościowych?
+- Wolumin — ile danych będzie ostatecznie przechowywanych? Kilka gigabajtów? Kilka setek gigabajtów? Terabajtów? Petabajtów?
+- Szybkość — jaka jest szybkość, z jaką będą się zwiększać dane? Czy jest to wewnętrzna aplikacja, która nie generuje dużej ilości danych? Aplikacja zewnętrzna, do której klienci będą przekazywać obrazy i wideo?
+- Odmiana — jakiego typu dane będą przechowywane? Relacyjne, obrazy, pary klucz-wartość, wykresy społecznościowe?
 
-Jeśli uważasz, że użytkownik chce mieć wiele woluminów, szybkość pracy lub różnych, masz zastanów się, jakiego rodzaju schematu partycjonowania najlepiej umożliwi aplikacji do skalowania wydajnie i skutecznie je wraz ze wzrostem, i aby upewnić się, nie wystąpią jakieś.
+Jeśli uważasz, że chcesz mieć dużo ilości, szybkości lub różnorodności, musisz starannie rozważyć, jakiego rodzaju schemat partycjonowania najlepiej umożliwi aplikacji skalowanie w sposób wydajny i efektywny, w miarę wzrostu i zapewnienia, że nie będzie można uruchamiać żadnych wąskich gardeł.
 
-Istnieją trzy sposoby partycjonowania:
+Istnieją zasadniczo trzy podejścia do partycjonowania:
 
 - Partycjonowanie pionowe
 - Partycjonowanie poziome
@@ -45,69 +45,69 @@ Istnieją trzy sposoby partycjonowania:
 
 ## <a name="vertical-partitioning"></a>Partycjonowanie pionowe
 
-Pionowe momentu porcjowania jest podobne do podziału tabeli według kolumn: jeden zestaw kolumn przechodzi do jednego magazynu danych, a inny zestaw kolumn przechodzi w innym magazynem danych.
+Pionowa część jest taka sama jak dzielenie tabeli według kolumn: jeden zestaw kolumn należy do jednego magazynu danych, a inny zestaw kolumn przechodzi do innego magazynu danych.
 
-Na przykład załóżmy, że Moja aplikacja przechowuje dane o osobach, w tym obrazów:
+Załóżmy na przykład, że moja aplikacja przechowuje dane dotyczące osób, w tym obrazów:
 
 ![Tabela danych](data-partitioning-strategies/_static/image1.png)
 
-Po reprezentują te dane jako tabelę i spójrz na różnych odmian danych, można zobaczyć, że trzy kolumny z lewej strony ma dane ciągów, które mogą być skutecznie przechowywane przez relacyjnej bazy danych, dwie kolumny po prawej stronie są zasadniczo tablice typu byte tego języka c niektó z plików obrazu. Istnieje możliwość danych pliku obrazu magazynu relacyjnej bazy danych, a wiele osób to zrobić, ponieważ nie chcesz zapisać dane do systemu plików. Mogą nie mieć system plików można przechowywać wymagane ilości danych lub może nie chcą zarządzać oddzielne tworzenie kopii zapasowych i przywracanie systemu. Ta metoda działa dobrze w przypadku lokalnych baz danych i małe ilości danych w bazach danych w chmurze. W środowisku lokalnym może być łatwiejsze, umożliwiające po prostu DBA zajmie się wszystkiego.
+Gdy dane są reprezentowane jako tabela i przyjrzyj się różnym odmianom danych, można zobaczyć, że trzy kolumny po lewej stronie mają dane ciągów, które mogą być efektywnie przechowywane przez relacyjną bazę danych, natomiast dwie kolumny po prawej stronie są tablicami bajtowymi, które są niektó z plików obrazów. Istnieje możliwość przechowywania danych plików obrazów w relacyjnej bazie danych, a wiele osób może zrobić, ponieważ nie chcą zapisywać danych w systemie plików. Mogą nie mieć systemu plików z możliwością przechowywania wymaganych woluminów danych lub mogą nie chcieć zarządzać osobnym systemem tworzenia kopii zapasowej i przywracania. Takie podejście działa dobrze w przypadku lokalnych baz danych i małych ilości danych w bazach danych w chmurze. W środowisku lokalnym może być łatwiej, aby tylko DBA o wszystko.
 
-Ale w bazie danych w chmurze, Magazyn jest relatywnie kosztowne, a dużą liczbę obrazów może spowodować, że rozmiar bazy danych poza granicami, w których on mogą działać wydajnie. Rozwiązać te problemy przez partycjonowanie danych w pionie, co oznacza, że wybierz najbardziej odpowiedniego magazynu danych dla każdej kolumny w tabeli danych. Co może być najlepszej metody dla tego przykładu polega na umieszczeniu danych ciągu w relacyjnej bazie danych i obrazów w usłudze Blob storage.
+Jednak w bazie danych w chmurze magazyn jest stosunkowo kosztowny, a duża ilość obrazów może zwiększyć rozmiar bazy danych poza granicami, w których może wydajnie działać. Te problemy można rozwiązać przez Partycjonowanie danych w pionie, co oznacza, że można wybrać najbardziej odpowiedni magazyn danych dla każdej kolumny w tabeli danych. Co może być najlepszym rozwiązaniem dla tego przykładu jest umieszczenie danych ciągu w relacyjnej bazie danych i w obrazach w usłudze BLOB Storage.
 
-![Tabela danych partycje pionowe](data-partitioning-strategies/_static/image2.png)
+![Tabela danych w pionie](data-partitioning-strategies/_static/image2.png)
 
-Przechowywanie obrazów w magazynie obiektów Blob zamiast bazy danych jest praktyczniejsze w chmurze niż w środowisku lokalnym, ponieważ nie trzeba martwić się o Konfigurowanie serwerów plików i zarządzaniu nim kopii zapasowych i przywracania danych przechowywanych poza relacyjnej bazy danych: wszystkie które jest obsługiwane dla Ciebie automatycznie przez usługi Blob storage.
+Przechowywanie obrazów w magazynie obiektów blob, a nie w bazie danych, jest bardziej praktyczne w chmurze niż w środowisku lokalnym, ponieważ nie trzeba martwić się o Konfigurowanie serwerów plików ani zarządzanie kopią zapasową danych przechowywanych poza relacyjną bazą danych: wszystkie obsługiwane przez usługę BLOB Storage automatycznie.
 
-Jest to metoda partycjonowania wprowadziliśmy w aplikacji naprawić, a Spróbujemy znaleźć kod w [rozdział magazynu obiektów Blob](unstructured-blob-storage.md). Bez ten schemat partycjonowania przy założeniu, że średni rozmiar 3 MB aplikacja naprawić będzie można tylko do przechowywania około 40 000 zadań przed osiągnięcia maksymalny rozmiar bazy danych programu 150 GB. Po usunięciu obrazów, bazy danych można przechowywać 10 razy jako wiele zadań; Możesz przejść znacznie dłużej przed musisz myśleć o implementowaniu poziomy schematu partycjonowania. I zgodnie ze skalą aplikacji, wydatków zwiększanie wolniej, ponieważ większość potrzeb dotyczących magazynu są przesyłane do bardzo niedrogiego magazynu obiektów Blob.
+Jest to podejście do partycjonowania wdrożone w aplikacji do rozwiązywania problemów IT i poinformujemy kod o tym w [rozdziale usługi BLOB Storage](unstructured-blob-storage.md). Bez tego schematu partycjonowania i przy założeniu średniego rozmiaru obrazu wynoszącego 3 megabajty, poprawka aplikacji IT będzie mogła przechowywać informacje o 40 000 zadaniach przed upływem maksymalnego rozmiaru bazy danych wynoszącego 150 gigabajty. Po usunięciu obrazów baza danych może przechowywać 10 razy tyle zadań; Możesz kontynuować pracę znacznie dłużej, zanim będzie trzeba myśleć o implementacji schematu partycjonowania poziomego. W miarę skalowania aplikacji Twoje wydatki rosną wolniej, ponieważ większość potrzeb związanych z magazynem odbywa się bardzo niedrogim magazynem obiektów BLOB.
 
-## <a name="horizontal-partitioning-sharding"></a>Partycjonowanie poziome (fragmentowanie)
+## <a name="horizontal-partitioning-sharding"></a>Partycjonowanie poziome (fragmentowania)
 
-Poziomy momentu porcjowania jest podobne do podziału tabeli według wierszy: jeden zestaw wierszy jest przenoszony do jednego magazynu danych, a innego zestawu wierszy przechodzi w innym magazynem danych.
+Podział w poziomie jest podobny do dzielenia tabeli według wierszy: jeden zestaw wierszy przejdzie w jeden magazyn danych, a inny zestaw wierszy przechodzi do innego magazynu danych.
 
-Biorąc pod uwagę tego samego zestawu danych, innym rozwiązaniem jest przechowywać różne zakresy nazw klienta w różnych bazach danych.
+Uwzględniając ten sam zestaw danych, kolejną opcją jest przechowywanie różnych zakresów nazw klientów w różnych bazach danych.
 
-![Tabela danych podzielone na partycje w poziomie](data-partitioning-strategies/_static/image3.png)
+![Tabela danych w poziomie partycjonowana](data-partitioning-strategies/_static/image3.png)
 
-Należy zachować ostrożność bardzo schemat fragmentowania, aby upewnić się, że data jest równomiernie rozłożona w celu uniknięcia punktów aktywnych. Ten prosty przykład przy użyciu pierwszej litery nazwiska nie spełnia tego wymagania, ponieważ wiele osób ma ostatni o nazwach zaczynających niektórych typowych litery. Czy osiągasz wcześniej, niż można by oczekiwać, ponieważ niektóre bazy danych może stać się bardzo duże, podczas gdy większość pozostanie małych ograniczenia rozmiaru tabeli.
+Należy zachować ostrożność w odróżnieniu od schematu fragmentowania, aby upewnić się, że dane są równomiernie dystrybuowane w celu uniknięcia aktywnych miejsc. Ten prosty przykład przy użyciu pierwszej litery nazwiska nie spełnia tego wymagania, ponieważ wiele osób ma nazwiska, które zaczynają się od niektórych typowych liter. Ograniczenia rozmiaru tabeli trafią wcześniej niż można spodziewać się, że niektóre bazy danych byłyby bardzo duże, a większość pozostanie niewielka.
 
-Dół boku partycjonowanie poziome to, że może być trudny do zapytań dla wszystkich danych. W tym przykładzie zapytanie musi ma być rysowany od 26 do różnych baz danych do wszystkich danych przechowywanych przez aplikację.
+Po stronie partycjonowania poziomego może być trudne wykonywanie zapytań we wszystkich danych. W tym przykładzie zapytanie będzie musiało zostać narysowane z maksymalnie 26 różnych baz danych, aby uzyskać wszystkie dane przechowywane przez aplikację.
 
 ## <a name="hybrid-partitioning"></a>Partycjonowanie hybrydowe
 
-Partycjonowanie poziome i pionowe można łączyć. Można na przykład w przykładowych danych obrazy są przechowywane w magazynie obiektów Blob i poziomie partycjonowanie danych ciągu.
+Można połączyć partycjonowanie pionowe i poziome. Przykładowo w przykładowych danych można przechowywać obrazy w usłudze BLOB Storage i dzielić je na partycje w poziomie.
 
-![Hybrydowe tabeli dane podzielone na partycje](data-partitioning-strategies/_static/image4.png)
+![Podzielona na partycje hybrydowe tabeli danych](data-partitioning-strategies/_static/image4.png)
 
 ## <a name="partitioning-a-production-application"></a>Partycjonowanie aplikacji produkcyjnej
 
-Koncepcyjnie jest łatwo sprawdzić działanie schematu partycjonowania, ale dowolnego schematu partycjonowania spowodują wzrost złożoności kodu i wprowadzono wiele nowych komplikacji, które mają do czynienia z. Jeśli przenosisz obrazów do magazynu obiektów blob, co możesz zrobić, gdy Usługa magazynu nie działa? Jak obsługiwać zabezpieczeń obiektu blob? Co się stanie, jeśli brak synchronizacji bazy danych i blob storage? W przypadku fragmentowania, jak będzie można obsługiwać zapytań dla wszystkich baz danych?
+Koncepcyjnie można łatwo sprawdzić, jak działa schemat partycjonowania, ale każdy schemat partycjonowania zwiększa złożoność kodu i wprowadza wiele nowych komplikacji, z którymi należy się zająć. Jeśli przenosisz obrazy do magazynu obiektów blob, co robi, gdy usługa magazynu nie działa? Jak obsługiwać zabezpieczenia obiektów BLOB? Co się stanie, jeśli baza danych i magazyn obiektów BLOB nie zostaną zsynchronizowane? Jeśli fragmentowania, w jaki sposób będzie obsługiwał zapytania dla wszystkich baz danych?
 
-Komplikacji są zarządzane tak długo, jak planowane jest ich przed przejściem do produkcji. Wielu użytkowników, których nie chcesz, aby mieli oni później. Średnio nasz zespół Customer Advisory Team (CAT) pobiera panicked połączeń telefonicznych około raz na miesiąc od klientów, których aplikacje są mocno rozwijać przebiega bardzo duże, a nie zrobił to planowanie. I podają mniej więcej tak: "Pomoc! Umieść wszystko w jednym magazynie danych, i w ciągu 45 dni zamierzam zabraknie miejsca na nim!" A jeśli masz wiele logikę biznesową, wbudowane, jak dostęp do usługi magazynu danych i masz klienci, którzy korzystają z aplikacji, to nie dobry moment, aby przejść w dół na dzień podczas migrowania. Firma Microsoft znajdą się pośrednictwa herculean działań mających na celu pomóc partycji klienta swoje dane na bieżąco z krótkim czasie w dół. To bardzo ekscytujący i bardzo scary i nie mielibyśmy mieć czegoś chcesz brać udział w przypadku nie trzeba będzie ją! Myśl o tym na początku i integrowanie aplikacji będzie ułatwiać o wiele prostsze, jeśli aplikacja powiększa się później.
+Komplikacje można zarządzać tak długo, jak planujesz je przed przejściem do środowiska produkcyjnego. Wielu osób, które nie zrobiły, chcą później. W przypadku średniej nasz zespół ds. doradztwa klienta pobiera panicked rozmowy telefonicznej o jeden miesiąc od klientów, których aplikacje są wyłączane w bardzo dużym zakresie i nie przeprowadzą tego planowania. I mówią o tym, jak: "Help! Umieszczam wszystko w jednym magazynie danych, a w ciągu 45 dni brakuje miejsca na tym komputerze. A jeśli masz wiele logiki biznesowej wbudowanych w sposób uzyskiwania dostępu do magazynu danych i masz klientów, którzy korzystają z aplikacji, nie masz wystarczającej ilości czasu na przeprowadzenie migracji. Jesteśmy w trakcie przechodzenia przez Herculean wysiłki, aby pomóc klientom podzielić swoje dane na bieżąco bez czasu. Jest to bardzo atrakcyjne i bardzo scarye, a nie coś, czego potrzebujesz, jeśli można to uniknąć! Zastanawiasz się na tym przed chwilą i integrujemy ją z Twoją aplikacją, dzięki czemu Twoja praca będzie znacznie łatwiejsza w przypadku późniejszego rozrastania aplikacji.
 
 ## <a name="summary"></a>Podsumowanie
 
-Skuteczne schematu partycjonowania można włączyć skalowanie do petabajtów danych w chmurze bez wąskie gardła aplikacji w chmurze. I nie ma na początku płacić za maszyny dużych lub rozległe infrastruktury, jak to się dzieje w przypadku uruchomienia aplikacji w centrum danych w środowisku lokalnym. W chmurze możesz stopniowo dodawać pojemność zgodnie z ich potrzebujesz, i płacić one tylko dla jak używasz Jeśli zostanie on użyty.
+Efektywny schemat partycjonowania może umożliwić aplikacji w chmurze skalowanie do petabajtów danych w chmurze bez wąskich gardeł. Nie trzeba więc wyliczać z góry za duże maszyny lub rozległą infrastrukturę, która może być używana w przypadku uruchamiania aplikacji w lokalnym centrum danych. W chmurze możesz zwiększyć pojemność w miarę potrzeb i płacić tylko za tyle, ile korzystasz z niego podczas korzystania z niego.
 
-W [następny rozdział](unstructured-blob-storage.md) zobaczymy, jak aplikacja naprawić implementuje partycjonowanie pionowe, zapisując obrazy w usłudze Blob storage.
+W [następnym rozdziale](unstructured-blob-storage.md) zobaczymy, jak aplikacja Poprawka It implementuje partycjonowanie pionowe przez przechowywanie obrazów w magazynie obiektów BLOB.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji na temat strategii partycjonowania zobacz następujące zasoby.
+Aby uzyskać więcej informacji na temat strategii partycjonowania, zobacz następujące zasoby.
 
-Dokumentacja:
+Łączoną
 
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na Windows Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument — Markiem Simmsem i Michael Thomassy.
-- [Microsoft Patterns and Practices — wzorce projektowe oparte na chmurze](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące partycjonowania danych, wzorzec fragmentowania.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na platformie Microsoft Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument ze znakami SIMM i Michael Thomassy.
+- [Wzorce i praktyki firmy Microsoft — wzorce projektowania w chmurze](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące partycjonowania danych, wzorzec fragmentowania.
 
 Filmy wideo:
 
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Dziewięć serii Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia informacje o szczegółowo pojęcia i zasady dotyczące architektury w sposób bardzo dostępny i interesujące z historii z doświadczenia zespołu doradczego klientów firmy Microsoft (CAT) z klientów. Zobacz Omówienie partycjonowania w odcinku 7.
-- [Tworzenie dużych: Lekcje wyniesione z klientów usługi Windows Azure — część I](https://channel9.msdn.com/Events/Build/2012/3-029). — Markiem Simmsem w tym artykule omówiono poszczególne schematy partycjonowania, strategie fragmentowania, jak zaimplementować dzielenia na fragmenty i Federacji bazy danych SQL, zaczynając od 19:49. Podobnie jak przed uszkodzeniami serii, ale zbliża się bardziej szczegółowe informacje z instrukcjami.
+- [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria dziewięciu części przez Ulrich Homann, Marc Mercuri i marking SIMM. Prezentuje koncepcje wysokiego poziomu i zasady architektury w bardzo dostępnym i interesującym scenariuszu, w tym scenariusze opracowane przez firmę Microsoft Customer Advisory Team (CAT) z rzeczywistymi klientami. Zobacz dyskusję partycjonowania w epizod 7.
+- [Tworzenie dużych: lekcji uzyskane od klientów systemu Windows Azure — część I](https://channel9.msdn.com/Events/Build/2012/3-029). Oznacz moduły SIMM omawiają schematy partycjonowania, strategie fragmentowania, sposób implementacji fragmentowania i SQL Database federacyjne, począwszy od 19:49. Podobnie jak w przypadku serii failsafe, ale więcej szczegółów.
 
 Przykładowy kod:
 
-- [Podstawy usługi w systemie Windows Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja, która zawiera bazę danych podzielonych na fragmenty. Aby uzyskać opis fragmentowanie zaimplementowane, zobacz [DAL — fragmentowanie danych RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) na blogu Windows Azure.
+- [Podstawy usługi w chmurze w systemie Windows Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja, która zawiera bazę danych podzielonej na fragmenty. Opis zaimplementowanego schematu fragmentowania można znaleźć w temacie [dal – fragmentowania of RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) in the Windows Azure blog.
 
 > [!div class="step-by-step"]
 > [Poprzednie](data-storage-options.md)

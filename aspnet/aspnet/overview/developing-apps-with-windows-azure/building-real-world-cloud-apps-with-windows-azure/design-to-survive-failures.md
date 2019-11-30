@@ -1,131 +1,131 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: Projektowanie pod kątem przetrwania awarii (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
+title: Projektowanie pod kątem niepowodzeń (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure) | Microsoft Docs
 author: MikeWasson
-description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
+description: Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 54bfa40a7d853e29c42512ba375271587fb6f565
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 9bf9acb8b4f8521d03c053c124c5fc4a07d6cb9a
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118828"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585652"
 ---
-# <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Projektowanie po awarii (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+# <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Projektowanie pod kątem niepowodzeń (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure** jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc w pomyślnym tworzeniu aplikacji sieci Web dla chmury. Aby uzyskać informacje na temat książki elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
-Jedną z rzeczy, o których należy przemyśleć podczas kompilowania dowolny typ aplikacji, ale szczególnie taki, który zostanie uruchomiony w chmurze, gdy wiele osób będą używać, jest sposób projektowania aplikacji, dzięki czemu mogą bezpiecznie obsługiwać awarie i w dalszym ciągu dostarczać wartość jak możliwe. Mając wystarczająco dużo czasu, przebieg procesu się nie udaje się w dowolnym środowisku lub w każdym systemie oprogramowania. Jak aplikację pod kątem obsługi tych sytuacji Określa, jak zły usługi klienci otrzymają oraz ile czasu trzeba poświęcić na analizowanie i rozwiązywanie problemów.
+Jednym z rzeczy, które należy wziąć pod uwagę podczas tworzenia aplikacji dowolnego typu, ale szczególnie tych, które będą działać w chmurze, w których będą używane przez wiele osób, można zaprojektować aplikację tak, aby mogła ona bezpiecznie obsłużyć awarie i w dalszym ciągu dostarczać wartość najmniejszy. Mając wystarczająco dużo czasu, elementy są niewłaściwe w środowisku lub dowolnym systemie oprogramowania. Sposób, w jaki aplikacja obsługuje te sytuacje, decyduje o tym, jak zakłócają klienci i ile czasu trzeba poświęcać na analizowanie i rozwiązywanie problemów.
 
 ## <a name="types-of-failures"></a>Typy błędów
 
-Istnieją dwie kategorie podstawowe błędy, które można obsłużyć inaczej:
+Istnieją dwie podstawowe kategorie niepowodzeń, które mają być obsługiwane inaczej:
 
-- Przejściowy naprawiać błędów, takich jak problemy z połączeniem sieciowym sporadycznie.
-- Trwałej błędów, które wymagają interwencji.
+- Przejściowe błędy samonaprawiania, takie jak sporadyczne problemy z łącznością sieciową.
+- Trwałe błędy wymagające interwencji.
 
-W przypadku błędów przejściowych można zaimplementować zasady ponawiania, aby upewnić się, że większość czas odzyskiwania aplikacji, szybko i automatycznie. Twoi klienci mogą zauważą nieznacznie dłuższy czas odpowiedzi, ale w przeciwnym razie nie ulegnie zmianie. Pokażemy niektóre sposoby obsługi tych błędów w [obsługi błędów przejściowych rozdział](transient-fault-handling.md).
+W przypadku błędów przejściowych można zaimplementować zasady ponawiania, aby upewnić się, że przez większość czasu aplikacja będzie szybko i automatycznie odzyskiwana. Klienci mogą zauważyć nieco dłuższy czas odpowiedzi, ale w przeciwnym razie nie będzie to miało wpływu. Pokażemy kilka sposobów obsługi tych błędów w [rozdziale obsługi błędów przejściowych](transient-fault-handling.md).
 
-Dla trwałe błędy, można zaimplementować monitorowanie i rejestrowanie funkcji, które powiadamia niezwłocznie problemów i które ułatwia analizą głównych przyczyn problemów. Pokażemy niektóre sposoby na bieżąco te rodzaje błędów w [rozdział monitorowanie i dane telemetryczne](monitoring-and-telemetry.md).
+W przypadku trwałych błędów można zaimplementować funkcje monitorowania i rejestrowania, które powiadamiają natychmiast o problemach i ułatwiają analizę głównych przyczyn. Pokażemy kilka sposobów, aby pomóc Ci w powyższym rodzaju błędach w [rozdziale monitorowanie i telemetrię](monitoring-and-telemetry.md).
 
-## <a name="failure-scope"></a>Zakres awarii
+## <a name="failure-scope"></a>Zakres niepowodzeń
 
-Masz również wziąć pod uwagę zakres awarii — czy dotyczy jednej maszynie, całą usługę, takich jak bazy danych SQL lub magazynu lub cały region.
+Należy również wziąć pod uwagę zakres błędów — niezależnie od tego, czy dotyczy to pojedynczej maszyny, cała usługa, taka jak SQL Database czy magazyn lub cały region.
 
-![Zakres awarii](design-to-survive-failures/_static/image1.png)
+![Zakres niepowodzeń](design-to-survive-failures/_static/image1.png)
 
-### <a name="machine-failures"></a>Błędy maszyny
+### <a name="machine-failures"></a>Awarie maszyn
 
-Na platformie Azure serwer nie powiodło się, jest automatycznie zastępowany przez nowy i aplikacji w chmurze dobrze zaprojektowanego sprawności tego rodzaju błąd, szybko i automatycznie. Wcześniej podkreślić, firma Microsoft skalowalność zalet warstwy sieci web o bezstanowa i łatwość odzyskiwania z serwera nie powiodło się jest kolejną korzyścią wynikającą z statelessness. Łatwość odzyskiwania jest również jedną z zalet platformy jako usługi (PaaS) funkcji, takich jak bazy danych SQL Database i Azure App Service Web Apps. Awarie sprzętowe są rzadkie, ale kiedy występują one, czy usługi te określają je automatycznie; nie trzeba nawet pisać kod obsługujący maszyny błędy podczas korzystania z jednej z tych usług.
+Na platformie Azure serwer, który uległ awarii, jest automatycznie zastępowany nowym, a dobrze zaprojektowana aplikacja w chmurze jest automatycznie i szybka. Wcześniej wprowadziliśmy zalety skalowalności warstwy sieci Web bezstanowej i łatwość odzyskiwania z serwera, który uległ awarii, jest kolejną zaletą bezstanową. Łatwość odzyskiwania to również jedna z zalet funkcji platformy jako usługi (PaaS, Platform-as-a-Service), takich jak SQL Database i Azure App Service Web Apps. Awarie sprzętu są rzadkie, ale gdy występują te usługi, obsługują je automatycznie; nie trzeba nawet pisać kodu, aby obsłużyć awarie maszyn w przypadku korzystania z jednej z tych usług.
 
 ### <a name="service-failures"></a>Błędy usługi
 
-Aplikacje w chmurze zazwyczaj używają wielu usług. Na przykład aplikacja naprawić korzysta z usługi SQL Database, usługi Storage i aplikacji sieci web jest wdrażana w usłudze Azure App Service. Co będzie aplikacji zrobić, jeśli jedna z usług, których zależysz zakończy się niepowodzeniem? Dla niektórych błędów usługi przyjazną "Niestety, spróbuj ponownie później" komunikat może być najlepsze, możesz zrobić. Ale w wielu scenariuszach możesz to zrobić lepiej. Na przykład gdy magazyn danych zaplecza nie działa, możesz można akceptować dane wejściowe użytkownika, wyświetlać "Twoje żądanie zostało odebrane" i przechowywać dane wejściowe wiadomo gdzie jeszcze tymczasowo; następnie podczas service, konieczne będzie działać ponownie, można pobrać danych wejściowych i go przetworzyć.
+Aplikacje w chmurze zwykle korzystają z wielu usług. Na przykład aplikacja do rozwiązywania problemów używa usługi SQL Database, usługi magazynu i aplikacji internetowej wdrożonej do Azure App Service. Co aplikacja będzie działać, jeśli jedna z usług, z których korzystasz, zakończy się niepowodzeniem? W przypadku niektórych błędów usługi niezrozumiały komunikat "Niestety, spróbuj ponownie później" może być najlepszym rozwiązaniem. Jednak w wielu scenariuszach można to zrobić lepiej. Na przykład jeśli magazyn danych zaplecza nie działa, można zaakceptować dane wejściowe użytkownika, wyświetlić komunikat "żądanie zostało odebrane" i zapisać dane wejściowe zwrócono komunikatu inaczej. gdy potrzebna usługa będzie ponownie działać, możesz pobrać dane wejściowe i przetworzyć je.
 
-[Wzorzec pracy skoncentrowany na kolejkach](queue-centric-work-pattern.md) rozdziale pokazano jeden ze sposobów postępowania w tym scenariuszu. Aplikacja naprawić przechowuje zadania w usłudze SQL Database, ale nie musi on zakończyć pracy, gdy baza danych SQL nie działa. W tym rozdziale opisano sposób przechowywania danych wejściowych użytkownika dla zadania w kolejce i używać procesu roboczego do odczytywania kolejki i aktualizacji zadania podrzędnego. Jeśli SQL działa, możliwość tworzenia zadania usuń go pozostanie nienaruszona; proces roboczy może poczekać i przetwarzać nowych zadań w przypadku, gdy baza danych SQL jest dostępna.
+Rozdział [wzorca pracy skoncentrowanego na kolejce](queue-centric-work-pattern.md) pokazuje jeden ze sposobów obsługi tego scenariusza. Aplikacja Fix it przechowuje zadania w SQL Database, ale nie musi ona zamykać pracy, gdy SQL Database nie działa. W tym rozdziale zobaczymy, jak przechowywać dane wejściowe użytkownika dla zadania w kolejce, a następnie użyć procesu roboczego, aby odczytać kolejkę i zaktualizować zadanie. Jeśli program SQL nie działa, można utworzyć poprawkę, której nie dotyczy to zadanie. proces roboczy może czekać i przetwarzać nowe zadania, gdy SQL Database jest dostępna.
 
-### <a name="region-failures"></a>Błędy regionu
+### <a name="region-failures"></a>Awarie regionów
 
-Cały regionów może zakończyć się niepowodzeniem. Klęski żywiołowe może zniszczyć centrum danych, może uzyskać spłaszczona za meteor, wiersza magistrali w centrum danych można było obciąć przez rolnika zakopanie krowy z backhoe itp. Co należy zrobić, jeśli aplikacja jest hostowana w stricken centrum danych? Istnieje możliwość skonfigurować aplikację na platformie Azure do jednoczesnego uruchamiania w wielu regionach, aby w przypadku awarii w jednym, możesz nadal działa w innym regionie. Takie błędy są bardzo rzadko, a większość aplikacji nie szybkiego dostępu za pośrednictwem przeszkód niezbędne do zapewnienia ciągłości usługi za pośrednictwem tego rodzaju błędów. Sekcja zasobów na końcu rozdział informacje na temat zachować swoją aplikację, które są dostępne nawet za pośrednictwem awarię regionu.
+Całe regiony mogą zakończyć się niepowodzeniem. Klęska żywiołowa może zniszczyć centrum danych, ale może zostać spłaszczona przez platforma Meteor, a linia magistrali do centrum dane może zostać zacięta przez rolnika, Burying krowę backhoe itd. Jeśli aplikacja jest hostowana w Stricken centrum danych? Istnieje możliwość skonfigurowania aplikacji na platformie Azure tak, aby działała w wielu regionach jednocześnie, tak aby w przypadku awarii w jednym regionie nadal działała. Takie niepowodzenia są bardzo rzadkimi wystąpieniami, a większość aplikacji nie przeskakuje przez przeszkód niezbędne do zapewnienia nieprzerwanej usługi za pomocą błędów tego sortowania. Zapoznaj się z sekcją resources na końcu rozdziału, aby uzyskać informacje o tym, jak utrzymać dostęp do aplikacji nawet przez awarię regionu.
 
-Celem usługi Azure jest zapewnienie obsługi wszystkich tych rodzajów błędów o wiele prostsze i pojawi się kilka przykładów jak nam idzie, w następujących rozdziałach.
+Celem systemu Azure jest zapewnienie, że wszystkie te rodzaje błędów są znacznie łatwiejsze, a zobaczysz kilka przykładów tego, jak robimy to w następujących działach.
 
 ## <a name="slas"></a>Umowy SLA
 
-Ludzie często Posłuchaj o umów dotyczących poziomu usług (SLA) w środowisku chmury. Zasadniczo są to obietnic wchodzące w firmach o jak niezawodnej usługi. Dostępność na poziomie 99,9% czasu zgodnie z umową SLA oznacza, że możesz oczekiwać usługi działają poprawnie przez 99,9% czasu. Jest dość typowy wartość umowy SLA i dźwięki, takich jak bardzo wysoką liczbę, ale nie zakładane dół czas, jaki. faktycznie wynosi 1%. Poniżej przedstawiono tabelę, która pokazuje jak długi przestój różnych procentach umowy SLA, kwota przez rok, miesiąc i tydzień.
+Ludzie często słuchają umów dotyczących poziomu usług (umowy SLA) w środowisku chmury. Zasadniczo są to niesie obietnice zwiększenia, że firmy sprawiają, że ich usługi są niezawodne. Umowa SLA na 99,9% oznacza, że usługa powinna działać prawidłowo 99,9% czasu. Jest to dość typowa wartość umowy SLA, która jest taka sama jak w przypadku bardzo dużej liczby, ale może nie zachodzić, ile czasu w dół w procentach rzeczywiście wynosi. Poniżej znajduje się tabela, która pokazuje, ile przestojów różnej wartości procentowej umowy SLA ma wartość w ciągu roku, miesiąca i tygodnia.
 
-![Tabela umowy SLA](design-to-survive-failures/_static/image2.png)
+![Tabela umów SLA](design-to-survive-failures/_static/image2.png)
 
-Dlatego dostępność na poziomie 99,9% czasu zgodnie z umowy SLA oznacza, że usługa może nie działać 8.76 godzin roku lub 43,2 minut w miesiącu. To więcej czasu niż większość osób weź pod uwagę. Tak więc jako deweloper chcesz należy pamiętać, że pewien czas przestoju i obsługiwał go w taki sposób, bezpieczne. W pewnym momencie ktoś będzie korzystać z aplikacji, usługa ma być wyłączone i chcesz zminimalizować negatywny wpływ tego na klienta.
+W związku z tym umowa SLA na 99,9% oznacza, że usługa może być 8,76 wyłączona o godz. w roku lub 43,2 minut w miesiącu. To więcej czasu niż większość użytkowników. W związku z tym deweloper powinien mieć świadomość, że jest możliwy pewien czas i obsłużyć go w sposób płynny. W pewnym momencie ktoś będzie korzystać z aplikacji, a usługa zostanie wyłączona i chcesz zminimalizować negatywny wpływ tego działania na klienta.
 
-Co należy wiedzieć na temat umowy SLA jest jakim przedziale czasu odnosi się do: powoduje zegara Rozpoczynanie resetowania co tydzień, co miesiąc lub co rok? Na platformie Azure możemy teraz zresetować zegar co miesiąc, co jest dla Ciebie lepsza roczne umowy SLA, roczne umów SLA można ukryć odnotowane przesuwając z serii dobre miesięcy.
+Jednym z nich należy wiedzieć o umowie SLA, do której odnosi się czas: czy zegar jest resetowany co tydzień, co miesiąc czy w każdym roku? Na platformie Azure zresetuję zegar co miesiąc, co jest lepsze od rocznej umowy SLA, ponieważ Roczna umowa SLA może ukryć niewłaściwe miesiące, przenosząc je na serię dobrych miesięcy.
 
-Oczywiście możemy zawsze Oczekuj lepiej niż SLA; zwykle będzie znacznie mniej, niż w dół. Gwarantuje to, jeśli mamy problem nigdy nie dłużej niż maksymalny czas przestoju możesz poprosić dla pieniędzy. Kwotę, wracając prawdopodobnie nie ma w pełni kompensuje znaczenie biznesowe nadmiarowe czas przestoju, ale ten aspekt umowy SLA działa jako zasady wymuszania i informuje o tym, że traktujemy on bardzo poważnie.
+Oczywiście zawsze zależy się lepiej niż umowa SLA; zwykle znacznie mniej niż to możliwe. Obietnica polega na tym, że jeśli kiedykolwiek wyjdziesz dłużej niż maksymalny czas, w którym możesz poprosił o zwrot pieniędzy. Kwota pieniędzy, którą powrócisz, prawdopodobnie nie może w pełni wynagradzać użytkownika w celu skorzystania z nadmiarowego czasu, ale ten aspekt umowy SLA działa jako zasady wymuszania i informuje o tym, że bardzo poważnie zajmiemy się tym.
 
-### <a name="composite-slas"></a>Złożone umowy SLA
+### <a name="composite-slas"></a>Umowy SLA złożony
 
-Ważne jest, aby zastanów się, gdy rozważasz umowy SLA jest wpływ przy użyciu wielu usług w aplikacji, z każda usługa zawierająca osobne umowy SLA. Na przykład aplikacja naprawić korzysta z usługi Azure App Service Web Apps, Azure Storage i SQL Database. Oto ich numery umowy SLA w dniu ta Książka elektroniczna jest zapisywana w grudnia 2013:
+Ważną kwestią, którą należy wziąć pod uwagę podczas korzystania z usługi umowy SLA, jest wpływ używania wielu usług w aplikacji, a każda z nich ma odrębną umowę SLA. Na przykład aplikacja do rozwiązywania problemów używa Azure App Service Web Apps, Azure Storage i SQL Database. Poniżej przedstawiono numery umów SLA w dniu, w którym książka elektroniczna jest zapisywana w grudniu, 2013:
 
-![Umowa SLA witryny sieci Web, Storage, SQL Database](design-to-survive-failures/_static/image3.png)
+![Witryna sieci Web SLA, magazyn SQL Database](design-to-survive-failures/_static/image3.png)
 
-Co to jest maksymalny czas, czego można oczekiwać dla aplikacji, w oparciu o te umowom SLA przestoju? Może się wydawać, że czas dół są takie same najgorszy wartość procentowa umów SLA lub 99,9% w tym przypadku. Byłoby wartość true, jeśli wszystkie trzy usługi zawsze nie powiodło się w tym samym czasie, ale która niekoniecznie co rzeczywiście się dzieje. Każda usługa może zakończyć się niepowodzeniem niezależnie w różnym czasie, więc trzeba obliczyć złożona umowa SLA mnożąc poszczególnych numerów umowy SLA.
+Jaki jest maksymalny czas oczekiwania dla aplikacji na podstawie tej usługi umowy SLA? Może się zdarzyć, że w tym przypadku czas w dół będzie równy wartości procentowej najgorszej umowy SLA lub 99,9%. Może to być prawdziwe, jeśli wszystkie trzy usługi zawsze się nie powiodły, ale nie jest to konieczne w rzeczywistości. Każda usługa może się nie powieść niezależnie w różnym czasie, więc należy obliczyć umowną umowę SLA, mnożąc poszczególne numery umowy SLA.
 
 ![Złożona umowa SLA](design-to-survive-failures/_static/image4.png)
 
-Dzięki czemu aplikacja może działać nie tylko 43,2 minut miesięcznie, ale 3 razy ta kwota, 108 minut w miesiącu — i nadal mieścić się w granicach umowy SLA platformy Azure.
+W związku z tym Twoja aplikacja może być wyłączona nie tylko przez 43,2 minut w miesiącu, ale 3 razy więcej, 108 minut w miesiącu i nadal mieści się w granicach umowy SLA platformy Azure.
 
-Ten problem nie jest unikatowa na platformie Azure. Firma Microsoft zapewnia faktycznie Najlepsza chmura SLA dowolnej usługi w chmurze dostępna i będziesz mieć podobne problemy, aby się zająć, jeśli używasz dowolnego dostawcy usług w chmurze. Co to powoduje zaznaczenie jest znaczenie zastanawiać się, jak projektowanie aplikacji do obsługi błędów usługi nieuniknione poprawnie, ponieważ one mogą odbywa się wystarczająco często mających wpływ na klientów lub użytkowników.
+Ten problem nie jest unikatowy dla platformy Azure. Firma Microsoft udostępnia obecnie najlepszą umowy slaą usługę w chmurze, a także podobne problemy, które należy wykonać w przypadku korzystania z usług w chmurze dowolnego dostawcy. To najważniejsze informacje dotyczą sposobu, w jaki można zaprojektować aplikację, aby bezpiecznie rozwiązywać błędy usługi, ponieważ mogą one być często wystarczająco duże, aby mieć wpływ na klientów lub użytkowników.
 
-### <a name="cloud-slas-compared-to-enterprise-down-time-experience"></a>Umowy SLA chmury w porównaniu do środowiska czas przestoju przedsiębiorstwa
+### <a name="cloud-slas-compared-to-enterprise-down-time-experience"></a>Cloud umowy SLA w porównaniu do korporacyjnego środowiska w czasie
 
-Osoby czasami powiedzieć "W swojej aplikacji w organizacji nigdy nie mam te problemy." Jeśli zadasz pytanie o czas, jaki dół miesięcznie faktycznie posiadany zwykle mówią, "Dobrze, zdarza się czasami." I jeśli zadasz pytanie częstotliwość wprowadzanych, "Czasami musimy utworzyć kopię zapasową lub zainstalować nowe oprogramowanie serwera lub aktualizacji." Oczywiście, który zlicza czas przestoju. Większości aplikacji firmowych, chyba że są one szczególnie o kluczowym znaczeniu są faktycznie w dół dla więcej niż dozwolone przez umowy SLA usługi czas. Ale jeśli jesteś odpowiedzialny za i kontrolę nad jego serwera i infrastruktury, zwykle możesz mniej angst dół razy. W środowisku chmury jest zależny od kogoś innego i nie wiesz, co się dzieje, dzięki czemu może przeważnie, aby uzyskać bardziej niepokoju go.
+Osoby czasami mówią, "w mojej aplikacji korporacyjnej nigdy nie mam tych problemów". Jeśli podasz informacje o tym, jak dużo czasu w miesiącu, w którym faktycznie się znajdują, zazwyczaj mówią, że jest to również sporadycznie wykonywane. W przypadku poproszenia o to, jak często zauważamy, że "Czasami trzeba utworzyć kopię zapasową lub zainstalować nowy serwer lub aktualizować oprogramowanie". Oczywiście, które liczą się w miarę upływu czasu. Większość aplikacji przedsiębiorstwa, o ile nie są szczególnie krytyczne, są w rzeczywistości wyłączone przez ponad ilość czasu dozwoloną przez naszą usługę umowy SLA. Ale jeśli jest to Twój serwer i Twoja infrastruktura, a ty ponosisz odpowiedzialność za nią i kontrolujesz ją, zamierzasz mniej Angst o czas nieokreślony. W środowisku chmury jest zależne od kogoś innego i nie wiesz, co się dzieje, więc możesz uzyskać więcej martwisz się na jego temat.
 
-Gdy przedsiębiorstwa uzyskuje większy procent czasu, niż uzyskiwanie chmury umowy SLA, im jego spędzając znacznie więcej pieniędzy na sprzęcie. Usługa w chmurze można to zrobić, ale musi opłaty za dużo więcej dla swoich usług. Zamiast tego należy korzystać z zalet usługi ekonomiczne i projektowania oprogramowania, tak aby błędy nieuniknione spowodować zakłócenie minimalną dla klientów. Zadanie jako Projektant aplikacji chmury nie jest tak wiele w celu uniknięcia błędów, aby uniknąć katastrofy i można to zrobić, skupiając się na oprogramowanie, nie na sprzęcie. Natomiast aplikacjami w przedsiębiorstwie Dokładamy wszelkich starań zmaksymalizować średniego czasu między awariami, aplikacje w chmurze Dokładamy wszelkich starań zminimalizować Średni czas do odzyskania.
+Gdy firma osiągnie większy procent czasu, niż wynika z umowy SLA w chmurze, realizuje ją, oferując dużo więcej pieniędzy na sprzęt. Usługa w chmurze mogła to zrobić, ale będzie musiała naliczać wiele innych usług. Zamiast tego można korzystać z ekonomicznej usługi i projektować swoje oprogramowanie, aby nieuniknione błędy powodowały minimalne zakłócenia dla klientów. Twoje zadanie jako projektant aplikacji w chmurze nie jest tak duże, aby uniknąć awarii, ponieważ nie jest to konieczne, aby uniknąć katastrofami, i można to zrobić, koncentrując się na oprogramowaniu, a nie na sprzęcie. Aplikacje dla przedsiębiorstw dążą do zmaksymalizowania średniego czasu między awariami, dzięki czemu aplikacje w chmurze dążą do zminimalizowania średniego czasu na odzyskanie.
 
-### <a name="not-all-cloud-services-have-slas"></a>Nie wszystkie usługi w chmurze ma umowy SLA
+### <a name="not-all-cloud-services-have-slas"></a>Nie wszystkie usługi w chmurze mają umowy SLA
 
-Pamiętaj również, nie każdej usługi w chmurze nawet zgodnie z umową SLA. Jeśli Twoja aplikacja jest zależna od usługi, za pomocą żadnej gwarancji czasu, może być w dół znacznie dłużej, niż może imagine. Na przykład jeśli włączysz Zaloguj się do witryny, korzystając z mediów społecznościowych, takich jak Facebook lub Twitter, skontaktuj się z dostawcy usług, aby dowiedzieć się, jeśli jest objęta umową SLA i może się okazać tam nie. Ale jeśli usługa uwierzytelniania ulegnie awarii lub nie obsługuje liczby żądań, które generują go, klientów z zablokowanym dostępem do aplikacji. Mogą być wyłączone, dni lub dłużej. Twórcy jedną nową aplikację oczekiwano setki milionów plików do pobrania i zależna uwierzytelniania serwisu Facebook — ale nie komunikować się z usługi Facebook, przed przejściem na żywo i wykrytych za późno, które nie było żadnej umowy SLA dla usługi.
+Należy pamiętać, że nie każda usługa w chmurze ma nawet umowę SLA. Jeśli aplikacja jest zależna od usługi, która nie ma gwarancji w czasie, może być dłuższa niż największa. Jeśli na przykład zalogujesz się do swojej witryny przy użyciu dostawcy społecznościowego, takiego jak Facebook lub Twitter, skontaktuj się z dostawcą usług, aby dowiedzieć się, czy istnieje umowa SLA i czy nie jest to możliwe. Jeśli jednak usługa uwierzytelniania ulegnie awarii lub nie jest w stanie obsłużyć ilości zgłaszanych żądań, klienci są Zablokowani z Twojej aplikacji. Możesz być wyłączony przez dni lub dłużej. Twórcy jednej nowej aplikacji oczekują setki milionów plików do pobrania i brali zależność od uwierzytelniania w serwisie Facebook, ale nie uczestniczyły w serwisie Facebook przed kontynuowaniem i wykryciem zbyt późno, że nie istniała umowa SLA dla tej usługi.
 
-### <a name="not-all-downtime-counts-toward-slas"></a>Nie wszystkie liczniki czas przestoju kierunku umowy SLA
+### <a name="not-all-downtime-counts-toward-slas"></a>Brak wszystkich przestojów w kierunku umowy SLA
 
-Niektóre usługi w chmurze celowo może odmówić usługi, jeśli aplikacja używa nadmiernej je. Jest to nazywane *ograniczania*. Jeśli usługa jest objęta umową SLA, należy go stanu warunki, w których może być ograniczona i projekt aplikacji należy uniknąć tych warunków i odpowiednio reagować na ograniczenia wydajności, jeśli występuje on. Na przykład jeśli żądania do usługi zaczynają się niepowodzeniem, jeśli klient przekroczy pewną liczbę na sekundę, chcesz upewnij się, że automatyczne ponawianie prób nie występują tak szybko, spowodują ograniczania kontynuować. Więcej na temat ograniczania przepustowości w odpowiemy [obsługi błędów przejściowych rozdział](transient-fault-handling.md).
+Niektóre usługi w chmurze mogą świadomie odmówić usługi, jeśli aplikacja przestanie korzystać z niej. Jest to tzw. *ograniczanie*. Jeśli usługa jest objęta umową SLA, powinna określać warunki, w których można ograniczyć ograniczenia, a projekt aplikacji powinien uniknąć tych warunków i odpowiednio reagować na ograniczanie przepustowości. Na przykład jeśli żądania do usługi kończą się niepowodzeniem, gdy przekroczy określoną liczbę na sekundę, chcesz upewnić się, że automatyczne ponowne próby nie nastąpiły tak szybko, że powodują, że ograniczanie przepływności będzie kontynuowane. Więcej informacji o ograniczaniu przepływności można znaleźć w [rozdziale obsługa błędów przejściowych](transient-fault-handling.md).
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym rozdziale próbował łatwiej wykorzystać, dlaczego rzeczywistych aplikacji w chmurze musi być zaprojektowany do poprawnego działania po awarii. Począwszy od [następny rozdział](monitoring-and-telemetry.md), pozostałe wzorców w tej serii przejść do bardziej szczegółowo kilka strategii, można użyć, aby to zrobić:
+W tym rozdziale podjęto próbę zapoznania się z tym, dlaczego prawdziwa aplikacja w chmurze musi być zaprojektowana w celu bezpiecznego przeżycia błędów. Począwszy od [następnego rozdziału](monitoring-and-telemetry.md), pozostałe wzorce w tej serii zawierają więcej szczegółów na temat niektórych strategii, których można użyć do wykonania tej czynności:
 
-- Masz dobre [monitorowanie i telemetria](monitoring-and-telemetry.md), dzięki czemu możesz dowiedzieć się szybko o błędach, które wymagają interwencji, a użytkownik ma wystarczające informacje, aby je rozwiązać.
-- [Obsługa błędów przejściowych](transient-fault-handling.md) przez zaimplementowanie logiki ponowień inteligentne tak, aby aplikacja automatycznie odzyskuje po można i powraca do [wyłącznik](transient-fault-handling.md#circuitbreakers) logiki, gdy nie jest.
-- Użyj [rozproszonej pamięci podręcznej](distributed-caching.md) aby zminimalizować problemy przepływności, opóźnienia i połączenie z dostępu do bazy danych.
-- Implementowanie luźne sprzężenia za pośrednictwem [wzorzec pracy skoncentrowany na kolejkach](queue-centric-work-pattern.md), dzięki czemu Twoje fronton aplikacji mogą w dalszym ciągu działać po zaplecza nie działa.
+- Mają dobre [monitorowanie i telemetrię](monitoring-and-telemetry.md), dzięki czemu możesz szybko sprawdzić niepowodzenia, które wymagają interwencji, i masz wystarczające informacje, aby je rozwiązać.
+- [Obsługa błędów przejściowych](transient-fault-handling.md) przez implementację logiki inteligentnego ponawiania, dzięki czemu aplikacja automatycznie odzyska dostęp do logiki [wyłącznika](transient-fault-handling.md#circuitbreakers) , gdy nie jest to możliwe.
+- Użyj [rozproszonego buforowania](distributed-caching.md) , aby zminimalizować problemy dotyczące przepływności, opóźnienia i połączenia z dostępem do bazy danych.
+- Zaimplementuj luźny sprzężenie za pośrednictwem [wzorca pracy skoncentrowanego na kolejkach](queue-centric-work-pattern.md), dzięki czemu fronton aplikacji może kontynuować pracę, gdy zaplecze nie działa.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji zobacz dalszych rozdziałach tę książkę elektroniczną i następujące zasoby.
+Aby uzyskać więcej informacji, zobacz dalsze rozdziały w tej książce elektronicznej oraz następujące zasoby.
 
-Dokumentacja:
+Łączoną
 
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury na temat odporności chmury](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument, Marc Mercuri, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web przed uszkodzeniami serii filmów wideo.
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usługach Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument — Markiem Simmsem i Michael Thomassy.
-- [Wskazówki techniczne ciągłości biznesowej platformy Azure](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Oficjalny dokument Patrick Wickline i Jason Roth.
-- [Odzyskiwanie po awarii i wysoka dostępność dla aplikacji platformy Azure](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Oficjalny dokument przez Michaela McKeown, Hanu Kommalapati i Jason Roth.
-- [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące wdrażania centrum danych Multi, wzorzec wyłącznika.
+- [Failsafe: wskazówki dotyczące odpornych architektur chmurowych](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument według wytłoczyn Mercuri, Ulrich Homann i Andrew TOWNHILL. Wersja strony sieci Web serii wideo FailSafe.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usłudze Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument ze znakami SIMM i Michael Thomassy.
+- [Wskazówki techniczne dotyczące ciągłości działania platformy Azure](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Oficjalny dokument o Wickline i Jason Roth.
+- [Odzyskiwanie po awarii i wysoka dostępność dla aplikacji platformy Azure](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Oficjalny dokument przez Michael McKeown, hanu Kommalapati i Jason Roth.
+- [Wzorce i praktyki firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące wdrażania w ramach programu wiele centrów danych, wzorzec wyłącznika.
 - [Pomoc techniczna platformy Azure — umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/).
-- [Ciągłość prowadzenia działalności biznesowej w usłudze Azure SQL Database](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Dokumentacja usługi o wysokiej dostępności i odzyskiwania funkcji usługi SQL Database.
-- [Wysoka dostępność i odzyskiwanie po awarii programu SQL Server na maszynach wirtualnych platformy Azure](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
+- [Ciągłość działania w Azure SQL Database](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Dokumentacja dotycząca SQL Database funkcji wysokiej dostępności i odzyskiwania po awarii.
+- [Wysoka dostępność i odzyskiwanie po awarii dla SQL Server na platformie Azure Virtual Machines](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Filmy wideo:
 
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Dziewięć serii Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia informacje o szczegółowo pojęcia i zasady dotyczące architektury w sposób bardzo dostępny i interesujące z historii z doświadczenia zespołu doradczego klientów firmy Microsoft (CAT) z klientów. Odcinki 1 do 8 konstrukcyjnym szczegółowo powody do projektowania aplikacji w chmurze po awarii. Zobacz też monitowania dyskusję na temat ograniczania przepustowości w odcinek 2 zaczynając od 49:57, omówienie punktów awarii i trybów awarii w odcinek 2 zaczynając od 56:05 i dyskusji wyłączników w odcinek 3 zaczynając od 40:55.
-- [Tworzenie dużych: Lekcje wyniesione z klientów platformy Azure — część II](https://channel9.msdn.com/Events/Build/2012/3-030). — Markiem Simmsem omawia projektowanie pod kątem błędów i instrumentacji wszystko. Podobnie jak przed uszkodzeniami serii, ale zbliża się bardziej szczegółowe informacje z instrukcjami.
+- [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria dziewięciu części przez Ulrich Homann, Marc Mercuri i marking SIMM. Prezentuje koncepcje wysokiego poziomu i zasady architektury w bardzo dostępnym i interesującym scenariuszu, w tym scenariusze opracowane przez firmę Microsoft Customer Advisory Team (CAT) z rzeczywistymi klientami. Odcinki 1 i 8 umożliwiają projektowanie aplikacji w chmurze w celu przechodzenia do niepowodzeń. Zobacz również dyskusję na temat ograniczania przepustowości w epizod 2, zaczynając od 49:57, Omówienie punktów awarii i trybów niepowodzeń w epizod 2, rozpoczynając od 56:05, i Omówienie wyłączników w epizod 3, zaczynając od 40:55.
+- [Tworzenie dużych: lekcje uzyskane od klientów platformy Azure — część II](https://channel9.msdn.com/Events/Build/2012/3-030). Oznacz moduły SIMM rozmowy dotyczące projektowania pod kątem awarii i Instrumentacji wszystkich elementów. Podobnie jak w przypadku serii failsafe, ale więcej szczegółów.
 
 > [!div class="step-by-step"]
 > [Poprzednie](unstructured-blob-storage.md)

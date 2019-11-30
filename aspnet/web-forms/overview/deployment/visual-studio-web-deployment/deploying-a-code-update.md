@@ -1,207 +1,207 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kodu | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie aktualizacji kodu | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 36d1575808925de38b909d6816e46bb6cb69cf72
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 3881833bfe2a50a38a357614f92f434a04a8ab08
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134250"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74626784"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kodu
+# <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie aktualizacji kodu
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-Po początkowym wdrożeniu kontynuuje swoją pracę, obsługi i tworzenia witryny sieci web, a niedługo będzie, aby wdrożyć aktualizację. Ten samouczek przeprowadzi Cię przez proces wdrażania aktualizacji w kodzie aplikacji. Aktualizację, implementowania i wdrażania w ramach tego samouczka nie wiąże się zmianę w bazie danych; zobaczysz, jakie są różnice dotyczące wdrażania w następnym samouczku zmianę w bazie danych.
+Po wdrożeniu wstępnym można nadal utrzymywać i opracowywać swoją witrynę sieci Web oraz przed długim wdrożeniem aktualizacji. Ten samouczek przeprowadzi Cię przez proces wdrażania aktualizacji w kodzie aplikacji. Aktualizacja zaimplementowana i wdrażana w tym samouczku nie obejmuje zmiany bazy danych; w następnym samouczku znajdziesz informacje o sposobie wdrażania zmian w bazie danych.
 
-Przypomnienie: Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, należy koniecznie sprawdzić [strona rozwiązywania problemów](troubleshooting.md).
+Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](troubleshooting.md).
 
-## <a name="make-a-code-change"></a>Wprowadź zmiana w kodzie
+## <a name="make-a-code-change"></a>Zmiana kodu
 
-Prostym przykładem aktualizacji do aplikacji, należy dodać do **Instruktorzy** listę kursom prowadzonym przez instruktora wybranej strony.
+Jako prosty przykład aktualizacji aplikacji, dodasz do strony **instruktorów** listę kursów według wybranego instruktora.
 
-Po uruchomieniu **Instruktorzy** strony, można zauważyć, że istnieją **wybierz** łącza w siatce, ale ich nie robi niczego poza upewnij wiersz szary Włącz w tle.
+Jeśli uruchomisz stronę **instruktorów** , zobaczysz, że w siatce znajdują **się linki,** ale nie wykonują żadnych innych czynności niż sprawia, że tło wierszy jest szare.
 
-![Strona Instruktorzy z zaznaczenia](deploying-a-code-update/_static/image1.png)
+![Strona instruktorów z zaznaczeniem](deploying-a-code-update/_static/image1.png)
 
-Teraz dodasz kod, który jest uruchamiany, gdy **wybierz** łącze kliknięciu i wyświetla listę kursom prowadzonym przez instruktora wybrane.
+Teraz dodasz kod, który jest uruchamiany, gdy zostanie kliknięty link **Wybierz** i zostanie wyświetlona lista szkoleń szkoleniowych według wybranego instruktora.
 
-1. W *Instructors.aspx*, Dodaj następujący kod bezpośrednio po **ErrorMessageLabel** `Label` sterowania:
+1. W oknie *instruktors. aspx*Dodaj następujące znaczniki bezpośrednio po kontrolce `Label` **ErrorMessageLabel** :
 
     [!code-aspx[Main](deploying-a-code-update/samples/sample1.aspx)]
-2. Uruchom strony i wybierz pod kierunkiem instruktora. Zobaczysz listę kursom prowadzonym przez instruktora tego.
+2. Uruchom stronę i wybierz instruktora. Zostanie wyświetlona lista szkoleń szkoleniowych według tego instruktora.
 
-    ![Strona Instruktorzy z kursom prowadzonym](deploying-a-code-update/_static/image2.png)
+    ![Strona instruktorów z nauczaniem kursów](deploying-a-code-update/_static/image2.png)
 3. Zamknij przeglądarkę.
 
-## <a name="deploy-the-code-update-to-the-test-environment"></a>Wdrażanie aktualizacji kodu do środowiska testowego
+## <a name="deploy-the-code-update-to-the-test-environment"></a>Wdrażanie aktualizacji kodu w środowisku testowym
 
-Zanim użyjesz profilów publikowania do wdrożenia do testowania, przejściowego i produkcji, należy zmienić opcje publikowania bazy danych. Nie trzeba uruchamiać skrypty wdrażania danych i udzielanie dla bazy danych członkostwa.
+Aby można było używać profilów publikowania do wdrożenia do testowania, przemieszczania i produkcji, należy zmienić opcje publikowania bazy danych. W przypadku bazy danych członkostwa nie trzeba już uruchamiać skryptów grantu i wdrażania danych.
 
-1. Otwórz **publikowanie w sieci Web** kreatora, kliknij prawym przyciskiem myszy projekt ContosoUniversity i klikając **Publikuj**.
-2. Kliknij przycisk **testu** profil w **profilu** listy rozwijanej.
-3. Kliknij przycisk **ustawienia** kartę.
-4. W obszarze **DefaultConnection** w **baz danych** sekcji wyczyść **Aktualizuj bazę danych** pole wyboru.
-5. Kliknij przycisk **profilu** kartę, a następnie kliknij przycisk **przemieszczania** profil w **profilu** listy rozwijanej.
-6. Gdy zostanie wyświetlony monit Jeśli chcesz zapisać zmiany wprowadzone do **testu** profilu, kliknij przycisk **tak**.
-7. Wprowadź tę samą zmianę w profilu tymczasowego.
-8. Powtórz te czynności, aby wprowadzić tę samą zmianę w profilu w środowisku produkcyjnym.
-9. Zamknij **publikowanie w sieci Web** kreatora.
+1. Otwórz kreatora **publikacji w sieci Web** , klikając prawym przyciskiem myszy projekt ContosoUniversity i klikając polecenie **Publikuj**.
+2. Kliknij profil **testu** na liście rozwijanej **profil** .
+3. Kliknij kartę **Ustawienia** .
+4. W obszarze **DefaultConnection** w sekcji **bazy danych** wyczyść pole wyboru **Aktualizuj bazę danych** .
+5. Kliknij kartę **profil** , a następnie kliknij pozycję Profil **przemieszczania** na liście rozwijanej **profil** .
+6. Gdy zostanie wyświetlony monit o zapisanie zmian wprowadzonych w profilu **testu** , kliknij przycisk **tak**.
+7. Wprowadź tę samą zmianę w profilu przemieszczania.
+8. Powtórz ten proces, aby wprowadzić tę samą zmianę w profilu produkcyjnym.
+9. Zamknij kreatora **publikacji w sieci Web** .
 
-Wdrażanie do środowiska testowego jest już polegać na uruchamianie jednym kliknięciem opublikuj go ponownie. Aby ułatwić ten proces szybciej, można użyć **Web publikacja w pojedynczym kliknięciem** paska narzędzi.
+Wdrażanie w środowisku testowym jest teraz prostą kwestią ponownego uruchamiania jednego kliknięcia. Aby ten proces był szybszy, możesz skorzystać z paska narzędzi **Publikowanie w sieci Web** .
 
-1. W **widoku** menu, wybierz **pasków narzędzi** , a następnie wybierz **Web publikacja w pojedynczym kliknięciem**.
+1. W menu **Widok** wybierz **paski narzędzi** , a następnie wybierz pozycję **Sieć Web jeden kliknij pozycję Publikuj**.
 
     ![Selecting_One_Click_Publish_toolbar](deploying-a-code-update/_static/image3.png)
-2. W **Eksploratora rozwiązań**, wybierz projekt ContosoUniversity.
-3. **Web publikacja w pojedynczym kliknięciem** narzędzi, wybierz **testu** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web** (ikona za pomocą strzałki w lewo i w prawo).
+2. W **Eksplorator rozwiązań**wybierz projekt ContosoUniversity.
+3. na pasku narzędzi **Publikowanie w sieci Web** , wybierz profil publikacji **test** , a następnie kliknij pozycję **Publikuj sieć Web** (ikona z strzałkami wskazującymi w lewo i w prawo).
 
     ![Web_One_Click_Publish_toolbar](deploying-a-code-update/_static/image4.png)
-4. Program Visual Studio wdroży zaktualizowaną aplikację, i automatycznie otwiera się przeglądarka do strony głównej.
-5. Uruchom stronę instruktorów i wybierz pod kierunkiem instruktora, aby sprawdzić, czy aktualizacja została wdrożona pomyślnie.
+4. Program Visual Studio wdraża zaktualizowaną aplikację, a przeglądarka automatycznie otwiera stronę główną.
+5. Uruchom stronę Instruktorzy i wybierz instruktora, aby sprawdzić, czy aktualizacja została pomyślnie wdrożona.
 
-Normalny również wykonać testowanie regresji (oznacza to, że test pozostałych lokacji, aby upewnić się, że nowa zmiana nie przerwać wszelkie istniejące funkcje). Jednak na potrzeby tego samouczka będziesz pominąć ten krok i przejdź do wdrażania aktualizacji przejściowym i produkcyjnym.
+Zwykle można także przeprowadzić testy regresji (to oznacza pozostałą część lokacji, aby upewnić się, że Nowa zmiana nie przerywa żadnej istniejącej funkcjonalności). Jednak w tym samouczku pominiesz ten krok i zaczniesz wdrożyć aktualizację do środowiska przejściowego i produkcyjnego.
 
-Podczas ponownego wdrażania, narzędzie Web Deploy automatycznie określa które pliki uległy zmianie, a kopie tylko zmienione pliki na serwer. Domyślnie narzędzie Web Deploy korzysta z daty ostatniej zmiany plików w celu określenia, które uległy zmianie. Niektóre systemów kontroli źródła zmienić plik daty, nawet gdy nie zmieniaj zawartości pliku. W takim przypadku można skonfigurować narzędzie Web Deploy używać sum kontrolnych plików do określenia, które pliki uległy zmianie. Aby uzyskać więcej informacji, zobacz [Dlaczego wszystkie pliki Rozpoczynanie ponownego wdrożenia, ale nie je zmienić?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) w często zadawanych Pytaniach wdrożenia dla platformy ASP.NET.
+Podczas ponownego wdrażania Web Deploy automatycznie określa, które pliki uległy zmianie, i kopiuje tylko zmienione pliki na serwer. Domyślnie Web Deploy używa ostatnich zmienionych dat dla plików, aby określić, które z nich uległy zmianie. Niektóre systemy kontroli źródła zmieniają daty plików nawet wtedy, gdy nie zmienisz zawartości pliku. W takim przypadku można skonfigurować Web Deploy do używania sum kontrolnych plików, aby określić, które pliki uległy zmianie. Aby uzyskać więcej informacji, zobacz [dlaczego wszystkie moje pliki są ponownie wdrażane, mimo że nie zostały one zmienione?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) w ramach wdrożenia ASP.NET często zadawane pytania.
 
-## <a name="take-the-application-offline-during-deployment"></a>Nastavit aplikaci offline podczas wdrażania
+## <a name="take-the-application-offline-during-deployment"></a>Przejmowanie aplikacji w tryb offline podczas wdrażania
 
-Zmiana, którą jest wdrażany jest teraz prostą zmianę do jednej strony. Czasami wdrażanie większe zmiany lub wdrażanie zmian w kodzie i bazy danych — a lokacji może działać nieprawidłowo, jeśli użytkownik zgłasza żądanie strony przed zakończeniem wdrażania. Aby uniemożliwić użytkownikom dostęp do witryny, w trakcie wdrażania, można użyć *aplikacji\_offline.htm* pliku. Po umieszczeniu pliku o nazwie *aplikacji\_offline.htm* w folderze głównym aplikacji, usługi IIS automatycznie wyświetla ten plik, zamiast uruchamiania aplikacji. Tak, aby uniemożliwić dostęp podczas wdrażania, możesz umieścić *aplikacji\_offline.htm* w folderze głównym Uruchom proces wdrażania, a następnie usuń *aplikacji\_offline.htm* po pomyślnym wdrożenie.
+Wdrażana zmiana to prosta zmiana jednej strony. Czasami jednak wdrażane są większe zmiany lub wdrażane są zarówno zmiany kodu, jak i bazy danych, a lokacja może zachowywać się nieprawidłowo, jeśli użytkownik zażąda strony przed ukończeniem wdrożenia. Aby uniemożliwić użytkownikom dostęp do witryny w trakcie wdrażania, można użyć *aplikacji\_pliku offline. htm* . Po umieszczeniu pliku o nazwie *app\_offline. htm* w folderze głównym aplikacji usługi IIS automatycznie wyświetlają ten plik zamiast uruchamiania aplikacji. Aby zapobiec uzyskiwaniu dostępu podczas wdrażania, należy umieścić *aplikację\_w trybie offline. htm* w folderze głównym, uruchomić proces wdrażania, a następnie usunąć *aplikację\_offline. htm* po pomyślnym wdrożeniu.
 
-Można skonfigurować narzędzie Web Deploy, aby automatycznie wprowadzić domyślny *aplikacji\_offline.htm* plików na serwerze, po uruchomieniu, wdrażanie i usunąć go po zakończeniu tej operacji. Zrobić, że wszystkie trzeba jest Dodaj następujący element XML do pliku (.pubxml) profil publikowania:
+Web Deploy można skonfigurować do automatycznego umieszczania aplikacji domyślnej *\_pliku w trybie offline. htm* na serwerze podczas uruchamiania wdrażania i usuwania go po zakończeniu. Aby to zrobić, należy dodać następujący element XML do pliku profilu publikacji (. pubxml):
 
 [!code-xml[Main](deploying-a-code-update/samples/sample2.xml)]
 
-W tym samouczku pokazano, jak utworzyć i używać niestandardowego *aplikacji\_offline.htm* pliku.
+W tym samouczku przedstawiono sposób tworzenia i używania aplikacji niestandardowej\_pliku *offline. htm* .
 
-Za pomocą *aplikacji\_offline.htm* w witrynie etapowej nie jest wymagane, ponieważ nie masz użytkowników uzyskujących dostęp do tymczasowej witryny. Ale jest dobrą praktyką na potrzeby przemieszczania przetestować wszystko, co w sposób, który ma zostać umieszczony w środowisku produkcyjnym.
+Korzystanie z *aplikacji\_w trybie offline. htm* w lokacji przemieszczania nie jest wymagane, ponieważ nie masz użytkowników uzyskujących dostęp do lokacji tymczasowej. Jest jednak dobrym sposobem na przetestowanie wszystkich sposobów planowania wdrożenia w środowisku produkcyjnym.
 
-### <a name="create-appofflinehtm"></a>Tworzenie aplikacji\_offline.htm
+### <a name="create-app_offlinehtm"></a>Utwórz aplikację\_w trybie offline. htm
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy rozwiązanie i kliknij przycisk **Dodaj**, a następnie kliknij przycisk **nowy element**.
-2. Tworzenie **strony HTML** o nazwie *aplikacji\_offline.htm* (Usuń końcowe "l" w *.html* rozszerzenia, które program Visual Studio tworzy domyślnie).
-3. Zastąp kod znaczników szablonu następującym kodem:
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij pozycję **Dodaj**, a następnie kliknij pozycję **nowy element**.
+2. Utwórz **stronę HTML** o nazwie *App\_offline. htm* (Usuń ostateczną "l" w rozszerzeniu *HTML* , które domyślnie tworzy program Visual Studio).
+3. Zastąp znaczniki szablonu następującym znacznikiem:
 
     [!code-html[Main](deploying-a-code-update/samples/sample3.html)]
 4. Zapisz i zamknij plik.
 
-### <a name="copy-appofflinehtm-to-the-root-folder-of-the-web-site"></a>Kopiowanie aplikacji\_offline.htm do głównego folderu witryny sieci web
+### <a name="copy-app_offlinehtm-to-the-root-folder-of-the-web-site"></a>Kopiuj aplikację\_offline. htm do folderu głównego witryny sieci Web
 
-Można użyć dowolnego narzędzia FTP do kopiowania plików do witryny sieci web. [FileZilla](http://filezilla-project.org/) to popularne narzędzie FTP i przedstawiono zrzuty ekranu.
+Do kopiowania plików do witryny sieci Web można użyć dowolnego narzędzia FTP. [FileZilla](http://filezilla-project.org/) to popularne narzędzie FTP, które jest wyświetlane na zrzutach ekranu.
 
-Aby użyć narzędzia FTP, potrzebne są trzy rzeczy: adres URL protokołu FTP, nazwę użytkownika i hasło.
+Aby korzystać z narzędzia FTP, potrzebne są trzy rzeczy: adres URL FTP, nazwa użytkownika i hasło.
 
-Adres URL jest wyświetlany na stronie pulpitu nawigacyjnego witryny sieci web w portalu zarządzania systemu Azure, a nazwę użytkownika i hasło dla połączenia FTP można znaleźć w *.publishsettings* pliku, który został wcześniej pobrany. Poniższe kroki pokazują sposób uzyskiwania tych wartości.
+Adres URL jest pokazywany na stronie pulpitu nawigacyjnego witryny sieci Web w usłudze Azure portal zarządzania, a nazwa użytkownika i hasło dla usługi FTP można znaleźć w pliku *publishsettings* , który został wcześniej pobrany. Poniższe kroki pokazują, jak uzyskać te wartości.
 
-1. W portalu zarządzania Azure kliknij **witryn sieci Web** kartę, a następnie kliknij przycisk tymczasowej witryny sieci web.
-2. Na **pulpit nawigacyjny** strony, przewiń w dół do znajdowania nazwy hosta FTP **Quick Glance** sekcji.
+1. W portal zarządzania Azure kliknij kartę **witryny sieci Web** , a następnie kliknij tymczasową witrynę sieci Web.
+2. Na stronie **pulpit nawigacyjny** przewiń w dół, aby znaleźć nazwę hosta FTP w sekcji **szybki przegląd** .
 
     ![Nazwa hosta FTP](deploying-a-code-update/_static/image5.png)
-3. Otwórz pomostowego *.publishsettings* pliku w Notatniku lub innym edytorze tekstu.
-4. Znajdź `publishProfile` elementu profilu FTP.
-5. Kopiuj `userName` i `userPWD` wartości.
+3. Otwórz plik przemieszczania *publishsettings* w Notatniku lub innym edytorze tekstu.
+4. Znajdź element `publishProfile` dla profilu FTP.
+5. Skopiuj wartości `userName` i `userPWD`.
 
-    ![Poświadczenia protokołu FTP](deploying-a-code-update/_static/image6.png)
-6. Otwórz swoje narzędzia FTP i zaloguj się do adresu URL FTP.
-7. Kopiuj *aplikacji\_offline.htm* z folderu rozwiązania, aby */site/wwwroot* folder w witrynie etapowej.
+    ![Poświadczenia FTP](deploying-a-code-update/_static/image6.png)
+6. Otwórz narzędzie FTP i zaloguj się do adresu URL FTP.
+7. Kopiuj *aplikację\_offline. htm* z folderu rozwiązanie do folderu */site/wwwroot* w lokacji tymczasowej.
 
-    ![Skopiuj app_offline](deploying-a-code-update/_static/image7.png)
-8. Przejdź do adresu URL witryny przemieszczania. Zobaczysz, że *aplikacji\_offline.htm* zamiast strony głównej zostanie teraz wyświetlona strona.
+    ![Kopiuj app_offline](deploying-a-code-update/_static/image7.png)
+8. Przejdź do adresu URL witryny tymczasowej. Zobaczysz, że *aplikacja\_w trybie offline. htm* jest teraz wyświetlana zamiast strony głównej.
 
-    ![app_offline.htm w oknie przeglądarki](deploying-a-code-update/_static/image8.png)
+    ![app_offline. htm w oknie przeglądarki](deploying-a-code-update/_static/image8.png)
 
-Teraz można przystąpić do wdrażania przejściowego.
+Teraz można przystąpić do wdrażania do wdrożenia przejściowego.
 
-## <a name="deploy-the-code-update-to-staging-and-production"></a>Wdrażanie aktualizacji kodu przejściowym i produkcyjnym
+## <a name="deploy-the-code-update-to-staging-and-production"></a>Wdrażanie aktualizacji kodu do przemieszczania i produkcji
 
-1. W **Web publikacja w pojedynczym kliknięciem** narzędzi, wybierz **przemieszczania** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**.
+1. W **sieci Web kliknij przycisk Publikuj** na pasku narzędzi, wybierz profil publikowania **przejściowego** , a następnie kliknij pozycję **Publikuj sieć Web**.
 
-    Programu Visual Studio wdroży zaktualizowaną aplikację i otworzy w przeglądarce do strony głównej. *Aplikacji\_offline.htm* pliku jest wyświetlany. Zanim można przetestować, aby zweryfikować pomyślne wdrożenie, musisz usunąć *aplikacji\_offline.htm* pliku.
-2. Wróć do swojego narzędzia FTP i Usuń **aplikacji\_offline.htm** z tymczasowej witryny.
-3. W przeglądarce otwórz stronę Instruktorzy w witrynie etapowej, a następnie wybierz pod kierunkiem instruktora, aby sprawdzić, czy aktualizacja została wdrożona pomyślnie.
-4. Postępuj zgodnie z tą samą procedurą w środowisku produkcyjnym, co na karcie tymczasowej.
+    Program Visual Studio wdraża zaktualizowaną aplikację i otwiera przeglądarkę na stronie głównej witryny. Zostanie wyświetlony plik *\_w trybie offline. htm* . Przed przeprowadzeniem testów w celu zweryfikowania pomyślnego wdrożenia należy usunąć *aplikację\_pliku offline. htm* .
+2. Wróć do narzędzia FTP i Usuń **aplikację\_w trybie offline. htm** z lokacji tymczasowej.
+3. W przeglądarce Otwórz stronę instruktorzy w lokacji tymczasowej, a następnie wybierz instruktora, aby sprawdzić, czy aktualizacja została pomyślnie wdrożona.
+4. Postępuj zgodnie z tą samą procedurą dla środowiska produkcyjnego, jak w przypadku przygotowania.
 
 <a id="specificfiles"></a>
 
 ## <a name="reviewing-changes-and-deploying-specific-files"></a>Przeglądanie zmian i wdrażanie określonych plików
 
-Program Visual Studio 2012 zapewnia również możliwość wdrażania poszczególnych plików. Dla wybranego pliku można wyświetlać różnice między lokalną wersją a wersją wdrożone, wdrożyć plik do środowiska docelowego lub skopiuj plik ze środowiska docelowego do lokalnego projektu. W tej części samouczka zobaczysz, jak korzystać z tych funkcji.
+Program Visual Studio 2012 daje również możliwość wdrażania pojedynczych plików. Dla wybranego pliku można wyświetlić różnice między lokalną wersją i wdrożoną wersją, wdrożyć plik w środowisku docelowym lub skopiować plik ze środowiska docelowego do projektu lokalnego. W tej części samouczka pokazano, jak korzystać z tych funkcji.
 
-### <a name="make-a-change-to-deploy"></a>Wprowadź zmiany do wdrożenia
+### <a name="make-a-change-to-deploy"></a>Wprowadź zmianę do wdrożenia
 
-1. Otwórz *Content/Site.css*i Znajdź blok dla `body` tagu.
-2. Zmień wartość `background-color` z `#fff` do `darkblue`.
+1. Otwórz *zawartość/site. css*i Znajdź blok dla tagu `body`.
+2. Zmień wartość `background-color` z `#fff` na `darkblue`.
 
     [!code-css[Main](deploying-a-code-update/samples/sample4.css?highlight=2)]
 
-### <a name="view-the-change-in-the-publish-preview-window"></a>Wyświetl zmiany w oknie Podgląd publikowania
+### <a name="view-the-change-in-the-publish-preview-window"></a>Wyświetl zmianę w oknie publikowania wersji zapoznawczej
 
-Kiedy używasz **publikowanie w sieci Web** kreatora, aby opublikować projekt, możesz zobaczyć, jakie zmiany będą publikowane przez dwukrotne kliknięcie pliku w **(wersja zapoznawcza)** okna.
+W przypadku opublikowania projektu za pomocą kreatora **publikacji w sieci Web** można zobaczyć, jakie zmiany mają być publikowane przez dwukrotne kliknięcie pliku w oknie **podglądu** .
 
-1. Kliknij prawym przyciskiem myszy projekt ContosoUniversity, a następnie kliknij przycisk **Publikuj**.
-2. Z **profilu** listy rozwijanej wybierz **testu** profilu publikowania.
-3. Kliknij przycisk **Podgląd**, a następnie kliknij przycisk **Uruchom Podgląd**.
-4. W **Podgląd** okienku kliknij dwukrotnie **Site.css**.
+1. Kliknij prawym przyciskiem myszy projekt ContosoUniversity, a następnie kliknij pozycję **Publikuj**.
+2. Z listy rozwijanej **profil** wybierz profil publikacji **testowej** .
+3. Kliknij pozycję **Podgląd**, a następnie kliknij pozycję **Uruchom podgląd**.
+4. W okienku **podglądu** kliknij dwukrotnie pozycję **site. css**.
 
-    ![Kliknij dwukrotnie plik Site.css](deploying-a-code-update/_static/image9.png)
+    ![Kliknij dwukrotnie pozycję site. css.](deploying-a-code-update/_static/image9.png)
 
-    **Podgląd zmian** okna dialogowego pokazuje jego podgląd zmian, które zostaną wdrożone.
+    Okno dialogowe **Podgląd zmian** zawiera Podgląd zmian, które zostaną wdrożone.
 
-    ![Podgląd zmian w pliku Site.css](deploying-a-code-update/_static/image10.png)
+    ![Podgląd zmian w pliku site. CSS](deploying-a-code-update/_static/image10.png)
 
-    Po dwukrotnym kliknięciu *Web.config* pliku **podgląd zmian** okna dialogowego pokazuje wpływ kompilacji przekształcenia konfiguracji i przekształcenia profilu publikowania. W tym momencie nie zostało zrobione wszystko, co mogłoby spowodować *Web.config* plików na serwerze, aby się zmieniają, dlatego powinna się pojawić bez zmian. Jednak **podgląd zmian** oknie nieprawidłowo wyświetlane dwie zmiany. Wygląda na to, dwa elementy XML zostaną usunięte. Te elementy są dodawane przez proces publikowania, po wybraniu **wykonaj migracje Code First w aplikacji w menu start** Code First klasy kontekstu. Porównanie jest wykonywane, zanim proces publikowania dodaje te elementy, więc prawdopodobnie są są usuwane, mimo że nie zostaną usunięte. Ten błąd zostanie rozwiązany w przyszłej wersji.
+    W przypadku dwukrotnego kliknięcia pliku *Web. config* okno dialogowe **Podgląd zmian** pokazuje efekt transformacji konfiguracji kompilacji i przekształceń profilu publikowania. W tym momencie nie wykonano żadnych czynności, które mogłyby spowodować zmianę pliku *Web. config* na serwerze, aby zobaczyć, że nie wprowadzono żadnych zmian. Jednak okno **Podgląd zmian** nieprawidłowo pokazuje dwie zmiany. Wygląda na to, że dwa elementy XML zostaną usunięte. Te elementy są dodawane przez proces publikowania po wybraniu opcji **wykonaj migracje Code First przy uruchamianiu aplikacji** dla klasy kontekstu Code First. Porównanie jest wykonywane przed dodaniem tych elementów przez proces publikowania, dlatego wygląda na to, że są usuwane, chociaż nie zostaną usunięte. Ten błąd zostanie rozwiązany w przyszłej wersji.
 5. Kliknij przycisk **Zamknij**.
-6. Kliknij przycisk **publikowania**.
-7. Po otwarciu przeglądarki do strony głównej witryny testu, naciśnij klawisze CTRL + F5, aby spowodować twardych odświeżania, aby zobaczyć efekt zmian CSS.
+6. Kliknij przycisk **Publikuj**.
+7. Gdy przeglądarka zostanie otwarta na stronie głównej witryny testowej, naciśnij kombinację klawiszy CTRL + F5, aby wypróbować twarde odświeżanie, aby zobaczyć efekt zmiany w CSS.
 
     ![Efekt zmiany CSS](deploying-a-code-update/_static/image11.png)
 8. Zamknij przeglądarkę.
 
-### <a name="publish-specific-files-from-solution-explorer"></a>Publikowanie określonych plików w Eksploratorze rozwiązań
+### <a name="publish-specific-files-from-solution-explorer"></a>Publikowanie określonych plików z Eksplorator rozwiązań
 
-Załóżmy, że nie niebieskim tłem, takich jak i chcesz przywrócić oryginalny kolor. W tej sekcji zostaną przywrócone oryginalne ustawienia, publikując określonego pliku bezpośrednio z **Eksploratora rozwiązań**.
+Załóżmy, że nie podoba Ci się niebieskie tło i chcesz przywrócić oryginalny kolor. W tej sekcji zostaną przywrócone pierwotne ustawienia przez opublikowanie określonego pliku bezpośrednio z **Eksplorator rozwiązań**.
 
-1. Otwórz *Content/Site.css* i przywracanie `background-color` ustawienie `#fff`.
-2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Content/Site.css* pliku.
+1. Otwórz *zawartość/site. css* i przywróć ustawienie `background-color`, aby `#fff`.
+2. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy plik *Content/site. css* .
 
-    Menu kontekstowe pokazuje trzy opcje publikowania.
+    Menu kontekstowe zawiera trzy opcje publikacji.
 
-    ![Publikowanie opcji dostępnych w Eksploratorze rozwiązań](deploying-a-code-update/_static/image12.png)
-3. Kliknij przycisk **(wersja zapoznawcza) zmieni się na Site.css**.
+    ![Opcje publikowania z Eksplorator rozwiązań](deploying-a-code-update/_static/image12.png)
+3. Kliknij pozycję **Podgląd zmian w pliku site. css**.
 
-    Zostanie otwarte okno, aby wyświetlić różnice między lokalnego pliku i wersja go w środowisku docelowym.
+    Zostanie otwarte okno pokazujące różnice między plikiem lokalnym a jego wersją w środowisku docelowym.
 
-    ![Diff zawartość/Site.css](deploying-a-code-update/_static/image13.png)
-4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **Site.css** ponownie i kliknij przycisk **publikowania pliku Site.css**.
+    ![Diff-Content/site. CSS](deploying-a-code-update/_static/image13.png)
+4. W **Eksplorator rozwiązań**ponownie kliknij prawym przyciskiem myszy **witrynę site. css** , a następnie kliknij pozycję **Publikuj witrynę. css**.
 
-    **Działania publikowania internetowego** okno pokazuje, że plik został opublikowany.
+    Okno **działanie publikowania w sieci Web** pokazuje, że plik został opublikowany.
 
     ![Okno działania publikowania w sieci Web](deploying-a-code-update/_static/image14.png)
-5. Otwórz w przeglądarce `http://localhost/contosouniversity` adresu URL i naciśnij klawisze CTRL + F5, aby spowodować, że twardy odświeżąć, aby zobaczyć efekt arkusze CSS, Zmień.
+5. Otwórz przeglądarkę, aby uzyskać adres URL `http://localhost/contosouniversity`, a następnie naciśnij klawisze CTRL + F5, aby wypróbować twarde odświeżanie, aby zobaczyć efekt zmiany w CSS.
 
-    ![Strona główna z normalnym CSS](deploying-a-code-update/_static/image15.png)
+    ![Strona główna z normalnym arkuszem stylów CSS](deploying-a-code-update/_static/image15.png)
 6. Zamknij przeglądarkę.
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz Przedstawiliśmy kilka metod wdrażania aktualizacji aplikacji, które nie obejmują zmianę w bazie danych. Ponadto przedstawiono sposób podgląd zmian, aby sprawdzić, jakie zostaną zaktualizowane jest oczekiwanych. Na stronie Instruktorzy ma teraz **kursy prowadzone** sekcji.
+Zaobserwowano kilka sposobów wdrażania aktualizacji aplikacji, która nie obejmuje zmian w bazie danych, i przedstawiono sposób wyświetlania podglądu zmian w celu sprawdzenia, czy aktualizacje są aktualne, czego oczekujesz. Strona instruktorzy ma teraz sekcję **szkolenia kursów** .
 
-![Strona Instruktorzy z kursom prowadzonym](deploying-a-code-update/_static/image16.png)
+![Strona instruktorów z nauczaniem kursów](deploying-a-code-update/_static/image16.png)
 
-Następnym samouczku dowiesz się, jak wdrożyć zmianę w bazie danych: należy dodać pole daty urodzenia do bazy danych i do strony instruktorów.
+W następnym samouczku pokazano, jak wdrożyć zmianę bazy danych: należy dodać pole DataUrodzenia do bazy danych i do strony instruktorzy.
 
 > [!div class="step-by-step"]
 > [Poprzednie](deploying-to-production.md)

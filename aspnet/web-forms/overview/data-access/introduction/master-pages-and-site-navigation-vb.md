@@ -1,273 +1,273 @@
 ---
 uid: web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
-title: Strony wzorcowe i nawigacja w witrynie (VB) | Dokumentacja firmy Microsoft
+title: Strony wzorcowe i nawigacja w witrynie (VB) | Microsoft Docs
 author: rick-anderson
-description: Jedną wspólną cechą witryn sieci Web, przyjazny dla użytkownika jest, że schemat spójne, obejmujące całą lokację strony układu i nawigacji. W tym samouczku pokazano, jak y...
+description: Jedną z typowych cech witryn sieci Web przyjaznych dla użytkownika jest to, że mają one spójny układ strony i schemat nawigacji dla całej lokacji. Ten samouczek wygląda na to, jak y...
 ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 022801d8-a327-4d0c-8780-6094c9cee00d
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4d12efbda00e75dad55cffc45955fb8b4c75dc26
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4a2b5ba8c1781f1194f951a44661a8f7dd095f41
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130707"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74578885"
 ---
 # <a name="master-pages-and-site-navigation-vb"></a>Strony wzorcowe i nawigacja po witrynie (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_3_VB.exe) lub [Pobierz plik PDF](master-pages-and-site-navigation-vb/_static/datatutorial03vb1.pdf)
+[Pobierz przykładową aplikację](https://download.microsoft.com/download/5/d/7/5d7571fc-d0b7-4798-ad4a-c976c02363ce/ASPNET_Data_Tutorial_3_VB.exe) lub [Pobierz plik PDF](master-pages-and-site-navigation-vb/_static/datatutorial03vb1.pdf)
 
-> Jedną wspólną cechą witryn sieci Web, przyjazny dla użytkownika jest, że schemat spójne, obejmujące całą lokację strony układu i nawigacji. W tym samouczku przegląda od tego, jak utworzyć spójny wygląd i zachowanie we wszystkich stron, które można łatwo aktualizować.
+> Jedną z typowych cech witryn sieci Web przyjaznych dla użytkownika jest to, że mają one spójny układ strony i schemat nawigacji dla całej lokacji. Ten samouczek przedstawia sposób, w jaki można utworzyć spójny wygląd i działanie na wszystkich stronach, które można łatwo zaktualizować.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Jedną wspólną cechą witryn sieci Web, przyjazny dla użytkownika jest, że schemat spójne, obejmujące całą lokację strony układu i nawigacji. Program ASP.NET 2.0 wprowadzono dwie nowe funkcje, które znacznie ułatwiają wdrażanie zarówno strony z normalnej nawigacji i układ schemat: strony wzorcowe i nawigacja lokacji. Strony wzorcowe umożliwiają deweloperom tworzenie szablonu całej witryny za pomocą wyznaczonym edytowalnych. Następnie można zastosować ten szablon do stron ASP.NET w witrynie. Tego rodzaju strony ASP.NET wystarczy zdefiniować zawartości dla strony wzorcowej w określonych regionach można edytować innych znaczników na stronie głównej jest taka sama na wszystkich stronach ASP.NET, korzystających z strony wzorcowej. Ten model umożliwia deweloperom definiowanie i scentralizować układ strony całej lokacji, co ułatwia tworzenie spójny wygląd i zachowanie we wszystkich stron, które można łatwo aktualizować.
+Jedną z typowych cech witryn sieci Web przyjaznych dla użytkownika jest to, że mają one spójny układ strony i schemat nawigacji dla całej lokacji. W systemie ASP.NET 2,0 wprowadzono dwie nowe funkcje, które znacznie upraszczają implementowanie zarówno układu strony w całej lokacji, jak i schematu nawigacji: stron wzorcowych i nawigowania po witrynie. Strony wzorcowe umożliwiają deweloperom tworzenie szablonu w całej lokacji z wydzielonymi regionami edytowalnymi. Ten szablon można następnie zastosować do stron ASP.NET w witrynie. Takie strony ASP.NET muszą udostępniać tylko zawartość dla określonych edytowalnych regionów strony głównej wszystkie inne adiustacje na stronie wzorcowej są identyczne we wszystkich stronach ASP.NET, które używają strony wzorcowej. Ten model umożliwia deweloperom Definiowanie i scentralizowanie układu strony w całej lokacji, co ułatwia tworzenie spójnego wyglądu i działania na wszystkich stronach, które można łatwo zaktualizować.
 
-[Nawigacji systemu lokacji](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx) zawiera zarówno mechanizm programistom stron do definiowania mapy witryny sieci Web i interfejsów API dla tej mapy witryny programowo być badana. Nowe kontrolki sieci Web nawigacji, które Menu widoku drzewa i SiteMapPath ułatwiają renderować całości lub części mapy witryny w typowych nawigacji elementu interfejsu użytkownika. Będziemy używać domyślnego dostawcę usługi site nawigacji, co oznacza, że nasza Mapa witryny są definiowane w pliku w formacie XML.
+[System nawigacji lokacji](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx) zapewnia zarówno mechanizmowi dla deweloperów stron Definiowanie mapy witryny, jak i interfejsu API dla tej mapy lokacji, aby można było programowo zbadać zapytanie. Nowe kontrolki sieci Web nawigacji menu, TreeView i ścieżki mapy witryny ułatwiają renderowanie całości lub części mapy witryny we wspólnym elemencie interfejsu użytkownika nawigacji. Będziemy używać domyślnego dostawcy nawigacji w witrynie, co oznacza, że nasze mapowanie witryny zostanie zdefiniowane w pliku w formacie XML.
 
-Aby zilustrować te pojęcia i naszej witryny sieci Web samouczki bardziej użyteczne, Poświęć w tej lekcji Definiowanie układu strony obejmujące całą lokację, implementowanie mapy witryny sieci Web i dodawanie nawigacji interfejsu użytkownika. Do końca tego samouczka odpowiemy na projekt dopracowane witryny sieci Web do tworzenia Nasz samouczek stron sieci web.
+Aby zilustrować te koncepcje i sprawić, że witryna sieci Web samouczków jest bardziej użyteczna, przyjrzyjmy się tej lekcji definiowania układu strony w całej lokacji, implementacji mapy lokacji i dodawaniu interfejsu użytkownika nawigacji. Po zakończeniu tego samouczka będziemy korzystać z dobrze zaprojektowanego projektu witryny sieci Web na potrzeby tworzenia stron internetowych samouczków.
 
-[![Wynik końcowy po ukończeniu tego samouczka](master-pages-and-site-navigation-vb/_static/image2.png)](master-pages-and-site-navigation-vb/_static/image1.png)
+[![wyniku końcowego tego samouczka](master-pages-and-site-navigation-vb/_static/image2.png)](master-pages-and-site-navigation-vb/_static/image1.png)
 
-**Rysunek 1**: Końcowy wynik z tego samouczka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image3.png))
+**Rysunek 1**. końcowy wynik tego samouczka ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image3.png))
 
 ## <a name="step-1-creating-the-master-page"></a>Krok 1. Tworzenie strony wzorcowej
 
-Pierwszym krokiem jest utworzenie strony wzorcowej dla tej witryny. Teraz naszej witryny sieci Web składa się tylko wpisany zestaw danych (`Northwind.xsd`w `App_Code` folderu), klasy LOGIKI (`ProductsBLL.vb`, `CategoriesBLL.vb`i tak dalej w `App_Code` folderu), bazy danych (`NORTHWND.MDF`w `App_Data` folder), plik konfiguracyjny (`Web.config`), a plik arkusza stylów CSS (`Styles.css`). Po usunięciu te strony i pliki ukazujące przy użyciu warstwy DAL i LOGIKI od pierwszych dwóch samouczków, ponieważ firma Microsoft będzie można Rewidowanie tych przykładów większej liczby szczegółów przyszłych samouczków.
+Pierwszym krokiem jest utworzenie strony wzorcowej dla witryny. Teraz nasza witryna sieci Web składa się tylko z określonego zestawu danych (`Northwind.xsd`, w folderze `App_Code`) LOGIKI biznesowej klasy (`ProductsBLL.vb`, `CategoriesBLL.vb`i tak dalej, wszystkie w folderze `App_Code`), bazę danych (`NORTHWND.MDF`, w folderze `App_Data`), plik konfiguracji (`Web.config`) i plik arkusza stylów CSS (`Styles.css`). Po wyczyszczeniu tych stron i plików przedstawiających użycie DAL i LOGIKI biznesowej z pierwszych dwóch samouczków, ponieważ będziemy przebadali te przykłady bardziej szczegółowo w przyszłych samouczkach.
 
-![Pliki w projekcie](master-pages-and-site-navigation-vb/_static/image4.png)
+![Pliki w naszym projekcie](master-pages-and-site-navigation-vb/_static/image4.png)
 
-**Rysunek 2**: Pliki w projekcie
+**Rysunek 2**. pliki w naszym projekcie
 
-Aby utworzyć stronę wzorcową, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element. Następnie wybierz typ strony wzorcowej, z listy szablonów i nadaj mu nazwę `Site.master`.
+Aby utworzyć stronę wzorcową, kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy element. Następnie wybierz typ strony głównej z listy szablonów i nadaj jej nazwę `Site.master`.
 
-[![Dodaj nową stronę wzorcową do witryny sieci Web](master-pages-and-site-navigation-vb/_static/image6.png)](master-pages-and-site-navigation-vb/_static/image5.png)
+[![dodać nową stronę wzorcową do witryny sieci Web](master-pages-and-site-navigation-vb/_static/image6.png)](master-pages-and-site-navigation-vb/_static/image5.png)
 
-**Rysunek 3**: Dodaj nową stronę wzorcową do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image7.png))
+**Rysunek 3**. Dodawanie nowej strony wzorcowej do witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image7.png))
 
-Na stronie głównej, należy zdefiniować tutaj układu strony całej lokacji. Możesz użyć widoku projektu i dodawanie kontrolek niezależnie od układu lub sieci Web, należy, lub można ręcznie dodawać znaczniki ręcznie w widoku źródła. Na stronie wzorcowej w programie używam [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i style za pomocą ustawień CSS zdefiniowanych w pliku zewnętrznym `Style.css`. Gdy nie można odróżnić od znaczników, pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji `<div>`firmy zawartości są pozycjonowane absolutnie, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
+W tym miejscu Zdefiniuj układ strony dla całej witryny na stronie wzorcowej. Możesz użyć widok Projekt i dodać wszelkie wymagane przez siebie kontrolki układu lub sieci Web lub ręcznie dodać znaczniki adiustacji do widoku źródła. Na mojej stronie wzorcowej są używane [kaskadowe arkusze stylów](http://www.w3schools.com/css/default.asp) do pozycjonowania i stylów z ustawieniami CSS zdefiniowanymi w pliku zewnętrznym `Style.css`. Chociaż nie możesz powiedzieć od znaczników przedstawionych poniżej, reguły CSS są zdefiniowane w taki sposób, że zawartość `<div>`nawigacji jest pozycjonowana absolutnie, tak aby była wyświetlana po lewej stronie i ma stałą szerokość 200 pikseli.
 
-Site.master
+Site. Master
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample1.aspx)]
 
-Strona wzorcowa definiuje układ stron statycznych i regiony, które mogą być edytowane przez strony ASP.NET, które używają strony wzorcowej. Te obszary można edytować zawartości są wskazywane przez kontrolki ContentPlaceHolder, które są widoczne w zawartości `<div>`. Nasze strony wzorcowej zawiera pojedynczy ContentPlaceHolder (`MainContent`), ale strona wzorcowa może mieć wiele kontrolek ContentPlaceHolder.
+Strona wzorcowa definiuje zarówno statyczny układ strony, jak i regiony, które mogą być edytowane przez strony ASP.NET, które korzystają z strony wzorcowej. Te regiony edytowalne zawartości są wskazywane przez formant ContentPlaceHolder, który może być widoczny w `<div>`zawartości. Nasza Strona główna ma jeden element ContentPlaceHolder (`MainContent`), ale strona wzorcowa może mieć wiele Elementy ContentPlaceHolders.
 
-Ze znacznikami podanymi powyżej przełączanie do widoku projektu zawiera układ strony wzorcowej. Wszystkie strony ASP.NET, które używają tej strony wzorcowej będzie miał ten jednolity układ i możliwość określenia znaczniki dla `MainContent` regionu.
+Po wprowadzeniu znacznika w widok Projekt zostanie wyświetlona strona wzorcowa. Wszystkie strony ASP.NET, które używają tej strony wzorcowej będą miały jednolity układ, z możliwością określenia znaczników dla regionu `MainContent`.
 
-[![Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu](master-pages-and-site-navigation-vb/_static/image9.png)](master-pages-and-site-navigation-vb/_static/image8.png)
+[![stronę wzorcową, gdy jest wyświetlany w widoku projektu](master-pages-and-site-navigation-vb/_static/image9.png)](master-pages-and-site-navigation-vb/_static/image8.png)
 
-**Rysunek 4**: Strona wzorcowa, podczas wyświetlania za pośrednictwem widoku projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image10.png))
+**Rysunek 4**. Strona wzorcowa wyświetlana w widoku projektu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image10.png))
 
-## <a name="step-2-adding-a-homepage-to-the-website"></a>Krok 2. Dodawanie określonej strony głównej witryny sieci Web
+## <a name="step-2-adding-a-homepage-to-the-website"></a>Krok 2. Dodawanie strony głównej do witryny sieci Web
 
-Ze stroną wzorcową zdefiniowane możemy przystąpić do dodawania stron ASP.NET dla witryny sieci Web. Zacznijmy od dodania `Default.aspx`, strony głównej naszej witryny sieci Web. Kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz polecenie Dodaj nowy element. Wybierz opcję formularz sieci Web z listy szablonów, a nazwa pliku `Default.aspx`. Ponadto zaznacz pole wyboru "Wybierz stronę wzorcową".
+Po zdefiniowaniu strony głównej wszystko jest gotowe do dodania stron ASP.NET dla witryny sieci Web. Zacznijmy od dodania `Default.aspx`, strony głównej witryny sieci Web. Kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy element. Wybierz opcję formularz sieci Web z listy szablon i nadaj nazwę plikowi `Default.aspx`. Zaznacz również pole wyboru "Wybierz stronę wzorcową".
 
-[![Dodaj nowy formularz sieci Web, sprawdzanie, zaznacz pole wyboru strony wzorcowej](master-pages-and-site-navigation-vb/_static/image12.png)](master-pages-and-site-navigation-vb/_static/image11.png)
+[![dodać nowy formularz sieci Web, zaznaczając pole wyboru Wybierz stronę wzorcową](master-pages-and-site-navigation-vb/_static/image12.png)](master-pages-and-site-navigation-vb/_static/image11.png)
 
-**Rysunek 5**: Dodaj nowy formularz sieci Web, sprawdzanie, zaznacz pole wyboru strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image13.png))
+**Rysunek 5**. Dodaj nowy formularz sieci Web, zaznaczając pole wyboru Wybierz stronę wzorcową ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image13.png))
 
-Po kliknięciu przycisku OK, firma Microsoft jest wyświetlony monit o wybranie jakie strony wzorcowej, skorzystaj z tej nowej strony programu ASP.NET. Kiedy masz wiele stron wzorcowych w projekcie, mamy tylko jeden.
+Po kliknięciu przycisku OK zostanie wyświetlona prośba o wybranie strony wzorcowej, która ma być używana przez nową stronę ASP.NET. Chociaż można mieć wiele stron wzorcowych w projekcie, mamy tylko jeden.
 
-[![Wybierz stronę wzorzec, do której należy używać tej strony ASP.NET](master-pages-and-site-navigation-vb/_static/image15.png)](master-pages-and-site-navigation-vb/_static/image14.png)
+[![wybrać stronę wzorcową, która powinna być używana na tej stronie ASP.NET](master-pages-and-site-navigation-vb/_static/image15.png)](master-pages-and-site-navigation-vb/_static/image14.png)
 
-**Rysunek 6**: Wybierz na stronie wzorcowej to zastosowanie powinien strony ASP.NET ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image16.png))
+**Ilustracja 6**. Wybierz stronę wzorcową, która powinna być używana na tej stronie ASP.NET ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image16.png))
 
-Po wybraniu strony wzorcowej, nowych stron ASP.NET będzie zawierać następujące znaczniki:
+Po wybraniu strony wzorcowej nowe strony ASP.NET będą zawierać następujące znaczniki:
 
-Default.aspx
+Default. aspx
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample2.aspx)]
 
-W `@Page` dyrektywa jest odwołanie do pliku strony wzorcowej używane (`MasterPageFile="~/Site.master"`), i znaczników strony ASP.NET zawiera kontrolkę zawartości dla wszystkich kontrolek ContentPlaceHolder zdefiniowane na stronie głównej, przy użyciu formantu `ContentPlaceHolderID` Mapowanie zawartości do określonych ContentPlaceHolder kontrolować. Formant zawartości jest, gdzie umieścić znaczniki mają być wyświetlane w odpowiedniej ContentPlaceHolder. Ustaw `@Page` dyrektywy `Title` atrybutu do strony głównej i dodamy powitalnego zawartość do formantu zawartości:
+W `@Page` dyrektywie istnieje odwołanie do pliku strony głównej używany (`MasterPageFile="~/Site.master"`), a znacznik strony ASP.NET zawiera kontrolkę zawartości dla każdej kontrolki elementu ContentPlaceHolder zdefiniowanej na stronie wzorcowej, przy czym `ContentPlaceHolderID` mapowania kontrolki zawartości na określony element ContentPlaceHolder. Kontrolka zawartości polega na umieszczeniu znacznika, który ma być wyświetlany w odpowiadającym mu elemencie ContentPlaceHolder. Ustaw atrybut `Title` dyrektywy `@Page` na Strona główna i Dodaj do kontrolki zawartość treść powitalną:
 
-Default.aspx
+Default. aspx
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample3.aspx)]
 
-`Title` Atrybutu w `@Page` dyrektywy pozwala ustawić tytuł strony ze strony programu ASP.NET, nawet jeśli `<title>` jest zdefiniowany element na stronie głównej. Firma Microsoft można również ustawić tytuł programowo, za pomocą `Page.Title`. Należy również zauważyć, że odwołania strony wzorcowej do arkuszy stylów (takie jak `Style.css`) są automatycznie aktualizowane, tak aby działają w dowolnej strony ASP.NET, niezależnie od tego, jakie katalogu, strona ASP.NET znajduje się w względem strony wzorcowej.
+Atrybut `Title` w dyrektywie `@Page` pozwala na ustawienie tytułu strony na stronie ASP.NET, mimo że element `<title>` jest zdefiniowany na stronie wzorcowej. Można również programowo ustawić tytuł przy użyciu `Page.Title`. Należy również zauważyć, że odwołania do stron wzorcowych (takie jak `Style.css`) są automatycznie aktualizowane, tak aby działały na dowolnej stronie ASP.NET, niezależnie od tego, jaki katalog jest stroną ASP.NET względem strony głównej.
 
-Przełączanie do widoku projektu, że okaże się, jak wygląda naszą stronę w przeglądarce. Należy zauważyć, że w projekcie wyświetlania dla strony ASP.NET, czy można edytować tylko zawartości edytowalnych znaczników ContentPlaceHolder innego niż zdefiniowane w strony wzorcowej jest wyszarzona.
+Przełączenie do widok Projekt może zobaczyć, jak wygląda strona w przeglądarce. Należy pamiętać, że w widok Projekt dla strony ASP.NET, że tylko edytowalne regiony zawartości są edytowane. znaczniki inne niż ContentPlaceHolder zdefiniowane na stronie wzorcowej są wyszarzone.
 
-[![Widok projektu strony ASP.NET zawiera edytowalne i nieedytowalne regionów](master-pages-and-site-navigation-vb/_static/image18.png)](master-pages-and-site-navigation-vb/_static/image17.png)
+[![widok Projekt na stronie ASP.NET pokazuje zarówno regiony edytowalne, jak i nieedytowalne](master-pages-and-site-navigation-vb/_static/image18.png)](master-pages-and-site-navigation-vb/_static/image17.png)
 
-**Rysunek 7**: Widok projektu ASP.NET strony zawiera zarówno edytowalna i regiony bez edytowalna ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image19.png))
+**Rysunek 7**. Widok projektu na stronie ASP.net pokazuje zarówno edytowalne, jak i nieedytowalne regiony ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image19.png))
 
-Gdy `Default.aspx` strony jest kontrolowane przez przeglądarkę, automatycznie aparatu ASP.NET Scala zawartość strony wzorcowej strony i ASP. NET zawartości i renderuje zawartość scalone do końcowego kodu HTML, który jest wysyłane do przeglądarki. Po zaktualizowaniu zawartości strony wzorcowej wszystkie strony ASP.NET, które używają tej strony wzorcowej będzie ich zawartość remerged przy użyciu nowej strony wzorcowej zawartości podczas następnego żądania. Krótko mówiąc, model strony wzorcowej pozwala na jednej stronie szablon układu, aby być zdefiniowane (strony wzorcowej) której zmiany są natychmiast odzwierciedlane w całej lokacji.
+Gdy strona `Default.aspx` jest odwiedzana przez przeglądarkę, aparat ASP.NET automatycznie scala zawartość strony wzorcowej i stronę ASP. Zawartość sieci i renderuje scaloną zawartość w końcowym kodzie HTML, który jest wysyłany do przeglądarki żądającej. Po zaktualizowaniu zawartości strony wzorcowej wszystkie strony ASP.NET, które używają tej strony wzorcowej, zostaną ponownie scalone z nową stroną wzorcową przy następnym żądaniu. W skrócie modelu strony głównej można zdefiniować szablon układu pojedynczego strony (Strona główna), którego zmiany są natychmiast odzwierciedlane w całej lokacji.
 
-## <a name="adding-additional-aspnet-pages-to-the-website"></a>Dodawanie stron ASP.NET dodatkowe do witryny sieci Web
+## <a name="adding-additional-aspnet-pages-to-the-website"></a>Dodawanie dodatkowych stron ASP.NET do witryny sieci Web
 
-Poświęćmy chwilę, aby dodać dodatkowe wycinków strony ASP.NET do lokacji, który ostatecznie będzie przechowywać różne pokazy raportowania. Będzie istnieć więcej niż 35 pokazy łącznie, więc zamiast tworzenia wszystkie strony klasy zastępczej teraz po prostu utworzyć pierwsze kilka. Ponieważ również będzie wiele kategorii pokazy, pokazy w lepszym zarządzaniu dodać folder dla kategorii. Teraz, należy dodać następujące trzy foldery:
+Poświęć chwilę na dodanie dodatkowych ASP.NET stron do lokacji, która ostatecznie będzie zawierała różne pokazy raportowania. W sumie będzie dostępnych więcej niż 35 demonstracyjnych, więc zamiast tworzenia wszystkich stron zastępczych można utworzyć kilka pierwszych. Ponieważ istnieje również wiele kategorii pokazów, w celu lepszego zarządzania pokazami Dodaj folder dla kategorii. Dla tej pory Dodaj następujące trzy foldery:
 
 - `BasicReporting`
 - `Filtering`
 - `CustomFormatting`
 
-Na koniec należy dodać nowe pliki, jak pokazano w Eksploratorze rozwiązań na rysunku 8. Podczas dodawania każdego pliku, pamiętaj, aby zaznaczyć pole wyboru "Wybierz stronę wzorcową".
+Na koniec Dodaj nowe pliki, jak pokazano na Eksplorator rozwiązań na rysunku 8. Podczas dodawania każdego pliku Pamiętaj, aby zaznaczyć pole wyboru "Wybierz stronę wzorcową".
 
-![Dodaj poniższe pliki](master-pages-and-site-navigation-vb/_static/image20.png)
+![Dodaj następujące pliki](master-pages-and-site-navigation-vb/_static/image20.png)
 
-**Rysunek 8**: Dodaj poniższe pliki
+**Ilustracja 8**. Dodawanie następujących plików
 
-## <a name="step-2-creating-a-site-map"></a>Krok 2. Tworzenie mapy witryny sieci Web
+## <a name="step-2-creating-a-site-map"></a>Krok 2. Tworzenie mapy witryny
 
-Jednym z wyzwań związanych z zarządzaniem składa się z więcej niż kilka stron witryny sieci Web jest zapewnienie prostą metodę dla użytkowników zewnętrznych poruszać się po witrynie. Najpierw struktury nawigacyjnej witryny musi być zdefiniowany. Następnie tej struktury muszą być przetłumaczone na elementy interfejsu użytkownika można nawigować, takie jak menu lub linki do stron nadrzędnych. Na koniec całego tego procesu, musi być aktualizowanej i konserwowanej jako nowe strony są dodawane do lokacji i istniejące usunięte. Przed ASP.NET 2.0 deweloperzy były na ich do tworzenia struktury nawigacyjnej witryny, utrzymywanie jej i tłumaczenie go na elementy interfejsu użytkownika można nawigować. Za pomocą programu ASP.NET 2.0, deweloperzy mogą korzystać z bardzo elastyczny wbudowane w system nawigacji lokacji.
+Jednym z wyzwań związanych z zarządzaniem witryną sieci Web składającą się z ponad kilku stron jest umożliwienie odwiedzającemu nawigowania po witrynie. Aby rozpocząć od, należy zdefiniować strukturę nawigacyjną lokacji. Następnie tę strukturę należy przetłumaczyć na elementy interfejsu użytkownika nawigacji, takie jak menu lub struktura nawigacyjna. Na koniec cały proces musi być konserwowany i aktualizowany po dodaniu nowych stron do lokacji i usunięciu istniejących. Przed ASP.NET 2,0, deweloperzy byli we własnym zakresie tworzyć strukturę nawigacyjną lokacji, utrzymywać ją i przetłumaczyć na elementy interfejsu użytkownika. W przypadku ASP.NET 2,0 deweloperzy mogą jednak korzystać z bardzo elastycznego systemu nawigacji w lokacji.
 
-System nawigacji witryny ASP.NET w wersji 2.0 zapewnia środek dewelopera do definiowania mapy witryny sieci Web, a następnie dostęp do informacji za pomocą programowego interfejsu API. ASP.NET jest dostarczany z dostawcy mapy witryny, który oczekuje, że dane mapy witryny ma być przechowywany w pliku XML, który jest sformatowany w określony sposób. Jednak ponieważ nawigacji systemu lokacji jest oparta na [modelu dostawca](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx) może zostać rozszerzony do obsługi alternatywne sposoby dla serializacji mapy witryny. Artykuł Jeff Prosise [SQL lokacji mapy dostawcy możesz już został oczekiwania dla](https://msdn.microsoft.com/msdnmag/issues/06/02/WickedCode/default.aspx) pokazuje, jak utworzyć dostawcy mapy witryny mapy witryny, przechowywane w bazie danych programu SQL Server; w innym rozwiązaniem jest utworzenie [na podstawie dostawcy mapy witryny struktury systemu plików](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx).
+System nawigacji w witrynie ASP.NET 2,0 zapewnia deweloperowi możliwość zdefiniowania mapy witryny i uzyskania dostępu do tych informacji za pośrednictwem programu programistycznego interfejsu API. ASP.NET jest dostarczany z dostawcą mapy witryny, który oczekuje, że dane mapy witryny mają być przechowywane w pliku XML sformatowanym w określony sposób. Jednak ponieważ system nawigacji lokacji jest oparty na [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx) , można go rozszerzyć, aby obsługiwał alternatywne sposoby serializowania informacji z mapy witryny. W artykule Jan Prosise [dostawca mapy witryny SQL, dla którego oczekujesz](https://msdn.microsoft.com/msdnmag/issues/06/02/WickedCode/default.aspx) , pokazuje, jak utworzyć dostawcę mapy witryny przechowującego mapę lokacji w bazie danych SQL Server. innym rozwiązaniem jest utworzenie [dostawcy mapy witryny opartego na strukturze systemu plików](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx).
 
-W tym samouczku, użyjemy dostawcy mapy witryny domyślnej, który jest dostarczany za pomocą programu ASP.NET 2.0. Do tworzenia mapy witryny, po prostu kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, wybierz pozycję Dodaj nowy element i wybierz opcję mapy witryny. Pozostaw nazwę `Web.sitemap` i kliknij przycisk Dodaj.
+Na potrzeby tego samouczka użyjemy domyślnego dostawcy mapy witryny, który jest dostarczany z ASP.NET 2,0. Aby utworzyć mapę witryny, po prostu kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań, wybierz polecenie Dodaj nowy element i wybierz opcję Mapa witryny. Pozostaw nazwę jako `Web.sitemap` i kliknij przycisk Dodaj.
 
-[![Dodawanie mapy witryny sieci Web do projektu](master-pages-and-site-navigation-vb/_static/image22.png)](master-pages-and-site-navigation-vb/_static/image21.png)
+[![dodać mapę witryny do projektu](master-pages-and-site-navigation-vb/_static/image22.png)](master-pages-and-site-navigation-vb/_static/image21.png)
 
-**Rysunek 9**: Dodawanie mapy witryny sieci Web do projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image23.png))
+**Ilustracja 9**. Dodawanie mapy witryny do projektu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image23.png))
 
-Plik mapy witryny jest plikiem XML. Należy pamiętać, że program Visual Studio oferuje funkcję IntelliSense dla struktury mapy witryny. Plik mapy witryny musi mieć `<siteMap>` węzeł jako węzeł główny, który musi zawierać dokładnie jeden `<siteMapNode>` elementu podrzędnego. Najpierw `<siteMapNode>` następnie może zawierać dowolną liczbę elementów potomnych `<siteMapNode>` elementów.
+Plik mapy witryny jest plikiem XML. Należy zauważyć, że program Visual Studio udostępnia funkcję IntelliSense dla struktury mapy witryny. Plik mapy witryny musi mieć węzeł `<siteMap>` jako węzeł główny, który musi zawierać dokładnie jeden `<siteMapNode>` element podrzędny. Ten pierwszy `<siteMapNode>` element może następnie zawierać dowolną liczbę elementów potomnych `<siteMapNode>`.
 
-Zdefiniuj Mapa witryny, aby mógł naśladować strukturę systemu plików. Oznacza to, Dodaj `<siteMapNode>` elementu dla każdego z trzech folderów, a podrzędny `<siteMapNode>` elementów dla każdej strony ASP.NET w tych folderach, w następujący sposób:
+Zdefiniuj mapę witryny, aby naśladować strukturę systemu plików. Oznacza to, że należy dodać element `<siteMapNode>` dla każdego z trzech folderów i elementów podrzędnych `<siteMapNode>` dla każdej z ASP.NET stron w tych folderach, tak jak to zrobić:
 
-Web.sitemap
+Web. sitemap
 
 [!code-xml[Main](master-pages-and-site-navigation-vb/samples/sample4.xml)]
 
-Mapa witryny definiuje struktury nawigacyjnej witryny sieci Web, czyli hierarchii, w tym artykule opisano różne sekcje witryny. Każdy `<siteMapNode>` element `Web.sitemap` reprezentuje sekcję w strukturze nawigacji strony.
+Mapa witryny definiuje strukturę nawigacyjną witryny sieci Web, która jest hierarchią opisującą różne sekcje witryny. Każdy element `<siteMapNode>` w `Web.sitemap` reprezentuje sekcję w strukturze nawigacyjnej lokacji.
 
-[![Mapa witryny reprezentuje hierarchicznej struktury nawigacyjnej](master-pages-and-site-navigation-vb/_static/image25.png)](master-pages-and-site-navigation-vb/_static/image24.png)
+[![mapa witryny reprezentuje hierarchiczną strukturę nawigacyjną](master-pages-and-site-navigation-vb/_static/image25.png)](master-pages-and-site-navigation-vb/_static/image24.png)
 
-**Na rysunku nr 10**: Mapa witryny reprezentuje hierarchicznej struktury nawigacyjnej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image26.png))
+**Ilustracja 10**. Mapa lokacji reprezentuje hierarchiczną strukturę nawigacyjną ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image26.png))
 
-Program ASP.NET udostępnia struktury mapy witryny za pomocą programu .NET Framework [klasy SiteMap](https://msdn.microsoft.com/library/system.web.sitemap.aspx). Ta klasa ma `CurrentNode` właściwość, która zwraca informacje o aktualnie odwiedzania przez użytkownika; `RootNode` właściwość zwraca głównego mapy witryny (Home, nasze mapy witryny). Zarówno `CurrentNode` i `RootNode` return właściwości [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) wystąpień, które mają właściwości takich jak `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`i tak dalej umożliwiające mapy witryny hierarchię, aby być dodawanym.
+ASP.NET uwidacznia strukturę mapy witryny za pomocą [klasy SiteMap](https://msdn.microsoft.com/library/system.web.sitemap.aspx).NET Framework. Ta klasa ma właściwość `CurrentNode`, która zwraca informacje o sekcji, do której użytkownik jest aktualnie odwiedzany; Właściwość `RootNode` zwraca katalog główny mapy witryny (Strona główna w naszym mapie witryny). Właściwości `CurrentNode` i `RootNode` zwracają wystąpienia [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) , które mają właściwości, takie jak `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`i tak dalej, które zezwalają na przechodzenie hierarchii mapy witryny.
 
-## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>Krok 3. Wyświetlanie Menu, w oparciu o mapy witryny
+## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>Krok 3. Wyświetlanie menu w oparciu o mapę witryny
 
-Uzyskiwanie dostępu do danych w programie ASP.NET 2.0 można zrobić programowo, jak pokazano w ASP.NET 1.x, lub w sposób deklaratywny, za pomocą nowego [kontrolki źródła danych](https://msdn.microsoft.com/library/ms227679.aspx). Istnieje kilka kontrolki źródła danych wbudowane, takie jak kontrolki SqlDataSource, umożliwiający dostęp do danych z relacyjnej bazy danych, kontrolka ObjectDataSource, uzyskać dostęp do danych z klasy i inne. Możesz nawet utworzyć własny [kontrolki źródła danych niestandardowych](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp).
+Dostęp do danych w programie ASP.NET 2,0 można wykonać programowo, jak w ASP.NET 1. x, lub deklaratywnie, za pomocą nowych [kontrolek źródła danych](https://msdn.microsoft.com/library/ms227679.aspx). Istnieje kilka wbudowanych formantów źródła danych, takich jak kontrolka kontrolki SqlDataSource, do uzyskiwania dostępu do relacyjnych danych bazy danych, kontrolki ObjectDataSource, do uzyskiwania dostępu do danych z klas i innych. Można nawet utworzyć własne [niestandardowe kontrolki źródła danych](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp).
 
-Kontrolki źródła danych służy jako serwer proxy między Twoja strona ASP.NET i danych bazowych. Aby można było wyświetlić dane pobrane z kontroli źródła danych, utworzymy zazwyczaj dodać innego formantu sieci Web do strony i powiązać ją z kontrolą źródła danych. Aby powiązać formant sieci Web do kontroli źródła danych, po prostu ustaw kontrolki sieci Web `DataSourceID` właściwości do wartości danych kontroli źródła `ID` właściwości.
+Kontrolki źródła danych służy jako serwer proxy między stroną ASP.NET a danymi źródłowymi. Aby można było wyświetlić pobrane dane kontroli źródła danych, zwykle dodamy kolejną kontrolkę sieci Web do strony i powiążesz ją z kontrolką źródła danych. Aby powiązać formant sieci Web z kontrolką źródła danych, wystarczy ustawić właściwość `DataSourceID` kontrolki sieci Web na wartość właściwości `ID` kontrolki źródła danych.
 
-Ułatwiające pracę z danymi mapy witryny, program ASP.NET zawiera formant SiteMapDataSource, który pozwala nam na powiązanie formantu sieci Web przed mapy witryny naszej witryny sieci Web. Dwie kontrolki sieci Web w widoku drzewa i Menu są często używane do udostępniają interfejs użytkownika nawigacji. Aby powiązać dane mapy witryny do jednej z tych dwóch kontrolek, po prostu Dodaj SiteMapDataSource do strony wraz z widoku drzewa lub formant Menu, którego `DataSourceID` właściwość jest ustawiana odpowiednio. Na przykład możemy dodać formant Menu, strony wzorcowej, za pomocą następujących znaczników:
+Aby pomóc w pracy z danymi mapy witryny, ASP.NET zawiera kontrolkę SiteMapDataSource, która pozwala na powiązanie formantu internetowego z mapą witryny witryny sieci Web. Dwie kontrolki sieci Web widok TreeView i menu są często używane do udostępniania interfejsu użytkownika nawigacji. Aby powiązać dane mapy lokacji z jedną z tych dwóch kontrolek, wystarczy dodać SiteMapDataSource do strony wraz z kontrolką TreeView lub menu, której Właściwość `DataSourceID` jest odpowiednio ustawiona. Na przykład możemy dodać formant menu do strony wzorcowej, korzystając z następującej znaczników:
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample5.aspx)]
 
-Aby uzyskać lepszą kontrolę nad emitowany kod HTML firma Microsoft można powiązać kontrolki SiteMapDataSource kontrolce elementu powtarzanego w następujący sposób:
+Aby zapewnić bardziej precyzyjną kontrolę nad emitowanym kodem HTML, możemy powiązać formant SiteMapDataSource z kontrolką wzmacniania, np.:
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample6.aspx)]
 
-Kontrolka SiteMapDataSource zwraca poziom hierarchii jeden mapy witryny w czasie, począwszy od główny węzeł mapy witryny (Home, nasze mapy witryny), następnie następnego poziomu (podstawowe raportowanie, filtrowanie raportów i dostosować formatowanie) i tak dalej. Podczas tworzenia wiązania SiteMapDataSource do Repeater, wylicza pierwszy poziom zwracane, a następnie tworzy `ItemTemplate` dla każdego `SiteMapNode` wystąpienia w tym pierwszy poziom. Do dostępu do określonej właściwości elementu `SiteMapNode`, możemy użyć `Eval(propertyName)`, czyli jak Pobieramy każdego `SiteMapNode`firmy `Url` i `Title` właściwości kontrolki Hiperlinku.
+Kontrolka SiteMapDataSource zwraca hierarchię mapy witryny po jednym poziomie naraz, rozpoczynając od węzła mapy witryny głównej (dom, na naszej mapie witryny), a następnie na następnym poziomie (raportowanie podstawowe, filtrowanie raportów i dostosowane formatowanie) itd. W przypadku powiązania SiteMapDataSource z Wzmacniaką wylicza pierwszy zwrócony poziom i tworzy wystąpienie `ItemTemplate` dla każdego wystąpienia `SiteMapNode` w tym pierwszym poziomie. Aby uzyskać dostęp do określonej właściwości `SiteMapNode`, możemy użyć `Eval(propertyName)`, co oznacza, że wszystkie `SiteMapNode``Url` i `Title` właściwości kontrolki HyperLink.
 
-W powyższym przykładzie elementu powtarzanego spowoduje, że następujące znaczniki:
+Powyższy przykład wzmacniania będzie renderować następujący znacznik:
 
 [!code-html[Main](master-pages-and-site-navigation-vb/samples/sample7.html)]
 
-W skład tych lokacji węzłów map (podstawowe raportowanie, filtrowanie raportów i dostosować formatowanie) *drugi* poziomu mapy witryny są renderowane nie pierwszy. Jest to spowodowane SiteMapDataSource `ShowStartingNode` właściwość ma wartość False, powodując SiteMapDataSource obejść główny węzeł mapy witryny i zamiast tego należy rozpocząć od zwracanie drugi poziom w hierarchii mapy witryny.
+Te węzły mapy witryny (raportowanie podstawowe, filtrowanie raportów i dostosowane formatowanie) składają się na *drugi* poziom renderowanej mapy witryny, a nie jako pierwszy. Wynika to z faktu, że właściwość `ShowStartingNode` SiteMapDataSource ma wartość false, co powoduje, że SiteMapDataSource pomija węzeł mapy witryny głównej, a zamiast tego zaczyna się od zwrócenia drugiego poziomu w hierarchii mapy lokacji.
 
-Aby wyświetlić elementy podrzędne dla podstawowe raportowanie, filtrowanie raportów i dostosować formatowanie `SiteMapNode` s, możemy dodać innego elementu powtarzanego do początkowego elementu powtarzanego `ItemTemplate`. Ten drugi Repeater będą powiązane `SiteMapNode` wystąpienia `ChildNodes` właściwości w następujący sposób:
+Aby wyświetlić elementy podrzędne dla podstawowego raportowania, filtrowania raportów i niestandardowego formatowania `SiteMapNode` s, możemy dodać kolejny wzmacniak do `ItemTemplate`pierwszego Wzmacniakka. Ten drugi wzmacniak zostanie powiązany z właściwością `ChildNodes` `SiteMapNode` wystąpienia, na przykład:
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample8.aspx)]
 
-Te dwa wzmacniaki powoduje następujące znaczniki (niektóre znaczników została usunięta dla zwięzłości):
+Te dwa powtórzenia powodują następujące znaczniki (niektóre adiustacje zostały usunięte dla zwięzłości):
 
 [!code-html[Main](master-pages-and-site-navigation-vb/samples/sample9.html)]
 
-Przy użyciu CSS style wybrane z [Rachel Andrew](http://www.rachelandrew.co.uk/)użytkownika Zarezerwuj [Antologia CSS: 101 essential porad, sztuczek, &amp; hakowanie](https://www.amazon.com/gp/product/0957921888/qid=1137565739/sr=8-1/ref=pd_bbs_1/103-0562306-3386214?n=507846&amp;s=books&amp;v=glance), `<ul>` i `<li>` elementy mają różne w taki sposób, że znaczniki generuje następujące wyniki visual:
+Przy użyciu stylów CSS wybranych z książki [Rachel Andrew](http://www.rachelandrew.co.uk/) [Anthology: 101 podstawowe wskazówki, sztuczki, &amp; Hacks](https://www.amazon.com/gp/product/0957921888/qid=1137565739/sr=8-1/ref=pd_bbs_1/103-0562306-3386214?n=507846&amp;s=books&amp;v=glance), elementy `<ul>` i `<li>` są wzorowane tak, że znaczniki da następujące wizualizacje wyjściowe:
 
-![Menu składa się z dwóch wzmacniaki i niektóre CSS](master-pages-and-site-navigation-vb/_static/image27.png)
+![Menu składające się z dwóch powtórzeń i niektórych stylów CSS](master-pages-and-site-navigation-vb/_static/image27.png)
 
-**Rysunek 11**: Menu składa się z dwóch wzmacniaki i niektóre CSS
+**Ilustracja 11**. menu składające się z dwóch powtórzeń i niektórych stylów CSS
 
-To menu znajduje się w stronę wzorcową i powiązane z mapy witryny zdefiniowane w `Web.sitemap`, co oznacza że każda zmiana mapy witryny będą natychmiast odzwierciedlane na wszystkich stronach używające `Site.master` strony wzorcowej.
+To menu znajduje się na stronie wzorcowej i jest powiązane z mapą witryny zdefiniowaną w `Web.sitemap`, co oznacza, że wszelkie zmiany mapy witryny zostaną natychmiast odzwierciedlone na wszystkich stronach, które używają `Site.master` stronie wzorcowej.
 
-## <a name="disabling-viewstate"></a>Wyłączanie ViewState
+## <a name="disabling-viewstate"></a>Wyłączanie stanu wyświetlania
 
-Wszystkie formanty ASP.NET Opcjonalnie można utrwalić stanu do [stanu widoku](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/), który jest serializowany jako ukryte pole formularza w postaci HTML. Stan widoku jest używany przez formanty do zapamiętania ich programowo zmienić stan różnych ogłaszania zwrotnego, takie jak dane powiązane z formantu sieci Web danych. Wyświetl stan pozwala na informacje, aby pamiętać różnych ogłaszania zwrotnego, zwiększa się jednak do rozmiaru znaczników, które muszą być wysyłane do klienta i może prowadzić do rozrostu strony poważny, jeśli nie ściśle monitorowane. Kontrolki internetowe danych szczególnie GridView są szczególnie notorious do dodawania wielu dodatkowych kilobajtów znaczników do strony. Takie zwiększenie może być nieistotne dla użytkowników, szerokopasmowych lub intranet, stan widoku można dodać kilka sekund do obiegu dla użytkowników programu dial-up.
+Wszystkie kontrolki ASP.NET mogą opcjonalnie utrzymywać swój stan w [stanie widoku](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/), który jest serializowany jako ukryte pole formularza w RENDEROWANYM kodzie HTML. Stan widoku jest używany przez kontrolki do zapamiętania ich stanu programistycznie zmieniony w ramach ogłaszania zwrotnego, takich jak dane powiązane z formantem sieci Web danych. W trakcie wyświetlania stanu informacje, które mogą być zapamiętywane przez ogłaszanie zwrotne, zwiększają rozmiar znacznika, który musi zostać wysłany do klienta i może prowadzić do poważnej przeładowanie strony, jeśli nie jest ściśle monitorowany. Kontrolki sieci Web danych szczególnie GridView są szczególnie Notorious do dodawania dziesiątek dodatkowych kilobajtów znaczników do strony. Chociaż taki wzrost może być nieznaczny dla użytkowników szerokopasmowych lub intranetowych, stan widoku może dodawać kilka sekund do rundy dla użytkowników połączeń telefonicznych.
 
-Aby zobaczyć wpływ stanu widoku, odwiedź stronę w przeglądarce, a następnie Wyświetl źródło wysyłane przez stronę sieci web (w programie Internet Explorer przejdź do menu widoku i wybierz opcję źródła). Można też włączyć [śledzenie stron](https://msdn.microsoft.com/library/sfbfw58f.aspx) Aby wyświetlić widok stanu alokacji, używanego przez poszczególne formantów na stronie. Informacje o stanie widoku jest serializowana WE ukryte pole formularza o nazwie `__VIEWSTATE`, który znajduje się w `<div>` element natychmiast po otwarciu `<form>` tagu. Stan widoku tylko jest trwały, gdy jest używany; formularz sieci Web Jeśli nie ma strony ASP.NET `<form runat="server">` w jego składni deklaratywnej nie będzie `__VIEWSTATE` ukryte pole formularza w renderowanego kodu znaczników.
+Aby zobaczyć wpływ stanu widoku, odwiedź stronę w przeglądarce, a następnie Wyświetl źródło wysyłane przez stronę sieci Web (w programie Internet Explorer przejdź do menu Widok i wybierz opcję Źródło). Możesz również włączyć [śledzenie stron](https://msdn.microsoft.com/library/sfbfw58f.aspx) , aby zobaczyć przydział stanu widoku używany przez poszczególne kontrolki na stronie. Informacje o stanie widoku są serializowane w ukrytym polu formularza o nazwie `__VIEWSTATE`, które znajdują się w elemencie `<div>` bezpośrednio po tagu otwierającym `<form>`. Stan widoku jest utrwalany tylko wtedy, gdy jest używany formularz sieci Web; Jeśli strona ASP.NET nie zawiera `<form runat="server">` w swojej składni deklaracyjnej, nie będzie `__VIEWSTATE` ukrytym polem formularza w renderowanej adjustacji.
 
-`__VIEWSTATE` Pola formularza, generowane przez stronę wzorcową dodaje około 1800 bajtów do strony wygenerowany kod znaczników. Ten dodatkowy rozrostu wynika przede wszystkim kontrolce elementu powtarzanego jako zawartość kontrolki SiteMapDataSource są zachowywane, aby wyświetlić stan. Gdy dodatkowych 1800 bajtów może nie promieniowe wydają się być zbyt wiele, by poznawania, gdy korzystający z kontrolki GridView przy użyciu wielu pól i rekordów, stan widoku można łatwo spęcznienia ośmiokrotnego 10.
+Pole formularza `__VIEWSTATE` wygenerowane przez stronę wzorcową dodaje około 1 800 bajtów do wygenerowanego znacznika strony. Ten dodatkowy przeładowanie jest przeznaczony głównie dla formantu wzmacniania, ponieważ zawartość kontrolki SiteMapDataSource są utrwalane w celu wyświetlenia stanu. Mimo że dodatkowe 1 800 bajty mogą nie pozornie przyjemnością się o to, gdy korzystasz z widoku GridView z wieloma polami i rekordami, stan widoku można łatwo Swell przez czynnik 10 lub więcej.
 
-Stan widoku można wyłączyć na poziomie strony lub kontrolki, ustawiając `EnableViewState` właściwości `False`, a tym samym zmniejszenie rozmiaru renderowanego kodu znaczników. Od stanu widoku danych formant utrwala dane powiązane z danymi formantu sieci Web w ogłaszania zwrotnego w sieci Web po wyłączeniu stanu widoku danych sieci Web kontroli danych musi być powiązany każdej strony. W programie ASP.NET wersji 1.x siebie tę odpowiedzialność spadł w ucz developer strony. za pomocą programu ASP.NET 2.0 jednak w kontrolkach internetowych danych zostanie ponownie powiązać do kontroli źródła danych, ich każdego odświeżania w razie potrzeby.
+Stan widoku można wyłączyć na stronie lub na poziomie kontroli przez ustawienie właściwości `EnableViewState` na `False`, co zmniejsza rozmiar renderowanego znacznika. Ponieważ stan widoku dla kontrolki sieci Web danych utrzymuje dane powiązane z formantem sieci Web danych przez ogłaszanie zwrotne, w przypadku wyłączenia stanu widoku dla kontrolki sieci Web danych muszą one być powiązane z każdym i każdym ogłaszaniem zwrotnym. W ASP.NET w wersji 1. x ta odpowiedzialność spadła w przypadku twórców stron. w przypadku ASP.NET 2,0, w razie potrzeby, formanty sieci Web danych zostaną ponownie powiązane z kontrolą źródła danych na każdym ogłaszaniu zwrotnym.
 
-Aby zmniejszyć stan widoku danej strony umożliwia ustawianie kontrolce elementu powtarzanego `EnableViewState` właściwość `False`. Można to zrobić w oknie właściwości w projektancie, lub deklaratywnie w widoku źródła. Po wprowadzeniu tej zmiany w elemencie powtarzanym oznaczeniu deklaracyjnym powinien wyglądać:
+Aby zmniejszyć stan widoku strony, ustaw właściwość `EnableViewState` formantu wzmacniak na `False`. Można to zrobić za pomocą okno Właściwości w projektancie lub deklaratywnie w widoku źródła. Po wprowadzeniu tej zmiany deklaracyjne znaczniki powinny wyglądać następująco:
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample10.aspx)]
 
-Po tej zmianie stronę firmy renderowania widoku, że rozmiar danych stanu został zmniejszony do kilku 52 bajtów, 97% oszczędności w widoku stanu rozmiar! W samouczkach w tej serii firma Microsoft będzie stan widoku danych kontrolki sieci Web powodująca domyślne wyłączenie w celu zmniejszenia rozmiaru renderowanego kodu znaczników. W większości przykłady `EnableViewState` będzie można ustawić właściwości `False` i bez wzmiankę zrobione. Jedyną sytuacją, w widoku stanu zostaną omówione znajduje się w scenariuszach, w którym musi być włączona w kolejności dla danych do zapewnienia jego funkcjonalność kontrolować sieci Web.
+Po tej zmianie rozmiar renderowanego widoku strony został zmniejszony do zwykłego 52 bajtów, a 97% oszczędności w rozmiarze stanu widoku! W samouczkach w tej serii wyłączysz stan widoku kontrolek sieci Web danych domyślnie, aby zmniejszyć rozmiar renderowanego znacznika. We wszystkich przykładach Właściwość `EnableViewState` zostanie ustawiona na `False` i wykonana bez wzmianki. Jedyny stan widoku czasu zostanie omówiony w scenariuszach, w których musi być włączony, aby formant sieci Web danych mógł zapewnić jego oczekiwaną funkcjonalność.
 
-## <a name="step-4-adding-breadcrumb-navigation"></a>Krok 4. Dodawanie do stron nadrzędnych
+## <a name="step-4-adding-breadcrumb-navigation"></a>Krok 4. Dodawanie nawigacji nawigacyjnej
 
-Aby ukończyć strony wzorcowej, możemy dodać element interfejsu użytkownika łączy do stron nadrzędnych nawigacji do każdej strony. Łącza do stron nadrzędnych szybko wyświetlane ich bieżącą pozycję w hierarchii lokacji. Na stronie; Dodawanie nawigacji w programie ASP.NET 2.0 jest łatwe po prostu Dodaj kontrolki ścieżki mapy witryny żaden kod nie jest wymagana.
+Aby ukończyć stronę wzorcową, Dodaj do każdej strony element interfejsu użytkownika nawigacji do stron nadrzędnych. Na pasku nawigacyjnym szybko są wyświetlane bieżące położenie użytkowników w hierarchii lokacji. Dodawanie stron nadrzędnych w programie ASP.NET 2,0 to łatwe dodawanie kontrolki ścieżki mapy witryny do strony; kod nie jest wymagany.
 
-Dla naszej witrynie, dodanie tej kontrolki z nagłówkiem `<div>`:
+W naszej witrynie Dodaj tę kontrolkę do nagłówka `<div>`:
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample11.aspx)]
 
-Łączy do stron nadrzędnych pokazuje bieżącą stronę użytkownik odwiedził w hierarchii mapy witryny, a także tej lokacji węzeł mapy "elementów nadrzędnych," do katalogu głównego (główny, w naszym mapy witryny).
+Pasek nawigacyjny pokazuje bieżącą stronę, którą odwiedza użytkownik w hierarchii mapy witryny, a także ten węzeł mapy witryny "elementy nadrzędne", tak jak w przypadku wszystkich elementów głównych (domowych, na naszej mapie witryny).
 
-![Łączy do stron nadrzędnych Wyświetla bieżącą stronę i jego elementy nadrzędne w witrynie mapowanie hierarchii](master-pages-and-site-navigation-vb/_static/image28.png)
+![Pasek nawigacyjny wyświetla bieżącą stronę i jej elementy nadrzędne w hierarchii mapy witryny](master-pages-and-site-navigation-vb/_static/image28.png)
 
-**Rysunek 12**: Łączy do stron nadrzędnych Wyświetla bieżącą stronę i jego elementy nadrzędne w witrynie mapowanie hierarchii
+**Ilustracja 12**. pasek nawigacyjny wyświetla bieżącą stronę i jej elementy nadrzędne w hierarchii mapy lokacji
 
 ## <a name="step-5-adding-the-default-page-for-each-section"></a>Krok 5. Dodawanie strony domyślnej dla każdej sekcji
 
-Samouczki w naszej witrynie są podzielone na różne kategorie podstawowe raportowanie, filtrowanie, niestandardowe formatowanie, i tak dalej z folderem, dla każdej kategorii i odpowiednie samouczki jako strony ASP.NET, w tym folderze. Ponadto każdy folder zawiera `Default.aspx` strony. Dla tej strony domyślnej umożliwia wyświetlenie wszystkich samouczków dotyczących bieżącej sekcji. Oznacza to aby uzyskać `Default.aspx` w `BasicReporting` folderu czy mamy łącza do `SimpleDisplay.aspx`, `DeclarativeParams.aspx`, i `ProgrammaticParams.aspx`. W tym miejscu, możemy użyć `SiteMap` klas i danych formantu sieci Web, aby wyświetlić te informacje, na podstawie mapy witryny zdefiniowane w `Web.sitemap`.
+Samouczki w naszej witrynie są podzielone na różne kategorie podstawowe raporty, filtrowanie, formatowanie niestandardowe i tak dalej, z folderem dla każdej kategorii i odpowiednimi samouczkami jako ASP.NET strony w tym folderze. Ponadto każdy folder zawiera stronę `Default.aspx`. Na tej stronie domyślnej zostanie wyświetlone wszystkie samouczki dla bieżącej sekcji. Oznacza to, że dla `Default.aspx` w folderze `BasicReporting` mamy linki do `SimpleDisplay.aspx`, `DeclarativeParams.aspx`i `ProgrammaticParams.aspx`. W tym miejscu można ponownie użyć klasy `SiteMap` i kontrolki sieci Web danych, aby wyświetlić te informacje na podstawie mapy witryny zdefiniowanej w `Web.sitemap`.
 
-Umożliwia wyświetlanie nieuporządkowaną listę przy użyciu Repeater ponownie, ale tym razem będzie wyświetlana tytuł i opis samouczków. Ponieważ znaczników i kodu, aby osiągnąć ten należy powtórzyć dla każdego `Default.aspx` stronie mamy hermetyzacji logika interfejsu użytkownika w [kontrolki użytkownika](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Utwórz folder w witrynie sieci Web o nazwie `UserControls` i Dodaj do tego nowego elementu typu kontrolka użytkownika sieci Web o nazwie `SectionLevelTutorialListing.ascx`i Dodaj następujący kod:
+Wyświetlmy listę nieuporządkowaną ponownie przy użyciu przewodnika, ale ten czas będzie wyświetlał tytuł i opis samouczków. Ponieważ adiustacje i kod do osiągnięcia należy powtórzyć dla każdej strony `Default.aspx`, możemy hermetyzować tę logikę interfejsu [użytkownika w kontrolce](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Utwórz folder w witrynie sieci Web o nazwie `UserControls` i Dodaj do niego nowy element typ kontrolki użytkownika sieci Web o nazwie `SectionLevelTutorialListing.ascx`i Dodaj następujący znacznik:
 
-[![Dodaj nową kontrolkę użytkownika sieci Web do folderu elementy kontrolki użytkownika](master-pages-and-site-navigation-vb/_static/image30.png)](master-pages-and-site-navigation-vb/_static/image29.png)
+[![dodać nową kontrolkę użytkownika sieci Web do folderu UserControls](master-pages-and-site-navigation-vb/_static/image30.png)](master-pages-and-site-navigation-vb/_static/image29.png)
 
-**Rysunek 13**: Dodaj nową kontrolkę użytkownika sieci Web do `UserControls` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image31.png))
+**Ilustracja 13**. Dodawanie nowej kontrolki użytkownika sieci Web do folderu `UserControls` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image31.png))
 
-SectionLevelTutorialListing.ascx
+SectionLevelTutorialListing. ascx
 
 [!code-aspx[Main](master-pages-and-site-navigation-vb/samples/sample12.aspx)]
 
-SectionLevelTutorialListing.ascx.vb
+SectionLevelTutorialListing. ascx. vb
 
 [!code-vb[Main](master-pages-and-site-navigation-vb/samples/sample13.vb)]
 
-W poprzednim przykładzie Repeater możemy powiązać `SiteMap` danych powtarzanego deklaratywne; `SectionLevelTutorialListing` kontrolki użytkownika, jednak odbywa się to programowo. W `Page_Load` procedura obsługi zdarzeń, dokonuje do upewnij się, że ta strona s adres URL mapowany na węzeł mapy witryny. Jeśli ten formant użytkownika jest używana w strona, która nie ma odpowiadającego `<siteMapNode>` wpisu `SiteMap.CurrentNode` zwróci `Nothing` i żadne dane nie będą powiązane powtarzanego. Zakładając, że mamy `CurrentNode`, możemy powiązać jej `ChildNodes` kolekcji do elementu powtarzanego. Ponieważ nasza Mapa witryny jest skonfigurowany tak, aby `Default.aspx` strony w każdej sekcji jest węzła nadrzędnego wszystkie samouczki w tej sekcji, ten kod będą wyświetlane łącza do i opisy wszystkich sekcji samouczków, jak pokazano na poniższym zrzucie ekranu.
+W poprzednim przykładzie wzmacniak powiązana z `SiteMap` danymi do wzmacniaka deklaratywnie; jednak kontrolka użytkownika `SectionLevelTutorialListing`. W obsłudze zdarzeń `Page_Load` jest wykonywane sprawdzenie, aby zapewnić, że ten adres URL strony jest mapowany na węzeł na mapie witryny. Jeśli ta kontrolka użytkownika jest używana na stronie, która nie ma odpowiedniego wpisu `<siteMapNode>`, `SiteMap.CurrentNode` zwróci `Nothing` i żadne dane nie zostaną powiązane z tym Wzmacniakem. Przy założeniu, że mamy `CurrentNode`, powiążemy swoją `ChildNodes`ą kolekcję z Wzmacniaką. Ponieważ nasza mapa witryny jest skonfigurowana tak, że strona `Default.aspx` w każdej sekcji jest węzłem nadrzędnym wszystkich samouczków w tej sekcji, ten kod będzie wyświetlał linki do i opisy wszystkich samouczków sekcji, jak pokazano na poniższym zrzucie ekranu.
 
-Po utworzeniu tego elementu powtarzanego Otwórz `Default.aspx` strony we wszystkich folderach, przejdź do widoku projektu i po prostu przeciągnij formant użytkownika za pomocą Eksploratora rozwiązań na powierzchnię projektową miejscu listy samouczków, są wyświetlane.
+Po utworzeniu tego wzmacniaka Otwórz `Default.aspx` strony w każdym z folderów, przejdź do widok Projekt i po prostu przeciągnij kontrolkę użytkownika z Eksplorator rozwiązań na powierzchnię projektu, w której ma zostać wyświetlona lista samouczków.
 
-[![Formant użytkownika ma została dodana do Default.aspx](master-pages-and-site-navigation-vb/_static/image33.png)](master-pages-and-site-navigation-vb/_static/image32.png)
+[![kontrolka użytkownika została dodana do default. aspx](master-pages-and-site-navigation-vb/_static/image33.png)](master-pages-and-site-navigation-vb/_static/image32.png)
 
-**Rysunek 14**: Formant użytkownika ma została dodana do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image34.png))
+**Ilustracja 14**. kontrolka użytkownika została dodana do `Default.aspx` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image34.png))
 
-[![Podstawowe raportowanie samouczki są wyświetlane.](master-pages-and-site-navigation-vb/_static/image36.png)](master-pages-and-site-navigation-vb/_static/image35.png)
+[![podstawowe samouczki dotyczące raportowania znajdują się na liście](master-pages-and-site-navigation-vb/_static/image36.png)](master-pages-and-site-navigation-vb/_static/image35.png)
 
-**Rysunek 15**: Wymieniono podstawowe samouczki raportowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image37.png))
+**Ilustracja 15**. wyświetlane są podstawowe samouczki dotyczące raportowania ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](master-pages-and-site-navigation-vb/_static/image37.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Mapa witryny, zdefiniowane i pełne strony wzorcowej mamy schemat spójne strony układu i nawigacji dla naszych samouczków związanych z danymi. Niezależnie od tego, ile stron, dodamy do naszej witryny aktualizacji informacji nawigacji układu lub witryny strony całej witryny jest szybki i prosty proces ze względu na te informacje są scentralizowane. W szczególności informacji o układzie strony jest zdefiniowana na stronie głównej `Site.master` a lokacją mapy w `Web.sitemap`. Firma Microsoft nie trzeba było pisać *wszelkie* kodu, aby osiągnąć ten mechanizm nawigacji i układ strony całej witryny i przechowujemy WYSIWYG pełne wsparcie w programie Visual Studio.
+Po zdefiniowaniu mapy witryny i zakończeniu strony wzorcowej mamy teraz spójny układ strony i schemat nawigacji dla naszych samouczków związanych z danymi. Niezależnie od tego, ile stron dodaliśmy do naszej witryny, aktualizowanie układu strony w całej lokacji lub informacji o nawigacji lokacji jest szybkim i prostym procesem z powodu scentralizowanych informacji. Informacje o układzie strony są definiowane na stronie głównej `Site.master` a Mapa lokacji w `Web.sitemap`. Nie musimy pisać *żadnego* kodu w celu osiągnięcia tego układu strony i mechanizmu nawigacji dla całej witryny, a my zachowujemy pełną obsługę funkcji WYSIWYG Designer w programie Visual Studio.
 
-Po zakończeniu warstwy dostępu do danych i warstwy logiki biznesowej i mieć spójne strony układu i nawigacja w witrynie zdefiniowane, jesteśmy gotowi do rozpocząć eksplorowanie typowych wzorców do raportowania. W ramach trzech kolejnych samouczków przyjrzymy podstawowe zadania raportowania, wyświetlanie danych pobranych z LOGIKI w kontrolkach GridView DetailsView i FormView.
+Po ukończeniu warstwy dostępu do danych i warstwy logiki biznesowej oraz mającej zdefiniowany spójny układ strony i nawigację w witrynie wszystko jest gotowe do rozpoczęcia eksplorowania wspólnych wzorców raportowania. W następnych trzech samouczkach zaobserwujemy podstawowe zadania raportowania zawierające dane pobrane z LOGIKI biznesowej w kontrolkach GridView, DetailsView i FormView.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Omówienie stron wzorcową platformy ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
-- [Strony wzorcowe na platformie ASP.NET 2.0](http://odetocode.com/Articles/419.aspx)
-- [ASP.NET 2.0 Design Templates](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
-- [Przegląd Nawigacja witryny ASP.NET](https://msdn.microsoft.com/library/e468hxky.aspx)
-- [Badanie programu ASP.NET 2.0 w nawigacji po witrynie](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Funkcje nawigacji 2.0 witryny ASP.NET](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
-- [Stany widoków środowiska ASP.NET opis](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
-- [Instrukcje: Włącz śledzenie dla strony ASP.NET](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
-- [Formanty użytkownika ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
+- [ASP.NET strony wzorcowe — Omówienie](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
+- [Strony wzorcowe w ASP.NET 2,0](http://odetocode.com/Articles/419.aspx)
+- [Szablony projektów w programie ASP.NET 2,0](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
+- [Nawigacja w witrynie ASP.NET — Omówienie](https://msdn.microsoft.com/library/e468hxky.aspx)
+- [Badanie nawigacji w witrynie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [Funkcje nawigowania po witrynie ASP.NET 2,0](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
+- [Informacje o stanie widoku ASP.NET](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
+- [Instrukcje: Włączanie śledzenia dla strony ASP.NET](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
+- [Kontrolki użytkownika ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Liz Shulok Dennis Patterson i Hilton Giesenow. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Liz Shulok, Dennis Patterson i Hilton Giesenow. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Poprzednie](creating-a-business-logic-layer-vb.md)
+> [Ubiegł](creating-a-business-logic-layer-vb.md)

@@ -1,177 +1,177 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
-title: Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure | Dokumentacja firmy Microsoft
+title: Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure | Microsoft Docs
 author: MikeWasson
-description: Ta książka elektroniczna przeprowadzi Cię przez to podejście oparte na wzorcach do tworzenia rozwiązań w chmurze w rzeczywistych warunkach. Wzorce dotyczą procesu opracowywania oraz aby...
+description: Ta książka elektroniczna przeprowadzi Cię przez oparte na wzorcach podejście do tworzenia rozwiązań w chmurze w rzeczywistych warunkach. Wzorce stosują się do procesu tworzenia, a także do...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 7daf08a88c614288170d676e665403cda244218a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 8a4ef3aa37a9296e92fbeb513968e3abeee072d0
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118667"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585521"
 ---
-# <a name="building-real-world-cloud-apps-with-azure"></a>Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure
+# <a name="building-real-world-cloud-apps-with-azure"></a>Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> Ta książka elektroniczna przeprowadzi Cię przez to podejście oparte na wzorcach do tworzenia rozwiązań w chmurze w rzeczywistych warunkach. Wzorce dotyczą procesu opracowywania oraz architektury i kodowania.
+> Ta książka elektroniczna przeprowadzi Cię przez oparte na wzorcach podejście do tworzenia rozwiązań w chmurze w rzeczywistych warunkach. Wzorce stosują się do procesu tworzenia, a także do praktyk architektury i kodowania.
 > 
-> Zawartość jest oparta na prezentacji, opracowane przez Scotta Guthriego i przedstawił na norweskiej przez niego na norweskiej deweloperów (ndc Developers Conference) w czerwcu 2013 ([część 1](http://vimeo.com/68215538), [część 2](http://vimeo.com/68215602)) i Microsoft Tech Ed Australia Września 2013 r ([część 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [część 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Wiele innych](more-patterns-and-guidance.md#acknowledgments) aktualizowana i rozszerzana podczas była ona z wideo na formę tekstową.
+> Zawartość jest oparta na prezentacji opracowanej przez Scott Guthrie i dostarczonej przez nią na konferencji norweskich deweloperów (NDC) w czerwcu 2013 ([część 1](http://vimeo.com/68215538), [część 2](http://vimeo.com/68215602)), a w firmie Microsoft Tech Ed Australia we wrześniu, 2013 ([część 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [część 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Wiele innych](more-patterns-and-guidance.md#acknowledgments) zaktualizował i powiększał zawartość podczas przechodzenia z filmu wideo do postaci pisanej.
 
-## <a name="intended-audience"></a>Odbiorców
+## <a name="intended-audience"></a>Zamierzone odbiorcy
 
-Deweloperzy, którzy są zastanawiasz się programowaniem dla chmury, rozważasz przejście do chmury lub rozpoczynasz projektowanie aplikacji w chmurze znajduje się w tym miejscu Zwięzłe omówienie najważniejszych koncepcji i praktyk, które są im potrzebne, aby dowiedzieć się. Pojęcia zostały zilustrowane konkretnymi przykładami i każdego łącza rozdziału, do innych zasobów, aby uzyskać więcej szczegółowych informacji. Przykłady i linki do dodatkowych zasobów dotyczą usług oraz struktur firmy Microsoft, ale przedstawione zasady dotyczą innych struktur projektowania sieci web i również w środowiskach w chmurze.
+Deweloperzy, którzy chcesz wiedzieć się na opracowywanie zawartości w chmurze, biorąc pod uwagę przejście do chmury, lub nowe do programowania w chmurze, znajdziesz zwięzły przegląd najważniejszych koncepcji i praktyk, które muszą znać. Koncepcje są zilustrowane konkretnymi przykładami, a każdy rozdział łączy do innych zasobów, aby uzyskać bardziej szczegółowe informacje. Przykłady i linki do dodatkowych zasobów są przeznaczone dla platform i usług firmy Microsoft, ale przedstawione zasady mają zastosowanie także do innych struktur projektowania sieci Web i środowisk chmury.
 
-Deweloperzy, którzy już się programowaniem dla chmury może się okazać, że w tym miejscu pomysły, które pomogą zwiększyć ich osiągania sukcesów. Każdy rozdział w serii może zostać odczytany niezależnie, dzięki czemu można wybrać i wybrać polecenie tematów, które interesują Cię.
+Deweloperzy, którzy już opracowują chmurę, mogą znaleźć tutaj pomysły, które pozwolą zwiększyć ich powodzenie. Każdy rozdział w serii może być odczytywany niezależnie, dzięki czemu możesz wybierać i wybierać interesujące Cię tematy.
 
-Każdy, kto obserwowane Scott Guthrie *tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure* prezentacji oraz profesjonalistą, bardziej szczegółowe informacje i zaktualizowane informacje znajdzie, które w tym miejscu.
+Każda osoba, która czuje Twoje *aplikacje w chmurze w świecie rzeczywistym z prezentacją platformy Azure* i potrzebuje większej ilości szczegółów i zaktualizowanych informacji, znajdzie się tutaj.
 
 <a id="patterns"></a>
 ## <a name="cloud-development-patterns"></a>Wzorce programowania w chmurze
 
-Ta książka elektroniczna wyjaśnia trzunastu zalecana wzorce projektowania aplikacji w chmurze. "Wzorzec" jest używany w tym miejscu szeroko oznacza zalecany sposób, aby wykonywały: najlepszy sposób dotyczące programowania, projektowania i programowania aplikacji w chmurze. Są to kluczowe wzorce, które pomogą Ci "można podzielić na pit powodzenia", po ich wykonaniu.
+Ta książka elektroniczna wyjaśnia trzynaste zalecane wzorce do programowania w chmurze. "Wzorzec" jest tutaj używany w szerokim sensie, aby określić zalecaną metodę wykonywania czynności: jak najlepiej zapoznać się z projektowaniem, projektowaniem i kodowaniem aplikacji w chmurze. Są to kluczowe wzorce, które pomogą Ci "przystąpić do sukcesu", jeśli są one przestrzegane.
 
-- [Automatyzowanie wszystkiego](automate-everything.md).
+- [Automatyzuj wszystko](automate-everything.md).
 
-    - Aby zmaksymalizować wydajność i zminimalizować błędy w procesach powtarzających się za pomocą skryptów.
-    - Pokaz: Skrypty do zarządzania platformy Azure.
+    - Używaj skryptów, aby zmaksymalizować wydajność i zminimalizować błędy w powtarzalnych procesach.
+    - Demonstracja: skrypty zarządzania platformy Azure.
 - [Kontrola źródła](source-control.md). 
 
-    - Skonfiguruj rozgałęziona struktura w kontroli źródła, aby ułatwić przepływ pracy DevOps.
-    - Pokaz: Dodaj skrypty do kontroli źródła.
-    - Pokaz: utrzymywanie poufnych danych wyewidencjonowane z kontroli źródła.
-    - Pokaz: Użyj usługi Git w programie Visual Studio.
+    - Skonfiguruj strukturę rozgałęziania w kontroli źródła, aby ułatwić przepływ pracy DevOps.
+    - Demonstracja: Dodawanie skryptów do kontroli źródła.
+    - Demonstracja: Zachowaj dane poufne z kontroli źródła.
+    - Demonstracja: Użyj narzędzia Git w programie Visual Studio.
 - [Ciągła integracja i dostarczanie](continuous-integration-and-continuous-delivery.md). 
 
-    - Automatyzuj kompilowanie i wdrażanie za pomocą każdego ewidencjonowania kontroli źródła.
-- [Najlepsze praktyki programowania aplikacji w sieci Web](web-development-best-practices.md). 
+    - Automatyzowanie kompilowania i wdrażania przy każdej kontroli źródła.
+- [Najlepsze rozwiązania dotyczące programowania aplikacji sieci Web](web-development-best-practices.md). 
 
-    - Zachowaj warstwy internetowej bezstanowe.
-    - Pokaz: skalowanie i automatyczne skalowanie aplikacji sieci Web w usłudze Azure App Service.
+    - Zachowaj bezstanowy poziom warstwy sieci Web.
+    - Demonstracja: skalowanie i skalowanie automatyczne w Web Apps w Azure App Service.
     - Należy unikać stanu sesji.
-    - Za pomocą sieci CDN rezerwowe, gdy sieć CDN jest niedostępny.
-    - Użyj modelu programowania asynchronicznego.
-    - Pokaz: asynchronicznych w ASP.NET MVC i platformy Entity Framework.
+    - Użyj usługi CDN z rezerwą, gdy sieć CDN jest niedostępna.
+    - Użyj asynchronicznego modelu programowania.
+    - Demonstracja: async w ASP.NET MVC i Entity Framework.
 - [Logowanie jednokrotne](single-sign-on.md). 
 
-    - Wprowadzenie do usługi Azure Active Directory.
-    - Pokaz: tworzenie aplikacji platformy ASP.NET, która używa usługi Azure Active Directory.
-- [Opcje przechowywania danych](data-storage-options.md). 
+    - Wprowadzenie do Azure Active Directory.
+    - Demonstracja: Tworzenie aplikacji ASP.NET, która używa Azure Active Directory.
+- [Opcje magazynu danych](data-storage-options.md). 
 
     - Typy magazynów danych.
-    - Jak wybrać odpowiedniego magazynu danych.
-    - Pokaz: Azure SQL Database.
+    - Jak wybrać odpowiedni magazyn danych.
+    - Demonstracja: Azure SQL Database.
 - [Strategie partycjonowania danych](data-partitioning-strategies.md). 
 
-    - Partycjonowanie danych, pionowo, poziomo lub obydwa elementy w ułatwienia, skalowanie relacyjnej bazy danych.
-- [Magazyn obiektów blob bez struktury](unstructured-blob-storage.md). 
+    - Podziel dane na partycje w pionie lub w poziomie, aby ułatwić skalowanie relacyjnej bazy danych.
+- [Magazyn obiektów Blob bez struktury](unstructured-blob-storage.md). 
 
-    - Store plików w chmurze przy użyciu usługi blob service.
-    - Pokaz: przy użyciu usługi blob storage w aplikacji naprawić.
-- [Projektowanie pod kątem przetrwania awarii](design-to-survive-failures.md). 
+    - Przechowywanie plików w chmurze za pomocą usługi BLOB Service.
+    - Demonstracja: używanie usługi BLOB Storage w aplikacji poprawki IT.
+- [Zaprojektowanie w celu przetworzenia niepowodzeń](design-to-survive-failures.md). 
 
-    - Typy błędów.
-    - Zakres awarii.
+    - Typy niepowodzeń.
+    - Zakres niepowodzeń.
     - Zrozumienie umowy SLA.
-- [Monitorowanie i telemetria](monitoring-and-telemetry.md). 
+- [Monitorowanie i dane telemetryczne](monitoring-and-telemetry.md). 
 
-    - Dlaczego należy zarówno kupowanie aplikacji dane telemetryczne i Napisz własny kod do instrumentacji aplikacji.
-    - Pokaz: Narzędzie New Relic dla platformy Azure
-    - Pokaz: logowania aplikacji naprawić kod.
-    - Pokaz: wstrzykiwanie zależności w aplikacji naprawić.
-    - Pokaz: Obsługa wbudowane funkcje rejestrowania na platformie Azure.
-- [Obsługa błędu przejściowego](transient-fault-handling.md). 
+    - Dlaczego należy kupować aplikację telemetryczną i pisać własny kod w celu Instrumentacji swojej aplikacji.
+    - Demonstracja: nowy Relic dla platformy Azure
+    - Demonstracja: rejestrowanie kodu w aplikacji poprawki IT.
+    - Demonstracja: iniekcja zależności w aplikacji rozwiązania IT.
+    - Demonstracja: Wbudowana obsługa rejestrowania na platformie Azure.
+- [Przejściowa obsługa błędów](transient-fault-handling.md). 
 
-    - Użyj inteligentne logikę ponawiania/wycofywania, aby zminimalizować wpływ błędów przejściowych.
-    - Pokaz: ponawiania/wycofywania w Entity Framework 6.
-- [Rozproszonej pamięci podręcznej](distributed-caching.md). 
+    - Użyj inteligentnej logiki ponawiania/wycofywania, aby zmniejszyć wpływ błędów przejściowych.
+    - Demonstracja: ponowienie/wycofanie w Entity Framework 6.
+- [Buforowanie rozproszone](distributed-caching.md). 
 
-    - Zwiększanie skalowalności i obniżenie kosztów transakcji bazy danych za pomocą rozproszonej pamięci podręcznej.
-- [Wzorzec pracy skoncentrowany na kolejkach](queue-centric-work-pattern.md). 
+    - Zwiększenie skalowalności i obniżenie kosztów transakcji bazy danych za pomocą rozproszonej pamięci podręcznej.
+- [Wzorzec pracy skoncentrowanej na kolejkach](queue-centric-work-pattern.md). 
 
-    - Włączyć wysoką dostępność i zwiększanie skalowalności przez luźno sprzężenia warstw web i proces roboczy.
-    - Pokaz: Kolejki usługi Azure storage w aplikacji naprawić.
-- [Więcej w chmurze aplikacji wzorce i wskazówki](more-patterns-and-guidance.md).
-- [Dodatek: Poprawka go przykładowej aplikacji](the-fix-it-sample-application.md)
+    - Zapewnianie wysokiej dostępności i poprawianie skalowalności dzięki swobodnemu sprzęgu warstw sieci Web i procesu roboczego.
+    - Demonstracja: kolejki usługi Azure Storage w aplikacji poprawki IT.
+- [Więcej wzorców i wskazówek dotyczących aplikacji w chmurze](more-patterns-and-guidance.md).
+- [Dodatek: Przykładowa aplikacja Fix It](the-fix-it-sample-application.md)
 
     - Znane problemy
     - Najlepsze praktyki
-    - Jak pobrać, tworzenia, uruchamiania i wdrażania.
+    - Jak pobierać, kompilować, uruchamiać i wdrażać.
 
-Te wzorce stosowane do wszystkich środowisk w chmurze, ale firma Microsoft będzie pokazują je przy użyciu przykładów na podstawie technologii firmy Microsoft i usług, takich jak Visual Studio, Team Foundation Service, ASP.NET i Azure.
+Wzorce te mają zastosowanie do wszystkich środowisk w chmurze, ale będziemy je zilustrować przy użyciu przykładów opartych na technologiach i usługach firmy Microsoft, takich jak Visual Studio, Team Foundation Service, ASP.NET i Azure.
 
-Ta pozostałej w tym rozdziale wprowadza rozwiązać go przykładowej aplikacji i aplikacji sieci Web w środowisku chmury Azure App Service, które aplikacja naprawić jest uruchamiana w.
+W pozostałej części tego rozdziału przedstawiono przykładową aplikację do rozwiązywania problemów i Web Apps w Azure App Service środowisku chmury, w której działa aplikacja do rozwiązywania problemów.
 
 <a id="fixit"></a>
-## <a name="the-fix-it-sample-application"></a>Napraw go przykładowej aplikacji
+## <a name="the-fix-it-sample-application"></a>Przykładowa aplikacja do rozwiązywania problemów
 
-Większość zrzuty ekranu i przykłady kodu zamieszczone w tej książce elektronicznej opierają się na aplikacji rozwiązać go pierwotnie opracowana przez [Scott Guthrie](https://weblogs.asp.net/scottgu/) aby zademonstrować wzorce programowania aplikacji w chmurze zalecane i praktyk.
+Większość zrzutów ekranu i przykładów kodu pokazanych w tej książce elektronicznej jest oparta na rozwiązaniu IT, który pierwotnie opracowano przez [Scott Guthrie](https://weblogs.asp.net/scottgu/) , aby zademonstrować zalecane wzorce i praktyki projektowania aplikacji w chmurze.
 
-![Napraw strona główna aplikacji](introduction/_static/image1.png)
+![Strona główna aplikacji IT Fix it](introduction/_static/image1.png)
 
-Przykładowa aplikacja jest element roboczy prosty, system biletów. Jeśli musisz coś, co jest stała, Utwórz bilet i przypisz ktoś oraz innym osobom może zalogować się i zobacz bilety przypisane do nich i oznaczyć biletów, jako ukończone po zakończeniu pracy.
+Przykładowa aplikacja to prosty system tworzenia biletów dla elementów roboczych. Jeśli potrzebujesz czegoś określonego, utworzysz bilet i przypiszesz go do kogoś, a inni mogą się zalogować i zobaczyć przypisane do nich bilety i oznaczyć bilety jako ukończone, gdy zakończy się prace.
 
-Jest to standardowy projekt sieci web programu Visual Studio. Bazuje na platformie ASP.NET MVC, a korzysta z bazy danych programu SQL Server. Jego można uruchomić lokalnie w usługach IIS Express i którą można wdrożyć do witryny sieci Web platformy Azure do uruchamiania w chmurze. Możesz zalogować się przy użyciu uwierzytelniania formularzy i lokalną bazą danych lub za pomocą mediów społecznościowych, takich jak Google. (Później także pokażemy jak zalogować się przy użyciu konta organizacyjnego usługi Active Directory.)
+Jest to standardowy projekt sieci Web programu Visual Studio. Jest on oparty na ASP.NET MVC i używa bazy danych SQL Server. Może działać lokalnie w IIS Express i można ją wdrożyć w witrynie sieci Web systemu Azure, aby uruchomić ją w chmurze. Możesz zalogować się przy użyciu uwierzytelniania formularzy i lokalnej bazy danych lub przy użyciu dostawcy społecznościowego, takiego jak Google. (W dalszej części przedstawiono również sposób logowania przy użyciu konta organizacyjnego Active Directory).
 
-![Zaloguj się na stronie](introduction/_static/image2.png)
+![Strona logowania](introduction/_static/image2.png)
 
-Po zalogowaniu w można utworzyć bilet, przypisać go do innej i Przekaż obraz ma zostać naprawione.
+Po zalogowaniu możesz utworzyć bilet, przypisać go do kogoś i przekazać zdjęcie, które chcesz usunąć.
 
-![Utwórz zadanie poprawka](introduction/_static/image3.png)
+![Tworzenie rozwiązania do rozwiązywania problemów](introduction/_static/image3.png)
 
-![Napraw utworzono zadanie](introduction/_static/image4.png)
+![Napraw to zadanie](introduction/_static/image4.png)
 
-Można śledzić postępy elementów roboczych, który został utworzony, zobacz bilety przypisana, Wyświetl szczegóły biletu i Oznacz elementy jako ukończone.
+Możesz śledzić postęp utworzonych elementów roboczych, zobaczyć bilety przypisane do Ciebie, wyświetlić szczegóły biletu i oznaczyć elementy jako ukończone.
 
-Jest to bardzo prosta aplikacja z punktu widzenia funkcji, ale będzie zobaczysz, jak utworzyć ją tak, aby przeprowadzać skalowanie do milionów użytkowników i będą odporne na błędy bazy danych i zakończenia połączenia. Widoczna będzie również sposób tworzenia zautomatyzowanych i elastyczne rozwój przepływu roboczego, co pozwala w prosty sposób Rozpocznij pracę i zapewnić lepsze i lepsze aplikacji przez iteracja cyklu tworzenia oprogramowania, szybko i wydajnie.
+Jest to bardzo prosta aplikacja z perspektywy funkcji, ale zobaczysz, jak ją skompilować, aby można ją było skalować do milionów użytkowników i będzie ona odporna na uszkodzenia, takie jak awarie bazy danych i zakończenie połączenia. Zobaczysz również, jak utworzyć zautomatyzowany i Agile przepływ pracy programistycznej, który umożliwia uruchamianie prostej aplikacji i ulepszanie jej przez iterację cyklu programowania.
 
 <a id="waws"></a>
-## <a name="web-apps-in-azure-app-service"></a>Aplikacje sieci Web w usłudze Azure App Service
+## <a name="web-apps-in-azure-app-service"></a>Web Apps w Azure App Service
 
-W środowisku chmury używana dla aplikacji naprawić to usługa platformy Azure, który nazywamy witryn sieci Web. Ta usługa to sposób, możesz hostować własną aplikację internetową na platformie Azure bez konieczności tworzenia maszyn wirtualnych i ich aktualizowanie, zainstalować i skonfigurować usługi IIS itp. Firma Microsoft hostowanie witryny w naszych maszyn wirtualnych i automatycznie udostępnić kopii zapasowych i odzyskiwania oraz innych usług. Usługa witryny sieci Web w programach ASP.NET, Node.js, PHP i Python. Pozwala on na wdrażanie bardzo szybko przy użyciu programu Visual Studio, narzędzia Web Deploy, FTP, Git lub TFS. Zazwyczaj jest tylko kilka sekund pomiędzy po uruchomieniu wdrożenia aktualizacji jest dostępna za pośrednictwem Internetu. Wszystkie bezpłatnie rozpocząć pracę i możesz skalować w górę ze wzrostem natężenia ruchu.
+Środowisko chmury używane dla aplikacji do rozwiązywania problemów to usługa platformy Azure, która wywołuje witryny sieci Web. Ta usługa umożliwia hostowanie własnych aplikacji sieci Web na platformie Azure bez konieczności tworzenia maszyn wirtualnych i ich aktualizowania, instalowania i konfigurowania usług IIS itp. Twoja witryna jest hostowana na maszynach wirtualnych i automatycznie udostępnia kopie zapasowe i odzyskiwanie oraz inne usługi. Usługa witryny sieci Web współpracuje z ASP.NET, Node. js, PHP i Python. Umożliwia to szybkie wdrażanie przy użyciu programu Visual Studio, Web Deploy, FTP, Git lub TFS. Zwykle jest to zaledwie kilka sekund między rozpoczęciem wdrożenia a czasem dostępności aktualizacji przez Internet. Rozpoczęcie pracy jest bezpłatne i można skalować w górę w miarę wzrostu ruchu.
 
-W tle aplikacji sieci Web w usłudze Azure App Service udostępnia wiele składników architektury i funkcje, które trzeba samodzielnie tworzyć, jeśli miało hostować witrynę sieci web za pomocą usług IIS na własnych maszynach wirtualnych. Jeden składnik to wdrożenie punktu końcowego, który umożliwia skonfigurowanie usług IIS i automatycznie instaluje aplikację na tyle maszyn wirtualnych, jak chcesz uruchomić witryny.
+W tle Web Apps w Azure App Service udostępnia wiele składników i funkcji architektury, które trzeba skompilować, jeśli chcesz hostować witrynę sieci Web przy użyciu usług IIS na własnych maszynach wirtualnych. Jeden składnik jest punktem końcowym wdrożenia, który automatycznie konfiguruje usługi IIS i instaluje aplikację na tylu maszynach wirtualnych, w których chcesz uruchamiać lokację.
 
 ![Usługa wdrażania](introduction/_static/image5.png)
 
-Gdy użytkownik trafi w witrynie sieci web, te maszyny wirtualne usług IIS nie trafią bezpośrednio, komputery przechodzą za pośrednictwem [Routing żądań aplikacji (ARR)](https://www.iis.net/downloads/microsoft/application-request-routing) moduły równoważenia obciążenia. Można ich użyć z własnymi serwerami, ale w tym miejscu zaletą jest na to, że są one skonfigurowane dla Ciebie automatycznie. Używają heurystyki inteligentnego, która ma pod uwagę czynniki, takie jak koligacja sesji, głębokość kolejki w usługach IIS, a użycie procesora CPU na każdym maszyny do kierowania ruchu do maszyn wirtualnych hostujących witryny sieci web.
+Gdy użytkownik trafi w stronę sieci Web, nie trafią bezpośrednio z maszyn wirtualnych usług IIS, przechodzą przez moduły równoważenia obciążenia [routingu żądań aplikacji (ARR)](https://www.iis.net/downloads/microsoft/application-request-routing) . Można ich używać z własnymi serwerami, ale Skorzystaj z tego, że są one automatycznie konfigurowane. Korzystają one z inteligentnego algorytmu heurystycznego, który uwzględnia takie czynniki jak koligacja sesji, Głębokość kolejki w usługach IIS i użycie procesora CPU na poszczególnych maszynach, aby skierować ruch do maszyn wirtualnych, które obsługują witrynę sieci Web.
 
 ![Moduł równoważenia obciążenia ARR](introduction/_static/image6.png)
 
-Jeśli maszyna ulegnie awarii, Azure automatycznie ściągany z obrotu, uruchamia nowe wystąpienie maszyny Wirtualnej i rozpoczyna kierowanie ruchu do nowego wystąpienia--wszystko bez dół czasu dla aplikacji.
+Jeśli maszyna ulegnie awarii, platforma Azure automatycznie wyciąga ją od obrotu, przesuwa nowe wystąpienie maszyny wirtualnej i rozpoczyna kierowanie ruchu do nowego wystąpienia — wszystko to bez czasu w czasie dla aplikacji.
 
-![Automatyczne odzyskiwanie po awarii maszyny](introduction/_static/image7.png)
+![Automatyczne odzyskiwanie z awarii komputera](introduction/_static/image7.png)
 
-Wszystko to odbywa się automatycznie. To wszystko, co należy zrobić, Utwórz witrynę sieci web i wdrażanie aplikacji, za pomocą programu Windows PowerShell, Visual Studio lub portalu zarządzania systemu Azure.
+Wszystkie te działania są wykonywane automatycznie. Wystarczy utworzyć witrynę sieci Web i wdrożyć w niej aplikację przy użyciu programu Windows PowerShell, programu Visual Studio lub portalu zarządzania Azure.
 
-Aby uzyskać szybki i łatwy samouczek krok po kroku, który pokazuje, jak utworzyć aplikację sieci web w programie Visual Studio i wdrożyć ją do witryny sieci Web platformy Azure, zobacz [Rozpoczynanie pracy z platformą Azure i programu ASP.NET](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+Aby zapoznać się z szybkim i łatwym samouczekem krok po kroku, w którym pokazano, jak utworzyć aplikację sieci Web w programie Visual Studio i wdrożyć ją w witrynie sieci Web platformy Azure, zobacz [Rozpoczynanie pracy z platformą Azure i ASP.NET](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 <a id="summary"></a>
 ## <a name="summary"></a>Podsumowanie
 
-To wprowadzenie udostępnił listę tematów, które obejmie książki, zrzuty ekranu przykładowej aplikacji i krótkie omówienie aplikacji sieci Web w środowisku chmury w usłudze Azure App Service. Jedną z zalet tworzenia aplikacji w i w chmurze jest łatwe zautomatyzować powtarzalne zadania, takie jak tworzenie środowiska testowego i wdrażanie kodu. Jak to zrobić, to znaczy, temat [następny rozdział](automate-everything.md).
+W tym wprowadzeniu przedstawiono listę tematów, które obejmuje książka, zrzuty ekranu przykładowej aplikacji oraz krótkie omówienie Web Apps w Azure App Service środowisku chmury. Jedną z zalet tworzenia aplikacji w programie i w chmurze jest łatwe Automatyzowanie powtarzalnych zadań programistycznych, takich jak tworzenie środowiska testowego i wdrażanie kodu. Jak to zrobić, jest to temat w [następnym rozdziale](automate-everything.md).
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji na temat omówione w tym rozdziale tematy zobacz następujące zasoby.
+Aby uzyskać więcej informacji na temat tematów omówionych w tym rozdziale, zobacz następujące zasoby.
 
-Dokumentacja:
+Łączoną
 
-- [Aplikacji sieci Web w usłudze Azure App Service](https://azure.microsoft.com/services/app-service/web/). Strona portalu dokumentacji platformy Azure o usłudze Web Apps.
-- [Aplikacje sieci Web, usług w chmurze i maszyn wirtualnych: Kiedy korzystać z czego?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, jak pokazano w tym rozdziale jest tylko jeden z trzech sposobów, które można uruchamiać aplikacje sieci web na platformie Azure. W tym artykule wyjaśniono różnice między trzy sposoby i zawiera wskazówki dotyczące sposobu wybierania, która jest odpowiednia dla danego scenariusza. Podobnie jak witryny sieci Web usług w chmurze jest funkcja PaaS platformy Azure. Maszyny wirtualne są funkcją IaaS. Opis rozwiązania paas a IaaS, zawiera [opcje danych](data-storage-options.md#paasiaas) rozdziale.
+- [Web Apps w Azure App Service](https://azure.microsoft.com/services/app-service/web/). Strona portalu dla dokumentacji platformy Azure dotyczącej Web Apps.
+- [Web Apps, Cloud Services i maszyny wirtualne: Kiedy używać tego programu?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, jak pokazano w tym rozdziale, to tylko jeden z trzech sposobów uruchamiania aplikacji sieci Web na platformie Azure. W tym artykule wyjaśniono różnice między trzema sposobami i przedstawiono wskazówki dotyczące wyboru, który z nich jest odpowiedni dla danego scenariusza. Podobnie jak w przypadku witryn sieci Web, Cloud Services jest funkcją PaaS platformy Azure. Maszyny wirtualne są funkcją IaaS. Aby uzyskać wyjaśnienie PaaS i IaaS, zobacz rozdział [opcji danych](data-storage-options.md#paasiaas) .
 
 Filmy wideo:
 
-- [Scott Guthrie rozpoczyna się od kroku 0 — co to jest systemu operacyjnego w chmurze platformy Azure?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Architektura witryn sieci Web — za pomocą Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
-- [Wewnętrzne witryny sieci Web systemu Azure za pomocą i Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
+- [Scott Guthrie jest uruchamiany w kroku 0 — co to jest system operacyjny w chmurze platformy Azure?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Architektura witryn sieci Web — z Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [Wewnętrzne witryny sieci Web platformy Azure z imię Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 > [!div class="step-by-step"]
 > [Next](automate-everything.md)

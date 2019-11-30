@@ -1,147 +1,147 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
-title: Opis wyzwalaczy UpdatePanel ASP.NET AJAX | Dokumentacja firmy Microsoft
+title: Informacje o wyzwalaczach UpdatePanel ASP.NET AJAX | Microsoft Docs
 author: scottcate
-description: Podczas pracy w edytorze znaczników w programie Visual Studio, można zauważyć (z funkcji IntelliSense), istnieją dwa typy elementów podrzędnych kontrolki UpdatePanel. Jedną z pytania "Wh"...
+description: Podczas pracy w edytorze znaczników w programie Visual Studio możesz zauważyć (z IntelliSense), że istnieją dwa elementy podrzędne formantu UpdatePanel. Jeden z WH...
 ms.author: riande
 ms.date: 03/12/2008
 ms.assetid: faab8503-2984-48a9-8a40-7728461abc50
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: c61d10c28ba3975cb6fbadc6eda1f7a3c9406dfc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b1cc869f373d4f8283b4d92af74707c3f11fef61
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114612"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74588829"
 ---
 # <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Objaśnienie wyzwalaczy UpdatePanel ASP.NET AJAX
 
 przez [Scott Cate](https://github.com/scottcate)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial02_Triggers_cs.pdf)
 
-> Podczas pracy w edytorze znaczników w programie Visual Studio, można zauważyć (z funkcji IntelliSense), istnieją dwa typy elementów podrzędnych kontrolki UpdatePanel. Jednym z nich jest element wyzwalaczy, który określa formanty na stronie (lub kontrolki użytkownika, jeśli używana jest jedna) który spowoduje wyzwolenie częściowe renderowanie kontrolki UpdatePanel, w której znajduje się element.
+> Podczas pracy w edytorze znaczników w programie Visual Studio możesz zauważyć (z IntelliSense), że istnieją dwa elementy podrzędne formantu UpdatePanel. Jednym z nich jest element Triggers, który określa kontrolki na stronie (lub kontrolki użytkownika, jeśli są używane), które będą wyzwalać częściowe renderowanie formantu UpdatePanel, w którym znajduje się element.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Firmy Microsoft technologii ASP.NET oferuje zorientowane obiektowo i oparte na zdarzeniach model programowania i łączy w sobie go z korzyściami skompilowanego kodu. Jednak jego przetwarzania po stronie serwera modelu ma kilka wady związane z technologii, z których wiele może zostać zlikwidowane przez nowych funkcji dostępnych w rozszerzenia AJAX programu Microsoft ASP.NET 3.5. Te rozszerzenia umożliwiają wiele nowych funkcji rozbudowanych aplikacji klienckich, w tym częściowe renderowanie stron bez konieczności odświeżenie całej strony, możliwość dostępu do usług sieci Web za pośrednictwem skrypt po stronie klienta (w tym ASP.NET, profilowania API) i rozbudowane API po stronie klienta przeznaczony do utworzenia duplikatów, wiele systemów kontroli w zestaw formantów po stronie serwera ASP.NET.
+Technologia ASP.NET firmy Microsoft zapewnia model programowania zorientowany obiektowo i oparty na zdarzeniach oraz kieruje go do zalet skompilowanego kodu. Jednak model przetwarzania po stronie serwera ma kilka wad związanych z technologią, z których wiele może być rozwiązywana przez nowe funkcje zawarte w rozszerzeniach Microsoft ASP.NET AJAX 3,5. Te rozszerzenia umożliwiają korzystanie z wielu nowych zaawansowanych funkcji klienta, w tym częściowego renderowania stron, bez konieczności odświeżania pełnych stron, możliwość uzyskiwania dostępu do usług sieci Web za pośrednictwem skryptu klienta (w tym interfejsu API profilowania ASP.NET) i szerokiego interfejsu API po stronie klienta zaprojektowana do dublowania wielu schematów formantów widzianych w zestawie kontroli po stronie serwera ASP.NET.
 
-Ten oficjalny dokument sprawdza, czy funkcje wyzwalaczy XML ASP.NET AJAX `UpdatePanel` składnika. Wyzwalacze XML zapewniają szczegółową kontrolę nad składników, które mogą powodować częściowe renderowanie określonych formantów UpdatePanel.
+Ten oficjalny dokument analizuje funkcje wyzwalaczy XML składnika ASP.NET `UpdatePanel` AJAX. Wyzwalacze XML zapewniają szczegółową kontrolę nad składnikami, które mogą powodować częściowe renderowanie dla określonych kontrolek UpdatePanel.
 
-Ten oficjalny dokument zależy od wersji Beta 2 programu .NET Framework 3.5 i Visual Studio 2008. Rozszerzenia AJAX programu ASP.NET, wcześniej zestaw dodatku, które są przeznaczone dla programu ASP.NET 2.0 są teraz wbudowane w bibliotece klas programu .NET Framework Base. Ten oficjalny dokument również założono, że będzie on pracować przy użyciu programu Visual Studio 2008, nie Visual Web Developer Express i zapewnia wskazówki, zgodnie z interfejsu użytkownika programu Visual Studio (chociaż fragmentów kodu będą całkowicie zgodne, niezależnie od tego środowisko programistyczne).
+Niniejszy dokument jest oparty na wersji beta 2 .NET Framework 3,5 i Visual Studio 2008. Rozszerzenia AJAX ASP.NET, wcześniej zestaw dodatków, które są przeznaczone dla ASP.NET 2,0, są teraz zintegrowane z biblioteką klas podstawowych .NET Framework. W tym dokumencie przyjęto również założenie, że użytkownik pracuje z programem Visual Studio 2008, a nie z Visual Web Developer Express i zapewni wskazówki zgodne z interfejsem użytkownika programu Visual Studio (chociaż listy kodu będą całkowicie zgodne, niezależnie od środowisko programistyczne).
 
 ## <a name="triggers"></a>*Wyzwalacze*
 
-Wyzwalacze dla danej kontrolki UpdatePanel domyślnie automatycznie uwzględnia formanty podrzędne, które wywołują odświeżenie strony, w tym (na przykład) pól tekstowych, które mają ich `AutoPostBack` właściwością **true**. Jednak wyzwalaczy może także stanowić sposób deklaratywny przy użyciu znaczników; odbywa się w obrębie `<triggers>` sekcji deklaracji kontrolki UpdatePanel. Mimo że jest możliwy za pośrednictwem wyzwalaczy `Triggers` właściwość kolekcji, zalecane jest, czy rejestrujesz się wszelkie wyzwalacze częściowe renderowanie w czasie wykonywania (na przykład jeśli formant nie jest dostępna w czasie projektowania) przy użyciu `RegisterAsyncPostBackControl(Control)` metody Obiekt strony, w ramach ScriptManager `Page_Load` zdarzeń. Należy pamiętać, że strony są bezstanowe, a zatem należy ponownie zarejestrować tych kontrolek za każdym razem, gdy są one tworzone.
+Wyzwalacze dla danego elementu UpdatePanel domyślnie automatycznie zawierają wszystkie kontrolki podrzędne, które wywołują ogłaszanie zwrotne, w tym (na przykład) kontrolki TextBox, które mają właściwość `AutoPostBack` ustawioną na **wartość true**. Wyzwalacze mogą jednak być również uwzględniane deklaratywnie przy użyciu znaczników. jest to wykonywane w sekcji `<triggers>` deklaracji kontrolki UpdatePanel. Chociaż wyzwalacze są dostępne za pośrednictwem właściwości kolekcji `Triggers`, zaleca się zarejestrowanie wszelkich częściowych wyzwalaczy renderowania w czasie wykonywania (na przykład jeśli kontrolka nie jest dostępna w czasie projektowania) przy użyciu metody `RegisterAsyncPostBackControl(Control)` obiektu ScriptManager dla strony w ramach zdarzenia `Page_Load`. Pamiętaj, że strony są bezstanowe i dlatego należy je ponownie zarejestrować za każdym razem, gdy są tworzone.
 
-Włączenie wyzwalacza automatycznego podrzędnych można także wyłączyć (tak, aby automatycznie formantów podrzędnych, które tworzyć ogłaszania zwrotnego nie wyzwalają częściowe renderuje), ustawiając `ChildrenAsTriggers` właściwości **false**. Dzięki temu można największą elastyczność podczas przypisywania które określonej kontrolki może wywołać renderowania strony i jest to zalecane, tak aby deweloper będzie wyrazić zgodę na odpowiadanie na zdarzenia, a nie wszelkie zdarzenia, które mogą wystąpić podczas obsługi.
+Automatyczne dołączanie wyzwalacza podrzędnego może być również wyłączone (w związku z tym, że formanty podrzędne, które tworzą ogłaszanie zwrotne nie wyzwalają automatycznie renderowania częściowego), ustawiając właściwość `ChildrenAsTriggers` na **false**. Pozwala to na największą elastyczność przypisywania określonych kontrolek, które mogą wywoływać renderowanie strony, i jest zalecane, aby deweloper mógł odpowiedzieć na zdarzenie, zamiast obsługiwać wszystkie zdarzenia, które mogą wystąpić.
 
-Należy pamiętać, że gdy formantów UpdatePanel są zagnieżdżone, kiedy UpdateMode jest ustawiona na **warunkowego**, jeśli podrzędnych kontrolki UpdatePanel zostanie wywołany, ale element nadrzędny nie jest następnie podrzędne zostaną odświeżone kontrolki UpdatePanel. Jednak jeśli element nadrzędny kontrolki UpdatePanel są odświeżane, następnie podrzędnych kontrolki UpdatePanel będzie również odświeżane.
+Należy pamiętać, że gdy kontrolki UpdatePanel są zagnieżdżone, gdy element UpdateMode ma wartość **Conditional**, w przypadku wyzwolenia podrzędnego elementu UpdatePanel zostanie odświeżony tylko podrzędny element UpdatePanel. Jeśli jednak nadrzędny element UpdatePanel zostanie odświeżony, element podrzędny UpdatePanel również zostanie odświeżony.
 
-## <a name="the-lttriggersgt-element"></a>*&lt;Wyzwalaczy&gt; — Element*
+## <a name="the-lttriggersgt-element"></a>*&lt;wyzwalacze&gt; elementu*
 
-Podczas pracy w edytorze znaczników w programie Visual Studio, można zauważyć (z funkcji IntelliSense), istnieją dwa typy elementów podrzędnych elementu `UpdatePanel` kontroli. Element najczęściej spotykanych jest `<ContentTemplate>` element, który hermetyzuje zasadniczo zawartości, która odbędzie się przez zespół aktualizacji (zawartość, dla którego umożliwiamy częściowe renderowanie). Inny element `<Triggers>` element, który określa formanty na stronie (lub kontrolki użytkownika, jeśli używana jest jedna) który spowoduje wyzwolenie częściowe renderowanie kontrolki UpdatePanel, w którym &lt;wyzwalaczy&gt; znajduje się element.
+Podczas pracy w edytorze znaczników w programie Visual Studio możesz zauważyć (z IntelliSense), że istnieją dwa elementy podrzędne formantu `UpdatePanel`. Najczęściej widzianym elementem jest element `<ContentTemplate>`, który zasadniczo hermetyzuje zawartość, która będzie przechowywana przez panel aktualizacji (zawartość, dla której włączane jest renderowanie częściowe). Drugi element to `<Triggers>` element, który określa kontrolki na stronie (lub kontrolki użytkownika, jeśli jest używany), które będą wyzwalać częściowe renderowanie formantu UpdatePanel, w którym znajduje się &lt;wyzwalacze&gt; elementu.
 
-`<Triggers>` Element może zawierać dowolną liczbę każdego dwa węzły podrzędne: `<asp:AsyncPostBackTrigger>` i `<asp:PostBackTrigger>`. Przyjmują dwa atrybuty `ControlID` i `EventName`oraz można określić dowolną kontrolkę w bieżącej jednostce hermetyzacji (na przykład jeśli kontrolki UpdatePanel znajduje się w obrębie kontrolka użytkownika sieci Web, możesz nie należy próbować przywołać kontrolki w Strona, na którym będzie przechowywany kontrolki użytkownika).
+Element `<Triggers>` może zawierać dowolną liczbę każdego z dwóch węzłów podrzędnych: `<asp:AsyncPostBackTrigger>` i `<asp:PostBackTrigger>`. Oba te elementy akceptują dwa atrybuty, `ControlID` i `EventName`i mogą określać dowolną kontrolę w bieżącej jednostce hermetyzacji (na przykład jeśli formant UpdatePanel znajduje się w kontrolce użytkownika sieci Web, nie należy próbować odwołać się do kontrolki na stronie, w której znajduje się kontrolka użytkownika).
 
-`<asp:AsyncPostBackTrigger>` Element jest szczególnie przydatne w przypadku, w tym, że można wskazać, każde zdarzenie w kontrolce, która istnieje jako element podrzędny elementu *wszelkie* kontrolki UpdatePanel w jednostce hermetyzacji i nie tylko kontrolki UpdatePanel, w którym ten wyzwalacz jest elementem podrzędnym . W związku z tym każdy formant będzie możliwe do wyzwalania aktualizacji stron częściowych.
+Element `<asp:AsyncPostBackTrigger>` jest szczególnie przydatny w odniesieniu do każdego zdarzenia z formantu, który istnieje jako element podrzędny *dowolnego* formantu UpdatePanel w jednostce hermetyzacji, a nie tylko elementu UpdatePanel, pod którym ten wyzwalacz jest elementem podrzędnym. W ten sposób można wykonać każdą kontrolkę, aby wyzwolić aktualizację strony częściowej.
 
-Podobnie `<asp:PostBackTrigger>` element może być użyty do renderowania strony częściowej wyzwalacza, ale taki, który wymaga pełnego przesłania danych do serwera. Ten element wyzwalacza można również wymusić renderowania pełnej strony, gdy formant, w przeciwnym razie powodowało zwykle renderowania strona częściowa (na przykład w przypadku, gdy `Button` formant istnieje w `<ContentTemplate>` element kontrolki UpdatePanel). Ponownie PostBackTrigger element można określić dowolną kontrolkę, która jest elementem podrzędnym kontrolki UpdatePanel w bieżącej jednostce hermetyzacji.
+Podobnie element `<asp:PostBackTrigger>` może służyć do wyzwalania częściowego renderowania strony, ale jeden, który wymaga pełnego przeprowadzenia rundy na serwerze. Tego elementu wyzwalacza można również użyć, aby wymusić renderowanie całej strony, gdy kontrolka w przeciwnym razie normalnie wyzwoli częściowe renderowanie strony (na przykład gdy kontrolka `Button` istnieje w `<ContentTemplate>` elemencie formantu UpdatePanel). Ponownie element PostBackTrigger może określić dowolny formant, który jest elementem podrzędnym dowolnego formantu UpdatePanel w bieżącej jednostce hermetyzacji.
 
-## <a name="lttriggersgt-element-reference"></a>*&lt;Wyzwalacze&gt; odwołanie do elementu*
+## <a name="lttriggersgt-element-reference"></a>*Wyzwalacze &lt;&gt; odwołania do elementu*
 
-*Elementy podrzędne znaczników:*
+*Elementy potomne znaczników:*
 
-| **Tag** | **Opis** |
+| **Seryjn** | **Opis** |
 | --- | --- |
-| &lt;asp:AsyncPostBackTrigger&gt; | Określa kontrolkę i zdarzenia, które spowoduje, że aktualizacji stron częściowych dla kontrolki UpdatePanel, który zawiera odwołanie do tego wyzwalacza. |
-| &lt;asp:PostBackTrigger&gt; | Określa kontrolkę i zdarzenia, które spowoduje, że cała strona aktualizacji (odświeżenie całej strony). Ten tag może służyć do wymusić odświeżanie pełne, gdy formant, w przeciwnym razie będą wyzwalać częściowe renderowanie. |
+| &lt;ASP: AsyncPostBackTrigger&gt; | Określa kontrolkę i zdarzenie, które spowodują aktualizację strony częściowej dla elementu UpdatePanel, który zawiera odwołanie tego wyzwalacza. |
+| &lt;ASP: PostBackTrigger&gt; | Określa kontrolkę i zdarzenie, które spowodują aktualizację pełnej strony (odświeżanie pełne strony). Ten tag może służyć do wymuszania pełnego odświeżenia, gdy kontrolka w przeciwnym razie wyzwolenie renderowania częściowego. |
 
-## <a name="walkthrough-cross-updatepanel-triggers"></a>*Przewodnik: Wyzwalaczy Cross UpdatePanel*
+## <a name="walkthrough-cross-updatepanel-triggers"></a>*Przewodnik: wyzwalacze krzyżowe-UpdatePanel*
 
-1. Tworzenie nowej strony programu ASP.NET, za pomocą obiektu ScriptManager skonfigurować, aby włączyć częściowe renderowanie. Dodaj dwa UpdatePanels do tej strony — w pierwszym, obejmują kontrolkę typu etykieta (Label1) oraz dwie kontrolki przycisku (Button1 i Button2). Button1 powinna być widoczna nazwa kliknij, aby zaktualizować obydwa i Button2 powinna być widoczna nazwa kliknij, aby zaktualizować to lub coś, co w tym kierunku. W drugiej kontrolki UpdatePanel zawierają tylko kontrolkę typu etykieta etykiety (2), ale ustaw jego właściwość ForeColor na coś innego niż domyślny, odróżnić go.
-2. Ustaw właściwość UpdateMode tagów obie kontrolki UpdatePanel **warunkowego**.
+1. Utwórz nową stronę ASP.NET z obiektem ScriptManager ustawionym na włączenie renderowania częściowego. Dodaj dwa elementy UpdatePanel do tej strony — w pierwszej kolejności Dołącz kontrolkę etykieta (Label1) i dwie kontrolki przycisku (Button1 i Button2). Button1 powinien powiedzieć, że kliknij, aby zaktualizować zarówno, jak i Button2 powinien powiedzieć, że kliknij, aby zaktualizować ten element, lub coś obok tych wierszy. W drugim elemencie UpdatePanel Uwzględnij tylko kontrolkę etykieta (etykiety 2), ale ustaw jej Właściwość ForeColor na inną niż domyślna, aby odróżnić ją.
+2. Ustaw właściwość UpdateMode obu tagów UpdatePanel na **Conditional**.
 
-**Wyświetlanie 1: Markup for default.aspx:** 
+**Listing 1: Markup dla default. aspx:** 
 
 [!code-aspx[Main](understanding-asp-net-ajax-updatepanel-triggers/samples/sample1.aspx)]
 
-1. W obsłudze zdarzeń kliknięcia przycisku Button1 wartość Label1.Text i Label2.Text zależne od czasu (na przykład DateTime.Now.ToLongTimeString()). W przypadku obsługi zdarzeń kliknij Button2 należy ustawić tylko Label1.Text wartość zależne od czasu.
+1. W programie obsługi zdarzeń kliknięcia dla Button1 ustaw wartość Label1. Text i etykiety 2. Text na coś zależnego od czasu (np. DateTime. Now. ToLongTimeString ()). Dla programu obsługi zdarzeń kliknięcia dla Button2 ustaw wartość w polu Label1. Text.
 
-**Wyświetlanie 2: Plik CodeBehind (spacje) default.aspx.cs:** 
+**Lista 2: CodeBehind (przycięta) w default.aspx.cs:** 
 
 [!code-csharp[Main](understanding-asp-net-ajax-updatepanel-triggers/samples/sample2.cs)]
 
-1. Naciśnij klawisz F5, aby skompilować i uruchomić projekt. Należy pamiętać, że po kliknięciu aktualizacji zarówno paneli, zarówno etykiety zmienić tekst; Jednak po kliknięciu tego panelu aktualizacji, tylko Label1 aktualizacji.
+1. Naciśnij klawisz F5, aby skompilować i uruchomić projekt. Należy pamiętać, że po kliknięciu przycisku Aktualizuj oba panele obie etykiety zmieniają tekst; Jednak po kliknięciu przycisku Aktualizuj ten panel tylko aktualizacje Label1.
 
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image2.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image1.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
 
-## <a name="under-the-hood"></a>*Kulisy*
+## <a name="under-the-hood"></a>*Pod okapem*
 
-Przy użyciu przykładu, który po prostu skonstruowany, firma Microsoft zapoznaj się z działania ASP.NET AJAX i sposobie działania naszych wyzwalaczy panelu między UpdatePanel. Aby to zrobić, firma Microsoft będzie działać przy użyciu źródła wygenerowanego strony HTML, a także rozszerzenia przeglądarki Mozilla Firefox, o nazwie FireBug — dzięki niemu można łatwo omówiony ogłaszania zwrotnego AJAX. Firma Microsoft będzie także narzędzie .NET odblaskowego przez Lutz Roeder. Oba te narzędzia są dostępne bezpłatnie w trybie online i znajduje się za pomocą wyszukiwania w Internecie.
+Korzystając ze współtworzonego przykładu, możemy zajrzeć się na to, co robi ASP.NET AJAX W tym celu będziemy korzystać z wygenerowanego kodu HTML ze źródłem strony, a także rozszerzenia Mozilla Firefox o nazwie FireBug-with, ale będziemy mogli łatwo przeanalizować ogłaszanie zwrotne AJAX. Użyjemy również narzędzia reflektora .NET Lutz Roeder. Oba te narzędzia są swobodnie dostępne w trybie online i można je znaleźć za pomocą wyszukiwania internetowego.
 
-Kontrola kodu źródłowego strony pokazuje prawie nie trzeba wykonywać żadnych niestandardowych; formantów UpdatePanel są renderowane jako `<div>` kontenerów, zobaczysz zasobów skryptów zawiera podany przez `<asp:ScriptManager>`. Dostępne są także niektóre nowe specyficzne dla AJAX wywołania PageRequestManager wewnętrzne biblioteki skryptów klienta AJAX. Na koniec widzimy dwa kontenery UpdatePanel — jeden z renderowanych `<input>` przyciski z dwóch `<asp:Label>` renderowaniu kontrolek `<span>` kontenerów. (Jeśli drzewo DOM w FireBug możesz sprawdzić, zauważysz, że etykiety są wygaszone, aby wskazać, że nie eksportują widocznej zawartości).
+Badanie kodu źródłowego strony pokazuje niemal poza normalnymi końcami; kontrolki UpdatePanel są renderowane jako kontenery `<div>` i zobaczysz, że zasób skryptu obejmuje dostarczone przez `<asp:ScriptManager>`. Istnieją także nowe wywołania AJAX specyficzne dla programu PageRequestManager, które są wewnętrzne dla biblioteki skryptów klienta AJAX. Na koniec widzimy dwa kontenery elementu UpdatePanel — jeden z renderowanymi `<input>`mi przyciskami z dwoma `<asp:Label>` kontrolkami renderowanymi jako kontenery `<span>`. (W przypadku inspekcji drzewa DOM w FireBug należy zauważyć, że etykiety są wygaszone, aby wskazać, że nie wytwarzają widocznej zawartości).
 
-Kliknij przycisk aktualizacji tego panelu i zwróć uwagę, że najważniejsze UpdatePanel zostanie zaktualizowane o bieżący czas serwera. W FireBug wybierz kartę konsoli, dzięki czemu można sprawdzić żądanie. Najpierw sprawdź parametry żądania POST:
+Kliknij przycisk Aktualizuj ten panel i zwróć uwagę na to, że górny element UpdatePanel zostanie zaktualizowany przy użyciu bieżącego czasu serwera. W FireBug, wybierz kartę konsoli, aby można było przeanalizować żądanie. Najpierw przejrzyj parametry żądania POST:
 
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image5.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image4.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image6.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image6.png))
 
-Należy pamiętać, że kontrolki UpdatePanel wskazuje kodu AJAX po stronie serwera dokładnie drzewo kontroli, które zostało wywołane za pomocą parametru ScriptManager1: `Button1` z `UpdatePanel1` kontroli. Teraz kliknij przycisk aktualizacji zarówno paneli. Następnie badanie odpowiedzi, widzimy rozdzielonych potoku serii zestaw zmiennych w ciąg. w szczególności widzimy najważniejsze UpdatePanel `UpdatePanel1`, ma materiałami jego HTML wysyłany do przeglądarki. Skrypt biblioteki klienckiej AJAX zastępuje UpdatePanel oryginalna zawartość HTML z nowej zawartości za pośrednictwem `.innerHTML` właściwości, a zatem serwer wysyła zmieniona zawartość z serwera w formacie HTML.
+Należy zauważyć, że element UpdatePanel został wskazany do kodu AJAX po stronie serwera, który dokładnie określa, że drzewo kontroli zostało wyzwolone za pośrednictwem parametru ScriptManager1: `Button1` kontrolki `UpdatePanel1`. Teraz kliknij przycisk Aktualizuj oba panele. Następnie podczas badania odpowiedzi zobaczymy serię zmiennych, które są rozdzielone potokami, w ciągu; w każdym przypadku zobaczymy najpopularniejszy element UpdatePanel, `UpdatePanel1`, zawiera całościowy kod HTML wysłany do przeglądarki. Biblioteka skryptów klienta AJAX zastępuje oryginalną zawartość HTML elementu UpdatePanel nową zawartością za pomocą właściwości `.innerHTML` i dlatego serwer wysyła zmienioną zawartość z serwera w formacie HTML.
 
-Teraz kliknij przycisk panele zarówno aktualizacji i przejrzeć wyniki z serwera. Wyniki są bardzo podobne — zarówno UpdatePanels odbierania nowego kodu HTML z serwera. Podobnie jak w przypadku poprzedniego wywołania zwrotnego, dodatkowa strona stanie są wysyłane.
+Teraz kliknij przycisk Aktualizuj oba panele i sprawdź wyniki z serwera. Wyniki są bardzo podobne — oba elementy UpdatePanel otrzymują nowy kod HTML z serwera. Podobnie jak w przypadku poprzedniego wywołania zwrotnego jest wysyłany dodatkowy stan strony.
 
-Jak widać, ponieważ żaden specjalny kod służy do wykonywania ogłaszania zwrotnego AJAX, biblioteki skryptów AJAX klienta jest w stanie przechwycenia ogłaszania zwrotnego formularza, bez konieczności wprowadzania dodatkowego kodu. Formanty serwera automatycznie wykorzystywać JavaScript, aby nie automatycznie przesłaniem formularza — ASP.NET automatycznie wprowadza kod weryfikacji formularza i stan, przede wszystkim osiągnięte przez automatyczny skrypt zasobu dołączania, klasa PostBackOptions , a klasa ClientScriptManager.
+Jak widać, ponieważ nie jest używany żaden specjalny kod do przeprowadzania ogłaszania zwrotnego AJAX, biblioteka skryptów klienta AJAX jest w stanie przechwycić formularz ogłaszania zwrotnego bez dodatkowego kodu. Formanty serwera automatycznie wykorzystują język JavaScript, aby nie przesyłali automatycznie formularza-ASP.NET automatycznie wprowadza kod do walidacji i stanu formularza, głównie przez automatyczne dołączanie zasobów skryptu, klasy PostBackOptions i Klasa ClientScriptManager.
 
-Na przykład należy wziąć pod uwagę formantu CheckBox; Sprawdź dezasemblacji klasy w odblaskowego .NET. Aby to zrobić, upewnij się, że zestawu System.Web został otwarty, a następnie przejdź do `System.Web.UI.WebControls.CheckBox` klasy, otwierając `RenderInputTag` metody. Wyszukaj warunkowych, która sprawdza `AutoPostBack` właściwości:
+Na przykład rozważmy kontrolkę CheckBox; Badanie demontażu klasy w reflektorze platformy .NET. W tym celu upewnij się, że zestaw system. Web jest otwarty, i przejdź do klasy `System.Web.UI.WebControls.CheckBox`, otwierając metodę `RenderInputTag`. Poszukaj warunku sprawdzającego Właściwość `AutoPostBack`:
 
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image8.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image7.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image9.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image9.png))
 
-Po włączeniu automatycznego ogłaszania zwrotnego `CheckBox` Sterowanie (za pośrednictwem właściwości AutoPostBack o wartości true), wynikowe `<input>` tagu w związku z tym jest renderowany przy użyciu zdarzenia platformy ASP.NET, obsługa skryptów w jego `onclick` atrybutu. Przejmowanie przesyłania formularza, następnie umożliwia ASP.NET AJAX ich wstrzyknięcie do strony nonintrusively, pomaga uniknąć wszelkich potencjalnych przełomowe zmiany, które mogą wystąpić przy użyciu zastąpienia prawdopodobnie nieprecyzyjną ciągu. Ponadto, dzięki temu *wszelkie* niestandardowy formant ASP.NET korzystanie z możliwości technologii ASP.NET AJAX bez konieczności wprowadzania dodatkowego kodu do obsługi jej użycie w kontenerze kontrolki UpdatePanel.
+Gdy automatyczne ogłaszanie zwrotne jest włączone w formancie `CheckBox` (za pośrednictwem właściwości autoogłaszania zwrotnego jest prawdziwe), wynikowy tag `<input>` jest renderowany ze skryptem obsługi zdarzeń ASP.NET w jego atrybucie `onclick`. Przechwycenie zgłoszenia formularza umożliwia nieinwazyjne doASP.NET AJAX do strony, pomagając uniknąć ewentualnych zmian, które mogą wystąpić, wykorzystując prawdopodobnie nieprecyzyjne zastępowanie ciągów. Ponadto umożliwia to *dowolnemu* niestandardowemu formantowi ASP.NET wykorzystanie mocy ASP.NET AJAX bez dodatkowego kodu do obsługi użycia w kontenerze UpdatePanel.
 
-`<triggers>` Funkcji odnosi się do wartości zainicjowane w wywołaniu PageRequestManager \_updateControls (należy zauważyć, że biblioteki skryptów klienta ASP.NET AJAX korzysta z Konwencji tej metody, zdarzenia i nazwy pól, które zaczynają się znakiem podkreślenia są oznaczone jako wewnętrzne, a nie są przeznaczone do użytku poza sama biblioteka). Dzięki niemu możemy obserwować, formanty, które mają na celu spowodować ogłaszania zwrotnego AJAX.
+Funkcja `<triggers>` odpowiada wartościom inicjowanym w wywołaniu PageRequestManager na \_updateControls (należy zauważyć, że biblioteka skryptów klienta ASP.NET AJAX używa konwencji, które metody, zdarzenia i nazwy pól zaczynające się od podkreślenia są oznaczone jako wewnętrzne i nie są przeznaczone do użycia poza samą biblioteką). Z działem IT można obserwować, które kontrolki mają na celu spowodowanie ogłaszania zwrotnego AJAX.
 
-Na przykład możemy dodać dwa dodatkowe formanty do strony, pozostawiając jeden formant poza UpdatePanels całkowicie i pozostawienie niezmienionej w UpdatePanel. Firma Microsoft będzie dodać kontrolkę pola wyboru w prawym górnym UpdatePanel i upuszczania kontrolki DropDownList przy liczbie kolorów zdefiniowanych w obrębie listy. Oto nowy kod znaczników:
+Na przykład Dodajmy do strony dwie dodatkowe kontrolki, pozostawiając w całości kontrolki poza elementami UpdatePanel i pozostawiając je w elemencie UpdatePanel. Dodamy kontrolkę CheckBox w obrębie górnego elementu UpdatePanel i porzucasz DropDownList z liczbą kolorów zdefiniowaną na liście. Oto nowe oznakowanie:
 
-**Wyświetlanie 3: Nowy kod znaczników**
+**Lista 3: nowe oznakowanie**
 
 [!code-aspx[Main](understanding-asp-net-ajax-updatepanel-triggers/samples/sample3.aspx)]
 
-A Oto nowe kodem:
+A oto nowy kod w tle:
 
-**Wyświetlanie 4: Plik CodeBehind**
+**Lista 4: CodeBehind**
 
 [!code-csharp[Main](understanding-asp-net-ajax-updatepanel-triggers/samples/sample4.cs)]
 
-Idei ta strona jest listy rozwijanej wybiera jeden z trzech kolorów, aby pokazać drugiej etykiety, że pole wyboru określa, czy jest pogrubiony i wyświetlanie etykiet na datę, a także czas. Pole wyboru nie powinno powodować aktualizacji interfejsu AJAX, ale powinny listy rozwijanej, nawet jeśli nie mieści się w obrębie UpdatePanel.
+Pomysł związany z tą stroną polega na tym, że lista rozwijana wybiera jeden z trzech kolorów do wyświetlania drugiej etykiety, że pole wyboru określa, czy jest pogrubienie, oraz czy etykiety wyświetlają datę oraz godzinę. Pole wyboru nie powinno spowodować aktualizacji AJAX, ale lista rozwijana powinna być, nawet jeśli nie znajduje się w elemencie UpdatePanel.
 
 [![](understanding-asp-net-ajax-updatepanel-triggers/_static/image11.png)](understanding-asp-net-ajax-updatepanel-triggers/_static/image10.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image12.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-asp-net-ajax-updatepanel-triggers/_static/image12.png))
 
-Jest widoczny na powyższym zrzucie ekranu, można kliknąć przycisk najnowszych był prawy przycisk aktualizacji tego panelu, aktualizowane niezależnie od czasu najważniejsze czasu dolnej. Data została również przełączyć je między kliknięciami, ponieważ data jest widoczna w dolną etykietę. Na koniec zainteresowań jest kolor dolną etykietę: Zaktualizowano niedawno tekst etykiety, który pokazuje, że stan formantu jest ważne, a użytkownicy mogą być zachowywane ogłaszania zwrotnego AJAX. *Jednak*, czas nie został zaktualizowany. Czas został automatycznie ponownie umieszczone za pośrednictwem trwałości \_ \_pole stanu WIDOKU strony interpretowane przez środowisko uruchomieniowe programu ASP.NET, gdy kontrolka została ponownie renderowany na serwerze. Kod serwera ASP.NET AJAX nie rozpoznaje, w której metody formanty zmieniają stan; ją po prostu repopulates ze stanu widoku, a następnie uruchamia zdarzenia, które są odpowiednie.
+Jak widać na powyższym zrzucie ekranu, najnowszy przycisk, który zostanie kliknięty, był prawym przyciskiem myszy Aktualizuj ten panel, który zaktualizował czas pierwszego uruchomienia niezależny od czasu ostatniego. Data została również przełączona między kliknięciami, ponieważ data jest widoczna na dolnej etykiecie. Na koniec interesu jest kolor dolnej etykiety: został on zaktualizowany niedawno niż tekst etykiety, który pokazuje, że stan kontroli jest istotny, a użytkownicy oczekują, że zostaną zachowani przez ogłaszanie zwrotne AJAX. *Jednak*czas nie został zaktualizowany. Czas został automatycznie ponownie wypełniony przez trwałość pola stan \_\_wartość strony interpretowanej przez środowisko uruchomieniowe ASP.NET, gdy kontrolka była ponownie renderowana na serwerze. Kod serwera ASP.NET AJAX nie rozpoznaje metod, w których kontrolki zmieniają stan; po prostu ponownie wypełnia stan widoku, a następnie uruchamia odpowiednie zdarzenia.
 
-Należy wskazać, jednak miał I zainicjowanej czasu na stronie\_załadowane zdarzenie czas będzie została zwiększona poprawnie. W związku z tym, deweloperzy powinien być ostrożnym, że odpowiedni kod jest uruchamiany podczas obsługi zdarzeń właściwe i Unikaj stosowania strony\_obciążenia, gdy procedurę obsługi zdarzeń kontrolki będzie odpowiedni.
+Należy jednak pamiętać, że po zainicjowaniu czasu w trakcie zdarzenia ładowania strony\_czas został zwiększony poprawnie. W związku z tym deweloperzy powinni mieć ostrożność, że odpowiedni kod jest uruchamiany podczas odpowiednich programów obsługi zdarzeń, i unikaj stosowania\_ładowania strony, gdy program obsługi zdarzeń sterowania będzie odpowiedni.
 
 ## <a name="summary"></a>Podsumowanie
 
-Formant kontrolki UpdatePanel ASP.NET AJAX rozszerzenia jest uniwersalny i mogą korzystać z szeregu metod identyfikacji zdarzeń kontrolki, które powinno spowodować, że można zaktualizować. Obsługuje jest automatycznie aktualizowana przez jego formantów podrzędnych, ale również odpowiadać na zdarzenia obiektu Controls w innym miejscu na stronie.
+Formant UpdatePanel rozszerzeń ASP.NET AJAX jest uniwersalny i może korzystać z szeregu metod identyfikacji zdarzeń kontroli, które powinny spowodować ich aktualizację. Obsługuje on automatyczne aktualizowanie przez jego kontrolki podrzędne, ale może także reagować na zdarzenia kontroli w innym miejscu na stronie.
 
-Aby zmniejszyć ryzyko obciążenie serwera, zalecane jest, `ChildrenAsTriggers` można ustawić właściwości UpdatePanel `false`, i aby zdarzenia były wyrażeniu zgody na uczestnictwo w zamiast domyślnie włączone. To zapobiega także wszelkie niepotrzebne zdarzenia powodować potencjalnie niepożądane skutki takich jak sprawdzanie poprawności i zmian do pól wejściowych. Tego rodzaju błędów może być trudne do izolowania, ponieważ strona zostanie zaktualizowana w sposób niewidoczny dla użytkownika i przyczyny w związku z tym nie można od razu widoczne.
+Aby zmniejszyć liczbę potencjalnych operacji ładowania serwera, zaleca się, aby Właściwość `ChildrenAsTriggers` elementu UpdatePanel była ustawiona na wartość `false`, a zdarzenia te są uwzględniane domyślnie. Zapobiega to również niepotrzebnym zdarzeniom spowodowanym potencjalnie niechcianymi skutkami, w tym walidacją i zmianami pól wejściowych. Te typy usterek mogą być trudne do odizolowania, ponieważ strona jest aktualizowana w sposób niewidoczny dla użytkownika i powód może nie być natychmiast oczywisty.
 
-Sprawdzając przebiega w postaci kodu ASP.NET AJAX po przejęciu modelu, byliśmy w stanie ustalić, korzysta z framework już dostarczanego przez platformę ASP.NET. W ten sposób jej zachowuje maksymalną zgodność z formantami, zaprojektowana z wykorzystaniem tej samej struktury i narusza co najmniej na wszelkie dodatkowe JavaScript przeznaczony dla strony.
+Badając wewnętrzne działania modelu przechwycenia w formie ASP.NET AJAX, mogliśmy określić, że wykorzystuje platformę już zapewnioną przez ASP.NET. W tym celu zachowuje ona maksymalną zgodność z kontrolkami zaprojektowanymi przy użyciu tej samej struktury i zapewnia intruzom niewielkie zastosowanie do dodatkowego kodu JavaScript napisanego na stronie.
 
-## <a name="bio"></a>Biografia
+## <a name="bio"></a>Materiał
 
-Rob Paveza jest starszy Deweloper aplikacji .NET w Terralever ([www.terralever.com](http://www.terralever.com)), wiodący interaktywne przedsiębiorstwo marketingu Tempe, AZ. ADAM można z Tobą skontaktować w [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), a jego blog znajduje się w folderze [ http://geekswithblogs.net/robp/ ](http://geekswithblogs.net/robp/).
+Rob Paveza jest starszym deweloperem aplikacji .NET w firmie Terralever ([www.Terralever.com](http://www.terralever.com)), wiodącym interaktywnym przedsiębiorstwem marketingu w Tempe, AZ. Można go osiągnąć w [robpaveza@gmail.com](mailto:robpaveza@gmail.com), a jego blog znajduje się w [http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/).
 
-Scott Cate pracował nad przy użyciu technologii Microsoft Web od 1997 r i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacji koncentruje się na rozwiązania programowe wiedzy opartych na. Scott można się skontaktować za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blog znajduje się na [ScottCate.com](http://ScottCate.com)
+Scott Cate pracował z technologiami sieci Web firmy Microsoft od 1997 i jest prezydentem myKB.com ([www.myKB.com](http://www.myKB.com)), w którym wyspecjalizowany jest pisanie aplikacji opartych na ASP.NET, które są zgodne z podstawowymi rozwiązaniami oprogramowania. W witrynie Scotta można skontaktować się z pocztą e-mail na [scott.cate@myKB.com](mailto:scott.cate@myKB.com) lub w blogu w witrynie [ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](understanding-partial-page-updates-with-asp-net-ajax.md)

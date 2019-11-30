@@ -1,75 +1,75 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
-title: Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
+title: Ciągła integracja i ciągłe dostarczanie (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure) | Microsoft Docs
 author: MikeWasson
-description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
+description: Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą...
 ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 25767303e3a8a3bfd9fc6c7c10cda32d73e9994d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 52c710053feca7872aa6fcc93c99bce90359f8fc
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118863"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74585879"
 ---
-# <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
+# <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
 
-[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie aplikacji w chmurze w świecie rzeczywistym za pomocą książki elektronicznej platformy Azure** jest oparte na prezentacji opracowanej przez Scott Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc w pomyślnym tworzeniu aplikacji sieci Web dla chmury. Aby uzyskać informacje na temat książki elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
-Dwa pierwsze zaleca wzorce procesu programowania zostały [Automatyzowanie wszystkiego](automate-everything.md) i [kontroli źródła](source-control.md), i łączy je w trzecim wzorzec procesu. Ciągłą integrację (CI) oznacza, że zawsze wtedy, gdy programista zaewidencjonuje kodu do repozytorium źródłowego, kompilacja zostaje automatycznie wyzwolona. Ciągłe dostarczanie (CD) zajmuje to jeden krok dalej: po pomyślnej kompilacji i automatyczne testy jednostkowe, automatyczne wdrażanie aplikacji w środowisku, w których wykonują bardziej szczegółowe testowanie.
+Pierwsze dwa zalecane wzorce procesów programistycznych były [automatyzacją wszystkiego](automate-everything.md) i [kontroli źródła](source-control.md), a trzeci wzorzec procesu łączy je. Ciągła integracja (CI) oznacza, że za każdym razem, gdy deweloper sprawdzi kod w repozytorium źródłowym, kompilacja jest automatycznie wyzwalana. Ciągłe dostarczanie (CD) obejmuje ten jeden krok: po pomyślnym zakończeniu kompilacji i zautomatyzowanej testów jednostkowych aplikacja zostanie automatycznie wdrożona w środowisku, w którym można bardziej szczegółowo przeprowadzić testy.
 
-Chmura umożliwia zminimalizowanie kosztów utrzymania środowiska testowego, ponieważ płacisz tylko zasobów środowiska tak długo, jak jest używany. Proces ciągłego Dostarczania można skonfigurować środowisko testowe, gdy będą potrzebne, a może zająć szczegółów środowiska, gdy wszystko będzie gotowe testowania.
+Chmura pozwala zminimalizować koszty utrzymania środowiska testowego, ponieważ płacisz tylko za zasoby środowiska, o ile są one używane. Proces tworzenia dysku CD może skonfigurować środowisko testowe, gdy będzie to potrzebne, a po zakończeniu testowania można podjąć odpowiednie środowisko.
 
 ## <a name="continuous-integration-and-continuous-delivery-workflow"></a>Przepływ pracy ciągłej integracji i ciągłego dostarczania
 
-Ogólnie zaleca się wykonanie ciągłe dostarczanie do tworzenia i środowisk przejściowych. Większość zespołów, nawet w firmie Microsoft wymagają ręcznego procesu przeglądu i zatwierdzania wdrożenia produkcyjnego. W środowisku produkcyjnym warto upewnić się, że wdrożenie to następuje najważniejszych osób w zespole rozwoju dostępnych dla pomocy technicznej lub w okresach o małym natężeniu ruchu. Ale ma nic do uniemożliwić całkowicie Automatyzacja środowiska deweloperskie i testowe, tak, aby wszystko, co deweloper musi wykonać zaewidencjonować zmianę oraz środowisko zostało skonfigurowane do testy odbiorcze.
+Zwykle zalecamy przeprowadzenie ciągłego dostarczania w środowiskach deweloperskich i przejściowych. Większość zespołów, nawet w firmie Microsoft, wymaga ręcznego przeglądu i procesu zatwierdzania dla wdrożenia produkcyjnego. W przypadku wdrożenia produkcyjnego warto upewnić się, że występuje, gdy kluczowe osoby w zespole programistycznym są dostępne do obsługi lub w okresie niskiego obciążenia. Nie ma nic, aby zapobiec całkowitemu automatyzowaniu środowisk deweloperskich i testowych, dzięki czemu wszyscy deweloperzy mają zaewidencjonować zmiany, a środowisko jest skonfigurowane do testowania akceptacji.
 
-Na poniższym diagramie z [Microsoft Patterns and Practices e-book, ciągłego dostarczania](https://aka.ms/ReleasePipeline) przedstawia Typowy przepływ pracy. Kliknij obraz, aby zobaczyć, jak to pełny rozmiar w jego oryginalnego kontekstu.
+Na poniższym diagramie z [wzorców i praktyk firmy Microsoft książka elektroniczna dotycząca ciągłego dostarczania](https://aka.ms/ReleasePipeline) ilustruje typowy przepływ pracy. Kliknij obraz, aby zobaczyć jego pełny rozmiar w pierwotnym kontekście.
 
-[![Przepływ pracy ciągłego dostarczania](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
+[przepływ pracy ciągłego dostarczania ![](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
-## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Jak chmura umożliwia ekonomiczne ciągłej integracji i ciągłego wdrażania
+## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Jak Chmura umożliwia opłacalną CI i CD
 
-Automatyzowanie tych procesów na platformie Azure jest łatwe. Ponieważ używasz wszystko w chmurze, nie trzeba kupować serwerów ani zarządzania nimi dla kompilacji lub środowiska testowego. I nie trzeba czekać na serwer można było wykonać test na. Z każdą kompilacją, jak można Przyspiesz środowisko testowe na platformie Azure przy użyciu skryptu automatyzacji, testów akceptacyjnych wykonywania lub więcej testów szczegółowe przed nim, a następnie po zakończeniu, po prostu go zlikwidujesz. I jeśli uruchomisz wyłącznie tego serwera do 2 godzin lub 8 godzin lub dni, kwotę, które trzeba płacić za jej minimalny, ponieważ teraz płacić tylko za czas, który faktycznie działa maszynę. Na przykład środowisko wymagane poprawki aplikacji po prostu koszt wynosi około 1% na godzinę po przejściu jednowarstwowa z poziomu bezpłatne. W ciągu miesiąca po przeprowadzeniu tylko środowiska na godzinę w czasie, środowiska testowego będzie prawdopodobnie kosztować mniej niż latte, który można kupić w kawę.
+Automatyzacja tych procesów na platformie Azure jest prosta. Ponieważ korzystasz z wszystkiego w chmurze, nie musisz kupować i zarządzać serwerami dla kompilacji lub środowisk testowych. Nie musisz czekać, aż serwer będzie dostępny do testowania. W przypadku każdej kompilacji, którą można wykonać, możesz uruchomić środowisko testowe na platformie Azure przy użyciu skryptu automatyzacji, uruchamiać testy akceptacji lub bardziej szczegółowe testy, a następnie po prostu wyłączać je. Jeśli tylko ten serwer jest uruchamiany przez 2 godziny lub 8 godzin lub dzień, kwota pieniędzy, za które należy zapłacić, jest minimalna, ponieważ płacisz tylko za czas, w którym maszyna jest rzeczywiście uruchomiona. Na przykład środowisko wymagane do naprawienia aplikacji IT w pierwszej wysokości kosztuje od 1 centa na godzinę, jeśli przejdziesz do warstwy Bezpłatna. W ciągu miesiąca, jeśli tylko środowisko zostało uruchomione w danym momencie, środowisko testowe prawdopodobnie jest tańsze niż latte, które kupujesz w Starbucks.
 
 ## <a name="azure-devops-services"></a>Azure DevOps Services 
 
-Usługom DevOps platformy Azure oferuje pewną liczbę funkcji, które ułatwiają tworzenie aplikacji od planowania do wdrożenia.
+Azure DevOps Services udostępnia wiele funkcji, które ułatwiają tworzenie aplikacji od planowania do wdrożenia.
 
-- Obsługuje ona kontroli źródła (scentralizowany) TFVC i Git (rozproszone).
-- Oferuje ona usługi kompilacji elastycznych, co oznacza dynamicznie tworzy serwerów kompilacji, gdy zajdzie taka potrzeba i pobiera je w dół po ich zakończeniu. Możesz automatycznie uruchamiał kompilację, gdy ktoś sprawdza zmiany kodu źródłowego i nie trzeba mieć przydzielić i płacić za własnych serwerów kompilacji, leżących bezczynności przez większość czasu. Usługa kompilacji jest bezpłatna, tak długo, jak nie może przekraczać liczbę kompilacji. Spodziewasz się zrobić dużą liczbę kompilacji, mogą płacić za mały dodatkowych serwerów kompilacji zastrzeżone.
+- Obsługuje zarówno funkcję kontroli źródła git (Distributed), jak i TFVC (scentralizowana).
+- Oferuje elastyczną usługę kompilacji, co oznacza, że dynamicznie tworzy serwery kompilacji, gdy są potrzebne, i po ich zakończeniu wykonuje je. Możesz automatycznie uruchomić kompilację, gdy ktoś sprawdzi zmiany kodu źródłowego, i nie musisz przydzielić i zanieść opłat za własne serwery kompilacji, które są w większości czasu bezczynne. Usługa kompilacji jest bezpłatna, dopóki nie zostanie przekroczona określona liczba kompilacji. Jeśli oczekujesz dużej ilości kompilacji, możesz uregulować nieco dodatkowe dla zarezerwowanych serwerów kompilacji.
 - Obsługuje ona ciągłe dostarczanie na platformę Azure.
-- Obsługuje testy obciążeniowe automatycznych. Testowanie obciążenia mają kluczowe znaczenie dla aplikacji w chmurze, ale często jest zaniedbania, dopóki nie jest za późno. Testowanie obciążeniowe symuluje intensywnie korzysta z aplikacji przez tysiące użytkowników, dzięki któremu można znaleźć wąskie gardła i poprawianie przepływności — przed publikacją aplikacji do środowiska produkcyjnego.
-- Obsługuje ona współpraca pokoju zespołu, który umożliwia współpracę w czasie rzeczywistym komunikacji i współpracy dla małych zespołów agile.
-- Obsługuje ona elastyczne zarządzanie projektami.
+- Obsługuje zautomatyzowane testowanie obciążenia. Testowanie obciążenia ma kluczowe znaczenie dla aplikacji w chmurze, ale jest często zaniedbane do momentu zbyt opóźnienia. Testowanie obciążenia symuluje duże wykorzystanie aplikacji przez tysiące użytkowników, umożliwiając znalezienie wąskich gardeł i zwiększenie przepływności — przed udostępnieniem aplikacji w środowisku produkcyjnym.
+- Obsługuje ona współpracę w pokoju zespołu, która ułatwia komunikację i współpracę w czasie rzeczywistym dla małych zespołów Agile.
+- Obsługuje zarządzanie projektami Agile.
 
-Aby uzyskać więcej informacji na temat ciągłą integrację i ciągłe dostarczanie funkcji usługom DevOps platformy Azure, zobacz [dokumentacji usługi Azure DevOps](/azure/devops/index).
+Aby uzyskać więcej informacji na temat funkcji ciągłej integracji i dostarczania Azure DevOps Services, zobacz [dokumentację usługi Azure DevOps](/azure/devops/index).
 
-Jeśli potrzebujesz do zarządzania projektami setką kompleksowych, współpracę zespołową i rozwiązania kontroli źródła, zapoznaj się z usługom DevOps platformy Azure. Zarejestruj się pod adresem [usługom DevOps platformy Azure](https://dev.azure.com/).
+Jeśli szukasz rozwiązania do zarządzania projektami, współpracy zespołowej i kontroli źródła, Wyewidencjonuj Azure DevOps Services. Zarejestruj się w [Azure DevOps Services](https://dev.azure.com/).
 
 ## <a name="summary"></a>Podsumowanie
 
-Pierwsze trzy rozwoju wzorce chmury zostały o sposobie wdrażania z procesu opracowywania powtarzalne, niezawodne i przewidywalne, przy użyciu czasu cyklu niski. W [następny rozdział](web-development-best-practices.md) Zaczniemy Przyjrzyj się wzorców architektury i kodowania.
+Pierwsze trzy wzorce programowania w chmurze zostały zaimplementowane, jak zaimplementować powtarzalny, niezawodny i przewidywalny proces opracowywania z czasem małego cyklu. W [następnym rozdziale](web-development-best-practices.md) Zacznijmy od wzorca architektury i kodowania.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
+Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci Web w Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
-Zobacz też następujące zasoby:
+Zobacz również następujące zasoby:
 
-- [Tworzenie potoku wersji przy użyciu serwera Team Foundation Server 2012](https://aka.ms/ReleasePipeline). Książka elektroniczna praktyczne laboratoria oraz przykładowy kod przez Microsoft Patterns and Practices, zapewnia szczegółowe wprowadzenie do ciągłego dostarczania. Obejmuje korzystanie z programu Visual Studio Lab Management i Release Management programu Visual Studio.
-- [ALM Rangers DevOps, narzędzia i wskazówki](https://aka.ms/vsarsolutions/). ALM Rangers wprowadzone DevOps Workbench przykładowe pomocnika rozwiązanie i praktyczne wskazówki we współpracy z wzorców &amp; książki rozwiązania *tworzenie potoku wydania z programem TFS 2012*, jako doskonały sposób na rozpoczęcie Pojęcia związane z DevOps uczenia &amp; Release Management dla programu TFS 2012, jak i do testów laboratoryjnych. Wskazówki przedstawiono sposób twórz raz i wdrażanie w wielu środowiskach.
-- [Testowanie dostarczania ciągłego w programie Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). Książka elektroniczna przez Microsoft Patterns and Practices, wyjaśnia, jak zintegrować testy zautomatyzowane za pomocą ciągłego dostarczania.
-- [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Kod źródłowy tak zaprojektowane, aby przechwycić kompilacji z serwera TFS (na podstawie etykiety), skompiluj go, spakujesz ją, ktoś w roli DevOps, aby skonfigurować określone aspekty i wypchnąć je do platformy Azure. Narzędzie do śledzenia procesu wdrażania w celu umożliwienia operacji "wycofanie" wcześniej wdrożonej wersji. Narzędzie nie ma zależności zewnętrznych i może działać w autonomicznej przy użyciu interfejsów API programu TFS i zestawu Azure SDK.
-- [Ciągłe dostarczanie: Wersji oprogramowania niezawodne poprzez tworzenie, testowanie i automatyzację wdrażania](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Książka autorstwa Jez Humble.
-- [Zwolnij go! Projektowanie i wdrażanie oprogramowania gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Książka autorstwa Nygarda T. Michael.
+- [Tworzenie potoku wydania z Team Foundation Server 2012](https://aka.ms/ReleasePipeline). Książka elektroniczna, szkolenia praktyczne i przykładowy kod według wzorców i praktyk firmy Microsoft zapewnia szczegółowe wprowadzenie do ciągłego dostarczania. Obejmuje korzystanie z Visual Studio Lab Management i Release Management programu Visual Studio.
+- [Alm Ranges DevOps i wskazówki](https://aka.ms/vsarsolutions/). Zakresy ALM wprowadzają rozwiązanie towarzyszące przykładowi DevOps Workbench i praktyczne wskazówki w obszarze współpraca ze wzorcami &amp;, który *kompilują potok wydania z serwerem tfs 2012*, jako doskonały sposób na rozpoczęcie uczenia koncepcji DevOps &amp; Release Management dla TFS 2012 oraz do uruchamiania tych danych. Wskazówki przedstawiają sposób kompilowania i wdrażania w wielu środowiskach.
+- [Testowanie ciągłego dostarczania przy użyciu programu Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). Książka elektroniczna według wzorców i praktyk firmy Microsoft wyjaśnia, jak zintegrować zautomatyzowane testowanie z ciągłym dostarczaniem.
+- [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Kod źródłowy narzędzia przeznaczonego do przechwytywania kompilacji z programu TFS (na podstawie etykiety), kompilowania go, tworzenia pakietu, zezwalania komuś w roli DevOps na konfigurowanie określonych aspektów IT i wypychanie ich do platformy Azure. Narzędzie śledzi proces wdrażania w celu włączenia operacji "wycofywania" do wcześniej wdrożonej wersji. Narzędzie nie ma zależności zewnętrznych i może działać autonomicznie przy użyciu interfejsów API programu TFS i zestawu Azure SDK.
+- [Ciągłe dostarczanie: niezawodne wersje oprogramowania za poorednictwem automatyzacji kompilowania, testowania i wdrażania](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Książka według Jez Humble.
+- [Wydanie, aby projektować i wdrażać oprogramowanie gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Książka przez Jan T. Nygarda.
 
 > [!div class="step-by-step"]
 > [Poprzednie](source-control.md)

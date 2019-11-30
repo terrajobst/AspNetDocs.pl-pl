@@ -1,136 +1,136 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
-title: Wdrażanie witryny przy użyciu programu Visual Studio (VB) | Dokumentacja firmy Microsoft
+title: Wdrażanie witryny przy użyciu programu Visual Studio (VB) | Microsoft Docs
 author: rick-anderson
-description: Program Visual Studio zawiera narzędzia służące do wdrażania witryny sieci Web. Dowiedz się więcej na temat tych narzędzi, w tym samouczku.
+description: Program Visual Studio zawiera narzędzia do wdrażania witryny sieci Web. Dowiedz się więcej na temat tych narzędzi w tym samouczku.
 ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 977105f3-7987-4e50-8be7-afb53b4ca28a
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a1dcb9ebd658ebd0d60bf422b4bd6aa20f53c59
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 6c71e36a8a434947882cc767cd2f903ff6e8d422
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116690"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74582522"
 ---
 # <a name="deploying-your-site-using-visual-studio-vb"></a>Wdrażanie witryny przy użyciu programu Visual Studio (VB)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_VB.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_vb.pdf)
+[Pobierz kod](https://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_VB.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_vb.pdf)
 
-> Program Visual Studio zawiera narzędzia służące do wdrażania witryny sieci Web. Dowiedz się więcej na temat tych narzędzi, w tym samouczku.
+> Program Visual Studio zawiera narzędzia do wdrażania witryny sieci Web. Dowiedz się więcej na temat tych narzędzi w tym samouczku.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Poprzedni Samouczek przyjrzano się jak wdrożyć prostą aplikację sieci web ASP.NET u dostawcy hosta sieci web. W szczególności samouczku pokazano, jak za pomocą klienta FTP, takich jak FileZilla przenosić niezbędne pliki środowiska programistycznego do środowiska produkcyjnego. Program Visual Studio udostępnia również wbudowane narzędzia ułatwiające wdrażanie dostawca hosta sieci web. Ten samouczek analizuje dwa z tych narzędzi: narzędzia kopiowania witryny sieci Web, gdzie przenoszenie plików do i z serwera sieci web do zdalnego przy użyciu protokołu FTP lub rozszerzenia serwera FrontPage; i narzędzia publikowania, która kopiuje całej witryny sieci Web do określonej lokalizacji.
+W poprzednim samouczku pokazano, jak wdrożyć prostą aplikację sieci Web ASP.NET dla dostawcy hosta sieci Web. W tym samouczku pokazano, jak używać klienta FTP, takiego jak FileZilla, aby przenieść niezbędne pliki ze środowiska programistycznego do środowiska produkcyjnego. Program Visual Studio oferuje również wbudowane narzędzia ułatwiające wdrażanie dostawcy hosta sieci Web. W tym samouczku przedstawiono dwa z tych narzędzi: Narzędzie do kopiowania witryn sieci Web, w którym można przenieść pliki do i ze zdalnego serwera sieci Web przy użyciu protokołu FTP lub rozszerzenia FrontPage Server Extensions; i narzędzia do publikowania, które kopiuje całą witrynę sieci Web do określonej lokalizacji.
 
 > [!NOTE]
-> Inne narzędzia związanych z wdrażaniem oferowanych przez program Visual Studio obejmują [projektów Instalatora sieci Web](https://msdn.microsoft.com/library/wx3b589t.aspx) i [projekty wdrażania w Internecie](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) dodatku. Projekty Instalatora sieci Web pakietu zawartości witryny sieci Web i informacje o konfiguracji w pojedynczym pliku MSI. Ta opcja jest najbardziej przydatne dla witryn sieci Web, które zostały wdrożone w sieci wewnętrznej lub dla firm, które sprzedawania aplikacji sieci web wstępnie spakowanej, instalowanego przez klientów na serwerach sieci web. Dodatek projekty wdrażania w sieci Web jest Visual Studio dodatek, który ułatwia określanie różnice konfiguracji między środowiskami kompilacji dla środowisk projektowych oraz środowisk produkcyjnych. Projekty Instalatora sieci Web nie zostały omówione w tej serii samouczków; Projekty wdrażania w Internecie są podsumowane w [ *typowych konfiguracji różnice między deweloperskim i produkcyjnym* ](common-configuration-differences-between-development-and-production-vb.md) samouczka.
+> Inne narzędzia związane z wdrożeniem oferowane przez program Visual Studio obejmują [projekty konfiguracji sieci Web](https://msdn.microsoft.com/library/wx3b589t.aspx) i dodatek [projektów wdrażania w sieci Web](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) . Projekty Instalatora sieci Web pakiet zawartości witryny internetowej i informacje o konfiguracji do jednego pliku MSI. Ta opcja jest najbardziej przydatna w przypadku witryn sieci Web, które są wdrożone w intranecie lub w firmach, które sprzedajeją wstępnie spakowaną aplikację internetową, którą klienci instalują na własnych serwerach sieci Web. Dodatek projektów wdrażania w sieci Web jest dodatkiem programu Visual Studio, który ułatwia określenie różnic między kompilacjami w środowiskach deweloperskich i środowiskami produkcyjnymi. Projekty konfiguracji sieci Web nie są omawiane w tej serii samouczków. Projekty wdrażania w sieci Web są sumowane według wspólnych różnic konfiguracji w samouczku dotyczącym [*tworzenia i produkcji*](common-configuration-differences-between-development-and-production-vb.md) .
 
-## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Wdrażanie witryny przy użyciu narzędzia kopiowania witryny internetowej
+## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Wdrażanie witryny przy użyciu narzędzia do kopiowania witryny sieci Web
 
-Narzędzie kopiowania witryny sieci Web programu Visual Studio jest podobną funkcjonalność autonomicznej klienta FTP. Mówiąc narzędzia kopiowania witryny sieci Web pozwala połączyć się z witryny sieci web za pośrednictwem protokołu FTP lub rozszerzenia serwera FrontPage. Podobnie jak w interfejsie użytkownika programu FileZilla firmy, interfejs użytkownika Kopiuj witrynę sieci Web zawiera dwa okienka: okienka po lewej stronie zawiera listę plików lokalnych, a w okienku po prawej stronie zawiera listę tych plików na serwerze docelowym.
+Narzędzie do kopiowania witryn sieci Web programu Visual Studio jest podobne do autonomicznego klienta FTP. W Nutshell narzędzie kopiowania witryny sieci Web umożliwia nawiązywanie połączenia ze zdalną witryną sieci Web za pomocą protokołu FTP lub rozszerzenia FrontPage Server Extensions. Podobnie jak w przypadku interfejsu użytkownika FileZilla, interfejs użytkownika kopiowania witryny sieci Web składa się z dwóch okienek: w okienku po prawej stronie znajdują się pliki lokalne, które są wyświetlane na serwerze docelowym.
 
 > [!NOTE]
-> Narzędzie kopiowania witryny sieci Web jest dostępna tylko dla projektów witryny sieci Web. Program Visual Studio oferuje to narzędzie, jeśli pracujesz z projektu aplikacji sieci Web.
+> Narzędzie kopiowania witryny sieci Web jest dostępne tylko dla projektów witryny sieci Web. Program Visual Studio oferuje to narzędzie podczas pracy z projektem aplikacji sieci Web.
 
-Przyjrzyjmy się przy użyciu narzędzia kopiowania witryny sieci Web, aby opublikować aplikację przeglądu książki do środowiska produkcyjnego. Ponieważ narzędzia kopiowania witryny sieci Web działa tylko w przypadku projektów używających modelu projektu witryny sieci Web firma Microsoft może sprawdzać tylko te z projektem BookReviewsWSP za pomocą tego narzędzia. Otwórz ten projekt.
+Przyjrzyjmy się narzędziu Kopiuj witrynę sieci Web, aby opublikować aplikację przegląd książki w środowisku produkcyjnym. Ponieważ narzędzie do kopiowania witryn sieci Web działa tylko z projektami, które używają modelu projektu witryny sieci Web, można je sprawdzać tylko za pomocą tego narzędzia w projekcie BookReviewsWSP. Otwórz ten projekt.
 
-Uruchom projekt narzędzia kopiowania witryny sieci Web, klikając ikonę Kopiuj witrynę sieci Web w Eksploratorze rozwiązań (Ta ikona jest zaznaczona kółkiem na rysunku 1). Alternatywnie można wybrać opcję Kopiuj witrynę sieci Web, w menu witryny sieci Web. Każda z tych metod uruchamia interfejsu użytkownika witryny sieci Web kopiowania przedstawionej na rysunku 1; tylko okienka po lewej stronie na rysunku 1 jest wypełniana, ponieważ mamy jeszcze nawiązać połączenia z serwerem zdalnym.
+Uruchom projekt narzędzia kopiowania witryny sieci Web, klikając ikonę Kopiuj witrynę sieci Web w Eksplorator rozwiązań (ikona jest zakreślona na rysunku 1). Alternatywnie możesz wybrać opcję Kopiuj witrynę sieci Web z menu witryna sieci Web. Jedno z metod uruchamia interfejs użytkownika kopiowania witryny sieci Web pokazany na rysunku 1. tylko lewe okienko na rysunku 1 jest wypełniane, ponieważ nastąpiło jeszcze połączenie z serwerem zdalnym.
 
-[![Interfejs użytkownika narzędzia kopiowania witryny internetowej jest podzielona na dwa okienka](deploying-your-site-using-visual-studio-vb/_static/image2.png)](deploying-your-site-using-visual-studio-vb/_static/image1.png)
+[![interfejs użytkownika narzędzia kopiowania witryny sieci Web jest podzielony na dwa okienka](deploying-your-site-using-visual-studio-vb/_static/image2.png)](deploying-your-site-using-visual-studio-vb/_static/image1.png)
 
-**Rysunek 1**: Interfejs użytkownika narzędzia kopiowania witryny internetowej jest podzielona na dwa okienka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image3.png))
+**Rysunek 1**. interfejs użytkownika narzędzia kopiowania witryny sieci Web jest podzielony na dwa okienka ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image3.png))
 
-W celu wdrożenia w naszej witrynie, musimy najpierw połączyć się z dostawcą hosta sieci web. Kliknij przycisk Połącz w górnej części interfejsu użytkownika witryny sieci Web kopiowania. Zostaną wyświetlone okno dialogowe Otwórz witrynę sieci Web, pokazano na rysunku 2.
+W celu wdrożenia naszej witryny musimy najpierw połączyć się z dostawcą hosta sieci Web. Kliknij przycisk Połącz w górnej części interfejsu użytkownika kopiowania witryny sieci Web. Zostanie wyświetlone okno dialogowe Otwórz witrynę sieci Web pokazane na rysunku 2.
 
-Można połączyć do docelowej witryny sieci Web, wybierając jedną z czterech opcji z lewej strony:
+Możesz połączyć się z docelową witryną sieci Web, wybierając jedną z czterech opcji z lewej strony:
 
-- **System plików** — zaznacz tutaj, aby możliwość wdrożenia witryny folderu lub udziału sieciowego dostępne z komputera.
-- **Lokalne usługi IIS** — ta opcja służy do wdrażania witryny do serwera sieci web usług IIS, które są zainstalowane na komputerze.
-- **Witryna FTP** — Połącz ze zdalną stroną sieci web przy użyciu protokołu FTP.
-- **Zdalna witryna** — łączenie do zdalnej witryny sieci Web za pomocą rozszerzenia serwera FrontPage.
+- **System plików** — wybierz tę opcję, aby wdrożyć lokację do folderu lub udziału sieciowego dostępnego na komputerze.
+- **Lokalne usługi IIS** — Użyj tej opcji, aby wdrożyć lokację na serwerze sieci Web usług IIS zainstalowanym na komputerze.
+- **Witryna FTP** — łączenie ze zdalną witryną sieci Web przy użyciu protokołu FTP.
+- **Lokacja zdalna** — łączenie z zdalną witryną sieci Web przy użyciu rozszerzenia FrontPage Server Extensions.
 
-Większość dostawców usług hosta sieci web obsługuje FTP, ale mniej oferują obsługę rozszerzenia serwera FrontPage. Z tego powodu I została wybrana opcja witryny FTP i następnie wprowadzić informacje o połączeniu, jak pokazano na rysunku 2.
+Większość dostawców hosta sieci Web obsługuje protokół FTP, ale mniej oferuje obsługę rozszerzenia serwera FrontPage. Z tego powodu została wybrana opcja witryna FTP, a następnie wprowadzono informacje o połączeniu, jak pokazano na rysunku 2.
 
-[![Określ miejsce docelowe witryny sieci Web](deploying-your-site-using-visual-studio-vb/_static/image5.png)](deploying-your-site-using-visual-studio-vb/_static/image4.png)
+[![określić docelową witrynę sieci Web](deploying-your-site-using-visual-studio-vb/_static/image5.png)](deploying-your-site-using-visual-studio-vb/_static/image4.png)
 
-**Rysunek 2**: Określ miejsce docelowe witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image6.png))
+**Rysunek 2**. Określanie docelowej witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image6.png))
 
-Po nawiązaniu połączenia narzędzie kopiowania witryny sieci Web ładuje pliki w zdalnej lokalizacji, w okienku po prawej stronie i wskazuje stan każdego pliku: Nowe, usunięte, zmodyfikowane lub bez zmian. Możesz skopiować plik z lokalnej lokacji do lokacji zdalnej lub odwrotnie a.
+Po nawiązaniu połączenia narzędzie do kopiowania witryn sieci Web ładuje pliki w zdalnej lokacji w okienku po prawej stronie i wskazuje stan każdego pliku: nowy, usunięty, zmieniony lub niezmieniony. Plik można skopiować z lokacji lokalnej do zdalnej lub na odwrót.
 
-Dodajmy nową strony do projektu BookReviewsWSP, a następnie wdrożysz go tak, aby widać narzędzia kopiowania witryny sieci Web w działaniu. Tworzenie nowej strony programu ASP.NET w programie Visual Studio, w katalogu głównym o nazwie `Privacy.aspx`. Strona użycia strony wzorcowej `Site.master` i Dodaj zasady zachowania poufności informacji witryny do tej strony. Rysunek 3 przedstawia programu Visual Studio, po utworzeniu tej strony.
+Dodajmy nową stronę do projektu BookReviewsWSP, a następnie wdrażamy ją tak, aby można było zobaczyć narzędzie do kopiowania witryn sieci Web w działaniu. Utwórz nową stronę ASP.NET w programie Visual Studio w katalogu głównym o nazwie `Privacy.aspx`. Aby strona była używana na stronie głównej `Site.master` i Dodaj do niej zasady zachowania poufności informacji. Rysunek 3 przedstawia program Visual Studio po utworzeniu tej strony.
 
-[![Dodawanie nowej strony o nazwie &lt;kodu&gt;Privacy.aspx&lt;/code&gt; folder główny witryny sieci Web](deploying-your-site-using-visual-studio-vb/_static/image8.png)](deploying-your-site-using-visual-studio-vb/_static/image7.png)
+[![dodać nową stronę o nazwie &lt;Code&gt;privacy. aspx&lt;/Code&gt; do folderu głównego witryny sieci Web](deploying-your-site-using-visual-studio-vb/_static/image8.png)](deploying-your-site-using-visual-studio-vb/_static/image7.png)
 
-**Rysunek 3**: Dodawanie nowej strony o nazwie `Privacy.aspx` folder główny witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image9.png))
+**Rysunek 3**. Dodaj nową stronę o nazwie `Privacy.aspx` do folderu głównego witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image9.png))
 
-Następnie wróć do interfejsu użytkownika witryny sieci Web kopiowania. Jak pokazano na rysunku 4, w okienku po lewej stronie zawiera teraz nowe pliki - `Policy.aspx` i `Policy.aspx.vb`. Co więcej te pliki są oznaczone ikoną strzałki oraz stan z nowej, wskazującą, czy znajdują się w lokacji lokalnej, ale nie w zdalnej witrynie.
+Następnie wróć do interfejsu użytkownika kopiowania witryny sieci Web. Jak pokazano na rysunku 4, okienko po lewej stronie zawiera teraz nowe pliki — `Policy.aspx` i `Policy.aspx.vb`. Co więcej, te pliki są oznaczone ikoną strzałki i stanem New, wskazując, że istnieją w lokacji lokalnej, ale nie w witrynie zdalnej.
 
-[![Narzędzia kopiowania witryny internetowej zawiera nowe &lt;kodu&gt;Privacy.aspx&lt;/code&gt; strony w jej okienku po lewej stronie](deploying-your-site-using-visual-studio-vb/_static/image11.png)](deploying-your-site-using-visual-studio-vb/_static/image10.png)
+[![narzędzie do kopiowania witryny sieci Web zawiera nowy kod &lt;&gt;privacy. aspx&lt;/Code&gt; stronę w lewym okienku](deploying-your-site-using-visual-studio-vb/_static/image11.png)](deploying-your-site-using-visual-studio-vb/_static/image10.png)
 
-**Rysunek 4**: Narzędzia kopiowania witryny internetowej zawiera nowe `Privacy.aspx` strony w jej okienku po lewej stronie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image12.png))
+**Rysunek 4**. Narzędzie Kopiuj witrynę sieci Web zawiera nową stronę `Privacy.aspx` w lewym okienku ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image12.png))
 
-Aby wdrożyć nowe pliki, zaznacz je, a następnie kliknij ikonę strzałki Aby przenieść je do lokacji zdalnej. Po zakończeniu transferu `Policy.aspx` i `Policy.aspx.vb` pliki znajdują się w obu lokacjach zdalnych i lokalnych przy użyciu stan Unchanged.
+Aby wdrożyć nowe pliki, wybierz je, a następnie kliknij ikonę strzałki, aby przenieść je do lokacji zdalnej. Po zakończeniu transferu `Policy.aspx` pliki `Policy.aspx.vb` istnieją zarówno w lokacjach lokalnych, jak i zdalnych o stanie niezmieniony.
 
-Wraz z listą nowych plików, narzędzia kopiowania witryny sieci Web wyróżnia wszystkie pliki, które różnią się między lokacjami lokalnymi i zdalnymi. Aby to zobaczyć w działaniu, wróć do `Privacy.aspx` strony i dodaj kilka więcej słów do zasady zachowania poufności informacji. Zapisz stronę, a następnie wrócić do narzędzia do kopiowania witryny sieci Web. Jak pokazano na rysunku 5, `Privacy.aspx` strony w okienku po lewej stronie ma stan zmieniono wskazującą, że jest zsynchronizowana z lokacji zdalnej.
+Wraz z listą nowych plików narzędzie kopiowania witryny sieci Web wyróżnia wszystkie pliki, które różnią się między lokacjami lokalnymi i zdalnymi. Aby wyświetlić tę akcję, Wróć do strony `Privacy.aspx` i Dodaj kilka wyrazów do zasad ochrony prywatności. Zapisz stronę, a następnie wróć do narzędzia kopiowania witryny sieci Web. Jak pokazano na rysunku 5, Strona `Privacy.aspx` w lewym okienku ma stan zmieniony, co oznacza, że nie jest zsynchronizowana z lokacją zdalną.
 
-[![Narzędzia kopiowania witryny internetowej wskazuje, że &lt;kodu&gt;Privacy.aspx&lt;/code&gt; strony został zmieniony.](deploying-your-site-using-visual-studio-vb/_static/image14.png)](deploying-your-site-using-visual-studio-vb/_static/image13.png)
+[![narzędzie kopiowania witryny sieci Web wskazuje, że kod &lt;&gt;privacy. aspx&lt;/Code&gt; Strona została zmieniona](deploying-your-site-using-visual-studio-vb/_static/image14.png)](deploying-your-site-using-visual-studio-vb/_static/image13.png)
 
-**Rysunek 5**: Narzędzia kopiowania witryny internetowej wskazuje, że `Privacy.aspx` strony został zmieniony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image15.png))
+**Rysunek 5**. narzędzie kopiowania witryny sieci Web wskazuje, że strona `Privacy.aspx` została zmieniona ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image15.png))
 
-Narzędzie kopiowania witryny sieci Web wskazuje również, jeśli plik został usunięty od czasu ostatniej operacji kopiowania. Usuń `Privacy.aspx` lokalny projekt i Odśwież narzędzia kopiowania witryny sieci Web. `Privacy.aspx` i `Privacy.aspx.vb` pliki pozostają na liście w okienku po lewej stronie, ale musi mieć stan usunięto, wskazujący, że te zostały usunięte od czasu ostatniej operacji kopiowania.
+Narzędzie kopiowania witryny sieci Web wskazuje również, czy plik został usunięty od czasu ostatniej operacji kopiowania. Usuń `Privacy.aspx` z projektu lokalnego i Odśwież narzędzie kopiowania witryny sieci Web. Pliki `Privacy.aspx` i `Privacy.aspx.vb` pozostają wymienione w lewym okienku, ale mają stan usunięte, wskazując, że zostały usunięte od czasu ostatniej operacji kopiowania.
 
 ## <a name="publishing-a-web-application"></a>Publikowanie aplikacji sieci Web
 
-Inny sposób wdrażania aplikacji sieci web w programie Visual Studio jest do korzystania z opcji publikowania, który jest dostępny za pośrednictwem menu Kompiluj. Opcja Publikuj jawnie kompiluje aplikację, a następnie kopiuje wszystkie pliki niezbędne do określonej lokacji zdalnej. Jak zajmiemy się wkrótce, opcja Publikuj jest bardziej tępy niż narzędzia kopiowania witryny sieci Web. Narzędzie kopiowania witryny sieci Web umożliwia badanie plików na lokacjach zdalnych i lokalnych i zezwala na przekazywanie lub pobieranie pojedyncze pliki, zgodnie z potrzebami, opcja Publikuj wdraża całej aplikacji sieci web.
+Innym sposobem wdrożenia aplikacji sieci Web w programie Visual Studio jest użycie opcji Publikuj, która jest dostępna za pośrednictwem menu Kompilacja. Opcja Publikuj jawnie kompiluje aplikację, a następnie kopiuje wszystkie pliki niezbędne do określonej lokacji zdalnej. Tak jak wkrótce zobaczysz opcję publikacji Blunt niż narzędzie do kopiowania witryn sieci Web. Narzędzie kopiowania witryny sieci Web umożliwia badanie plików w lokacjach lokalnych i zdalnych, a także pozwala na przekazanie lub pobranie poszczególnych plików w razie potrzeby. opcja Publikuj wdraża całą aplikację sieci Web.
 
-Oprócz kopiowania wszystkich wymaganych plików do określonej lokacji zdalnej, opcja Publikuj kompiluje również jawnie aplikacji. Biorąc pod uwagę, że projekty aplikacji sieci Web muszą być skompilowane w sposób jawny go pochodziły jako Nic dziwnego, że że opcja publikowania jest dostępna dla projektów aplikacji sieci Web. Co może być nieco Zaskakujące jest opcja publikowania jest również dostępna dla projektów witryny sieci Web. Jak wspomniano w [ *określająca, które pliki muszą zostać wdrożone* ](determining-what-files-need-to-be-deployed-vb.md) samouczku projektów witryny sieci Web może być jawnie kompilowane przez proces nazywany *wstępnej kompilacji*. Ten samouczek koncentruje się na użycie opcji publikowania z projektów aplikacji sieci Web; przyszłe samouczku przedstawimy wstępnej kompilacji, w tym momencie zostanie zwrócona do wzięcia pod przy użyciu opcji publikowania z projektami witryny sieci Web.
+Oprócz kopiowania wszystkich wymaganych plików do określonej lokacji zdalnej, opcja Publikuj również jawnie kompiluje aplikację. Uwzględniając, że projekty aplikacji sieci Web muszą być jawnie skompilowane, powinny być niezależne od tego, że opcja Publikuj jest dostępna dla projektów aplikacji sieci Web. Może to być bit zaskakujące, że opcja publikowania jest również dostępna dla projektów witryny sieci Web. Zgodnie z opisem w temacie [*określanie plików wymagających wdrożenia*](determining-what-files-need-to-be-deployed-vb.md) samouczka, projekty witryn sieci Web mogą być jawnie kompilowane przez proces nazywany *prekompilowaniem*. Ten samouczek koncentruje się na używaniu opcji Publikuj z projektami aplikacji sieci Web; w przyszłości zapoznaj się z kompilacją wstępną, a następnie powrócimy do skorzystania z opcji Publikuj z projektami witryny sieci Web.
 
 > [!NOTE]
-> Gdy opcja publikowania jest dostępna w programie Visual Studio dla projektów witryny sieci Web i projektów aplikacji sieci Web, Visual Web Developer tylko oferuje opcję Publikuj dla projektów aplikacji sieci Web.
+> Gdy opcja Publikuj jest dostępna w programie Visual Studio dla projektów witryny sieci Web i projektów aplikacji sieci Web, Visual Web Developer oferuje tylko opcję Publikuj dla projektów aplikacji sieci Web.
 
-Spójrzmy na wdrażanie aplikacji przeglądy książki, za pomocą opcji publikowania. Rozpocznij, otwierając BookReviewsWAP (projekt aplikacji sieci Web) w programie Visual Studio. Menu publikowania wybierz projekt BookReviewsWAP kompilacji. Wywołuje okno dialogowe, zawierająca monit o podanie lokalizacji docelowej, wśród innych opcji konfiguracji (patrz rysunek 6). Znacznie takich jak za pomocą narzędzia kopiowania witryny sieci Web możesz wprowadzić lokalizację, która wskazuje na folder lokalny, lokalną witrynę sieci Web w usługach IIS, zdalnej witryny sieci Web, który obsługuje rozszerzenia serwera FrontPage lub adresu serwera FTP. Możesz wybrać, czy zastąpić pliki na serwerze sieci web do zdalnego plików do wdrożenia lub usunąć całą zawartość na zdalnej witrynie przed opublikowaniem. Można również określić, czy ma być kopiowany:
+Przyjrzyjmy się wdrażaniu aplikacji do przeglądu książek przy użyciu opcji Publikuj. Zacznij od otworzenia BookReviewsWAP (projekt aplikacji sieci Web) w programie Visual Studio. Z menu Publikuj wybierz projekt Build BookReviewsWAP. Spowoduje to wyświetlenie okna dialogowego wyświetlającego informacje o lokalizacji docelowej, między innymi opcjami konfiguracji (zobacz rysunek 6). Podobnie jak w przypadku narzędzia kopiowania witryny sieci Web można wprowadzić lokalizację wskazującą folder lokalny, lokalną witrynę sieci Web w usługach IIS, zdalną witrynę sieci Web obsługującą rozszerzenia FrontPage Server Extensions lub adres serwera FTP. Możesz zdecydować, czy pliki na zdalnym serwerze sieci Web mają zostać zastąpione przez wdrożone pliki, czy usunąć całą zawartość w zdalnej witrynie przed opublikowaniem. Możesz również określić, czy kopiować:
 
-- Tylko pliki w projekcie potrzebnych do uruchomienia aplikacji, które pomija kod źródłowy niepotrzebne i pliki projektu.
-- Wszystkie pliki projektu, takich jak pliki kodu źródłowego i pliki projektu programu Visual Studio, takich jak plik rozwiązania.
-- Wszystkie pliki w źródłowym folderze projektu, która kopiuje wszystkie pliki w źródłowym folderze projektu, niezależnie od tego, czy są one dołączone w projekcie.
+- Tylko pliki w projekcie potrzebne do uruchomienia aplikacji, co pomija niepotrzebny kod źródłowy i pliki związane z projektem.
+- Wszystkie pliki projektu, w tym pliki kodu źródłowego i pliki projektu programu Visual Studio, takie jak plik rozwiązania.
+- Wszystkie pliki w źródłowym folderze projektu, które kopiuje wszystkie pliki w źródłowym folderze projektu, niezależnie od tego, czy są one uwzględnione w projekcie.
 
-Istnieje również opcja przekazywania zawartości `App_Data` folderu.
+Istnieje również możliwość przekazania zawartości folderu `App_Data`.
 
-[![Określ miejsce docelowe witryny sieci Web](deploying-your-site-using-visual-studio-vb/_static/image17.png)](deploying-your-site-using-visual-studio-vb/_static/image16.png)
+[![określić docelową witrynę sieci Web](deploying-your-site-using-visual-studio-vb/_static/image17.png)](deploying-your-site-using-visual-studio-vb/_static/image16.png)
 
-**Rysunek 6**: Określ miejsce docelowe witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image18.png))
+**Ilustracja 6**. Określanie docelowej witryny sieci Web ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image18.png))
 
-Przeglądanie książki aplikacji zdalnej witryny zawiera pliki wdrożone podczas kopiowania projektu BookReviewsWSP za pomocą narzędzia kopiowania witryny sieci Web. W związku z tym Przyjrzyjmy się opcji publikowania start, usuwając całą istniejącą zawartość. Ponadto możemy po prostu skopiuj niezbędne pliki, a nie zaśmiecania w środowisku produkcyjnym za pomocą niepotrzebne źródłowych kodu i pliki projektu. Po określeniu tych opcji, kliknij przycisk Publikuj. Za pośrednictwem dalej kilka sekund programu Visual Studio wdroży niezbędne pliki do lokacji docelowej, jej postęp wyświetlania w oknie danych wyjściowych.
+W przypadku aplikacji do przeglądu książki lokacja zdalna zawiera pliki wdrożone podczas kopiowania projektu BookReviewsWSP za pośrednictwem narzędzia kopiowania witryny sieci Web. W związku z tym teraz będzie można rozpocząć publikowanie, usuwając całą istniejącą zawartość. Należy również skopiować wymagane pliki zamiast zasłaniać środowisko produkcyjne z niepotrzebnym kodem źródłowym i plikami projektu. Po określeniu tych opcji kliknij przycisk Publikuj. W ciągu następnych kilku sekund program Visual Studio wdroży niezbędne pliki w lokacji docelowej, wyświetlając postęp w oknie danych wyjściowych.
 
-Rysunek 7 zawiera pliki w witrynie FTP, po zakończeniu operacji publikowania. Należy pamiętać, że zostały przekazane tylko stronach adiustacji i pliki obsługi niezbędne sever — i po stronie klienta.
+Rysunek 7 przedstawia pliki w witrynie FTP po zakończeniu operacji publikowania. Należy pamiętać, że przekazano tylko strony znaczników i wymagane pliki obsługi klienta i serwera.
 
-[![Tylko potrzebne pliki zostały opublikowane w środowisku produkcyjnym](deploying-your-site-using-visual-studio-vb/_static/image20.png)](deploying-your-site-using-visual-studio-vb/_static/image19.png)
+[![tylko te pliki, które są konieczne, zostały opublikowane w środowisku produkcyjnym](deploying-your-site-using-visual-studio-vb/_static/image20.png)](deploying-your-site-using-visual-studio-vb/_static/image19.png)
 
-**Rysunek 7**: Tylko potrzebne pliki zostały opublikowane do środowiska produkcyjnego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image21.png))
+**Rysunek 7**. opublikowanie tylko wymaganych plików w środowisku produkcyjnym ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](deploying-your-site-using-visual-studio-vb/_static/image21.png))
 
-Opcja publikowania jest narzędziem rozmowach mniej niż narzędzia kopiowania witryny sieci Web. Narzędzie kopiowania witryny sieci Web umożliwia inspekcję plików w lokacjach lokalnych i zdalnych i zobacz, jak się różnią, opcja Publikuj przewiduje taki interfejs nie jest. Narzędzie kopiowania witryny sieci Web pozwala ponadto zmiany jednorazowe, przekazywanie i usuwaniu poszczególnych plików. Opcja publikowania nie zezwala na takie szczegółową kontrolę; Zamiast tego publikuje *całego* aplikacji. To zachowanie ma swoje zalety i wady. Na tej stronie znaku plus wiesz, korzystając z opcji publikowania, użytkownik nie będzie podczas zapominania konta do przekazania ważnych plików. Jednak należy wziąć pod uwagę, co się stanie, jeśli niewielkie zmiany zostały wprowadzone do bardzo dużych witryny sieci Web — za pomocą opcji publikowania nie może zaktualizować tę stronę lub dwóch, który został zmodyfikowany, ale zamiast tego należy poczekać, program Visual Studio wdroży całej witryny.
+Opcja Publikuj jest mniej złożonychm narzędziem niż narzędzie kopiowania witryny sieci Web. Narzędzie kopiowania witryny sieci Web umożliwia inspekcję plików w lokacjach lokalnych i zdalnych oraz wyświetlanie ich różnic, ale opcja Publikuj nie zapewnia takiego interfejsu. Ponadto narzędzie do kopiowania witryn sieci Web umożliwia wprowadzanie jednostronnych zmian, przekazywanie lub usuwanie pojedynczych plików. Opcja Publikuj nie zezwala na taką szczegółową kontrolę; Zamiast tego publikuje *całą* aplikację. Takie zachowanie ma swoje zalety i wady. Po stronie znaku plus wiadomo, że w przypadku korzystania z opcji Publikuj nie można przekazać ważnego pliku. Należy jednak wziąć pod uwagę to, co się stanie w przypadku niewielkiej zmiany w bardzo dużej witrynie sieci Web — przy użyciu opcji Publikuj nie można zaktualizować tej strony lub dwóch modyfikacji, ale należy zaczekać, aż program Visual Studio wdroży całą lokację.
 
-Nie jest niczym niezwykłym tam być określone pliki, których zawartość różni się między środowiskiem produkcyjnym i środowisk deweloperskich. Przykład klawisza jest plik konfiguracji aplikacji, `Web.config`. Ponieważ opcja Publikuj bezrefleksyjne kopiuje pliki aplikacji sieci web zastępuje pliki konfiguracyjne dostosowanego środowiska produkcyjnego z wersją w środowisku programistycznym. Kolejnym samouczku przedstawiono, w tym temacie dalsze i oferuje wskazówki dotyczące wdrażania aplikacji sieci web, gdy istnieją różnice.
+Niektóre pliki, których zawartość różnią się między środowiskami produkcyjnymi i programistycznymi, nie są rzadko spotykane. Przykładem klucza jest plik konfiguracyjny aplikacji `Web.config`. Ponieważ opcja Publikuj nie kopiuje plików aplikacji sieci Web, zastępuje dostosowane pliki konfiguracji środowiska produkcyjnego do wersji w środowisku programistycznym. Kolejny samouczek omawia ten temat w dalszej części i oferuje porady dotyczące wdrażania aplikacji sieci Web, gdy takie różnice istnieją.
 
 ## <a name="summary"></a>Podsumowanie
 
-Wdrażanie witryny sieci Web obejmuje kopiowanie wymaganych plików ze środowiska projektowego do środowiska produkcyjnego. Poprzednim samouczku pokazano, jak przesyłać pliki przy użyciu klienta FTP, takich jak FileZilla. W tym samouczku zbadane dwa narzędzia wdrażania w programie Visual Studio: narzędzia kopiowania witryny sieci Web i opcję Publikuj. Narzędzie kopiowania witryny sieci Web jest podobny do klienta FTP, że posiada dwa paned interfejsu, wyświetlanie listy plików na komputerze lokalnym i określonego komputera zdalnego, który można łatwo przekazywać i pobierać pliki między dwoma komputerami. Opcja publikowania jest bardziej tępy narzędzie, które jawnie kompiluje projekt, a następnie wdraża całej aplikacji do określonej lokalizacji docelowej.
+Wdrożenie witryny sieci Web polega na skopiowaniu niezbędnych plików ze środowiska programistycznego do środowiska produkcyjnego. W poprzednim samouczku pokazano, jak transferować pliki przy użyciu klienta FTP, takiego jak FileZilla. Ten samouczek zbadał dwa narzędzia wdrażania w programie Visual Studio: narzędzie kopiowania witryny sieci Web i opcja Publikuj. Narzędzie kopiowania witryny sieci Web przypomina klienta FTP, który ma dwuokienkowy interfejs listy plików na komputerze lokalnym i określony komputer zdalny, który ułatwia przekazywanie lub pobieranie plików między tymi dwoma komputerami. Opcja Publikuj jest bardziej bluntm narzędziem, które jawnie kompiluje projekt, a następnie wdraża całą aplikację do określonego miejsca docelowego.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Kopiowanie witryny sieci Web za pomocą narzędzia kopiowania witryny internetowej](https://msdn.microsoft.com/library/1cc82atw.aspx)
-- [Jak mogę Wdrażanie witryny sieci Web, za pomocą narzędzia kopiowania witryny internetowej](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (wideo)
-- [Instrukcje: Publikowanie projektów aplikacji sieci Web](https://msdn.microsoft.com/library/aa983453.aspx)
-- [Instrukcje: Publikowanie witryny sieci Web](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [Kopiowanie witryny sieci Web za pomocą narzędzia kopiowania witryny sieci Web](https://msdn.microsoft.com/library/1cc82atw.aspx)
+- [Jak: wdrażanie witryny sieci Web za pomocą narzędzia kopiowania witryny sieci Web](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (wideo)
+- [Instrukcje: publikowanie projektów aplikacji sieci Web](https://msdn.microsoft.com/library/aa983453.aspx)
+- [Instrukcje: publikowanie witryn sieci Web](https://msdn.microsoft.com/library/20yh9f1b.aspx)
 - [Projekty instalacji i wdrażania w programie Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 > [!div class="step-by-step"]

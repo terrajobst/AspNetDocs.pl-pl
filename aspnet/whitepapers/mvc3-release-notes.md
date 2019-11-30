@@ -8,12 +8,12 @@ ms.date: 10/06/2010
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 46d051a5eba6501cf36910b7674ce6400597de8a
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.openlocfilehash: 504202068f5db4f8614bba02e8066ffecfd15b48
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057015"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74619238"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -298,7 +298,7 @@ Ponieważ jQuery zawiera numer wersji w nazwie pliku, aktualizacja jQuery do naj
 - W niektórych przypadkach instalacja może zakończyć się niepowodzeniem z komunikatem o błędzie "instalacja nie powiodła się. kod błędu (0x80070643)". Aby uzyskać informacje o tym, jak obejść ten problem, zobacz artykuł w bazie [wiedzy 2531566](https://support.microsoft.com/kb/2531566).
 - Tworzenie szkieletu w celu dodania kontrolera nie tworzy szkieletu jednostek, które wykorzystują obsługę dziedziczenia jednostki w ramach Entity Framework. Na przykład dana Klasa *osoby* podstawowej, która jest dziedziczona przez klasę *ucznia* , tworzenie szkieletu klasy *uczniów* spowoduje wygenerowanie kodu, który nie kompiluje się.
 - Utworzenie nowego projektu ASP.NET MVC 3 w folderze rozwiązania spowoduje wystąpienie błędu *NullReferenceException* . Obejście polega na utworzeniu projektu ASP.NET MVC 3 w katalogu głównym rozwiązania, a następnie przeniesieniu go do folderu rozwiązania.
-- Funkcja IntelliSense dla składnia Razor nie działa, gdy jest zainstalowany program Resharper. Jeśli zainstalowano program do desharpnia i chcesz skorzystać z obsługi technologii Razor IntelliSense w ASP.NET MVC 3, zobacz wpis [Razor IntelliSense i Resharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który omawia sposoby używania ich razem.
+- Funkcja IntelliSense dla składnia Razor nie działa, gdy jest zainstalowany program Resharper. Jeśli zainstalowano program do desharpnia i chcesz skorzystać z obsługi technologii Razor IntelliSense w ASP.NET MVC 3, zobacz wpis [Razor IntelliSense i Resharper](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który omawia sposoby używania ich razem.
 - Podczas instalacji okno dialogowe akceptacji umowy EULA wyświetla postanowienia licencyjne w oknie, które jest mniejsze niż zamierzone.
 - Podczas edytowania widoku Razor (. cshtml lub. *plik VBHTML* ), widoki. ASP.NET MVC 3 nie zawiera żadnych fragmentów kodu dla widoków Razor. aspxselecting fragment kodu dla ASP.NET MVC wyświetli fragmenty dla
 - W przypadku instalowania ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na którym nie jest zainstalowany program Visual Studio, a następnie instalowania programu Visual Studio, należy ponownie zainstalować ASP.NET MVC 3. Programy Visual Studio i Visual Web Developer Express Share Components, które są uaktualniane przez Instalatora ASP.NET MVC 3. Ten sam problem występuje, jeśli zainstalujesz ASP.NET MVC 3 dla programu Visual Studio na komputerze, na którym nie jest zainstalowany program Visual Web Developer Express, a następnie zainstalujesz program Visual Web Developer Express.
@@ -347,7 +347,7 @@ Zmiana nazwy pliku Razor przy użyciu Eksplorator rozwiązań, gdy plik zostanie
 - Instalator ASP.NET MVC 3 może tylko zainstalować początkową wersję Menedżera pakietów NuGet. Po zainstalowaniu początkowej wersji programu NuGet można zainstalować i zaktualizować za pomocą Menedżera rozszerzeń programu Visual Studio. Jeśli masz już zainstalowany pakiet NuGet, przejdź do galerii rozszerzeń programu Visual Studio, aby przeprowadzić aktualizację do najnowszej wersji programu NuGet.
 - Utworzenie nowego projektu ASP.NET MVC 3 w folderze rozwiązania spowoduje wystąpienie błędu *NullReferenceException* . Obejście polega na utworzeniu projektu ASP.NET MVC 3 w katalogu głównym rozwiązania, a następnie przeniesieniu go do folderu rozwiązania.
 - Instalator może zająć dużo dłużej niż wcześniejsze wersje ASP.NET MVC. Dzieje się tak, ponieważ aktualizuje składniki programu Visual Studio 2010.
-- Funkcja IntelliSense dla składnia Razor nie działa, gdy jest zainstalowany program Resharper. Jeśli zainstalowano program do desharpnia i chcesz skorzystać z obsługi technologii Razor IntelliSense w ASP.NET MVC 3, zobacz wpis [Razor IntelliSense i Resharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który omawia sposoby używania ich razem.
+- Funkcja IntelliSense dla składnia Razor nie działa, gdy jest zainstalowany program Resharper. Jeśli zainstalowano program do desharpnia i chcesz skorzystać z obsługi technologii Razor IntelliSense w ASP.NET MVC 3, zobacz wpis [Razor IntelliSense i Resharper](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który omawia sposoby używania ich razem.
 - Widoki CCSHTML i VBHTML utworzone przy użyciu wersji beta ASP.NET MVC 3 nie mają ustawionej prawidłowej akcji kompilacji, z wynikiem pominięcia tych typów widoków podczas publikowania projektu. Wartość akcji kompilacji dla tych plików powinna być równa "Content" (zawartość). ASP.NET MVC 3 RTM rozwiązuje ten problem dla nowych plików, ale nie poprawia ustawienia dla istniejących plików dla projektu utworzonego z wersjami wstępnymi.
 - ![](mvc3-release-notes/_static/image3.png)
 - Podczas instalacji okno dialogowe akceptacji umowy EULA wyświetla postanowienia licencyjne w oknie, które jest mniejsze niż zamierzone.
@@ -470,7 +470,7 @@ We wcześniejszych wersjach jawne wartości, które zostały przesłane do metod
 - Instalator ASP.NET MVC 3 może tylko zainstalować początkową wersję Menedżera pakietów NuGet. Po zainstalowaniu początkowej wersji programu NuGet można zainstalować i zaktualizować za pomocą Menedżera rozszerzeń programu Visual Studio. Jeśli masz już zainstalowany pakiet NuGet, przejdź do galerii rozszerzeń programu Visual Studio, aby przeprowadzić aktualizację do najnowszej wersji programu NuGet.
 - Utworzenie nowego projektu ASP.NET MVC 3 w folderze rozwiązania spowoduje wystąpienie błędu *NullReferenceException* . Obejście polega na utworzeniu projektu ASP.NET MVC 3 w katalogu głównym rozwiązania, a następnie przeniesieniu go do folderu rozwiązania.
 - Instalator może zająć dużo dłużej niż wcześniejsze wersje ASP.NET MVC. Dzieje się tak, ponieważ aktualizuje składniki programu Visual Studio 2010.
-- Funkcja IntelliSense dla składnia Razor nie działa, gdy jest zainstalowany program Resharper. Jeśli zainstalowano program do desharpnia i chcesz skorzystać z obsługi technologii Razor IntelliSense w ASP.NET MVC 3 RC2, zobacz wpis [Razor IntelliSense i Resharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który omawia sposoby używania ich razem.
+- Funkcja IntelliSense dla składnia Razor nie działa, gdy jest zainstalowany program Resharper. Jeśli zainstalowano program do desharpnia i chcesz skorzystać z obsługi technologii Razor IntelliSense w ASP.NET MVC 3 RC2, zobacz wpis [Razor IntelliSense i Resharper](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który omawia sposoby używania ich razem.
 - Widoki CSHTML i VBHTML utworzone przy użyciu wersji beta ASP.NET MVC 3 nie mają ustawionej prawidłowej akcji kompilacji, z wynikiem pominięcia tych typów widoków podczas publikowania projektu. Wartość *akcji kompilacji* dla tych plików powinna być równa "Content". ASP.NET MVC 3 RC2 rozwiązuje ten problem dla nowych plików, ale nie poprawia ustawienia dla istniejących plików dla projektu utworzonego w wersji beta.![](mvc3-release-notes/_static/image4.png)
 - Podczas instalacji okno dialogowe akceptacji umowy EULA wyświetla postanowienia licencyjne w oknie, które jest mniejsze niż zamierzone.
 - Podczas edytowania widoku Razor (plik. cshtml) element menu Przejdź do kontrolera w programie Visual Studio nie będzie dostępny i nie ma fragmentów kodu.
@@ -613,7 +613,7 @@ Alternatywnie, aby wyłączyć weryfikację żądań dla każdej właściwości 
 - Instalator może zająć dużo dłużej niż wcześniejsze wersje ASP.NET MVC, ponieważ aktualizuje składniki programu Visual Studio 2010.
 - Dodawanie szkieletu widoku w przypadku wybrania właściwości astrongly widoku szkieletów. Te powinny być zawsze ignorowane przez tworzenie szkieletów. Okno dialogowe Dodawanie widoku tworzy również szkielet właściwości tylko do odczytu podczas generowania widoku "Edytuj" lub "Utwórz". Właściwości tylko do odczytu powinny być szkieletowe tylko dla widoków wyświetlania i listy.
 - Debugowanie nie działa, gdy ASP.NET MVC 3 jest zainstalowany obok asynchronicznej CTP. ASP.NET MVC 3 nie można zainstalować równolegle z Async CTP. Odinstaluj asynchroniczne CTP, aby naprawić debugowanie. Aby uzyskać więcej informacji, Przeczytaj [ten wpis w blogu](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html) dotyczący odinstalowywania wszystkich fragmentów ASP.NET MVC 3 RC.
-- Funkcja IntelliSense Razor nie działa, gdy zostanie zainstalowany program Resharper. Jeśli zainstalowano program w celu skorzystania z obsługi technologii Razor IntelliSense w ASP.NET MVC 3 RC, Przeczytaj [ten wpis w blogu](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) z usługi JetBrains, w którym omówiono sposoby używania ich razem.
+- Funkcja IntelliSense Razor nie działa, gdy zostanie zainstalowany program Resharper. Jeśli zainstalowano program w celu skorzystania z obsługi technologii Razor IntelliSense w ASP.NET MVC 3 RC, Przeczytaj [ten wpis w blogu](https://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) z usługi JetBrains, w którym omówiono sposoby używania ich razem.
 - Widoki CSHTML i VBHTML utworzone przy użyciu wersji beta ASP.NET MVC 3 nie mają poprawnego działania kompilacji, co pomija ich publikowanie. *Akcja kompilacji* dla tych plików powinna mieć wartość "Content" (zawartość). ASP.NET MVC 3 RC rozwiązuje ten problem dla nowych plików, ale nie poprawia ustawienia dla istniejących plików dla projektu utworzonego w wersji beta.
 - Instalator może zająć dużo dłużej niż wcześniejsze wersje ASP.NET MVC, ponieważ aktualizuje składniki programu Visual Studio 2010.
 - Dodawanie szkieletu widoku w przypadku wybrania opcji "Edytuj", które są wyświetlane jako właściwości tylko do odczytu. Podobnie właściwości tylko do zapisu są szkieletowe dla widoków "Display".
@@ -849,7 +849,7 @@ Podczas edytowania widoku Razor (plik cshtml) <a id="0.1__Toc224729061"></a> <a 
 
 W przypadku używania składni @model do określenia widoku z jednoznacznie określonym typem, skróty specyficzne dla języka dla typów nie są rozpoznawane. Na przykład @model int nie będzie działała, ale @model Int32 będzie działała. Obejście tego błędu polega na użyciu rzeczywistej nazwy typu podczas określania typu modelu.
 
-W przypadku używania składni @model do określenia widoku o jednoznacznie określonym typie CSHTML (lub @ModelType w celu określenia widoku typu "silna wartośćowa"), Typy dopuszczające wartość null i deklaracje tablic nie są obsługiwane. Na przykład @model int? nie jest obsługiwana. Zamiast tego należy użyć `@model Nullable<Int32>`. Składnia @model String [] nie jest również obsługiwana; Zamiast tego należy użyć `@model IList<string>`.
+W przypadku używania składni @model do określenia widoku o jednoznacznie określonym typie CSHTML (lub @ModelType w celu określenia widoku typu "silna wartośćowa"), Typy dopuszczające wartość null i deklaracje tablic nie są obsługiwane. Na przykład @model int? nie jest obsługiwana. Zamiast tego należy użyć wywołania `@model Nullable<Int32>`. Składnia @model String [] nie jest również obsługiwana; Zamiast tego należy użyć `@model IList<string>`.
 
 Podczas uaktualniania projektu ASP.NET MVC 2 do ASP.NET MVC 3 należy dodać następujące elementy do sekcji appSettings w pliku Web. config:
 
@@ -861,6 +861,6 @@ Istnieje znany problem, który powoduje, że uwierzytelnianie formularzy zawsze 
 
 ## <a id="0.1__Toc274034231"></a>Zastrzeżenie
 
-© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Ten dokument jest dostarczany "w takiej postaci, w jakim jest". Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odwołania do witryn internetowych, mogą ulec zmianie bez powiadomienia. Użytkownik ponosi ryzyko związane z korzystaniem z niego.
+© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Ten dokument jest dostarczany "w takiej postaci, w jakim jest". Informacje i poglądy wyrażone w tym dokumencie, łącznie z adresami URL i innymi zasobami sieci Internet, mogą ulec zmianie bez powiadomienia. Użytkownik ponosi ryzyko związane z jego używaniem.
 
 Niniejszy dokument nie udostępnia żadnych praw do jakiejkolwiek własności intelektualnej w jakimkolwiek produkcie firmy Microsoft. Licencjobiorca może kopiować i używać tego dokumentu do wewnętrznych celów referencyjnych.

@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
-title: Manipulowanie właściwościami DropShadow z poziomu kodu klienta (C#) | Dokumentacja firmy Microsoft
+title: Manipulowanie właściwościami DropShadow z poziomu koduC#klienta () | Microsoft Docs
 author: wenz
-description: Dostosowywanie interfejsu edycji kontrolki DataList
+description: Dostosowywanie interfejsu edycji elementu DataList
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: c83ca3e6-c0bf-4158-a166-40c1ab0f33da
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2c71b859fb50eaf6c66a4103fb878104ce10eba3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 790f0d881e43518600968d6c175d4eaa53d0e5f9
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134323"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74574089"
 ---
 # <a name="manipulating-dropshadow-properties-from-client-code-c"></a>Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (C#)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow2.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow2CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow2.cs.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow2CS.pdf)
 
-> Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Właściwości tego rozszerzenia można także zmienić przy użyciu kodu JavaScript klienta.
+> Kontrolka DropShadow w zestawie narzędzi AJAX Control rozszerza panel z cieniem. Właściwości tego rozszerzenia można także zmienić przy użyciu kodu JavaScript klienta.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Właściwości tego rozszerzenia można także zmienić przy użyciu kodu JavaScript klienta.
+Kontrolka DropShadow w zestawie narzędzi AJAX Control rozszerza panel z cieniem. Właściwości tego rozszerzenia można także zmienić przy użyciu kodu JavaScript klienta.
 
 ## <a name="steps"></a>Kroki
 
-Panel, zawierający kilka wierszy tekstu zaczyna się kod:
+Kod jest uruchamiany z panelem zawierającym kilka wierszy tekstu:
 
 [!code-aspx[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample1.aspx)]
 
-Skojarzona klasa CSS zapewnia panelu Kolor tła nieuprzywilejowany:
+Skojarzona Klasa CSS daje panelowi całkiem kolor tła:
 
 [!code-css[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample2.css)]
 
-`DropShadowExtender` Jest dodawany do rozszerzenia panelu z efektem cienia, nieprzezroczystość równa 50%:
+`DropShadowExtender` zostanie dodany, aby zwiększyć panel z efektem cienia, nieprzezroczystość ustawiona na 50%:
 
 [!code-aspx[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample3.aspx)]
 
-Następnie ASP.NET AJAX `ScriptManager` control umożliwia kontrolki zestawu narzędzi do pracy:
+Następnie formant `ScriptManager` AJAX ASP.NET umożliwia działanie zestawu narzędzi sterowania:
 
 [!code-aspx[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample4.aspx)]
 
-Kolejny panel zawiera dwa linki JavaScript do ustawiania Nieprzezroczystość cienia: minus link zmniejsza jego nieprzezroczystości, oraz link jej zwiększenie.
+Inny panel zawiera dwa linki JavaScript do ustawiania nieprzezroczystości cieniowania: łącze minus zmniejsza nieprzezroczystość w tle, a link Plus go zwiększa.
 
 [!code-aspx[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample5.aspx)]
 
-Funkcja języka JavaScript `changeOpacity()` następnie musi najpierw odnaleźć `DropShadowExtender` formantu na stronie. Definiuje ASP.NET AJAX `$find()` metody do dokładnie tego zadania. Następnie `get_Opacity()` metoda pobiera bieżący nieprzezroczystość `set_Opacity()` metody ustawia ją. Następnie kod JavaScript umieszcza bieżącą wartość nieprzezroczystości w `<label>` elementu:
+Funkcja JavaScript `changeOpacity()` musi najpierw znaleźć kontrolkę `DropShadowExtender` na stronie. ASP.NET AJAX definiuje metodę `$find()` dla tego zadania. Następnie Metoda `get_Opacity()` pobiera bieżącą nieprzezroczystość, Metoda `set_Opacity()` ustawia ją. Kod JavaScript umieszcza bieżącą wartość nieprzezroczystości w `<label>` elemencie:
 
 [!code-html[Main](manipulating-dropshadow-properties-from-client-code-cs/samples/sample6.html)]
 
-[![Nieprzezroczystość zostanie zmieniony po stronie klienta](manipulating-dropshadow-properties-from-client-code-cs/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-cs/_static/image1.png)
+[![na stronie klienta zmieniono nieprzezroczystość](manipulating-dropshadow-properties-from-client-code-cs/_static/image2.png)](manipulating-dropshadow-properties-from-client-code-cs/_static/image1.png)
 
-Nieprzezroczystość zostanie zmieniony po stronie klienta ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](manipulating-dropshadow-properties-from-client-code-cs/_static/image3.png))
+Nieprzezroczystość jest zmieniana po stronie klienta ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](manipulating-dropshadow-properties-from-client-code-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](adjusting-the-z-index-of-a-dropshadow-cs.md)

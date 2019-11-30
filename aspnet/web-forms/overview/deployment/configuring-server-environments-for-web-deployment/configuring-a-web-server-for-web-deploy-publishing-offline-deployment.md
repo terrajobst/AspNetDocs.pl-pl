@@ -1,222 +1,222 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
-title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (wdrożenie w trybie Offline) | Dokumentacja firmy Microsoft
+title: Konfigurowanie serwera sieci Web na potrzeby publikowania Web Deploy (wdrożenie w trybie offline) | Microsoft Docs
 author: jrjlee
-description: W tym temacie opisano sposób konfigurowania serwera sieci web usług IIS do obsługi publikowania w sieci web w trybie offline i wdrażania. Podczas pracy z Internet Information Services (I...
+description: W tym temacie opisano sposób konfigurowania serwera sieci Web usług IIS do obsługi publikowania w sieci Web i wdrażania w trybie offline. Podczas pracy z Internet Information Servicesami (I...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: ba92788f-9f03-44b1-b6b2-af8413e6a35d
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 873eb9e350d5fadb017b20c4b6d2889e0df00091
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: f93cf11085fb19afb97b71aca8f638bd88fe658b
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126054"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621097"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (wdrożenie w trybie offline)
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano sposób konfigurowania serwera sieci web usług IIS do obsługi publikowania w sieci web w trybie offline i wdrażania.
+> W tym temacie opisano sposób konfigurowania serwera sieci Web usług IIS do obsługi publikowania w sieci Web i wdrażania w trybie offline.
 > 
-> Podczas pracy z Internet Information Services (IIS) Narzędzie Web Deployment (Web Deploy) 2.0 lub nowszej, istnieją trzy główne metody umożliwia pobieranie aplikacji lub witryn na serwerze sieci web. Można:
+> Podczas pracy z Internet Information Services (IIS) narzędzia do wdrażania w sieci Web (Web Deploy) 2,0 lub nowszym istnieją trzy główne podejścia, których można użyć w celu uzyskania aplikacji lub witryn na serwerze sieci Web. Można:
 > 
-> - Użyj *usługa zdalnego agenta narzędzia Web Deploy*. Takie podejście wymaga mniej konfiguracji serwera sieci web, ale musisz podać poświadczenia administratora lokalnego serwera, aby wdrażać żadnych elementów do serwera.
-> - Użyj *obsługi narzędzia Web Deploy*. To podejście jest o wiele bardziej skomplikowane i wymaga więcej nakładu pracy początkowej, aby skonfigurować serwer sieci web. Jednak użycie tej metody, można skonfigurować usługi IIS, aby umożliwić użytkownikom niebędącym administratorami wykonać wdrożenie. Program obsługi wdrażania sieci Web jest dostępna tylko w usługach IIS w wersji 7 lub nowszej.
-> - Użyj *wdrożenie w trybie offline*. Takie podejście wymaga co najmniej konfiguracji serwera sieci web, ale administrator serwera, należy ręcznie skopiować pakiet sieci web na serwerze i zaimportuj go za pomocą Menedżera usług IIS.
+> - Użyj *usługi zdalnego agenta Web Deploy*. Takie podejście wymaga mniejszej konfiguracji serwera sieci Web, ale musisz podać poświadczenia administratora serwera lokalnego w celu wdrożenia wszystkich elementów na serwerze.
+> - Użyj *procedury obsługi Web Deploy*. To podejście jest znacznie bardziej złożone i wymaga większego nakładu pracy w celu skonfigurowania serwera sieci Web. Jednak podczas korzystania z tego podejścia można skonfigurować usługi IIS, aby umożliwić użytkownikom niebędącym administratorami wdrażanie. Procedura obsługi Web Deploy jest dostępna tylko w usługach IIS w wersji 7 lub nowszej.
+> - Użyj *wdrożenia w trybie offline*. Takie podejście wymaga najmniejszej konfiguracji serwera sieci Web, ale administrator serwera musi ręcznie skopiować pakiet sieci Web na serwer i zaimportować go za pomocą Menedżera usług IIS.
 > 
-> Aby uzyskać więcej informacji na temat kluczowych funkcji, zalety i wady tych metod, zobacz [Wybieranie podejścia prawo do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md).
+> Aby uzyskać więcej informacji o najważniejszych funkcjach, zaletach i wadach tych metod, zobacz [Wybieranie odpowiedniego podejścia do wdrażania w sieci Web](choosing-the-right-approach-to-web-deployment.md).
 
-Tak, jeśli wdrożenie zdalne ograniczeń infrastruktury lub zabezpieczeń sieci nie było możliwe. Jest to najprawdopodobniej będą w przypadku środowisk produkcyjnych dostępnego z Internetu, w której serwery sieci web są izolowane&#x2014;albo fizycznie lub przez zapory i podsieci&#x2014;od pozostałej części infrastruktury serwerowej.
+Tak, jeśli ograniczenia dotyczące infrastruktury sieciowej lub zabezpieczeń uniemożliwiają zdalne wdrażanie. Najprawdopodobniej dzieje się tak w przypadku środowisk produkcyjnych dostępnych w Internecie, w których serwery sieci Web są izolowane&#x2014;fizycznie lub przez zapory i podsieci&#x2014;z pozostałej części infrastruktury serwerów.
 
-Oczywiście takie podejście staje się mniej pożądane, jeśli aplikacje sieci web są aktualizowane w regularnych odstępach czasu. Jeśli infrastruktury umożliwia, warto należy rozważyć włączenie zdalnego wdrażania za pomocą obsługi wdrażania sieci Web lub usługi sieci Web wdrożenia zdalnego agenta.
+Oczywiście takie podejście pozostanie mniej pożądane, jeśli aplikacje sieci Web są regularnie aktualizowane. Jeśli infrastruktura zezwala na to, warto rozważyć włączenie wdrożenia zdalnego przy użyciu programu obsługi Web Deploy lub usługi zdalnego agenta Web Deploy.
 
-## <a name="task-overview"></a>Omówienie zadań
+## <a name="task-overview"></a>Przegląd zadania
 
-Aby skonfigurować serwer sieci web do obsługi importu w trybie offline i wdrażania pakietów sieci web, należy:
+Aby skonfigurować serwer sieci Web do obsługi importowania i wdrażania pakietów sieci Web w trybie offline, należy wykonać następujące działania:
 
-- Instalowanie usług IIS 7.5 oraz IIS 7, zalecana konfiguracja.
-- Zainstaluj narzędzie Web Deploy 2.1 lub nowszej.
-- Utwórz witrynę sieci Web usług IIS do hostowania wdrożoną zawartością.
-- Wyłącz usługę agenta wdrażania sieci Web.
+- Zainstaluj usługi IIS 7,5 i zalecaną konfigurację usług IIS 7.
+- Zainstaluj Web Deploy 2,1 lub nowszy.
+- Utwórz witrynę sieci Web usług IIS do hostowania wdrożonej zawartości.
+- Wyłącz usługę Deployment Agent sieci Web.
 
-Aby specjalnie obsługiwać przykładowe rozwiązanie, należy także do:
+Aby hostować przykładowe rozwiązanie w specjalny sposób, należy również wykonać następujące:
 
-- Instalowanie programu .NET Framework 4.0.
-- Install ASP.NET MVC 3.
+- Zainstaluj .NET Framework 4,0.
+- Zainstaluj ASP.NET MVC 3.
 
-W tym temacie pokazują sposób wykonywania każdego z tych procedur. Zadania i wskazówki, w tym temacie założono, że zaczynasz z kompilacją serwera czystego, systemem Windows Server 2008 R2. Przed kontynuowaniem upewnij się, że:
+W tym temacie przedstawiono sposób wykonywania każdej z tych procedur. W zadaniach i przewodnikach w tym temacie przyjęto założenie, że rozpoczyna się od czystej kompilacji serwera z systemem Windows Server 2008 R2. Przed kontynuowaniem upewnij się, że:
 
-- Systemu Windows Server 2008 R2 z dodatkiem Service Pack 1 i wszystkie dostępne aktualizacje są instalowane.
+- System Windows Server 2008 R2 z dodatkiem Service Pack 1 i wszystkie dostępne aktualizacje są zainstalowane.
 - Serwer jest przyłączony do domeny.
 - Serwer ma statyczny adres IP.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [łączenie komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
+> Aby uzyskać więcej informacji na temat dołączania komputerów do domeny, zobacz [dołączanie komputerów do domeny i logowanie](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [Konfigurowanie statycznego adresu IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 ## <a name="install-products-and-components"></a>Zainstaluj produkty i składniki
 
-Ta sekcja przeprowadzi Cię przez zainstalowanie wymaganych produktów i składników na serwerze sieci web. Przed przystąpieniem do wykonywania, dobrym rozwiązaniem jest uruchamianie Windows Update, aby upewnić się, że serwer jest w pełni bądź na bieżąco.
+Ta sekcja przeprowadzi Cię przez proces instalowania wymaganych produktów i składników na serwerze sieci Web. Przed rozpoczęciem zaleca się uruchomienie Windows Update, aby upewnić się, że serwer jest całkowicie aktualny.
 
-W takim przypadku należy zainstalować te rzeczy:
+W takim przypadku należy zainstalować następujące elementy:
 
-- **Zalecana konfiguracja usług IIS 7**. Dzięki temu **serwer sieci Web (IIS)** roli na serwerze sieci web i instaluje zestaw moduły usług IIS i składników, które są potrzebne do obsługi aplikacji ASP.NET.
-- **.NET Framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
-- **Sieci Web narzędzia do wdrażania 2.1 lub nowszej**. Spowoduje to zainstalowanie narzędzia Web Deploy (i jego podstawowego pliku wykonywalnego, MSDeploy.exe) na serwerze. Narzędzie Web Deploy umożliwia importowanie i eksportowanie pakietów sieci web i integruje się z usługami IIS.
-- **ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów, należy uruchomić aplikacji MVC 3.
+- **Zalecana konfiguracja usług IIS 7**. Umożliwia to roli **serwer sieci Web (IIS)** na serwerze sieci Web i instaluje zestaw modułów i składników usług IIS, które są potrzebne w celu hostowania aplikacji ASP.NET.
+- **.NET Framework 4,0**. Jest to wymagane do uruchamiania aplikacji, które zostały skompilowane w tej wersji .NET Framework.
+- **Web Deployment Tool 2,1 lub nowszym**. Spowoduje to zainstalowanie Web Deploy (i jego podstawowego pliku wykonywalnego, MSDeploy. exe) na serwerze. Web Deploy integruje się z usługami IIS i umożliwia importowanie i eksportowanie pakietów internetowych.
+- **ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów potrzebnych do uruchamiania aplikacji MVC 3.
 
 > [!NOTE]
-> W tym przewodniku opisano użycie Instalatora platformy sieci Web do zainstalowania i skonfigurowania różnych składników. Mimo że nie musisz użyć Instalatora platformy sieci Web, upraszcza proces instalacji przez automatyczne wykrywanie zależności i zapewnienie zawsze uzyskać najnowsze wersje produktów. Aby uzyskać więcej informacji, zobacz [3.0 Instalatora platformy sieci Web firmy Microsoft](https://go.microsoft.com/?linkid=9805118).
+> W tym przewodniku opisano sposób korzystania z Instalatora platformy sieci Web w celu zainstalowania i skonfigurowania różnych składników. Mimo że nie jest konieczne używanie Instalatora platformy sieci Web, upraszcza proces instalacji przez automatyczne wykrywanie zależności i zapewnia, że zawsze otrzymujesz najnowsze wersje produktu. Aby uzyskać więcej informacji, zobacz [Instalator platformy Microsoft Web 3,0](https://go.microsoft.com/?linkid=9805118).
 
-**Aby zainstalować wymagane produktów i składników**
+**Aby zainstalować wymagane produkty i składniki**
 
 1. Pobierz i zainstaluj [Instalatora platformy sieci Web](https://go.microsoft.com/?linkid=9805118).
-2. Po zakończeniu instalacji zostanie automatycznie uruchomiony Instalator platformy sieci Web.
+2. Po zakończeniu instalacji Instalator platformy sieci Web zostanie uruchomiony automatycznie.
 
     > [!NOTE]
-    > Teraz możesz uruchamiać Instalatora platformy sieci Web w dowolnym momencie z **Start** menu. Aby to zrobić, na **Start** menu, kliknij przycisk **wszystkie programy**, a następnie kliknij przycisk **Instalatora platformy sieci Web firmy Microsoft**.
-3. W górnej części **3.0 Instalatora platformy sieci Web** okna, kliknij przycisk **produktów**.
-4. W lewej części okna, w okienku nawigacji kliknij **struktur**.
-5. W **Microsoft .NET Framework 4** wiersz, jeśli nie zainstalowano jeszcze programu .NET Framework, kliknij przycisk **Dodaj**.
+    > Teraz można uruchomić Instalatora platformy sieci Web w dowolnym momencie z menu **Start** . W tym celu w menu **Start** kliknij pozycję **Wszystkie programy**, a następnie kliknij pozycję **Instalator platformy Microsoft Web**.
+3. W górnej części okna **Instalatora platformy sieci Web 3,0** kliknij pozycję **produkty**.
+4. Po lewej stronie okna w okienku nawigacji kliknij pozycję **struktury**.
+5. W wierszu **Microsoft .NET Framework 4** , jeśli .NET Framework nie jest jeszcze zainstalowany, kliknij przycisk **Dodaj**.
 
     > [!NOTE]
-    > Może być już zainstalowano program .NET Framework 4.0, za pośrednictwem usługi Windows Update. W przypadku produktu lub składnik jest już zainstalowany, Instalator platformy sieci Web poda to przez zastąpienie **Dodaj** przycisk z tekstem **zainstalowane**.
+    > Być może zainstalowano już .NET Framework 4,0 do Windows Update. Jeśli produkt lub składnik jest już zainstalowany, Instalator platformy sieci Web wskaże ten element, zastępując przycisk **Dodaj** **zainstalowanym**tekstem.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image1.png)
-6. W **ASP.NET MVC 3 (Visual Studio 2010)** wiersz, kliknij przycisk **Dodaj**.
-7. W okienku nawigacji kliknij **serwera**.
-8. W **zalecana konfiguracja programu IIS 7** wiersz, kliknij przycisk **Dodaj**.
-9. W **2.1 narzędzia wdrażania Web** wiersz, kliknij przycisk **Dodaj**.
-10. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów&#x2014;oraz wszystkie powiązane zależności&#x2014;do zainstalowania i zostanie wyświetlony monit o zaakceptowanie postanowień licencyjnych.
+6. W wierszu **ASP.NET MVC 3 (Visual Studio 2010)** kliknij przycisk **Dodaj**.
+7. W okienku nawigacji kliknij pozycję **serwer**.
+8. W wierszu **zalecana konfiguracja usług IIS 7** kliknij przycisk **Dodaj**.
+9. W wierszu **narzędzia Web Deployment 2,1** kliknij pozycję **Dodaj**.
+10. Kliknij przycisk **Instaluj**. W Instalatorze platformy sieci Web zostanie wyświetlona lista&#x2014;produktów wraz ze wszystkimi skojarzonymi zależnościami&#x2014;, które zostaną zainstalowane, i wyświetli monit o zaakceptowanie postanowień licencyjnych.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image2.png)
-11. Przejrzyj postanowienia licencyjne, a jeśli wyrażasz zgodę na warunki, kliknij przycisk **akceptuję**.
-12. Po zakończeniu instalacji kliknij przycisk **Zakończ**, a następnie Zamknij **3.0 Instalatora platformy sieci Web** okna.
+11. Zapoznaj się z postanowieniami licencyjnymi, a jeśli wyrażasz zgodę na warunki, kliknij przycisk **Akceptuję**.
+12. Po zakończeniu instalacji kliknij przycisk **Zakończ**, a następnie zamknij okno **Instalatora platformy sieci Web 3,0** .
 
-Jeśli zainstalowano program .NET Framework 4.0 przed zainstalowaniem usług IIS, należy uruchomić [narzędzie rejestracji usług IIS platformy ASP.NET](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) do zarejestrowania najnowszą wersję platformy ASP.NET z programem IIS. Jeśli tego nie zrobisz, można znaleźć usługi IIS będą udostępniać zawartość statyczną (takich jak pliki HTML) bez żadnych problemów, ale zwróci **HTTP 404.0: błąd — nie można odnaleźć** podczas próby przeglądania zawartości platformy ASP.NET. Aby upewnić się, że program ASP.NET 4.0 jest zarejestrowany, można użyć następnej procedury.
+Jeśli zainstalowano .NET Framework 4,0 przed zainstalowaniem usług IIS, należy uruchomić [Narzędzie rejestracji ASP.NET IIS](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (ASPNET\_regiis. exe) w celu zarejestrowania najnowszej wersji ASP.NET za pomocą usług IIS. Jeśli tego nie zrobisz, program IIS będzie obsługiwał zawartość statyczną (np. pliki HTML) bez żadnych problemów, ale zwróci **błąd HTTP 404,0 — nie można go znaleźć** podczas próby przeglądania zawartości ASP.NET. Możesz użyć następnej procedury, aby upewnić się, że ASP.NET 4,0 jest zarejestrowany.
 
-**Aby zarejestrować program ASP.NET 4.0 z usługami IIS**
+**Aby zarejestrować ASP.NET 4,0 w usługach IIS**
 
-1. Kliknij przycisk **Start**, a następnie wpisz **polecenia**.
-2. W wynikach wyszukiwania, kliknij prawym przyciskiem myszy **polecenia**, a następnie kliknij przycisk **Uruchom jako administrator**.
-3. W oknie wiersza polecenia przejdź do **%WINDIR%\Microsoft.NET\Framework\v4.0.30319** katalogu.
-4. Wpisz następujące polecenie i naciśnij klawisz Enter:
+1. Kliknij przycisk **Start**, a następnie wpisz **wiersz polecenia**.
+2. W wynikach wyszukiwania kliknij prawym przyciskiem myszy pozycję **wiersz polecenia**, a następnie kliknij polecenie **Uruchom jako administrator**.
+3. W oknie wiersza polecenia przejdź do katalogu **%windir%\Microsoft.NET\Framework\v4.0.30319** .
+4. Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER:
 
     [!code-console[Main](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/samples/sample1.cmd)]
-5. Jeśli planujesz hostowanie aplikacji sieci web 64-bitowe, w dowolnym momencie należy również zarejestrować 64-bitowej wersji programu ASP.NET, za pomocą programu IIS. Aby to zrobić, w oknie wiersza polecenia, przejdź do **%WINDIR%\Microsoft.NET\Framework64\v4.0.30319** katalogu.
-6. Wpisz następujące polecenie i naciśnij klawisz Enter:
+5. Jeśli zamierzasz hostować 64-bitowe aplikacje sieci Web w dowolnym momencie, należy również zarejestrować 64-bitową wersję ASP.NET z usługami IIS. Aby to zrobić, w oknie wiersza polecenia przejdź do katalogu **%windir%\Microsoft.NET\Framework64\v4.0.30319** .
+6. Wpisz następujące polecenie, a następnie naciśnij klawisz ENTER:
 
     [!code-console[Main](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/samples/sample2.cmd)]
 
-Dobrym rozwiązaniem jest aktualizacja Windows ponownie użyć w tym momencie pobrać i zainstalować wszystkie dostępne aktualizacje dla nowych produktów i składników, którą zainstalowałeś.
+Dobrym sposobem jest ponowne użycie Windows Update w tym momencie do pobrania i zainstalowania wszelkich dostępnych aktualizacji dla nowych produktów i składników, które zostały zainstalowane.
 
 ## <a name="configure-the-iis-website"></a>Skonfiguruj witrynę sieci Web usług IIS
 
-Przed wdrożeniem zawartości sieci web na serwerze, należy utworzyć i skonfigurować witrynę sieci Web usług IIS do hostowania zawartości. Narzędzie Web Deploy można wdrażać tylko w sieci web pakiety do istniejącej witryny internetowej usług IIS; Witryna sieci Web nie może utworzyć dla Ciebie. Na wysokim poziomie należy wykonać następujące zadania:
+Aby można było wdrożyć zawartość sieci Web na serwerze, należy utworzyć i skonfigurować witrynę sieci Web usług IIS do hostowania zawartości. Web Deploy można wdrażać pakiety sieci Web tylko w istniejącej witrynie sieci Web usług IIS; nie można utworzyć witryny sieci Web. Na wysokim poziomie należy wykonać następujące zadania:
 
-- Utwórz folder w systemie plików do hostowania zawartości.
-- Tworzenie witryny sieci Web usług IIS do obsługi zawartości i skojarz go z folderu lokalnego.
-- Udziel uprawnień do odpowiedniej tożsamości puli aplikacji w lokalnym folderze odczytu.
+- Utwórz folder w systemie plików, aby hostować zawartość.
+- Utwórz witrynę sieci Web usług IIS, która będzie obsługiwała zawartość, a następnie skojarz ją z folderem lokalnym.
+- Przyznaj uprawnienia do odczytu tożsamości puli aplikacji w folderze lokalnym.
 
-Mimo że nie ma zatrzymywanie możesz z wdrażania zawartości do domyślnej witryny sieci Web w usługach IIS, to podejście nie jest zalecane dla żadnych innych niż scenariuszy testu lub pokaz. Aby zasymulować w środowisku produkcyjnym, należy utworzyć nową witrynę sieci Web usług IIS przy użyciu ustawień, które są specyficzne dla wymagań aplikacji.
+Mimo że nie zatrzymasz wdrożenia zawartości w domyślnej witrynie sieci Web w usługach IIS, to podejście nie jest zalecane w przypadku wszystkich scenariuszy testowych i demonstracyjnych. Aby symulować środowisko produkcyjne, należy utworzyć nową witrynę sieci Web usług IIS z ustawieniami specyficznymi dla wymagań aplikacji.
 
 **Aby utworzyć i skonfigurować witrynę sieci Web usług IIS**
 
-1. W lokalnym systemie plików, należy utworzyć folder do przechowywania zawartości (na przykład **C:\DemoSite**).
-2. Na **Start** menu wskaż **narzędzia administracyjne**, a następnie kliknij przycisk **Internet Information Services (IIS) Manager**.
-3. W Menedżerze usług IIS w **połączeń** okienku rozwiń węzeł serwera (na przykład **PROWEB1**).
+1. W lokalnym systemie plików Utwórz folder do przechowywania zawartości (na przykład **C:\DemoSite**).
+2. W menu **Start** wskaż polecenie **Narzędzia administracyjne**, a następnie kliknij pozycję **Menedżer Internet Information Services (IIS)** .
+3. W Menedżerze usług IIS w okienku **połączenia** rozwiń węzeł serwera (na przykład **PROWEB1**).
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image3.png)
-4. Kliknij prawym przyciskiem myszy **witryn** węzłem, a następnie kliknij przycisk **Dodaj witrynę sieci Web**.
-5. W **Nazwa lokacji** wpisz nazwę witryny sieci Web usług IIS (na przykład **DemoSite**).
-6. W **ścieżkę fizyczną** wpisz (lub przejdź do) ścieżkę do folderu lokalnego (na przykład **C:\DemoSite**).
-7. W **portu** wpisz numer portu, na którym chcesz hostować witryny sieci Web (na przykład **85**).
+4. Kliknij prawym przyciskiem myszy węzeł **Lokacje** , a następnie kliknij polecenie **Dodaj witrynę sieci Web**.
+5. W polu **Nazwa lokacji** wpisz nazwę witryny sieci Web usług IIS (na przykład **DemoSite**).
+6. W polu **Ścieżka fizyczna** wpisz (lub przejdź do) ścieżkę do folderu lokalnego (na przykład **C:\DemoSite**).
+7. W polu **port** wpisz numer portu, na którym ma być hostowana witryna sieci Web (na przykład **85**).
 
     > [!NOTE]
-    > Numery standardowego portu to 80 dla protokołu HTTP i 443 dla protokołu HTTPS. Jednak możesz hostować tę witrynę sieci Web na porcie 80, należy zatrzymać domyślnej witryny sieci Web, zanim mogą uzyskiwać dostęp do witryny.
-8. Pozostaw **nazwy hosta** pole puste, chyba że chcesz skonfigurować System nazw domen (DNS, Domain Name System) rekord dla witryny sieci Web, a następnie kliknij przycisk **OK**.
+    > Standardowe numery portów są 80 dla protokołów HTTP i 443 dla protokołu HTTPS. Jeśli jednak ta witryna sieci Web jest hostowana na porcie 80, należy zatrzymać domyślną witrynę sieci Web przed uzyskaniem dostępu do witryny.
+8. Pozostaw pole **Nazwa hosta** puste, chyba że chcesz skonfigurować rekord systemu nazw domen (DNS) dla witryny sieci Web, a następnie kliknij przycisk **OK**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image4.png)
 
     > [!NOTE]
-    > W środowisku produkcyjnym prawdopodobnie warto hostowanie witryny sieci Web na porcie 80 i konfigurowanie nagłówka hosta, wraz z pasujących rekordów DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówki hosta w usługach IIS 7, zobacz [Konfigurowanie nagłówka hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji na temat roli serwera DNS w systemie Windows Server 2008 R2, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) i [serwer DNS](https://technet.microsoft.com/windowsserver/dd448607).
-9. W **akcje** okienku w obszarze **edytowanie witryny**, kliknij przycisk **powiązania**.
-10. W **powiązania witryny** okno dialogowe, kliknij przycisk **Dodaj**.
+    > W środowisku produkcyjnym prawdopodobnie chcesz hostować witrynę sieci Web na porcie 80 i skonfigurować nagłówek hosta wraz ze zgodnymi rekordami DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówków hosta w usługach IIS 7, zobacz [Konfigurowanie nagłówka hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji na temat roli serwera DNS w systemie Windows Server 2008 R2, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/library/cc770392.aspx) i [serwera DNS](https://technet.microsoft.com/windowsserver/dd448607).
+9. W okienku **Akcje** w obszarze **Edytuj witrynę**kliknij pozycję **powiązania**.
+10. W oknie dialogowym **powiązania witryny** kliknij przycisk **Dodaj**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image5.png)
-11. W **Dodawanie powiązania witryny** okno dialogowe, zestaw **adresu IP** i **portu** aby dopasować go do istniejącej konfiguracji lokacji.
-12. W **nazwy hosta** wpisz nazwę serwera sieci web (na przykład **PROWEB1**), a następnie kliknij przycisk **OK**.
+11. W oknie dialogowym **Dodawanie powiązania witryny** Ustaw **adres IP** i **port** zgodne z istniejącą konfiguracją lokacji.
+12. W polu **Nazwa hosta** wpisz nazwę serwera sieci Web (na przykład **PROWEB1**), a następnie kliknij przycisk **OK**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image6.png)
 
     > [!NOTE]
-    > Pierwszy powiązania witryny umożliwia dostęp do witryny lokalnie przy użyciu adresu IP i portu lub `http://localhost:85`. Drugi powiązania witryny umożliwia dostęp do witryny z innych komputerów w domenie przy użyciu nazwy komputera (na przykład http://proweb1:85).
-13. W **powiązania witryny** okno dialogowe, kliknij przycisk **Zamknij**.
-14. W **połączeń** okienku kliknij **pul aplikacji**.
-15. W **pul aplikacji** , kliknij prawym przyciskiem myszy nazwę puli aplikacji, a potem kliknij **podstawowych ustawień**. Domyślnie nazwa puli aplikacji będą odpowiadać nazwie witryny sieci Web (na przykład **DemoSite**).
-16. W **.NET Framework w wersji** listy wybierz **4.0.30319 .NET Framework**, a następnie kliknij przycisk **OK**.
+    > Pierwsze powiązanie witryny umożliwia dostęp do lokacji lokalnie przy użyciu adresu IP i portu lub `http://localhost:85`. Drugie powiązanie witryny pozwala uzyskać dostęp do lokacji z innych komputerów w domenie przy użyciu nazwy komputera (na przykład http://proweb1:85).
+13. W oknie dialogowym **powiązania witryny** kliknij przycisk **Zamknij**.
+14. W okienku **połączenia** kliknij pozycję **Pule aplikacji**.
+15. W okienku **Pule aplikacji** kliknij prawym przyciskiem myszy nazwę puli aplikacji, a następnie kliknij pozycję **Ustawienia podstawowe**. Domyślnie nazwa puli aplikacji będzie zgodna z nazwą witryny sieci Web (na przykład **DemoSite**).
+16. Na liście **wersja .NET Framework** wybierz pozycję **.NET Framework v 4.0.30319**, a następnie kliknij przycisk **OK**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image7.png)
 
     > [!NOTE]
-    > Przykładowe rozwiązanie wymaga programu .NET Framework 4.0. To nie jest wymagane dla narzędzia Web Deploy w zasadzie.
+    > Przykładowe rozwiązanie wymaga .NET Framework 4,0. Nie jest to wymagane dla Web Deploy ogólnie.
 
-Aby dla witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, w którym jest przechowywana zawartość. W przypadku usług IIS 7.5 pule aplikacji przy użyciu tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji programu IIS, w którym pule aplikacji będzie zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie są wyświetlane na listę użytkowników lub grup&#x2014;zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupa zabezpieczeń jako ukryty element.
+Aby witryna sieci Web mogła udostępniać zawartość, tożsamość puli aplikacji musi mieć uprawnienia do odczytu w lokalnym folderze, w którym jest przechowywana zawartość. W usługach IIS 7,5 pule aplikacji są domyślnie uruchamiane z unikatową tożsamością puli aplikacji (w przeciwieństwie do poprzednich wersji usług IIS, gdzie pule aplikacji zwykle są uruchamiane przy użyciu konta usługi sieciowej). Tożsamość puli aplikacji nie jest kontem użytkownika rzeczywistego i nie jest wyświetlana na żadnej liście użytkowników lub grup&#x2014;zamiast tego jest tworzona dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji jest dodawana do lokalnej grupy zabezpieczeń **programu IIS\_IUSRS** jako element ukryty.
 
-Aby udzielić uprawnień do tożsamości puli aplikacji do pliku lub folderu, masz dwie opcje:
+Aby udzielić uprawnień do tożsamości puli aplikacji w pliku lub folderze, dostępne są dwie opcje:
 
-- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio przy użyciu formatu <strong>puli aplikacji IIS\</ strong ><em>[Nazwa puli aplikacji]</em>(na przykład <strong>IIS AppPool\DemoSite</strong>).
-- Przypisywanie uprawnień do **IIS\_IUSRS** grupy.
+- Bezpośrednio przypisuj uprawnienia do tożsamości puli aplikacji, używając formatu <strong>IIS puli aplikacji\</strong ><em>[Nazwa puli aplikacji]</em>(na przykład <strong>IIS AppPool\DemoSite</strong>).
+- Przypisz uprawnienia do grupy **IUSRS\_usług IIS** .
 
-Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\_IUSRS** grupy, ponieważ takie podejście pozwala zmienić pule aplikacji bez konieczności ponownego uprawnienia systemu plików. Następna procedura używa tego podejścia opartego na grupach.
+Najbardziej typowym podejściem jest przypisanie uprawnień do lokalnej grupy **IUSRS usługi\_IIS** , ponieważ takie podejście umożliwia zmianę pul aplikacji bez konieczności ponownego konfigurowania uprawnień systemu plików. Kolejna procedura korzysta z tego podejścia opartego na grupach.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o tożsamości puli aplikacji w usługach IIS 7.5, zobacz [tożsamości puli aplikacji](https://go.microsoft.com/?linkid=9805123).
+> Aby uzyskać więcej informacji o tożsamościach puli aplikacji w usługach IIS 7,5, zobacz [tożsamość puli aplikacji](https://go.microsoft.com/?linkid=9805123).
 
-**Aby skonfigurować uprawnienia do folderu witryny sieci Web usług IIS**
+**Aby skonfigurować uprawnienia do folderu dla witryny sieci Web usług IIS**
 
 1. W Eksploratorze Windows przejdź do lokalizacji folderu lokalnego.
-2. Kliknij prawym przyciskiem myszy folder, a następnie kliknij przycisk **właściwości**.
-3. Na **zabezpieczeń** kliknij pozycję **Edytuj**, a następnie kliknij przycisk **Dodaj**.
-4. Kliknij przycisk **lokalizacje**. W **lokalizacje** okno dialogowe, wybierz serwer lokalny, a następnie kliknij przycisk **OK**.
+2. Kliknij prawym przyciskiem myszy folder, a następnie kliknij polecenie **Właściwości**.
+3. Na karcie **zabezpieczenia** kliknij przycisk **Edytuj**, a następnie kliknij przycisk **Dodaj**.
+4. Kliknij pozycję **lokalizacje**. W oknie dialogowym **lokalizacje** wybierz serwer lokalny, a następnie kliknij przycisk **OK**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
-5. W **Wybieranie użytkowników lub grup** okno dialogowe, typ **IIS\_IUSRS**, kliknij przycisk **Sprawdź nazwy**, a następnie kliknij przycisk **OK**.
-6. W <strong>uprawnienia dla</strong><em>[nazwa folderu]</em> okno dialogowe, zwróć uwagę, że przypisano nową grupę <strong>odczytu &amp; wykonania</strong>, <strong>Wyświetl listę folderów zawartość</strong>, i <strong>odczytu</strong> uprawnienia domyślne. Pozostaw to bez zmian, a następnie kliknij przycisk <strong>OK</strong>.
-7. Kliknij przycisk <strong>OK</strong> zamknąć <em>[nazwa folderu]</em><strong>właściwości</strong> okno dialogowe.
+5. W oknie dialogowym **Wybieranie użytkowników lub grup** wpisz **IIS\_IUSRS**, kliknij przycisk **Sprawdź nazwy**, a następnie kliknij przycisk **OK**.
+6. W oknie dialogowym <strong>uprawnienia dla</strong><em>[nazwa folderu]</em> Zwróć uwagę na to, że nowa grupa ma przypisanych domyślnie uprawnienia <strong>Odczyt &amp; wykonywanie</strong>, <strong>Wyświetlanie zawartości folderu</strong>i <strong>Odczyt</strong> . Pozostaw ten niezmieniony i kliknij przycisk <strong>OK</strong>.
+7. Kliknij przycisk <strong>OK</strong> , aby zamknąć okno dialogowe<strong>Właściwości</strong> <em>[nazwa folderu]</em>.
 
-## <a name="disable-the-remote-agent-service"></a>Wyłącz usługę agenta zdalnego
+## <a name="disable-the-remote-agent-service"></a>Wyłącz usługę zdalnego agenta
 
-Po zainstalowaniu narzędzia Web Deploy, Usługa agenta wdrażania sieci Web jest zainstalowany i uruchomiony automatycznie. Ta usługa pozwala na wdrażanie i publikowanie pakietów sieci web z lokalizacji zdalnej. Użytkownik nie będzie używany możliwość zdalnego wdrażania w tym scenariuszu, więc należy zatrzymać i wyłączyć usługę.
+Podczas instalowania Web Deploy usługa Deployment Agent sieci Web jest instalowana i uruchamiana automatycznie. Ta usługa umożliwia wdrażanie i publikowanie pakietów sieci Web z lokalizacji zdalnej. W tym scenariuszu nie będziesz korzystać z możliwości zdalnego wdrażania, dlatego należy zatrzymać i wyłączyć usługę.
 
 > [!NOTE]
-> Nie ma potrzeby Zatrzymaj usługę agenta zdalnego, aby można było zaimportować i ręcznie wdrożyć pakiet sieci web. Jednak jest dobrym rozwiązaniem, aby zatrzymać i wyłączyć usługę, jeśli nie zamierzasz go używać.
+> Nie musisz zatrzymać usługi zdalnego agenta, aby ręcznie zaimportować i wdrożyć pakiet sieci Web. Jednak dobrym sposobem na zatrzymanie i wyłączenie usługi, jeśli nie planujesz jej używać.
 
-Można zatrzymać i wyłączyć usługę na wiele sposobów, za pomocą różnych narzędzi wiersza polecenia lub poleceń cmdlet programu Windows PowerShell. Ta procedura opisuje proste podejście oparte na interfejsie użytkownika.
+Usługę można zatrzymać i wyłączyć na wiele sposobów przy użyciu różnych narzędzi wiersza polecenia lub poleceń cmdlet programu Windows PowerShell. Ta procedura opisuje proste podejście oparte na interfejsie użytkownika.
 
-**Aby zatrzymać i wyłączyć usługę agenta zdalnego**
+**Aby zatrzymać i wyłączyć usługę zdalnego agenta**
 
-1. Na **Start** menu wskaż **narzędzia administracyjne**, a następnie kliknij przycisk **usług**.
-2. W konsoli usługi Znajdź **Usługa agenta wdrażania sieci Web** wiersza.
+1. W menu **Start** wskaż polecenie **Narzędzia administracyjne**, a następnie kliknij pozycję **usługi**.
+2. W konsoli usługi Znajdź wiersz **Usługa sieci Web Deployment Agent** .
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image9.png)
-3. Kliknij prawym przyciskiem myszy **Usługa agenta wdrażania sieci Web**, a następnie kliknij przycisk **właściwości**.
-4. W **właściwości Usługa agenta wdrażania sieci Web** okno dialogowe, kliknij przycisk **zatrzymać**.
-5. W **uruchamiana** listy wybierz **wyłączone**, a następnie kliknij przycisk **OK**.
+3. Kliknij prawym przyciskiem myszy pozycję **Web Deployment Agent Service**, a następnie kliknij pozycję **Właściwości**.
+4. W oknie dialogowym **właściwości usługi Deployment Agent sieci Web** kliknij przycisk **Zatrzymaj**.
+5. Na liście **Typ uruchomienia** wybierz pozycję **wyłączone**, a następnie kliknij przycisk **OK**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image10.png)
 
 ## <a name="conclusion"></a>Wniosek
 
-W tym momencie serwer sieci web jest gotowa do wdrożenia pakietu internetowego w trybie offline. Przed przystąpieniem do importowania pakietów sieci web w witrynie sieci Web usług IIS, można sprawdzić tych kluczowych zagadnieniach:
+Na tym etapie serwer sieci Web jest gotowy do wdrożenia pakietu sieci Web w trybie offline. Przed podjęciem próby zaimportowania pakietów internetowych do witryny sieci Web usług IIS warto sprawdzić następujące kluczowe punkty:
 
-- Zostały zarejestrowane programu ASP.NET 4.0 z usługami IIS?
-- Tożsamość puli aplikacji ma dostęp do odczytu do folderu źródłowego dla witryny sieci Web?
-- Została zatrzymana usługa agenta wdrażania sieci Web?
+- Czy zarejestrowano ASP.NET 4,0 z usługami IIS?
+- Czy tożsamość puli aplikacji ma dostęp do odczytu do folderu źródłowego witryny sieci Web?
+- Czy usługa Deployment Agent sieci Web została zatrzymana?
 
 > [!div class="step-by-step"]
 > [Poprzednie](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

@@ -1,62 +1,62 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-vb
-title: Zezwalanie tylko na niektóre znaki w polu tekstowym (VB) | Dokumentacja firmy Microsoft
+title: Zezwalanie tylko na niektóre znaki w polu tekstowym (VB) | Microsoft Docs
 author: wenz
-description: Kontrolek weryfikacji platformy ASP.NET można upewnić się, że tylko na niektóre znaki są dozwolone w danych wejściowych użytkownika. Jednak to nadal nie uniemożliwia użytkownikom wpisywanie nieprawidłowy...
+description: Kontrolki walidacji ASP.NET mogą zapewnić, że w danych wejściowych użytkownika dozwolone są tylko pewne znaki. Jednak nadal nie jest możliwe wpisywanie przez użytkowników nieprawidłowych znaków...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 33af23f1-4016-4740-8fb2-37d1773452cd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6e0f13140fcafd666a89c27acb829e4e762eff29
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 895708ebecc30c5f35e6ecd0349604bb777cbd93
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127458"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74573952"
 ---
 # <a name="allowing-only-certain-characters-in-a-text-box-vb"></a>Zezwalanie tylko na niektóre znaki w polu tekstowym (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/4/c/2/4c2def7a-0d23-4055-91f9-1f18504167d7/FilteredTextBox0.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/filteredtextbox0VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/4/c/2/4c2def7a-0d23-4055-91f9-1f18504167d7/FilteredTextBox0.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/filteredtextbox0VB.pdf)
 
-> Kontrolek weryfikacji platformy ASP.NET można upewnić się, że tylko na niektóre znaki są dozwolone w danych wejściowych użytkownika. Jednak to nadal nie uniemożliwia użytkownikom wpisywanie nieprawidłowe znaki i podjęcie próby można przesłać formularza.
+> Kontrolki walidacji ASP.NET mogą zapewnić, że w danych wejściowych użytkownika dozwolone są tylko pewne znaki. Mimo to nadal nie jest możliwe wpisywanie przez użytkowników nieprawidłowych znaków i próba przesłania formularza.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolek weryfikacji platformy ASP.NET można upewnić się, że tylko na niektóre znaki są dozwolone w danych wejściowych użytkownika. Jednak to nadal nie uniemożliwia użytkownikom wpisywanie nieprawidłowe znaki i podjęcie próby można przesłać formularza.
+Kontrolki walidacji ASP.NET mogą zapewnić, że w danych wejściowych użytkownika dozwolone są tylko pewne znaki. Mimo to nadal nie jest możliwe wpisywanie przez użytkowników nieprawidłowych znaków i próba przesłania formularza.
 
 ## <a name="steps"></a>Kroki
 
-ASP.NET AJAX Control Toolkit zawiera `FilteredTextBox` kontrolki, która rozszerza pola tekstowego. Po uaktywnieniu tylko w określonym zestawie znaków mogą być wprowadzane w polu.
+Zestaw narzędzi ASP.NET AJAX Control Toolkit zawiera kontrolkę `FilteredTextBox`, która rozszerza pole tekstowe. Po aktywowaniu tego pola może być wprowadzony tylko określony zestaw znaków.
 
-Aby to zrobić, najpierw należy w zwykły sposób ASP.NET AJAX `ScriptManager` która ładuje bibliotek JavaScript, które są również używane przez program ASP.NET AJAX Control Toolkit:
+Aby to działało, najpierw musimy być zwykle ASP.NET AJAX `ScriptManager`, która ładuje biblioteki JavaScript, które są również używane przez zestaw narzędzi ASP.NET AJAX Control Toolkit:
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-vb/samples/sample1.aspx)]
 
-W efekcie potrzebujemy pola tekstowego:
+Następnie potrzebujemy pola tekstowego:
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-vb/samples/sample2.aspx)]
 
-Na koniec `FilteredTextBoxExtender` kontrolka zajmuje się ograniczenie znaków, użytkownik może wpisać. Najpierw ustaw `TargetControlID` atrybutu `ID` z `TextBox` kontroli. Następnie wybierz jedną z dostępnych `FilterType` wartości:
+Na koniec kontrola `FilteredTextBoxExtender` ma na celu ograniczenie znaków, które użytkownik może wpisać. Najpierw ustaw atrybut `TargetControlID` na `ID` kontrolki `TextBox`. Następnie wybierz jedną z dostępnych wartości `FilterType`:
 
-- `Custom` Domyślnie; Musisz podać listę prawidłowe znaki
-- `LowercaseLetters` małe litery
-- `Numbers` tylko cyfry
-- `UppercaseLetters` tylko wielkie litery
+- `Custom` domyślne; musisz podać listę prawidłowych znaków
+- tylko `LowercaseLetters` małe litery
+- tylko cyfry `Numbers`
+- tylko `UppercaseLetters` wielkie litery
 
-Jeśli `Custom FilterType` jest używany, `ValidChars` właściwość musi być ustawione i podać listę znaków, które mogą być wpisana. Przy okazji: Jeśli użytkownik próbuje wkleić tekst w polu tekstowym, zostaną usunięte wszystkie nieprawidłowe znaki.
+Jeśli `Custom FilterType` jest używany, właściwość `ValidChars` musi być ustawiona i zawierać listę znaków, które mogą zostać wpisane. Według sposobu: Jeśli spróbujesz wkleić tekst do pola tekstowego, wszystkie nieprawidłowe znaki są usuwane.
 
-Oto znaczniki dla `FilteredTextBoxExtender` formant, który dopuszcza tylko cyfr (coś, który także byłby możliwego `FilterType="Numbers"`):
+Poniżej znajduje się znacznik kontrolki `FilteredTextBoxExtender`, który zezwala tylko na cyfry (co również było możliwe w przypadku `FilterType="Numbers"`):
 
 [!code-aspx[Main](allowing-only-certain-characters-in-a-text-box-vb/samples/sample3.aspx)]
 
-Uruchomić stronę i spróbuj wprowadzić literą, jeśli włączona JavaScript, nie będzie on działał; cyfry są jednak wyświetlane na stronie. Jednak należy pamiętać, że ochrona `FilteredTextBox` zapewnia nie jest dowód punktor: Jeśli JavaScript jest włączony, wszelkie dane mogą być wprowadzane w polu tekstowym, więc trzeba użyć oznacza, że dodatkowe sprawdzenie poprawności, czyli ASP. Formanty sprawdzania poprawności w sieci.
+Uruchom stronę i spróbuj wprowadzić literę, jeśli język JavaScript jest włączony, nie będzie działać. cyfry są jednak wyświetlane na stronie. Należy jednak pamiętać, że `FilteredTextBox` ochrony nie jest punktorem-testowym: Jeśli JavaScript jest włączony, wszystkie dane mogą być wprowadzane w polu tekstowym, więc należy użyć dodatkowej weryfikacji, np. ASP. Kontrolki walidacji netto.
 
-[![Mogą być wprowadzane tylko cyfry](allowing-only-certain-characters-in-a-text-box-vb/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-vb/_static/image1.png)
+[można wprowadzać tylko ![cyfry](allowing-only-certain-characters-in-a-text-box-vb/_static/image2.png)](allowing-only-certain-characters-in-a-text-box-vb/_static/image1.png)
 
-Mogą być wprowadzane tylko cyfry ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](allowing-only-certain-characters-in-a-text-box-vb/_static/image3.png))
+Można wprowadzić tylko cyfry ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](allowing-only-certain-characters-in-a-text-box-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Poprzednie](allowing-only-certain-characters-in-a-text-box-cs.md)
+> [Ubiegł](allowing-only-certain-characters-in-a-text-box-cs.md)

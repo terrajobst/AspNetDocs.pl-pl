@@ -1,305 +1,305 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
-title: Opis aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX | Dokumentacja firmy Microsoft
+title: Informacje na temat aktualizacji stron częściowych przy użyciu technologii ASP.NET AJAX | Microsoft Docs
 author: scottcate
-description: Może być najbardziej widoczne funkcji rozszerzenia AJAX programu ASP.NET jest zdolność przeprowadzania aktualizacji strony częściowego lub przyrostowe bez wykonywania pełnego odświeżania do t...
+description: Prawdopodobnie najbardziej widoczną funkcją rozszerzeń AJAX ASP.NET jest możliwość przeprowadzania aktualizacji stron częściowej lub przyrostowej bez wykonywania pełnego ogłaszania zwrotnego w usłudze t...
 ms.author: riande
 ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: aa842aeb228abc763540d8ca8dafdfdca0b8b395
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 4b87cb8f58dbd7f27b16bcb0d488ff361770d4fe
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109010"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74622960"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX
 
 przez [Scott Cate](https://github.com/scottcate)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
-> Może być najbardziej widoczne funkcji rozszerzenia AJAX programu ASP.NET jest zdolność przeprowadzania aktualizacji strony częściowego lub przyrostowe bez wykonania tej czynności pełny zwrot do serwera, bez wprowadzania zmian w kodzie i zmianami znaczników minimalny. Zalety są obszerne — stan multimediach (takich jak Adobe Flash lub Windows Media) pozostaje niezmieniony, są obniżone koszty przepustowości i klienta nie występują migotania związanych zazwyczaj ze ogłaszania zwrotnego.
+> Prawdopodobnie najbardziej widoczną funkcją rozszerzeń AJAX ASP.NET jest możliwość przeprowadzania aktualizacji stron częściowej lub przyrostowej bez konieczności pełnego ogłaszania zwrotnego na serwerze i braku zmian w kodzie i minimalnej liczby zmian znaczników. Zalety są obszerne — stan multimediów (np. Adobe Flash lub Windows Media) nie jest zmieniany, koszty przepustowości są skracane, a klient nie korzysta z migotania zwykle powiązanego z ogłaszaniem zwrotnym.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Firmy Microsoft technologii ASP.NET oferuje zorientowane obiektowo i oparte na zdarzeniach model programowania i łączy w sobie go z korzyściami skompilowanego kodu. Jednak jego przetwarzania po stronie serwera modelu ma kilka wady związane z technologii:
+Technologia ASP.NET firmy Microsoft zapewnia model programowania zorientowany obiektowo i oparty na zdarzeniach oraz kieruje go do zalet skompilowanego kodu. Jednak model przetwarzania po stronie serwera ma kilka wad związanych z technologią:
 
-- Strona aktualizacje wymagają przesłania danych do serwera, który wymaga odświeżenia strony.
-- Rund nie są zachowywane efekty, który został wygenerowany przez programy Javascript lub innej technologii po stronie klienta (takich jak Adobe Flash)
-- Podczas odświeżania przeglądarki innej niż Microsoft Internet Explorer nie obsługują automatyczne przywrócenie jego położenie przewijania. I jeszcze w programie Internet Explorer istnieje migotanie jako strona zostanie odświeżona.
-- Ogłaszania zwrotnego może obejmować dużej ilości przepustowości jako \_ \_VIEWSTATE pola formularza może rosnąć, szczególnie gdy chodzi o kontrolek, takich jak kontrolki GridView lub wzmacniaki.
-- Nie ma żadnych zunifikowany model przeznaczony do uzyskiwania dostępu do usług sieci Web za pomocą języka JavaScript lub innej technologii po stronie klienta.
+- Aktualizacje strony wymagają przeprowadzenia rundy do serwera, który wymaga odświeżenia strony.
+- Przeprowadzenie rundy nie utrwala żadnych efektów wygenerowanych przez JavaScript lub inną technologię po stronie klienta (na przykład Adobe Flash).
+- Podczas ogłaszania zwrotnego przeglądarki inne niż Microsoft Internet Explorer nie obsługują automatycznego przywracania pozycji przewijania. Nawet w programie Internet Explorer nadal występuje migotanie, ponieważ strona jest odświeżana.
+- Ogłaszanie zwrotne może wiązać się z dużą ilością przepustowości, ponieważ pole formularza \_\_jest rozrastane, szczególnie podczas pracy z kontrolkami, takimi jak kontrolka GridView lub powtórzenia.
+- Nie istnieje ujednolicony model służący do uzyskiwania dostępu do usług sieci Web za poorednictwem języka JavaScript lub innej technologii po stronie klienta.
 
-Wprowadź rozszerzeń ASP.NET AJAX firmy Microsoft. AJAX, który oznacza **A** synchroniczne **"j"** avaScript **A** nd **X** uczenie Maszynowe, to zintegrowane umożliwiająca dostarczanie przyrostowe strony aktualizacje przy użyciu języka JavaScript dla wielu platform, składające się z kodu po stronie serwera Microsoft Framework w technologii AJAX i składnik skryptu o nazwie biblioteki skryptów AJAX firmy Microsoft. Rozszerzeń ASP.NET AJAX również zapewniają obsługę wielu platform do uzyskiwania dostępu do usług sieci Web ASP.NET przy użyciu języka JavaScript.
+Wprowadź rozszerzenia ASP.NET AJAX firmy Microsoft. Technologia AJAX, która oznacza **synchroniczną** AvaScriptę **J** **X** ml, jest zintegrowaną platformą umożliwiającą udostępnianie przyrostowych aktualizacji stron za pośrednictwem **JavaScript na wielu** platformach, składającą się z kodu po stronie serwera składającego się z technologii Microsoft Ajax Framework oraz składnika skryptu zwanego biblioteką skryptów Microsoft Ajax. Rozszerzenia AJAX ASP.NET zapewniają również obsługę wielu platform na potrzeby uzyskiwania dostępu do usług sieci Web ASP.NET za pośrednictwem języka JavaScript.
 
-Strona częściowa aktualizacje funkcji rozszerzenia AJAX programu ASP.NET, który obejmuje składnika ScriptManager, kontrolki UpdatePanel i kontrolki UpdateProgress i uwzględnia scenariusze, w których powinien lub nie powinien być sprawdza, czy ten oficjalny dokument wykorzystywane.
+Ten oficjalny dokument analizuje funkcje częściowej aktualizacji strony rozszerzeń ASP.NET AJAX, które obejmują składnik ScriptManager, formant UpdatePanel i kontrolkę UpdateProgress, i uwzględniają scenariusze, w których powinny lub nie powinny być używane.
 
-Ten oficjalny dokument jest oparty na wersji Beta 2 programu Visual Studio 2008 i programu .NET Framework 3.5, którą można zintegrować rozszerzenia AJAX programu ASP.NET do Biblioteka klasy podstawowej (której wcześniej był dodatkowy składnik dostępne dla programu ASP.NET 2.0). Tym oficjalnym dokumencie założono, że używasz programu Visual Studio 2008 i nie Visual Web Developer Express Edition; Niektóre szablony projektów, których istnieją odwołania może nie być dostępne dla użytkowników programu Visual Web Developer Express.
+Niniejszy dokument jest oparty na wersji beta 2 programu Visual Studio 2008 i .NET Framework 3,5, która integruje rozszerzenia AJAX ASP.NET z biblioteką klas bazowych (w którym wcześniej był dostępny składnik dodatku dla ASP.NET 2,0). W tym dokumencie przyjęto również założenie, że używasz programu Visual Studio 2008, a nie programu Visual Web Developer Express Edition. Niektóre szablony projektów, do których istnieją odwołania, mogą nie być dostępne dla użytkowników programu Visual Web Developer Express.
 
-## <a name="partial-page-updates"></a>Aktualizacji stron częściowych
+## <a name="partial-page-updates"></a>Aktualizacje strony częściowej
 
-Może być najbardziej widoczne funkcji rozszerzenia AJAX programu ASP.NET jest zdolność przeprowadzania aktualizacji strony częściowego lub przyrostowe bez wykonania tej czynności pełny zwrot do serwera, bez wprowadzania zmian w kodzie i zmianami znaczników minimalny. Zalety są obszerne — stan multimediach (takich jak Adobe Flash lub Windows Media) pozostaje niezmieniony, są obniżone koszty przepustowości i klienta nie występują migotania związanych zazwyczaj ze ogłaszania zwrotnego.
+Prawdopodobnie najbardziej widoczną funkcją rozszerzeń AJAX ASP.NET jest możliwość przeprowadzania aktualizacji stron częściowej lub przyrostowej bez konieczności pełnego ogłaszania zwrotnego na serwerze i braku zmian w kodzie i minimalnej liczby zmian znaczników. Zalety są rozległe — stan multimediów (np. Adobe Flash lub Windows Media) nie jest zmieniany, koszty przepustowości są skracane, a klient nie korzysta z migotania zwykle powiązanego z ogłaszaniem zwrotnym.
 
-Możliwość integracji renderowania stron częściowych jest integrowany ASP.NET przy minimalnych zmianach w projekcie.
+Możliwość integracji renderowania częściowej strony jest zintegrowana z ASP.NET z minimalnymi zmianami w projekcie.
 
-## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Przewodnik: Integrowanie częściowe renderowanie istniejący projekt
+## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Wskazówki: Integrowanie renderowania częściowego z istniejącym projektem
 
-1. W programie Microsoft Visual Studio 2008, należy utworzyć nowy projekt witryny sieci Web platformy ASP.NET, przechodząc do <em>pliku</em>  <em>- &gt; New</em>  <em>- &gt; witryny sieci Web</em> i wybierając pozycję witryny sieci Web platformy ASP.NET z poziomu okna dialogowego. Można określić nazwę wedle uznania i może zainstalować ją w systemie plików lub do programu Internet Information Services (IIS).
-2. Zostaną wyświetlone z pustą domyślną stroną z podstawowych znaczników ASP.NET (formularza po stronie serwera i `@Page` dyrektywy). Usunąć etykietę o nazwie `Label1` oraz przycisk o nazwie `Button1` na stronę w elemencie formularza. Może ustawiać ich właściwości tekstu, wedle uznania.
-3. W widoku Projekt, kliknij dwukrotnie `Button1` do generowania obsługi zdarzenia związanego z kodem. W ramach tego programu obsługi zdarzeń, należy ustawić `Label1.Text` do kliknięto przycisk! .
+1. W Microsoft Visual Studio 2008 Utwórz nowy projekt witryny sieci Web ASP.NET, przechodząc do pozycji <em>plik</em> <em>-&gt; nowej</em> <em>-&gt; witrynę sieci Web</em> i wybierając ASP.NET witrynę sieci Web z okna dialogowego. Można ją nazwać w dowolny sposób i można ją zainstalować w systemie plików lub w Internet Information Services (IIS).
+2. Zostanie wyświetlona pusta strona domyślna ze znacznikiem Basic ASP.NET (formularz po stronie serwera i dyrektywa `@Page`). Usuń etykietę o nazwie `Label1` i przycisk o nazwie `Button1` na stronie w elemencie form. Możesz ustawić własne właściwości tekstu.
+3. W widok Projekt kliknij dwukrotnie pozycję `Button1`, aby wygenerować program obsługi zdarzeń związany z kodem. W ramach tego programu obsługi zdarzeń Ustaw `Label1.Text` kliknięciem przycisku! .
 
-**Wyświetlanie 1: Kod znaczników dla default.aspx przed włączeniem częściowe renderowanie**
+**Lista 1: znacznik default. aspx przed włączeniem częściowego renderowania**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**Wyświetlanie 2: (Spacje) default.aspx.cs CodeBehind**
+**Lista 2: CodeBehind (przycięta) w default.aspx.cs**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
-1. Naciśnij klawisz F5, aby uruchomić witryny sieci web. Program Visual Studio wyświetli monit o dodanie pliku web.config w celu włączenia debugowania. to zrobić. Po kliknięciu przycisku, zwróć uwagę, że odświeżona do zmiany tekstu w etykiecie, a ma krótki migotania odświeżeniu strony.
-2. Po zamknięciu okna przeglądarki, wróć do programu Visual Studio, jak i do strony znaczników. Przewiń w dół w przyborniku programu Visual Studio i Znajdź kartę rozszerzenia AJAX. (Jeśli nie masz na tej karcie, ponieważ używasz starszej wersji rozszerzeń AJAX lub Atlas, zapoznaj się przewodnik rejestracji rozszerzenia AJAX elementów przybornika w dalszej części tego dokumentu, lub zainstaluj bieżącą wersję za pomocą Instalatora Windows do pobrania z witryny sieci Web).
+1. Naciśnij klawisz F5, aby uruchomić witrynę sieci Web. Program Visual Studio wyświetli monit o dodanie pliku Web. config w celu włączenia debugowania. zrób tak. Po kliknięciu przycisku Zauważ, że strona Odświeża stronę w celu zmiany tekstu w etykiecie, a po ponownym narysowaniu strony występuje krótkie migotanie.
+2. Po zamknięciu okna przeglądarki Wróć do programu Visual Studio i na stronę znaczników. Przewiń w dół w przyborniku programu Visual Studio i Znajdź kartę z etykietą rozszerzenia AJAX. (Jeśli nie masz tej karty, ponieważ używasz starszej wersji rozszerzeń AJAX lub Atlas, zapoznaj się z przewodnikiem dotyczącym rejestrowania elementów przybornika rozszerzeń AJAX w dalszej części tego dokumentu lub zainstaluj bieżącą wersję z Instalator Windows do pobrania z witryny sieci Web).
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image2.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image1.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
 
-1. <em>Znany problem:</em>po zainstalowaniu programu Visual Studio 2008 na komputerze, na którym jest już zainstalowany za pomocą rozszerzenia AJAX programu ASP.NET w wersji 2.0 programu Visual Studio 2005, Visual Studio 2008 zostaną zaimportowane elementy przybornika rozszerzenia AJAX. Można określić, czy jest to możliwe, sprawdzając etykietka narzędzia składników; powinny one Załóżmy, że wersja 3.5.0.0. Jeśli podają wersji 2.0.0.0 lub nowszej, następnie zaimportowano starych elementów przybornika i należy ręcznie zaimportować je za pomocą okna dialogowego Wybierz elementy paska narzędzi w programie Visual Studio. Nie można dodać kontrolki w wersji 2 przy użyciu narzędzia Projektant.
+1. <em>Znany problem:</em> W przypadku zainstalowania programu Visual Studio 2008 na komputerze, na którym jest już zainstalowany program Visual Studio 2005 z rozszerzeniami ASP.NET 2,0 AJAX, program Visual Studio 2008 zaimportuje elementy przybornika rozszerzeń AJAX. Możesz określić, czy jest to przypadek, sprawdzając etykietkę narzędzia składników; powinny one być napisane w wersji 3.5.0.0. Jeśli poznamy wersję 2.0.0.0, zaimportowano stare elementy przybornika i będzie konieczne ręczne zaimportowanie ich przy użyciu okna dialogowego Wybierz elementy przybornika w programie Visual Studio. Nie będzie można dodać kontrolek w wersji 2 za pomocą projektanta.
 
-2. Przed `<asp:Label>` rozpoczyna się tag, Utwórz wiersz białe znaki i kliknij dwukrotnie kontrolki UpdatePanel z przybornika. Należy pamiętać, że nowy `@Register` dyrektywa jest uwzględniane w górnej części strony, wskazujący, że formanty w przestrzeni nazw System.Web.UI powinny być importowane przy użyciu `asp:` prefiks.
-3. Przeciągnij zamykającym `</asp:UpdatePanel>` tag poza końcem Button element tak, aby element jest poprawnie sformułowanym z formantami etykiet i przycisk opakowana.
-4. Po otwarciu `<asp:UpdatePanel>` tag, rozpoczęcie nowego tagu początkowego. Należy pamiętać, że funkcja IntelliSense wyświetli monit o dwie opcje. W takim przypadku utworzyć `<ContentTemplate>` tagu. Pamiętaj zawinięte ten tag wokół Twoje etykiety i przycisk znaczników jest poprawnie sformułowany.
+2. Przed rozpoczęciem tagu `<asp:Label>` Utwórz wiersz odstępu, a następnie kliknij dwukrotnie formant UpdatePanel w przyborniku. Należy zauważyć, że nowa `@Register` dyrektywa jest uwzględniona u góry strony, co oznacza, że kontrolki w przestrzeni nazw System. Web. UI powinny być importowane przy użyciu prefiksu `asp:`.
+3. Przeciągnij znacznik zamykania `</asp:UpdatePanel>` poza końcem elementu Button, dzięki czemu element jest poprawnie sformułowany z kontrolkami etykiet i przycisków.
+4. Po tagu otwierającym `<asp:UpdatePanel>` Rozpocznij otwieranie nowego tagu. Należy pamiętać, że technologia IntelliSense poprosi o dwie opcje. W takim przypadku Utwórz tag `<ContentTemplate>`. Pamiętaj, aby otoczyć ten tag etykietą i przyciskiem, aby znaczniki były poprawnie sformułowane.
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
 
-1. W dowolnym miejscu `<form>` elementu, obejmują formantu ScriptManager przez dwukrotne kliknięcie `ScriptManager` w przyborniku.
-2. Edytuj `<asp:ScriptManager>` tag, aby obejmowała atrybut `EnablePartialRendering= true`.
+1. W dowolnym miejscu elementu `<form>` należy dodać kontrolkę ScriptManager przez dwukrotne kliknięcie elementu `ScriptManager` w przyborniku.
+2. Edytuj znacznik `<asp:ScriptManager>` tak, aby zawierał `EnablePartialRendering= true`atrybutu.
 
-**Wyświetlanie 3: Kod znaczników dla default.aspx z włączoną funkcją renderowania częściowe**
+**Lista 3: Adiustacja dla default. aspx z włączonym renderowaniem częściowym**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample3.aspx)]
 
-1. Otwórz plik web.config. Należy zauważyć, że program Visual Studio automatycznie dodał odwołanie kompilacji do System.Web.Extensions.dll.
+1. Otwórz plik Web. config. Zwróć uwagę, że program Visual Studio automatycznie dodał odwołanie do kompilacji do System. Web. Extensions. dll.
 
-1. Co nowego w programie Visual Studio 2008: Plik web.config, dostarczanego z witryna sieci Web ASP.NET szablonów projektu automatycznie obejmuje wszystkie niezbędne odwołania do rozszerzenia AJAX programu ASP.NET i zawiera oznaczone jako części informacji o konfiguracji, które mogą być niezaznaczone komentarze, aby włączyć dodatkowe funkcje. Visual Studio 2005 wcześniejszego podobne szablony zostały zainstalowane rozszerzenia AJAX programu ASP.NET 2.0. W programie Visual Studio 2008, rozszerzenia AJAX są jednak zrezygnować domyślnie (oznacza to, że ich są określone przez domyślny, ale można usuwać odwołania).
+1. Co nowego w programie Visual Studio 2008: plik Web. config, który jest dostarczany z szablonami projektu witryny sieci Web ASP.NET automatycznie zawiera wszystkie niezbędne odwołania do rozszerzeń ASP.NET AJAX, a także zawiera sekcje z informacjami o konfiguracji, które mogą być Cofnij komentarz, aby włączyć dodatkowe funkcje. Program Visual Studio 2005 ma podobne szablony, gdy zainstalowano rozszerzenia ASP.NET 2,0 AJAX. Jednak w programie Visual Studio 2008 rozszerzenia AJAX są domyślnie wyłączane (oznacza to, że są one domyślnie przywoływane, ale można je usunąć jako odwołania).
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
 
-1. Naciśnij klawisz F5, aby uruchomić witryny sieci Web. Należy zauważyć, jak zmiany kodu źródłowego, nie były wymagane do obsługi częściowe renderowanie — tylko znaczników został zmieniony.
+1. Naciśnij klawisz F5, aby uruchomić witrynę internetową. Zwróć uwagę, jak nie są wymagane żadne zmiany kodu źródłowego do obsługi renderowania częściowego — oznaczenie tylko adiustacji zostało zmienione.
 
-Po uruchomieniu witryny sieci Web, powinien zostać wyświetlony, że częściowe renderowanie jest teraz włączone, ponieważ po kliknięciu przycisku, nie będzie żadnych migotania, ani nie zostaną wprowadzone żadne zmiany jego położenie przewijania strony (w tym przykładzie nie wykazują, że). Gdyby Przyjrzyj się renderowany źródło strony po kliknięciu przycisku potwierdzi w rzeczywistości nie przeprowadzono wstecz po — oryginalny tekst etykiety jest nadal częścią kod źródłowy i etykiety zmienił się za pomocą języka JavaScript.
+Po uruchomieniu witryny sieci Web powinno być widoczne, że funkcja renderowania częściowego jest teraz włączona, ponieważ po kliknięciu przycisku nie będzie migotać, ani nie będzie żadnych zmian w pozycji przewijania strony (ten przykład nie pokazuje tego). Jeśli po kliknięciu przycisku wyszukasz renderowane Źródło strony, zostanie potwierdzone, że w rzeczywistości nie przeprowadzono publikacji. oryginalny tekst etykiety jest nadal częścią znacznika źródłowego, a etykieta została zmieniona za pomocą języka JavaScript.
 
-Program Visual Studio 2008 nie ma dołączone wstępnie zdefiniowanym szablonie dostępnym dla witryny sieci web z włączoną obsługą technologii AJAX programu ASP.NET. Jednak taki szablon był dostępny w programie Visual Studio 2005, jeśli były zainstalowane Visual Studio 2005 i rozszerzenia AJAX programu ASP.NET 2.0. W związku z tym konfigurowanie witryny sieci web i uruchamianie za pomocą szablonu witryny sieci Web AJAX-Enabled będzie prawdopodobnie jeszcze łatwiejsze szablon powinien zawierać plik web.config w pełni skonfigurowana (Obsługa wszystkie rozszerzenia AJAX programu ASP.NET, w tym dostęp do usług sieci Web a serializacja kodu JSON — JavaScript Object Notation) i domyślnie zawiera kontrolki UpdatePanel i ContentTemplate na głównej stronie formularzy sieci Web. Włączenie częściowe renderowanie z tą stroną domyślny jest tak proste, jak ponowne spojrzenie na 10 kroku tego przewodnika i upuszczając formantów na stronę.
+W programie Visual Studio 2008 nie jest wyświetlany wstępnie zdefiniowany szablon dla witryny sieci Web z obsługą technologii AJAX ASP.NET. Jednak taki szablon był dostępny w programie Visual Studio 2005, jeśli zainstalowano rozszerzenia Visual Studio 2005 i ASP.NET 2,0 AJAX. W związku z tym skonfigurowanie witryny sieci Web i rozpoczęcie od szablonu witryny sieci Web z obsługą technologii AJAX prawdopodobnie będzie jeszcze łatwiejsze, ponieważ szablon powinien zawierać w pełni skonfigurowany plik Web. config (obsługujący wszystkie rozszerzenia AJAX ASP.NET, w tym dostęp do usług sieci Web). i Serializacja JSON-JavaScript Object Notation) i domyślnie zawiera element UpdatePanel i ContentTemplate na głównej stronie formularzy sieci Web. Włączenie renderowania częściowego przy użyciu tej domyślnej strony jest tak proste jak w kroku 10 tego instruktażu i upuszczenie formantów na stronie.
 
-## <a name="the-scriptmanager-control"></a>Formantu ScriptManager
+## <a name="the-scriptmanager-control"></a>Kontrolka ScriptManager
 
-## <a name="scriptmanager-control-reference"></a>Odwołanie do formantu ScriptManager
+## <a name="scriptmanager-control-reference"></a>Dokumentacja kontrolki ScriptManager
 
-Włączone znaczników właściwości:
+Właściwości z włączoną obsługą znaczników:
 
-| **Nazwa właściwości** | **Typ** | **Opis** |
+| **Nazwa właściwości** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| AllowCustomErrors-Redirect | Bool | Określa, czy sekcja błędu niestandardowego pliku web.config służy do obsługi błędów. |
-| AsyncPostBackError-Message | String | Pobiera lub ustawia komunikat o błędzie, wysłane do klienta, jeśli występuje błąd. |
-| AsyncPostBack-Timeout | Int32 | Pobiera lub ustawia domyślny czas, który klient ma oczekiwać na zakończenie żądania asynchronicznego. |
-| EnableScript-Globalization | Bool | Pobiera lub ustawia informację, czy włączono skryptów globalizacji. |
-| EnableScript-Localization | Bool | Pobiera lub ustawia informację, czy lokalizacja skryptu jest włączona. |
-| ScriptLoadTimeout | Int32 | Określa liczbę sekund, dozwolony dla ładowania skryptów do klienta |
-| ScriptMode | Wyliczenia (Auto, debugowania, wersji, dziedziczą) | Pobiera lub ustawia, czy renderowanie wersji skryptów |
-| ScriptPath | String | Pobiera lub ustawia ścieżkę katalogu głównego do lokalizacji plików skryptów przeznaczonych do wysłania do klienta. |
+| AllowCustomErrors — przekierowanie | Logiczna | Określa, czy w pliku Web. config ma być używana sekcja błędu niestandardowego do obsługi błędów. |
+| AsyncPostBackError — komunikat | String | Pobiera lub ustawia komunikat o błędzie wysyłany do klienta w przypadku zgłoszenia błędu. |
+| AsyncPostBack — limit czasu | Int32 | Pobiera lub ustawia domyślną ilość czasu, przez który klient powinien czekać na ukończenie żądania asynchronicznego. |
+| EnableScript — globalizacja | Logiczna | Pobiera lub ustawia czy jest włączone globalizacja skryptu. |
+| EnableScript — lokalizacja | Logiczna | Pobiera lub ustawia, czy lokalizacja skryptu jest włączona. |
+| ScriptLoadTimeout | Int32 | Określa liczbę sekund, przez jaką można załadować skrypty do klienta programu. |
+| ScriptMode | Wyliczenie (Auto, Debug, Release, Inherit) | Pobiera lub ustawia, czy mają być renderowane wersje skryptów |
+| scriptPath | String | Pobiera lub ustawia ścieżkę katalogu głównego do lokalizacji plików skryptów, które mają być wysłane do klienta. |
 
 Właściwości tylko do kodu:
 
-| **Nazwa właściwości** | **Typ** | **Opis** |
+| **Nazwa właściwości** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| AuthenticationService | AuthenticationService-Manager | Pobiera szczegółowe informacje o serwerze proxy usługi uwierzytelniania platformy ASP.NET, który zostanie wysłany do klienta. |
-| IsDebuggingEnabled | Bool | Czy skrypt pobiera i debugowania kodu jest włączona. |
-| IsInAsyncPostback | Bool | Pobiera informacje, czy strona jest obecnie w żądaniu post wstecz asynchronicznym. |
-| ProfileService | ProfileService-Manager | Pobiera szczegółowe informacje o serwerze proxy usługi profilowania ASP.NET, który zostanie wysłany do klienta. |
-| Scripts | Kolekcja&lt;odwołanie do skryptu&gt; | Pobiera kolekcję odwołania do skryptu, które zostaną wysłane do klienta. |
-| Usługi | Kolekcja&lt;odwołanie do usługi&gt; | Pobiera kolekcję odwołań do serwera proxy usługi sieci Web, które zostaną wysłane do klienta. |
-| SupportsPartialRendering | Bool | Pobiera informacje, czy bieżące klienta obsługuje częściowe renderowanie. Jeśli ta właściwość zwraca **false**, wszystkie żądania strony będą standardowa ogłaszania zwrotnego. |
+| AuthenticationService | AuthenticationService — Menedżer | Pobiera szczegółowe informacje o serwerze proxy usługi ASP.NET Authentication, który zostanie wysłany do klienta programu. |
+| IsDebuggingEnabled | Logiczna | Pobiera czy debugowanie skryptu i kodu jest włączone. |
+| IsInAsyncPostback | Logiczna | Pobiera czy strona jest obecnie w asynchronicznym żądaniu post. |
+| ProfileService | ProfileService — Menedżer | Pobiera szczegółowe informacje o serwerze proxy usługi profilowania ASP.NET, który zostanie wysłany do klienta. |
+| Znajduj | Kolekcja&lt;skrypt-dokumentacja&gt; | Pobiera kolekcję odwołań do skryptów, które zostaną wysłane do klienta. |
+| Usługi | &lt;usługi kolekcji — dokumentacja&gt; | Pobiera kolekcję odwołań serwera proxy usługi sieci Web, które zostaną wysłane do klienta. |
+| SupportsPartialRendering | Logiczna | Pobiera czy bieżący klient obsługuje renderowanie częściowe. Jeśli ta właściwość zwraca **wartość false**, wszystkie żądania stron będą standardowe ogłaszanie zwrotne. |
 
-Metody publiczne kodu:
+Metody kodu publicznego:
 
-| **Nazwa metody** | **Typ** | **Opis** |
+| **Nazwa metody** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| SetFocus(string) | Void | Ustawia fokus klienta w określonego formantu żądania zostało ukończone. |
+| SetFocus (ciąg) | Pozycję | Ustawia fokus klienta na określoną kontrolkę, gdy żądanie zostało zakończone. |
 
-Elementy podrzędne znaczników:
+Elementy potomne znaczników:
 
-| **Tag** | **Opis** |
+| **Seryjn** | **Opis** |
 | --- | --- |
-| &lt;AuthenticationService&gt; | Zawiera szczegółowe informacje o serwerze proxy do usługi uwierzytelniania platformy ASP.NET. |
-| &lt;ProfileService&gt; | Zawiera szczegółowe informacje dotyczące serwera proxy do profilowania usługi ASP.NET. |
-| &lt;Skrypty&gt; | Zawiera odwołania do skryptu dodatkowe. |
-| &lt;asp:ScriptReference&gt; | Wskazuje, że odwołanie do określonego skryptu. |
-| &lt;Usługa&gt; | Zawiera dodatkowe informacje usługi sieci Web, zainstalowanym klasy serwera proxy generowany. |
-| &lt;asp:ServiceReference&gt; | Wskazuje, że określone odwołanie do usługi sieci Web. |
+| &lt;AuthenticationService&gt; | Zawiera szczegółowe informacje o serwerze proxy usługi uwierzytelniania ASP.NET. |
+| &lt;ProfileService&gt; | Zawiera szczegółowe informacje o serwerze proxy w usłudze profilowania ASP.NET. |
+| &gt; skryptów &lt; | Zawiera dodatkowe odwołania do skryptów. |
+| &lt;ASP: odwołanie do skryptu&gt; | Oznacza odwołanie do określonego skryptu. |
+| &lt;Usługa&gt; | Zawiera dodatkowe odwołania usługi sieci Web, które będą miały klasy proxy. |
+| &lt;ASP: ServiceReference&gt; | Wskazuje określone odwołanie do usługi sieci Web. |
 
-Formantu ScriptManager stanowi podstawę niezbędne dla rozszerzenia AJAX programu ASP.NET. Jego zapewnia dostęp do biblioteki skryptów (w tym system typów rozbudowane skryptu po stronie klienta), obsługuje częściowe renderowanie i zapewnia zaawansowaną obsługę dodatkowych usług platformy ASP.NET (takich jak uwierzytelnianie i profilowania, ale również inne usługi sieci Web). Formantu ScriptManager znajdują się również lokalizacja i globalizacja Obsługa skryptów klienta.
+Formant ScriptManager jest podstawowym podstawą dla rozszerzeń ASP.NET AJAX. Zapewnia dostęp do biblioteki skryptów (w tym rozbudowanego systemu typu skryptu po stronie klienta), obsługuje renderowanie częściowe i zapewnia szeroką pomoc techniczną dla dodatkowych usług ASP.NET (takich jak uwierzytelnianie i profilowanie, ale również inne usługi sieci Web). Kontrolka ScriptManager udostępnia także globalizację i obsługę lokalizacji skryptów klienta.
 
-## <a name="providing-alternative-and-supplemental-scripts"></a>Podanie alternatywnych i uzupełniające skryptów
+## <a name="providing-alternative-and-supplemental-scripts"></a>Zapewnianie alternatywnych i dodatkowych skryptów
 
-Rozszerzenia AJAX programu Microsoft ASP.NET 2.0 zawiera kod cały skrypt w obu debugowania i wydania wersji jako zasoby osadzone w przywoływanych zestawach, deweloperzy mogą przekierować funkcja ScriptManager do plików skryptów niestandardowych, a także rejestrowanie dodatkowe wymagane skrypty.
+Mimo że rozszerzenia AJAX Microsoft ASP.NET 2,0 obejmują cały kod skryptu w wersjach Debug i Release jako zasoby osadzone w przywoływanych zestawach, deweloperzy mogą przekierowywać elementy ScriptManager do dostosowanych plików skryptów, a także rejestrować Dodatkowe niezbędne skrypty.
 
-Aby zastąpić domyślne powiązanie zazwyczaj uwzględniony skryptów (takich jak te, które obsługują Sys.WebForms przestrzeni nazw i niestandardowego systemu Pisownia), możesz zarejestrować `ResolveScriptReference` zdarzeń klasy ScriptManager. Gdy ta metoda jest wywoływana, program obsługi zdarzeń ma szansy sprzedaży, aby zmienić ścieżkę do pliku skryptu w danym; Menedżer skryptu prześle kopię skrypty różnych lub dostosowanych do klienta.
+Aby zastąpić domyślne powiązanie dla najczęściej dołączanych skryptów (takich jak te, które obsługują przestrzeń nazw sys. WebForms i niestandardowy system pisania), można zarejestrować dla zdarzenia `ResolveScriptReference` klasy ScriptManager. Gdy ta metoda jest wywoływana, program obsługi zdarzeń ma możliwość zmiany ścieżki do pliku skryptu. Menedżer skryptów wyśle następnie do klienta inną lub dostosowaną kopię skryptów.
 
-Ponadto skryptu odwołania (reprezentowane przez `ScriptReference` klasy) może zostać dołączony programowo lub za pomocą znaczników. Aby to zrobić, programowo zmodyfikuj `ScriptManager.Scripts` kolekcji, lub Uwzględnij `<asp:ScriptReference>` tagów w obszarze `<Scripts>` znacznik, który jest elementem podrzędnym pierwszego poziomu formantu ScriptManager.
+Ponadto odwołania do skryptów (reprezentowane przez klasę `ScriptReference`) mogą być uwzględniane programowo lub za pomocą znaczników. W tym celu można programowo zmodyfikować kolekcję `ScriptManager.Scripts` lub uwzględnić Tagi `<asp:ScriptReference>` pod tagiem `<Scripts>`, który jest elementem podrzędnym pierwszego poziomu formantu ScriptManager.
 
-## <a name="custom-error-handling-for-updatepanels"></a>Niestandardowej obsługi błędów dla UpdatePanels
+## <a name="custom-error-handling-for-updatepanels"></a>Niestandardowa obsługa błędów dla elementu UpdatePanel
 
-Mimo że aktualizacje są obsługiwane przez wyzwalacze określony przez formantów UpdatePanel, pomocy technicznej do obsługi błędów i niestandardowe komunikaty o błędach jest obsługiwany przez wystąpienia formantu ScriptManager strony. Jest to realizowane przez udostępnianie zdarzeń `AsyncPostBackError`, do strony, który można następnie zapewnić logikę niestandardową obsługę wyjątków.
+Mimo że aktualizacje są obsługiwane przez wyzwalacze określone przez kontrolki UpdatePanel, obsługa błędów i niestandardowych komunikatów o błędach jest obsługiwana przez wystąpienie formantu ScriptManager strony. Jest to realizowane przez ujawnienie zdarzenia, `AsyncPostBackError`do strony, która może następnie zapewnić niestandardową logikę obsługi wyjątków.
 
-Za korzystanie z zdarzeń AsyncPostBackError, można określić `AsyncPostBackErrorMessage` właściwość, która następnie powoduje, że okno dialogowe alertu do wywołania po ukończeniu wywołania zwrotnego.
+Korzystając ze zdarzenia AsyncPostBackError, można określić właściwość `AsyncPostBackErrorMessage`, która spowoduje wygenerowanie okna alertu po zakończeniu wywołania zwrotnego.
 
-Dostosowywanie po stronie klienta jest również możliwe, zamiast przy użyciu domyślnego pola alertu; na przykład możesz chcieć wyświetlić dostosowany `<div>` elementu zamiast domyślnej przeglądarki modalne okno dialogowe. W takim przypadku może obsłużyć błąd w skrypcie klienta:
+Możliwe jest również dostosowanie po stronie klienta zamiast korzystania z domyślnego pola alertu. na przykład może być konieczne wyświetlenie dostosowanego elementu `<div>`, a nie domyślnego okna dialogowego modalnego przeglądarki. W takim przypadku można obsłużyć błąd w skrypcie klienta:
 
-**Wyświetlanie 5: Skrypt po stronie klienta, aby wyświetlić błędy niestandardowe**
+**Lista 5: skrypt po stronie klienta do wyświetlania błędów niestandardowych**
 
 [!code-html[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample4.html)]
 
-Bardzo łatwo powyższy skrypt rejestruje wywołanie zwrotne ze środowiskiem uruchomieniowym AJAX po stronie klienta dla po ukończeniu żądania asynchronicznego. Następnie sprawdza, czy błąd został zgłoszony i jeśli tak, przetwarza szczegółowe informacje, na koniec wskazujący do środowiska uruchomieniowego czy błąd został obsłużony w skryptu niestandardowego.
+Całkiem po prostu Powyższy skrypt rejestruje wywołanie zwrotne za pomocą środowiska uruchomieniowego AJAX po stronie klienta dla momentu ukończenia żądania asynchronicznego. Następnie sprawdza, czy zgłoszono błąd, a jeśli tak, przetwarza szczegóły, a wreszcie wskazuje środowisko uruchomieniowe, że błąd został obsłużony w skrypcie niestandardowym.
 
-## <a name="globalization-and-localization-support"></a>Globalizacja i lokalizacja pomocy technicznej
+## <a name="globalization-and-localization-support"></a>Obsługa globalizacji i lokalizacji
 
-Formantu ScriptManager oferuje zaawansowaną obsługę dla lokalizacji ciągi skryptu oraz składników interfejsu użytkownika; jednak tego tematu znajduje się poza zakres tego dokumentu. Aby uzyskać więcej informacji zobacz oficjalny dokument, obsługa globalizacji w rozszerzenia AJAX programu ASP.NET.
+Formant ScriptManager zawiera rozbudowaną obsługę lokalizowania ciągów skryptów i składników interfejsu użytkownika. Jednak ten temat wykracza poza zakres tego dokumentu. Aby uzyskać więcej informacji, zobacz oficjalny dokument dotyczący obsługi globalizacji w rozszerzeniach ASP.NET AJAX.
 
-## <a name="the-updatepanel-control"></a>Kontrolki UpdatePanel
+## <a name="the-updatepanel-control"></a>Formant UpdatePanel
 
-## <a name="updatepanel-control-reference"></a>Odwołanie do kontrolki UpdatePanel
+## <a name="updatepanel-control-reference"></a>Formant UpdatePanel — odwołanie
 
-Włączone znaczników właściwości:
+Właściwości z włączoną obsługą znaczników:
 
-| **Nazwa właściwości** | **Typ** | **Opis** |
+| **Nazwa właściwości** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| ChildrenAsTriggers | bool | Określa, czy formanty podrzędne automatycznie wywołują odświeżanie zwrotu. |
-| RenderMode | wyliczenia (bloku, wbudowane) | Określa, że jej zawartość zostanie wyświetlona wizualnie. |
-| UpdateMode | wyliczenia (zawsze, warunkowego) | Określa, czy zawsze odświeżania kontrolki UpdatePanel podczas renderowania częściowego lub jeśli jest on tylko odświeżany po trafieniu wyzwalacza. |
+| ChildrenAsTriggers | bool | Określa, czy kontrolki potomne automatycznie wywołują odświeżanie przy ogłaszaniu zwrotnym. |
+| RenderMode | Wyliczenie (blok, wbudowany) | Określa sposób wizualizacji zawartości. |
+| UpdateMode | enum (zawsze, warunkowo) | Określa, czy element UpdatePanel jest zawsze odświeżany podczas częściowego renderowania lub czy jest odświeżany tylko wtedy, gdy wyzwalacz został trafiony. |
 
 Właściwości tylko do kodu:
 
-| **Nazwa właściwości** | **Typ** | **Opis** |
+| **Nazwa właściwości** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| IsInPartialRendering | bool | Pobiera informacje, czy kontrolki UpdatePanel obsługuje częściowe renderowanie dla bieżącego żądania. |
+| IsInPartialRendering | bool | Pobiera czy element UpdatePanel obsługuje renderowanie częściowe dla bieżącego żądania. |
 | ContentTemplate | ITemplate | Pobiera szablon znaczników dla żądania aktualizacji. |
-| ContentTemplateContainer | formant | Pobiera szablon programistyczny dla żądania aktualizacji. |
-| Wyzwalacze | Kontrolki UpdatePanel - TriggerCollection | Pobiera listę wyzwalacz skojarzony z bieżącym UpdatePanel. |
+| ContentTemplateContainer | Kontrolka | Pobiera szablon programistyczny dla żądania aktualizacji. |
+| Wyzwalacze | UpdatePanel-TriggerCollection | Pobiera listę wyzwalaczy skojarzonych z bieżącym elementem UpdatePanel. |
 
-Metody publiczne kodu:
+Metody kodu publicznego:
 
-| **Nazwa metody** | **Typ** | **Opis** |
+| **Nazwa metody** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| Update() | Void | Aktualizuje określony UpdatePanel programowo. Zezwala na żądania serwera wyzwolić częściowe renderowanie prvku UpdatePanel w przeciwnym razie untriggered. |
+| Update () | Pozycję | Aktualizuje określony element UpdatePanel programowo. Zezwala na żądanie serwera wyzwalające częściowe renderowanie elementu UpdatePanel niewyzwalanego w inny sposób. |
 
-Elementy podrzędne znaczników:
+Elementy potomne znaczników:
 
-| **Tag** | **Opis** |
+| **Seryjn** | **Opis** |
 | --- | --- |
-| &lt;ContentTemplate&gt; | Kod znaczników określa ten ma być używany do renderowania wyniki częściowe renderowanie. Element podrzędny elementu &lt;asp: UpdatePanel&gt;. |
-| &lt;Wyzwalacze&gt; | Określa kolekcję elementów *n* kontrolki skojarzone z aktualizowaniem tej kontrolki UpdatePanel. Element podrzędny elementu &lt;asp: UpdatePanel&gt;. |
-| &lt;asp:AsyncPostBackTrigger&gt; | Określa wyzwalacz, który wywołuje renderowania stron częściowych dla danej kontrolki UpdatePanel. To może być lub może nie być formantu jako element podrzędny w danym UpdatePanel. Szczegółową nazwę zdarzenia. Element podrzędny elementu &lt;wyzwalaczy&gt;. |
-| &lt;asp:PostBackTrigger&gt; | Określa formant, który powoduje, że całej strony odświeżyć. To może być lub może nie być formantu jako element podrzędny w danym UpdatePanel. Szczegółową do obiektu. Element podrzędny elementu &lt;wyzwalaczy&gt;. |
+| &lt;ContentTemplate&gt; | Określa adiustację, która ma być używana do renderowania wyniku częściowego renderowania. Element podrzędny &lt;ASP: UpdatePanel&gt;. |
+| &lt;Wyzwalacze&gt; | Określa kolekcję *n* kontrolek skojarzonych z aktualizacją tego elementu UpdatePanel. Element podrzędny &lt;ASP: UpdatePanel&gt;. |
+| &lt;ASP: AsyncPostBackTrigger&gt; | Określa wyzwalacz, który wywołuje częściowe renderowanie strony dla danego elementu UpdatePanel. Może to być formant, który jest elementem podrzędnym elementu UpdatePanel. Szczegółowe do nazwy zdarzenia.&gt;elementów podrzędnych wyzwalaczy &lt;. |
+| &lt;ASP: PostBackTrigger&gt; | Określa kontrolkę, która powoduje odświeżenie całej strony. Może to być formant, który jest elementem podrzędnym elementu UpdatePanel. Szczegółowe dla obiektu. &gt;elementów podrzędnych wyzwalaczy &lt;. |
 
-`UpdatePanel` Formant jest formantem, ograniczającego zawartości po stronie serwera, który będzie uczestniczył w funkcji częściowe renderowanie rozszerzeń AJAX. Nie ma żadnego limitu liczby formantów UpdatePanel, które mogą się znajdować na stronie, a można zagnieżdżać. Każdej kontrolki UpdatePanel zostanie wyizolowana, tak aby każdy może działać niezależnie (może mieć dwóch UpdatePanels uruchomione w tym samym czasie, renderowanie różnych części strony, niezależnie od ogłaszania zwrotnego strony).
+Formant `UpdatePanel` jest formantem, który ogranicza zawartość po stronie serwera, która zostanie uwzględniona w funkcji renderowania częściowego rozszerzeń AJAX. Nie ma żadnego limitu liczby formantów UpdatePanel, które mogą znajdować się na stronie i mogą być zagnieżdżane. Każdy element UpdatePanel jest izolowany, dzięki czemu każdy może działać niezależnie (w tym samym czasie może być uruchomionych dwa elementy UpdatePanel), ponieważ renderuje różne części strony niezależnie od odświeżania strony.
 
-Kontrolki UpdatePanel kontrolować przede wszystkim ofertami z wyzwalaczami kontroli — domyślnie dowolną kontrolkę zawartych w UpdatePanel `ContentTemplate` tworząca ogłaszania zwrotnego jest zarejestrowany jako wyzwalacza dla kontrolki UpdatePanel. Oznacza to, że kontrolki UpdatePanel można pracować z formantów powiązanych z danymi domyślne (na przykład GridView), kontrolek użytkownika, i mogą one być zaprogramowane w skrypcie.
+Kontrolka UpdatePanel przede wszystkim zajmuje się wyzwalaczami kontroli — Domyślnie każda kontrolka zawarta w `ContentTemplate` elementu UpdatePanel, która tworzy ogłaszanie zwrotne, jest rejestrowana jako wyzwalacz dla elementu UpdatePanel. Oznacza to, że element UpdatePanel może współpracował z domyślnymi kontrolkami związanymi z danymi (takimi jak GridView), z kontrolkami użytkownika i może być zaprogramowany w skrypcie.
 
-Domyślnie po wyzwoleniu renderowania strony częściowej wszystkich formantów UpdatePanel na stronie zostanie odświeżona, czy kontrolki UpdatePanel zdefiniowane wyzwalacze takiego działania. Na przykład jeśli jeden UpdatePanel definiuje formant przycisku i kliknięciu tego formantu przycisku, domyślnie zostanie odświeżona wszystkich formantów UpdatePanel na tej stronie. Jest to spowodowane, domyślnie `UpdateMode` kontrolki UpdatePanel zostaje ustalona `Always`. Alternatywnie możesz ustawić właściwość UpdateMode `Conditional`, co oznacza, że kontrolki UpdatePanel będzie można odświeżyć tylko wtedy określonego wyzwalacza tych limitów zostanie osiągnięty.
+Domyślnie, gdy wyzwalane jest częściowe renderowanie strony, wszystkie kontrolki UpdatePanel na stronie zostaną odświeżone, niezależnie od tego, czy kontrolki UpdatePanel zostały zdefiniowane dla tej akcji. Na przykład jeśli jeden element UpdatePanel definiuje kontrolkę Button i zostanie kliknięty formant Button, wszystkie kontrolki UpdatePanel na tej stronie będą domyślnie odświeżane. Jest to spowodowane tym, że domyślnie Właściwość `UpdateMode` elementu UpdatePanel ma wartość `Always`. Alternatywnie można ustawić właściwość UpdateMode na `Conditional`, co oznacza, że element UpdatePanel będzie odświeżany tylko po trafieniu określonego wyzwalacza.
 
 ## <a name="custom-control-notes"></a>Uwagi dotyczące kontrolek niestandardowych
 
-Można dodać do dowolnej kontrolki użytkownika lub formant niestandardowy; UpdatePanel jednak strony, na którym są uwzględnione te kontrolki należy również uwzględnić formantu ScriptManager z właściwością równa EnablePartialRendering **true**.
+Element UpdatePanel można dodać do dowolnej kontrolki użytkownika lub kontrolki niestandardowej; jednak strona, na której znajdują się te formanty, musi również zawierać kontrolkę ScriptManager z właściwością EnablePartialRendering ustawioną na **wartość true**.
 
-Jednym ze sposobów, w którym użytkownik może to uwzględniać podczas używania Kontrolki niestandardowe sieci Web jest zastąpienie chronionego `CreateChildControls()` metody `CompositeControl` klasy. W ten sposób może wprowadzać UpdatePanel między elementów podrzędnych kontrolki a światem zewnętrznym, jeśli okaże się, że strona obsługuje częściowe renderowanie; w przeciwnym razie po prostu umożliwia zastosowanie warstwy formantów podrzędnych w kontenerze `Control` wystąpienia.
+Jednym ze sposobów, w którym można to uwzględnić podczas korzystania z niestandardowych formantów sieci Web, jest przesłonięcie chronionej `CreateChildControls()` metody klasy `CompositeControl`. Dzięki temu można wstrzyknąć element UpdatePanel między elementami podrzędnymi kontrolki i zewnętrznym, jeśli określisz, że strona obsługuje renderowanie częściowe; w przeciwnym razie można po prostu przydzielyć warstwę formantów podrzędnych do wystąpienia `Control` kontenera.
 
-## <a name="updatepanel-considerations"></a>Zagadnienia dotyczące kontrolki UpdatePanel
+## <a name="updatepanel-considerations"></a>Zagadnienia dotyczące elementu UpdatePanel
 
-Kontrolki UpdatePanel działa jako coś czarnej, zawijanie ogłaszania zwrotnego ASP.NET, w kontekście XMLHttpRequest języka JavaScript. Istnieją jednak zagadnienia istotnie poprawiającą wydajność, należy pamiętać, zarówno pod względem zachowanie i szybkości. Aby zrozumieć, jak działa UpdatePanel tak, aby najlepiej zdecyduj, kiedy jego użycie jest odpowiednie, należy sprawdzić AJAX exchange. W poniższym przykładzie użyto istniejącej lokacji i, Mozilla Firefox z rozszerzeniem Firebug (Firebug przechwytuje dane o XMLHttpRequest).
+Element UpdatePanel działa jako coś z czerni, zawijając ASP.NET ogłaszania zwrotnego w kontekście języka JavaScript XMLHttpRequest. Istnieją jednak istotne zagadnienia dotyczące wydajności, które należy wziąć pod uwagę, zarówno w kontekście zachowania, jak i szybkości. Aby zrozumieć, jak działa element UpdatePanel, aby móc najlepiej decydować, kiedy jego użycie jest odpowiednie, należy sprawdzić program AJAX Exchange. W poniższym przykładzie zastosowano istniejącą witrynę i program Mozilla Firefox z rozszerzeniem Firebug (Firebug przechwytuje dane XMLHttpRequest).
 
-Należy wziąć pod uwagę zawierającej, między innymi, kod pocztowy pola tekstowego, który ma wypełnić pole Miejscowość i województwo formularza lub formantu formularza. Ten formularz, ostatecznie zbiera informacje o członkostwie, w tym nazwę, adres i informacje kontaktowe. Istnieje wiele zagadnienia dotyczące projektowania, aby wziąć pod uwagę w oparciu o wymagania określonego projektu.
+Rozważmy formularz, który, między innymi, ma pole tekstowe kodu pocztowego, na którym należy wypełnić pole Miasto i Województwo w formularzu lub formancie. Ten formularz ostatecznie gromadzi informacje o członkostwie, w tym nazwę użytkownika, adres i informacje kontaktowe. Istnieje wiele zagadnień projektowych, które należy wziąć pod uwagę w zależności od wymagań określonego projektu.
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image11.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image10.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image14.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image13.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
 
-W oryginalnym iteracji tej aplikacji kontrolki została opracowana sprzężone materiałami dane rejestracyjne użytkownika, w tym kod pocztowy, miasta i stanu. Opakowane w ramach UpdatePanel i upuszczone na formularz sieci Web całego kontrolki. Po wprowadzeniu przez użytkownika kod pocztowy UpdatePanel wykrywa zdarzenia (odpowiednie zdarzenie textchanged w zaplecza, określając wyzwalaczy lub przy użyciu zestawu ChildrenAsTriggers właściwości na wartość true). AJAX publikuje wszystkie pola w ramach kontrolki UpdatePanel, jak przechwycone przez FireBug (zobacz diagram po prawej stronie).
+W oryginalnej iteracji tej aplikacji został utworzony formant, który zawiera całości danych rejestracyjnych użytkownika, w tym kod pocztowy, miasto i Województwo. Cały formant został opakowany w elemencie UpdatePanel i upuszczany na formularz sieci Web. Kiedy kod pocztowy jest wprowadzany przez użytkownika, element UpdatePanel wykrywa zdarzenie (odpowiednie textchangd zdarzenia w zapleczu, określając wyzwalacze lub używając właściwości ChildrenAsTriggers ustawionej na wartość true). AJAX zapisuje wszystkie pola w elemencie UpdatePanel jako przechwycone przez FireBug (zobacz diagram po prawej stronie).
 
-Jak wskazuje przechwytywania ekranu, są dostarczane wartości z każdej kontrolki UpdatePanel (w tym przypadku są puste), a także pole stanu widoku. Wszystkie told ponad 9kb danych są wysyłane, gdy w rzeczywistości tylko pięć bajtów danych były potrzebne do wykonania tego konkretnego żądania. Odpowiedź jest jeszcze bardziej przeglądarek: w sumie 57kb są wysyłane do klienta, wystarczy, aby zaktualizować pole tekstowe i pole listy rozwijanej.
+Ponieważ przechwytywanie ekranu wskazuje, wartości z każdej kontrolki w elemencie UpdatePanel są dostarczane (w tym przypadku są to wszystkie puste), a także pola ViewState. Wszystkie dane powiadamiane przekraczają 9kb danych, gdy tylko pięć bajtów danych wymagało tego konkretnego żądania. Odpowiedź jest jeszcze większa bloated: łącznie, 57kb jest wysyłana do klienta, po prostu do zaktualizowania pola tekstowego i pola listy rozwijanej.
 
-Może to być również interesujące, aby zobaczyć, jak ASP.NET AJAX aktualizuje prezentacji. Część odpowiedzi UpdatePanel żądanie aktualizacji jest wyświetlany w oknie konsoli Firebug po lewej stronie; jest specjalnie formułować rozdzielonych potoku ciąg, który jest podzielony przez skrypt po stronie klienta, a następnie ponownie na stronie. W szczególności ustawia ASP.NET AJAX *innerHTML* właściwość elementu HTML na kliencie, który reprezentuje swoje UpdatePanel. Jak ponownie powodują generowanie modelu DOM, występuje niewielkie opóźnienie, w zależności od ilości informacji, które ma zostać przetworzony.
+Może być również przydatne, aby zobaczyć, jak ASP.NET AJAX aktualizuje prezentację. Część odpowiedzi żądania aktualizacji elementu UpdatePanel jest wyświetlana w konsoli Firebug po lewej stronie; jest to specjalnie sformułowany ciąg rozdzielany potoku, który jest podzielony przez skrypt klienta, a następnie ponownie składany na stronie. W odniesieniu do ASP.NET AJAX ustawia właściwość *InnerHtml* elementu HTML na kliencie, który reprezentuje element UpdatePanel. Po ponownym wygenerowaniu modelu DOM przez przeglądarkę istnieje niewielkie opóźnienie, w zależności od ilości informacji, które należy przetworzyć.
 
-Ponowne generowanie modelu DOM wyzwala szereg dodatkowych problemów:
+Regeneracja modelu DOM wyzwala kilka dodatkowych problemów:
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image17.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image16.png)
 
-([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
+([Kliknij, aby wyświetlić obraz o pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
 
-- Jeśli w UpdatePanel wąsko zdefiniowany element HTML, utraci fokus. Dlatego dla użytkowników, którzy naciśnięty klawisz Tab aby zamknąć pole tekstowe kod pocztowy, miejsca docelowego następnego byłby pole tekstowe miasta. Jednak po odświeżeniu wyświetlania kontrolki UpdatePanel formularza nie jest już musiałaby fokus i klawisza Tab czy uruchomiono wyróżniania elementów fokus (np. linków).
-- Jeśli dowolnego typu niestandardowego skryptu po stronie klienta jest używany, uzyskuje dostęp do elementów DOM, odwołania utrwalone przez funkcje może przestać unieczynnienia po odświeżeniu strony częściowe.
+- Jeśli skoncentrowany element HTML znajduje się w elemencie UpdatePanel, utraci fokus. W przypadku użytkowników, którzy naciśnieli klawisz Tab w celu opuszczenia pola tekstowego kod pocztowy, ich następne miejsce docelowe byłyby polem tekstowym miasto. Jednak gdy element UpdatePanel odświeżył ekran, formularz nie będzie już miał fokus, a naciśnięcie klawisza Tab spowoduje rozpoczęcie wyróżniania elementów fokusu (takich jak linki).
+- Jeśli dowolny typ niestandardowego skryptu po stronie klienta jest w użyciu, który uzyskuje dostęp do elementów DOM, odwołania utrwalane przez funkcje mogą stać się unieczynnione po częściowego ogłaszania zwrotnego.
 
-UpdatePanels nie mają być wychwytywania rozwiązania. Przeciwnie zapewniają szybkie rozwiązanie w przypadku niektórych sytuacjach, w tym prototypy, aktualizacje małych kontroli i zapewnić znany interfejs deweloperów platformy ASP.NET, które mogą być dobrze znanych z modelem obiektów platformy .NET, ale mniej, dzięki czemu z DOM. Istnieje kilka rozwiązań alternatywnych, które mogą spowodować lepszą wydajność, w zależności od scenariusza aplikacji:
+Narzędzia UpdatePanel nie są przeznaczone do przechwytywania wszystkich rozwiązań. Zamiast tego udostępniają one szybkie rozwiązanie w niektórych sytuacjach, w tym tworzenie prototypów, aktualizacje małych formantów i zapewniają znany interfejs ASP.NET deweloperom, którzy mogą znać model obiektów .NET, ale mniej — w tym modelu DOM. Istnieje wiele wariantów, które mogą spowodować lepszą wydajność, w zależności od scenariusza aplikacji:
 
-- Należy rozważyć użycie PageMethods i JSON (JavaScript Object Notation) umożliwia deweloperom wywołanie metody statyczne, na stronie tak, jakby wywołano wywołanie usługi sieci web. Ponieważ te metody są statyczne, stan nie jest konieczne; obiekt wywołujący skrypt zawiera parametry, a wynik jest zwracany asynchronicznie.
-- Należy rozważyć użycie usługi sieci Web i JSON, jeśli jeden formant musi być używana w kilku miejscach w całej aplikacji. To ponownie wymaga bardzo małego wysiłku specjalnych i działa w sposób asynchroniczny.
+- Rozważ użycie PageMethods i JSON (JavaScript Object Notation) umożliwia deweloperowi wywoływanie metod statycznych na stronie tak, jakby wywołanie usługi sieci Web było wywoływane. Ponieważ metody są statyczne, żaden stan nie jest konieczny; Obiekt wywołujący skrypt dostarcza parametry, a wynik jest zwracany asynchronicznie.
+- Rozważ użycie usługi sieci Web i kodu JSON, jeśli jeden formant ma być używany w kilku miejscach w aplikacji. Ta ponowna część wymaga bardzo małego nakładu pracy i działa asynchronicznie.
 
-Dołączanie funkcje za pośrednictwem usług sieci Web lub strony metody ma również wady. Najpierw deweloperów platformy ASP.NET zazwyczaj mają tendencję do tworzenia składników małych funkcji do kontrolki użytkownika (plikach ascx). Strona metody nie mogą być hostowane w tych plikach; one muszą być obsługiwane w ramach klasy strony .aspx rzeczywistych. Podobnie, usług sieci Web musi być hostowany w obrębie klasy .asmx. W zależności od aplikacji Ta architektura może naruszać jednej zasady odpowiedzialności, w tym funkcje dla pojedynczego składnika teraz rozkłada się na dwóch lub więcej składników fizycznych, które mogą mieć niewielkiego lub żadnego spójnego ties.
+Dołączanie funkcji za poorednictwem usług sieci Web lub metod stron ma także wady. Najpierw deweloperzy ASP.NET zazwyczaj tworzą małe składniki funkcji w kontrolkach użytkownika (pliki. ascx). Metody strony nie mogą być hostowane w tych plikach; muszą one być hostowane w obrębie rzeczywistej klasy strony. aspx. Usługi sieci Web, podobnie, muszą być hostowane w obrębie klasy. asmx. W zależności od aplikacji ta architektura może naruszać jedną regułę odpowiedzialności, w tym, że funkcjonalność pojedynczego składnika jest teraz rozłożona na dwa lub więcej elementów fizycznych, które mogą mieć niewielki lub niespójne więzi.
 
-Ponadto jeśli aplikacja wymaga, że UpdatePanels są używane, poniższe wskazówki powinien potrzeby rozwiązywania problemów i konserwacji.
+Na koniec Jeśli aplikacja wymaga zastosowania elementu UpdatePanel, następujące wytyczne powinny pomóc w rozwiązywaniu problemów i konserwacji.
 
-- **Jak najmniejszy UpdatePanels zagnieżdżanie nie tylko w ramach jednostek, ale także na jednostki kodu.** Na przykład UpdatePanel na stronie, która otacza kontrolkę, a tej kontrolki zawiera też kontrolki UpdatePanel zawiera inna kontrolka, która zawiera UpdatePanel, jest zagnieżdżanie dla wielu jednostek. Pomaga to zachować Wyczyść elementy, które powinny być odświeżanie i zapobiega nieoczekiwany odświeżania do elementu podrzędnego UpdatePanels.
-- **Zachowaj *ChildrenAsTriggers* właściwość ustawiony na wartość false i jawnie ustawić wyzwalanie zdarzeń.** Przy użyciu `<Triggers>` kolekcja jest znacznie bardziej zrozumiały sposób obsługi zdarzeń i może uniemożliwić nieoczekiwane zachowanie, obniżając równocześnie za pomocą zadania konserwacji i wymuszanie dewelopera do uczestnictwa w wydarzeniu.
-- **Użyj najmniejszego możliwe, aby uzyskać funkcjonalność.** Jak wspomniano w dyskusji usługi kod pocztowy, zawijanie, że tylko absolutnego minimum skraca czas do serwera, łączna liczba przetwarzania i zasięgowi wymiana klient serwer, zwiększając wydajność.
+- **Zagnieżdżaj element UpdatePanel jak najmniejszej liczby, a nie tylko w jednostkach, ale również w różnych jednostkach kodu.** Na przykład posiadanie elementu UpdatePanel na stronie, która otacza formant, chociaż ta kontrolka zawiera również element UpdatePanel, który zawiera inną kontrolkę zawierającą element UpdatePanel, to zagnieżdżenie między jednostkami. Pomaga to w czyszczeniu, które elementy powinny być odświeżane, i uniemożliwia nieoczekiwane odświeżenie podrzędnych elementów UpdatePanel.
+- **Pozostaw Właściwość *ChildrenAsTriggers* ustawioną na wartość false i jawnie ustaw Wyzwalanie zdarzeń.** Korzystanie z kolekcji `<Triggers>` jest znacznie bardziej wyraźniejsze w obsłudze zdarzeń i może zapobiec nieoczekiwanemu zachowaniu, pomagając z zadaniami konserwacji i wymuszać, że deweloper może zadecydować o zdarzeniu.
+- **Użyj najmniejszej możliwej jednostki do osiągnięcia funkcjonalności.** Jak wskazano w omówieniu usługi kodów pocztowych, należy zawijać tylko minimalny czas do serwera, łączne przetwarzanie i wydajność wymiany klient-serwer.
 
-## <a name="the-updateprogress-control"></a>Kontrolki UpdateProgress
+## <a name="the-updateprogress-control"></a>Kontrolka UpdateProgress
 
-## <a name="updateprogress-control-reference"></a>Kontrolki UpdateProgress odwołania
+## <a name="updateprogress-control-reference"></a>UpdateProgress — informacje o formancie
 
-Włączone znaczników właściwości:
+Właściwości z włączoną obsługą znaczników:
 
-| **Nazwa właściwości** | **Typ** | **Opis** |
+| **Nazwa właściwości** | **Wprowadź** | **Opis** |
 | --- | --- | --- |
-| AssociatedUpdate-PanelID | String | Określa identyfikator kontrolki UpdatePanel, który to UpdateProgress należy zgłaszać na. |
-| DisplayAfter | int | Określa limit czasu w milisekundach, zanim ten formant jest wyświetlany po rozpoczęciu żądania asynchronicznego. |
-| DynamicLayout | bool | Określa, czy postęp jest dynamicznie renderowane. |
+| AssociatedUpdate-PanelID | String | Określa identyfikator elementu UpdatePanel, który ma być zgłaszany przez ten UpdateProgress. |
+| DisplayAfter | int | Określa limit czasu (w milisekundach), po którym zostanie wyświetlony ten formant po rozpoczęciu żądania asynchronicznego. |
+| DynamicLayout | bool | Określa, czy postęp jest renderowany dynamicznie. |
 
-Elementy podrzędne znaczników:
+Elementy potomne znaczników:
 
-| **Tag** | **Opis** |
+| **Seryjn** | **Opis** |
 | --- | --- |
-| &lt;ProgressTemplate&gt; | Zawiera szablon kontrolki, ustaw dla zawartości, który będzie wyświetlany za pomocą tej kontrolki. |
+| &lt;element ProgressTemplate&gt; | Zawiera zestaw szablonów formantów dla zawartości, która będzie wyświetlana z tą kontrolką. |
 
-Kontrolki UpdateProgress zapewnia środek opinię, aby zachować zainteresowania użytkowników podczas wykonywania wymaganych pracy do transportu do serwera. Może to pomóc użytkownikom dowiedzieć się, że wykonujesz coś mimo, że może nie być oczywista, szczególnie w przypadku, ponieważ większość użytkowników są używane do strony, odświeżanie i sprawdzając, zaznacz pasek stanu.
+Kontrolka UpdateProgress udostępnia miarę informacji zwrotnych, aby zapewnić zainteresowanie użytkownikami podczas wykonywania niezbędnych zadań do transportu na serwer. Dzięki temu użytkownicy mogą wiedzieć, że wykonujesz coś, mimo że może nie być oczywisty, szczególnie dlatego, że większość użytkowników jest używana do odświeżania strony i oglądania wyróżnionego paska stanu.
 
-Jako notatki kontrolki UpdateProgress może znajdować się w dowolnym miejscu na hierarchię strony. Jednak w sytuacjach, w których zwrotu częściowe są inicjowane z elementu podrzędnego kontrolki UpdatePanel (gdzie UpdatePanel jest zagnieżdżona w innej kontrolki UpdatePanel) postbacks ten wyzwalacz elementu podrzędnego kontrolki UpdatePanel spowoduje UpdateProgress szablony mają być wyświetlane dla elementu podrzędnego Kontrolki UpdatePanel, jak i element nadrzędny kontrolki UpdatePanel. Jednak jeśli wyzwalacz jest element podrzędny elementu nadrzędnego kontrolki UpdatePanel, a następnie zostaną wyświetlone tylko szablony UpdateProgress skojarzony z obiektem nadrzędnym.
+Jako notatka, formanty UpdateProgress mogą znajdować się w dowolnym miejscu w hierarchii strony. Jednak w przypadkach, w których częściowe ogłaszanie zwrotne jest inicjowane z podrzędnego elementu UpdatePanel (gdzie element UpdatePanel jest zagnieżdżony w innym elemencie UpdatePanel), ogłaszania zwrotne wyzwalające podrzędne elementy UpdatePanel spowodują wyświetlenie szablonów UpdateProgress dla elementu podrzędnego UpdatePanel i nadrzędny element UpdatePanel. Ale jeśli wyzwalacz jest bezpośrednim elementem podrzędnym nadrzędnego elementu UpdatePanel, zostaną wyświetlone tylko szablony UpdateProgress skojarzone z elementem nadrzędnym.
 
 ## <a name="summary"></a>Podsumowanie
 
-Rozszerzenia Microsoft ASP.NET AJAX są zaawansowane produkty ułatwiających udostępnianie zawartości sieci web i aby zapewnić rozbudowane środowisko użytkownika do aplikacji sieci web. Jako część rozszerzenia AJAX programu ASP.NET, strona częściowa renderowanie kontrolek, łącznie z kontrolki Menedżera skryptów, UpdatePanel i UpdateProgress są niektóre z najbardziej widoczne składników zestawu narzędzi.
+Rozszerzenia AJAX Microsoft ASP.NET to zaawansowane produkty, które ułatwiają zwiększenie dostępności zawartości sieci Web i zapewniają bogatsze środowisko użytkownika aplikacji sieci Web. Jako część rozszerzeń ASP.NET AJAX, kontrolki renderowania stron częściowych, w tym kontrolki ScriptManager, UpdatePanel i UpdateProgress, są najbardziej widocznymi składnikami zestawu narzędzi.
 
-Składnika ScriptManager integruje się zapewnienie klienta JavaScript dla rozszerzenia, a także umożliwia różnych składników serwera i klienta współdziałały inwestycje związane z programowaniem minimalny.
+Składnik ScriptManager integruje udostępnianie kodu JavaScript klienta dla rozszerzeń, a także udostępnia różne składniki serwera i klienta, które współpracują ze sobą przy minimalnych inwestycjach programistycznych.
 
-Kontrolki UpdatePanel jest widoczne pole magic — znaczników w ramach kontrolki UpdatePanel mogą mieć Codebehind po stronie serwera i nie wyzwalać odświeżanie strony. Formantów UpdatePanel mogą być zagnieżdżane i może być zależny od kontrolek w inne UpdatePanels. Domyślnie UpdatePanels obsługiwać żadnych ogłaszania zwrotnego wywoływana przez ich elementów podrzędnych kontrolki, mimo że ta funkcja może być dostrojony, deklaratywne lub programowo.
+Formant UpdatePanel jest widocznym magiczną ramką w elemencie UpdatePanel może być CodeBehind po stronie serwera i nie wyzwalać odświeżania strony. Kontrolki UpdatePanel mogą być zagnieżdżane i mogą być zależne od kontrolek w innych elementach UpdatePanel. Domyślnie elementy UpdatePanel obsługują wszystkie ogłaszanie zwrotne wywoływane przez ich elementy podrzędne, chociaż ta funkcja może być dostrojona lub programowo.
 
-Przy użyciu kontrolki UpdatePanel, deweloperzy należy pamiętać o jego wpływ na wydajność, które potencjalnie mogą wystąpić. Potencjalne alternatywne metody obejmują usługi sieci web i metody strony, jeśli projekt aplikacji należy rozważyć.
+W przypadku korzystania z formantu UpdatePanel deweloperzy powinni mieć świadomość wpływu na wydajność, który mógłby wystąpić. Potencjalne alternatywy obejmują usługi sieci Web i metody stron, chociaż należy rozważyć projekt aplikacji.
 
-UpdateProgress, które kontrolki pozwala użytkownikowi na wiedzieć, że użytkownik lub użytkownik nie jest ignorowany i tle żądania powinien się dzieje podczas strona nie jest wykonywania żadnych czynności, aby odpowiedzieć na dane wejściowe użytkownika. Obejmuje również możliwość przerwać wyniki częściowe renderowanie.
+Formant UpdateProgress umożliwia użytkownikowi uzyskanie informacji o tym, że lub nie jest ignorowany, oraz że żądanie w tle jest wykonywane, gdy strona nie wykonuje żadnych czynności w celu reagowania na dane wejściowe użytkownika. Umożliwia także przerwanie efektów renderowania częściowego.
 
-Razem te narzędzia pomagają tworzenia bogatych i płynnych komfortu pracy serwera mniej widoczny dla użytkownika i mniej przerywania przepływu pracy.
+Wspólnie te narzędzia ułatwiają tworzenie rozbudowanego i bezproblemowego środowiska użytkownika, dzięki czemu serwer działa mniej widoczny dla użytkownika i przerywa przepływ pracy.
 
-## <a name="bio"></a>Biografia
+## <a name="bio"></a>Materiał
 
-Scott Cate pracował nad przy użyciu technologii Microsoft Web od 1997 r i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacji koncentruje się na rozwiązania programowe wiedzy opartych na. Scott można się skontaktować za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blog znajduje się na [ScottCate.com](http://ScottCate.com)
+Scott Cate pracował z technologiami sieci Web firmy Microsoft od 1997 i jest prezydentem myKB.com ([www.myKB.com](http://www.myKB.com)), w którym wyspecjalizowany jest pisanie aplikacji opartych na ASP.NET, które są zgodne z podstawowymi rozwiązaniami oprogramowania. W witrynie Scotta można skontaktować się z pocztą e-mail na [scott.cate@myKB.com](mailto:scott.cate@myKB.com) lub w blogu w witrynie [ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
 > [Next](understanding-asp-net-ajax-updatepanel-triggers.md)

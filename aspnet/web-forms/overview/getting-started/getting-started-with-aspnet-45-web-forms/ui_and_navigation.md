@@ -1,286 +1,286 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
-title: Interfejs użytkownika i nawigacja | Dokumentacja firmy Microsoft
+title: Interfejs użytkownika i nawigacja | Microsoft Docs
 author: Erikre
-description: Tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for firma Microsoft...
+description: Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013...
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 06816f3555a806d41caf562b910a4ec4427b13bd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: ac1dcaf1ba911fdcaeb3845c6836ec771733d93e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134235"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74636820"
 ---
 # <a name="ui-and-navigation"></a>Interfejs użytkownika i nawigacja
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
-[Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Pobierz program Wingtip zabawki (C#)](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](https://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. Visual Studio 2013 [projektu za pomocą kodu źródłowego języka C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny dla tej serii samouczków towarzyszą.
+> Ta seria samouczków zawiera informacje na temat tworzenia aplikacji ASP.NET Web Forms przy użyciu ASP.NET 4,5 i Microsoft Visual Studio Express 2013 dla sieci Web. Projekt Visual Studio 2013 [z C# kodem źródłowym](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) jest dostępny do tej serii samouczków.
 
-W tym samouczku zmodyfikujesz Interfejsie domyślnej aplikacji sieci Web do obsługi funkcji aplikacji frontonu magazynu o nazwie Wingtip Toys. Ponadto należy dodać prosty i nawigacji powiązany z danymi. Ten samouczek opiera się na poprzednim samouczku "Tworzenie warstwy dostępu do danych" i jest częścią serii samouczków firmy Wingtip Toys.
+W tym samouczku zmodyfikujesz interfejs użytkownika domyślnej aplikacji sieci Web do obsługi funkcji aplikacji Wingtip w sklepie. Ponadto zostanie dodana prosta i powiązana z danymi nawigacja. Ten samouczek kompiluje się w poprzednim samouczku "Tworzenie warstwy dostępu do danych" i jest częścią serii samouczków Wingtip.
 
-## <a name="what-youll-learn"></a>Zawartość:
+## <a name="what-youll-learn"></a>Dowiesz się:
 
-- Jak zmienić interfejs użytkownika do obsługi funkcji aplikacji frontonu magazynu o nazwie Wingtip Toys.
-- Jak skonfigurować element HTML5 do uwzględnienia nawigacji na stronie.
-- Jak utworzyć formant opartych na danych, aby przejść do określonego produktu danych.
-- Jak wyświetlić dane z bazy danych utworzone za pomocą programu Entity Framework Code First.
+- Jak zmienić interfejs użytkownika, aby obsługiwał funkcje aplikacji Wingtip w sklepie.
+- Jak skonfigurować element HTML5 w taki sposób, aby obejmował nawigację po stronie.
+- Jak utworzyć kontrolkę opartą na danych w celu przechodzenia do określonych danych produktu.
+- Jak wyświetlać dane z bazy danych utworzonej przy użyciu Entity Framework Code First.
 
-Formularze sieci Web programu ASP.NET umożliwiają tworzenie dynamicznej zawartości dla aplikacji sieci Web. Każda strona sieci Web platformy ASP.NET jest tworzony w sposób podobny do statyczną stronę HTML w sieci Web (strona nie ma na serwerze przetwarzania), ale strona sieci Web platformy ASP.NET zawiera dodatkowe elementy, które platforma ASP.NET rozpoznaje i przetwarza do generowania kodu HTML, po uruchomieniu na stronie.
+Formularze sieci Web ASP.NET umożliwiają tworzenie zawartości dynamicznej dla aplikacji sieci Web. Każda Strona sieci Web ASP.NET jest tworzona w sposób podobny do statycznej strony sieci Web HTML (strona, która nie zawiera przetwarzania na serwerze), ale strona sieci Web ASP.NET zawiera dodatkowe elementy, które ASP.NET rozpoznaje i przetwarza kod HTML podczas uruchamiania strony.
 
-Przy użyciu statycznej strony HTML (*.htm* lub *.html* pliku), serwer spełnia `Web` żądania, podczas odczytywania pliku, a następnie wysyłając je jako — jest w przeglądarce. Natomiast gdy ktoś żąda na stronie sieci Web platformy ASP.NET (*.aspx* pliku), strona działa jako program na serwerze sieci Web. Gdy strona jest uruchomiona, można wykonywać wszystkie zadania, które wymaga witryny sieci Web, takich jak obliczanie wartości, odczytywania lub zapisywania informacji o bazie danych lub wywoływania innych programów. Jako dane wyjściowe strony dynamicznie tworzy znaczniki (na przykład elementy w formacie HTML) i wysyła te dynamiczne dane wyjściowe do przeglądarki.
+Ze statyczną stroną HTML (plik *. htm* lub *. html* ) serwer spełnia żądanie `Web`, odczytując plik i wysyłając go jako-is do przeglądarki. Natomiast gdy ktoś zażąda strony sieci Web ASP.NET (plik *. aspx* ), strona jest uruchamiana jako program na serwerze sieci Web. Gdy strona jest uruchomiona, może wykonać dowolne zadanie wymagane przez witrynę sieci Web, w tym obliczać wartości, czytać lub zapisywać informacje o bazie danych lub wywołując inne programy. Jako dane wyjściowe strona dynamicznie tworzy znaczniki (takie jak elementy w języku HTML) i wysyła je do przeglądarki.
 
 ## <a name="modifying-the-ui"></a>Modyfikowanie interfejsu użytkownika
 
-Nadal będzie w tej serii samouczków, modyfikując *Default.aspx* strony. Należy zmodyfikować interfejs użytkownika, który jest już ustanowione przez domyślny szablon używany do tworzenia aplikacji. Typ zmiany, które należy wykonać są typowe podczas tworzenia dowolnej aplikacji formularzy sieci Web. Możesz to zrobić poprzez Zmienianie tytułu, zastępując części zawartości i usuwanie niepotrzebnych domyślnej zawartości.
+Tę serię samouczków będziesz kontynuować, modyfikując *domyślną stronę. aspx* . Zmodyfikujesz interfejs użytkownika, który został już ustanowiony przez szablon domyślny użyty do utworzenia aplikacji. Typ modyfikacji, które będą tworzone są typowe podczas tworzenia dowolnej aplikacji formularzy sieci Web. Można to zrobić, zmieniając tytuł, zastępując część zawartości i usuwając niepotrzebną zawartość domyślną.
 
-1. Otwieranie programu lub przełączanie na *Default.aspx* strony.
-2. Jeśli zostanie wyświetlona w **projektowania** wyświetlić, przejdź do **źródła** widoku.
-3. W górnej części strony w `@Page` dyrektywy, zmiana `Title` atrybutu "Witaj", jak pokazano wyróżnione na żółto poniżej. 
+1. Otwórz lub przejdź do domyślnej strony. *aspx* .
+2. Jeśli strona jest wyświetlana w widoku **projektu** , przejdź do widoku **Źródło** .
+3. W górnej części strony w `@Page` dyrektywie Zmień atrybut `Title` na "Welcome", jak pokazano poniżej. 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample1.aspx?highlight=1)]
-4. Ponadto na *Default.aspx* strony, Zamień wszystkie zawarte w domyślnej zawartości `<asp:Content>` tag, aby znaczniki pojawia się jako poniżej. 
+4. Na stronie *default. aspx* Zastąp całą domyślną zawartość zawartą w tagu `<asp:Content>`, aby znaczniki pojawiły się poniżej. 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
-5. Zapisz *Default.aspx* strony, wybierając **Zapisz Default.aspx** z **pliku** menu.
+5. Zapisz *domyślną stronę. aspx* , wybierając pozycję **Zapisz Default. aspx** z menu **plik** .
 
-   Wartość wynikowa *Default.aspx* zostanie wyświetlona następująca strona: 
+   Utworzona na poniższej stronie *domyślna. aspx* zostanie wyświetlona w następujący sposób: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
-W tym przykładzie ustawiono `Title` atrybutu `@Page` dyrektywy. Gdy kod HTML zostanie wyświetlona w przeglądarce, kod serwera `<%: Page.Title %>` jest rozpoznawana jako zawartość zawarte w `Title` atrybutu.
+W przykładzie ustawiono atrybut `Title` dyrektywy `@Page`. Po wyświetleniu w przeglądarce kodu HTML kod serwera `<%: Page.Title %>` jest rozpoznawany jako zawartość znajdująca się w atrybucie `Title`.
 
-Przykładowa strona zawiera podstawowe elementy, składających się na stronie sieci Web platformy ASP.NET. Strona zawiera tekst statyczny, jak w przypadku korzystania na stronie HTML, wraz z elementów, które są specyficzne dla platformy ASP.NET. Zawartość zawarte w *Default.aspx* strony zostanie ona również zintegrowana z zawartością strony wzorcowej, które zostaną wyjaśnione w dalszej części tego samouczka.
+Przykładowa strona zawiera podstawowe elementy, które stanowią stronę sieci Web ASP.NET. Strona zawiera tekst statyczny, ponieważ może znajdować się na stronie HTML wraz z elementami, które są specyficzne dla ASP.NET. Zawartość znajdująca się na stronie *default. aspx* zostanie zintegrowana z zawartością strony głównej, która zostanie omówiona w dalszej części tego samouczka.
 
-### <a name="page-directive"></a>@Page — Dyrektywa
+### <a name="page-directive"></a>@Page — dyrektywa
 
-ASP.NET Web Forms zawierają zwykle dyrektyw, które pozwalają na określenie strony właściwości i informacje dotyczące konfiguracji dla strony. Dyrektywy są używane przez program ASP.NET jako instrukcje dotyczące sposobu przetwarzania strony, ale nie są renderowane jako część kod znaczników, który jest wysyłany do przeglądarki.
+ASP.NET Web Forms zwykle zawiera dyrektywy, które umożliwiają określenie właściwości strony i informacji o konfiguracji dla strony. Dyrektywy są używane przez ASP.NET jako instrukcje dotyczące sposobu przetwarzania strony, ale nie są renderowane jako część znaczników wysyłanych do przeglądarki.
 
-Najczęściej używane dyrektywy jest `@Page` dyrektywy, dzięki czemu można określić wiele opcji konfiguracji dla tej strony, w tym następujące:
+Najczęściej używaną dyrektywą jest `@Page` dyrektywie, która umożliwia określenie wielu opcji konfiguracji dla strony, w tym następujących:
 
-1. Serwer języka programowania dla kodu w stronę, na przykład C#.
-2. Czy jest strona z kodu serwera bezpośrednio w stronę, zostanie wywołana strona pojedynczy plik, lub czy jest to strona, przy użyciu kodu w pliku osobnej klasy, która nosi nazwę strony związanym z kodem.
-3. Czy strona ma skojarzone stronę wzorcową i dlatego powinien być traktowany jako strony zawartości.
-4. Debugowanie i śledzenie opcje.
+1. Język programowania serwera dla kodu na stronie, na przykład C#.
+2. Czy strona jest stroną z kodem serwera bezpośrednio na stronie, która nazywa się jednoplikową stroną lub czy jest stroną z kodem w osobnym pliku klasy, który jest nazywany stroną powiązanym z kodem.
+3. Określa, czy strona ma skojarzoną stronę wzorcową i dlatego powinna być traktowana jako strona zawartości.
+4. Opcje debugowania i śledzenia.
 
-Jeśli nie zostanie uwzględniony `@Page` dyrektywy na stronie, lub jeśli dyrektywa nie zawiera określonego ustawienia, ustawienia zostaną odziedziczone z *Web.config* pliku konfiguracji lub *Machine.config* pliku konfiguracji. *Machine.config* plik zawiera ustawienia dodatkowe czynności konfiguracyjne, aby wszystkie aplikacje uruchomione na maszynie.
+Jeśli nie dołączysz dyrektywy `@Page` na stronie lub dyrektywa nie zawiera określonego ustawienia, ustawienie zostanie Odziedziczone z pliku konfiguracyjnego *Web. config* lub pliku konfiguracji *Machine. config* . Plik *Machine. config* udostępnia dodatkowe ustawienia konfiguracji dla wszystkich aplikacji uruchomionych na komputerze.
 
 > [!NOTE] 
 > 
-> *Machine.config* zawiera także szczegółowe informacje dotyczące wszystkich możliwych konfiguracji ustawień.
+> *Plik Machine. config* zawiera również szczegółowe informacje o wszystkich możliwych ustawieniach konfiguracji.
 
-### <a name="web-server-controls"></a>Formanty serwera sieci Web
+### <a name="web-server-controls"></a>Kontrolki serwera sieci Web
 
-W większości aplikacji formularzy sieci Web ASP.NET należy dodać formanty, które umożliwiają użytkownikowi interakcję ze strony, takie jak przyciski, pola tekstowe, listy i tak dalej. Te formanty serwera sieci Web są podobne do przycisków HTML i elementów wejściowych. Jednakże są przetwarzane na serwerze, dzięki czemu możesz ustawiać ich właściwości za pomocą kodu serwera. Te kontrolki także wywoływać zdarzenia, które może obsłużyć w kodzie serwera.
+W większości ASP.NET aplikacji formularzy sieci Web dodasz kontrolki, które umożliwiają użytkownikowi współpracującie ze stroną, taką jak przyciski, pola tekstowe, listy itd. Te kontrolki serwera sieci Web są podobne do przycisków HTML i elementów wejściowych. Są one jednak przetwarzane na serwerze, co pozwala na używanie kodu serwera do ustawiania ich właściwości. Te kontrolki powodują również wywoływanie zdarzeń, które można obsłużyć w kodzie serwera.
 
-Formanty serwera użycia specjalnej składni, która ASP.NET rozpoznaje po uruchomieniu na stronie. Nazwa tagu dla formantów serwera ASP.NET, który rozpoczyna się od `asp:` prefiks. Dzięki temu ASP.NET rozpoznaje i przetwarzać te formanty serwera. Prefiks może się różnić, jeśli formant nie jest częścią programu .NET Framework. Oprócz `asp:` również obejmować prefiks, formanty serwera ASP.NET `runat="server"` atrybutu i `ID` której można odwoływać się do kontrolki w kodzie serwera.
+Formanty serwera używają specjalnej składni, która jest rozpoznawana przez ASP.NET podczas uruchamiania strony. Nazwa tagu dla kontrolek serwera ASP.NET rozpoczyna się od prefiksu `asp:`. Dzięki temu ASP.NET może rozpoznać i przetworzyć te kontrolki serwerowe. Prefiks może być inny, jeśli formant nie jest częścią .NET Framework. Oprócz prefiksu `asp:`, formanty serwera ASP.NET obejmują również atrybut `runat="server"` i `ID`, za pomocą którego można odwołać się do formantu w kodzie serwera.
 
-Po uruchomieniu strony ASP.NET identyfikuje formantów serwera i uruchamia kod, który jest skojarzony z tych kontrolek. Wiele kontrolek Renderuj kod HTML lub innych znaczników do strony, gdy jest on wyświetlany w przeglądarce.
+Gdy strona zostanie uruchomiona, ASP.NET identyfikuje kontrolki serwera i uruchamia kod, który jest skojarzony z tymi kontrolkami. Wiele kontrolek renderuje niektóre HTML lub inne znaczniki na stronie, gdy zostanie ona wyświetlona w przeglądarce.
 
 ### <a name="server-code"></a>Kod serwera
 
-Większość aplikacji formularzy sieci Web ASP.NET zawiera kod, który działa na serwerze podczas przetwarzania strony. Jak wspomniano powyżej, kod serwera można wykonywać różne czynności, takich jak dodawanie danych do kontrolki ListView. Program ASP.NET obsługuje wiele języków do uruchomienia na serwerze, w tym C#, Visual Basic, J# i innych.
+Większość aplikacji ASP.NET Web Forms obejmuje kod, który jest uruchamiany na serwerze podczas przetwarzania strony. Jak wspomniano powyżej, kod serwera może służyć do wykonywania różnych zadań, takich jak dodawanie danych do kontrolki ListView. Program ASP.NET obsługuje wiele języków, które są uruchamiane na serwerze C#, w tym Visual Basic, J# i innych.
 
-Program ASP.NET obsługuje dwa modele do pisania kodu serwera dla strony sieci Web. W modelu pojedynczego pliku kod strony znajduje się w elemencie script uwzględniającym otwierający tag `runat="server"` atrybutu. Alternatywnie można utworzyć kod dla strony w pliku osobnej klasy jest określany jako model związanym z kodem. W tym przypadku strony formularzy sieci Web platformy ASP.NET ogólnie nie zawiera serwera kodu. Zamiast tego `@Page` dyrektywy zawierają informacje, które łączy *.aspx* stronę z jego pliku skojarzone związanym z kodem.
+ASP.NET obsługuje dwa modele do pisania kodu serwera dla strony sieci Web. W modelu pojedynczego pliku, kod strony znajduje się w elemencie skryptu, w którym tag otwierający zawiera atrybut `runat="server"`. Alternatywnie można utworzyć kod strony w osobnym pliku klasy, który jest określany jako model związany z kodem. W takim przypadku strona formularzy sieci Web ASP.NET na ogół nie zawiera kodu serwera. Zamiast tego dyrektywa `@Page` zawiera informacje, które łączą stronę *aspx* ze skojarzonym z nią plikiem związanym z kodem.
 
-`CodeBehind` Zawartych w atrybucie `@Page` dyrektywa określa nazwę pliku osobnej klasy i `Inherits` atrybut określa nazwę klasy w pliku związanym z kodem, który odnosi się do strony.
+Atrybut `CodeBehind` zawarty w dyrektywie `@Page` określa nazwę oddzielnego pliku klasy, a atrybut `Inherits` określa nazwę klasy w pliku związanym z kodem, który odpowiada stronie.
 
 ### <a name="updating-the-master-page"></a>Aktualizowanie strony wzorcowej
 
-W programie ASP.NET Web Forms strony wzorcowe umożliwiają tworzenie spójnego układu dla strony w aplikacji. Jednej strony wzorcowej definiuje wygląd i zachowanie standardowe dla wszystkich stron (lub grupy stron) w aplikacji. Następnie można utworzyć poszczególne strony zawartości, które zawierają zawartość, którą chcesz wyświetlić, jak wyjaśniono powyżej. Jeśli użytkownicy zażądają zawartości stron, ASP.NET scala je ze stroną wzorcową w celu wygenerowania danych wyjściowych, który łączy układ strony wzorcowej z zawartości z poziomu strony zawartości.
+W programie ASP.NET Web Forms strony wzorcowe umożliwiają tworzenie spójnego układu dla stron w aplikacji. Pojedyncza strona wzorcowa definiuje wygląd i działanie oraz standardowe zachowanie dla wszystkich stron (lub grupy stron) w aplikacji. Następnie można utworzyć poszczególne strony zawartości zawierające zawartość, która ma zostać wyświetlona, zgodnie z powyższym opisem. Gdy użytkownicy zażądają stron zawartości, ASP.NET Scala je ze stroną wzorcową w celu utworzenia danych wyjściowych, które łączą układ strony wzorcowej z zawartością ze strony zawartość.
 
-Nowa witryna wymaga pojedynczego logo do wyświetlenia na każdej stronie. Aby dodać tego logo, można zmodyfikować HTML na stronie wzorcowej.
+Nowa witryna wymaga jednego logo do wyświetlania na każdej stronie. Aby dodać to logo, możesz zmodyfikować kod HTML na stronie wzorcowej.
 
-1. W **Eksploratora rozwiązań**, znajdowanie i otwieranie **Site.Master** strony.
-2. Jeśli strona znajduje się w **projektowania** wyświetlić, przejdź do **źródła** widoku.
-3. Zaktualizuj strony wzorcowej przez **zmodyfikowanie lub dodanie** znaczników wyróżniony na żółto: 
+1. W **Eksplorator rozwiązań**Znajdź i Otwórz stronę **site. Master** .
+2. Jeśli strona jest w widoku **projektu** , przejdź do widoku **Źródło** .
+3. Zaktualizuj stronę wzorcową, **modyfikując lub dodając** znaczniki wyróżnione kolorem żółtym: 
 
     [!code-aspx[Main](ui_and_navigation/samples/sample4.aspx?highlight=9,49,76-81,87)]
 
-Kod HTML wyświetli obraz o nazwie *logo.jpg* z *obrazów* folder aplikacji sieci Web należy dodać później. Gdy strona, która korzysta z strony wzorcowej jest wyświetlana w przeglądarce, pojawi się logo. Jeśli użytkownik kliknie logo, użytkownik będzie przejdź z powrotem do *Default.aspx* strony. Tag kotwicy HTML `<a>` opakowuje formant serwera obrazu i umożliwia obraz, który ma być dołączane jako część łącza. `href` Atrybutu dla tagu kotwicy określa główny "`~/`" witryny sieci Web jako lokalizacja linku. Domyślnie *Default.aspx* strona jest wyświetlana, gdy użytkownik przechodzi do katalogu głównego witryny sieci Web. **Obraz** `<asp:Image>` kontrolki serwera obejmuje dodatkowe właściwości, takie jak `BorderStyle`, który renderowane jako HTML podczas wyświetlania w przeglądarce.
+W tym kodzie HTML zostanie wyświetlony obraz o nazwie *logo. jpg* z folderu *obrazy* aplikacji sieci Web, który zostanie później dodany. Gdy w przeglądarce zostanie wyświetlona strona, która używa strony głównej, zostanie wyświetlone logo. Jeśli użytkownik kliknie logo, użytkownik przejdzie z powrotem do domyślnej strony. *aspx* . Tag kotwicy HTML `<a>` otacza formant serwera obrazu i umożliwia uwzględnienie obrazu jako części linku. Atrybut `href` dla tagu kotwicy określa główny "`~/`" witryny sieci Web jako lokalizację linku. Domyślnie zostanie wyświetlona strona *default. aspx* , gdy użytkownik przechodzi do katalogu głównego witryny sieci Web. Kontrolka serwer `<asp:Image>` **obrazu** obejmuje Dodawanie właściwości, takich jak `BorderStyle`, które są renderowane jako kod HTML, gdy jest wyświetlany w przeglądarce.
 
 ### <a name="master-pages"></a>Strony wzorcowe
 
-Strony wzorcowej jest plikiem programu ASP.NET przy użyciu rozszerzenia master (na przykład *Site.Master*) przy użyciu wstępnie zdefiniowanego układu, zawierających tekst statyczny, elementy HTML i formantów serwera. Strona główna jest identyfikowany przez specjalny `@Master` dyrektywy, która zastępuje `@Page` dyrektywę, który jest używany dla zwykłych *.aspx* stron.
+Strona wzorcowa to plik ASP.NET z rozszerzeniem Master (na przykład *site. Master*) ze wstępnie zdefiniowanym układem, który może zawierać tekst statyczny, elementy HTML i kontrolki serwera. Strona wzorcowa jest identyfikowana za pomocą specjalnej dyrektywy `@Master`, która zastępuje dyrektywę `@Page`, która jest używana dla zwykłych stron *. aspx* .
 
-Oprócz `@Master` dyrektywy, strony wzorcowej również zawiera wszystkie najwyższego poziomu elementy HTML strony, takich jak `html`, `head`, i `form`. Na przykład na stronie wzorcowej dodanych wcześniej, możesz użyć kodu HTML `table` układu, `img` element logo firmy, tekst statyczny i formantów serwera do obsługi wspólnych członkostwa dla danej witryny. Kod HTML i elementy programu ASP.NET można użyć jako część strony wzorcowej.
+Oprócz dyrektywy `@Master` Strona wzorcowa zawiera również wszystkie elementy HTML najwyższego poziomu dla strony, takie jak `html`, `head`i `form`. Na przykład na stronie wzorcowej, która została dodana powyżej, używasz `table` HTML do układu, elementu `img` dla logo firmy, tekstu statycznego i kontrolek serwera do obsługi wspólnych członkostw dla witryny. Możesz użyć dowolnego kodu HTML i dowolnego elementu ASP.NET jako części strony wzorcowej.
 
-Oprócz tekstu statycznego i kontrolek, które pojawią się na wszystkich stronach strony wzorcowej również zawiera co najmniej jedną **ContentPlaceHolder** kontrolki. Te kontrolki symbolu zastępczego zdefiniować regionach, gdzie pojawią się wymienne zawartości. Z kolei wymienne zawartości jest zdefiniowany na stronach zawartości, takich jak *Default.aspx*przy użyciu **zawartości** kontrolki serwera.
+Oprócz tekstu statycznego i kontrolek, które będą wyświetlane na wszystkich stronach, Strona wzorcowa zawiera również co najmniej jedną kontrolkę **ContentPlaceHolder** . Te kontrolki symbolu zastępczego definiują regiony, w których zostanie wyświetlona zawartość. Z kolei zawartość do przemieszczenia jest definiowana na stronach zawartości, takich jak *default. aspx*, przy użyciu kontrolki serwer **zawartości** .
 
-#### <a name="adding-image-files"></a>Trwa dodawanie plików obrazu
+#### <a name="adding-image-files"></a>Dodawanie plików obrazów
 
-Obraz logo, do którego odwołuje się powyżej, wraz z wszystkie obrazy produktów, należy dodać do aplikacji sieci Web tak, aby można je przeglądać, gdy projekt jest wyświetlany w przeglądarce.
+Obraz logo, do którego odwołuje się powyżej, wraz ze wszystkimi obrazami produktu, musi zostać dodany do aplikacji sieci Web, aby mogły być widoczne, gdy projekt jest wyświetlany w przeglądarce.
 
-#### <a name="download-from-msdn-samples-site"></a>Pobierz z witryny MSDN próbek:
+#### <a name="download-from-msdn-samples-site"></a>Pobierz ze strony przykładów MSDN:
 
-[Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013 — firmy Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#)
+[Wprowadzenie z formularzami sieci Web ASP.NET 4,5 i zabawkami Visual Studio 2013-Wingtip](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#)
 
-Pliki do pobrania zawiera zasoby w *zasoby WingtipToys* folderu, które są używane do tworzenia przykładowej aplikacji.
+Pobieranie obejmuje zasoby w folderze *WingtipToys-Assets* , które są używane do tworzenia przykładowej aplikacji.
 
-1. Jeśli nie zostało to jeszcze zrobione, Pobierz przykładowe skompresowane pliki przy użyciu powyższego linku z witryny MSDN przykładów.
-2. Po pobraniu, otwórz plik zip, a następnie skopiuj zawartość do folderu lokalnego na komputerze.
-3. Znajdowanie i otwieranie *zasoby WingtipToys* folderu.
-4. Przeciągając i upuszczając, skopiuj *katalogu* folderu w lokalnym folderze w katalogu głównym projektu aplikacji sieci Web w **Eksploratora rozwiązań** programu Visual Studio. 
+1. Jeśli jeszcze tego nie zrobiono, Pobierz skompresowane pliki przykładowe przy użyciu powyższego linku w witrynie przykładów MSDN.
+2. Po pobraniu pliku. zip i skopiuj zawartość do folderu lokalnego na komputerze.
+3. Znajdź i Otwórz folder *WingtipToys-Assets* .
+4. Przeciągając i upuszczając, skopiuj folder *wykazu* z folderu lokalnego do katalogu głównego projektu aplikacji sieci Web w **Eksplorator rozwiązań** programu Visual Studio. 
 
-    ![Interfejs użytkownika i nawigacja — kopiowanie plików](ui_and_navigation/_static/image1.png)
-5. Następnie utwórz nowy folder o nazwie *obrazów* przez kliknięcie prawym przyciskiem myszy **WingtipToys** projektu w **Eksploratora rozwiązań** i wybierając polecenie **Dodaj**  - &gt; **Nowy Folder**.
-6. Kopiuj *logo.jpg* plik wchodzącej w skład *WingtipToys zasoby* folderu w **Eksploratora plików** do *obrazów* folder aplikacji sieci Web Projekt w **Eksploratora rozwiązań** programu Visual Studio.
-7. Kliknij przycisk **Pokaż wszystkie pliki** opcji w górnej części **Eksploratora rozwiązań** można zaktualizować listy plików, jeśli nie widzisz nowe pliki.  
+    ![Interfejs użytkownika i nawigacja — Kopiuj pliki](ui_and_navigation/_static/image1.png)
+5. Następnie utwórz nowy folder o nazwie *images* , klikając prawym przyciskiem myszy projekt **WingtipToys** w **Eksplorator rozwiązań** i wybierając pozycję **Dodaj** -&gt; **nowym folderze**.
+6. Skopiuj plik *logo. jpg* z folderu *WingtipToys-Assets* w **Eksploratorze plików** do folderu *images* w projekcie aplikacji sieci Web w **Eksplorator rozwiązań** programu Visual Studio.
+7. Kliknij opcję **Pokaż wszystkie pliki** w górnej części **Eksplorator rozwiązań** , aby zaktualizować listę plików, jeśli nie widzisz nowych plików.  
   
-    **Eksplorator rozwiązań** pojawią się pliki zaktualizowanego projektu. 
+    **Eksplorator rozwiązań** teraz wyświetla zaktualizowane pliki projektu. 
 
     ![Interfejs użytkownika i nawigacja — Eksplorator rozwiązań](ui_and_navigation/_static/image2.png)
 
 ### <a name="adding-pages"></a>Dodawanie stron
 
-Przed dodaniem nawigacji do aplikacji sieci Web, należy najpierw dodać dwóch nowych stron, które będzie przejdź do. W dalszej części tej serii samouczków będą wyświetlane na tych stronach nowych produktów i szczegółowe informacje.
+Przed dodaniem nawigacji do aplikacji sieci Web należy najpierw dodać dwie nowe strony, do których będziesz przechodzić. W dalszej części tej serii samouczków zostaną wyświetlone produkty i szczegóły dotyczące produktów na tych nowych stronach.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **WingtipToys**, kliknij przycisk **Dodaj**, a następnie kliknij przycisk **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Wybierz **Visual C#**  - &gt; **Web** grupy szablonów po lewej stronie. Następnie wybierz **formularz sieci Web ze stroną wzorcową** ze środka listy i nadaj mu nazwę *ProductList.aspx*. 
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **WingtipToys**, kliknij pozycję **Dodaj**, a następnie kliknij pozycję **nowy element**.   
+ Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+2. Wybierz grupę szablonów **sieci Web** **Visual C#**  -&gt; po lewej stronie. Następnie wybierz pozycję **formularz sieci Web ze stroną wzorcową** z listy Środkowej i nadaj jej nazwę *ProductList. aspx*. 
 
-    ![Interfejs użytkownika i nawigacja — Dodaj okno dialogowe nowego elementu](ui_and_navigation/_static/image3.png)
-3. Wybierz **Site.Master** można dołączyć strony wzorcowej do nowo utworzonego *.aspx* strony. 
+    ![Interfejs użytkownika i nawigacja — okno dialogowe Dodawanie nowego elementu](ui_and_navigation/_static/image3.png)
+3. Wybierz pozycję **site. Master** , aby dołączyć stronę wzorcową do nowo utworzonej strony *. aspx* . 
 
-    ![Interfejs użytkownika i Nawigacja — wybierz stronę wzorcową](ui_and_navigation/_static/image4.png)
-4. Dodawanie dodatkowych strony o nazwie *ProductDetails.aspx* wykonując te same kroki.
+    ![Interfejs użytkownika i nawigacja — wybierz stronę wzorcową](ui_and_navigation/_static/image4.png)
+4. Dodaj dodatkową stronę o nazwie *ProductDetails. aspx* , wykonując następujące kroki.
 
-### <a name="updating-bootstrap"></a>Aktualizacja ładowania początkowego
+### <a name="updating-bootstrap"></a>Aktualizowanie ładowania początkowego
 
-Szablony projektu Visual Studio 2013 korzystają [Bootstrap](http://getbootstrap.com/), układ i motywów framework, utworzone przez usługi Twitter. Usługa ładowania początkowego używa CSS3, aby zapewnić elastyczne, co oznacza, że układy dynamicznie dostosowują się do innej przeglądarki rozmiary okna. Można również użyć funkcji motywów Bootstrap firmy, można łatwo dokonać zmian w aplikacji wyglądu i działania. Domyślnie szablon aplikacji sieci Web ASP.NET w programie Visual Studio 2013 zawiera narzędzia Bootstrap jako pakiet NuGet.
+Szablony projektów Visual Studio 2013 używają [Bootstrap](http://getbootstrap.com/), układu i struktury z motywem utworzonym przez serwis Twitter. Funkcja ładowania początkowego korzysta z CSS3 w celu zapewnienia, że program umożliwia dynamiczne dostosowanie do różnych rozmiarów okna przeglądarki. Możesz również użyć funkcji obsługi motywów Bootstrap, aby łatwo zmienić wygląd i działanie aplikacji. Domyślnie szablon aplikacji sieci Web ASP.NET w Visual Studio 2013 zawiera polecenie Bootstrap jako pakiet NuGet.
 
-W tym samouczku zostanie zmienić wygląd i działanie aplikacji Wingtip Toys, zastępując pliki CSS szablonu Bootstrap.
+W tym samouczku zmienisz wygląd i działanie aplikacji Wingtip zabawki, zastępując pliki w pliku CSS.
 
-1. W **Eksploratora rozwiązań**, otwórz *zawartości* folderu.
-2. Kliknij prawym przyciskiem myszy *bootstrap.css* pliku i zmień jej nazwę na *bootstrap original.css*.
-3. Zmień nazwę *bootstrap.min.css* do *bootstrap original.min.css*.
-4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *zawartości* i wybierz polecenie **Otwórz Folder w Eksploratorze plików**.  
-   Wyświetlany jest Eksplorator plików. Pobrane pliki CSS bootstrap zostanie zapisane w tej lokalizacji.
-5. W przeglądarce przejdź do [ https://bootswatch.com/3/ ](https://bootswatch.com/3/).
-6. Przewiń okno przeglądarki, aż zobaczysz Cerulean motywu. 
+1. W **Eksplorator rozwiązań**Otwórz folder *zawartości* .
+2. Kliknij prawym przyciskiem myszy plik *Bootstrap. css* i zmień jego nazwę na *Bootstrap-Original. css*.
+3. Zmień nazwę pliku *Bootstrap. min. css* na *Bootstrap-Original. min. css*.
+4. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *Content (zawartość* ) i wybierz polecenie **Otwórz folder w Eksploratorze plików**.  
+   Zostanie wyświetlony Eksplorator plików. Pobrano pliki CSS Bootstrap do tej lokalizacji.
+5. W przeglądarce przejdź do [https://bootswatch.com/3/](https://bootswatch.com/3/).
+6. Przewiń okno przeglądarki do momentu wyświetlenia motywu Cerulean. 
 
-    ![Interfejs użytkownika i nawigacja — Cerulean motywu](ui_and_navigation/_static/image5.png)
-7. Pobierz zarówno *bootstrap.css* pliku i *bootstrap.min.css* plik *zawartości* folderu. Użyj ścieżki do folderu zawartości, która jest wyświetlana w **Eksploratora plików** okna, który został wcześniej otwarty.
-8. W **programu Visual Studio** w górnej części **Eksploratora rozwiązań**, wybierz opcję **Pokaż wszystkie pliki** opcję, aby wyświetlić nowe pliki w folderze zawartości. 
+    ![Interfejs użytkownika i nawigacja — motyw Cerulean](ui_and_navigation/_static/image5.png)
+7. Pobierz plik *Bootstrap. css* i plik *Bootstrap. min. css* do folderu *Content* . Użyj ścieżki do folderu zawartości, który jest wyświetlany w otwartym wcześniej oknie **Eksploratora plików** .
+8. W programie **Visual Studio** w górnej części **Eksplorator rozwiązań**wybierz opcję **Pokaż wszystkie pliki** , aby wyświetlić nowe pliki w folderze zawartości. 
 
     ![Interfejs użytkownika i nawigacja — Eksplorator rozwiązań](ui_and_navigation/_static/image6.png)
 
-   Zobaczysz dwa nowe pliki CSS w **zawartości** folder, ale należy zauważyć, że ikona obok nazwy każdego pliku jest wyszarzona. Oznacza to, że plik nie został jeszcze dodany do projektu.
-9. Kliknij prawym przyciskiem myszy *bootstrap.css* i *bootstrap.min.css* pliki i wybierz pozycję **załącz do projektu**.   
-   Po uruchomieniu aplikacji Wingtip Toys w dalszej części tego samouczka, pojawi się nowy interfejs użytkownika.
+   Zostaną wyświetlone dwa nowe pliki CSS w folderze **zawartości** , ale zauważ, że ikona obok każdej nazwy pliku jest wyszarzona. Oznacza to, że plik nie został jeszcze dodany do projektu.
+9. Kliknij prawym przyciskiem myszy plik *Bootstrap. css* i pliki *Bootstrap. min. css* , a następnie wybierz opcję **Dołącz do projektu**.   
+   Po uruchomieniu aplikacji Wingtip zabawki w dalszej części tego samouczka zostanie wyświetlony nowy interfejs użytkownika.
 
 > [!NOTE] 
 > 
-> Szablon aplikacji sieci Web platformy ASP.NET używa *Bundle.config* pliku w katalogu głównym projektu do przechowywania ścieżki plików CSS szablonu Bootstrap.
+> Szablon aplikacji sieci Web ASP.NET używa pliku *pakietu. config* w katalogu głównym projektu w celu przechowywania ścieżki plików CSS Bootstrap.
 
-### <a name="modifying-the-default-navigation"></a>Modyfikowanie nawigacji domyślne
+### <a name="modifying-the-default-navigation"></a>Modyfikowanie nawigacji domyślnej
 
-Nawigacja domyślne dla każdej strony w aplikacji można modyfikować, zmieniając element listy nieuporządkowane nawigacji, który znajduje się w *Site.Master* strony.
+Domyślną nawigację dla każdej strony w aplikacji można zmodyfikować, zmieniając nieuporządkowany element listy nawigacji, który znajduje się na stronie *site. Master* .
 
-1. W **Eksploratora rozwiązań**Znajdź i Otwórz *Site.Master* strony.
-2. Dodaj łącze nawigacyjne wyróżniony na żółto do listy nieuporządkowane, pokazano poniżej:   
+1. W **Eksplorator rozwiązań**zlokalizuj i Otwórz stronę *site. Master* .
+2. Dodanie dodatkowego linku nawigacyjnego wyróżnionego na żółto do listy nieuporządkowanej wyświetlonej poniżej:   
 
     [!code-html[Main](ui_and_navigation/samples/sample5.html?highlight=5)]
 
-Jak widać w powyższym kodzie HTML, został zmodyfikowany każdego elementu wiersza `<li>` zawierający tag kotwicy `<a>` z linkiem umożliwiającym `href` atrybutu. Każdy `href` wskazuje stronę w aplikacji sieci Web. W przeglądarce, gdy użytkownik kliknie na jednym z poniższych linków (takie jak **produktów**), ich spowoduje przejście do strony zawarte w `href` (takie jak **ProductList.aspx**). Uruchom aplikację na końcu tego samouczka.
+Jak widać w powyższym kodzie HTML, każdy element wiersza `<li>` zawierający tag kotwicy `<a>` z atrybutem `href` linku. Każdy `href` wskazuje stronę w aplikacji sieci Web. W przeglądarce, gdy użytkownik kliknie jedno z tych linków (na przykład **produkty**), przejdzie do strony zawartej w `href` (na przykład **ProductList. aspx**). Aplikacja zostanie uruchomiona na końcu tego samouczka.
 
 > [!NOTE] 
 > 
-> Tyldy (`~`) znak jest używany do określenia, że `href` ścieżka rozpoczyna się w katalogu głównym projektu.
+> Znak tyldy (`~`) służy do określenia, że ścieżka `href` rozpoczyna się w katalogu głównym projektu.
 
-### <a name="adding-a-data-control-to-display-navigation-data"></a>Dodawanie kontrolki danych do wyświetlania danych nawigacji
+### <a name="adding-a-data-control-to-display-navigation-data"></a>Dodawanie kontrolki danych do wyświetlania danych nawigacyjnych
 
-Następnie dodasz formant, aby wyświetlić wszystkie kategorie z bazy danych. Każda kategoria będzie działał jako link do *ProductList.aspx* strony. Gdy użytkownik kliknie łącze kategorii w przeglądarce, spowoduje przejdź do strony produktów i wyświetlić tylko produkty, które są skojarzone z wybraną kategorię.
+Następnie dodasz kontrolkę, aby wyświetlić wszystkie kategorie z bazy danych. Każda kategoria będzie pełnić rolę linku do strony *ProductList. aspx* . Gdy użytkownik kliknie link kategorii w przeglądarce, przejdzie do strony produkty i zobaczy tylko produkty skojarzone z wybraną kategorią.
 
-Użyjesz **ListView** formantu, aby wyświetlić wszystkie kategorie, które są zawarte w bazie danych. Aby dodać **ListView** kontrolki na stronie głównej:
+Użyjesz kontrolki **ListView** , aby wyświetlić wszystkie kategorie zawarte w bazie danych. Aby dodać formant **ListView** do strony głównej:
 
-1. W *Site.Master* strony, Dodaj następujący wyróżniony `<div>` elementu **po** `<div>` zawierający element `id="TitleContent"` dodanego wcześniej:  
+1. Na stronie *site. Master* Dodaj następujący wyróżniony element `<div>` **po** elemencie `<div>` zawierającym `id="TitleContent"` dodany wcześniej:  
 
     [!code-aspx[Main](ui_and_navigation/samples/sample6.aspx?highlight=7-21)]
 
-Ten kod będą wyświetlane wszystkie kategorie z bazy danych. **ListView** kontroli Wyświetla nazwę każdej kategorii jako tekst łącza i zawiera łącza do *ProductList.aspx* strony zawierający wartość ciągu zapytania `ID` kategorii. Ustawiając `ItemType` właściwości w **ListView** kontrolować wyrażenia wiązania danych `Item` jest dostępna w ramach `ItemTemplate` węzła i kontrolka staje się silnie typizowane. Możesz wybrać szczegóły `Item` przy użyciu technologii IntelliSense, takich jak określanie `CategoryName`. Ten kod znajduje się w kontenerze `<%#: %>` , który oznacza wyrażenie powiązanie danych. Dodając (:) na końcu `<%#` prefiks, wynik wyrażenia wiązania danych jest zakodowany w formacie HTML. Gdy wynik jest zakodowany w formacie HTML, aplikacja jest lepiej chroniony przed między lokacjami skrypt (XSS iniekcji) i ataki przez iniekcję kodu HTML.
+Ten kod będzie wyświetlał wszystkie kategorie z bazy danych. Kontrolka **ListView** wyświetla nazwę kategorii jako tekst łącza i zawiera łącze do strony *ProductList. aspx* z wartością ciągu zapytania zawierającego `ID` kategorii. Ustawienie właściwości `ItemType` w formancie **ListView** powoduje, że wyrażenie powiązania danych `Item` jest dostępne w węźle `ItemTemplate` i formant zostanie jednoznacznie określony. Możesz wybrać szczegóły obiektu `Item` przy użyciu funkcji IntelliSense, na przykład określając `CategoryName`. Ten kod jest zawarty wewnątrz kontenera `<%#: %>`, który oznacza wyrażenie powiązania danych. Przez dodanie (:) na końcu prefiksu `<%#`, wynikiem wyrażenia powiązania danych jest kodowanie HTML. Gdy wynikiem jest kodowanie HTML, aplikacja jest lepiej chroniona przed atakami polegającymi na iniekcji skryptów między lokacjami i iniekcją kodu HTML.
 
 > [!NOTE] 
 > 
-> **Porada**
+> **Wyowietlon**
 > 
-> Po dodaniu kodu, wpisując podczas projektowania może mieć pewność, że prawidłowym elementem członkowskim obiektu zostanie znaleziony ponieważ silnie typizowane kontrolki danych pokazać dostępne elementy członkowskie, oparte na technologii IntelliSense. Funkcja IntelliSense daje szeroki wybór odpowiednich kontekst kodu podczas pisania kodu, takie jak właściwości, metod i obiektów.
+> Po dodaniu kodu przez wpisanie podczas opracowywania, można mieć pewność, że zostanie znaleziony prawidłowy element członkowski obiektu, ponieważ kontrolki danych z jednoznacznie określonymi typami pokazują dostępne elementy członkowskie w oparciu o technologię IntelliSense. Funkcja IntelliSense oferuje odpowiednie dla kontekstu opcje kodu podczas wpisywania kodu, takiego jak właściwości, metody i obiekty.
 
-W następnym kroku zostaną zaimplementowane `GetCategories` metody do pobierania danych.
+W następnym kroku zostanie zaimplementowana Metoda `GetCategories` w celu pobrania danych.
 
-### <a name="linking-the-data-control-to-the-database"></a>Łączenie kontrolki danych do bazy danych
+### <a name="linking-the-data-control-to-the-database"></a>Łączenie kontroli danych z bazą danych
 
-Można było wyświetlać dane w formancie danych, musisz utworzyć link kontrolki danych w bazie danych. Aby utworzyć łącze, można zmodyfikować kod związany z *Site.Master.cs* pliku.
+Aby można było wyświetlić dane w kontrolce danych, należy połączyć formant danych z bazą danych. Aby utworzyć łącze, można zmodyfikować kod znajdujący się w pliku *site.Master.cs* .
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Site.Master* strony, a następnie kliknij przycisk **Wyświetl kod**. *Site.Master.cs* plik jest otwarty w edytorze.
-2. W pobliżu początku *Site.Master.cs* Dodaj dwa dodatkowe przestrzenie nazw, dzięki czemu wszystkie przestrzenie nazw uwzględniane są wyświetlane w następujący sposób:  
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy stronę *site. Master* , a następnie kliknij polecenie **Wyświetl kod**. Plik *site.Master.cs* zostanie otwarty w edytorze.
+2. Na początku pliku *site.Master.cs* Dodaj dwa dodatkowe przestrzenie nazw, aby wszystkie uwzględnione przestrzenie nazw pojawiły się w następujący sposób:  
 
     [!code-csharp[Main](ui_and_navigation/samples/sample7.cs?highlight=8-9)]
-3. Dodaj wyróżnione `GetCategories` metody `Page_Load` program obsługi zdarzeń w następujący sposób:  
+3. Dodaj wyróżnioną metodę `GetCategories` po obsłudze zdarzeń `Page_Load` w następujący sposób:  
 
     [!code-csharp[Main](ui_and_navigation/samples/sample8.cs?highlight=6-11)]
 
-Powyższy kod jest wykonywany po załadowaniu każdej strony, używający strony wzorcowej w przeglądarce. `ListView` Formantu (o nazwie "categoryList"), który dodano wcześniej w tym samouczku użyto powiązanie modelu, aby wybrać dane. W znaczniku elementu `ListView` kontrolki ustawisz formantu `SelectMethod` właściwość `GetCategories` metody przedstawionych powyżej. `ListView` Kontrolować wywołania `GetCategories` metody w odpowiednim czasie życia strony cyklu i automatycznie wiąże zwracanych danych. Więcej informacji na temat wiązania danych w następnym samouczku przedstawiono.
+Powyższy kod jest wykonywany, gdy każda Strona, która używa strony wzorcowej, jest załadowana w przeglądarce. Kontrolka `ListView` (o nazwie "categoryList"), która została dodana wcześniej w tym samouczku, używa powiązania modelu, aby wybrać dane. W znaczniku kontrolki `ListView` Właściwość `SelectMethod` kontrolki jest ustawiana na metodę `GetCategories`, jak pokazano powyżej. Formant `ListView` wywołuje metodę `GetCategories` w odpowiednim czasie w cyklu życia strony i automatycznie wiąże zwrócone dane. Dowiesz się więcej na temat powiązań danych w następnym samouczku.
 
-### <a name="running-the-application-and-creating-the-database"></a>Uruchamianie aplikacji i utworzeniu bazy danych
+### <a name="running-the-application-and-creating-the-database"></a>Uruchamianie aplikacji i tworzenie bazy danych
 
-We wcześniejszej części tej serii samouczków zostały utworzone klasy inicjatora (o nazwie "ProductDatabaseInitializer") i określone tej klasy w *global.asax.cs* pliku. Entity Framework wygeneruje bazy danych, gdy aplikacja jest uruchamiana po raz pierwszy, ponieważ `Application_Start` metoda zawarte w *global.asax.cs* pliku będzie wywoływać klasy inicjatora. Klasa inicjatora będzie używać klasy modelu (`Category` i `Product`) dodano we wcześniejszej części tej serii samouczków, aby utworzyć bazę danych.
+Wcześniej w tej serii samouczków została utworzona Klasa inicjatora (o nazwie "ProductDatabaseInitializer"), która została określona w pliku *Global.asax.cs* . Entity Framework będzie generować bazę danych, gdy aplikacja jest uruchamiana po raz pierwszy, ponieważ metoda `Application_Start` zawarta w pliku *Global.asax.cs* wywoła klasę inicjatora. Klasa inicjatora będzie używać klas modeli (`Category` i `Product`), które zostały dodane wcześniej w tej serii samouczków, aby utworzyć bazę danych.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Default.aspx* strony i wybierz **Ustaw jako stronę startową**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy stronę *default. aspx* , a następnie wybierz pozycję **Ustaw jako stronę startową**.
 2. W programie Visual Studio naciśnij klawisz **F5**.   
- Upłynąć trochę czasu, aby skonfigurować wszystko w tym pierwszego uruchomienia.   
-    ![Interfejs użytkownika i nawigacja — Windows przeglądarki](ui_and_navigation/_static/image7.png)  
- Po uruchomieniu aplikacji, aplikacja zostanie skompilowany i bazy danych o nazwie *wingtiptoys.mdf* zostaną utworzone w *aplikacji\_danych* folderu. W przeglądarce pojawi się menu nawigacji kategorii. To menu został wygenerowany przez pobranie kategorii z bazy danych. W następnym samouczku wdroży nawigacji.
-3. Zamknij przeglądarkę, aby zatrzymać działającą aplikację.
+ Ustawienie wszystkiego potrwa trochę czasu podczas pierwszego uruchomienia.   
+    ![interfejs użytkownika i nawigacja — Windows](ui_and_navigation/_static/image7.png)  
+ Po uruchomieniu aplikacji aplikacja zostanie skompilowana, a baza danych o nazwie *wingtiptoys. mdf* zostanie utworzona w folderze *danych\_aplikacji* . W przeglądarce zobaczysz menu nawigacji kategorii. To menu zostało wygenerowane przez pobranie kategorii z bazy danych. W następnym samouczku zostanie zaimplementowana nawigacja.
+3. Zamknij przeglądarkę, aby zatrzymać uruchomioną aplikację.
 
-### <a name="reviewing-the-database"></a>Przegląd bazy danych
+### <a name="reviewing-the-database"></a>Przeglądanie bazy danych
 
-Otwórz *Web.config* plik i przyjrzyj się w sekcji parametrów połączenia. Możesz zobaczyć, że `AttachDbFilename` wskazuje wartość w parametrach połączenia `DataDirectory` dla projektu aplikacji sieci Web. Wartość `|DataDirectory|` jest zastrzeżony wartość, która reprezentuje *aplikacji\_danych* folderu w projekcie. Ten folder jest, gdzie znajduje się baza danych, który został utworzony z klas jednostek.
+Otwórz plik *Web. config* i zapoznaj się z sekcją parametrów połączenia. Można zobaczyć, że wartość `AttachDbFilename` w parametrach połączenia wskazuje `DataDirectory` dla projektu aplikacji sieci Web. Wartość `|DataDirectory|` jest wartością zastrzeżoną, która reprezentuje folder *danych\_aplikacji* w projekcie. W tym folderze znajduje się baza danych, która została utworzona na podstawie klas jednostek.
 
 [!code-xml[Main](ui_and_navigation/samples/sample9.xml)]
 
 > [!NOTE] 
 > 
-> Jeśli *aplikacji\_danych* nie jest widoczny folder lub folder jest pusty, wybierz opcję **Odśwież** ikonę i następnie **Pokaż wszystkie pliki** ikonę u góry **Eksploratora rozwiązań** okna. Rozwijanie szerokość **Eksploratora rozwiązań** systemu windows może być wymagane do wyświetlenia wszystkich dostępnych ikon.
+> Jeśli folder *danych\_aplikacji* nie jest widoczny lub jeśli folder jest pusty, wybierz ikonę **odświeżania** , a następnie ikonę **Pokaż wszystkie pliki** w górnej części okna **Eksplorator rozwiązań** . Aby wyświetlić wszystkie dostępne ikony, można powiększać szerokość okien **Eksplorator rozwiązań** .
 
-Teraz możesz sprawdzić dane zawarte w *wingtiptoys.mdf* plik bazy danych przy użyciu **Eksploratora serwera** okna.
+Teraz można sprawdzić dane zawarte w pliku bazy danych *wingtiptoys. mdf* przy użyciu okna **Eksplorator serwera** .
 
-1. Rozwiń *aplikacji\_danych* folderu. Jeśli *aplikacji\_danych* folder nie jest widoczne, zobacz uwagi powyżej.
-2. Jeśli *wingtiptoys.mdf* plik bazy danych nie jest widoczny, wybierz opcję **Odśwież** ikonę i następnie **Pokaż wszystkie pliki** ikony w górnej części **Eksploratora rozwiązań**  okna.
-3. Kliknij prawym przyciskiem myszy *wingtiptoys.mdf* plik bazy danych i wybierz pozycję **Otwórz**.  
-    **Eksplorator serwera** jest wyświetlana. 
+1. Rozwiń folder *dane\_aplikacji* . Jeśli folder *danych\_aplikacji* nie jest widoczny, zapoznaj się z uwagą powyżej.
+2. Jeśli plik bazy danych *wingtiptoys. mdf* nie jest widoczny, wybierz ikonę **odświeżania** , a następnie ikonę **Pokaż wszystkie pliki** w górnej części okna **Eksplorator rozwiązań** .
+3. Kliknij prawym przyciskiem myszy plik bazy danych *wingtiptoys. mdf* i wybierz polecenie **Otwórz**.  
+    Zostanie wyświetlona **Eksplorator serwera** . 
 
-    ![Interfejs użytkownika i nawigacja — Eksploratora serwera](ui_and_navigation/_static/image8.png)
-4. Rozwiń *tabel* folderu.
-5. Kliknij prawym przyciskiem myszy **produktów**tabeli, a następnie wybierz pozycję **Pokaż dane tabeli**.  
- **Produktów** tabela jest wyświetlana. 
+    ![Interfejs użytkownika i nawigacja — Eksplorator serwera](ui_and_navigation/_static/image8.png)
+4. Rozwiń folder *tabele* .
+5. Kliknij prawym przyciskiem myszy tabelę **Products (produkty**) i wybierz polecenie **Pokaż dane tabeli**.  
+ Zostanie wyświetlona tabela **produkty** . 
 
-    ![Interfejs użytkownika i nawigacja — Tabela produktów](ui_and_navigation/_static/image9.png)
-6. Ten widok umożliwia wyświetlić i modyfikować dane w **produktów** tabeli ręcznie.
-7. Zamknij **produktów** okna tabeli.
-8. W **Eksploratora serwera**, kliknij prawym przyciskiem myszy **produktów** tabeli ponownie, a następnie wybierz pozycję **Otwórz definicję tabeli**.  
- Dane projektu dla **produktów** tabela jest wyświetlana. 
+    ![Interfejs użytkownika i nawigacja — tabela produktów](ui_and_navigation/_static/image9.png)
+6. Ten widok umożliwia ręczne wyświetlenie i zmodyfikowanie danych w tabeli **Products** .
+7. Zamknij okno tabeli **produkty** .
+8. W **Eksplorator serwera**kliknij prawym przyciskiem myszy tabelę **Products (produkty** ), a następnie wybierz polecenie **Otwórz definicję tabeli**.  
+ Zostanie wyświetlony projekt danych w tabeli **Products** . 
 
-    ![Interfejs użytkownika i nawigacja — projektowanie produktów](ui_and_navigation/_static/image10.png)
-9. W **języka T-SQL** kartę zobaczysz instrukcji SQL DDL, który został użyty do utworzenia tabeli. Możesz również użyć interfejsu użytkownika w **projektowania** kartę do modyfikacji schematu.
-10. W **Eksploratora serwera**, kliknij prawym przyciskiem myszy **WingtipToys** bazy danych, a następnie wybierz pozycję **bliskie połączenie**.   
- Schemat bazy danych odłączając bazę danych z programu Visual Studio, będzie można zmodyfikować w dalszej części tej serii samouczków.
-11. Wróć do **Eksploratora rozwiązań**, wybierając **Eksploratora rozwiązań** karta w dolnej części **Eksploratora serwera** okna.
+    ![Interfejs użytkownika i nawigacja — projekt produktów](ui_and_navigation/_static/image10.png)
+9. Na karcie **T-SQL** zostanie wyświetlona instrukcja SQL DDL użyta do utworzenia tabeli. Możesz również użyć interfejsu użytkownika na karcie **projektowanie** , aby zmodyfikować schemat.
+10. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję baza danych **WingtipToys** i wybierz pozycję **Zamknij połączenie**.   
+ Odłączenie bazy danych od programu Visual Studio spowoduje, że schemat bazy danych będzie można zmodyfikować w dalszej części tej serii samouczków.
+11. Wróć do **Eksplorator rozwiązań**, wybierając kartę **Eksplorator rozwiązań** w dolnej części okna **Eksplorator serwera** .
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku tej serii dodano podstawowy interfejs użytkownika, grafiki, strony i nawigacji. Ponadto uruchomiono aplikację sieci Web, która tworzenia bazy danych z klas danych, które zostały dodane w poprzednim samouczku. Możesz również wyświetlić zawartość *produktów* tabeli bazy danych, wyświetlając bazy danych bezpośrednio. W następnym samouczku możesz wyświetlić elementy danych i uzyskać szczegółowe informacje z bazy danych.
+W tym samouczku dotyczącym serii dodano kilka podstawowych interfejsów użytkownika, grafiki, stron i nawigacji. Ponadto uruchomiono aplikację sieci Web, która utworzyła bazę danych z klas danych, które zostały dodane w poprzednim samouczku. Zawartość tabeli *Products* bazy danych jest również przeglądana bezpośrednio przez bezpośrednie wyświetlanie bazy danych. W następnym samouczku zostaną wyświetlone elementy danych i szczegóły z bazy danych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Wprowadzenie do programowania stron ASP.NET Web Pages](https://msdn.microsoft.com/library/ms178125.aspx)   
-[Serwer sieci Web ASP.NET kontrolki — omówienie](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
+[Wprowadzenie do programowania ASP.NET stron sieci Web](https://msdn.microsoft.com/library/ms178125.aspx)   
+[Przegląd kontrolek serwera sieci Web ASP.NET](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [Samouczek CSS](http://www.w3schools.com/css/default.asp)
 
 > [!div class="step-by-step"]

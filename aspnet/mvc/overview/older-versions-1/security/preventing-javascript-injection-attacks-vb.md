@@ -1,115 +1,115 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
-title: Zapobieganie atakom iniekcji JavaScript (VB) | Dokumentacja firmy Microsoft
+title: Zapobieganie atakom polegającym na iniekcji kodu JavaScript (VB) | Microsoft Docs
 author: StephenWalther
-description: 'Zapobiec atakom iniekcji JavaScript i atakami skryptów między witrynami dla Ciebie. W tym samouczku Walther Autor: Stephen wyjaśnia, jak można łatwo de...'
+description: Zapobiegaj atakom z użyciem kodu JavaScript i atakami z obsługą skryptów między lokacjami. W tym samouczku Stephen Walther wyjaśnia, jak można łatwo cofnąć...
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 844d7209d3efbe0acf92fbc25e9b06c25c4d269a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: dfe09085f26c62c566649bc6f570aa25367a0f07
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125427"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594754"
 ---
 # <a name="preventing-javascript-injection-attacks-vb"></a>Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (VB)
 
-przez [Walther Autor: Stephen](https://github.com/StephenWalther)
+Autor [Stephen Walther](https://github.com/StephenWalther)
 
-[Pobierz plik PDF](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_VB.pdf)
+[Pobierz plik PDF](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_VB.pdf)
 
-> Zapobiec atakom iniekcji JavaScript i atakami skryptów między witrynami dla Ciebie. W tym samouczku Walther Autor: Stephen wyjaśnia, jak łatwo można pokonać tego rodzaju ataki przeprowadzane przez kodowania zawartości HTML.
+> Zapobiegaj atakom z użyciem kodu JavaScript i atakami z obsługą skryptów między lokacjami. W tym samouczku Stephen Walther wyjaśnia, w jaki sposób można łatwo wypaczać ataki przez kodowanie HTML.
 
-Celem tego samouczka jest wyjaśniają, jak można zapobiec wstrzyknięciu kodu JavaScript w aplikacjach ASP.NET MVC. W tym samouczku omówiono dwa podejścia do obrony przed ataku polegającego na iniekcji JavaScript witryny sieci Web. Dowiesz się, jak zapobiegającą wstrzyknięciu kodu JavaScript, przez kodowanie danych, którą można wyświetlać. Poznasz również sposób zapobiegającą wstrzyknięciu kodu JavaScript przez kodowanie danych, który oznacza akceptację.
+Celem tego samouczka jest wyjaśnienie, jak można zapobiec atakom z iniekcją kodu JavaScript w aplikacjach ASP.NET MVC. W tym samouczku omówiono dwa podejścia do obrony witryny sieci Web przed atakami polegającymi na iniekcji kodu JavaScript. Dowiesz się, jak zapobiegać atakom z użyciem kodu JavaScript przez kodowanie wyświetlanych danych. Dowiesz się również, jak zapobiegać atakom z użyciem kodu JavaScript przez zakodowanie akceptowanych danych.
 
-## <a name="what-is-a-javascript-injection-attack"></a>Co to jest ataku polegającego na iniekcji JavaScript?
+## <a name="what-is-a-javascript-injection-attack"></a>Co to jest atak z iniekcją kodu JavaScript?
 
-Zawsze, gdy użytkownik akceptuje dane wejściowe użytkownika i ponownie wyświetlić dane wejściowe użytkownika, możesz otworzyć witryny sieci Web na wstrzyknięciu kodu JavaScript. Przeanalizujmy konkretnych aplikacji, która jest otwarta na wstrzyknięciu kodu JavaScript.
+Za każdym razem, gdy zaakceptujesz dane wejściowe użytkownika i ponownie wyświetlasz dane wejściowe użytkownika, możesz otworzyć witrynę internetową, aby uzyskać ataki kodu JavaScript. Sprawdźmy konkretną aplikację, która jest otwarta do ataków iniekcji kodu JavaScript.
 
-Wyobraź sobie, że utworzono witrynę sieci Web opinii klientów (patrz rysunek 1). Klienci mogą odwiedź witrynę internetową i wprowadź informacje zwrotne o swoich doświadczeniach z używania produktów. Gdy klient wyśle ich opinie, opinii, zostanie wyświetlony ponownie na stronie opinii.
+Załóżmy, że utworzono witrynę internetową opinii klienta (patrz rysunek 1). Klienci mogą odwiedzić witrynę internetową i wprowadzić Opinie na ich temat, korzystając z Twoich produktów. Gdy klient prześle swoją opinię, opinia jest ponownie wyświetlana na stronie opinii.
 
-[![Opinie klientów witryny sieci Web](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
+[Witryna sieci Web opinii klientów ![](preventing-javascript-injection-attacks-vb/_static/image2.png)](preventing-javascript-injection-attacks-vb/_static/image1.png)
 
-**Rysunek 01**: Opinie klientów witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image3.png))
+**Ilustracja 01**. Witryna internetowa opinii klientów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image3.png))
 
-Witryna internetowa opinii klientów używa `controller` w ofercie 1. To `controller` zawiera dwa działania o nazwie `Index()` i `Create()`.
+Witryna internetowa opinii klientów używa `controller` z listy 1. Ten `controller` zawiera dwie akcje o nazwie `Index()` i `Create()`.
 
-**1 — Lista `HomeController.vb`**
+**Lista 1 — `HomeController.vb`**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample1.vb)]
 
-`Index()` Metoda Wyświetla `Index` widoku. Ta metoda przekazuje wszystkich wcześniejszych informacji zwrotnych klienta, aby `Index` widoku przez pobranie opinii z bazy danych (za pomocą LINQ do kwerendy SQL).
+Metoda `Index()` wyświetla widok `Index`. Ta metoda przekazuje wszystkie poprzednie opinie klientów do widoku `Index`, pobierając informacje zwrotne z bazy danych (przy użyciu zapytania LINQ to SQL).
 
-`Create()` Metoda tworzy nowy element opinii i dodaje go do bazy danych. Komunikat, który klient wprowadza w formularzu jest przekazywany do `Create()` metody w parametrze wiadomości. Element opinii jest tworzony i komunikat jest przypisany do elementu opinii `Message` właściwości. Element opinii jest przesyłany do bazy danych o `DataContext.SubmitChanges()` wywołania metody. Ponadto użytkownik jest przekierowany z powrotem do `Index` widoku, gdzie wyświetlone wszystkie opinie.
+Metoda `Create()` tworzy nowy element opinii i dodaje go do bazy danych. Komunikat wprowadzony przez klienta w formularzu jest przesyłany do metody `Create()` w parametrze komunikatu. Zostanie utworzony element opinii, a wiadomość zostanie przypisana do właściwości `Message` elementu opinii. Element opinii jest przesyłany do bazy danych za pomocą wywołania metody `DataContext.SubmitChanges()`. Na koniec odmowa zostanie przekierowana z powrotem do widoku `Index`, w którym jest wyświetlana cała opinia.
 
-`Index` Widok znajduje się w ofercie 2.
+Widok `Index` jest zawarty w liście 2.
 
-**2 — Lista `Index.aspx`**
+**Lista 2 — `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample2.aspx)]
 
-`Index` Widok zawiera dwie sekcje. Górna sekcja zawiera formularz opinii klientów rzeczywiste. Dolną sekcję zawiera For … Każdej pętli w pętli wszystkich poprzednich elementów opinii klientów i wyświetlenie właściwości EntryDate i komunikat dla każdego elementu opinii.
+Widok `Index` ma dwie sekcje. Górna sekcja zawiera rzeczywisty formularz opinii klientów. Dolna sekcja zawiera... Każda pętla, która przechodzi przez wszystkie poprzednie elementy opinii klientów i wyświetla EntryDate i właściwości wiadomości dla każdego elementu opinii.
 
-Witryna internetowa z opinii klientów jest prostą witrynę sieci Web. Niestety witryna sieci Web jest otwarty na wstrzyknięciu kodu JavaScript.
+Witryna internetowa opinii klientów jest prostą witryną sieci Web. Niestety, witryna internetowa jest otwarta do ataków iniekcji kodu JavaScript.
 
-Wyobraź sobie, wprowadź następujący tekst do formularza opinii klientów:
+Załóżmy, że wprowadzasz następujący tekst do formularza opinii klientów:
 
 [!code-html[Main](preventing-javascript-injection-attacks-vb/samples/sample3.html)]
 
-Ten tekst reprezentuje skryptu JavaScript, która wyświetla okno komunikatu alertu. Po trafi tego skryptu do opinii formularzu komunikat <em>coś!</em> pojawi się w każdym przypadku, gdy każdy użytkownik odwiedza witrynę sieci Web z opinii klientów w przyszłości (patrz rysunek 2).
+Ten tekst przedstawia skrypt JavaScript, który wyświetla okno komunikatu alertu. Gdy ktoś wyśle ten skrypt do formularza opinii, komunikat <em>Boo!</em> zostanie wyświetlona za każdym razem, gdy ktoś odwiedzi witrynę internetową opinii klientów w przyszłości (patrz rysunek 2).
 
-[![Iniekcja kodu JavaScript](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
+[![iniekcja kodu JavaScript](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
 
-**Rysunek 02**: Iniekcja kodu JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image6.png))
+**Ilustracja 02**: iniekcja kodu JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image6.png))
 
-Teraz Twoje pierwszą odpowiedzią na wstrzyknięciu kodu JavaScript może być apathy. Może się wydawać, że wstrzyknięciu kodu JavaScript są po prostu rodzaj *wystarcza* ataku. Może być uważa, że nikt Akcja naprawdę nic przez zatwierdzenie ataku polegającego na iniekcji JavaScript.
+Teraz początkową odpowiedzią na ataki kodu JavaScript może być Apathy. Może się okazać, że ataki kodu JavaScript są po prostu typem *ataku.* Może się zdarzyć, że nikt nie może wykonać niczego naprawdę akcja przez zatwierdzenie ataku polegającego na iniekcji kodu JavaScript.
 
-Niestety, haker może wykonanie niektórych naprawdę bardzo Akcja rzeczy przez iniekcję kodu JavaScript do witryny sieci Web. Ataku polegającego na iniekcji JavaScript służy do wykonywania ataków skryptów między witrynami (XSS). Atak z użyciem skryptów między witrynami służy do wykradania informacji poufnych użytkownika i wysyłać je do innej witryny sieci Web.
+Niestety haker może robić naprawdę akcja rzeczy, wprowadzając kod JavaScript do witryny sieci Web. Aby wykonać atak między lokacjami (XSS), można użyć ataku polegającego na iniekcji języka JavaScript. W przypadku ataku za skrypty między lokacjami można wykraść poufne informacje o użytkownikach i wysłać je do innej witryny sieci Web.
 
-Na przykład haker, można użyć ataku polegającego na iniekcji JavaScript do wykradania wartości pliki cookie przeglądarki od innych użytkowników. Jeśli poufnych informacji — takie jak hasła, numerów kart kredytowych lub numerów ubezpieczenia społecznego — jest przechowywany w plikach cookie przeglądarki, haker może użyć ataku polegającego na iniekcji JavaScript do wykradania informacji. Lub, jeśli użytkownik wprowadzi poufnych informacji w polu formularza zawartych na stronie, którego bezpieczeństwo zostało naruszone przy użyciu ataku JavaScript, wówczas haker używać wprowadzonego kodu JavaScript dane formularza i wysyłać je do innej witryny sieci Web.
+Na przykład haker może użyć ataku polegającego na iniekcji kodu JavaScript w celu kradzieży wartości plików cookie w przeglądarce od innych użytkowników. Jeśli informacje poufne — takie jak hasła, numery kart kredytowych lub numery ubezpieczenia społecznego są przechowywane w plikach cookie przeglądarki, haker może użyć ataku wstrzykiwania kodu JavaScript, aby wykraść te informacje. Lub, jeśli użytkownik wprowadzi poufne informacje w polu formularza zawartym na stronie, która została naruszona przez atak JavaScript, haker może użyć wstrzykniętego kodu JavaScript do pobrania danych formularza i wysłania ich do innej witryny sieci Web.
 
-*Należy Przerażony*. Poważnego wstrzyknięciu kodu JavaScript i ochrony informacji poufnych użytkownika. W dwóch następnych sekcjach omówiono dwie techniki, które można chronić swoje aplikacje platformy ASP.NET MVC na wstrzyknięciu kodu JavaScript.
+*Należy obawialiśmy*. Należy wziąć pod istotny wpływ na ataki kodu JavaScript i chronić poufne informacje użytkownika. W dwóch następnych sekcjach omówiono dwie techniki, za pomocą których można chronić aplikacje ASP.NET MVC przed atakami polegającymi na iniekcji kodu JavaScript.
 
-## <a name="approach-1-html-encode-in-the-view"></a>Podejście #1: Kodowanie HTML w widoku
+## <a name="approach-1-html-encode-in-the-view"></a>Podejście #1: kodowanie HTML w widoku
 
-Wszystkie dane wprowadzone przez użytkowników witryny sieci Web, gdy użytkownik ponownie wyświetlić dane w widoku jednego z prostą metodę zapobieganie wstrzyknięciu kodu JavaScript w formacie HTML kodowania. Zaktualizowany interfejs `Index` widoku w ofercie 3 poniżej tego podejścia.
+Jedną z prostych metod zapobiegania atakom z użyciem kodu JavaScript jest kodowanie HTML wszelkich danych wprowadzonych przez użytkowników witryny sieci Web po ponownym wyświetleniu danych w widoku. Zaktualizowany widok `Index` na liście 3 jest zgodny z tym podejściem.
 
-**Wyświetlanie listy 3 — `Index.aspx` (kodowania HTML)**
+**Lista 3 — `Index.aspx` (kodowanie HTML)**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample4.aspx)]
 
-Należy zauważyć, że wartość `feedback.Message` ma format HTML zakodowane przed wyświetleniem wartość następującym kodem:
+Zwróć uwagę, że wartość `feedback.Message` jest zakodowana HTML przed wyświetleniem wartości przy użyciu następującego kodu:
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample5.aspx)]
 
-Jaki jest średnia w formacie HTML kodowanie ciągu? Podczas HTML kodowania ciągu, niebezpiecznych znaków takich jak `<` i `>` są zastępowane przez odwołań do jednostek kodu HTML, takich jak `&lt;` i `&gt;`. W takim przypadku ciąg `<script>alert("Boo!")</script>` ma format HTML zakodowane, jego są konwertowane na `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Zakodowany ciąg nie jest już wykonuje jako skrypt JavaScript, gdy interpretowany przez przeglądarkę. Zamiast tego możesz pobrać nieszkodliwe strony na rysunku 3.
+Co oznacza kod HTML kodowania ciągu? Podczas kodowania ciągu HTML niebezpieczne znaki, takie jak `<` i `>`, są zamieniane na odwołania do jednostek HTML, takie jak `&lt;` i `&gt;`. Tak więc, gdy ciąg `<script>alert("Boo!")</script>` jest zakodowana w języku HTML, zostanie przekonwertowany na `&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`. Zakodowany ciąg nie jest już wykonywany jako skrypt JavaScript, gdy jest interpretowany przez przeglądarkę. Zamiast tego otrzymujesz niegroźną stronę na rysunku 3.
 
-[![Bezcelowe ataku JavaScript](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
+[![ataku w języku JavaScript](preventing-javascript-injection-attacks-vb/_static/image8.png)](preventing-javascript-injection-attacks-vb/_static/image7.png)
 
-**Rysunek 03**: Udaremnione ataku JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image9.png))
+**Ilustracja 03**: atak spowodowany przez sprawność języka JavaScript ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](preventing-javascript-injection-attacks-vb/_static/image9.png))
 
-Należy zauważyć, że w `Index` tylko wartości przeglądać w ofercie 3 `feedback.Message` jest zaszyfrowana. Wartość `feedback.EntryDate` nie jest zaszyfrowana. Należy zakodować dane wprowadzane przez użytkownika. Ponieważ wartość EntryDate został wygenerowany w kontrolerze, nie należy do formatu HTML kodowania tę wartość.
+Zwróć uwagę, że w widoku `Index` na liście 3 jest zaszyfrowana tylko wartość `feedback.Message`. Wartość `feedback.EntryDate` nie jest zaszyfrowana. Wystarczy zakodować dane wprowadzone przez użytkownika. Ponieważ wartość EntryDate została wygenerowana w kontrolerze, nie musisz kodować kodu HTML tej wartości.
 
-## <a name="approach-2-html-encode-in-the-controller"></a>Podejście #2: Kodowanie HTML w kontrolerze
+## <a name="approach-2-html-encode-in-the-controller"></a>Podejście #2: kodowanie HTML w kontrolerze
 
-Zamiast kodowania danych, gdy dane są wyświetlane w widoku HTML, możesz HTML zakodować dane przed przesyłania danych do bazy danych. Ta druga metoda jest wykonywane w przypadku programu `controller` w ofercie 4.
+Zamiast danych kodowania HTML podczas wyświetlania danych w widoku, można kodować dane HTML bezpośrednio przed przesłaniem danych do bazy danych programu. Drugie podejście jest podejmowane w przypadku `controller` na liście 4.
 
-**Wyświetlanie listy 4 – `HomeController.cs` (kodowania HTML)**
+**Lista 4 — `HomeController.cs` (kodowanie HTML)**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample6.vb)]
 
-Zauważ, że wartość wiadomości HTML zakodowane przed przesłaniem do bazy danych w ramach wartość `Create()` akcji. Gdy komunikat zostanie wyświetlony ponownie, w widoku, wiadomości ma kodowania HTML i dowolnego języka JavaScript, wprowadzony w komunikacie nie jest wykonywany.
+Zwróć uwagę, że wartość komunikatu jest zakodowana w formacie HTML przed przesłaniem wartości do bazy danych w ramach akcji `Create()`. Gdy komunikat jest ponownie wyświetlany w widoku, komunikat jest zakodowany w formacie HTML i żaden kod JavaScript wprowadzony w komunikacie nie jest wykonywany.
 
-Zazwyczaj powinien Preferuj pierwszego podejścia omówionych w tym samouczku za pośrednictwem tego drugiego podejścia. Problem w drugim przypadku tej metody polega na tym, że na końcu HTML z zakodowanych danych w bazie danych. Innymi słowy danych bazy danych jest dirtied zabawnych wyglądających znaków.
+Zwykle należy preferować pierwsze podejście omówione w tym samouczku w porównaniu z tym drugim podejściem. Problem z tym drugim podejściem polega na tym, że dane zakodowane w formacie HTML są kodowane w bazie danych. Innymi słowy, dane bazy danych są 'dirtied za pomocą zabawnych znaków.
 
-Dlaczego jest to nieodpowiedni? Jeśli potrzebujesz wsparcia wyświetlania danych w bazie danych w innych jednostkach niż strony sieci web, następnie będziesz mieć problemy. Można na przykład, nie będzie łatwo wyświetlić dane w aplikacji Windows Forms.
+Dlaczego to zły? Jeśli kiedykolwiek zajdzie potrzeba wyświetlenia danych bazy danych znajdujących się poza stroną sieci Web, wystąpią problemy. Na przykład nie można już łatwo wyświetlać danych w aplikacji Windows Forms.
 
 ## <a name="summary"></a>Podsumowanie
 
-Celem tego samouczka było przestraszyć możesz o Perspektywa ataku polegającego na iniekcji JavaScript. W tym samouczku omówiono dwa podejścia do obrony przed atakami polegającymi na iniekcji JavaScript aplikacji ASP.NET MVC: można albo HTML kodowanie użytkownika przesłane dane w widoku lub można HTML kodowanie użytkownika przesłane dane w kontrolerze.
+Celem tego samouczka było zascarenie się z potencjalnym atakiem z użyciem kodu JavaScript. W tym samouczku omówiono dwie podejścia do obrony aplikacji ASP.NET MVC przed atakami polegającymi na iniekcji kodu JavaScript: możesz kodować HTML dane przesłane przez użytkownika w widoku lub można kodować HTML dane przesyłane przez użytkownika w kontrolerze.
 
 > [!div class="step-by-step"]
-> [Poprzednie](authenticating-users-with-windows-authentication-vb.md)
+> [Ubiegł](authenticating-users-with-windows-authentication-vb.md)

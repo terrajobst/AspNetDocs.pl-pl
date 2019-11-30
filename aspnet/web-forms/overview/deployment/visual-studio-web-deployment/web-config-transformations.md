@@ -1,150 +1,150 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Przekształcenia pliku Web.config | Dokumentacja firmy Microsoft'
+title: 'ASP.NET wdrażanie sieci Web przy użyciu programu Visual Studio: przekształcenia plików Web. config | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
+description: W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przez usin...
 ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 595723d9c6ea9cc40bb0ae896524ee828c4ebce2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: a9d39547c94a63003442ba6fe1257693dde24b05
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128427"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74621788"
 ---
-# <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Przekształcenia pliku web.config
+# <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>ASP.NET wdrażanie sieci Web przy użyciu programu Visual Studio: przekształcenia plików Web. config
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
+> W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci Web ASP.NET w celu Azure App Service Web Apps lub do dostawcy hostingu innej firmy przy użyciu programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje o serii, zobacz [pierwszy samouczek w serii](introduction.md).
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku dowiesz się, jak zautomatyzować proces zmiany *Web.config* plików podczas wdrażania w środowiskach różnych miejsc docelowych. Większość aplikacji ma ustawienia *Web.config* pliku, który musi być inna, gdy aplikacja jest wdrażana. Automatyzowanie procesu wprowadzania tych zmian wymaga znajomości zrobić je ręcznie, za każdym razem, gdy zostanie wdrożony, może być uciążliwe i podatne.
+W tym samouczku pokazano, jak zautomatyzować proces zmiany pliku *Web. config* podczas wdrażania go w różnych środowiskach docelowych. Większość aplikacji ma ustawienia w pliku *Web. config* , które muszą być inne, gdy aplikacja jest wdrażana. Automatyzacja procesu wprowadzania tych zmian uniemożliwia wykonywanie ich ręcznie przy każdym wdrożeniu, co byłoby żmudnyme i podatne na błędy.
 
-Przypomnienie: Jeśli otrzymasz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, należy koniecznie sprawdzić [strona rozwiązywania problemów](troubleshooting.md).
+Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie działa, gdy przejdziesz do samouczka, pamiętaj o sprawdzeniu [strony rozwiązywania problemów](troubleshooting.md).
 
-## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Transformacje pliku Web.config i parametrów narzędzia Web Deploy
+## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Przekształcenia Web. config a Web Deploy parametry
 
-Istnieją dwa sposoby, aby zautomatyzować proces zmiany *Web.config* pliku ustawień: [Transformacje pliku Web.config](https://msdn.microsoft.com/library/dd465326.aspx) i [parametrów narzędzia Web Deploy](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* plik przekształcenia zawiera znacznik XML, który określa sposób zmiany *Web.config* pliku po jego wdrożeniu. Można określić różne zmiany dotyczące określonych konfiguracje kompilacji i dla określonych profilów publikowania. Domyślne konfiguracje kompilacji są Debug i Release, i można utworzyć konfiguracji niestandardowej kompilacji. Profil publikowania zazwyczaj odpowiada środowisku docelowym. (Dowiesz się więcej na temat profilów w publikowania [wdrażanie w usługach IIS jako środowisku testowym](deploying-to-iis.md) samouczek.)
+Istnieją dwa sposoby automatyzacji procesu zmiany ustawień pliku *Web. config* : [przekształcenia Web. config](https://msdn.microsoft.com/library/dd465326.aspx) i [Web Deploy parametrów](https://msdn.microsoft.com/library/ff398068.aspx). Plik transformacji *Web. config* zawiera znacznik XML, który określa sposób zmiany pliku *Web. config* podczas jego wdrażania. Można określić różne zmiany dla określonych konfiguracji kompilacji i dla określonych profilów publikacji. Domyślną konfiguracją kompilacji są debugowanie i wydanie i można utworzyć niestandardowe konfiguracje kompilacji. Profil publikacji zwykle odpowiada środowisku docelowemu. (Więcej informacji o profilach publikowania można znaleźć w samouczku [wdrażanie do usług IIS jako środowisko testowe](deploying-to-iis.md) ).
 
-Parametry wdrażania sieci Web może służyć do określania wielu różnych rodzajów ustawień, które muszą być skonfigurowane podczas wdrażania, w tym ustawienia, które znajdują się w *Web.config* plików. Gdy jest używana do określenia *Web.config* zmiany plików są bardziej złożone, aby skonfigurować parametry narzędzie Web Deploy, ale są przydatne, gdy nie wiadomo, wartość można ustawić, dopóki nie zostanie wdrożony. Na przykład w środowisku przedsiębiorstwa może utworzyć *pakietu wdrożeniowego* oferowanie osoby z działu IT do zainstalowania w środowisku produkcyjnym i dana osoba można było wprowadzić parametry połączenia lub hasła, które nie obsługują znać.
+Parametrów Web Deploy można użyć do określenia wielu różnych rodzajów ustawień, które muszą być skonfigurowane podczas wdrażania, w tym ustawień znalezionych w plikach *Web. config* . Gdy jest używany do określania zmian w pliku *Web. config* , Web Deploy parametry są bardziej skomplikowane do skonfigurowania, ale są przydatne, gdy nie znasz wartości do ustawienia do momentu wdrożenia. Na przykład w środowisku przedsiębiorstwa można utworzyć *pakiet wdrożeniowy* i przekazać go do osoby w dziale IT w celu zainstalowania jej w produkcji, a osoba musi mieć możliwość wprowadzania parametrów połączenia lub haseł, które nie są znane.
 
-Dla tego scenariusza, który opisano w tej serii samouczków, możesz wiedzieć z wyprzedzeniem wszystko, co ma wykonać, aby *Web.config* pliku, więc nie trzeba używać parametrów narzędzia Web Deploy. Należy skonfigurować niektórych przekształceń, które różnią się w zależności od konfiguracji kompilacji używany, a niektóre, które różnią się w zależności od profil publikacji używany.
+Aby zapoznać się z scenariuszem, który obejmuje ta seria samouczków, możesz uzyskać dostęp do wszystkich elementów, które należy wykonać w pliku *Web. config* , aby nie trzeba było używać parametrów Web Deploy. Skonfigurujesz niektóre przekształcenia, które różnią się w zależności od używanej konfiguracji kompilacji, a niektóre z nich różnią się w zależności od używanego profilu publikacji.
 
 <a id="watransforms"></a>
 
-## <a name="specifying-webconfig-settings-in-azure"></a>Określanie ustawień pliku Web.config na platformie Azure
+## <a name="specifying-webconfig-settings-in-azure"></a>Określanie ustawień pliku Web. config na platformie Azure
 
-Jeśli *Web.config* ustawienia plików, które chcesz zmienić znajdują się w `<connectionStrings>` lub `<appSettings>` elementu i wdrażania aplikacji sieci Web w usłudze Azure App Service ma inną opcją do automatyzowania zmiany podczas wdrożenie. Możesz wprowadzić ustawienia, które mają zostać zastosowane na platformie Azure w **Konfiguruj** karty na stronie portalu zarządzania dla aplikacji sieci web (Przewiń w dół do **ustawienia aplikacji** i **parametry połączenia**  sekcji). Podczas wdrażania projektu Azure automatycznie stosuje te zmiany. Aby uzyskać więcej informacji, zobacz [witryn sieci Web systemu Windows Azure: Sposób działania ciągów Application Strings and połączenia](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+Jeśli ustawienia pliku *Web. config* , które chcesz zmienić, znajdują się w `<connectionStrings>` lub `<appSettings>`, a Jeśli wdrażasz program w Web Apps Azure App Service, masz inną opcję automatyzacji zmian podczas wdrażania. Możesz wprowadzić ustawienia, które mają zostać zastosowane na platformie Azure, na karcie **Konfiguracja** na stronie Portal zarządzania dla aplikacji sieci Web (przewiń w dół do sekcji **Ustawienia aplikacji** i **Parametry połączenia** ). Podczas wdrażania projektu platforma Azure automatycznie stosuje zmiany. Aby uzyskać więcej informacji, zobacz [witryny sieci Web systemu Windows Azure: sposób działania ciągów aplikacji i parametrów połączenia](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
 ## <a name="default-transformation-files"></a>Domyślne pliki transformacji
 
-W **Eksploratora rozwiązań**, rozwiń węzeł *Web.config* się *Web.Debug.config* i *Web.Release.config* pliki transformacji Domyślnie tworzone są dwa domyślne konfiguracje kompilacji.
+W **Eksplorator rozwiązań**rozwiń plik *Web. config* , aby wyświetlić pliki transformacji *Web. Debug. config* i *Web. release. config* , które są tworzone domyślnie dla dwóch domyślnych konfiguracji kompilacji.
 
-![Web.config_transform_files](web-config-transformations/_static/image1.png)
+![Web. config_transform_files](web-config-transformations/_static/image1.png)
 
-Można tworzyć pliki transformacji dla konfiguracji niestandardowej kompilacji, kliknij prawym przyciskiem myszy plik Web.config i wybierając pozycję **Dodaj transformacje konfiguracji** z menu kontekstowego. Na potrzeby tego samouczka nie trzeba to zrobić, a opcja menu jest wyłączona, ponieważ nie utworzono żadnych konfiguracji niestandardowej kompilacji.
+Możesz tworzyć pliki transformacji dla niestandardowych konfiguracji kompilacji, klikając prawym przyciskiem myszy plik Web. config i wybierając pozycję **Dodaj transformacje konfiguracji** z menu kontekstowego. W tym samouczku nie trzeba tego robić, a opcja menu jest wyłączona, ponieważ nie utworzono żadnych niestandardowych konfiguracji kompilacji.
 
-Później utworzysz trzy więcej pliki transformacji, jeden dla testów, przemieszczania i produkcji profilów publikowania. Typowym przykładem ustawienie, który będzie obsługiwać w pliku przekształcenia profilu publikowania, ponieważ zależy od środowiska docelowego jest punktu końcowego WCF, która różni się do testowania i produkcji. Utworzysz Publikuj pliki transformacji profilu w kolejnych samouczkach po utworzeniu profilów publikowania, które są zawsze pod ręką.
+Później utworzysz trzy więcej plików transformacji, jeden z nich dla profilów publikacji test, proces przemieszczania i produkcji. Typowy przykład ustawienia, które można obsłużyć w pliku transformacji profilu publikowania, ponieważ zależy on od środowiska docelowego jest punktem końcowym WCF, który jest inny do testowania i produkcji. Pliki transformacji profilu publikowania można tworzyć w kolejnych samouczkach po utworzeniu profilów publikowania, z którymi się znajdują.
 
 ## <a name="disable-debug-mode"></a>Wyłącz tryb debugowania
 
-Przykładem ustawienie zależy od konfiguracji kompilacji, a nie jest środowisko docelowe `debug` atrybutu. Dla kompilacji oficjalnej zazwyczaj chcesz wyłączonym debugowaniem niezależnie od tego, środowisko, które wdrażasz na. Dlatego domyślnie Visual Studio szablonów projektu utworzyć *Web.Release.config* plików z kodem, który usuwa transformacji `debug` atrybut z `compilation` elementu. W tym miejscu jest ustawieniem domyślnym *Web.Release.config*: oprócz przykładowy kod transformacji, który został umieszczony w komentarzach, obejmuje kod w `compilation` element, który usuwa `debug` atrybutu:
+Przykładem ustawienia, które zależy od konfiguracji kompilacji, a nie środowiska docelowego jest atrybut `debug`. W przypadku kompilacji wydania zwykle debugowanie jest wyłączone niezależnie od środowiska, w którym są wdrażane. W związku z tym Domyślnie szablony projektu programu Visual Studio tworzą pliki transformacji *Web. release. config* z kodem, który usuwa atrybut `debug` z elementu `compilation`. Oto domyślny *plik Web. release. config*: oprócz niektórych przykładowego kodu przekształcenia, który jest oznaczony jako komentarz, zawiera kod w `compilation` elemencie, który usuwa atrybut `debug`:
 
 [!code-xml[Main](web-config-transformations/samples/sample1.xml?highlight=18)]
 
-`xdt:Transform="RemoveAttributes(debug)"` Atrybut określa, że `debug` atrybutu, aby były usuwane z `system.web/compilation` element wdrożonych *Web.config* pliku. Ta czynność zostanie wykonana za każdym razem, gdy wdrażanie kompilacji wydania.
+Atrybut `xdt:Transform="RemoveAttributes(debug)"` określa, że chcesz, aby atrybut `debug` został usunięty z elementu `system.web/compilation` we wdrożonym pliku *Web. config* . Będzie to wykonywane za każdym razem, gdy zostanie wdrożona kompilacja wydania.
 
-## <a name="limit-error-log-access-to-administrators"></a>Ogranicz dostęp do dziennika błędów dla administratorów
+## <a name="limit-error-log-access-to-administrators"></a>Ogranicz dostęp do dziennika błędów do administratorów
 
-Jeśli wystąpi błąd, gdy aplikacja zostanie uruchomiona, aplikacja wyświetli stronę ogólny błąd zamiast strony błędów generowanych przez system i używa [pakiet NuGet biblioteki Elmah](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) do rejestrowania i raportowania błędów. `customErrors` Elementu w aplikacji *Web.config* plik Określa stronę błędu:
+Jeśli wystąpi błąd podczas uruchamiania aplikacji, zostanie wyświetlona strona błędu ogólnego zamiast wygenerowanej przez systemowej strony błędu, która używa [pakietu NuGet programu ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) do rejestrowania błędów i raportowania. Element `customErrors` w pliku *Web. config* aplikacji określa stronę błędu:
 
 [!code-xml[Main](web-config-transformations/samples/sample2.xml)]
 
-Aby wyświetlić stronę błędu, tymczasowo zmienić `mode` atrybutu `customErrors` elementu "RemoteOnly" na wartość "Włączone" i uruchamianie aplikacji w programie Visual Studio. Powodują wystąpienie błędu, wysyłając żądanie nieprawidłowego adresu URL, takich jak *Studentsxxx.aspx*. Zamiast błędu generowanych przez usługi IIS "nie można odnaleźć zasobu" stronie zostanie wyświetlony *GenericErrorPage.aspx* strony.
+Aby wyświetlić stronę błędu, tymczasowo Zmień atrybut `mode` elementu `customErrors` z "RemoteOnly" na "on" i uruchom aplikację z programu Visual Studio. Zażądaj błędu przez zażądanie nieprawidłowego adresu URL, takiego jak *Studentsxxx. aspx*. Zamiast wygenerowanej przez program IIS strony błędu "nie można odnaleźć zasobu" zostanie wyświetlona strona *GenericErrorPage. aspx* .
 
 ![Strona błędu](web-config-transformations/_static/image2.png)
 
-Aby wyświetlić dziennik błędów, należy zastąpić wszystko, co w adresie URL po numer portu z *elmah.axd* (na przykład `http://localhost:51130/elmah.axd`) i naciśnij klawisz Enter:
+Aby wyświetlić dziennik błędów, Zastąp wszystko w adresie URL po numerze portu za pomocą biblioteki *ELMAH. axd* (na przykład `http://localhost:51130/elmah.axd`) i naciśnij klawisz ENTER:
 
 ![Strona ELMAH](web-config-transformations/_static/image3.png)
 
-Nie należy zapominać ustawić `customErrors` element do trybu "RemoteOnly", gdy wszystko będzie gotowe.
+Nie zapomnij ustawić elementu `customErrors` z powrotem do trybu "RemoteOnly", gdy wszystko będzie gotowe.
 
-Na komputerze deweloperskim jest wygodne zezwolić na bezpłatny dostęp do strony dziennika błędów, ale w środowisku produkcyjnym, który będzie stanowić zagrożenie bezpieczeństwa. Dla witryny produkcyjnej chcesz dodać regułę autoryzacji, który ogranicza dostęp do dziennika błędów dla administratorów i upewnij się, że działa ograniczenie, można będzie w testowych i przejściowych również. W związku z tym jest inna zmiana, którą chcesz wdrożyć za każdym razem, gdy wdrażanie kompilacji wydania, a więc należy ono do *Web.Release.config* pliku.
+Na komputerze deweloperskim wygodne jest umożliwienie bezpłatnego dostępu do strony dziennika błędów, ale w środowisku produkcyjnym, które byłyby zagrożeniem bezpieczeństwa. W przypadku lokacji produkcyjnej należy dodać regułę autoryzacji, która ogranicza dostęp do dziennika błędów do administratorów, i upewnić się, że ograniczenie działa tak, aby było ono również przetestowane i przemieszczane. W związku z tym jest to inna zmiana, która ma zostać zaimplementowana za każdym razem, gdy wdrażana jest kompilacja wydania, a więc należy do pliku *Web. release. config* .
 
-Otwórz *Web.Release.config* i Dodaj nowy `location` element bezpośrednio przed tagiem zamykającym `configuration` tag, jak pokazano poniżej.
+Otwórz *plik Web. release. config* i Dodaj nowy element `location` bezpośrednio przed tagiem zamykającym `configuration`, jak pokazano poniżej.
 
 [!code-xml[Main](web-config-transformations/samples/sample3.xml?highlight=27-34)]
 
-`Transform` Wartość atrybutu "INSERT" powoduje, że to `location` element ma zostać dodany jako element równorzędny do wszystkich istniejących `location` elementów w *Web.config* pliku. (Istnieje już `location` element, który określa autoryzacji reguł dla **aktualizacji środki na korzystanie z** strony.)
+`Transform` wartość atrybutu "INSERT" powoduje, że ten element `location` zostanie dodany jako element równorzędny do wszystkich istniejących elementów `location` w pliku *Web. config* . (Istnieje już jeden `location` element, który określa reguły autoryzacji na stronie **kredyty aktualizacji** ).
 
-Można teraz wyświetlać podgląd przekształcenia się upewnić, że kodowany je poprawnie.
+Teraz możesz wyświetlić podgląd przekształcenia, aby upewnić się, że został poprawnie zakodowany.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Web.Release.config* i kliknij przycisk **Przekształcanie wersji zapoznawczej**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję *Web. release. config* , a następnie kliknij pozycję **Podgląd transformacji**.
 
-![Menu przekształcenia (wersja zapoznawcza)](web-config-transformations/_static/image4.png)
+![Menu Przekształć Podgląd](web-config-transformations/_static/image4.png)
 
-Zostanie otwarta strona, pokazujące rozwoju *Web.config* pliku po lewej, a co wdrożonych *Web.config* plik będzie wyglądać po prawej stronie, z wyróżnioną pozycją zmiany.
+Zostanie otwarta strona, która wyświetla plik *Web. config* z lewej strony i opis wdrożonego pliku *Web. config* po prawej stronie z wyróżnionymi zmianami.
 
 ![Podgląd przekształcenia debugowania](web-config-transformations/_static/image5.png)
 
-![Podgląd przekształcenia lokalizacji](web-config-transformations/_static/image6.png)
+![Wersja zapoznawcza przekształcenia lokalizacji](web-config-transformations/_static/image6.png)
 
-(W wersji zapoznawczej, można zauważyć pewne dodatkowe zmiany, które nie zostały zapisu przekształca dla: te obejmują na ogół usunięcie biały znak, który nie ma wpływu na funkcjonalność.)
+(W wersji zapoznawczej można zauważyć pewne dodatkowe zmiany, dla których nie zapisano transformacji: zwykle polega to na usunięciu białych znaków, które nie mają wpływu na funkcjonalność).
 
-Kiedy testujesz lokacji po wdrożeniu Ponadto przetestujesz, aby sprawdzić, czy obowiązujące reguły autoryzacji.
+Podczas testowania lokacji po wdrożeniu należy również sprawdzić, czy reguła autoryzacji jest skuteczna.
 
 > [!NOTE] 
 > 
-> **Uwaga dotycząca zabezpieczeń** nigdy nie są wyświetlane szczegóły błędu publicznie w aplikacji produkcyjnej lub przechowywania tych informacji w ogólnodostępnej lokalizacji. Osoby atakujące umożliwia wykrywanie luk w zabezpieczeniach w lokacji informacje o błędzie. Jeśli używasz biblioteki ELMAH we własnej aplikacji, należy skonfigurować ELMAH, aby zminimalizować zagrożenia bezpieczeństwa. W przykładzie ELMAH, w tym samouczku nie powinny być uwzględniane zalecanej konfiguracji. To przykład, który został wybrany w celu zilustrowania sposobu obsługi aplikacji musi umożliwiać do tworzenia plików w folderze. Aby uzyskać więcej informacji, zobacz [zabezpieczenia punktu końcowego ELMAH](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
+> **Uwaga dotycząca zabezpieczeń** Nigdy nie wyświetlaj informacji o błędach publicznie w aplikacji produkcyjnej lub przechowuj te informacje w lokalizacji publicznej. Osoby atakujące mogą użyć informacji o błędach w celu odnalezienia luk w zabezpieczeniach w lokacji. Jeśli używasz ELMAH w swojej aplikacji, skonfiguruj go w celu zminimalizowania zagrożeń bezpieczeństwa. Przykład ELMAH w tym samouczku nie powinien być uważany za zalecaną konfigurację. Jest to przykład, który został wybrany w celu zilustrowania, jak obsługiwać folder, w którym aplikacja musi być w stanie tworzyć pliki. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie punktu końcowego programu ELMAH](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages).
 
-## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>To ustawienie, które zostanie omówione w publikowanie pliki transformacji profilu
+## <a name="a-setting-that-youll-handle-in-publish-profile-transformation-files"></a>Ustawienie, które będzie obsługiwane w plikach transformacji profilu publikowania
 
-Jest to typowy scenariusz *Web.config* ustawienia, które muszą być różne w każdym środowisku, który można wdrożyć do pliku. Na przykład aplikację, która wywołuje usługę WCF może być konieczne innym punktem końcowym w środowiskach testowych i produkcyjnych. Aplikacja Contoso University obejmuje ustawienia tego rodzaju także. To ustawienie steruje widoczny wskaźnik na stronach witryny, informujące o środowisko, które znajdują się w, takich jak rozwój, testowym czy produkcyjnym. Wartość ustawienia określa, czy aplikacja dołączy "(Dev)" lub "(Test)" do nagłówka w *Site.Master* strona główna:
+Typowym scenariuszem jest posiadanie ustawień pliku *Web. config* , które muszą się różnić w każdym środowisku, w którym jest wdrażana. Na przykład aplikacja, która wywołuje usługę WCF, może potrzebować innego punktu końcowego w środowisku testowym i produkcyjnym. Aplikacja firmy Contoso University obejmuje również ustawienie tego rodzaju. To ustawienie steruje widocznym wskaźnikiem na stronach witryny, które informuje o tym, które środowisko jest w programie, takie jak programowanie, testowanie lub produkcja. Wartość ustawienia określa, czy aplikacja będzie dołączać "(dev)" czy "(test)" do głównego nagłówka w *witrynie. główna* Strona wzorcowa:
 
-![Wskaźnik na środowisko](web-config-transformations/_static/image7.png)
+![Wskaźnik środowiska](web-config-transformations/_static/image7.png)
 
-Wskaźnik środowiska jest pomijane, gdy aplikacja jest uruchomiona w tymczasowym lub produkcyjnym.
+Wskaźnik środowiska jest pomijany, gdy aplikacja jest uruchomiona w procesie przygotowywania lub produkcji.
 
-Na stronach sieci web firmy Contoso University odczytywanie wartości ustawionej w `appSettings` w *Web.config* pliku w celu ustalenia, jakiego środowiska, aplikacja jest uruchomiona w:
+Strony sieci Web firmy Contoso University odczytają wartość ustawioną w `appSettings` w pliku *Web. config* w celu określenia środowiska, w którym aplikacja jest uruchomiona:
 
 [!code-xml[Main](web-config-transformations/samples/sample4.xml)]
 
-Wartość powinna być "Test" w środowisku testowym i "Prod" dla środowisk przejściowych i produkcyjnych.
+Wartość powinna być "test" w środowisku testowym i "prod" do celów przejściowych i produkcyjnych.
 
-Następujący kod w pliku przekształcenia wdroży tej transformacji:
+Następujący kod w pliku transformacji Zaimplementuj tę transformację:
 
 [!code-xml[Main](web-config-transformations/samples/sample5.xml)]
 
-`xdt:Transform` "SetAttributes" wskazuje, że celem tej transformacji jest zmiana wartości atrybutów istniejącego elementu w wartość atrybutu *Web.config* pliku. `xdt:Locator` Atrybutu wartości "Match(key)" oznacza, że element, który ma zostać zmodyfikowana jest ten, którego `key` atrybut dopasowania `key` atrybutu wskazanego w tym miejscu. Tylko inne atrybut `add` element jest `value`, i to, co zostanie zmienione w wdrożonych *Web.config* pliku. Kod przedstawiony tutaj powoduje, że `value` atrybutu `Environment` `appSettings` element, należy ustawić na "Test" *Web.config* pliku, który jest wdrożony.
+Wartość atrybutu `xdt:Transform` "SetAttributes" wskazuje, że celem tej transformacji jest zmiana wartości atrybutów istniejącego elementu w pliku *Web. config* . `xdt:Locator` wartość atrybutu "Match (klucz)" wskazuje, że element, który ma zostać zmodyfikowany, jest tym, którego atrybut `key` pasuje do atrybutu `key` określonego tutaj. Jedynym innym atrybutem elementu `add` jest `value`i to, co zostanie zmienione w wdrożonym pliku *Web. config* . Kod wyświetlany w tym miejscu powoduje, że atrybut `value` elementu `Environment` `appSettings` ma być ustawiony na "test" w pliku *Web. config* , który został wdrożony.
 
-Ta transformacja jest powiązana pliki transformacji profilu publikowania, które nie został jeszcze utworzony. Można tworzyć i zaktualizuj pliki transformacji, które implementują tę zmianę, podczas tworzenia profilów publikowania dla środowisk testowych, przejściowe i produkcyjne. Możesz to zrobić w [wdrażanie w usługach IIS](deploying-to-iis.md) i [wdrażania w środowisku produkcyjnym](deploying-to-production.md) samouczków.
+To przekształcenie należy do plików transformacji profilu publikowania, które jeszcze nie zostały utworzone. Należy utworzyć i zaktualizować pliki transformacji implementujące tę zmianę podczas tworzenia profilów publikowania dla środowisk testowych, przejściowych i produkcyjnych. Należy to zrobić w samouczkach [wdrażanie do usług IIS](deploying-to-iis.md) i [wdrażanie w środowisku produkcyjnym](deploying-to-production.md) .
 
 > [!NOTE]
-> Ponieważ to ustawienie znajduje się w `<appSettings>` elementu, masz inną alternatywą do określania przekształcenie, podczas wdrażania Web Apps usługi Azure App Service — zobacz [określenie ustawienia pliku Web.config na platformie Azure](#watransforms) we wcześniejszej części w tym temacie.
+> Ponieważ to ustawienie znajduje się w `<appSettings>` elementu, istnieje inna alternatywa dla określania transformacji podczas wdrażania do Web Apps w Azure App Service zobacz [Określanie ustawień sieci Web. config na platformie Azure](#watransforms) wcześniej w tym temacie.
 
 ## <a name="setting-connection-strings"></a>Ustawianie parametrów połączenia
 
-Mimo że domyślny plik transformacji zawiera przykład, który pokazuje, jak zaktualizować parametry połączenia, w większości przypadków nie trzeba skonfigurować przekształcenia parametrów połączenia, ponieważ parametry połączenia można określić w profilu publikowania. Możesz to zrobić w [wdrażanie w usługach IIS](deploying-to-iis.md) i [wdrażania w środowisku produkcyjnym](deploying-to-production.md) samouczków.
+Mimo że domyślny plik transformacji zawiera przykład, który pokazuje, jak zaktualizować parametry połączenia, w większości przypadków nie trzeba konfigurować przekształceń parametrów połączenia, ponieważ można określić parametry połączenia w profilu publikowania. Należy to zrobić w samouczkach [wdrażanie do usług IIS](deploying-to-iis.md) i [wdrażanie w środowisku produkcyjnym](deploying-to-production.md) .
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz zrobisz podobnie jak za pomocą *Web.config* przekształcenia przed tworzenia profilów publikowania, a w tym samouczku (wersja zapoznawcza), z czym będą znajdować się w wdrożonym pliku Web.config.
+Po wykonaniu tych czynności możesz wykonać przekształcenia w pliku *Web. config* przed utworzeniem profilów publikacji i zobaczyć wersję zapoznawczą tego, co będzie znajdować się w tym samym wdrożeniu.
 
-![Podgląd przekształcenia lokalizacji](web-config-transformations/_static/image8.png)
+![Wersja zapoznawcza przekształcenia lokalizacji](web-config-transformations/_static/image8.png)
 
-W tym samouczku poniższy zajmiesz zadań konfiguracji wdrożenia, które wymaga ustawienia właściwości projektu.
+W poniższym samouczku poznasz zadania konfigurowania wdrożenia wymagające ustawienia właściwości projektu.
 
 ## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji na temat tematy poruszane w ramach tego samouczka, zobacz [przekształcenia przy użyciu pliku Web.config, aby zmienić ustawienia w pliku app.config lub pliku Web.config docelowego podczas wdrażania](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) w planie zawartości sieci Web wdrożenia dla Visual Studio i platformy ASP.NET.
+Aby uzyskać więcej informacji na temat tematów objętych tym samouczkiem, zobacz [using Web. config Transformations to zmiana ustawień w docelowym pliku Web. config lub pliku App. config podczas wdrażania](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) w mapie zawartości Web Deployment dla programu Visual Studio i ASP.NET.
 
 > [!div class="step-by-step"]
 > [Poprzednie](preparing-databases.md)

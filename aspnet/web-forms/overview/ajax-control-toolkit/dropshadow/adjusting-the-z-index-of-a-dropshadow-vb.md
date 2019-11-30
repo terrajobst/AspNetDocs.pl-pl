@@ -1,66 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
-title: Dostosowywanie indeksu z kontrolki DropShadow (VB) | Dokumentacja firmy Microsoft
+title: Dostosowywanie indeksu Z DropShadow (VB) | Microsoft Docs
 author: wenz
-description: Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Jednak to w tle czasami powoduje konflikt z innych formantów, aby uzyskać Zainstaluj...
+description: Kontrolka DropShadow w zestawie narzędzi AJAX Control rozszerza panel z cieniem. Jednak ten cień czasami powoduje konflikt z innymi kontrolkami, dla insta...
 ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f56087b1e94653d2a6a06f915191db6ec5e358a2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 10495a9590ce1f25e9e3fa218ac5144268f50711
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116964"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74574182"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>Dostosowywanie indeksu Z kontrolki DropShadow (VB)
 
-przez [Christian Wenz](https://github.com/wenz)
+Autor [Christian Wenz](https://github.com/wenz)
 
-[Pobierz program Code](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)
+[Pobierz kod](https://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.vb.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1VB.pdf)
 
-> Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Jednak to w tle czasami jest w konflikcie z innymi formantami, na przykład formant Menu platformy ASP.NET. Gdy wpis menu pojawia się, prawdopodobnie za cienia.
+> Kontrolka DropShadow w zestawie narzędzi AJAX Control rozszerza panel z cieniem. Jednak ten cień czasami powoduje konflikt z innymi kontrolkami, na przykład formant menu ASP.NET. Gdy pojawi się pozycja menu, zostanie wyświetlona w tle.
 
 ## <a name="overview"></a>Omówienie
 
-Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Jednak to w tle czasami jest w konflikcie z innymi formantami, na przykład formant Menu platformy ASP.NET. Gdy wpis menu pojawia się, prawdopodobnie za cienia.
+Kontrolka DropShadow w zestawie narzędzi AJAX Control rozszerza panel z cieniem. Jednak ten cień czasami powoduje konflikt z innymi kontrolkami, na przykład formant menu ASP.NET. Gdy pojawi się pozycja menu, zostanie wyświetlona w tle.
 
 ## <a name="steps"></a>Kroki
 
-Kod rozpocznie się za pomocą panelu, zawierające wystarczającej ilości tekstu, dzięki czemu na panelu zawiera wystarczająco dużo tekstu dla efektu były widoczne:
+Kod rozpoczyna się od samego panelu, zawierający wystarczająco dużo tekstu, aby panel zawiera wystarczającą ilość tekstu, aby efekt był widoczny:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample1.aspx)]
 
-Kolejny panel jest umieszczane bezpośrednio przed `panelShadow` panelu. Zawiera menu w orientacji poziomej, tak, aby elementy menu są wyświetlane nad (lub zamiast: w obszarze) `dropShadow` panelu):
+Inny panel jest umieszczany bezpośrednio przed panelem `panelShadow`. Zawiera menu z orientacją poziomą, tak aby wpisy menu były widoczne (lub zamiast: w obszarze) panelu `dropShadow`):
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample2.aspx)]
 
-Następnie `DropShadowExtender` jest dodawany do rozszerzenia `panelShadow` panelu z efektem cienia:
+Następnie `DropShadowExtender` zostanie dodany w celu rozwinięcia panelu `panelShadow` z efektem cienia:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample3.aspx)]
 
-Na koniec ASP.NET AJAX `ScriptManager` control umożliwia kontrolki zestawu narzędzi do pracy:
+Na koniec formant `ScriptManager` AJAX ASP.NET umożliwia działanie zestawu narzędzi sterowania:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample4.aspx)]
 
-Po uruchomieniu tego skryptu, elementy menu wyświetlane w obszarze panelu. Jednak menu używa klasy CSS `panel` gdzie wystarczy zdefiniować dwie czynności w celu zapewnienia elementy są wyświetlane przed innymi panelu:
+Po uruchomieniu tego skryptu pozycje menu są wyświetlane poniżej panelu. Jednak menu używa klasy CSS `panel`, gdzie wystarczy zdefiniować dwie rzeczy, aby elementy były wyświetlane przed drugim panelem:
 
 - Pozycjonowanie względne
-- Dodatnia indeks
+- Pozytywny indeks z
 
 [!code-css[Main](adjusting-the-z-index-of-a-dropshadow-vb/samples/sample5.css)]
 
-Następnie `DropShadowExtender` formantu nie powoduje już konfliktu z formant Menu.
+Następnie formant `DropShadowExtender` nie powoduje konfliktu z kontrolką menu.
 
-[![Przed: Wpis menu nie jest widoczny](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)
+[![przed: element menu nie jest widoczny](adjusting-the-z-index-of-a-dropshadow-vb/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image1.png)
 
-Przed: Wpis menu nie jest widoczny ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))
+Przed: element menu nie jest widoczny ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-vb/_static/image3.png))
 
-[![Po: Pojawi się wpis menu](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)
+[![po: pojawia się pozycja menu](adjusting-the-z-index-of-a-dropshadow-vb/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-vb/_static/image4.png)
 
-Po: Pojawi się wpis menu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))
+Po: pojawia się pozycja menu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](manipulating-dropshadow-properties-from-client-code-cs.md)

@@ -1,240 +1,240 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs
-title: Interakcja ze stroną wzorcową z poziomu strony zawartości (C#) | Dokumentacja firmy Microsoft
+title: Korzystanie z strony wzorcowej ze strony zawartości (C#) | Microsoft Docs
 author: rick-anderson
-description: Zbadamy, jak wywoływać metody, ustaw właściwości, itp. strona wzorcowa z kodu na stronie zawartości.
+description: Bada, jak wywoływać metody, ustawiać właściwości, itd. strony wzorcowej z kodu na stronie zawartości.
 ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 32d54638-71b2-491d-81f4-f7417a13a62f
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 52f3563a59647c3bc48c5c4d7e40ce8941d18268
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 5ef030d3bed117e98fdd090f7c63643354b47f76
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132306"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74583858"
 ---
 # <a name="interacting-with-the-master-page-from-the-content-page-c"></a>Interakcja ze stroną wzorcową z poziomu strony zawartości (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_06_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_06_CS.pdf)
+[Pobierz kod](https://download.microsoft.com/download/1/8/4/184e24fa-fcc8-47fa-ac99-4b6a52d41e97/ASPNET_MasterPages_Tutorial_06_CS.zip) lub [Pobierz plik PDF](https://download.microsoft.com/download/e/b/4/eb4abb10-c416-4ba4-9899-32577715b1bd/ASPNET_MasterPages_Tutorial_06_CS.pdf)
 
-> Zbadamy, jak wywoływać metody, ustaw właściwości, itp. strona wzorcowa z kodu na stronie zawartości.
+> Bada, jak wywoływać metody, ustawiać właściwości, itd. strony wzorcowej z kodu na stronie zawartości.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W ciągu ostatnich pięciu samouczków, które mają zobaczyliśmy, jak utworzyć stronę wzorcową Zdefiniuj obszary zawartości powiązać strony ASP.NET na stronie wzorcowej i definiowania zawartości dla strony. Gdy użytkownik zażąda określonej strony zawartości, zawartość i strony wzorcowe markup są połączone funkcjami w czasie wykonywania, co w przypadku renderowania hierarchii kontroli ujednoliconego. W związku z tym, już widzieliśmy taki sposób, który strony wzorcowej i jeden z jego strony z zawartością mogą wchodzić w interakcje: strony zawartości opisujemy znaczników transfuse do kontrolek ContentPlaceHolder strony wzorcowej.
+W ciągu ostatnich pięciu samouczków oglądamy sposób tworzenia strony wzorcowej, definiowania obszarów zawartości, wiązania ASP.NET stron ze stroną wzorcową i definiowania zawartości specyficznej dla strony. Gdy osoba odwiedzająca żąda określonej strony zawartości, znaczniki zawartości i stron wzorcowych są odrzucane w czasie wykonywania, co spowodowało renderowanie ujednoliconej hierarchii formantów. W związku z tym już widzimy, w jaki sposób Strona wzorcowa i jedna z jej stron zawartości mogą się z nią współdziałać: Strona zawartości sprawdza adiustację, aby odmówić, że jest to formant ContentPlaceHolder na stronie wzorcowej.
 
-Co mamy jeszcze do sprawdzenia jest jak strony wzorcowej oraz strony zawartości można wchodzić w interakcje programowo. Oprócz definiowania znaczników dla kontrolek ContentPlaceHolder strony wzorcowej, strony zawartości można przypisać wartości do właściwości publiczne jej stronę wzorcową i wywoływania jego metody publiczne. Podobnie strony wzorcowej mogą wchodzić w interakcje z jego strony z zawartością. W trakcie rzadziej niż interakcji między ich deklaratywne znaczników interakcji programistycznych między strony wzorcowej i zawartości istnieje wiele scenariuszy, w których wymagane jest takie interakcji programistycznych.
+Co jeszcze sprawdzimy, jak strona wzorcowa i strona zawartości mogą programistycznie współdziałać. Oprócz definiowania znaczników dla kontrolek ContentPlaceHolder na stronie wzorcowej, strona zawartości może również przypisywać wartości do właściwości publicznych swojej strony wzorcowej i wywoływać metody publiczne. Podobnie Strona wzorcowa może współdziałać ze swoimi stronami zawartości. Gdy interakcja programowa między wzorcem a stroną zawartości jest mniej wspólna niż interakcja między nimi, istnieje wiele scenariuszy, w których ta interakcja programowa jest wymagana.
 
-W tym samouczku sprawdzamy, jak strony zawartości mogą programowo współdziałać z jego strony głównej; w następnym samouczku przyjrzymy się sposobu strony wzorcowej podobnie interakcji z jego strony z zawartością.
+W tym samouczku sprawdzimy, jak strona zawartości może programowo współdziałać z jej stroną wzorcową. w następnym samouczku dowiesz się, jak strona wzorcowa może w podobny sposób korzystać z jej stron zawartości.
 
-## <a name="examples-of-programmatic-interaction-between-a-content-page-and-its-master-page"></a>Przykłady programowe interakcji między strony zawartości i jej strona wzorcowa
+## <a name="examples-of-programmatic-interaction-between-a-content-page-and-its-master-page"></a>Przykłady interakcji programistycznej między stroną zawartości a jej stroną wzorcową
 
-Gdy w danym regionie strony musi być skonfigurowane dla strony Strona, używamy kontrolki ContentPlaceHolder. Ale co sytuacji, w których większość stron muszą emitować niektórych danych wyjściowych, ale niewielką liczbę stron trzeba dostosować go do wyświetlenia coś innego? Przykładem takiego, który zbadaliśmy w [ *wiele kontrolek ContentPlaceHolder i zawartość domyślna* ](multiple-contentplaceholders-and-default-content-cs.md) samouczku obejmuje wyświetlanie interfejs logowania na każdej stronie. Chociaż większość strony powinna zawierać interfejs logowania, powinien zostać pominięty na kilka stron, takich jak: na stronie głównej logowania (`Login.aspx`); na stronie tworzenia konta; oraz innych stron, które są dostępne do uwierzytelnionych użytkowników jedynie w. [ *Wiele kontrolek ContentPlaceHolder i zawartość domyślna* ](multiple-contentplaceholders-and-default-content-cs.md) samouczku przedstawiono sposób definiowania domyślnej zawartości dla ContentPlaceHolder na stronie głównej, a następnie jak je zastąpić w tych stron where nie Chcieliśmy domyślnej zawartości.
+Gdy określony region strony musi być skonfigurowany na podstawie strony na stronie, używamy kontrolki ContentPlaceHolder. Ale co się stało z sytuacją, w której większość stron musi emitować niektóre dane wyjściowe, ale niewielka liczba stron, którą trzeba dostosować, aby pokazać coś innego? Taki przykład, który został zbadany w samouczku [*wielu elementów ContentPlaceHolders i domyślnej zawartości*](multiple-contentplaceholders-and-default-content-cs.md) , obejmuje wyświetlanie interfejsu logowania na każdej stronie. Chociaż większość stron powinna zawierać interfejs logowania, należy go pominąć dla kilku stron, takich jak: główna strona logowania (`Login.aspx`); na stronie Tworzenie konta; i inne strony, które są dostępne tylko dla uwierzytelnionych użytkowników. Samouczek [*wielu elementów ContentPlaceHolders i domyślnej zawartości*](multiple-contentplaceholders-and-default-content-cs.md) przedstawia sposób definiowania zawartości domyślnej dla elementu ContentPlaceHolder na stronie wzorcowej, a następnie sposobu przesłonięcia go na tych stronach, w których zawartość domyślna nie była pożądana.
 
-Innym rozwiązaniem jest tworzenie publiczna właściwość lub metoda w obrębie strony wzorcowej, która wskazuje, czy pokazać lub ukryć interfejs logowania. Na przykład strony wzorcowej może obejmować o nazwie właściwości publicznej `ShowLoginUI` użyto których wartość można ustawić `Visible` właściwości kontrolki logowania na stronie głównej. Tych stron zawartości, gdy interfejs użytkownika logowania ma być pomijana. Następnie można programowo ustawić `ShowLoginUI` właściwość `false`.
+Innym rozwiązaniem jest utworzenie publicznej właściwości lub metody na stronie głównej, która wskazuje, czy ma być wyświetlany lub ukryty interfejs logowania. Na przykład strona wzorcowa może zawierać właściwość publiczną o nazwie `ShowLoginUI` której wartość została użyta do ustawienia właściwości `Visible` kontrolki logowania na stronie wzorcowej. Te strony zawartości, w których powinien być pominięty interfejs użytkownika logowania, mogą następnie programowo ustawić właściwość `ShowLoginUI` na `false`.
 
-Może być najbardziej typowym przykładem zawartości i interakcji z strony wzorcowej występuje, gdy dane wyświetlane na potrzeby strony wzorcowej zostanie odświeżona po niektóre akcje, upłynął czas na stronie zawartości. Należy wziąć pod uwagę, że strony wzorcowej, która obejmuje GridView wyświetlający pięć ostatnio dodane rekordy z tabeli określonej bazy danych, i że jedna z jego strony z zawartością zawiera interfejs służący do dodawania nowych rekordów do tej samej tabeli.
+Prawdopodobnie najbardziej typowym przykładem interakcji dotyczącej zawartości i strony głównej występuje, gdy dane wyświetlane na stronie wzorcowej muszą zostać odświeżone po transpired na stronie zawartości. Rozważmy stronę wzorcową zawierającą widok GridView, który wyświetla pięć ostatnio dodanych rekordów z określonej tabeli bazy danych i że jedna z jej stron zawartości zawiera interfejs do dodawania nowych rekordów do tej samej tabeli.
 
-Gdy użytkownik odwiedzi stronę, aby dodać nowy rekord, stwierdza, że pięć ostatnio dodany rekordów wyświetlanych na stronie głównej. Po wypełnieniu pól wartości w kolumnach nowy rekord, użytkownik wyśle formularz. Przy założeniu, że ma GridView na stronie głównej jego `EnableViewState` właściwość jest ustawiona na wartość true (ustawienie domyślne), jego zawartość zostanie ponownie załadowana z widoku stanu i, w związku z tym, pięć rekordów tej samej są wyświetlane, nawet jeśli nowszy rekord został dodany do bazy danych. Może to być niezrozumiałe użytkownika.
-
-> [!NOTE]
-> Nawet jeśli wyłączysz stan widoku GridView tak, aby go rebinds do jego źródle danych, na każdym zwrotu, nadal nie będzie widoczna właśnie dodany rekord ponieważ danych jest powiązany z GridView we wcześniejszej części cyklu życia strony niż po dodaniu nowego rekordu do datab środowisko ASE.
-
-Aby rozwiązać ten problem, tak aby po prostu dodać rekord jest wyświetlany na stronie głównej firmy GridView na odświeżenie strony, należy wydać polecenie GridView, aby ponownie powiązać ze swoim źródłem danych *po* nowy rekord został dodany do bazy danych. Wymaga interakcji między zawartością, a strony wzorcowe, ponieważ interfejs do dodawania nowego rekordu (i jego programy obsługi zdarzeń) znajdują się w zawartości strony, ale GridView, który musi zostać odświeżona strony wzorcowej.
-
-Odświeżanie strony wzorcowej widoku z programu obsługi zdarzeń w zawartości strony jest jednym z najbardziej typowych potrzeb dla zawartości i interakcji z strony wzorcowej, Przyjrzyjmy się w tym temacie bardziej szczegółowo. Pobierania w tym samouczku obejmuje bazę danych Microsoft SQL Server 2005 Express Edition, o nazwie `NORTHWIND.MDF` w witrynie internetowej `App_Data` folderu. Bazy danych Northwind przechowuje produktu, pracowników i informacji o sprzedaży dla fikcyjnej firmy Northwind Traders.
-
-Krok 1 przeszukiwania poprzez wyświetlanie pięć ostatnio dodane produktów w GridView na stronie głównej. Krok 2 tworzy stronę zawartości do dodawania nowych produktów. Krok 3 pokazano, jak utworzyć publiczny właściwości i metody w stronę wzorcową i kroku 4 pokazano, jak programowo współpracować z tych właściwości i metod ze strony zawartość.
+Gdy użytkownik odwiedzi stronę, aby dodać nowy rekord, zobaczy pięć ostatnio dodanych rekordów wyświetlanych na stronie wzorcowej. Po wypełnieniu wartości kolumn nowego rekordu przesyła formularz. Przy założeniu, że element GridView na stronie wzorcowej ma właściwość `EnableViewState` ustawioną na wartość true (domyślnie), jego zawartość jest ponownie ładowana ze stanu widoku i w związku z tym pięć identycznych rekordów jest wyświetlany, nawet jeśli nowszy rekord został właśnie dodany do bazy danych. Może to spowodować odmylić użytkownika.
 
 > [!NOTE]
-> W tym samouczku nie delve w szczegółowe informacje na temat pracy z danymi w programie ASP.NET. Kroki konfigurowania strony wzorcowej do wyświetlania danych i strony zawartości do wstawiania danych są pełne, jeszcze breezy. Aby uzyskać więcej informacji na temat przyjrzeć wyświetlania i wstawianie danych przy użyciu kontrolki SqlDataSource i GridView zapoznaj się zasoby przedstawione w sekcji dalsze odczyty na końcu tego samouczka.
+> Nawet Jeśli wyłączysz stan widoku GridView, tak aby ponownie powiązać się z jego podstawowym źródłem danych przy każdym ogłaszaniu zwrotnym, nadal nie będzie można wyświetlić właśnie dodanego rekordu, ponieważ dane są powiązane z widokiem GridView wcześniej w cyklu życia strony niż w przypadku dodania nowego rekordu do DataB ASE.
 
-## <a name="step-1-displaying-the-five-most-recently-added-products-in-the-master-page"></a>Krok 1. Wyświetlanie pięć ostatnio dodany produktów na stronie wzorcowej
+Aby rozwiązać ten sposób, tak że dodany rekord zostanie wyświetlony w widoku GridView strony głównej na stronie ogłaszania zwrotnego, musimy poinstruować element GridView o konieczności ponownego powiązania ze źródłem danych *po* dodaniu nowego rekordu do bazy danych. Wymaga to interakcji między stronami zawartości i wzorca, ponieważ interfejs do dodawania nowego rekordu (i jego programów obsługi zdarzeń) znajduje się na stronie zawartości, ale widok GridView, który należy odświeżyć, znajduje się na stronie wzorcowej.
 
-Otwórz `Site.master` strony wzorcowej, a następnie dodaj etykietę i kontrolki widoku siatki do `leftContent` `<div>`. Czyści etykiety `Text` właściwość, ustaw jego `EnableViewState` właściwości na wartość false i jego `ID` właściwości `GridMessage`; Ustaw GridView `ID` właściwość `RecentProducts`. Następnie przy użyciu projektanta, rozwiń GridView tagu inteligentnego i wybierz opcję powiązać go z nowego źródła danych. Spowoduje to uruchomienie Kreatora konfiguracji źródła danych. Ponieważ bazy danych Northwind `App_Data` folderu jest bazą danych programu Microsoft SQL Server Utwórz SqlDataSource, wybierając (patrz rysunek 1); nazwa SqlDataSource `RecentProductsDataSource`.
+Ponieważ odświeżenie wyświetlania strony wzorcowej z programu obsługi zdarzeń na stronie zawartości jest jednym z najpopularniejszych potrzeb dotyczących interakcji z zawartością i stroną wzorcową, zapoznaj się z tym tematem bardziej szczegółowo. Pobranie dla tego samouczka obejmuje bazę danych Microsoft SQL Server 2005 Express Edition o nazwie `NORTHWIND.MDF` w folderze `App_Data` witryny sieci Web. Baza danych Northwind przechowuje informacje o produktach, pracownikach i sprzedaży fikcyjnej firmy, Northwind Traders.
 
-[![Powiąż widoku GridView z kontrolką SqlDataSource o nazwie RecentProductsDataSource](interacting-with-the-master-page-from-the-content-page-cs/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image1.png)
+Krok 1 przeprowadzi Cię przez wyświetlanie pięciu ostatnio dodanych produktów w widoku GridView na stronie wzorcowej. Krok 2 powoduje utworzenie strony zawartości służącej do dodawania nowych produktów. Krok 3. zawarto informacje na temat tworzenia publicznych właściwości i metod na stronie głównej, a krok 4 ilustruje programistyczny interfejs z tymi właściwościami i metodami ze strony zawartość.
 
-**Rysunek 01**: Powiązywanie kontrolki SqlDataSource o nazwie GridView `RecentProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image3.png))
+> [!NOTE]
+> Ten samouczek nie zawiera elementów roboczych związanych z pracą z danymi w ASP.NET. Procedura konfigurowania strony wzorcowej w celu wyświetlania danych i strony zawartości służącej do wstawiania danych jest kompletna, ale Breezy. Aby uzyskać bardziej szczegółowe informacje na temat wyświetlania i wstawiania danych i korzystania z kontrolek kontrolki SqlDataSource i GridView, zapoznaj się z zasobami w sekcji dalsze informacje na końcu tego samouczka.
 
-Następnym krokiem pyta, czy NAS, aby określić, co bazy danych, aby nawiązać połączenie. Wybierz `NORTHWIND.MDF` pliku z listy rozwijanej bazy danych, a następnie kliknij przycisk Dalej. Ponieważ ta baza danych była używana po raz pierwszy, Kreator będzie oferować przechowywać parametry połączenia w `Web.config`. Jest przechowywanie parametrów połączenia przy użyciu nazwy `NorthwindConnectionString`.
+## <a name="step-1-displaying-the-five-most-recently-added-products-in-the-master-page"></a>Krok 1. Wyświetlanie pięciu ostatnio dodanych produktów na stronie wzorcowej
 
-[![Połączenia z bazą danych Northwind](interacting-with-the-master-page-from-the-content-page-cs/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image4.png)
+Otwórz stronę wzorcową `Site.master` i Dodaj etykietę i kontrolkę GridView do `<div>``leftContent`. Wyczyść Właściwość `Text` etykiety, ustaw jej Właściwość `EnableViewState` na false, a jej Właściwość `ID` na `GridMessage`; Ustaw właściwość `ID` GridView na `RecentProducts`. Następnie z projektanta rozwiń tag inteligentny GridView i wybierz powiązanie go z nowym źródłem danych. Spowoduje to uruchomienie Kreatora konfiguracji źródła danych. Ponieważ baza danych Northwind w folderze `App_Data` jest bazą danych Microsoft SQL Server, wybierz opcję utworzenia kontrolki SqlDataSource, wybierając pozycję (patrz rysunek 1). Nazwij `RecentProductsDataSource`kontrolki SqlDataSource.
 
-**Rysunek 02**: Połączenia z bazą danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image6.png))
+[![powiązać widoku GridView z kontrolką kontrolki SqlDataSource o nazwie RecentProductsDataSource](interacting-with-the-master-page-from-the-content-page-cs/_static/image2.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image1.png)
 
-W Kreatorze konfigurowania źródła danych zawiera dwa oznacza, że za pomocą których można określić zapytania służące do pobierania danych:
+**Ilustracja 01**. powiązanie widoku GridView z kontrolką kontrolki SqlDataSource o nazwie `RecentProductsDataSource` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image3.png))
 
-- Określając niestandardową instrukcję SQL lub procedury składowanej, lub
-- Wybieranie tabeli lub widoku, a następnie określając kolumny do zwrócenia
+Następny krok prosi nas o określenie bazy danych, z którą ma zostać nawiązane połączenie. Z listy rozwijanej wybierz plik bazy danych `NORTHWIND.MDF` i kliknij przycisk Dalej. Ponieważ ta baza danych jest używana po raz pierwszy, Kreator będzie oferować przechowywanie parametrów połączenia w `Web.config`. Przechowuj parametry połączenia przy użyciu nazwy `NorthwindConnectionString`.
 
-Ponieważ chcemy zwracać tylko pięć ostatnio dodany produktów, należy określić niestandardową instrukcję SQL. Użyj następującego zapytania wybierz:
+[![połączyć się z bazą danych Northwind](interacting-with-the-master-page-from-the-content-page-cs/_static/image5.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image4.png)
+
+**Ilustracja 02**. Łączenie się z bazą danych Northwind ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image6.png))
+
+Kreator konfiguracji źródła danych udostępnia dwie metody, za pomocą których można określić zapytanie używane do pobierania danych:
+
+- Określenie niestandardowej instrukcji SQL lub procedury składowanej lub
+- Wybierając tabelę lub widok, a następnie określając kolumny do zwrócenia
+
+Ponieważ chcemy zwrócić tylko pięć ostatnio dodanych produktów, musimy określić niestandardową instrukcję SQL. Użyj następującego zapytania SELECT:
 
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample1.sql)]
 
-`TOP 5` — Słowo kluczowe zwraca pierwsze pięć rekordów z zapytania. `Products` Klucza podstawowego tabeli, `ProductID`, jest `IDENTITY` kolumny, która zapewnia nam, że każdy nowy produkt dodawane do tabeli wartości większej niż poprzedniej pozycji. W związku z tym, sortowanie wyników według `ProductID` zwraca produkty, począwszy od ostatniego utworzonymi w w kolejności malejącej.
+Słowo kluczowe `TOP 5` zwraca tylko pięć pierwszych rekordów z zapytania. Klucz podstawowy tabeli `Products`, `ProductID`, jest kolumną `IDENTITY`, która zapewnia nam, że każdy nowy produkt dodany do tabeli będzie miał większą wartość niż poprzedni wpis. W związku z tym sortowanie wyników według `ProductID` w kolejności malejącej zwraca Produkty zaczynające się od ostatnio utworzonych.
 
-[![Zwróć pięciu produktach ostatnio dodane](interacting-with-the-master-page-from-the-content-page-cs/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image7.png)
+[![zwrócić pięć ostatnio dodanych produktów](interacting-with-the-master-page-from-the-content-page-cs/_static/image8.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image7.png)
 
-**Rysunek 03**: Zwróć pięć najbardziej niedawno dodano produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image9.png))
+**Rysunek 03**: Zwróć pięć ostatnio dodanych produktów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image9.png))
 
-Po ukończeniu kreatora, program Visual Studio generuje dwa BoundFields widoku GridView wyświetlić `ProductName` i `UnitPrice` pola zwrócony z bazy danych. W tym momencie oznaczeniu deklaracyjnym strony wzorcowej powinien zawierać kod znaczników podobny do następującego:
+Po zakończeniu działania kreatora program Visual Studio generuje dwie BoundFieldsy dla widoku GridView w celu wyświetlenia `ProductName` i `UnitPrice` pól zwróconych z bazy danych. W tym momencie deklaracyjne znaczniki strony wzorcowej powinny zawierać znaczniki podobne do następujących:
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample2.aspx)]
 
-Jak widać, zawiera znaczniki: formant etykiety w sieci Web (`GridMessage`); widoku GridView `RecentProducts`z dwóch BoundFields; i kontrolki SqlDataSource, które zwraca 5 ostatnio dodany produktów.
+Jak widać, znacznik zawiera: kontrolka sieci Web etykiety (`GridMessage`); `RecentProducts`GridView, z dwoma BoundFields; i kontrolka kontrolki SqlDataSource, która zwraca pięć ostatnio dodanych produktów.
 
-Dzięki temu GridView utworzone i skonfigurowane, jego użyciu kontrolki SqlDataSource, odwiedź witrynę sieci Web za pośrednictwem przeglądarki. Jak pokazano na rysunku 4, zobaczysz, że siatki w lewym dolnym rogu, który zawiera pięć ostatnio dodany produktów.
+Po utworzeniu tego widoku GridView i skonfigurowaniu jego kontrolki kontrolki SqlDataSource odwiedź witrynę internetową za pomocą przeglądarki. Jak pokazano na rysunku 4, w lewym dolnym rogu zobaczysz siatkę zawierającą pięć ostatnio dodanych produktów.
 
-[![Kontrolki GridView Wyświetla pięć ostatnio dodane produktów](interacting-with-the-master-page-from-the-content-page-cs/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image10.png)
+[![GridView wyświetla pięć ostatnio dodanych produktów](interacting-with-the-master-page-from-the-content-page-cs/_static/image11.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image10.png)
 
-**Rysunek 04**: Kontrolki GridView przedstawia pięć najbardziej niedawno dodano produktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image12.png))
+**Ilustracja 04**: w widoku GridView są wyświetlane pięć ostatnio dodanych produktów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image12.png))
 
 > [!NOTE]
-> Możesz wyczyścić wyglądu kontrolki GridView. Kilka sugestii obejmują formatowanie wyświetlana `UnitPrice` wartość jako walutę i przy użyciu czcionki i kolory tła, aby poprawić wygląd siatki.
+> Możesz wyczyścić wygląd GridView. Niektóre sugestie obejmują formatowanie wyświetlanej wartości `UnitPrice` jako waluty i używanie kolorów i czcionek tła w celu poprawienia wyglądu siatki.
 
-## <a name="step-2-creating-a-content-page-to-add-new-products"></a>Krok 2. Tworzenie zawartości strony, aby dodać nowe produkty
+## <a name="step-2-creating-a-content-page-to-add-new-products"></a>Krok 2. Tworzenie strony zawartości w celu dodania nowych produktów
 
-Naszym kolejnym krokiem jest utworzenie strony zawartości, w którym użytkownik może dodać nowy produkt do `Products` tabeli. Dodaj nową stronę zawartości do `Admin` folder o nazwie `AddProduct.aspx`i powiązać `Site.master` strony wzorcowej. Rysunek 5. Pokazuje Eksplorator rozwiązań po tej strony została dodana do witryny sieci Web.
+Następnym zadaniem jest utworzenie strony zawartości, za pomocą której użytkownik może dodać nowy produkt do tabeli `Products`. Dodaj nową stronę zawartości do folderu `Admin` o nazwie `AddProduct.aspx`, aby upewnić się, że należy powiązać ją ze stroną wzorcową `Site.master`. Rysunek 5 przedstawia Eksplorator rozwiązań po dodaniu tej strony do witryny sieci Web.
 
-[![Dodawanie nowej strony programu ASP.NET do folderu administratora](interacting-with-the-master-page-from-the-content-page-cs/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image13.png)
+[![dodać nową stronę ASP.NET do folderu Admin](interacting-with-the-master-page-from-the-content-page-cs/_static/image14.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image13.png)
 
-**Rysunek 05**: Dodawanie nowej strony programu ASP.NET do `Admin` Folder ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image15.png))
+**Ilustracja 05**. Dodawanie nowej strony ASP.NET do folderu `Admin` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image15.png))
 
-Pamiętaj, że w [ *Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) samouczek tworzenia niestandardowej strony podstawowej klasy o nazwie `BasePage` , generowane tytuł strony, jeśli było nie jest jawnie ustawione. Przejdź do `AddProduct.aspx` kodem strony klasy i jest pochodną `BasePage` (zamiast z `System.Web.UI.Page`).
+Odwołaj ten element w [*temacie Określanie tytułu, Meta tagów i innych nagłówków HTML na stronie wzorcowej*](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md) — samouczek został utworzony za pomocą niestandardowej klasy strony podstawowej o nazwie `BasePage`, która wygenerowała tytuł strony, jeśli nie została ustawiona jawnie. Przejdź do klasy powiązanej z kodem `AddProduct.aspx` strony i utwórz ją od `BasePage` (zamiast z `System.Web.UI.Page`).
 
-Na koniec zaktualizuj `Web.sitemap` plik, aby dołączyć wpis dla tej lekcji. Dodaj następujący kod pod `<siteMapNode>` dla lekcji problemów nazewnictwa identyfikator formantu:
+Na koniec Zaktualizuj plik `Web.sitemap`, aby zawierał wpis do tej lekcji. Dodaj następujące oznakowanie poniżej `<siteMapNode>` dla błędów nazewnictwa identyfikatora formantu lekcja:
 
 [!code-xml[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample3.xml)]
 
-Jak pokazano na rysunku 6, to dodanie `<siteMapNode>` element jest odzwierciedlana na liście lekcje.
+Jak pokazano na rysunku 6, Dodawanie tego elementu `<siteMapNode>` jest odzwierciedlone na liście lekcji.
 
-Wróć do `AddProduct.aspx`. W formancie zawartości dla `MainContent` ContentPlaceHolder, Dodaj kontrolce DetailsView i nadaj mu nazwę `NewProduct`. Powiąż DetailsView z kontrolką SqlDataSource o nazwie `NewProductDataSource`. Np. z kontrolką SqlDataSource w kroku 1, skonfiguruj kreatora, tak aby używał bazy danych Northwind i określić niestandardową instrukcję SQL. Ponieważ DetailsView będzie służyć do dodawania elementów do bazy danych, należy podać obydwie wartości `SELECT` instrukcji i `INSERT` instrukcji. Należy użyć następującego `SELECT` kwerendy:
+Wróć do `AddProduct.aspx`. W kontrolce zawartości dla `MainContent` ContentPlaceHolder Dodaj kontrolkę DetailsView i nadaj jej nazwę `NewProduct`. Powiąż element DetailsView z nową kontrolką kontrolki SqlDataSource o nazwie `NewProductDataSource`. Podobnie jak w przypadku kontrolki SqlDataSource w kroku 1, należy skonfigurować kreatora tak, aby używał bazy danych Northwind, i wybrać opcję określenia niestandardowej instrukcji SQL. Ponieważ DetailsView zostanie użyty do dodawania elementów do bazy danych, musimy określić zarówno instrukcję `SELECT`, jak i instrukcję `INSERT`. Użyj następującego `SELECT` kwerendy:
 
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample4.sql)]
 
-Z karty Wstawianie, dodaj następującą `INSERT` instrukcji:
+Następnie na karcie Wstawianie Dodaj następującą instrukcję `INSERT`:
 
 [!code-sql[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample5.sql)]
 
-Po zakończeniu pracy kreatora przejdź do DetailsView tagu inteligentnego, a następnie zaznacz pole wyboru "Włącz wstawianie". Spowoduje to dodanie CommandField DetailsView z jego `ShowInsertButton` właściwość ma wartość true. Ponieważ ta DetailsView będzie służyć wyłącznie do wstawiania danych, ustaw DetailsView `DefaultMode` właściwość `Insert`.
+Po zakończeniu działania kreatora przejdź do tagu inteligentnego DetailsView i zaznacz pole wyboru "Włącz wstawianie". Spowoduje to dodanie CommandField do widoku DetailsView z właściwością `ShowInsertButton` ustawioną na wartość true. Ponieważ ten DetailsView zostanie użyty wyłącznie do wstawiania danych, ustaw właściwość `DefaultMode` DetailsView na `Insert`.
 
-To wszystko. Umożliwia testowanie tej strony. Odwiedź stronę `AddProduct.aspx` za pośrednictwem przeglądarki, wprowadź nazwę i cena (patrz rysunek 6).
+To wszystko. Przetestujmy Tę stronę. Odwiedź witrynę `AddProduct.aspx` za pomocą przeglądarki, wprowadź nazwę i cenę (patrz rysunek 6).
 
-[![Dodaj nowy produkt do bazy danych](interacting-with-the-master-page-from-the-content-page-cs/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image16.png)
+[![dodać nowego produktu do bazy danych](interacting-with-the-master-page-from-the-content-page-cs/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image16.png)
 
-**Rysunek 06**: Dodaj nowy produkt do bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image18.png))
+**Ilustracja 06**. Dodawanie nowego produktu do bazy danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image18.png))
 
-Po wpisaniu nazwy i ceny na nowy produkt, kliknij przycisk Wstaw. To powoduje, że formularz odświeżania. Na odświeżenie strony, użyciu kontrolki SqlDataSource firmy `INSERT` zostaje wykonana instrukcja; jego dwa parametry są wypełniane przy użyciu wartości wprowadzonych przez użytkownika w DetailsView dwóch pól tekstowych. Niestety nie ma żadnych wizualną opinię, która jest przeprowadzana w instrukcji insert. Byłoby miły komunikat zawierający, potwierdzenie, że dodano nowy rekord. Można pozostawić to w charakterze ćwiczenia dla czytnika. Ponadto po dodaniu nowego rekordu z DetailsView GridView na stronie głównej nadal pokazuje tych samych pięciu rekordy jako przed; nie ma rekordu po prostu dodanego przez producenta. Zajmiemy się jak rozwiązać ten problem w kolejnych krokach.
+Po wpisaniu nazwy i ceny nowego produktu kliknij przycisk Wstaw. Powoduje to odświeżenie formularza. Na stronie ogłaszania zwrotnego jest wykonywana instrukcja `INSERT` kontrolki kontrolki SqlDataSource. dwa parametry są wypełniane wartościami wprowadzonymi przez użytkownika w dwóch kontrolkach pola tekstowego DetailsView. Niestety, nie ma wizualizacji wizualnej, która wystąpiła operacja wstawiania. Najprawdopodobniej będzie wyświetlany komunikat z potwierdzeniem, że został dodany nowy rekord. Jestem tym ćwiczeniem dla czytnika. Ponadto po dodaniu nowego rekordu z widoku DetailsView widok GridView na stronie wzorcowej nadal pokazuje te same pięć rekordów jak poprzednio; nie obejmuje to właśnie dodanego rekordu. Sprawdzimy, jak to naprawić w nadchodzących krokach.
 
 > [!NOTE]
-> Oprócz dodawania pewnego rodzaju wizualną opinię, która Wstaw zakończyła się pomyślnie, czy zachęcam Cię do również zaktualizować DetailsView Wstawianie interfejsu do uwzględnienia sprawdzania poprawności. Obecnie nie ma możliwości weryfikacji. Jeśli użytkownik wprowadzi nieprawidłową wartością dla `UnitPrice` pola, takie jak "jest zbyt kosztowne," wyjątek zostanie zgłoszony na odświeżenie strony, gdy system próbuje przekonwertować ciąg na ułamek dziesiętny. Aby uzyskać więcej informacji na temat dostosowywania, wstawianie interfejsu, zapoznaj się [ *Dostosowywanie interfejsu modyfikacji danych* samouczek](../../data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) z moich [Praca z serii samouczków danych](../../data-access/index.md).
+> Oprócz dodania formy wizualnej opinii, że Wstawianie zakończyło się pomyślnie, zachęcamy do aktualizowania interfejsu wstawiania w widoku DetailsView w celu uwzględnienia weryfikacji. Obecnie nie jest przeprowadzana Walidacja. Jeśli użytkownik wprowadzi nieprawidłową wartość pola `UnitPrice`, na przykład "zbyt kosztowna", zostanie zgłoszony wyjątek na stronie ogłaszania zwrotnego, gdy system próbuje skonwertować ten ciąg na wartość dziesiętną. Aby uzyskać więcej informacji na temat dostosowywania interfejsu wstawiania, zapoznaj się z [samouczkiem *Dostosowywanie interfejsu modyfikacji danych* ](../../data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) z [serii praca z samouczkiem dotyczącym danych](../../data-access/index.md).
 
-## <a name="step-3-creating-public-properties-and-methods-in-the-master-page"></a>Krok 3. Tworzenie publicznej właściwości i metody, na stronie wzorcowej
+## <a name="step-3-creating-public-properties-and-methods-in-the-master-page"></a>Krok 3. Tworzenie publicznych właściwości i metod na stronie wzorcowej
 
-W kroku 1 dodaliśmy formant etykiety w sieci Web o nazwie `GridMessage` powyżej GridView na stronie głównej. Ta etykieta jest przeznaczona do opcjonalnie wyświetlić wiadomość. Na przykład, po dodaniu nowego rekordu do `Products` tabeli może być chcemy wyświetlić wiadomość, która odczytuje: "*ProductName* został dodany do bazy danych." Zamiast trwale kodować tekstu dla tej etykiety na stronie głównej firma Microsoft może być komunikat, aby mieć możliwość dostosowania przez strony zawartości.
+W kroku 1 dodaliśmy kontrolkę sieci Web etykieta o nazwie `GridMessage` nad elementem GridView na stronie wzorcowej. Ta etykieta jest przeznaczona do opcjonalnego wyświetlania komunikatu. Na przykład po dodaniu nowego rekordu do tabeli `Products` może być konieczne wyświetlenie komunikatu z komunikatem "*NazwaProduktu* został dodany do bazy danych". Zamiast nadawać twardemu kodowi tekst dla tej etykiety na stronie wzorcowej, możemy chcieć, aby wiadomość była dostosowywana na stronie zawartości.
 
-Ponieważ formant etykiety jest implementowany jako zmienna chroniony element członkowski w obrębie strony wzorcowej nie są dostępne bezpośrednio z poziomu strony zawartości. Aby móc pracować z etykietą w obrębie strony wzorcowej, z poziomu strony zawartości (lub służącego dowolnej kontrolki sieci Web, na stronie głównej) należy utworzyć właściwość publiczną na stronie głównej, który udostępnia kontrolki sieci Web lub służy jako serwer proxy, za pomocą którego można jednej z jego właściwości  dostępne. Dodaj następującą składnię do strony wzorcowej osobna klasa kodu do udostępnienia etykiety `Text` właściwości:
+Ponieważ kontrolka Label jest zaimplementowana jako chroniona zmienna składowa na stronie wzorcowej, nie można uzyskać do niej dostępu bezpośrednio z poziomu stron zawartości. Aby można było korzystać z etykiety na stronie wzorcowej ze strony zawartości (lub, w tym przypadku, każda kontrolka sieci Web na stronie głównej) musi utworzyć właściwość publiczną na stronie wzorcowej, która uwidacznia formant sieci Web lub służy jako serwer proxy, za pomocą którego jedna z jego właściwości może być  otworzyć. Dodaj następującą składnię do klasy powiązanej z kodem strony wzorcowej, aby uwidocznić Właściwość `Text` etykiety:
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample6.cs)]
 
-Po dodaniu nowego rekordu do `Products` tabelę z poziomu strony zawartości `RecentProducts` GridView na stronie głównej wymaga ponownie powiązać do źródła danych. Aby ponownie powiązać wywołanie GridView jego `DataBind` metody. Ponieważ GridView na stronie głównej nie jest dostępne do stron zawartości, firma Microsoft, należy utworzyć publiczną metodę na stronie głównej, gdy zostanie wywołana, rebinds dane do widoku GridView. Dodaj następującą metodę do klasy CodeBehind strony wzorcowej:
+Gdy nowy rekord zostanie dodany do tabeli `Products` ze strony zawartości, `RecentProducts` GridView na stronie wzorcowej musi ponownie powiązać się ze swoim podstawowym źródłem danych. Aby ponownie powiązać element GridView, wywołaj jego metodę `DataBind`. Ponieważ GridView na stronie wzorcowej nie jest programistycznie dostępny dla stron zawartości, musimy utworzyć metodę publiczną na stronie wzorcowej, która po wywołaniu powoduje ponowne powiązanie danych z elementem GridView. Dodaj następującą metodę do klasy z kodem powiązanej ze stroną wzorcową:
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample7.cs)]
 
-Za pomocą `GridMessageText` właściwości i `RefreshRecentProductsGrid` metody w miejscu, dowolnej strony zawartości można programowo ustawić lub odczytać wartość `GridMessage` etykiety `Text` właściwości lub ponownie powiązać dane `RecentProducts` GridView. Krok 4 sprawdza uzyskiwania dostępu do strony wzorcowej publicznej właściwości i metod ze strony zawartość.
+Mając Właściwość `GridMessageText` i metodę `RefreshRecentProductsGrid` na miejscu, każda strona zawartości może programowo ustawić lub odczytać wartość właściwości `Text` etykiety `GridMessage` lub ponownie powiązać dane z `RecentProducts` GridView. Krok 4. badanie, jak uzyskać dostęp do publicznych właściwości i metod strony wzorcowej ze strony zawartości.
 
 > [!NOTE]
-> Nie należy zapominać oznaczyć właściwości i metod jako stronę wzorcową `public`. Jeśli użytkownik jawnie określa tych właściwości i metod jako `public`, nie będzie dostępny z poziomu strony zawartości.
+> Nie zapomnij oznaczyć właściwości i metod strony wzorcowej jako `public`. Jeśli te właściwości i metody nie są jawnie oznaczone jako `public`, nie będą dostępne ze strony zawartość.
 
-## <a name="step-4-calling-the-master-pages-public-members-from-a-content-page"></a>Krok 4. Wywoływania publiczne elementy członkowskie: strona wzorcowa z poziomu strony zawartości
+## <a name="step-4-calling-the-master-pages-public-members-from-a-content-page"></a>Krok 4. wywoływanie publicznych członków strony wzorcowej ze strony zawartości
 
-Teraz, że strona główna zawiera niezbędne publicznej właściwości i metod, jesteśmy gotowi do wywołania tych właściwości i metod z `AddProduct.aspx` strony zawartość. W szczególności należy ustawić strony wzorcowej `GridMessageText` właściwości i wywołania jego `RefreshRecentProductsGrid` metoda po dodaniu nowego produktu w bazie danych. Wszystkie platformy ASP.NET kontrolkach internetowych danych wyzwalać zdarzeń bezpośrednio przed i po wykonaniu różnych zadań, które ułatwiają programistom stron wykonania określonego działania programistyczne przed lub po zadania. Na przykład, gdy użytkownik końcowy kliknie przycisk Wstaw DetailsView, na ogłaszanie zwrotne zgłasza DetailsView jego `ItemInserting` zdarzeń przed rozpoczęciem Wstawianie przepływu pracy. Następnie wstawia rekord do bazy danych. Poniżej DetailsView wywołuje jego `ItemInserted` zdarzeń. W związku z tym, aby można było pracować z strony wzorcowej, po dodaniu nowego produktu, utworzyć program obsługi zdarzeń DetailsView `ItemInserted` zdarzeń.
+Teraz, gdy Strona główna ma niezbędne właściwości i metody publiczne, możemy wywoływać te właściwości i metody ze strony zawartości `AddProduct.aspx`. W szczególnych przypadkach musimy ustawić właściwość `GridMessageText` strony głównej i wywołać jej metodę `RefreshRecentProductsGrid` po dodaniu nowego produktu do bazy danych. Wszystkie kontrolki sieci Web danych ASP.NET wyzwalają zdarzenia bezpośrednio przed i po wykonaniu różnych zadań, które ułatwiają deweloperom stron wykonywanie niektórych działań programistycznych przed lub po zadaniu. Na przykład gdy użytkownik końcowy kliknie przycisk wstawiania w widoku DetailsView, w przypadku ogłaszania zwrotnego, w trakcie odświeżania, DetailsView wygeneruje zdarzenie `ItemInserting` przed rozpoczęciem wstawiania przepływu pracy. Następnie wstawia rekord do bazy danych programu. Poniżej znajduje się zdarzenie `ItemInserted` w widoku DetailsView. Dlatego w celu pracy z stroną wzorcową po dodaniu nowego produktu Utwórz procedurę obsługi zdarzeń dla zdarzenia `ItemInserted` DetailsView.
 
-Istnieją dwa sposoby, które strony zawartości programowo może współpracować z jego strony głównej:
+Istnieją dwa sposoby programistycznego interfejsu strony zawartości z jej stroną wzorcową:
 
-- Za pomocą `Page.Master` właściwość, która zwraca odwołanie typowaniem luźnym strony wzorcowej, lub
-- Wpisz ścieżkę strony strona wzorcowa typu lub pliku za pośrednictwem `@MasterType` dyrektywę; to automatycznie dodaje właściwość silnie typizowane do strony o nazwie `Master`.
+- Za pomocą właściwości `Page.Master`, która zwraca swobodnie wpisane odwołanie do strony głównej lub
+- Określ typ strony głównej strony lub ścieżkę do pliku za pomocą dyrektywy `@MasterType`. spowoduje to automatyczne dodanie właściwości o jednoznacznie określonym typie do strony o nazwie `Master`.
 
 Przeanalizujmy oba podejścia.
 
-### <a name="using-the-loosely-typedpagemasterproperty"></a>Korzystanie z typowaniem luźnym`Page.Master`właściwości
+### <a name="using-the-loosely-typedpagemasterproperty"></a>Korzystanie z właściwości`Page.Master`ze swobodnym typem
 
-Wszystkie strony sieci web platformy ASP.NET muszą pochodzić od `Page` klasy, która znajduje się w `System.Web.UI` przestrzeni nazw. `Page` Klasa zawiera [ `Master` właściwość](https://msdn.microsoft.com/library/system.web.ui.page.master.aspx) , zwraca odwołanie do strony głównej. Jeśli strona nie jest stroną wzorcową `Master` zwraca `null`.
+Wszystkie strony sieci Web ASP.NET muszą pochodzić od klasy `Page`, która znajduje się w przestrzeni nazw `System.Web.UI`. Klasa `Page` zawiera [właściwość`Master`](https://msdn.microsoft.com/library/system.web.ui.page.master.aspx) , która zwraca odwołanie do strony wzorcowej strony. Jeśli strona nie zawiera strony wzorcowej `Master` zwraca `null`.
 
-`Master` Właściwość zwraca obiekt typu [ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (również znajduje się w `System.Web.UI` przestrzeni nazw) czyli typ podstawowy, z którego dziedziczyć wszystkie strony wzorcowej. W związku z tym, do użycia właściwości publiczne lub metody zdefiniowane w naszej witryny sieci Web stronę wzorcową, firma Microsoft rzutować `MasterPage` obiekt zwracany z `Master` właściwości odpowiedniego typu. Ponieważ firma Microsoft o nazwie nasz plik strony głównej `Site.master`, nosiła nazwę klasy CodeBehind `Site`. W związku z tym, poniższy kod rzutowania `Page.Master` właściwości wystąpienia klasy lokacji.
+Właściwość `Master` zwraca obiekt typu [`MasterPage`](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (znajdujący się również w `System.Web.UI` przestrzeni nazw), który jest typem podstawowym, z którego pochodzą wszystkie strony wzorcowe. W związku z tym, aby użyć publicznych właściwości lub metod zdefiniowanych na stronie głównej witryny sieci Web, należy rzutować `MasterPage` obiektu zwróconego z właściwości `Master` na odpowiedni typ. Ze względu na to, że nazywamy nasze `Site.master`pliku strony głównej, Klasa z kodem jest nazywana `Site`. W związku z tym Poniższy kod rzutuje Właściwość `Page.Master` na wystąpienie klasy lokacji.
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample8.cs)]
 
-Skoro mamy już rzutować typowaniem luźnym `Page.Master` właściwość `Site` typu Firma Microsoft może odwoływać się do właściwości i metody specyficzne dla lokacji. Jak pokazano na rysunku 7, właściwość publiczna `GridMessageText` pojawia się na liście rozwijanej funkcji IntelliSense.
+Teraz, gdy do typu `Site` został rzutowany luźno wpisaną Właściwość `Page.Master`, możemy odwoływać się do właściwości i metod specyficznych dla lokacji. Jak pokazano na rysunku 7, właściwość publiczna `GridMessageText` pojawia się na liście rozwijanej IntelliSense.
 
-[![Funkcja IntelliSense wyświetla właściwości publiczne i metod nasze strony wzorcowej](interacting-with-the-master-page-from-the-content-page-cs/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image19.png)
+[![technologia IntelliSense wyświetla publiczne właściwości i metody strony głównej](interacting-with-the-master-page-from-the-content-page-cs/_static/image20.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image19.png)
 
-**Rysunek 07**: Funkcja IntelliSense wyświetla właściwości publiczne i metod nasze strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image21.png))
+**Ilustracja 07**. Technologia IntelliSense wyświetla publiczne właściwości i metody strony głównej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image21.png))
 
 > [!NOTE]
-> Jeśli nazwany plik strony głównej `MasterPage.master` , a następnie nazwa klasy CodeBehind strony wzorcowej jest `MasterPage`. Może to prowadzić do kodu niejednoznaczne, gdy rzutowania z typu `System.Web.UI.MasterPage` do Twojej `MasterPage` klasy. Krótko mówiąc należy do pełnej kwalifikacji typu, które są rzutowania, który może być trudna przy użyciu modelu projektu witryny sieci Web. Moja sugestia jest albo upewnij się, że po utworzeniu stronę wzorcową przypadku nadania jej nazwy innej niż `MasterPage.master` lub jeszcze lepiej utworzyć silnie typizowane odwołania do strony wzorcowej.
+> Jeśli nazwa pliku strony głównej jest nazywana `MasterPage.master`, nazwa klasy na stronie wzorcowej jest `MasterPage`. Może to prowadzić do niejednoznaczności kodu podczas rzutowania z typu `System.Web.UI.MasterPage` do klasy `MasterPage`. Krótko mówiąc, należy w pełni zakwalifikować typ, do którego jest dokonywane rzutowanie, co może być nieco trudne w przypadku korzystania z modelu projektu witryny sieci Web. Moja sugestia powinna mieć pewność, że podczas tworzenia strony wzorcowej należy podać nazwę inną niż `MasterPage.master` lub, a nawet lepiej, utworzyć odwołanie o jednoznacznie określonym typie do strony głównej.
 
-### <a name="creating-a-strongly-typed-reference-with-themastertypedirective"></a>Tworzenie odwołanie silnie Typizowane`@MasterType`— dyrektywa
+### <a name="creating-a-strongly-typed-reference-with-themastertypedirective"></a>Tworzenie odwołania o jednoznacznie określonym typie za pomocą dyrektywy`@MasterType`
 
-Można spojrzeć ściśle możesz zobaczyć, że na stronie ASP.NET osobna klasa kodu jest klasę częściową (Uwaga `partial` — słowo kluczowe w definicji klasy). Klasy częściowe zostały wprowadzone w języku C# i Visual Basic with.NET Framework 2.0, a mówiąc, umożliwiające składowych należy zdefiniować na wiele plików. Plik klasy CodeBehind - `AddProduct.aspx.cs`, na przykład — zawiera kod, który, deweloper strony utworzymy. Oprócz naszego kodu aparatu ASP.NET automatycznie tworzy plik osobnej klasy z właściwości i procedury obsługi zdarzeń w tym tłumaczenie oznaczeniu deklaracyjnym strony hierarchii klas.
+Jeśli dokładnie widzisz, że Klasa ASP.NET strony z kodem jest klasą częściową (należy zwrócić uwagę na słowo kluczowe `partial` w definicji klasy). Klasy częściowe zostały wprowadzone w C# systemach i Visual Basic with.NET Framework 2,0 i w Nutshell umożliwiają definiowanie elementów członkowskich klasy w wielu plikach. Plik klasy związanej z kodem — `AddProduct.aspx.cs`, na przykład — zawiera kod, który został utworzony przez nas, a my. Oprócz naszego kodu aparat ASP.NET automatycznie tworzy oddzielny plik klasy z właściwościami i obsługą zdarzeń w programie, który tłumaczy deklaratywne znaczniki na hierarchię klas strony.
 
-Generowanie kodu automatyczne, który występuje zawsze, gdy odwiedzenia strony ASP.NET drogę do wprowadzenia dla niektórych możliwości dość interesujące i przydatne. W przypadku stron wzorcowych, jeśli o aparatu ASP.NET, w jaki strony wzorcowej jest on używany przez naszą stronę zawartości generuje silnie typizowanego `Master` właściwości dla nas.
+Automatyczne generowanie kodu, które odbywa się za każdym razem, gdy strona ASP.NET jest odwiedzana paves w sposób nieinteresujący i przydatny. W przypadku stron wzorcowych, jeśli poinformujemy aparat ASP.NET o tym, która strona wzorcowa jest używana przez naszą stronę zawartości, generuje dla nas silnie wpisaną Właściwość `Master`.
 
-Użyj [ `@MasterType` dyrektywy](https://msdn.microsoft.com/library/ms228274.aspx) poinformować aparatu ASP.NET typu strony wzorcowej strony zawartość. `@MasterType` Dyrektywy może zaakceptować, wpisz nazwę strony wzorcowej lub ścieżki pliku. Aby określić, że `AddProduct.aspx` stronie używa `Site.master` jako jego stronę wzorcową, dodaj następującą dyrektywę na początku `AddProduct.aspx`:
+Użyj [dyrektywy`@MasterType`](https://msdn.microsoft.com/library/ms228274.aspx) , aby poinformować aparat ASP.NET o typie strony głównej strony zawartości. Dyrektywa `@MasterType` może zaakceptować nazwę typu strony wzorcowej lub ścieżki pliku. Aby określić, że strona `AddProduct.aspx` używa `Site.master` jako strony głównej, Dodaj następującą dyrektywę na początku `AddProduct.aspx`:
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample9.aspx)]
 
-Ta dyrektywa powoduje, że aparat platformy ASP.NET można dodać odwołania do strony wzorcowej za pośrednictwem właściwości o nazwie silnie typizowane `Master`. Za pomocą `@MasterType` dyrektywy w miejscu, możemy wywołać `Site.master` głównym właściwości publiczne i metod za pomocą strony `Master` właściwość bez żadnych rzutowania.
+Ta dyrektywa nakazuje aparatowi ASP.NET Dodawanie odwołania o jednoznacznie określonym typie do strony wzorcowej za pomocą właściwości o nazwie `Master`. W przypadku dyrektywy `@MasterType` na miejscu możemy wywoływać publiczne właściwości i metody strony wzorcowej `Site.master` bezpośrednio przez właściwość `Master` bez rzutowania.
 
 > [!NOTE]
-> Jeżeli pominięto `@MasterType` dyrektywy, składnia `Page.Master` i `Master` zwracać ten sam efekt: obiekt typowaniem luźnym stronę wzorcową. Jeśli dołączysz `@MasterType` następnie dyrektywy `Master` zwraca silnie typizowane odwołanie do określonej strony wzorcowej. `Page.Master`, jednak nadal zwraca odwołanie z typowaniem luźnym. Dla bardziej szczegółowego przyjrzeć się Dlaczego tak jest oraz sposób, w jaki `Master` właściwość jest tworzony podczas `@MasterType` dyrektywa jest dołączony, zobacz [K. Scott Allen](http://odetocode.com/blogs/scott/default.aspx)firmy wpis w blogu [ `@MasterType` w programie ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx).
+> W przypadku pominięcia dyrektywy `@MasterType` składnia `Page.Master` i `Master` zwrócić te same czynności: obiekt z swobodnym typem na stronę wzorcową strony. Jeśli dołączysz dyrektywę `@MasterType`, `Master` zwraca odwołanie o jednoznacznie określonym typie do określonej strony głównej. `Page.Master`jednak nadal zwraca odwołanie o swobodnym typie. Aby uzyskać bardziej szczegółowe informacje na temat tego, jak jest to przypadek i jak tworzona jest właściwość `Master`, gdy dyrektywa `@MasterType` jest uwzględniona, zobacz artykuł [K. Scott](http://odetocode.com/blogs/scott/default.aspx) [2,0 ASP.NET —`@MasterType` wpis w](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)blogu.
 
 ### <a name="updating-the-master-page-after-adding-a-new-product"></a>Aktualizowanie strony wzorcowej po dodaniu nowego produktu
 
-Teraz, gdy wiemy, jak wywołać publicznej właściwości i metod ze strony zawartości strony wzorcowej, możemy przystąpić do aktualizacji `AddProduct.aspx` strony, czemu wzorca strona zostanie odświeżona po dodaniu nowego produktu. Na początku kroku 4, utworzyliśmy program obsługi zdarzeń dla formantu DetailsView `ItemInserting` zdarzenie, które wykonuje natychmiast, po został dodany nowy produkt do bazy danych. Dodaj następujący kod do tego programu obsługi zdarzeń:
+Teraz, gdy wiemy, jak wywoływać publiczne właściwości i metody strony wzorcowej ze strony zawartości, jesteśmy gotowi do zaktualizowania strony `AddProduct.aspx`, aby Strona główna była odświeżana po dodaniu nowego produktu. Na początku kroku 4 utworzyliśmy procedurę obsługi zdarzeń dla zdarzenia `ItemInserting` formantu DetailsView, które jest wykonywane natychmiast po dodaniu nowego produktu do bazy danych. Dodaj następujący kod do tego programu obsługi zdarzeń:
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample10.cs)]
 
-Powyższy kod korzysta z obu typowaniem luźnym `Page.Master` właściwość i że wpisane pogrubieniem `Master` właściwości. Należy pamiętać, że `GridMessageText` właściwość jest ustawiona na "*ProductName* dodane do siatki..." Wartości produktu po prostu dodać są dostępne za pośrednictwem `e.Values` kolekcji; jak widać, po prostu dodane `ProductName` wartość są dostępne za pośrednictwem `e.Values["ProductName"]`.
+Powyższy kod używa zarówno właściwości `Page.Master` o swobodnym typie i właściwości `Master` o jednoznacznie określonym typie. Należy pamiętać, że właściwość `GridMessageText` jest ustawiona na wartość "*ProductName* dodana do siatki..." Wartości dodanego produktu są dostępne za pomocą kolekcji `e.Values`; Jak widać, dodaliśmy wartość `ProductName` można uzyskać za pośrednictwem `e.Values["ProductName"]`.
 
-Rysunek 8 przedstawia `AddProduct.aspx` strony natychmiast po nowych produktów — Scotta Soda — został dodany do bazy danych. Należy pamiętać, że nazwa produktu po prostu dodać została przedstawiona w Etykieta strony wzorcowej i odświeżeniu widoku GridView obejmujący produktu, a jego ceną.
+Na rysunku nr 8 przedstawiono stronę `AddProduct.aspx` natychmiast po nowym produkcie — Scott, który został dodany do bazy danych. Należy zauważyć, że nazwa dodanego produktu jest zapisywana na etykiecie strony wzorcowej i że widok GridView został odświeżony w celu uwzględnienia produktu i jego ceny.
 
-[![Etykieta i Pokaż GridView produktu po prostu dodać strony wzorcowej](interacting-with-the-master-page-from-the-content-page-cs/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image22.png)
+[![etykietę strony wzorcowej i widok GridView Pokaż produkt dodany](interacting-with-the-master-page-from-the-content-page-cs/_static/image23.png)](interacting-with-the-master-page-from-the-content-page-cs/_static/image22.png)
 
-**Rysunek 08**: Strona wzorcowa etykiety i GridView Pokaż produktu Just-Added ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image24.png))
+**Ilustracja 08**: etykieta strony wzorcowej i widok GridView pokazują produkt dodany ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](interacting-with-the-master-page-from-the-content-page-cs/_static/image24.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-W idealnym przypadku strony wzorcowej i na stronach zawartości są całkowicie niezależne od siebie nawzajem i wymagają żaden poziom interakcji. Gdy stron wzorcowych i stronach zawartości należy tak zaprojektować ten cel, pamiętając, istnieje szereg typowych scenariuszy, w których strony zawartości muszą współpracować z jego strony wzorcowej. Jedną z najbardziej typowych przyczyn koncentruje się wokół aktualizowania konkretnego fragmentu wyświetlaną stronę wzorcową, oparte na pewne akcje, które odwzorowanie na stronie zawartości.
+Najlepiej, gdy strona wzorcowa i jej strony zawartości są całkowicie oddzielone od siebie i nie wymagają interakcji. Gdy strony wzorcowe i strony zawartości powinny być zaprojektowane z tym celem, istnieje kilka typowych scenariuszy, w których strona zawartości musi mieć interfejs ze stroną wzorcową. Jednym z najczęstszych centrów przyczyn dotyczących aktualizowania określonej części ekranu głównego na podstawie niektórych akcji, które transpired na stronie zawartości.
 
-Dobra wiadomość jest stosunkowo prosta programowo współdziałać z jego strony wzorcowej strony zawartości. Rozpocznij od utworzenia na stronie głównej, która hermetyzują funkcji, który ma być wywoływany przez strony zawartości publicznej właściwości lub metody. Następnie na stronie zawartości dostęp strony wzorcowej właściwości i metod za pośrednictwem typowaniem luźnym `Page.Master` właściwości lub użyj `@MasterType` dyrektywy, aby utworzyć silnie typizowane odwołania do strony wzorcowej.
+Dobra wiadomość polega na tym, że jest stosunkowo prosta, aby strona zawartości była programowo współdziałać ze stroną wzorcową. Zacznij od utworzenia publicznych właściwości lub metod na stronie wzorcowej, które hermetyzują funkcje, które muszą być wywoływane przez stronę zawartości. Następnie na stronie zawartość Uzyskuj dostęp do właściwości i metod strony wzorcowej za pomocą właściwości `Page.Master` o swobodnym typie lub użyj dyrektywy `@MasterType`, aby utworzyć odwołanie z jednoznacznie określonymi typami do strony głównej.
 
-W następnym samouczku omówiony jak programowo współdziałać z jednej z jego strony z zawartością strony wzorcowej.
+W następnym samouczku sprawdzimy, jak strona wzorcowa może programistycznie korzystać z jednej z jej stron zawartości.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
-- [Uzyskiwanie dostępu do i aktualizowanie danych w programie ASP.NET:](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [Stron wzorcowych platformy ASP.NET: Porady, sztuczki i pułapki](http://www.odetocode.com/articles/450.aspx)
-- [`@MasterType` w programie ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
-- [Przekazywanie informacji między zawartości i stronami wzorcowymi](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
-- [Praca z danymi w samouczki platformy ASP.NET](../../data-access/index.md)
+- [Uzyskiwanie dostępu do danych i aktualizowanie ich w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
+- [ASP.NET strony wzorcowe: porady, wskazówki i pułapki](http://www.odetocode.com/articles/450.aspx)
+- [`@MasterType` w ASP.NET 2,0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
+- [Przekazywanie informacji między zawartością a stronami wzorcowymi](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
+- [Praca z danymi w samouczkach ASP.NET](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu ASP/ASP.NET książki i założyciel 4GuysFromRolla.com pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog znajduje się na [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor wielu książek ASP/ASP. NET Books i założyciel of 4GuysFromRolla.com, pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 3,5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott można uzyskać w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
-### <a name="special-thanks-to"></a>Specjalne podziękowania dla
+### <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Zack Jones. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Zack Nowak. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](control-id-naming-in-content-pages-cs.md)

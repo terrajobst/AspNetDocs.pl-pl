@@ -8,12 +8,12 @@ ms.date: 01/16/2019
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: c45003325832258466a787bc589bf40e844248a2
-ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
+ms.openlocfilehash: 738318cce442fdc5d58dd1e4c992d4941be2487e
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985855"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74591240"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrażanie do testowania
 
@@ -23,7 +23,7 @@ W tej serii samouczków pokazano, jak wdrożyć (opublikować) aplikację sieci 
 
 Aby zapoznać się z bieżącą wersją wdrożenia na platformie Azure, zobacz [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet).
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
 W tym samouczku wdrożono aplikację sieci Web ASP.NET na serwerze Internet Information Server (IIS) na komputerze lokalnym.
 
@@ -49,7 +49,7 @@ Przypomnienie: Jeśli zostanie wyświetlony komunikat o błędzie lub coś nie d
 
 Pobierz i zainstaluj rozwiązanie i projekt programu Visual Studio z uczelnią contoso. To rozwiązanie zawiera ukończony samouczek. 
 
-[Pobierz projekt początkowy](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobierz projekt początkowy](https://go.microsoft.com/fwlink/p/?LinkId=282627)
 
 ## <a name="install-iis"></a>Instalowanie usług IIS
 
@@ -79,7 +79,7 @@ Aby wdrożyć usługi IIS na komputerze deweloperskim, upewnij się, że usługi
     
      ![Wybierz World Wide Web usług](deploying-to-iis/_static/image24.png)    
   
-   * Wybierz **OK**. Pojawią się komunikaty okna dialogowego informujące o instalacji.
+   * Wybierz **przycisk OK**. Pojawią się komunikaty okna dialogowego informujące o instalacji.
 
 Po zainstalowaniu usług IIS Uruchom **Menedżera usług IIS** , aby upewnić się, że .NET Framework wersja 4 jest przypisana do domyślnej puli aplikacji.
 
@@ -107,9 +107,9 @@ Po zainstalowaniu usług IIS Uruchom **Menedżera usług IIS** , aby upewnić si
 
    ![Inetmgr_selecting_Basic_Settings_for_app_pool](deploying-to-iis/_static/image25.png)
 
-7. W oknie dialogowym **Edytowanie puli aplikacji** Zmień **wersję środowiska .NET CLR** na **.NET CLR v 4.0.30319**. Wybierz **OK**.
+7. W oknie dialogowym **Edytowanie puli aplikacji** Zmień **wersję środowiska .NET CLR** na **.NET CLR v 4.0.30319**. Wybierz **przycisk OK**.
 
-   ![Selecting_.NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
+   ![Selecting_. NET_4_for_DefaultAppPool](deploying-to-iis/_static/image6a.png)
 
 Teraz można przystąpić do publikowania aplikacji sieci Web w usługach IIS. Należy jednak najpierw utworzyć bazy danych do testowania.
 
@@ -140,7 +140,7 @@ W menu **Widok** w programie Visual Studio wybierz pozycję **Eksplorator serwer
 
 ![Selecting_Create_New_SQL_Server_Database](deploying-to-iis/_static/image8.png)
 
-W oknie dialogowym **Utwórz nową bazę danych SQL Server** wprowadź wartość ".\SQLEXPRESS" w polu **Nazwa serwera** i "ASPNET-ContosoUniversity" w polu **Nazwa nowej bazy danych** . Wybierz **OK**.
+W oknie dialogowym **Utwórz nową bazę danych SQL Server** wprowadź wartość ".\SQLEXPRESS" w polu **Nazwa serwera** i "ASPNET-ContosoUniversity" w polu **Nazwa nowej bazy danych** . Wybierz **przycisk OK**.
 
 ![Utwórz ASPNET-ContosoUniversity](deploying-to-iis/_static/image9.png)
 
@@ -174,11 +174,11 @@ Profil publikacji można skonfigurować tak, aby uruchamiał skrypt przydzieleni
 
 1. W programie Visual Studio Otwórz utworzony wcześniej plik *Grant. SQL* .
 
-2. Wybierz przycisk **Połącz**. 
+2. Wybierz pozycję **Połącz**. 
 
     ![Przycisk Połącz](deploying-to-iis/_static/image11.png)
 
-3. W oknie dialogowym **łączenie z serwerem** wprowadź *.\SQLEXPRESS* jako **nazwę serwera**. Wybierz przycisk **Połącz**.
+3. W oknie dialogowym **łączenie z serwerem** wprowadź *.\SQLEXPRESS* jako **nazwę serwera**. Wybierz pozycję **Połącz**.
 
 4. Z listy rozwijanej baza danych wybierz pozycję **ContosoUniversity**. Wybierz pozycję **Wykonaj**. 
 
@@ -201,7 +201,7 @@ Przed opublikowaniem upewnij się, że program Visual Studio jest uruchomiony w 
 
 ### <a name="create-the-publish-profile"></a>Tworzenie profilu publikowania
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ContosoUniversity** (a nie projekt **ContosoUniversity. dal** ). Wybierz **publikowania**. Zostanie wyświetlona strona **Publikowanie** .
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ContosoUniversity** (a nie projekt **ContosoUniversity. dal** ). Wybierz pozycję **Publikuj**. Zostanie wyświetlona strona **Publikowanie** .
 
 2. Wybierz pozycję **Nowy profil**. Zostanie wyświetlone okno dialogowe **Wybieranie elementu docelowego publikowania** .
 
@@ -330,7 +330,7 @@ Poniższe kroki dotyczą bazy danych **SchoolContext** w sekcji **bazy danych** 
 
    Możesz również wybrać link **Podgląd bazy danych** , aby wyświetlić skrypty, które będą uruchamiane w bazie danych członkostwa. (Żadne skrypty nie są uruchamiane na potrzeby wdrażania Migracje Code First, więc nie ma niczego do przejrzenia bazy danych aplikacji).
 
-3. Wybierz **publikowania**.
+3. Wybierz pozycję **Publikuj**.
 
    Jeśli program Visual Studio nie jest w trybie administratora, może zostać wyświetlony komunikat o błędzie uprawnień. W takim przypadku Zamknij program Visual Studio, otwórz go w trybie administratora, a następnie ponów próbę opublikowania.
 
@@ -392,5 +392,5 @@ Aby uzyskać informacje na temat uruchamiania usług IIS lub IIS Express w progr
 Aby uzyskać informacje o problemach, które mogą wystąpić, gdy aplikacja jest uruchamiana w średnim zaufaniu, zobacz [hosting aplikacji ASP.NET w średnim zaufaniu](http://www.4guysfromrolla.com/articles/100307-1.aspx) w czterech złoczyńców z witryny rolla.
 
 > [!div class="step-by-step"]
-> [Poprzedni](project-properties.md)
-> [Następny](setting-folder-permissions.md)
+> [Poprzednie](project-properties.md)
+> [dalej](setting-folder-permissions.md)
