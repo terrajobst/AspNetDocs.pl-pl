@@ -3768,6 +3768,8 @@
   items:
     - name: Dodatkowe informacje
       href: whitepapers/overview.md
+    - name: ASP.NET SameSite
+      href: SameSite/system-web-samesite.md
     - name: Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
       href: whitepapers/aspnet4/index.md
       items:
