@@ -1,483 +1,483 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
-title: Tworzenie procedur składowanych i funkcji zdefiniowanych przez użytkownika z zarządzanego kodu (C#) | Dokumentacja firmy Microsoft
+title: Tworzenie procedur składowanych i funkcji zdefiniowanych przez użytkownika z kodem zarządzanym (C#) | Microsoft Docs
 author: rick-anderson
-description: Microsoft SQL Server 2005 jest zintegrowany z .NET środowiska uruchomieniowego języka wspólnego umożliwiają deweloperom tworzenie obiektów bazy danych przy użyciu kodu zarządzanego. W tym samouczku...
+description: Microsoft SQL Server 2005 integruje się z środowiskiem uruchomieniowym języka wspólnego .NET, aby umożliwić deweloperom tworzenie obiektów bazy danych za pomocą kodu zarządzanego. Ten samouczek...
 ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: 213eea41-1ab4-4371-8b24-1a1a66c515de
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cd33627c3aae1826e59d685938f722754d1c256b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: c6aec9ca70fe3ab568b3d17fea6bfd56671edc03
+ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108288"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74605403"
 ---
 # <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Tworzenie procedur składowanych i funkcji zdefiniowanych przez użytkownika z kodem zarządzanym (C#)
 
-przez [Bento Scott](https://twitter.com/ScottOnWriting)
+przez [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_CS.zip) lub [Pobierz plik PDF](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/datatutorial75cs1.pdf)
+[Pobierz kod](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_75_CS.zip) lub [Pobierz plik PDF](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/datatutorial75cs1.pdf)
 
-> Microsoft SQL Server 2005 jest zintegrowany z .NET środowiska uruchomieniowego języka wspólnego umożliwiają deweloperom tworzenie obiektów bazy danych przy użyciu kodu zarządzanego. W tym samouczku przedstawiono sposób tworzenia zarządzanej procedury składowane i zarządzane funkcje zdefiniowane przez użytkownika z kodem języka Visual Basic lub C#. Widzimy także, jak te wersje programu Visual Studio umożliwiają debugowanie takie obiekty zarządzanej bazy danych.
+> Microsoft SQL Server 2005 integruje się z środowiskiem uruchomieniowym języka wspólnego .NET, aby umożliwić deweloperom tworzenie obiektów bazy danych za pomocą kodu zarządzanego. W tym samouczku pokazano, jak utworzyć zarządzane procedury składowane i zarządzane funkcje zdefiniowane przez użytkownika przy C# użyciu Visual Basic lub kodu. Zobaczymy również, jak te wersje programu Visual Studio umożliwiają debugowanie takich obiektów zarządzanych baz danych.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Użyj bazy danych, takich jak Microsoft SQL Server 2005-s [Transact-Structured Query Language (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) do wstawiania, modyfikowania i pobierania danych. Większość systemów bazy danych zawiera konstrukcje grupujące serię instrukcji SQL, które następnie mogą być wykonywane jako zespół jednego, wielokrotnego użytku. Procedury składowane są jednym z przykładów. Innym jest *funkcje zdefiniowane przez użytkownika*przez użytkownika (UDF), konstrukcja, która zostanie omówiony bardziej szczegółowo w kroku 9.
+Bazy danych, takie jak Microsoft s SQL Server 2005, wykorzystują [Transact-Structured Query Language (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) do wstawiania, modyfikowania i pobierania danych. Większość systemów baz danych zawiera konstrukcje do grupowania serii instrukcji SQL, które można następnie wykonać jako pojedynczą jednostkę wielokrotnego użytku. Procedury składowane są jednym z przykładów. Inna to *funkcja zdefiniowana przez użytkownika*(UDF), konstrukcja, która dokładniej sprawdzi się w kroku 9.
 
-Zasadniczo SQL jest przeznaczona do pracy z zestawami danych. `SELECT`, `UPDATE`, I `DELETE` instrukcji założenia mają zastosowanie do wszystkich rekordów w odpowiedniej tabeli i jest ograniczona tylko ich `WHERE` klauzul. Jeszcze ma wiele funkcji języka, zaprojektowane do pracy z jednego rekordu w danym momencie i manipulowanie danymi skalarne. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) umożliwiają dla zestawu rekordów można zapętlonego po jednym naraz. Manipulowania ciągami takich jak `LEFT`, `CHARINDEX`, i `PATINDEX` pracować z danymi skalarne. SQL zawiera również instrukcjach przepływu sterowania, takich jak `IF` i `WHILE`.
+Na jego rdzeń program SQL został zaprojektowany do pracy z zestawami danych. Instrukcje `SELECT`, `UPDATE`i `DELETE` dotyczą wszystkich rekordów w odpowiedniej tabeli i są ograniczone tylko przez ich klauzule `WHERE`. Istnieje jednak wiele funkcji języka zaprojektowanych do pracy z jednym rekordem jednocześnie i do manipulowania danymi skalarnymi. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) pozwala na zapętlenie zestawu rekordów w czasie. Funkcje manipulowania ciągami, takie jak `LEFT`, `CHARINDEX`i `PATINDEX` pracy z danymi skalarnymi. SQL zawiera również instrukcje przepływu sterowania, takie jak `IF` i `WHILE`.
 
-Przed Microsoft SQL Server 2005 procedury składowane i funkcje zdefiniowane przez użytkownika tylko wtedy można zdefiniować jako zbiór instrukcji języka T-SQL. SQL Server 2005, jednak zaprojektowano tak, aby zapewnić integrację z usługą [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), czyli środowiska uruchomieniowego użytego przez wszystkie zestawy .NET. W związku z tym procedur przechowywanych i funkcji zdefiniowanych przez użytkownika w bazie danych programu SQL Server 2005 mogą być tworzone przy użyciu kodu zarządzanego. Oznacza to można utworzyć procedury składowanej lub funkcji definiowanych przez użytkownika jako metodę w klasie języka C#. Dzięki temu tych procedur przechowywanych i funkcji zdefiniowanych przez użytkownika, korzystanie z funkcji w programie .NET Framework i z własnych niestandardowych klas.
+Przed Microsoft SQL Server 2005, procedury składowane i UDF mogą być zdefiniowane tylko jako kolekcja instrukcji T-SQL. SQL Server 2005, jednak został zaprojektowany w celu zapewnienia integracji ze [środowiskiem uruchomieniowym języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET. W związku z tym procedury składowane i UDF w bazie danych SQL Server 2005 można utworzyć za pomocą kodu zarządzanego. Oznacza to, że można utworzyć procedurę składowaną lub UDF jako metodę w C# klasie. Dzięki temu te procedury składowane i UDF mogą korzystać z funkcji w .NET Framework i z własnych klas niestandardowych.
 
-W tym samouczku, który zostanie omówiony sposób tworzenia zarządzanej procedur składowanych i funkcje zdefiniowane przez użytkownika i jak zintegrować ją w naszej bazie danych Northwind. Rozpocznij pracę dzięki s!
-
-> [!NOTE]
-> Obiekty zarządzane bazy danych oferuje kilka zalet w porównaniu z ich odpowiedniki SQL. Język złożonością i znajomości języka i możliwość ponownego używania istniejącego kodu i logiki są głównymi zaletami. Ale obiektami zarządzanej bazy danych może być mniej wydajne, podczas pracy z zestawami danych, które nie obejmują wiele procedur logiki. Aby uzyskać bardziej szczegółowe omówienie o zaletach przy użyciu kodu zarządzanego i T-SQL, zapoznaj się [korzyści wynikające z przy użyciu kodu zarządzanego do tworzenia obiektów bazy danych](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
-
-## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>Krok 1. Przenoszenie bazy danych Northwind, poza`App_Data`
-
-Wszystkie z naszych samouczków dotychczasowych użyto pliku bazy danych programu Microsoft SQL Server 2005 Express Edition, w tym s aplikacji sieci web `App_Data` folderu. Wprowadzenie do bazy danych w `App_Data` uproszczony, dystrybucja i uruchamianie tych samouczków, wszystkie pliki znajdowały się w jednym katalogu, a wymagane nie dodatkowe czynności konfiguracyjne do przetestowania tego samouczka.
-
-Jednak w tym samouczku umożliwiają s przeniesienie bazy danych Northwind poza `App_Data` i jawnie zarejestrować ją w wystąpieniu bazy danych programu SQL Server 2005 Express Edition. Chociaż można wykonać kroki opisane w ramach tego samouczka przy użyciu bazy danych w `App_Data` folderu, szereg kroków zostają znacznie prostsze jawnie rejestrując bazy danych w wystąpieniu bazy danych programu SQL Server 2005 Express Edition.
-
-Pobieranie na potrzeby tego samouczka znajdują się pliki dwie bazy danych — `NORTHWND.MDF` i `NORTHWND_log.LDF` — jest umieszczane w folderze o nazwie `DataFiles`. Jeśli wykonujesz wraz z Twojej własnej implementacji samouczków, zamknij program Visual Studio i Przenieś `NORTHWND.MDF` i `NORTHWND_log.LDF` plików z witryny sieci Web s `App_Data` folderu do folderu poza witryny sieci Web. Po przeniesieniu plików bazy danych do innego folderu należy zarejestrować bazy danych Northwind za pomocą wystąpienia bazy danych programu SQL Server 2005 Express Edition. Można to zrobić z programu SQL Server Management Studio. Jeśli masz inne niż - Express Edition z programu SQL Server 2005 zainstalowana na danym komputerze następnie prawdopodobnie masz już zainstalowany program Management Studio. Jeśli tylko na komputerze znajduje się program SQL Server 2005 Express Edition, Poświęć chwilę, aby pobrać i zainstalować [programu Microsoft SQL Server Management Studio Express](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
-
-Uruchom program SQL Server Management Studio. Jak pokazano na rysunku 1, Management Studio rozpoczyna się od pytaniem, jakie serwera, aby nawiązać połączenie. Wprowadź localhost\SQLExpress dla nazwy serwera, na liście rozwijanej uwierzytelniania wybierz opcję uwierzytelniania Windows i kliknij przycisk Połącz.
-
-![Połącz się z wystąpieniem odpowiednią bazą danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image1.png)
-
-**Rysunek 1**: Połącz się z wystąpieniem odpowiednią bazą danych
-
-Po nawiązaniu połączenia możesz ve okno Eksplorator obiektów spowoduje wyświetlenie listy informacji na temat wystąpienia bazy danych programu SQL Server 2005 Express Edition, w tym baz danych, informacje o zabezpieczeniach, opcji zarządzania i tak dalej.
-
-Musimy dołączyć bazy danych Northwind w `DataFiles` folderu (lub wszędzie tam, gdzie może przeniesiono go) do wystąpienia bazy danych programu SQL Server 2005 Express Edition. Kliknij prawym przyciskiem myszy na folder baz danych i wybierz opcję Dołącz z menu kontekstowego. Zostanie wyświetlone okno dialogowe dołączanie bazy danych. Kliknij przycisk Dodaj, przejdź do szczegółów odpowiedniego `NORTHWND.MDF` pliku, a następnie kliknij przycisk OK. W tym momencie ekran powinien wyglądać podobnie jak na rysunku 2.
-
-[![Połącz się z wystąpieniem odpowiednią bazą danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
-
-**Rysunek 2**: Połącz się z odpowiednim wystąpieniem bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))
+W tym samouczku sprawdzimy, jak tworzyć zarządzane procedury składowane i funkcje zdefiniowane przez użytkownika oraz jak integrować je z naszą bazą danych Northwind. Zacznij korzystać z aplikacji.
 
 > [!NOTE]
-> Podczas nawiązywania połączenia z wystąpieniem programu SQL Server 2005 Express Edition, za pomocą programu Management Studio w oknie dialogowym Dołącz bazę danych nie pozwala na przechodzenie do katalogów profilu użytkownika, takie jak Moje dokumenty. Dlatego upewnij się umieścić `NORTHWND.MDF` i `NORTHWND_log.LDF` pliki w katalogu profilu niezwiązanych z użytkownikiem.
+> Obiekty zarządzanej bazy danych oferują pewne korzyści w porównaniu z ich odpowiednikami SQL. Najważniejsze zalety to zaawansowanie i znajomość języka oraz możliwość ponownego użycia istniejącego kodu i logiki. Mimo że obiekty zarządzanej bazy danych mogą być mniej wydajne podczas pracy z zestawami danych, które nie obejmują logiki proceduralnej. Dokładniejsze Omówienie zalet korzystania z kodu zarządzanego i języka T-SQL można znaleźć w sekcji [zalety korzystania z kodu zarządzanego do tworzenia obiektów bazy danych](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
 
-Kliknij przycisk OK, aby dołączyć bazę danych. Dołącz bazę danych, okno dialogowe zostanie zamknięte i Eksplorator obiektów teraz wyświetlić listę po prostu dołączyć bazy danych. Jest szansa, Northwind baza danych ma nazwę, takich jak `9FE54661B32FDD967F51D71D0D5145CC_LINE ARTICLES\DATATUTORIALS\VOLUME 3\CSHARP\73\ASPNET_DATA_TUTORIAL_75_CS\APP_DATA\NORTHWND.MDF`. Zmień nazwę bazy danych Northwind, klikając prawym przyciskiem myszy w bazie danych i wybierając pozycję zmiany nazwy.
+## <a name="step-1-moving-the-northwind-database-out-ofapp_data"></a>Krok 1. przeniesienie bazy danych Northwind z`App_Data`
 
-![Zmiana nazwy bazy danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image5.png)
+We wszystkich naszych samouczkach wykorzystano plik bazy danych Microsoft SQL Server 2005 Express Edition w folderze `App_Data` aplikacji sieci Web. Umieszczenie bazy danych w `App_Data` uproszczone dystrybuowanie i uruchamianie tych samouczków, ponieważ wszystkie pliki znajdują się w jednym katalogu i nie wymagały dodatkowych kroków konfiguracyjnych do przetestowania samouczka.
 
-**Rysunek 3**: Zmiana nazwy bazy danych Northwind
+Na potrzeby tego samouczka należy jednak przenieść bazę danych Northwind do `App_Data` i jawnie zarejestrować ją w wystąpieniu bazy danych SQL Server 2005 Express Edition. Chociaż możemy wykonać kroki tego samouczka z bazą danych w folderze `App_Data`, wiele kroków jest znacznie prostsze przez jawne zarejestrowanie bazy danych z wystąpieniem bazy danych SQL Server 2005 Express Edition.
 
-## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>Krok 2. Tworząc nowe rozwiązanie i projekt programu SQL Server w programie Visual Studio
+Do pobrania w tym samouczku znajdują się dwa pliki bazy danych — `NORTHWND.MDF` i `NORTHWND_log.LDF` — umieszczane w folderze o nazwie `DataFiles`. Jeśli korzystasz z własnych implementacji samouczków, Zamknij program Visual Studio i Przenieś `NORTHWND.MDF` i `NORTHWND_log.LDF` plików z folderu witryny sieci Web `App_Data` do folderu poza witryną sieci Web. Po przeniesieniu plików bazy danych do innego folderu musimy zarejestrować bazę danych Northwind z wystąpieniem bazy danych SQL Server 2005 Express Edition. Można to zrobić z poziomu SQL Server Management Studio. Jeśli na komputerze zainstalowano wersję nierolniczą SQL Server 2005, na pewno zainstalowano już Management Studio. Jeśli masz tylko SQL Server 2005 Express Edition na komputerze, poświęć chwilę na pobranie i zainstalowanie [Microsoft SQL Server Management Studio Express](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
 
-Do utworzenia zarządzanej procedury składowanej lub funkcji zdefiniowanych przez użytkownika w programie SQL Server 2005 napiszemy procedur składowanych i funkcji zdefiniowanej przez użytkownika logiki jako kod C# w klasie. Napisana kod firma Microsoft będzie należy skompilować tej klasy w zestawie ( `.dll` pliku), zarejestrować zestaw z bazą danych programu SQL Server, a następnie utworzyć procedury składowanej lub funkcji definiowanych przez użytkownika obiekt w bazie danych, który wskazuje na odpowiedniej metody w zestaw. Te kroki wszystkie można wykonać ręcznie. Firma Microsoft można tworzyć kod w dowolnym tekście edytora, skompilować go w wierszu polecenia za pomocą kompilatora C# ([`csc.exe`](https://msdn.microsoft.com/library/ms379563(vs.80).aspx)), zarejestruj je przy użyciu bazy danych przy użyciu [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/library/ms189524.aspx) polecenia lub z zarządzania Studio i Dodaj procedury składowanej lub funkcji definiowanych przez użytkownika obiekt w podobny sposób. Na szczęście wersje Professional i systemy zespołu programu Visual Studio obejmują typ projekt programu SQL Server, który automatyzuje następujące zadania. W tym samouczku opisano tworzenie zarządzanych procedur składowanych i funkcji definiowanych przez użytkownika przy użyciu typu Projekt programu SQL Server.
+Uruchom SQL Server Management Studio. Jak pokazano na rysunku 1, Management Studio rozpocznie się z pytaniem o serwer, z którym ma zostać nawiązane połączenie. Wprowadź localhost\SQLExpress w polu Nazwa serwera, wybierz pozycję Uwierzytelnianie systemu Windows na liście rozwijanej uwierzytelnianie, a następnie kliknij przycisk Połącz.
+
+![Nawiązywanie połączenia z odpowiednim wystąpieniem bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image1.png)
+
+**Rysunek 1**. Nawiązywanie połączenia z odpowiednim wystąpieniem bazy danych
+
+Po zakończeniu połączenia w oknie Eksplorator obiektów zostaną wystawione informacje dotyczące wystąpienia bazy danych SQL Server 2005 Express Edition, w tym jego baz danych, informacje o zabezpieczeniach, opcje zarządzania itd.
+
+Musimy dołączyć bazę danych Northwind do folderu `DataFiles` (lub wszędzie tam, gdzie można je przenieść) do wystąpienia bazy danych SQL Server 2005 Express Edition. Kliknij prawym przyciskiem myszy folder Databases, a następnie wybierz opcję Dołącz z menu kontekstowego. Spowoduje to wyświetlenie okna dialogowego dołączanie baz danych. Kliknij przycisk Dodaj, przejdź do odpowiedniego pliku `NORTHWND.MDF` i kliknij przycisk OK. W tym momencie ekran powinien wyglądać podobnie do rysunku 2.
+
+[![połączyć się z odpowiednim wystąpieniem bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image3.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image2.png)
+
+**Rysunek 2**. Nawiązywanie połączenia z odpowiednim wystąpieniem bazy danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image4.png))
 
 > [!NOTE]
-> Jeśli używasz Visual Web Developer lub standardową edycję programu Visual Studio, następnie należy zamiast tego użyj metody ręcznego. Krok 13 zawiera szczegółowe instrukcje dotyczące ręcznego wykonywania tych kroków. Zachęcam Cię do przeczytania 2 kroki 12 przed odczytaniem 13 krok, ponieważ te kroki obejmują ważne instrukcje konfiguracji programu SQL Server, które muszą być stosowane niezależnie od tego, jakie wersje programu Visual Studio, którego używasz.
+> Podczas nawiązywania połączenia z wystąpieniem SQL Server 2005 Express Edition za pomocą Management Studio okno dialogowe Dołączanie baz danych nie pozwala na przechodzenie do szczegółów katalogów profilów użytkowników, takich jak Moje dokumenty. W związku z tym upewnij się, że pliki `NORTHWND.MDF` i `NORTHWND_log.LDF` są umieszczane w katalogu profilów nienależących do użytkownika.
 
-Uruchom po otwarciu programu Visual Studio. W menu Plik wybierz nowy projekt, aby wyświetlić okno dialogowe Nowy projekt (zobacz rysunek 4). Przejdź do szczegółów typ projektu bazy danych, a następnie wybierz za pomocą szablonów wymienione po prawej stronie utworzyć nowy projekt programu SQL Server. Wybrano I nazwij ten projekt `ManagedDatabaseConstructs` i umieścić go w ramach rozwiązania o nazwie `Tutorial75`.
+Kliknij przycisk OK, aby dołączyć bazę danych. Zostanie zamknięte okno dialogowe Dołączanie baz danych, a Eksplorator obiektów powinna teraz wyświetlić listę bezpośrednio dołączonej bazy danych. Prawdopodobnie baza danych Northwind ma nazwę, taką jak `9FE54661B32FDD967F51D71D0D5145CC_LINE ARTICLES\DATATUTORIALS\VOLUME 3\CSHARP\73\ASPNET_DATA_TUTORIAL_75_CS\APP_DATA\NORTHWND.MDF`. Zmień nazwę bazy danych na Northwind, klikając ją prawym przyciskiem myszy i wybierając polecenie Zmień nazwę.
 
-[![Utwórz nowy projekt programu SQL Server](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
+![Zmień nazwę bazy danych na Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image5.png)
 
-**Rysunek 4**: Utwórz nowy projekt programu SQL Server ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image8.png))
+**Rysunek 3**. zmiana nazwy bazy danych na Northwind
 
-Kliknij przycisk OK w oknie dialogowym Nowy projekt, aby utworzyć rozwiązanie i projekt programu SQL Server.
+## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>Krok 2. Tworzenie nowego rozwiązania i projektu SQL Server w programie Visual Studio
 
-Projekt programu SQL Server jest powiązany z określoną bazą danych. W związku z tym po utworzeniu projektu na nowy serwer SQL firma Microsoft niezwłocznie prośba o określenie tych informacji. Rysunek 5. Pokazuje okno dialogowe Nowe odwołanie do bazy danych, które zostały wprowadzone do punktu z bazą danych Northwind, firma Microsoft jest zarejestrowana w wystąpieniu bazy danych programu SQL Server 2005 Express Edition w kroku 1.
+Aby utworzyć zarządzane procedury składowane lub UDF w SQL Server 2005, należy napisać procedurę składowaną i logikę C# UDF jako kod w klasie. Po zapisaniu kodu będziemy musieli skompilować tę klasę do zestawu (pliku `.dll`), zarejestrować zestaw z bazą danych SQL Server, a następnie utworzyć procedurę składowaną lub obiekt UDF w bazie danych, która wskazuje odpowiednią metodę w zestawie. Wszystkie te kroki można wykonać ręcznie. Możemy utworzyć kod w dowolnym edytorze tekstów, skompilować go z wiersza polecenia przy użyciu C# kompilatora ([`csc.exe`](https://msdn.microsoft.com/library/ms379563(vs.80).aspx)), zarejestrować go w bazie danych przy użyciu polecenia [`CREATE ASSEMBLY`](https://msdn.microsoft.com/library/ms189524.aspx) lub z Management Studio, a następnie dodać procedurę składowaną lub metodę UDF przy użyciu podobnych metod. Na szczęście wersje Professional i Team Systems programu Visual Studio zawierają SQL Server typ projektu, który automatyzuje te zadania. W tym samouczku opisano, jak za pomocą typu projektu SQL Server utworzyć zarządzaną procedurę składowaną i funkcję UDF.
 
-![Skojarz projekt programu SQL Server z bazą danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image9.png)
+> [!NOTE]
+> W przypadku korzystania z programu Visual Web Developer lub Standard Edition programu Visual Studio należy zamiast tego użyć podejścia ręcznego. Krok 13 zawiera szczegółowe instrukcje dotyczące ręcznego wykonywania tych czynności. Zachęcam do odczytu kroków od 2 do 12 przed przeczytaniem kroku 13, ponieważ te kroki zawierają ważne instrukcje dotyczące konfiguracji SQL Server, które należy zastosować niezależnie od używanej wersji programu Visual Studio.
 
-**Rysunek 5**: Skojarz projekt programu SQL Server z bazą danych Northwind
+Zacznij od otwarcia programu Visual Studio. Z menu plik wybierz polecenie Nowy projekt, aby wyświetlić okno dialogowe Nowy projekt (zobacz rysunek 4). Przejdź do szczegółów typu projektu bazy danych, a następnie z szablonów wymienionych po prawej stronie wybierz opcję utworzenia nowego projektu SQL Server. Wybrano opcję nazywania tego projektu `ManagedDatabaseConstructs` i umieszczenia go w rozwiązaniu o nazwie `Tutorial75`.
 
-Aby debugować zarządzanego procedur przechowywanych i funkcji zdefiniowanych przez użytkownika, zostanie utworzona w ramach tego projektu, należy włączyć obsługę debugowania dla połączenia SQL/CLR. Zawsze, gdy skojarzenie projekt programu SQL Server przy użyciu nowej bazy danych (jak zrobiliśmy na rysunku 5), Visual Studio Wyświetla prośbę nam Jeśli chcemy włączyć debugowanie SQL/CLR dla połączenia (patrz rysunek 6). Kliknij przycisk Tak.
+[![utworzyć nowy projekt SQL Server](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image7.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image6.png)
+
+**Ilustracja 4**. Tworzenie nowego projektu SQL Server ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image8.png))
+
+Kliknij przycisk OK w oknie dialogowym Nowy projekt, aby utworzyć rozwiązanie i projekt SQL Server.
+
+Projekt SQL Server jest powiązany z określoną bazą danych. W związku z tym po utworzeniu nowego projektu SQL Server natychmiast poprosimy o podanie tych informacji. Rysunek 5 zawiera okno dialogowe nowe odwołanie do bazy danych, które zostało wypełnione, aby wskazywało bazę danych Northwind zarejestrowaną w wystąpieniu bazy danych SQL Server 2005 Express Edition z powrotem w kroku 1.
+
+![Skojarz projekt SQL Server z bazą danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image9.png)
+
+**Rysunek 5**. kojarzenie projektu SQL Server z bazą danych Northwind
+
+Aby debugować zarządzane procedury składowane i UDF, które zostaną utworzone w ramach tego projektu, musimy włączyć obsługę debugowania SQL/CLR dla tego połączenia. Za każdym razem, gdy kojarzy projekt SQL Server z nową bazą danych (jak pokazano na rysunku 5), program Visual Studio monituje nas, jeśli chcemy włączyć debugowanie SQL/CLR dla połączenia (zobacz rysunek 6). Kliknij przycisk Tak.
 
 ![Włącz debugowanie SQL/CLR](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image10.png)
 
-**Rysunek 6**: Włącz debugowanie SQL/CLR
+**Ilustracja 6**. Włączanie debugowania SQL/CLR
 
-W tym momencie nowy projekt serwera SQL dodano do rozwiązania. Zawiera folder o nazwie `Test Scripts` przy użyciu pliku o nazwie `Test.sql`, która jest używana do debugowania obiektami zarządzanej bazy danych utworzone w projekcie. Przyjrzymy się debugowanie w kroku 12.
+W tym momencie nowy projekt SQL Server został dodany do rozwiązania. Zawiera folder o nazwie `Test Scripts` z plikiem o nazwie `Test.sql`, który jest używany do debugowania obiektów zarządzanej bazy danych utworzonych w projekcie. Zobaczmy debugowanie w kroku 12.
 
-Firma Microsoft jest teraz dodać nowe zarządzanej procedury składowane i funkcje zdefiniowane przez użytkownika do tego projektu, ale przed umożliwialiśmy s najpierw dołączyć naszej istniejącej aplikacji sieci web w rozwiązaniu. W menu Plik wybierz opcję Dodaj, a następnie wybierz istniejącą witrynę sieci Web. Przejdź do folderu odpowiedniej witryny sieci Web, a następnie kliknij przycisk OK. Jak pokazano na rysunku 7, spowoduje to zaktualizowanie rozwiązania, aby uwzględnić dwa projekty: witryny sieci Web i `ManagedDatabaseConstructs` projekt programu SQL Server.
+Teraz możemy dodawać nowe zarządzane procedury składowane i UDF do tego projektu, ale zanim wyślemy do niej ofertę istniejącej aplikacji sieci Web w rozwiązaniu. Z menu plik wybierz opcję Dodaj, a następnie wybierz istniejącą witrynę sieci Web. Przejdź do odpowiedniego folderu witryny sieci Web i kliknij przycisk OK. Jak pokazano na rysunku 7, spowoduje to zaktualizowanie rozwiązania w taki sposób, aby obejmowało dwa projekty: witrynę internetową i SQL Server projekt `ManagedDatabaseConstructs`.
 
-![Eksplorator rozwiązań zawiera teraz dwa projekty](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image11.png)
+![Eksplorator rozwiązań obejmuje teraz dwa projekty](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image11.png)
 
-**Rysunek 7**: Eksplorator rozwiązań zawiera teraz dwa projekty
+**Rysunek 7**. Eksplorator rozwiązań obejmuje teraz dwa projekty
 
-`NORTHWNDConnectionString` Wartość w `Web.config` odwołuje się do aktualnie `NORTHWND.MDF` w pliku `App_Data` folderu. Ponieważ firma Microsoft usunęła tę bazę danych z `App_Data` i jawnie on zarejestrowany w wystąpieniu bazy danych programu SQL Server 2005 Express Edition, należy odpowiednio zaktualizować `NORTHWNDConnectionString` wartość. Otwórz `Web.config` pliku w witrynie sieci Web i zmień `NORTHWNDConnectionString` wartości, tak aby odczytuje parametry połączenia: `Data Source=localhost\SQLExpress;Initial Catalog=Northwind;Integrated Security=True`. Po tej zmianie swoje `<connectionStrings>` sekcji `Web.config` powinien wyglądać podobnie do poniższego:
+Wartość `NORTHWNDConnectionString` w `Web.config` obecnie odwołuje się do `NORTHWND.MDF` pliku w folderze `App_Data`. Ponieważ ta baza danych została usunięta z `App_Data` i jawnie zarejestrowana w wystąpieniu bazy danych SQL Server 2005 Express Edition, musimy odpowiednio zaktualizować wartość `NORTHWNDConnectionString`. Otwórz plik `Web.config` w witrynie sieci Web i zmień wartość `NORTHWNDConnectionString`, tak aby parametry połączenia były odczytywane: `Data Source=localhost\SQLExpress;Initial Catalog=Northwind;Integrated Security=True`. Po tej zmianie sekcja `<connectionStrings>` w `Web.config` powinna wyglądać podobnie do następującej:
 
 [!code-xml[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample1.xml)]
 
 > [!NOTE]
-> Zgodnie z opisem w [poprzedni Samouczek](debugging-stored-procedures-cs.md), podczas debugowania obiektu serwera SQL z aplikacji klienckiej, takich jak witryny sieci Web programu ASP.NET należy wyłączyć buforowanie połączeń. Parametry połączenia, powyżej wyłącza buforowanie połączeń ( `Pooling=false` ). Jeśli nie planujesz debugowania zarządzanego procedur przechowywanych i funkcji zdefiniowanych przez użytkownika z witryny sieci Web platformy ASP.NET, należy włączyć buforowanie połączeń.
+> Zgodnie z opisem w [poprzednim samouczku](debugging-stored-procedures-cs.md)podczas debugowania obiektu SQL Server z aplikacji klienckiej, takiej jak witryna sieci Web ASP.NET, musimy wyłączyć buforowanie połączeń. Pokazane powyżej parametry połączenia powodują wyłączenie puli połączeń (`Pooling=false`). Jeśli nie planujesz debugowania zarządzanymi procedurami składowanymi i UDF z witryny sieci Web ASP.NET, Włącz buforowanie połączeń.
 
 ## <a name="step-3-creating-a-managed-stored-procedure"></a>Krok 3. Tworzenie zarządzanej procedury składowanej
 
-Aby dodać zarządzanej procedury składowanej do bazy danych Northwind, najpierw należy utworzyć procedurę składowaną jako metoda w projekcie programu SQL Server. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy `ManagedDatabaseConstructs` nazwy projektu i wybierz opcję Dodaj nowy element. Spowoduje to wyświetlenie okna dialogowego Dodaj nowy element, które zawiera listę typów obiektów zarządzanej bazy danych, które można dodać do projektu. Jak pokazano na rysunku 8, w tym procedury składowane i funkcje zdefiniowane przez użytkownika, między innymi.
+Aby dodać zarządzaną procedurę składowaną do bazy danych Northwind, najpierw musimy utworzyć procedurę przechowywaną jako metodę w projekcie SQL Server. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nazwę projektu `ManagedDatabaseConstructs`, a następnie wybierz polecenie Dodaj nowy element. Spowoduje to wyświetlenie okna dialogowego Dodawanie nowego elementu zawierającego listę typów obiektów zarządzanych baz danych, które można dodać do projektu. Jak pokazano na rysunku 8, obejmuje procedury składowane i funkcje zdefiniowane przez użytkownika, między innymi.
 
-Pozwól, s, Rozpocznij od dodania procedury przechowywanej, która po prostu zwraca wszystkie produkty, które zostały anulowane. Nadaj nowemu plikowi procedury składowanej `GetDiscontinuedProducts.cs`.
+Zacznij od dodania procedury składowanej, która po prostu zwraca wszystkie produkty, które zostały wycofane. Nazwij nowy plik procedury składowanej `GetDiscontinuedProducts.cs`.
 
-[![Dodaj nową procedurę składowaną o nazwie GetDiscontinuedProducts.cs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
+[![dodać nową procedurę składowaną o nazwie GetDiscontinuedProducts.cs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image13.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image12.png)
 
-**Rysunek 8**: Dodaj nowe przechowywane procedury o nazwie `GetDiscontinuedProducts.cs` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image14.png))
+**Ilustracja 8**. Dodawanie nowej procedury składowanej o nazwie `GetDiscontinuedProducts.cs` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image14.png))
 
-Spowoduje to utworzenie nowego pliku klasy C# o następującej zawartości:
+Spowoduje to utworzenie nowego C# pliku klasy z następującą zawartością:
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample2.cs)]
 
-Należy zauważyć, że procedura składowana jest implementowany jako `static` metodę w ramach `partial` plik klasy o nazwie `StoredProcedures`. Ponadto `GetDiscontinuedProducts` zostanie nadany metoda `SqlProcedure attribute`, która oznacza metodę jako procedurę przechowywaną.
+Należy zauważyć, że procedura składowana jest zaimplementowana jako metoda `static` w pliku klasy `partial` o nazwie `StoredProcedures`. Ponadto Metoda `GetDiscontinuedProducts` ma `SqlProcedure attribute`, która oznacza metodę jako procedurę składowaną.
 
-Poniższy kod tworzy `SqlCommand` i ustawia jego `CommandText` do `SELECT` zapytania zwracającego wszystkie kolumny z `Products` Tabela produktów, których `Discontinued` pola jest równa 1. Następnie wykonuje polecenie i wysyła wyniki do aplikacji klienckiej. Dodaj następujący kod do `GetDiscontinuedProducts` metody.
+Poniższy kod tworzy obiekt `SqlCommand` i ustawia jego `CommandText` na kwerendę `SELECT`, która zwraca wszystkie kolumny z tabeli `Products` dla produktów, których `Discontinued` pole ma wartość 1. Następnie wykonuje polecenie i wysyła wyniki z powrotem do aplikacji klienckiej. Dodaj ten kod do metody `GetDiscontinuedProducts`.
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample3.cs)]
 
-Wszystkie obiekty zarządzane bazy danych mają dostęp do [ `SqlContext` obiektu](https://msdn.microsoft.com/library/ms131108.aspx) reprezentujący kontekst obiektu wywołującego. `SqlContext` Zapewnia dostęp do [ `SqlPipe` obiektu](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx) za pośrednictwem jego [ `Pipe` właściwość](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). To `SqlPipe` obiekt jest używany do promy informacji między bazą danych programu SQL Server i aplikacji wywołującej. Jak sugeruje jej nazwa, [ `ExecuteAndSend` metoda](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) wykonuje przekazanego `SqlCommand` obiektu i wysyła wyniki z powrotem do aplikacji klienckiej.
+Wszystkie obiekty zarządzanej bazy danych mają dostęp do [obiektu`SqlContext`](https://msdn.microsoft.com/library/ms131108.aspx) , który reprezentuje kontekst obiektu wywołującego. `SqlContext` zapewnia dostęp do [obiektu`SqlPipe`](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx) za pośrednictwem jego [Właściwości`Pipe`](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). Ten obiekt `SqlPipe` służy do promowania informacji między bazą danych SQL Server i aplikacją wywołującą. Jak nazywa się to, [metoda`ExecuteAndSend`](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) wykonuje przekazaną `SqlCommand` obiektu i wysyła wyniki z powrotem do aplikacji klienckiej.
 
 > [!NOTE]
-> Obiekty zarządzane bazy danych są najbardziej odpowiednie dla procedur przechowywanych i funkcji zdefiniowanych przez użytkownika, korzystających z procedurach logiki, a nie logiki opartej na zestawie. Proceduralne logiki obejmuje Praca z zestawami danych na podstawie wiersz po wierszu lub Praca z danymi skalarne. `GetDiscontinuedProducts` Metodę, którą właśnie utworzyliśmy, jednak pociąga za sobą nie procedur logiki. W związku z tym jego będzie najlepiej można zaimplementować jako procedury przechowywanej T-SQL. Zaimplementowano jako zarządzanej procedury składowanej, aby zademonstrować kroki niezbędne do tworzenia i wdrażania zarządzanego procedur składowanych.
+> Obiekty zarządzanej bazy danych najlepiej nadają się do procedur składowanych i UDF, które używają logiki proceduralnej, a nie logiki opartej na zestawie. Logika proceduralna obejmuje pracę z zestawami danych w poszczególnych wierszach lub w pracy z danymi skalarnymi. Metoda `GetDiscontinuedProducts`, która właśnie została utworzona, nie obejmuje jednak logiki proceduralnej. W związku z tym najlepszym rozwiązaniem jest wdrożenie procedury składowanej T-SQL. Jest ona zaimplementowana jako zarządzana procedura składowana w celu przedstawienia kroków niezbędnych do utworzenia i wdrożenia zarządzanych procedur składowanych.
 
-## <a name="step-4-deploying-the-managed-stored-procedure"></a>Krok 4. Wdrażanie zarządzanej procedury składowanej
+## <a name="step-4-deploying-the-managed-stored-procedure"></a>Krok 4. wdrażanie zarządzanej procedury składowanej
 
-Przy użyciu tego kodu jest pełna jesteśmy gotowi wdrożyć ją z bazą danych Northwind. Wdrożenia projektu serwera SQL kompiluje kod w zestawie, rejestruje zestaw z bazą danych i tworzy odpowiednimi obiektami w bazie danych, łącząc je do odpowiedniej metody w zestawie. Dokładny zestaw zadań wykonywanych za pomocą opcji wdrażania jest bardziej precyzyjne województw w kroku 13. Kliknij prawym przyciskiem myszy `ManagedDatabaseConstructs` projektu nazwę w Eksploratorze rozwiązań, a następnie wybierz opcję wdrażania. Jednakże wdrożenie zakończy się niepowodzeniem z powodu następującego błędu: Błędna składnia w pobliżu "Zewnętrzny". Konieczne może być ustawiony poziom zgodności bieżącej bazy danych na wartość większą, aby włączyć tę funkcję. Zobacz Pomoc dla procedury składowanej `sp_dbcmptlevel`.
+Po ukończeniu tego kodu jesteśmy gotowi do wdrożenia go w bazie danych Northwind. Wdrożenie projektu SQL Server kompiluje kod w zestawie, rejestruje zestaw z bazą danych i tworzy odpowiednie obiekty w bazie danych, łącząc je z odpowiednimi metodami w zestawie. Dokładny zestaw zadań wykonywanych przez opcję Wdróż jest bardziej precyzyjnie wpisany w kroku 13. Kliknij prawym przyciskiem myszy nazwę projektu `ManagedDatabaseConstructs` w Eksplorator rozwiązań i wybierz opcję Wdróż. Jednak wdrożenie nie powiedzie się z powodu następującego błędu: nieprawidłowa składnia w sąsiedztwie "EXTERNAL". Może być konieczne ustawienie poziomu zgodności bieżącej bazy danych na wyższą wartość, aby włączyć tę funkcję. Zapoznaj się z pomocą techniczną `sp_dbcmptlevel`procedury przechowywanej.
 
-Ten błąd występuje podczas próby zarejestrowania zestawu z bazą danych Northwind. W celu zarejestrowania zestawu z bazą danych programu SQL Server 2005, poziom zgodności bazy danych s musi być równa 90. Domyślnie nowe bazy danych programu SQL Server 2005 mają poziom zgodności 90. Jednak bazy danych utworzone za pomocą programu Microsoft SQL Server 2000 mają domyślny poziom zgodności 80. Ponieważ bazy danych Northwind początkowo był bazę danych Microsoft SQL Server 2000, jej poziom zgodności jest obecnie ustawiony na 80 i dlatego musi być zwiększony do 90 do zarejestrowania obiektami zarządzanej bazy danych.
+Ten komunikat o błędzie występuje podczas próby zarejestrowania zestawu przy użyciu bazy danych Northwind. Aby zarejestrować zestaw z bazą danych SQL Server 2005, należy ustawić poziom zgodności bazy danych na 90. Domyślnie nowe bazy danych SQL Server 2005 mają poziom zgodności równy 90. Jednak bazy danych utworzone przy użyciu Microsoft SQL Server 2000 mają domyślny poziom zgodności równy 80. Ponieważ baza danych Northwind była początkowo bazą danych Microsoft SQL Server 2000, jej poziom zgodności jest obecnie ustawiony na 80 i dlatego należy go zwiększyć do 90 w celu zarejestrowania obiektów zarządzanych baz danych.
 
-Aby zaktualizować poziom zgodności bazy danych s, Otwórz okno nowego zapytania w programie Management Studio i wprowadź:
+Aby zaktualizować poziom zgodności bazy danych, Otwórz nowe okno zapytania w Management Studio i wprowadź:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample4.sql)]
 
-Kliknij ikonę wykonywania na pasku narzędzi, aby uruchomić zapytanie powyżej.
+Kliknij ikonę Execute (wykonaj) na pasku narzędzi, aby uruchomić powyższe zapytanie.
 
-[![Zaktualizuj poziom zgodności bazy danych Northwind s](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
+[![zaktualizować poziomu zgodności bazy danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image16.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image15.png)
 
-**Rysunek 9**: Aktualizuj s poziom zgodności bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))
+**Ilustracja 9**. aktualizowanie poziomu zgodności bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image17.png))
 
-Po zaktualizowaniu poziom zgodności, należy ponownie wdrożyć projekt programu SQL Server. Tym razem wdrożenie powinno zakończyć się bez błędów.
+Po zaktualizowaniu poziomu zgodności, wdróż ponownie projekt SQL Server. Ta godzina wdrożenia powinna zakończyć się bez błędu.
 
-Wróć do programu SQL Server Management Studio, kliknij prawym przyciskiem myszy w bazie danych Northwind w Eksploratorze obiektów i wybierz polecenie Odśwież. Następnie przejść do folderu programowania, a następnie rozwiń folder zestawów. Jak pokazano na rysunku nr 10, bazy danych Northwind zawiera teraz zestaw wygenerowany przez `ManagedDatabaseConstructs` projektu.
+Wróć do SQL Server Management Studio, kliknij prawym przyciskiem myszy bazę danych Northwind w Eksplorator obiektów, a następnie wybierz polecenie Odśwież. Następnie przejdź do szczegółów folderu programowanie, a następnie rozwiń folder zestawy. Jak pokazano na rysunku 10, baza danych Northwind zawiera teraz zestaw wygenerowany przez projekt `ManagedDatabaseConstructs`.
 
-![Zestaw ManagedDatabaseConstructs jest teraz zarejestrowane w usłudze bazy danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image18.png)
+![Zestaw ManagedDatabaseConstructs jest teraz zarejestrowany w bazie danych Northwind](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image18.png)
 
-**Na rysunku nr 10**: `ManagedDatabaseConstructs` Zestaw jest teraz zarejestrowane w usłudze bazy danych Northwind
+**Ilustracja 10**. zestaw `ManagedDatabaseConstructs` jest teraz zarejestrowany w bazie danych Northwind
 
-Również rozwinąć folder procedur składowanych. Zobaczysz procedury składowanej o nazwie `GetDiscontinuedProducts`. Ta procedura składowana została utworzona przez proces wdrażania i wskazuje na `GetDiscontinuedProducts` method in Class metoda `ManagedDatabaseConstructs` zestawu. Gdy `GetDiscontinuedProducts` procedury składowanej jest wykonywane, z kolei wykonuje `GetDiscontinuedProducts` metody. Ponieważ jest to zarządzanej procedury składowanej nie można edytować za pomocą programu Management Studio (dlatego ikoną kłódki obok nazwy procedury składowanej).
+Rozwiń również folder procedury składowane. Zostanie wyświetlona procedura składowana o nazwie `GetDiscontinuedProducts`. Ta procedura składowana została utworzona przez proces wdrażania i wskazuje na metodę `GetDiscontinuedProducts` w zestawie `ManagedDatabaseConstructs`. W przypadku wykonywania procedury składowanej `GetDiscontinuedProducts`, z kolei wykonuje metodę `GetDiscontinuedProducts`. Ponieważ jest to zarządzana procedura składowana, nie można jej edytować za pomocą Management Studio (w związku z tym ikona kłódki obok nazwy procedury składowanej).
 
-![Procedura składowana GetDiscontinuedProducts znajduje się w folderze procedur przechowywanych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image19.png)
+![Procedura składowana GetDiscontinuedProducts jest wymieniona w folderze procedury składowane](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image19.png)
 
-**Rysunek 11**: `GetDiscontinuedProducts` Procedury składowanej znajduje się w folderze procedur przechowywanych
+**Ilustracja 11**. procedura składowana `GetDiscontinuedProducts` jest wymieniona w folderze procedury składowane
 
-Nadal jest jeden więcej próg wykluczający mamy do pokonania przed nazywamy zarządzanej procedury składowanej: baza danych jest skonfigurowana, aby uniemożliwić wykonywanie kodu zarządzanego. To sprawdzić, otwierając okno nowego zapytania i wykonywanie `GetDiscontinuedProducts` procedury składowanej. Zostanie wyświetlony następujący komunikat o błędzie: Wykonywanie kodu użytkownika na platformie .NET Framework jest wyłączone. Włącz opcję konfiguracji clr enabled.
+Nadal trzeba przezwyciężyć, zanim będziemy mogli wywoływać zarządzane procedury składowane: baza danych jest skonfigurowana tak, aby uniemożliwiać wykonywanie kodu zarządzanego. Sprawdź to, otwierając nowe okno zapytania i wykonując `GetDiscontinuedProducts` procedury składowanej. Zostanie wyświetlony następujący komunikat o błędzie: wykonywanie kodu użytkownika w .NET Framework jest wyłączone. Włącz opcję konfiguracji z włączoną funkcją CLR.
 
-Aby sprawdzić informacje o konfiguracji s bazy danych Northwind, wprowadź i wykonaj polecenie `exec sp_configure` w oknie zapytania. Pokazuje to, że środowisko clr włączone ustawienie aktualnie jest ustawiona na 0.
+Aby zbadać informacje o konfiguracji bazy danych Northwind, wprowadź i wykonaj polecenie `exec sp_configure` w oknie zapytania. Wskazuje to, że ustawienie CLR enabled ma obecnie wartość 0.
 
-[![Środowisko clr, włączone ustawienie jest aktualnie ustawiona na 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
+[![ustawienie Enabled CLR ma obecnie wartość 0](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image21.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image20.png)
 
-**Rysunek 12**: Środowisko clr, włączone ustawienie jest aktualnie ustawiona na wartość 0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image22.png))
+**Rysunek 12**: ustawienie Enabled CLR ma obecnie wartość 0 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image22.png))
 
-Należy zauważyć, że każdego ustawienia konfiguracji w rysunek 12 ma cztery wartości na liście z nią: minimalne i maksymalne wartości i config oraz wykonywania wartości. Aby zaktualizować wartość konfiguracji ustawienia środowiska clr jest włączone, wykonaj następujące polecenie:
+Należy zauważyć, że każde ustawienie konfiguracji na rysunku 12 ma cztery wartości na liście: wartości minimalne i maksymalne oraz wartości konfiguracyjne i uruchomienia. Aby zaktualizować wartość konfiguracji dla ustawienia Enabled CLR, wykonaj następujące polecenie:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample5.sql)]
 
-Jeśli ponownie uruchomisz `exec sp_configure` zobaczysz, że powyższe stwierdzenie zaktualizowana wartość konfiguracji clr włączone ustawienie s 1, ale czy wykonywania wartość nadal jest równa 0. Ta zmiana konfiguracji zaczną obowiązywać musimy wykonać [ `RECONFIGURE` polecenia](https://msdn.microsoft.com/library/ms176069.aspx), która ustawia wartość wykonywania do bieżącej wartości konfiguracji. Po prostu wprowadź `RECONFIGURE` w oknie zapytania i kliknij ikonę wykonywania na pasku narzędzi. Jeśli uruchamiasz `exec sp_configure` teraz powinno wyświetlić wartość 1 dla konfiguracji clr włączone ustawienie s i uruchomimy wartości.
+Po ponownym uruchomieniu `exec sp_configure` zostanie wyświetlona informacja, że powyższa instrukcja zaktualizował wartość konfiguracyjną ustawienia Enabled CLR na 1, ale wartość Run jest nadal ustawiona na 0. Aby ta zmiana konfiguracji zaczęła mieć wpływ, musimy wykonać [`RECONFIGURE` polecenie](https://msdn.microsoft.com/library/ms176069.aspx), które ustawi wartość Run na bieżącą wartość konfiguracji. Po prostu wprowadź `RECONFIGURE` w oknie zapytania, a następnie kliknij ikonę Execute (wykonaj) na pasku narzędzi. W przypadku uruchomienia `exec sp_configure` teraz powinna zostać wyświetlona wartość 1 dla ustawienia konfiguracja i uruchomienia środowiska CLR.
 
-Za pomocą Kończenie konfiguracji clr włączone możemy przystąpić do uruchomienia zarządzanej `GetDiscontinuedProducts` procedury składowanej. W oknie zapytania wprowadź, a następnie wykonaj polecenie `exec` `GetDiscontinuedProducts`. Wywoływanie procedury składowanej powoduje, że odpowiedni kod zarządzany w `GetDiscontinuedProducts` wykonać metodę. Ten kod generuje `SELECT` zapytanie, aby zwrócić wszystkie produkty, które zostaną przerwane i zwraca dane do aplikacji wywołującej jest program SQL Server Management Studio, w tym wystąpieniu. Management Studio otrzymuje te wyniki i wyświetla je w oknie wyników.
+Po zakończeniu konfiguracji z włączoną obsługą środowiska CLR jesteśmy gotowi do uruchomienia zarządzanej `GetDiscontinuedProducts` procedury składowanej. W oknie zapytania wprowadź i wykonaj polecenie `exec` `GetDiscontinuedProducts`. Wywołanie procedury składowanej powoduje, że odpowiedni zarządzany kod w metodzie `GetDiscontinuedProducts` będzie wykonywany. Ten kod generuje zapytanie `SELECT` zwracające wszystkie produkty, które są wycofane i zwraca te dane do aplikacji wywołującej, która jest SQL Server Management Studio w tym wystąpieniu. Management Studio otrzymuje te wyniki i wyświetla je w oknie wyników.
 
-[![GetDiscontinuedProducts procedura składowana ma zwracać wszystkie wycofane produktów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
+[![procedura składowana GetDiscontinuedProducts zwraca wszystkie wycofane produkty](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image24.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image23.png)
 
-**Rysunek 13**: `GetDiscontinuedProducts` Przechowywane procedury zwraca wszystkie wycofane produkty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image25.png))
+**Ilustracja 13**. procedura składowana `GetDiscontinuedProducts` zwraca wszystkie wycofane produkty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image25.png))
 
-## <a name="step-5-creating-managed-stored-procedures-that-accept-input-parameters"></a>Krok 5. Tworzenie zarządzanej procedury składowane, które akceptują parametry wejściowe
+## <a name="step-5-creating-managed-stored-procedures-that-accept-input-parameters"></a>Krok 5. Tworzenie zarządzanych procedur składowanych akceptujących parametry wejściowe
 
-Wiele zapytań i procedur składowanych, które utworzyliśmy w tych samouczkach używano *parametry*. Na przykład w [tworzenie nowych procedur składowanych dla s wpisany zestaw danych TableAdapters](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) samouczku utworzyliśmy procedury składowanej o nazwie `GetProductsByCategoryID` zaakceptowane, parametr wejściowy o nazwie `@CategoryID`. Procedura składowana zwróciła następnie wszystkie produkty którego `CategoryID` pola pasowało do wartości z podanym `@CategoryID` parametru.
+Wiele zapytań i procedur składowanych utworzonych w ramach tych samouczków ma używane *Parametry*. Na przykład w przypadku [tworzenia nowych procedur składowanych dla wpisanych zestawów danych TableAdapters](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) samouczek został utworzony w procedurze składowanej o nazwie `GetProductsByCategoryID`, która zaakceptowała parametr wejściowy o nazwie `@CategoryID`. Procedura składowana zwraca wszystkie produkty, których `CategoryID` pole pasuje do wartości podanego `@CategoryID` parametru.
 
-Aby utworzyć zarządzanej procedury składowanej, która akceptuje parametry wejściowe, wystarczy określić tych parametrów w definicji metody s. Na przykład umożliwiają s dodać innego zarządzanego procedurę przechowywaną, aby `ManagedDatabaseConstructs` projektu o nazwie `GetProductsWithPriceLessThan`. Tę procedurę składowaną zarządzanych przyjmuje parametr wejściowy, określając cenę i zwróci wszystkie produkty którego `UnitPrice` pole jest mniejsza niż wartość parametru s.
+Aby utworzyć zarządzaną procedurę składowaną, która akceptuje parametry wejściowe, wystarczy określić te parametry w definicji metody s. Aby to zilustrować, należy dodać kolejną zarządzaną procedurę składowaną do projektu `ManagedDatabaseConstructs` o nazwie `GetProductsWithPriceLessThan`. Ta zarządzana procedura składowana przyjmie parametr wejściowy określający cenę i zwróci wszystkie produkty, których `UnitPrice` pole jest mniejsze niż wartość parametru s.
 
-Aby dodać nową procedurę składowaną do projektu, kliknij prawym przyciskiem myszy `ManagedDatabaseConstructs` nazwy projektu i dodać nową procedurę składowaną. Nadaj plikowi nazwę `GetProductsWithPriceLessThan.cs`. Jak widzieliśmy w kroku 3, spowoduje to utworzenie nowego pliku klasy C# za pomocą metody o nazwie `GetProductsWithPriceLessThan` umieszczony w `partial` klasy `StoredProcedures`.
+Aby dodać nową procedurę składowaną do projektu, kliknij prawym przyciskiem myszy nazwę projektu `ManagedDatabaseConstructs` i wybierz opcję dodania nowej procedury składowanej. Nadaj plikowi nazwę `GetProductsWithPriceLessThan.cs`. Jak opisano w kroku 3, spowoduje to utworzenie nowego C# pliku klasy z metodą o nazwie `GetProductsWithPriceLessThan` umieszczoną w klasie `partial` `StoredProcedures`.
 
-Aktualizacja `GetProductsWithPriceLessThan` definicję metody s, tak że akceptuje [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) parametr wejściowy `price` i napisać kod, który może działać i zwracać wyniki zapytania:
+Zaktualizuj definicję `GetProductsWithPriceLessThan` metody s tak, aby akceptowała [`SqlMoney`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) parametr wejściowy o nazwie `price` i napisać kod do wykonania i zwrócić wyniki zapytania:
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample6.cs)]
 
-`GetProductsWithPriceLessThan` Definicję metody s i kod przypomina definicją i kodem `GetDiscontinuedProducts` metoda utworzonego w kroku 3. Jedyne różnice są, `GetProductsWithPriceLessThan` metoda przyjmuje jako parametr wejściowy (`price`), `SqlCommand` s zapytanie zawiera parametr (`@MaxPrice`), a parametr jest dodawany do `SqlCommand` s `Parameters` kolekcja jest i przypisana wartość `price` zmiennej.
+`GetProductsWithPriceLessThan` i definicja metody s ściśle przypominają definicję i kod metody `GetDiscontinuedProducts` utworzonej w kroku 3. Jedyne różnice polegają na tym, że metoda `GetProductsWithPriceLessThan` akceptuje jako parametr wejściowy (`price`), zapytanie `SqlCommand` s zawiera parametr (`@MaxPrice`), a parametr zostanie dodany do kolekcji `SqlCommand` s `Parameters` jest i przypisana wartość zmiennej `price`.
 
-Po dodaniu tego kodu, należy ponownie wdrożyć projekt programu SQL Server. Następnie wróć do programu SQL Server Management Studio i Odśwież folder procedur składowanych. Powinien zostać wyświetlony nowy wpis `GetProductsWithPriceLessThan`. W oknie zapytania wprowadź, a następnie wykonaj polecenie `exec GetProductsWithPriceLessThan 25`, która wyświetli wszystkie produkty mniej niż 25 USD, jak pokazano na rysunku 14.
+Po dodaniu tego kodu ponownie Wdróż projekt SQL Server. Następnie wróć do SQL Server Management Studio i Odśwież folder procedury składowane. Powinien zostać wyświetlony nowy wpis `GetProductsWithPriceLessThan`. W oknie zapytania wprowadź i wykonaj polecenie `exec GetProductsWithPriceLessThan 25`, w którym zostaną wyświetlone wszystkie produkty mniejsze niż $25, jak pokazano na rysunku 14.
 
-[![Produkty w wysokości 25 USD są wyświetlane](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
+[Wyświetlane są ![produkty poniżej $25](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image27.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image26.png)
 
-**Rysunek 14**: Wyświetlane są produktów w wysokości 25 USD ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))
+**Ilustracja 14**. wyświetlane są produkty poniżej $25 ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image28.png))
 
-## <a name="step-6-calling-the-managed-stored-procedure-from-the-data-access-layer"></a>Krok 6. Wywoływanie zarządzanej procedury składowanej z warstwy dostępu do danych
+## <a name="step-6-calling-the-managed-stored-procedure-from-the-data-access-layer"></a>Krok 6. wywoływanie zarządzanej procedury składowanej z warstwy dostępu do danych
 
-W tym momencie dodaliśmy `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzane procedur składowanych na potrzeby `ManagedDatabaseConstructs` projektu i zarejestrować je z bazą danych Northwind programu SQL Server. Możemy również wywoływane tych procedurach składowanych zarządzanych z programu SQL Server Management Studio (patrz rysunek s 13 i 14). Aby naszej platformy ASP.NET aplikacji do korzystania z tych zarządzane procedur składowanych, jednak należy dodać je do dostępu do danych i warstwy logiki biznesowej w architekturze. W tym kroku zostanie dodany dwie nowe metody `ProductsTableAdapter` w `NorthwindWithSprocs` wpisana zestawu danych, która została początkowo utworzona w [tworzenie nowych procedur składowanych dla s wpisany zestaw danych TableAdapters](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) samouczka. W kroku 7 dodamy odpowiednie metody do LOGIKI.
+W tym momencie dodaliśmy `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzane procedury składowane do projektu `ManagedDatabaseConstructs` i zarejestrowali je za pomocą bazy danych Northwind SQL Server Database. Te zarządzane procedury składowane są również wywoływane z SQL Server Management Studio (zobacz rysunek s 13 i 14). Aby nasze aplikacje ASP.NET korzystały z tych zarządzanych procedur składowanych, należy jednak dodać je do warstw dostępu do danych i logiki biznesowej w architekturze. W tym kroku dodamy dwie nowe metody do `ProductsTableAdapter` w określonym `NorthwindWithSprocs` zestawie danych, który początkowo został utworzony w [nowych procedurach składowanych dla wpisanych TableAdapters zestawu danych](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md) . W kroku 7 dodamy odpowiednie metody do LOGIKI biznesowej.
 
-Otwórz `NorthwindWithSprocs` wpisana zestawu danych w programie Visual Studio i Rozpocznij, dodając nową metodę `ProductsTableAdapter` o nazwie `GetDiscontinuedProducts`. Aby dodać nowe metody TableAdapter, kliknij prawym przyciskiem myszy nazwę s TableAdapter w projektancie, a następnie wybierz opcję Dodaj zapytanie z menu kontekstowego.
+Otwórz zestaw danych z `NorthwindWithSprocs` określonym w programie Visual Studio i zacznij od dodania nowej metody do `ProductsTableAdapter` o nazwie `GetDiscontinuedProducts`. Aby dodać nową metodę do TableAdapter, kliknij prawym przyciskiem myszy nazwę TableAdapter s w Projektancie i wybierz opcję Dodaj zapytanie z menu kontekstowego.
 
 > [!NOTE]
-> Ponieważ przeszliśmy z bazy danych Northwind `App_Data` folderu z wystąpieniem bazy danych programu SQL Server 2005 Express Edition, konieczne jest zaktualizowana odpowiednie parametry połączenia w pliku Web.config w celu odzwierciedlenia tej zmiany. W kroku 2 opisano sposób aktualizowania `NORTHWNDConnectionString` wartość w `Web.config`. Jeśli nie pamiętasz dokonać tej aktualizacji, następnie zobaczysz komunikat o błędzie można dodać zapytania. Nie można odnaleźć połączenia `NORTHWNDConnectionString` dla obiektu `Web.config` w oknie dialogowym w trakcie próby Dodaj nową metodę do TableAdapter. Aby rozwiązać ten problem, kliknij przycisk OK, a następnie przejdź do `Web.config` i zaktualizuj `NORTHWNDConnectionString` wartość zgodnie z opisem w kroku 2. Spróbuj ponowne dodanie metody do TableAdapter. Teraz powinien działać bez błędów.
+> Ponieważ baza danych Northwind została przeniesiona z folderu `App_Data` do wystąpienia bazy danych SQL Server 2005 Express Edition, należy koniecznie zaktualizować odpowiednie parametry połączenia w pliku Web. config w celu odzwierciedlenia tej zmiany. W kroku 2 omówiono aktualizowanie wartości `NORTHWNDConnectionString` w `Web.config`. Jeśli nie pamiętasz tej aktualizacji, zostanie wyświetlony komunikat o błędzie nie można dodać zapytania. Nie można odnaleźć `NORTHWNDConnectionString` połączenia dla obiektu `Web.config` w oknie dialogowym podczas próby dodania nowej metody do TableAdapter. Aby rozwiązać ten problem, kliknij przycisk OK, a następnie przejdź do `Web.config` i zaktualizuj wartość `NORTHWNDConnectionString` zgodnie z opisem w sekcji Krok 2. Następnie spróbuj ponownie dodać metodę do TableAdapter. Tym razem należy to zrobić bez błędu.
 
-Dodawanie nowej metody powoduje uruchomienie Kreatora konfiguracji zapytania TableAdapter, w którym użyto wiele razy w ciągu ostatnich samouczków. Pierwszym krokiem prosi NAS, aby określić, jak TableAdapter powinien uzyskiwać dostęp do bazy danych: za pomocą instrukcji SQL zapytań ad-hoc lub za pomocą nowej lub istniejącej procedury składowanej. Ponieważ firma Microsoft wcześniej utworzony i zarejestrowany `GetDiscontinuedProducts` zarządzanej procedury składowanej z bazą danych, wybierz pozycję Użyj istniejącej opcji procedury przechowywane i trafień dalej.
+Dodanie nowej metody powoduje uruchomienie Kreatora konfiguracji zapytania TableAdapter, którego użyto wielokrotnie w poprzednich samouczkach. Pierwszy krok prosi nas o określenie, w jaki sposób element TableAdapter powinien uzyskiwać dostęp do bazy danych: za pośrednictwem instrukcji SQL ad hoc lub za pośrednictwem nowej lub istniejącej procedury składowanej. Ponieważ już utworzono i zarejestrowano `GetDiscontinuedProducts` zarządzaną procedurę przechowywaną w bazie danych, wybierz opcję Użyj istniejącej procedury składowanej, a następnie kliknij przycisk Dalej.
 
-[![Wybierz opcję użycia istniejącej procedury składowanej — opcja](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
+[![wybrać opcję Użyj istniejącej procedury składowanej](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image30.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image29.png)
 
-**Rysunek 15**: Wybierz opcję Użyj istniejącej przechowywane procedury opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))
+**Ilustracja 15**. Wybierz opcję Użyj istniejącej procedury składowanej ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image31.png))
 
-Następny ekran nam monituje o podanie procedury składowanej, który będzie wywoływał metodę. Wybierz `GetDiscontinuedProducts` zarządzane procedurę składowaną z listy rozwijanej, a następnie kliknij przycisk Dalej.
+Na następnym ekranie zostanie wyświetlony komunikat z prośbą o procedurę składowaną, która zostanie wywołana przez metodę. Wybierz z listy rozwijanej `GetDiscontinuedProducts` zarządzaną procedurę składowaną, a następnie kliknij przycisk Dalej.
 
-[![Wybierz GetDiscontinuedProducts zarządzanego procedury składowanej](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
+[![wybrać zarządzaną procedurę składowaną GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image33.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image32.png)
 
-**Rysunek 16**: Wybierz `GetDiscontinuedProducts` zarządzane Stored Procedure ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))
+**Rysunek 16**. Wybierz zarządzaną `GetDiscontinuedProducts` procedury składowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image34.png))
 
-Firma Microsoft następnie monit o określenie, czy procedura składowana ma zwracać wiersze, pojedynczą wartość lub nie rób. Ponieważ `GetDiscontinuedProducts` zwraca zestaw wierszy nieobsługiwane produktu z pierwszej opcji (dane tabelaryczne), a następnie kliknij przycisk Dalej.
+Zostanie wyświetlony monit o określenie, czy procedura składowana zwraca wiersze, pojedynczą wartość, czy nic. Ponieważ `GetDiscontinuedProducts` zwraca zestaw wycofanych wierszy produktu, wybierz pierwszą opcję (dane tabelaryczne), a następnie kliknij przycisk Dalej.
 
-[![Wybierz opcję dane tabelaryczne](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
+[![wybrać opcji dane tabelaryczne](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image36.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image35.png)
 
-**Rysunek 17**: Wybierz opcję danych tabelarycznych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image37.png))
+**Ilustracja 17**. Wybierz opcję danych tabelarycznych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image37.png))
 
-Ekran końcowy Kreator pozwala określać wzorce dostępu do danych, które są używane, jak i nazwy metod wynikowe. Pozostaw zaznaczone pola wyboru i nazwę metody `FillByDiscontinued` i `GetDiscontinuedProducts`. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
+Końcowy ekran kreatora pozwala nam określić używane wzorce dostępu do danych oraz nazwy metod wynikowych. Pozostaw zaznaczone pola wyboru i nazwij metody `FillByDiscontinued` i `GetDiscontinuedProducts`. Kliknij przycisk Zakończ, aby zakończyć pracę kreatora.
 
-[![Nazwa FillByDiscontinued metod i GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
+[![nazwy metod FillByDiscontinued i GetDiscontinuedProducts](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image39.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image38.png)
 
-**Rysunek 18**: Nazwa metody `FillByDiscontinued` i `GetDiscontinuedProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))
+**Ilustracja 18**. nazwij metody `FillByDiscontinued` i `GetDiscontinuedProducts` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image40.png))
 
-Powtórz te kroki, aby utworzyć metody o nazwie `FillByPriceLessThan` i `GetProductsWithPriceLessThan` w `ProductsTableAdapter` dla `GetProductsWithPriceLessThan` zarządzane procedury składowanej.
+Powtórz te kroki, aby utworzyć metody o nazwie `FillByPriceLessThan` i `GetProductsWithPriceLessThan` w `ProductsTableAdapter` dla procedury składowanej `GetProductsWithPriceLessThan` Managed.
 
-Rysunek 19 przedstawiono zrzut ekranu przedstawiający Projektanta obiektów DataSet, po dodaniu metody służące do `ProductsTableAdapter` dla `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzane procedur składowanych.
+Rysunek 19 przedstawia zrzut ekranu projektanta obiektów DataSet po dodaniu metod do `ProductsTableAdapter` dla `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzanych procedur składowanych.
 
-[![ProductsTableAdapter obejmuje nowe metody, które są dodawane w tym kroku](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
+[![ProductsTableAdapter zawiera nowe metody dodane w tym kroku](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image42.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image41.png)
 
-**Rysunek 19**: `ProductsTableAdapter` Obejmuje nowe metody dodane, w tym kroku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image43.png))
+**Ilustracja 19**. `ProductsTableAdapter` obejmuje nowe metody dodane w tym kroku ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image43.png))
 
 ## <a name="step-7-adding-corresponding-methods-to-the-business-logic-layer"></a>Krok 7. Dodawanie odpowiednich metod do warstwy logiki biznesowej
 
-Teraz, gdy zaktualizowano warstwy dostępu do danych w celu uwzględnienia metod wywoływania zarządzanego procedur składowanych, dodać kroki 4 i 5, należy dodać odpowiednie metody do warstwy logiki biznesowej. Dodaj następujące dwie metody `ProductsBLLWithSprocs` klasy:
+Po zaktualizowaniu warstwy dostępu do danych w celu uwzględnienia metod wywoływania zarządzanych procedur składowanych, które zostały dodane w krokach 4 i 5, musimy dodać odpowiednie metody do warstwy logiki biznesowej. Dodaj następujące dwie metody do klasy `ProductsBLLWithSprocs`:
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample7.cs)]
 
-Obie metody po prostu wywołanie odpowiedniej metody DAL i zwracają `ProductsDataTable` wystąpienia. `DataObjectMethodAttribute` Znaczników powyżej każdej metody powoduje, że te metody, które mają zostać uwzględnione na liście rozwijanej w karcie Wybierz kreatora skonfiguruj źródło danych elementu ObjectDataSource s.
+Obie metody po prostu wywołują odpowiednie metody DAL i zwracają wystąpienie `ProductsDataTable`. Znaczniki `DataObjectMethodAttribute` powyżej każda metoda powoduje, że te metody zostaną uwzględnione na liście rozwijanej na karcie Wybierz w Kreatorze konfiguracji źródła danych programu ObjectDataSource s.
 
-## <a name="step-8-invoking-the-managed-stored-procedures-from-the-presentation-layer"></a>Krok 8. Wywołanie zarządzanego procedur składowanych z warstwy prezentacji
+## <a name="step-8-invoking-the-managed-stored-procedures-from-the-presentation-layer"></a>Krok 8: wywoływanie zarządzanych procedur składowanych z warstwy prezentacji
 
-Przy użyciu logiki biznesowej i warstwy dostępu do danych rozszerzony o obsługę wywoływania `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzane procedur składowanych, możemy teraz wyświetlić tych przechowywanych procedur wyniki za pośrednictwem strony ASP.NET.
+Dzięki warstwom logiki biznesowej i dostępu do danych dowiesz się, jak włączyć obsługę wywoływania `GetDiscontinuedProducts` i `GetProductsWithPriceLessThan` zarządzane procedury składowane, teraz można wyświetlić te procedury składowane za pomocą strony ASP.NET.
 
-Otwórz `ManagedFunctionsAndSprocs.aspx` stronie `AdvancedDAL` folder i z przybornika przeciągnij GridView do konstruktora. Ustaw GridView s `ID` właściwości `DiscontinuedProducts` i z jego tag inteligentny powiązać go do nowego elementu ObjectDataSource, o nazwie `DiscontinuedProductsDataSource`. Konfigurowanie kontrolki ObjectDataSource swoich danych z `ProductsBLLWithSprocs` klasy s `GetDiscontinuedProducts` metody.
+Otwórz stronę `ManagedFunctionsAndSprocs.aspx` w folderze `AdvancedDAL` i z przybornika przeciągnij widok GridView do projektanta. Ustaw właściwość GridView s `ID` na `DiscontinuedProducts` i, z jej tagu inteligentnego, powiąż ją z nowym elementem ObjectDataSource o nazwie `DiscontinuedProductsDataSource`. Skonfiguruj element ObjectDataSource, aby ściągał swoje dane z metody `GetDiscontinuedProducts` `ProductsBLLWithSprocs` Class.
 
-[![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy ProductsBLLWithSprocs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
+[![skonfigurować element ObjectDataSource do używania klasy ProductsBLLWithSprocs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image45.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image44.png)
 
-**Rysunek 20**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLLWithSprocs` klasy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))
+**Ilustracja 20**. Konfigurowanie elementu ObjectDataSource do używania klasy `ProductsBLLWithSprocs` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image46.png))
 
-[![Wybierz metodę GetDiscontinuedProducts z listy rozwijanej wybierz kartę](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
+[![wybierz z listy rozwijanej metodę GetDiscontinuedProducts na karcie Wybieranie](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image48.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image47.png)
 
-**Rysunek 21**: Wybierz `GetDiscontinuedProducts` metodę z listy rozwijanej wybierz karcie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image49.png))
+**Ilustracja 21**. wybierz metodę `GetDiscontinuedProducts` z listy rozwijanej na karcie Wybieranie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image49.png))
 
-Ponieważ ta siatka będzie służyć do tylko wyświetlanie informacji o produkcie, ustawić list rozwijanych w UPDATE, INSERT i usuwanie kart (Brak), a następnie kliknij przycisk Zakończ.
+Ponieważ ta siatka zostanie użyta do wyświetlania informacji o produkcie, Ustaw listę rozwijaną na kartach UPDATE, INSERT i DELETE na wartość (brak), a następnie kliknij przycisk Zakończ.
 
-Po ukończeniu kreatora, Visual Studio spowoduje automatyczne dodanie elementu BoundField lub CheckBoxField dla każdego pola danych w `ProductsDataTable`. Poświęć chwilę, aby usunąć wszystkie te pola z wyjątkiem `ProductName` i `Discontinued`, jaką punktu Usługi GridView i oznaczeniu deklaracyjnym s ObjectDataSource powinien wyglądać podobnie do poniższego:
+Po zakończeniu działania kreatora program Visual Studio automatycznie doda BoundField lub CheckBoxField dla każdego pola danych w `ProductsDataTable`. Poświęć chwilę, aby usunąć wszystkie te pola z wyjątkiem `ProductName` i `Discontinued`, w tym momencie znaczniki deklaratywne GridView i ObjectDataSource s powinny wyglądać podobnie do następujących:
 
 [!code-aspx[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample8.aspx)]
 
-Poświęć chwilę, aby wyświetlić tą stronę za pośrednictwem przeglądarki. Gdy odwiedzenia strony, wywołań elementu ObjectDataSource `ProductsBLLWithSprocs` klasy s `GetDiscontinuedProducts` metody. Jak widzieliśmy w kroku 7, ta metoda wywołuje w dół do DAL s `ProductsDataTable` klasy s `GetDiscontinuedProducts` metody, która wywołuje `GetDiscontinuedProducts` procedury składowanej. Procedura składowana jest zarządzanej procedury składowanej i wykonuje kod, utworzonego w kroku 3, zwracając uwzględniałyby produkty.
+Poświęć chwilę na wyświetlenie tej strony za pomocą przeglądarki. Po odwiedzeniu strony element ObjectDataSource wywołuje metodę `GetDiscontinuedProducts` `ProductsBLLWithSprocs` Class. Jak zostało to opisane w kroku 7, ta metoda wywołuje do DAL `ProductsDataTable` s metody `GetDiscontinuedProducts` klasy s, która wywołuje `GetDiscontinuedProducts` procedurę składowaną. Ta procedura składowana jest zarządzaną procedurą składowaną i wykonuje kod utworzony w kroku 3, zwracając wycofane produkty.
 
-Wyniki zwrócone przez procedurę składowaną zarządzane są pakowane w w `ProductsDataTable` przez warstwę DAL a później wrócili do LOGIKI, która zwraca je do warstwy prezentacji, gdzie są powiązane z kontrolki GridView i wyświetlane. Zgodnie z oczekiwaniami, siatka zawiera listę tych produktów, które zostały anulowane.
+Wyniki zwrócone przez zarządzaną procedurę składowaną są pakowane do `ProductsDataTable` przez DAL, a następnie zwracane do LOGIKI biznesowej, który następnie zwraca je do warstwy prezentacji, gdzie są one powiązane z elementem GridView i są wyświetlane. Zgodnie z oczekiwaniami siatka zawiera listę produktów, które zostały wycofane.
 
-[![Produkty wycofane](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
+[![produkty, które zostały wycofane, są wymienione](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image51.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image50.png)
 
-**Rysunek 22**: Produkty wycofane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image52.png))
+**Ilustracja 22**. wycofane produkty są wymienione na liście ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image52.png))
 
-Dla dalszych rozwiązaniem Dodaj pole tekstowe i innej kontrolki GridView do strony. Ma to GridView Wyświetl produkty mniejsza niż wartość wprowadzona w polu tekstowym, wywołując `ProductsBLLWithSprocs` klasy s `GetProductsWithPriceLessThan` metody.
+Aby zapewnić dalsze rozwiązanie, Dodaj do strony pole tekstowe i inny element GridView. Czy w tym widoku GridView są wyświetlane produkty mniejsze niż wartość wprowadzona w polu tekstowym przez wywołanie metody `GetProductsWithPriceLessThan` `ProductsBLLWithSprocs` klasy s.
 
-## <a name="step-9-creating-and-calling-t-sql-udfs"></a>Krok 9. Tworzenie i wywoływanie funkcji UDF języka T-SQL
+## <a name="step-9-creating-and-calling-t-sql-udfs"></a>Krok 9. Tworzenie i wywoływanie UDF T-SQL
 
-Funkcje zdefiniowane przez użytkownika lub funkcje zdefiniowane przez użytkownika, czy obiekty bazy danych ściśle mimic semantykę funkcji w językach programowania. Takich jak funkcji w języku C# funkcje zdefiniowane przez użytkownika można uwzględnić zmienną liczbę parametrów wejściowych i zwraca wartość określonego typu. Funkcji zdefiniowanej przez użytkownika może zwracać albo danych skalarnych — ciąg, liczba całkowita i tak dalej — lub dane tabelaryczne. Pozwól, s, Przyjrzyj się szybkie oba rodzaje funkcje zdefiniowane przez użytkownika, zaczynając od funkcji zdefiniowanej przez użytkownika, który zwraca typ danych skalarnych.
+Funkcje zdefiniowane przez użytkownika, lub UDF, to obiekty bazy danych ściśle naśladuje semantykę funkcji w językach programowania. Podobnie jak w przypadku C#funkcji w, UDF może zawierać zmienną liczbę parametrów wejściowych i zwracać wartość określonego typu. System UDF może zwracać dane skalarne — ciąg, liczbę całkowitą i tak dalej lub dane tabelaryczne. Zezwól na szybkie przeszukiwanie obu typów UDF, rozpoczynając od wartości UDF, która zwraca typ danych skalarnych.
 
-Następujące UDF oblicza wartość szacunkową spisu dla określonego produktu. Robi to przy podejmowaniu w trzech parametrów wejściowych - `UnitPrice`, `UnitsInStock`, i `Discontinued` wartości dla konkretnego produktu — i zwraca wartość typu `money`. Oblicza wartość szacunkową magazynu przez pomnożenie `UnitPrice` przez `UnitsInStock`. Nieobsługiwane elementów ta wartość jest o połowę.
+Poniższy format UDF oblicza szacowaną wartość spisu dla określonego produktu. Robi to przez podejmowanie trzech parametrów wejściowych — wartości `UnitPrice`, `UnitsInStock`i `Discontinued` dla określonego produktu — i zwraca wartość typu `money`. Oblicza szacowaną wartość spisu, mnożąc `UnitPrice` przez `UnitsInStock`. W przypadku niewycofanych elementów ta wartość jest mniejsza.
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample9.sql)]
 
-Po dodaniu tej funkcji zdefiniowanej przez użytkownika w bazie danych można znaleźć za pomocą programu Management Studio, rozszerzając programowania folder, a następnie funkcji, a następnie wartości skalarnych. Mogą być używane w `SELECT` zapytanie w następujący sposób:
+Po dodaniu tej funkcji UDF do bazy danych można ją znaleźć za pomocą Management Studio, rozszerzając folder programowalny, a następnie funkcje, a następnie funkcje skalarne Value. Można go użyć w zapytaniu `SELECT`, takich jak:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample10.sql)]
 
-Po dodaniu `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika w bazie danych Northwind; Ilustracja 23 zawierają dane wyjściowe powyższych `SELECT` zapytania po wyświetleniu za pomocą programu Management Studio. Należy również zauważyć, że funkcji zdefiniowanej przez użytkownika znajduje się w folderze wartości skalarnych w Eksploratorze obiektów.
+Dodano `udf_ComputeInventoryValue` UDF do bazy danych Northwind; Rysunek 23 pokazuje dane wyjściowe powyższego `SELECT` zapytania podczas przeglądania za pomocą Management Studio. Należy również zauważyć, że UDF jest wymieniony w folderze funkcje skalarne wartości w Eksplorator obiektów.
 
-[![Każdy produkt s wartości magazynu znajduje się na liście](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
+[![wszystkie wartości spisu produktów produktu są wymienione na liście](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image54.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image53.png)
 
-**Ilustracja 23**: Każdy produkt s wartości magazynu znajduje się na liście ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image55.png))
+**Ilustracja 23**: wszystkie wartości spisu produktów są wyświetlane ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image55.png))
 
-Funkcje zdefiniowane przez użytkownika może również zwracać dane tabelaryczne. Na przykład możemy utworzyć funkcji zdefiniowanej przez użytkownika, która zwraca produkty, które należą do określonej kategorii:
+UDF może również zwracać dane tabelaryczne. Można na przykład utworzyć ciąg UDF, który zwraca produkty należące do określonej kategorii:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample11.sql)]
 
-`udf_GetProductsByCategoryID` Akceptuje UDF `@CategoryID` parametr wejściowy i zwraca wyniki z określonym `SELECT` zapytania. Po utworzeniu tej funkcji zdefiniowanej przez użytkownika może być przywoływany w `FROM` (lub `JOIN`) klauzuli `SELECT` zapytania. Poniższy przykład zwróci `ProductID`, `ProductName`, i `CategoryID` wartości dla każdej beverages.
+`udf_GetProductsByCategoryID` UDF akceptuje parametr wejściowy `@CategoryID` i zwraca wyniki określonego zapytania `SELECT`. Po utworzeniu tego elementu UDF można odwoływać się w klauzuli `FROM` (lub `JOIN`) zapytania `SELECT`. Poniższy przykład zwróci wartości `ProductID`, `ProductName`i `CategoryID` dla każdego z napojów.
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample12.sql)]
 
-Po dodaniu `udf_GetProductsByCategoryID` funkcji zdefiniowanej przez użytkownika w bazie danych Northwind; 24 rysunek przedstawia dane wyjściowe powyższych `SELECT` zapytania po wyświetleniu za pomocą programu Management Studio. Funkcje zdefiniowane przez użytkownika, które zwracają dane tabelaryczne znajdują się w folderze funkcji wartości tabeli s Eksplorator obiektów.
+Dodano `udf_GetProductsByCategoryID` UDF do bazy danych Northwind; Rysunek 24 przedstawia dane wyjściowe powyższego `SELECT` zapytania podczas przeglądania za pomocą Management Studio. UDF, które zwracają dane tabelaryczne, można znaleźć w folderze funkcji tabeli Eksplorator obiektów s.
 
-[![ProductID, ProductName i CategoryID są wyświetlane dla każdego spożywczy](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
+[![identyfikator ProductID, NazwaProduktu i IDKategorii są wyświetlane dla każdego napoju](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image57.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image56.png)
 
-**Rysunek 24**: `ProductID`, `ProductName`, I `CategoryID` są wyświetlane dla każdego spożywczy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))
+**Ilustracja 24**. `ProductID`, `ProductName`i `CategoryID` są wyświetlane dla każdego napoju ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image58.png))
 
 > [!NOTE]
-> Aby uzyskać więcej informacji dotyczących tworzenia i używania funkcji UDF, zapoznaj się z [wprowadzenie do funkcji User-defined](http://www.sqlteam.com/item.asp?ItemID=1955). Sprawdź również [korzyści i funkcje Drawbacks of User-Defined](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1).
+> Aby uzyskać więcej informacji na temat tworzenia i używania UDF, zapoznaj [się z wprowadzeniem do funkcji zdefiniowanych przez użytkownika](http://www.sqlteam.com/item.asp?ItemID=1955). Sprawdź również [zalety i wady funkcji zdefiniowanych przez użytkownika](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1).
 
-## <a name="step-10-creating-a-managed-udf"></a>Krok 10. Tworzenie zarządzanej funkcji zdefiniowanej przez użytkownika
+## <a name="step-10-creating-a-managed-udf"></a>Krok 10. Tworzenie zarządzanego elementu UDF
 
-`udf_ComputeInventoryValue` i `udf_GetProductsByCategoryID` funkcje zdefiniowane przez użytkownika, utworzony w powyższych przykładach są obiektami bazy danych języka T-SQL. SQL Server 2005 obsługuje również zarządzanych funkcje zdefiniowane przez użytkownika, które mogą być dodawane do `ManagedDatabaseConstructs` projektu tak samo, jak zarządzany procedur składowanych z kroki 3 i 5. W tym kroku umożliwić s zaimplementować `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika w kodzie zarządzanym.
+`udf_ComputeInventoryValue` i `udf_GetProductsByCategoryID` UDF utworzone w powyższych przykładach to obiekty bazy danych T-SQL. SQL Server 2005 obsługuje również zarządzane UDF, które można dodać do projektu `ManagedDatabaseConstructs`, podobnie jak zarządzane procedury składowane z kroków 3 i 5. Na potrzeby tego kroku, należy zaimplementować `udf_ComputeInventoryValue` UDF w kodzie zarządzanym.
 
-Aby dodać zarządzane UDF do `ManagedDatabaseConstructs` projektu, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz opcję dodać nowy element. Wybierz szablon zdefiniowane przez użytkownika w oknie dialogowym Dodaj nowy element i nadaj nowemu plikowi UDF `udf_ComputeInventoryValue_Managed.cs`.
+Aby dodać zarządzany system UDF do projektu `ManagedDatabaseConstructs`, kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań i wybierz polecenie Dodaj nowy element. Wybierz szablon zdefiniowany przez użytkownika w oknie dialogowym Dodaj nowy element i nazwij nowy plik UDF `udf_ComputeInventoryValue_Managed.cs`.
 
-[![Dodaj nowe UDF zarządzanego projektu ManagedDatabaseConstructs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
+[![dodać nowego zarządzanego elementu UDF do projektu ManagedDatabaseConstructs](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image60.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image59.png)
 
-**Rysunek 25**: Dodaj nowe UDF zarządzane do `ManagedDatabaseConstructs` projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
+**Ilustracja 25**. Dodawanie nowego zarządzanego elementu UDF do projektu `ManagedDatabaseConstructs` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
 
-Tworzy szablon funkcji User-defined `partial` klasę o nazwie `UserDefinedFunctions` przy użyciu metody, których nazwa jest taka sama jak nazwa pliku s klasy (`udf_ComputeInventoryValue_Managed`, w tym wystąpieniu). Ta metoda jest urządzony przy użyciu [ `SqlFunction` atrybut](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), który flagi metodę jako zarządzanej funkcji zdefiniowanej przez użytkownika.
+Zdefiniowany przez użytkownika szablon funkcji tworzy klasę `partial` o nazwie `UserDefinedFunctions` z metodą, której nazwa jest taka sama jak nazwa pliku klasy (`udf_ComputeInventoryValue_Managed`w tym wystąpieniu). Ta metoda jest dekoracyjna przy użyciu [atrybutu`SqlFunction`](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), który oznacza metodę jako ZARZĄDZANY system UDF.
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample13.cs)]
 
-`udf_ComputeInventoryValue` Metoda obecnie zwraca [ `SqlString` obiektu](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx) i nie akceptuje dowolne parametry wejściowe. Należy zaktualizować definicję metody, dzięki czemu przyjmuje trzy parametry - wejściowe `UnitPrice`, `UnitsInStock`, i `Discontinued` — i zwraca `SqlMoney` obiektu. Logika do obliczania wartości magazynu jest identyczna z języka T-SQL `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika.
+Metoda `udf_ComputeInventoryValue` obecnie zwraca [obiekt`SqlString`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx) i nie akceptuje żadnych parametrów wejściowych. Musimy zaktualizować definicję metody, aby akceptowała trzy parametry wejściowe — `UnitPrice`, `UnitsInStock`i `Discontinued`-i zwraca obiekt `SqlMoney`. Logika obliczania wartości spisu jest taka sama jak w `udf_ComputeInventoryValue` UDF w języku T-SQL.
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample14.cs)]
 
-Należy zauważyć, że parametry wejściowe metoda s funkcji zdefiniowanej przez użytkownika są jako odpowiednie typy SQL: `SqlMoney` dla `UnitPrice` pola [ `SqlInt16` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlint16.aspx) dla `UnitsInStock`, i [ `SqlBoolean` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlboolean.aspx) Aby uzyskać `Discontinued`. Te typy danych odzwierciedlają typów zdefiniowanych w `Products` tabeli: `UnitPrice` kolumna jest kolumną typu `money`, `UnitsInStock` kolumny typu `smallint`i `Discontinued` kolumny typu `bit`.
+Należy pamiętać, że parametry wejściowe metody UDF s mają odpowiednie typy SQL: `SqlMoney` dla `UnitPrice` pole, [`SqlInt16`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlint16.aspx) dla `UnitsInStock`i [`SqlBoolean`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlboolean.aspx) dla `Discontinued`. Te typy danych odzwierciedlają typy zdefiniowane w tabeli `Products`: kolumna `UnitPrice` jest typu `money`, kolumna `UnitsInStock` typu `smallint`oraz kolumna `Discontinued` typu `bit`.
 
-Zaczyna się kod, tworząc `SqlMoney` wystąpienia o nazwie `inventoryValue` przypisany wartość 0. `Products` Umożliwia tabeli bazy danych `NULL` wartości w `UnitsInPrice` i `UnitsInStock` kolumn. W związku z tym, musimy najpierw Jeśli te wartości zawierają `NULL` s, co możemy zrobić za pomocą `SqlMoney` obiektu s [ `IsNull` właściwość](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.isnull.aspx). Jeśli oba `UnitPrice` i `UnitsInStock` zawierają non -`NULL` wartości, a następnie możemy obliczyć `inventoryValue` jako produktu dwie. Następnie, jeśli `Discontinued` ma wartość true, a następnie możemy połowę wartość.
+Kod zaczyna się od utworzenia wystąpienia `SqlMoney` o nazwie `inventoryValue`, do którego przypisano wartość 0. Tabela `Products` zezwala na wartości `NULL` bazy danych w kolumnach `UnitsInPrice` i `UnitsInStock`. W związku z tym musi najpierw sprawdzić, czy te wartości zawierają `NULL` s, które można wykonać za pomocą właściwości `SqlMoney` obiektu s [`IsNull`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.isnull.aspx). Jeśli oba `UnitPrice` i `UnitsInStock` zawierają wartości nie`NULL`, firma Microsoft obliczy `inventoryValue` jako iloczyn dwóch. Następnie, jeśli `Discontinued` ma wartość true, wartość jest mniejsza.
 
 > [!NOTE]
-> `SqlMoney` Obiektu może składać się dwa `SqlMoney` wystąpień mnoży się ze sobą. Nie zezwalaj `SqlMoney` wystąpienia pomnożona przez literału liczba zmiennoprzecinkowa. W związku z tym o połowę `inventoryValue` firma Microsoft należy go pomnożyć przez nową `SqlMoney` wystąpienia, który ma wartość 0,5.
+> Obiekt `SqlMoney` umożliwia tylko dwa wystąpienia `SqlMoney` do przemnożenia jednocześnie. Nie zezwala na pomnożenie wystąpienia `SqlMoney` przez literał liczby zmiennoprzecinkowej. W związku z tym do połowy `inventoryValue` mnożymy ją przez nowe wystąpienie `SqlMoney` o wartości 0,5.
 
-## <a name="step-11-deploying-the-managed-udf"></a>Krok 11. Wdrażanie funkcji zarządzanej zdefiniowanej przez użytkownika
+## <a name="step-11-deploying-the-managed-udf"></a>Krok 11. wdrażanie zarządzanego formatu UDF
 
-Skoro zarządzanych UDF została już utworzona, jesteśmy gotowi wdrożyć ją z bazą danych Northwind. Jak widzieliśmy w kroku 4 obiektów zarządzanych w projekcie programu SQL Server są wdrażane, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierając opcję wdrażania z poziomu menu kontekstowego.
+Po utworzeniu zarządzanego formatu UDF wszystko jest gotowe do wdrożenia w bazie danych Northwind. W kroku 4 obiekty zarządzane w projekcie SQL Server są wdrażane przez kliknięcie prawym przyciskiem myszy nazwy projektu w Eksplorator rozwiązań i wybranie opcji Wdróż z menu kontekstowego.
 
-Wdrożenie projektu wróć do programu SQL Server Management Studio i Odśwież folder skalarne. Zostaną wyświetlone dwie pozycje:
+Po wdrożeniu projektu Wróć do SQL Server Management Studio i Odśwież folder funkcje o wartościach skalarnych. Powinny teraz być widoczne dwa wpisy:
 
-- `dbo.udf_ComputeInventoryValue` -UDF języka T-SQL utworzony w kroku 9 i
-- `dbo.udf ComputeInventoryValue_Managed` -zarządzanych UDF utworzony w kroku 10, który właśnie został wdrożony.
+- `dbo.udf_ComputeInventoryValue` — UDF języka T-SQL utworzony w kroku 9 i
+- `dbo.udf ComputeInventoryValue_Managed` — zarządzany system UDF utworzony w kroku 10, który został właśnie wdrożony.
 
-Aby przetestować ten zarządzanych funkcji zdefiniowanej przez użytkownika, wykonaj następujące zapytanie z poziomu programu Management Studio:
+Aby przetestować zarządzany system UDF, wykonaj następujące zapytanie w Management Studio:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample15.sql)]
 
-To polecenie używa zarządzanej `udf ComputeInventoryValue_Managed` funkcji zdefiniowanej przez użytkownika zamiast języka T-SQL `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika, ale dane wyjściowe jest taka sama. Odwołaj się do 23 rysunku, aby wyświetlić zrzut ekranu danych wyjściowych s funkcji zdefiniowanej przez użytkownika.
+To polecenie używa zarządzanej `udf ComputeInventoryValue_Managed` UDF zamiast UDF `udf_ComputeInventoryValue` języka T-SQL, ale dane wyjściowe są takie same. Zapoznaj się z powrotem z rysunkiem 23, aby wyświetlić zrzut ekranu przedstawiający dane wyjściowe w formacie UDF s.
 
-## <a name="step-12-debugging-the-managed-database-objects"></a>Krok 12: Debugowanie obiektami zarządzanej bazy danych
+## <a name="step-12-debugging-the-managed-database-objects"></a>Krok 12. debugowanie obiektów zarządzanej bazy danych
 
-W [debugowanie procedur składowanych](debugging-stored-procedures-cs.md) samouczku Omówiliśmy trzy opcje debugowania programu SQL Server za pomocą programu Visual Studio: Bezpośredniego debugowania bazy danych, debugowania aplikacji i debugowanie z projektu programu SQL Server. Zarządzane bazy danych obiekty nie można debugować za pomocą bezpośredniego debugowania bazy danych, ale może być debugowany, od aplikacji klienckiej i bezpośrednio z projekt programu SQL Server. Aby debugowania do pracy jednak bazy danych programu SQL Server 2005 muszą zezwalać na debugowanie SQL/CLR. Pamiętamy, podczas pierwszego utworzenia `ManagedDatabaseConstructs` projektu programu Visual Studio pytanie, nam czy Chcieliśmy, aby włączyć debugowanie (patrz rysunek 6 w kroku 2) SQL/CLR. To ustawienie można zmodyfikować, klikając prawym przyciskiem myszy w bazie danych z okna Eksploratora serwera.
+W samouczku [procedury składowane debugowania](debugging-stored-procedures-cs.md) omówiono trzy opcje debugowania SQL Server za pośrednictwem programu Visual Studio: bezpośrednie debugowanie bazy danych, debugowanie aplikacji i debugowanie z SQL Server projekcie. Obiekty zarządzanej bazy danych nie mogą być debugowane za pośrednictwem bezpośredniego debugowania bazy danych, ale mogą być debugowane z aplikacji klienckiej i bezpośrednio z projektu SQL Server. Aby debugowanie działało, jednak baza danych SQL Server 2005 musi zezwalać na debugowanie SQL/CLR. Odwołaj się, że podczas pierwszego tworzenia projektu `ManagedDatabaseConstructs` Visual Studio prosi nas o włączenie debugowania SQL/CLR (patrz rysunek 6 w kroku 2). To ustawienie można zmodyfikować, klikając prawym przyciskiem myszy bazę danych w oknie Eksplorator serwera.
 
 ![Upewnij się, że baza danych umożliwia debugowanie SQL/CLR](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image62.png)
 
-**Rysunek 26**: Upewnij się, że baza danych umożliwia debugowanie SQL/CLR
+**Ilustracja 26**. Upewnij się, że baza danych umożliwia debugowanie SQL/CLR
 
-Wyobraź sobie, że Chcieliśmy, aby debugować `GetProductsWithPriceLessThan` zarządzane procedury składowanej. Zaczniemy przez ustawienie punktu przerwania w kodzie `GetProductsWithPriceLessThan` metody.
+Załóżmy, że chcemy debugować procedurę składowaną zarządzaną przez `GetProductsWithPriceLessThan`. Możemy zacząć od ustawienia punktu przerwania w kodzie metody `GetProductsWithPriceLessThan`.
 
-[![Ustaw punkt przerwania w metodzie GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
+[![ustawić punktu przerwania w metodzie GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image64.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image63.png)
 
-**Rysunek 27**: Ustaw punkt przerwania `GetProductsWithPriceLessThan` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image65.png))
+**Ilustracja 27**. Ustawianie punktu przerwania w metodzie `GetProductsWithPriceLessThan` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image65.png))
 
-Pozwól s Pierwsze spojrzenie na profilowanie obiektami zarządzanej bazy danych z projektu programu SQL Server. Ponieważ rozwiązanie zawiera dwa projekty — `ManagedDatabaseConstructs` projekt programu SQL Server wraz z naszej witryny sieci Web — Aby debugować z projektu serwera SQL, należy poinstruować Visual Studio, aby uruchomić `ManagedDatabaseConstructs` Projekt serwera SQL, gdy Rozpoczniemy debugowania. Kliknij prawym przyciskiem myszy `ManagedDatabaseConstructs` projektu w Eksploratorze rozwiązań, a następnie wybierz zestaw jako projekt startowy opcję z menu kontekstowego.
+Pozwól, aby najpierw debugować obiekty zarządzanej bazy danych z projektu SQL Server. Ponieważ nasze rozwiązanie obejmuje dwa projekty — `ManagedDatabaseConstructs` SQL Server projekcie wraz z naszą witryną sieci Web — w celu debugowania z projektu SQL Server należy nakazać programowi Visual Studio uruchomienie `ManagedDatabaseConstructs` SQL Server projektu, gdy rozpocznie się debugowanie. Kliknij prawym przyciskiem myszy projekt `ManagedDatabaseConstructs` w Eksplorator rozwiązań i wybierz opcję Ustaw jako projekt startowy z menu kontekstowego.
 
-Gdy `ManagedDatabaseConstructs` projektu zostanie uruchomione z debugera, wykonuje instrukcje SQL w `Test.sql` pliku, który znajduje się w `Test Scripts` folderu. Na przykład, aby przetestować `GetProductsWithPriceLessThan` zarządzane procedury składowanej, Zastąp istniejące `Test.sql` plików zawartości przy użyciu następujących instrukcji, które wywołuje `GetProductsWithPriceLessThan` zarządzane procedury składowanej, przekazując `@CategoryID` wartość 14.95:
+Gdy projekt `ManagedDatabaseConstructs` jest uruchamiany z debugera, wykonuje instrukcje SQL w pliku `Test.sql`, który znajduje się w folderze `Test Scripts`. Na przykład w celu przetestowania `GetProductsWithPriceLessThan` zarządzanej procedury składowanej Zastąp istniejącą `Test.sql` zawartość pliku następującą instrukcją, która wywołuje `GetProductsWithPriceLessThan`ą zarządzaną procedurę przechowywaną w `@CategoryID` wartość 14,95:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample16.sql)]
 
-Powyższy skrypt do wprowadzone był `Test.sql`, rozpocząć debugowanie, przechodząc do menu Debuguj i wybierając Rozpocznij debugowanie lub naciskać klawisz F5 lub zielony odtwarzania ikonę na pasku narzędzi. To będzie kompilować projekty w rozwiązaniu, wdrażanie obiektami zarządzanej bazy danych w bazie danych Northwind, a następnie wykonywania `Test.sql` skryptu. W tym momencie punkt przerwania zostanie osiągnięty, a firma Microsoft może przejść przez `GetProductsWithPriceLessThan` metody, sprawdź wartości parametrów wejściowych i tak dalej.
+Po wprowadzeniu powyższego skryptu do `Test.sql`, Rozpocznij debugowanie, przechodząc do menu Debuguj i wybierając polecenie Rozpocznij debugowanie lub naciskając klawisz F5 lub zieloną ikonę odtwarzania na pasku narzędzi. Spowoduje to skompilowanie projektów w ramach rozwiązania, wdrożenie obiektów zarządzanej bazy danych w bazie danych Northwind, a następnie wykonanie skryptu `Test.sql`. W tym momencie punkt przerwania zostanie trafiony i możemy przejść przez metodę `GetProductsWithPriceLessThan`, przeanalizować wartości parametrów wejściowych i tak dalej.
 
-[![Został trafiony punkt przerwania w metodzie GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
+[![został trafiony punkt przerwania w metodzie GetProductsWithPriceLessThan](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image67.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image66.png)
 
-**Rysunek 28**: Punkt przerwania w `GetProductsWithPriceLessThan` został trafiony — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))
+**Ilustracja 28**. trafienie punktu przerwania w metodzie `GetProductsWithPriceLessThan` ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image68.png))
 
-Aby dla obiektu bazy danych SQL do debugowania za pomocą aplikacji klienckiej konieczne jest skonfigurowania bazy danych do obsługi debugowania aplikacji. Kliknij prawym przyciskiem myszy w bazie danych w Eksploratorze serwera i upewnij się, że zaznaczono opcję debugowania aplikacji. Ponadto należy skonfigurować aplikację ASP.NET do integracji z debugerem SQL i wyłączenie buforowania połączeń. Te kroki zostały szczegółowo omówione w kroku 2 [debugowanie procedur składowanych](debugging-stored-procedures-cs.md) samouczka.
+Aby obiekt bazy danych SQL był debugowany za pomocą aplikacji klienckiej, należy bezwzględnie skonfigurować bazę danych do obsługi debugowania aplikacji. Kliknij prawym przyciskiem myszy bazę danych w Eksplorator serwera i upewnij się, że opcja Debugowanie aplikacji jest zaznaczona. Ponadto należy skonfigurować aplikację ASP.NET do integracji z debugerem SQL i wyłączyć buforowanie połączeń. Te kroki zostały szczegółowo omówione w kroku 2 samouczka [procedury składowane debugowania](debugging-stored-procedures-cs.md) .
 
-Po skonfigurowaniu aplikacji ASP.NET i bazy danych, ustaw witryny sieci Web platformy ASP.NET jako projekt startowy i Rozpocznij debugowanie. Jeśli strona wywołuje jedną zarządzanych obiektów, które ma punkt przerwania, aplikacja zostanie zatrzymany i sterowania zostanie włączony za pośrednictwem do debugera, gdzie możesz przejrzeć kod pokazany na rysunku 28.
+Po skonfigurowaniu aplikacji ASP.NET i bazy danych ustaw witrynę ASP.NET jako projekt startowy, a następnie Rozpocznij debugowanie. Jeśli zostanie wyświetlona strona, która wywołuje jeden z zarządzanych obiektów, które mają punkt przerwania, aplikacja zostanie zatrzymana, a kontrola zostanie przełączona do debugera, gdzie można przejść przez kod, jak pokazano na rysunku 28.
 
-## <a name="step-13-manually-compiling-and-deploying-managed-database-objects"></a>Krok 13 Ręcznie kompilowanie i wdrażanie zarządzane obiekty bazy danych
+## <a name="step-13-manually-compiling-and-deploying-managed-database-objects"></a>Krok 13. ręczne Kompilowanie i wdrażanie obiektów zarządzanych baz danych
 
-Projekty z serwera SQL ułatwiają tworzenie, kompilowanie i wdrażanie obiektami zarządzanej bazy danych. Niestety projekty z serwera SQL są dostępne tylko w wersjach Professional i systemy zespołu programu Visual Studio. Jeśli używasz Visual Web Developer i Standard Edition z programu Visual Studio i ma być używany z obiektami zarządzanej bazy danych, należy ręcznie utworzyć i wdrożyć je. Obejmuje to cztery kroki:
+Projekty SQL Server ułatwiają tworzenie, kompilowanie i wdrażanie obiektów zarządzanych baz danych. Niestety, SQL Server projekty są dostępne tylko w wersjach Professional i Team Systems programu Visual Studio. Jeśli używasz programu Visual Web Developer lub Standard Edition programu Visual Studio i chcesz korzystać z obiektów zarządzanej bazy danych, musisz je ręcznie utworzyć i wdrożyć. Obejmuje to cztery kroki:
 
-1. Utwórz plik, który zawiera kod źródłowy dla obiektu zarządzanej bazy danych
-2. Skompiluj obiekt do zestawu
-3. Rejestrowanie zestawów z bazą danych programu SQL Server 2005 i
-4. Utwórz obiekt bazy danych w programie SQL Server, który wskazuje na odpowiedniej metody w zestawie.
+1. Utwórz plik zawierający kod źródłowy obiektu zarządzanej bazy danych,
+2. Kompiluj obiekt do zestawu,
+3. Zarejestruj zestaw z bazą danych SQL Server 2005 i
+4. Utwórz obiekt bazy danych w SQL Server, który wskazuje odpowiednią metodę w zestawie.
 
-Aby zilustrować tych zadań, niech s, Utwórz nową zarządzanych przez procedury przechowywanej zwracającej tych produktów którego `UnitPrice` jest większa niż określona wartość. Utwórz nowy plik na komputerze o nazwie `GetProductsWithPriceGreaterThan.cs` i wprowadź następujący kod do pliku (umożliwia Visual Studio, Notatnik lub dowolnego edytora tekstów w tym):
+Aby zilustrować te zadania, należy utworzyć nową zarządzaną procedurę składowaną, która zwraca te produkty, których `UnitPrice` jest większa niż określona wartość. Utwórz nowy plik na komputerze o nazwie `GetProductsWithPriceGreaterThan.cs` i wprowadź następujący kod do pliku (możesz użyć programu Visual Studio, Notatnika lub dowolnego edytora tekstów):
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample17.cs)]
 
-Ten kod jest niemal identyczny jak w przypadku `GetProductsWithPriceLessThan` metoda utworzony w kroku 5. Jedyne różnice są nazwy metod `WHERE` klauzula i nazwę parametru użytego w zapytaniu. Ponownie `GetProductsWithPriceLessThan` metody `WHERE` klauzuli odczytu: `WHERE UnitPrice < @MaxPrice`. W tym miejscu, w `GetProductsWithPriceGreaterThan`, używamy: `WHERE UnitPrice > @MinPrice` .
+Ten kod jest niemal identyczny jak w przypadku metody `GetProductsWithPriceLessThan` utworzonej w kroku 5. Jedyne różnice to nazwy metod, klauzula `WHERE` i nazwa parametru użyta w zapytaniu. Z powrotem w metodzie `GetProductsWithPriceLessThan`, klauzula `WHERE` Read: `WHERE UnitPrice < @MaxPrice`. Tutaj, w `GetProductsWithPriceGreaterThan`używamy: `WHERE UnitPrice > @MinPrice`.
 
-Musimy teraz skompilować tej klasy w zestawie. W wierszu polecenia przejdź do katalogu, w którym został zapisany `GetProductsWithPriceGreaterThan.cs` pliku i użyć kompilatora języka C# (`csc.exe`) aby skompilować plik klasy do zestawu:
+Teraz musimy skompilować tę klasę do zestawu. W wierszu polecenia przejdź do katalogu, w którym zapisano plik `GetProductsWithPriceGreaterThan.cs` i Użyj C# kompilatora (`csc.exe`) do skompilowania pliku klasy w zestawie:
 
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample18.cmd)]
 
-Jeśli folder zawierający `csc.exe` w nie w systemie s `PATH`, trzeba będzie w pełni odwoływać się do jego ścieżki `%WINDOWS%\Microsoft.NET\Framework\version\`, w następujący sposób:
+Jeśli folder zawierający `csc.exe` nie znajduje się w `PATH`system s, należy w pełni odwołać się do jego ścieżki, `%WINDOWS%\Microsoft.NET\Framework\version\`w następujący sposób:
 
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample19.cmd)]
 
-[![Skompilować GetProductsWithPriceGreaterThan.cs do zestawu](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
+[![Kompiluj GetProductsWithPriceGreaterThan.cs do zestawu](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image69.png)
 
-**Rysunek 29**: Skompilować `GetProductsWithPriceGreaterThan.cs` do zestawu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image71.png))
+**Ilustracja 29**. kompilowanie `GetProductsWithPriceGreaterThan.cs` do zestawu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image71.png))
 
-`/t` Flaga Określa, czy plik klasy C# mają być łączone w Biblioteka DLL (a nie plikiem wykonywalnym). `/out` Flagi Określa nazwę zestawu wynikowego.
+Flaga `/t` określa, że plik C# klasy powinien być kompilowany do biblioteki DLL (a nie pliku wykonywalnego). Flaga `/out` określa nazwę tworzonego zestawu.
 
 > [!NOTE]
-> Zamiast kompilowanie `GetProductsWithPriceGreaterThan.cs` plik klasy z wiersza polecenia, można też użyć [Visual C# Express Edition](https://msdn.microsoft.com/vstudio/express/visualcsharp/) lub utworzyć oddzielny projekt biblioteki klas w Visual Studio Standard Edition. S ren Jacob Lauritsen uprzejmie udostępnił taki projekt Visual C# Express Edition z kodem dla `GetProductsWithPriceGreaterThan` procedur składowanych i dwa zarządzane procedur składowanych i funkcji definiowanych przez użytkownika utworzony w kroku 3, 5 i 10. S ren s projektu obejmuje również polecenia T-SQL, aby dodać odpowiednie obiekty bazy danych.
+> Zamiast kompilowania pliku klasy `GetProductsWithPriceGreaterThan.cs` z poziomu wiersza polecenia możesz użyć [programu Visual C# Express Edition](https://msdn.microsoft.com/vstudio/express/visualcsharp/) lub utworzyć oddzielny projekt biblioteki klas w programie Visual Studio Standard Edition. Polecenie S Ren Jacob Lauritsen, które ma taki projekt Visual C# Express Edition, zawiera kod dla `GetProductsWithPriceGreaterThan` procedury składowanej oraz dwie zarządzane procedury składowane i UDF utworzone w krokach 3, 5 i 10. Program s Ren s zawiera również polecenia T-SQL, które są konieczne do dodania odpowiednich obiektów bazy danych.
 
-Kod skompilowany w zestawie jesteśmy gotowi zarejestrować zestaw w bazie danych programu SQL Server 2005. Można to wykonać za pomocą języka T-SQL, za pomocą polecenia `CREATE ASSEMBLY`, lub za pomocą programu SQL Server Management Studio. Pozwól s fokus za pomocą programu Management Studio.
+Gdy kod jest kompilowany do zestawu, jest gotowy do zarejestrowania zestawu w bazie danych SQL Server 2005. Można to zrobić za pomocą T-SQL, używając polecenia `CREATE ASSEMBLY`lub SQL Server Management Studio. Zezwól na korzystanie z Management Studio.
 
-W programie Management Studio rozwiń folder programowania w bazie danych Northwind. Jednym z jego podfolderów jest zestawów. Aby ręcznie dodać nowego zestawu z bazą danych, kliknij prawym przyciskiem myszy w folderze zestawy, a następnie wybierz nowego zestawu z menu kontekstowego. Ten wyświetla okno dialogowe Nowy zestaw polu (zobacz rysunek 30). Kliknij przycisk przeglądania, wybierz opcję `ManuallyCreatedDBObjects.dll` zestawu możemy po prostu skompilowany, a następnie kliknij OK, aby dodać zestaw do bazy danych. Nie powinien zostać wyświetlony `ManuallyCreatedDBObjects.dll` zestawu w Eksploratorze obiektów.
+W obszarze Management Studio rozwiń folder programowanie w bazie danych Northwind. Jednym z jego podfolderów jest zestaw. Aby ręcznie dodać nowy zestaw do bazy danych, kliknij prawym przyciskiem myszy folder Zestawy i wybierz polecenie Nowy zestaw z menu kontekstowego. Spowoduje to wyświetlenie okna dialogowego Nowy zestaw (zobacz rysunek 30). Kliknij przycisk Przeglądaj, wybierz zestaw `ManuallyCreatedDBObjects.dll`, który właśnie został skompilowany, a następnie kliknij przycisk OK, aby dodać zestaw do bazy danych. Nie powinien być widoczny zestaw `ManuallyCreatedDBObjects.dll` w Eksplorator obiektów.
 
-[![Dodaj zestaw ManuallyCreatedDBObjects.dll do bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
+[![dodać zestawu ManuallyCreatedDBObjects. dll do bazy danych](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image73.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image72.png)
 
-**30 rysunek**: Dodaj `ManuallyCreatedDBObjects.dll` zestawu do bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image74.png))
+**Ilustracja 30**. dodawanie zestawu `ManuallyCreatedDBObjects.dll` do bazy danych ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image74.png))
 
-![ManuallyCreatedDBObjects.dll znajduje się w Eksploratorze obiektów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image75.png)
+![ManuallyCreatedDBObjects. dll jest wymieniony w Eksplorator obiektów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image75.png)
 
-**Rysunek 31**: `ManuallyCreatedDBObjects.dll` Znajduje się w Eksploratorze obiektów
+**Rysunek 31**. `ManuallyCreatedDBObjects.dll` znajduje się na liście Eksplorator obiektów
 
-Dodaliśmy zestawu z bazą danych Northwind, mamy jeszcze do skojarzenia z procedury składowanej z `GetProductsWithPriceGreaterThan` metody w zestawie. Aby to zrobić, Otwórz nowe okno zapytania i uruchom następujący skrypt:
+Po dodaniu zestawu do bazy danych Northwind nie mamy jeszcze skojarzyć procedury składowanej z metodą `GetProductsWithPriceGreaterThan` w zestawie. Aby to zrobić, Otwórz nowe okno zapytania i wykonaj następujący skrypt:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample20.sql)]
 
-Tworzy nową procedurę składowaną w bazie danych Northwind, o nazwie `GetProductsWithPriceGreaterThan` i kojarzy ją z zarządzaną metodą `GetProductsWithPriceGreaterThan` (która znajduje się w klasie `StoredProcedures`, która znajduje się w zestawie `ManuallyCreatedDBObjects`).
+Spowoduje to utworzenie nowej procedury składowanej w bazie danych Northwind o nazwie `GetProductsWithPriceGreaterThan` i skojarzenie jej z zarządzaną metodą `GetProductsWithPriceGreaterThan` (która znajduje się w klasie `StoredProcedures`, która znajduje się w `ManuallyCreatedDBObjects`zestawu).
 
-Po wykonaniu powyższych skryptu, Odśwież folder procedur składowanych w Eksploratorze obiektów. Powinien zostać wyświetlony nowy wpis procedury składowanej — `GetProductsWithPriceGreaterThan` -mającego ikoną kłódki obok niej. Aby przetestować tę procedurę składowaną, wprowadź i uruchom następujący skrypt w oknie zapytania:
+Po wykonaniu powyższego skryptu Odśwież folder procedury składowane w Eksplorator obiektów. Powinna zostać wyświetlona nowa pozycja procedury składowanej — `GetProductsWithPriceGreaterThan` — która ma obok niej ikonę blokady. Aby przetestować tę procedurę składowaną, wprowadź i wykonaj następujący skrypt w oknie zapytania:
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample21.sql)]
 
-Jak pokazano na rysunku 32, powyższe polecenie wyświetla informacje dotyczące tych produktów z `UnitPrice` większa niż 24.95 $.
+Jak pokazano na rysunku 32, powyższe polecenie wyświetla informacje dla tych produktów o `UnitPrice` większym niż $24,95.
 
-[![ManuallyCreatedDBObjects.dll znajduje się w Eksploratorze obiektów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
+[![ManuallyCreatedDBObjects. dll znajduje się na liście Eksplorator obiektów](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image77.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image76.png)
 
-**Ilustracja 32**: `ManuallyCreatedDBObjects.dll` Znajduje się w Eksploratorze obiektów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image78.png))
+**Ilustracja 32**: `ManuallyCreatedDBObjects.dll` znajduje się na liście Eksplorator obiektów ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image78.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-Microsoft SQL Server 2005 zapewnia integrację z języka wspólnego środowiska uruchomieniowego (CLR), co pozwala obiekty bazy danych ma zostać utworzony przy użyciu kodu zarządzanego. Wcześniej tylko można utworzyć te obiekty bazy danych przy użyciu języka T-SQL, ale teraz możemy utworzyć te obiekty przy użyciu platformy .NET, Programowanie w językach C#. W tym samouczku, którą utworzyliśmy dwa zarządzane procedur przechowywanych i funkcji zarządzanej zdefiniowane przez użytkownika.
+Microsoft SQL Server 2005 zapewnia integrację ze środowiskiem uruchomieniowym języka wspólnego (CLR), która umożliwia tworzenie obiektów bazy danych za pomocą kodu zarządzanego. Wcześniej te obiekty bazy danych można utworzyć tylko przy użyciu języka T-SQL, ale teraz można utworzyć te obiekty przy użyciu języków programowania .NET C#, takich jak. W tym samouczku zostały utworzone dwie zarządzane procedury składowane i zarządzana funkcja zdefiniowana przez użytkownika.
 
-Program Visual Studio s typu Projekt programu SQL Server ułatwia tworzenie, kompilowanie i wdrażanie obiektami zarządzanej bazy danych. Ponadto oferuje ona zaawansowane obsługę debugowania. Jednak typów projekt programu SQL Server są dostępne tylko w wersjach Professional i systemy zespołu programu Visual Studio. Dla osób, przy użyciu programu Visual Web Developer lub Standard Edition z programu Visual Studio, tworzenia, kompilacji i kroki wdrażania muszą być wykonywane ręcznie, jak widzieliśmy w kroku 13.
+Program Visual Studio s SQL Server typ projektu ułatwia tworzenie, kompilowanie i wdrażanie obiektów zarządzanych baz danych. Ponadto oferuje zaawansowaną obsługę debugowania. Jednak typy projektów SQL Server są dostępne tylko w wersjach Professional i Team Systems programu Visual Studio. W przypadku korzystania z programu Visual Web Developer lub Standard Edition programu Visual Studio, kroki tworzenia, kompilowania i wdrażania należy przeprowadzić ręcznie, jak pokazano w kroku 13.
 
-Wszystkiego najlepszego programowania!
+Szczęśliwe programowanie!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, zapoznaj się z następującymi zasobami:
 
 - [Zalety i wady funkcji zdefiniowanych przez użytkownika](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)
-- [Tworzenie obiekty programu SQL Server 2005 w kodzie zarządzanym](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [Tworzenie wyzwalaczy przy użyciu kodu zarządzanego w programie SQL Server 2005](http://www.15seconds.com/issue/041006.htm)
-- [Instrukcje: Tworzenie i uruchamianie środowiska CLR programu SQL Server procedury składowanej](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
-- [Instrukcje: Tworzenie i uruchamianie funkcji zdefiniowanej przez użytkownika serwera CLR SQL](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
-- [Instrukcje: Edytuj `Test.sql` skrypt do uruchomienia obiekty SQL](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
-- [Funkcje zdefiniowane przez wprowadzenie do użytkownika](http://www.sqlteam.com/item.asp?ItemID=1955)
-- [Kodu zarządzanego i programu SQL Server 2005 (wideo)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
+- [Tworzenie obiektów SQL Server 2005 w kodzie zarządzanym](https://channel9.msdn.com/Showpost.aspx?postid=142413)
+- [Tworzenie wyzwalaczy przy użyciu kodu zarządzanego w SQL Server 2005](http://www.15seconds.com/issue/041006.htm)
+- [Instrukcje: Tworzenie i uruchamianie procedury składowanej SQL Server CLR](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
+- [Instrukcje: Tworzenie i uruchamianie CLR SQL Server funkcji zdefiniowanej przez użytkownika](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
+- [Instrukcje: Edytowanie skryptu `Test.sql` do uruchamiania obiektów SQL](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
+- [Wprowadzenie do funkcji zdefiniowanych przez użytkownika](http://www.sqlteam.com/item.asp?ItemID=1955)
+- [Kod zarządzany i SQL Server 2005 (wideo)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
 - [Dokumentacja języka Transact-SQL](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
 - [Przewodnik: Tworzenie procedury składowanej w kodzie zarządzanym](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Specjalne podziękowania dla
+## <a name="special-thanks-to"></a>Specjalne podziękowania
 
-W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został ren S Jacob Lauritsen. Oprócz przeglądania tego artykułu, S ren również utworzony projekt Visual C# Express Edition, zawarte w tym artykule s do kompilowania ręcznie obiektami zarządzanej bazy danych. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Osoba dokonująca przeglądu potencjalnego klienta dla tego samouczka była Jacob Lauritsen. Oprócz przejrzenia tego artykułu polecenie S Ren spowodowało również utworzenie projektu programu C# Visual Express Edition zawartego w tym artykule s Download do ręcznego kompilowania zarządzanych obiektów bazy danych. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](debugging-stored-procedures-cs.md)
