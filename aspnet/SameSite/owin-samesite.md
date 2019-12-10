@@ -5,12 +5,12 @@ description: Pracuj z plikami cookie SameSite i otwartym interfejsem sieci Web d
 ms.author: riande
 ms.date: 12/6/2019
 uid: owin-samesite
-ms.openlocfilehash: fc64315e8c3614e460c9a8d551bcb0848b3fe8f9
-ms.sourcegitcommit: 516a168548252ff0eaae2c02ec4bd9ffcfa8375e
+ms.openlocfilehash: ac5ae24eeb9e8e1cc6296667a4bebef72c3eb62c
+ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951897"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993078"
 ---
 # <a name="samesite-cookies-and-the-open-web-interface-for-net-owin"></a>Pliki cookie SameSite i otwarty interfejs sieci Web dla platformy .NET (OWIN)
 
@@ -39,7 +39,7 @@ Aby uzyskać wersję ASP.NET 4. x tego artykułu, zobacz <xref:samesite/system-w
 
 `SystemWebCookieManager` zależy od interfejsów API programu .NET 4.7.2 `System.Web` w celu włączenia obsługi `SameSite` oraz poprawek w celu zmiany zachowania.
 
-Przyczyny używania `SystemWebCookieManager` są opisane w temacie [problemy z integracją plików cookie z odpowiedzią na Owin i system. Web](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues). `SystemWebCookieManager` jest zalecana w przypadku uruchamiania na `System.Web`. 
+Przyczyny używania `SystemWebCookieManager` są opisane w temacie [problemy z integracją plików cookie z odpowiedzią na Owin i system. Web](https://github.com/aspnet/AspNetKatana/wiki/System.Web-response-cookie-integration-issues). `SystemWebCookieManager` jest zalecana w przypadku uruchamiania na `System.Web`.
 
 Poniższy kod ustawia `SameSite`, aby `Lax`:
 
@@ -74,9 +74,7 @@ Wersja robocza 2019 specyfikacji `SameSite`:
 * Określa, że pliki cookie są domyślnie traktowane jako `SameSite=Lax`.
 * Określa pliki cookie, które jawnie potwierdzają `SameSite=None` w celu włączenia dostarczania między lokacjami, powinny być oznaczone jako `Secure`. `None` to nowy wpis do rezygnacji.
 * Zaplanowano włączenie programu [Chrome](https://chromestatus.com/feature/5088147346030592) domyślnie w [lutym 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html). Przeglądarki zaczynają przechodzenie do tego standardu w 2019.
-* Jest obsługiwane przez poprawki wydane zgodnie z opisem w następującej KB:
-  * [Artykuł KB 4531182](https://support.microsoft.com/help/4531182/kb4531182)
-  * [Artykuł KB 4524421](https://support.microsoft.com/help/4524421/kb4524421)
+* Jest obsługiwane przez poprawki wydane zgodnie z opisem w artykule bazy wiedzy. Aby uzyskać więcej informacji, zobacz temat <xref:samesite/kbs-samesite>.
 
 <a name="sob"></a>
 
