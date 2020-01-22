@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-validation
-title: Dodawanie sprawdzania poprawności | Dokumentacja firmy Microsoft
+title: Dodawanie walidacji | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
@@ -8,157 +8,157 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 6894d01af7cd142a5579f73ae5209ca13756ca52
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 67df1a473cd13a651c1276054b93f34323479082
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120747"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519027"
 ---
 # <a name="adding-validation"></a>Dodawanie walidacji
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
-W tej sekcji dodasz logikę walidacji do `Movie` modelu, a będzie upewnij się, że reguły sprawdzania poprawności są wymuszane ilekroć użytkownik próbuje utworzyć lub edytować film przy użyciu aplikacji.
+W tej sekcji dodasz logikę walidacji do modelu `Movie` i będziesz mieć pewność, że reguły sprawdzania poprawności zostaną wymuszone za każdym razem, gdy użytkownik spróbuje utworzyć lub edytować film przy użyciu aplikacji.
 
-## <a name="keeping-things-dry"></a>Utrzymywanie susz rzeczy
+## <a name="keeping-things-dry"></a>Przechowywanie SUCHEj zawartości
 
-Jednym z podstawowych zasadach projektowania platformy ASP.NET MVC jest [susz](http://en.wikipedia.org/wiki/Don't_repeat_yourself) (&quot;nie Powtórz samodzielnie&quot;). ASP.NET MVC zachęca można określić funkcji lub zachowanie tylko raz, a następnie go wszędzie, gdzie odzwierciedlone w aplikacji. Zmniejsza ilość kodu, który należy napisać i sprawia, że kod, który pisanie mniej błędów, podatne i łatwiejsze w utrzymaniu.
+Jeden z podstawowych założenia projektu ASP.NET MVC jest [suchy](http://en.wikipedia.org/wiki/Don't_repeat_yourself) (&quot;nie powtarzaj się&quot;). ASP.NET MVC zachęca do określania funkcjonalności lub zachowania tylko raz, a następnie znajdować się w dowolnym miejscu w aplikacji. Pozwala to zmniejszyć ilość kodu, który trzeba napisać, i sprawia, że pisanie kodu jest mniej podatne na błędy i łatwiejsze w obsłudze.
 
-Obsługa weryfikacji platformy ASP.NET MVC i Entity Framework Code First to świetny przykład susz zasady w akcji. Można deklaratywne określenie reguł sprawdzania poprawności w jednym miejscu (w klasie modelu), a zasady są wymuszane wszędzie, gdzie w aplikacji.
+Obsługa walidacji świadczona przez ASP.NET MVC i Entity Framework Code First to doskonały przykład zasady SUCHa w działaniu. Można deklaratywnie określić reguły walidacji w jednym miejscu (w klasie modelu), a reguły są wymuszane wszędzie w aplikacji.
 
-Oto jak możesz korzystać z zalet tej obsługi weryfikacji w aplikacji filmu.
+Przyjrzyjmy się sposobom korzystania z tej obsługi walidacji w aplikacji filmowej.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Dodawania reguł sprawdzania poprawności do modelu Movie
+## <a name="adding-validation-rules-to-the-movie-model"></a>Dodawanie reguł walidacji do modelu filmu
 
-Rozpocznie się przez dodanie niektórych logikę walidacji do `Movie` klasy.
+Zacznij od dodania logiki walidacji do klasy `Movie`.
 
-Otwórz *Movie.cs* pliku. Zwróć uwagę [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw nie zawiera `System.Web`. DataAnnotations zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do dowolnej klasy lub właściwości. (Zawiera także formatowania atrybutów, takich jak [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) , ułatwić formatowanie i nie udostępniamy żadnych sprawdzania poprawności.)
+Otwórz plik *Movie.cs* . Zauważ, że przestrzeń nazw [`System.ComponentModel.DataAnnotations`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) nie zawiera `System.Web`. DataAnnotations zawiera wbudowany zestaw atrybutów sprawdzania poprawności, które można zastosować deklaratywnie do dowolnej klasy lub właściwości. (Zawiera również atrybuty formatowania, takie jak [Typ danych](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) , które ułatwiają formatowanie i nie zapewniają weryfikacji.)
 
-Teraz zaktualizować `Movie` klasy, aby skorzystać z wbudowanych [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx), i [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutów sprawdzania poprawności. Zastąp `Movie` klasy następującym kodem:
+Teraz zaktualizuj klasę `Movie`, aby skorzystać z wbudowanych atrybutów [`Required`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [`StringLength`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)i [`Range`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) . Zastąp klasę `Movie` następującymi:
 
 [!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
-[ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) Atrybut Ustawia maksymalną długość ciągu i ustawia to ograniczenie w bazie danych, w związku z tym schemat bazy danych ulegnie zmianie. Kliknij prawym przyciskiem myszy **filmy** tabelę **Eksploratora serwera** i kliknij przycisk **Otwórz definicję tabeli**:
+Atrybut [`StringLength`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) ustawia maksymalną długość ciągu i ustawia to ograniczenie dla bazy danych, w związku z czym schemat bazy danych ulegnie zmianie. Kliknij prawym przyciskiem myszy tabelę **filmy** w **Eksploratorze serwera** i kliknij polecenie **Otwórz definicję tabeli**:
 
 ![](adding-validation/_static/image1.png)
 
-Na powyższej ilustracji możesz zobaczyć wszystkie pola ciągów są ustawione na [NVARCHAR (MAKSYMALNIE)](https://technet.microsoft.com/library/ms186939.aspx). Firma Microsoft użyje migracji do zaktualizowania schematu. Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** okna i wprowadź następujące polecenia:
+Na powyższym obrazie wszystkie pola ciągów są ustawione na [nvarchar (max)](https://technet.microsoft.com/library/ms186939.aspx). W celu zaktualizowania schematu będziemy używać migracji. Skompiluj rozwiązanie, a następnie otwórz okno **konsoli Menedżera pakietów** i wprowadź następujące polecenia:
 
 [!code-console[Main](adding-validation/samples/sample2.cmd)]
 
-Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMigration` Klasa pochodna o podanej nazwie (`DataAnnotations`), a następnie w `Up` metody zostanie wyświetlony kod, który aktualizuje ograniczenia schematu:
+Po zakończeniu tego polecenia program Visual Studio otwiera plik klasy, który definiuje nową klasę pochodną `DbMigration` o określonej nazwie (`DataAnnotations`), a w metodzie `Up` można zobaczyć kod, który aktualizuje ograniczenia schematu:
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-`Genre` Pole nie jest już dopuszcza wartości null (oznacza to, wprowadź wartość). `Rating` Pole ma maksymalną długość 5 i `Title` może się składać maksymalnie 60. Minimalna długość 3 na `Title` i zakres na `Price` nie utworzyła zmiany schematu.
+Pole `Genre` nie ma już wartości null (oznacza to, że należy wprowadzić wartość). Pole `Rating` ma maksymalną długość 5, a `Title` ma maksymalną długość 60. Minimalna długość 3 w `Title` i zakres w `Price` nie utworzył zmian schematu.
 
-Zapoznać się ze schematem film:
+Przejrzyj schemat filmu:
 
 ![](adding-validation/_static/image2.png)
 
-Pola ciągów Pokaż nowe limity długości i `Genre` już nie jest zaznaczone jako dopuszczającego wartość null.
+Pola ciągów pokazują nowe limity długości, a `Genre` nie są już sprawdzane jako wartości null.
 
-Atrybuty weryfikacji określić zachowanie, które mają zostać wymuszone we właściwościach modelu, które są stosowane względem. `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia użytkownikowi wprowadzanie odstępów do zaspokojenia tej weryfikacji. [Wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybut jest używany do ograniczania znaków, które można danych wejściowych. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (białe miejsca, cyfry i znaki specjalne są niedozwolone). [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) Atrybut ogranicza wartości do określonego zakresu. `StringLength` Atrybut pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie długości minimalnej. Typy wartości (takie jak `decimal, int, float, DateTime`) są założenia wymagane i nie ma potrzeby `Required` atrybutu.
+Atrybuty walidacji określają zachowanie, które chcesz wymusić na właściwościach modelu, do których są stosowane. Atrybuty `Required` i `MinimumLength` wskazują, że właściwość musi mieć wartość; jednak nic nie zapobiega wprowadzaniu przez użytkownika białych znaków w celu zaspokojenia tej walidacji. Atrybut [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) służy do ograniczania, jakie znaki mogą być wprowadzane. W powyższym kodzie, `Genre` i `Rating` muszą używać tylko liter (odstępy, cyfry i znaki specjalne są niedozwolone). Atrybut [`Range`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) ogranicza wartość do określonego zakresu. Atrybut `StringLength` pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie jej długość minimalną. Typy wartości (takie jak `decimal, int, float, DateTime`) są z natury wymagane i nie potrzebują atrybutu `Required`.
 
-Kod najpierw gwarantuje, że reguł sprawdzania poprawności, które określisz w klasie modelu są wymuszane, zanim aplikacja zapisuje zmiany w bazie danych. Na przykład, poniższy kod będzie zgłaszać wyjątek [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx) wyjątek podczas `SaveChanges` metoda jest wywoływana, ponieważ niektóre wymagane `Movie` brakuje wartości właściwości:
+Code First zapewnia, że reguły sprawdzania poprawności określone dla klasy modelu są wymuszane przed zapisaniem zmian w bazie danych przez aplikację. Na przykład poniższy kod zgłosi wyjątek [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx) po wywołaniu metody `SaveChanges`, ponieważ brakuje kilku wymaganych wartości właściwości `Movie`:
 
 [!code-csharp[Main](adding-validation/samples/sample4.cs)]
 
-Powyższy kod następujący wyjątek:
+Powyższy kod zgłasza następujący wyjątek:
 
-*Weryfikacja nie powiodła się dla co najmniej jednej jednostki. Zobacz właściwość "EntityValidationErrors", aby uzyskać więcej informacji.*
+*Walidacja nie powiodła się dla co najmniej jednej jednostki. Aby uzyskać więcej informacji, zobacz Właściwość "EntityValidationErrors".*
 
-Posiadanie reguły sprawdzania poprawności, które automatycznie wymuszanych przez program .NET Framework ułatwia zapewnienie aplikacji bardziej niezawodne. Gwarantuje również, że nie pamiętasz do sprawdzania poprawności coś i przypadkowo umożliwiają złe dane do bazy danych.
+Automatyczne Wymuszanie reguł sprawdzania poprawności przez .NET Framework pomaga zwiększyć niezawodność aplikacji. Gwarantuje to również, że nie można zapomnieć, aby zweryfikować coś i przypadkowo umożliwić niewłaściwe dane w bazie danych.
 
-## <a name="validation-error-ui-in-aspnet-mvc"></a>Błąd sprawdzania poprawności UI we wzorcu ASP.NET MVC
+## <a name="validation-error-ui-in-aspnet-mvc"></a>Interfejs użytkownika błędu walidacji w ASP.NET MVC
 
-Uruchom aplikację, a następnie przejdź do */Movies* adresu URL.
+Uruchom aplikację i przejdź do adresu URL */Movies* .
 
-Kliknij przycisk **Utwórz nowy** łącze, aby dodać nowy film. Wypełnij formularz z niektórych z nieprawidłowymi wartościami. Jak najszybciej po weryfikacji po stronie klienta jQuery wykryje błąd, wyświetla komunikat o błędzie.
+Kliknij link **Utwórz nowy** , aby dodać nowy film. Wypełnij formularz nieprawidłowymi wartościami. Gdy tylko Walidacja po stronie klienta jQuery wykryje błąd, zostanie wyświetlony komunikat o błędzie.
 
 ![8_validationErrors](adding-validation/_static/image3.png)
 
 > [!NOTE]
-> do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego, należy wprowadzić NuGet sprzedawać, jak opisano wcześniej w tym samouczku.
+> Aby zapewnić obsługę walidacji jQuery dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla punktu dziesiętnego, należy dołączyć globalizację NuGet, jak opisano wcześniej w tym samouczku.
 
-Zwróć uwagę, jak formularz został automatycznie umożliwia kolorem czerwonym obramowaniem Wyróżnij tekst zawiera nieprawidłowe dane, które ma wysyłanego komunikatu o błędzie weryfikacji odpowiednich obok każdej z nich. Błędy są wymuszane, zarówno po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma Obsługa skryptów JavaScript wyłączona).
+Zwróć uwagę, jak formularz automatycznie używa koloru czerwonego obramowania, aby zaznaczyć pola tekstowe, które zawierają nieprawidłowe dane i wyemitują odpowiedni komunikat o błędzie walidacji obok każdego z nich. Błędy są wymuszane po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma wyłączony kod JavaScript).
 
-Korzyści z rzeczywistych jest, nie należy zmieniać jednego wiersza kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu włączenia tej weryfikacji interfejsu użytkownika. Kontrolera i widoki utworzone wcześniej w tym samouczku automatycznie wybrany w górę sprawdzania poprawności reguły określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu. Walidacja testu za pomocą `Edit` metody akcji i tego samego sprawdzania poprawności jest stosowana.
+Rzeczywista korzyść polega na tym, że nie trzeba zmieniać jednego wiersza kodu w klasie `MoviesController` lub w widoku *Create. cshtml* , aby włączyć ten interfejs użytkownika weryfikacji. Kontroler i widoki utworzone wcześniej w tym samouczku automatycznie pobierają reguły sprawdzania poprawności określone przy użyciu atrybutów walidacji we właściwościach klasy modelu `Movie`. Sprawdzanie poprawności testu przy użyciu metody akcji `Edit` i tej samej walidacji jest stosowane.
 
-Dane nie są wysyłane do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić, umieszczając punkt przerwania w metodzie Post protokołu HTTP przy użyciu [narzędzie fiddler](http://fiddler2.com/fiddler2/), lub IE [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478).
+Dane formularza nie są wysyłane do serwera, dopóki nie zostaną wykryte błędy weryfikacji po stronie klienta. Można to sprawdzić, umieszczając punkt przerwania w metodzie post protokołu HTTP przy użyciu [Narzędzia programu Fiddler](http://fiddler2.com/fiddler2/)lub [narzędzi programistycznych](https://msdn.microsoft.com/ie/aa740478)programu IE F12.
 
-## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>W jaki sposób weryfikacji odbywa się w tworzenie wyświetlanie i Tworzenie metody akcji
+## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>Jak następuje Walidacja w metodzie tworzenia widoku i tworzenia akcji
 
-Być może zastanawiasz się, jak sprawdzanie poprawności UI został wygenerowany bez wykonywania żadnych aktualizacji do kodu w kontrolerze lub widoków. Dalej prezentuje co `Create` metody `MovieController` jak wyglądają klasy. Są one w porównaniu z jak utworzone wcześniej w tym samouczku.
+Możesz zastanawiać się, jak został wygenerowany interfejs użytkownika weryfikacji bez aktualizacji kodu w kontrolerze lub widokach. Następna lista pokazuje, jak wyglądają `Create` metod w klasie `MovieController`. Są one niezmienione w sposób wcześniej utworzony w tym samouczku.
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-Pierwszy (HTTP GET) `Create` metody akcji Wyświetla początkowej formularza tworzenia. Drugi (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `HttpPost` wersji) sprawdza `ModelState.IsValid` czy filmu ma wszystkie błędy weryfikacji. Wprowadzenie tej właściwości ocenia wszelkie atrybuty weryfikacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` metoda ładowaniu formularza. Jeśli nie ma żadnych błędów, metoda zapisuje ten nowy film w bazie danych. W naszym przykładzie filmu **formularza nie jest opublikowane na serwerze, gdy występują błędy sprawdzania poprawności wykrywane po stronie klienta; drugi** `Create` **nigdy nie zostanie wywołana metoda**. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączone i HTTP POST `Create` metoda pobiera `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji.
+W pierwszej metodzie akcji `Create` (HTTP GET) jest wyświetlany początkowy formularz tworzenia. Druga wersja (`[HttpPost]`) obsługuje wpis w formularzu. Druga metoda `Create` (wersja `HttpPost`) sprawdza `ModelState.IsValid`, aby sprawdzić, czy film ma błędy walidacji. Pobieranie tej właściwości oblicza wszystkie atrybuty walidacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy walidacji, Metoda `Create` ponownie wyświetla formularz. Jeśli nie ma żadnych błędów, Metoda zapisuje nowy film w bazie danych. W naszym przykładzie filmu **nie jest on ogłaszany na serwerze, gdy na stronie klienta wykryto błędy walidacji. druga** **Metoda `Create` nie zostanie wywołana**. Jeśli wyłączysz język JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączone, a metoda HTTP POST `Create` pobiera `ModelState.IsValid`, aby sprawdzić, czy film ma błędy walidacji.
 
-Możesz ustawić punkt przerwania w `HttpPost Create` metody i sprawdź, nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie prześle dane formularza w przypadku wykrycia błędów sprawdzania poprawności. Jeśli można wyłączyć języka JavaScript w przeglądarce, a następnie Prześlij formularz z błędami, punkt przerwania zostanie osiągnięty. Będzie nadal się pojawiać pełna Walidacja bez kodu JavaScript. Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Internet Explorer.
+Można ustawić punkt przerwania w metodzie `HttpPost Create` i sprawdzić, czy metoda nie jest nigdy wywoływana, podczas weryfikacji po stronie klienta nie będą przesyłane dane formularza po wykryciu błędów walidacji. Jeśli wyłączysz JavaScript w przeglądarce, a następnie prześlesz formularz z błędami, zostanie osiągnięty punkt przerwania. Nadal będziesz mieć pełną weryfikację bez języka JavaScript. Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w programie Internet Explorer.
 
 ![](adding-validation/_static/image5.png)
 
 ![](adding-validation/_static/image6.png)
 
-Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce FireFox.
+Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w przeglądarce FireFox.
 
 ![](adding-validation/_static/image7.png)
 
-Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Chrome.
+Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w przeglądarce Chrome.
 
 ![](adding-validation/_static/image8.png)
 
-Poniżej znajduje się *Create.cshtml* Wyświetl szablon, którego szkielet we wcześniejszej części tego samouczka. Jest on używany przez metody akcji, zarówno powyżej początkowy formularz wyświetlania i wyświetlić ją ponownie w przypadku wystąpienia błędu.
+Poniżej przedstawiono szablon widoku *Create. cshtml* , który został poddany wcześniej w samouczku. Jest on używany przez metody akcji pokazane powyżej obydwu, aby wyświetlić początkowy formularz i ponownie wyświetlić go w przypadku błędu.
 
 [!code-cshtml[Main](adding-validation/samples/sample6.cshtml?highlight=16-17)]
 
-Zwróć uwagę, jak kod używa `Html.EditorFor` pomocnika służący do wypełniania wyjściowego `<input>` elementu dla każdego `Movie` właściwości. Obok tego pomocnika jest wywołaniem `Html.ValidationMessageFor` metody pomocnika. Te dwie metody pomocnika pracować obiekt modelu, który jest przekazywany przez kontrolera do widoku (w tym przypadku `Movie` obiektu). Poszukaj one automatycznie atrybutów sprawdzania poprawności, określone w modelu i wyświetlanie komunikatów o błędach zgodnie z potrzebami.
+Zwróć uwagę, jak kod używa pomocnika `Html.EditorFor` do wyprowadzania elementu `<input>` dla każdej właściwości `Movie`. Obok tego pomocnika jest wywołanie metody pomocnika `Html.ValidationMessageFor`. Te dwie metody pomocnika współpracują z obiektem modelu, który jest przesyłany przez kontroler do widoku (w tym przypadku `Movie` obiektu). Automatycznie wyszukują atrybuty sprawdzania poprawności określone w modelu i wyświetlają komunikaty o błędach zgodnie z potrzebami.
 
-Co to jest bardzo NAS cieszy się o tego podejścia jest to, że żaden kontroler ani `Create` Wyświetl szablon wie, nic o regułach rzeczywista weryfikacja wymuszany ani o zbyt małą określone komunikaty o błędach wyświetlane. Reguł sprawdzania poprawności i ciągi błędów są określane tylko w `Movie` klasy. Te same zasady sprawdzania poprawności są automatycznie stosowane do `Edit` widoku i wszystkich innych widoków szablonów można utworzyć, które edytować modelu.
+W rzeczywistości to podejście jest takie, że żaden kontroler ani szablon widoku `Create` nie wie o faktycznych regułach walidacji lub o określonych komunikatach o błędach. Reguły walidacji i ciągi błędów są określone tylko w klasie `Movie`. Te same reguły sprawdzania poprawności są automatycznie stosowane do widoku `Edit` i wszystkich innych szablonów widoków, które można utworzyć, edytując model.
 
-Jeśli chcesz zmienić logikę weryfikacji później, możesz to zrobić w dokładnie jednego miejsca przez dodanie atrybutów sprawdzania poprawności do modelu (w tym przykładzie `movie` klasy). Nie trzeba już martwić się o różnych części aplikacji jest niespójna z jak zasady są wymuszane — całą logikę weryfikacji będą zdefiniowane w jednym miejscu i użyć wszędzie. Zapewnia bardzo czystym kodzie i ułatwia utrzymanie i rozwój. Oznacza to, że użytkownik będzie można w pełni zapewniane *susz* zasady.
+Aby zmienić logikę walidacji później, można to zrobić w dokładnie jednym miejscu przez dodanie atrybutów walidacji do modelu (w tym przykładzie Klasa `movie`). Nie trzeba martwić się o różne części aplikacji, które nie są zgodne z zasadami, w których są wymuszane — Cała logika walidacji zostanie zdefiniowana w jednym miejscu i użyta wszędzie. Dzięki temu kod jest bardzo czysty i ułatwia utrzymanie i rozwój. Oznacza to, że będziesz w pełni przestrzegać *suchej* zasady.
 
-## <a name="using-datatype-attributes"></a>Przy użyciu atrybutów typu danych
+## <a name="using-datatype-attributes"></a>Używanie atrybutów DataType
 
-Otwórz *Movie.cs* plików i zbadaj `Movie` klasy. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Przestrzeń nazw zawiera atrybuty formatowania, oprócz wbudowanych zestaw atrybutów weryfikacji. Firma Microsoft została już zastosowana [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) wartości wyliczenia, Data wydania i pola Cena. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutu.
+Otwórz plik *Movie.cs* i zapoznaj się z klasą `Movie`. Przestrzeń nazw [`System.ComponentModel.DataAnnotations`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) zawiera atrybuty formatowania oprócz wbudowanego zestawu atrybutów walidacji. W dacie wydania i w polach cen została już zastosowana wartość wyliczenia [`DataType`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) . Poniższy kod pokazuje `ReleaseDate` i `Price` właściwości z odpowiednim atrybutem [`DataType`](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) .
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty zawierają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Możesz użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybutu, aby sprawdzić poprawność formatu danych. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut jest używany do określenia typu danych, który jest bardziej szczegółowe niż typ wewnętrznej bazy danych znajdują się one ***nie*** atrybutów sprawdzania poprawności. W tym przypadku ma być uruchamiany tylko do śledzenia daty, nie daty i godziny. [Wyliczenie typu danych](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) zawiera dla wielu typów danych, takich jak *daty, godziny, numer telefonu, waluty, EmailAddress* itd. `DataType` Atrybut można również włączyć automatyczne udostępnianie funkcji specyficznych dla typu aplikacji. Na przykład `mailto:` łącza mogą być tworzone dla [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), i można podać selektora daty [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach obsługujących [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty emituje HTML 5 [danych -](http://ejohn.org/blog/html-5-data-attributes/) (Wymowa *dash danych*) atrybutów, które może zrozumieć przeglądarki HTML 5. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty nie są oferowane wszystkich sprawdzania poprawności.
+Atrybuty [typu DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) udostępniają wskazówki dla aparatu widoku, aby sformatować dane (i podać atrybuty, takie jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` dla wiadomości e-mail. Aby sprawdzić format danych, można użyć atrybutu [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) . Atrybut [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych, ***nie*** są atrybutami walidacji. W tym przypadku chcemy tylko śledzić datę, a nie datę i godzinę. [Wyliczenie DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) zawiera wiele typów danych, takich jak *Data, godzina, numer telefonu, waluta, EmailAddress* i inne. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład łącze `mailto:` można utworzyć dla elementu [DataType. EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), a selektor daty można dostarczyć dla elementu [DataType. Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach, które obsługują [HTML5](http://html5.org/). Atrybuty [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) emitują [dane](http://ejohn.org/blog/html-5-data-attributes/) HTML 5 (wymawiane *kreski danych*), które mogą zrozumieć przeglądarki HTML 5. Atrybuty [typu danych](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) nie zapewniają żadnej weryfikacji.
 
-`DataType.Date` Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole dane jest wyświetlane zgodnie z domyślnymi formatami opartymi na [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)serwera.
 
-`DisplayFormat` Atrybut jest używany jawnie określić format daty:
+Atrybut `DisplayFormat` jest używany do jawnego określania formatu daty:
 
 [!code-csharp[Main](adding-validation/samples/sample8.cs)]
 
-`ApplyFormatInEditMode` Ustawienie określa, czy określony sposób formatowania powinien również będą stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Nie może być, w przypadku niektórych pól — na przykład dla wartości waluty może nie ma symbolu waluty, w polu tekstowym do edycji.)
+Ustawienie `ApplyFormatInEditMode` określa, że należy również zastosować określone formatowanie, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Możesz nie chcieć, aby dla niektórych pól — na przykład w przypadku wartości walutowych, można nie chcieć, aby symbol waluty w polu tekstowym do edycji.)
 
-Możesz użyć [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu przez sam, ale zazwyczaj jest dobry pomysł, aby użyć [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) również atrybutu. `DataType` Atrybutu powoduje *semantyki* danych tak jak w przeciwieństwie do sposobu renderować ją na ekranie i zapewnia następujące korzyści, które nie można uzyskać za pomocą `DisplayFormat`:
+Możesz użyć atrybutu [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) przez samego siebie, ale zazwyczaj dobrym pomysłem jest użycie atrybutu [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) również. Atrybut `DataType` przekazuje *semantykę* danych w przeciwieństwie do sposobu renderowania na ekranie i zapewnia następujące korzyści, których nie można uzyskać za pomocą `DisplayFormat`:
 
-- Przeglądarka można włączyć funkcje HTML5 (na przykład pokazać kontrolki kalendarza, symbol waluty odpowiednich ustawień regionalnych, przesyłanie pocztą e-mail łączy, itp.).
-- Domyślnie, przeglądarka wyświetli dane przy użyciu poprawny format, w oparciu o swoje [ustawień regionalnych](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
-- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutu aby umożliwić MVC wybrać szablon po prawej stronie pola w celu przedstawienia tych danych ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Jeśli używany przez samego korzysta z szablonu ciągu). Aby uzyskać więcej informacji, zobacz Brad Wilson [szablony programu ASP.NET MVC 2](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Chociaż napisane dla platformy MVC 2, w tym artykule nadal obowiązuje ograniczenie do bieżącej wersji platformy ASP.NET MVC.)
+- Przeglądarka może włączać funkcje HTML5 (na przykład w celu wyświetlania kontrolki kalendarza, symbolu waluty właściwej dla ustawień regionalnych, linków e-mail itp.).
+- Domyślnie przeglądarka będzie renderować dane przy użyciu poprawnego formatu na podstawie [ustawień regionalnych](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- Atrybut [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) umożliwia wybranie odpowiedniego szablonu pola w celu renderowania danych ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) , jeśli jest używany przez siebie za pomocą szablonu ciągu). Aby uzyskać więcej informacji, zobacz Wilson [ASP.NET MVC 2](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (W przypadku pisania dla MVC 2, ten artykuł nadal dotyczy bieżącej wersji ASP.NET MVC).
 
-Jeśli używasz `DataType` atrybutu z polem daty należy określić `DisplayFormat` atrybut również w celu zapewnienia, że pole poprawnie renderowana w przeglądarkach Chrome. Aby uzyskać więcej informacji, zobacz [wątek w witrynie StackOverflow](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
+Jeśli używasz atrybutu `DataType` z polem Date, musisz określić atrybut `DisplayFormat` również, aby upewnić się, że pole jest renderowane prawidłowo w przeglądarkach Chrome. Aby uzyskać więcej informacji, zobacz [ten wątek StackOverflow](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
 > [!NOTE]
-> nie obsługuje dotyczącą weryfikacji jQuery [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx). Na przykład poniższy kod zawsze będzie wyświetlała błąd weryfikacji po stronie klienta, nawet wtedy, gdy jest to data mieści się w określonym zakresie:
+> Walidacja jQuery nie działa z atrybutem [Range](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) i [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Na przykład poniższy kod zawsze będzie wyświetlał błąd walidacji po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> Należy wyłączyć sprawdzanie poprawności Data jQuery, aby użyć [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutem [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx). Ogólnie nie jest dobrą praktyką jest kompilowanie twardych dat w ramach modeli za pomocą [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx) jest niezalecane.
+> Należy wyłączyć weryfikację daty platformy jQuery, aby użyć atrybutu [zakresu](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) z [datą i godziną](https://msdn.microsoft.com/library/system.datetime.aspx). Zazwyczaj nie jest dobrym sposobem kompilowania dat stałych w modelach, dlatego nie zaleca się używania atrybutu [zakresu](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) i [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx) .
 
-Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
+Poniższy kod ilustruje łączenie atrybutów w jednym wierszu:
 
 [!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=4,6,10,12)]
 
-W następnej części serii, utworzymy aplikację i wprowadzić kilka ulepszeń do automatycznie generowanego `Details` i `Delete` metody.
+W następnej części serii sprawdzimy aplikację i wprowadzimy pewne usprawnienia `Details` i `Delete` metod.
 
 > [!div class="step-by-step"]
-> [Poprzednie](adding-a-new-field.md)
-> [dalej](examining-the-details-and-delete-methods.md)
+> [Poprzedni](adding-a-new-field.md)
+> [Następny](examining-the-details-and-delete-methods.md)

@@ -1,167 +1,167 @@
 ---
 uid: web-api/overview/security/authentication-filters
-title: Filtry uwierzytelniania we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Filtry uwierzytelniania w programie ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: Filtr uwierzytelniania jest składnikiem, który uwierzytelnia żądanie HTTP. Składnika Web API 2 i MVC 5 obsługuje zarówno filtry uwierzytelniania, ale mogą się nieznacznie różnić...
+description: Filtr uwierzytelniania to składnik, który uwierzytelnia żądanie HTTP. Interfejsy Web API 2 i MVC 5 obsługują filtry uwierzytelniania, ale różnią się nieznacznie.
 ms.author: riande
 ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 15a343a061c61313141dcb69bd329e08aa902d98
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b6815baf05303d5f47a14ee5fe0fdfc2836c1868
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126044"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519378"
 ---
-# <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtry uwierzytelniania we wzorcu ASP.NET Web API 2
+# <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtry uwierzytelniania w programie ASP.NET Web API 2
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-> Filtr uwierzytelniania jest składnikiem, który uwierzytelnia żądanie HTTP. Składnika Web API 2 i MVC 5 obsługuje zarówno filtry uwierzytelniania, ale różnią się nieznacznie, przede wszystkim konwencje nazewnictwa dla interfejsu filtru. W tym temacie opisano filtry uwierzytelniania interfejsu API sieci Web.
+> Filtr uwierzytelniania to składnik, który uwierzytelnia żądanie HTTP. Interfejsy Web API 2 i MVC 5 obsługują filtry uwierzytelniania, ale różnią się one nieznacznie w odniesieniu do konwencji nazewnictwa dla interfejsu filtru. W tym temacie opisano filtry uwierzytelniania interfejsu API sieci Web.
 
-Filtry uwierzytelniania umożliwiają ustawienie schematu uwierzytelniania dla poszczególnych kontrolerów i akcji. Dzięki temu aplikacja może obsługiwać różnych mechanizmów uwierzytelniania dla różnych zasobów HTTP.
+Filtry uwierzytelniania umożliwiają ustawienie schematu uwierzytelniania dla poszczególnych kontrolerów lub akcji. Dzięki temu aplikacja może obsługiwać różne mechanizmy uwierzytelniania dla różnych zasobów HTTP.
 
-W tym artykule zaprezentuję, kodu z [uwierzytelnianie podstawowe](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/BasicAuthentication/ReadMe.txt) próbki na [ http://aspnet.codeplex.com ](http://aspnet.codeplex.com). Przykładowy kod zawiera filtr uwierzytelniania zawierającej implementację schematu podstawowego uwierzytelniania dostępu do protokołu HTTP (RFC 2617). Filtr jest zaimplementowana w klasie o nazwie `IdentityBasicAuthenticationAttribute`. Czy mogę nie będzie zawierać cały kod z przykładu, tylko te części, które pokazują, jak napisać filtr uwierzytelniania.
+W tym artykule pokazywać kod z przykładu [uwierzytelniania podstawowego](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) na [https://github.com/aspnet/samples](https://github.com/aspnet/samples). Przykład pokazuje filtr uwierzytelniania, który implementuje schemat uwierzytelniania dostępu podstawowego protokołu HTTP (RFC 2617). Filtr jest zaimplementowany w klasie o nazwie `IdentityBasicAuthenticationAttribute`. Nie pokazujemy całego kodu z próbki, tylko części, które ilustrują sposób pisania filtru uwierzytelniania.
 
-## <a name="setting-an-authentication-filter"></a>Ustawienie filtru uwierzytelniania
+## <a name="setting-an-authentication-filter"></a>Ustawianie filtru uwierzytelniania
 
-Podobnie jak inne filtry filtry uwierzytelniania może być kontrolerem zastosowane, -action lub globalnie do wszystkich kontrolerów internetowych interfejsów API.
+Podobnie jak w przypadku innych filtrów, filtry uwierzytelniania mogą być stosowane do poszczególnych kontrolerów interfejsu API sieci Web.
 
-Aby zastosować filtr uwierzytelniania z kontrolerem, dekoracji klasy kontrolera przy użyciu atrybutu filtru. Poniższy kod ustawia `[IdentityBasicAuthentication]` Filtr klasy kontrolera, co umożliwia uwierzytelnianie podstawowe dla wszystkich akcji kontrolera.
+Aby zastosować filtr uwierzytelniania do kontrolera, dekorować klasę kontrolera z atrybutem Filter. Poniższy kod ustawia filtr `[IdentityBasicAuthentication]` dla klasy kontrolera, co umożliwia uwierzytelnianie podstawowe dla wszystkich akcji kontrolera.
 
 [!code-csharp[Main](authentication-filters/samples/sample1.cs)]
 
-Aby zastosować filtr, aby jedna akcja, dekoracji akcji z filtrem. Poniższy kod ustawia `[IdentityBasicAuthentication]` filtru na kontrolerze `Post` metody.
+Aby zastosować filtr do jednej akcji, dekorować akcję z filtrem. Poniższy kod ustawia filtr `[IdentityBasicAuthentication]` na metodzie `Post` kontrolera.
 
 [!code-csharp[Main](authentication-filters/samples/sample2.cs)]
 
-Aby zastosować filtr do wszystkich kontrolerów składnika Web API, dodaj go do **GlobalConfiguration.Filters**.
+Aby zastosować filtr do wszystkich kontrolerów internetowego interfejsu API, Dodaj go do **GlobalConfiguration. filters**.
 
 [!code-csharp[Main](authentication-filters/samples/sample3.cs)]
 
-## <a name="implementing-a-web-api-authentication-filter"></a>Implementowanie filtr uwierzytelniania interfejsu API sieci Web
+## <a name="implementing-a-web-api-authentication-filter"></a>Implementowanie filtru uwierzytelniania interfejsu API sieci Web
 
-W interfejsie API sieci Web, implementuje filtry uwierzytelniania [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx) interfejsu. Powinny one również dziedziczyć **klasy System.Attribute**, aby zostać zastosowana jako atrybuty.
+W interfejsie API sieci Web filtry uwierzytelniania implementują interfejs [System. Web. http. filters. IAuthenticationFilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx) . Powinny one również dziedziczyć z **System. Attribute**, aby można było je zastosować jako atrybuty.
 
-**IAuthenticationFilter** interfejs ma dwie metody:
+Interfejs **IAuthenticationFilter** ma dwie metody:
 
-- **Metody AuthenticateAsync** uwierzytelnia żądanie przez sprawdzanie poprawności poświadczeń w żądaniu, jeśli jest obecny.
-- **ChallengeAsync** dodaje żądanie uwierzytelniania dla odpowiedzi HTTP, jeśli to konieczne.
+- **AuthenticateAsync** uwierzytelnia żądanie, sprawdzając poświadczenia w żądaniu, jeśli są obecne.
+- **ChallengeAsync** dodaje wyzwanie uwierzytelniania do odpowiedzi HTTP, w razie potrzeby.
 
-Te metody odpowiadają przepływ uwierzytelniania zdefiniowane w [RFC 2612](http://tools.ietf.org/html/rfc2616) i [RFC 2617](http://tools.ietf.org/html/rfc2617):
+Metody te odnoszą się do przepływu uwierzytelniania zdefiniowanego w [rfc 2612](http://tools.ietf.org/html/rfc2616) i [RFC 2617](http://tools.ietf.org/html/rfc2617):
 
-1. Klient wysyła poświadczenia w nagłówku autoryzacji. Zwykle dzieje się tak, po odebraniu odpowiedzi 401 (nieautoryzowane) z serwera. Jednak klient może wysłać poświadczenia z żadnym żądaniem nie tylko po 401.
-2. Jeśli serwer nie akceptuje poświadczeń, zwraca odpowiedzi 401 (nieautoryzowany). Odpowiedź zawiera nagłówka Www-Authenticate, który zawiera co najmniej jeden wyzwania. Każdego żądania określa schematu uwierzytelniania rozpoznawane przez serwer.
+1. Klient wysyła poświadczenia w nagłówku autoryzacji. Zwykle dzieje się tak, gdy klient otrzymuje odpowiedź 401 (nieautoryzowaną) z serwera. Klient może jednak wysyłać poświadczenia z dowolnym żądaniem, a nie zaraz po otrzymaniu 401.
+2. Jeśli serwer nie akceptuje poświadczeń, zwraca odpowiedź 401 (bez autoryzacji). Odpowiedź zawiera nagłówek WWW-Authenticate, który zawiera jedno lub kilka wyzwań. Każde wyzwanie określa schemat uwierzytelniania rozpoznany przez serwer.
 
-Serwer może również zwracać 401 z anonimowego żądania. W rzeczywistości, który jest zazwyczaj jak jest inicjowane z procesem uwierzytelniania:
+Serwer może również zwrócić 401 z anonimowego żądania. W rzeczywistości zazwyczaj jest inicjowany proces uwierzytelniania:
 
-1. Klient wysyła żądania od użytkowników anonimowych.
+1. Klient wysyła żądanie anonimowe.
 2. Serwer zwraca 401.
-3. Wysyła żądanie przy użyciu poświadczeń ponownie klientów.
+3. Klienci ponownie wysyłają żądanie z poświadczeniami.
 
-Ten przepływ obejmuje zarówno *uwierzytelniania* i *autoryzacji* kroki.
+Ten przepływ obejmuje procedurę *uwierzytelniania* i *autoryzacji* .
 
-- Uwierzytelnianie potwierdza tożsamość klienta.
-- Autoryzacja Określa, czy klient może uzyskiwać dostęp do określonego zasobu.
+- Uwierzytelnianie udowadnia tożsamość klienta.
+- Autoryzacja określa, czy klient może uzyskać dostęp do określonego zasobu.
 
-W interfejsie API sieci Web filtry uwierzytelniania obsługi uwierzytelniania, ale nie autoryzacji. Autoryzacja powinna być podejmowana przez filtr autoryzacji lub wewnątrz akcji kontrolera.
+W interfejsie API sieci Web filtry uwierzytelniania obsługują uwierzytelnianie, ale nie autoryzację. Autoryzacja powinna odbywać się przez filtr autoryzacji lub wewnątrz akcji kontrolera.
 
-Poniżej przedstawiono przepływ w potoku Web API 2:
+Oto przepływ w potoku Web API 2:
 
-1. Przed wywołaniem akcję, internetowy interfejs API tworzy się lista filtrów uwierzytelniania dla tej akcji. W tym filtry z zakresu akcji, zakresem kontrolera i zakresu globalnego.
-2. Wywołania interfejsu API w sieci Web **metody AuthenticateAsync** dla każdego filtru na liście. Każdy filtr można zweryfikować poświadczeń w żądaniu. Jeśli jakikolwiek filtr, który pomyślnie sprawdza poprawność poświadczeń, filtr tworzy **IPrincipal** i dołącza je do żądania. Filtr może także wyzwolić błąd w tym momencie. Jeśli tak, pozostałego potoku nie działa.
-3. Przy założeniu, że nie ma błędów, żądanie przepływów przy użyciu interfejsu rest z potoku.
-4. Na koniec interfejsu API sieci Web wywołuje każdy filtr uwierzytelniania **ChallengeAsync** metody. Filtry ta metoda umożliwia dodawanie wezwanie do odpowiedzi, jeśli to konieczne. Zazwyczaj (ale nie zawsze), będzie możliwe w odpowiedzi na błąd 401 — dostęp.
+1. Przed wywołaniem akcji interfejs API sieci Web tworzy listę filtrów uwierzytelniania dla tej akcji. Obejmuje to filtry z zakresem akcji, zakresem kontrolera i zakresem globalnym.
+2. Interfejs API sieci Web wywołuje **AuthenticateAsync** na każdym filtrze na liście. Każdy filtr może sprawdzać poprawność poświadczeń w żądaniu. Jeśli dowolny filtr pomyślnie sprawdza poprawność poświadczeń, filtr tworzy **IPrincipal** i dołącza go do żądania. Filtr może również wyzwolić błąd w tym momencie. Jeśli tak, pozostała część potoku nie zostanie uruchomiona.
+3. Przy założeniu, że nie ma żadnych błędów, żądanie przepływa przez resztę potoku.
+4. Na koniec interfejs API sieci Web wywołuje metodę **ChallengeAsync** każdego filtru uwierzytelniania. Filtry używają tej metody w celu dodania wyzwania do odpowiedzi, w razie potrzeby. Zwykle (ale nie zawsze), co się stanie w odpowiedzi na błąd 401.
 
-Na poniższych diagramach przedstawiono dwa możliwe przypadki. W pierwszym filtr uwierzytelniania pomyślnie uwierzytelnia żądanie filtru autoryzacji autoryzuje żądanie i akcji kontrolera zwraca 200 (OK).
+Na poniższych diagramach przedstawiono dwa możliwe przypadki. W pierwszej kolejności filtr uwierzytelniania pomyślnie uwierzytelnia żądanie, filtr autoryzacji autoryzuje żądanie, a akcja kontrolera zwraca 200 (OK).
 
 ![](authentication-filters/_static/image1.png)
 
-W drugim przykładzie filtr uwierzytelniania uwierzytelnia żądanie, ale filtr autoryzacji zwraca wartość 401 (bez autoryzacji). W tym przypadku nie jest wywoływany akcji kontrolera. Filtr uwierzytelniania dodaje do odpowiedzi nagłówek Www-Authenticate.
+W drugim przykładzie filtr uwierzytelniania uwierzytelnia żądanie, ale filtr autoryzacji zwraca 401 (bez autoryzacji). W takim przypadku akcja kontrolera nie zostanie wywołana. Filtr uwierzytelniania dodaje nagłówek WWW-Authenticate do odpowiedzi.
 
 ![](authentication-filters/_static/image2.png)
 
-Możliwe są inne kombinacje&mdash;na przykład, jeśli akcja kontrolera zezwala na anonimowe żądania, Niewykluczone, że filtr uwierzytelniania, ale brak autoryzacji.
+Inne kombinacje są możliwe&mdash;na przykład, jeśli akcja kontrolera zezwala na żądania anonimowe, może istnieć filtr uwierzytelniania, ale brak autoryzacji.
 
-## <a name="implementing-the-authenticateasync-method"></a>Implementacja metody metody AuthenticateAsync
+## <a name="implementing-the-authenticateasync-method"></a>Implementowanie metody AuthenticateAsync
 
-**Metody AuthenticateAsync** metoda próbuje się uwierzytelnić żądania. W tym miejscu znajduje się sygnatura metody:
+Metoda **AuthenticateAsync** próbuje uwierzytelnić żądanie. W tym miejscu znajduje się sygnatura metody:
 
 [!code-csharp[Main](authentication-filters/samples/sample4.cs)]
 
-**Metody AuthenticateAsync** metody należy wykonać jedną z następujących czynności:
+Metoda **AuthenticateAsync** musi wykonać jedną z następujących czynności:
 
-1. Brak elementów (pusta).
-2. Tworzenie **IPrincipal** i ustaw ją na żądanie.
+1. Nic (No-op).
+2. Utwórz element **IPrincipal** i ustaw go na żądanie.
 3. Ustaw wynik błędu.
 
-Opcja (1) oznacza, że żądanie nie ma żadnych poświadczeń, które rozumie filtru. Opcja (2) oznacza, że filtr pomyślnym uwierzytelnieniu żądanie. Opcja (3) oznacza, że żądanie było nieprawidłowe poświadczenia (np. nieprawidłowe hasło), powoduje wyzwolenie odpowiedź o błędzie.
+Opcja (1) oznacza, że żądanie nie miało żadnych poświadczeń, które rozpoznaje filtr. Opcja (2) oznacza, że filtr pomyślnie uwierzytelnił żądanie. Opcja (3) oznacza, że żądanie miało nieprawidłowe poświadczenia (takie jak nieprawidłowe hasło), które wyzwala odpowiedź na błąd.
 
-Poniżej przedstawiono ogólny zarys implementowania **metody AuthenticateAsync**.
+Oto ogólny zarys implementacji **AuthenticateAsync**.
 
-1. Zwróć uwagę na poświadczenia w żądaniu.
-2. Jeśli nie istnieją żadne poświadczenia nie, nic nie rób i powrócić (pusta).
-3. Jeśli istnieją poświadczenia, ale filtru nie może rozpoznać schemat uwierzytelniania, nic nie rób i zwracać (pusta). Inny filtr w potoku może zrozumieć schemat.
-4. W przypadku poświadczeń, które rozumie filtr, spróbuj je uwierzytelnić.
-5. Jeśli poświadczenia są nieprawidłowe, zwraca 401, ustawiając `context.ErrorResult`.
+1. Wyszukaj poświadczenia w żądaniu.
+2. Jeśli nie ma żadnych poświadczeń, nic nie rób i zwróć (No-op).
+3. Jeśli istnieją poświadczenia, ale filtr nie rozpoznaje schematu uwierzytelniania, nic nie rób ani nie zwraca (No-op). Inny filtr w potoku może zrozumieć schemat.
+4. Jeśli istnieją poświadczenia zrozumiałe dla filtru, spróbuj je uwierzytelnić.
+5. Jeśli poświadczenia są nieprawidłowe, zwróć 401 przez ustawienie `context.ErrorResult`.
 6. Jeśli poświadczenia są prawidłowe, Utwórz **IPrincipal** i ustaw `context.Principal`.
 
-Poniżej przedstawiono kod **metody AuthenticateAsync** metody z [uwierzytelnianie podstawowe](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/BasicAuthentication/ReadMe.txt) próbki. Komentarze wskazują każdego kroku. Kod zawiera kilka typów błędów: Nagłówek uwierzytelnienia bez poświadczeń, poświadczenia źle sformułowane i nieprawidłowo podawali nazwę użytkownika/hasło.
+W poniższym kodzie przedstawiono metodę **AuthenticateAsync** z przykładu [podstawowego uwierzytelniania](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) . Komentarze wskazują każdy krok. Kod pokazuje kilka typów błędu: nagłówek autoryzacji bez poświadczeń, źle sformułowane poświadczenia i zła nazwa użytkownika/hasło.
 
 [!code-csharp[Main](authentication-filters/samples/sample5.cs)]
 
-## <a name="setting-an-error-result"></a>Ustawienie wynik błędu
+## <a name="setting-an-error-result"></a>Ustawianie wyniku błędu
 
-Jeśli poświadczenia są nieprawidłowe, musisz ustawić filtr `context.ErrorResult` do **IHttpActionResult** tworząca odpowiedź o błędzie. Aby uzyskać więcej informacji na temat **IHttpActionResult**, zobacz [wyniki akcji w sieci Web API 2](../getting-started-with-aspnet-web-api/action-results.md).
+Jeśli poświadczenia są nieprawidłowe, filtr musi ustawić `context.ErrorResult` na **IHttpActionResult** , który tworzy odpowiedź na błąd. Aby uzyskać więcej informacji na temat **IHttpActionResult**, zobacz [wyniki akcji w interfejsie Web API 2](../getting-started-with-aspnet-web-api/action-results.md).
 
-Przykład uwierzytelniania Basic obejmuje `AuthenticationFailureResult` klasę, która jest odpowiednia do tego celu.
+Przykład uwierzytelniania podstawowego zawiera klasę `AuthenticationFailureResult`, która jest odpowiednia do tego celu.
 
 [!code-csharp[Main](authentication-filters/samples/sample6.cs)]
 
 ## <a name="implementing-challengeasync"></a>Implementowanie ChallengeAsync
 
-Celem **ChallengeAsync** metody jest dodanie wezwań do uwierzytelnienia do odpowiedzi, jeśli to konieczne. W tym miejscu znajduje się sygnatura metody:
+Celem metody **ChallengeAsync** jest dodanie wyzwań uwierzytelniania do odpowiedzi, w razie potrzeby. W tym miejscu znajduje się sygnatura metody:
 
 [!code-csharp[Main](authentication-filters/samples/sample7.cs)]
 
-Metoda jest wywoływana w każdej filtr uwierzytelniania w Potok żądań.
+Metoda jest wywoływana dla każdego filtru uwierzytelniania w potoku żądania.
 
-Należy pamiętać, że **ChallengeAsync** nosi nazwę *przed* odpowiedź HTTP jest utworzony i prawdopodobnie nawet przed uruchomieniem akcji kontrolera. Gdy **ChallengeAsync** jest wywoływana, `context.Result` zawiera **IHttpActionResult**, który jest używany później utworzyć odpowiedź HTTP. W takim przypadku **ChallengeAsync** jest wywoływana, nie wiesz nic o odpowiedzi HTTP jeszcze. **ChallengeAsync** metody należy zastąpić oryginalnej wartości elementu `context.Result` dzięki nowemu **IHttpActionResult**. To **IHttpActionResult** należy opakować oryginalny `context.Result`.
+Ważne jest, aby zrozumieć, że **ChallengeAsync** jest wywoływana *przed utworzeniem* odpowiedzi HTTP i prawdopodobnie nawet przed uruchomieniem akcji kontrolera. Gdy **ChallengeAsync** jest wywoływana, `context.Result` zawiera **IHttpActionResult**, który jest używany później do utworzenia odpowiedzi HTTP. Więc gdy **ChallengeAsync** jest wywoływana, nie wiesz jeszcze niczego o odpowiedzi HTTP. Metoda **ChallengeAsync** powinna zastąpić oryginalną wartość `context.Result` nową **IHttpActionResult**. Ta **IHttpActionResult** musi otaczać oryginalny `context.Result`.
 
 ![](authentication-filters/_static/image3.png)
 
-Będzie zadzwonić, oryginalnym **IHttpActionResult** *wewnętrzne wyników*, a nowe **IHttpActionResult** *zewnętrzne wynik*. Wynik zewnętrzne, wykonaj następujące czynności:
+Wywołaję oryginalny **IHttpActionResult** *wyniku wewnętrznego*i nowy **IHttpActionResult** *wynik zewnętrzny*. Zewnętrzny wynik musi wykonać następujące czynności:
 
-1. Wywołaj wewnętrzne wyników do tworzenia odpowiedzi HTTP.
-2. Sprawdź odpowiedzi.
-3. W razie potrzeby należy dodać wezwanie do uwierzytelnienia w odpowiedzi.
+1. Wywołaj wynik wewnętrzny, aby utworzyć odpowiedź HTTP.
+2. Sprawdź odpowiedź.
+3. W razie potrzeby Dodaj wyzwanie uwierzytelniania do odpowiedzi.
 
-Poniższy przykład jest pobierana z próbki uwierzytelnianie podstawowe. Definiuje on **IHttpActionResult** zewnętrzne wynik.
+Poniższy przykład jest pobierany z przykładu podstawowego uwierzytelniania. Definiuje **IHttpActionResult** dla zewnętrznego wyniku.
 
 [!code-csharp[Main](authentication-filters/samples/sample8.cs)]
 
-`InnerResult` Właściwość przechowuje wewnętrzny **IHttpActionResult**. `Challenge` Właściwość reprezentuje nagłówka Www-uwierzytelniania. Należy zauważyć, że **ExecuteAsync** najpierw wywołuje `InnerResult.ExecuteAsync` do tworzenia odpowiedzi HTTP, a następnie dodaje żądania, jeśli to konieczne.
+Właściwość `InnerResult` zawiera wewnętrzny **IHttpActionResult**. Właściwość `Challenge` reprezentuje nagłówek uwierzytelniania www. Zwróć uwagę, że **wywoływanie ExecuteAsync** najpierw wywołuje `InnerResult.ExecuteAsync` w celu utworzenia odpowiedzi HTTP, a następnie dodaje wyzwanie w razie potrzeby.
 
-Sprawdź kod odpowiedzi przed dodaniem wyzwanie. Większość schematów uwierzytelniania tylko dodać wyzwanie w przypadku odpowiedzi 401, jak pokazano poniżej. Jednak niektóre schematy uwierzytelniania dodać wyzwanie odpowiedź sukcesu. Na przykład zobacz [Negotiate](http://tools.ietf.org/html/rfc4559#section-5) (RFC 4559).
+Przed dodaniem wyzwania Sprawdź kod odpowiedzi. Większość schematów uwierzytelniania dodaje wyzwanie tylko wtedy, gdy odpowiedź to 401, jak pokazano poniżej. Niektóre schematy uwierzytelniania umożliwiają jednak dodanie wyzwania do odpowiedzi o powodzeniu. Na przykład zobacz [Negotiate](http://tools.ietf.org/html/rfc4559#section-5) (RFC 4559).
 
-Biorąc pod uwagę `AddChallengeOnUnauthorizedResult` rzeczywisty kod w klasie **ChallengeAsync** jest proste. Po prostu utworzyć wynik i dołącz je do `context.Result`.
+W przypadku klasy `AddChallengeOnUnauthorizedResult` rzeczywista wartość kodu w **ChallengeAsync** jest prosta. Wystarczy utworzyć wynik i dołączyć go do `context.Result`.
 
 [!code-csharp[Main](authentication-filters/samples/sample9.cs)]
 
-Uwaga: Przykład uwierzytelniania podstawowego przenosi tę logikę nieco, umieszczając go w metodzie rozszerzenia.
+Uwaga: przykład uwierzytelniania podstawowego jest abstrakcyjny dla tej logiki jako bit, umieszczając ją w metodzie rozszerzenia.
 
-## <a name="combining-authentication-filters-with-host-level-authentication"></a>Łącząc filtry uwierzytelniania z uwierzytelnieniem na poziomie hosta
+## <a name="combining-authentication-filters-with-host-level-authentication"></a>Łączenie filtrów uwierzytelniania z uwierzytelnianiem na poziomie hosta
 
-"Uwierzytelnianie na poziomie hosta" jest uwierzytelnianie przeprowadzane przez hosta (np. usługi IIS), zanim żądanie framework przypada interfejsu API sieci Web.
+"Uwierzytelnianie na poziomie hosta" to uwierzytelnianie wykonywane przez hosta (na przykład IIS), zanim żądanie osiągnie strukturę internetowego interfejsu API.
 
-Często warto włączyć uwierzytelnianie na poziomie hosta w pozostałej części aplikacji, ale ją wyłączyć dla kontrolerów Web API. Na przykład typowym scenariuszem jest włączyć uwierzytelnianie formularzy na poziomie hosta, ale używanie uwierzytelniania opartego na tokenach dla interfejsu API sieci Web.
+Często można włączyć uwierzytelnianie na poziomie hosta dla pozostałej części aplikacji, ale wyłączyć je dla kontrolerów interfejsu API sieci Web. Typowym scenariuszem jest na przykład włączenie uwierzytelniania formularzy na poziomie hosta, ale użycie uwierzytelniania opartego na tokenach dla internetowego interfejsu API.
 
-Aby wyłączyć uwierzytelnianie na poziomie hosta wewnątrz potok składnika Web API, należy wywołać `config.SuppressHostPrincipal()` w konfiguracji. Powoduje to, że internetowy interfejs API usunąć **IPrincipal** z każde żądanie, które wprowadza potok składnika Web API. Skutecznie, jego &quot;un-uwierzytelnia&quot; żądania.
+Aby wyłączyć uwierzytelnianie na poziomie hosta w potoku interfejsu API sieci Web, wywołaj `config.SuppressHostPrincipal()` w konfiguracji. Powoduje to, że interfejs API sieci Web usuwa **IPrincipal** z dowolnych żądań, które wprowadzają potok interfejsu API sieci Web. Skutecznie &quot;nie uwierzytelnia&quot; żądania.
 
 [!code-csharp[Main](authentication-filters/samples/sample10.cs)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Filtry zabezpieczeń interfejsu API sieci Web platformy ASP.NET](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN Magazine)
+[Filtry zabezpieczeń interfejsu API sieci Web ASP.NET](https://msdn.microsoft.com/magazine/dn781361.aspx) (Magazyn MSDN)

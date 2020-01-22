@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 46264a0ab2244cff24761ce94b41722e61e3f426
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: d3b619ebd9448d30857ffbaf17fd245b1d54a662
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614925"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519300"
 ---
 # <a name="shopping-cart"></a>Koszyk
 
@@ -25,7 +25,7 @@ Autor [Erik Reitan](https://github.com/Erikre)
 
 W tym samouczku opisano logikę biznesową wymaganą do dodania koszyka do przykładowej aplikacji Wingtip zabawki ASP.NET Web Forms. W tym samouczku przedstawiono poprzednie samouczki "Wyświetlanie elementów danych i szczegółów" oraz jest częścią serii samouczków dotyczących sklepu Wingtip. Po ukończeniu tego samouczka użytkownicy przykładowej aplikacji będą mogli dodawać, usuwać i modyfikować produkty w koszyku zakupów.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 1. Jak utworzyć koszyk dla aplikacji sieci Web.
 2. Jak umożliwić użytkownikom dodawanie elementów do koszyka.
@@ -56,7 +56,7 @@ Wcześniej w tej serii samouczków został zdefiniowany schemat dla kategorii i 
 1. Kliknij prawym przyciskiem myszy folder *modele* i wybierz polecenie **Dodaj** -&gt; **nowy element**. 
 
     ![Koszyk — nowy element](shopping-cart/_static/image1.png)
-2. Zostanie wyświetlone okno dialogowe **Dodaj nowy element** . Wybierz pozycję **kod**, a następnie wybierz pozycję **Klasa**. 
+2. **Dodaj nowy element** zostanie wyświetlone okno dialogowe. Wybierz pozycję **kod**, a następnie wybierz pozycję **Klasa**. 
 
     ![Koszyk — okno dialogowe Dodawanie nowego elementu](shopping-cart/_static/image2.png)
 3. Nadaj tej nowej klasie nazwę *CartItem.cs*.
@@ -130,7 +130,7 @@ Jak wspomniano wcześniej, utworzysz stronę przetwarzania o nazwie *AddToCart. 
 #### <a name="to-create-the-add-to-cart-functionality"></a>Aby utworzyć funkcję dodawania do koszyka:
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **WingtipToys**, kliknij polecenie **Dodaj** -&gt; **nowy element**.  
-   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Dodawanie standardowej nowej strony (formularz sieci Web) do aplikacji o nazwie *AddToCart. aspx*. 
 
     ![Koszyk — Dodaj formularz sieci Web](shopping-cart/_static/image4.png)
@@ -148,7 +148,7 @@ Jak wspomniano wcześniej, `ID` użytkownika służy do identyfikowania produkt�
 Na stronie *ShoppingCart. aspx* zostaną wyświetlone produkty dodane przez użytkownika do koszyka zakupów. Umożliwia także dodawanie, usuwanie i aktualizowanie elementów w koszyku.
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **WingtipToys**, a następnie kliknij pozycję **Dodaj** -&gt; **nowy element**.  
-   Zostanie wyświetlone okno dialogowe **Dodaj nowy element** .
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Dodaj nową stronę (formularz sieci Web), która zawiera stronę wzorcową, wybierając **formularz sieci Web przy użyciu strony wzorcowej**. Nadaj nowej stronie nazwę *ShoppingCart. aspx*.
 3. Wybierz pozycję **site. Master** , aby dołączyć stronę wzorcową do nowo utworzonej strony *. aspx* .
 4. Na stronie *ShoppingCart. aspx* Zastąp istniejący znacznik następującym znacznikiem:   
@@ -183,7 +183,7 @@ Teraz dodasz link **Dodaj do koszyka** do strony *ProductList. aspx* i *ProductD
 
 Uruchom aplikację, aby dowiedzieć się, jak dodać produkty do koszyka.
 
-1. Naciśnij klawisz **F5** , aby uruchomić aplikację.  
+1. Naciśnij klawisz **F5**, aby uruchomić aplikację.  
  Po utworzeniu bazy danych przez projekt zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
 2. Wybierz pozycję **samochody** z menu nawigacji kategorii.  
  Zostanie wyświetlona strona *ProductList. aspx* zawierająca tylko produkty należące do kategorii "samochody". 
@@ -228,7 +228,7 @@ Po załadowaniu strony *ShoppingCart. aspx* załaduje ona obiekt koszyka zakupó
 
 Uruchom aplikację teraz, aby zobaczyć, jak nie tylko dodać produkt do koszyka, ale możesz zobaczyć łączną część koszyka zakupów.
 
-1. Naciśnij klawisz **F5** , aby uruchomić aplikację.  
+1. Naciśnij klawisz **F5**, aby uruchomić aplikację.  
  Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
 2. Wybierz pozycję **samochody** z menu nawigacji kategorii.
 3. Kliknij link **Dodaj do koszyka** obok pierwszego produktu.   
@@ -294,7 +294,7 @@ Przed renderowaniem strony jako HTML zostanie zgłoszone zdarzenie `Page_PreRend
 
 Teraz możesz uruchomić aplikację, aby zobaczyć, jak można dodawać, usuwać i aktualizować elementy w koszyku. Kwota koszyka zakupów będzie odzwierciedlać łączny koszt wszystkich elementów w koszyku.
 
-1. Naciśnij klawisz **F5** , aby uruchomić aplikację.  
+1. Naciśnij klawisz **F5**, aby uruchomić aplikację.  
  Zostanie otwarta przeglądarka i zostanie wyświetlona strona *default. aspx* .
 2. Wybierz pozycję **samochody** z menu nawigacji kategorii.
 3. Kliknij link **Dodaj do koszyka** obok pierwszego produktu.   
@@ -312,10 +312,12 @@ W tym samouczku utworzono koszyk dla przykładowej aplikacji Wingtip zabawki Web
 
 Koszyk obsługuje dodawanie, usuwanie i aktualizowanie elementów wybranych przez użytkownika do zakupu. Oprócz implementacji funkcji koszyka zakupów wiesz już, jak wyświetlać elementy koszyka zakupów w kontrolce **GridView** i obliczać sumę zamówień.
 
+Aby zrozumieć, jak opisana funkcja działa w prawdziwej aplikacji biznesowej, możesz zapoznać się z przykładem ASP.NET typu Open Source ( [witryny systemu NopCommerce](https://github.com/nopSolutions/nopCommerce) ). Pierwotnie został utworzony na formularzach sieci Web i w ciągu lat przenoszonych do MVC i teraz ASP.NET Core.
+
 ## <a name="addition-information"></a>Dodatkowe informacje
 
-[Przegląd stanu sesji ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
+[ASP.NET Session State Overview](https://msdn.microsoft.com/library/ms178581.aspx)
 
 > [!div class="step-by-step"]
-> [Poprzednie](display_data_items_and_details.md)
-> [dalej](checkout-and-payment-with-paypal.md)
+> [Poprzedni](display_data_items_and_details.md)
+> [Następny](checkout-and-payment-with-paypal.md)

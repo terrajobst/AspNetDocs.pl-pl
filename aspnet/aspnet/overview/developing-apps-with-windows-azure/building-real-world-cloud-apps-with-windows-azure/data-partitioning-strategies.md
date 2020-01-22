@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 2f79b1f459aff3e81dab7ea7eb4ebf3f71084463
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: b8c901ec30b6d37237f80100a2978350ac389b7a
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585816"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519170"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Strategie partycjonowania danych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
@@ -51,7 +51,7 @@ Załóżmy na przykład, że moja aplikacja przechowuje dane dotyczące osób, w
 
 ![Tabela danych](data-partitioning-strategies/_static/image1.png)
 
-Gdy dane są reprezentowane jako tabela i przyjrzyj się różnym odmianom danych, można zobaczyć, że trzy kolumny po lewej stronie mają dane ciągów, które mogą być efektywnie przechowywane przez relacyjną bazę danych, natomiast dwie kolumny po prawej stronie są tablicami bajtowymi, które są niektó z plików obrazów. Istnieje możliwość przechowywania danych plików obrazów w relacyjnej bazie danych, a wiele osób może zrobić, ponieważ nie chcą zapisywać danych w systemie plików. Mogą nie mieć systemu plików z możliwością przechowywania wymaganych woluminów danych lub mogą nie chcieć zarządzać osobnym systemem tworzenia kopii zapasowej i przywracania. Takie podejście działa dobrze w przypadku lokalnych baz danych i małych ilości danych w bazach danych w chmurze. W środowisku lokalnym może być łatwiej, aby tylko DBA o wszystko.
+Gdy dane są reprezentowane jako tabela i przyjrzyj się różnym odmianom danych, można zobaczyć, że trzy kolumny po lewej stronie mają dane ciągów, które mogą być efektywnie przechowywane przez relacyjną bazę danych, natomiast dwie kolumny po prawej stronie są tablicami bajtowymi, które są niektó z plików obrazów. Istnieje możliwość przechowywania danych plików obrazów w relacyjnej bazie danych, a wiele osób, dzięki czemu nie chcą zapisywać danych w systemie plików. Mogą nie mieć systemu plików z możliwością przechowywania wymaganych woluminów danych lub mogą nie chcieć zarządzać osobnym systemem tworzenia kopii zapasowej i przywracania. Takie podejście działa dobrze w przypadku lokalnych baz danych i małych ilości danych w bazach danych w chmurze. W środowisku lokalnym może być łatwiej, aby tylko DBA o wszystko.
 
 Jednak w bazie danych w chmurze magazyn jest stosunkowo kosztowny, a duża ilość obrazów może zwiększyć rozmiar bazy danych poza granicami, w których może wydajnie działać. Te problemy można rozwiązać przez Partycjonowanie danych w pionie, co oznacza, że można wybrać najbardziej odpowiedni magazyn danych dla każdej kolumny w tabeli danych. Co może być najlepszym rozwiązaniem dla tego przykładu jest umieszczenie danych ciągu w relacyjnej bazie danych i w obrazach w usłudze BLOB Storage.
 
@@ -61,7 +61,7 @@ Przechowywanie obrazów w magazynie obiektów blob, a nie w bazie danych, jest b
 
 Jest to podejście do partycjonowania wdrożone w aplikacji do rozwiązywania problemów IT i poinformujemy kod o tym w [rozdziale usługi BLOB Storage](unstructured-blob-storage.md). Bez tego schematu partycjonowania i przy założeniu średniego rozmiaru obrazu wynoszącego 3 megabajty, poprawka aplikacji IT będzie mogła przechowywać informacje o 40 000 zadaniach przed upływem maksymalnego rozmiaru bazy danych wynoszącego 150 gigabajty. Po usunięciu obrazów baza danych może przechowywać 10 razy tyle zadań; Możesz kontynuować pracę znacznie dłużej, zanim będzie trzeba myśleć o implementacji schematu partycjonowania poziomego. W miarę skalowania aplikacji Twoje wydatki rosną wolniej, ponieważ większość potrzeb związanych z magazynem odbywa się bardzo niedrogim magazynem obiektów BLOB.
 
-## <a name="horizontal-partitioning-sharding"></a>Partycjonowanie poziome (fragmentowania)
+## <a name="horizontal-partitioning-sharding"></a>Partycjonowanie poziome (fragmentowanie)
 
 Podział w poziomie jest podobny do dzielenia tabeli według wierszy: jeden zestaw wierszy przejdzie w jeden magazyn danych, a inny zestaw wierszy przechodzi do innego magazynu danych.
 
@@ -87,7 +87,7 @@ Komplikacje można zarządzać tak długo, jak planujesz je przed przejściem do
 
 ## <a name="summary"></a>Podsumowanie
 
-Efektywny schemat partycjonowania może umożliwić aplikacji w chmurze skalowanie do petabajtów danych w chmurze bez wąskich gardeł. Nie trzeba więc wyliczać z góry za duże maszyny lub rozległą infrastrukturę, która może być używana w przypadku uruchamiania aplikacji w lokalnym centrum danych. W chmurze możesz zwiększyć pojemność w miarę potrzeb i płacić tylko za tyle, ile korzystasz z niego podczas korzystania z niego.
+Efektywny schemat partycjonowania może umożliwić aplikacji w chmurze skalowanie do petabajtów danych w chmurze bez wąskich gardeł. Nie trzeba więc wyliczać z góry za duże maszyny lub rozległą infrastrukturę, która może być używana w przypadku uruchamiania aplikacji w lokalnym centrum danych. W chmurze możesz stopniowo dodawać pojemności, gdy ich potrzebujesz, i płacisz tylko za tyle, ile będziesz używać.
 
 W [następnym rozdziale](unstructured-blob-storage.md) zobaczymy, jak aplikacja Poprawka It implementuje partycjonowanie pionowe przez przechowywanie obrazów w magazynie obiektów BLOB.
 
@@ -95,7 +95,7 @@ W [następnym rozdziale](unstructured-blob-storage.md) zobaczymy, jak aplikacja 
 
 Aby uzyskać więcej informacji na temat strategii partycjonowania, zobacz następujące zasoby.
 
-Łączoną
+Dokumentacja:
 
 - [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na platformie Microsoft Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument ze znakami SIMM i Michael Thomassy.
 - [Wzorce i praktyki firmy Microsoft — wzorce projektowania w chmurze](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące partycjonowania danych, wzorzec fragmentowania.
@@ -110,5 +110,5 @@ Przykładowy kod:
 - [Podstawy usługi w chmurze w systemie Windows Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja, która zawiera bazę danych podzielonej na fragmenty. Opis zaimplementowanego schematu fragmentowania można znaleźć w temacie [dal – fragmentowania of RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) in the Windows Azure blog.
 
 > [!div class="step-by-step"]
-> [Poprzednie](data-storage-options.md)
-> [dalej](unstructured-blob-storage.md)
+> [Poprzedni](data-storage-options.md)
+> [Następny](unstructured-blob-storage.md)

@@ -8,20 +8,20 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 07f5b290b73f75000e6f29fe09e4dc25e144452f
-ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
+ms.openlocfilehash: 6169c972ad0f4ee2079d3638c54a5accc4b8b3de
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899694"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519352"
 ---
 # <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku pokazano, jak utworzyć aplikację internetową ASP.NET MVC 5 z potwierdzeniem poczty e-mail i resetowaniem hasła przy użyciu systemu członkostwa ASP.NET Identity.
 
-Aby uzyskać zaktualizowaną wersję tego samouczka korzystającego z platformy .NET Core, zobacz [potwierdzenie konta i odzyskiwanie hasła w ASP.NET Core [/ASPNET/Core/Security/Authentication/accconfirm).
+Zaktualizowaną wersję tego samouczka korzystającą z platformy .NET Core można znaleźć [w temacie potwierdzenie konta i odzyskiwanie hasła w ASP.NET Core](/aspnet/core/security/authentication/accconfirm).
 
 <a id="createMvc"></a>
 ## <a name="create-an-aspnet-mvc-app"></a>Tworzenie aplikacji ASP.NET MVC

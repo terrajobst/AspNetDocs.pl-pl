@@ -8,28 +8,28 @@ ms.date: 10/17/2013
 ms.assetid: cc764f3b-6921-486a-8f44-c6ccd1249acd
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 6b38d757d37374b14979f8a079a46158ff64f9c3
-ms.sourcegitcommit: f774732a3960fca079438a88a5472c37cf7be08a
+ms.openlocfilehash: 80000b366203eff4b9524b7a5995832753b9eed3
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68810765"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519053"
 ---
 # <a name="adding-a-controller"></a>Dodawanie kontrolera
 
 Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
 MVC oznacza *Model-View-Controller*. MVC to wzorzec służący do tworzenia aplikacji, które są dobrze zaprojektowane, weryfikowalne i łatwe w obsłudze. Aplikacje oparte na MVC zawierają:
 
-- Odels **M** : Klasy reprezentujące dane aplikacji, które używają logiki walidacji do wymuszania reguł dla tych danych.
-- Iews **V** : Pliki szablonów używane przez aplikację do dynamicznego generowania odpowiedzi HTML.
-- Ontrollers języka **C** : Klasy obsługujące żądania przeglądarki przychodzącej, pobieranie danych modelu, a następnie określanie szablonów wyświetlania, które zwracają odpowiedź do przeglądarki.
+- **M** Odels: klasy reprezentujące dane aplikacji i używające logiki walidacji do wymuszania reguł dla tych danych.
+- **V** iews: pliki szablonów używane przez aplikację do dynamicznego generowania odpowiedzi html.
+- **C** Ontrollers: klasy obsługujące żądania przeglądarki przychodzącej, pobieranie danych modelu, a następnie określanie szablonów wyświetlania, które zwracają odpowiedź do przeglądarki.
 
 Będziemy omawiać wszystkie te koncepcje w tej serii samouczków i pokazują, jak używać ich do kompilowania aplikacji.
 
-Zacznijmy od utworzenia klasy kontrolera. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder controllers, a następnie kliknij polecenie **Dodaj**, a następnie pozycję **kontroler**.
+Zacznijmy od utworzenia klasy kontrolera. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *controllers* , a następnie kliknij polecenie **Dodaj**, a następnie pozycję **kontroler**.
 
 ![](adding-a-controller/_static/image1.png)
 
@@ -49,7 +49,7 @@ Zastąp zawartość pliku następującym kodem.
 
 [!code-csharp[Main](adding-a-controller/samples/sample1.cs)]
 
-Metody kontrolera zwrócą ciąg HTML jako przykład. Kontroler ma nazwę `HelloWorldController` , a pierwsza metoda ma nazwę `Index`. Wywołajmy ją z przeglądarki. Uruchom aplikację (naciśnij klawisz F5 lub CTRL + F5). W przeglądarce Dołącz &quot;HelloWorld&quot; do ścieżki na pasku adresu. (Na przykład na poniższej ilustracji `http://localhost:1234/HelloWorld.`) Strona przeglądarki będzie wyglądać podobnie do poniższego zrzutu ekranu. W powyższej metodzie kod zwrócił ciąg bezpośrednio. Otrzymasz informację o tym, że system po prostu zwróci kod HTML.
+Metody kontrolera zwrócą ciąg HTML jako przykład. Kontroler ma nazwę `HelloWorldController` a pierwsza metoda ma nazwę `Index`. Wywołajmy ją z przeglądarki. Uruchom aplikację (naciśnij klawisz F5 lub CTRL + F5). W przeglądarce Dołącz &quot;HelloWorld&quot; do ścieżki na pasku adresu. (Na przykład na poniższej ilustracji jest `http://localhost:1234/HelloWorld.`) Strona w przeglądarce będzie wyglądać podobnie do poniższego zrzutu ekranu. W powyższej metodzie kod zwrócił ciąg bezpośrednio. Otrzymasz informację o tym, że system po prostu zwróci kod HTML.
 
 ![](adding-a-controller/_static/image5.png)
 
@@ -57,44 +57,44 @@ ASP.NET MVC wywołuje różne klasy kontrolera (i różne metody akcji w nich) w
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Format routingu można ustawić w pliku *Start/RouteConfig\_. cs aplikacji* .
+Format routingu w aplikacji jest ustawiany *\_Start/RouteConfig. cs* .
 
 [!code-csharp[Main](adding-a-controller/samples/sample2.cs?highlight=7-8)]
 
 Gdy uruchamiasz aplikację i nie podasz żadnych segmentów adresów URL, domyślnym kontrolerem "Home" i akcją "index" określono w sekcji wartości domyślne w powyższym kodzie.
 
-Pierwsza część adresu URL określa klasę kontrolera do wykonania. Tak więc */HelloWorld* mapuje `HelloWorldController` do klasy. Druga część adresu URL określa metodę akcji dla klasy, która ma zostać wykonana. Dlatego */HelloWorld/index* mogłoby spowodować `Index` wykonanie metody `HelloWorldController` klasy. Zwróć uwagę, że chcemy tylko przeglądać do */HelloWorld* , `Index` a metoda została użyta domyślnie. Wynika to z faktu, `Index` że metoda o nazwie jest metodą domyślną, która zostanie wywołana na kontrolerze, jeśli nie została określona jawnie. Trzecia część segmentu URL ( `Parameters`) jest dla danych trasy. Będziemy widzieć dane trasy w dalszej części tego samouczka.
+Pierwsza część adresu URL określa klasę kontrolera do wykonania. Tak więc */HelloWorld* mapuje do klasy `HelloWorldController`. Druga część adresu URL określa metodę akcji dla klasy, która ma zostać wykonana. Dlatego */HelloWorld/index* może spowodować wykonanie metody `Index` klasy `HelloWorldController`. Zwróć uwagę, że tylko chcemy przeglądać do */HelloWorld* , a metoda `Index` była używana domyślnie. Wynika to z faktu, że metoda o nazwie `Index` jest metodą domyślną, która zostanie wywołana na kontrolerze, jeśli nie została określona jawnie. Trzecia część segmentu adresu URL (`Parameters`) jest dla danych trasy. Będziemy widzieć dane trasy w dalszej części tego samouczka.
 
-Przejdź do `http://localhost:xxxx/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg &quot;, który jest metodą akcji powitalnej... `Welcome` &quot;. Domyślne mapowanie MVC to `/[Controller]/[ActionName]/[Parameters]`. Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
+Przejdź do `http://localhost:xxxx/HelloWorld/Welcome`. Metoda `Welcome` jest uruchamiana i zwraca ciąg &quot;jest to metoda akcji powitalnej...&quot;. Domyślne mapowanie MVC jest `/[Controller]/[ActionName]/[Parameters]`. Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto jeszcze `[Parameters]` części adresu URL.
 
 ![](adding-a-controller/_static/image6.png)
 
-Zmodyfikujmy przykład nieco tak, aby można było przekazać niektóre informacje o parametrach z adresu URL do kontrolera (na przykład */HelloWorld/Welcome? Name = Scott&amp;numtimes = 4*). `Welcome` Zmień metodę, tak aby obejmowała dwa parametry, jak pokazano poniżej. Należy zauważyć, że kod używa C# funkcji opcjonalnej parametru, aby wskazać, `numTimes` że parametr powinien domyślnie mieć wartość 1, jeśli dla tego parametru nie zostanie przeniesiona żadnej wartości.
+Zmodyfikujmy przykład nieco tak, aby można było przekazać niektóre informacje o parametrach z adresu URL do kontrolera (na przykład */HelloWorld/Welcome? Name = Scott&amp;numtimes = 4*). Zmień metodę `Welcome` tak, aby obejmowała dwa parametry, jak pokazano poniżej. Należy zauważyć, że kod używa C# funkcji opcjonalnej parametru, aby wskazać, że parametr `numTimes` powinien domyślnie mieć wartość 1, jeśli dla tego parametru nie zostanie przeniesiona żadnej wartości.
 
 [!code-csharp[Main](adding-a-controller/samples/sample3.cs)]
 
 > [!NOTE]
-> Uwaga dotycząca zabezpieczeń: Powyższy kod używa [HttpUtility. HtmlEncode](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx) do ochrony aplikacji przed złośliwymi danymi wejściowymi (tj. JavaScript). Aby uzyskać więcej informacji, zobacz [jak: Ochrona przed programami wykorzystującymi luki w zabezpieczeniach w aplikacji sieci Web przez zastosowanie](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx)kodowania HTML do ciągów znaków.
+> Uwaga dotycząca zabezpieczeń: powyższy kod używa [HttpUtility. HtmlEncode](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx) do ochrony aplikacji przed złośliwymi danymi wejściowymi (tj. JavaScript). Aby uzyskać więcej informacji [, zobacz jak: Ochrona przed programami wykorzystującymi luki w zabezpieczeniach w aplikacji sieci Web przez zastosowanie kodowania HTML do ciągów znaków](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx).
 
- Uruchom aplikację i przejdź do przykładowego adresu URL (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. [System powiązań modelu MVC ASP.NET](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie.
+ Uruchom aplikację i przejdź do przykładowego adresu URL (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`). Możesz wypróbować różne wartości `name` i `numtimes` w adresie URL. [System powiązań modelu MVC ASP.NET](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie.
 
 ![](adding-a-controller/_static/image7.png)
 
-W powyższym przykładzie segment adresu URL ( `Parameters`) nie jest używany `name` , a parametry `numTimes` i są przesyłane jako [ciągi zapytań](http://en.wikipedia.org/wiki/Query_string). Polu? (znak zapytania) w powyższym adresie URL jest separatorem, a ciągi zapytania są zgodne. &amp; Znak oddziela ciągi zapytań.
+W powyższym przykładzie segment adresu URL (`Parameters`) nie jest używany, parametry `name` i `numTimes` są przesyłane jako [ciągi zapytań](http://en.wikipedia.org/wiki/Query_string). Znak ? (znak zapytania) w powyższym adresie URL jest separatorem, a ciągi zapytania są zgodne. Znak &amp; oddziela ciągi zapytań.
 
 Zastąp metodę powitalną następującym kodem:
 
 [!code-csharp[Main](adding-a-controller/samples/sample4.cs)]
 
-Uruchom aplikację i wprowadź następujący adres URL:`http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
+Uruchom aplikację i wprowadź następujący adres URL: `http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
 
 ![](adding-a-controller/_static/image8.png)
 
-Tym razem trzeci segment adresu `ID.` URL pasuje do parametru `Welcome` Route Metoda Action zawiera parametr (`ID` `RegisterRoutes` ) pasujący do specyfikacji adresu URL w metodzie.
+Tym razem trzeci segment adresu URL pasuje do parametru Route `ID.` Metoda akcji `Welcome` zawiera parametr (`ID`), który pasował do specyfikacji adresu URL w metodzie `RegisterRoutes`.
 
 [!code-csharp[Main](adding-a-controller/samples/sample5.cs?highlight=7)]
 
-W aplikacjach ASP.NET MVC bardziej typowe jest przekazywanie parametrów jako danych tras (podobnie jak w przypadku powyższego identyfikatora) niż przekazywanie ich jako ciągów zapytań. Można również dodać trasę do przekazywania zarówno `name` parametrów, jak i `numtimes` w, jako dane trasy w adresie URL. W pliku *Start\RouteConfig.cs\_aplikacji* Dodaj trasę "Hello":
+W aplikacjach ASP.NET MVC bardziej typowe jest przekazywanie parametrów jako danych tras (podobnie jak w przypadku powyższego identyfikatora) niż przekazywanie ich jako ciągów zapytań. Można również dodać trasę, aby przekazywać `name` i `numtimes` w parametrach jako dane trasy w adresie URL. W pliku *\_aplikacji Start\RouteConfig.cs* Dodaj trasę "Hello":
 
 [!code-csharp[Main](adding-a-controller/samples/sample6.cs?highlight=13-16)]
 
@@ -104,8 +104,8 @@ Uruchom aplikację i przejdź do `/localhost:XXX/HelloWorld/Welcome/Scott/3`.
 
 W przypadku wielu aplikacji MVC domyślna trasa działa prawidłowo. Więcej informacji można znaleźć w dalszej części tego samouczka, aby przekazać dane przy użyciu spinacza modelu i nie trzeba będzie modyfikować trasy domyślnej dla tego programu.
 
-W tych przykładach kontroler &quot;wykonywał składnik VC&quot; składnika MVC — to znaczy, że widok i działanie kontrolera. Kontroler zwraca bezpośrednio kod HTML. Zwykle nie chcesz, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo uciążliwe w kodzie. Zamiast tego zwykle użyjesz osobnego pliku szablonu widoku, aby ułatwić generowanie odpowiedzi HTML. Przyjrzyjmy się dalej, jak to zrobić.
+W tych przykładach kontroler wykonywał &quot;VC&quot; część MVC — to znaczy, że widok i działanie kontrolera. Kontroler zwraca bezpośrednio kod HTML. Zwykle nie chcesz, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo uciążliwe w kodzie. Zamiast tego zwykle użyjesz osobnego pliku szablonu widoku, aby ułatwić generowanie odpowiedzi HTML. Przyjrzyjmy się dalej, jak to zrobić.
 
 > [!div class="step-by-step"]
-> [Poprzedni](getting-started.md)Następny
-> [](adding-a-view.md)
+> [Poprzedni](getting-started.md)
+> [Następny](adding-a-view.md)

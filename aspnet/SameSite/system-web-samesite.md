@@ -3,14 +3,14 @@ title: Pracuj z plikami cookie SameSite w ASP.NET
 author: rick-anderson
 description: Dowiedz się, jak używać programu do SameSite plików cookie w ASP.NET
 ms.author: riande
-ms.date: 12/03/2019
+ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: 47a3d7576edb0e818c39b32fbbcb98475248e18e
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.openlocfilehash: d2160bd9aeb93398b49b3a0e5e7a8a4404a5bc63
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993061"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519196"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>Pracuj z plikami cookie SameSite w ASP.NET
 
@@ -25,7 +25,7 @@ SameSite jest projektem [IETF](https://ietf.org/about/) opracowanym w celu zapew
 
 `None` parametr powoduje problemy ze zgodnością z klientami, którzy zaimplementowali poprzednią [wersję standard 2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07) (na przykład system iOS 12). Zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
 
-Każdy składnik ASP.NET Core, który emituje pliki cookie, musi zdecydować, czy SameSite jest odpowiednie.
+Każdy składnik ASP.NET, który emituje pliki cookie, musi zdecydować, czy SameSite jest odpowiedni.
 
 ## <a name="api-usage-with-samesite"></a>Użycie interfejsu API z SameSite
 
@@ -44,6 +44,10 @@ Obsługa SameSite została najpierw zaimplementowana w programie .NET 4.7.2 przy
 * Określa pliki cookie, które jawnie potwierdzają `SameSite=None` w celu włączenia dostarczania między lokacjami, powinny być oznaczone jako `Secure`. `None` to nowy wpis do rezygnacji.
 * Jest obsługiwane przez poprawki wydane zgodnie z opisem w powyższej bazie wiedzy.
 * Zaplanowano włączenie programu [Chrome](https://chromestatus.com/feature/5088147346030592) domyślnie w [lutym 2020](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html). Przeglądarki zaczynają przechodzenie do tego standardu w 2019.
+
+### <a name="azure-app-servicesamesite-cookie-handling"></a>Azure App Service — obsługa plików cookie SameSite
+
+Aby uzyskać więcej informacji, zobacz [Azure App Service — obsługa plików cookie SameSite i .NET Framework Poprawka 4.7.2](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/) .
 
 <a name="sob"></a>
 
@@ -69,7 +73,7 @@ Aplikacje, które współdziałają z witrynami zdalnymi, takie jak logowanie in
 * Przetestuj interakcję w wielu przeglądarkach.
 * Zastosuj [wykrywanie przeglądarki i środki zaradcze](#sob) omówione w tym dokumencie.
 
-Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może być zgodą na nowe zachowanie SameSite. Przeglądarki Chrome, Firefox i Microsoft Edge mają nowe flagi funkcji opt, których można użyć do testowania. Po zastosowaniu przez aplikację SameSite poprawek przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
+Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może być zgodą na nowe zachowanie SameSite. Przeglądarki Chrome, Firefox i chrom Edge mają nowe flagi funkcji opt, których można użyć do testowania. Po zastosowaniu przez aplikację SameSite poprawek przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
 
 ### <a name="test-with-chrome"></a>Testowanie za pomocą przeglądarki Chrome
 
@@ -88,9 +92,9 @@ Przeglądarka Safari 12 ściśle wdrożyła poprzednią wersję roboczą i końc
 
 Obsługę programu Firefox dla nowego standardu można przetestować w wersji 68 + przez wypróbowanie na stronie `about:config` z flagą funkcji `network.cookie.sameSite.laxByDefault`. Nie zgłoszono problemów ze zgodnością ze starszymi wersjami programu Firefox.
 
-### <a name="test-with-edge-browser"></a>Testowanie przy użyciu przeglądarki Microsoft Edge
+### <a name="test-with-edge-browser"></a>Testowanie przy użyciu przeglądarki Edge
 
-Program Microsoft Edge obsługuje stary Standard SameSite. Wersja brzegowa 44 nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
+Program Edge obsługuje stary Standard SameSite. Wersja brzegowa 44 nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
 
 ### <a name="test-with-edge-chromium"></a>Testowanie przy użyciu krawędzi (chrom)
 

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/creating-a-connection-string
-title: Tworzenie parametrów połączenia i Praca z bazą danych LocalDB programu SQL Server | Dokumentacja firmy Microsoft
+title: Tworzenie parametrów połączenia i praca z SQL Server LocalDB | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
@@ -8,59 +8,59 @@ ms.date: 10/17/2013
 ms.assetid: 6127804d-c1a9-414d-8429-7f3dd0f56e97
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: e29fe14d2c7fafe2edb9c02029b678090ea83cc5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: d3c6e736c5dcf4a3615e3c72cfc033effc7cc8e6
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59403821"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519313"
 ---
 # <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Tworzenie parametrów połączenia i praca z bazą danych SQL Server LocalDB
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[!INCLUDE [Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](index.md)]
 
 ## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Tworzenie parametrów połączenia i praca z bazą danych SQL Server LocalDB
 
-`MovieDBContext` Utworzone klasy obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Jedno pytanie, które możesz zadawać, jest jednak sposób określić bazę danych, która zostanie nawiązane połączenie. Faktycznie nie trzeba określać bazę danych, która do użycia, będą domyślnie przy użyciu platformy Entity Framework [LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb). W tej sekcji dodasz jawnie parametrów połączenia w *Web.config* pliku aplikacji.
+Utworzona Klasa `MovieDBContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Jednym z pytań, które można zadać, jest określenie, jak należy określić bazę danych, z którą zostanie nawiązane połączenie. Nie trzeba określać bazy danych, która ma być używana, Entity Framework domyślnie będzie używać [LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb). W tej sekcji jawnie dodamy parametry połączenia w pliku *Web. config* aplikacji.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-[LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) to Uproszczona wersja aparatu programu SQL Server Express bazy danych rozpoczyna się na żądanie, która działa w trybie użytkownika. LocalDB działa w specjalnego trybu wykonania programu SQL Server Express, która umożliwia pracę z bazami danych jako *.mdf* plików. Zazwyczaj pliki bazy danych LocalDB są przechowywane w *aplikacji\_danych* folderu projektu sieci web.
+[LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) to uproszczona wersja aparatu bazy danych SQL Server Express uruchamiana na żądanie i uruchamiana w trybie użytkownika. LocalDB działa w specjalnym trybie wykonywania SQL Server Express, który umożliwia współpracę z bazami danych jako plikami *MDF* . Zazwyczaj pliki bazy danych LocalDB są przechowywane w folderze *danych\_aplikacji* projektu sieci Web.
 
-SQL Server Express nie jest zalecane do użytku w aplikacjach sieci web w środowisku produkcyjnym. LocalDB w szczególności nie należy używać w środowisku produkcyjnym z aplikacją sieci web ponieważ nie jest przeznaczony do pracy z usługami IIS. Jednak bazy danych LocalDB mogą zostać łatwo zmigrowane do programu SQL Server lub SQL Azure.
+Nie zaleca się stosowania SQL Server Express w produkcyjnych aplikacjach sieci Web. LocalDB w szczególności nie należy używać w środowisku produkcyjnym z aplikacją sieci Web, ponieważ nie jest ona przeznaczona do pracy z usługami IIS. Jednak baza danych LocalDB może być łatwo migrowana do SQL Server lub SQL Azure.
 
 W programie Visual Studio 2017 LocalDB jest instalowany domyślnie z programem Visual Studio.
 
-Domyślnie platforma Entity Framework szuka parametrów połączenia o nazwie taka sama jak klasa kontekstu obiektu (`MovieDBContext` dla tego projektu). Aby uzyskać więcej informacji, zobacz [parametry połączenia serwera SQL dla aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/library/jj653752.aspx).
+Domyślnie Entity Framework szuka parametrów połączenia o nazwie identycznej z klasą kontekstu obiektu (`MovieDBContext` dla tego projektu). Aby uzyskać więcej informacji, zobacz [SQL Server parametry połączenia dla aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Otwórz katalog główny aplikacji *Web.config* pliku pokazano poniżej. (Nie *Web.config* w pliku *widoków* folderu.)
+Otwórz główny plik *Web. config* aplikacji przedstawiony poniżej. (Plik *Web. config* znajduje się w folderze *widoki* ).
 
 ![](creating-a-connection-string/_static/image1.png)
 
-Znajdź `<connectionStrings>` elementu:
+Znajdź `<connectionStrings>` element:
 
 ![](creating-a-connection-string/_static/image2.png)
 
-Dodaj poniższe parametry połączenia do `<connectionStrings>` element *Web.config* pliku.
+Dodaj następujące parametry połączenia do elementu `<connectionStrings>` w pliku *Web. config* .
 
 [!code-xml[Main](creating-a-connection-string/samples/sample1.xml)]
 
-W poniższym przykładzie pokazano część *Web.config* pliku dodano nowy ciąg połączenia:
+Poniższy przykład przedstawia część pliku *Web. config* z nowymi dodanymi parametrami połączenia:
 
 [!code-xml[Main](creating-a-connection-string/samples/sample2.xml)]
 
-Dwa parametry połączenia są bardzo podobne. Pierwszy ciąg połączenia o nazwie `DefaultConnection` i jest używana dla bazy danych członkostwa w celu kontrolowania, kto może uzyskiwać dostęp do aplikacji. Parametry połączenia zostały dodane Określa nazwę bazy danych LocalDB *Movie.mdf* na terenie *aplikacji\_danych* folderu. Firma Microsoft nie będzie używać bazy danych członkostwa w ramach tego samouczka, aby uzyskać więcej informacji na temat członkostwa, uwierzytelniania i zabezpieczeń, zobacz Moje samouczek [tworzenie aplikacji ASP.NET MVC z uwierzytelnianiem i bazą danych SQL i wdrażanie w usłudze Azure App Service](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
+Dwa parametry połączenia są bardzo podobne. Pierwsze parametry połączenia mają nazwę `DefaultConnection` i służy do kontrolowania, kto może uzyskać dostęp do aplikacji. Dodane parametry połączenia określają LocalDB bazę danych o nazwie *Movie. mdf* znajdującą się w folderze *danych\_aplikacji* . W tym samouczku nie będziemy korzystać z bazy danych członkostwa, aby uzyskać więcej informacji na temat członkostwa, uwierzytelniania i zabezpieczeń, zobacz mój samouczek [Tworzenie aplikacji ASP.NET MVC z uwierzytelnianiem i bazą danych SQL, a następnie wdrażanie jej w Azure App Service](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-Nazwa ciągu połączenia musi odpowiadać nazwa [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) klasy.
+Nazwa parametrów połączenia musi być zgodna z nazwą klasy [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) .
 
 [!code-csharp[Main](creating-a-connection-string/samples/sample3.cs?highlight=15)]
 
-Nie jest potrzebna do dodania `MovieDBContext` parametry połączenia. Jeśli nie określisz ciąg połączenia programu Entity Framework spowoduje utworzenie bazy danych LocalDB w katalogu użytkowników z w pełni kwalifikowana nazwa [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) klasy (w tym przypadku `MvcMovie.Models.MovieDBContext`). Nazwać w bazie danych dowolny lubisz, tak długo, jak przedstawiono w nim *. MDF* sufiks. Na przykład, użyjemy nazwy bazy danych *MyFilms.mdf*.
+Nie trzeba faktycznie dodawać parametrów połączenia `MovieDBContext`. Jeśli nie określisz parametrów połączenia, Entity Framework utworzy bazę danych LocalDB w katalogu Users z w pełni kwalifikowaną nazwą klasy [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) (w tym przypadku `MvcMovie.Models.MovieDBContext`). Możesz nazywać dowolną bazę danych, o ile ma *. Sufiks MDF* . Załóżmy na przykład, że nazwa bazy danych to *. mdf*.
 
-Następnie utworzysz nowy `MoviesController` klasę, która służy do wyświetlania danych filmów i Zezwalaj użytkownikom na tworzenie nowych list filmu.
+Następnie utworzysz nową klasę `MoviesController`, która może być używana do wyświetlania danych filmowych i umożliwia użytkownikom tworzenie nowych list filmów.
 
 > [!div class="step-by-step"]
-> [Poprzednie](adding-a-model.md)
-> [dalej](accessing-your-models-data-from-a-controller.md)
+> [Poprzedni](adding-a-model.md)
+> [Następny](accessing-your-models-data-from-a-controller.md)

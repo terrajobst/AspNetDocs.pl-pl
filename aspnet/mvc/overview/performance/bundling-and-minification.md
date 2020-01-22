@@ -1,246 +1,246 @@
 ---
 uid: mvc/overview/performance/bundling-and-minification
-title: Tworzenie pakietów i minimalizowanie | Dokumentacja firmy Microsoft
+title: Dzielenie i Minifikacja | Microsoft Docs
 author: Rick-Anderson
-description: Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5, aby poprawić czas ładowania żądań. Tworzenie pakietów i minimalizowanie poprawia czas ładowania przez reducin...
+description: Tworzenie i minifikacja to dwie techniki, których można użyć w ASP.NET 4,5, aby zwiększyć czas ładowania żądania. Przydzielenie i minifikacja zwiększa czas ładowania przez Reducin...
 ms.author: riande
 ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 79d6b38c6464a749db9cd6d35e1f277b0adf2a02
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 239980d747c6e0d6be1e9b4fe0371e276e37cf21
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129432"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519287"
 ---
-# <a name="bundling-and-minification"></a>Tworzenie pakietów i minifikacja
+# <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5, aby poprawić czas ładowania żądań. Tworzenie pakietów i minimalizowanie poprawia czas ładowania dzięki zmniejszeniu liczby żądań do serwera oraz redukcję rozmiaru żądanych zasobów (na przykład CSS i JavaScript.)
+> Tworzenie i minifikacja to dwie techniki, których można użyć w ASP.NET 4,5, aby zwiększyć czas ładowania żądania. Przydzielenie i minifikacja skraca czas ładowania przez zredukowanie liczby żądań do serwera i zmniejszenie rozmiaru żądanych zasobów (takich jak CSS i JavaScript).
 
-Większość bieżącego ważniejszymi przeglądarkami ograniczyć liczbę [równoczesnych połączeń](http://www.browserscope.org/?category=network) dla każdej nazwy hosta na 6. Oznacza to, że podczas przetwarzania żądania sześciu dodatkowych żądań zasobów na hoście zostanie umieszczona w kolejce przez przeglądarkę. Na poniższej ilustracji kart sieciowych narzędzia dla deweloperów F12 w przeglądarce IE pokazuje chronometraż zasoby wymagane przez widok informacje przykładowej aplikacji.
+Większość aktualnie poważniejszych przeglądarek ogranicza liczbę [jednoczesnych połączeń](http://www.browserscope.org/?category=network) każdej nazwy hosta do sześciu. Oznacza to, że podczas przetwarzania sześciu żądań dodatkowe żądania dotyczące zasobów na hoście będą umieszczane w kolejce przez przeglądarkę. Na poniższej ilustracji znajdują się karty sieciowe narzędzi deweloperskich programu IE, które są wymagane przez widok informacje aplikacji przykładowej.
 
 ![B/M](bundling-and-minification/_static/image1.png)
 
-Szara słupki pokazują czas żądania jest umieszczane w kolejce przez przeglądarkę, oczekiwanie na limit sześć połączeń. Żółty pasek jest czas żądania do pierwszego bajtu, oznacza to, że czas potrzebny na wysłanie żądania i odbierania pierwszej odpowiedzi z serwera. Niebieski słupki pokazują czas potrzebny na odebranie dane odpowiedzi z serwera. Możesz dwukrotnie kliknąć na zasobu, aby uzyskać szczegółowe informacje o czasie. Na przykład na poniższej ilustracji przedstawiono szczegółów chronometrażu dla ładowania */Scripts/MyScripts/JavaScript6.js* pliku.
+Szare paski pokazują czas umieszczenia żądania w kolejce przez przeglądarkę, oczekując na sześć limitów połączeń. Żółty pasek to czas żądania do pierwszego bajtu, czyli czas potrzebny na wysłanie żądania i odebranie pierwszej odpowiedzi z serwera. Niebieskie słupki przedstawiają czas potrzebny na odebranie danych odpowiedzi z serwera. Możesz kliknąć dwukrotnie element zawartości, aby uzyskać szczegółowe informacje o chronometrażu. Na przykład na poniższym obrazie przedstawiono szczegóły czasu ładowania pliku */scripts/MyScripts/JavaScript6.js* .
 
 ![](bundling-and-minification/_static/image2.png)
 
-Poprzedni obraz przedstawia **Start** zdarzenia, które daje czas żądanie zostało umieszczone w kolejce z powodu przeglądarki Ogranicz liczbę równoczesnych połączeń. W tym przypadku żądanie zostało umieszczone w kolejce przez 46 milisekund oczekiwania na zakończenie innego żądania.
+Na powyższym obrazie przedstawiono zdarzenie **uruchomienia** , które zawiera czas, w którym żądanie zostało umieszczone w kolejce z powodu ograniczenia liczby jednoczesnych połączeń. W takim przypadku żądanie zostało umieszczone w kolejce przez 46 milisekund, czeka na zakończenie innego żądania.
 
-## <a name="bundling"></a>Tworzenie pakietów
+## <a name="bundling"></a>Tworzenia pakietów
 
-Tworzenie pakietów to nowa funkcja w programie ASP.NET 4.5, który można łatwo połączyć lub wiele plików pakietu w jednym pliku. Możesz utworzyć CSS, JavaScript i innych pakietów. Mniej plików oznacza, że mniejszej liczby żądań HTTP i który może zwiększyć pierwszy wydajność ładowania strony.
+Zgrupowanie to nowa funkcja w programie ASP.NET 4,5, która ułatwia łączenie wielu plików w jeden plik i tworzenie ich. Można tworzyć arkusze CSS i JavaScript oraz inne pakiety. Mniejsza liczba plików oznacza mniejszą liczbę żądań HTTP i może zwiększyć wydajność pierwszej strony.
 
-Na poniższej ilustracji przedstawiono ten sam widok chronometrażu w widoku informacje wyświetlane wcześniej, ale tym razem z tworzenie pakietów i minimalizowanie włączone.
+Na poniższej ilustracji przedstawiono ten sam widok chronometrażu wyświetlanego poprzednio, ale tym razem z włączonym dzieleniem i minifikacja.
 
 ![](bundling-and-minification/_static/image3.png)
 
-## <a name="minification"></a>Minimalizowanie
+## <a name="minification"></a>Minifikacja
 
-Minimalizowanie wykonuje różne optymalizacje inny kod skryptów lub css, takie jak usuwanie niepotrzebnych białych znaków i komentarze i skrócenie nazwy zmiennych, jeden znak. Należy wziąć pod uwagę następujące funkcja języka JavaScript.
+Minifikacja wykonuje wiele różnych optymalizacji kodu do skryptów lub CSS, takich jak usuwanie zbędnych białych znaków i komentarzy oraz skracanie nazw zmiennych do jednego znaku. Weź pod uwagę następującą funkcję języka JavaScript.
 
 [!code-javascript[Main](bundling-and-minification/samples/sample1.js)]
 
-Po gotowy do przeprowadzania minifikacji funkcja jest ograniczone do następujących:
+Po minifikacja funkcja zostaje zredukowana do następujących:
 
 [!code-javascript[Main](bundling-and-minification/samples/sample2.js)]
 
-Oprócz usuwanie komentarzy i niepotrzebnych odstępów, następujących parametrów i nazwy zmiennych zostały zmienione (skrócona) w następujący sposób:
+Oprócz usuwania komentarzy i niepotrzebnych białych znaków, nazwy następujących parametrów i zmiennych zostały zmienione (skrócone) w następujący sposób:
 
-| **Oryginał** | **Zmieniono nazwę** |
+| **Oryginał** | **Zmiany** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | t |
 | imageElement | mogę |
 
-## <a name="impact-of-bundling-and-minification"></a>Wpływ tworzenia pakietów i minimalizowanie
+## <a name="impact-of-bundling-and-minification"></a>Wpływ tworzenia i Minifikacja
 
-W poniższej tabeli przedstawiono kilka istotnych różnic między ofercie wszystkie zasoby pojedynczo i tworzenie pakietów i minimalizowanie (B/M) w programie próbki.
+W poniższej tabeli przedstawiono kilka ważnych różnic między wyświetlaniem wszystkich zasobów osobno i użyciem grupowania i minifikacja (B/M) w programie przykładowym.
 
-|  | **Za pomocą B/M** | **Bez B/M** | **Change** |
+|  | **Przy użyciu B/M** | **Bez B/M** | **Zmień** |
 | --- | --- | --- | --- |
-| **Żądań plików** | 9 | 34 | 256% |
+| **Żądania plików** | 9 | 34 | 256% |
 | **KB Sent** | 3.26 | 11.92 | 266% |
 | **Odebrano KB** | 388.51 | 530 | 36% |
 | **Czas ładowania** | 510 MS | 780 MS | 53% |
 
-Wysłane bajty ma znacznego zmniejszenia za pomocą tworzenia pakietów, ponieważ przeglądarki są dość pełne przy użyciu nagłówków HTTP, które stosują w odpowiedzi na żądania. Redukcja odebranych bajtów nie jest tak duży, ponieważ największych plików (*skrypty\\jquery-ui-1.8.11.min.js* i *skrypty\\jquery 1.7.1.min.js*) są już zminimalizowany . Uwaga: Chronometraż przykładowy program używany [Fiddler](http://www.fiddler2.com/fiddler2/) narzędzie, aby symulować wolną sieć. (Z programu Fiddler **reguły** menu, wybierz opcję **wydajności** następnie **symulować szybkości modemu**.)
+Wysłane bajty mają znaczącą redukcję, ponieważ przeglądarki są w pełni pełne, z nagłówkami HTTP, które są stosowane na żądaniach. Redukcja odebranych bajtów nie jest tak duża, ponieważ największe pliki (*skrypty\\jQuery-UI-1.8.11. min. js* i *scripts\\jQuery-1.7.1. min. js*) są już zminimalizowanego. Uwaga: chronometraż dla przykładowego programu użył narzędzia [programu Fiddler](http://www.fiddler2.com/fiddler2/) w celu symulowania wolnej sieci. (Z menu **reguły** programu Fiddler wybierz pozycję **wydajność** , a następnie **Symuluj szybkość modemów**).
 
-## <a name="debugging-bundled-and-minified-javascript"></a>Debugowanie powiązane i zminimalizowania JavaScript
+## <a name="debugging-bundled-and-minified-javascript"></a>Debugowanie powiązane i zminimalizowanego JavaScript
 
-Łatwo debugował Twój kod JavaScript w środowisku programistycznym (gdzie [kompilacji elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku jest ustawiona na `debug="true"` ), ponieważ pliki JavaScript nie są powiązane lub zminimalizowany. Można również debugować kompilację wydania, w których powiązane i zminimalizowania pliki JavaScript. Przy użyciu narzędzi deweloperskich F12 w przeglądarce IE, debugowania funkcji języka JavaScript zawartych w pakiecie zminimalizowany, przy użyciu następujących podejść:
+Debugowanie kodu JavaScript w środowisku deweloperskim (gdzie [element kompilacji](https://msdn.microsoft.com/library/s10awwz0.aspx) w pliku *Web. config* jest ustawiony na `debug="true"`), ponieważ pliki JavaScript nie są powiązane lub zminimalizowanego. Możesz również debugować kompilację wydania, w której pliki JavaScript są powiązane i zminimalizowanego. Korzystając z narzędzi deweloperskich programu IE F12, można debugować funkcję języka JavaScript zawartą w pakiecie zminimalizowanego przy użyciu następującej metody:
 
-1. Wybierz **skryptu** , a następnie wybierz pozycję **Rozpocznij debugowanie** przycisku.
-2. Wybierz pakiet zawierający funkcja języka JavaScript, który chcesz debugować za pomocą przycisku zasoby.  
+1. Wybierz kartę **skrypt** , a następnie wybierz przycisk **Rozpocznij debugowanie** .
+2. Wybierz pakiet zawierający funkcję języka JavaScript, która ma być debugowana przy użyciu przycisku elementy zawartości.  
     ![](bundling-and-minification/_static/image4.png)
-3. Formatowanie zminimalizowanego JavaScript, wybierając **przycisk Konfiguracja** ![](bundling-and-minification/_static/image5.png), a następnie wybierając **formatu JavaScript**.
-4. W **skryptu wyszukiwania** pole wprowadzania, wybierz nazwę funkcji, który chcesz debugować. Na poniższej ilustracji **AddAltToImg** została wprowadzona w **skryptu wyszukiwania** pola wejściowego.  
+3. Sformatuj zminimalizowanego JavaScript, wybierając **przycisk konfiguracji** ![](bundling-and-minification/_static/image5.png), a następnie wybierając **Format JavaScript**.
+4. W polu wejściowym **skrypt wyszukiwania** wybierz nazwę funkcji, którą chcesz debugować. Na poniższej ilustracji **AddAltToImg** został wprowadzony w polu wejściowym **skryptu wyszukiwania** .  
     ![](bundling-and-minification/_static/image6.png)
 
-Aby uzyskać więcej informacji na temat debugowania przy użyciu narzędzi deweloperskich F12, zobacz artykuł w witrynie MSDN [przy użyciu narzędzi deweloperskich F12, aby debugować błędy JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
+Aby uzyskać więcej informacji na temat debugowania za pomocą narzędzi deweloperskich F12, zobacz artykuł MSDN [przy użyciu narzędzia deweloperskie F12, aby debugować błędy JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
 
-## <a name="controlling-bundling-and-minification"></a>Kontrolowanie tworzenie pakietów i minimalizowanie
+## <a name="controlling-bundling-and-minification"></a>Kontrolowanie grupowania i Minifikacja
 
-Tworzenie pakietów i minimalizowanie jest włączone lub wyłączone, ustawiając wartość atrybutu debugowania w [kompilacji elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku. Następujący kod XML `debug` jest ustawiona na wartość true, dlatego tworzenie pakietów i minimalizowanie jest wyłączona.
+Dzielenie i minifikacja jest włączone lub wyłączone przez ustawienie wartości atrybutu Debug w [elemencie compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) w pliku *Web. config* . W poniższym kodzie XML `debug` ma ustawioną wartość true, więc dzielenie i minifikacja jest wyłączone.
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
-Aby włączyć tworzenie pakietów i minimalizowanie, ustaw `debug` wartość "false". Można zastąpić *Web.config* ustawienie z `EnableOptimizations` właściwość `BundleTable` klasy. Poniższy kod umożliwia tworzenie pakietów i minimalizowanie i zastępuje wszystkie ustawienia w *Web.config* pliku.
+Aby włączyć grupowania i minifikacja, ustaw wartość `debug` na "false". Ustawienie *Web. config* można zastąpić właściwością `EnableOptimizations` klasy `BundleTable`. Poniższy kod umożliwia zgrupowanie i minifikacja oraz zastępuje wszystkie ustawienia w pliku *Web. config* .
 
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> Chyba że `EnableOptimizations` jest `true` lub atrybutu debugowania w [kompilacji elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku jest ustawiona na `false`, pliki nie zostaną powiązane lub zminimalizowany. Ponadto .min wersję plików, nie będzie używany, zostaną wybrane wersje do debugowania pełne. `EnableOptimizations` przesłania atrybut debugowania w [kompilacji elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku
+> Jeśli `EnableOptimizations` jest `true` lub atrybut Debug w [elemencie compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) w pliku *Web. config* jest ustawiony na `false`, pliki nie będą powiązane ani zminimalizowanego. Ponadto, minimalna wersja plików nie zostanie użyta, zostaną wybrane pełne wersje debugowania. `EnableOptimizations` przesłania atrybut Debug w [elemencie compilation](https://msdn.microsoft.com/library/s10awwz0.aspx) w pliku *Web. config*
 
-## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Za pomocą tworzenia pakietów i minimalizowanie przy użyciu wzorca ASP.NET Web Forms i stron sieci Web
+## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Korzystanie z funkcji grupowania i Minifikacja z ASP.NET Web Forms i stronami sieci Web
 
-- Dla stron sieci Web, zobacz wpis na blogu [Dodawanie optymalizacji sieci Web do witryny sieci Web Pages](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
-- Dla formularzy sieci Web, zobacz wpis na blogu [Dodawanie tworzenie pakietów i minimalizowanie do formularzy sieci Web](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
+- W przypadku stron sieci Web zapoznaj się z wpisem w blogu [Dodawanie optymalizacji sieci Web do witryny Web Pages](https://docs.microsoft.com/archive/blogs/rickandy/adding-web-optimization-to-a-web-pages-site).
+- W przypadku formularzy sieci Web zapoznaj się z wpisem w blogu [Dodawanie grupowania i minifikacja do formularzy sieci Web](https://docs.microsoft.com/archive/blogs/rickandy/adding-bundling-and-minification-to-web-forms).
 
-## <a name="using-bundling-and-minification-with-aspnet-mvc"></a>Za pomocą tworzenia pakietów i minimalizowanie ze wzorca ASP.NET MVC
+## <a name="using-bundling-and-minification-with-aspnet-mvc"></a>Korzystanie z grupowania i Minifikacja z ASP.NET MVC
 
-W tej sekcji utworzymy platformy ASP.NET MVC projekt, aby sprawdzić, tworzenie pakietów i minimalizowanie. Najpierw utwórz nowy projekt ASP.NET MVC, internetowe o nazwie **MvcBM** bez wprowadzania zmian w dowolnej wartości domyślne.
+W tej sekcji utworzymy projekt ASP.NET MVC, który będzie badany i minifikacja. Najpierw utwórz nowy projekt internetowy ASP.NET MVC o nazwie **MvcBM** bez zmiany wartości domyślnych.
 
-Otwórz *aplikacji\\\_Start\\BundleConfig.cs* plików i zbadaj `RegisterBundles` metodę, która umożliwia tworzenie, rejestrowanie i konfigurowanie pakiety. Poniższy kod ilustruje część `RegisterBundles` metody.
+Otwórz *\\aplikacji \_uruchom\\plik BundleConfig.cs* i Przeanalizuj metodę `RegisterBundles`, która służy do tworzenia, rejestrowania i konfigurowania pakietów. Poniższy kod przedstawia część metody `RegisterBundles`.
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
-Powyższy kod powoduje utworzenie nowego pakietu języka JavaScript o nazwie *~/bundles/jquery* zawierającą wszystkie odpowiednie (które debugowania lub zminimalizowany, ale nie. *vsdoc*) pliki *skrypty* folder, który pasuje do ciągu z symbolami wieloznacznymi "js ~/Scripts/jquery-{version}". Dla platformy ASP.NET MVC 4, oznacza to, z konfiguracji debugowania, plik *jquery 1.7.1.js* zostaną dodane do pakietu. W konfiguracji wydania *jquery 1.7.1.min.js* zostaną dodane. Tworzenie pakietu framework zgodna z konwencjami kilka typowych takich jak:
+Poprzedni kod tworzy nowy pakiet JavaScript o nazwie *~/bundles/jQuery* , który zawiera wszystkie odpowiednie (to jest Debug lub zminimalizowanego, ale nie. *vsdoc*) pliki w folderze *skryptów* , które pasują do ciągu symbolu wieloznacznego "~/scripts/jQuery-{Version}.js". W przypadku ASP.NET MVC 4 oznacza to, że z konfiguracją debugowania plik *jQuery-1.7.1. js* zostanie dodany do pakietu. W konfiguracji wydania zostanie dodany *jQuery-1.7.1. min. js* . Struktura tworzenia pakietów jest następująca:
 
-- Wybieranie pliku ".min" dla wersji, gdy *FileX.min.js* i *FileX.js* istnieje.
-- Wybieranie wersji niż ".min" do debugowania.
-- Ignorowanie "-vsdoc" plików (takich jak *jquery-1.7.1-vsdoc.js*), które są używane tylko przez technologię IntelliSense.
+- Wybieraj plik ". min" do wydania, gdy istnieje *FileX. min. js* i *FileX. js* .
+- Wybieranie wersji nieujemnej na potrzeby debugowania.
+- Ignorowanie plików "-vsdoc" (takich jak *jQuery-1.7.1-vsdoc. js*), które są używane tylko przez funkcję IntelliSense.
 
-`{version}` Symbol wieloznaczny dopasowania powyżej jest używane do automatycznego tworzenia pakietu jQuery z odpowiednią wersją jQuery w swojej *skrypty* folderu. W tym przykładzie za pomocą symbolu wieloznacznego zapewnia następujące korzyści:
+Przedstawione powyżej `{version}` wieloznacznego dopasowania służy do automatycznego tworzenia pakietu jQuery z odpowiednią wersją jQuery w folderze *skryptów* . W tym przykładzie korzystanie z symboli wieloznacznych zapewnia następujące korzyści:
 
-- Pozwala użyć NuGet, aby zaktualizować do nowszej wersji jQuery bez wprowadzania zmian w powyższy kod tworzenia pakietów lub odwołania jQuery strony widoku.
-- Automatycznie wybiera pełną wersję dla konfiguracji debugowania i wersji ".min" dla wersji kompilacji.
+- Umożliwia korzystanie z narzędzia NuGet do aktualizowania do nowszej wersji jQuery bez zmiany powyższego kodu grupowania lub odwołań jQuery na stronach widoku.
+- Automatycznie wybiera pełną wersję dla konfiguracji debugowania i wersję ". min" dla kompilacji wydań.
 
 ## <a name="using-a-cdn"></a>Korzystanie z sieci CDN
 
- Kod postępuj zgodnie z zastępuje pakiet lokalny jQuery pakiet jQuery sieci CDN.
+ W poniższym kodzie jest zastępowany lokalny pakiet jQuery z pakietem CDN jQuery.
 
 [!code-csharp[Main](bundling-and-minification/samples/sample6.cs)]
 
-W powyższym kodzie jQuery zostanie zażądany z sieci CDN, natomiast w wersji tryb i wersję debugowania jQuery będą pobierane lokalnie w trybie debugowania. Podczas korzystania z sieci CDN, powinny mieć mechanizm rezerwowy, w przypadku, gdy żądanie usługi CDN nie powiedzie się. Następujące znaczniki fragment od końca skryptu przedstawia plik układu dodane do żądania jQuery powinien kończyć się niepowodzeniem usługi CDN.
+W powyższym kodzie usługa jQuery zostanie zażądana z sieci CDN w trybie wydania, a wersja debugowana jQuery zostanie pobrana lokalnie w trybie debugowania. W przypadku korzystania z sieci CDN należy mieć mechanizm rezerwowy w przypadku niepowodzenia żądania sieci CDN. Poniższy fragment znacznika z końca pliku układu pokazuje skrypt dodany do żądania jQuery w przypadku niepowodzenia sieci CDN.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample7.cshtml?highlight=5-13)]
 
 ## <a name="creating-a-bundle"></a>Tworzenie pakietu
 
-[Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `Include` metoda przyjmuje tablicę ciągów, gdzie każdy ciąg jest ścieżką wirtualną do zasobu. Poniższy kod z `RegisterBundles` method in Class metoda *aplikacji\\\_Start\\BundleConfig.cs* plik pokazuje, jak wiele plików są dodawane do pakietu:
+Klasa [pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) `Include` Metoda przyjmuje tablicę ciągów, gdzie każdy ciąg jest ścieżką wirtualną do zasobu. Poniższy kod z metody `RegisterBundles` w *aplikacji\\\_uruchom\\plik BundleConfig.cs* pokazuje, jak wiele plików jest dodawanych do pakietu:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-[Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `IncludeDirectory` metoda znajduje się dodać wszystkie pliki w katalogu (i opcjonalnie wszystkie podkatalogi), które pasują do wzorca wyszukiwania. [Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `IncludeDirectory` interfejsu API jest pokazany poniżej:
+W celu dodania wszystkich plików w katalogu (i opcjonalnie wszystkich podkatalogów), które pasują do wzorca wyszukiwania, podano metodę `IncludeDirectory` klasy [pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) . Poniżej przedstawiono klasę [pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) `IncludeDirectory` interfejs API:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-Pakiety są określone w widokach przy użyciu metody renderowania (`Styles.Render` CSS i `Scripts.Render` dla języka JavaScript). Następujące znaczniki z *widoków\\Shared\\\_Layout.cshtml* plik pokazuje, jak domyślne widoki projektów internetowych ASP.NET odwoływać się do pakietów CSS i JavaScript.
+Pakiety są przywoływane w widokach za pomocą metody Render (`Styles.Render` dla CSS i `Scripts.Render` dla języka JavaScript). Następujące znaczniki w *widokach\\udostępnione\\\_Layout. cshtml* pokazują, jak domyślny widok projektu internetowego ASP.NET odwołuje się do pakietów CSS i JavaScript.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
-Zwróć uwagę, metody renderowania przyjmuje tablicę ciągów, dzięki czemu można dodać kilka pakietów w jednym wierszu kodu. Ogólnie można używać metod renderowania, które tworzą niezbędne HTML, aby odwoływać się do elementu zawartości. Możesz użyć `Url` metoda generuje adres URL do zasobu bez znaczników musiał odwoływać się do elementu zawartości. Załóżmy, że chcesz używać nowego języka HTML5 [async](http://www.whatwg.org/specs/web-apps/current-work/#attr-script-async) atrybutu. Poniższy kod pokazuje, jak odwoływać się za pomocą modernizr `Url` metody.
+Zauważ, że metody renderowania pobierają tablicę ciągów, aby można było dodać wiele pakietów w jednym wierszu kodu. Zwykle chcesz użyć metod renderowania, które tworzą kod HTML wymagany do odwoływania się do elementu zawartości. Możesz użyć metody `Url`, aby wygenerować adres URL dla zasobu bez znaczników wymaganych do odwołania się do elementu zawartości. Załóżmy, że chciałeś użyć nowego atrybutu [ASYNCHRONICZNEGO](http://www.whatwg.org/specs/web-apps/current-work/#attr-script-async) HTML5. Poniższy kod ilustruje sposób odwoływania się do programu modernizacji przy użyciu metody `Url`.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample11.cshtml?highlight=11)]
 
-## <a name="using-the--wildcard-character-to-select-files"></a>Za pomocą "\*" wieloznaczny, aby wybrać pliki
+## <a name="using-the--wildcard-character-to-select-files"></a>Używanie znaku wieloznacznego "\*" do wybierania plików
 
-Ścieżce wirtualnej określonej w `Include` metody i wyszukiwanie wzorca w `IncludeDirectory` metoda może obsługiwać jeden "\*" wieloznacznego jako prefiks lub sufiks w ostatnim segmencie ścieżki. Ciąg wyszukiwania jest uwzględniana wielkość liter. `IncludeDirectory` Metoda ma opcję wyszukiwania podkatalogów.
+Ścieżka wirtualna określona w metodzie `Include` i wzorzec wyszukiwania w metodzie `IncludeDirectory` może akceptować jeden symbol wieloznaczny "\*" jako prefiks lub sufiks do w ostatnim segmencie ścieżki. W ciągu wyszukiwania jest rozróżniana wielkość liter. Metoda `IncludeDirectory` ma opcję wyszukiwania podkatalogów.
 
-Za pomocą następujących plików JavaScript, należy wziąć pod uwagę projekt:
+Rozważmy projekt z następującymi plikami JavaScript:
 
 - *Scripts\\Common\\AddAltToImg.js*
-- *Scripts\\Common\\ToggleDiv.js*
-- *Scripts\\Common\\ToggleImg.js*
+- *Skrypty\\Common\\ToggleDiv. js*
+- *Skrypty\\Common\\ToggleImg. js*
 - *Scripts\\Common\\Sub1\\ToggleLinks.js*
 
-![dir imag](bundling-and-minification/_static/image7.png)
+![imag katalogu](bundling-and-minification/_static/image7.png)
 
-W poniższej tabeli przedstawiono pliki dodane do pakietu za pomocą symbolu wieloznacznego, jak pokazano:
+W poniższej tabeli przedstawiono pliki dodane do pakietu przy użyciu symbolu wieloznacznego, jak pokazano poniżej:
 
-| **Call** | **Pliki dodane lub zgłoszony wyjątek** |
+| **Call** | **Dodano pliki lub zgłoszono wyjątek** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
-| Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wzorzec wyjątek. Symbol wieloznaczny jest dozwolona tylko na prefiksu lub sufiksu. |
-| Obejmują ("~/Scripts/Common/\*og.\*") | Nieprawidłowy wzorzec wyjątek. Dozwolone jest tylko jeden symbol wieloznaczny. |
-| Obejmują ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
-| Obejmują ("~/Scripts/Common/\*") | Nieprawidłowy wzorzec wyjątek. Segment czystego symbolu wieloznacznego nie jest prawidłowy. |
+| Include ("~/Scripts/Common/\*. js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
+| Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wyjątek wzorca. Symbol wieloznaczny jest dozwolony tylko dla prefiksu lub sufiksu. |
+| Include ("~/Scripts/Common/\*og.\*") | Nieprawidłowy wyjątek wzorca. Dozwolony jest tylko jeden znak wieloznaczny. |
+| Include ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| Include ("~/Scripts/Common/\*") | Nieprawidłowy wyjątek wzorca. Czysty segment wieloznaczny jest nieprawidłowy. |
 | IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
 | IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
 
-Jawne Dodawanie każdego pliku do pakietu jest ogólnie metoda preferowana nad ładowania symboli wieloznacznych plików z następujących powodów:
+Jawne dodanie każdego pliku do pakietu jest ogólnie preferowane w porównaniu z wieloznacznym ładowaniem plików z następujących powodów:
 
-- Dodawanie skryptów przez domyślne ustawienia symboli wieloznacznych, na potrzeby ładowania je w kolejności alfabetycznej, który jest zwykle nie chcemy. Pliki CSS i JavaScript często muszą zostać dodane w określonej kolejności (inne niż alfanumeryczne). Można zmniejszyć to zagrożenie, dodając niestandardową [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementacji, ale jawne dodanie każdego pliku jest mniej podatne. Na przykład można dodać nowe zasoby do folderu w przyszłości, które mogą wymagać zmodyfikowania swoje [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementacji.
-- Wyświetl określone pliki dodane do katalogu przy użyciu ładowania symbol wieloznaczny mogą być dołączane we wszystkich widokach odwołuje się do tego pakietu. Jeśli określonego skryptu w widoku jest dodawany do pakietu, może wystąpić błąd JavaScript na inne widoki, które odwołują się pakietu.
-- Importowanie innych plików, pliki CSS doprowadzić do importowanych plików, które są ładowane dwa razy. Na przykład poniższy kod tworzy pakiet z większością pliki CSS motyw interfejsu użytkownika jQuery ładowane dwa razy. 
+- Dodawanie skryptów według symboli wieloznacznych domyślnie do ładowania ich w kolejności alfabetycznej, która zwykle nie jest to wymagane. Pliki CSS i JavaScript często należy dodawać w określonym porządku (innym niż alfabetyczny). Możesz złagodzić to ryzyko poprzez dodanie niestandardowej implementacji [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) , ale jawne dodanie każdego pliku jest mniej podatne na błędy. Na przykład możesz dodać nowe zasoby do folderu w przyszłości, co może wymagać zmodyfikowania implementacji [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) .
+- Wyświetlanie określonych plików dodanych do katalogu przy użyciu funkcji ładowania wieloznacznego może być dołączane do wszystkich widoków odwołujących się do tego pakietu. Jeśli do pakietu zostanie dodany konkretny skrypt, może wystąpić błąd języka JavaScript w innych widokach, które odwołują się do tego pakietu.
+- Pliki CSS, które zaimportują inne pliki, powodują dwa razy załadowane zaimportowane pliki. Na przykład poniższy kod tworzy pakiet z większością plików CSS motywu interfejsu użytkownika jQuery załadowanych dwa razy. 
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  Selektor symbol wieloznaczny "\*CSS" łączy w każdym pliku CSS w folderze, w tym *zawartości\\motywy\\podstawowy\\jquery.ui.all.css* pliku. *Jquery.ui.all.css* plik importuje inne pliki CSS.
+  Selektor wieloznaczny "\*. css" umieszcza w każdym pliku CSS w folderze, w tym *motywy\\zawartości\\base\\jQuery. UI. ALL. css* . Plik *jQuery. UI. ALL. css* importuje inne pliki CSS.
 
-## <a name="bundle-caching"></a>Pakietu, buforowaniu
+## <a name="bundle-caching"></a>Buforowanie zbioru
 
-Pakiety ustawić nagłówek HTTP wygasa rok od po utworzeniu pakietu. Po przejściu na stronę poprzednio czytanego pokazuje Fiddler programu Internet Explorer nie powoduje warunkowego żądania dla pakietu, oznacza to, że istnieją żadne żądania HTTP GET z programu Internet Explorer dla pakiety i HTTP 304 odpowiedzi z serwera. Można wymusić programu Internet Explorer, aby utworzyć żądanie warunkowe dla każdego pakietu przy użyciu klawisza F5 (co w odpowiedzi HTTP 304 dla każdego pakietu). Możesz wymusić odświeżanie pełne, za pomocą ^ F5 (co w odpowiedzi HTTP 200 dla każdego pakietu).
+Zbiory ustawiają nagłówek wygaśnięcia HTTP rok od momentu utworzenia pakietu. Jeśli przejdziesz do wcześniej wyświetlanej strony, programu Fiddler pokazuje, że program IE nie tworzy warunkowego żądania dla tego pakietu, czyli nie ma żądań HTTP GET od IE dla pakietów i nie zwraca odpowiedzi HTTP 304 z serwera. Można wymusić, aby program IE przetworzył żądanie warunkowe dla każdego pakietu z klawiszem F5 (w wyniku odpowiedzi HTTP 304 dla każdego pakietu). Można wymusić pełne odświeżanie za pomocą polecenia ^ F5 (w wyniku odpowiedzi HTTP 200 dla każdego pakietu).
 
-Na poniższej ilustracji przedstawiono **Caching** karty okienku odpowiedzi programu Fiddler:
+Na poniższej ilustracji przedstawiono kartę **buforowanie** okienka odpowiedzi programu Fiddler:
 
-![Obraz pamięci podręcznej programu fiddler](bundling-and-minification/_static/image8.png)
+![obraz pamięci podręcznej programu Fiddler](bundling-and-minification/_static/image8.png)
 
 Żądanie   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- dotyczy pakietu **AllMyScripts** i zawiera pary ciągu zapytania **v = r0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Ciąg zapytania **v** ma wartość tokenu oznacza to unikatowy identyfikator używany do buforowania. Tak długo, jak pakietu nie zmienia się, aplikacja ASP.NET będzie żądać **AllMyScripts** pakietu przy użyciu tego tokenu. Jeśli zmieni się dowolny plik w pakiecie, struktura optymalizacji ASP.NET spowoduje wygenerowanie nowego tokenu, gwarantując, że żądania przeglądarki dla pakietu otrzyma najnowsze pakietu.
+ dotyczy zbioru **AllMyScripts** i zawiera parę ciągów zapytania **v = R0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Ciąg zapytania **v** ma token wartości, który jest unikatowym identyfikatorem używanym do buforowania. Dopóki pakiet nie ulegnie zmianie, aplikacja ASP.NET będzie żądać pakietu **AllMyScripts** przy użyciu tego tokenu. Jeśli dowolny plik w pakiecie ulegnie zmianie, platforma optymalizacji ASP.NET wygeneruje nowy token, co gwarantuje, że żądania przeglądarki dla pakietu będą miały najnowszą wersję.
 
-Jeśli uruchomienie narzędzia programistyczne F12 programem IE9 lub nowszym, przejdź do strony wcześniej załadowanych IE niepoprawnie pokazuje warunkowego żądania GET do każdego pakietu i serwera, zwracając HTTP 304. Może odczytywać, dlaczego programem IE9 lub nowszym ma problemy z określania, czy żądanie warunkowego została wprowadzona w wpis w blogu [przy użyciu usługi CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
+W przypadku uruchamiania narzędzi programistycznych IE9 F12 i przechodzenia do wcześniej załadowanej strony program IE nieprawidłowo pokazuje warunkowe żądania GET do każdego pakietu i zwraca serwer HTTP 304. Dlaczego IE9 ma problemy z ustaleniem, czy żądanie warunkowe zostało wprowadzone w blogu [przy użyciu sieci CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
-## <a name="less-coffeescript-scss-sass-bundling"></a>MNIEJ CoffeeScript, SCSS, Sass, tworzenie pakietów.
+## <a name="less-coffeescript-scss-sass-bundling"></a>LESS, CoffeeScript, SCSS i Sass.
 
-Tworzenie pakietów i minimalizowanie kryptograficznymi zapewnia mechanizm do przetworzenia pośrednich języków takich jak [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [mniej](http://www.dotlesscss.org/) lub [Coffeescript ](http://coffeescript.org/)i Zastosuj transformacje, takie jak minimalizację do pakietu wynikowego. Na przykład, aby dodać [.less](http://www.dotlesscss.org/) pliki do projektu MVC 4:
+Program minifikacja Framework i platforma udostępniają mechanizm przetwarzania języków pośrednich, takich jak [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [less](http://www.dotlesscss.org/) lub [CoffeeScript](http://coffeescript.org/), i stosują transformacje, takie jak minifikacja, do pakietu, który jest wynikiem. Na przykład, aby dodać pliki [less](http://www.dotlesscss.org/) do projektu MVC 4:
 
-1. Utwórz folder dla mniej zawartości. W poniższym przykładzie użyto *zawartości\\MyLess* folderu.
-2. Dodaj [.less](http://www.dotlesscss.org/) pakietu NuGet **bez kropek** do projektu.  
-    ![Bez kropek install NuGet](bundling-and-minification/_static/image9.png)
-3. Dodaj klasę, która implementuje [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfejsu. Przekształcenia .less Dodaj następujący kod do projektu.
+1. Utwórz folder dla MNIEJSZEj zawartości. W poniższym przykładzie zostanie użyta *zawartość folderu\\less* .
+2. Dodaj **bezkropkowo** [pakiet NuGet do projektu.](http://www.dotlesscss.org/)  
+    ![instalacji z bez](bundling-and-minification/_static/image9.png) NuGet
+3. Dodaj klasę, która implementuje interfejs [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) . W przypadku transformacji. less Dodaj poniższy kod do projektu.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Tworzenie pakietu mniej plików za pomocą `LessTransform` i [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) przekształcania. Dodaj następujący kod do `RegisterBundles` method in Class metoda *aplikacji\\_uruchom\\BundleConfig.cs* pliku.
+4. Utwórz pakiet mniej plików z `LessTransform` i transformacji [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) . Dodaj następujący kod do metody `RegisterBundles` w *aplikacji\\_Start\\pliku BundleConfig.cs* .
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
-5. Dodaj następujący kod, do których odwołuje się mniej pakietu widoków.
+5. Dodaj następujący kod do wszystkich widoków, które odwołują się do MNIEJSZEgo pakietu.
 
     [!code-cshtml[Main](bundling-and-minification/samples/sample15.cshtml)]
 
-## <a name="bundle-considerations"></a>Zagadnienia dotyczące pakietu
+## <a name="bundle-considerations"></a>Zagadnienia dotyczące zbioru
 
-Jest dobrą Konwencji, które należy wykonać podczas tworzenia pakietów do uwzględnienia "pakietu" jako prefiksu nazwy pakietu. Dzięki temu można zapobiec możliwe [routingu konflikt](https://forums.asp.net/post/5012037.aspx).
+Dobrym zwyczajem do przestrzegania podczas tworzenia pakietów jest dołączenie "pakietu" jako prefiksu w nazwie pakietu. Uniemożliwi to [konflikt routingu](https://forums.asp.net/post/5012037.aspx).
 
-Po aktualizacji jeden plik w pakiecie nowy token jest generowany dla parametru ciągu zapytania pakietu, i pełnego pakietu muszą zostać pobrane przy następnym klient żąda strony zawierającej pakietu. W tradycyjnych znaczników, gdzie każdy element zawartości będzie widoczny indywidualnie będzie można pobrać tylko zmienionego pliku. Zasoby, które zmieniają się często, może nie być dobrymi kandydatami do tworzenia pakietów.
+Po zaktualizowaniu jednego pliku w pakiecie jest generowany nowy token dla parametru ciągu zapytania pakietu, a pełny pakiet musi zostać pobrany przy następnym zażądaniu strony zawierającej pakiet. W tradycyjnym znaczniku, w którym każdy element zawartości jest wymieniany osobno, zostanie pobrany tylko zmieniony plik. Zasoby, które zmieniają się często, mogą nie być dobrymi kandydatami do tworzenia.
 
-Tworzenie pakietów i minimalizowanie przede wszystkim poprawić strony żądań obciążenia po raz pierwszy. Gdy wysłano żądanie strony sieci Web, przeglądarka buforuje zasoby (JavaScript, CSS i obrazów), tworzenie pakietów i minimalizowanie niemożliwe jest wszystkie zwiększeniu wydajności podczas żądania tej samej stronie lub strony w tej samej lokacji, żądanie tych samych zasobów. Jeśli nie ustawisz wygasa nagłówek poprawnie na Twoje zasoby i nie używaj tworzenie pakietów i minimalizowanie, Algorytm heurystyczny świeżości przeglądarek spowoduje oznaczenie zasoby starych po upływie kilku dni i przeglądarka będzie wymagać żądanie weryfikacji dla każdego zasobu. W tym przypadku tworzenie pakietów i minimalizowanie zapewniają wzrost wydajności po pierwszym żądaniu strony. Aby uzyskać więcej informacji, zobacz w blogu [przy użyciu usługi CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
+Zgrupowanie i minifikacja przede wszystkim zwiększy czas ładowania żądania pierwszej strony. Po zalogowaniu się do strony sieci Web przeglądarka przechowuje w pamięci podręcznej zasoby (JavaScript, CSS i obrazy), więc zgrupowanie i minifikacja nie zapewni zwiększenia wydajności podczas żądania tej samej strony lub stron w tej samej lokacji żądającej tych samych zasobów. Jeśli nie ustawisz prawidłowo nagłówka wygaśnięcia dla elementów zawartości i nie używasz funkcji grupowania i minifikacja, heurystyka Aktualności przeglądarki oznaczy zasoby jako przestarzałe po kilku dniach, a przeglądarka będzie wymagać żądania weryfikacji dla każdego elementu zawartości. W takim przypadku zgrupowanie i minifikacja zapewniają wzrost wydajności po pierwszym żądaniu strony. Aby uzyskać szczegółowe informacje, zapoznaj się z blogiem [przy użyciu sieci CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
-Ograniczenie przeglądarki sześć jednoczesnych połączeń dla każdej nazwy hosta, można zminimalizować przy użyciu [CDN](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx). Ponieważ usługa CDN będzie miał inną nazwę hosta niż hostingu witryny, żądania zawartości z usługi CDN nie wliczają sześć równoczesnych połączeń dozwolona środowisku macierzystym. Sieci CDN oferuje również typowe buforowania pakietów i urządzeniami brzegowymi, buforowanie korzyści.
+W celu ograniczenia liczby jednoczesnych połączeń między hostami na każdą z nazw hostów można ograniczyć użycie sieci [CDN](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx). Ponieważ sieć CDN będzie miała inną nazwę hosta niż witryna hostingu, żądania zasobów z sieci CDN nie będą wliczane do sześciu jednoczesnych połączeń do środowiska hostingu. Sieć CDN może również zapewniać typowe zalety buforowania pakietów i buforowania krawędzi.
 
-Zestawy powinny być dzielone według stron, które ich potrzebują. Na przykład domyślnego szablonu platformy ASP.NET MVC dla aplikacji internetowych tworzy zbiór weryfikacji jQuery oddzielnie od jQuery. Widoki tworzone mają nie dane wejściowe, a nie publikowały wartości, dlatego nie obejmują one pakietu sprawdzania poprawności.
+Pakiety powinny być partycjonowane przez strony, które ich potrzebują. Na przykład domyślny szablon ASP.NET MVC dla aplikacji internetowej tworzy pakiet z walidacją jQuery oddzielony od jQuery. Ponieważ utworzone domyślne widoki nie mają danych wejściowych i nie są ogłaszane, nie zawierają one pakietu walidacji.
 
-`System.Web.Optimization` Przestrzeni nazw jest zaimplementowana w *System.Web.Optimization.dll*. Jest przeprowadzana z zastosowaniem biblioteki WebGrease (*WebGrease.dll*) minimalizacji możliwości, który z kolei używa *Antlr3.Runtime.dll*.
+Przestrzeń nazw `System.Web.Optimization` jest zaimplementowana w *pliku System. Web. Optimization. dll*. Wykorzystuje bibliotekę websmaring (*Websmars. dll*) dla funkcji minifikacja, które z kolei korzystają z *Antlr3. Runtime. dll*.
 
-*Używam Twitter utworzyć wpisy szybki i udostępnić łącza. Moje uchwyt Twitter jest*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Używam usługi Twitter w celu wprowadzania szybkich ogłoszeń i linków do udostępniania. Moje dojście*do usługi Twitter: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- Wideo:[tworzenie pakietów i optymalizowanie](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) przez [Howard Dierking](https://twitter.com/#!/howard_dierking)
-- [Dodawanie optymalizacji sieci Web do witryny sieci Web Pages](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
-- [Dodawanie tworzenia pakietów i minimalizowanie do formularzy sieci Web](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
-- [Wpływ na wydajność tworzenia pakietów i minimalizowanie na przeglądanie sieci Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) przez [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
-- [Przy użyciu usługi CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) autorstwa Ricka Andersona [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
-- [Minimalizuj RTT (czasami opóźnienia)](https://developers.google.com/speed/docs/best-practices/rtt)
+- Wideo:[dzielenie i optymalizacja](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) według [Howard Dierking](https://twitter.com/#!/howard_dierking)
+- [Dodawanie optymalizacji sieci Web do witryny Web Pages](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
+- [Dodawanie grupowania i minifikacja do formularzy sieci Web](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
+- [Wpływ na wydajność tworzenia i minifikacja w trybie przeglądania sieci Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) przez [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [Korzystanie z sieci CDN i wygasa w celu poprawy wydajności witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) przez Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [Minimalizuj czas RTT (czasy rundy)](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>Współautorzy
 
 - Hao Kung
 - [Howard Dierking](https://twitter.com/#!/howard_dierking)
-- Diana LaRose
+- Dianę LaRose

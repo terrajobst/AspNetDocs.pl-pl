@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 11b494b4839c646b018098c76a8a9ae0a2169757
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 8dbc31a5c8d59fa55dc5b513c1a51d24d18a685f
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600491"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519404"
 ---
 # <a name="introduction-to-signalr"></a>Wprowadzenie do usługi SignalR
 
@@ -39,11 +39,19 @@ Sygnalizujący oferuje prosty interfejs API służący do tworzenia zdalnych wyw
 
 ![Wywoływanie metod przy użyciu sygnalizującego](introduction-to-signalr/_static/image1.png)
 
-Program sygnalizujący automatycznie obsługuje zarządzanie połączeniami i umożliwia emitowanie komunikatów do wszystkich połączonych klientów jednocześnie, takich jak pokój rozmowy. Możesz również wysyłać komunikaty do określonych klientów. Połączenie między klientem a serwerem jest trwałe, w przeciwieństwie do klasycznego połączenia HTTP, które jest ponownie nawiązane dla każdej komunikacji.
+Usługa SignalR automatycznie obsługuje zarządzanie połączeniami i umożliwia rozgłaszanie komunikatów do wszystkich połączonych klientów równocześnie, tak w przypadku pokoju rozmów. Można również wysyłać komunikaty do określonych klientów. Połączenie między klientem i serwerem jest trwałe w odróżnieniu od klasycznego połączenia HTTP, które jest nawiązywane ponownie dla każdej komunikacji.
 
 Usługa sygnalizująca obsługuje funkcję "wypychania serwera", w której kod serwera może wywoływać kod klienta w przeglądarce przy użyciu zdalnych wywołań procedur (RPC), a nie modelu odpowiedzi na żądanie, który jest często używany w sieci Web.
 
-Aplikacje sygnalizujące mogą być skalowane do tysięcy klientów przy użyciu Service Bus, SQL Server lub [Redis](http://redis.io).
+Aplikacje sygnalizujące mogą być skalowane do tysięcy klientów przy użyciu wbudowanych dostawców skalowalnych w poziomie i innych firm.
+
+Dostawcy wbudowani obejmują:
+* [Service Bus](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus3)
+* [SQL Server](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
+* [Redis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
+
+Dostawcy innych firm obejmują:
+* [NCache](https://www.alachisoft.com/ncache/asp-net-core-signalr.html).
 
 Sygnalizujący jest otwartym źródłem, dostępnym za poorednictwem usługi [GitHub](https://github.com/signalr).
 
@@ -136,7 +144,7 @@ Połączenie reprezentuje prosty punkt końcowy do wysyłania komunikatów o poj
 
 Koncentrator to bardziej wysoki poziom potoku oparty na interfejsie API połączenia, który umożliwia klientowi i serwerowi bezpośrednie wywoływanie metod. Program sygnalizujący obsługuje wysyłanie między granicami maszyn w taki sposób, aby klienci mogli wywoływać metody na serwerze jako metody lokalne i na odwrót. Korzystanie z modelu komunikacji centrów będzie znane dla deweloperów, którzy korzystali z interfejsów API wywołań zdalnych, takich jak komunikacja zdalna platformy .NET. Użycie centrum umożliwia również przekazywanie parametrów z jednoznacznie określonymi typami do metod, włączając powiązanie modelu.
 
-### <a name="architecture-diagram"></a>diagram architektury
+### <a name="architecture-diagram"></a>Diagram architektury
 
 Na poniższym diagramie przedstawiono relację między centrami, połączeniami trwałymi i podstawowymi technologiami używanymi do transportowania.
 

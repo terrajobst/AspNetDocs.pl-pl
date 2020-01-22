@@ -8,12 +8,12 @@ ms.author: riande
 ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 9a6d08849f09c9d7a779df64f70e8770d2af3c87
-ms.sourcegitcommit: b67ffd5b2c5cff01ec4c8eb12a21f693f2e11887
+ms.openlocfilehash: aa4f627bca99f0a7ffbbb53ea45ebdcf0850fd89
+ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69995286"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519365"
 ---
 # <a name="aspnet-overview"></a>Omówienie platformy ASP.NET
 
@@ -23,7 +23,7 @@ ASP.NET to bezpłatna platforma internetowa do tworzenia doskonałych witryn int
 
 ## <a name="get-started"></a>Wprowadzenie
 
-Zainstaluj [program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community Edition, bezpłatne środowisko IDE dla ASP.NET w systemie Windows.
+Zainstaluj [program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2019) Community Edition, bezpłatne środowisko IDE dla ASP.NET w systemie Windows.
 
 ## <a name="websites-and-web-applications"></a>Witryny internetowe i aplikacje sieci Web
 
@@ -47,11 +47,11 @@ Za pomocą formularzy sieci Web ASP.NET można tworzyć dynamiczne witryny inter
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC oferuje zaawansowany, oparty na wzorcach sposób tworzenia dynamicznych witryn sieci Web, które umożliwiają czyste rozdzielenie problemów i zapewnia pełną kontrolę nad adiustacjami, aby można było korzystać z programowania Agile. ASP.NET MVC zawiera wiele funkcji, które umożliwiają szybkie i niezrozumiałe Programowanie dla tworzenia zaawansowanych aplikacji, które korzystają z najnowszych standardów sieci Web.
+ASP.NET MVC zapewnia zaawansowany sposób oparty na wzorcach do tworzenia dynamicznych witryn, które umożliwia wyraźne oddzielenie obaw i zapewnia pełną kontrolę nad znacznikami, aby zapewnić przyjemne, elastyczne programowanie. ASP.NET MVC zawiera wiele funkcji, które umożliwiają szybkie i niezrozumiałe Programowanie dla tworzenia zaawansowanych aplikacji, które korzystają z najnowszych standardów sieci Web.
 
 [Dowiedz się więcej o MVC](mvc/index.md)
 
-### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
+### <a name="aspnet-web-pages"></a>Strony sieci Web programu ASP.NET
 
 ASP.NET strony sieci Web i składnia Razor zapewniają szybki, efektywny i prosty sposób łączenia kodu serwera z HTML w celu utworzenia dynamicznej zawartości sieci Web. Łączenie z bazami danych, Dodawanie wideo, łączenie z witrynami sieci społecznościowych i zawiera wiele innych funkcji, które ułatwiają tworzenie atrakcyjnych witryn, które są zgodne z najnowszymi standardami sieci Web.
 
@@ -65,7 +65,7 @@ Ponadto trzy struktury nie są całkowicie niezależne i wybór jednego z nich n
 
 ## <a name="web-apis"></a>Interfejsy Web API
 
-Interfejs API sieci Web ASP.NET to struktura, która ułatwia tworzenie usług HTTP, które docierają do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. Interfejs API sieci Web ASP.NET to idealna platforma służąca do tworzenia aplikacji RESTful na .NET Framework.
+Składnik Web API platformy ASP.NET to środowisko ułatwiające tworzenie usług HTTP, które można udostępniać dla wielu różnych klientów, takich jak przeglądarki i urządzenia przenośne. Składnik Web API platformy ASP.NET jest idealną platformą do tworzenia aplikacji o architekturze REST na platformie .NET Framework.
 
 [Dowiedz się więcej o interfejsie API sieci Web](web-api/index.md)
 
@@ -83,7 +83,7 @@ ASP.NET Signal to nowa biblioteka dla deweloperów ASP.NET, która ułatwia twor
 
 ASP.NET mogą korzystać z natywnych aplikacji mobilnych z zapleczem interfejsu API sieci Web, a także witryn sieci Web dla urządzeń przenośnych korzystających z platform projektowania, takich jak Bootstrap. Jeśli tworzysz natywną aplikację mobilną, możesz łatwo utworzyć interfejs API sieci Web oparty na notacji JSON, aby obsługiwać dostęp do danych, uwierzytelnianie i powiadomienia wypychane dla aplikacji. Jeśli tworzysz witrynę mobilną, możesz użyć dowolnej struktury CSS lub systemu otwartej siatki lub wybrać zaawansowany system mobilny, taki jak jQuery Mobile lub Sencha i wspaniałe aplikacje mobilne z PhoneGap.
 
-[Dowiedz się więcej o tworzeniu aplikacji mobilnych i witrynach](mobile/index.md)
+[Dowiedz się więcej o tworzeniu aplikacji mobilnych i witrynach](mobile/overview.md)
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
