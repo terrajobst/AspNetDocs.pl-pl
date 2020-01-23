@@ -3338,11 +3338,10 @@
             - name: Usługa SignalR i elementy WebSocket
               href: signalr/videos/getting-started/signalr-and-web-sockets.md
 - name: Urządzenia przenośne
-  href: mobile/index.md
   items:
-    - name: Urządzenia przenośne
+    - name: Omówienie
       href: mobile/overview.md
-    - name: Urządzenia przenośne przetestowane dla kontrolek urządzeń przenośnych ASP.NET
+    - name: Urządzenia przetestowane przy użyciu kontroli
       href: mobile/tested-devices.md
     - name: Symulowanie popularnych urządzeń przenośnych na potrzeby testowania
       href: mobile/device-simulators.md
