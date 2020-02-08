@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 0383974baa16bb0d5fc588f9303290bdb0fd979c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9800a313879477f36a730e6a70c79bc06d403ae3
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595346"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074959"
 ---
 # <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Obsługa współbieżności przy użyciu Entity Framework w aplikacji ASP.NET MVC (7 z 10)
 
@@ -53,7 +53,7 @@ Przed kliknięciem przycisku **Zapisz**, Janina uruchamia tę samą stronę i zm
 
 ![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-Jan klika pozycję **Zapisz** jako pierwszy i widzi zmiany, gdy przeglądarka powróci do strony indeks, a następnie kliknij przycisk **Zapisz**. Co się stanie dalej, zależy od sposobu obsługi konfliktów współbieżności. Dostępne są następujące opcje:
+Jan klika pozycję **Zapisz** jako pierwszy i widzi zmiany, gdy przeglądarka powróci do strony indeks, a następnie kliknij przycisk **Zapisz**. Co dzieje się potem określają sposób obsługi konfliktów współbieżności. Dostępne są następujące opcje:
 
 - Można śledzić, która właściwość została zmodyfikowana przez użytkownika i zaktualizować tylko odpowiednie kolumny w bazie danych. W przykładowym scenariuszu żadne dane nie zostaną utracone, ponieważ różne właściwości zostały zaktualizowane przez dwóch użytkowników. Następnym razem, gdy ktoś przegląda dział w języku angielskim, zobaczy zmiany w wysokości Jan i Janina — datę początkową 8/8/2013 i budżet zerowych dolarów.
 
@@ -85,6 +85,8 @@ W *Models\Department.cs*Dodaj właściwość śledzenia o nazwie `RowVersion`:
 Atrybut [timestamp](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) określa, że ta kolumna zostanie uwzględniona w klauzuli `Where` `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest nazywany [sygnaturą czasową](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) , ponieważ poprzednie wersje SQL Server używały typu danych [sygnatur czasowych](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) SQL przed zastąpieniem go przez [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) . Typ .NET dla `rowversion` jest tablicą bajtów. Jeśli wolisz używać interfejsu API Fluent, możesz użyć metody [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) , aby określić właściwość śledzenia, jak pokazano w następującym przykładzie:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
+
+Zobacz artykuł dotyczący usługi GitHub [Zamień IsConcurrencyToken na IsRowVersion](https://github.com/aspnet/AspNetDocs/issues/302).
 
 Przez dodanie właściwości, która zmieniła model bazy danych, należy wykonać kolejną migrację. W konsoli Menedżera pakietów (PMC) wprowadź następujące polecenia:
 

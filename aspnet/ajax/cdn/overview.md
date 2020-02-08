@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 51cb8d672139aaebd77bcdbe80bb579d4b3776aa
-ms.sourcegitcommit: 969e7db924ebad3cc0f0cb0d65d148e8b9221b9a
+ms.openlocfilehash: 228194a7b35e116cabae6d819e7a3a8060a3ef6a
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899572"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074920"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Usługa Microsoft AJAX Content Delivery Network
 
@@ -64,7 +64,7 @@ Usługa CDN obsługuje następujące biblioteki skryptów innych firm, które zo
 - jQuery (www.jquery.com)
 - jQuery UI (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
-- Walidacja jQuery (www.jquery.com)
+- Walidacja jQuery (https://jqueryvalidation.org/)
 - jQuery Cycle (www.malsup.com/jquery/cycle/)
 - jQuery DataTables (http://datatables.net/)
 
@@ -148,7 +148,7 @@ Zwróć uwagę, że w powyższym kodzie musisz dołączyć trzy pliki z sieci CD
 - Biblioteka interfejsu użytkownika jQuery &mdash; Biblioteka interfejsu użytkownika jQuery zawiera wszystkie efekty interfejsu użytkownika jQuery i widżety, takie jak widżet DatePicker używany na powyższej stronie.
 - Motyw interfejsu użytkownika jQuery &mdash; interfejs użytkownika jQuery obsługuje różne motywy. Powyższa Strona zawiera link do pliku CSS, aby zaimportować motyw Redmond.
 
-Wszystkie standardowe motywy interfejsu użytkownika jQuery są hostowane w sieci CDN. [Odwiedź tę stronę](jquery-ui/cdnjqueryui1910.md "j1\.8.10 interfejsu użytkownika zapytania w usłudze Microsoft Ajax CDN) , aby wyświetlić miniatury dla każdego motywu.
+Wszystkie standardowe motywy interfejsu użytkownika jQuery są hostowane w sieci CDN. [Odwiedź tę stronę](jquery-ui/cdnjqueryui1910.md "Zestaw jQuery UI 1.8.10 w usłudze Microsoft AJAX CDN") , aby wyświetlić miniatury dla każdego motywu.
 
 Aby dowiedzieć się więcej na temat biblioteki interfejsu użytkownika jQuery, odwiedź [witrynę internetową interfejsu użytkownika programu jQuery](http://jQueryUI.com "Witryna sieci Web interfejsu użytkownika jQuery").
 
@@ -617,7 +617,7 @@ Następujące wersje biblioteki interfejsu użytkownika jQuery są hostowane w t
 
 ### <a name="jquery-validation-releases-on-the-cdn"></a>Wersje walidacji jQuery w sieci CDN
 
-Następujące wersje biblioteki walidacji jQuery są hostowane w tej sieci CDN. Kliknij każdy link, aby zobaczyć rzeczywistą listę plików.
+Następujące wersje wtyczki [weryfikacji jQuery](https://jqueryvalidation.org/ "Wtyczka walidacji jQuery") są hostowane w tej sieci CDN. Kliknij każdy link, aby zobaczyć rzeczywistą listę plików.
 
 - [jQuery Weryfikuj 1.19.1](jquery-validate/cdnjqueryvalidate1191.md "Sprawdzanie poprawności jQuery 1.19.1")
 - [jQuery Weryfikuj 1.19.0](jquery-validate/cdnjqueryvalidate1190.md "Sprawdzanie poprawności jQuery 1.19.0")
@@ -777,7 +777,7 @@ Następujące wersje [globalizacji](https://github.com/jquery/globalize "Globali
 
 ### <a name="respond-releases-on-the-cdn"></a>Odpowiedz na wydania w sieci CDN
 
-W sieci CDN są hostowane następujące wersje [odpowiedzi](https://github.com/scottjehl/Respond "Odpowiedz") :
+W sieci CDN są hostowane następujące wersje [odpowiedzi](https://github.com/scottjehl/Respond "Reakcja") :
 
 #### <a name="respond-version-142"></a>Odpowiedz w wersji 1.4.2
 

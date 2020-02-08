@@ -8,12 +8,12 @@ ms.date: 09/25/2014
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: b6815baf05303d5f47a14ee5fe0fdfc2836c1868
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 2ef9e62a6c634237e920b6d7aba2127b835f959d
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519378"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075076"
 ---
 # <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtry uwierzytelniania w programie ASP.NET Web API 2
 
@@ -23,7 +23,7 @@ według [Jan Wasson](https://github.com/MikeWasson)
 
 Filtry uwierzytelniania umożliwiają ustawienie schematu uwierzytelniania dla poszczególnych kontrolerów lub akcji. Dzięki temu aplikacja może obsługiwać różne mechanizmy uwierzytelniania dla różnych zasobów HTTP.
 
-W tym artykule pokazywać kod z przykładu [uwierzytelniania podstawowego](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) na [https://github.com/aspnet/samples](https://github.com/aspnet/samples). Przykład pokazuje filtr uwierzytelniania, który implementuje schemat uwierzytelniania dostępu podstawowego protokołu HTTP (RFC 2617). Filtr jest zaimplementowany w klasie o nazwie `IdentityBasicAuthenticationAttribute`. Nie pokazujemy całego kodu z próbki, tylko części, które ilustrują sposób pisania filtru uwierzytelniania.
+W tym artykule pokazywać kod z przykładu [uwierzytelniania podstawowego](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) na [https://github.com/aspnet/samples](https://github.com/aspnet/samples). Przykład pokazuje filtr uwierzytelniania, który implementuje schemat uwierzytelniania dostępu podstawowego protokołu HTTP (RFC 2617). Filtr jest zaimplementowany w klasie o nazwie `IdentityBasicAuthenticationAttribute`. Nie pokazujemy całego kodu z próbki, tylko części, które ilustrują sposób pisania filtru uwierzytelniania.
 
 ## <a name="setting-an-authentication-filter"></a>Ustawianie filtru uwierzytelniania
 
@@ -108,7 +108,7 @@ Oto ogólny zarys implementacji **AuthenticateAsync**.
 5. Jeśli poświadczenia są nieprawidłowe, zwróć 401 przez ustawienie `context.ErrorResult`.
 6. Jeśli poświadczenia są prawidłowe, Utwórz **IPrincipal** i ustaw `context.Principal`.
 
-W poniższym kodzie przedstawiono metodę **AuthenticateAsync** z przykładu [podstawowego uwierzytelniania](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) . Komentarze wskazują każdy krok. Kod pokazuje kilka typów błędu: nagłówek autoryzacji bez poświadczeń, źle sformułowane poświadczenia i zła nazwa użytkownika/hasło.
+W poniższym kodzie przedstawiono metodę **AuthenticateAsync** z przykładu [podstawowego uwierzytelniania](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/BasicAuthentication) . Komentarze wskazują każdy krok. Kod pokazuje kilka typów błędu: nagłówek autoryzacji bez poświadczeń, źle sformułowane poświadczenia i zła nazwa użytkownika/hasło.
 
 [!code-csharp[Main](authentication-filters/samples/sample5.cs)]
 
@@ -135,7 +135,7 @@ Ważne jest, aby zrozumieć, że **ChallengeAsync** jest wywoływana *przed utwo
 Wywołaję oryginalny **IHttpActionResult** *wyniku wewnętrznego*i nowy **IHttpActionResult** *wynik zewnętrzny*. Zewnętrzny wynik musi wykonać następujące czynności:
 
 1. Wywołaj wynik wewnętrzny, aby utworzyć odpowiedź HTTP.
-2. Sprawdź odpowiedź.
+2. Badanie odpowiedzi.
 3. W razie potrzeby Dodaj wyzwanie uwierzytelniania do odpowiedzi.
 
 Poniższy przykład jest pobierany z przykładu podstawowego uwierzytelniania. Definiuje **IHttpActionResult** dla zewnętrznego wyniku.
@@ -162,6 +162,6 @@ Aby wyłączyć uwierzytelnianie na poziomie hosta w potoku interfejsu API sieci
 
 [!code-csharp[Main](authentication-filters/samples/sample10.cs)]
 
-## <a name="additional-resources"></a>Dodatkowe materiały
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Filtry zabezpieczeń interfejsu API sieci Web ASP.NET](https://msdn.microsoft.com/magazine/dn781361.aspx) (Magazyn MSDN)

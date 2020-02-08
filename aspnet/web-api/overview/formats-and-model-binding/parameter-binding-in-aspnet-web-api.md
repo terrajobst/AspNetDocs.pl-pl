@@ -9,12 +9,12 @@ ms.custom: seoapril2019
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 032368f94ce32cf6231458649e8fdd42bee685e9
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 464cb9b45dc0b62c4da38b7cf612934808854d32
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519261"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074907"
 ---
 # <a name="parameter-binding-in-aspnet-web-api"></a>Powiązanie parametrów w interfejsie API sieci Web ASP.NET
 
@@ -102,7 +102,7 @@ Spinacz modelu pobiera pierwotne wartości wejściowe od *dostawcy wartości*. T
 
 Dostawca wartości domyślnej w interfejsie Web API pobiera wartości z danych trasy i ciągu zapytania. Na przykład jeśli identyfikator URI jest `http://localhost/api/values/1?location=48,-122`, dostawca wartości tworzy następujące pary klucz-wartość:
 
-- id = &quot;1&quot;
+- Identyfikator = &quot;1&quot;
 - Lokalizacja = &quot;48 122&quot;
 
 (Przy założeniu domyślnego szablonu trasy jest &quot;API/{Controller}/{ID}&quot;).
@@ -203,9 +203,9 @@ Cały proces wiązania parametrów jest kontrolowany przez podłączane usługi 
 
 Jeśli chcesz, możesz zastąpić całą usługę **IActionValueBinder** z implementacją niestandardową.
 
-## <a name="additional-resources"></a>Dodatkowe materiały
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Przykład powiązania parametru niestandardowego](http://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
+[Przykład powiązania parametru niestandardowego](https://github.com/aspnet/samples/tree/master/samples/aspnet/WebApi/CustomParameterBinding)
 
 Jan zapisał dobrą serię wpisów w blogu na temat powiązania parametrów interfejsu API sieci Web:
 

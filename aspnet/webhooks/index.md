@@ -6,22 +6,22 @@ description: Wprowadzenie do ASP.NET elementów webhook.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.openlocfilehash: aa65a20e1af16d58533e37fafc77ac246e0fe327
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.openlocfilehash: 1e21c92e950893c0ff87c63f03f4710a158441fd
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000730"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075089"
 ---
 # <a name="aspnet-webhooks-overview"></a>Webhook ASP.NET — Omówienie
 
 Elementy webhook to lekki wzorzec HTTP udostępniający prosty model pub/sub dla połączeń interfejsów API sieci Web i usług SaaS. Po wystąpieniu zdarzenia w usłudze powiadomienie jest wysyłane w formie żądania HTTP POST do zarejestrowanych subskrybentów. Żądanie POST zawiera informacje o zdarzeniu, które umożliwi odbiorcy odpowiednie działanie.
 
-Ze względu na prostotę elementy webhook są już udostępniane przez dużą liczbę usług, w tym [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [BitBucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Zapasy](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)i wiele szczegółowe. Na przykład element webhook może wskazywać, że plik został zmieniony w usłudze [Dropbox](http://dropbox.com/)lub że w usłudze GitHub została zatwierdzona zmiana kodu, lub Zainicjowanie płatności w [systemie PayPal](http://www.paypal.com/)lub utworzenie karty w usłudze [Trello](http://www.trello.com/). Możliwości są nieograniczone!
+Ze względu na prostotę elementy webhook są już udostępniane przez dużą liczbę usług, w tym [Dropbox](http://dropbox.com/), [GitHub](https://www.github.com/), [BitBucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Zapasy](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/)i wiele innych. Na przykład element webhook może wskazywać, że plik został zmieniony w usłudze [Dropbox](http://dropbox.com/)lub że w usłudze GitHub została zatwierdzona zmiana kodu, lub Zainicjowanie płatności w [systemie PayPal](http://www.paypal.com/)lub utworzenie karty w usłudze [Trello](http://www.trello.com/). Możliwości są nieograniczone!
 
 Microsoft ASP.NET webhook ułatwiają wysyłanie i odbieranie elementów webhook w ramach aplikacji ASP.NET:
 
-* Po stronie odbiorczej zapewnia wspólny model do odbioru i przetwarzania elementów webhook z dowolnej liczby dostawców elementów webhook. Usługa [Dropbox](http://dropbox.com/), [GitHub](http://www.github.com/), [BitBucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), Pusher, [Salesforce](http://www.salesforce.com), [Zapasy](http://www.slack.com), [](http://www.pusher.com) [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[WordPress](http://www.wordpress.com) i [Systemu Zendesk](https://www.zendesk.com/) , ale łatwo jest dodać obsługę więcej.
+* Po stronie odbiorczej zapewnia wspólny model do odbioru i przetwarzania elementów webhook z dowolnej liczby dostawców elementów webhook. Jest on dostępny z pudełka z obsługą usług [Dropbox](http://dropbox.com/), [GitHub](https://www.github.com/), [BitBucket](https://bitbucket.org/), [MailChimp](http://www.mailchimp.com/), [PayPal](http://www.paypal.com/), [Pusher](http://www.pusher.com), [Salesforce](http://www.salesforce.com), [zapasowych](http://www.slack.com), [Stripe](http://www.stripe.com), [Trello](http://www.trello.com/),[WordPress](http://www.wordpress.com) i [systemu Zendesk](https://www.zendesk.com/) , ale łatwo jest dodać obsługę więcej.
 
 * Na stronie wysyłającej zapewnia obsługę zarządzania subskrypcjami i ich przechowywania oraz wysyłania powiadomień o zdarzeniach do odpowiedniego zestawu subskrybentów. Pozwala to definiować własny zestaw zdarzeń, które Subskrybenci mogą subskrybować i powiadamiać o nich, gdy wystąpią.
 
@@ -33,7 +33,7 @@ Kod jest przeznaczony dla ASP.NET Web API 2 i ASP.NET MVC 5 i jest dostępny jak
 
 Elementy webhook są wzorcem, co oznacza, że różni się w zależności od tego, w jaki sposób jest używany przez usługę do obsługi, ale podstawowy pomysł jest taki sam. Elementy webhook można traktować jako prosty model pub/sub, w którym użytkownik może subskrybować zdarzenia występujące w innym miejscu. Powiadomienia o zdarzeniach są propagowane jako żądania HTTP POST zawierające informacje o samym zdarzeniu.
 
-Zwykle żądanie HTTP POST zawiera obiekt JSON lub dane formularza HTML określone przez nadawcę elementu webhook, w tym informacje o zdarzeniu powodującym wyzwolenie elementu webhook. Na przykład treść żądania POST elementu webhook z usługi [GitHub](http://www.github.com/) wygląda następująco w wyniku nowego problemu w określonym repozytorium:
+Zwykle żądanie HTTP POST zawiera obiekt JSON lub dane formularza HTML określone przez nadawcę elementu webhook, w tym informacje o zdarzeniu powodującym wyzwolenie elementu webhook. Na przykład treść żądania POST elementu webhook z usługi [GitHub](https://www.github.com/) wygląda następująco w wyniku nowego problemu w określonym repozytorium:
 
 ```json
 {

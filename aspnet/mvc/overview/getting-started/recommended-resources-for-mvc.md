@@ -8,12 +8,12 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 98089df48550216b50330d9b354168f570d857cd
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: daccaedae0b0e60f5086f270f214f87da564a85d
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583191"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074933"
 ---
 # <a name="mvc-recommended-resources"></a>Zalecane zasoby dla wzorca MVC
 
@@ -49,7 +49,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="azure"></a>
 
-## <a name="microsoft-azure"></a>{1&gt;Microsoft Azure&lt;1}
+## <a name="microsoft-azure"></a>Microsoft Azure
 
 - [Największy pokaz platformy Azure na świecie](http://www.troyhunt.com/2014/03/the-worlds-greatest-azure-demo.html)
 - [Wideo z//build/2014](https://channel9.msdn.com/Events/Build/2014?sort=sequential&amp;direction=desc&amp;page=2&amp;tag%5B0%5D=asp.net&amp;tag%5B1%5D=azure&amp;tag%5B2%5D=visual-studio&amp;tag%5B3%5D=web#theSessions): (Azure i Visual Studio)
@@ -80,7 +80,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="security"></a>
 
-## <a name="security"></a>Zabezpieczenia
+## <a name="security"></a>Bezpieczeństwo
 
 - [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem w serwisie Facebook i Google OAuth2](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Czego nie robić na platformie ASP.NET i co zrobić zamiast tego](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
@@ -189,7 +189,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="KO"></a>
 
-## <a name="angularjs-knockout-knockoutjs"></a>AngularJS, odcinanie, KnockoutJS
+## <a name="angularjs-knockout-knockoutjs"></a>AngularJS, Knockout, KnockoutJS
 
 - [Separowanie](http://knockoutjs.com/)
 - [Wprowadzenie z KnockoutJS w ASP.NET MVC](http://www.dotnetcurry.com/ShowArticle.aspx?ID=933)
@@ -274,7 +274,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="mobile"></a>
 
-## <a name="mobile"></a>Telefon komórkowy
+## <a name="mobile"></a>Komórkowy
 
 - [Samouczek dla urządzeń przenośnych ASP.NET MVC 4](../older-versions/aspnet-mvc-4-mobile-features.md)
 - [Plików Tworzenie przyjaznych witryn sieci Web za pomocą MVC 4](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
@@ -315,7 +315,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Tworzenie aplikacji weryfikowalne Unit w ASP.NET MVC — samouczek dla początkujących](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [Wstrzykiwanie zależności kontrolera MVC ASP.NET dla początkujących](http://www.codeproject.com/Articles/560798/ASP-NET-MVC-controller-dependency-injection-for-be)
 - [Pisanie testów jednostkowych dla metody akcji ASP.NET MVC, która obsługuje żądanie AJAX i normalne żądanie](https://weblogs.asp.net/shijuvarghese/archive/2012/12/09/writing-unit-tests-for-an-asp-net-mvc-action-method-that-handles-ajax-request-and-normal-request.aspx)
-- [Dębu: Zapewnij dynamiczną dobrą i bezproblemową rozwój do ASP.NET MVC](http://amirrajan.github.com/Oak/)
+- [Dębu: Zapewnij dynamiczną dobrą i bezproblemową rozwój do ASP.NET MVC](https://amirrajan.github.com/Oak/)
 - [Opracowywanie aplikacji ASP.NET MVC 4 dla usługi TDD przy użyciu xUnit i MOQ](http://www.dotnetcurry.com/ShowArticle.aspx?ID=836)
 - [Testowanie widoków ASP.NET MVC z nowego projektu do serwera kompilacji](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server) (wideo)
 - [Szybki Start: Programowanie sterowane testami](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(wideo)
@@ -327,7 +327,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="best"></a>
 
-## <a name="best-practices"></a>Najlepsze praktyki
+## <a name="best-practices"></a>Najlepsze rozwiązania
 
 - [Czego nie robić na platformie ASP.NET i co zrobić zamiast tego](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Lista kontrolna dewelopera sieci Web](http://webdevchecklist.com/aspnet)
@@ -340,7 +340,7 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="deploy"></a>
 
-## <a name="deployment"></a>Wdrażanie
+## <a name="deployment"></a>Wdrożenie
 
 - [Mapa zawartości wdrożenia sieci Web dla programu Visual Studio i ASP.NET](../../../whitepapers/aspnet-web-deployment-content-map.md)
 

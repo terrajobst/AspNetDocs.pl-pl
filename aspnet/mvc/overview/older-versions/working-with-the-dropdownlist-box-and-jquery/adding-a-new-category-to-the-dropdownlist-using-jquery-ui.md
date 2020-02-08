@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
-title: Dodawanie nowej kategorii do metody DropDownList przy użyciu interfejs użytkownika jQuery | Dokumentacja firmy Microsoft
+title: Dodawanie nowej kategorii do DropDownList przy użyciu interfejsu użytkownika jQuery | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
@@ -8,126 +8,126 @@ ms.date: 01/12/2012
 ms.assetid: 44aa1ac4-6ea2-48a2-972d-52710c48eae5
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 99bb37f95ddbad775c9c50ff5faf985b631473d0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: cb9053593e2ea788638aec063c845cb91121861b
+ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386752"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075115"
 ---
 # <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Dodawanie nowej kategorii do metody DropDownList przy użyciu zestawu jQuery UI
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-Kod HTML `Select` tag jest idealny dla prezentowanie danych na stałych kategorii, ale często trzeba dodać nową kategorię. Załóżmy, że chcemy dodać gatunku "Opera" do kategorii w naszej bazie danych? W tej sekcji użyjemy interfejs użytkownika jQuery dodać okno dialogowe, które możemy użyć, aby dodać nową kategorię. Na poniższej ilustracji przedstawiono, jak interfejs użytkownika spowoduje wyświetlenie w przeglądarce.
+Tag `Select` HTML jest idealnym rozwiązaniem do prezentowania listy stałych danych kategorii, ale często trzeba dodać nową kategorię. Załóżmy, że chcemy dodać gatunek "Opera" do kategorii w naszej bazie danych? W tej sekcji użyjesz interfejsu użytkownika jQuery do dodania okna dialogowego, którego można użyć do dodania nowej kategorii. Na poniższej ilustracji przedstawiono sposób wyświetlania interfejsu użytkownika w przeglądarce.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image1.png)
 
-Gdy użytkownik wybierze **Dodaj nowe gatunku** łącza, wyskakujące okno dialogowe monituje użytkownika o nazwę nowego gatunku (i opcjonalnie opis). Obraz poniżej przedstawiono **Dodaj gatunku** wyskakującego okna dialogowego.
+Gdy użytkownik wybierze link **Dodaj nowy gatunek** , wyskakujące okno dialogowe wyświetli użytkownikowi komunikat o nowej nazwie gatunku (i opcjonalnie opis). Na poniższej ilustracji przedstawiono okno dialogowe **Dodawanie gatunku** .
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image2.png)
 
-Po wprowadzeniu nowych nazw gatunku i **Zapisz** wypchnięty przycisku, wykonywane są następujące czynności:
+Po wprowadzeniu nowej nazwy gatunku, gdy przycisk **Zapisz** jest wypychany, następuje:
 
-1. Wywołania AJAX przesyła dane do metody Utwórz kontroler gatunku, który zapisuje nowe gatunku do bazy danych i zwraca nowy gatunku informacje (gatunku nazwa i identyfikator) jako dane JSON.
-2. JavaScript dodaje nowe dane gatunku do listy wyboru.
-3. JavaScript sprawia, że nowe gatunku wybranego elementu.
+1. Wywołanie AJAX zapisuje dane do metody Create kontrolera gatunku, która zapisuje nowy gatunek do bazy danych i zwraca nowe informacje o gatunku (nazwę i identyfikator gatunku) jako kod JSON.
+2. Język JavaScript dodaje nowe dane gatunku do listy wyboru.
+3. Język JavaScript sprawia, że nowy gatunek wybranego elementu.
 
-   Na ilustracji poniżej **Opera** zostało dodane do bazy danych i wybrać w **gatunku** listy rozwijanej. 
+   Na poniższym obrazie program **Opera** został dodany do bazy danych i wybrany na liście rozwijanej **gatunek** . 
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image3.png)
 
-Otwórz *Views\StoreManager\Create.cshtml* plik i Zastąp kod znaczników gatunku następującym kodem następujący kod:
+Otwórz plik *Views\StoreManager\Create.cshtml* i Zastąp znacznik gatunek następującym kodem:
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample1.cshtml)]
 
-`_ChooseGenre` Widoku częściowego zawiera całą logikę umożliwiającą podpiąć JavaScript i jQuery, używany do implementowania Dodaj nową funkcję gatunku. Po ukończyliśmy kod będzie prosty sposób taki sam jak wykonawcy interfejsu użytkownika.
+`_ChooseGenre` widok częściowy zawiera całą logikę do podłączania kodu JavaScript i jQuery używanego do implementowania funkcji Dodaj nowy gatunek. Po zakończeniu wykonywania kodu będzie on prosty do wykonania tego samego przy użyciu interfejsu użytkownika wykonawcy.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy *Views\StoreManager* i wybierz polecenie **Dodaj**, następnie **widoku**. W **nazwy widoku** danych wejściowych, wprowadź `_ChooseGenre` polecenie **Dodaj**. Zastąp kod znaczników w *Views\StoreManager\\_ChooseGenre.cshtml* pliku następującym kodem:
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy folder *Views\StoreManager* , a następnie wybierz polecenie **Dodaj**, a następnie **Wyświetl**. W polu wprowadzanie **nazwy widoku** wprowadź `_ChooseGenre` a następnie wybierz pozycję **Dodaj**. Zastąp znaczniki w pliku *Views\StoreManager\\_ChooseGenre. cshtml* :
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample2.cshtml)]
 
-Pierwszy wiersz deklaruje, że firma Microsoft jest przesyłany w `Album` jako nasz model dokładnie tak samo modelu instrukcji znalezionej w widoku Create. Następnych kilka wierszy są **etykiety** pomocnika znaczników. Następny wiersz jest **DropDownList** wywołać pomocnika, tak samo jak w oryginalnym widokiem Utwórz. Następny wiersz dodaje link o nazwie `Add New Genre`, i style go jako przycisku. Wiersz zawierający `ValidationMessageFor` jest kopiowana bezpośrednio z widoku Create. Następujące wiersze:
+Pierwszy wiersz deklaruje, że przekazujemy `Album` jako nasz model, dokładnie tę samą instrukcję modelową, która znajduje się w widoku Create (Tworzenie). Kilka następnych wierszy jest znacznikiem pomocnika **etykiet** . Następnym wierszem jest wywołanie pomocnika **DropDownList** , dokładnie takie samo jak w przypadku oryginalnego widoku tworzenia. Następny wiersz dodaje łącze o nazwie `Add New Genre`i style, takie jak przycisk. Wiersz zawierający `ValidationMessageFor` jest kopiowany bezpośrednio z widoku tworzenie. Następujące wiersze:
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample3.html)]
 
-Tworzy div ukrytych, o identyfikatorze `genreDialog`. Będziemy używać jQuery aby zaczepić naszych **Dodaj gatunku** okno dialogowe z Identyfikatorem `genreDialog` w tym div. Ostatnie dwa tagi skryptu zawierają łącza do plików JavaScript, które zostaną użyte do zaimplementowania Dodaj nową funkcję gatunku. */Scripts/chooseGenre.js* pliku zostanie podana dla Ciebie w projekcie, firma Microsoft będzie go sprawdzić później w samouczku.
+tworzy ukryty blok DIV o IDENTYFIKATORze `genreDialog`. Będziemy używać platformy jQuery do przełączania okna dialogowego **Dodawanie gatunku** z identyfikatorem `genreDialog` w tym elemencie DIV. Ostatnie dwa Tagi skryptu zawierają linki do plików języka JavaScript, które zostaną użyte do zaimplementowania funkcji Dodaj nowy gatunek. Plik */scripts/chooseGenre.js* jest dostępny dla Ciebie w projekcie. przeanalizuje go później w samouczku.
 
-Uruchom aplikację, a następnie kliknij pozycję **Dodaj nowe gatunku** przycisku. W **Dodaj gatunku** okna dialogowego wprowadź **Opera** w **nazwa** pola wejściowego.
+Uruchom aplikację i kliknij przycisk **Dodaj nowy gatunek** . W oknie dialogowym **Dodaj gatunek** wprowadź wartość **Opera** w polu **Nazwa** wejściowa.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image4.png)
 
-Kliknij przycisk **Zapisz**. Wywołania AJAX tworzy kategorię Opera następnie wypełnia listę rozwijaną z Opera i ustawia Opera jako wybranego gatunku.
+Kliknij przycisk **Zapisz**. Wywołanie AJAX tworzy kategorię Opera, a następnie wypełnia listę rozwijaną za pomocą programu Opera i ustawia program Opera jako wybrany gatunek.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image5.png)
 
-Wprowadź wykonawcy, tytuł i ceny, a następnie wybierz **Utwórz** przycisku. Jeśli wprowadzasz cenie mniej niż $8.99 nowy album pojawi się u góry widoku indeksu. Sprawdź, czy nowy wpis albumu została zapisana w bazie danych.
+Wprowadź wykonawcę, tytuł i cenę, a następnie wybierz przycisk **Utwórz** . Jeśli wprowadzisz cenę niższą niż $8,99, nowy album pojawi się u góry widoku indeksu. Sprawdź, czy nowy wpis albumu został zapisany w bazie danych.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image6.png)
 
-Spróbuj utworzyć nowy gatunku z tylko jedną literę. Poniższy kod w *Models\Genre.cs* pliku, Ustawia minimalną i maksymalną długość nazwy gatunku.
+Spróbuj utworzyć nowy gatunek z tylko jedną literą. Poniższy kod w pliku *Models\Genre.cs* ustawia minimalną i maksymalną długość nazwy gatunku.
 
 [!code-csharp[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample4.cs)]
 
-Weryfikacji po stronie klienta zgłasza, że należy wprowadzić ciąg od 2 do 20 znaków.
+Raporty weryfikacji po stronie klienta należy wprowadzić ciąg z zakresu od 2 do 20 znaków.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image7.png)
 
-### <a name="examining-how-a-new-genre-is-added-to-the-database-and-the-select-list"></a>Badanie sposobu gatunku nowe jest dodawany do bazy danych i listy wybierz.
+### <a name="examining-how-a-new-genre-is-added-to-the-database-and-the-select-list"></a>Sprawdzanie, w jaki sposób nowy gatunek jest dodawany do bazy danych i listy wyboru.
 
-Otwórz *Scripts\chooseGenre.js* pliku i poszukaj w kodzie.
+Otwórz plik *Scripts\chooseGenre.js* i zapoznaj się z kodem.
 
 [!code-javascript[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample5.js)]
 
-Drugi wiersz używa Identyfikatora `genreDialog` utworzyć okno dialogowe na tag div w *Views\StoreManager\\_ChooseGenre.cshtml* pliku. Większość nazwanych parametrów to samodzielnie objaśnienia. `autoOpen` Parametr ma wartość false, wybierając **tworzenie gatunku** przycisku spowoduje to otwarcie okna dialogowego jawnie (jest to opisane ostatnie na). Okno dialogowe ma dwa przyciski o **Zapisz** i **anulować**. **Anulować** przycisk zamyka okno dialogowe. Poniższy kod przedstawia **Zapisz** przycisk funkcji.
+Drugi wiersz używa identyfikatora `genreDialog` do tworzenia okna dialogowego znacznika DIV w pliku *Views\StoreManager\\_ChooseGenre. cshtml* . Większość nazwanych parametrów nie ma wyjaśnień. Parametr `autoOpen` ma wartość FAŁSZ, a wybranie przycisku **Utwórz gatunek** spowoduje otwarcie okna dialogowego w sposób jawny (jest to opisane w drugim dniu). Okno dialogowe ma dwa przyciski, **Zapisz** i **Anuluj**. Przycisk **Anuluj** zamyka okno dialogowe. Poniższy kod przedstawia funkcję **Save** Button.
 
 [!code-javascript[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample6.js)]
 
-`var createGenreForm` Wybrana w zaufanym `createGenreForm` identyfikatora. `createGenreForm` Identyfikator został ustawiony w poniższym kodzie w *Views\Genre\\_CreateGenre.cshtml* pliku.
+Wybrano `var createGenreForm` z identyfikatora `createGenreForm`. Identyfikator `createGenreForm` został ustawiony w następującym kodzie znalezionym w pliku *Views\Genre\\_CreateGenre. cshtml* .
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample7.cshtml)]
 
-[Html.BeginForm](https://msdn.microsoft.com/library/dd492714.aspx) przeciążenia pomocnika używany w *Views\Genre\\_CreateGenre.cshtml* generuje plik HTML z atrybutem akcji zawierającego adres URL można przesłać formularza. Można to zobaczyć, wyświetlając strona albumu tworzenia w przeglądarce i wybranie źródła Pokaż w przeglądarce. Następujący kod przedstawia wygenerowanego kodu HTML zawierający tag formularza.
+Przeciążenie pomocnika [HTML. BeginForm](https://msdn.microsoft.com/library/dd492714.aspx) użyte w pliku *Views\Genre\\_CreateGenre. cshtml* generuje HTML z atrybutem Action zawierającym adres URL służący do przesyłania formularza. Możesz to zobaczyć, wyświetlając stronę tworzenie albumu w przeglądarce i wybierając pozycję Pokaż źródło w przeglądarce. Poniższy znacznik pokazuje wygenerowany kod HTML zawierający tag formularza.
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample8.html)]
 
-JQuery `$.post` wiersz wykonuje wywołanie AJAX do atrybutu działanie (`/StoreManager/Create`) i przekazuje dane z **tworzenie gatunku** okno dialogowe. Dane składają się nazwy gatunku nowy i opcjonalny opis. W przypadku pomyślnego wywołania AJAX nowej gatunku nazwy i wartości, które są dodawane do wybierz znaczników, a nowe gatunku jest ustawiona na wybranej wartości. Ponieważ jest to dynamicznie generowanych znaczników, nie widzisz nowej opcji wybierz opcję, wyświetlając źródła w przeglądarce. Możesz zobaczyć nowy HTML przy użyciu narzędzi deweloperskich programu Internet Explorer 9 F12. Aby wyświetlić nową opcję Wybierz, w programie Internet Explorer 9, naciśnij klawisz F12, aby uruchomić narzędzia programistyczne F12. Przejdź do tworzenia strony i dodać nowe gatunku, aby nowe gatunku jest zaznaczony na liście wybierz gatunku. W narzędzia programistyczne F12:
+Linia `$.post` jQuery wykonuje wywołanie AJAX do atrybutu Action (`/StoreManager/Create`) i przekazuje dane z okna dialogowego **Tworzenie gatunku** . Dane składają się z nazwy nowego gatunku i opcjonalnego opisu. Jeśli wywołanie AJAX zakończy się pomyślnie, Nowa nazwa i wartość gatunku są dodawane do Select Markup, a nowy gatunek jest ustawiony na wybraną wartość. Ponieważ jest to dynamicznie generowana adiustacja, nie można wyświetlić nowej opcji Select, wyświetlając źródło w przeglądarce. Nowy kod HTML można zobaczyć przy użyciu narzędzi deweloperskich programu IE 9 F12. Aby wyświetlić nową opcję wyboru, w programie Internet Explorer 9 Naciśnij klawisz F12, aby uruchomić narzędzia deweloperskie F12. Przejdź do strony Tworzenie i Dodaj nowy gatunek, aby nowy gatunek został wybrany na liście wyboru gatunku. W narzędziach deweloperskich F12:
 
 1. Wybierz kartę HTML.
 2. Naciśnij ikonę odświeżania.  
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image8.png)
 3. W polu wyszukiwania wprowadź GenreID.
-4. Za pomocą ikony dalej   
+4. Przy użyciu następnej ikony   
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image9.png)  
-   Przejdź do następującego tagu wybierz:
+   Przejdź do następującego tagu SELECT:
 
     [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample9.html)]
 5. Rozwiń ostatnią wartość opcji.
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image10.png)
 
-Poniższy kod w *Scripts\chooseGenre.js* plik pokazuje, jak **Dodaj nowe gatunku** połączeniu Zdarzenie kliknięcia przycisku i sposób, w jaki **Dodaj nowe gatunku** to okno dialogowe utworzony.
+Poniższy kod w pliku *Scripts\chooseGenre.js* pokazuje, jak przycisk **Dodaj nowy gatunek** jest połączony z zdarzeniem kliknięcia i jak zostanie utworzone okno dialogowe **Dodaj nowy gatunek** .
 
 [!code-javascript[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample10.js)]
 
-Pierwszy wiersz tworzy funkcję kliknij dołączone do **Dodaj nowe gatunku** przycisku. Następujące znaczniki z Views\StoreManager\\_ChooseGenre.cshtml plik pokazuje sposób, w jaki **Dodaj nowe gatunku** przycisku zostanie utworzony:
+Pierwszy wiersz tworzy funkcję kliknięcia dołączoną do przycisku **Dodaj nowy gatunek** . Następujące znaczniki z pliku Views\StoreManager\\_ChooseGenre. cshtml pokazują, jak zostanie utworzony przycisk **Dodaj nowy gatunek** :
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample11.cshtml)]
 
-Metoda load tworzy i otwiera okno dialogowe Dodawanie gatunku, a wywołuje jQuery `parse` metody, aby sprawdzanie poprawności klienta występuje na dane wprowadzone w oknie dialogowym.
+Metoda Load tworzy i otwiera okno dialogowe Dodawanie gatunku i wywołuje metodę jQuery `parse`, dzięki czemu sprawdzanie poprawności klienta odbywa się na danych wprowadzonych w oknie dialogowym.
 
-W tej sekcji mają przedstawiono sposób tworzenia okna dialogowego, który może służyć do dodawania nowych danych kategorii do listy wyboru. Możesz wykonać tej samej procedury, aby utworzyć interfejs użytkownika, aby dodać nowe wykonawcy do listy wyboru wykonawcy. W tym samouczku udzielił Omówienie pracy z Pomocnika ASP.NET MVC HTML **DropDownList**. Aby uzyskać dodatkowe informacje na temat pracy z **DropDownList**, zobacz sekcję odwołania do dodawania poniżej. Daj nam znać czy w tym samouczku został pomocne.
+W tej sekcji przedstawiono sposób tworzenia okna dialogowego, które może służyć do dodawania nowych danych kategorii do listy wyboru. Za pomocą tej samej procedury można utworzyć interfejs użytkownika w celu dodania nowego wykonawcy do listy wyboru wykonawcy. W tym samouczku przedstawiono przegląd pracy z pomocnikiem HTML ASP.NET MVC **DropDownList**. Aby uzyskać dodatkowe informacje na temat pracy z **DropDownList**, zobacz sekcję dotyczącą dodawania odwołań poniżej. Poinformuj nas o tym, czy ten samouczek był pomocny.
 
-Rick.Anderson[at]Microsoft.com
+Rick. Anderson [at] Microsoft. com
 
 ### <a name="additional-references"></a>Dodatkowe informacje
 
-- [ASP.NET MVC — kaskadowych w liście rozwijanej są wyświetlane samouczek](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx) przez [Radu Enuca o](https://weblogs.asp.net/raduenuca/default.aspx)
-- [Wybrane](http://harvesthq.github.com/chosen/) wtyczki języka JavaScript, który obsługuje wielokrotnego wyboru i filtrowania.
+- [ASP.NET MVC — kaskadowe listy rozwijane samouczków](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx) według [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
+- [Wybrane](https://harvesthq.github.com/chosen/) Wtyczka języka JavaScript, która obsługuje wiele zaznaczeń i filtrowanie.
 
 ### <a name="contributors"></a>Współautorzy
 
-- [Radu Enuca o](https://weblogs.asp.net/raduenuca/default.aspx)
+- [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
 - Jean-Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
 
@@ -135,8 +135,8 @@ Rick.Anderson[at]Microsoft.com
 
 - Jean-Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
-- Mike Pope
-- Tom Dykstra
+- Jan Pope
+- Dykstra Tomasz
 
 > [!div class="step-by-step"]
-> [Poprzednie](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [Wstecz](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
