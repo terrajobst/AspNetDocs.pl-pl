@@ -5,16 +5,16 @@ description: Dowiedz się, jak używać programu do SameSite plików cookie w AS
 ms.author: riande
 ms.date: 1/22/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: c81ca38648609aa5347d2a8cc11889fc85d81711
-ms.sourcegitcommit: 4d439e01c82c7c95b19216fedaf5b1a11a1deb06
+ms.openlocfilehash: c262e300361f33621e8bd126a34b251c23f56e1a
+ms.sourcegitcommit: 6bd0d7581ec36dc32cb85d0d5fc0e51068dd4423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76826617"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77234765"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>Pracuj z plikami cookie SameSite w ASP.NET
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 SameSite jest projektem standardowym [IETF](https://ietf.org/about/) opracowanym w celu zapewnienia pewnej ochrony przed atakami polegającymi na translokacjach (CSRF). Pierwotnie Sporządzono w [2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07), projekt Standard został zaktualizowany w [2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00). Zaktualizowany standard nie jest zgodny z poprzednią wersją standardową, co poniżej przedstawiono najbardziej zauważalne różnice:
 
@@ -55,7 +55,7 @@ Program ASP.Net również zawiera cztery określone pliki cookie dla tych funkcj
    <forms cookieSameSite="Lax" requireSSL="false" />
   </authentication>
   <sessionState cookieSameSite="Lax" /> <!-- No config attribute for Secure -->
-  <roleManager cookieRequiresSSL="false" /> <!-- No config attribute for SameSite -->
+  <roleManager cookieRequireSSL="false" /> <!-- No config attribute for SameSite -->
  <system.web>
 <configuration>
 ```  
@@ -66,7 +66,7 @@ Program ASP.Net również zawiera cztery określone pliki cookie dla tych funkcj
 
 Obsługa SameSite została najpierw zaimplementowana w programie .NET 4.7.2 przy użyciu [standardowego standardu 2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1).
 
-19 listopada 2019 aktualizacje dla systemu Windows Zaktualizowano .NET 4.7.2 + ze standardu 2016 do standardu 2019. Dodatkowe aktualizacje są nachodzące dla innych wersji systemu Windows. Aby uzyskać więcej informacji, zobacz temat <xref:samesite/kbs-samesite>.
+19 listopada 2019 aktualizacje dla systemu Windows Zaktualizowano .NET 4.7.2 + ze standardu 2016 do standardu 2019. Dodatkowe aktualizacje są nachodzące dla innych wersji systemu Windows. Aby uzyskać więcej informacji, zobacz <xref:samesite/kbs-samesite>.
 
  Wersja robocza 2019 specyfikacji SameSite:
 
@@ -147,7 +147,7 @@ Flagi SameSite są ustawiane na stronie `edge://flags/#same-site-by-default-cook
 
 Wersje elektronów obejmują starsze wersje chromu. Na przykład wersja elektronów używana przez zespoły to chrom 66, który wykazuje starsze zachowanie. Należy przeprowadzić własne testy zgodności z wersją elektronów używaną przez produkt. Zapoznaj się z tematem [Obsługa starszych przeglądarek](#sob) w następnej sekcji.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Nadchodzące zmiany plików cookie SameSite w ASP.NET i ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 * [Blog chromu: deweloperzy: przygotowanie do nowego SameSite = none; Ustawienia bezpiecznego pliku cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
