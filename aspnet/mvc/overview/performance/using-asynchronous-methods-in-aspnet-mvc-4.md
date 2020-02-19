@@ -8,16 +8,16 @@ ms.date: 06/06/2012
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5df6a9c136b1934b3afd731eb0ceac1e0faa483e
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.openlocfilehash: 15692b18fc112c4c6cce4d50a243a0e8d5fb52a4
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115080"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457755"
 ---
-# <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Korzystanie z metod asynchronicznych we wzorcu ASP.NET MVC 4
+# <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Używanie metod asynchronicznych na platformie ASP.NET MVC 4
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > W tym samouczku przedstawiono podstawowe informacje dotyczące tworzenia asynchronicznej aplikacji sieci Web ASP.NET w wersji MVC przy użyciu [Visual Studio Express 2012 dla sieci Web](https://www.microsoft.com/visualstudio/11), która jest bezpłatną wersją Microsoft Visual Studio. Możesz również użyć [programu Visual Studio 2012](https://www.microsoft.com/visualstudio/11).
 > 
@@ -109,7 +109,7 @@ Wewnątrz metody `GetGizmosAsync` Metoda inna metoda asynchroniczna, `GetGizmosA
 
 Słowo kluczowe **await** nie blokuje wątku do momentu ukończenia zadania. Rejestruje resztę metody jako wywołanie zwrotne zadania i natychmiast zwraca wartość. Gdy oczekujące zadanie zakończy się ostatecznie, wywoła to wywołanie zwrotne i w efekcie wznowi wykonywanie metody w prawidłowym miejscu. Aby uzyskać więcej informacji o używaniu [oczekujących](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [asynchronicznych](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i przestrzeni nazw [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) , zobacz [odwołania asynchroniczne](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
 
-Poniższy kod przedstawia metody `GetGizmos` i `GetGizmosAsync`.
+W poniższym kodzie przedstawiono metody `GetGizmos` i `GetGizmosAsync`.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample5.cs)]
 

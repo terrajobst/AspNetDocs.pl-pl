@@ -8,16 +8,16 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6f445e46d41b646cf6c25af2e65bc73e831d5ed
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 5a1e0d7cd3c396d4be79c8958422602055eb3db1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583708"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457105"
 ---
 # <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kontrola źródła (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -147,7 +147,7 @@ Program Visual Studio pyta, czy chcesz używać TFVC (scentralizowany system kon
 
 Po wybraniu usługi git i kliknięciu przycisku **OK**program Visual Studio tworzy nowe lokalne repozytorium Git w folderze rozwiązania. Nowe repozytorium nie ma jeszcze żadnych plików; musisz dodać je do repozytorium, wykonując zatwierdzenie git. Kliknij prawym przyciskiem myszy rozwiązanie w **Eksplorator rozwiązań**, a następnie kliknij pozycję **Zatwierdź**.
 
-![Zleca](source-control/_static/image11.png)
+![Zatwierdzenie](source-control/_static/image11.png)
 
 Program Visual Studio automatycznie etapuje wszystkie pliki projektu dla zatwierdzenia i wyświetla je w **Team Explorer** w okienku **uwzględnione zmiany** . (Jeśli niektóre z nich nie zostały uwzględnione w zatwierdzeniu, można je zaznaczyć, kliknąć prawym przyciskiem myszy, a następnie kliknąć pozycję **Wyklucz**).
 
@@ -192,7 +192,7 @@ Nie jest to jedyny sposób, w jaki można wdrożyć strategię rozgałęziania A
 Zmierz sukces systemu kontroli źródła w zależności od tego, jak szybko możesz wprowadzić zmianę i uzyskać ją na żywo w bezpieczny i przewidywalny sposób. Jeśli okaże się, że Obawialiśmy się zmienić, ponieważ trzeba wykonać dzień lub dwa testy ręczne, możesz zadawać sobie informacje o tym, co należy zrobić, aby wykonać tę zmianę w ciągu kilku minut lub najgorszenia czasu. Jedną z strategii wykonywania tej czynności jest zaimplementowanie ciągłej integracji i ciągłego dostarczania, które zajmiemy się w [następnym rozdziale](continuous-integration-and-continuous-delivery.md).
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat strategii rozgałęziania, zobacz następujące zasoby:
 

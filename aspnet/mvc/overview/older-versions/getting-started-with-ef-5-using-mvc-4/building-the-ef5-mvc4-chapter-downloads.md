@@ -8,16 +8,16 @@ ms.date: 07/30/2013
 ms.assetid: d0a89089-eed8-4f61-a478-c5ffa30186f5
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: 0e720b3e4c5d3b8f779afe3a6e2b47baa86eec4c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 10237af40e3914b65e5181f17555697e86adea4b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74592704"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457859"
 ---
 # <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>Kompilowanie pobierania rozdziałów dla samouczków Dr 5 MVC 4
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Pobierz ukończony projekt](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -54,4 +54,4 @@ Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image5.png)
 
 > [!div class="step-by-step"]
-> [Ubiegł](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [Wstecz](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 8a4ef3aa37a9296e92fbeb513968e3abeee072d0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: b88573b3702b755b155e8da35f5f8a67931bafc6
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585521"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457118"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -25,7 +25,7 @@ przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twit
 > 
 > Zawartość jest oparta na prezentacji opracowanej przez Scott Guthrie i dostarczonej przez nią na konferencji norweskich deweloperów (NDC) w czerwcu 2013 ([część 1](http://vimeo.com/68215538), [część 2](http://vimeo.com/68215602)), a w firmie Microsoft Tech Ed Australia we wrześniu, 2013 ([część 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324), [część 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325)). [Wiele innych](more-patterns-and-guidance.md#acknowledgments) zaktualizował i powiększał zawartość podczas przechodzenia z filmu wideo do postaci pisanej.
 
-## <a name="intended-audience"></a>Zamierzone odbiorcy
+## <a name="intended-audience"></a>Docelowi odbiorcy
 
 Deweloperzy, którzy chcesz wiedzieć się na opracowywanie zawartości w chmurze, biorąc pod uwagę przejście do chmury, lub nowe do programowania w chmurze, znajdziesz zwięzły przegląd najważniejszych koncepcji i praktyk, które muszą znać. Koncepcje są zilustrowane konkretnymi przykładami, a każdy rozdział łączy do innych zasobów, aby uzyskać bardziej szczegółowe informacje. Przykłady i linki do dodatkowych zasobów są przeznaczone dla platform i usług firmy Microsoft, ale przedstawione zasady mają zastosowanie także do innych struktur projektowania sieci Web i środowisk chmury.
 
@@ -102,7 +102,7 @@ Ta książka elektroniczna wyjaśnia trzynaste zalecane wzorce do programowania 
 - [Dodatek: Przykładowa aplikacja Fix It](the-fix-it-sample-application.md)
 
     - Znane problemy
-    - Najlepsze praktyki
+    - Najlepsze rozwiązania
     - Jak pobierać, kompilować, uruchamiać i wdrażać.
 
 Wzorce te mają zastosowanie do wszystkich środowisk w chmurze, ale będziemy je zilustrować przy użyciu przykładów opartych na technologiach i usługach firmy Microsoft, takich jak Visual Studio, Team Foundation Service, ASP.NET i Azure.
@@ -158,7 +158,7 @@ Aby zapoznać się z szybkim i łatwym samouczekem krok po kroku, w którym poka
 
 W tym wprowadzeniu przedstawiono listę tematów, które obejmuje książka, zrzuty ekranu przykładowej aplikacji oraz krótkie omówienie Web Apps w Azure App Service środowisku chmury. Jedną z zalet tworzenia aplikacji w programie i w chmurze jest łatwe Automatyzowanie powtarzalnych zadań programistycznych, takich jak tworzenie środowiska testowego i wdrażanie kodu. Jak to zrobić, jest to temat w [następnym rozdziale](automate-everything.md).
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat tematów omówionych w tym rozdziale, zobacz następujące zasoby.
 
@@ -174,4 +174,4 @@ Filmy wideo:
 - [Wewnętrzne witryny sieci Web platformy Azure z imię Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 > [!div class="step-by-step"]
-> [Next](automate-everything.md)
+> [Dalej](automate-everything.md)

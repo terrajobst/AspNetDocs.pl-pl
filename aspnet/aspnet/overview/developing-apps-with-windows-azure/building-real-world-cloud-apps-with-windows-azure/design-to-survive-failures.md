@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 9bf9acb8b4f8521d03c053c124c5fc4a07d6cb9a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 348232af531b5d53dc3cb46d6d2c7931d95a572d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585652"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457131"
 ---
 # <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Projektowanie pod kątem niepowodzeń (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -70,7 +70,7 @@ Jednym z nich należy wiedzieć o umowie SLA, do której odnosi się czas: czy z
 
 Oczywiście zawsze zależy się lepiej niż umowa SLA; zwykle znacznie mniej niż to możliwe. Obietnica polega na tym, że jeśli kiedykolwiek wyjdziesz dłużej niż maksymalny czas, w którym możesz poprosił o zwrot pieniędzy. Kwota pieniędzy, którą powrócisz, prawdopodobnie nie może w pełni wynagradzać użytkownika w celu skorzystania z nadmiarowego czasu, ale ten aspekt umowy SLA działa jako zasady wymuszania i informuje o tym, że bardzo poważnie zajmiemy się tym.
 
-### <a name="composite-slas"></a>Umowy SLA złożony
+### <a name="composite-slas"></a>Złożone umowy SLA
 
 Ważną kwestią, którą należy wziąć pod uwagę podczas korzystania z usługi umowy SLA, jest wpływ używania wielu usług w aplikacji, a każda z nich ma odrębną umowę SLA. Na przykład aplikacja do rozwiązywania problemów używa Azure App Service Web Apps, Azure Storage i SQL Database. Poniżej przedstawiono numery umów SLA w dniu, w którym książka elektroniczna jest zapisywana w grudniu, 2013:
 
@@ -107,7 +107,7 @@ W tym rozdziale podjęto próbę zapoznania się z tym, dlaczego prawdziwa aplik
 - Użyj [rozproszonego buforowania](distributed-caching.md) , aby zminimalizować problemy dotyczące przepływności, opóźnienia i połączenia z dostępem do bazy danych.
 - Zaimplementuj luźny sprzężenie za pośrednictwem [wzorca pracy skoncentrowanego na kolejkach](queue-centric-work-pattern.md), dzięki czemu fronton aplikacji może kontynuować pracę, gdy zaplecze nie działa.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji, zobacz dalsze rozdziały w tej książce elektronicznej oraz następujące zasoby.
 

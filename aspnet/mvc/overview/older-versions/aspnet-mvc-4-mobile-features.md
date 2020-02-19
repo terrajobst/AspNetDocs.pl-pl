@@ -8,16 +8,16 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 907a16946c93761cd543135b0b226c8696b041f0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9716def069ca9f7115af32e16381f41bd4d13342
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594637"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457651"
 ---
 # <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > Dostępna jest teraz wersja MVC 5 tego samouczka z przykładami kodu w ramach [wdrażania aplikacji sieci web ASP.NET MVC 5 Mobile w witrynach sieci Web systemu Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
@@ -25,7 +25,7 @@ Ten samouczek zawiera informacje na temat sposobu pracy z funkcjami mobilnymi w 
 
 Przed rozpoczęciem upewnij się, że zainstalowano wymagania wstępne wymienione poniżej.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub Visual Studio Web Developer Express SP1. Program Visual Studio 2012 zawiera ASP.NET MVC 4. W przypadku korzystania z programu Visual Web Developer 2010 należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub Visual Studio Web Developer Express SP1. Visual Studio 2012 contains ASP.NET MVC 4. W przypadku korzystania z programu Visual Web Developer 2010 należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
 Potrzebny będzie również emulator przeglądarki mobilnej. Zostaną wykonane następujące czynności:
 

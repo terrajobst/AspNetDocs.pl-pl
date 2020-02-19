@@ -8,16 +8,16 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 239980d747c6e0d6be1e9b4fe0371e276e37cf21
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 61bfe5dbac04b57e1461183b66ead2f01fe0734c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519287"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457768"
 ---
 # <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > Tworzenie i minifikacja to dwie techniki, których można użyć w ASP.NET 4,5, aby zwiększyć czas ładowania żądania. Przydzielenie i minifikacja skraca czas ładowania przez zredukowanie liczby żądań do serwera i zmniejszenie rozmiaru żądanych zasobów (takich jak CSS i JavaScript).
 
@@ -64,7 +64,7 @@ W poniższej tabeli przedstawiono kilka ważnych różnic między wyświetlaniem
 |  | **Przy użyciu B/M** | **Bez B/M** | **Zmień** |
 | --- | --- | --- | --- |
 | **Żądania plików** | 9 | 34 | 256% |
-| **KB Sent** | 3.26 | 11.92 | 266% |
+| **Wysłano KB** | 3.26 | 11.92 | 266% |
 | **Odebrano KB** | 388.51 | 530 | 36% |
 | **Czas ładowania** | 510 MS | 780 MS | 53% |
 
@@ -154,24 +154,24 @@ Zauważ, że metody renderowania pobierają tablicę ciągów, aby można było 
 
 Rozważmy projekt z następującymi plikami JavaScript:
 
-- *Scripts\\Common\\AddAltToImg.js*
+- *Skrypty\\Common\\AddAltToImg. js*
 - *Skrypty\\Common\\ToggleDiv. js*
 - *Skrypty\\Common\\ToggleImg. js*
-- *Scripts\\Common\\Sub1\\ToggleLinks.js*
+- *Skrypty\\Common\\sub1\\ToggleLinks. js*
 
 ![imag katalogu](bundling-and-minification/_static/image7.png)
 
 W poniższej tabeli przedstawiono pliki dodane do pakietu przy użyciu symbolu wieloznacznego, jak pokazano poniżej:
 
-| **Call** | **Dodano pliki lub zgłoszono wyjątek** |
+| **Połączeń** | **Dodano pliki lub zgłoszono wyjątek** |
 | --- | --- |
-| Include ("~/Scripts/Common/\*. js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
-| Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wyjątek wzorca. Symbol wieloznaczny jest dozwolony tylko dla prefiksu lub sufiksu. |
+| Include ("~/Scripts/Common/\*. js") | *AddAltToImg. js*, *ToggleDiv. js*, *ToggleImg. js* |
+| Include ("~/Scripts/Common/T\*. js") | Nieprawidłowy wyjątek wzorca. Symbol wieloznaczny jest dozwolony tylko dla prefiksu lub sufiksu. |
 | Include ("~/Scripts/Common/\*og.\*") | Nieprawidłowy wyjątek wzorca. Dozwolony jest tylko jeden znak wieloznaczny. |
-| Include ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| Include ("~/Scripts/Common/T\*") | *ToggleDiv. js*, *ToggleImg. js* |
 | Include ("~/Scripts/Common/\*") | Nieprawidłowy wyjątek wzorca. Czysty segment wieloznaczny jest nieprawidłowy. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv. js*, *ToggleImg. js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv. js*, *ToggleImg. js*, *ToggleLinks. js* |
 
 Jawne dodanie każdego pliku do pakietu jest ogólnie preferowane w porównaniu z wieloznacznym ładowaniem plików z następujących powodów:
 

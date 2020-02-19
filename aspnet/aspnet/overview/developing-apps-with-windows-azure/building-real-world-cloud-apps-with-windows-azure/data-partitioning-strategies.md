@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: b8c901ec30b6d37237f80100a2978350ac389b7a
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: efc3fa0255aa765e515412c5fa4098303a9d9234
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519170"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457027"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Strategie partycjonowania danych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -91,11 +91,11 @@ Efektywny schemat partycjonowania może umożliwić aplikacji w chmurze skalowan
 
 W [następnym rozdziale](unstructured-blob-storage.md) zobaczymy, jak aplikacja Poprawka It implementuje partycjonowanie pionowe przez przechowywanie obrazów w magazynie obiektów BLOB.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat strategii partycjonowania, zobacz następujące zasoby.
 
-Dokumentacja:
+Łączoną
 
 - [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na platformie Microsoft Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument ze znakami SIMM i Michael Thomassy.
 - [Wzorce i praktyki firmy Microsoft — wzorce projektowania w chmurze](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące partycjonowania danych, wzorzec fragmentowania.
@@ -110,5 +110,5 @@ Przykładowy kod:
 - [Podstawy usługi w chmurze w systemie Windows Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja, która zawiera bazę danych podzielonej na fragmenty. Opis zaimplementowanego schematu fragmentowania można znaleźć w temacie [dal – fragmentowania of RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) in the Windows Azure blog.
 
 > [!div class="step-by-step"]
-> [Poprzedni](data-storage-options.md)
-> [Następny](unstructured-blob-storage.md)
+> [Poprzednie](data-storage-options.md)
+> [dalej](unstructured-blob-storage.md)

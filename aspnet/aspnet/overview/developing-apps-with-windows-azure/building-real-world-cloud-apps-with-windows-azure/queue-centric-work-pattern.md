@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: c73b070f11366e781bcea70ffc84fd49a47d469a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1177336b25479c06706227e5c8ff4d027cdaebb8
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582765"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456988"
 ---
 # <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Wzorzec pracy skoncentrowanej na kolejkach (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -173,7 +173,7 @@ W tym rozdziale pokazano, jak poprawić czas reakcji, niezawodność i skalowaln
 Jest to ostatnie 13 wzorców objętych tą książką elektroniczną, ale istnieje wiele innych wzorców i rozwiązań, które mogą pomóc w tworzeniu udanych aplikacji w chmurze. [Rozdział końcowy](more-patterns-and-guidance.md) zawiera linki do zasobów dla tematów, które nie zostały omówione w tych 13 wzorcach.
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji o kolejkach, zobacz następujące zasoby.
 
@@ -186,7 +186,7 @@ Aby uzyskać więcej informacji o kolejkach, zobacz następujące zasoby.
 - [Wzorce i praktyki firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zapoznaj się z wzorcem obsługi komunikatów asynchronicznych, wzorca potoków i filtrów, wzorcem transakcji kompensacyjnej, wzorcem konkurujących odbiorców, wzorcem CQRS.
 - [CQRS](https://msdn.microsoft.com/library/jj554200). Książka elektroniczna dotycząca CQRS według wzorców i praktyk firmy Microsoft.
 
-Plików
+Wideo:
 
 - [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria wideo dziewięć części przez Ulrich Homann, Marc Mercuri i marking SIMM. Prezentuje koncepcje wysokiego poziomu i zasady architektury w bardzo dostępnym i interesującym scenariuszu, w tym scenariusze opracowane przez firmę Microsoft Customer Advisory Team (CAT) z rzeczywistymi klientami. Aby zapoznać się z wprowadzeniem do usługi Azure Storage i kolejek, zobacz epizod 5 od 35:13.
 

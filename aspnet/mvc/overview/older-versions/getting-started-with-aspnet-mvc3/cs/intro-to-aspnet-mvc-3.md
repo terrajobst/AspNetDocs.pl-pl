@@ -1,91 +1,91 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
-title: Wprowadzenie do platformy ASP.NET MVC 3 (C#) | Dokumentacja firmy Microsoft
+title: Wprowadzenie do ASP.NET MVC 3 (C#) | Microsoft Docs
 author: Rick-Anderson
-description: Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, czyli...
+description: Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 86a80b35-88bd-4b7c-bd58-f6e7997197d4
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: a8611be058fedd9d4a77e3949faf3dff63de39e3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: e71275c93558c0b6ca087a145786e8c846b69721
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130110"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457541"
 ---
 # <a name="intro-to-aspnet-mvc-3-c"></a>Wprowadzenie do wzorca ASP.NET MVC 3 (C#)
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > > [!NOTE]
-> > Jest dostępna zaktualizowana wersja tego samouczka [tutaj](../../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
+> > Zaktualizowana wersja tego samouczka jest dostępna w [tym miejscu](../../../getting-started/introduction/getting-started.md) , w którym są używane ASP.NET MVC 5 i Visual Studio 2013. Jest to bezpieczniejsze i łatwiejsze w obserwowanie i zademonstrowanie większej liczby funkcji.
 > 
 > 
-> Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagań wstępnych wymienionych poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można indywidualnie zainstalować wymagania wstępne, korzystając z następujących linków:
+> Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest bezpłatną wersją Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że zainstalowano wymagania wstępne wymienione poniżej. Wszystkie z nich można zainstalować, klikając następujące łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie możesz zainstalować wstępnie wymagane składniki, korzystając z następujących linków:
 > 
-> - [Visual Studio Web Developer Express SP1 prerequisites](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [Program ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(Obsługa środowiska uruchomieniowego i narzędzi)
+> - [Wymagania wstępne programu Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
+> - [Aktualizacja narzędzi ASP.NET MVC 3](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(obsługa środowiska uruchomieniowego + narzędzia)
 > 
-> Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Jeśli używasz programu Visual Studio 2010 zamiast programu Visual Web Developer 2010, Zainstaluj wymagania wstępne, klikając następujące łącze: [wymagania wstępne programu Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Projekt Visual Web Developer, przy użyciu kodu źródłowego języka C# jest dostępny powiązany z tym tematem. [Pobierz wersję języka C#](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz języka Visual Basic, przełącz się do [wersji języka Visual Basic](../vb/intro-to-aspnet-mvc-3.md) po ukończeniu tego samouczka.
+> Projekt programu Visual Web Developer z C# kodem źródłowym jest dostępny do załączenia do tego tematu. [Pobierz wersję C# programu](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz Visual Basic, przejdź do [wersji Visual Basic](../vb/intro-to-aspnet-mvc-3.md) tego samouczka.
 
-## <a name="what-youll-build"></a>Jakie będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-Będzie implementowana prostą aplikację listy filmów, która obsługuje tworzenia, edytowania i wyświetlania listy filmów z bazy danych. Poniżej przedstawiono dwa zrzuty ekranu aplikacji, którą utworzysz. Zawiera ona strona, która wyświetla listę filmów z bazy danych:
+Zaimplementujmy prostą aplikację z listą filmów, która obsługuje tworzenie, edytowanie i wyświetlanie list filmów z bazy danych. Poniżej znajdują się dwa zrzuty ekranu aplikacji, która zostanie utworzona. Zawiera stronę wyświetlającą listę filmów z bazy danych:
 
 ![MoviesWithVariousSm](intro-to-aspnet-mvc-3/_static/image1.png)
 
-Aplikacja umożliwia także dodawanie, edytowanie i usuwanie filmów, a także znaleźć w szczegółach dotyczących poszczególnych z nich. Wszystkie scenariusze wprowadzania danych obejmują sprawdzanie poprawności, aby upewnić się, że dane przechowywane w bazie danych są prawidłowe.
+Aplikacja umożliwia także dodawanie, edytowanie i usuwanie filmów oraz wyświetlanie szczegółowych informacji o poszczególnych użytkownikach. Wszystkie scenariusze związane z wprowadzaniem danych obejmują sprawdzanie poprawności, aby upewnić się, że dane przechowywane w bazie danych są poprawne.
 
 ![](intro-to-aspnet-mvc-3/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>Umiejętności, których dowiesz się
+## <a name="skills-youll-learn"></a>Posiadane umiejętności
 
-Oto, dowiesz się:
+Oto, co uzyskasz:
 
 - Jak utworzyć nowy projekt ASP.NET MVC.
-- Jak utworzyć platformy ASP.NET MVC, widoków i kontrolerów.
-- Jak utworzyć nową bazę danych przy użyciu modelu Entity Framework Code First.
-- Jak pobrać i wyświetlić dane.
-- Jak edytować dane i włączyć sprawdzanie poprawności danych.
+- Jak utworzyć kontrolery i widoki ASP.NET MVC.
+- Jak utworzyć nową bazę danych przy użyciu Entity Framework Code First model.
+- Jak pobierać i wyświetlać dane.
+- Jak edytować dane i włączać sprawdzanie poprawności danych.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Uruchom za pomocą programu Visual Web Developer 2010 Express ("Visual Web Developer" skrócie) i wybierz **nowy projekt** z **Start** strony.
+Zacznij od uruchomienia programu Visual Web Developer 2010 Express ("Visual Web Developer" for Short) i wybierz pozycję **Nowy projekt** na stronie **początkowej** .
 
-Visual Web Developer jest środowiskiem IDE lub zintegrowanego środowiska programistycznego. Tak samo jak w programie Microsoft Word do zapisywania dokumentów, użyjesz środowisko IDE do tworzenia aplikacji. W Visual Web Developer jest narzędzi wzdłuż górnej przedstawiający różne opcje dostępne dla Ciebie. Istnieje również menu, który udostępnia inny sposób wykonywania zadań w środowisku IDE. (Na przykład, zamiast zaznaczania **nowy projekt** z **Start** strony, można użyć menu i wybrać **pliku** &gt; **nowy projekt**.)
+Visual Web Developer to IDE lub zintegrowane środowisko programistyczne. Podobnie jak w przypadku używania programu Microsoft Word do pisania dokumentów, do tworzenia aplikacji będziesz używać środowiska IDE. W programie Visual Web Developer znajduje się pasek narzędzi wzdłuż górnej krawędzi, w którym są dostępne różne opcje. Istnieje również menu, które zapewnia inny sposób wykonywania zadań w środowisku IDE. (Na przykład zamiast wybierania **nowego projektu** ze strony **początkowej** można użyć menu i wybrać polecenie **plik** &gt; **Nowy projekt**).
 
 [![](intro-to-aspnet-mvc-3/_static/image4.png)](intro-to-aspnet-mvc-3/_static/image3.png)
 
 ## <a name="creating-your-first-application"></a>Tworzenie pierwszej aplikacji
 
-Można tworzyć aplikacje przy użyciu języka Visual Basic lub Visual C# jako języka programowania. Wybierz pozycję Visual C# po lewej stronie, a następnie wybierz pozycję **aplikacji sieci Web programu ASP.NET MVC 3**. Nazwij swój projekt "MvcMovie", a następnie kliknij przycisk **OK**. (Jeśli wolisz języka Visual Basic, przełącz się do [wersji języka Visual Basic](../vb/intro-to-aspnet-mvc-3.md) po ukończeniu tego samouczka.)
+Aplikacje można tworzyć przy użyciu Visual Basic lub wizualizacji C# jako języka programowania. Wybierz pozycję C# Wizualizacja po lewej stronie, a następnie wybierz pozycję **aplikacja sieci Web ASP.NET MVC 3**. Nadaj projektowi nazwę "MvcMovie", a następnie kliknij przycisk **OK**. (Jeśli wolisz Visual Basic, przejdź do [Visual Basic wersji](../vb/intro-to-aspnet-mvc-3.md) tego samouczka).
 
 ![](intro-to-aspnet-mvc-3/_static/image5.png)
 
-W **nowego projektu programu ASP.NET MVC 3** okno dialogowe, wybierz opcję **aplikacji internetowej**. Sprawdź **HTML5 użycia znaczników** i pozostawić **Razor** jako domyślny aparat widoku.
+W oknie dialogowym **Nowy projekt ASP.NET MVC 3** wybierz pozycję **aplikacja internetowa**. Zaznacz opcję **Użyj znacznika HTML5** i pozostaw **Razor** jako domyślny aparat widoku.
 
 ![](intro-to-aspnet-mvc-3/_static/image6.png)
 
-Kliknij przycisk **OK**. Visual Web Developer używać szablonu domyślnego dla projektu platformy ASP.NET MVC, który został utworzony, więc teraz utworzono działającą aplikację bez żadnego działania! Jest to proste "Hello World!" Projekt, a jego dobrym miejscem, aby uruchomić aplikację.
+Kliknij przycisk **OK**. Visual Web Developer użył szablonu domyślnego dla projektu ASP.NET MVC, który właśnie został utworzony, więc masz działającą aplikację, która teraz nie wykonuje żadnych działań. To jest prosta "Hello world!" projekt i jest dobrym miejscem do uruchamiania aplikacji.
 
 [![](intro-to-aspnet-mvc-3/_static/image8.png)](intro-to-aspnet-mvc-3/_static/image7.png)
 
-Z **debugowania** menu, wybierz opcję **Rozpocznij debugowanie**.
+Z menu **Debuguj** wybierz polecenie **Rozpocznij debugowanie**.
 
 ![](intro-to-aspnet-mvc-3/_static/image9.png)
 
-Zauważ, że skrót klawiaturowy, aby rozpocząć debugowanie F5.
+Zwróć uwagę, że skrót klawiaturowy do rozpoczęcia debugowania jest F5.
 
-F5 powoduje, że Visual Web Developer uruchomić serwera wdrożeniowego sieci web i uruchomić aplikację sieci web. Visual Web Developer następnie otworzy w przeglądarce i otwiera strony głównej aplikacji. Należy zauważyć, że na pasku adresu przeglądarki mówi `localhost` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` zawsze wskazuje własnego komputera lokalnego, co w tym przypadku jest uruchomiona aplikacja właśnie zbudowany. Po uruchomieniu projektu sieci web dla programu Visual Web Developer losowy port jest używany dla serwera sieci web. Na poniższej ilustracji liczba losowy port jest 43246. Po uruchomieniu aplikacji, najprawdopodobniej znajdziesz inny numer portu.
+F5 powoduje, że Visual Web Developer uruchamia programistyczny serwer sieci Web i uruchamia aplikację sieci Web. Visual Web Developer następnie uruchamia przeglądarkę i otwiera stronę główną aplikacji. Zwróć uwagę, że na pasku adresu przeglądarki widnieją `localhost` a nie `example.com`. Jest to spowodowane tym, że `localhost` zawsze wskazuje na własny komputer lokalny, w tym przypadku uruchamia właśnie utworzoną aplikację. Gdy Visual Web Developer uruchamia projekt sieci Web, dla serwera sieci Web jest używany port losowy. Na poniższym obrazie losowy numer portu to 43246. Po uruchomieniu aplikacji prawdopodobnie zobaczysz inny numer portu.
 
 ![](intro-to-aspnet-mvc-3/_static/image10.png)
 
-Gotową do tego szablonu domyślnego zapewnia dwie strony, aby odwiedzić i strony logowania podstawowe. Następnym krokiem jest zmienić sposób działania tej aplikacji i Poznaj nieco platformy ASP.NET MVC w procesie. Zamknij przeglądarkę i zmienimy kodu.
+Z prawej strony pola ten szablon domyślny udostępnia dwie strony do odwiedzania oraz podstawową stronę logowania. Następnym krokiem jest zmiana sposobu działania tej aplikacji i uzyskanie nieco informacji o ASP.NET MVC w procesie. Zamknij przeglądarkę i Zmieńmy kod.
 
 > [!div class="step-by-step"]
-> [Next](adding-a-controller.md)
+> [Dalej](adding-a-controller.md)

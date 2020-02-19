@@ -8,16 +8,16 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: daccaedae0b0e60f5086f270f214f87da564a85d
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 11f4a7cae8d425873b1828a9e5f51471def954fb
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074933"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457157"
 ---
 # <a name="mvc-recommended-resources"></a>Zalecane zasoby dla wzorca MVC
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > Ten temat zawiera linki do zasobów dokumentacji dotyczących ASP.NET MVC 5. Jeśli znasz dobry wpis w blogu, wątek [StackOverflow](http://stackoverflow.com/) lub inny link, który będzie przydatny, Wyślij do [mnie](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) wiadomość e-mail z linkiem. Linki podane tutaj są aktualizowane okresowo. Możesz znaleźć starsze (ale w wielu przypadkach nadal istotne) linki MVC ASP.NET na [mapie zawartości MSDN](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx).
 >

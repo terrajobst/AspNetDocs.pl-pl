@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: 6127804d-c1a9-414d-8429-7f3dd0f56e97
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: d3c6e736c5dcf4a3615e3c72cfc033effc7cc8e6
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 20781ad760d3a0e4559ec4c7e18528f3686dcc02
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519313"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456520"
 ---
 # <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Tworzenie parametrów połączenia i praca z bazą danych SQL Server LocalDB
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -62,5 +62,5 @@ Nie trzeba faktycznie dodawać parametrów połączenia `MovieDBContext`. Jeśli
 Następnie utworzysz nową klasę `MoviesController`, która może być używana do wyświetlania danych filmowych i umożliwia użytkownikom tworzenie nowych list filmów.
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-a-model.md)
-> [Następny](accessing-your-models-data-from-a-controller.md)
+> [Poprzednie](adding-a-model.md)
+> [dalej](accessing-your-models-data-from-a-controller.md)

@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: afade34477d1136883e7543d09e73dfbe435690e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 57e32bf7568ecb0eb22f0f2b585310dcab2d5d43
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585363"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457079"
 ---
 # <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Więcej wzorców i wskazówek (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -41,7 +41,7 @@ Zobaczysz już 13 wzorców, które zapewniają wskazówki dotyczące pomyślnego
 Zobacz również dodatkowe wzorce obliczeniowe chmury i wskazówki dotyczące [wzorców i praktyk firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx).
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Każdy rozdział w tej książce elektronicznej zawiera linki do zasobów, aby uzyskać więcej informacji na temat tego konkretnego tematu. Poniższa lista zawiera linki do omówienia najlepszych rozwiązań i zalecanych wzorców związanych z pomyślnym programowaniem w chmurze przy użyciu platformy Azure.
 
@@ -51,13 +51,13 @@ Dokumentacja
 - [Failsafe: wskazówki dotyczące odpornych architektur chmurowych](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument według wytłoczyn Mercuri, Ulrich Homann i Andrew TOWNHILL. Wersja strony sieci Web serii wideo FailSafe.
 - [Wskazówki dotyczące platformy Azure](https://azure.microsoft.com/develop/net/guidance/) Strona portalu do oficjalnej dokumentacji dotyczącej tworzenia aplikacji dla platformy Azure.
 
-Wideo
+Filmy wideo
 
 - [Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure — część 1](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR324) i [część 2](https://channel9.msdn.com/Events/TechEd/Australia/2013/AZR325). Film wideo przedstawiający prezentację przez Scott Guthrie, na której bazuje ta książka elektroniczna. Przedstawione na konferencji Tech Ed Australia we wrześniu 2013. Starsza wersja tej samej prezentacji została dostarczona na konferencji norweski Developers (NDC) w czerwcu 2013: [NDC część 1](http://vimeo.com/68215538), [NDC część 2](http://vimeo.com/68215602).
 - [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria wideo dziewięć części przez Ulrich Homann, Marc Mercuri i marking SIMM. Przedstawia widok 400 na poziomie tworzenia architektury aplikacji w chmurze. Ta seria koncentruje się na teorii i przyczynach związanych z zalecanymi wzorcami; Aby uzyskać więcej informacji na temat szczegółów, zobacz Tworzenie dużych serii przez znaczniki SIMM.
 - [Tworzenie dużych: lekcje uzyskane od klientów platformy Azure — część 1](https://channel9.msdn.com/Events/Build/2012/3-029) i [część 2](https://channel9.msdn.com/Events/Build/2012/3-030). Seria wideo z dwoma częściami przez Simon Davies i Markuje moduły SIMM, podobnie jak seria FailSafe, ale zorientowane się bardziej na praktyczne wdrożenie.
 
-Przykładowy kod
+Przykład kodu
 
 - [Poprawka do tej książki elektronicznej](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4?cdn_id=2013-12-03-002).
 - [Podstawy usługi w chmurze na platformie Azure C# w programie dla programu Visual Studio 2012](https://aka.ms/csf). Projekt do pobrania w witrynie galerii kodu firmy Microsoft zawiera kod i dokumentację opracowaną przez zespół ds. pomocy technicznej firmy Microsoft. Demonstruje wiele najlepszych rozwiązań, które zostały zaprezentowane w FailSafe i tworzeniu dużych serii wideo i FailSafe oficjalny dokument. Strona Galeria kodu łączy się również z obszerną dokumentacją przez autorów projektu — Zobacz szczególnie łącze [Kolekcja stron typu wiki usługi w chmurze](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx) w niebieskim polu w górnej części opisu projektu. Ten projekt i dokumentacja nadal aktywnie opracowywanych, dzięki czemu jest to lepszy wybór w celu uzyskania informacji na temat wielu tematów, takich jak podobne, ale starsze dokumenty.

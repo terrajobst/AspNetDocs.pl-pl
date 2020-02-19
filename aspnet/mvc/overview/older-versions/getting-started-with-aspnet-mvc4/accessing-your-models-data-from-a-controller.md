@@ -1,149 +1,149 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
-title: Uzyskiwanie dostępu do danych modelu za pomocą kontrolera | Dokumentacja firmy Microsoft
+title: Uzyskiwanie dostępu do danych modelu z kontrolera | Microsoft Docs
 author: Rick-Anderson
-description: 'Uwaga: Dostępne jest zaktualizowana wersja tego samouczka, która korzysta z platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej stosować i pokaz...'
+description: 'Uwaga: zaktualizowana wersja tego samouczka jest dostępna w tym miejscu, w którym są używane ASP.NET MVC 5 i Visual Studio 2013. Jest to bezpieczniejsze i łatwiejsze w obserwowanie...'
 ms.author: riande
 ms.date: 08/28/2012
 ms.assetid: 61e0206d-7f32-4018-992d-0a51b48b37dc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: b40bb8b06ae7c89a33ae2aead9578cf507503531
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 7c4aa34567ac4fb31d1ed874cf65986c4e779e66
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129949"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456169"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > > [!NOTE]
-> > Jest dostępna zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
+> > Zaktualizowana wersja tego samouczka jest dostępna w [tym miejscu](../../getting-started/introduction/getting-started.md) , w którym są używane ASP.NET MVC 5 i Visual Studio 2013. Jest to bezpieczniejsze i łatwiejsze w obserwowanie i zademonstrowanie większej liczby funkcji.
 
-W tej sekcji utworzysz nową `MoviesController` klasy, a następnie napisać kod, który pobiera dane filmów i wyświetla go w przeglądarce, za pomocą szablonu widoku.
+W tej sekcji utworzysz nową klasę `MoviesController` i piszesz kod, który pobiera dane filmu i wyświetla go w przeglądarce przy użyciu szablonu widoku.
 
 **Skompiluj aplikację** przed przejściem do następnego kroku.
 
-Kliknij prawym przyciskiem myszy *kontrolerów* folderze i utworzyć nową `MoviesController` kontrolera. Poniższe opcje nie będą wyświetlane do momentu, gdy kompilujesz aplikację. Wybierz następujące opcje:
+Kliknij prawym przyciskiem myszy folder *controllers* i Utwórz nowy kontroler `MoviesController`. Poniższe opcje nie będą wyświetlane do momentu skompilowania aplikacji. Wybierz następujące opcje:
 
-- Nazwa kontrolera: **MoviesController**. (Jest to wartość domyślna. )
-- Szablon: **Kontroler MVC z akcjami odczytu/zapisu i widokami używający narzędzia Entity Framework**.
-- Klasa modelu: **Film (MvcMovie.Models)**.
-- Klasa kontekstu danych: **MovieDBContext (MvcMovie.Models)**.
-- Widoki: **Razor (CSHTML)**. (Ustawienie domyślne).
+- Nazwa kontrolera: **MoviesController**. (Jest to ustawienie domyślne. )
+- Szablon: **kontroler MVC z akcjami odczytu/zapisu i widokami korzystającymi z Entity Framework**.
+- Model klasy: **Movie (MvcMovie. models)** .
+- Klasa kontekstu danych: **MovieDBContext (MvcMovie. models)** .
+- Widoki: **Razor (cshtml)** . (Wartość domyślna).
 
 ![AddScaffoldedMovieController](accessing-your-models-data-from-a-controller/_static/image1.png)
 
-Kliknij przycisk **Dodaj**. Visual Studio Express tworzy następujące pliki i foldery:
+Kliknij pozycję **Add** (Dodaj). Visual Studio Express tworzy następujące pliki i foldery:
 
-- *MoviesController.cs* pliku w projekcie *kontrolerów* folderu.
-- A *filmy* folderu w projekcie *widoków* folderu.
-- *Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml*, i *Index.cshtml* w nowym *Views\Movies* folderu.
+- Plik *MoviesController.cs* w folderze *controllers* programu Project.
+- Folder *filmów* w folderze *widoki* projektu.
+- *Create. cshtml, DELETE. cshtml, details. cshtml, Edit. cshtml*i *index. cshtml* w nowym folderze *Views\Movies* .
 
-ASP.NET MVC 4 jest automatycznie tworzony CRUD (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoków (automatyczne tworzenie widoków i metod akcji CRUD jest znany jako funkcja szkieletów). Masz teraz aplikację internetową w pełni funkcjonalne, która umożliwia tworzenie, listy, edytować i usuwać wpisy filmu.
+ASP.NET MVC 4 automatycznie utworzył metody i widoki akcji CRUD (Create, Read, Update i Delete) dla Ciebie (automatyczne tworzenie metod i widoków akcji CRUD jest znane jako rusztowania). Masz teraz w pełni funkcjonalną aplikację sieci Web, która umożliwia tworzenie, wyświetlanie list, edytowanie i usuwanie wpisów filmów.
 
-Uruchom aplikację, a następnie przejdź do `Movies` kontrolera, dodając */Movies* do adresu URL w pasku adresu przeglądarki. Ponieważ aplikacja powołuje się na domyślny routing (zdefiniowane w *Global.asax* pliku), żądanie przeglądarki `http://localhost:xxxxx/Movies` jest kierowany do domyślnego `Index` metody akcji `Movies` kontrolera. Innymi słowy żądanie przeglądarki `http://localhost:xxxxx/Movies` skutecznie jest taka sama jak żądanie przeglądarki `http://localhost:xxxxx/Movies/Index`. Wynik jest pusta lista filmy, ponieważ nie dodano żadnego jeszcze.
+Uruchom aplikację i przejdź do kontrolera `Movies`, dołączając */Movies* do adresu URL na pasku adresu przeglądarki. Ponieważ aplikacja jest zależna od domyślnego routingu (zdefiniowanego w pliku *Global. asax* ), żądanie przeglądarki `http://localhost:xxxxx/Movies` jest kierowane do domyślnej metody akcji `Index` kontrolera `Movies`. Innymi słowy, `http://localhost:xxxxx/Movies` żądania przeglądarki są skutecznie takie same, jak `http://localhost:xxxxx/Movies/Index`żądania przeglądarki. Wynik jest pustą listą filmów, ponieważ nie został jeszcze dodany.
 
 ![](accessing-your-models-data-from-a-controller/_static/image2.png)
 
 ### <a name="creating-a-movie"></a>Tworzenie filmu
 
-Wybierz **Utwórz nowy** łącza. Wprowadź informacje na temat filmów, a następnie kliknij przycisk **Utwórz** przycisku.
+Wybierz łącze **Utwórz nowy** . Wprowadź szczegóły dotyczące filmu, a następnie kliknij przycisk **Utwórz** .
 
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)
 
-Klikając **Utwórz** przycisku powoduje, że formularz do opublikowania na serwerze, gdzie informacje filmu są zapisywane w bazie danych. Użytkownik jest następnie przekierowywane do */Movies* adresu URL, w którym można zobaczyć nowo utworzoną filmu na liście.
+Kliknięcie przycisku **Utwórz** powoduje opublikowanie formularza na serwerze, gdzie informacje o filmie są zapisywane w bazie danych. Następnie nastąpi przekierowanie do adresu URL */Movies* , w którym można zobaczyć nowo utworzony film na liście.
 
 ![IndexWhenHarryMet](accessing-your-models-data-from-a-controller/_static/image4.png "IndexWhenHarryMet")
 
-Utwórz kilka więcej wpisów filmu. Spróbuj **Edytuj**, **szczegóły**, i **Usuń** łącza, które są wszystkie funkcjonalności.
+Utwórz kilka dodatkowych wpisów filmu. Wypróbuj linki **Edytuj**, **szczegóły**i **Usuń** , które są wszystkie funkcjonalne.
 
 ## <a name="examining-the-generated-code"></a>Badanie wygenerowanego kodu
 
-Otwórz *Controllers\MoviesController.cs* plików i zbadaj wygenerowany `Index` metody. Część kontroler film z `Index` metoda znajdują się poniżej.
+Otwórz plik *Controllers\MoviesController.cs* i przejrzyj wygenerowaną metodę `Index`. Poniżej przedstawiono część kontrolera filmu z metodą `Index`.
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample1.cs)]
 
-Poniższy wiersz z `MoviesController` klasy tworzy kontekst bazy danych filmów, zgodnie z wcześniejszym opisem. Kontekst bazy danych filmów umożliwia zapytania, edytowanie i usuwanie filmów.
+Poniższy wiersz z klasy `MoviesController` tworzy wystąpienie kontekstu bazy danych filmu, jak opisano wcześniej. Możesz użyć kontekstu bazy danych filmu, aby wysyłać zapytania, edytować i usuwać filmy.
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample2.cs)]
 
-Żądanie `Movies` kontroler zwraca wszystkie wpisy w `Movies` tabeli bazy danych filmów, a następnie przekazuje wyniki do `Index` widoku.
+Żądanie do kontrolera `Movies` zwraca wszystkie wpisy w tabeli `Movies` bazy danych filmów, a następnie przekazuje wyniki do widoku `Index`.
 
-## <a name="strongly-typed-models-and-the-model-keyword"></a>Silnie Typizowane modeli i @model — słowo kluczowe
+## <a name="strongly-typed-models-and-the-model-keyword"></a>Modele silnie wpisane i @model słowo kluczowe
 
-Wcześniej w tym samouczku pokazano, jak kontroler można przekazać dane i obiekty za pomocą szablonu widoku `ViewBag` obiektu. `ViewBag` To obiekt dynamiczny, która zapewnia wygodny sposób z późnym wiązaniem do przekazywania informacji do widoku.
+Wcześniej w tym samouczku pokazano, jak kontroler może przekazać dane lub obiekty do szablonu widoku przy użyciu obiektu `ViewBag`. `ViewBag` jest obiektem dynamicznym, który zapewnia wygodny, późny sposób przekazywania informacji do widoku.
 
-ASP.NET MVC udostępnia również możliwość przekazywania silnie typizowane dane i obiekty w szablonie widoku. Silnie typizowane to podejście umożliwia lepsze kompilacji Sprawdzanie kodu oraz ulepszoną funkcję IntelliSense w edytorze programu Visual Studio. Mechanizm tworzenia szkieletów w programie Visual Studio używane z tym podejściem `MoviesController` klasy i Wyświetl szablony utworzenia metod i widoki.
+ASP.NET MVC oferuje również możliwość przekazywania danych o jednoznacznie określonym typie lub obiektów do szablonu widoku. Takie silnie wpisane podejście umożliwia lepsze Sprawdzanie kodu w czasie kompilacji i bogatsze IntelliSense w edytorze programu Visual Studio. Mechanizm tworzenia szkieletu w programie Visual Studio używa tego podejścia z klasą `MoviesController` i wyświetlania szablonów podczas tworzenia metod i widoków.
 
-W *Controllers\MoviesController.cs* pliku zbadać wygenerowany `Details` metody. Część kontroler film z `Details` metoda znajdują się poniżej.
+W pliku *Controllers\MoviesController.cs* Przejrzyj wygenerowaną metodę `Details`. Poniżej przedstawiono część kontrolera filmu z metodą `Details`.
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample3.cs?highlight=3,8)]
 
-Jeśli `Movie` zostanie znaleziony, wystąpienie `Movie` modelu jest przekazywana do widoku szczegółów. Sprawdź zawartość *Views\Movies\Details.cshtml* pliku.
+Jeśli `Movie` zostanie znaleziona, wystąpienie modelu `Movie` zostanie przesłane do widoku szczegółów. Zapoznaj się z zawartością pliku *Views\Movies\Details.cshtml* .
 
-Jeśli dołączysz `@model` instrukcji w górnej części pliku szablonu widoku, można określić typu obiektu, który oczekuje, że widok. Podczas tworzenia kontrolera filmu programu Visual Studio automatycznie uwzględnione następujące `@model` instrukcji na górze *Details.cshtml* pliku:
+Dołączając instrukcję `@model` w górnej części pliku szablonu widoku, można określić typ obiektu, którego oczekuje widok. Po utworzeniu kontrolera filmu program Visual Studio automatycznie dołączał następującą instrukcję `@model` w górnej części pliku *details. cshtml* :
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample4.cshtml)]
 
-To `@model` dyrektywy umożliwia dostęp do filmów, która kontrolera przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Details.cshtml* szablonu, kod przekazuje każdego pola film, aby `DisplayNameFor` i [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) pomocników HTML za pomocą silnie typizowanej `Model` obiektu. Metody tworzenia i edycji i Wyświetl szablony też przekazać obiekt modelu filmu.
+Ta `@model` dyrektywa pozwala uzyskać dostęp do filmu, który kontroler przeszedł do widoku przy użyciu obiektu `Model`, który jest silnie określony. Na przykład w szablonie *details. cshtml* kod przekazuje każde pole filmu do `DisplayNameFor` i pomocników HTML [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) z silnie wpisanąm obiektem `Model`. Metody Create i Edit i View templates również przekazują obiekt modelu filmu.
 
-Sprawdź *Index.cshtml* Wyświetl szablon i `Index` method in Class metoda *MoviesController.cs* pliku. Zwróć uwagę, jak kod tworzy [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) obiektu, kiedy wywoływanych przez nią `View` metody pomocnika w `Index` metody akcji. Kod następnie przekazuje to `Movies` listy z kontrolera do widoku:
+Sprawdź szablon widoku *index. cshtml* i metodę `Index` w pliku *MoviesController.cs* . Zwróć uwagę, jak kod tworzy obiekt [`List`](https://msdn.microsoft.com/library/6sh2ey19.aspx) , gdy wywołuje metodę pomocnika `View` w metodzie `Index` akcji. Następnie kod przekazuje tę `Movies` listę z kontrolera do widoku:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample5.cs?highlight=3)]
 
-Podczas tworzenia kontrolera filmu, Visual Studio Express automatycznie uwzględnione następujące `@model` instrukcji na górze *Index.cshtml* pliku:
+Po utworzeniu kontrolera filmu Visual Studio Express automatycznie dołączać następujące instrukcje `@model` w górnej części pliku *index. cshtml* :
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-To `@model` dyrektywy umożliwia dostęp do listy filmów, które kontrolera przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Index.cshtml* szablonu, kod w pętli filmy wykonując `foreach` instrukcji na silnie typizowaną `Model` obiektu:
+Ta `@model` dyrektywa pozwala uzyskać dostęp do listy filmów przekazaną przez kontroler do widoku przy użyciu obiektu `Model`, który jest silnie określony. Na przykład w szablonie *index. cshtml* kod przechodzi przez film przez wykonanie instrukcji `foreach` na obiekcie `Model` o jednoznacznie określonym typie:
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample7.cshtml?highlight=1,4,7,10,13,16,19-21)]
 
-Ponieważ `Model` obiektu zdecydowanie jest wpisane (jako `IEnumerable<Movie>` obiektu), każdy `item` obiektu w pętli jest wpisana jako `Movie`. Wśród innych korzyści oznacza to, możesz uzyskać w czasie kompilacji sprawdzania kodu i pełną obsługę technologii IntelliSense w edytorze kodu:
+Ponieważ obiekt `Model` jest silnie określony (jako obiekt `IEnumerable<Movie>`), każdy obiekt `item` w pętli jest wpisywany jako `Movie`. W związku z innymi korzyściami oznacza to, że w edytorze kodu są dostępne sprawdzanie w czasie kompilacji kodu i pełna obsługa technologii IntelliSense:
 
 ![ModelIntelliSense](accessing-your-models-data-from-a-controller/_static/image5.png)
 
-## <a name="working-with-sql-server-localdb"></a>Praca z bazą danych LocalDB programu SQL Server
+## <a name="working-with-sql-server-localdb"></a>Praca z SQL Server LocalDB
 
-Entity Framework Code First wykrył, że parametry połączenia bazy danych, który został dostarczony wskazywany `Movies` bazy danych, która nie istnieje jeszcze, więc Code First baza danych utworzona automatycznie. Możesz sprawdzić, czy został on utworzony przez wyszukiwanie *aplikacji\_danych* folderu. Jeśli nie widzisz *Movies.mdf* plików, kliknij **Pokaż wszystkie pliki** znajdujący się w **Eksploratora rozwiązań** narzędzi, kliknij przycisk **Odśwież** przycisk, a następnie rozwiń *aplikacji\_danych* folderu.
+Entity Framework Code First wykryła, że podane parametry połączenia z bazą danych wskazywały na `Movies` bazę danych, która jeszcze nie istnieje, więc Code First automatycznie utworzyć bazę danych. Możesz sprawdzić, czy został on utworzony, przeglądając folder *danych\_aplikacji* . Jeśli plik *wideo. mdf* nie jest widoczny, kliknij przycisk **Pokaż wszystkie pliki** na pasku narzędzi **Eksplorator rozwiązań** , kliknij przycisk **odśwież** , a następnie rozwiń folder *dane\_aplikacji* .
 
 ![](accessing-your-models-data-from-a-controller/_static/image6.png)
 
-Kliknij dwukrotnie *Movies.mdf* otworzyć **EKSPLORATOR bazy danych**, następnie rozwiń **tabel** folder, aby wyświetlić tabelę filmów.
+Kliknij dwukrotnie ikonę *filmy. mdf* , aby otworzyć **Eksploratora bazy danych**, a następnie rozwiń folder **tabele** , aby wyświetlić tabelę filmy.
 
 ![DB_explorer](accessing-your-models-data-from-a-controller/_static/image7.png "DB_explorer")
 
 > [!NOTE]
-> Jeśli Eksplorator bazy danych nie jest wyświetlane, z **narzędzia** menu, wybierz opcję **Połącz z bazą danych**, następnie Anuluj **wybierz źródło danych** okna dialogowego. Spowoduje to wymuszenie Otwórz Eksplorator bazy danych.
+> Jeśli Eksplorator bazy danych nie jest wyświetlany, w menu **Narzędzia** wybierz pozycję **Połącz z bazą danych**, a następnie Anuluj okno dialogowe **Wybieranie źródła danych** . Spowoduje to wymuszenie otwarcia Eksploratora bazy danych.
 
 > [!NOTE]
-> Jeśli używasz VWD lub Visual Studio 2010 i otrzymać błąd podobny do dowolnego z następujących następujące czynności:
+> Jeśli używasz programu pliku VWD lub Visual Studio 2010 i wystąpi błąd podobny do jednego z następujących:
 > 
-> - Baza danych "C:\Webs\MVC4\MVCMOVIE\MVCMOVIE\APP\_DATA\MOVIES. MDF "nie można otworzyć, ponieważ jest wersja 706. Ten serwer obsługuje wersję 655 i starszych. Starszą nie jest obsługiwana.
-> - &quot;Invalidoperation powodujący zakończenie działania wyjątek został obsłużony przez kod użytkownika&quot; dostarczony parametr SqlConnection nie określa wykazu początkowego.
+> - Baza danych "C:\Webs\MVC4\MVCMOVIE\MVCMOVIE\APP\_DATA\MOVIES. Nie można otworzyć środowiska MDF, ponieważ jest w wersji 706. Ten serwer obsługuje wersję 655 i wcześniejszą. Ścieżka obniżania poziomu nie jest obsługiwana.
+> - &quot;wyjątek InvalidOperation został nieobsłużony przez kod użytkownika&quot; dostarczonego elementu SqlConnection nie określa katalogu początkowego.
 > 
-> Musisz zainstalować [SQL Server Data Tools](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx) i [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0). Sprawdź `MovieDBContext` parametry połączenia określone na poprzedniej stronie.
+> Musisz zainstalować [SQL Server narzędzia danych](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx) i [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0). Sprawdź parametry połączenia `MovieDBContext` określone na poprzedniej stronie.
 
-Kliknij prawym przyciskiem myszy `Movies` tabeli, a następnie wybierz pozycję **Pokaż dane tabeli** do wyświetlenia danych został utworzony.
+Kliknij prawym przyciskiem myszy tabelę `Movies` i wybierz polecenie **Pokaż dane tabeli** , aby wyświetlić utworzone dane.
 
 ![](accessing-your-models-data-from-a-controller/_static/image8.png)
 
-Kliknij prawym przyciskiem myszy `Movies` tabeli, a następnie wybierz pozycję **Otwórz definicję tabeli** do znajdują się w tabeli struktury tego Entity Framework Code First utworzone automatycznie.
+Kliknij prawym przyciskiem myszy tabelę `Movies` i wybierz pozycję **Otwórz definicję tabeli** , aby wyświetlić strukturę tabeli utworzoną przez Entity Framework Code First.
 
 ![](accessing-your-models-data-from-a-controller/_static/image9.png "MoviesTable")
 
 ![](accessing-your-models-data-from-a-controller/_static/image10.png)
 
-Zwróć uwagę jak schemat `Movies` mapy do tabel `Movie` klasa została utworzona wcześniej. Entity Framework Code First automatycznie tworzony w tym schemacie na podstawie Twojej `Movie` klasy.
+Zwróć uwagę, jak schemat tabeli `Movies` mapuje do utworzonej wcześniej klasy `Movie`. Entity Framework Code First automatycznie utworzył ten schemat na podstawie klasy `Movie`.
 
-Gdy skończysz, zamknij połączenie przez kliknięcie prawym przyciskiem myszy *MovieDBContext* i wybierając polecenie **zamknij połączenie**. (Jeśli nie zamkniesz połączenie, możesz otrzymać błąd przy następnym uruchomieniu projektu).
+Po zakończeniu zamknij połączenie, klikając prawym przyciskiem myszy pozycję *MovieDBContext* i wybierając pozycję **Zamknij połączenie**. (Jeśli połączenie nie zostanie zamknięte, podczas następnego uruchomienia projektu może wystąpić błąd).
 
 ![](accessing-your-models-data-from-a-controller/_static/image11.png "CloseConnection")
 
-Masz teraz bazę danych i prostego strony do wyświetlania zawartości z niego. W następnym samouczku utworzymy Sprawdź pozostałą część utworzony szkielet kodu i dodamy `SearchIndex` metody i `SearchIndex` widok, który umożliwia wyszukiwanie filmów w tej bazie danych.
+Teraz masz bazę danych i prostą stronę z listą, aby wyświetlić z niej zawartość. W następnym samouczku sprawdzimy resztę kodu szkieletowego i dodamy metodę `SearchIndex` i widok `SearchIndex`, który umożliwi wyszukiwanie filmów w tej bazie danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](adding-a-model.md)

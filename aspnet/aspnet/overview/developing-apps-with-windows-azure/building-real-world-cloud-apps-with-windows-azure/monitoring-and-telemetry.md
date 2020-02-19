@@ -8,16 +8,16 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 44941c9fd0dcd3223604fc4a4f2836f587578acb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: f61810ea7b486b2fa0bbb234edea7541eedde835
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585610"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457066"
 ---
 # <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i telemetria (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -32,7 +32,7 @@ Wiele osób jest zależnych od klientów, którzy wiedzą, kiedy ich aplikacja n
 
 Jednym z rzeczy, które doskonale nadaje się w środowisku chmury, jest to, że jest to naprawdę łatwe kupowanie lub wypożyczanie sposobu Victory. Przykładem danych telemetrycznych jest. Bez dużego nakładu pracy możesz uzyskać naprawdę dobry system telemetrii. Istnieje wiele doskonałych partnerów, którzy integrują się z platformą Azure, a niektóre z nich mają bezpłatne warstwy, dzięki czemu możesz uzyskać podstawowe dane telemetryczne dla niczego. Oto kilka z tych, które są obecnie dostępne na platformie Azure:
 
-- [Nowy Relic](http://newrelic.com/)
+- [New Relic](http://newrelic.com/)
 - [AppDynamics](http://www.appdynamics.com/)
 - [DynaTrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
@@ -58,7 +58,7 @@ Kliknij pozycję **Informacje o połączeniu**i skopiuj klucz licencji.
 
 ![Informacje o połączeniu](monitoring-and-telemetry/_static/image5.png)
 
-Przejdź do karty **Konfiguracja** aplikacji sieci Web w portalu, ustaw pozycję **monitorowanie wydajności** na **dodatek**, a następnie ustaw listę rozwijaną **Wybierz dodatek na** **New Relic**. Następnie kliknij przycisk **Zapisz**.
+Przejdź do karty **Konfiguracja** aplikacji sieci Web w portalu, ustaw pozycję **monitorowanie wydajności** na **dodatek**, a następnie ustaw listę rozwijaną **Wybierz dodatek na** **New Relic**. Następnie kliknij przycisk **Save** (Zapisz).
 
 ![Nowy Relic na karcie Konfigurowanie](monitoring-and-telemetry/_static/image6.png)
 
@@ -79,7 +79,7 @@ Poniżej przedstawiono zaledwie kilka statystyk, które można zobaczyć:
     ![Czas odpowiedzi](monitoring-and-telemetry/_static/image10.png)
 - Stawki za przepływność (w żądaniach na minutę) o różnych porach dnia.
 
-    ![Kazany](monitoring-and-telemetry/_static/image11.png)
+    ![Przepływność](monitoring-and-telemetry/_static/image11.png)
 - Czas procesora CPU na serwerze poświęcony na obsługę różnych żądań HTTP.
 
     ![Czasy transakcji sieci Web](monitoring-and-telemetry/_static/image12.png)
@@ -102,7 +102,7 @@ Poniżej przedstawiono zaledwie kilka statystyk, które można zobaczyć:
 
 Możesz również skonfigurować raporty i zdarzenia. Na przykład możesz powiedzieć, kiedy zaczniesz wyświetlać Błędy, Wyślij wiadomość e-mail do personelu pomocy technicznej dotyczącej alertu.
 
-![Raporty](monitoring-and-telemetry/_static/image19.png)
+![Reports](monitoring-and-telemetry/_static/image19.png)
 
 Nowy Relic to tylko jeden przykład systemu telemetrii; wszystkie te możliwości można uzyskać również z innych usług. Estetyki w chmurze polega na tym, że bez konieczności pisania kodu i w przypadku minimalnych lub niezwiązanych z nim wydatków, nagle można uzyskać więcej informacji na temat sposobu użycia aplikacji oraz tego, jakie są Twoje klienci.
 
@@ -253,9 +253,9 @@ Jest to naprawdę proste do implementowania wbudowanego systemu telemetrii, reje
 
 W [następnym rozdziale](transient-fault-handling.md) zawarto informacje na temat obsługi błędów przejściowych, dzięki czemu nie staną się problemami produkcyjnymi, które należy zbadać.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
-Aby uzyskać więcej informacji, zapoznaj się z następującymi zasobami.
+Więcej informacji zawierają poniższe zasoby.
 
 Dokumentacja głównie dotyczącej telemetrii:
 

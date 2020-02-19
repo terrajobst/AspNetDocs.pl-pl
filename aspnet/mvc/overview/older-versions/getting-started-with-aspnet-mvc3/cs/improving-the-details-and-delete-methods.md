@@ -1,87 +1,87 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
-title: Ulepszanie metod Details i Delete (C#) | Dokumentacja firmy Microsoft
+title: Ulepszanie metod Details iC#Delete () | Microsoft Docs
 author: Rick-Anderson
-description: Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, czyli...
+description: Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 3f42edd9-c5b8-4712-9055-970f7d38e350
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: d98699649d33a9fe17c2b39652d410afe2e883be
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 54d7be8fe1bff604ae9c9e9914d7c6426ab85c1c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130155"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457508"
 ---
 # <a name="improving-the-details-and-delete-methods-c"></a>Ulepszanie metod Details i Delete (C#)
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > > [!NOTE]
-> > Jest dostępna zaktualizowana wersja tego samouczka [tutaj](../../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
+> > Zaktualizowana wersja tego samouczka jest dostępna w [tym miejscu](../../../getting-started/introduction/getting-started.md) , w którym są używane ASP.NET MVC 5 i Visual Studio 2013. Jest to bezpieczniejsze i łatwiejsze w obserwowanie i zademonstrowanie większej liczby funkcji.
 > 
 > 
-> Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagań wstępnych wymienionych poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można indywidualnie zainstalować wymagania wstępne, korzystając z następujących linków:
+> Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest bezpłatną wersją Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że zainstalowano wymagania wstępne wymienione poniżej. Wszystkie z nich można zainstalować, klikając następujące łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie możesz zainstalować wstępnie wymagane składniki, korzystając z następujących linków:
 > 
-> - [Visual Studio Web Developer Express SP1 prerequisites](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [Program ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(Obsługa środowiska uruchomieniowego i narzędzi)
+> - [Wymagania wstępne programu Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
+> - [Aktualizacja narzędzi ASP.NET MVC 3](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(obsługa środowiska uruchomieniowego + narzędzia)
 > 
-> Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Jeśli używasz programu Visual Studio 2010 zamiast programu Visual Web Developer 2010, Zainstaluj wymagania wstępne, klikając następujące łącze: [wymagania wstępne programu Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Projekt Visual Web Developer, przy użyciu kodu źródłowego języka C# jest dostępny powiązany z tym tematem. [Pobierz wersję języka C#](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz języka Visual Basic, przełącz się do [wersji języka Visual Basic](../vb/intro-to-aspnet-mvc-3.md) po ukończeniu tego samouczka.
+> Projekt programu Visual Web Developer z C# kodem źródłowym jest dostępny do załączenia do tego tematu. [Pobierz wersję C# programu](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz Visual Basic, przejdź do [wersji Visual Basic](../vb/intro-to-aspnet-mvc-3.md) tego samouczka.
 
-W tej części samouczka, należy podjąć kilka ulepszeń do automatycznie generowanego `Details` i `Delete` metody. Te zmiany nie są wymagane, ale przy użyciu zaledwie kilku małe fragmenty kodu można łatwo zwiększyć aplikacji.
+W tej części samouczka wprowadzisz ulepszenia do automatycznie generowanych `Details` i `Delete`. Te zmiany nie są wymagane, ale za pomocą zaledwie kilku małych bitów kodu można łatwo ulepszyć aplikację.
 
-## <a name="improving-the-details-and-delete-methods"></a>Ulepszanie metod Details i Delete
+## <a name="improving-the-details-and-delete-methods"></a>Ulepszanie metod Details i DELETE
 
-Gdy działanie `Movie` kontrolera ASP.NET MVC wygenerowanego kodu, bardzo dobrze funkcjonowało, ale który mogą być działał on bardziej niezawodnie za pomocą zaledwie kilku niewielkich zmian.
+Podczas tworzenia szkieletu `Movie` kontrolerem MVC wygenerował kod, który pracował dobrze, ale może być bardziej niezawodny z zaledwie kilkoma małymi zmianami.
 
-Otwórz `Movie` kontrolera i modyfikować `Details` metody, zwracając `HttpNotFound` po filmu nie zostanie znaleziona. Należy również zmodyfikować `Details` metodę, aby ustawić wartość domyślną dla Identyfikatora, który jest przekazywany do niego. (Zostały wprowadzone zmiany podobne do `Edit` method in Class metoda [część 6](examining-the-edit-methods-and-edit-view.md) po ukończeniu tego samouczka.) Jednakże, należy zmienić typ zwracany `Details` metody z `ViewResult` do `ActionResult`, ponieważ `HttpNotFound` metoda nie zwraca `ViewResult` obiektu. W poniższym przykładzie pokazano zmodyfikowanego `Details` metody.
+Otwórz kontroler `Movie` i zmodyfikuj metodę `Details`, zwracając `HttpNotFound`, gdy film nie zostanie znaleziony. Należy również zmodyfikować metodę `Details`, aby ustawić wartość domyślną dla identyfikatora, który jest do niego przesłany. (W [części 6](examining-the-edit-methods-and-edit-view.md) tego samouczka wprowadzono podobne zmiany w metodzie `Edit`). Należy jednak zmienić zwracany typ metody `Details` z `ViewResult` na `ActionResult`, ponieważ metoda `HttpNotFound` nie zwraca obiektu `ViewResult`. Poniższy przykład przedstawia zmodyfikowaną metodę `Details`.
 
 [!code-csharp[Main](improving-the-details-and-delete-methods/samples/sample1.cs)]
 
-Kod najpierw ułatwia wyszukiwanie danych przy użyciu `Find` metody. Funkcja ważne zabezpieczeń, którą utworzyliśmy do metody jest kod sprawdza, czy `Find` znaleziono filmu metody, zanim kod próbuje wykonywać żadnych czynności z nim. Na przykład haker może spowodować błędy do witryny, zmieniając adres URL utworzony przez łącza z `http://localhost:xxxx/Movies/Details/1` na wartość podobną `http://localhost:xxxx/Movies/Details/12345` (lub inną wartość, która nie zawiera rzeczywistych filmu). Jeśli nie jest sprawdzanie wartości null film, może to spowodować błąd bazy danych.
+Code First ułatwia wyszukiwanie danych przy użyciu metody `Find`. Ważna funkcja zabezpieczeń wbudowana w metodę polega na tym, że kod sprawdza, czy metoda `Find` odnalazła film, zanim kod próbuje wykonać dowolne czynności. Na przykład haker może wprowadzić błędy do witryny przez zmianę adresu URL utworzonego przez linki z `http://localhost:xxxx/Movies/Details/1` na element podobny do `http://localhost:xxxx/Movies/Details/12345` (lub innej wartości, która nie reprezentuje rzeczywistego filmu). Jeśli nie sprawdzasz filmu o wartości null, może to spowodować błąd bazy danych.
 
-Podobnie, zmiany `Delete` i `DeleteConfirmed` metody, aby określić wartość domyślną dla parametru Identyfikatora i zwrócić `HttpNotFound` po filmu nie zostanie znaleziona. Zaktualizowany interfejs `Delete` metody `Movie` kontrolera zostały wymienione poniżej.
+Analogicznie Zmień metody `Delete` i `DeleteConfirmed`, aby określić wartość domyślną parametru ID i zwrócić `HttpNotFound`, gdy film nie zostanie znaleziony. Poniżej przedstawiono zaktualizowane metody `Delete` na kontrolerze `Movie`.
 
 [!code-csharp[Main](improving-the-details-and-delete-methods/samples/sample2.cs)]
 
-Należy pamiętać, że `Delete` metoda nie powoduje usunięcia danych. Wykonywanie operacji usuwania w odpowiedzi na polecenie GET żądania (lub służącego wykonywania operacji Edytuj, Utwórz operacji lub innej operacji, które zmieniają dane) otwiera lukę w zabezpieczeniach. Aby uzyskać więcej informacji na ten temat, zobacz wpis w blogu Autor: Stephen Walther [46 Porada # w programie ASP.NET MVC — nie używaj usunąć łącza, ponieważ mogą tworzyć luki w zabezpieczeniach](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
+Należy pamiętać, że metoda `Delete` nie usuwa danych. Wykonanie operacji usuwania w odpowiedzi na żądanie GET (lub w tym przypadku wykonanie operacji edycji, operacji tworzenia lub jakiejkolwiek innej operacji, która zmienia dane) powoduje otwarcie otworu zabezpieczeń. Aby uzyskać więcej informacji na ten temat, zobacz wpis w blogu Stephen Walther [ASP.NET MVC Tip #46 — nie używaj linków usuwania, ponieważ tworzą one luki w zabezpieczeniach](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
 
-`HttpPost` Nosi nazwę metody, która powoduje usunięcie danych `DeleteConfirmed` zapewnienie metodą HTTP POST unikatowy podpis lub nazwy. Poniżej przedstawiono podpisy dwóch metod:
+Metoda `HttpPost`, która usuwa dane, ma nazwę `DeleteConfirmed`, aby nadać metodzie POST protokołu HTTP unikatowy podpis lub nazwę. Poniżej przedstawiono dwie sygnatury metod:
 
 [!code-csharp[Main](improving-the-details-and-delete-methods/samples/sample3.cs)]
 
-Środowisko uruchomieniowe języka wspólnego (CLR) wymaga przeciążone metody ma unikatowy podpis (tej samej nazwie, inną listę parametrów). Jednak w tym miejscu należy dwie metody usuwania — jeden dla GET--i jeden dla wpisu, wymagać taki sam podpis. (Obaj użytkownicy muszą zaakceptować pojedyncze liczby całkowite jako parametr.)
+Środowisko uruchomieniowe języka wspólnego (CLR) wymaga, aby przeciążone metody miały unikatowy podpis (taka sama nazwa, inna lista parametrów). Jednak w tym miejscu wymagane są dwie metody usuwania — jeden dla GET i jeden dla elementu POST--oba wymagają tego samego podpisu. (Oba muszą akceptować jedną liczbę całkowitą jako parametr).
 
-Aby posortować tę możliwość, można zrobić kilka rzeczy. Jeden to nadać różne nazwy metody. To zrobiliśmy w on poprzedzających przykład. Jednak wprowadza mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy, a jeśli zmienisz metodę, routing zwykle nie można znaleźć tej metody. Rozwiązanie jest widoczny w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. Skutecznie wykonuje to mapowanie systemu routingu, aby adres URL, który zawiera <em>/Delete/</em>dla wpisu znajdzie żądanie `DeleteConfirmed` metody.
+Aby to zrobić, możesz wykonać kilka czynności. Jedną z nich jest nadanie metodom różnych nazw. To wszystko w poprzednim przykładzie. Wprowadzamy jednak niewielki problem: ASP.NET mapuje segmenty adresu URL na metody akcji według nazwy, a jeśli zmienisz nazwę metody, routing zwykle nie będzie mógł znaleźć tej metody. To rozwiązanie jest widoczne w przykładzie, czyli dodanie atrybutu `ActionName("Delete")` do metody `DeleteConfirmed`. Efektywnie wykonuje to mapowanie dla systemu routingu, aby adres URL, który zawiera <em>/delete/</em>dla żądania post, znalazł metodę `DeleteConfirmed`.
 
-Innym sposobem, aby uniknąć problemu, za pomocą metod, które mają identyczne nazwy i wzory podpisów jest sztucznie Zmień podpis metody POST, aby uwzględnić Nieużywany parametr. Na przykład niektórzy deweloperzy dodać typ parametru `FormCollection` który jest przekazywany do metody POST, a następnie po prostu nie używaj parametru:
+Innym sposobem na uniknięcie problemu przy użyciu metod o identycznych nazwach i sygnaturach jest sztuczne Zmienianie sygnatury metody POST w celu uwzględnienia nieużywanego parametru. Na przykład niektórzy deweloperzy dodają typ parametru `FormCollection`, który jest przesyłany do metody POST, a następnie po prostu nie należy używać parametru:
 
 [!code-csharp[Main](improving-the-details-and-delete-methods/samples/sample4.cs)]
 
-## <a name="wrapping-up"></a>Zakończeniem
+## <a name="wrapping-up"></a>Zawijanie w górę
 
-Masz teraz kompletnej aplikacji ASP.NET MVC, która przechowuje dane w bazie danych programu SQL Server Compact. Można utworzyć, Odczyt, aktualizowanie, usuwanie i wyszukaj filmy.
+Masz teraz kompletną aplikację ASP.NET MVC, która przechowuje dane w bazie danych SQL Server Compact. Możesz tworzyć, odczytywać, aktualizować, usuwać i wyszukiwać filmy.
 
 ![](improving-the-details-and-delete-methods/_static/image1.png)
 
-W tym samouczku podstawowe stało się ułatwiające rozpoczęcie pracy, dzięki czemu kontrolerów, skojarzenie ich z widoków i przekazanie ustalonych danymi. Następnie zostało utworzone i przeznaczone do modelu danych. Entity Framework Code First utworzono bazę danych z modelu danych na bieżąco, a system scaffoldingu platformy ASP.NET MVC automatycznie generowane metody akcji i wyświetlenia dla podstawowych operacji CRUD. Następnie została dodana formularza wyszukiwania, które umożliwiają użytkownikom wyszukiwanie bazy danych. Zmienione znaleźć nową kolumnę danych w bazie danych, a następnie zaktualizować dwie strony, aby utworzyć i wyświetlić te nowe dane. Dodano sprawdzanie poprawności, oznaczając modelu danych za pomocą atrybutów z `DataAnnotations` przestrzeni nazw. Wynikowy sprawdzania poprawności jest uruchamiany na kliencie i na serwerze.
+W tym podstawowym samouczku przedstawiono tworzenie kontrolerów, kojarzenie ich z widokami i przekazywanie wokół zakodowanych danych. Następnie utworzony i zaprojektowany model danych. Entity Framework Code First utworzyć bazę danych z modelu danych na bieżąco, a system szkieletu MVC ASP.NET automatycznie wygenerował metody akcji i widoki dla podstawowych operacji CRUD. Następnie dodano formularz wyszukiwania, który umożliwia użytkownikom wyszukiwanie w bazie danych. Baza danych została zmieniona tak, aby zawierała nową kolumnę danych, a następnie Zaktualizowano dwie strony, aby utworzyć i wyświetlić te nowe dane. Dodano weryfikację, zaznaczając model danych z atrybutami z przestrzeni nazw `DataAnnotations`. Wyniki walidacji są uruchamiane na kliencie i na serwerze programu.
 
-Jeśli chcesz wdrożyć aplikację, warto pierwszego testu aplikacji na lokalnym serwerze usług IIS 7. Możesz użyć tej funkcji [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) link, aby włączyć ustawienie programu IIS dla aplikacji ASP.NET. Zobacz poniższe linki wdrożenia:
+Jeśli chcesz wdrożyć aplikację, warto najpierw przetestować aplikację na lokalnym serwerze usług IIS 7. Możesz użyć tego linku [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) , aby włączyć ustawienia usług IIS dla aplikacji ASP.NET. Zobacz następujące linki wdrażania:
 
-- [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/dd394698.aspx)
-- [Enabling IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
+- [Mapa zawartości wdrożenia ASP.NET](https://msdn.microsoft.com/library/dd394698.aspx)
+- [Włączanie usług IIS 7. x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Wdrażanie projektów aplikacji sieci Web](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Teraz zachęcam Cię do przejdź do naszego poziomu pośredniego [Tworzenie modelu danych Entity Framework dla aplikacji ASP.NET MVC](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) i [MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md) samouczki, aby zapoznać się z [platformy ASP.NET artykuły w witrynie MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)i zapoznaj się z wielu filmów wideo i zasobów w [ https://asp.net/mvc ](https://asp.net/mvc) się jeszcze bardziej poświęcone platformie ASP.NET MVC! [Fora platformy ASP.NET MVC](https://forums.asp.net/1146.aspx) są doskonałym miejscem do zadawania pytań.
+Teraz zachęcamy do przechodzenia do naszego poziomu pośredniego, który [tworzy Entity Framework model danych dla aplikacji ASP.NET MVC](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) oraz samouczków [sklepu MVC Music](../../mvc-music-store/mvc-music-store-part-1.md) , aby poznać [artykuły ASP.NET w witrynie MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)oraz zapoznać się z wieloma filmami wideo i zasobami w [https://asp.net/mvc](https://asp.net/mvc) , aby dowiedzieć się więcej na temat ASP.NET MVC! [Fora ASP.NET MVC](https://forums.asp.net/1146.aspx) są doskonałym miejscem na zadawanie pytań.
 
-Ciesz się!
+Owocnej pracy.
 
-— Scott Hanselman ([ http://hanselman.com ](http://hanselman.com) i [ @shanselman ](http://twitter.com/shanselman) w serwisie Twitter) i Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+— Scott Hanselman ([http://hanselman.com](http://hanselman.com) i [@shanselman](http://twitter.com/shanselman) w serwisie Twitter) i Rick Anderson [blogs.MSDN.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
 > [!div class="step-by-step"]
-> [Poprzednie](adding-validation-to-the-model.md)
+> [Wstecz](adding-validation-to-the-model.md)

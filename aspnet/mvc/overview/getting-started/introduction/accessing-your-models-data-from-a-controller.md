@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: e01953dcfb2abf2db53a8aa869aa75b40485daca
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 5d882d765133d32d3acdba9ffb5d43b69119a273
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519092"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457235"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -41,7 +41,7 @@ W oknie dialogowym **Dodawanie szkieletu** kliknij pozycję **kontroler MVC 5 z 
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
-Kliknij przycisk **Dodaj**. (Jeśli wystąpi błąd, prawdopodobnie nie skompilowano aplikacji przed rozpoczęciem dodawania kontrolera). Program Visual Studio tworzy następujące pliki i foldery:
+Kliknij pozycję **Add** (Dodaj). (Jeśli wystąpi błąd, prawdopodobnie nie skompilowano aplikacji przed rozpoczęciem dodawania kontrolera). Program Visual Studio tworzy następujące pliki i foldery:
 
 - Plik *MoviesController.cs* w folderze *controllers* .
 - Folder *Views\Movies* .
@@ -153,5 +153,5 @@ Po zakończeniu zamknij połączenie, klikając prawym przyciskiem myszy pozycj�
 Masz teraz bazę danych i strony do wyświetlania, edytowania, aktualizowania i usuwania danych. W następnym samouczku sprawdzimy resztę kodu szkieletowego i dodamy metodę `SearchIndex` i widok `SearchIndex`, który umożliwi wyszukiwanie filmów w tej bazie danych. Aby uzyskać więcej informacji na temat używania Entity Framework z MVC, zobacz [tworzenie Entity Framework modelu danych dla aplikacji ASP.NET MVC](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 > [!div class="step-by-step"]
-> [Poprzedni](creating-a-connection-string.md)
-> [Następny](examining-the-edit-methods-and-edit-view.md)
+> [Poprzednie](creating-a-connection-string.md)
+> [dalej](examining-the-edit-methods-and-edit-view.md)

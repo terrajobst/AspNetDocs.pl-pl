@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: d5c8190d0b0c91bf9e42f6ef03adc5b07a65359a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: e741a753a36ebdaefbff8eee0b38911785c716ac
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582891"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457170"
 ---
 # <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzacja wszystkiego (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -50,7 +50,7 @@ Dla aplikacji Fix it utworzyliśmy niektóre skrypty środowiska Windows PowerSh
 Pierwszy skrypt, którego szukamy, to o nazwie *New-AzureWebsiteEnv. ps1*. Tworzy środowisko platformy Azure, w którym można wdrożyć aplikację Fix it na potrzeby testowania. Główne zadania wykonywane przez ten skrypt są następujące:
 
 - Utwórz aplikację internetową.
-- Utwórz konto magazynu. (Wymagane w przypadku obiektów blob i kolejek, jak widać w dalszej części rozdziału).
+- Tworzenie konta magazynu (Wymagane w przypadku obiektów blob i kolejek, jak widać w dalszej części rozdziału).
 - Utwórz serwer SQL Database i dwie bazy danych: bazę danych aplikacji i bazę danych członkostwa.
 - Ustawienia magazynu na platformie Azure, które będą używane przez aplikację w celu uzyskiwania dostępu do konta magazynu i baz danych.
 - Utwórz pliki ustawień, które będą używane do automatyzowania wdrażania.
@@ -114,13 +114,13 @@ Wymagane są dwa parametry:
 
 Parametry opcjonalne umożliwiają określenie lokalizacji centrum danych (wartość domyślna to "zachodnie stany USA"), nazwę administratora serwera bazy danych (wartość domyślna to "dbuser") i regułę zapory dla serwera bazy danych.
 
-### <a name="create-the-web-app"></a>Tworzenie aplikacji sieci Web
+### <a name="create-the-web-app"></a>Tworzenie aplikacji internetowej
 
 Pierwszym krokiem jest utworzenie przez skrypt aplikacji sieci Web przez wywołanie polecenia cmdlet `New-AzureWebsite`, przekazanie do niego wartości parametru Nazwa i lokalizacja aplikacji sieci Web:
 
 [!code-powershell[Main](automate-everything/samples/sample3.ps1?highlight=2)]
 
-### <a name="create-the-storage-account"></a>Utwórz konto magazynu
+### <a name="create-the-storage-account"></a>Tworzenie konta magazynu
 
 Następnie główny skrypt uruchamia skrypt *New-AzureStorage. ps1* , określając " *&lt;websitename&gt;* Storage" dla nazwy konta magazynu oraz tę samą lokalizację centrum danych, w której znajduje się aplikacja internetowa.
 
@@ -247,7 +247,7 @@ W podobny sposób można zautomatyzować większość funkcji zarządzania platf
 
 W [następnym rozdziale](source-control.md) zaobserwujemy kod źródłowy i wyjaśnimy, dlaczego warto uwzględnić skrypty w repozytorium kodu źródłowego.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 - [Zainstaluj i skonfiguruj program Windows PowerShell dla platformy Azure](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). W tym artykule wyjaśniono, jak zainstalować Azure PowerShell polecenia cmdlet oraz jak zainstalować certyfikat wymagany na komputerze, aby zarządzać kontem platformy Azure. Jest to doskonałe miejsce do rozpoczęcia pracy, ponieważ ma także linki do zasobów dla programu PowerShell.
 - [Centrum skryptów platformy Azure](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Portal WindowsAzure.com do zasobów na potrzeby tworzenia skryptów, które zarządzają usługami platformy Azure, z linkami do samouczków z wprowadzeniem, dokumentacją i kodem źródłowym oraz przykładowym skryptem.

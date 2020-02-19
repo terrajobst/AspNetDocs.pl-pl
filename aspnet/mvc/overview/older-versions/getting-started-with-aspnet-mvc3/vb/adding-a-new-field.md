@@ -1,122 +1,122 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
-title: Dodawanie nowego pola do modelu Movie i tabeli bazy danych (VB) | Dokumentacja firmy Microsoft
+title: Dodawanie nowego pola do modelu filmu i tabeli bazy danych (VB) | Microsoft Docs
 author: Rick-Anderson
-description: Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, czyli...
+description: Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 28970e1b-1845-4015-86ef-121e52a6c397
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c723134e829da23db8a43ef228db47ce9826f3e8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: b2b26b6009c55f02c8a4159bda839fe7aefea4c0
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129992"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457271"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Dodawanie nowego pola do modelu Movie i tabeli bazy danych (VB)
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagań wstępnych wymienionych poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można indywidualnie zainstalować wymagania wstępne, korzystając z następujących linków:
+> Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest bezpłatną wersją Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że zainstalowano wymagania wstępne wymienione poniżej. Wszystkie z nich można zainstalować, klikając następujące łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie możesz zainstalować wstępnie wymagane składniki, korzystając z następujących linków:
 > 
-> - [Visual Studio Web Developer Express SP1 prerequisites](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [Program ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(Obsługa środowiska uruchomieniowego i narzędzi)
+> - [Wymagania wstępne programu Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
+> - [Aktualizacja narzędzi ASP.NET MVC 3](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(obsługa środowiska uruchomieniowego + narzędzia)
 > 
-> Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Jeśli używasz programu Visual Studio 2010 zamiast programu Visual Web Developer 2010, Zainstaluj wymagania wstępne, klikając następujące łącze: [wymagania wstępne programu Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Projekt Visual Web Developer z kodem źródłowym VB.NET jest dostępna powiązany z tym tematem. [Pobierz wersję VB.NET](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz C#, przełącz się do [wersji języka C#](../cs/adding-a-new-field.md) po ukończeniu tego samouczka.
+> Projekt Visual Web Developer z kodem źródłowym VB.NET jest dostępny do tego tematu. [Pobierz wersję VB.NET](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz C#, przejdź do [ C# wersji](../cs/adding-a-new-field.md) tego samouczka.
 
-W tej sekcji możesz wprowadzić pewne zmiany na klasy modeli i Dowiedz się, jak można zaktualizować schematu bazy danych, aby dopasować zmiany modelu.
+W tej sekcji wprowadzisz pewne zmiany w klasach modelu i dowiesz się, jak można zaktualizować schemat bazy danych w taki sposób, aby pasował do zmiany modelu.
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu Movie
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości oceny do modelu filmu
 
-Rozpocznij, dodając nowe `Rating` właściwości do istniejących `Movie` klasy. Otwórz *Movie.cs* pliku i Dodaj `Rating` właściwość podobny do poniższego:
+Zacznij od dodania nowej właściwości `Rating` do istniejącej klasy `Movie`. Otwórz plik *Movie.cs* i dodaj Właściwość `Rating` w następujący sposób:
 
 [!code-vb[Main](adding-a-new-field/samples/sample1.vb)]
 
-Pełne `Movie` klasy teraz wygląda podobnie do poniższego kodu:
+Kompletna Klasa `Movie` teraz wygląda następująco:
 
 [!code-vb[Main](adding-a-new-field/samples/sample2.vb)]
 
-Ponowna kompilacja aplikacji przy użyciu **debugowania** &gt; **kompilacji filmu** polecenia menu.
+Ponownie skompiluj aplikację przy użyciu polecenia **debuguj** &gt;**Kompiluj film** menu.
 
-Teraz, gdy użytkownik zaktualizował `Model` klasy, należy również zaktualizować *\Views\Movies\Index.vbhtml* i *\Views\Movies\Create.vbhtml* wyświetlać szablony w celu zapewnienia obsługi nowych `Rating`właściwości.
+Teraz, po zaktualizowaniu klasy `Model` należy również zaktualizować szablony widoków *\Views\Movies\Index.vbhtml* i *\Views\Movies\Create.vbhtml* , aby obsługiwały nową właściwość `Rating`.
 
-Otwórz<em>\Views\Movies\Index.vbhtml</em> pliku i Dodaj `<th>Rating</th>` nagłówek kolumny, tuż za <strong>cena</strong> kolumny. Następnie dodaj `<td>` kolumny w końcowej części szablonu do renderowania `@item.Rating` wartość. Poniżej przedstawiono, jakie zaktualizowane <em>Index.vbhtml</em> Wyświetl szablon wygląda następująco:
+Otwórz plik<em>\Views\Movies\Index.vbhtml</em> i Dodaj nagłówek kolumny `<th>Rating</th>` tuż po kolumnie <strong>Price</strong> . Następnie Dodaj `<td>` kolumnę blisko końca szablonu, aby renderować `@item.Rating` wartość. Poniżej znajduje się opis zaktualizowanego szablonu widoku <em>index. vbhtml</em> :
 
 [!code-vbhtml[Main](adding-a-new-field/samples/sample3.vbhtml)]
 
-Następnie otwórz *\Views\Movies\Create.vbhtml* pliku i Dodaj następujący kod w końcowej części formularza. Renderuje pola tekstowego, tak, aby można było określić klasyfikację, gdy zostanie utworzony nowy film.
+Następnie otwórz plik *\Views\Movies\Create.vbhtml* i Dodaj następujący znacznik w górnej części formularza. Spowoduje to renderowanie pola tekstowego, aby można było określić klasyfikację po utworzeniu nowego filmu.
 
 [!code-cshtml[Main](adding-a-new-field/samples/sample4.cshtml)]
 
-## <a name="managing-model-and-database-schema-differences"></a>Zarządzanie modelu i różnice schematu bazy danych
+## <a name="managing-model-and-database-schema-differences"></a>Zarządzanie modelami i różnicami w schemacie bazy danych
 
-Użytkownik zaktualizował teraz kod aplikacji do obsługi nowej `Rating` właściwości.
+Kod aplikacji został już zaktualizowany, aby obsługiwał nową właściwość `Rating`.
 
-Teraz uruchom aplikację, a następnie przejdź do */Movies* adresu URL. Gdy to zrobisz, zobaczysz następujący błąd:
+Teraz uruchom aplikację i przejdź do adresu URL */Movies* . Gdy to zrobisz, zobaczysz następujący błąd:
 
 ![](adding-a-new-field/_static/image1.png)
 
-Widzisz ten błąd, ponieważ zaktualizowanego `Movie` klasy modelu w aplikacji teraz różni się od schematu `Movie` tabeli istniejącej bazy danych. (Brak nie `Rating` kolumny w tabeli bazy danych.)
+Ten błąd jest wyświetlany, ponieważ zaktualizowana Klasa modelu `Movie` w aplikacji jest inna niż schemat tabeli `Movie` istniejącej bazy danych. (Brak kolumny `Rating` w tabeli bazy danych).
 
-Domyślnie gdy używasz programu Entity Framework Code First automatycznie utworzyć bazę danych, tak jak wcześniej w tym samouczku rozwiązanie Code First dodaje tabelę do bazy danych, aby śledzić, czy schemat bazy danych jest zsynchronizowany z klasy modelu, który został wygenerowany z. Jeśli nie są zsynchronizowane, platformy Entity Framework zgłasza błąd. Ta funkcja ułatwia śledzenie problemów w czasie programowania, które mogą w przeciwnym razie tylko się okazać (przez zasłoniętej błędy) w czasie wykonywania. Funkcja Sprawdzanie synchronizacji jest o tym, co powoduje, że komunikat o błędzie, który będzie wyświetlany, który został wyświetlony.
+Domyślnie w przypadku automatycznego tworzenia bazy danych za pomocą Code First Entity Framework, tak jak wcześniej w tym samouczku, Code First dodaje tabelę do bazy danych, aby ułatwić śledzenie, czy schemat bazy danych jest zsynchronizowany z klasami modelu, z których została wygenerowana. Jeśli nie są zsynchronizowane, Entity Framework zgłosi błąd. Ułatwia to Śledzenie problemów w czasie opracowywania, które można znaleźć w innym miejscu (poprzez zaciemnienie błędów) w czasie wykonywania. Funkcja sprawdzania synchronizacji powoduje, że komunikat o błędzie zostanie wyświetlony.
 
-Istnieją dwa sposoby rozwiązania problemu:
+Istnieją dwa podejścia do rozwiązania błędu:
 
-1. Ma automatycznie Porzuć i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu Entity Framework. To podejście jest bardzo wygodne podczas ustalania active rozwoju w bazie danych testu, ponieważ pozwala szybko się rozwijać, schematu modelu i bazie danych razem. Wadą jednak jest utraty istniejących danych w bazie danych — dzięki czemu możesz *nie* chcesz użyć tej metody w produkcyjnej bazie danych!
-2. Jawnie zmodyfikować schemat istniejącej bazy danych, aby odpowiadały one klasy modelu. Zaletą tego podejścia jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych zmiana skryptu.
+1. Entity Framework automatycznie porzucić i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu. Takie podejście jest bardzo wygodne podczas aktywnego programowania na testowej bazie danych, ponieważ umożliwia szybkie rozwijanie modelu i schematu bazy danych. Minusem, mimo że utracisz istniejące dane w bazie danych, więc *nie* chcesz używać tego podejścia w produkcyjnej bazie danych.
+2. Jawnie zmodyfikuj schemat istniejącej bazy danych, tak aby pasował do klas modelu. Zaletą tego podejścia jest utrzymywanie danych. Tę zmianę można wprowadzić ręcznie lub przez utworzenie skryptu zmiany bazy danych.
 
-W tym samouczku użyjemy pierwszego podejścia — będziesz mieć Entity Framework Code First automatycznie ponownie utworzyć bazę danych, w dowolnym momencie zmiany modelu.
+W tym samouczku użyjemy pierwszego podejścia — Entity Framework Code First automatycznie ponownie utworzyć bazę danych w dowolnym momencie zmiany modelu.
 
-## <a name="automatically-re-creating-the-database-on-model-changes"></a>Automatyczne ponowne tworzenie bazy danych na zmiany modelu
+## <a name="automatically-re-creating-the-database-on-model-changes"></a>Automatyczne ponowne tworzenie bazy danych przy użyciu zmian modelu
 
-Zaktualizujmy aplikacji, dzięki czemu Code First automatycznie umieszcza i ponownie tworzy bazę danych w dowolnym momencie możesz zmienić modelu dla aplikacji.
+Zaktualizujmy aplikację, tak aby Code First automatycznie porzucać i odtworzył bazę danych w dowolnym momencie zmiany modelu aplikacji.
 
 > [!NOTE] 
 > 
-> **Ostrzeżenie** należy włączyć takie podejście automatycznie porzucenie i ponowne utworzenie bazy danych, tylko wtedy, gdy używasz deweloperskie lub testowe bazy danych i *nigdy nie* na produkcyjnej bazy danych, który zawiera rzeczywiste dane. Używany na serwerze produkcyjnym może prowadzić do utraty danych.
+> **Ostrzeżenie** Należy włączyć tę metodę automatycznego porzucania i ponownego tworzenia bazy danych tylko w przypadku korzystania z bazy danych programistycznych lub testowych, a *nie* w produkcyjnej bazie danych, która zawiera rzeczywiste dane. Korzystanie z niego na serwerze produkcyjnym może prowadzić do utraty danych.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *modeli* folderu, wybierz **Dodaj**, a następnie wybierz pozycję **klasy**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *modele* , wybierz polecenie **Dodaj**, a następnie wybierz pozycję **Klasa**.
 
 ![](adding-a-new-field/_static/image2.png)
 
-Nazwa klasy &quot;MovieInitializer&quot;. Aktualizacja `MovieInitializer` klasa może zawierać następujący kod:
+Nazwij klasę &quot;MovieInitializer&quot;. Zaktualizuj klasę `MovieInitializer`, aby zawierała następujący kod:
 
 [!code-vb[Main](adding-a-new-field/samples/sample5.vb)]
 
-`MovieInitializer` Klasa określa, że usunięty i ponownie tworzone automatycznie w przypadku klasy modelu kiedykolwiek zmiany bazy danych używanej przez model. Kod zawiera `Seed` metodę, aby określić dane domyślne do automatycznego dodawania do bazy danych dowolnej czasu utworzyć (lub odtwarzaniu). Zapewnia to wygodny sposób, aby wypełnić bazę danych z pewnymi przykładowymi danymi bez konieczności ręcznie wypełnić ją po każdym wprowadzeniu zmiany modelu.
+Klasa `MovieInitializer` określa, że baza danych używana przez model powinna zostać porzucona i automatycznie ponownie utworzona, jeśli ulegną zmianie klasy modelu. Kod zawiera metodę `Seed`, aby określić niektóre domyślne dane, które mają być automatycznie dodawane do bazy danych w dowolnym momencie, gdy zostanie ona utworzona (lub utworzona). Zapewnia to przydatny sposób wypełniania bazy danych niektórymi przykładowymi danymi, bez konieczności ręcznego wypełniania przy każdym wprowadzeniu zmiany modelu.
 
-Skoro zdefiniowano `MovieInitializer` klasy, będziesz chciał Podłączanie, dzięki czemu przy każdym uruchomieniu aplikacji sprawdza czy klasy modelu różnią się od schematu w bazie danych. W takim przypadku możesz uruchomić inicjator, tak aby ponownie utworzyć bazę danych do zgodny z modelem, a następnie wypełnij bazy danych z przykładowymi danymi.
+Teraz, po zdefiniowaniu klasy `MovieInitializer`, należy ją połączyć w taki sposób, aby po każdym uruchomieniu aplikacji sprawdzić, czy klasy modelu różnią się od schematu w bazie danych. Jeśli tak, można uruchomić inicjatora, aby ponownie utworzyć bazę danych w celu dopasowania jej do modelu, a następnie wypełnić bazę danych przykładowymi danymi.
 
-Otwórz *Global.asax* pliku, który znajduje się w katalogu głównym `MvcMovies` projektu:
+Otwórz plik *Global. asax* , który znajduje się w katalogu głównym projektu `MvcMovies`:
 
-*Global.asax* plik zawiera klasę, która definiuje całej aplikacji dla projektu i zawiera `Application_Start` program obsługi zdarzeń, który jest wykonywany po pierwszym uruchomieniu aplikacji.
+Plik *Global. asax* zawiera klasę, która definiuje całą aplikację dla projektu i zawiera `Application_Start` program obsługi zdarzeń, który jest uruchamiany podczas pierwszego uruchomienia aplikacji.
 
-Znajdź `Application_Start` metody i dodaj wywołanie do `Database.SetInitializer` na początku metody, jak pokazano poniżej:
+Znajdź metodę `Application_Start` i Dodaj wywołanie do `Database.SetInitializer` na początku metody, jak pokazano poniżej:
 
 [!code-vb[Main](adding-a-new-field/samples/sample6.vb)]
 
-`Database.SetInitializer` Dodanej instrukcji wskazuje, że bazy danych używane przez `MovieDBContext` wystąpienia powinien zostać automatycznie usunięta i utworzona ponownie, jeśli schemat i bazy danych nie są zgodne. I, co będzie również wypełniać bazy danych z przykładowymi danymi, który jest określony w `MovieInitializer` klasy.
+Właśnie dodana Instrukcja `Database.SetInitializer` wskazuje, że baza danych używana przez wystąpienie `MovieDBContext` powinna zostać automatycznie usunięta i ponownie utworzona, jeśli schemat i baza danych nie są zgodne. I w miarę wypełniania, spowoduje to również wypełnienie bazy danych danymi przykładowymi, które są określone w klasie `MovieInitializer`.
 
-Zamknij *Global.asax* pliku.
+Zamknij plik *Global. asax* .
 
-Uruchom ponownie aplikację i przejdź do */Movies* adresu URL. Podczas uruchamiania aplikacji, wykrywa, że struktura modelu nie jest już zgodny ze schematem bazy danych. Automatycznie ponownie tworzy bazę danych, aby dopasować nową strukturę modelu i wypełnienie bazy danych o filmy próbki:
+Uruchom aplikację jeszcze raz i przejdź do adresu URL */Movies* . Po uruchomieniu aplikacji wykryje, że struktura modelu nie jest już zgodna ze schematem bazy danych. Automatycznie ponownie tworzy bazę danych w celu dopasowania jej do nowej struktury modelu i wypełniania bazy danych za pomocą przykładowych filmów:
 
 ![7_MyMovieList_SM](adding-a-new-field/_static/image3.png)
 
-Kliknij przycisk **Utwórz nowy** łącze, aby dodać nowy film. Należy pamiętać, że można dodawać ocenę.
+Kliknij link **Utwórz nowy** , aby dodać nowy film. Należy pamiętać, że można dodać klasyfikację.
 
 [![7_CreateRioII](adding-a-new-field/_static/image5.png)](adding-a-new-field/_static/image4.png)
 
-Kliknij przycisk **Utwórz**. Ten nowy film, w tym klasyfikacji, wyświetlane w filmach, wyświetlanie listy:
+Kliknij przycisk **Utwórz**. Nowy film, łącznie z klasyfikacją, znajduje się teraz na liście filmów:
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image6.png)
 
-W tej sekcji pokazano, jak można modyfikować obiekty modelu i synchronizację bazy danych przy użyciu zmian. Przedstawiono również sposób wypełnić nowo utworzoną bazę danych z przykładowymi danymi, dzięki czemu możesz wypróbować scenariuszy. Następnie Przyjrzyjmy się jak dodać bogatsze logikę walidacji do klas modelu i włączyć niektóre reguły biznesowe zostaną wymuszone.
+W tej sekcji pokazano, jak można modyfikować obiekty modelu i zachować synchronizację bazy danych ze zmianami. Poznasz również sposób wypełniania nowo utworzonej bazy danych z przykładowymi danymi, dzięki czemu można wypróbować scenariusze. Następnie Przyjrzyjmy się sposobom dodawania bogatszej logiki walidacji do klas modelu i włączania niektórych reguł firmowych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](examining-the-edit-methods-and-edit-view.md)

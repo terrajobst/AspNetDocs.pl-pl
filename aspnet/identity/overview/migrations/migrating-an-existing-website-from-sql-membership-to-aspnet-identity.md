@@ -9,16 +9,16 @@ ms.custom: seoapril2019
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: eacfbb8a5b2d1aa3678892bc2077a56185fdebbc
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 633229cc4311d151121bf6a91b9fa8aeecca1197
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519157"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456156"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT), [Suhas Joshi](https://github.com/suhasj)
 
 > W tym samouczku przedstawiono procedurę migrowania istniejącej aplikacji sieci Web z danymi użytkownika i roli utworzonych przy użyciu członkostwa SQL w nowym systemie ASP.NET Identity. To podejście obejmuje zmianę istniejącego schematu bazy danych na ten, który jest wymagany przez ASP.NET Identity i hak w stare/nowe klasy do niego. Po zastosowaniu tej metody po migracji bazy danych przyszłe aktualizacje tożsamości będą obsługiwane bezproblemowo.
 
@@ -85,27 +85,27 @@ Aby ASP.NET Identity klasy do pracy z danymi istniejących użytkowników, musim
 
 | **IdentityUser** | **Typ** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
-| Id | string | Id | RoleId | ProviderKey | Id |
-| Nazwa użytkownika | string | Nazwa | UserId | UserId | Claim |
-| PasswordHash | string |  |  | LoginProvider | ClaimValue |
-| SecurityStamp | string |  |  |  | Identyfikator\_użytkownika |
-| Poczta e-mail | string |  |  |  |  |
+| Identyfikator | ciąg | Identyfikator | RoleId | ProviderKey | Identyfikator |
+| Nazwa użytkownika | ciąg | Name (Nazwa) | UserId | UserId | Claim |
+| PasswordHash | ciąg |  |  | LoginProvider | ClaimValue |
+| SecurityStamp | ciąg |  |  |  | Identyfikator\_użytkownika |
+| Email | ciąg |  |  |  |  |
 | EmailConfirmed | bool |  |  |  |  |
-| NumerTelefonu | string |  |  |  |  |
+| PhoneNumber | ciąg |  |  |  |  |
 | PhoneNumberConfirmed | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
-| LockoutEndDate | DataGodzina |  |  |  |  |
+| LockoutEndDate | DateTime |  |  |  |  |
 | AccessFailedCount | int |  |  |  |  |
 
 Musimy mieć tabele dla każdego z tych modeli z kolumnami odpowiadającymi właściwościom. Mapowanie między klasami i tabelami jest zdefiniowane w metodzie `OnModelCreating` `IdentityDBContext`. Jest to tzw. Metoda konfiguracji interfejsu API Fluent i więcej informacji można znaleźć [tutaj](https://msdn.microsoft.com/data/jj591617.aspx). Konfiguracja klas została opisana poniżej
 
-| **Class** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
+| **Określonej** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
 | --- | --- | --- | --- |
-| IdentityUser | AspnetUsers | Id |  |
-| IdentityRole | AspnetRoles | Id |  |
+| IdentityUser | AspnetUsers | Identyfikator |  |
+| IdentityRole | AspnetRoles | Identyfikator |  |
 | IdentityUserRole | AspnetUserRole | Identyfikator użytkownika i RoleId | Identyfikator\_użytkownika —&gt;AspnetUsers RoleId-&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserId + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Id | User\_Id-&gt;AspnetUsers |
+| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserId + LoginProvider | Identyfikator użytkownika —&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Identyfikator | Identyfikator\_użytkownika —&gt;AspnetUsers |
 
 Za pomocą tych informacji możemy utworzyć instrukcje SQL, aby utworzyć nowe tabele. Możemy ręcznie napisać każdą instrukcję lub wygenerować cały skrypt za pomocą poleceń programu PowerShell EntityFramework, które możemy edytować zgodnie z potrzebami. W tym celu w programie VS Otwórz **konsolę Menedżera pakietów** z menu Widok lub **Narzędzia** **.**
 

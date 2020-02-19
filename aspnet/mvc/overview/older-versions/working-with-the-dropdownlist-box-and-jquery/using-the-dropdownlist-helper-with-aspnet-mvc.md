@@ -8,20 +8,20 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 0ded9fea8a77824645e87c37cdb3376e618a2f25
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 6375bb2be158cea18309ffa71c71ac3e67bc91ed
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075128"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457872"
 ---
 # <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Używanie pomocnika DropDownList we wzorcu ASP.NET MVC
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku przedstawiono podstawowe informacje dotyczące pracy z pomocnikiem [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) i pomocnika [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) w aplikacji sieci Web ASP.NET MVC. Możesz użyć programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest bezpłatną wersją Microsoft Visual Studio, aby postępować zgodnie z samouczkiem. Przed rozpoczęciem upewnij się, że zainstalowano wymagania wstępne wymienione poniżej. Wszystkie z nich można zainstalować, klikając następujące łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie możesz zainstalować wstępnie wymagane składniki, korzystając z następujących linków:
 
-- [Wymagania wstępne programu Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
+- [Wymagania wstępne programu Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
 - [Aktualizacja narzędzi ASP.NET MVC 3](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(obsługa środowiska uruchomieniowego + narzędzia)
 
@@ -42,7 +42,7 @@ Oto, co uzyskasz:
 - Jak używać pomocnika [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx) do wybierania danych kategorii.
 - Jak dodać nowe kategorie przy użyciu okna dialogowego **jQuery** .
 
-### <a name="getting-started"></a>Getting Started
+### <a name="getting-started"></a>Wprowadzenie
 
 Zacznij od pobrania początkowego projektu z następującym łączem, [Pobierz](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15829). W Eksploratorze Windows kliknij prawym przyciskiem myszy plik *DDL\_Starter. zip* , a następnie wybierz polecenie Właściwości. W oknie dialogowym **właściwości języka DDL\_Starter. zip** wybierz opcję Odblokuj.
 

@@ -1,143 +1,143 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
-title: Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 z ASP.NET MVC — część 2 | Dokumentacja firmy Microsoft
+title: Korzystanie z okienka podręcznego DatePicker interfejsu użytkownika HTML5 i jQuery z ASP.NET MVC — część 2 | Microsoft Docs
 author: Rick-Anderson
-description: Ta seria samouczków obejmuje podstawowe informacje dotyczące korzystania z edytora szablonów, szablony i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w MV ASP.NET...
+description: W tym samouczku przedstawiono podstawowe informacje dotyczące pracy z szablonami edytora, szablonów wyświetlania i menu podręcznego interfejsu użytkownika jQuery DatePicker w ASP.NET MV...
 ms.author: riande
 ms.date: 08/29/2011
 ms.assetid: 21a178de-4c5a-4211-8a9c-74ec576c0f30
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: ba6246d97ecd48a5fe947d4998b42250133039e3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 325cc90eb6e717c47863eda6253e0d48d796386b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129595"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455896"
 ---
-# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 z ASP.NET MVC — część 2
+# <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>Korzystanie z menu podręcznego interfejsu użytkownika HTML5 i jQuery DatePicker z ASP.NET MVC — część 2
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> Ta seria samouczków obejmuje podstawowe informacje dotyczące korzystania z edytora szablonów, szablony i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w aplikacji sieci Web platformy ASP.NET MVC.
+> W tym samouczku przedstawiono podstawowe informacje dotyczące pracy z szablonami edytora, szablonów wyświetlania i okienka podręcznego interfejsu użytkownika jQuery DatePicker w aplikacji sieci Web ASP.NET MVC.
 
-## <a name="adding-an-automatic-datetime-template"></a>Dodanie automatycznego szablonu daty/godziny
+## <a name="adding-an-automatic-datetime-template"></a>Dodawanie automatycznego szablonu DateTime
 
-W pierwszej części tego samouczka pokazano sposób dodawania atrybutów do modelu, aby jawnie określić formatowanie i jak możesz jawnie określić szablon, który zostanie użyty do wyświetlenia modelu. Na przykład [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu w poniższym kodzie jawnie określa formatowanie `ReleaseDate` właściwości.
+W pierwszej części tego samouczka dowiesz się, jak dodać atrybuty do modelu, aby jawnie określić formatowanie oraz jak można jawnie określić szablon, który jest używany do renderowania modelu. Na przykład atrybut [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) w poniższym kodzie jawnie określa formatowanie właściwości `ReleaseDate`.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
-W poniższym przykładzie [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutu, za pomocą `Date` wyliczenia, określa, że szablon dat powinny być używane do wyświetlenia modelu. Jeśli nie ma daty szablonu w projekcie, jest używany szablon wbudowanych daty.
+W poniższym przykładzie atrybut [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) , przy użyciu wyliczenia `Date`, określa, że szablon daty powinien być używany do renderowania modelu. Jeśli w projekcie nie ma szablonu daty, używany jest wbudowany szablon daty.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample2.cs)]
 
-Jednak ASP. MVC można wykonać dopasowanie typu przy użyciu konwencji over konfiguracji przez wyszukiwanie szablonu, który jest zgodna z nazwą typu. Dzięki temu można utworzyć szablon, który automatycznie formatuje dane bez użycia żadnych atrybutów lub kodu w ogóle. W tej części samouczka utworzysz szablon, który jest automatycznie stosowany do właściwości w modelu typu [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx). Nie trzeba używać atrybutu lub inna konfiguracja Aby określić, że szablon powinien być używany do renderowania wszystkie właściwości modelu typu [daty/godziny](https://msdn.microsoft.com/library/system.datetime.aspx).
+Jednak ASP. MVC można wykonać dopasowanie typu przy użyciu konwencji-over-Configuration, szukając szablonu zgodnego z nazwą typu. Dzięki temu można utworzyć szablon, który automatycznie formatuje dane bez używania jakichkolwiek atrybutów lub kodu. W tej części samouczka utworzysz szablon, który jest automatycznie stosowany do właściwości modelu typu [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Nie trzeba używać atrybutu ani innej konfiguracji, aby określić, że szablon ma być używany do renderowania wszystkich właściwości modelu typu [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx).
 
-Poznasz również sposób, aby dostosować wyświetlanie indywidualne właściwości lub nawet poszczególnych pól.
+Dowiesz się również, jak dostosować wyświetlanie poszczególnych właściwości, a nawet pojedynczych pól.
 
-Aby rozpocząć, możemy usunąć istniejące informacje o formatowaniu i wyświetlanie pełne dat w aplikacji.
+Aby rozpocząć, usuńmy istniejące informacje o formatowaniu i wyświetlaj pełne daty w aplikacji.
 
-Otwórz *Movie.cs* pliku i Skomentuj `DataType` atrybutu na `ReleaseDate` właściwości:
+Otwórz plik *Movie.cs* i skomentuj atrybut `DataType` właściwości `ReleaseDate`:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample3.cs)]
 
-Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
 
-Należy zauważyć, że `ReleaseDate` właściwość wyświetli teraz daty i godziny, ponieważ jest to wartość domyślna, gdy została podana nie informacje o formatowaniu.
+Zauważ, że właściwość `ReleaseDate` wyświetla teraz zarówno datę, jak i godzinę, ponieważ jest to wartość domyślna, jeśli nie podano informacji o formatowaniu.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image1.png)
 
-### <a name="adding-css-styles-for-testing-new-templates"></a>Dodawanie style CSS do testowania nowych szablonów
+### <a name="adding-css-styles-for-testing-new-templates"></a>Dodawanie stylów CSS do testowania nowych szablonów
 
-Przed utworzeniem szablonu do formatowania dat, należy dodać kilka reguły stylów CSS, które można stosować do nowych szablonów. Funkcje te pomogą możesz sprawdzić, czy nowy szablon używa renderowanej strony.
+Przed utworzeniem szablonu do formatowania dat należy dodać kilka reguł stylów CSS, które można zastosować do nowych szablonów. Dzięki temu można sprawdzić, czy renderowane strony używa nowego szablonu.
 
-Otwórz *Content\Site.cs*s pliku i dodaj następujące reguły CSS do dolnej części pliku:
+Otwórz plik *Content\Site.cs*s i Dodaj następujące reguły CSS w dolnej części pliku:
 
 [!code-css[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample4.css)]
 
-### <a name="adding-datetime-display-templates"></a>Dodawanie szablonów wyświetlania daty/godziny
+### <a name="adding-datetime-display-templates"></a>Dodawanie szablonów wyświetlania DateTime
 
-Teraz możesz utworzyć nowy szablon. W *Views\Movies* folderze utwórz *DisplayTemplates* folderu.
+Teraz można utworzyć nowy szablon. W folderze *Views\Movies* Utwórz folder *DisplayTemplates* .
 
-W *Views\Shared* folderze utwórz *DisplayTemplates* folder i *EditorTemplates* folderu.
+W folderze *Views\Shared* Utwórz folder *DisplayTemplates* i folder *EditorTemplates* .
 
-Szablony ekranu w *folder Views\Shared\DisplayTemplates* folder będzie używana przez wszystkich kontrolerów. Szablony ekranu w *Views\Movie\DisplayTemplates* folder będzie używany tylko przez `Movie` kontrolera. (Jeśli szablon o tej samej nazwie pojawia się w obu folderów szablonu w *Views\Movie\DisplayTemplates* folderu — czyli dokładniej szablonu — ma pierwszeństwo przed widoków zwrócony przez `Movie` kontrolera.)
+Szablony wyświetlania w folderze *Views\Shared\DisplayTemplates* będą używane przez wszystkie kontrolery. Szablony wyświetlania w folderze *Views\Movie\DisplayTemplates* będą używane tylko przez kontroler `Movie`. (Jeśli szablon o tej samej nazwie jest wyświetlany w obu folderach, szablon w folderze *Views\Movie\DisplayTemplates* — to znaczy, szablon bardziej szczegółowy — ma pierwszeństwo w przypadku widoków zwracanych przez kontroler `Movie`).
 
-W **Eksploratora rozwiązań**, rozwiń węzeł *widoków* folder, rozwiń węzeł *Shared* folder, a następnie kliknij prawym przyciskiem myszy *folder Views\Shared\DisplayTemplates* folderu.
+W **Eksplorator rozwiązań**rozwiń folder *widoki* , rozwiń folder *udostępniony* , a następnie kliknij prawym przyciskiem myszy folder *Views\Shared\DisplayTemplates* .
 
-Kliknij przycisk **Dodaj** a następnie kliknij przycisk **widoku**. **Dodaj widok** zostanie wyświetlone okno dialogowe.
+Kliknij przycisk **Dodaj** , a następnie kliknij przycisk **Wyświetl**. Zostanie wyświetlone okno dialogowe **Dodawanie widoku** .
 
-W **nazwy widoku** wpisz `DateTime`. (Aby pasować do nazwy typu należy użyć tej nazwy).
+W polu **Nazwa widoku** wpisz `DateTime`. (Ta nazwa musi być używana w celu dopasowania do nazwy typu).
 
-Wybierz **Utwórz jako widok częściowy** pole wyboru. Upewnij się, że **Użyj układ strony wzorcowej** i **utworzyć widok silnie typizowane** nie są zaznaczone pola wyboru.
+Zaznacz pole wyboru **Utwórz jako widok częściowy** . Upewnij się, że pola **Używaj układu lub strony wzorcowej** i **Utwórz widok z silną typem** nie są zaznaczone.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image2.png)
 
-Kliknij przycisk **Dodaj**. A *DateTime.cshtml* szablon został utworzony w *folder Views\Shared\DisplayTemplates*.
+Kliknij pozycję **Add** (Dodaj). W *Views\Shared\DisplayTemplates*jest tworzony szablon *DateTime. cshtml* .
 
-Na poniższej ilustracji przedstawiono *widoków* folderu w **Eksploratora rozwiązań** po `DateTime` szablony ekranu i edytora są tworzone.
+Na poniższej ilustracji przedstawiono folder *widoki* w **Eksplorator rozwiązań** po utworzeniu `DateTime` szablonów wyświetlania i edytora.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image3.png)
 
-Otwórz *Views\Shared\DisplayTemplates\DateTime.cshtml* pliku i Dodaj następujący kod, który używa [String.Format](https://msdn.microsoft.com/library/system.string.format.aspx) metodę do właściwości w formacie daty bez godziny. ( `{0:d}` Format Określa format daty krótkiej.)
+Otwórz plik *Views\Shared\DisplayTemplates\DateTime.cshtml* i Dodaj następujący znacznik, który używa metody [String. format](https://msdn.microsoft.com/library/system.string.format.aspx) , aby sformatować właściwość jako datę bez czasu. (Format `{0:d}` określa format daty krótkiej).
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample5.cs)]
 
-Powtórz ten krok, aby utworzyć `DateTime` szablonu w *Views\Movie\DisplayTemplates* folderu. Użyj poniższego kodu w *Views\Movie\DisplayTemplates\DateTime.cshtml* pliku.
+Powtórz ten krok, aby utworzyć szablon `DateTime` w folderze *Views\Movie\DisplayTemplates* . Użyj poniższego kodu w pliku *Views\Movie\DisplayTemplates\DateTime.cshtml* .
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample6.cs)]
 
-`loud-1` Datą, która ma być wyświetlana czcionką pogrubioną red powoduje, że klasę CSS. Możesz dodać `loud-1` klasy CSS, po prostu jako tymczasowy środek, dzięki czemu można łatwo zobaczyć, kiedy tego konkretnego szablon jest używany.
+Klasa `loud-1` CSS powoduje, że data jest wyświetlana pogrubioną czerwoną czcionką. Klasa `loud-1` CSS została dodana jako środek tymczasowy, dzięki czemu można łatwo zobaczyć, kiedy ten konkretny szablon jest używany.
 
-Zostały wykonane zostanie utworzony i dostosowywać szablony używające programu ASP.NET na potrzeby wyświetlania dat. Bardziej ogólne szablonu (w *folder Views\Shared\DisplayTemplates* folder) zawiera prosty daty krótkiej. Szablon, który jest specjalnie pod kątem `Movie` kontrolera (w *Views\Movies\DisplayTemplates* folder) Wyświetla daty krótkiej, który również jest sformatowany jako pogrubiony czerwony tekst.
+Utworzone przez Ciebie elementy i dostosowane szablony, które będą używane przez ASP.NET do wyświetlania dat. Bardziej ogólny szablon (w folderze *Views\Shared\DisplayTemplates* ) wyświetla prostą datę krótką. Szablon przeznaczony dla kontrolera `Movie` (w folderze *Views\Movies\DisplayTemplates* ) zawiera krótką datę, która jest również formatowana jako czerwony tekst.
 
-Naciśnij klawisze CTRL + F5, aby uruchomić aplikację. Przeglądarka wyświetla widok indeksu dla aplikacji.
+Naciśnij klawisze CTRL+F5, aby uruchomić aplikację. Przeglądarka renderuje widok indeksu dla aplikacji.
 
-`ReleaseDate` Właściwość teraz Wyświetla datę pogrubioną czcionką czerwony, bez czasu. Dzięki temu można potwierdzić, że `DateTime` oparte na szablonach pomocnika w *Views\Movies\DisplayTemplates* wybraniu folderu za pośrednictwem `DateTime` oparte na szablonach pomocy z folderu udostępnionego (*Views\Shared\ DisplayTemplates*).
+Właściwość `ReleaseDate` teraz wyświetla datę w pogrubieniu czerwoną czcionką bez czasu. Dzięki temu można potwierdzić, że pomocnik szablonu `DateTime` w folderze *Views\Movies\DisplayTemplates* jest wybierany przez pomocnika `DateTime` szablon w folderze udostępnionym (*Views\Shared\DisplayTemplates*).
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image4.png)
 
-Teraz Zmień nazwę *Views\Movies\DisplayTemplates\DateTime.cshtml* plik *Views\Movies\DisplayTemplates\LoudDateTime.cshtml*.
+Teraz zmień nazwę pliku *Views\Movies\DisplayTemplates\DateTime.cshtml* na *Views\Movies\DisplayTemplates\LoudDateTime.cshtml*.
 
-Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
 
-Tym razem `ReleaseDate` właściwości wyświetla datę bez czasu i czerwony czcionki. Obrazuje to, że typu szablonu, który zawiera nazwę danych (w tym przypadku `DateTime`) jest automatycznie używany do wyświetlenia wszystkich właściwości modelu tego typu. Po zakończeniu zmieniona *DateTime.cshtml* plik *LoudDateTime.cshtml*, ASP.NET już nie można odnaleźć szablonu w *Views\Movies\DisplayTemplates* folderu, więc używać *DateTime.cshtml* szablonu z * Views\Movies\Shared\* folderu.
+Tym razem Właściwość `ReleaseDate` wyświetla datę bez czasu i bez pogrubionej czerwonej czcionki. Pokazuje to, że szablon, który ma nazwę typu danych (w tym przypadku `DateTime`) jest automatycznie używany do wyświetlania wszystkich właściwości modelu tego typu. Po zmianie nazwy pliku *DateTime. cshtml* na *LoudDateTime. cshtml*ASP.NET nie znaleziono szablonu w folderze *Views\Movies\DisplayTemplates* , dlatego użyto szablonu *DateTime. cshtml* z folderu * Views\Movies\Shared\*.
 
-(Szablonu zgodnej jest uwzględniana wielkość liter, więc nazwa pliku szablonu mogły być utworzone przy użyciu dowolnej wielkości liter. Adapterem *DATETIME.cshtml, datetime.cshtml*, i *DaTeTiMe.cshtml* wszystkie dopasuje `DateTime` typu.)
+(W dopasowaniu do szablonu jest rozróżniana wielkość liter, dlatego można utworzyć nazwę pliku szablonu z dowolną wielkością liter. Na przykład wartości *DateTime. cshtml, DateTime. cshtml*i *DateTime. cshtml* byłyby zgodne z typem `DateTime`.)
 
-Aby zapoznać się z: w tym momencie `ReleaseDate` pola są wyświetlane przy użyciu *Views\Movies\DisplayTemplates\DateTime.cshtml* szablonu, który wyświetla dane przy użyciu formatu daty krótkiej, ale w przeciwnym razie dodaje nie specjalne formatowanie.
+Aby przejrzeć: w tym momencie pole `ReleaseDate` jest wyświetlane przy użyciu szablonu *Views\Movies\DisplayTemplates\DateTime.cshtml* , który wyświetla dane przy użyciu formatu daty krótkiej, ale w przeciwnym razie nie dodaje żadnych specjalnych formatów.
 
-### <a name="using-uihint-to-specify-a-display-template"></a>Aby określić szablon wyświetlania przy użyciu UIHint
+### <a name="using-uihint-to-specify-a-display-template"></a>Określanie szablonu wyświetlania przy użyciu UIHint
 
-Jeśli aplikacja sieci web ma wiele `DateTime` pola i domyślnie, aby wyświetlić wszystkie lub większość z nich w trybie tylko do daty, *DateTime.cshtml* szablonu to dobra metoda. Ale co zrobić, jeśli masz kilka daty której chcesz wyświetlić pełną datę i godzinę? Nie ma sprawy. Można utworzyć dodatkowe szablony i użyć [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atrybutu, aby określić formatowanie dla pełnej daty i godziny. Można selektywnie użyć tego szablonu. Możesz użyć [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atrybut na poziomie modelu, lub możesz określić szablon w widoku. W tej sekcji pokazano, jak używać `UIHint` atrybutu, aby selektywnie zmienić formatowanie do niektórych wystąpień pól daty i godziny.
+Jeśli aplikacja sieci Web ma wiele pól `DateTime` i domyślnie chcesz wyświetlić wszystkie lub większość z nich w formacie daty i godziny, szablon *DateTime. cshtml* jest dobrym rozwiązaniem. Ale co zrobić, jeśli masz kilka dat, w których chcesz wyświetlić pełną datę i godzinę? Nie ma sprawy. Można utworzyć dodatkowy szablon i użyć atrybutu [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) , aby określić formatowanie dla pełnej daty i godziny. Następnie można wybiórczo zastosować ten szablon. Można użyć atrybutu [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) na poziomie modelu lub określić szablon w widoku. W tej sekcji zobaczysz, jak używać atrybutu `UIHint`, aby selektywnie zmienić formatowanie niektórych wystąpień pól daty i godziny.
 
-Otwórz *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* plik i Zastąp istniejący kod następującym kodem:
+Otwórz plik *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* i Zastąp istniejący kod następującym kodem:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample7.cshtml)]
 
-To powoduje, że pełną datę i godzinę, które mają być wyświetlane i dodaje klasę CSS, która sprawia, że tekst zielony, jak i dużych.
+Powoduje to wyświetlenie pełnej daty i godziny i dodanie klasy CSS, która sprawia, że tekst jest zielony i duży.
 
-Otwórz *Movie.cs* pliku i Dodaj [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atrybutu `ReleaseDate` właściwości, jak pokazano w poniższym przykładzie:
+Otwórz plik *Movie.cs* i Dodaj atrybut [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) do właściwości `ReleaseDate`, jak pokazano w następującym przykładzie:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample8.cs)]
 
-To poinformuje platformę ASP.NET MVC, gdy zostanie wyświetlony `ReleaseDate` właściwości (w szczególności, a nie do byle `DateTime` obiektu), powinna korzystać *LoudDateTime.cshtml* szablonu.
+Oznacza to, że ASP.NET MVC, że po wyświetleniu właściwości `ReleaseDate` (w specjalnym, a nie tylko w przypadku obiektu `DateTime`) powinien użyć szablonu *LoudDateTime. cshtml* .
 
-Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
 
-Należy zauważyć, że `ReleaseDate` właściwości są obecnie wyświetlane data i godzina z użyciem dużej czcionki zielony.
+Zauważ, że właściwość `ReleaseDate` teraz wyświetla datę i godzinę w dużej zielonej czcionce.
 
-Wróć do `UIHint` atrybutu w *Movie.cs* pliku, a komentarz dotyczący działanie więc *LoudDateTime.cshtml* nie będzie można użyć szablonu. Uruchom ponownie aplikację. Data wydania nie jest wyświetlana, duże i zielony. Sprawdza czy *Views\Shared\DisplayTemplates\DateTime.cshtml* szablon jest używany w widokach indeksu i szczegóły.
+Powróć do atrybutu `UIHint` w pliku *Movie.cs* i Skomentuj go, aby nie był używany szablon *LoudDateTime. cshtml* . Uruchom ponownie aplikację. Data wydania nie jest wyświetlana jako duża i zielona. Sprawdza, czy szablon *Views\Shared\DisplayTemplates\DateTime.cshtml* jest używany w widokach indeksu i szczegółów.
 
-Jak wspomniano wcześniej, można także zastosować szablon w widoku umożliwiają zastosowanie szablonu poszczególne wystąpienia niektórych danych. Otwórz *Views\Movies\Details.cshtml* widoku. Dodaj `"LoudDateTime"` jako drugi parametr [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) wywołania dla `ReleaseDate` pola. Kompletny kod wygląda następująco:
+Jak wspomniano wcześniej, można również zastosować szablon w widoku, który umożliwia zastosowanie szablonu do poszczególnych wystąpień pewnych danych. Otwórz widok *Views\Movies\Details.cshtml* . Dodaj `"LoudDateTime"` jako drugi parametr wywołania [HTML. DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) dla pola `ReleaseDate`. Ukończony kod wygląda następująco:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample9.cshtml)]
 
-Określa, że `LoudDateTime` szablon powinien być używany do wyświetlania właściwości modelu, niezależnie od tego, jakie atrybuty są stosowane do modelu.
+Określa, że szablon `LoudDateTime` powinien być używany do wyświetlania właściwości modelu niezależnie od tego, jakie atrybuty są stosowane do modelu.
 
-Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
 
-Sprawdź, czy używa strony indeksu filmu *Views\Shared\DisplayTemplates\DateTime.cshtml* szablonu (kolor czerwony pogrubienie) i *Movie\Details* strona używa *Views\Movies\ DisplayTemplates\LoudDateTime.cshtml* szablonu (dużych i zielony).
+Sprawdź, czy strona indeks filmu używa szablonu *Views\Shared\DisplayTemplates\DateTime.cshtml* (czerwony znak pogrubiony), a strona *Movie\Details* używa szablonu *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* (duża i zielona).
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image5.png)
 

@@ -8,16 +8,16 @@ ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 67df1a473cd13a651c1276054b93f34323479082
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: f508d9e38dab5cc4cc44cc5aaa4eae87cf273bd5
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519027"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456053"
 ---
 # <a name="adding-validation"></a>Dodawanie walidacji
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -160,5 +160,5 @@ Poniższy kod ilustruje łączenie atrybutów w jednym wierszu:
 W następnej części serii sprawdzimy aplikację i wprowadzimy pewne usprawnienia `Details` i `Delete` metod.
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-a-new-field.md)
-> [Następny](examining-the-details-and-delete-methods.md)
+> [Poprzednie](adding-a-new-field.md)
+> [dalej](examining-the-details-and-delete-methods.md)

@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: fb7e76101cbe6a874ddf5b3429ca2dc6d474334b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1965063a9b613d0e2857cddcc2165f5fda64ec0c
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595762"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77455532"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Zapobieganie atakom XSRF/CSRF we wzorcach ASP.NET MVC i Web Pages
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 > Sfałszowanie żądań między lokacjami (znane również jako XSRF lub CSRF) jest atakiem na aplikacje hostowane w sieci Web, dzięki czemu złośliwa witryna sieci Web może mieć wpływ na interakcję między przeglądarką klienta i witryną sieci Web zaufaną w tej przeglądarce. Te ataki są możliwe, ponieważ przeglądarki sieci Web automatycznie będą wysyłać tokeny uwierzytelniania przy użyciu każdego żądania do witryny sieci Web. Przykład kanoniczny to plik cookie uwierzytelniania, taki jak ASP. Bilet uwierzytelniania formularzy netto. Jednak w przypadku witryn sieci Web korzystających z dowolnego mechanizmu uwierzytelniania trwałego (takiego jak uwierzytelnianie systemu Windows, podstawowa i tak dalej) mogą być objęte tymi atakami.
 > 
@@ -159,13 +159,13 @@ Metoda *Gettokens* przyjmuje jako wejściowy istniejący token sesji weryfikacji
 
 Deweloper może skonfigurować system antyXSRFowy z poziomu aplikacji Start\_. Konfiguracja jest programowa. Właściwości statycznego typu *AntiForgeryConfig* są opisane poniżej. Większość użytkowników korzystających z oświadczeń chce ustawić właściwość UniqueClaimTypeIdentifier.
 
-| **Wartość** | **Opis** |
+| **Właściwość** | **Opis** |
 | --- | --- |
 | **AdditionalDataProvider** | [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) , który zapewnia dodatkowe dane podczas generowania tokenu i zużywa dodatkowe dane podczas weryfikacji tokenu. Wartość domyślna to *null*. Aby uzyskać więcej informacji, zobacz sekcję [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) . |
 | **Plik CookieName** | Ciąg, który zawiera nazwę pliku cookie HTTP, który jest używany do przechowywania tokenu sesji XSRF. Jeśli ta wartość nie jest ustawiona, nazwa zostanie wygenerowana automatycznie na podstawie wdrożonej ścieżki wirtualnej aplikacji. Wartość domyślna to *null*. |
 | **RequireSsl** | Wartość logiczna określająca, czy tokeny XSRF są wymagane do przesłania przez kanał zabezpieczony za pośrednictwem protokołu SSL. Jeśli ta wartość jest *równa true*, wszystkie automatycznie generowane pliki cookie będą miały ustawioną flagę "Secure", a interfejsy API XSRF będą zgłaszane w przypadku wywołania z żądania, które nie jest przesyłane za pośrednictwem protokołu SSL. Wartość domyślna to *false*. |
-| **SuppressIdentityHeuristicChecks** | Wartość logiczna określająca, czy system antyXSRF powinien dezaktywować swoją obsługę tożsamości opartych na oświadczeniach. Jeśli ta wartość jest *równa true*, system przyjmie, że *IIdentity.Name* jest odpowiednie do użycia jako unikatowy identyfikator użytkownika, i nie próbuje specjalnych przypadków *IClaimsIdentity* lub *ClClaimsIdentity* , zgodnie z opisem w [WIF/ACS/ Sekcja uwierzytelniania opartego na oświadczeniach](#_WIF_ACS) . Wartość domyślna to `false`. |
-| **UniqueClaimTypeIdentifier** | Ciąg, który wskazuje, który typ zgłoszenia jest odpowiedni do użycia jako unikatowy identyfikator dla każdego użytkownika. Jeśli ta wartość jest ustawiona, a bieżący *IIdentity* jest oparty na oświadczeniach, system podejmie próbę wyodrębnienia oświadczenia typu określonego przez *UniqueClaimTypeIdentifier*, a odpowiednia wartość zostanie użyta zamiast nazwy użytkownika, gdy Generowanie tokenu pola. Jeśli typ zgłoszenia nie zostanie znaleziony, system nie będzie mógł wykonać żądania. Wartość domyślna to *null*, co oznacza, że system powinien używać spójnej kolekcji (dostawcy tożsamości, identyfikatora nazwy), jak opisano wcześniej w miejscu nazwy użytkownika. |
+| **SuppressIdentityHeuristicChecks** | Wartość logiczna określająca, czy system antyXSRF powinien dezaktywować swoją obsługę tożsamości opartych na oświadczeniach. Jeśli ta wartość jest *równa true*, system przyjmie, że *IIdentity.Name* jest odpowiednie do użycia jako unikatowy identyfikator dla użytkownika i nie spróbuje specjalnej wielkości liter *IClaimsIdentity* lub *ClClaimsIdentity* zgodnie z opisem w sekcji [uwierzytelnianie na podstawie WIF/ACS/oświadczenia](#_WIF_ACS) . Wartością domyślną jest `false`. |
+| **UniqueClaimTypeIdentifier** | Ciąg, który wskazuje, który typ zgłoszenia jest odpowiedni do użycia jako unikatowy identyfikator dla każdego użytkownika. Jeśli ta wartość jest ustawiona, a bieżący *IIdentity* jest oparty na oświadczeniach, system podejmie próbę wyodrębnienia oświadczenia typu określonego przez *UniqueClaimTypeIdentifier*, a odpowiednia wartość zostanie użyta zamiast nazwy użytkownika podczas generowania tokenu pola. Jeśli typ zgłoszenia nie zostanie znaleziony, system nie będzie mógł wykonać żądania. Wartość domyślna to *null*, co oznacza, że system powinien używać spójnej kolekcji (dostawcy tożsamości, identyfikatora nazwy), jak opisano wcześniej w miejscu nazwy użytkownika. |
 
 <a id="_IAntiForgeryAdditionalDataProvider"></a>
 

@@ -1,129 +1,129 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: Globalna Obsługa błędów w wzorca ASP.NET Web API 2 — ASP.NET 4.x
+title: Globalna obsługa błędów w ASP.NET Web API 2-ASP.NET 4. x
 author: davidmatson
-description: Omówienie globalna Obsługa błędów w programie ASP.NET Web API 2 dla programu ASP.NET 4.x.
+description: Omówienie globalnej obsługi błędów w ASP.NET Web API 2 dla ASP.NET 4. x.
 ms.author: riande
 ms.date: 02/03/2014
 ms.custom: seoapril2019
 ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 7d9f4fb9909671d7c4c8ee2aa9285b0186c4b125
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.openlocfilehash: 94f2d6d31d0b37f9bb0077e6258c70a2dfb1918d
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414377"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457742"
 ---
-# <a name="global-error-handling-in-aspnet-web-api-2"></a>Globalna Obsługa błędów w programie ASP.NET Web API 2
+# <a name="global-error-handling-in-aspnet-web-api-2"></a>Globalna obsługa błędów w ASP.NET Web API 2
 
-przez [David Matson](https://github.com/davidmatson), [Rick Anderson]((https://twitter.com/RickAndMSFT))
+przez [David Matson](https://github.com/davidmatson), [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Ten temat zawiera omówienie globalna Obsługa błędów w programie ASP.NET Web API 2 dla programu ASP.NET 4.x. Obecnie nie istnieje łatwy sposób w interfejsie API sieci Web do logowania lub globalnie obsługi błędów. Niektóre nieobsługiwane wyjątki mogą być przetwarzane za pośrednictwem [filtry wyjątków](exception-handling.md), ale istnieje kilka przypadków, które nie obsługują filtry wyjątków. Na przykład:
+Ten temat zawiera omówienie globalnej obsługi błędów w ASP.NET Web API 2 dla ASP.NET 4. x. Obecnie nie ma łatwego sposobu na interfejs API sieci Web do rejestrowania lub obsługi błędów globalnie. Niektóre Nieobsłużone wyjątki mogą być przetwarzane za pośrednictwem [filtrów wyjątków](exception-handling.md), ale istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
 
-1. Wyjątków zgłaszanych przez konstruktory kontrolera.
-2. Wyjątków zgłaszanych przez programy obsługi komunikatów.
+1. Wyjątki zgłoszone przez konstruktory kontrolerów.
+2. Wyjątki zgłoszone przez programy obsługi komunikatów.
 3. Wyjątki zgłoszone podczas routingu.
-4. Wyjątki zgłoszone podczas serializacji treści odpowiedzi.
+4. Wyjątki zgłoszone podczas serializacji zawartości odpowiedzi.
 
-Chcemy zapewnić prosty i spójny sposób logowania i obsługiwać (tam, gdzie jest to możliwe) tych wyjątków. 
+Chcemy zapewnić prosty, spójny sposób rejestrowania i obsługi (tam, gdzie to możliwe) tych wyjątków. 
 
-Istnieją dwa główne przypadki, dotyczące obsługi wyjątków, wtedy, gdy jesteśmy w stanie wysyłać odpowiedzi na błąd i przypadek, w którym wszystkie możliwości jest dziennik wyjątku. Na przykład na tym ostatnim przypadku sytuacja zgłaszany jest wyjątek w trakcie przesyłania strumieniowego zawartości odpowiedzi w takiej sytuacji jest za późno wysyłać nowy komunikat odpowiedzi, ponieważ kod stanu, nagłówki i częściowej zawartości już wykonano faktycznie, dzięki czemu możemy po prostu przerwać połączenie. Nawet jeśli wyjątek nie mogą być obsługiwane, który zwróci nowy komunikat odpowiedzi, firma Microsoft nadal obsługuje rejestrowania wyjątku. W przypadkach, gdy zostanie wykryte, błąd zostanie zwrócona odpowiedź odpowiedni komunikat o błędzie, jak pokazano w poniższym:
+Istnieją dwa główne przypadki obsługi wyjątków, przypadek, w którym możemy wysłać odpowiedź na błąd i przypadek, gdzie wszystko, co możemy zrobić, rejestruje wyjątek. Przykładem dla ostatniego przypadku jest zgłaszanie wyjątku w środku zawartości odpowiedzi przesyłania strumieniowego; w takim przypadku zbyt późno na wysłanie nowego komunikatu odpowiedzi, ponieważ kod stanu, nagłówki i częściowa zawartość już zniknęły w sieci, dlatego po prostu przerywamy połączenie. Mimo że nie można obsłużyć tego wyjątku, aby utworzyć nowy komunikat odpowiedzi, nadal obsługujemy rejestrowanie wyjątku. W przypadkach, w których możemy wykryć błąd, możemy zwrócić odpowiednią odpowiedź na błąd, jak pokazano na poniższej liście:
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample1.cs?highlight=6)]
 
 ### <a name="existing-options"></a>Istniejące opcje
 
-Oprócz [filtry wyjątków](exception-handling.md), [programy obsługi komunikatów](../advanced/http-message-handlers.md) można dziś obserwować wszystkie odpowiedzi na poziomie 500, ale działają w odpowiedzi na te jest trudne, ponieważ mają kontekst dotyczący pierwotnego błędu. Programy obsługi komunikatów ma część te same ograniczenia jako filtry wyjątków dotycząca przypadków, w których one może obsłużyć. Podczas interfejsu API sieci Web jest Infrastruktura śledzenia, która przechwytuje warunki błędów Infrastruktura śledzenia jest na potrzeby diagnostyki i jest nie zaprojektowane lub odpowiednie do wykonywania w środowisku produkcyjnym. Globalne wyjątków, obsługa i rejestrowanie powinny być usług, które można uruchomić podczas produkcji i można podłączyć do istniejącego rozwiązania do monitorowania (na przykład [ELMAH](https://code.google.com/p/elmah/) ).
+Oprócz [filtrów wyjątków](exception-handling.md), [procedury obsługi komunikatów](../advanced/http-message-handlers.md) mogą być używane dzisiaj do obserwowania wszystkich odpowiedzi na poziomie 500, ale działające na tych odpowiedzi jest trudne, ponieważ nie mają kontekstu o pierwotnym błędzie. Procedury obsługi komunikatów mają także niektóre z tych samych ograniczeń co filtry wyjątków dotyczące przypadków, w których mogą one obsłużyć. Mimo że interfejs API sieci Web ma infrastrukturę śledzenia, która przechwytuje warunki błędu, Infrastruktura śledzenia jest przeznaczona do celów diagnostycznych i nie jest zaprojektowana ani odpowiednia do uruchamiania w środowiskach produkcyjnych. Globalna obsługa wyjątków i rejestrowanie powinna być usługami, które mogą być uruchamiane w trakcie produkcji i są podłączane do istniejących rozwiązań monitorowania (na przykład [ELMAH](https://code.google.com/p/elmah/) ).
 
-### <a name="solution-overview"></a>Omówienie rozwiązania
+### <a name="solution-overview"></a>Przegląd rozwiązania
 
- Firma Microsoft zapewnia dwie nowe usługi użytkownika replaceable [IExceptionLogger](../releases/whats-new-in-aspnet-web-api-21.md) i IExceptionHandler, zaloguj się i obsługiwać nieobsługiwanych wyjątków. Usługi są bardzo podobne, z dwa główne różnice:
+ Udostępniamy dwie nowe, wymienne usługi, [interfejsu iexceptionlogger](../releases/whats-new-in-aspnet-web-api-21.md) i IExceptionHandler, aby rejestrować i obsługiwać Nieobsłużone wyjątki. Usługi są bardzo podobne i mają dwie główne różnice:
 
-1. Firma Microsoft obsługuje rejestrowanie wielu rejestratorów wyjątków, ale tylko program obsługi wyjątku.
-2. Rejestratory wyjątek zawsze wywoływana, nawet jeśli firma Microsoft zamierzasz przerwać połączenie. Tylko programy obsługi wyjątków zostać wywołana, gdy Będziemy nadal można wybrać, które komunikat odpowiedzi do odesłania.
+1. Obsługujemy rejestrowanie wielu rejestratorów wyjątków, ale tylko jednego programu obsługi wyjątków.
+2. Rejestratory wyjątków zawsze są wywoływane, nawet jeśli zamierzasz przerwać połączenie. Programy obsługi wyjątków są wywoływane tylko wtedy, gdy nadal można wybrać komunikat odpowiedzi do wysłania.
 
-Obie te usługi zapewniają dostęp do istotnych informacji od punktu, w których wykryto wyjątek zawierającą kontekstu wyjątku szczególnie [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), zgłoszony wyjątek i źródła wyjątku (szczegóły poniżej).
+Obie usługi zapewniają dostęp do kontekstu wyjątku zawierającego istotne informacje od punktu, w którym został wykryty wyjątek, szczególnie [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), zgłoszony wyjątek i źródło wyjątku (szczegóły poniżej).
 
 ### <a name="design-principles"></a>Zasady projektowania
 
-1. **Nie przełomowych zmianach** , ponieważ ta funkcja jest dodawany w wersji pomocniczej, jest ważne ograniczenia wpływu na rozwiązania, który istnieć żadnych istotnych zmian, albo wpisz kontraktów lub do zachowania. To ograniczenie wykluczyć niektóre oczyszczania, które chcemy wykonano pod względem istniejące bloki catch włączenie wyjątki w odpowiedzi 500. To dodatkowe oczyszczanie jest coś, co firma Microsoft może należy wziąć pod uwagę dla kolejnych wersji głównej. Jeśli jest to ważne, Zagłosuj na nim na [głos użytkownika ASP.NET Web API](http://aspnet.uservoice.com/forums/147201-asp-net-web-api/suggestions/5451321-add-flag-to-enable-iexceptionlogger-and-iexception).
-2. **Utrzymywanie spójności z interfejsu API sieci Web tworzy** potoku filtru internetowego interfejsu API jest to doskonały sposób, aby obsłużyć odciąż przekrojowe zagadnienia z możliwością stosowania logiki w zakresie określonych akcji, kontrolera lub globalnego. Filtry, w tym filtry wyjątków zawsze mieć akcji i kontrolera kontekstów, nawet wtedy, gdy zarejestrowana w zakresie globalnym. Istnieje kontraktu ma sens dla filtrów, że oznacza to, że filtry wyjątków, nawet o zakresie globalnym te nie są dobrym rozwiązaniem dla niektórych wyjątków, obsługa przypadkach, takich jak wyjątki od obsługi komunikatów, w przypadku, gdy kontekst nie akcji lub kontrolera. Jeśli chcemy użyć elastyczne zakresu udostępnianych przez filtry dla obsługi wyjątków, wciąż potrzebujemy filtry wyjątków. Ale jeśli musimy obsłużyć wyjątek poza kontekstem kontrolera, należy również oddzielne konstrukcji obsługi błędów pełnym globalnym (coś bez kontrolera kontekstu i działania kontekstu ograniczenia).
+1. **Brak zmian powodujących przerwanie** Ponieważ ta funkcja jest dodawana w wersji pomocniczej, jedno ważne ograniczenie wpływające na rozwiązanie polega na tym, że nie ma żadnych znaczących zmian w przypadku kontraktów lub zachowania. To ograniczenie ogranicza pewne czynności, które należy wykonać w ramach istniejących bloków catch, włączając wyjątki do 500 odpowiedzi. To dodatkowe czyszczenie jest coś, co możemy wziąć pod uwagę w przypadku kolejnej wersji głównej. Jeśli jest to ważne, należy zagłosować na nim przy [ASP.NET użytkownika interfejsu API sieci Web](http://aspnet.uservoice.com/forums/147201-asp-net-web-api/suggestions/5451321-add-flag-to-enable-iexceptionlogger-and-iexception).
+2. **Zachowanie spójności z konstrukcjami interfejsów API sieci Web** Potok filtru internetowego interfejsu API to świetny sposób na objęcie problemów związanych z wycinaniem i elastycznością zastosowania logiki w zakresie konkretnych czynności, specyficznych dla kontrolera lub globalnych. Filtry, w tym filtry wyjątków, zawsze mają konteksty akcji i kontrolerów, nawet w przypadku zarejestrowania w zakresie globalnym. Ta umowa ma sens dla filtrów, ale oznacza, że filtry wyjątków, nawet z zakresem globalnym, nie są dobrym rozwiązaniem w przypadku niektórych przypadków obsługi wyjątków, takich jak wyjątki od programów obsługi komunikatów, gdzie nie istnieje kontekst akcji ani kontrolera. Jeśli chcemy używać elastycznego zakresu, który jest obsługiwany przez filtry dla obsługi wyjątków, nadal potrzebujemy filtrów wyjątków. Jeśli jednak musimy obsłużyć wyjątek poza kontekstem kontrolera, potrzebujemy również oddzielnej konstrukcji dla pełnej globalnej obsługi błędów (coś bez kontekstu kontrolera i ograniczeń kontekstu akcji).
 
-### <a name="when-to-use"></a>Kiedy należy używać
+### <a name="when-to-use"></a>Kiedy używać
 
-- Rejestratory wyjątek to rozwiązanie, aby wyświetlać wszystkie nieobsługiwany wyjątek zgłoszony przez interfejs API sieci Web.
-- Programy obsługi wyjątków są rozwiązania dotyczące dostosowywania wszystkie możliwe odpowiedzi na nieobsługiwane wyjątki przechwytywane przez interfejs API sieci Web.
-- Filtry wyjątków są najprostszym rozwiązaniem do przetwarzania podzbiorem unhandled wyjątki związane z określonej akcji lub kontrolera.
+- Rejestratory wyjątków to rozwiązanie do wyświetlania wszystkich nieobsłużonych wyjątków przechwyconych przez internetowy interfejs API.
+- Obsługa wyjątków to rozwiązanie służące do dostosowywania wszystkich możliwych odpowiedzi do nieobsłużonych wyjątków przechwyconych przez internetowy interfejs API.
+- Filtry wyjątków są najłatwiejszym rozwiązaniem do przetwarzania nieobsługiwanych wyjątków podzbioru związanych z określoną akcją lub kontrolerem.
 
 ### <a name="service-details"></a>Szczegóły usługi
 
- Interfejsy usługi rejestrowania i obsługi wyjątków są również metody asynchroniczne proste podjęcia odpowiednich kontekstach: 
+ Interfejsy usługi rejestrowania wyjątków i obsługi są prostymi metodami asynchronicznymi, które pobierają odpowiednie konteksty: 
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample2.cs)]
 
- Oferujemy również klas bazowych dla obu tych interfejsów. Nadpisywania metod core (synchronizacji lub asynchronicznego) to wszystko, co jest wymagane do logowania się lub obsługi w zalecanym razy. Do rejestrowania, `ExceptionLogger` klasy bazowej zapewni, że podstawowa metoda rejestrowania jest wywołany tylko raz dla każdego wyjątku (nawet jeśli później propaguje dalsze w górę stosu wywołań i zostanie przechwycony ponownie). `ExceptionHandler` Klasy bazowej, wywoła core obsługi metody tylko w przypadku wyjątków w górnej części stosu wywołań, ignorowanie starsza wersja zagnieżdżone bloki catch. (Uproszczone wersje tych klas bazowych są w poniższym załączniku). Zarówno `IExceptionLogger` i `IExceptionHandler` otrzymywać informacje o wyjątku za pośrednictwem `ExceptionContext`.
+ Udostępniamy również klasy bazowe dla obu tych interfejsów. Zastępowanie metod Core (Synchronize lub Async) jest wymagane do zarejestrowania lub obsłużenia w zalecanej godzinie. W przypadku rejestrowania, Klasa bazowa `ExceptionLogger` zapewnia, że podstawowa Metoda rejestrowania jest wywoływana tylko raz dla każdego wyjątku (nawet jeśli później propaguje dalej stos wywołań i zostanie przechwycony ponownie). Klasa bazowa `ExceptionHandler` wywoła podstawową metodę obsługi tylko dla wyjątków w górnej części stosu wywołań, ignorując starsze zagnieżdżone bloki catch. (Uproszczone wersje tych klas podstawowych znajdują się w załączniku poniżej). Zarówno `IExceptionLogger`, jak i `IExceptionHandler` otrzymują informacje o wyjątku za pośrednictwem `ExceptionContext`.
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample3.cs)]
 
-Gdy struktura wywołuje moduł rejestrujący wyjątku lub obsługi wyjątków, zawsze będzie zapewniać `Exception` i `Request`. Z wyjątkiem testy jednostkowe, również są zawsze będzie ona `RequestContext`. Rzadko zapewni `ControllerContext` i `ActionContext` (tylko w przypadku wywoływania z bloku catch dla filtry wyjątków). Będzie ona bardzo rzadko `Response`(tylko w niektórych przypadkach usług IIS, po połowie próbu zapisu odpowiedzi). Należy pamiętać, że ponieważ niektóre z tych właściwości mogą być `null` zależy od konsumenta, aby wyszukać `null` przed uzyskaniem dostępu do elementów członkowskich klasy wyjątku.`CatchBlock` ciąg wskazuje blok catch, który wystąpił wyjątek. Ciągi bloku catch, są następujące:
+Gdy struktura wywołuje rejestratora wyjątków lub procedurę obsługi wyjątków, zawsze będzie zapewniać `Exception` i `Request`. Z wyjątkiem testów jednostkowych, będzie również zawsze zapewniać `RequestContext`. Będzie rzadko zapewniał `ControllerContext` i `ActionContext` (tylko w przypadku wywołania z bloku catch dla filtrów wyjątków). Bardzo rzadko zapewnia `Response`(tylko w niektórych przypadkach usług IIS, gdy w trakcie próby zapisania odpowiedzi). Należy pamiętać, że niektóre z tych właściwości mogą być `null` przed uzyskaniem dostępu do elementów członkowskich klasy wyjątków, aby sprawdzić, czy nie `null`.`CatchBlock` jest ciągiem wskazującym, który blok catch wykrywa wyjątek. Ciągi bloku catch są następujące:
 
-- HttpServer (metoda SendAsync)
-- HttpControllerDispatcher (metoda SendAsync)
-- HttpBatchHandler (metoda SendAsync)
-- IExceptionFilter (firmy klasy ApiController przetwarzania potoku filtru wyjątków w ExecuteAsync)
-- Host OWIN.
+- HttpServer (Metoda SendAsync)
+- HttpControllerDispatcher (Metoda SendAsync)
+- HttpBatchHandler (Metoda SendAsync)
+- IExceptionFilter (ApiController przetworzenia potoku filtru wyjątków w wywoływanie ExecuteAsync)
+- Host OWIN:
 
-    - HttpMessageHandlerAdapter.BufferResponseContentAsync (w przypadku buforowania danych wyjściowych)
-    - HttpMessageHandlerAdapter.CopyResponseContentAsync (do przesyłania strumieniowego danych wyjściowych)
+    - HttpMessageHandlerAdapter. BufferResponseContentAsync (do buforowania danych wyjściowych)
+    - HttpMessageHandlerAdapter. CopyResponseContentAsync (do przesyłania strumieniowego danych wyjściowych)
 - Host sieci Web:
 
-    - HttpControllerHandler.WriteBufferedResponseContentAsync (w przypadku buforowania danych wyjściowych)
-    - HttpControllerHandler.WriteStreamedResponseContentAsync (do przesyłania strumieniowego danych wyjściowych)
-    - HttpControllerHandler.WriteErrorResponseContentAsync (pod kątem błędów odzyskiwanie po wystąpieniu błędu w trybie buforowanych wyników)
+    - HttpControllerHandler. WriteBufferedResponseContentAsync (do buforowania danych wyjściowych)
+    - HttpControllerHandler. WriteStreamedResponseContentAsync (do przesyłania strumieniowego danych wyjściowych)
+    - HttpControllerHandler. WriteErrorResponseContentAsync (w przypadku błędów odzyskiwania błędów w trybie buforowanego wyjścia)
 
-Lista ciągów bloku catch jest również dostępna za pośrednictwem właściwości statycznego tylko do odczytu. (Ciąg bloku catch core znajdują się na statyczne ExceptionCatchBlocks; resztę pojawiają się na jednej klasy statycznej każdego hosta OWIN i sieci web).`IsTopLevelCatchBlock` przydaje się do korzystania z zalecany wzorzec obsługi wyjątków, tylko w górnej części stosu wywołań. Zamiast włączania wyjątki w odpowiedzi 500, wszędzie tam, gdzie występuje zagnieżdżony blok catch, procedura obsługi wyjątków można pozwolić wyjątki dostawały aż do chwili informacje są widoczne dla hosta.
+Lista ciągów bloku catch jest również dostępna za pośrednictwem statycznych właściwości tylko do odczytu. (Rdzeń podstawowego bloku catch znajduje się na statycznej ExceptionCatchBlocks; reszta jest wyświetlana w jednej klasie statycznej każdy dla OWIN i hosta sieci Web).`IsTopLevelCatchBlock` jest przydatne w przypadku stosowania zalecanego wzorca obsługi wyjątków tylko w górnej części stosu wywołań. Zamiast przełączać wyjątki do 500 odpowiedzi wszędzie tam, gdzie występuje zagnieżdżony blok catch, program obsługi wyjątków może pozwolić na propagację wyjątków do momentu, gdy mają być widoczne dla hosta.
 
-Oprócz `ExceptionContext`, Rejestrator pobiera jeszcze jeden fragment informacji za pośrednictwem pełnej `ExceptionLoggerContext`:
+Oprócz `ExceptionContext`, rejestrator pobiera jedną więcej informacji za pośrednictwem pełnego `ExceptionLoggerContext`:
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample4.cs)]
 
-Drugą właściwością `CanBeHandled`, umożliwia rejestratora do identyfikowania wyjątek, który nie może być obsługiwane. Gdy połączenie ma zostać przerwane i nie nowy komunikat odpowiedzi mogą być wysyłane, rejestratory, które zostaną wywołane, ale program obsługi będzie ***nie*** można wywołać i rejestratory, które można określić w tym scenariuszu z tej właściwości.
+Druga właściwość, `CanBeHandled`, umożliwia Rejestratorowi zidentyfikowanie wyjątku, którego nie można obsłużyć. Gdy połączenie zostanie przerwane i nie można wysłać nowego komunikatu odpowiedzi, rejestratory będą wywoływane, ale procedura obsługi ***nie*** zostanie wywołana, a rejestratory mogą zidentyfikować ten scenariusz z tej właściwości.
 
-W dodatkowej `ExceptionContext`, klauzula obsługi przejmie jedną właściwość więcej można ustawić na pełną `ExceptionHandlerContext` do obsługi wyjątków:
+W przypadku dodatkowych `ExceptionContext`program obsługi pobiera jeszcze jedną właściwość, którą można ustawić dla pełnego `ExceptionHandlerContext`, aby obsłużyć wyjątek:
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-Program obsługi wyjątku wskazuje, czy wyjątek jest obsługiwany dzięki ustawieniu `Result` właściwości wyniku akcji (na przykład [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), lub wynik niestandardowych). Jeśli `Result` właściwość ma wartość null, wyjątek jest nieobsługiwany i oryginalnym wyjątek zostanie zgłoszony ponownie.
+Procedura obsługi wyjątków wskazuje, że obsłużył wyjątek przez ustawienie właściwości `Result` na wynik akcji (na przykład [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx)lub wynik niestandardowy). Jeśli właściwość `Result` ma wartość null, wyjątek nie jest obsługiwany, a oryginalny wyjątek zostanie ponownie wygenerowany.
 
-Wyjątki w górnej części stosu wywołań Skorzystaliśmy dodatkowego kroku, aby upewnić się, że odpowiedź jest odpowiednia dla wywołań interfejsu API. Propaguje wyjątek do hosta, obiekt wywołujący będą w nim wyświetlane żółte ekran lub niektórych innych hostów podany odpowiedź, która ma zazwyczaj format HTML, a nie zawsze odpowiednią odpowiedź na błąd interfejsu API. W takich przypadkach uruchamia wynik inną niż null i tylko wtedy, gdy jawnie Ustawia program obsługi wyjątku niestandardowych z powrotem do `null` (nieobsługiwany) będzie wyjątek propagowany do hosta. Ustawienie `Result` do `null` w takich przypadkach może być przydatne w przypadku dwóch scenariuszy:
+W przypadku wyjątków w górnej części stosu wywołań wprowadziliśmy dodatkowy krok, aby upewnić się, że odpowiedź jest odpowiednia dla wywołań interfejsu API. Jeśli wyjątek propaguje do hosta, obiekt wywołujący zobaczy żółty ekran zgonu lub inny dostarczony Host odpowiedzi, który zwykle jest w formacie HTML i nie jest zazwyczaj odpowiednią odpowiedzią błędu interfejsu API. W takich przypadkach wynik zaczyna się nierówna null i tylko wtedy, gdy niestandardowa procedura obsługi wyjątków jawnie ustawi ją z powrotem na `null` (nieobsłużony), spowoduje to przekazanie wyjątku do hosta. Ustawienie `Result` na `null` w takich przypadkach może być przydatne w przypadku dwóch scenariuszy:
 
-1. OWIN hostowane interfejsu API sieci Web, z wyjątkiem niestandardowych obsługi oprogramowania pośredniczącego zarejestrowane przed/poza interfejsu API sieci Web.
-2. Lokalne debugowanie za pośrednictwem przeglądarki, gdzie żółty ekranu śmierci to naprawdę przydatne odpowiedzi dla nieobsługiwanego wyjątku.
+1. OWIN hostowany interfejs API sieci Web z niestandardowym obsługą wyjątków zarejestrowanego przed/poza interfejsem API sieci Web.
+2. Debugowanie lokalne za pośrednictwem przeglądarki, gdzie żółty ekran zgonu jest w rzeczywistości przydatną odpowiedzią na nieobsługiwany wyjątek.
 
-Dla obu rejestratorów wyjątków i programy obsługi wyjątków firma Microsoft nie robią niczego do odzyskania, jeśli Rejestrator lub program obsługi zgłasza wyjątek. (Inne niż umożliwiając wyjątek Propagacja, przesłać opinię, u dołu tej strony, jeśli masz lepszym rozwiązaniem.) Kontrakt rejestratorów wyjątków i programy obsługi jest, czy należy zezwala wyjątki dostawały maksymalnie swoim klientom; w przeciwnym razie wyjątek po prostu rozpropaguje, często aż do hosta, zostaje wyświetlony błąd HTML (np. ASP. Ekran żółty firmy NET) są wysyłane z powrotem do klienta (zwykle nie jest preferowaną opcją dla wywołań interfejsu API, które oczekują JSON lub XML).
+W przypadku rejestratorów wyjątków i obsługi wyjątków nie robimy niczego do odzyskania, jeśli Rejestrator lub procedura obsługi zgłasza wyjątek. (Inne niż to, aby umożliwić propagowanie wyjątku, wystaw opinię w dolnej części tej strony, jeśli masz lepsze podejście). Umowa dotycząca rejestratorów wyjątków i programów obsługi polega na tym, że nie powinny one zezwalać na propagację wyjątków do ich wywołujących; w przeciwnym razie, wyjątek zostanie po prostu rozpropagowany, często cały sposób do hosta, co spowoduje błąd HTML (np. ASP. Żółty ekran sieci jest wysyłany z powrotem do klienta (zazwyczaj nie jest to preferowana opcja dla wywołań interfejsu API, które oczekują JSON lub XML).
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="tracing-exception-logger"></a>Śledzenie Rejestrator wyjątku
+### <a name="tracing-exception-logger"></a>Rejestrator wyjątków śledzenia
 
-Rejestrator wyjątku poniżej Wyślij dane o wyjątkach do skonfigurowanego źródła śledzenia (w tym oknie danych wyjściowych debugowania w programie Visual Studio).
+Rejestrator wyjątków poniżej wysyła dane wyjątku do skonfigurowanych źródeł śladów (w tym okna dane wyjściowe debugowania w programie Visual Studio).
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample6.cs)]
 
-### <a name="custom-error-message-exception-handler"></a>Program obsługi wyjątków komunikat błędu niestandardowego
+### <a name="custom-error-message-exception-handler"></a>Procedura obsługi wyjątków niestandardowych komunikatów o błędach
 
-Następujące poniżej generuje odpowiedzi błędu niestandardowego do klientów, w tym adres e-mail kontaktu z działem pomocy technicznej.
+Poniższy poniżej generuje niestandardową odpowiedź na błędy dla klientów, w tym adres e-mail do kontaktowania się z pomocą techniczną.
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample7.cs)]
 
-## <a name="registering-exception-filters"></a>Rejestrowanie filtry wyjątków
+## <a name="registering-exception-filters"></a>Rejestrowanie filtrów wyjątków
 
-Jeśli używasz szablonu projektu "Aplikacja sieci Web 4 MVC ASP.NET" do tworzenia projektu, umieść kod konfiguracji interfejsu API sieci Web wewnątrz `WebApiConfig` klasy w *aplikacji/_uruchom* folderu:
+Jeśli tworzysz projekt przy użyciu szablonu projektu "aplikacja sieci Web ASP.NET MVC 4", umieść kod konfiguracyjny interfejsu API sieci Web wewnątrz klasy `WebApiConfig`, w folderze *aplikacji/_Start* :
 
 [!code-csharp[Main](exception-handling/samples/sample7.cs?highlight=5)]
 
-## <a name="appendix-base-class-details"></a>Załącznik: Szczegóły klasy bazowej
+## <a name="appendix-base-class-details"></a>Dodatek: Szczegóły klasy bazowej
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample8.cs)]

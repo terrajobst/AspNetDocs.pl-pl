@@ -8,16 +8,16 @@ ms.date: 07/20/2015
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: c66187b990a828c53bd2f8115e3c9660fc6022ed
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 87a7516415895e761d1589fd459b93e5c15c0f85
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582811"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457001"
 ---
 # <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Rozproszone buforowanie (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -86,7 +86,7 @@ Jak wspomniano w [rozdziale najlepszych rozwiązań dotyczących projektowania s
 
 Dowiesz się, jak poprawka aplikacji IT może zaimplementować buforowanie, aby zwiększyć czas reakcji i skalowalność oraz umożliwić, aby aplikacja kontynuowała reagowanie na operacje odczytu, gdy baza danych jest niedostępna. W [następnym rozdziale](queue-centric-work-pattern.md) pokazano, jak dodatkowo zwiększyć skalowalność i zapewnić, że aplikacja będzie nadal odpowiadać za operacje zapisu.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat buforowania, zobacz następujące zasoby.
 
@@ -95,15 +95,15 @@ Dokumentacja
 - [Pamięć podręczna platformy Azure](https://msdn.microsoft.com/library/gg278356.aspx). Oficjalna dokumentacja MSDN dotycząca buforowania na platformie Azure.
 - [Wzorce i praktyki firmy Microsoft — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące buforowania i wzorzec z odkładaniem do pamięci podręcznej.
 - [Failsafe: wskazówki dotyczące odpornych architektur chmurowych](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument według wytłoczyn Mercuri, Ulrich Homann i Andrew TOWNHILL. Zapoznaj się z sekcją w temacie buforowanie.
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usłudze Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). K. Oficjalny dokument ze znakami SIMM i Michael Thomassy. Zapoznaj się z sekcją w rozproszonej pamięci podręcznej.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usłudze Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Oficjalny dokument ze znakami SIMM i Michael Thomassy. Zapoznaj się z sekcją w rozproszonej pamięci podręcznej.
 - [Rozproszone buforowanie na ścieżce do skalowalności](https://msdn.microsoft.com/magazine/dd942840.aspx). Starsza wersja artykułu usługi MSDN Magazine (2009), ale wyraźnie Zapisano wprowadzenie do rozproszonej pamięci podręcznej. Więcej informacji niż sekcje pamięci podręcznej FailSafe i najlepszych rozwiązań.
 
-Wideo
+Filmy wideo
 
 - [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria dziewięciu części przez Ulrich Homann, Marc Mercuri i marking SIMM. Przedstawia widok 400 na poziomie tworzenia architektury aplikacji w chmurze. Ta seria koncentruje się na teorii i przyczynach: Aby uzyskać więcej informacji na temat szczegółów, zobacz Tworzenie dużych serii przez znaczniki SIMM. Zobacz Omówienie buforowania w epizod 3, zaczynając od 1:24:14.
 - [Tworzenie dużych: lekcje uzyskane od klientów platformy Azure — część I](https://channel9.msdn.com/Events/Build/2012/3-029). Simon Davies omawia rozproszone buforowanie, zaczynając od 46:00. Podobnie jak w przypadku serii failsafe, ale więcej szczegółów. Prezentacja została wydana 31 października 2012, dlatego nie obejmuje ona usługi buforowania Web Apps w Azure App Service, która została wprowadzona w 2013.
 
-Przykładowy kod
+Przykład kodu
 
 - [Podstawy usługi w chmurze na platformie Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja implementująca rozproszone buforowanie. Zapoznaj się z towarzyszącym wpisem w blogu [podstawowe usługi w chmurze — podstawowe informacje o buforowaniu](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
 

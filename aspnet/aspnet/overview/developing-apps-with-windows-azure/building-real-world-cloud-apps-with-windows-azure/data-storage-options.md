@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: f97d973d87db895441f813376d757a8a2e94b255
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 9357ed5aef39bed501cdac9ac26d46c884d4fae0
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585932"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457183"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opcje przechowywania danych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -125,7 +125,7 @@ Platforma Azure sprawia, że opcje magazynu danych IaaS są łatwe do użycia, a
 - Nie musisz tworzyć maszyn wirtualnych, wystarczy użyć portalu lub skryptu w celu skonfigurowania magazynu danych. Jeśli potrzebujesz magazynu danych 200 terabajtów, możesz po prostu kliknąć przycisk lub uruchomić polecenie, a w ciągu kilku sekund, aby móc korzystać z programu.
 - Nie jest konieczne zarządzanie maszynami wirtualnymi używanymi przez usługę ani ich stosowanie. Firma Microsoft robi to automatycznie. nie trzeba martwić się o Konfigurowanie infrastruktury pod kątem skalowania lub wysokiej dostępności; Firma Microsoft obsługuje wszystko.
 - Nie musisz kupować licencji. opłaty za licencje są uwzględniane w opłatach za usługę.
-- Płacisz tylko za to, czego używasz.
+- Płaci się wyłącznie za użyte zasoby.
 
 Opcje magazynu danych PaaS na platformie Azure obejmują oferty oferowane przez innych dostawców. Na przykład możesz wybrać [dodatek oprogramowanie MongoLab](https://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/) ze sklepu systemu Azure, aby zainicjować obsługę administracyjną bazy danych MongoDB jako usługi.
 
@@ -143,11 +143,11 @@ Poniżej przedstawiono kilka pytań, które należy wziąć pod uwagę podczas w
 | Projekcja funkcjonalna | — Czy można zadać pytania, agregacje itp. czy po stronie serwera? W przypadku uruchomienia opcji wybierz liczbę (\*) z tabeli w programie SQL będzie ona bardzo wydajna, co sprawi, że wszystko działa na serwerze i zwróci szukaną liczbę. Jeśli chcę użyć tego samego obliczenia z magazynu danych NoSQL, który nie obsługuje agregacji, jest to niewydajne "niepowiązane zapytanie" i prawdopodobnie zostanie przekroczony limit czasu. Nawet jeśli zapytanie zakończyło się pomyślnie, chcę pobrać wszystkie dane z serwera do klienta i policzyć wiersze na kliencie. -Jakich języków lub typów wyrażeń można używać? W przypadku relacyjnej bazy danych można używać języka SQL. W przypadku niektórych baz danych NoSQL, takich jak Azure Table Storage, będę korzystać z protokołu [OData](http://www.odata.org/)i wszystko, co można zrobić, jest filtrowanie według klucza podstawowego i pobieranie projekcji (wybierz podzestaw dostępnych pól). |
 | Łatwość skalowalności | -Jak często i ile będzie trzeba skalować dane? -Czy platforma natywnie implementuje skalowanie w poziomie? — Jak łatwo można dodać/usunąć pojemność (rozmiar i przepływność)? Relacyjne bazy danych i tabele nie są automatycznie partycjonowane w celu ich skalowalności, dzięki czemu trudno jest skalować poza pewnymi ograniczeniami. NoSQL magazyny danych, takie jak Azure Table Storage, są z nieodłączną partycją i nie ma już ograniczenia dodawania partycji. Możesz łatwo skalować Table Storage do 200 terabajtów, ale maksymalny rozmiar bazy danych dla Azure SQL Database wynosi 500 gigabajtów. Można skalować dane relacyjne, partycjonowanie ich w wielu bazach danych, ale skonfigurowanie aplikacji do obsługi tego modelu obejmuje dużo pracy programistycznej. |
 | Instrumentacja i łatwość zarządzania | — Jak łatwa jest platforma do instrumentacji, monitorowania i zarządzania? Konieczne będzie uzyskanie informacji o kondycji i wydajności magazynu danych, dzięki czemu należy wiedzieć, jakie metryki są dostępne dla platformy, i co należy opracować. |
-| Operacje | -Jak łatwo jest platforma do wdrożenia i uruchamiania na platformie Azure? PaaS? IaaS? System? Table Storage i SQL Database są łatwe do skonfigurowania na platformie Azure. Platformy, które nie są wbudowane rozwiązania Azure PaaS, wymagają większej nakładu pracy. |
+| Operacje | -Jak łatwo jest platforma do wdrożenia i uruchamiania na platformie Azure? PaaS? IaaS? Linux? Table Storage i SQL Database są łatwe do skonfigurowania na platformie Azure. Platformy, które nie są wbudowane rozwiązania Azure PaaS, wymagają większej nakładu pracy. |
 | Obsługa interfejsu API | -Czy dostępny jest interfejs API, który ułatwia współdziałanie z platformą? W przypadku usługi Azure Table Service istnieje zestaw SDK z interfejsem API platformy .NET, który obsługuje asynchroniczny model programowania .NET 4,5. Jeśli piszesz aplikację .NET, znacznie łatwiej jest pisać i testować kod dla usługi Azure Table Service w porównaniu do innej platformy magazynu danych typu klucz/wartość, która nie ma interfejsu API lub mniej wszechstronnego. |
 | Integralność transakcji i spójność danych | -Czy jest to ważne, aby platforma obsługiwała transakcje w celu zagwarantowania spójności danych? Aby można było śledzić wysyłanie zbiorczych wiadomości e-mail, koszty dotyczące wydajności i niskiej ilości danych mogą być ważniejsze niż automatyczne wsparcie dla transakcji lub integralności referencyjnej na platformie danych, dzięki czemu usługa tabel platformy Azure jest dobrym wyborem. W celu śledzenia sald kont bankowych lub zamówień zakupu platforma relacyjnej bazy danych, która zapewnia duże gwarancje transakcyjne, będzie lepszym wyborem. |
 | Ciągłość działalności biznesowej | -Jak łatwe jest tworzenie kopii zapasowej, przywracanie i odzyskiwanie po awarii? Szybsze lub późniejsze dane produkcyjne zostaną uszkodzone i będzie potrzebna funkcja cofania. Relacyjne bazy danych często zawierają bardziej szczegółowe możliwości przywracania, takie jak możliwość przywracania do punktu w czasie. Zrozumienie, jakie funkcje przywracania są dostępne dla każdej z rozważanych platform, jest ważnym czynnikiem, które należy wziąć pod uwagę. |
-| Koszt | -Jeśli więcej niż jedna platforma może obsłużyć obciążenie danymi, jak są one porównywane w koszty? Jeśli na przykład używasz ASP.NET Identity, możesz przechowywać dane profilu użytkownika w usłudze Azure Table Service lub Azure SQL Database. Jeśli nie potrzebujesz rozbudowanych obiektów zapytań dla SQL Database, możesz wybrać pozycję tabele platformy Azure w części, ponieważ koszt tego magazynu jest znacznie mniejszy. |
+| Koszty | -Jeśli więcej niż jedna platforma może obsłużyć obciążenie danymi, jak są one porównywane w koszty? Jeśli na przykład używasz ASP.NET Identity, możesz przechowywać dane profilu użytkownika w usłudze Azure Table Service lub Azure SQL Database. Jeśli nie potrzebujesz rozbudowanych obiektów zapytań dla SQL Database, możesz wybrać pozycję tabele platformy Azure w części, ponieważ koszt tego magazynu jest znacznie mniejszy. |
 
 Ogólnie zalecamy zapoznanie się z odpowiedzią na pytania w każdej z tych kategorii przed wybraniem rozwiązań do magazynowania danych.
 
@@ -168,7 +168,7 @@ Można również łatwo tworzyć bazy danych za pomocą portalu.
 
 Kliknij pozycję **Nowy--Data Services** -- **SQL Database** -- **szybkie tworzenie**, wprowadź nazwę bazy danych, wybierz serwer, który już znajduje się na koncie, lub Utwórz nowy, a następnie kliknij przycisk **Utwórz SQL Database**.
 
-![Nowe SQL Database](data-storage-options/_static/image9.png)
+![Nowa baza danych SQL Database](data-storage-options/_static/image9.png)
 
 Poczekaj kilka sekund, a na platformie Azure jest gotowa baza danych do użycia.
 
@@ -180,7 +180,7 @@ Jest to przykład naszego modelu platformy jako usługi. Nie ma potrzeby zarząd
 
 Kliknij przycisk i uzyskaj dokładne parametry połączenia, które są potrzebne, i natychmiast Rozpocznij korzystanie z nowej bazy danych.
 
-![Parametry połączenia](data-storage-options/_static/image11.png)
+![Parametry połączeń](data-storage-options/_static/image11.png)
 
 Pulpit nawigacyjny pokazuje historię połączenia i ilość używanej pamięci masowej.
 
@@ -243,7 +243,7 @@ Alternatywnie można uruchomić te same SQL Server w chmurze, które są urucham
 
 Poniżej przedstawiono niektóre wskazówki dotyczące wyboru między tymi dwoma modelami.
 
-| Azure SQL Database (PaaS) | SQL Server w maszynie wirtualnej (IaaS) |
+| Usługa Azure SQL Database (PaaS) | SQL Server w maszynie wirtualnej (IaaS) |
 | --- | --- |
 | **Informatycy** — nie musisz tworzyć maszyn wirtualnych, aktualizować ani poprawiać systemu operacyjnego lub SQL ani zarządzać nimi. Platforma Azure robi to za Ciebie. — Wbudowana wysoka dostępność z umową SLA na poziomie bazy danych. — Niski łączny koszt posiadania (TCO), ponieważ płacisz tylko za to, z czego korzystasz (bez licencji). -Dobre do obsługi dużej liczby mniejszych baz danych (&lt;= 500 GB każdego). — Łatwe do dynamicznego tworzenia nowych baz danych, aby umożliwić skalowanie w poziomie. | ***Specjaliści*** -funkcja zgodna z SQL serverami lokalnymi. — Umożliwia wdrożenie SQL Server [wysokiej dostępności za pomocą funkcji AlwaysOn](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) w dwóch maszynach wirtualnych z UMOWą SLA na poziomie maszyny wirtualnej. — Masz pełną kontrolę nad sposobem zarządzania programem SQL. — Można ponowne użyć już posiadanych licencji SQL lub zanieść je o godzinę. -Dobre do obsługi mniej, ale większych baz danych (1 TB +). |
 | **Wady** — część funkcji w porównaniu do SQL Server lokalnych (brak [integracji środowiska CLR](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [obsługa kompresji](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx)itp.) — limit rozmiaru bazy danych równy 500 GB. | ***Wady*** — aktualizacje/poprawki (systemy operacyjne i SQL) są odpowiedzialne za tworzenie i zarządzanie baz danychem (operacje wejścia/wyjścia na sekundę) są ograniczone do około 8000 (za pośrednictwem 16 dysków danych). |
@@ -260,9 +260,9 @@ Podczas tworzenia maszyny wirtualnej przy użyciu obrazu SQL Serveru opłata za 
 
 Chmura obliczeniowa ułatwia mieszanie i dopasowywanie metod magazynu danych w celu najlepszego dopasowania do potrzeb aplikacji. W przypadku kompilowania nowej aplikacji należy dokładnie zapoznać się z pytaniami wymienionymi w tym miejscu w celu wybrania metod, które będą nadal działały, gdy aplikacja zostanie powiększona. W [następnym rozdziale](data-partitioning-strategies.md) wyjaśniono niektóre strategie partycjonowania, których można użyć do łączenia wielu metod przechowywania danych.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
-Aby uzyskać więcej informacji, zapoznaj się z następującymi zasobami.
+Więcej informacji zawierają poniższe zasoby.
 
 Wybieranie platformy bazy danych:
 

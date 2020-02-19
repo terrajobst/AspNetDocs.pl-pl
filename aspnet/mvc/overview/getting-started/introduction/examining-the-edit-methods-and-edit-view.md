@@ -8,16 +8,16 @@ ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 946c88d2b337e3bf634f815c7f1ce045f29d9d84
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: 6cef963910b957e8b4ad7c7909385f6dbdff95c1
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76518750"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456066"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metod edycji i widoku edycji
 
-Autor [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [Tutorial Note](index.md)]
 
@@ -125,5 +125,5 @@ Jeśli nie możesz uzyskać walidacji działającej w ustawieniach regionalnych,
 <a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a>W następnym samouczku zaimplementowano funkcję wyszukiwania.
 
 > [!div class="step-by-step"]
-> [Poprzedni](accessing-your-models-data-from-a-controller.md)
-> [Następny](adding-search.md)
+> [Poprzednie](accessing-your-models-data-from-a-controller.md)
+> [dalej](adding-search.md)

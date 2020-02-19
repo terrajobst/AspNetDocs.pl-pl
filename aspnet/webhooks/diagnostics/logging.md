@@ -1,26 +1,26 @@
 ---
 uid: webhooks/diagnostics/logging
-title: Elementy Webhook ASP.NET rejestrowanie | Dokumentacja firmy Microsoft
+title: Rejestrowanie elementów webhook ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Jak przeprowadzić, logowania z elementów Webhook programu ASP.NET.
+description: Jak rejestrować się w elementach webhook ASP.NET.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: f71bc442-5f80-481b-a32c-a0ec18dee9d6
-ms.openlocfilehash: 2e86d519c24da102075b4da0a32787c90deb0f6b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a05b32c4a8f9577bcf6170bd19a9e440b1aeb75b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57077033"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457586"
 ---
-# <a name="aspnet-webhooks-logging"></a>Elementy Webhook ASP.NET rejestrowania
+# <a name="aspnet-webhooks-logging"></a>Rejestrowanie elementów webhook ASP.NET
 
-Microsoft ASP.NET WebHooks rejestrowania jest używana jako sposób raportowania i problemach. Domyślnie dzienniki są zapisywane z użyciem [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) gdzie może być zarządzanych przy użyciu [detektorów śledzenia](https://msdn.microsoft.com/library/system.diagnostics.tracelistener.aspx) , takich jak inne strumień dziennika.
+Microsoft ASP.NET elementy webhook używają rejestrowania w celu zgłaszania problemów i problemów. Dzienniki domyślne są zapisywane przy użyciu funkcji [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) , gdzie mogą być zarządzane przy użyciu [detektorów śledzenia](https://msdn.microsoft.com/library/system.diagnostics.tracelistener.aspx) , takich jak każdy inny strumień dzienników.
 
-W przypadku wdrażania aplikacji sieci Web jako aplikację internetową platformy Azure, dzienniki są automatycznie wykrywane i mogą być zarządzane oraz wszelkich innych [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) rejestrowania. Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania diagnostycznego dla aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)
+Podczas wdrażania aplikacji sieci Web jako aplikacji sieci Web platformy Azure dzienniki są automatycznie pobierane i można nimi zarządzać razem z innymi dziennikami [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) . Aby uzyskać szczegółowe informacje, zobacz [Włączanie rejestrowania diagnostycznego dla aplikacji sieci Web w Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)
 
-Ponadto dzienników można uzyskać bezpośrednio z poziomu programu Visual Studio, zgodnie z opisem w [Rozwiązywanie problemów z aplikacją sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
+Ponadto Dzienniki można uzyskać bezpośrednio z programu Visual Studio, zgodnie z opisem w artykule [Rozwiązywanie problemów z aplikacją sieci Web w Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
 
 ## <a name="redirecting-logs"></a>Przekierowywanie dzienników
 
-Zamiast zapisywania ich dzienniki, aby [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace), jest możliwe podanie implementacji alternatywnych rejestrowania, który może rejestrować bezpośrednio do Menedżera dziennika, takich jak [Log4Net](http://logging.apache.org/log4net/) i [NLog ](http://nlog-project.org/). Wystarczy podać implementacja [ILogger](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Common/Diagnostics/ILogger.cs) go będzie pobrać odebrane przez Microsoft ASP.NET WebHooks i zarejestruj je przy użyciu wybranego aparatu iniekcji zależności. Zobacz [wstrzykiwanie zależności w programie ASP.NET Web API 2](https://www.asp.net/web-api/overview/advanced/dependency-injection) Aby uzyskać szczegółowe informacje.
+Zamiast zapisywać dzienniki do [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace), można podać alternatywną implementację rejestrowania, która może być zarejestrowana bezpośrednio w Menedżerze dzienników, takim jak [Log4Net](http://logging.apache.org/log4net/) i [nLOG](http://nlog-project.org/). Wystarczy po prostu wprowadzić implementację [ILogger](https://github.com/aspnet/AspNetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Common/Diagnostics/ILogger.cs) i zarejestrować ją z wybranym Microsoft ASP.NET przez siebie aparatem iniekcji. Aby uzyskać szczegółowe informacje, zobacz [iniekcja zależności w programie ASP.NET Web API 2](https://www.asp.net/web-api/overview/advanced/dependency-injection) .

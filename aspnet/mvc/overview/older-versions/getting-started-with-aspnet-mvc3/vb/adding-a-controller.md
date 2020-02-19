@@ -1,79 +1,79 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
-title: Dodawanie kontrolera (VB) | Dokumentacja firmy Microsoft
+title: Dodawanie kontrolera (VB) | Microsoft Docs
 author: Rick-Anderson
-description: Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, czyli...
+description: Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest...
 ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 741259e1-54ac-4f71-b4e8-2bd5560bb950
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 0c637f5758f8196c19ef8d5c71009e85f9dd706e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.openlocfilehash: 2e77f62a9796211b0e59a99c71bc532659b7cb92
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130038"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457411"
 ---
 # <a name="adding-a-controller-vb"></a>Dodawanie kontrolera (VB)
 
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-> Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagań wstępnych wymienionych poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można indywidualnie zainstalować wymagania wstępne, korzystając z następujących linków:
+> Ten samouczek zawiera informacje na temat tworzenia aplikacji sieci Web ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express z dodatkiem Service Pack 1, który jest bezpłatną wersją Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że zainstalowano wymagania wstępne wymienione poniżej. Wszystkie z nich można zainstalować, klikając następujące łącze: [Instalator platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie możesz zainstalować wstępnie wymagane składniki, korzystając z następujących linków:
 > 
-> - [Visual Studio Web Developer Express SP1 prerequisites](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
-> - [Program ASP.NET MVC 3 Tools Update](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
-> - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(Obsługa środowiska uruchomieniowego i narzędzi)
+> - [Wymagania wstępne programu Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
+> - [Aktualizacja narzędzi ASP.NET MVC 3](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
+> - [SQL Server Compact 4,0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(obsługa środowiska uruchomieniowego + narzędzia)
 > 
-> Jeśli używasz programu Visual Studio 2010 zamiast Visual Web Developer 2010, należy zainstalować wymagania wstępne, klikając poniższe łącze: [Visual Studio 2010 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
+> Jeśli używasz programu Visual Studio 2010 zamiast programu Visual Web Developer 2010, Zainstaluj wymagania wstępne, klikając następujące łącze: [wymagania wstępne programu Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack).
 > 
-> Projekt Visual Web Developer z kodem źródłowym VB.NET jest dostępna powiązany z tym tematem. [Pobierz wersję VB.NET](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz C#, przełącz się do [wersji języka C#](../cs/adding-a-controller.md) po ukończeniu tego samouczka.
+> Projekt Visual Web Developer z kodem źródłowym VB.NET jest dostępny do tego tematu. [Pobierz wersję VB.NET](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Jeśli wolisz C#, przejdź do [ C# wersji](../cs/adding-a-controller.md) tego samouczka.
 
-MVC to *model-view-controller*. MVC to wzorzec do tworzenia aplikacji w taki sposób, że każda część ma oddzielne odpowiedzialność za:
+MVC oznacza *Model-View-Controller*. MVC to wzorzec służący do tworzenia aplikacji w taki sposób, aby każda część była odrębną odpowiedzialnością:
 
-- Model: Dane dla aplikacji.
-- Widoki: Pliki szablonów, aplikacja będzie używać do dynamicznego generowania odpowiedzi HTML.
-- Kontrolery: Klasy, które obsługują przychodzące żądania adres URL do aplikacji, pobrać modelu danych, a następnie określ Przeglądanie szablonów, które renderowania odpowiedzi do klienta.
+- Model: dane dla aplikacji.
+- Widoki: pliki szablonów używane przez aplikację do dynamicznego generowania odpowiedzi HTML.
+- Kontrolery: klasy obsługujące przychodzące żądania adresów URL do aplikacji, pobieranie danych modelu, a następnie określanie szablonów wyświetlania, które renderują odpowiedź do klienta.
 
-Firma Microsoft będzie obejmujące wszystkie te pojęcia, w tym samouczku a pokazują, jak ich używać do tworzenia aplikacji.
+Będziemy omawiać wszystkie te koncepcje w tym samouczku i pokazują, jak używać ich do kompilowania aplikacji.
 
-Utwórz nowy kontroler, klikając prawym przyciskiem myszy *kontrolerów* folderu w **Eksploratora rozwiązań** , a następnie wybierając **Dodaj kontroler**.
+Utwórz nowy kontroler, klikając prawym przyciskiem myszy folder *controllers* w **Eksplorator rozwiązań** a następnie wybierając pozycję **Dodaj kontroler**.
 
-[![AddController](adding-a-controller/_static/image2.png "AddController")](adding-a-controller/_static/image1.png)
+[![Addcontroller](adding-a-controller/_static/image2.png "Addcontroller")](adding-a-controller/_static/image1.png)
 
-Nadaj nazwę nowemu kontrolerowi &quot;HelloWorldController&quot; i kliknij przycisk **Dodaj**.
+Nazwij nowy kontroler &quot;HelloWorldController&quot; a następnie kliknij przycisk **Dodaj**.
 
 [![2AddEmptyController](adding-a-controller/_static/image4.png "2AddEmptyController")](adding-a-controller/_static/image3.png)
 
-Należy zauważyć w **Eksploratora rozwiązań** po prawej stronie tworzony dla Ciebie nowy plik o nazwie *HelloWorldController.cs* i że plik jest otwarty w środowisku IDE.
+Zwróć uwagę na **Eksplorator rozwiązań** po prawej stronie, że został utworzony nowy plik o nazwie *HelloWorldController.cs* i że plik jest otwarty w środowisku IDE.
 
-W nowym `public class HelloWorldController` zablokować, utworzyć dwie nowe metody, które wyglądają podobnie do poniższego kodu. Na przykład zostanie zwrócona ciąg HTML bezpośrednio z kontrolerem.
+W nowym bloku `public class HelloWorldController` Utwórz dwie nowe metody, które wyglądają jak w poniższym kodzie. Na przykład będziemy zwracać ciąg HTML bezpośrednio z kontrolera.
 
 [!code-vb[Main](adding-a-controller/samples/sample1.vb)]
 
-Nosi nazwę usługi kontrolera `HelloWorldController` i nową metodę o nazwie `Index`. Uruchom aplikację (naciśnij klawisz F5 lub Ctrl + F5). Po uruchomieniu przeglądarki Dołącz &quot;HelloWorld&quot; do ścieżki, w pasku adresu. (Na tym komputerze, ma ona `http://localhost:43246/HelloWorld`) przeglądarki będzie wyglądać jak poniższy zrzut ekranu. W powyższej metody kod zwrócony ciąg bezpośrednio. Powiedzieliśmy systemu, aby po prostu zwraca kod HTML i tak!
+Twój kontroler ma nazwę `HelloWorldController` a nowa metoda ma nazwę `Index`. Uruchom aplikację (naciśnij klawisz F5 lub CTRL + F5). Po uruchomieniu przeglądarki Dołącz &quot;HelloWorld&quot; do ścieżki na pasku adresu. (Na komputerze jest `http://localhost:43246/HelloWorld`) Przeglądarka będzie wyglądać jak na poniższym zrzucie ekranu. W powyższej metodzie kod zwrócił ciąg bezpośrednio. Informujemy system, aby po prostu zwracał część HTML i
 
 ![](adding-a-controller/_static/image5.png)
 
-ASP.NET MVC wywołuje innego kontrolera klasy (i różnych metod akcji w nich), w zależności od przychodzącego adresu URL. Domyślne mapowanie logikę używaną przez platformę ASP.NET MVC używa formatu to do kontrolowania, jaki kod jest wywoływana:
+ASP.NET MVC wywołuje różne klasy kontrolera (i różne metody akcji w nich) w zależności od przychodzącego adresu URL. Domyślna logika mapowania używana przez ASP.NET MVC używa formatu, takiego jak ten, aby kontrolować kod, który jest wywoływany:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Pierwszą część adresu URL określa klasę kontrolera do wykonania. Dlatego */HelloWorld* mapuje `HelloWorldController` klasy. Druga część adresu URL określa metody akcji w klasie, do wykonania. Dlatego */HelloWorld/indeks* spowodowałoby `Index` metody `HelloWorldController` klasy do wykonania. Należy zauważyć, że musimy odwiedź */HelloWorld* powyżej i `Index` metoda została użyta domyślna. Jest to spowodowane metodę o nazwie `Index` jest domyślną metodą, która zostanie wywołana na kontrolerze, jeśli nie jest jawnie określona.
+Pierwsza część adresu URL określa klasę kontrolera do wykonania. Tak więc */HelloWorld* mapuje do klasy `HelloWorldController`. Druga część adresu URL określa metodę akcji dla klasy, która ma zostać wykonana. Dlatego */HelloWorld/index* może spowodować wykonanie metody `Index` klasy `HelloWorldController`. Zwróć uwagę, że mamy tylko odwiedzić */HelloWorld* powyżej, a metoda `Index` była używana domyślnie. Wynika to z faktu, że metoda o nazwie `Index` jest metodą domyślną, która zostanie wywołana na kontrolerze, jeśli nie została określona jawnie.
 
-Przejdź do `http://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Metoda uruchamia i zwraca ciąg &quot;jest to metoda powitalnej akcji... &quot;. Domyślne mapowanie MVC to `/[Controller]/[ActionName]/[Parameters]`. Dla tego adresu URL jest kontroler `HelloWorld` i `Welcome` jest metodą. Firma Microsoft nie były używane `[Parameters]` wchodzi w skład jeszcze adresu URL.
+Przejdź do `http://localhost:xxxx/HelloWorld/Welcome`. Metoda `Welcome` jest uruchamiana i zwraca ciąg &quot;jest to metoda akcji powitalnej...&quot;. Domyślne mapowanie MVC jest `/[Controller]/[ActionName]/[Parameters]`. Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą. Nie użyto jeszcze `[Parameters]` części adresu URL.
 
 ![](adding-a-controller/_static/image6.png)
 
-Zmodyfikujmy przykład nieco tak, że możemy przekazać niektóre informacje o parametrach w z adresu URL do kontrolera (na przykład */HelloWorld/Witaj? nazwa = Scott&amp;numtimes = 4*). Zmień swoje `Welcome` metodę, aby uwzględnić dwa parametry, jak pokazano poniżej. Należy pamiętać, aby wskazać, że używaliśmy funkcji opcjonalny parametr VB `numTimes` parametr powinien domyślnie na 1, jeśli nie przekazano żadnej wartości tego parametru.
+Zmodyfikujmy przykład nieco tak, aby można było przekazać niektóre informacje o parametrach z adresu URL do kontrolera (na przykład */HelloWorld/Welcome? Name = Scott&amp;numtimes = 4*). Zmień metodę `Welcome` tak, aby obejmowała dwa parametry, jak pokazano poniżej. Należy zauważyć, że funkcja opcjonalnego parametru języka VB została użyta w celu wskazania, że parametr `numTimes` powinien domyślnie mieć wartość 1, jeśli dla tego parametru nie zostanie przeniesiona żadnej wartości.
 
 [!code-vb[Main](adding-a-controller/samples/sample2.vb)]
 
-Uruchom aplikację, a następnie przejdź do `http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4` **.** Możesz spróbować różne wartości `name` i `numtimes`. System automatycznie mapuje nazwane parametry ciągu zapytania w pasku adresu do parametrów w metodzie.
+Uruchom aplikację i przejdź do `http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4` **.** Możesz wypróbować różne wartości `name` i `numtimes`. System automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie.
 
 ![](adding-a-controller/_static/image7.png)
 
-W obu tych przykładach kontroler ma zostały wykonując VC część MVC — to praca widok i kontroler. Kontroler zwraca HTML bezpośrednio. Zwykle nie chcemy kontrolerów bezpośrednio, zwracając HTML, ponieważ staje się bardzo trudne kodu. Zamiast tego zazwyczaj użyjemy pliku szablonu osobny widok ułatwiający Generowanie odpowiedzi HTML. Przyjrzyjmy się jak możemy to zrobić.
+W obu tych przykładach kontroler wykonywał składnik VC składnika MVC — jest to działanie widoku i kontrolera. Kontroler zwraca bezpośrednio kod HTML. Zwykle nie chcemy, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo uciążliwe w kodzie. Zamiast tego zwykle użyjesz osobnego pliku szablonu widoku, aby ułatwić generowanie odpowiedzi HTML. Przyjrzyjmy się, jak to zrobić.
 
 > [!div class="step-by-step"]
 > [Poprzednie](intro-to-aspnet-mvc-3.md)

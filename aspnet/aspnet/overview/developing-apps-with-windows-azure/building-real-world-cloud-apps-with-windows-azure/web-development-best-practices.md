@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: 0956aaaf1f6a1a0d2f5d93f98cb6959cec98dbaf
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: dfd8a3ac2328d3f17dfbe36e68b37d181177b0f4
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74582706"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457092"
 ---
 # <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Najlepsze praktyki dotyczące programowania w sieci Web (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -132,7 +132,7 @@ Najlepsze rozwiązania związane z programowaniem w sieci Web można zaimplement
 
 W [następnym rozdziale](single-sign-on.md) przedstawiono sposób, w jaki chmura włącza scenariusze rejestracji jednokrotnej.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby.
 
@@ -141,7 +141,7 @@ Bezstanowe serwery sieci Web:
 - [Wzorce i praktyki firmy Microsoft — wskazówki dotyczące skalowania](https://msdn.microsoft.com/library/dn589774.aspx)automatycznego.
 - [Wyłączanie koligacji wystąpienia ARR w witrynach sieci Web systemu Windows Azure](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Wpis w blogu według Ereza Benariego, objaśnia koligację sesji w witrynach sieci Web systemu Windows Azure.
 
-CDN
+CDN:
 
 - [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria wideo dziewięć części przez Ulrich Homann, Marc Mercuri i marking SIMM. Zapoznaj się z dyskusjami w usłudze CDN w epizod 3, rozpoczynając od 1:34:00.
 - [Wzorzec hostingu zawartości dla wzorców i praktyk firmy Microsoft](https://msdn.microsoft.com/library/dn589776.aspx)

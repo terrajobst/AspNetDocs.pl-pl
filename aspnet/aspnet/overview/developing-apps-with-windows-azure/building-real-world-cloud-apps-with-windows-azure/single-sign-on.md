@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 7e32f444dc38132296cffd45ac658f5abf51f314
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 1ca93cce22487295a24aae95437b3e69dfc5b504
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585280"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457144"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -68,7 +68,7 @@ W portalu zarządzania kliknij kartę Active Directory.
 
 Automatycznie masz jedną dzierżawę usługi Azure AD dla Twojego konta platformy Azure. możesz kliknąć przycisk **Dodaj** w dolnej części strony, aby utworzyć dodatkowe katalogi. Można na przykład utworzyć jeden dla środowiska testowego i jeden do produkcji. Uważnie zapoznaj się z nazwą nowego katalogu. Jeśli używasz nazwy dla katalogu, a następnie używasz swojej nazwy dla jednego z użytkowników, co może być mylące.
 
-![Dodaj katalog](single-sign-on/_static/image6.png)
+![Dodawanie katalogu](single-sign-on/_static/image6.png)
 
 Portal ma pełną obsługę tworzenia i usuwania użytkowników w ramach tego środowiska oraz zarządzania nimi. Na przykład, aby dodać użytkownika, przejdź do karty **Użytkownicy** i kliknij przycisk **Dodaj użytkownika** .
 
@@ -146,7 +146,7 @@ Program Visual Studio ułatwia tworzenie aplikacji, która używa usługi Azure 
 
 Podczas tworzenia nowej aplikacji ASP.NET, MVC lub Web Forms, domyślną metodą uwierzytelniania jest ASP.NET Identity. Aby zmienić ten element na usługę Azure AD, kliknij przycisk **Zmień uwierzytelnianie** .
 
-![Zmień uwierzytelnianie](single-sign-on/_static/image23.png)
+![Zmienianie uwierzytelniania](single-sign-on/_static/image23.png)
 
 Wybierz pozycję konta organizacyjne, wprowadź nazwę domeny, a następnie wybierz pozycję Logowanie jednokrotne.
 
@@ -175,9 +175,9 @@ W tym rozdziale zawarto te Azure Active Directory, Visual Studio i ASP.NET, uła
 [Następny rozdział](data-storage-options.md) analizuje opcje magazynu danych dostępne dla aplikacji w chmurze.
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
-Więcej informacji można znaleźć w następujących zasobach:
+Więcej informacji zawierają następujące zasoby:
 
 - [Dokumentacja Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Strona portalu dokumentacji usługi Azure AD w witrynie windowsazure.com. Samouczki krok po kroku znajdują się w sekcji **programowanie** .
 - [Multi-Factor Authentication platformy Azure](https://docs.microsoft.com/azure/multi-factor-authentication/). Strona portalu z dokumentacją dotyczącą uwierzytelniania wieloskładnikowego na platformie Azure.

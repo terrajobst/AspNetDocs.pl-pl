@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 52c710053feca7872aa6fcc93c99bce90359f8fc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: cf3c65ef95528173eed3fb08984035b2512861c4
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74585879"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77457040"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -39,7 +39,7 @@ Na poniższym diagramie z [wzorców i praktyk firmy Microsoft książka elektron
 
 Automatyzacja tych procesów na platformie Azure jest prosta. Ponieważ korzystasz z wszystkiego w chmurze, nie musisz kupować i zarządzać serwerami dla kompilacji lub środowisk testowych. Nie musisz czekać, aż serwer będzie dostępny do testowania. W przypadku każdej kompilacji, którą można wykonać, możesz uruchomić środowisko testowe na platformie Azure przy użyciu skryptu automatyzacji, uruchamiać testy akceptacji lub bardziej szczegółowe testy, a następnie po prostu wyłączać je. Jeśli tylko ten serwer jest uruchamiany przez 2 godziny lub 8 godzin lub dzień, kwota pieniędzy, za które należy zapłacić, jest minimalna, ponieważ płacisz tylko za czas, w którym maszyna jest rzeczywiście uruchomiona. Na przykład środowisko wymagane do naprawienia aplikacji IT w pierwszej wysokości kosztuje od 1 centa na godzinę, jeśli przejdziesz do warstwy Bezpłatna. W ciągu miesiąca, jeśli tylko środowisko zostało uruchomione w danym momencie, środowisko testowe prawdopodobnie jest tańsze niż latte, które kupujesz w Starbucks.
 
-## <a name="azure-devops-services"></a>Azure DevOps Services 
+## <a name="azure-devops-services"></a>Usługa Azure DevOps Services 
 
 Azure DevOps Services udostępnia wiele funkcji, które ułatwiają tworzenie aplikacji od planowania do wdrożenia.
 
@@ -58,7 +58,7 @@ Jeśli szukasz rozwiązania do zarządzania projektami, współpracy zespołowej
 
 Pierwsze trzy wzorce programowania w chmurze zostały zaimplementowane, jak zaimplementować powtarzalny, niezawodny i przewidywalny proces opracowywania z czasem małego cyklu. W [następnym rozdziale](web-development-best-practices.md) Zacznijmy od wzorca architektury i kodowania.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci Web w Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 

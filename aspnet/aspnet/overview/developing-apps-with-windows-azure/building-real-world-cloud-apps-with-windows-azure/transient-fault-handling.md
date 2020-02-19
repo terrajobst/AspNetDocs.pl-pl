@@ -8,16 +8,16 @@ ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: fc281e3d8f7c9edd4d98b029a67e58113132a8b3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: e798cb83cfb97db63fef6dc38c8f62804461d01b
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74583653"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77456858"
 ---
 # <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa błędów przejściowych (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
-przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tomasz Dykstra](https://github.com/tdykstra)
+przez [Jan Wasson](https://github.com/MikeWasson), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)
 
 [Pobierz poprawkę](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](https://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -78,9 +78,9 @@ Strategia ponawiania/wycofywania może pomóc w wykonywaniu tymczasowych błęd�
 
 W [następnym rozdziale](distributed-caching.md)zawarto informacje na temat poprawy wydajności i niezawodności przy użyciu rozproszonej pamięci podręcznej.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
-Więcej informacji można znaleźć w następujących zasobach:
+Więcej informacji zawierają następujące zasoby:
 
 Dokumentacja
 
@@ -91,14 +91,14 @@ Dokumentacja
 - [Entity Framework — odporność połączenia/logika ponowień](https://msdn.microsoft.com/data/dn456835). Jak korzystać z funkcji obsługi błędów przejściowych w programie Entity Framework 6 i dostosowywać ją.
 - [Odporność połączeń i przechwycenie poleceń z Entity Framework w aplikacji ASP.NET MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Czwarta część serii samouczków z dziewięcioma częścią pokazuje, jak skonfigurować funkcję odporności połączeń Dr 6 dla SQL Database.
 
-Wideo
+Filmy wideo
 
 - [Failsafe: kompilowanie skalowalnych, Odpornych Cloud Services](https://channel9.msdn.com/Series/FailSafe). Seria dziewięciu części przez Ulrich Homann, Marc Mercuri i marking SIMM. Prezentuje koncepcje wysokiego poziomu i zasady architektury w bardzo dostępnym i interesującym scenariuszu, w tym scenariusze opracowane przez firmę Microsoft Customer Advisory Team (CAT) z rzeczywistymi klientami. Zobacz Omówienie wyłączników w epizod 3, zaczynając od 40:55.
 - [Tworzenie dużych: lekcje uzyskane od klientów platformy Azure — część II](https://channel9.msdn.com/Events/Build/2012/3-030). Oznacz moduły SIMM rozmowy dotyczące projektowania pod kątem awarii, przejściowej obsługi błędów i Instrumentacji wszystkich elementów.
 
-Przykładowy kod
+Przykład kodu
 
-- [Podstawy usługi w chmurze na platformie Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja utworzona przez zespół doradców klientów Microsoft Azure, który pokazuje, jak korzystać z [bloku obsługi błędów przejściowych biblioteki przedsiębiorstwa](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Aby uzyskać więcej informacji, zobacz [podstawowa usługa w chmurze Warstwa dostępu do danych — obsługa błędów przejściowych](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH jest zalecana w przypadku dostępu do bazy danych za pomocą ADO.NET bezpośrednio (bez używania Entity Framework).
+- [Podstawy usługi w chmurze na platformie Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja utworzona przez zespół doradców klientów Microsoft Azure, który pokazuje, jak korzystać z [bloku obsługi błędów przejściowych biblioteki przedsiębiorstwa](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Aby uzyskać więcej informacji, zobacz [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx) (Warstwa dostępu do danych w aplikacji Cloud Service Fundamentals — obsługa błędów przejściowych). TFH jest zalecana w przypadku dostępu do bazy danych za pomocą ADO.NET bezpośrednio (bez używania Entity Framework).
 
 > [!div class="step-by-step"]
 > [Poprzednie](monitoring-and-telemetry.md)
