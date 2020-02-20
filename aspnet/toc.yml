@@ -3770,7 +3770,19 @@
     - name: Dodatkowe informacje
       href: whitepapers/overview.md
     - name: ASP.NET SameSite
-      href: SameSite/system-web-samesite.md
+      items:
+        - name: Pliki cookie SameSite na platformie ASP.NET
+          href: SameSite/system-web-samesite.md
+        - name: SameSite — artykuły bazy wiedzy
+          uid: samesite/kbs-samesite
+        - name: 'C# MVC'
+          uid: samesite/csMVC
+        - name: 'C# WebForms'
+          uid: samesite/CSharpWebForms
+        - name: VB WebForms
+          uid: samesite/vbWF
+        - name: VB MVC
+          uid: samesite/vbMVC
     - name: Omówienie programowania dla Internetu na platformie ASP.NET 4 i w programie Visual Studio 2010
       href: whitepapers/aspnet4/index.md
       items:
