@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq
-title: '[Jak mogę] Wprowadzenie do LINQ? | Microsoft Docs'
+title: '[Jak:] Zacznij korzystać z programu LINQ? | Microsoft Docs'
 author: bethmassi
-description: W programowaniu w języku Visual Basic zapozna się do pisania prostych zapytań LINQ do obiektów po plików w systemie plików.
+description: Visual Basic programiści zobaczą, jak pisać proste zapytania LINQ względem obiektów, przechodząc do plików w systemie plików.
 ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: 0811002c-962a-4e25-a372-3b5fc06f99f3
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq
 msc.type: video
 ms.openlocfilehash: 042077cb2c0a284556a35e960177f9fd9ad508a6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413454"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78635906"
 ---
-# <a name="how-do-i-get-started-with-linq"></a>[Jak mogę] Wprowadzenie do LINQ?
+# <a name="how-do-i-get-started-with-linq"></a>[Jak:] Zacznij korzystać z programu LINQ?
 
-przez [Beth Massi](https://github.com/bethmassi)
+Autor [Beth Massi](https://github.com/bethmassi)
 
-W programowaniu w języku Visual Basic zapozna się do pisania prostych zapytań LINQ do obiektów po plików w systemie plików.
+Visual Basic programiści zobaczą, jak pisać proste zapytania LINQ względem obiektów, przechodząc do plików w systemie plików.
 
-[&#9654;Obejrzyj film wideo (9 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-linq)
+[&#9654;Obejrzyj wideo (9 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-linq)
 
 > [!div class="step-by-step"]
-> [Next](how-do-i-perform-group-and-aggregate-queries.md)
+> [Dalej](how-do-i-perform-group-and-aggregate-queries.md)

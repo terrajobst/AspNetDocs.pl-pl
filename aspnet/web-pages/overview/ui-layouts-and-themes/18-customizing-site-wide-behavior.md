@@ -1,125 +1,125 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
-title: Dostosowywanie zachowania dla całej witryny dla ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
+title: Dostosowywanie zachowania całej witryny dla witryn ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym rozdziale wyjaśniono, jak wprowadzić ustawienia całej witryny sieci Web lub cały folder, a nie tylko strony.
+description: W tym rozdziale wyjaśniono, jak wprowadzać ustawienia do całej witryny sieci Web lub całego folderu, a nie tylko na stronie.
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: e158bed7-226f-4275-b02e-7553bd58c669
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
 ms.openlocfilehash: f05e05f725d9209bce283ce18659ae5efe4de2ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131858"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634625"
 ---
-# <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>Dostosowywanie zachowania dla całej witryny dla witrynach ASP.NET Web Pages (Razor)
+# <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>Dostosowywanie zachowania całej witryny dla witryn ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule wyjaśniono, jak określić ustawienia lokacji po stronie dla stron w witrynie internetowej ASP.NET Web Pages (Razor).
+> W tym artykule wyjaśniono, jak utworzyć ustawienia po stronie witryny dla stron w witrynie internetowej ASP.NET Web Pages (Razor).
 > 
 > Zawartość:
 > 
-> - Jak uruchomić kod umożliwiający zestaw wartości (wartości globalnych lub ustawienia pomocnika) dla wszystkich stron w witrynie.
-> - Jak uruchomić kod, który umożliwia ustawienie wartości na wszystkich stronach w folderze.
-> - Jak uruchomić kod przed i po stronie ładuje.
-> - Jak wysłać błędy do strony błędu centralnej.
+> - Jak uruchomić kod, który umożliwia ustawianie wartości (wartości globalne lub ustawienia pomocnika) dla wszystkich stron w witrynie.
+> - Jak uruchomić kod, który umożliwia ustawianie wartości dla wszystkich stron w folderze.
+> - Jak uruchomić kod przed i po załadowaniu strony.
+> - Jak wysłać błędy do centralnej strony błędu.
 > - Jak dodać uwierzytelnianie do wszystkich stron w folderze.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
-> - Program WebMatrix 3
-> - Biblioteka pomocników sieci Web platformy ASP.NET (pakiet NuGet)
+> - ASP.NET strony sieci Web (Razor) 2
+> - WebMatrix 3
+> - Biblioteka pomocników sieci Web ASP.NET (pakiet NuGet)
 >   
 > 
-> W tym samouczku współpracuje również z 3 stron sieci Web platformy ASP.NET i programu Visual Studio 2013 (lub Visual Studio Express 2013 for Web), chyba że użytkownik nie można użyć bibliotekę pomocników platformy ASP.NET sieci Web.
+> Ten samouczek działa również z ASP.NET Web Pages 3 i Visual Studio 2013 (lub Visual Studio Express 2013 dla sieci Web), z tą różnicą, że nie można użyć biblioteki ASP.NET Web Pomocniks.
 
 <a id="Adding_Website_Startup_Code"></a>
-## <a name="adding-website-startup-code-for-aspnet-web-pages"></a>Dodawanie kodu do uruchomienia witryny sieci Web dla stron sieci Web platformy ASP.NET
+## <a name="adding-website-startup-code-for-aspnet-web-pages"></a>Dodawanie kodu startowego witryny internetowej dla stron sieci Web ASP.NET
 
-Przez większość kodu napisanego w języku ASP.NET Web Pages pojedynczej strony może zawierać kod, który jest wymagany dla tej strony. Na przykład jeśli strona wysyła wiadomość e-mail, istnieje możliwość umieść cały kod dla tej operacji na jednej stronie. Może to obejmować kod do zainicjowania ustawienia wysyłania poczty e-mail (oznacza to, że dla serwera SMTP) i wysyłania wiadomości e-mail.
+W przypadku większości kodu, który można napisać na stronach sieci Web ASP.NET, pojedyncza strona może zawierać cały kod, który jest wymagany dla tej strony. Na przykład jeśli strona wyśle wiadomość e-mail, można umieścić cały kod dla tej operacji na jednej stronie. Może to obejmować kod umożliwiający zainicjowanie ustawień wysyłania wiadomości e-mail (czyli dla serwera SMTP) i wysłania wiadomości e-mail.
 
-W niektórych sytuacjach może być do uruchomienia kodu przed uruchomieniem dowolnej stronie w witrynie. Jest to przydatne do ustawiania wartości, które mogą być używane w dowolnym miejscu w witrynie (nazywane *wartości globalnych*.) Na przykład niektóre pomocników wymagają Podaj wartości, takich jak ustawienia poczty e-mail lub kluczy konta. Może być przydatna, aby zachować te ustawienia globalne wartości.
+Jednak w niektórych sytuacjach można uruchomić jakiś kod przed uruchomieniem dowolnej strony w witrynie. Jest to przydatne w przypadku ustawiania wartości, które mogą być używane w dowolnym miejscu w lokacji (nazywanej *wartościami globalnymi*). Na przykład niektórzy pomocnicy wymagają podania wartości, takich jak ustawienia poczty e-mail lub klucze kont. Te ustawienia mogą być przydatne w wartościach globalnych.
 
-Można to zrobić przez utworzenie strony o nazwie  *\_AppStart.cshtml* w katalogu głównym witryny. Jeśli ta strona istnieje, jest uruchamiany przy pierwszym żądaniu dowolnej strony w witrynie. Dlatego jest dobrym miejscem do uruchomienia kodu, aby ustawić wartości globalnych. (Ponieważ  *\_AppStart.cshtml* ma prefiks podkreślenia ASP.NET nie będzie wysyłać strony w przeglądarce, nawet jeśli użytkownicy zażądają go bezpośrednio.)
+Można to zrobić, tworząc stronę o nazwie *\_AppStart. cshtml* w folderze głównym witryny. Jeśli ta strona istnieje, zostanie uruchomiona po raz pierwszy. W związku z tym jest dobrym miejscem, aby uruchomić kod, aby ustawić wartości globalne. (Ponieważ *\_AppStart. cshtml* ma prefiks podkreślenia, ASP.NET nie wyśle strony do przeglądarki, nawet jeśli użytkownicy zażądają go bezpośrednio).
 
-Na poniższym diagramie przedstawiono sposób, w jaki  *\_AppStart.cshtml* stronie działa. Gdy nadejdzie żądanie dla strony i jeśli jest to pierwsze żądanie dla każdej strony w witrynie ASP.NET najpierw sprawdza, czy czy  *\_AppStart.cshtml* strona istnieje. Jeśli tak, dowolny kod w  *\_AppStart.cshtml* strony uruchomienia, a następnie uruchamia żądanej strony.
+Na poniższym diagramie pokazano, jak działa strona *\_AppStart. cshtml* . Gdy żądanie pojawia się na stronie, a jeśli jest to pierwsze żądanie dla każdej strony w witrynie, ASP.NET najpierw sprawdza, czy istnieje strona *\_AppStart. cshtml* . W takim przypadku każdy kod na stronie *\_AppStart. cshtml* zostanie uruchomiony, a następnie zostanie uruchomiona żądana strona.
 
-![[image]](18-customizing-site-wide-behavior/_static/image1.jpg)
+![Image](18-customizing-site-wide-behavior/_static/image1.jpg)
 
-## <a name="setting-global-values-for-your-website"></a>Ustawienie wartości globalnych dla witryny sieci Web
+## <a name="setting-global-values-for-your-website"></a>Ustawianie wartości globalnych dla witryny sieci Web
 
-1. W folderze głównym witryny sieci Web programu WebMatrix, Utwórz plik o nazwie  *\_AppStart.cshtml*. Plik musi być w katalogu głównym witryny.
-2. Zastąp istniejącą zawartość następujących czynności: 
+1. W folderze głównym witryny internetowej WebMatrix Utwórz plik o nazwie *\_AppStart. cshtml*. Plik musi znajdować się w katalogu głównym witryny.
+2. Zastąp istniejącą zawartość następującym: 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample1.cshtml)]
 
-    Ten kod przechowuje wartość w `AppState` słownik, który jest automatycznie dostępny dla wszystkich stron w witrynie. Należy zauważyć, że  *\_AppStart.cshtml* plik nie ma żadnych znaczników w nim. Strona będzie uruchomić kod i Przekierowanie do strony, która pierwotnie żądaną.
+    Ten kod przechowuje wartość w słowniku `AppState`, która jest automatycznie dostępna dla wszystkich stron w witrynie. Zauważ, że plik *\_AppStart. cshtml* nie zawiera żadnych znaczników. Na stronie zostanie uruchomiony kod, a następnie zostanie przekierowany na stronę, której pierwotnie zażądano.
 
     > [!NOTE]
-    > Należy zachować ostrożność w umieść kod  *\_AppStart.cshtml* pliku. Jeśli wystąpią błędy w kodzie w  *\_AppStart.cshtml* pliku, witryny sieci Web nie będą naliczane.
-3. W folderze głównym, Utwórz nową stronę o nazwie *AppName.cshtml*.
-4. Zastąp domyślną znaczników i kodu następujące czynności: 
+    > Należy zachować ostrożność podczas umieszczania kodu w pliku *\_AppStart. cshtml* . Jeśli wystąpią błędy w kodzie w pliku *\_AppStart. cshtml* , witryna internetowa nie zostanie uruchomiona.
+3. W folderze głównym Utwórz nową stronę o nazwie *nazwa_aplikacji. cshtml*.
+4. Zastąp domyślne znaczniki i kod następującymi: 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample2.html)]
 
-    Ten kod wyodrębnianie wartości z `AppState` obiektu, który zostało ustawiony w  *\_AppStart.cshtml* strony.
-5. Uruchom *AppName.cshtml* strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.) Strony wyświetli wartości globalnej. 
+    Ten kod wyodrębnia wartość z obiektu `AppState`, który został ustawiony na stronie *\_AppStart. cshtml* .
+5. Uruchom stronę *nazwa_aplikacji. cshtml* w przeglądarce. (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem). Na stronie zostanie wyświetlona wartość globalna. 
 
-    ![[image]](18-customizing-site-wide-behavior/_static/image2.jpg)
+    ![Image](18-customizing-site-wide-behavior/_static/image2.jpg)
 
 <a id="Setting_Values_For_Helpers"></a>
-## <a name="setting-values-for-helpers"></a>Ustawianie wartości dla wątków
+## <a name="setting-values-for-helpers"></a>Ustawianie wartości dla pomocników
 
-Dobrze Wykorzystaj dla  *\_AppStart.cshtml* plik jest do ustawiania wartości dla wątków, które są używane w serwisie i które mają zostać zainicjowany. Typowym przykładem są ustawienia poczty e-mail dla `WebMail` pomocnika i klucze prywatne i publiczne `ReCaptcha` pomocnika. W takich przypadkach można ustawić wartości jeden raz w  *\_AppStart.cshtml* i następnie są już ustawione dla wszystkich stron w Twojej lokacji.
+Dobrym zastosowaniem pliku *\_AppStart. cshtml* jest ustawienie wartości dla pomocników używanych w danej lokacji, które muszą zostać zainicjowane. Typowe przykłady to ustawienia poczty e-mail pomocnika `WebMail` oraz klucze prywatne i publiczne dla pomocnika `ReCaptcha`. W takich przypadkach można ustawić wartości jeden raz w *\_AppStart. cshtml* , a następnie są one już ustawione dla wszystkich stron w witrynie.
 
-Tej procedury przedstawiono sposób ustawiania `WebMail` ustawienia globalnie. (Aby uzyskać więcej informacji o korzystaniu z `WebMail` pomocnika, zobacz [dodawanie do poczty E-mail witrynie ASP.NET Web Pages](../getting-started/11-adding-email-to-your-web-site.md).)
+Ta procedura pokazuje, jak ustawić `WebMail` ustawienia globalne. (Aby uzyskać więcej informacji na temat korzystania z pomocnika `WebMail`, zobacz [Dodawanie poczty e-mail do witryny ASP.NET Web Pages](../getting-started/11-adding-email-to-your-web-site.md).)
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie został dodany.
-2. Jeśli nie masz jeszcze  *\_AppStart.cshtml* plików, w folderze głównym witryny sieci Web Utwórz plik o nazwie  *\_AppStart.cshtml*.
-3. Dodaj następujący kod `WebMail` ustawienia  *\_AppStart.cshtml* pliku: 
+1. Dodaj bibliotekę pomocników sieci Web ASP.NET do witryny internetowej zgodnie z opisem w temacie [Instalowanie pomocników w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie została dodana.
+2. Jeśli nie masz jeszcze pliku *\_AppStart. cshtml* , w folderze głównym witryny sieci Web Utwórz plik o nazwie *\_AppStart. cshtml*.
+3. Dodaj następujące ustawienia `WebMail` do pliku *\_AppStart. cshtml* : 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample3.cshtml?highlight=2-7)]
 
-    Zmodyfikuj następujące e-mail powiązane ustawienia w kodzie:
+    Zmodyfikuj następujące ustawienia związane z pocztą e-mail w kodzie:
 
-   - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
-   - Ustaw `your-user-name-here` nazwę użytkownika dla konta serwera SMTP.
-   - Ustaw `your-account-password` hasło dla konta serwera SMTP.
-   - Ustaw `your-email-address-here` na adres e-mail. To jest adres e-mail, który komunikat jest wysyłany z. (Niektórzy dostawcy poczty e-mail nie pozwalają określić inną `From` adresem, a następnie użyje nazwy użytkownika jako `From` adresu.)
+   - Ustaw `your-SMTP-host` na nazwę serwera SMTP, do którego masz dostęp.
+   - Ustaw `your-user-name-here` na nazwę użytkownika dla konta serwera SMTP.
+   - Ustaw `your-account-password` na hasło dla konta serwera SMTP.
+   - Ustaw `your-email-address-here` na własny adres e-mail. Jest to adres e-mail, z którego wiadomość jest wysyłana. (Niektórzy dostawcy poczty e-mail nie umożliwiają określania innego adresu `From` i będą używać nazwy użytkownika jako adresu `From`).
 
-     Aby uzyskać więcej informacji na temat ustawień protokołu SMTP, zobacz [konfigurowania ustawień poczty E-mail](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) w artykule [wysyłania wiadomości E-mail z witryny ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkID=202899) i [problemy związane z wysłaniem wiadomości E-mail](https://go.microsoft.com/fwlink/?LinkId=253001#email)w [ASP.NET Web Pages (Razor) Troubleshooting Guide](https://go.microsoft.com/fwlink/?LinkId=253001).
-4. Zapisz  *\_AppStart.cshtml* plik i zamknij go.
-5. W folderze głównym witryny sieci Web, należy utworzyć nową stronę o nazwie *TestEmail.cshtml*.
-6. Zastąp istniejącą zawartość następujących czynności: 
+     Aby uzyskać więcej informacji na temat ustawień SMTP, zobacz [Konfigurowanie ustawień poczty e-mail](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) w artykule [wysyłanie wiadomości e-mail z witryny ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkID=202899) i [problemy z wysyłaniem poczty e-mail](https://go.microsoft.com/fwlink/?LinkId=253001#email) w [przewodniku rozwiązywania problemów z ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001).
+4. Zapisz plik *\_AppStart. cshtml* i zamknij go.
+5. W folderze głównym witryny sieci Web Utwórz nową stronę o nazwie *TestEmail. cshtml*.
+6. Zastąp istniejącą zawartość następującym: 
 
      [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
-7. Uruchom *TestEmail.cshtml* strony w przeglądarce.
-8. Wypełnij pola, aby wysłać do siebie wiadomość e-mail, a następnie kliknij przycisk **wysyłania**.
-9. Sprawdź pocztę e-mail, aby upewnić się, że trafiła do Ciebie wiadomość.
+7. Uruchom stronę *TestEmail. cshtml* w przeglądarce.
+8. Wypełnij pola, aby wysłać do siebie wiadomość e-mail, a następnie kliknij przycisk **Wyślij**.
+9. Sprawdź pocztę e-mail, aby upewnić się, że wiadomość została wykorzystana.
 
-Ważną częścią w tym przykładzie jest to, że ustawienia, które zwykle nie została zmieniona — takie jak nazwa serwera SMTP i poświadczenia wiadomości e-mail — są ustawiane w  *\_AppStart.cshtml* pliku. Dzięki temu nie trzeba ich ustawiać ponownie na każdej stronie gdzie wysłać wiadomości e-mail. (Chociaż Jeśli z jakiegoś powodu, musisz zmienić te ustawienia, można ustawić je oddzielnie na stronie.) Na stronie można ustawić tylko wartości, które zazwyczaj zmienia się za każdym razem, takie jak odbiorcy oraz treść wiadomości e-mail.
+Ważna część tego przykładu polega na tym, że ustawienia, które zwykle nie są zmieniane — takie jak nazwa serwera SMTP i poświadczenia poczty e-mail — są ustawiane w pliku *\_AppStart. cshtml* . W ten sposób nie trzeba ich ponownie ustawiać na każdej stronie, na której jest wysyłana wiadomość e-mail. (Chociaż z jakiegoś powodu trzeba zmienić te ustawienia, można ustawić je pojedynczo na stronie). Na stronie można ustawić tylko te wartości, które zwykle zmieniają się za każdym razem, jak odbiorca i treść wiadomości e-mail.
 
 <a id="Running_Code_Before_and_After"></a>
-## <a name="running-code-before-and-after-files-in-a-folder"></a>Uruchamianie kodu przed i po nim pliki w folderze
+## <a name="running-code-before-and-after-files-in-a-folder"></a>Uruchamianie kodu przed i po plikach w folderze
 
-Podobnie można użyć  *\_AppStart.cshtml* przed uruchomieniem stron witryny, należy napisać kod, można napisać kod, który jest uruchamiany przed (i po nim) dowolnej strony w określonym folderze Uruchom. Jest to przydatne w przypadku elementów, np. ustawienie tej samej strony układu dla wszystkich stron w folderze lub Sprawdzanie, który użytkownik jest zalogowany przed uruchomieniem strony w folderze.
+Podobnie jak można użyć *\_AppStart. cshtml* , aby napisać kod przed uruchomieniem stron w lokacji, można napisać kod, który jest uruchamiany przed (i po) każdej stronie w określonym folderze. Jest to przydatne w przypadku elementów, takich jak Ustawianie tej samej strony układu dla wszystkich stron w folderze, lub sprawdzanie, czy użytkownik jest zalogowany przed uruchomieniem strony w folderze.
 
-W przypadku stron w szczególności folderów, możesz utworzyć kod w pliku o nazwie  *\_PageStart.cshtml*. Na poniższym diagramie przedstawiono sposób, w jaki  *\_PageStart.cshtml* stronie działa. Gdy nadejdzie żądanie dla strony, ASP.NET najpierw sprawdza  *\_AppStart.cshtml* strony i że uruchomieniu. Następnie aplikacja ASP.NET sprawdza, czy istnieje  *\_PageStart.cshtml* strony, a jeśli tak, który uruchamia. Następnie działa żądanej strony.
+W przypadku stron w określonych folderach można utworzyć kod w pliku o nazwie *\_PageStart. cshtml*. Na poniższym diagramie pokazano, jak działa strona *\_PageStart. cshtml* . Gdy żądanie pojawia się na stronie, ASP.NET najpierw sprawdza, czy na stronie *\_AppStart. cshtml* i uruchamia, czy. Następnie ASP.NET sprawdza, czy istnieje strona *\_PageStart. cshtml* , i jeśli tak, uruchamia. Następnie uruchamia żądaną stronę.
 
-Wewnątrz  *\_PageStart.cshtml* strony, można określić miejsce podczas przetwarzania żądanej strony do uruchomienia, umieszczając `RunPage` metody. Dzięki temu można uruchomić kod przed uruchomieniem żądanej strony i następnie ponownie po nim. Jeśli nie podasz `RunPage`, cały kod w  *\_PageStart.cshtml* przebiegów i Żądana strona jest uruchamiana automatycznie.
+Na stronie *\_PageStart. cshtml* można określić, gdzie podczas przetwarzania żądana strona ma być uruchamiana przez uwzględnienie metody `RunPage`. Pozwala to uruchomić kod przed uruchomieniem żądanej strony, a następnie ponownie po nim. Jeśli nie dołączysz `RunPage`, zostanie uruchomiony cały kod *\_PageStart. cshtml* , a następnie żądana strona zostanie uruchomiona automatycznie.
 
-![[image]](18-customizing-site-wide-behavior/_static/image3.jpg)
+![Image](18-customizing-site-wide-behavior/_static/image3.jpg)
 
-Program ASP.NET pozwala utworzyć hierarchię  *\_PageStart.cshtml* plików. Możesz umieścić  *\_PageStart.cshtml* pliku w katalogu głównym witryny i dowolnego podfolderu. Po żądaniu strony  *\_PageStart.cshtml* pliku działa najważniejsze poziomu (najbardziej zbliżona katalogu głównego witryny), a następnie  *\_PageStart.cshtml* pliku w ciągu następnych podfolder, i tak dalej na dół struktury podfolderów, dopóki żądanie dociera folder, który zawiera żądanej strony. Po wszystkich odpowiednich  *\_PageStart.cshtml* pliki zostały uruchomione, jest uruchamiane w żądanej strony.
+ASP.NET umożliwia tworzenie hierarchii plików *\_PageStart. cshtml* . Plik *\_PageStart. cshtml* można umieścić w katalogu głównym lokacji i w dowolnym podfolderze. Po zażądaniu strony zostanie uruchomiony plik *\_PageStart. cshtml* na najwyższego poziomu (najbliżej katalogu głównego witryny), a następnie plik *\_. cshtml* w następnym podfolderze i tak dalej, aż żądanie osiągnie folder zawierający żądaną stronę. Po uruchomieniu wszystkich odpowiednich plików *\_PageStart. cshtml* zostanie uruchomiona żądana strona.
 
-Na przykład może zawierać następujących kombinacji  *\_PageStart.cshtml* plików i *Default.cshtml* pliku:
+Na przykład może istnieć następująca kombinacja plików *\_PageStart. cshtml* i pliku *default. cshtml* :
 
 [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample5.cshtml)]
 
@@ -127,86 +127,86 @@ Na przykład może zawierać następujących kombinacji  *\_PageStart.cshtml* pl
 
 [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample7.cshtml)]
 
-Po uruchomieniu */myfolder/default.cshtml*, zostaną wyświetlone następujące czynności:
+Po uruchomieniu programu */MyFolder/default.cshtml*zostaną wyświetlone następujące elementy:
 
 [!code-console[Main](18-customizing-site-wide-behavior/samples/sample8.cmd)]
 
-## <a name="running-initialization-code-for-all-pages-in-a-folder"></a>Uruchamianie kodu inicjowania dla wszystkich stron w folderze
+## <a name="running-initialization-code-for-all-pages-in-a-folder"></a>Uruchamianie kodu inicjującego dla wszystkich stron w folderze
 
-Dobrze Wykorzystaj dla  *\_PageStart.cshtml* pliki, które jest zainicjowanie tej samej strony układu dla wszystkich plików w jednym folderze.
+Dobrym zastosowaniem plików *\_PageStart. cshtml* jest zainicjowanie tej samej strony układu dla wszystkich plików w jednym folderze.
 
-1. W folderze głównym, Utwórz nowy folder o nazwie *InitPages*.
-2. W *InitPages* folderu witryny sieci Web, Utwórz plik o nazwie  *\_PageStart.cshtml* i zastąp go następującym domyślne znaczników i kodu: 
+1. W folderze głównym Utwórz nowy folder o nazwie *InitPages*.
+2. W folderze *InitPages* witryny sieci Web Utwórz plik o nazwie *\_PageStart. cshtml* i Zastąp domyślne znaczniki i kod poniższymi: 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample9.cshtml)]
-3. W katalogu głównym witryny sieci Web utwórz folder o nazwie *Shared*.
-4. W *Shared* folderze utwórz plik o nazwie  *\_Layout1.cshtml* i zastąp go następującym domyślne znaczników i kodu: 
+3. W katalogu głównym witryny sieci Web Utwórz folder o nazwie *Shared*.
+4. W folderze *udostępnionym* Utwórz plik o nazwie *\_Layout1. cshtml* i Zastąp domyślne znaczniki i kod następującymi: 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample10.cshtml)]
-5. W *InitPages* folderze utwórz plik o nazwie *Content1.cshtml* i Zastąp istniejącą zawartość następującym kodem: 
+5. W folderze *InitPages* Utwórz plik o nazwie *Content1. cshtml* i Zastąp istniejącą zawartość następującym: 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample11.html)]
-6. W *InitPages* folderze utwórz plik o nazwie *Content2.cshtml* i Zastąp znaczniki domyślne następującym kodem: 
+6. W folderze *InitPages* Utwórz inny plik o nazwie *Content2. cshtml* i Zastąp znacznik domyślny następującymi: 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample12.html)]
-7. Uruchom *Content1.cshtml* w przeglądarce. 
+7. Uruchom *Content1. cshtml* w przeglądarce. 
 
-    ![[image]](18-customizing-site-wide-behavior/_static/image4.jpg)
+    ![Image](18-customizing-site-wide-behavior/_static/image4.jpg)
 
-    Gdy *Content1.cshtml* stronie przebiegów,  *\_PageStart.cshtml* plików zestawów `Layout` , a także ustawia `PageData["MyBackground"]` na kolor. W *Content1.cshtml*, układ i kolory są stosowane.
-8. Wyświetlanie *Content2.cshtml* w przeglądarce. 
+    Po uruchomieniu strony *Content1. cshtml* ustawiany jest plik *\_PageStart. cshtml* `Layout`, a także ustawia `PageData["MyBackground"]` na kolor. W *Content1. cshtml*stosowane są układ i kolor.
+8. Wyświetlanie *Content2. cshtml* w przeglądarce. 
 
-    Układ jest taki sam, ponieważ obie strony używają tej samej strony układu i kolorów, jak zainicjować w  *\_PageStart.cshtml*.
+    Układ jest taki sam, ponieważ obie strony używają tej samej strony układu i koloru jak zainicjowane w *\_PageStart. cshtml*.
 
-## <a name="using-pagestartcshtml-to-handle-errors"></a>Za pomocą \_PageStart.cshtml do obsługi błędów
+## <a name="using-_pagestartcshtml-to-handle-errors"></a>Używanie \_PageStart. cshtml do obsługi błędów
 
-Dobre innym na użytek  *\_PageStart.cshtml* pliku polega na utworzeniu sposób obsługi błędy programowania (wyjątki), które mogą występować w dowolnym *.cshtml* strony w folderze. W tym przykładzie przedstawiono jeden ze sposobów.
+Innym dobrym zastosowaniem pliku *\_PageStart. cshtml* jest utworzenie sposobu obsługi błędów programowania (wyjątków), które mogą wystąpić na dowolnej stronie *. cshtml* w folderze. Ten przykład pokazuje, jak to zrobić.
 
 1. W folderze głównym Utwórz folder o nazwie *InitCatch*.
-2. W *InitCatch* folderu witryny sieci Web, Utwórz plik o nazwie  *\_PageStart.cshtml* i Zastąp istniejące znaczników i kodu poniższym kodem: 
+2. W folderze *InitCatch* witryny sieci Web Utwórz plik o nazwie *\_PageStart. cshtml* i Zastąp istniejący znacznik i kod poniższymi: 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample13.cshtml)]
 
-    W tym kodzie spróbujesz jawnie uruchomiony żądanej strony, wywołując `RunPage` metody w ramach `try` bloku. Jeśli wystąpią błędy programowania w żądanej strony, kod wewnątrz `catch` block przebiegów. W tym przypadku kod wykonuje przekierowanie do strony (*Error.cshtml*) i przekazuje nazwę pliku, w którym wystąpił błąd jako część adresu URL. (Utworzysz stronę wkrótce.)
-3. W *InitCatch* folderu witryny sieci Web, Utwórz plik o nazwie *Exception.cshtml* i Zastąp istniejące znaczników i kodu poniższym kodem: 
+    W tym kodzie spróbuj uruchomić żądaną stronę jawnie, wywołując metodę `RunPage` wewnątrz bloku `try`. Jeśli na żądana stronie wystąpią jakieś błędy programowania, kod wewnątrz bloku `catch` zostanie uruchomiony. W takim przypadku kod przekierowuje do strony (*Error. cshtml*) i przekazuje nazwę pliku, który napotkał błąd w ramach adresu URL. (Wkrótce utworzysz stronę).
+3. W folderze *InitCatch* witryny sieci Web Utwórz plik o nazwie *Exception. cshtml* i Zastąp istniejący znacznik i kod poniższymi: 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample14.cshtml)]
 
-    Do celów tego przykładu wykonujesz na tej stronie celowo tworzy błąd, spróbuj ponownie otworzyć plik bazy danych, który nie istnieje.
-4. W folderze głównym, Utwórz plik o nazwie *Error.cshtml* i Zastąp istniejące znaczników i kodu poniższym kodem: 
+    Na potrzeby tego przykładu czynności wykonywane na tej stronie są świadomie związane z tworzeniem błędu, próbując otworzyć plik bazy danych, który nie istnieje.
+4. W folderze głównym Utwórz plik o nazwie *Error. cshtml* i Zastąp istniejący znacznik i kod następującym kodem: 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample15.html)]
 
-    Na tej stronie wyrażenia `@Request["source"]` pobiera wartość z adresu URL i wyświetla je.
-5. Na pasku narzędzi kliknij **Zapisz**.
-6. Uruchom *Exception.cshtml* w przeglądarce. 
+    Na tej stronie wyrażenie `@Request["source"]` Pobiera wartość spoza adresu URL i wyświetla ją.
+5. Na pasku narzędzi kliknij przycisk **Zapisz**.
+6. Uruchom w przeglądarce *wyjątek. cshtml* . 
 
-    ![[image]](18-customizing-site-wide-behavior/_static/image5.jpg)
+    ![Image](18-customizing-site-wide-behavior/_static/image5.jpg)
 
-    Ponieważ wystąpienia błędu w *Exception.cshtml*,  *\_PageStart.cshtml* strona przekierowuje do *Error.cshtml* pliku, który wyświetla komunikat.
+    Ponieważ wystąpił błąd w *Exception. cshtml*, *\_PageStart. cshtml* przekieruje do pliku *Error. cshtml* , który wyświetla komunikat.
 
-    Aby uzyskać więcej informacji na temat wyjątków, zobacz [wprowadzenie do platformy ASP.NET Web Pages programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkID=251587).
+    Aby uzyskać więcej informacji o wyjątkach, zobacz [wprowadzenie do ASP.NET stron sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=251587).
 
 <a id="Using__PageStart.cshtml_to_Restrict_Folder_Access"></a>
-## <a name="using-pagestartcshtml-to-restrict-folder-access"></a>Za pomocą \_PageStart.cshtml, aby ograniczyć dostęp do folderów
+## <a name="using-_pagestartcshtml-to-restrict-folder-access"></a>Używanie \_PageStart. cshtml w celu ograniczenia dostępu do folderu
 
-Można również użyć  *\_PageStart.cshtml* plik, aby ograniczyć dostęp do wszystkich plików w folderze.
+Można również użyć pliku *\_PageStart. cshtml* , aby ograniczyć dostęp do wszystkich plików w folderze.
 
-1. W programie WebMatrix, utworzyć nową witrynę sieci Web, używając **lokacji za pomocą szablonu** opcji.
-2. Wybierz z dostępnych szablonów **witryny początkowej**.
+1. W programie WebMatrix Utwórz nową witrynę sieci Web przy użyciu opcji **lokacja z szablonu** .
+2. Z dostępnych szablonów wybierz pozycję **Witryna początkowa**.
 3. W folderze głównym Utwórz folder o nazwie *AuthenticatedContent*.
-4. W *AuthenticatedContent* folderze utwórz plik o nazwie  *\_PageStart.cshtml* i Zastąp istniejące znaczników i kodu poniższym kodem: 
+4. W folderze *AuthenticatedContent* Utwórz plik o nazwie *\_PageStart. cshtml* i Zastąp istniejący znacznik i kod poniższymi: 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample16.cshtml)]
 
-    Zaczyna się kod, uniemożliwiając wszystkie pliki w folderze pamięci podręcznej. (Jest to wymagane dla scenariuszy, takich jak komputery publiczne, których nie chcesz buforowanych stron jednego użytkownika mają być dostępne dla następnego użytkownika.) Następnie kod określa, czy użytkownik zalogował się na lokacji zanim można wyświetlić dowolnej strony w folderze. Jeśli użytkownik nie jest zalogowany, kod wykonuje przekierowanie do strony logowania. Na stronie logowania może zwrócić użytkownika do strony, która pierwotnie żądaną Jeśli dołączysz wartość ciągu kwerendy o nazwie `ReturnUrl`.
-5. Utwórz nową stronę w *AuthenticatedContent* folder o nazwie *Page.cshtml*.
-6. Zastąp następujące znaczniki domyślne:  
+    Kod zostanie uruchomiony przez uniemożliwienie buforowania wszystkich plików w folderze. (Jest to wymagane w przypadku scenariuszy, takich jak komputery publiczne, w przypadku których nie chcesz, aby jeden z buforowanych stron był dostępny dla następnego użytkownika). Następnie kod określa, czy użytkownik zalogował się do lokacji, zanim będzie mógł wyświetlić wszystkie strony w folderze. Jeśli użytkownik nie jest zalogowany, kod przekieruje się do strony logowania. Strona logowania może zwrócić użytkownika na stronę, której pierwotnie żądano, jeśli dołączysz wartość ciągu zapytania o nazwie `ReturnUrl`.
+5. Utwórz nową stronę w folderze *AuthenticatedContent* o nazwie *Page. cshtml*.
+6. Zastąp znaczniki domyślne następującymi:  
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample17.cshtml)]
-7. Uruchom *Page.cshtml* w przeglądarce. Kod wykonuje przekierowanie do strony logowania. Musisz się zarejestrować, przed zalogowaniem się. Po został zarejestrowany i zalogować, można przejść do strony i wyświetlić jego zawartość.
+7. Uruchom *stronę Page. cshtml* w przeglądarce. Kod przekierowuje użytkownika do strony logowania. Musisz zarejestrować się przed zalogowaniem się. Po zarejestrowaniu i zalogowaniu można przejść do strony i wyświetlić jej zawartość.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Wprowadzenie do programowania z użyciem składni Razor strony sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkID=251587)
+[Wprowadzenie do programowania stron sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=251587)

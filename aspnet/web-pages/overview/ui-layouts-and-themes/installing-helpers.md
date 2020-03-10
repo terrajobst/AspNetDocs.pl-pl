@@ -1,62 +1,62 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
-title: Instalowanie pomocnika we wzorcu ASP.NET Web Pages (Razor) lokacji | Dokumentacja firmy Microsoft
+title: Instalowanie pomocnika w witrynie ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym artykule opisano sposób instalowania pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). Pomocnik jest komponentów wielokrotnego użytku, obejmującą kodu i znaczników w celu na...
+description: W tym artykule opisano sposób instalowania pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). Pomocnik to składnik wielokrotnego użytku, który zawiera kod i adiustację do...
 ms.author: riande
 ms.date: 02/18/2014
 ms.assetid: 5e968ead-906a-45ea-ac2a-c70e57e1a9b1
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
 ms.openlocfilehash: 41e33c04a53a6ad257c3937cdadcec767e9217c8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124153"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638587"
 ---
 # <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Instalowanie pomocnika w witrynie ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano sposób instalowania pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). A *Pomocnika* to składnik wielokrotnego użytku, który zawiera kod i znaczników w celu wykonania zadania, które mogą być uciążliwe lub złożonych.
+> W tym artykule opisano sposób instalowania pomocnika w witrynie internetowej ASP.NET Web Pages (Razor). *Pomocnik* to składnik wielokrotnego użytku, który zawiera kod i znaczniki umożliwiające wykonanie zadania, które może być żmudnym lub złożone.
 > 
 > Zawartość:
 > 
-> - Jak zainstalować pomocnika w witrynie sieci Web utworzonych za pomocą programu WebMatrix 3.
+> - Jak zainstalować pomocnika w witrynie sieci Web utworzonej przy użyciu programu WebMatrix 3.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - Program WebMatrix 3
+> - WebMatrix 3
 
-## <a name="overview-of-helpers"></a>Omówienie wątków
+## <a name="overview-of-helpers"></a>Przegląd pomocników
 
-Niektóre zadania, ludzie często chcemy na stronach sieci web, które wymagają dużej ilości kodu lub dodatkowe wiedzy. Przykłady obejmują wyświetlanie wykresu dla danych. umieszczanie przycisk "Obserwuj" Twitter na stronie; Wysyłanie wiadomości e-mail z witryny sieci Web; Przycinanie i zmienianie rozmiaru obrazów; Korzystając z systemu PayPal, dla danej witryny. Aby ułatwić wykonaj te rodzaje elementów, ASP.NET Web Pages umożliwia korzystanie z *pomocników*. Pomocnicy są składniki instalowaną lokacją i umożliwiające możesz wykonywać typowe zadania przy użyciu tylko wiersz lub dwóch od kodu Razor.
+Niektóre zadania, które często mają być wykonywane na stronach sieci Web, wymagają dużej ilości kodu lub wymagają dodatkowej wiedzy. Przykłady obejmują Wyświetlanie wykresu dla danych; Umieszczanie przycisku "Obserwuj" w usłudze Twitter na stronie; Wysyłanie wiadomości e-mail z witryny sieci Web; Przycinanie lub zmienianie rozmiarów obrazów; Korzystanie z systemu PayPal dla witryny. Aby ułatwić Ci wykonywanie tego rodzaju rzeczy, ASP.NET strony sieci Web umożliwiają korzystanie z *pomocników*. Pomocnicy są składnikami instalowanymi dla lokacji i, które umożliwiają wykonywanie typowych zadań przy użyciu tylko linii lub dwóch kodów Razor.
 
-Strony ASP.NET Web Pages ma kilka pomocników wbudowane. Wiele wątków, są jednak dostępne w pakietach (dodatki), które są dostarczane przy użyciu Menedżera pakietów NuGet. NuGet pozwala wybrać pakiet do zainstalowania, a następnie ta odpowiada za wszystkie szczegóły instalacji.
+Strony sieci Web ASP.NET zawierają kilka pomocników wbudowanych w. Jednak wiele pomocników jest dostępnych w pakietach (dodatków) udostępnianych za pomocą Menedżera pakietów NuGet. Pakiet NuGet umożliwia wybranie pakietu do zainstalowania, a następnie uwzględnia wszystkie szczegóły instalacji.
 
 ## <a name="installing-a-helper-in-webmatrix-3"></a>Instalowanie pomocnika w programie WebMatrix 3
 
-1. Program WebMatrix 3 kliknij **NuGet** przycisku.
+1. W programie WebMatrix 3 Kliknij przycisk **NuGet** .
 
-    ![Okno dialogowe galerii pakietów NuGet w programie WebMatrix](installing-helpers/_static/image1.png)
-2. To spowoduje uruchomienie Menedżera pakietów NuGet i wyświetla dostępnych pakietów. W polu wyszukiwania wprowadź słowo kluczowe pomocy, które chcesz zainstalować.
+    ![Okno dialogowe Galeria NuGet w programie WebMatrix](installing-helpers/_static/image1.png)
+2. Spowoduje to uruchomienie Menedżera pakietów NuGet i wyświetlenie dostępnych pakietów. W polu wyszukiwania wprowadź słowo kluczowe pomocnika, który chcesz zainstalować.
 
-    ![Okno dialogowe galerii pakietów NuGet w programie WebMatrix](installing-helpers/_static/image2.png)
-3. Wybierz pakiet, a następnie kliknij przycisk **zainstalować**. Kliknij przycisk **tak** po wyświetleniu monitu, jeśli chcesz zainstalować pakiet i wskazują, że akceptujesz jej warunki.
+    ![Okno dialogowe Galeria NuGet w programie WebMatrix](installing-helpers/_static/image2.png)
+3. Wybierz pakiet, a następnie kliknij przycisk **Instaluj**. Kliknij przycisk **tak** po wyświetleniu monitu, jeśli chcesz zainstalować pakiet i wskazać, że akceptujesz warunki.
 
-     Jeśli po raz pierwszy po zainstalowaniu pomocnika NuGet powoduje tworzenie folderów w swojej witrynie sieci Web dla kodu, który tworzy pomocnika.
-4. Aby odinstalować pomocnika, kliknij przycisk **galerii** przycisku, kliknij przycisk **zainstalowane** kartę, a następnie wybierz pakiet, który chcesz odinstalować.
+     Jeśli po raz pierwszy zainstalowano pomocnika, program NuGet utworzy foldery w witrynie sieci Web dla kodu, który tworzy pomocnika.
+4. Aby odinstalować pomocnika, kliknij przycisk **Galeria** , kliknij kartę **zainstalowane** i wybierz pakiet, który chcesz odinstalować.
 
 ## <a name="installing-the-twitter-helper"></a>Instalowanie pomocnika usługi Twitter
 
-Najnowszą wersję interfejsu API usługi Twitter nie jest zgodny z elementem pomocniczym Twitter, które można zainstalować za pośrednictwem pakietu NuGet. Zamiast tego zobacz [Pomocnik usługi Twitter za pomocą programu WebMatrix](twitter-helper.md) tematu zawiera informacje dotyczące sposobu konfigurowania Pomocnik usługi Twitter w projekcie.
+Najnowsza wersja interfejsu API usługi Twitter nie jest zgodna z pomocnikiem usługi Twitter instalowanym za pomocą narzędzia NuGet. Zamiast tego zapoznaj się z tematem [pomocnik usługi Twitter z WebMatrix](twitter-helper.md) , aby uzyskać informacje na temat sposobu konfigurowania pomocnika usługi Twitter w projekcie.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Przedstawiamy ASP.NET Web Pages 2 — podstawy programowania](../getting-started/introducing-razor-syntax-c.md)
+[Wprowadzenie do stron sieci Web ASP.NET 2 — Podstawy programowania](../getting-started/introducing-razor-syntax-c.md)
 
-[Pomocnik usługi Twitter za pomocą programu WebMatrix](twitter-helper.md)
+[Pomocnik usługi Twitter w programie WebMatrix](twitter-helper.md)

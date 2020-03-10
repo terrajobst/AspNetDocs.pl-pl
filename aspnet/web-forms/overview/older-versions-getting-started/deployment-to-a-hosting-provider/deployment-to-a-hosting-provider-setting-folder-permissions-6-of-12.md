@@ -9,11 +9,11 @@ ms.assetid: cd03a188-e947-4f55-9bda-b8bce201d8c6
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 85a77a196cf3458bbb2e6308838a846936cd070b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633507"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630509"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>Wdrażanie SQL Server Compact aplikacji sieci Web ASP.NET za pomocą programu Visual Studio lub Visual Web Developer: Ustawianie uprawnień do folderów — 6 z 12
 
@@ -57,7 +57,7 @@ W **Eksploratorze Windows**przejdź do *C:\inetpub\wwwroot\ContosoUniversity*. K
 
 (Jeśli na liście **nazw grup lub użytkowników** nie widzisz opcji **Domyślna** , prawdopodobnie użyto innej metody niż określona w tym samouczku, aby skonfigurować usługi IIS i ASP.NET 4 na komputerze. W takim przypadku należy dowiedzieć się, jaka tożsamość jest używana przez pulę aplikacji przypisaną do aplikacji firmy Contoso University, i przyznać uprawnienia do zapisu dla tej tożsamości. Zobacz linki dotyczące tożsamości pul aplikacji na końcu tego samouczka.)
 
-Kliknij przycisk **Edytuj**. W oknie dialogowym **uprawnienia dla programu ELMAH** wybierz pozycję **Domyślna pula aplikacji**, a następnie zaznacz pole wyboru **zapis** w kolumnie **Zezwalaj** .
+Kliknij pozycję **Edytuj**. W oknie dialogowym **uprawnienia dla programu ELMAH** wybierz pozycję **Domyślna pula aplikacji**, a następnie zaznacz pole wyboru **zapis** w kolumnie **Zezwalaj** .
 
 [![Permissions_for_Elmah_dialog_box](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image8.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image7.png)
 

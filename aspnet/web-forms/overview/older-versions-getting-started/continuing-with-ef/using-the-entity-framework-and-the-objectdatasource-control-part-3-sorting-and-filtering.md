@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
-title: 'Korzystanie z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: Sortowanie i filtrowanie | Dokumentacja firmy Microsoft'
+title: 'Korzystając z Entity Framework 4,0 i formantu ObjectDataSource, część 3: sortowanie i filtrowanie | Microsoft Docs'
 author: tdykstra
-description: W tej serii samouczków opiera się na aplikacji sieci web firmy Contoso University, utworzony przez wprowadzenie do serii samouczków Entity Framework 4.0. I...
+description: Ta seria samouczków jest oparta na aplikacji sieci Web firmy Contoso University, utworzonej przez Wprowadzenie z serią samouczków Entity Framework 4,0. I...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 2990bd10-590d-43d5-9529-6b503ce5455d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
 msc.type: authoredcontent
 ms.openlocfilehash: 603120864528b9a5ff81214270eb9a7f1b68b347
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130675"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631671"
 ---
-# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>Korzystanie z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 3: sortowanie i filtrowanie
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>Używanie Entity Framework 4,0 i formantu ObjectDataSource, część 3: sortowanie i filtrowanie
 
-przez [Tom Dykstra](https://github.com/tdykstra)
+Autor [Dykstra](https://github.com/tdykstra)
 
-> W tej serii samouczków jest oparta na Contoso University aplikacji sieci web, który jest tworzony przez [rozpoczęcie korzystania z programu Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serii samouczków. Jeśli nie została ukończona wcześniej samouczki, jako punkt początkowy na potrzeby tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie serii samouczków. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
+> Ta seria samouczków jest oparta na aplikacji sieci Web firmy Contoso University, utworzonej przez Wprowadzenie z serią samouczków [Entity Framework 4,0](https://asp.net/entity-framework/tutorials#Getting%20Started) . Jeśli wcześniej samouczki nie zostały wykonane, jako punkt wyjścia dla tego samouczka możesz [pobrać utworzoną aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) . Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) utworzoną przez kompletną serię samouczków. Jeśli masz pytania dotyczące samouczków, możesz je ogłosić na [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
-W poprzednim samouczku zaimplementowano wzorzec repozytorium w aplikacji n warstwowej w sieci web, która używa programu Entity Framework i `ObjectDataSource` kontroli. W tym samouczku pokazano, jak wykonać sortowanie i filtrowanie i obsługiwać scenariusze wzorzec / szczegół. Należy dodać następujące rozszerzenia *Departments.aspx* strony:
+W poprzednim samouczku zaimplementowano wzorzec repozytorium w wielowarstwowej aplikacji sieci Web, która używa Entity Framework i kontrolki `ObjectDataSource`. W tym samouczku pokazano, jak wykonywać sortowanie i filtrowanie oraz obsłużyć scenariusze wzorca-szczegóły. Na stronie *działS. aspx* zostaną dodane następujące ulepszenia:
 
-- Pole tekstowe, aby umożliwić użytkownikom na wybór działów według nazwy.
-- Lista kursów dla każdego działu, która jest wyświetlana w siatce.
-- Możliwość sortowania, klikając nagłówki kolumn.
+- Pole tekstowe umożliwiające użytkownikom wybieranie działów według nazwy.
+- Lista kursów dla każdego działu, który jest wyświetlany w siatce.
+- Możliwość sortowania przez kliknięcie nagłówków kolumn.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image1.png)
 
-## <a name="adding-the-ability-to-sort-gridview-columns"></a>Dodanie możliwości do sortowanie kolumn GridView
+## <a name="adding-the-ability-to-sort-gridview-columns"></a>Dodawanie możliwości sortowania kolumn GridView
 
-Otwórz *Departments.aspx* strony, a następnie dodaj `SortParameterName="sortExpression"` atrybutu `ObjectDataSource` formantu o nazwie `DepartmentsObjectDataSource`. (Później utworzymy `GetDepartments` metody, która przyjmuje parametr o nazwie `sortExpression`.) Kod znaczników dla znacznika otwierającego formantu teraz przypomina poniższy przykład.
+Otwórz stronę *działS. aspx* i dodaj atrybut `SortParameterName="sortExpression"` do kontrolki `ObjectDataSource` o nazwie `DepartmentsObjectDataSource`. (W dalszej części utworzysz metodę `GetDepartments`, która przyjmuje parametr o nazwie `sortExpression`.) Znaczniki dla otwierającego tagu kontrolki są teraz podobne do poniższego przykładu.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample1.aspx)]
 
-Dodaj `AllowSorting="true"` atrybutu znaczniku otwierającym elementu `GridView` kontroli. Kod znaczników dla znacznika otwierającego formantu teraz przypomina poniższy przykład.
+Dodaj atrybut `AllowSorting="true"` do tagu otwierającego kontrolki `GridView`. Znaczniki dla otwierającego tagu kontrolki są teraz podobne do poniższego przykładu.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample2.aspx)]
 
-W *Departments.aspx.cs*, ustaw kolejność sortowania domyślnego, wywołując `GridView` kontrolki `Sort` metody z `Page_Load` metody:
+W *Departments.aspx.cs*Ustaw domyślną kolejność sortowania, wywołując metodę `Sort` formantu `GridView` z metody `Page_Load`:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample3.cs)]
 
-Możesz dodać kod, która sortuje i filtruje klasy logiki biznesowej lub klasę repozytorium. Jeśli możesz zrobić w klasie logiki biznesowej, sortowanie lub filtrowanie pracy zostaną wykonane po pobraniu danych z bazy danych, ponieważ klasa logika biznesowa jest praca z `IEnumerable` obiektu zwróconego przez repozytorium. Jeśli dodasz, sortowanie i filtrowanie kod w klasie repozytorium i zrobisz to przed wyrażenie LINQ lub zapytanie obiektów został przekonwertowany na `IEnumerable` obiektu poleceń będą przekazywane do bazy danych do przetwarzania, co jest zazwyczaj bardziej wydajne. W tym samouczku możesz wdrożyć sortowanie i filtrowanie w sposób, który powoduje, że przetwarzanie do wykonania przez bazę danych — czyli w repozytorium.
+Można dodać kod, który sortuje lub filtruje w klasie logiki biznesowej lub klasy repozytorium. Jeśli zostanie to zrobione w klasie logiki biznesowej, zadania sortowania lub filtrowania będą wykonywane po pobraniu danych z bazy danych, ponieważ Klasa logiki biznesowej pracuje z obiektem `IEnumerable` zwróconym przez repozytorium. W przypadku dodania sortowania i filtrowania kodu w klasie repozytorium, gdy zostanie to wykonane przed przekonwertowaniem wyrażenia LINQ lub zapytania obiektu na obiekt `IEnumerable`, polecenia zostaną przesłane do bazy danych w celu przetworzenia, co jest zwykle bardziej wydajne. W tym samouczku zaimplementowano sortowanie i filtrowanie w taki sposób, który powoduje, że przetwarzanie zostanie wykonane przez bazę danych — czyli w repozytorium.
 
-Aby dodać możliwość sortowania, należy dodać nową metodę do klasy repozytorium, jak również co klasa logika biznesowa i repozytorium interfejsu. W *ISchoolRepository.cs* Dodaj nową `GetDepartments` metody, która przyjmuje `sortExpression` parametr, który będzie używany do sortować listę działów, który jest zwracany:
+Aby dodać funkcję sortowania, należy dodać nową metodę do interfejsów repozytorium i klas repozytorium oraz do klasy logiki biznesowej. W pliku *ISchoolRepository.cs* Dodaj nową metodę `GetDepartments`, która przyjmuje `sortExpression` parametr, który będzie używany do sortowania listy zwracanych wydziałów:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample4.cs)]
 
-`sortExpression` Parametr będzie określać kolumnę do sortowania i kierunek sortowania.
+Parametr `sortExpression` określa kolumnę, według której ma zostać wykonane sortowanie, oraz kierunek sortowania.
 
-Dodaj kod do nowej metody do *SchoolRepository.cs* pliku:
+Dodaj kod dla nowej metody do pliku *SchoolRepository.cs* :
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample5.cs)]
 
-Zmień istniejące bez parametrów `GetDepartments` metodę, aby wywołać nową metodę:
+Zmień istniejącą metodę `GetDepartments` bez parametrów, aby wywołać nową metodę:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample6.cs)]
 
@@ -63,48 +63,48 @@ W projekcie testowym Dodaj następującą nową metodę do *MockSchoolRepository
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample7.cs)]
 
-Jeśli zostały zamierza utworzyć wszelkie testy jednostkowe, które zależą od ta metoda zwraca posortowaną listę, będziesz potrzebować listę można sortować przed zwróceniem. Użytkownik nie będzie można tworzenie testów Krewny, który w ramach tego samouczka, więc metoda po prostu może zwrócić listę nieposortowane działów.
+Jeśli chcesz utworzyć wszystkie testy jednostkowe, które od tej metody zwracają posortowaną listę, należy posortować listę przed jej zwróceniem. Nie będziesz tworzyć testów takich jak w tym samouczku, dlatego metoda może po prostu zwrócić niesortowaną listę działów.
 
-W *SchoolBL.cs* plików, dodaj następującą nową metodę do klasy logiki biznesowej:
+W pliku *SchoolBL.cs* Dodaj następującą nową metodę do klasy logiki biznesowej:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample8.cs)]
 
 Ten kod przekazuje parametr sortowania do metody repozytorium.
 
-Uruchom *Departments.aspx* strony.
+Uruchom stronę *działS. aspx* .
 
 [![Image02](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image3.png)
 
-Teraz możesz kliknąć dowolny nagłówek kolumny, aby posortować według tej kolumny. Jeśli kolumna jest już sortowana, klikając nagłówek odwraca kierunek sortowania.
+Teraz możesz kliknąć dowolny nagłówek kolumny, aby posortować według tej kolumny. Jeśli kolumna jest już posortowana, kliknięcie nagłówka powoduje odwrócenie kierunku sortowania.
 
 ## <a name="adding-a-search-box"></a>Dodawanie pola wyszukiwania
 
-W tej sekcji będzie dodać pole tekstowe wyszukiwania, połączenie jej z `ObjectDataSource` sterować za pomocą parametru formant i dodać metodę do klasy logiki biznesowej, aby obsługiwać filtrowanie.
+W tej sekcji dodasz pole tekstowe wyszukiwania, połączysz je z kontrolką `ObjectDataSource` przy użyciu parametru kontrolki i dodamy metodę do klasy logiki biznesowej w celu obsługi filtrowania.
 
-Otwórz *Departments.aspx* strony, a następnie dodaj następujący kod między nagłówkiem i pierwszy `ObjectDataSource` sterowania:
+Otwórz stronę *działS. aspx* i Dodaj następujące znaczniki między nagłówkiem i pierwszą kontrolką `ObjectDataSource`:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample9.aspx)]
 
-W `ObjectDataSource` formantu o nazwie `DepartmentsObjectDataSource`, wykonaj następujące czynności:
+W kontrolce `ObjectDataSource` o nazwie `DepartmentsObjectDataSource`wykonaj następujące czynności:
 
-- Dodaj `SelectParameters` elementu dla parametru o nazwie `nameSearchString` , które pobiera wartość wprowadzona w `SearchTextBox` kontroli.
-- Zmiana `SelectMethod` wartość do atrybutu `GetDepartmentsByName`. (W dalszej części opisano tworzenie tej metody.)
+- Dodaj element `SelectParameters` dla parametru o nazwie `nameSearchString`, który pobiera wartość wprowadzoną w kontrolce `SearchTextBox`.
+- Zmień wartość atrybutu `SelectMethod` na `GetDepartmentsByName`. (Ta metoda zostanie utworzona później).
 
-Kod znaczników dla `ObjectDataSource` kontroli teraz podobnego do następującego:
+Znaczniki dla kontrolki `ObjectDataSource` są teraz podobne do następujących:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample10.aspx)]
 
-W *ISchoolRepository.cs*, Dodaj `GetDepartmentsByName` metody, która przyjmuje zarówno `sortExpression` i `nameSearchString` parametry:
+W *ISchoolRepository.cs*dodaj metodę `GetDepartmentsByName`, która przyjmuje zarówno parametry `sortExpression`, jak i `nameSearchString`:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample11.cs)]
 
-W *SchoolRepository.cs*, dodaj następującą nową metodę:
+W *SchoolRepository.cs*Dodaj następującą nową metodę:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample12.cs)]
 
-Ten kod używa `Where` metodę, aby wybrać elementy zawierające ciąg wyszukiwania. Jeśli ciąg wyszukiwania jest pusta, zostanie wybrana wszystkie rekordy. Należy pamiętać, że po określeniu wywołania metod razem w jednej instrukcji w następujący sposób (`Include`, następnie `OrderBy`, następnie `Where`), `Where` metoda zawsze musi być ostatni.
+Ten kod używa metody `Where`, aby wybrać elementy, które zawierają ciąg wyszukiwania. Jeśli ciąg wyszukiwania jest pusty, zostaną zaznaczone wszystkie rekordy. Należy pamiętać, że po określeniu wywołań metod w jednej instrukcji, takiej jak (`Include`, a następnie `OrderBy`, a następnie `Where`), Metoda `Where` musi być zawsze Ostatnia.
 
-Zmień istniejące `GetDepartments` metody, która przyjmuje `sortExpression` parametru, aby wywołać nową metodę:
+Zmień istniejącą metodę `GetDepartments`, która przyjmuje parametr `sortExpression`, aby wywołać nową metodę:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample13.cs)]
 
@@ -112,43 +112,43 @@ W *MockSchoolRepository.cs* w projekcie testowym Dodaj następującą nową meto
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample14.cs)]
 
-W *SchoolBL.cs*, dodaj następującą nową metodę:
+W *SchoolBL.cs*Dodaj następującą nową metodę:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample15.cs)]
 
-Uruchom *Departments.aspx* stronie, a następnie wprowadź ciąg wyszukiwania, aby upewnić się, że działa logikę wyboru. Pozostaw puste pole tekstowe, a następnie spróbuj wyszukiwania, aby upewnić się, że zwracane są wszystkie rekordy.
+Uruchom stronę *działu. aspx* , a następnie wprowadź ciąg wyszukiwania, aby upewnić się, że logika wyboru działa. Pozostaw pole tekstowe puste i spróbuj wykonać wyszukiwanie, aby upewnić się, że wszystkie rekordy są zwracane.
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image5.png)
 
 ## <a name="adding-a-details-column-for-each-grid-row"></a>Dodawanie kolumny szczegółów dla każdego wiersza siatki
 
-Następnie użytkownik chce zobaczyć wszystkie kursy dla każdego działu wyświetlana w komórce po prawej stronie siatki. Aby to zrobić, użyjesz zagnieżdżoną `GridView` kontroli i powiązać z danymi do danych z `Courses` właściwość nawigacji `Department` jednostki.
+Następnie chcesz zobaczyć wszystkie kursy dla każdego działu wyświetlanego w prawej komórce siatki. W tym celu należy użyć zagnieżdżonej kontrolki `GridView` i powiązać ją z danymi z `Courses` właściwości nawigacji jednostki `Department`.
 
-Otwórz *Departments.aspx* w znaczniki dla `GridView` kontrolować, określ program obsługi dla `RowDataBound` zdarzeń. Kod znaczników dla znacznika otwierającego formantu teraz przypomina poniższy przykład.
+Otwórz *działy. aspx* i w znaczniku dla kontrolki `GridView` Określ procedurę obsługi dla zdarzenia `RowDataBound`. Znaczniki dla otwierającego tagu kontrolki są teraz podobne do poniższego przykładu.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample16.aspx)]
 
-Dodaj nową `TemplateField` elementu po `Administrator` pole szablonu:
+Dodaj nowy element `TemplateField` po polu szablonu `Administrator`:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample17.aspx)]
 
-Ten kod znaczników tworzy zagnieżdżoną `GridView` kontrolka, która pokazuje liczbę kurs i tytuły listę kursów. Nie określa źródło danych, ponieważ należy powiązać z danymi w kodzie w `RowDataBound` programu obsługi.
+Ten znacznik tworzy zagnieżdżony formant `GridView`, który pokazuje numer kursu i tytuł listy kursów. Nie określa źródła danych, ponieważ będzie on wiązać się z kodem w obsłudze `RowDataBound`.
 
-Otwórz *Departments.aspx.cs* i Dodaj następujący program obsługi dla `RowDataBound` zdarzeń:
+Otwórz *Departments.aspx.cs* i Dodaj następujący program obsługi dla zdarzenia `RowDataBound`:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample18.cs)]
 
-Ten kod pobiera `Department` jednostki na podstawie argumentów zdarzeń, konwertuje `Courses` właściwość nawigacji do `List` zbierania i databinds zagnieżdżonego `GridView` do kolekcji.
+Ten kod pobiera `Department` jednostkę z argumentów zdarzenia, konwertuje właściwość nawigacji `Courses` do kolekcji `List`, a następnie datawiąże zagnieżdżoną `GridView` z kolekcją.
 
-Otwórz *SchoolRepository.cs* pliku i określić wczesne ładowanie dla `Courses` właściwość nawigacji, wywołując `Include` metody w zapytaniu obiektu, który zostanie utworzony w `GetDepartmentsByName` metody. `return` Instrukcji w `GetDepartmentsByName` metoda teraz przypomina poniższy przykład.
+Otwórz plik *SchoolRepository.cs* i określ eager do załadowania dla właściwości nawigacji `Courses` przez wywołanie metody `Include` w zapytaniu obiektu utworzonym w metodzie `GetDepartmentsByName`. Instrukcja `return` w metodzie `GetDepartmentsByName` jest teraz podobna do poniższego przykładu.
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample19.cs)]
 
-Uruchom stronę. Oprócz sortowania i filtrowania możliwości, który dodano wcześniej kontrolki GridView zawiera szczegóły dotyczące zagnieżdżonych kursu dla każdego działu.
+Uruchom stronę. Oprócz możliwości sortowania i filtrowania, które zostały dodane wcześniej, formant GridView pokazuje teraz zagnieżdżone szczegóły kursu dla każdego działu.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image8.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image7.png)
 
-Na tym kończy się wprowadzenie do filtrowania, sortowania i wzorzec / szczegół scenariuszy. W następnym samouczku pojawi się, jak obsługiwać współbieżności.
+Spowoduje to zakończenie wprowadzania do sortowania, filtrowania i szczegółowych scenariuszy. W następnym samouczku zobaczysz, jak obsłużyć współbieżność.
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

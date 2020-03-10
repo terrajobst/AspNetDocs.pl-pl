@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
-title: '[Jak mogę] Wdrażanie aplikacji internetowej podczas kompilacji zespołu? | Microsoft Docs'
+title: '[Jak:] Czy wdrożyć aplikację internetową podczas kompilacji zespołu? | Microsoft Docs'
 author: pjhacker
-description: Ten film pokazuje, jak utworzyć nową kompilację zespołu i jak wdrożyć aplikację sieci Web jako część procesu kompilacji. Widzimy, że w tym deploym...
+description: W tym filmie wideo pokazano, jak utworzyć nową kompilację zespołową oraz jak wdrożyć aplikację sieci Web w ramach procesu kompilacji. Widzimy, że w tym deploym...
 ms.author: riande
 ms.date: 08/01/2007
 ms.assetid: 3c81ee94-4561-4267-864d-2656b33d95c9
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
 msc.type: video
 ms.openlocfilehash: d5cf8850a1994d209cfaa829d1de2f8bc79776e7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398946"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631237"
 ---
-# <a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[Jak mogę] Wdrażanie aplikacji internetowej podczas kompilacji zespołu?
+# <a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[Jak:] Czy wdrożyć aplikację internetową podczas kompilacji zespołu?
 
-przez [hakerom Paul](https://github.com/pjhacker)
+przez [hakera Paul](https://github.com/pjhacker)
 
-Ten film pokazuje, jak utworzyć nową kompilację zespołu i jak wdrożyć aplikację sieci Web jako część procesu kompilacji. Widzimy, że w tym kroku wdrożenia jest tak proste, jak dodawanie polecenia kopiowania X do skryptu kompilacji.
+W tym filmie wideo pokazano, jak utworzyć nową kompilację zespołową oraz jak wdrożyć aplikację sieci Web w ramach procesu kompilacji. Zobaczymy, że w tym kroku wdrożenia jest tak proste, jak dodanie polecenia X-Copy do skryptu kompilacji.
 
-[&#9654;Obejrzyj film wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-deploy-a-web-application-during-a-team-build)
+[&#9654;Obejrzyj wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-deploy-a-web-application-during-a-team-build)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-automate-testing-using-team-build.md)
