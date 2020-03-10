@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/sql-2005/what-is-a-database
-title: Co to jest bazę danych? | Microsoft Docs
+title: Co to jest baza danych? | Microsoft Docs
 author: microsoft
-description: 'Tego wprowadzenia opisano pytania i terminologia programu SQL Server początkujących niezbędne do tworzenia i zarządzania bazami danych, takimi jak: Co to jest bazy danych programu SQL Server? Jak...'
+description: 'To wprowadzenie obejmuje pytania i terminologię SQL Server początkujących musi utworzyć bazy danych i zarządzać nimi, na przykład: co to jest baza danych SQL Server? Jak...'
 ms.author: riande
 ms.date: 03/29/2006
 ms.assetid: 560d2455-ce08-4b2a-900d-7e9ccf82e048
 msc.legacyurl: /web-forms/videos/sql-2005/what-is-a-database
 msc.type: video
 ms.openlocfilehash: 019383897daeb7d8885ea4b9c3609e7f8ef9f827
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396671"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637138"
 ---
-# <a name="what-is-a-database"></a><span data-ttu-id="beff6-105">Co to jest bazę danych?</span><span class="sxs-lookup"><span data-stu-id="beff6-105">What is a Database?</span></span>
+# <a name="what-is-a-database"></a><span data-ttu-id="eaaec-105">Co to jest baza danych?</span><span class="sxs-lookup"><span data-stu-id="eaaec-105">What is a Database?</span></span>
 
-<span data-ttu-id="beff6-106">przez [firmy Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="beff6-106">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="eaaec-106">przez [firmę Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="eaaec-106">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="beff6-107">Tego wprowadzenia opisano pytania i terminologia programu SQL Server początkujących niezbędne do tworzenia i zarządzania bazami danych, takimi jak: Co to jest bazy danych programu SQL Server?</span><span class="sxs-lookup"><span data-stu-id="beff6-107">This introduction covers the questions and terminology SQL Server beginners need to create and manage databases, such as: What is a SQL Server database?</span></span> <span data-ttu-id="beff6-108">Czym różni się bazy danych programu SQL Server z arkusza kalkulacyjnego programu Excel?</span><span class="sxs-lookup"><span data-stu-id="beff6-108">How is a SQL Server database different from an Excel spreadsheet?</span></span> <span data-ttu-id="beff6-109">Co zrobić baz danych programu SQL Server we własnych aplikacjach witryny sieci Web lub oprogramowania?</span><span class="sxs-lookup"><span data-stu-id="beff6-109">What do SQL Server databases do in my website or software applications?</span></span> <span data-ttu-id="beff6-110">Co to jest relacja programu SQL Server Express programu Visual Studio Express?</span><span class="sxs-lookup"><span data-stu-id="beff6-110">What's SQL Server Express' relation to Visual Studio Express?</span></span> <span data-ttu-id="beff6-111">Do czego służy terminy takie jak "ADO.NET" oznacza?</span><span class="sxs-lookup"><span data-stu-id="beff6-111">What do terms like "ADO.NET" mean?</span></span>
+<span data-ttu-id="eaaec-107">To wprowadzenie obejmuje pytania i terminologię SQL Server początkujących musi utworzyć bazy danych i zarządzać nimi, na przykład: co to jest baza danych SQL Server?</span><span class="sxs-lookup"><span data-stu-id="eaaec-107">This introduction covers the questions and terminology SQL Server beginners need to create and manage databases, such as: What is a SQL Server database?</span></span> <span data-ttu-id="eaaec-108">Jak różni się baza danych SQL Server z arkusza kalkulacyjnego programu Excel?</span><span class="sxs-lookup"><span data-stu-id="eaaec-108">How is a SQL Server database different from an Excel spreadsheet?</span></span> <span data-ttu-id="eaaec-109">Co SQL Server bazy danych należy wykonać w witrynie sieci Web lub aplikacji oprogramowania?</span><span class="sxs-lookup"><span data-stu-id="eaaec-109">What do SQL Server databases do in my website or software applications?</span></span> <span data-ttu-id="eaaec-110">Co to jest relacja SQL Server Express "do Visual Studio Express?</span><span class="sxs-lookup"><span data-stu-id="eaaec-110">What's SQL Server Express' relation to Visual Studio Express?</span></span> <span data-ttu-id="eaaec-111">Co oznacza termin "ADO.NET"?</span><span class="sxs-lookup"><span data-stu-id="eaaec-111">What do terms like "ADO.NET" mean?</span></span>
 
-[<span data-ttu-id="beff6-112">&#9654;Obejrzyj film wideo (28 w minutach)</span><span class="sxs-lookup"><span data-stu-id="beff6-112">&#9654; Watch video (28 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-a-database)
+[<span data-ttu-id="eaaec-112">&#9654;Obejrzyj wideo (28 minut)</span><span class="sxs-lookup"><span data-stu-id="eaaec-112">&#9654; Watch video (28 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-a-database)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="beff6-113">Next</span><span class="sxs-lookup"><span data-stu-id="beff6-113">Next</span></span>](understanding-database-tables-and-records.md)
+> [<span data-ttu-id="eaaec-113">Dalej</span><span class="sxs-lookup"><span data-stu-id="eaaec-113">Next</span></span>](understanding-database-tables-and-records.md)

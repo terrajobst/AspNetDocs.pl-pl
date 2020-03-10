@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/building-35-applications/intellisense
-title: IntelliSense | Microsoft Docs
+title: Technologia IntelliSense | Microsoft Docs
 author: JoeStagner
-description: Funkcja IntelliSense jest wartościowych funkcji programu Visual Studio dla platformy .NET zarówno uczenie programowania, a także przyspieszanie wydajność kodowania. Zostaną wprowadzone w tym wideo...
+description: Technologia IntelliSense to cenna funkcja programu Visual Studio, która umożliwia programowanie programów .NET, a także przyspieszanie wydajności kodowania. To wideo zostanie wprowadzone...
 ms.author: riande
 ms.date: 04/09/2009
 ms.assetid: 541d38fd-2d62-4db5-bb9f-182163829326
 msc.legacyurl: /web-forms/videos/building-35-applications/intellisense
 msc.type: video
 ms.openlocfilehash: 040557898c3181e5a8258a04617fc7d1c7b268ac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59420292"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641303"
 ---
-# <a name="intellisense"></a><span data-ttu-id="91c16-104">IntelliSense</span><span class="sxs-lookup"><span data-stu-id="91c16-104">IntelliSense</span></span>
+# <a name="intellisense"></a><span data-ttu-id="b7cca-104">IntelliSense</span><span class="sxs-lookup"><span data-stu-id="b7cca-104">IntelliSense</span></span>
 
-<span data-ttu-id="91c16-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="91c16-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="b7cca-105">Jan [Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="b7cca-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="91c16-106">Funkcja IntelliSense jest wartościowych funkcji programu Visual Studio dla platformy .NET zarówno uczenie programowania, a także przyspieszanie wydajność kodowania.</span><span class="sxs-lookup"><span data-stu-id="91c16-106">IntelliSense is a valuable Visual Studio feature for both learning .NET programming as well as accelerating your coding efficiency.</span></span> <span data-ttu-id="91c16-107">W tym wideo przedstawiono zalety funkcji IntelliSense w Visual Web Developer.</span><span class="sxs-lookup"><span data-stu-id="91c16-107">This video will introduce you to the value of IntelliSense in Visual Web Developer.</span></span>
+<span data-ttu-id="b7cca-106">Technologia IntelliSense to cenna funkcja programu Visual Studio, która umożliwia programowanie programów .NET, a także przyspieszanie wydajności kodowania.</span><span class="sxs-lookup"><span data-stu-id="b7cca-106">IntelliSense is a valuable Visual Studio feature for both learning .NET programming as well as accelerating your coding efficiency.</span></span> <span data-ttu-id="b7cca-107">To wideo spowoduje wprowadzenie do wartości funkcji IntelliSense w programie Visual Web Developer.</span><span class="sxs-lookup"><span data-stu-id="b7cca-107">This video will introduce you to the value of IntelliSense in Visual Web Developer.</span></span>
 
-[<span data-ttu-id="91c16-108">&#9654;Obejrzyj film wideo (14 min)</span><span class="sxs-lookup"><span data-stu-id="91c16-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intellisense)
+[<span data-ttu-id="b7cca-108">&#9654;Obejrzyj wideo (14 minut)</span><span class="sxs-lookup"><span data-stu-id="b7cca-108">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intellisense)

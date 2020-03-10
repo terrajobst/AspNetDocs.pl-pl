@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile141
-title: jQuery Mobile 1.4.1 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
+title: jQuery Mobile 1.4.1 w usłudze Microsoft Ajax CDN | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: 89c96d26-6777-4e1d-839a-df67d2d5c1c2
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile141
 msc.type: content
 ms.openlocfilehash: 0c6697d87521f8c1fce8ac1bcf82df8241faff81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59394110"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78562707"
 ---
-# <a name="jquery-mobile-141-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="ff04d-102">System jQuery Mobile 1.4.1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="ff04d-102">jQuery Mobile 1.4.1 on the Microsoft Ajax CDN</span></span>
+# <a name="jquery-mobile-141-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="d7708-102">System jQuery Mobile 1.4.1 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="d7708-102">jQuery Mobile 1.4.1 on the Microsoft Ajax CDN</span></span>
 
-<span data-ttu-id="ff04d-103">Biblioteka jQuery Mobile 1.4.1 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="ff04d-103">The jQuery Mobile 1.4.1 library includes the following files:</span></span>
+<span data-ttu-id="d7708-103">Biblioteka jQuery Mobile 1.4.1 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="d7708-103">The jQuery Mobile 1.4.1 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.1/jquery.mobile.structure-1.4.1.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.1/jquery.mobile.structure-1.4.1.min.css

@@ -1,29 +1,29 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/understanding-controllers-controller-actions-and-action-results
-title: Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji | Dokumentacja firmy Microsoft
+title: Omówienie kontrolerów, akcji kontrolera i wyników akcji | Microsoft Docs
 author: StephenWalther
-description: 'W tym samouczku Walther Autor: Stephen przedstawiono kontrolery ASP.NET MVC. Dowiesz się, jak utworzyć nowe kontrolery i zwracać różne typy akcji res...'
+description: W tym samouczku Stephen Walther wprowadza do ASP.NET kontrolerów MVC. Dowiesz się, jak tworzyć nowe kontrolery i zwracać różne typy zasobów akcji...
 ms.author: riande
 ms.date: 08/20/2008
 ms.assetid: 2456a5da-d376-4d45-8275-9e0dc46bf7dd
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-controllers-controller-actions-and-action-results
 msc.type: video
 ms.openlocfilehash: b638565cdaf4b16d5f7a4649b7b1cccd880200d1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407383"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558955"
 ---
-# <a name="understanding-controllers-controller-actions-and-action-results"></a><span data-ttu-id="a8407-104">Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji</span><span class="sxs-lookup"><span data-stu-id="a8407-104">Understanding Controllers, Controller Actions, and Action Results</span></span>
+# <a name="understanding-controllers-controller-actions-and-action-results"></a><span data-ttu-id="72731-104">Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji</span><span class="sxs-lookup"><span data-stu-id="72731-104">Understanding Controllers, Controller Actions, and Action Results</span></span>
 
-<span data-ttu-id="a8407-105">przez [Walther Autor: Stephen](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="a8407-105">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
+<span data-ttu-id="72731-105">Autor [Stephen Walther](https://github.com/StephenWalther)</span><span class="sxs-lookup"><span data-stu-id="72731-105">by [Stephen Walther](https://github.com/StephenWalther)</span></span>
 
-<span data-ttu-id="a8407-106">W tym samouczku Walther Autor: Stephen przedstawiono kontrolery ASP.NET MVC.</span><span class="sxs-lookup"><span data-stu-id="a8407-106">In this tutorial, Stephen Walther introduces you to ASP.NET MVC controllers.</span></span> <span data-ttu-id="a8407-107">Dowiesz się, jak utworzyć nowe kontrolery i zwracania różnych typów wyników akcji.</span><span class="sxs-lookup"><span data-stu-id="a8407-107">You learn how to create new controllers and return different types of action results.</span></span> <span data-ttu-id="a8407-108">Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj samouczek "Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji" ([C#](../../../overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs.md), [VB](../../../overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb.md)).</span><span class="sxs-lookup"><span data-stu-id="a8407-108">For additional information about this video, read the "Understanding Controllers, Controller Actions, and Action Results" tutorial ([C#](../../../overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs.md), [VB](../../../overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb.md)).</span></span>
+<span data-ttu-id="72731-106">W tym samouczku Stephen Walther wprowadza do ASP.NET kontrolerów MVC.</span><span class="sxs-lookup"><span data-stu-id="72731-106">In this tutorial, Stephen Walther introduces you to ASP.NET MVC controllers.</span></span> <span data-ttu-id="72731-107">Dowiesz się, jak tworzyć nowe kontrolery i zwracać różne typy wyników akcji.</span><span class="sxs-lookup"><span data-stu-id="72731-107">You learn how to create new controllers and return different types of action results.</span></span> <span data-ttu-id="72731-108">Aby uzyskać dodatkowe informacje na temat tego wideo, zapoznaj się z samouczkiem "Opis kontrolerów, akcji kontrolera i[C#](../../../overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs.md)wyników działania" (, [VB](../../../overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb.md)).</span><span class="sxs-lookup"><span data-stu-id="72731-108">For additional information about this video, read the "Understanding Controllers, Controller Actions, and Action Results" tutorial ([C#](../../../overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs.md), [VB](../../../overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb.md)).</span></span>
 
-[<span data-ttu-id="a8407-109">&#9654;Obejrzyj film wideo (11 minut)</span><span class="sxs-lookup"><span data-stu-id="a8407-109">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-controllers-controller-actions-and-action-results)
+[<span data-ttu-id="72731-109">&#9654;Obejrzyj wideo (11 minut)</span><span class="sxs-lookup"><span data-stu-id="72731-109">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-controllers-controller-actions-and-action-results)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="a8407-110">[Poprzednie](aspnet-mvc-controller-overview.md)
-> [dalej](understanding-views-view-data-and-html-helpers.md)</span><span class="sxs-lookup"><span data-stu-id="a8407-110">[Previous](aspnet-mvc-controller-overview.md)
+> <span data-ttu-id="72731-110">[Poprzednie](aspnet-mvc-controller-overview.md)
+> [dalej](understanding-views-view-data-and-html-helpers.md)</span><span class="sxs-lookup"><span data-stu-id="72731-110">[Previous](aspnet-mvc-controller-overview.md)
 [Next](understanding-views-view-data-and-html-helpers.md)</span></span>
