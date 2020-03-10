@@ -10,11 +10,11 @@ ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 633229cc4311d151121bf6a91b9fa8aeecca1197
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456156"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583728"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny internetowej z członkostwa SQL do systemu ASP.NET Identity
 

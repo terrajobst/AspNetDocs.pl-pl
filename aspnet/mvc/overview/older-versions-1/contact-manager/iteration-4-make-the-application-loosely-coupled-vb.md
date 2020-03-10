@@ -1,192 +1,192 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
-title: 'Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (VB) | Dokumentacja firmy Microsoft'
+title: 'Iteracja #4 — Tworzenie aplikacji luźno sprzężone (VB) | Microsoft Docs'
 author: microsoft
-description: W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Aby uzyskać...
+description: W tej czwartej iteracji wykorzystujemy kilka wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Dla...
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 92c70297-4430-4e4e-919a-9c2333a8d09a
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 422c75406d9c08279d0c2224ee4b6db3a71eb1b3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117733"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582083"
 ---
-# <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (VB)
+# <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iteracja #4 — Tworzenie aplikacji luźno sprzężone (VB)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-[Pobierz program Code](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
+[Pobierz kod](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
 
-> W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+> W tej czwartej iteracji wykorzystujemy kilka wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład Refaktoryzacja naszej aplikacji używa wzorca repozytorium i wzorca iniekcji zależności.
 
-## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (VB)
+## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Tworzenie aplikacji Contact Management ASP.NET MVC (VB)
 
-W tej serii samouczków wbudowujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazwy, numerów telefonów i adresów e-mail — lista osób.
+W tej serii samouczków tworzymy całą aplikację do zarządzania kontaktami od początku do końca. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazw, numerów telefonów i adresów e-mail — w celu uzyskania listy osób.
 
-Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą iteracją można stopniowo ulepszyć aplikację. Celem tego wielu podejścia iteracji jest, aby umożliwić Ci zrozumienie przyczyn wprowadzenia poszczególnych zmian.
+Aplikacja została utworzona przez wiele iteracji. W przypadku każdej iteracji stopniowo ulepszamy aplikację. Celem tej wielu iteracji jest umożliwienie zrozumienia przyczyny każdej zmiany.
 
-- Iteracja #1 — Tworzenie aplikacji. W pierwszej iteracji utworzymy Contact Manager w najprostszym sposobem możliwe. Dodano obsługę dla operacji podstawowej bazy danych: Tworzenia, odczytu, aktualizacji i usuwania (CRUD).
+- #1 iteracji — Utwórz aplikację. W pierwszej iteracji tworzymy Menedżera kontaktów w najprostszy sposób. Dodaliśmy obsługę podstawowych operacji bazy danych: Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD).
 
-- Iteracja 2 # — należy wyglądu nieuprzywilejowany aplikacji. W tej iteracji możemy poprawić wygląd aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku platformy ASP.NET MVC i kaskadowych arkuszy stylów.
+- Iteracja #2 — Zwiększ wygląd aplikacji. W tej iteracji ulepszamy wygląd aplikacji, modyfikując domyślną stronę wzorcową widoku MVC ASP.NET i kaskadowy arkusz stylów.
 
-- Iteracja #3 — Dodawanie weryfikacji formularza. W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
+- Iteracja #3 — Dodawanie walidacji formularza. W trzeciej iteracji zostanie dodana podstawowa Walidacja formularza. Uniemożliwiamy użytkownikom przesyłanie formularza bez wykonywania wymaganych pól formularza. Sprawdzamy również adresy e-mail i numery telefonów.
 
-- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+- Iteracja #4 — możliwość swobodnego łączenia aplikacji. W tej czwartej iteracji wykorzystujemy kilka wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład Refaktoryzacja naszej aplikacji używa wzorca repozytorium i wzorca iniekcji zależności.
 
-- Iteracja #5 — Tworzenie testów jednostkowych. W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
+- #5 iteracji — Utwórz testy jednostkowe. W piątej iteracji upraszczamy obsługę i modyfikację naszej aplikacji przez dodanie testów jednostkowych. Tworzymy klasy modelu danych i kompilujemy testy jednostkowe dla naszych kontrolerów i logiki walidacji.
 
-- Iteracja #6 — korzystanie z projektowania opartego na testach. W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
+- Iteracja #6 — Użyj programowania opartego na testach. W tej szóstej iteracji Dodaliśmy nowe funkcje do naszej aplikacji, pisząc testy jednostkowe jako pierwsze i pisząc kod na testach jednostkowych. W tej iteracji dodamy grupy kontaktów.
 
-- Iteracja #7 — dodawanie funkcji Ajax. W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
+- Iteracja #7 — Dodawanie funkcji AJAX. W siódmej iteracji poprawimy czas reakcji i wydajność naszej aplikacji przez dodanie obsługi technologii AJAX.
 
-## <a name="this-iteration"></a>Tej iteracji
+## <a name="this-iteration"></a>Ta iteracja
 
-W czwartym iteracji aplikacji Contact Manager refaktoryzacji aplikacji, aby wprowadzić więcej luźne sprzężenie aplikacji. Gdy aplikacja jest luźno powiązane, można zmodyfikować kod w jednej części aplikacji bez konieczności modyfikowania kodu w innych częściach aplikacji. Aplikacje luźno powiązane są bardziej odporne na zmiany.
+W tej czwartej iteracji aplikacji Contact Manager Refaktoryzacja aplikacji spowoduje, że aplikacja nie będzie bardziej luźno powiązana. Gdy aplikacja jest luźno sprzężona, można zmodyfikować kod w jednej części aplikacji bez konieczności modyfikowania kodu w innych częściach aplikacji. Coraz częściej połączone aplikacje są bardziej odporne na zmiany.
 
-Obecnie wszystkie logika dostępu i sprawdzanie poprawności danych używanych przez aplikację Contact Manager znajduje się do klas kontrolera. Jest to zły pomysł. Zawsze, gdy trzeba zmodyfikować jednej części aplikacji, istnieje ryzyko wprowadzenia błędów do innej części aplikacji. Jeśli zmodyfikujesz logikę weryfikacji, istnieje ryzyko na przykład wprowadzenie nowych usterek do logiki dostępu lub kontrolera danych.
-
-> [!NOTE] 
-> 
-> (SRP), klasy nigdy nie powinny mieć więcej niż jednym z powodów zmiany. Mieszanie kontrolera, weryfikacji i logiki bazy danych jest ogromną naruszenie jednej zasady odpowiedzialności.
-
-Istnieje kilka przyczyn, które może być konieczne zmodyfikowanie aplikacji. Może być konieczne dodanie nowej funkcji do aplikacji, może być konieczne naprawienie usterki w aplikacji lub konieczne może się okazać zmodyfikowanie implementacji funkcji aplikacji. Aplikacje są rzadko statyczne. Charakteryzują się rozwijać i mutować wraz z upływem czasu.
-
-Wyobraź sobie, na przykład, możesz zdecydować zmienić sposób implementacji usługi warstwy dostępu do danych. Po prawej stronie, aplikacja Contact Manager używa teraz Microsoft Entity Framework dostęp do bazy danych. Jednak można zdecydować przeprowadzić migrację do technologii dostępu do nowych lub alternatywne danych, takich jak architektury ADO.NET Data Services lub NHibernate. Jednak ponieważ kod dostępu do danych nie jest odizolowana od kodu sprawdzania poprawności i kontroler, istnieje żaden sposób modyfikować kod dostępu do danych w aplikacji bez konieczności modyfikacji innego kodu, który nie jest bezpośrednio związane z dostępem do danych.
-
-Gdy aplikacja jest luźno powiązane, z drugiej strony zmiana wprowadzona do jednej części aplikacji bez ingerowania w pozostałe części aplikacji. Na przykład możesz przełączyć technologii dostępu do danych bez modyfikowania logikę weryfikacji lub kontrolera.
-
-W tym iteracji możemy skorzystać z kilka wzorców projektowania oprogramowania, które pozwalają nam Refaktoryzuj naszej aplikacji Contact Manager do bardziej luźno powiązanych aplikacji. Gdy firma Microsoft będzie gotowe, Contact Manager wygrał t, czy wszystkie elementy, które nie zrobił przed. Jednak firma Microsoft będzie można zmienić w przyszłości łatwiej aplikacji.
+Obecnie cała logika dostępu do danych i walidacji używana przez aplikację Menedżer kontaktów jest zawarta w klasach kontrolerów. Jest to niewłaściwy pomysł. Za każdym razem, gdy zajdzie potrzeba modyfikacji jednej części aplikacji, ryzyko wprowadzenia usterek do innej części aplikacji. Na przykład w przypadku modyfikacji logiki walidacji ryzyko wprowadzenia nowych usterek do logiki dostępu do danych lub kontrolera.
 
 > [!NOTE] 
 > 
-> Refaktoryzacja jest proces ponownego zapisywania aplikacji w taki sposób, że nie utracić wszelkie istniejące funkcje.
+> (SRP), Klasa nigdy nie powinna mieć więcej niż jedną przyczynę do zmiany. Mieszanie kontrolerów, sprawdzania poprawności i logiki bazy danych jest olbrzymim naruszeniem pojedynczej zasady odpowiedzialności.
 
-## <a name="using-the-repository-software-design-pattern"></a>Przy użyciu wzorca projektowego oprogramowania repozytorium
+Istnieje kilka powodów, dla których może być konieczne zmodyfikowanie aplikacji. Może być konieczne dodanie nowej funkcji do aplikacji, może być konieczne naprawienie usterki w aplikacji lub może zajść potrzeba zmodyfikowania sposobu implementacji funkcji aplikacji. Aplikacje są rzadko statyczne. Są one skłonne do wzrostu i mutacji w czasie.
 
-Nasz pierwszy zmiana ma na celu skorzystaj z zalet wzorzec projektowania oprogramowania o nazwie wzorca repozytorium. Użyjemy wzorca repozytorium do izolowania nasz kod dostępu do danych z pozostałą część naszej aplikacji.
+Załóżmy na przykład, że użytkownik zdecyduje się zmienić sposób implementacji warstwy dostępu do danych. Teraz aplikacja Contact Manager używa Entity Framework firmy Microsoft w celu uzyskania dostępu do bazy danych. Można jednak zdecydować się na migrację do nowej lub alternatywnej technologii dostępu do danych, takiej jak ADO.NET Data Services lub NHibernate. Jednak ze względu na to, że kod dostępu do danych nie jest odizolowany od kodu sprawdzania poprawności i kontrolera, nie ma możliwości modyfikacji kodu dostępu do danych w aplikacji bez modyfikowania innego kodu, który nie jest bezpośrednio związany z dostępem do danych.
 
-Implementacja wzorca repozytorium wymaga od nas wykonaj następujące dwa kroki:
+Gdy aplikacja jest luźno powiązana, można wprowadzać zmiany w jednej części aplikacji bez dotykania innych części aplikacji. Można na przykład przełączyć technologie dostępu do danych bez modyfikowania logiki walidacji lub kontrolera.
+
+W tej iteracji wykorzystujemy kilka wzorców projektowych oprogramowania, które umożliwiają nam refaktoryzację naszej aplikacji Contact Manager do bardziej luźno połączonej aplikacji. Gdy wszystko będzie gotowe, Menedżer kontaktów wykupił t Zrób wszystko, co nie było wcześniej zrobione. Jednak będzie można łatwiej zmieniać aplikację w przyszłości.
+
+> [!NOTE] 
+> 
+> Refaktoryzacja to proces ponownego zapisywania aplikacji w taki sposób, że nie utraci żadnych istniejących funkcji.
+
+## <a name="using-the-repository-software-design-pattern"></a>Używanie wzorca projektowego oprogramowania do repozytorium
+
+Pierwsza zmiana polega na wykorzystaniu wzorca projektowego oprogramowania zwanego wzorcem repozytorium. Użyjemy wzorca repozytorium, aby odizolować nasz kod dostępu do danych od reszty naszej aplikacji.
+
+Implementacja wzorca repozytorium wymaga wykonania następujących dwóch kroków:
 
 1. Tworzenie interfejsu
 2. Utwórz konkretną klasę, która implementuje interfejs
 
-Najpierw musimy utworzyć interfejs, który zawiera opis wszystkich metod dostępu do danych, które należy wykonać. Interfejs IContactManagerRepository znajduje się w ofercie 1. Ten interfejs w tym artykule opisano pięć metod: CreateContact(), DeleteContact(), EditContact(), GetContact, and ListContacts().
+Najpierw musimy utworzyć interfejs, który opisuje wszystkie metody dostępu do danych, które muszą zostać wykonane. Interfejs IContactManagerRepository jest zawarty w aukcji 1. Ten interfejs opisuje pięć metod: DeleteContact (), EditContact (), GetContact i ListContacts ().
 
-**Wyświetlanie listy 1 - Models\IContactManagerRepository.vb**
+**Lista 1 — Models\IContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample1.vb)]
 
-Następnie należy utworzyć konkretną klasę, która implementuje interfejs IContactManagerRepository. Ponieważ firma Microsoft korzysta z programu Entity Framework Microsoft dostęp do bazy danych, utworzymy nową klasę o nazwie EntityContactManagerRepository. Ta klasa znajduje się w ofercie 2.
+Następnie musimy utworzyć konkretną klasę, która implementuje interfejs IContactManagerRepository. Ponieważ korzystamy z Entity Framework firmy Microsoft w celu uzyskania dostępu do bazy danych, utworzymy nową klasę o nazwie EntityContactManagerRepository. Ta klasa jest zawarta w liście 2.
 
-**Wyświetlanie listy 2 - Models\EntityContactManagerRepository.vb**
+**Lista 2 — Models\EntityContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample2.vb)]
 
-Należy zauważyć, że klasa EntityContactManagerRepository implementuje interfejs IContactManagerRepository. Klasa implementuje wszystkich pięciu z metod opisanych w tym interfejsie.
+Należy zauważyć, że Klasa EntityContactManagerRepository implementuje interfejs IContactManagerRepository. Klasa implementuje wszystkie pięć metod opisanych przez ten interfejs.
 
-Być może zastanawiasz się, dlaczego musimy odblokowane za pomocą interfejsu. Dlaczego musimy utworzyć interfejs i klasę, która implementuje go?
+Możesz się zastanawiać, dlaczego musimy bother z interfejsem. Dlaczego musimy utworzyć interfejs i klasę, która go implementuje?
 
-Z jednym wyjątkiem pozostała część naszej aplikacji będą korzystać z interfejsu i klasy konkretnej. Zamiast wywoływania metod udostępnianych przez klasę EntityContactManagerRepository, zadzwonimy metod udostępnianych przez interfejs IContactManagerRepository.
+Z jednym wyjątkiem pozostała część naszej aplikacji będzie współpracująca z interfejsem, a nie z konkretną klasą. Zamiast wywoływania metod uwidocznionych przez klasę EntityContactManagerRepository, wywołamy metody udostępniane przez interfejs IContactManagerRepository.
 
-W ten sposób możemy implementować interfejs z nową klasę bez konieczności modyfikowania pozostałą część naszej aplikacji. Na przykład w przyszłości, firma Microsoft ma Implementowanie klasy DataServicesContactManagerRepository, który implementuje interfejs IContactManagerRepository. Klasy DataServicesContactManagerRepository może używać usług ADO.NET Data Services dostępu do bazy danych zamiast Microsoft Entity Framework.
+Dzięki temu można zaimplementować interfejs z nową klasą bez konieczności modyfikowania pozostałej części naszej aplikacji. Na przykład w pewnym czasie może być konieczne zaimplementowanie klasy DataServicesContactManagerRepository implementującej interfejs IContactManagerRepository. Klasa DataServicesContactManagerRepository może używać ADO.NET Data Services, aby uzyskać dostęp do bazy danych, a nie Entity Framework Microsoft.
 
-Jeśli w kodzie naszej aplikacji jest programowane interfejsu IContactManagerRepository zamiast konkretnych klas EntityContactManagerRepository następnie możemy przełączyć konkretnych klas bez modyfikowania pozostałe naszego kodu. Na przykład możemy przełączyć się z klasy EntityContactManagerRepository do klasy DataServicesContactManagerRepository bez modyfikowania naszych logika dostępu lub sprawdzania poprawności danych.
+Jeśli nasz kod aplikacji jest zaprogramowany przy użyciu interfejsu IContactManagerRepository zamiast konkretnej klasy EntityContactManagerRepository, możemy przełączyć konkretne klasy bez modyfikowania żadnego z pozostałych naszych kodów. Można na przykład przełączać się z klasy EntityContactManagerRepository do klasy DataServicesContactManagerRepository bez modyfikowania dostępu do danych ani logiki walidacji.
 
-Programowanie w oparciu o interfejsy (abstrakcje) zamiast konkretnych klas sprawia, że nasza aplikacja jest bardziej odporne na zmiany.
+Programowanie względem interfejsów (abstrakcji) zamiast konkretnych klas sprawia, że nasza aplikacja jest bardziej odporna na zmianę.
 
 > [!NOTE] 
 > 
-> Można szybko utworzyć interfejs z klasą konkretną z poziomu programu Visual Studio, wybierając opcję menu refaktoryzacji, Wyodrębnij interfejs. Na przykład można najpierw utworzyć klasy EntityContactManagerRepository, a następnie użyć do automatycznego wygenerowania interfejsu IContactManagerRepository Wyodrębnij interfejs.
+> Możesz szybko utworzyć interfejs z klasy konkretnej w programie Visual Studio, wybierając refaktoryzację opcji menu, Wyodrębnij interfejs. Na przykład, można najpierw utworzyć klasę EntityContactManagerRepository, a następnie użyć polecenie Wyodrębnij interfejs, aby automatycznie wygenerować interfejs IContactManagerRepository.
 
-## <a name="using-the-dependency-injection-software-design-pattern"></a>Przy użyciu wzorca projektowego oprogramowania wstrzykiwania zależności
+## <a name="using-the-dependency-injection-software-design-pattern"></a>Korzystanie z wzorca tworzenia oprogramowania do iniekcji zależności
 
-Teraz, gdy będziemy zostały przeniesione nasz kod dostępu do danych do osobnej klasy repozytorium, należy zmodyfikować kontroler naszych kontakt, aby użyć tej klasy. Firma Microsoft będzie korzystać z wzorzec projektowania oprogramowania o nazwie wstrzykiwanie zależności, aby użyć klasy repozytorium w kontrolera.
+Po przeprowadzeniu migracji kodu dostępu do danych do osobnej klasy repozytorium należy zmodyfikować nasz kontroler Contact, aby używał tej klasy. Będziemy korzystać ze wzorca projektowego oprogramowania zwanego iniekcją zależności, aby użyć klasy repozytorium w naszym kontrolerze.
 
-Zmodyfikowane kontrolera skontaktuj się z pomocą znajduje się w ofercie 3.
+Zmodyfikowany kontroler kontaktu znajduje się na liście 3.
 
-**Wyświetlanie listy 3 - Controllers\ContactController.vb**
+**Lista 3 — Controllers\ContactController.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample3.vb)]
 
-Należy zauważyć, że kontroler kontaktu w ofercie 3 ma dwa konstruktory. Pierwszy Konstruktor przekazuje konkretne wystąpienie interfejsu IContactManagerRepository drugi Konstruktor. Skontaktuj się z kontrolerem klasy wykorzystuje *iniekcji zależności konstruktora*.
+Zwróć uwagę, że kontroler Contact na liście 3 ma dwa konstruktory. Pierwszy Konstruktor przekazuje konkretne wystąpienie interfejsu IContactManagerRepository do drugiego konstruktora. Klasa kontrolera kontaktów używa *iniekcji zależności konstruktora*.
 
-Jeden i tylko miejsce służy klasa EntityContactManagerRepository jest pierwszy Konstruktor. W pozostałej części klasy używa interfejsu IContactManagerRepository zamiast konkretnych klas EntityContactManagerRepository.
+To i miejsce, w którym jest używana Klasa EntityContactManagerRepository, znajduje się w pierwszym konstruktorze. Pozostała część klasy używa interfejsu IContactManagerRepository zamiast konkretnej klasy EntityContactManagerRepository.
 
-Dzięki temu można łatwo zmienić implementacji klasy IContactManagerRepository w przyszłości. Jeśli chcesz użyć klasy DataServicesContactRepository zamiast klasy EntityContactManagerRepository, po prostu zmodyfikuj pierwszy Konstruktor.
+Dzięki temu można łatwo przełączać implementacje klasy IContactManagerRepository w przyszłości. Jeśli chcesz użyć klasy DataServicesContactRepository zamiast klasy EntityContactManagerRepository, wystarczy zmodyfikować pierwszego konstruktora.
 
-Wstrzykiwanie zależności Konstruktor sprawia, że klasa kontrolera skontaktuj się z bardzo sprawdzalnego działa zgodnie. Testy jednostkowe można utworzyć wystąpienie skontaktuj się z kontrolerem, przekazując implementację testową klasy IContactManagerRepository. Ta funkcja iniekcji zależności będzie dla nas bardzo ważna w następnej iteracji, gdy będziemy tworzyć testy jednostkowe dla aplikacji Contact Manager.
+Iniekcja zależności konstruktora sprawia, że klasa kontrolera kontaktu bardzo weryfikowalne. W testach jednostkowych można utworzyć wystąpienie kontrolera Contact, przekazując implementację IContactManagerRepository klasy. Ta funkcja iniekcji zależności będzie bardzo ważna dla nas w następnej iteracji podczas kompilowania testów jednostkowych dla aplikacji Contact Manager.
 
 > [!NOTE] 
 > 
-> Jeśli chcesz całkowicie oddzielić klasy kontrolera kontaktu z określonej implementacji interfejsu IContactManagerRepository następnie możesz korzystać z zalet strukturę, która obsługuje wstrzykiwanie zależności, takie jak StructureMap lub firmy Microsoft Entity Framework (MEF). Dzięki wykorzystaniu framework wstrzykiwanie zależności nie będą już potrzebne do odwoływania się do konkretnej klasy w kodzie.
+> Jeśli chcesz całkowicie oddzielić klasę kontrolera Contact od konkretnej implementacji interfejsu IContactManagerRepository, możesz skorzystać z platformy obsługującej iniekcję zależności, np. StructureMap lub Microsoft Entity Framework (MEF). Korzystając z zalet platformy iniekcji zależności, nigdy nie trzeba odwoływać się do konkretnej klasy w kodzie.
 
 ## <a name="creating-a-service-layer"></a>Tworzenie warstwy usług
 
-Być może Zauważyłeś, że nasze logikę weryfikacji jest nadal mieszana z naszych logiką kontrolera w klasie kontrolera zmodyfikowane w ofercie 3. Z tego samego powodu jest dobry pomysł, aby odizolować naszych logiką dostępu do danych jest dobry pomysł, aby odizolować naszych logikę weryfikacji.
+Być może zauważono, że nasza logika walidacji jest nadal mieszana przy użyciu logiki kontrolera w zmodyfikowanej klasie kontrolera z listy 3. Z tego samego powodu dobrym pomysłem jest wyizolowanie logiki dostępu do danych. dobrym pomysłem jest odizolowanie logiki walidacji.
 
-Aby rozwiązać ten problem, można utworzyć oddzielny [warstwy usług](http://martinfowler.com/eaaCatalog/serviceLayer.html). Warstwy usług jest oddzielne warstwy, która Wstaw między naszych kontrolera i klasy repozytorium. Warstwy usługi zawiera naszych logiki biznesowej, w tym wszystkie nasze logikę weryfikacji.
+Aby rozwiązać ten problem, można utworzyć oddzielną [warstwę usług](http://martinfowler.com/eaaCatalog/serviceLayer.html). Warstwa usługi jest oddzielną warstwą, którą można wstawiać między naszymi klasami kontrolera i repozytorium. Warstwa usługi zawiera naszą logikę biznesową, w tym całą logikę walidacji.
 
-ContactManagerService znajduje się w ofercie 4. Zawiera logikę weryfikacji z klasy controller kontaktu.
+ContactManagerService znajduje się na liście 4. Zawiera logikę walidacji z klasy kontrolera Contact.
 
-**Wyświetlanie listy 4 - Models\ContactManagerService.vb**
+**Lista 4 — Models\ContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample4.vb)]
 
-Należy zauważyć, że Konstruktor ContactManagerService wymaga ValidationDictionary. Warstwy usług komunikuje się z warstwą kontrolera za pośrednictwem tego ValidationDictionary. Omawiane ValidationDictionary szczegółowo w poniższej sekcji, gdy omówimy wzorzec Dekoratora.
+Należy zauważyć, że Konstruktor dla ContactManagerService wymaga elementu ValidationDictionary. Warstwa usługi komunikuje się z warstwą kontrolera za pomocą tego ValidationDictionary. Szczegółowo omawiamy ValidationDictionary w poniższej sekcji podczas omawiania wzorca dekoratora.
 
-Zwróć uwagę, co więcej, że ContactManagerService implementuje interfejs IContactManagerService. Należy zawsze wszelkich starań, aby programować przy użyciu interfejsów zamiast konkretnych klas. Inne klasy w aplikacji Contact Manager wchodzi w interakcję z klasą ContactManagerService bezpośrednio. Zamiast tego z jednym wyjątkiem pozostałą częścią aplikacji Contact Manager jest programowane interfejsu IContactManagerService.
+Należy zauważyć, że ContactManagerService implementuje interfejs IContactManagerService. Należy zawsze dążyć do programowania interfejsów zamiast konkretnych klas. Inne klasy w aplikacji menedżera kontaktów nie współpracują z klasą ContactManagerService. Zamiast tego z jednym wyjątkiem, pozostała część aplikacji Menedżer kontaktów jest zaprogramowana na interfejs IContactManagerService.
 
-Interfejs IContactManagerService znajduje się w ofercie 5.
+Interfejs IContactManagerService jest zawarty w liście 5.
 
-**Wyświetlanie listy 5 - Models\IContactManagerService.vb**
+**Lista 5 — Models\IContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample5.vb)]
 
-Zmodyfikowane klasy kontrolera kontaktu znajduje się w ofercie 6. Należy zauważyć, że kontroler skontaktuj się z już nie wchodzi w interakcję z repozytorium ContactManager. Zamiast tego kontrolera skontaktuj się z pomocą wchodzi w interakcję z usługą ContactManager. Każda warstwa jest izolowana jak najszerzej z innych warstw.
+Zmodyfikowana Klasa kontrolera kontaktów jest zawarta w liście 6. Zwróć uwagę, że kontroler kontaktu nie współdziała już z repozytorium ContactManager. Zamiast tego kontroler kontaktu współdziała z usługą ContactManager. Każda warstwa jest izolowana możliwie jak najwięcej z innych warstw.
 
-**Wyświetlanie listy 6 - Controllers\ContactController.vb**
+**Lista 6 — Controllers\ContactController.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample6.vb)]
 
-Nasza aplikacja już nie działa afoul o pojedynczej odpowiedzialności zasady (SRP). Skontaktuj się z kontrolera w ofercie 6 zostały usunięte odpowiedzialności, co inne niż sterowanie przepływem wykonania aplikacji. Całą logikę weryfikacji został usunięty z kontrolera skontaktuj się z pomocą i wypchnięte do warstwy usług. Całą logikę bazy danych zostało wypchnięte do warstwy repozytorium.
+Nasza aplikacja nie działa już afoul z pojedynczą regułą odpowiedzialności (SRP). Kontroler kontaktu na liście 6 został oddzielonych każdą odpowiedzialnością inną niż kontrola przepływu wykonywania aplikacji. Cała logika walidacji została usunięta z kontrolera Contact i wypchnięcia do warstwy usługi. Cała logika bazy danych została przekazana do warstwy repozytorium.
 
-## <a name="using-the-decorator-pattern"></a>Przy użyciu wzorca Dekoratora
+## <a name="using-the-decorator-pattern"></a>Używanie wzorca Dekoratora
 
-Chcemy można było całkowicie oddzielić nasze warstwy usług z naszych warstwy kontrolera. W zasadzie firma Microsoft należy skompilować nasze warstwy usług w oddzielnym zestawie z naszych warstwy kontrolera bez konieczności dodawania odwołania do naszej aplikacji MVC.
+Chcemy, aby całkowicie oddzielić warstwę usług od naszej warstwy kontrolera. W zasadzie powinna być możliwe skompilowanie naszej warstwy usług w osobnym zestawie z naszej warstwy kontrolera bez konieczności dodawania odwołania do naszej aplikacji MVC.
 
-Jednak nasze warstwy usług musi mieć możliwość przekazywania komunikatów o błędach weryfikacji do warstwy kontrolera. Jak możemy włączyć warstwy usługi, aby komunikować się komunikaty o błędach weryfikacji bez sprzężenia kontrolera i warstwy usług Będziemy korzystać z zalet wzorzec projektowania oprogramowania o nazwie [wzorzec Dekoratora](http://en.wikipedia.org/wiki/Decorator_pattern).
+Jednak nasza warstwa usług musi mieć możliwość przekazywania komunikatów o błędach walidacji z powrotem do warstwy kontrolera. Jak można włączyć komunikację między warstwą usługi a komunikatami o błędach weryfikacji bez sprzęgania kontrolera i warstwy usług? Możemy wykorzystać Wzorzec projektowy oprogramowania o nazwie [wzorzec dekoratora](http://en.wikipedia.org/wiki/Decorator_pattern).
 
-Kontroler używa ModelStateDictionary, o nazwie ModelState do reprezentowania błędy sprawdzania poprawności. W związku z tym być może uznasz, że do przekazania ModelState z kontrolera warstwy do warstwy usług. Jednak w warstwie usługi za pomocą ModelState czyniłyby warstwą usługi zależne od funkcji platformę ASP.NET MVC. Powinien to być nieprawidłowy, ponieważ w przyszłości, możesz chcieć użyć warstwy usług z aplikacji WPF, nie aplikacji ASP.NET MVC. W takim przypadku nie ma dotyczyć odwołanie struktury ASP.NET MVC, aby użyć klasy ModelStateDictionary.
+Kontroler używa ModelStateDictionary o nazwie ModelState do reprezentowania błędów walidacji. W związku z tym może być skłonny do przekazania ModelState z warstwy kontrolera do warstwy usług. Jednak użycie ModelState w warstwie usług spowoduje, że warstwa usług zależała od funkcji platformy MVC ASP.NET. Może to być niewłaściwe, ponieważ, Someday, możesz chcieć użyć warstwy usługi z aplikacją WPF zamiast aplikacji ASP.NET MVC. W takim przypadku nie chcesz odwoływać się do struktury ASP.NET MVC, aby użyć klasy ModelStateDictionary.
 
-Wzorzec Dekoratora można opakować istniejącej klasy w nowej klasy, aby zaimplementować interfejs. Projekcie Contact Manager zawiera klasę ModelStateWrapper zawarte w ofercie 7. Klasa ModelStateWrapper implementuje interfejs w ofercie 8.
+Wzorzec dekoratora umożliwia Zawijanie istniejącej klasy w nowej klasie w celu zaimplementowania interfejsu. Nasz projekt Menedżera kontaktów zawiera klasę ModelStateWrapper zawartą w liście 7. Klasa ModelStateWrapper implementuje interfejs na liście 8.
 
-**Wyświetlanie listy 7 - Models\Validation\ModelStateWrapper.vb**
+**Lista 7 — Models\Validation\ModelStateWrapper.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample7.vb)]
 
-**Wyświetlanie listy 8 - Models\Validation\IValidationDictionary.vb**
+**Lista 8-Models\Validation\IValidationDictionary.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample8.vb)]
 
-Jeśli Zamknij Spójrz na listę 5 następnie zobaczysz warstwy usług ContactManager wyłącznie używa interfejsu IValidationDictionary. Usługa ContactManager jest zależne od klasy ModelStateDictionary. Gdy kontroler kontaktu tworzy usługę ContactManager, kontroler opakowuje jego ModelState następująco:
+Jeśli chcesz przejrzeć listę 5, zobaczysz, że warstwa usługi ContactManager korzysta wyłącznie z interfejsu IValidationDictionary. Usługa ContactManager nie jest zależna od klasy ModelStateDictionary. Gdy kontroler kontaktu tworzy usługę ContactManager, kontroler zawija swój ModelState w następujący sposób:
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample9.vb)]
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym iteracji firma Microsoft nie dodano żadnych nowych funkcji do aplikacji Contact Manager. Celem tej iteracji było Refaktoryzuj wtedy ułatwia konserwację i modyfikowanie aplikacji Contact Manager.
+W tej iteracji nie dodano żadnych nowych funkcji do aplikacji Contact Manager. Celem tej iteracji była Refaktoryzacja aplikacji Contact Manager, dzięki czemu można łatwiej ją konserwować i modyfikować.
 
-Po pierwsze wprowadziliśmy wzorzec projektowy oprogramowania repozytorium. Firma Microsoft migrację wszystkich kod dostępu do danych do osobnej klasy ContactManager repozytorium.
+Najpierw wprowadziliśmy Wzorzec projektowy oprogramowania repozytorium. Wszystkie kody dostępu do danych zostały zmigrowane do oddzielnej klasy repozytorium ContactManager.
 
-Firma Microsoft również samodzielnie naszych logikę weryfikacji z naszych logiką kontrolera. Utworzyliśmy warstwy osobną usługą, która zawiera wszystkie nasze kod sprawdzania poprawności. Warstwa kontrolera wchodzi w interakcję z warstwy usług i warstwy usług korzysta z warstwy repozytorium.
+Wykryliśmy również logikę walidacji z naszej logiki kontrolera. Utworzyliśmy oddzielną warstwę usług, która zawiera cały kod weryfikacyjny. Warstwa kontrolera współdziała z warstwą usługi, a warstwa usługi współdziała z warstwą repozytorium.
 
-Podczas tworzenia warstwy usług, firma Microsoft skorzystała wzorca Dekoratora do izolowania ModelState od naszych warstwy usług. W naszym warstwy usług, firma Microsoft zaprogramowane interfejsu IValidationDictionary zamiast ModelState.
+Po utworzeniu warstwy usługi korzystamy ze wzorca dekoratora, aby odizolować ModelState od naszej warstwy usług. W naszej warstwie usług zaprogramowanymy do interfejsu IValidationDictionary zamiast ModelState.
 
-Ponadto firma Microsoft skorzystała z wzorzec projektowania oprogramowania o nazwie wzorzec iniekcji zależności. Ten wzorzec pozwala nam programować przy użyciu interfejsów (abstrakcje) zamiast konkretnych klas. Implementowanie wzorca projektowego wstrzykiwanie zależności sprawia, że nasz kod bardziej sprawdzalnego działa zgodnie. W następnej iteracji dodamy testów jednostkowych do naszego projektu.
+Wreszcie wykorzystano Wzorzec projektowy oprogramowania o nazwie wzorzec iniekcji zależności. Ten wzorzec pozwala nam na programowanie interfejsów (abstrakcji) zamiast konkretnych klas. Implementacja wzorca projektowania iniekcji zależności sprawia również, że nasz kod weryfikowalne. W następnej iteracji dodamy testy jednostkowe do projektu.
 
 > [!div class="step-by-step"]
 > [Poprzednie](iteration-3-add-form-validation-vb.md)

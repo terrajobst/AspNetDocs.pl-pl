@@ -9,11 +9,11 @@ ms.assetid: 684f0c28-a490-4e5b-b5e5-5dfb77464b49
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: bcf453170d17807b4e3b2d2a8b545cba43139f89
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599770"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78597861"
 ---
 # <a name="using-cascadingdropdown-with-a-database-c"></a>Używanie kontrolki CascadingDropDown z bazą danych (C#)
 

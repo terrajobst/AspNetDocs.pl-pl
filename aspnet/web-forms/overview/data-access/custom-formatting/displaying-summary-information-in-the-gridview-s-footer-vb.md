@@ -9,11 +9,11 @@ ms.assetid: 41c818b7-603a-402b-8847-890a63547b6f
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
 ms.openlocfilehash: c208b4a756f5700be46eec924d8cf8f49b9d2507
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74616508"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78595915"
 ---
 # <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>Wyświetlanie informacji podsumowania w stopce kontrolki GridView (VB)
 
@@ -188,4 +188,4 @@ Szczęśliwe programowanie!
 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedmiu grup ASP/ASP. NET Books i założyciel of [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował z technologiami sieci Web firmy Microsoft od czasu 1998. Scott działa jako niezależny konsultant, trainer i składnik zapisywania. Jego Najnowsza książka to [*Sams ASP.NET 2,0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Można go osiągnąć w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem swojego blogu, który można znaleźć w [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
-> [Ubiegł](using-the-formview-s-templates-vb.md)
+> [Wstecz](using-the-formview-s-templates-vb.md)

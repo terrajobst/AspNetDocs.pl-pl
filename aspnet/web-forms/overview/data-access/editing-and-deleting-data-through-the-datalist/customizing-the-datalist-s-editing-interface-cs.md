@@ -9,11 +9,11 @@ ms.assetid: a5d13067-ddfb-4c36-8209-0f69fd40e45c
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 81f5a7f6737f544f577447f263dbd37dbc8279d9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623856"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78594123"
 ---
 # <a name="customizing-the-datalists-editing-interface-c"></a>Dostosowywanie interfejsu edycji kontrolki DataList (C#)
 
@@ -109,7 +109,7 @@ Po wybraniu tych dwóch programów obsługi zdarzeń kliknięcie przycisku Edytu
 
 Aby w interfejsie edycji były wyświetlane bieżące wartości produktu, należy użyć składni DataBinding do przypisania wartości pól danych do odpowiednich wartości kontrolki sieci Web. Składnię DataBinding można zastosować za pośrednictwem projektanta, przechodząc do ekranu Edytowanie szablonów i wybierając łącze Edytuj powiązania danych z tagów inteligentnych formantów sieci Web. Alternatywnie, można dodać składnię wiązania bezpośrednio do znacznika deklaratywnego.
 
-Przypisz wartość pola `ProductName` danych do właściwości `ProductName` TextBox s `Text`, wartości pola `CategoryID` i `SupplierID` danych do `Categories` i `Suppliers` kontrolek DropDownList `SelectedValue` właściwości, a wartość pola dane `Discontinued` do `Discontinued` pole wyboru. Po wprowadzeniu tych zmian przez projektanta lub bezpośrednio za pomocą znaczników deklaratywnych należy ponownie odwiedzić stronę za pomocą przeglądarki, a następnie kliknąć przycisk Edytuj dla Chef Anton s Gumbo mix. Jak pokazano na rysunku 9, składnia wiązania danych dodaliśmy bieżące wartości do pola tekstowego, kontrolek DropDownList i pola wyboru.
+Przypisz wartość pola `ProductName` danych do właściwości `ProductName` TextBox s `Text`, wartości pola `CategoryID` i `SupplierID` danych do `Categories` i `Suppliers` kontrolek DropDownList `SelectedValue` właściwości, a wartość pola dane `Discontinued` do `Discontinued` pole wyboru.`Checked` Po wprowadzeniu tych zmian przez projektanta lub bezpośrednio za pomocą znaczników deklaratywnych należy ponownie odwiedzić stronę za pomocą przeglądarki, a następnie kliknąć przycisk Edytuj dla Chef Anton s Gumbo mix. Jak pokazano na rysunku 9, składnia wiązania danych dodaliśmy bieżące wartości do pola tekstowego, kontrolek DropDownList i pola wyboru.
 
 [![kliknięciu przycisku Edytuj wyświetla interfejs edycji](customizing-the-datalist-s-editing-interface-cs/_static/image26.png)](customizing-the-datalist-s-editing-interface-cs/_static/image25.png)
 

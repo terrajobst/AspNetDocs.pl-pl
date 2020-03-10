@@ -10,15 +10,15 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 0afea8eacfc646f1489b87629fdb2d437815d88c
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519144"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584463"
 ---
 # <a name="change-primary-key-for-users-in-aspnet-identity"></a>Zmiana klucza podstawowego dla użytkowników w systemie ASP.NET Identity
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
 > W Visual Studio 2013 domyślna aplikacja sieci Web używa wartości ciągu klucza dla kont użytkowników. ASP.NET Identity umożliwia zmianę typu klucza w celu spełnienia wymagań dotyczących danych. Na przykład można zmienić typ klucza z ciągu na liczbę całkowitą.
 > 

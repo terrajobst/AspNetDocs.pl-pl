@@ -9,11 +9,11 @@ ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e3c14b7098da832bd28f57026e81dcb7f7ba7130
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640525"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78594487"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>Dodawanie kontrolek walidacji do interfejsu edycji kontrolki DataList (C#)
 
@@ -29,7 +29,7 @@ W tym przypadku w samouczkach do edycji elementu DataList te interfejsy edytowan
 
 W tym samouczku dowiesz się, jak łatwo można dodać kontrolki walidacji do `EditItemTemplate` DataList, aby zapewnić bardziej foolproofą edycję interfejsu użytkownika. W tym samouczku przedstawiono przykład utworzony w poprzednim samouczku i rozszerza interfejs edycji w celu uwzględnienia odpowiedniej weryfikacji.
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-csmd"></a>Krok 1. replikowanie przykładu z[obsługi wyjątków logiki biznesowej i dal](handling-bll-and-dal-level-exceptions-cs.md)
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptions"></a>Krok 1. replikowanie przykładu z[obsługi wyjątków logiki biznesowej i dal](handling-bll-and-dal-level-exceptions-cs.md)
 
 W samouczku [Obsługa wyjątków logiki biznesowej-i dal](handling-bll-and-dal-level-exceptions-cs.md) została utworzona strona z nazwami i cenami produktów w dwukolumnowej, edytowalnej nazwie DataList. Naszym celem tego samouczka jest rozszerzenie interfejsu edycji DataList s w celu uwzględnienia formantów walidacji. W szczególności nasza logika walidacji będzie:
 

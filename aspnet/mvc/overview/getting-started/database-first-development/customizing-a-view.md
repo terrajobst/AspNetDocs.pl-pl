@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/customizing-a-view
-title: 'Samouczek: Dostosowywanie widoku dla platformy EF Database First w aplikacji ASP.NET MVC'
-description: Ten samouczek koncentruje się na zmianę widoki generowane automatycznie, aby zwiększyć prezentacji.
+title: 'Samouczek: Dostosowywanie widoku dla Database First EF z aplikacją ASP.NET MVC'
+description: Ten samouczek koncentruje się na zmianie automatycznie generowanych widoków w celu ulepszenia prezentacji.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/24/2019
@@ -10,51 +10,51 @@ ms.assetid: 269380ff-d7e1-4035-8ad1-fe1316a25f76
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/customizing-a-view
 msc.type: authoredcontent
 ms.openlocfilehash: 89b8a0eb84b6e287c45bc141c68a2c76e63b0e41
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57067271"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583595"
 ---
-# <a name="tutorial-customize-view-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Dostosowywanie widoku dla platformy EF Database First w aplikacji ASP.NET MVC
+# <a name="tutorial-customize-view-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Dostosowywanie widoku dla Database First EF z aplikacją ASP.NET MVC
 
-Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych.
+Korzystając z szkieletów MVC, Entity Framework i ASP.NET, można utworzyć aplikację sieci Web, która udostępnia interfejs istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie generować kod, który umożliwia użytkownikom wyświetlanie, edytowanie, tworzenie i usuwanie danych znajdujących się w tabeli bazy danych. Wygenerowany kod odpowiada kolumnom w tabeli bazy danych.
 
-Ten samouczek koncentruje się na zmianę widoki generowane automatycznie, aby zwiększyć prezentacji.
+Ten samouczek koncentruje się na zmianie automatycznie generowanych widoków w celu ulepszenia prezentacji.
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dodaj kursy do strony szczegółów dla uczniów
-> * Upewnij się, że kursy są dodawane do strony
+> * Dodawanie kursów do strony szczegółów ucznia
+> * Potwierdź, że kursy są dodawane do strony
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zmień bazę danych](changing-the-database.md)
+* [Zmiana bazy danych](changing-the-database.md)
 
-## <a name="add-courses-to-student-detail"></a>Dodaj kursy do szczegóły dotyczące ucznia
+## <a name="add-courses-to-student-detail"></a>Dodawanie kursów do szczegółów ucznia
 
-Wygenerowany kod zapewnia dobry punkt wyjścia dla twojej aplikacji, ale nie zawsze zapewnia ona wszystkich funkcji, które są potrzebne w Twojej aplikacji. Można dostosować kod w celu spełnienia wymagań konkretnej aplikacji. Obecnie aplikację nie są wyświetlane zarejestrowanych kursy dla wybranej uczniów lub studentów. W tej sekcji dodasz kursy zarejestrowanych dla każdego ucznia, aby **szczegóły** widoku dla uczniów lub studentów.
+Wygenerowany kod stanowi dobry punkt wyjścia dla aplikacji, ale nie musi zapewniać wszystkich funkcji potrzebnych w aplikacji. Można dostosować kod w celu spełnienia określonych wymagań aplikacji. Obecnie aplikacja nie wyświetla zarejestrowanych kursów dla wybranego ucznia. W tej sekcji dodasz zarejestrowane kursy dla każdego ucznia do widoku **szczegółów** dla ucznia.
 
-Otwórz **widoków** > **studentów** > *Details.cshtml*. Poniżej ostatniej &lt;/dl&gt; tagu, ale przed zamykającym &lt;/DIV&gt; tag, Dodaj następujący kod.
+Otwórz **widoki** > **uczniów** > *szczegóły. cshtml*. Poniżej ostatniego znacznika &lt;/DL&gt;, ale przed zamykającym tagiem &lt;/DIV&gt; Dodaj następujący kod.
 
 [!code-cshtml[Main](customizing-a-view/samples/sample1.cshtml)]
 
-Ten kod tworzy tabelę, która wyświetla wiersz dla każdego rekordu w tabeli rejestracji dla wybranych uczniów lub studentów. **Wyświetlania** metoda powoduje renderowanie kodu HTML dla obiektu (elementu modelu), który reprezentuje wyrażenie. Metoda wyświetlania (a nie po prostu osadzania wartości właściwości w kodzie), aby upewnić się, czy wartość jest sformatowana poprawnie na podstawie jego typu i szablon dla tego typu. W tym przykładzie każde wyrażenie zwraca jedną właściwość z bieżącego rekordu w pętli, a wartości są typy pierwotne, które są renderowane jako tekst.
+Ten kod tworzy tabelę, która wyświetla wiersz dla każdego rekordu w tabeli rejestracji dla wybranego ucznia. Metoda **Display** renderuje HTML dla obiektu (ModelItem), który reprezentuje wyrażenie. Aby upewnić się, że wartość jest poprawnie sformatowana w oparciu o typ i szablon tego typu, należy użyć metody wyświetlania (zamiast osadzania wartości właściwości w kodzie). W tym przykładzie każde wyrażenie zwraca pojedynczą właściwość z bieżącego rekordu w pętli, a wartości są typami pierwotnymi, które są renderowane jako tekst.
 
-## <a name="confirm-courses-are-added"></a>Upewnij się, że są dodawane kursów
+## <a name="confirm-courses-are-added"></a>Dodano kursy potwierdzające
 
-Uruchom rozwiązanie. Kliknij przycisk **listę uczniów** i wybierz **szczegóły** dla jednego z uczniów. Zobaczysz, że zarejestrowane kursy zostały uwzględnione w widoku.
+Uruchom rozwiązanie. Kliknij **listę studentów** i wybierz **szczegóły** dla jednego z uczniów. W widoku zostaną wyświetlone zarejestrowane kursy.
 
-![dla uczniów z rejestracją](customizing-a-view/_static/image1.png)
+![student z rejestracją](customizing-a-view/_static/image1.png)
 
 ## <a name="next-steps"></a>Następne kroki
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dodano kursy do strony szczegółów dla uczniów
-> * Potwierdza, że kursy są dodawane do strony
+> * Dodano kursy do strony szczegółów ucznia
+> * Potwierdzenie, że kursy są dodawane do strony
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak dodawać adnotacje danych do określania wymagań dotyczących walidacji i wyświetlenie formatowania.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak dodać adnotacje do danych, aby określić wymagania dotyczące weryfikacji i formatowanie wyświetlania.
 > [!div class="nextstepaction"]
-> [Ulepszanie weryfikacji danych](enhancing-data-validation.md)
+> [Ulepszanie walidacji danych](enhancing-data-validation.md)

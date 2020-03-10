@@ -9,11 +9,11 @@ ms.assetid: 718628e2-224c-455f-b33a-a41efd48d5a0
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
 ms.openlocfilehash: adee419764cff2f39ee16962080c24b52553aa14
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637601"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78594025"
 ---
 # <a name="customizing-the-datalists-editing-interface-vb"></a>Dostosowywanie interfejsu edycji kontrolki DataList (VB)
 
@@ -109,7 +109,7 @@ Po wybraniu tych dwóch programów obsługi zdarzeń kliknięcie przycisku Edytu
 
 Aby w interfejsie edycji były wyświetlane bieżące wartości produktu, należy użyć składni DataBinding do przypisania wartości pól danych do odpowiednich wartości kontrolki sieci Web. Składnię DataBinding można zastosować za pośrednictwem projektanta, przechodząc do ekranu Edytowanie szablonów i wybierając łącze Edytuj powiązania danych z tagów inteligentnych formantów sieci Web. Alternatywnie, można dodać składnię wiązania bezpośrednio do znacznika deklaratywnego.
 
-Przypisz wartość pola `ProductName` danych do właściwości `ProductName` TextBox s `Text`, wartości pola `CategoryID` i `SupplierID` danych do `Categories` i `Suppliers` kontrolek DropDownList `SelectedValue` właściwości, a wartość pola dane `Discontinued` do `Discontinued` pole wyboru. Po wprowadzeniu tych zmian przez projektanta lub bezpośrednio za pomocą znaczników deklaratywnych należy ponownie odwiedzić stronę za pomocą przeglądarki, a następnie kliknąć przycisk Edytuj dla Chef Anton s Gumbo mix. Jak pokazano na rysunku 9, składnia wiązania danych dodaliśmy bieżące wartości do pola tekstowego, kontrolek DropDownList i pola wyboru.
+Przypisz wartość pola `ProductName` danych do właściwości `ProductName` TextBox s `Text`, wartości pola `CategoryID` i `SupplierID` danych do `Categories` i `Suppliers` kontrolek DropDownList `SelectedValue` właściwości, a wartość pola dane `Discontinued` do `Discontinued` pole wyboru.`Checked` Po wprowadzeniu tych zmian przez projektanta lub bezpośrednio za pomocą znaczników deklaratywnych należy ponownie odwiedzić stronę za pomocą przeglądarki, a następnie kliknąć przycisk Edytuj dla Chef Anton s Gumbo mix. Jak pokazano na rysunku 9, składnia wiązania danych dodaliśmy bieżące wartości do pola tekstowego, kontrolek DropDownList i pola wyboru.
 
 [![kliknięciu przycisku Edytuj wyświetla interfejs edycji](customizing-the-datalist-s-editing-interface-vb/_static/image26.png)](customizing-the-datalist-s-editing-interface-vb/_static/image25.png)
 
@@ -168,4 +168,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Dennis Patterson, David suru i Randy Schmidt. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)
+> [Wstecz](adding-validation-controls-to-the-datalist-s-editing-interface-vb.md)

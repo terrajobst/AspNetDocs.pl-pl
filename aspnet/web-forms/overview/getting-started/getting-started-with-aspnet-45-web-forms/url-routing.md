@@ -9,11 +9,11 @@ ms.assetid: 4f4bf092-c400-471f-a876-78fda0417890
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 66b727b69ca4f9a3d35b67f492f9a554146e09ef
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74590710"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78587438"
 ---
 # <a name="url-routing"></a>Routing adresów URL
 
@@ -25,7 +25,7 @@ Autor [Erik Reitan](https://github.com/Erikre)
 
 W tym samouczku zmodyfikujesz przykładową aplikację Wingtip zabawki, aby obsługiwać Routing adresów URL. Funkcja routingu umożliwia aplikacji sieci Web korzystanie z przyjaznych, łatwiejszych do zapamiętania adresów URL i lepszych obsługi przez aparaty wyszukiwania. Ten samouczek jest oparty na poprzednim samouczku "członkostwo i administracja" i jest częścią serii samouczków Wingtip.
 
-## <a name="what-youll-learn"></a>Dowiesz się:
+## <a name="what-youll-learn"></a>Zawartość:
 
 - Jak zarejestrować trasy dla aplikacji formularzy sieci Web ASP.NET.
 - Jak dodać trasy do strony sieci Web.
@@ -45,7 +45,7 @@ Dostosowując Routing adresów URL, aplikacja Przykładowa Wingtip zabawki będz
 
 `https://localhost:44300/Product/Convertible%20Car`
 
-### <a name="routes"></a>Rozsyłan
+### <a name="routes"></a>Trasy
 
 Trasa jest wzorcem adresu URL, który jest mapowany do procedury obsługi. Program obsługi może być plikiem fizycznym, takim jak plik aspx w aplikacji formularzy sieci Web. Program obsługi może być również klasą, która przetwarza żądanie. Aby zdefiniować trasę, należy utworzyć wystąpienie klasy Route przez określenie wzorca adresu URL, programu obsługi i opcjonalnie nazwy trasy.
 

@@ -1,158 +1,158 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: ASP.NET Web Pages (Razor) przewodnik rozwiązywania problemów | Dokumentacja firmy Microsoft
+title: Przewodnik rozwiązywania problemów z ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym artykule opisano problemy, które mogą wystąpić podczas pracy z ASP.NET Web Pages (Razor) oraz sugerowane rozwiązania. Wersje oprogramowania strona początkowa sieci Web ASP.NET...
+description: W tym artykule opisano problemy, które mogą wystąpić podczas pracy z ASP.NET Web Pages (Razor) i proponowanymi rozwiązaniami. Wersje oprogramowania ASP.NET Web strona...
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
 ms.openlocfilehash: fc03767c16f46c1e282d24ee3a7df2409a7c38bb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128571"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78585765"
 ---
 # <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano problemy, które mogą wystąpić podczas pracy z ASP.NET Web Pages (Razor) oraz sugerowane rozwiązania.
+> W tym artykule opisano problemy, które mogą wystąpić podczas pracy z ASP.NET Web Pages (Razor) i proponowanymi rozwiązaniami.
 > 
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2 i stron sieci Web platformy ASP.NET w wersji 1.0.
+> Ten samouczek działa również z ASP.NET Web Pages 2 i ASP.NET Web Pages 1,0.
 
 Ten temat zawiera następujące sekcje:
 
-- [Problemy z uruchamianiem stron](#Issues_Running_.cshtml_Pages)
-- [Problemy z kodem Razor](#IssuesWithRazorCode)
-- [Problemy dotyczące zabezpieczeń i członkostwa](#membership)
-- [Problemy z wysyłaniem wiadomości E-mail](#email)
+- [Problemy z uruchomionymi stronami](#Issues_Running_.cshtml_Pages)
+- [Problemy związane z kodem Razor](#IssuesWithRazorCode)
+- [Problemy z zabezpieczeniami i członkostwem](#membership)
+- [Problemy z wysyłaniem poczty E-mail](#email)
 - [Dodatkowe zasoby](#AdditionalResources)
 
-Pytania ogólne, można zobaczyć [stron ASP.NET Web Pages (Razor) — często zadawane pytania](https://go.microsoft.com/fwlink/?LinkId=253000).
+Ogólne pytania można znaleźć w temacie [ASP.NET Web Pages (Razor) — często zadawane pytania](https://go.microsoft.com/fwlink/?LinkId=253000).
 
 <a id="Issues_Running_.cshtml_Pages"></a>
-## <a name="issues-with-running-pages"></a>Problemy z uruchamianiem stron
+## <a name="issues-with-running-pages"></a>Problemy z uruchomionymi stronami
 
-Różne problemy mogą uniemożliwić *.cshtml* i *.vbhtml* stron z prawidłowo uruchomiona. Ta sekcja zawiera typowe komunikaty o błędach i prawdopodobne przyczyny.
+Różne problemy mogą uniemożliwiać poprawne działanie stron *. cshtml* i *. vbhtml* . W tej sekcji wymieniono typowe komunikaty o błędach i możliwe przyczyny.
 
-### <a name="http-error-403---forbidden-access-is-denied"></a>Błąd HTTP 403 — Dostęp zabroniony: Odmowa dostępu
+### <a name="http-error-403---forbidden-access-is-denied"></a>Błąd HTTP 403 — Dostęp zabroniony: odmowa dostępu
 
 *Nie masz uprawnień do wyświetlenia tego katalogu lub strony przy użyciu podanych poświadczeń.*
 
-Ten błąd może wystąpić, jeśli serwer nie działa poprawną wersję programu .NET Framework. Upewnij się, że komputera, na którym uruchomiono serwer (lokalnie lub zdalnie) co najmniej ma zainstalowany program .NET Framework 4. Upewnij się, że sama aplikacja jest skonfigurowany do uruchamiania właściwą wersję również.
+Ten błąd może wystąpić, jeśli na serwerze nie jest uruchomiona poprawna wersja .NET Framework. Upewnij się, że na komputerze, na którym działa serwer (lokalnie lub zdalnie), jest zainstalowany co najmniej .NET Framework 4. Upewnij się również, że sama aplikacja jest skonfigurowana do uruchamiania odpowiedniej wersji.
 
-Jeśli widzisz ten problem z lokalnie podczas pracy w programie WebMatrix, kliknij pozycję **witryny** obszaru roboczego, a następnie w widoku drzewa kliknij **ustawienia**. W **wybierz wersję systemu .NET Framework** , wybierz na liście **.NET 4 (Integrated)**. Jeśli ta wersja jest już ustawiony, spróbuj uruchomić program WebMatrix jako administrator.
+Jeśli ten problem występuje lokalnie podczas pracy w programie WebMatrix, kliknij obszar roboczy **lokacja** , a następnie w widoku drzewa kliknij pozycję **Ustawienia**. Na liście **Wybierz wersję .NET Framework** wybierz pozycję **.NET 4 (zintegrowane)** . Jeśli ta wersja jest już ustawiona, spróbuj uruchomić program WebMatrix jako administrator.
 
-Upewnij się, że katalog główny witryny sieci Web ma co najmniej jeden *.cshtml* plik.
+Upewnij się, że w katalogu głównym witryny sieci Web znajduje się przynajmniej jeden plik *. cshtml* .
 
-Jeśli zostanie wyświetlony ten błąd, gdy serwer sieci web znajduje się na serwerze zdalnym, skontaktuj się z administratorem serwera. Upewnij się, że serwer ma programu .NET Framework 4 lub nowszy zainstalowany. Upewnij się, że aplikacja jest uruchomiona w puli aplikacji, który jest skonfigurowany do korzystania z tej wersji systemu.NET Framework również.
+Jeśli ten błąd występuje, gdy serwer sieci Web znajduje się na serwerze zdalnym, skontaktuj się z administratorem serwera. Upewnij się, że na serwerze jest zainstalowany .NET Framework 4 lub nowszy. Upewnij się również, że aplikacja działa w puli aplikacji, która jest skonfigurowana do korzystania z tej wersji platformy the.NET Framework.
 
-Jeśli masz kontrolę nad serwer, upewnij się, że działa on poprawną wersję programu .NET Framework. Możesz również spróbować naprawić instalację, uruchamiając `aspnet_regiis -iru` polecenia. (Na przykład po zainstalowaniu usług IIS po zainstalowaniu programu .NET Framework, usługi IIS nie zostanie poprawnie skonfigurowany do uruchomienia strony ASP.NET.) Aby uzyskać więcej informacji, zobacz [narzędzie rejestracji usług IIS platformy ASP.NET (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
+Jeśli masz kontrolę nad serwerem, upewnij się, że jest uruchomiona poprawna wersja .NET Framework. Możesz również spróbować naprawić instalację, uruchamiając polecenie `aspnet_regiis -iru`. (Na przykład po zainstalowaniu usług IIS po zainstalowaniu .NET Framework usługi IIS nie będą prawidłowo skonfigurowane do uruchamiania stron ASP.NET). Aby uzyskać więcej informacji, zobacz [ASP.NET narzędzia rejestracji usług IIS (Aspnet\_regiis. exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
-### <a name="http-error-40314---forbidden"></a>Błąd HTTP 403.14 — dostęp zabroniony
+### <a name="http-error-40314---forbidden"></a>Błąd HTTP 403,14 — dostęp zabroniony
 
-*Serwer sieci Web jest skonfigurowany, aby nie wyświetlać listę zawartości tego katalogu.*
+*Serwer sieci Web jest skonfigurowany do wyświetlania zawartości tego katalogu.*
 
-Ten błąd może wystąpić, jeśli żądanie jest zasobem, który jest chroniony (takich jak *Web.config* plików) lub w folderze, który jest chroniony (takich jak *aplikacji\_danych* lub *aplikacji\_Kod*).
+Ten błąd może wystąpić, Jeśli zażądasz zasobu, który jest chroniony (taki jak plik *Web. config* ) lub który znajduje się w folderze chronionym (na przykład *aplikacja\_dane* lub *kod\_aplikacji*).
 
-### <a name="http-error-40417---not-found"></a>Błąd HTTP 404.17 — nie znaleziono
+### <a name="http-error-40417---not-found"></a>Błąd HTTP 404,17 — nie znaleziono
 
-*Żądana zawartość wydaje się być skryptu i będzie nie być obsługiwana przez program obsługi plików statycznych.*
+*Żądana zawartość wydaje się być skryptem i nie będzie obsługiwana przez procedurę obsługi pliku statycznego.*
 
-Ten błąd może wystąpić, jeśli serwer nie jest prawidłowo skonfigurowany do użycia programu .NET Framework 4 lub nowszym i w związku z tym nie może rozpoznać kodu w `@{ }` bloków. Zobacz opis wcześniej *HTTP błąd 403 — Dostęp zabroniony: Odmowa dostępu*.
+Ten błąd może wystąpić, jeśli serwer nie jest prawidłowo skonfigurowany do korzystania z .NET Framework 4 lub nowszego, w związku z czym nie rozpoznaje kodu w blokach `@{ }`. Zobacz opis wcześniejszy dla *błędu HTTP 403 — Dostęp zabroniony: odmowa dostępu*.
 
-### <a name="http-error-4047---not-found"></a>Błąd HTTP 404.7 — nie znaleziono
+### <a name="http-error-4047---not-found"></a>Błąd HTTP 404,7 — nie znaleziono
 
-*Moduł filtrowania żądań skonfigurowano odmowę rozszerzenie pliku*
+*W module filtrowania żądań skonfigurowano odrzucanie rozszerzenia pliku*
 
-Ten błąd może wystąpić, jeśli *.cshtml* lub *.vbhtml* rozszerzenia zostały jawnie zablokowane na serwerze. Objawem tego problemu jest działające adresy URL, gdy nie obejmują one rozszerzenie, ale adresy URL, które obejmują *.cshtml* lub *.vbhtml* nie działają. Możliwe rozwiązanie to aby ponownie włączyć rozszerzenia w tej witrynie *Web.config* pliku. Poniższy przykład pokazuje, jak włączyć *.cshtml* rozszerzenia.
+Ten błąd może wystąpić, jeśli rozszerzenia *cshtml* lub *VBHTML* zostały jawnie zablokowane na serwerze. Objawem tego problemu jest to, że adresy URL działają, gdy nie zawierają rozszerzenia, ale nie działają adresy URL zawierające *. cshtml* lub *. vbhtml* . Możliwe rozwiązanie to ponowne włączenie rozszerzeń w pliku *Web. config* witryny. Poniższy przykład pokazuje, jak włączyć rozszerzenie *. cshtml* .
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample1.xml?highlight=5-6)]
 
-### <a name="http-error-4048---not-found"></a>Błąd HTTP 404.8 — nie znaleziono
+### <a name="http-error-4048---not-found"></a>Błąd HTTP 404,8 — nie znaleziono
 
-*Moduł filtrowania żądań skonfigurowano odmowę ścieżki w adresie URL, który zawiera sekcja hiddenSegment.*
+*W module filtrowania żądań skonfigurowano odrzucanie ścieżki w adresie URL zawierającym sekcję hiddenSegment.*
 
-Ten błąd może wystąpić, jeśli żądanie jest zasobem, który jest chroniony (takich jak *Web.config* plików) lub w folderze, który jest chroniony (takich jak *aplikacji\_danych* lub *aplikacji\_Kod*).
+Ten błąd może wystąpić, Jeśli zażądasz zasobu, który jest chroniony (taki jak plik *Web. config* ) lub który znajduje się w folderze chronionym (na przykład *aplikacja\_dane* lub *kod\_aplikacji*).
 
-### <a name="this-type-of-page-is-not-served-server-error-in--application"></a>Ten typ strony nie jest obsługiwany (błąd serwera w aplikacji» /»)
+### <a name="this-type-of-page-is-not-served-server-error-in--application"></a>Ten typ strony nie jest obsługiwany (błąd serwera w aplikacji "/")
 
-Zobacz opis wcześniej 404.17 Błąd HTTP.
+Zobacz opis wcześniejszy dla błędu HTTP 404,17.
 
 <a id="IssuesWithRazorCode"></a>
-## <a name="issues-with-razor-code"></a>Problemy z kodem Razor
+## <a name="issues-with-razor-code"></a>Problemy związane z kodem Razor
 
-### <a name="the-name-class-does-not-exist-in-the-current-context"></a>Nazwa "*klasy*" nie istnieje w bieżącym kontekście
+### <a name="the-name-class-does-not-exist-in-the-current-context"></a>Nazwa "*Class*" nie istnieje w bieżącym kontekście
 
-Często przyczyny wystąpienia tego błędu jest to, że `class` odwołania pomocnika, ale pomocnika nie jest zainstalowany. Na przykład Jeśli spróbujesz użyć pomocnika, ale nie został jeszcze zainstalowany pakiet z pakietów NuGet, zostanie wyświetlony ten błąd. Galerii w programie WebMatrix można użyć, aby znaleźć i zainstalować pomocnika.
+Często przyczyną tego błędu jest to, że `class` odwołuje się do pomocnika, ale pomocnik nie jest zainstalowany. Na przykład jeśli spróbujesz użyć pomocnika, ale jeśli nie zainstalowano pakietu z narzędzia NuGet, zobaczysz ten błąd. Aby znaleźć i zainstalować pomocnika, Skorzystaj z galerii w programie WebMatrix.
 
-Jeśli zainstalowano pomocnika, ale strona nadal nie rozpoznaje ich, spróbuj dodać dodać `using` instrukcji w kodzie. W `using` instrukcji, odwołanie do przestrzeni nazw, który zawiera pomocnika. Na przykład podstawowa pomocników, znajdujących się w pakiecie ASP.NET pomocnicy znajdują się w `System.Web.Helpers` przestrzeni nazw. W górnej części strony, której chcesz użyć pomocnika Dodaj następujący wiersz:
+Jeśli zainstalowano pomocnika, ale strona nadal nie rozpoznaje go, spróbuj dodać instrukcję dodawania `using` do kodu. W instrukcji `using` odwołuje się do przestrzeni nazw, która zawiera pomocnika. Na przykład podstawowe pomocnicy, które znajdują się w pakiecie pomocników sieci Web ASP.NET, znajdują się w przestrzeni nazw `System.Web.Helpers`. W górnej części strony, w której chcesz korzystać z pomocnika, Dodaj następujący wiersz:
 
 `@using Microsoft.Web.Helpers;`
 
 <a id="membership"></a>
-## <a name="issues-with-security-and-membership"></a>Problemy dotyczące zabezpieczeń i członkostwa
+## <a name="issues-with-security-and-membership"></a>Problemy z zabezpieczeniami i członkostwem
 
-Jeśli używasz systemu wbudowanych rozwiązań zabezpieczeń (Członkowskimi) w składniku ASP.NET Web Pages (Razor), można napotkać następujące problemy.
+W przypadku korzystania z wbudowanego systemu zabezpieczeń (Membership) na stronach sieci Web ASP.NET (Razor) mogą wystąpić następujące problemy.
 
-### <a name="to-call-this-method-the-membershipprovider-property-must-be-an-instance-of-extendedmembershipprovider"></a>Aby wywołać tę metodę, właściwość "Membership.Provider" musi być wystąpieniem elementu "ExtendedMembershipProvider"
+### <a name="to-call-this-method-the-membershipprovider-property-must-be-an-instance-of-extendedmembershipprovider"></a>Aby wywołać tę metodę, właściwość "Membership. Provider" musi być wystąpieniem elementu "ExtendedMembershipProvider"
 
-Ten błąd może wskazywać, że nie `AspNetSqlMembershipProvider` klasa jest skonfigurowana. (Symptomem jest czy lokacji działa prawidłowo lokalnie, ale zgłasza błąd podczas publikowania do dostawcy hostingu serwera). Jeden rozwiązać ten problem jest jawnie włączyć członkostwo proste przez dodanie poniższego w witrynie *Web.config* pliku:
+Ten błąd może wskazywać, że nie skonfigurowano żadnej klasy `AspNetSqlMembershipProvider`. (Objaw polega na tym, że lokacja działa prawidłowo lokalnie, ale zgłasza ten błąd podczas publikowania go na serwerze dostawcy hostingu). Jedną z następujących przyczyn tego problemu jest jawne włączenie prostej przynależności do pliku *Web. config* witryny:
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample2.xml?highlight=6)]
 
 <a id="email"></a>
-## <a name="issues-with-sending-email"></a>Problemy z wysyłaniem wiadomości E-mail
+## <a name="issues-with-sending-email"></a>Problemy z wysyłaniem poczty E-mail
 
-Problemy z wysyłaniem wiadomości e-mail może być wyzwaniem do debugowania. Początkowego problemu może być, że nie można nawiązać połączenia z serwerem SMTP. Jeśli połączenie zostanie nawiązane, ASP.NET przekazywało wiadomość do serwera SMTP. Jednakże mogą wystąpić problemy z komunikatem sam, który uniemożliwia wysłanie go do serwera SMTP.
+Problemy z wysyłaniem wiadomości e-mail mogą być trudne do debugowania. Początkowy problem może być niemożliwa, ponieważ nie można nawiązać połączenia z serwerem SMTP. Jeśli połączenie zakończy się pomyślnie, ASP.NET komunikat do serwera SMTP. Mogą jednak występować problemy z samym komunikatem, który uniemożliwia serwerowi SMTP wysyłanie go.
 
-Jeśli aplikacja nie pomyślnie wysłać wiadomości e-mail, spróbuj wykonać następujące czynności:
+Jeśli aplikacja nie wyśle wiadomości e-mail pomyślnie, spróbuj wykonać następujące czynności:
 
-- Nazwa serwera SMTP jest często podobny `smtp.provider.com` lub `smtp.provider.net`. Jeśli jednak publikowania witryny dostawcy usług hostingowych, nazwę serwera SMTP w tym momencie może być `localhost`. Ta sytuacja występuje, ponieważ po opublikowaniu i witryna jest hostowana na serwerze dostawcy, serwer SMTP, może być lokalne z perspektywy aplikacji. Ta zmiana nazwy serwera może oznaczać, że trzeba zmienić nazwę serwera SMTP w ramach procesu publikowania.
-- Numer portu jest zwykle 25. Jednakże niektórzy dostawcy wymagają użycia portu 587 lub niektórych innych portów. Skontaktuj się z właścicielem serwera SMTP, w jakiego numeru portu spełniają oczekiwane do użycia.
-- Upewnij się, że używasz właściwych poświadczeń dostępu. Po opublikowaniu witryny dostawcy usług hostingowych, Użyj poświadczeń z dostawcy specjalnie wskazuje, czy do obsługi poczty e-mail. Te poświadczenia mogą się różnić od poświadczenia, których używasz do publikowania.
-- Czasami nie potrzebujesz poświadczeń w ogóle. Przy wysyłaniu wiadomości e-mail przy użyciu osobistych usługodawcę internetowego, dostawcy poczty e-mail może już znasz swoje poświadczenia. Po opublikowaniu, może być konieczne użycie innych poświadczeń niż podczas testowania na komputerze lokalnym.
-- Jeśli dostawcy poczty e-mail używa szyfrowania, ustaw `WebMail.EnableSsl` do `true`.
+- Nazwa serwera SMTP często jest taka sama jak `smtp.provider.com` lub `smtp.provider.net`. Jednak w przypadku opublikowania lokacji w ramach dostawcy hostingu nazwa serwera SMTP może być `localhost`. Ta sytuacja występuje, ponieważ po opublikowaniu i uruchomieniu lokacji na serwerze dostawcy serwer SMTP może być lokalnym z perspektywy aplikacji. Ta zmiana nazw serwerów może oznaczać konieczność zmiany nazwy serwera SMTP w ramach procesu publikowania.
+- Numer portu to zwykle 25. Jednak niektórzy dostawcy wymagają użycia portu 587 lub innego portu. Należy skontaktować się z właścicielem serwera SMTP, jakiego numeru portu należy używać.
+- Upewnij się, że używasz odpowiednich poświadczeń. Jeśli witryna została opublikowana w ramach dostawcy hostingu, Użyj poświadczeń, które zostały wskazane przez dostawcę jako wiadomości e-mail. Te poświadczenia mogą się różnić od poświadczeń, które są używane do publikowania.
+- Czasami nie potrzebujesz poświadczeń. W przypadku wysyłania wiadomości e-mail przy użyciu osobistego usługodawcy internetowego Twój dostawca poczty e-mail może już znać Twoje poświadczenia. Po opublikowaniu programu może być konieczne użycie innych poświadczeń niż podczas testowania na komputerze lokalnym.
+- Jeśli Twój dostawca poczty e-mail używa szyfrowania, ustaw `WebMail.EnableSsl` na `true`.
 
-Występuje błąd podczas wysyłania wiadomości e-mail, może zostać wyświetlony komunikat o błędzie standardowa ASP.NET, która wygląda następująco:
+Jeśli wystąpi błąd podczas wysyłania wiadomości e-mail, może zostać wyświetlony standardowy komunikat o błędzie ASP.NET, który wygląda następująco:
 
-![Komunikat o błędzie programu ASP.NET, gdy występuje problem z adresem e-mail](aspnet-web-pages-razor-troubleshooting-guide/_static/image1.png)
+![ASP.NET komunikat o błędzie, gdy występuje problem z wiadomościami e-mail](aspnet-web-pages-razor-troubleshooting-guide/_static/image1.png)
 
-Można również debugować problemy z wysyłaniem wiadomości e-mail przy użyciu `try-catch` bloku, jak w poniższym przykładzie. Kiedy używasz `try-catch` bloku, program ASP.NET nie wyświetla jego standardowy błąd wiadomości. Zamiast tego można przechwycić błąd w `catch` części bloku.
+Możesz również debugować problemy z wysyłaniem wiadomości e-mail przy użyciu bloku `try-catch`, jak w poniższym przykładzie. W przypadku korzystania z bloku `try-catch` ASP.NET nie wyświetla standardowych komunikatów o błędach. Zamiast tego można przechwycić błąd w części `catch` bloku.
 
 [!code-cshtml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample3.cshtml)]
 
-Zastąp odpowiednie wartości dla `your-SMTP-server-name`i tak dalej. Komunikaty o błędach, które można napotkać w ten sposób między innymi następujące:
+Zastąp odpowiednie wartości `your-SMTP-server-name`i tak dalej. Oto niektóre z komunikatów o błędach, które mogą zostać wyświetlone w następujący sposób:
 
-- *Błąd podczas wysyłania wiadomości e-mail.*
+- *Niepowodzenie wysyłania wiadomości e-mail.*
 
-    —lub—
+    lub
 
-    *Próba połączenia nie powiodło się, ponieważ strona połączona nie odpowiedziała poprawnie po określonym czasie albo ustanowione połączenie nie powiodło się, ponieważ połączony host nie odpowiada*
+    *Próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie określonego czasu lub nawiązane połączenie nie powiodło się, ponieważ podłączony host nie odpowiedział*
 
     Ten błąd zazwyczaj oznacza, że aplikacja nie może połączyć się z serwerem SMTP. Sprawdź nazwę serwera i numer portu.
-- *Skrzynka pocztowa jest niedostępna. Odpowiedź serwera jest: 5.1.0 &lt; someuser@invaliddomain &gt; nadawcy odrzucone: nieprawidłowy nadawca domeny*
+- *Skrzynka pocztowa nie jest dostępna. Odpowiedź serwera to: 5.1.0 &lt;someuser@invaliddomain&gt; Sender odrzucone: nieprawidłowa domena nadawcy*
 
-    Ten komunikat można wskazać, że `From` adres jest nieprawidłowy lub Brak.
-- *Określony ciąg nie jest w formularzu wymaganych dla adresu e-mail.*
+    Ten komunikat może wskazywać, że adres `From` jest niepoprawny lub nie istnieje.
+- *Określony ciąg nie ma formy wymaganej dla adresu e-mail.*
 
-    Ten błąd może wskazywać, że wartość `To` lub `From` właściwości nie są rozpoznawane jako adresy e-mail. (ASP.NET nie może sprawdzić, czy adres e-mail jest prawidłowy, tylko jej użytkownika w prawidłowym formacie jak *name@domain.com*.)
+    Ten błąd może wskazywać, że wartości właściwości `To` lub `From` nie są rozpoznawane jako adresy e-mail. (ASP.NET nie może sprawdzić, czy adres e-mail jest prawidłowy, czy jest w poprawnym formacie, na przykład *name@domain.com* .)
 
 > [!NOTE]
-> Usuń kod znaczników, który powoduje wyświetlenie błędu (`@errorMessage`), przed opublikowaniem strony w działającej witrynie. Nie jest dobry pomysł, aby umożliwić użytkownikom wyświetlić komunikaty o błędach, które można uzyskać z serwera.
+> Usuń znacznik, który wyświetla błąd (`@errorMessage`) przed opublikowaniem strony w działającej witrynie. Nie jest dobrym pomysłem, aby umożliwić użytkownikom wyświetlanie komunikatów o błędach uzyskanych z serwera.
 
 <a id="AdditionalResources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 [ASP.NET Web Pages (Razor) — często zadawane pytania](https://go.microsoft.com/fwlink/?LinkId=253000)
 
-[Program WebMatrix i stron ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) forum w witrynie sieci Web platformy ASP.NET
+[WebMatrix i ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) forum w witrynie ASP.NET

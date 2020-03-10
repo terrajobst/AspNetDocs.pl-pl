@@ -1,119 +1,119 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
-title: Dodawanie widoku | Dokumentacja firmy Microsoft
+title: Dodawanie widoku | Microsoft Docs
 author: shanselman
-description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
+description: Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utwórz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: e8f1515c-c277-47ff-a23e-224118f13f02
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
 ms.openlocfilehash: 462b1210c45da67058899193afcea973f3daf122
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123044"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581558"
 ---
 # <a name="adding-a-view"></a>Dodawanie widoku
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
+> Jest to samouczek początkującego, który wprowadza podstawy ASP.NET MVC. Utworzysz prostą aplikację sieci Web, która odczytuje i zapisuje dane w bazie danych. Odwiedź [centrum learning ASP.NET MVC](../../../index.md) , aby znaleźć inne samouczki i przykłady MVC ASP.NET.
 
-W tej sekcji użyjemy Przyjrzyj się, jak firma Microsoft może mieć klasy Nasze HelloWorldController nie pozostawia żadnych śladów hermetyzacji Generowanie odpowiedzi HTML z powrotem do klienta przy użyciu pliku szablonu widoku.
+W tej sekcji zamierzamy zajrzeć się, w jaki sposób możemy użyć naszego klasy HelloWorldController, aby wyczyścić generowanie odpowiedzi HTML z powrotem do klienta.
 
-Zacznijmy od naszych metodą indeksu przy użyciu szablonu widoku. Nasze metoda jest wywoływana, indeksu i jest w HelloWorldController. Obecnie nasz metoda indeks() zwraca ciąg zawierający komunikat, który jest ustalona w obrębie klasy kontrolera.
+Zacznijmy od użycia szablonu widoku z naszymi metodami indeksu. Nasza metoda jest nazywana indeksem i znajduje się w HelloWorldController. Obecnie nasza metoda index () zwraca ciąg z komunikatem, który jest stałe w ramach klasy Controller.
 
 [!code-csharp[Main](getting-started-with-mvc-part3/samples/sample1.cs)]
 
-Zmienimy teraz metoda indeksu, zamiast tego wyglądać następująco:
+Zmieńmy teraz metodę index, aby zamiast tego wyglądać następująco:
 
 [!code-csharp[Main](getting-started-with-mvc-part3/samples/sample2.cs)]
 
-Teraz Dodajmy Wyświetl szablon do naszego projektu, który możemy użyć naszego indeks() metody. Aby to zrobić, kliknij prawym przyciskiem myszy, przy użyciu myszy gdzieś w trakcie wykonywania metody indeksu, a następnie kliknij przycisk Dodaj widok...
+Teraz dodamy szablon widoku do naszego projektu, którego możemy użyć dla naszego metody index (). Aby to zrobić, kliknij prawym przyciskiem myszy myszą w środku metody indeksu i kliknij polecenie Dodaj widok...
 
-![obraz](getting-started-with-mvc-part3/_static/image1.png)
+![image](getting-started-with-mvc-part3/_static/image1.png)
 
-Zostanie wyświetlone okno dialogowe "Dodaj widok", która zapewnia nam kilka opcji, jak chcemy utworzyć szablon widoku, który może być używany przez naszych Index — metoda. Na razie nie należy wprowadzić zmiany i po prostu kliknij przycisk Dodaj.
+Spowoduje to wyświetlenie okna dialogowego "Dodawanie widoku", które zapewnia nam kilka opcji tworzenia szablonu widoku, który może być używany przez naszą metodę index. Na razie nie zmieniaj niczego i po prostu kliknij przycisk Dodaj.
 
-[![Okno dialogowe dodawania widoku](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
+[Okno dialogowe dodawania widoku ![](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
 
-Po kliknięciu przycisku Dodaj nowy folder i nowy plik pojawi się w folderze rozwiązania, jak pokazano tutaj. Teraz masz folder HelloWorld w widokach i plik Index.aspx wewnątrz tego folderu.
+Po kliknięciu przycisku Dodaj nowy folder i nowy plik pojawi się w folderze rozwiązania, jak pokazano tutaj. Teraz mam folder HelloWorld w obszarze widoki i plik index. aspx znajdujący się w tym folderze.
 
 [![solutionexplorerwithindex](getting-started-with-mvc-part3/_static/image5.png)](getting-started-with-mvc-part3/_static/image4.png)
 
-Nowy plik indeksu jest również już otwarte i gotowy do edycji. Dodaj tekst w pierwszym &lt;h2&gt;indeksu&lt;/h2&gt; , takich jak "Hello World".
+Nowy plik indeksu jest również otwarty i gotowy do edycji. Dodaj tekst poniżej pierwszej &lt;H2&gt;index&lt;/H2&gt; na przykład "Hello world".
 
 [!code-html[Main](getting-started-with-mvc-part3/samples/sample3.html)]
 
-Uruchom aplikację i odwiedź [ `http://localhost:xx/HelloWorld` ](http://localhostxx) ponownie w przeglądarce. Metoda indeksu kontrolera w tym przykładzie nie wykonać pracę, ale wywołać "return View()", co oznacza, że chcemy użyć pliku szablonu widoku do renderowania odpowiedzi do klienta. Ponieważ firma Microsoft nie jawnie określono nazwę pliku szablonu widoku, który będzie używany, za pomocą Index.aspx Wyświetl plik w folderze \Views\HelloWorld ustawiana domyślnie platformy ASP.NET MVC. Teraz widzimy, ciąg, który możemy zakodowane w naszym widoku.
+Uruchom aplikację i ponownie odwiedź [`http://localhost:xx/HelloWorld`](http://localhostxx) w przeglądarce. Metoda index w naszym kontrolerze w tym przykładzie nie wykonała żadnej pracy, ale wywołała "zwracany widok ()", który wskazywał, że chciałem użyć pliku szablonu widoku w celu renderowania odpowiedzi z powrotem do klienta. Ponieważ nie określono jawnie nazwy pliku szablonu widoku, ASP.NET MVC domyślnie przy użyciu pliku widoku index. aspx znajdującego się w folderze \Views\HelloWorld. Teraz zobaczymy ciąg, który został zakodowany w naszym widoku.
 
-[![Indeks - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
+[Indeks ![— Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
 
-Wygląda dość dobrze. Jednak zauważyć, że tytuł w przeglądarce jest wyświetlany komunikat "Index" i big tytuł na stronie jest wyświetlany komunikat "Moja aplikacja MVC." Zmieńmy te z nich.
+Wyglądają dość dobre. Należy jednak zauważyć, że tytuł przeglądarki mówi "index", a duży tytuł na stronie ma wartość "moja aplikacja MVC". Zmieńmy te.
 
-### <a name="changing-views-and-master-pages"></a>Zmienianie widoków i stron wzorcowych
+### <a name="changing-views-and-master-pages"></a>Zmiana widoków i stron wzorcowych
 
-Po pierwsze zmienimy tekst "Moja aplikacja MVC." Ten tekst jest udostępniana i pojawia się na każdej stronie. Faktycznie wygląda na to w jednym miejscu w naszym kodzie, nawet jeśli nie znajduje się na każdej stronie w naszej aplikacji. Przejdź do folderu /Views/Shared w Eksploratorze rozwiązań, a następnie otwórz plik Site.Master. Ten plik jest nazywany stronę wzorcową i jest udostępniony "powłoka" używanego przez naszych pozostałych stronach.
+Najpierw Zmieńmy tekst "moja aplikacja MVC". Ten tekst jest współużytkowany i pojawia się na każdej stronie. Faktycznie występuje tylko w jednym miejscu w naszym kodzie, nawet jeśli znajduje się na każdej stronie w naszej aplikacji. Przejdź do folderu/Views/Shared w Eksplorator rozwiązań i Otwórz plik site. Master. Ten plik jest nazywany stroną wzorcową i jest udostępnianą "powłoką", którą używają wszystkie inne strony.
 
-Należy zauważyć jakiś tekst, który mówi ContentPlaceholder "MainContent", w tym pliku.
+Zauważ, że w tym pliku jest wyświetlany tekst "kontrolka mainContent".
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample4.aspx)]
 
-Ten symbol zastępczy jest, gdzie wszystkie strony utworzone pojawią się, "zawinięty" na stronie głównej. Spróbuj zmienić tytuł, a następnie uruchom aplikację, a następnie odwiedź wielu stronach. Można zauważyć, że zmiana jednego pojawi się na wielu stronach.
+Ten symbol zastępczy to miejsce, w którym wszystkie utworzone strony zostaną wyświetlone na stronie wzorcowej. Spróbuj zmienić tytuł, a następnie uruchom aplikację i odwiedź kilka stron. Zobaczysz, że jedna zmiana zostanie wyświetlona na wielu stronach.
 
 [!code-html[Main](getting-started-with-mvc-part3/samples/sample5.html)]
 
-Teraz każdej strony będzie miał nagłówka podstawowego — to H1 - "Moje filmu aplikacji MVC." Obsługująca białego tekstu na górze strony jest udostępniany na wszystkich stronach.
+Teraz każda strona będzie miała nagłówek podstawowy — czyli H1-of "moja aplikacja filmów MVC". Obsługuje on biały tekst na górze, który jest udostępniany na wszystkich stronach.
 
-Oto Site.Master w całości z naszych zmieniliśmy tytuł:
+Oto witryna. Master w całości z naszym zmienionym tytułem:
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample6.aspx)]
 
 Teraz Zmieńmy tytuł strony indeksu.
 
-Open /HelloWorld/Index.aspx. Ma dwa miejsca, aby zmienić. Po pierwsze tytuł wyświetlany w tytule przeglądarki, a następnie dodatkowej nagłówek - będącego również H2 —. Wprowadzimy je nieco, dzięki czemu można zobaczyć które fragmentem kodu zmienia której części aplikacji.
+Open /HelloWorld/Index.aspx. Istnieją dwa miejsca do zmiany. Po pierwsze tytuł, który pojawia się w tytule przeglądarki, a następnie pomocniczy nagłówek — to również H2. Zrobię je nieco inaczej, aby zobaczyć, który bit kodu zmienia się w ramach aplikacji.
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample7.aspx)]
 
-Uruchom aplikację, a następnie odwiedź /Movies. Zauważ, że tytuł przeglądarki, podstawowego nagłówka i dodatkowych nagłówków zostały zmienione. To można łatwo stworzyć duże zmiany w aplikacji, używając niewielkie zmiany do widoku.
+Uruchom aplikację i odwiedź witrynę/Movies. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i nagłówki pomocnicze uległy zmianie. W aplikacji można łatwo wprowadzać duże zmiany, korzystając z niewielkich zmian w Twoim widoku.
 
-[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[Lista filmów ![— Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
-Nasze trochę "dane" (w tym przypadku "Hello World!" komunikat) ma wartość twardych jednak kodowane. Mamy V (widoki), a następnie mamy C (kontrolery), ale nie M (Model) jeszcze. Krótko omówimy sposób tworzenia bazy danych i pobierania danych modelu z niego.
+Nasz mały bit "Data" (w tym przypadku "Hello world!" komunikat) został sztywno zakodowany. Mamy (przeglądający), a mamy C (kontrolery), ale nie ma jeszcze M (model). Wkrótce przeprowadzimy Cię przez proces tworzenia bazy danych i pobierania z niej danych modelu.
 
-## <a name="passing-a-viewmodel"></a>Przekazywanie ViewModel
+## <a name="passing-a-viewmodel"></a>Przekazywanie elementu ViewModel
 
-Zanim będziemy przejdź do bazy danych i porozmawiać na temat modeli, jednak najpierw Omówmy "Modele widoków." Są to obiekty, które reprezentują szablon widoku wymaga do renderowania odpowiedzi HTML z powrotem do klienta. One są zwykle tworzone przekazywane przez klasę kontrolera do widoku szablonu i powinna zawierać tylko dane, które wymaga Wyświetl szablon — i nie więcej.
+Zanim przejdziemy do bazy danych i porozmawiamy z modelami, najpierw porozmawiamy o "modele widoków". Są to obiekty, które przedstawiają elementy wymagane przez szablon widoku do renderowania odpowiedzi HTML z powrotem do klienta. Są one zazwyczaj tworzone i przesyłane przez klasę kontrolera do szablonu widoku i powinny zawierać tylko te dane, które są wymagane przez szablon widoku — i nie tylko.
 
-Wcześniej z naszego przykładu HelloWorld naszych metody akcji Welcome() trwało nazwy i parametru numTimes i wyprowadzić dane do przeglądarki. Zamiast kontrolera renderowania odpowiedź bezpośrednio w dalszym ciągu, zamiast tego stwórzmy klasę mały do przechowywania danych, a następnie przekazać go za pośrednictwem do szablonu widoku do renderowania ponownie odpowiedzi HTML korzystania z niego. W ten sposób kontrolera jest rozpatrywany wraz z jedną z rzeczy i Wyświetl szablon innego — dzięki czemu możemy zachować czyste "separacji" w ramach naszej aplikacji.
+Wcześniej przy użyciu naszego przykładu HelloWorld, nasza metoda akcji powitalnej () przyjęła nazwę i parametr numTimes i wyprowadza go do przeglądarki. Zamiast korzystać z kontrolera w dalszym ciągu renderować tę odpowiedź bezpośrednio, zamiast tego należy przystąpić do przechowywania tych danych, a następnie przekazać je do szablonu widoku w celu renderowania odpowiedzi HTML z użyciem. W ten sposób kontroler jest objęty jednym elementem i szablonem widoku, który umożliwia nam zachowanie czystego "separacji problemów" w naszej aplikacji.
 
-Wróć do pliku HelloWorldController.cs i Dodaj nową klasę "WelcomeViewModel" i zmień metodę Zapraszamy w kontrolerze. Oto kompletny HelloWorldController.cs przy użyciu nowej klasy, w tym samym pliku.
+Wróć do pliku HelloWorldController.cs i Dodaj nową klasę "WelcomeViewModel" i Zmień metodę Welcome na kontrolerze. Oto kompletny HelloWorldController.cs z nową klasą w tym samym pliku.
 
 [!code-csharp[Main](getting-started-with-mvc-part3/samples/sample8.cs)]
 
-Mimo że jest w wielu wierszach, nasze powitalnej metody jest w rzeczywistości tylko dwie instrukcje kodu. Pierwsza instrukcja pakiety naszych dwóch parametrów do obiektu ViewModel i przekazuje drugi wynikowy obiekt na widok.
+Mimo że znajduje się on w wielu wierszach, nasze metody powitalnej są naprawdę tylko dwoma instrukcjami w kodzie. Pierwsza instrukcja pakuje nasze dwa parametry do obiektu ViewModel, a drugi przekazuje obiekt wyniku do widoku.
 
-Teraz należy szablonu widoku Zapraszamy! W metodzie powitalnej kliknij prawym przyciskiem myszy i wybierz pozycję Dodaj widok. Tym razem utworzymy Sprawdź "Utwórz widok silnie typizowane" i wybierz klasy Nasze WelcomeViewModel z listy rozwijanej. Ten nowy widok będzie tylko wiedzieć o WelcomeViewModels i inne typy obiektów.
+Teraz potrzebujemy szablonu widoku powitalnego. Kliknij prawym przyciskiem myszy metodę Welcome i wybierz polecenie Dodaj widok. Tym razem sprawdzimy "Tworzenie widoku o jednoznacznie określonym typie" i wybieramy nasze klasy WelcomeViewModel z listy rozwijanej. Ten nowy widok będzie wiedzieć tylko o WelcomeViewModels i nie ma żadnych innych typów obiektów.
 
-> *UWAGA: Musisz mieć skompilowany raz po dodanie Twojego WelcomeViewModel dla pojawienie się na liście rozwijanej.*
+> *Uwaga: po dodaniu WelcomeViewModel do wyświetlania na liście rozwijanej należy wykonać kompilację.*
 
-Oto jak powinien wyglądać Twoje okno dialogowe dodawania widoku. Kliknij przycisk Dodaj. ![Dodaj widok w kółkach](getting-started-with-mvc-part3/_static/image10.png)
+Oto, co powinien wyglądać okno dialogowe Dodaj widok. Kliknij przycisk Dodaj. ![Dodaj widok w kółku](getting-started-with-mvc-part3/_static/image10.png)
 
-Dodaj następujący kod w obszarze &lt;h2&gt; w Twojej nowej Welcome.aspx. Utworzymy wprowadzić pętli i zacznij dowolną liczbę razy użytkownik wyświetla informację, że powinniśmy!
+Dodaj ten kod do &lt;H2&gt; w nowym elemencie Welcome. aspx. Utworzymy pętlę i będziemy mówić do powitania tyle razy, ile powinien!
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample9.aspx)]
 
-Należy również zwrócić uwagę podczas pisania, ponieważ widok o WelcomeViewModel powiedzieliśmy to (są one zamężną, należy pamiętać,?), uzyskujemy przydatne Intellisense każdorazowo odwołujemy się nasze obiektu modelu, jak w poniższym zrzucie ekranu:
+Zwróć uwagę na to, że podczas wpisywania otrzymujesz ten widok dotyczący WelcomeViewModel (z ślubem, pamiętaj?), aby uzyskać pomoc IntelliSense za każdym razem, gdy odwołujemy się do naszego obiektu modelu, jak pokazano na poniższym zrzucie ekranu:
 
-[![NumTime Source Code](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
+[![kod źródłowy NumTime](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
 
-Uruchom aplikację i odwiedź `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` ponownie. Teraz Przenosimy dane z adresu URL, jest automatycznie przekazywana do kontrolera, kontrolera pakiety danych na ViewModel i przekazuje tego obiektu, na naszej widoku. Widok nie wyświetla dane w postaci kodu HTML do użytkownika.
+Uruchom aplikację i ponownie odwiedź `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`. Teraz, gdy pobieramy dane z adresu URL, zostanie on automatycznie przekazana do naszego kontrolera, nasz kontroler przypakuje dane do ViewModel i przekaże ten obiekt do naszego widoku. Widok niż wyświetla dane w formacie HTML dla użytkownika.
 
-[![Wprowadzenie — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
+[![— Zapraszamy — Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
-Cóż, to był rodzaju "M" dla modelu, ale nie rodzaj bazy danych. Przyjrzyjmy się, co możemy wyjaśniono konto i bazę danych filmów.
+Jest to również rodzaj "M" dla modelu, ale nie jako rodzaj bazy danych. Zapoznaj się z informacjami i Utwórz bazę danych dla filmów.
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-mvc-part2.md)

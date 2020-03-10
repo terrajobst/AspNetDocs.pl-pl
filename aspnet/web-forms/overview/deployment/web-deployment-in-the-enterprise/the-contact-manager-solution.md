@@ -1,66 +1,66 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: Rozwiązanie Contact Manager | Dokumentacja firmy Microsoft
+title: Rozwiązanie Contact Manager | Microsoft Docs
 author: jrjlee
-description: Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014;rozwiązania Contact Manager&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa przy użyciu realistycznej leve...
+description: W tej serii samouczków jest stosowane przykładowe&#x2014;rozwiązanie&#x2014;do reprezentowania aplikacji w skali korporacyjnej o realistycznej Leve...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
 ms.openlocfilehash: 12ed7827f7392e559e04121386f7cd045de8462b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130932"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586269"
 ---
 # <a name="the-contact-manager-solution"></a>Rozwiązanie Contact Manager
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> To [serii samouczków](web-deployment-in-the-enterprise.md) używa rozwiązania przykładowe&#x2014;rozwiązania Contact Manager&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa przy użyciu realistycznej stopień złożoności. W tym temacie przedstawiono rozwiązanie Contact Manager, w tym artykule opisano najważniejsze składniki rozwiązania i identyfikuje wyzwania we wdrażaniu tego rodzaju aplikacji na różnych platformach docelowy w środowisku przedsiębiorstwa.
+> W tej [serii samouczków](web-deployment-in-the-enterprise.md) jest stosowane przykładowe&#x2014;rozwiązanie&#x2014;do tworzenia aplikacji w skali korporacyjnej o realistycznym poziomie złożoności. W tym temacie przedstawiono rozwiązanie Contact Manager, opisano główne składniki rozwiązania i zidentyfikowano wyzwania w zakresie wdrażania tego rodzaju aplikacji na różnych platformach docelowych w środowisku przedsiębiorstwa.
 > 
-> Podczas pracy z tematami w tych samouczkach, można użyć rozwiązania Contact Manager jako implementację referencyjną, który demonstruje, jak spełniasz specyficznych trudności związanych w scenariuszach wdrażania w przedsiębiorstwie. Następny temat [ustawienie zapasowej rozwiązania Contact Manager](setting-up-the-contact-manager-solution.md), w tym artykule opisano sposób pobierania i uruchom rozwiązanie na stacji roboczej dewelopera.
+> Podczas pracy z tematami w tych samouczkach można użyć rozwiązania Contact Manager jako implementacji referencyjnej, która pokazuje, jak można spełnić konkretne wyzwania w scenariuszach wdrażania w przedsiębiorstwie. W następnym temacie [Konfigurowanie rozwiązania Contact Manager](setting-up-the-contact-manager-solution.md)opisano sposób pobierania i uruchamiania rozwiązania na stacji roboczej dewelopera.
 
-## <a name="solution-overview"></a>Omówienie rozwiązania
+## <a name="solution-overview"></a>Przegląd rozwiązania
 
-Rozwiązanie Contact Manager składa się z czterech poszczególnych projektów:
+Rozwiązanie Contact Manager składa się z czterech pojedynczych projektów:
 
 ![](the-contact-manager-solution/_static/image1.png)
 
-- **ContactManager.Mvc**. Jest to projektu aplikacji sieci web ASP.NET MVC 3, który reprezentuje punkt wejścia dla rozwiązania. Oferuje ona niektóre funkcje aplikacji web podstawowych, takich jak zapewniając użytkownikom możliwość tworzenia i wyświetlania szczegółów dotyczących kontaktu ds. Aplikacja korzysta z usługi Windows Communication Foundation (WCF) do zarządzania kontaktami i aplikacji usługi bazy danych programu ASP.NET, aby zarządzać uwierzytelnianiem i autoryzacją.
-- **ContactManager.Database**. Jest to projekt bazy danych programu Visual Studio. Projekt definiuje schemat bazy danych, dane kontaktowe magazynów.
-- **ContactManager.Service**. Jest to projekt usługi sieci web WCF. Udostępnia usługi WCF, utworzyć punkt końcowy, który umożliwia obiektom wywołującym do wykonania, pobieranie, aktualizowanie i usuwanie operacji (CRUD) na **ContactManager** bazy danych. Usługa zależy od **ContactManager** bazy danych i **ContactManager.Common.dll** zestawu.
-- **ContactManager.Common**. Jest to projekt biblioteki klas. Usługa WCF opiera się na typy zdefiniowane w tym zestawie.
+- **ContactManager. MVC**. Jest to projekt aplikacji sieci Web ASP.NET MVC 3, który reprezentuje punkt wejścia dla rozwiązania. Oferuje ona podstawowe funkcje aplikacji sieci Web, takie jak umożliwienie użytkownikom tworzenia i wyświetlania szczegółów kontaktu. Aplikacja korzysta z usługi Windows Communication Foundation (WCF) do zarządzania kontaktami i bazą danych usług aplikacji ASP.NET w celu zarządzania uwierzytelnianiem i autoryzacją.
+- **ContactManager. Database**. To jest projekt bazy danych programu Visual Studio. Projekt definiuje schemat bazy danych, która przechowuje szczegóły kontaktów.
+- **ContactManager. Service**. To jest projekt usługi sieci Web WCF. Usługa WCF udostępnia punkt końcowy, który umożliwia programom wywołującym wykonywanie operacji tworzenia, pobierania, aktualizowania i usuwania (CRUD) w bazie danych **ContactManager** . Usługa jest zależna od bazy danych **ContactManager** i zestawu **ContactManager. Common. dll** .
+- **ContactManager. Common**. To jest projekt biblioteki klas. Usługa WCF opiera się na typach zdefiniowanych w tym zestawie.
 
-Rozwiązanie obejmuje również folder rozwiązania o nazwie publikowania. Zawiera różne pliki projektów niestandardowych i pliki poleceń, które pokazują, jak można kontrolować i manipulowania procesu kompilacji i wdrażania. Są one omówione bardziej szczegółowo w dalszej części tego samouczka.
+Rozwiązanie zawiera również folder rozwiązania o nazwie Publish. Zawiera różne pliki niestandardowego projektu i pliki poleceń, które pokazują, jak można kontrolować i manipulować procesem kompilowania i wdrażania. Są one omówione bardziej szczegółowo w dalszej części tego samouczka.
 
-Na poziomie koncepcyjny rozwiązania wzajemne dopasowanie składników następująco:
+Na poziomie koncepcyjnym składniki rozwiązania pasują do siebie w następujący sposób:
 
 ![](the-contact-manager-solution/_static/image2.png)
 
 > [!NOTE]
-> Gdy aplikacja sieci web ASP.NET MVC 3 używa dostawcy członkostwa platformy ASP.NET, wszystkich stron w aplikacji sieci web zezwala na dostęp anonimowy. To wyraźnie nie jest realistyczne konfiguracji. Jednak rozwiązanie jest skonfigurowana tak, w ten sposób, aby ułatwić wdrażanie i testowanie rozwiązania bez konieczności konfigurowania kont użytkowników i ról.
+> Mimo że aplikacja sieci Web ASP.NET MVC 3 używa dostawcy członkostwa ASP.NET, wszystkie strony w aplikacji sieci Web zezwalają na dostęp anonimowy. Nie jest to wyraźnie konfiguracja realistyczna. Jednak rozwiązanie jest skonfigurowane w taki sposób, aby ułatwić wdrożenie i przetestowanie rozwiązania bez konfigurowania kont i ról użytkowników.
 
-## <a name="deployment-challenges"></a>Wyzwania związane z wdrożeniem
+## <a name="deployment-challenges"></a>Wyzwania dotyczące wdrażania
 
-Rozwiązanie Contact Manager ilustruje kilka wyzwania związane z wdrożeniem, które są wspólne dla wielu scenariuszy wdrażania w przedsiębiorstwie:
+Rozwiązanie Contact Manager ilustruje kilka wyzwań związanych z wdrażaniem, które są wspólne dla wielu scenariuszy wdrażania w przedsiębiorstwie:
 
-- To rozwiązanie składa się z wielu projektów zależnych. Należy wdrożyć te projekty jednocześnie.
-- Parametry połączenia i punktów końcowych usługi muszą zostać zaktualizowane dla każdego środowiska, a w wielu przypadkach te informacje nie będą dostępne dla dewelopera.
-- Podczas wdrażania **ContactManager** bazy danych do środowisk przemieszczania i produkcji, należy zachować istniejące dane na kolejne wdrożenia.
-- Podczas wdrażania bazy danych usług aplikacji ASP.NET, należy wdrożyć dane konfiguracji, ale pominięto żadnych danych konta użytkownika.
-- Projekty obejmują niektórych plików i folderów, które nie powinny być wdrażane. Należy wyłączyć te pliki i foldery z procesu wdrażania.
-- Rozwiązanie musi do obsługi automatycznego wdrażania z serwera kompilacji Team Foundation Server (TFS).
+- Rozwiązanie składa się z wielu projektów zależnych. Należy wdrożyć te projekty jednocześnie.
+- Parametry połączenia i punkty końcowe usługi należy zaktualizować dla każdego środowiska, a w wielu przypadkach te informacje nie będą dostępne dla deweloperów.
+- Podczas wdrażania bazy danych **ContactManager** w środowiskach przejściowych i produkcyjnych należy zachować istniejące dane w kolejnych wdrożeniach.
+- Podczas wdrażania bazy danych usług aplikacji ASP.NET należy wdrożyć pewne dane konfiguracji, ale pominąć wszystkie dane konta użytkownika.
+- Projekty obejmują niektóre pliki i foldery, które nie powinny zostać wdrożone. Należy wykluczyć te pliki i foldery z procesu wdrażania.
+- Rozwiązanie musi obsługiwać Zautomatyzowane wdrażanie z serwera kompilacji Team Foundation Server (TFS).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym temacie podano ogólne omówienie rozwiązania Contact Manager i zidentyfikować niektóre wyzwania związane z używaniem wdrożeniem, które są wspólne dla wielu scenariuszy wdrażania w przedsiębiorstwie. Pozostałe tematy w tym samouczku opisano niektóre z metod, które można użyć, aby spełnić te wyzwania.
+Ten temat zawiera ogólne omówienie rozwiązania Contact Manager i zidentyfikowano niektóre z problemów związanych z wdrażaniem, które są wspólne dla wielu scenariuszy wdrażania w przedsiębiorstwie. W pozostałych tematach w tym samouczku opisano niektóre techniki, których można użyć w celu spełnienia tych wyzwań.
 
-Następny temat [ustawienie zapasowej rozwiązania Contact Manager](setting-up-the-contact-manager-solution.md), w tym artykule opisano sposób pobierania i uruchom rozwiązanie na stacji roboczej dewelopera.
+W następnym temacie [Konfigurowanie rozwiązania Contact Manager](setting-up-the-contact-manager-solution.md)opisano sposób pobierania i uruchamiania rozwiązania na stacji roboczej dewelopera.
 
 > [!div class="step-by-step"]
 > [Poprzednie](web-deployment-in-the-enterprise.md)

@@ -9,11 +9,11 @@ ms.assetid: d62c3a63-0940-4019-874e-4a4047df0c1c
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 754188352cbfb08e610027f5b7890a32bd88ae26
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74609565"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78597049"
 ---
 # <a name="displaying-data-with-the-objectdatasource-vb"></a>Wyświetlanie danych za pomocą kontrolki ObjectDataSource (VB)
 
@@ -140,7 +140,7 @@ Po zdefiniowaniu naszego motywu ostatni krok polega na zastosowaniu motywu do na
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-vb/samples/sample5.xml)]
 
-To wszystko. Ustawienie `styleSheetTheme` wskazuje, że właściwości określone w motywie *nie* powinny przesłaniać właściwości określonych na poziomie formantu. Aby określić, że ustawienia motywu powinny Trump ustawienia kontroli, Użyj atrybutu `theme` zamiast `styleSheetTheme`; Niestety, ustawienia motywów nie są wyświetlane w programie Visual Studio widok Projekt. Więcej informacji na temat motywów i skórek można znaleźć w tematach [ASP.NET motywy i karnacje](https://msdn.microsoft.com/library/ykzx33wh.aspx) oraz [Style po stronie serwera za pomocą motywów](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) . Zobacz [How to: Apply ASP.NET](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx) Themes, aby uzyskać więcej informacji na temat konfigurowania strony do korzystania z motywu.
+To wszystko! Ustawienie `styleSheetTheme` wskazuje, że właściwości określone w motywie *nie* powinny przesłaniać właściwości określonych na poziomie formantu. Aby określić, że ustawienia motywu powinny Trump ustawienia kontroli, Użyj atrybutu `theme` zamiast `styleSheetTheme`; Niestety, ustawienia motywów nie są wyświetlane w programie Visual Studio widok Projekt. Więcej informacji na temat motywów i skórek można znaleźć w tematach [ASP.NET motywy i karnacje](https://msdn.microsoft.com/library/ykzx33wh.aspx) oraz [Style po stronie serwera za pomocą motywów](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) . Zobacz [How to: Apply ASP.NET](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx) Themes, aby uzyskać więcej informacji na temat konfigurowania strony do korzystania z motywu.
 
 [![GridView wyświetla nazwę produktu, kategorię, dostawcę, cenę i wycofane informacje](displaying-data-with-the-objectdatasource-vb/_static/image31.png)](displaying-data-with-the-objectdatasource-vb/_static/image30.png)
 

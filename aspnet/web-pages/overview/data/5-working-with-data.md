@@ -1,387 +1,387 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
-title: Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
+title: Wprowadzenie do pracy z bazą danych w witrynach ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym rozdziale opisano, jak uzyskać dostęp do danych z bazy danych i wyświetlania ich przy użyciu stron ASP.NET Web Pages.
+description: W tym rozdziale opisano, jak uzyskać dostęp do danych z bazy danych i wyświetlać je za pomocą stron sieci Web ASP.NET.
 ms.author: riande
 ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
 ms.openlocfilehash: 45e988d037465e59ad352bb9444af2c69fd3cd70
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67411268"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586535"
 ---
-# <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn
+# <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych w witrynach ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano, jak utworzyć bazę danych w witrynie internetowej ASP.NET Web Pages (Razor) za pomocą narzędzia Microsoft WebMatrix oraz sposób tworzenia stron, które pozwalają na wyświetlanie, dodawanie, edytowanie i usuwanie danych.
+> W tym artykule opisano, jak używać narzędzi Microsoft WebMatrix do tworzenia bazy danych w witrynie sieci Web ASP.NET (Razor) i tworzenia stron, które umożliwiają wyświetlanie, Dodawanie, edytowanie i usuwanie danych.
 > 
-> **Zawartość:** 
+> **Dowiesz się:** 
 > 
 > - Jak utworzyć bazę danych.
-> - Jak połączyć się z bazą danych.
-> - Jak wyświetlać dane na stronie sieci web.
-> - Jak wstawianie, aktualizowanie i usuwanie rekordów bazy danych.
+> - Jak nawiązać połączenie z bazą danych.
+> - Jak wyświetlać dane na stronie sieci Web.
+> - Jak wstawiać, aktualizować i usuwać rekordy bazy danych.
 > 
-> Poniżej przedstawiono funkcje wprowadzone w artykule:
+> Oto funkcje wprowadzone w artykule:
 > 
-> - Praca z bazą danych programu Microsoft SQL Server Compact Edition.
-> - Praca z zapytania SQL.
-> - `Database` Klasy.
+> - Praca z bazą danych Microsoft SQL Server Compact Edition.
+> - Praca z kwerendami SQL.
+> - Klasa `Database`.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
+> - ASP.NET strony sieci Web (Razor) 2
 > - WebMatrix 2
 >   
 > 
-> W tym samouczku współpracuje również z programu WebMatrix 3. Można użyć 3 stron sieci Web platformy ASP.NET i programu Visual Studio 2013 (lub Visual Studio Express 2013 for Web); Jednak interfejs użytkownika może się różnić.
+> Ten samouczek współpracuje również z programem WebMatrix 3. Możesz użyć ASP.NET Web Pages 3 i Visual Studio 2013 (lub Visual Studio Express 2013 dla sieci Web); jednak interfejs użytkownika będzie inny.
 
-## <a name="introduction-to-databases"></a>Wprowadzenie do bazy danych
+## <a name="introduction-to-databases"></a>Wprowadzenie do baz danych
 
-Wyobraź sobie książki adresowej typowy. Dla każdego wpisu w książce adresowej (oznacza to, że dla każdej osoby nawiązującej) ma kilka rodzajów informacji, takich jak imię, nazwisko, adres, adres e-mail i numer telefonu.
+Wyobraź sobie typową książkę adresową. Dla każdego wpisu w książce adresowej (czyli dla każdej osoby) masz kilka informacji, takich jak imię, nazwisko, adres, adres e-mail i numer telefonu.
 
-Typowym sposobem obraz dane, takie jak to jest tabela z wierszami i kolumnami. Każdy wiersz względem bazy danych, jest często określane jako rekord. Każda kolumna (czasami określane jako pola) zawiera wartość dla każdego typu danych: imię, ostatni nazwy i tak dalej.
+Typowym sposobem na obrazowanie danych takich jak tabela z wierszami i kolumnami. W terminologii bazy danych każdy wiersz jest często określany jako rekord. Każda kolumna (czasami określana jako pola) zawiera wartość dla każdego typu danych: imię, nazwisko i tak dalej.
 
-| **Identyfikator** | **Imię** | **Nazwisko** | **Adres** | **Poczta e-mail** | **Telefon** |
+| **Identyfikator** | **Imię** | **Nazwisko** | **Ulica** | **Wiadomość e-mail** | **Połączenia** |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
-| 2 | Jakub | Adams | 1234 Main St. Seattle (Waszyngton) 99011 | terry@cohowinery.com | 555 0101 |
+| 1 | Jim | Abrus | 210 ewentualna szczytowa St 98031 SE | jim@contoso.com | 555 0100 |
+| 2 | Planowa | Adams | 1234 Main St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
 
-W przypadku większości tabel bazy danych Tabela musi mieć kolumny, która zawiera unikatowy identyfikator, takich jak numer klienta, numer konta itp. Jest to nazywane tabeli *klucz podstawowy*, i używa ich do identyfikacji każdego wiersza w tabeli. W tym przykładzie kolumna Identyfikator jest kluczem podstawowym książki adresowej.
+W przypadku większości tabel bazy danych tabela musi mieć kolumnę, która zawiera unikatowy identyfikator, taki jak numer klienta, numer konta itd. Jest to nazywane *kluczem podstawowym*tabeli i służy do identyfikowania każdego wiersza w tabeli. W przykładzie kolumna ID jest kluczem podstawowym dla książki adresowej.
 
-Z tego podstawową wiedzę na temat baz danych, możesz dowiedzieć się, jak tworzenie prostej bazy danych i wykonywać operacje takie jak dodawanie, modyfikowanie i usuwanie danych.
+Dzięki tej podstawowej zrozumieniu baz danych można dowiedzieć się, jak utworzyć prostą bazę danych i wykonać operacje, takie jak dodawanie, modyfikowanie i usuwanie danych.
 
 > [!TIP] 
 > 
 > **Relacyjne bazy danych**
 > 
-> Dane można przechowywać w wiele różnych sposobów, w tym plików tekstowych i arkuszy kalkulacyjnych. Dla większości zastosowań biznesowych jednak dane są przechowywane w relacyjnej bazie danych.
+> Dane można przechowywać na wiele sposobów, w tym pliki tekstowe i arkusze kalkulacyjne. W przypadku większości używanych w firmie dane są przechowywane w relacyjnej bazie danych.
 > 
-> W tym artykule nie działa bardzo głęboko do baz danych. Jednak może okazać grupowaniu można sprawdzić trochę informacji o nich. Informacje w relacyjnej bazie danych, logicznie odbywa się w oddzielnych tabelach. Na przykład bazę danych dla szkoły może zawierać oddzielnych tabelach dla uczniów lub studentów i ofert klasa. Bazy danych oprogramowania (np. SQL Server) obsługuje zaawansowane polecenia, które umożliwiają dynamiczne ustanawiania relacji między tabelami. Na przykład można użyć relacyjnej bazy danych można ustanowić relacji logicznych między uczniami i klasami w celu utworzenia harmonogramu. Przechowywanie danych w oddzielnych tabelach zmniejsza złożoność strukturę tabeli i zmniejsza trzeba utrzymywać nadmiarowych danych w tabelach.
+> Ten artykuł nie działa bardzo głęboko w bazach danych. Przydatne może być jednak zrozumienie ich nieco. W relacyjnej bazie danych informacje są logicznie podzielone na oddzielne tabele. Na przykład baza danych dla szkoły może zawierać oddzielne tabele dla studentów i ofert klas. Oprogramowanie bazy danych (takie jak SQL Server) obsługuje zaawansowane polecenia, które umożliwiają dynamiczne Ustanawianie relacji między tabelami. Na przykład można użyć relacyjnej bazy danych do ustanowienia relacji logicznej między uczniami i klasami w celu utworzenia harmonogramu. Przechowywanie danych w oddzielnych tabelach zmniejsza złożoność struktury tabeli i zmniejsza potrzebę przechowywania nadmiarowych danych w tabelach.
 
 ## <a name="creating-a-database"></a>Tworzenie bazy danych
 
-Ta procedura pokazuje, jak utworzyć bazę danych o nazwie SmallBakery przy użyciu narzędzia do projektowania bazy danych programu SQL Server Compact, który znajduje się w programie WebMatrix. Chociaż można utworzyć bazę danych przy użyciu kodu, jest bardziej typowego, aby utworzyć bazę danych i tabel bazy danych przy użyciu narzędzia projektowania, takiego jak program WebMatrix.
+Ta procedura pokazuje, jak utworzyć bazę danych o nazwie SmallBakery przy użyciu narzędzia do projektowania bazy danych SQL Server Compact, które jest zawarte w programie WebMatrix. Chociaż można utworzyć bazę danych przy użyciu kodu, jest to bardziej typowe dla tworzenia baz danych i tabel bazy danych przy użyciu narzędzia do projektowania, takiego jak WebMatrix.
 
-1. Uruchom program WebMatrix, a na stronie Szybki Start kliknij **lokacji za pomocą szablonu**.
-2. Wybierz **pusta witryna**, a następnie w **Nazwa lokacji** polu wprowadź "SmallBakery", a następnie kliknij przycisk **OK**. Witryna jest tworzony i wyświetlany w programie WebMatrix.
-3. W okienku po lewej stronie kliknij **baz danych** obszaru roboczego.
-4. Na wstążce kliknij **nową bazę danych**. Pusta baza danych jest tworzony o takiej samej nazwie jako lokacji.
-5. W okienku po lewej stronie rozwiń **SmallBakery.sdf** węzeł, a następnie kliknij przycisk **tabel**.
-6. Na wstążce kliknij **nową tabelę**. Program WebMatrix zostanie otwarty projektant tabel.
+1. Uruchom program WebMatrix i na stronie Szybki start kliknij pozycję **Witryna z szablonu**.
+2. Wybierz pozycję **pusta witryna**, a następnie w polu **Nazwa lokacji** wprowadź wartość "SmallBakery", a następnie kliknij przycisk **OK**. Witryna zostanie utworzona i wyświetlona w programie WebMatrix.
+3. W lewym okienku kliknij obszar roboczy **bazy danych** .
+4. Na wstążce kliknij pozycję **Nowa baza danych**. Zostanie utworzona pusta baza danych o tej samej nazwie co witryna.
+5. W lewym okienku rozwiń węzeł **SmallBakery. sdf** , a następnie kliknij pozycję **tabele**.
+6. Na wstążce kliknij pozycję **Nowa tabela**. WebMatrix otwiera projektanta tabel.
 
-    ![[image]](5-working-with-data/_static/image1.jpg)
-7. Kliknij w **nazwa** kolumny i wprowadzić &quot;identyfikator&quot;.
-8. W **— typ danych** kolumny wybierz **int**.
-9. Ustaw **jest klucz podstawowy?** i **jest zidentyfikować?** opcji **tak**.
+    ![Image](5-working-with-data/_static/image1.jpg)
+7. Kliknij w kolumnie **Nazwa** , a następnie wprowadź &quot;identyfikator&quot;.
+8. W kolumnie **Typ danych** wybierz pozycję **int**.
+9. Ustawić **klucz podstawowy?** i **ma** wartość **tak**.
 
-    Jak sugeruje nazwa, **jest kluczem podstawowym** bazy danych informuje, że będzie to klucz podstawowy tabeli. **Jest tożsamością** informuje bazy danych, aby automatycznie utworzyć numeru Identyfikacyjnego dla każdego nowego rekordu i przypisać ją dalej numeru sekwencyjnego (rozpoczyna się od 1).
-10. Kliknij w kolejnym wierszu. Edytor rozpoczyna się nowa definicja kolumny.
-11. Wartość nazwy można wprowadzić &quot;nazwa&quot;.
-12. Aby uzyskać **— typ danych**, wybierz &quot;nvarchar&quot; i ustawić długość na 50. *Var* wchodzi w skład `nvarchar` bazy danych informuje, że dane dla tej kolumny będzie ciąg, którego rozmiar może się różnić między rekordami. ( *n* prefiksu reprezentuje *national*, wskazujący, że pole może zawierać dane znaków, które przedstawiają żadnych alfabetu lub systemie pisma &#8212; oznacza to, że pole zawiera dane Unicode.)
-13. Ustaw **Zezwalaj na wartości null** opcję **nie**. To wymusi, *nazwa* kolumna nie jest pusty.
-14. Za pomocą tego samego procesu, Utwórz kolumnę o nazwie *opis*. Ustaw **— typ danych** "nvarchar" i 50 dla długości i zestaw **Zezwalaj na wartości null** o wartości false.
-15. Utwórz kolumnę o nazwie *cena*. Ustaw **typu danych "walutowy"** i ustaw **Zezwalaj na wartości null** o wartości false.
-16. Nadaj tabeli nazwę w polu u góry &quot;produktu&quot;.
+    Jak sugeruje nazwa, **klucz podstawowy** informuje bazę danych, że będzie ona kluczem podstawowym tabeli. **Czy tożsamość** instruuje bazę danych w celu automatycznego utworzenia numeru identyfikacyjnego dla każdego nowego rekordu i przypisania go do następnego sekwencyjnego numeru (rozpoczynając od 1).
+10. Kliknij w następnym wierszu. Edytor uruchamia nową definicję kolumny.
+11. W polu Nazwa wprowadź wartość &quot;nazwa&quot;.
+12. W **polu Typ danych**wybierz &quot;nvarchar&quot; i Ustaw długość na 50. *WARIANCJA* części `nvarchar` informuje bazę danych, że dane dla tej kolumny będą ciągiem, którego rozmiar może się różnić od rekordu do rekordu. ( *N* prefiks reprezentuje *kraj*, wskazujący, że pole może zawierać dane znakowe, które reprezentują każdy system &#8212; alfabetu lub pisania, czyli pole przechowuje dane Unicode).
+13. Dla opcji **Zezwalaj na wartości null ustaw wartość** **nie**. Spowoduje to wymuszenie, że kolumna *Nazwa* nie zostanie pozostawiona puste.
+14. Przy użyciu tego samego procesu Utwórz kolumnę o nazwie *Description*. Ustaw **Typ danych** na "nvarchar" i 50 jako długość i ustaw **wartość null** na false.
+15. Utwórz kolumnę o nazwie *Price*. Ustaw **Typ danych na "Money"** i ustaw wartość **null** na wartość false.
+16. W polu u góry nazwij tabelę &quot;&quot;produktu.
 
-    Gdy wszystko będzie gotowe, definicja będzie wyglądać następująco:
+    Gdy skończysz, definicja będzie wyglądać następująco:
 
-    ![[image]](5-working-with-data/_static/image2.png)
-17. Naciśnij klawisze Ctrl + S, aby zapisać w tabeli.
+    ![Image](5-working-with-data/_static/image2.png)
+17. Naciśnij kombinację klawiszy Ctrl + S, aby zapisać tabelę.
 
 ## <a name="adding-data-to-the-database"></a>Dodawanie danych do bazy danych
 
-Teraz możesz dodać przykładowe dane do bazy danych, którą będziesz pracować w dalszej części tego artykułu.
+Teraz można dodać do bazy danych przykładowe dane, które będą działały w dalszej części artykułu.
 
-1. W okienku po lewej stronie rozwiń **SmallBakery.sdf** węzeł, a następnie kliknij przycisk **tabel**.
-2. Kliknij prawym przyciskiem myszy tabelę produktu, a następnie kliknij przycisk **danych**.
-3. W okienku edytowania wprowadź poniższe rekordy:
+1. W lewym okienku rozwiń węzeł **SmallBakery. sdf** , a następnie kliknij pozycję **tabele**.
+2. Kliknij prawym przyciskiem myszy tabelę Product, a następnie kliknij pozycję **dane**.
+3. W okienku Edycja wprowadź następujące rekordy:
 
-    | **Nazwa** | **Opis** | **Cena** |
+    | **Nazwa** | **Opis** | **Koszt** |
     | --- | --- | --- |
-    | Linki | Wbudowanymi świeży każdego dnia. | 2.99 |
-    | Strawberry Shortcake | Nawiązywane z organicznych strawberries z naszych ogrodzie. | 9.99 |
-    | Kołowy firmy Apple | Drugi tylko na Twój Tato koło. | 12.99 |
-    | Kołowy pecan | Jeśli wolisz pecans, to dla Ciebie. | 10.99 |
-    | Tarta kołowy | Wprowadzone za pomocą najlepszych cytryn na całym świecie. | 11.99 |
-    | Cupcakes | Twoje dzieci i dla dzieci w przypadku pokochają je. | 7.99 |
+    | Chleb | Rozszerzania każdego dnia. | 2.99 |
+    | Shortcake truskawki | Realizowane z użyciem truskawek organicznych z naszego ogrodu. | 9.99 |
+    | Kołowy firmy Apple | Sekunda tylko dla wykresu kołowego MOM. | 12.99 |
+    | Kołowy pecan | Jeśli lubisz Pecans, jest to możliwe. | 10.99 |
+    | Kołowy cytrynowy | Z najlepszymi cytrynami na świecie. | 11.99 |
+    | Babeczki | Twoje dzieci i dzieci będą się odkochać. | 7.99 |
 
-    Należy pamiętać, że nie trzeba wpisywać nic dla *identyfikator* kolumny. Podczas tworzenia *identyfikator* ustawić kolumny, jego **tożsamości jest** właściwość na true, co powoduje, że automatycznie wypełniane.
+    Należy pamiętać, że nie trzeba wprowadzać niczego dla kolumny *ID* . Po utworzeniu kolumny *ID* należy ustawić jej właściwość **Identity** na true, co spowoduje, że zostanie ona automatycznie wypełniona.
 
-    Po zakończeniu wprowadzania danych w Projektancie tabel będzie wyglądać następująco:
+    Po zakończeniu wprowadzania danych Projektant tabel będzie wyglądać następująco:
 
-    ![[image]](5-working-with-data/_static/image3.jpg)
-4. Zamknij kartę która zawiera dane z bazy danych.
+    ![Image](5-working-with-data/_static/image3.jpg)
+4. Zamknij kartę, która zawiera dane bazy danych.
 
 ## <a name="displaying-data-from-a-database"></a>Wyświetlanie danych z bazy danych
 
-Gdy już masz bazę danych z danymi w nim dane można wyświetlić strony sieci web ASP.NET. Aby wybrać wiersze tabeli, aby wyświetlić, należy użyć instrukcji SQL, który jest poleceniem, który jest przekazywany do bazy danych.
+Po uzyskaniu bazy danych zawierającej dane można wyświetlić dane na stronie sieci Web ASP.NET. Aby wybrać wiersze tabeli do wyświetlenia, należy użyć instrukcji SQL, która jest poleceniem przekazywanym do bazy danych.
 
-1. W okienku po lewej stronie kliknij **pliki** obszaru roboczego.
-2. W katalogu głównym witryny sieci Web, Utwórz nową stronę CSHTML o nazwie *ListProducts.cshtml*.
-3. Zastąp istniejący kod znaczników następujących czynności:
+1. W lewym okienku kliknij obszar roboczy **pliki** .
+2. W folderze głównym witryny sieci Web Utwórz nową stronę CSHTML o nazwie *ListProducts. cshtml*.
+3. Zastąp istniejący znacznik następującym:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample1.cshtml)]
 
-    W pierwszym bloku kodu, możesz otworzyć *SmallBakery.sdf* pliku (baza danych), który został utworzony wcześniej. `Database.Open` Metoda zakłada, że *.sdf* plik znajduje się w swojej witrynie sieci Web *aplikacji\_danych* folderu. (Zwróć uwagę, że nie trzeba określać *.sdf* rozszerzenia &#8212; w rzeczywistości, jeśli to zrobisz, `Open` metoda nie będzie działać.)
+    W pierwszym bloku kodu otworzysz utworzony wcześniej plik *SmallBakery. sdf* (baza danych). Metoda `Database.Open` zakłada, że plik *. sdf* znajduje się w aplikacji witryny sieci Web *\_folderze danych* . (Należy zauważyć, że nie musisz określać rozszerzenia &#8212; *. sdf* w rzeczywistości, jeśli to zrobisz, Metoda `Open` nie będzie działała).
 
     > [!NOTE]
-    > *Aplikacji\_danych* jest folderem specjalne w programie ASP.NET, który służy do przechowywania plików danych. Aby uzyskać więcej informacji, zobacz [nawiązywania połączenia z bazą danych](#SB_ConnectingToADatabase) w dalszej części tego artykułu.
+    > Folder *danych\_aplikacji* jest specjalnym folderem w ASP.NET, który jest używany do przechowywania plików danych. Aby uzyskać więcej informacji, zobacz [łączenie się z bazą danych](#SB_ConnectingToADatabase) w dalszej części tego artykułu.
 
-    Następnie zgłosić wniosek o przy użyciu następujących SQL w bazie danych `Select` instrukcji:
+    Następnie utworzysz żądanie przetworzenia zapytania do bazy danych przy użyciu następującej instrukcji SQL `Select`:
 
     [!code-sql[Main](5-working-with-data/samples/sample2.sql)]
 
-    W instrukcji `Product` Określa tabelę, aby wykonać zapytanie. `*` Znak Określa, że zapytanie powinno zwrócić wszystkie kolumny z tabeli. (Można podać również listę kolumn pojedynczo, oddzielając je średnikami, jeśli chcesz zobaczyć tylko niektóre kolumny.) `Order By` Klauzuli wskazuje, jak powinny być sortowane dane &#8212; w tym przypadku przez *nazwa* kolumny. Oznacza to, że dane są sortowane w kolejności alfabetycznej na podstawie wartości z *nazwa* kolumny dla każdego wiersza.
+    W instrukcji `Product` identyfikuje tabelę do zapytania. Znak `*` określa, że zapytanie powinno zwrócić wszystkie kolumny z tabeli. (Można również wyświetlać pojedyncze kolumny, oddzielone przecinkami, jeśli chcesz zobaczyć tylko niektóre kolumny). Klauzula `Order By` wskazuje, jak w tym przypadku dane powinny &#8212; być sortowane według *nazwy* kolumny. Oznacza to, że dane są sortowane alfabetycznie na podstawie wartości kolumny *Nazwa* dla każdego wiersza.
 
-    W treści strony kodu znaczników tworzy tabelę HTML, która będzie służyć do wyświetlania danych. Wewnątrz `<tbody>` elementu, użyj `foreach` pętli można pobrać osobno każdy wiersz danych, który jest zwracany przez zapytanie. Dla każdego wiersza danych można utworzyć wiersza tabeli HTML (`<tr>` elementu). Następnie utwórz komórek tabeli HTML (`<td>` elementy) dla każdej kolumny. Zawsze możesz przejść za pomocą pętli, następny wiersz dostępne z bazy danych jest w `row` zmiennej (należy wybrać tę opcję `foreach` instrukcji). Aby uzyskać poszczególnych kolumn z wiersza, możesz użyć `row.Name` lub `row.Description` lub dowolną nazwę, jak to się kolumny.
-4. Uruchom stronę w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.) Strony wyświetli listę, jak pokazano poniżej:
+    W treści strony, znacznik tworzy tabelę HTML, która będzie używana do wyświetlania danych. Wewnątrz elementu `<tbody>` należy użyć pętli `foreach`, aby osobno pobrać każdy wiersz danych zwrócony przez zapytanie. Dla każdego wiersza danych utworzysz wiersz tabeli HTML (`<tr>` element). Następnie utworzysz komórki tabeli HTML (elementy`<td>`) dla każdej kolumny. Za każdym razem, gdy przejdziesz przez pętlę, następnym dostępnym wierszem z bazy danych jest zmienna `row` (należy ją skonfigurować w instrukcji `foreach`). Aby uzyskać pojedynczą kolumnę z wiersza, można użyć `row.Name` lub `row.Description` lub niezależnie od tego, czy nazwa jest pożądaną kolumną.
+4. Uruchom stronę w przeglądarce. (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem). Na stronie zostanie wyświetlona lista, taka jak następująca:
 
-    ![[image]](5-working-with-data/_static/image4.jpg)
+    ![Image](5-working-with-data/_static/image4.jpg)
 
 > [!TIP] 
 > 
-> **Język Structured Query Language (SQL)**
+> **Structured Query Language (SQL)**
 > 
-> SQL jest językiem, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia umożliwiające pobieranie danych i zaktualizować go i umożliwiające tworzenie, modyfikowanie i zarządzanie tabel bazy danych. SQL różni się od języka programowania (takiego jak używane w programie WebMatrix), ponieważ przy użyciu języka SQL, chodzi o to, że Poinformuj bazy danych należy, i jest zadanie bazy danych, aby dowiedzieć się, jak można pobrać dane lub wykonać zadania. Poniżej przedstawiono przykłady niektórych poleceń SQL oraz ich działania:
+> SQL to język, który jest używany w większości relacyjnych baz danych do zarządzania danymi w bazie danych. Zawiera polecenia, które umożliwiają pobieranie danych i aktualizowanie ich oraz pozwalające tworzyć, modyfikować i zarządzać tabelami baz danych. Baza danych SQL różni się od języka programowania (takiego jak ten, który jest używany w programie WebMatrix) ze względu na to, że w programie SQL Server jest to pożądane, co jest potrzebne, a to zadanie bazy danych pozwala ustalić, jak pobrać dane lub wykonać zadanie. Oto przykłady niektórych poleceń SQL i ich działania:
 > 
 > `SELECT Id, Name, Price FROM Product WHERE Price > 10.00 ORDER BY Name`
 > 
-> Pobiera to *identyfikator*, *nazwa*, i *cena* kolumn z rekordów *produktu* tabeli, jeśli wartość *cena* jest więcej niż 10 i zwraca wyniki w kolejności alfabetycznej na podstawie wartości z *nazwa* kolumny. To polecenie zwróci zestaw wyników, który zawiera rekordy, które spełniają kryteria lub pusty zestaw, jeśli żadne rekordy nie odpowiadają.
+> Spowoduje to pobranie kolumn *identyfikatorów*, *nazw*i *cen* z rekordów w tabeli *Product* , jeśli wartość *ceny* jest większa niż 10 i zwraca wyniki w kolejności alfabetycznej na podstawie wartości kolumny *name* . To polecenie zwróci zestaw wyników, który zawiera rekordy spełniające kryteria, lub pusty zestaw, jeśli żadne rekordy nie są zgodne.
 > 
 > `INSERT INTO Product (Name, Description, Price) VALUES ("Croissant", "A flaky delight", 1.99)`
 > 
-> Spowoduje to wstawienie nowego rekordu w *produktu* tabeli, ustawienie *nazwa* kolumny &quot;Croissant&quot;, *opis* kolumny &quot; Niestabilne wzbudzanie&quot;i cenę 1,99.
+> Spowoduje to wstawienie nowego rekordu do tabeli *Product* , ustawienie kolumny *name* na &quot;croissant&quot;, kolumnie *Opis* , aby &quot;&quot;płatne, a cena do 1,99.
 > 
 > `DELETE FROM Product WHERE ExpirationDate < "01/01/2008"`
 > 
-> To polecenie usuwa rekordy w *produktu* tabeli, którego kolumna Data wygaśnięcia jest wcześniejsza niż 1 stycznia 2008. (Ta zakłada, że *produktu* tabela ma kolumnę, oczywiście.) W tym miejscu podano daty w formacie MM/DD/RRRR, ale powinny być wprowadzane w formacie, który jest używany dla ustawień regionalnych.
+> To polecenie usuwa rekordy z tabeli *Product* , której kolumna daty wygaśnięcia jest wcześniejsza niż 1 stycznia 2008. (Przyjęto założenie, że tabela *produktów* ma taką kolumnę, oczywiście). Data jest wprowadzana w formacie MM/DD/RRRR, ale należy ją wprowadzić w formacie używanym dla ustawień regionalnych.
 > 
-> `Insert Into` i `Delete` polecenia nie zwracają zestaw wyników. Zamiast tego zwracają liczbę, która informuje, jak wiele rekordów wpłynęła na polecenie.
+> Polecenia `Insert Into` i `Delete` nie zwracają zestawów wyników. Zamiast tego zwraca liczbę, która informuje o liczbie rekordów, na które miało wpływ polecenie.
 > 
-> W przypadku niektórych z tych operacji (takich jak wstawianie i usuwanie rekordów) proces, który żąda operacji musi mieć odpowiednie uprawnienia w bazie danych. To dlatego produkcyjnych baz danych, często musisz podać nazwę użytkownika i hasło, po nawiązaniu połączenia z bazą danych.
+> W przypadku niektórych z tych operacji (takich jak wstawianie i usuwanie rekordów) proces żądający operacji musi mieć odpowiednie uprawnienia w bazie danych. Dlatego w przypadku produkcyjnych baz danych często konieczne jest podanie nazwy użytkownika i hasła podczas łączenia się z bazą danych.
 > 
-> Istnieją dziesiątek poleceń SQL, ale wszystkie one wykonać wzorzec następująco. Można użyć poleceń SQL do tworzenia tabel bazy danych, liczby rekordów w tabeli, Oblicz ceny i wykonuje wiele więcej operacji.
+> Istnieją dziesiątki poleceń SQL, ale wszystkie są zgodne z wzorcem podobnym do tego. Za pomocą poleceń SQL można tworzyć tabele baz danych, liczyć liczbę rekordów w tabeli, obliczać ceny i wykonywać wiele innych operacji.
 
-## <a name="inserting-data-in-a-database"></a>Wstawianie danych w bazie danych
+## <a name="inserting-data-in-a-database"></a>Wstawianie danych do bazy danych
 
-W tej sekcji pokazano, jak utworzyć stronę, która umożliwia użytkownikom dodawanie nowego produktu do *produktu* tabeli bazy danych. Po wstawieniu nowego rekordu produktu, zostanie wyświetlona strona zaktualizowane tabeli przy użyciu *ListProducts.cshtml* strony, który został utworzony w poprzedniej sekcji.
+W tej sekcji przedstawiono sposób tworzenia strony, która umożliwia użytkownikom dodawanie nowego produktu do tabeli bazy danych *produktów* . Po wstawieniu nowego rekordu produktu na stronie zostanie wyświetlona zaktualizowana tabela przy użyciu strony *ListProducts. cshtml* utworzonej w poprzedniej sekcji.
 
-Strona zawiera sprawdzania poprawności, aby upewnić się, że dane wprowadzonych przez użytkownika są prawidłowe dla bazy danych. Na przykład kod na stronie sprawia, że się upewnić, że wartość zostanie wprowadzona dla wszystkich wymaganych kolumn.
+Strona zawiera sprawdzanie poprawności, aby upewnić się, że dane wprowadzane przez użytkownika są prawidłowe dla bazy danych. Na przykład kod na stronie gwarantuje, że wprowadzono wartość dla wszystkich wymaganych kolumn.
 
-1. W witrynie sieci Web, Utwórz nowy plik CSHTML o nazwie *InsertProducts.cshtml*.
-2. Zastąp istniejący kod znaczników następujących czynności:
+1. W witrynie sieci Web Utwórz nowy plik CSHTML o nazwie *InsertProducts. cshtml*.
+2. Zastąp istniejący znacznik następującym:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample3.cshtml)]
 
-    Treść strony zawiera formularza HTML przy użyciu trzy pola tekstowe, które pozwalają użytkownikom, wprowadź nazwę, opis i cena. Gdy użytkownik kliknie **Wstaw** przycisku, kod w górnej części strony otwiera połączenie *SmallBakery.sdf* bazy danych. Następnie Pobierz wartości, które użytkownik zostało przesłane za pomocą `Request` obiektu i przypisać te wartości do zmiennych lokalnych.
+    Treść strony zawiera formularz HTML z trzema polami tekstowymi, które umożliwiają użytkownikom wprowadzanie nazwy, opisu i ceny. Gdy użytkownicy kliknieją przycisk **Wstaw** , kod w górnej części strony otwiera połączenie z bazą danych *SmallBakery. sdf* . Następnie uzyskasz wartości przesłane przez użytkownika przy użyciu obiektu `Request` i przypisanie tych wartości do zmiennych lokalnych.
 
-    Aby sprawdzić, czy użytkownik wprowadził wartość dla każdej wymaganej kolumny, możesz zarejestrować każdy `<input>` element, który ma być sprawdzone:
+    Aby sprawdzić, czy użytkownik wprowadził wartość dla każdej wymaganej kolumny, należy zarejestrować każdy element `<input>`, który ma zostać sprawdzony:
 
     [!code-csharp[Main](5-working-with-data/samples/sample4.cs)]
 
-    `Validation` Pomocnika sprawdza, czy istnieje wartość każdego z pól, które zostały zarejestrowane. Możesz sprawdzić, czy wszystkie pola przeszły sprawdzanie poprawności, sprawdzając `Validation.IsValid()`, które zwykle są przed rozpoczęciem przetwarzania informacji otrzymasz od użytkownika:
+    Pomocnik `Validation` sprawdza, czy istnieje wartość w każdym zarejestrowanym polu. Możesz sprawdzić, czy wszystkie pola przebiegły walidację, sprawdzając `Validation.IsValid()`, co zazwyczaj jest wykonywane przed przetworzeniem informacji uzyskanych od użytkownika:
 
     [!code-csharp[Main](5-working-with-data/samples/sample5.cs)]
 
-    ( `&&` Oznacza, że operator AND — ten test jest *Jeśli jest to przesłanie formularza i wszystkich pól przeszły sprawdzanie poprawności*.)
+    (Operator `&&` oznacza i — ten test polega na tym, *że jest to przesłanie formularza, a wszystkie pola zostały pomyślnie zweryfikowane*.)
 
-    Jeśli wszystkie kolumny zweryfikowana (żaden nie był pusty), przejdź dalej i tworzenie instrukcji SQL, aby wstawić dane, a następnie uruchomić go tak, jak pokazano dalej:
+    Jeśli wszystkie zweryfikowane kolumny (nie były puste), możesz utworzyć instrukcję SQL, aby wstawić dane, a następnie wykonać ją w sposób przedstawiony dalej:
 
     [!code-csharp[Main](5-working-with-data/samples/sample6.cs)]
 
-    Dla wartości do wstawienia zawierają symbole zastępcze parametru (`@0`, `@1`, `@2`).
+    Aby można było wstawić wartości, należy uwzględnić symbole zastępcze parametrów (`@0`, `@1`, `@2`).
 
     > [!NOTE]
-    > Ze względów bezpieczeństwa zawsze przekazuj parametr wartości do instrukcji SQL przy użyciu parametrów, jak widać w powyższym przykładzie. Daje to możliwość sprawdzania poprawności danych użytkownika, a także pomaga chronić przed próbami wysyłać szkodliwe polecenia bazy danych (czasami określane jako ataki przez iniekcję SQL).
+    > Ze względów bezpieczeństwa zawsze przekazuj wartości do instrukcji SQL przy użyciu parametrów, jak widać w poprzednim przykładzie. Dzięki temu można sprawdzić poprawność danych użytkownika, a ponadto pomaga chronić przed próbami wysłania złośliwych poleceń do bazy danych (czasami nazywanych atakami polegającymi na iniekcji SQL).
 
-    Aby wykonać zapytanie, użyjesz tej instrukcji przekazanie do niego zmiennych, które zawierają wartości, aby zastąpić symbole zastępcze:
+    Aby wykonać zapytanie, należy użyć tej instrukcji, przekazując do niej zmienne zawierające wartości, które mają zostać zastąpione przez symbole zastępcze:
 
     [!code-csharp[Main](5-working-with-data/samples/sample7.cs)]
 
-    Po `Insert Into` instrukcji zostało wykonane, wysłać użytkownika do strony, która zawiera listę produktów, ten wiersz:
+    Po wykonaniu instrukcji `Insert Into` należy wysłać użytkownika na stronę, która zawiera listę produktów w tym wierszu:
 
     [!code-javascript[Main](5-working-with-data/samples/sample8.js)]
 
-    Jeśli weryfikacja nie powiodła się, możesz pominąć insert. Istnieją jednak pomocnika na stronie, który może wyświetlać komunikaty o błędach skumulowana (jeśli istnieje):
+    Jeśli walidacja nie powiodła się, Pomiń Wstawianie. Zamiast tego masz na stronie pomocnika, który może wyświetlać skumulowane komunikaty o błędach (jeśli istnieją):
 
     [!code-cshtml[Main](5-working-with-data/samples/sample9.cshtml)]
 
-    Zwróć uwagę, że bloku stylu w znaczniku zawiera definicję klasy CSS, o nazwie `.validation-summary-errors`. Jest to nazwa klasy CSS, która jest używana domyślnie `<div>` element, który zawiera wszystkie błędy weryfikacji. W tym przypadku klasy CSS określa podsumowanie błędów sprawdzania poprawności są wyświetlane w kolorze czerwonym, a pogrubioną, ale można zdefiniować `.validation-summary-errors` klasy, aby wyświetlić formatowanie chcesz.
+    Zwróć uwagę, że blok stylu w znaczniku zawiera definicję klasy CSS o nazwie `.validation-summary-errors`. Jest to nazwa klasy CSS, która jest używana domyślnie dla elementu `<div>`, który zawiera błędy walidacji. W takim przypadku Klasa CSS określa, że błędy podsumowania walidacji są wyświetlane na czerwono i pogrubione, ale można zdefiniować klasę `.validation-summary-errors`, aby wyświetlić dowolne formatowanie, które lubisz.
 
-### <a name="testing-the-insert-page"></a>Testowanie strony Insert
+### <a name="testing-the-insert-page"></a>Testowanie strony wstawiania
 
-1. Wyświetl stronę w przeglądarce. Zostanie wyświetlona strona formularz, który jest podobny do tego, który jest wyświetlany na poniższej ilustracji.
+1. Wyświetl stronę w przeglądarce. Na stronie zostanie wyświetlony formularz podobny do przedstawionego na poniższej ilustracji.
 
-    ![[image]](5-working-with-data/_static/image5.jpg)
-2. Wprowadź wartości dla wszystkich kolumn, ale upewnij się, że opuści *cena* puste kolumny.
-3. Kliknij przycisk **Wstaw**. Strony wyświetli komunikat o błędzie, jak pokazano na poniższej ilustracji. (Nie nowy rekord zostanie utworzony).
+    ![Image](5-working-with-data/_static/image5.jpg)
+2. Wprowadź wartości dla wszystkich kolumn, ale upewnij się, że kolumna *Cena* nie jest pusta.
+3. Kliknij przycisk **Wstaw**. Na stronie zostanie wyświetlony komunikat o błędzie, jak pokazano na poniższej ilustracji. (Nowy rekord nie został utworzony).
 
-    ![[image]](5-working-with-data/_static/image6.jpg)
-4. Całkowicie wypełnić formularz, a następnie kliknij przycisk **Wstaw**. Tym razem *ListProducts.cshtml* stronie jest wyświetlane i pokazuje nowy rekord.
+    ![Image](5-working-with-data/_static/image6.jpg)
+4. Wypełnij formularz całkowicie, a następnie kliknij przycisk **Wstaw**. Tym razem zostanie wyświetlona strona *ListProducts. cshtml* i zostanie wyświetlony nowy rekord.
 
 ## <a name="updating-data-in-a-database"></a>Aktualizowanie danych w bazie danych
 
-Po wprowadzeniu danych do tabeli, należy go zaktualizować. Ta procedura pokazuje, jak utworzyć dwie strony, które są podobne do tych utworzonych dla wcześniej wstawiania danych. Pierwsza strona przedstawia produkty i pozwala użytkownikom na wybór jednego można zmienić. Druga strona umożliwia faktycznie dokonaj zmian i zapisać je.
+Po wprowadzeniu danych do tabeli może być konieczne jej zaktualizowanie. Ta procedura pokazuje, jak utworzyć dwie strony, które są podobne do tych, które zostały utworzone w celu wstawienia danych wcześniej. Na pierwszej stronie są wyświetlane produkty i użytkownicy wybierają je do zmiany. Druga strona pozwala użytkownikom w rzeczywistości wprowadzać zmiany i zapisywać je.
 
 > [!NOTE] 
 > 
-> **Ważne** w produkcyjnej witrynie internetowej można zwykle ograniczają kto ma prawo do wprowadzania zmian w danych. Aby uzyskać informacje dotyczące sposobu konfigurowania członkostwa i sposobów autoryzacji użytkowników do wykonywania zadań w lokacji, zobacz [Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
+> **Ważne** W produkcyjnej witrynie sieci Web zwykle ogranicza się, kto może wprowadzać zmiany w danych. Informacje o sposobie konfigurowania członkostwa i sposobach autoryzacji użytkowników do wykonywania zadań w witrynie można znaleźć w temacie [Dodawanie zabezpieczeń i członkostwa do witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
 
-1. W witrynie sieci Web, Utwórz nowy plik CSHTML o nazwie *EditProducts.cshtml*.
-2. Zastąp istniejący kod znaczników w pliku następujących czynności:
+1. W witrynie sieci Web Utwórz nowy plik CSHTML o nazwie *EditProducts. cshtml*.
+2. Zastąp istniejący znacznik w pliku następującym:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample10.cshtml)]
 
-    Jedyną różnicą między tę stronę i *ListProducts.cshtml* strony z wcześniej to że tabela HTML na tej stronie zawiera dodatkowa kolumna, która wyświetla **Edytuj** łącza. Po kliknięciu tego łącza, spowoduje to przejście do *UpdateProducts.cshtml* stronie (które następnie utworzymy) umożliwiające edytowanie wybranego rekordu.
+    Jedyną różnicą między tą stroną a stroną *ListProducts. cshtml* wcześniejszą jest to, że tabela HTML na tej stronie zawiera dodatkową kolumnę, która wyświetla link **Edytuj** . Kliknięcie tego linku spowoduje przejście do strony *UpdateProducts. cshtml* (którą utworzysz dalej), na której można edytować wybrany rekord.
 
-    Spójrz na kod, który tworzy **Edytuj** łącza:
+    Przyjrzyj się kodowi, który tworzy link **edycji** :
 
     [!code-cshtml[Main](5-working-with-data/samples/sample11.cshtml)]
 
-    Spowoduje to utworzenie kodu HTML `<a>` elementu którego `href` ma ustawioną wartość atrybutu dynamicznie. `href` Atrybut określa stronę, aby wyświetlić, gdy użytkownik kliknie łącze. Przekazuje także `Id` wartości bieżącego wiersza do łącza. Po uruchomieniu na stronie, źródło strony może zawierać linki, takie jak te:
+    Spowoduje to utworzenie elementu HTML `<a>`, którego atrybut `href` jest ustawiany dynamicznie. Atrybut `href` określa stronę, która ma być wyświetlana, gdy użytkownik kliknie link. Przekazuje także wartość `Id` bieżącego wiersza do łącza. Po uruchomieniu strony Źródło strony może zawierać linki podobne do następujących:
 
     [!code-html[Main](5-working-with-data/samples/sample12.html)]
 
-    Należy zauważyć, że `href` ma ustawioną wartość atrybutu `UpdateProducts/n`, gdzie *n* jest numer produktu. Po kliknięciu jednego z poniższych linków, wynikowy adres URL będzie wyglądać następująco:
+    Zwróć uwagę, że atrybut `href` jest ustawiony na `UpdateProducts/n`, gdzie *n* jest numerem produktu. Gdy użytkownik kliknie jedno z tych linków, otrzymany adres URL będzie wyglądać podobnie do poniższego:
 
     `http://localhost:18816/UpdateProducts/6`
 
-    Innymi słowy numer produktu do edycji zostaną przekazane w adresie URL.
-3. Wyświetl stronę w przeglądarce. Strona wyświetla dane w formacie następująco:
+    Innymi słowy, numer produktu do edycji zostanie przekazywać w adresie URL.
+3. Wyświetl stronę w przeglądarce. Na stronie są wyświetlane dane w formacie podobnym do tego:
 
-    ![[image]](5-working-with-data/_static/image7.jpg)
+    ![Image](5-working-with-data/_static/image7.jpg)
 
-    Następnie utworzysz stronę która umożliwia użytkownikom faktycznie aktualizacji danych. Strona aktualizacji obejmuje sprawdzania poprawności, aby sprawdzić poprawność danych wprowadzonych przez użytkownika. Na przykład kod na stronie sprawia, że się upewnić, że wartość zostanie wprowadzona dla wszystkich wymaganych kolumn.
-4. W witrynie sieci Web, Utwórz nowy plik CSHTML o nazwie *UpdateProducts.cshtml*.
-5. Zastąp istniejący kod znaczników w pliku następujących czynności.
+    Następnie utworzysz stronę, która umożliwi użytkownikom rzeczywiste aktualizowanie danych. Strona aktualizacji zawiera weryfikację do zweryfikowania danych wprowadzonych przez użytkownika. Na przykład kod na stronie gwarantuje, że wprowadzono wartość dla wszystkich wymaganych kolumn.
+4. W witrynie sieci Web Utwórz nowy plik CSHTML o nazwie *UpdateProducts. cshtml*.
+5. Zastąp istniejący znacznik w pliku następującym.
 
     [!code-cshtml[Main](5-working-with-data/samples/sample13.cshtml)]
 
-    Ciała strony zawiera formularza HTML, którym jest wyświetlana produktu i gdzie użytkownicy mogą go edytować. Aby uzyskać produkt, aby wyświetlić, należy użyć tej instrukcji SQL:
+    Treść strony zawiera formularz HTML, w którym jest wyświetlany produkt i gdzie użytkownicy mogą go edytować. Aby można było wyświetlić produkt, należy użyć tej instrukcji SQL:
 
     [!code-sql[Main](5-working-with-data/samples/sample14.sql)]
 
-    To powoduje zaznaczenie produktu o identyfikatorze pasuje do wartości, które zostały przekazane `@0` parametru. (Ponieważ *identyfikator* jest klucz podstawowy i dlatego musi być unikatowa, rekord tylko jeden produkt nigdy nie można wybrać w ten sposób.) Aby uzyskać wartość identyfikator, aby przejść do tego `Select` instrukcji, można odczytać wartości, który jest przekazywany do strony jako część adresu URL, używając następującej składni:
+    Spowoduje to wybranie produktu, którego identyfikator pasuje do wartości, która została przeniesiona w parametrze `@0`. (Ponieważ *Identyfikator* jest kluczem podstawowym i dlatego musi być unikatowy, w ten sposób można wybrać tylko jeden rekord produktu). Aby uzyskać wartość identyfikatora do przekazania do tej instrukcji `Select`, można odczytać wartość, która jest przekazywany do strony w ramach adresu URL, przy użyciu następującej składni:
 
     [!code-csharp[Main](5-working-with-data/samples/sample15.cs)]
 
-    Aby rzeczywiście pobrać rekordu produktu, należy użyć `QuerySingle` metody, która będzie zwracać tylko jeden rekord:
+    Aby faktycznie pobrać rekord produktu, należy użyć metody `QuerySingle`, która zwróci tylko jeden rekord:
 
     [!code-csharp[Main](5-working-with-data/samples/sample16.cs)]
 
-    Pojedynczy wiersz jest zwracany do `row` zmiennej. Możesz pobrać dane poza kolumnami i przypisać ją do zmiennych lokalnych w następujący sposób:
+    Pojedynczy wiersz jest zwracany do zmiennej `row`. Możesz pobrać dane z każdej kolumny i przypisać je do zmiennych lokalnych, takich jak:
 
     [!code-csharp[Main](5-working-with-data/samples/sample17.cs)]
 
-    W znacznikach formularza, te wartości są wyświetlane automatycznie w polach tekstowych poszczególnych przy użyciu osadzonego kodu podobne do następującego:
+    W znacznikach formularza te wartości są wyświetlane automatycznie w poszczególnych polach tekstowych przy użyciu kodu osadzonego, takiego jak:
 
     [!code-html[Main](5-working-with-data/samples/sample18.html)]
 
-    Tę część kodu wyświetla rekord produktu do zaktualizowania. Po wyświetleniu rekord użytkownik może edytować poszczególnych kolumn.
+    Ta część kodu wyświetla rekord produktu, który ma zostać zaktualizowany. Po wyświetleniu tego rekordu użytkownik może edytować pojedyncze kolumny.
 
-    Gdy użytkownik przesyła formularz, klikając **aktualizacji** przycisk kod w `if(IsPost)` block przebiegów. Spowoduje pobranie wartości przez użytkownika z `Request` obiektów, wartości są przechowywane w zmiennych i sprawdza poprawność wypełnione każdej kolumny. Jeśli weryfikacja zakończy się pomyślnie, ten kod tworzy następującą instrukcję SQL Update:
+    Gdy użytkownik prześle formularz, klikając przycisk **Aktualizuj** , zostanie uruchomiony kod w bloku `if(IsPost)`. Spowoduje to pobranie wartości użytkownika z obiektu `Request`, zapisanie wartości w zmiennych i sprawdzenie, czy każda kolumna została wypełniona. Jeśli walidacja kończy się powodzeniem, kod tworzy następującą instrukcję aktualizacji SQL:
 
     [!code-sql[Main](5-working-with-data/samples/sample19.sql)]
 
-    W języku SQL `Update` instrukcji, należy określić każdej kolumny, aktualizacji i ustaw ją na wartość. W tym kodzie wartości są określane przy użyciu symboli zastępczych parametr `@0`, `@1`, `@2`i tak dalej. (Jak wspomniano wcześniej, aby zapewnić bezpieczeństwo, należy zawsze wartości przekazuje się do instrukcji SQL przy użyciu parametrów.)
+    W instrukcji SQL `Update` należy określić każdą kolumnę do zaktualizowania i wartość, dla której ma zostać ustawiona. W tym kodzie wartości są określane przy użyciu zastępczych parametrów `@0`, `@1`, `@2`i tak dalej. (Jak wspomniano wcześniej, w przypadku zabezpieczeń należy zawsze przekazać wartości do instrukcji SQL przy użyciu parametrów).
 
-    Gdy wywołujesz `db.Execute` metody przekazywania zmiennych, które zawierają wartości w kolejności, która odnosi się do parametrów w instrukcji SQL:
+    Po wywołaniu metody `db.Execute`, należy przekazać zmienne zawierające wartości w kolejności odpowiadającej parametrom w instrukcji SQL:
 
     [!code-csharp[Main](5-working-with-data/samples/sample20.cs)]
 
-    Po `Update` została wykonana instrukcja, wywołać następującą metodę w celu przekieruje użytkownika z powrotem do strony edytowania:
+    Po wykonaniu instrukcji `Update` należy wywołać następującą metodę w celu przekierowania użytkownika z powrotem do strony edytowania:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample21.cshtml)]
 
-    Powoduje, że użytkownik widzi zaktualizowaną listę w bazie danych i edytować innego produktu.
+    Ten efekt polega na tym, że użytkownik widzi zaktualizowaną listę danych w bazie danych i może edytować inny produkt.
 6. Zapisz stronę.
-7. Uruchom *EditProducts.cshtml* stronę (a nie strona aktualizacji), a następnie kliknij przycisk **Edytuj** wybrać produkt do edycji. *UpdateProducts.cshtml* zostanie wyświetlona strona, przedstawiający rekord wybrany.
+7. Uruchom stronę *EditProducts. cshtml* (nie stronę aktualizacji), a następnie kliknij przycisk **Edytuj** , aby wybrać produkt do edycji. Zostanie wyświetlona strona *UpdateProducts. cshtml* z wybranym rekordem.
 
-    ![[image]](5-working-with-data/_static/image8.jpg)
-8. Wprowadź zmiany, a następnie kliknij przycisk **aktualizacji**. Na liście produktów ponownie jest wyświetlany za pomocą zaktualizowanych danych.
+    ![Image](5-working-with-data/_static/image8.jpg)
+8. Wprowadź zmianę i kliknij przycisk **Aktualizuj**. Lista produktów zostanie ponownie pokazana ze zaktualizowanymi danymi.
 
-## <a name="deleting-data-in-a-database"></a>Usuwanie danych z bazy danych
+## <a name="deleting-data-in-a-database"></a>Usuwanie danych w bazie danych
 
-W tej sekcji pokazano, jak można zezwolić użytkownikom na usuwanie produktu z *produktu* tabeli bazy danych. Przykład składa się z dwóch stron. Na pierwszej stronie użytkowników, wybierz rekordy do usunięcia. Usunięcie rekordu są następnie wyświetlane na drugiej stronie, umożliwiającą upewnij się, że chce usunąć rekord.
+W tej sekcji pokazano, jak umożliwić użytkownikom usuwanie produktu z tabeli bazy danych *produktów* . Przykład składa się z dwóch stron. Na pierwszej stronie użytkownicy wybierają rekord do usunięcia. Rekord, który ma zostać usunięty, jest następnie wyświetlany na drugiej stronie, dzięki czemu można potwierdzić, że chcą usunąć rekord.
 
 > [!NOTE] 
 > 
-> **Ważne** w produkcyjnej witrynie internetowej można zwykle ograniczają kto ma prawo do wprowadzania zmian w danych. Aby uzyskać informacje dotyczące sposobu konfigurowania członkostwa i sposobów autoryzacji użytkowników do wykonywania zadań w lokacji, zobacz [Dodawanie zabezpieczeń i członkostwa w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
+> **Ważne** W produkcyjnej witrynie sieci Web zwykle ogranicza się, kto może wprowadzać zmiany w danych. Informacje o sposobie konfigurowania członkostwa i sposobach autoryzacji użytkownika do wykonywania zadań w witrynie można znaleźć w temacie [Dodawanie zabezpieczeń i członkostwa do witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202904).
 
-1. W witrynie sieci Web, Utwórz nowy plik CSHTML o nazwie *ListProductsForDelete.cshtml*.
-2. Zastąp istniejący kod znaczników następujących czynności:
+1. W witrynie sieci Web Utwórz nowy plik CSHTML o nazwie *ListProductsForDelete. cshtml*.
+2. Zastąp istniejący znacznik następującym:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample22.cshtml)]
 
-    Ta strona jest podobne do *EditProducts.cshtml* strony wcześniej. Jednak zamiast wyświetlanie **Edytuj** link dla każdego produktu, wyświetla **Usuń** łącza. **Usuń** utworzeniu łącza, używając następującego kodu osadzonego w znaczniku:
+    Ta strona jest podobna do strony *EditProducts. cshtml* ze starszej wersji. Jednak zamiast wyświetlania linku **edycji** dla każdego produktu wyświetla link **Usuń** . Łącze **Usuń** jest tworzone przy użyciu następującego kodu osadzonego w znaczniku:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample23.cshtml)]
 
-    Spowoduje to utworzenie adresu URL, który wygląda jak to, gdy użytkownik kliknie łącze:
+    Spowoduje to utworzenie adresu URL, który wygląda tak, gdy użytkownik kliknie link:
 
     `http://<server>/DeleteProduct/4`
 
-    Adres URL wywołania stronę o nazwie *DeleteProduct.cshtml* (które utworzysz w obok) i przekazuje je identyfikator produktu do usunięcia (tutaj 4).
-3. Zapisz plik, ale pozostanie on otwarty.
-4. Utwórz inny plik CHTML o nazwie *DeleteProduct.cshtml*. Zastąp istniejącą zawartość następujących czynności:
+    Adres URL wywołuje stronę o nazwie *DeleteProduct. cshtml* (którą utworzysz dalej) i przekazuje jej identyfikator produktu do usunięcia (w tym przypadku 4).
+3. Zapisz plik, pozostawiając go otwartym.
+4. Utwórz inny plik CHTML o nazwie *DeleteProduct. cshtml*. Zastąp istniejącą zawartość następującym:
 
     [!code-cshtml[Main](5-working-with-data/samples/sample24.cshtml)]
 
-    Ta strona jest wywoływana przez *ListProductsForDelete.cshtml* i umożliwia użytkownikom, upewnij się, że chce usunąć produkt. Aby wyświetlić listę produktów, które mają zostać usunięte, otrzymasz identyfikator produktu do usunięcia z adresu URL przy użyciu następującego kodu:
+    Ta strona jest wywoływana przez *ListProductsForDelete. cshtml* i pozwala użytkownikom potwierdzić, że chcą usunąć produkt. Aby wyświetlić listę produktów do usunięcia, należy uzyskać identyfikator produktu do usunięcia z adresu URL przy użyciu następującego kodu:
 
     [!code-csharp[Main](5-working-with-data/samples/sample25.cs)]
 
-    Strona następnie prosi użytkownika o kliknij przycisk, aby rzeczywiście Usuń rekord. Jest to ważne zabezpieczenie: podczas wykonywania operacji poufnych w witrynie sieci Web, takich jak aktualizowanie i usuwanie danych, zawsze należy przeprowadzić te operacje przy użyciu operacji POST, a nie operacji pobierania. Jeśli witryna jest skonfigurowana tak, aby operacji usuwania mogą być wykonywane przy użyciu operacji pobierania, każda osoba przekazać adresu URL typu `http://<server>/DeleteProduct/4` i usuwanie czegokolwiek mają ze swojej bazy danych. Dodawanie potwierdzenia i kodowania strony, czemu usuwania można wykonać tylko przy użyciu wpisu, zabezpieczeń jest dodawanie do swojej witryny.
+    Na stronie zostanie wyświetlony monit o kliknięcie przycisku w celu usunięcia rekordu. Jest to ważna miara zabezpieczeń: w przypadku wykonywania poufnych operacji w witrynie sieci Web, takich jak aktualizowanie lub usuwanie danych, należy zawsze wykonać te operacje przy użyciu operacji POST, a nie operacji pobierania. Jeśli lokacja jest skonfigurowana tak, aby można było wykonać operację usuwania przy użyciu operacji GET, każdy może przekazać adres URL, taki jak `http://<server>/DeleteProduct/4`, i usunąć dowolne z bazy danych. Dodając potwierdzenie i kodowanie strony, aby można było je usunąć tylko przy użyciu wpisu POST, należy dodać miarę zabezpieczeń do lokacji.
 
-    Operacja usunięcia rzeczywistego jest wykonywane, używając następującego kodu, najpierw sprawdza, czy jest to operacja post i czy identyfikator nie jest pusty:
+    Rzeczywista operacja usuwania jest wykonywana przy użyciu poniższego kodu, który najpierw potwierdza, że jest to operacja post i że identyfikator nie jest pusty:
 
     [!code-csharp[Main](5-working-with-data/samples/sample26.cs)]
 
-    Kod uruchamia instrukcję SQL, która usuwa określony rekord i następnie przekierowuje użytkownika na stronie listy.
-5. Uruchom *ListProductsForDelete.cshtml* w przeglądarce.
+    Kod uruchamia instrukcję SQL, która usuwa określony rekord, a następnie przekierowuje użytkownika z powrotem do strony z listą.
+5. Uruchom *ListProductsForDelete. cshtml* w przeglądarce.
 
-    ![[image]](5-working-with-data/_static/image9.jpg)
-6. Kliknij przycisk **Usuń** link do jednego z produktów. *DeleteProduct.cshtml* zostanie wyświetlona strona, aby upewnić się, że chcesz usunąć tego rekordu.
-7. Kliknij przycisk **Usuń**. Rekord produktu zostanie usunięty, a strona zostanie odświeżona Lista zaktualizowanych produktów.
+    ![Image](5-working-with-data/_static/image9.jpg)
+6. Kliknij link **Usuń** dla jednego z produktów. Zostanie wyświetlona strona *DeleteProduct. cshtml* , aby potwierdzić, że chcesz usunąć ten rekord.
+7. Kliknij przycisk **Usuń** . Rekord produktu zostanie usunięty, a strona zostanie odświeżona przy użyciu zaktualizowanej listy produktów.
 
 > [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
-> ### <a name="connecting-to-a-database"></a>Nawiązywanie połączenia z bazą danych
+> ### <a name="connecting-to-a-database"></a>Łączenie z bazą danych
 > 
-> Można połączyć się z bazą danych na dwa sposoby. Pierwsza to użycie `Database.Open` metodę i określić nazwę pliku bazy danych (mniej *.sdf* rozszerzenia):
+> Możesz połączyć się z bazą danych na dwa sposoby. Pierwszym jest użycie metody `Database.Open` i określenie nazwy pliku bazy danych (mniej niż rozszerzenie *. sdf* ):
 > 
 > `var db = Database.Open("SmallBakery");`
 > 
-> `Open` Metoda zakłada, że. *sdf* plik znajduje się w witrynie sieci Web firmy *aplikacji\_danych* folderu. Ten folder jest przeznaczona specjalnie do przechowywania danych. Na przykład ma ona odpowiednie uprawnienia, aby zezwolić na witrynie sieci Web do odczytu i zapisu danych, a następnie ze względów bezpieczeństwa program WebMatrix nie zezwala na dostęp do plików z tego folderu.
+> Metoda `Open` zakłada, że. plik *SDF* znajduje się w folderze *danych\_aplikacji* witryny sieci Web. Ten folder został zaprojektowany specjalnie do przechowywania danych. Na przykład ma odpowiednie uprawnienia do zezwalania witrynie sieci Web na odczytywanie i zapisywanie danych, a jako środek zabezpieczeń, WebMatrix nie zezwala na dostęp do plików z tego folderu.
 > 
-> Druga metoda jest Użyj parametrów połączenia. Parametry połączenia zawierają informacje o tym, jak połączyć się z bazą danych. Mogą to być ścieżka pliku lub może ona zawierać nazwę bazy danych programu SQL Server na serwerze lokalnym lub zdalnym wraz z nazwą użytkownika i hasło, aby połączyć się z tym serwerem. (Jeśli dane są przechowywane w centralnie zarządzanej wersji programu SQL Server, takich jak witryny dostawcy hostingu, zawsze umożliwia parametry połączenia Określ informacje o połączeniu.)
+> Drugi sposób polega na użyciu parametrów połączenia. Parametry połączenia zawierają informacje o sposobie łączenia się z bazą danych. Może to obejmować ścieżkę pliku lub może zawierać nazwę bazy danych SQL Server na serwerze lokalnym lub zdalnym oraz nazwę użytkownika i hasło, aby połączyć się z tym serwerem. (Jeśli przechowujesz dane w centralnej zarządzanej wersji SQL Server, na przykład w lokacji dostawcy hostingu, zawsze możesz użyć parametrów połączenia do określenia informacji o połączeniu z bazą danych).
 > 
-> W programie WebMatrix, parametry połączenia są zwykle przechowywane w pliku XML o nazwie *Web.config*. Jak wskazuje nazwa, można użyć *Web.config* plik w folderze głównym witryny sieci Web do przechowywania informacji o konfiguracji witryny, w tym wszelkie parametry połączenia, które mogą wymagać witryny. Przykład parametrów połączenia w *Web.config* pliku może wyglądać podobnie do poniższego:
+> W programie WebMatrix parametry połączenia są zwykle przechowywane w pliku XML o nazwie *Web. config*. Jak nazywa się to, można użyć pliku *Web. config* w katalogu głównym witryny sieci Web do przechowywania informacji o konfiguracji lokacji, w tym wszystkich parametrów połączenia, które może wymagać witryna. Przykład parametrów połączenia w pliku *Web. config* może wyglądać następująco:
 > 
 > [!code-xml[Main](5-working-with-data/samples/sample27.xml)]
 > 
-> W tym przykładzie parametry połączenia wskazują na bazę danych w wystąpieniu programu SQL Server, który jest uruchomiony na innym serwerze (w przeciwieństwie do lokalnego *.sdf* pliku). Czy trzeba zastąpić odpowiednie nazwy dla `myServer` i `myDatabase`, a następnie określ wartości logowania programu SQL Server dla `username` i `password`. (Wartości nazwy użytkownika i hasła nie są zawsze takie same jako poświadczenia Windows lub wartości, które Twój dostawca hostingu przyznał Ci do zalogowania się do swoich serwerów. Skontaktuj się z administratorem dokładne wartości, które są potrzebne.)
+> W tym przykładzie parametry połączenia wskazują bazę danych w wystąpieniu SQL Server, które działa na serwerze, a nie (w przeciwieństwie do lokalnego pliku *. sdf* ). Należy zastąpić odpowiednie nazwy dla `myServer` i `myDatabase`i określić SQL Server wartości logowania dla `username` i `password`. (Wartości nazwy użytkownika i hasła nie muszą być takie same jak poświadczenia systemu Windows lub wartości, które dostawca hostingu udzielił Ci do logowania się do swoich serwerów. Należy skontaktować się z administratorem, aby uzyskać dokładne wartości, które są potrzebne.
 > 
-> `Database.Open` Metody jest elastyczny, ponieważ dzięki temu można przekazać nazwę bazy danych *.sdf* Nazwa ciągu połączenia, która jest przechowywana w pliku lub *Web.config* pliku. Poniższy przykład przedstawia sposób nawiązywania połączeń z bazą danych przy użyciu parametrów połączenia, pokazano w poprzednim przykładzie:
+> Metoda `Database.Open` jest elastyczna, ponieważ umożliwia przekazywanie nazwy pliku Database *. sdf* lub nazwy parametrów połączenia, które są przechowywane w pliku *Web. config* . Poniższy przykład pokazuje, jak nawiązać połączenie z bazą danych przy użyciu parametrów połączenia przedstawionych w poprzednim przykładzie:
 > 
 > [!code-cshtml[Main](5-working-with-data/samples/sample28.cshtml)]
 > 
-> Jak wspomniano, `Database.Open` metoda pozwala przekazać nazwę bazy danych lub parametrów połączenia, a jej określenie, której mają zostać użyte. Jest to bardzo przydatne, gdy należy wdrożyć (opublikować) witryny sieci Web. Możesz użyć *.sdf* w pliku *aplikacji\_danych* folderu podczas tworzenia i testowania witryny. Gdy przesuniesz witryny na serwerze produkcyjnym, możesz użyć parametrów połączenia w *Web.config* pliku, który ma taką samą nazwę jak Twoje *.sdf* plików, ale wskazuje dostawcy hostingu bazy danych &#8212;wszystko to bez konieczności zmian w kodzie.
+> Zgodnie z zanotowaną metodą `Database.Open` można przekazać nazwę bazy danych lub parametry połączenia, które będą używane. Jest to bardzo przydatne podczas wdrażania (publikowania) witryny sieci Web. Podczas tworzenia i testowania lokacji można użyć pliku *. sdf* w folderze *danych\_aplikacji* . Następnie po przeniesieniu lokacji na serwer produkcyjny możesz użyć parametrów połączenia w pliku *Web. config* , który ma taką samą nazwę jak plik *. sdf* , ale wskazuje bazę danych &#8212; dostawcy hostingu bez konieczności zmiany kodu.
 > 
-> Ponadto jeśli chcesz współpracować bezpośrednio z parametrów połączenia, można wywołać `Database.OpenConnectionString` metody i przekazać go rzeczywistych parametrów połączenia zamiast tylko nazwy w *Web.config* pliku. Może to być przydatne w sytuacjach, w którym jakiegoś powodu nie mają dostępu do parametrów połączenia (lub wartości, takich jak *.sdf* nazwy pliku) dopóki strona nie zostanie uruchomiony. Jednak w przypadku większości scenariuszy, można użyć `Database.Open` zgodnie z opisem w tym artykule.
+> Na koniec, jeśli chcesz bezpośrednio korzystać z parametrów połączenia, możesz wywołać metodę `Database.OpenConnectionString` i przekazać do niej rzeczywiste parametry połączenia zamiast tylko nazwy jednego z nich w pliku *Web. config* . Może to być przydatne w sytuacjach, gdy z jakiegoś powodu nie masz dostępu do parametrów połączenia (lub wartości w nim, takich jak nazwa pliku *. sdf* ), dopóki strona nie zostanie uruchomiona. Jednak w przypadku większości scenariuszy można użyć `Database.Open` zgodnie z opisem w tym artykule.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
-- [Łączenie się z programu SQL Server lub bazie danych MySQL w programie WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
+- [Łączenie się z bazą danych SQL Server lub MySQL w programie WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
 - [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)

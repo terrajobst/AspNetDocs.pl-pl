@@ -9,11 +9,11 @@ ms.assetid: f904cd2c-a408-4484-9324-8b8d7fe33893
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 78051696bd75e1d574f55b1c5d5891fe67c3030d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74630445"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78595369"
 ---
 # <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Tworzenie niestandardowego dostawcy map witryn opartych na bazie danych (VB)
 
@@ -310,4 +310,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Dave Gardner, Zack Kowalski, Teresa Murphy i Bernadette Leigh. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](building-a-custom-database-driven-site-map-provider-cs.md)
+> [Wstecz](building-a-custom-database-driven-site-map-provider-cs.md)

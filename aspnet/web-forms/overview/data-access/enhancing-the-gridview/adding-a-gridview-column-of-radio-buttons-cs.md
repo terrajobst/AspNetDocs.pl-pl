@@ -9,11 +9,11 @@ ms.assetid: 32377145-ec25-4715-8370-a1c590a331d5
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b59cc64b14c6414e6558fdb8a281644db8386701
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74593360"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78591099"
 ---
 # <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Dodawanie kolumny przycisków radiowych do kontrolki GridView (C#)
 
@@ -287,4 +287,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnego klienta dla tego samouczka był David suru. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](adding-a-gridview-column-of-checkboxes-cs.md)
+> [Dalej](adding-a-gridview-column-of-checkboxes-cs.md)

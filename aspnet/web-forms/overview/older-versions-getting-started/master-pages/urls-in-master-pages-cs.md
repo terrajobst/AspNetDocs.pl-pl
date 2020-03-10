@@ -9,11 +9,11 @@ ms.assetid: 48b58a18-5ea4-468c-b326-f35331b3e1e9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 2551a5361256234883bb37e46e794037284445a4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640965"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78585849"
 ---
 # <a name="urls-in-master-pages-c"></a>Adresy URL na stronach wzorcowych (C#)
 
@@ -127,7 +127,7 @@ Usuń `<a>` znaczników elementów i Dodaj kontrolkę HyperLink w swoim miejscu.
 
 [!code-aspx[Main](urls-in-master-pages-cs/samples/sample8.aspx)]
 
-To wszystko! W tym momencie wszystkie adresy URL na naszej stronie głównej są prawidłowo oparte na tym, jak są renderowane przez stronę zawartości, niezależnie od tego, które foldery strony wzorcowej i zawartości znajdują się w.
+Gotowe. W tym momencie wszystkie adresy URL na naszej stronie głównej są prawidłowo oparte na tym, jak są renderowane przez stronę zawartości, niezależnie od tego, które foldery strony wzorcowej i zawartości znajdują się w.
 
 ### <a name="automatic-url-resolution-in-theheadsection"></a>Automatyczne rozpoznawanie adresów URL w sekcji`<head>`
 
