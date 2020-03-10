@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile145
-title: jQuery Mobile 1.4.5 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
+title: jQuery Mobile 1.4.5 w usłudze Microsoft Ajax CDN | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: 67e9fda2-7895-4818-add6-fdc5be5be367
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile145
 msc.type: content
 ms.openlocfilehash: e46484f06e3cb75765c4891851d509d560600d3e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59416106"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78562742"
 ---
-# <a name="jquery-mobile-145-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="b69f1-102">System jQuery Mobile 1.4.5 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="b69f1-102">jQuery Mobile 1.4.5 on the Microsoft Ajax CDN</span></span>
+# <a name="jquery-mobile-145-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="66dcd-102">System jQuery Mobile 1.4.5 w usłudze Microsoft AJAX CDN</span><span class="sxs-lookup"><span data-stu-id="66dcd-102">jQuery Mobile 1.4.5 on the Microsoft Ajax CDN</span></span>
 
-<span data-ttu-id="b69f1-103">Biblioteka jQuery Mobile 1.4.5 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="b69f1-103">The jQuery Mobile 1.4.5 library includes the following files:</span></span>
+<span data-ttu-id="66dcd-103">Biblioteka jQuery Mobile 1.4.5 Library obejmuje następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="66dcd-103">The jQuery Mobile 1.4.5 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.5/jquery.mobile.structure-1.4.5.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css

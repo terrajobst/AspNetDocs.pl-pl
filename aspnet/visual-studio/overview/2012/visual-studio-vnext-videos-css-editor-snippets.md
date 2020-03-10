@@ -1,24 +1,24 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-snippets
-title: 'Visual Studio vNext wideo: Fragmenty kodu CSS | Dokumentacja firmy Microsoft'
+title: 'Wideo dotyczące programu Visual Studio vNext: fragmenty kodu CSS | Microsoft Docs'
 author: madskristensen
-description: W tym filmie Mads Kristensen pokazuje udoskonalenia edytora CSS programu Visual Studio vNext, który dodaje niektóre przydatne wstawki kodu CSS3 transformacji, q nośnika...
+description: W tym filmie wideo produktywność Madsa Kristensena ilustruje ulepszenie edytora CSS w programie Visual Studio vNext, który dodaje przydatne fragmenty kodu dla CSS3 transformacje, Media q...
 ms.author: riande
 ms.date: 08/30/2011
 ms.assetid: a87af3be-589d-4b0c-846d-4de60a8745c0
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-snippets
 msc.type: video
 ms.openlocfilehash: 8af991fad10957ee5a0c712b0298647a02eaed46
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395839"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557898"
 ---
-# <a name="visual-studio-vnext-videos-css-snippets"></a><span data-ttu-id="cb47f-103">Visual Studio vNext wideo: Fragmenty kodu CSS</span><span class="sxs-lookup"><span data-stu-id="cb47f-103">Visual Studio vNext Videos: CSS Snippets</span></span>
+# <a name="visual-studio-vnext-videos-css-snippets"></a><span data-ttu-id="c5eee-103">Wideo dotyczące programu Visual Studio vNext: fragmenty kodu CSS</span><span class="sxs-lookup"><span data-stu-id="c5eee-103">Visual Studio vNext Videos: CSS Snippets</span></span>
 
-<span data-ttu-id="cb47f-104">przez [: Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="cb47f-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
+<span data-ttu-id="c5eee-104">Autor [produktywność Madsa Kristensena](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="c5eee-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
 
-<span data-ttu-id="cb47f-105">W tym filmie Mads Kristensen demonstruje ulepszenia w Edytorze Visual Studio vNext CSS, która dodaje niektóre przydatne wstawki kodu CSS3 przekształceń, zapytaniami multimediów, osadzania czcionek i więcej.</span><span class="sxs-lookup"><span data-stu-id="cb47f-105">In this video, Mads Kristensen demonstrates an improvement in the Visual Studio vNext CSS editor which adds some useful snippets for CSS3 transforms, media queries, font embedding, and more.</span></span>
+<span data-ttu-id="c5eee-105">W tym filmie wideo produktywność Madsa Kristensena ilustruje ulepszenie edytora CSS w programie Visual Studio, który dodaje przydatne fragmenty kodu dla CSS3 transformacje, zapytania o multimedia, Osadzanie czcionek i inne elementy.</span><span class="sxs-lookup"><span data-stu-id="c5eee-105">In this video, Mads Kristensen demonstrates an improvement in the Visual Studio vNext CSS editor which adds some useful snippets for CSS3 transforms, media queries, font embedding, and more.</span></span>
 
-[<span data-ttu-id="cb47f-106">&#9654;Obejrzyj film wideo (1 min)</span><span class="sxs-lookup"><span data-stu-id="cb47f-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-css-editor-snippets)
+[<span data-ttu-id="c5eee-106">&#9654;Obejrzyj wideo (1 min)</span><span class="sxs-lookup"><span data-stu-id="c5eee-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-css-editor-snippets)
