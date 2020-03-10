@@ -9,11 +9,11 @@ ms.assetid: c83ca3e6-c0bf-4158-a166-40c1ab0f33da
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 790f0d881e43518600968d6c175d4eaa53d0e5f9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574089"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78613821"
 ---
 # <a name="manipulating-dropshadow-properties-from-client-code-c"></a>Manipulowanie właściwościami kontrolki DropShadow z poziomu kodu klienta (C#)
 

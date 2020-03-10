@@ -9,11 +9,11 @@ ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 08e245edfe73db4e3896db51151e5d7a0fa9697c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611517"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78612197"
 ---
 # <a name="creating-a-rating-control-vb"></a>Tworzenie kontrolki Rating (VB)
 
@@ -69,4 +69,4 @@ Zapisz stronę i Załaduj ją do przeglądarki. Po umieszczeniu wskaźnika myszy
 Tworzenie systemu klasyfikacji z minimalnym kodem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-rating-control-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Ubiegł](creating-a-rating-control-cs.md)
+> [Wstecz](creating-a-rating-control-cs.md)

@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
 ms.openlocfilehash: 8d07848754d9efda9c893b8ba54ac6d0c0214a53
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000699"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633064"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>Kod źródłowy i pakiety NuGet ASP.NET webhook
 
@@ -23,8 +23,8 @@ Ta dokumentacja online, którą odczytujesz teraz, jest również hostowana jako
 
 [Pakiety NuGet](https://nuget.org/packages?q=Microsoft.AspNet.WebHooks) są podzielone na trzy części:
 
-* [Wspólny](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common): Wspólny pakiet współużytkowany przez nadawców i odbiorników.
+* [Wspólne](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common): wspólny pakiet, który jest współużytkowany przez nadawców i odbiorników.
 
-* [Nadawca](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom): Zestaw pakietów obsługujący wysyłanie własnych elementów webhook do innych osób. Funkcje wysyłania elementów webhook zostały szczegółowo opisane w temacie Wysyłanie elementów [webhook](sending/senders.md).
+* [Nadawca](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom): zestaw pakietów obsługujący wysyłanie własnych elementów webhook do innych osób. Funkcje wysyłania elementów webhook zostały szczegółowo opisane w temacie Wysyłanie elementów [webhook](sending/senders.md).
 
-* [Odbiorcy](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers): Zestaw pakietów, które obsługują otrzymywanie elementów webhook od innych użytkowników. Funkcja otrzymywania elementów webhook została szczegółowo opisana w temacie [otrzymywanie](receiving/index.md)elementów webhook.
+* [Odbiorniki](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers): zestaw pakietów obsługujący otrzymywanie elementów webhook od innych użytkowników. Funkcja otrzymywania elementów webhook została szczegółowo opisana w temacie [otrzymywanie elementów webhook](receiving/index.md).

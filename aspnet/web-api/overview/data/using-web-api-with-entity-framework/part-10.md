@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: Publikowanie aplikacji w usłudze Azure usługa Azure App Service | Dokumentacja firmy Microsoft
+title: Publikowanie aplikacji na platformie Azure Azure App Service | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,27 +9,27 @@ ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
 ms.openlocfilehash: a9a7b74a07c71b47253c0af304c7a26ffa4eaae5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417367"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622389"
 ---
-# <a name="publish-the-app-to-azure-azure-app-service"></a>Publikowanie aplikacji w usłudze Azure App Service platformy Azure
+# <a name="publish-the-app-to-azure-azure-app-service"></a>Publikowanie aplikacji w usłudze Azure Azure App Service
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
 [Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
-W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**.
+Ostatnim krokiem jest opublikowanie aplikacji na platformie Azure. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj**.
 
 ![](part-10/_static/image1.png)
 
-Kliknięcie **Publikuj** wywołuje okno dialogowe **Publikowanie w sieci Web**. Jeśli podczas tworzenia projektu zaznaczono **Host w chmurze**, to połączenie i ustawienia zostały już skonfigurowane. W takim przypadku należy po prostu kliknąć **Ustawienia** i zaznaczyć opcję &quot;wykonaj migracje Code First&quot;. (Jeśli na początku nie została zaznaczona opcja **Host w chmurze**, wykonaj kroki opisane w [następnej sekcji](#new-website).)
+Kliknięcie przycisku **Publikuj** wywołuje okno dialogowe **Publikowanie w sieci Web** . Jeśli zaznaczono opcję **host w chmurze** podczas pierwszego utworzenia projektu, połączenie i ustawienia są już skonfigurowane. W takim przypadku po prostu kliknij kartę **Ustawienia** i sprawdź, &quot;wykonaj migracje Code First&quot;. (Jeśli na początku nie sprawdzono **hosta w chmurze** , wykonaj kroki opisane w [następnej sekcji](#new-website)).
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić postęp publikowania w oknie **Działania publikowania internetowego**. (Z menu **Widok** wybierz opcję **Windows inne**, a następnie wybierz **Działania publikowania internetowego**.)
+Aby wdrożyć aplikację, kliknij pozycję **Opublikuj**. Postęp publikowania można wyświetlić w oknie **działanie publikowania w sieci Web** . (Z menu **Widok** wybierz pozycję **inne okna**, a następnie wybierz pozycję **aktywność publikacji w sieci Web**).
 
 ![](part-10/_static/image4.png)
 
@@ -38,21 +38,21 @@ Po zakończeniu wdrażania aplikacji w programie Visual Studio zostanie automaty
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
-## <a name="deploying-to-a-new-website"></a>Wdrożenie nowej witryny sieci Web
+## <a name="deploying-to-a-new-website"></a>Wdrażanie w nowej witrynie sieci Web
 
-Jeśli nie zaznaczono opcji **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**. Następnie wybierz kartę **Profil**, po czym kliknij przycisk **Microsoft Azure Websites**. Jeśli nie jesteś zalogowany do Azure, wyświetli się monit o zalogowanie.
+Jeśli nie sprawdzono **hosta w chmurze** podczas pierwszego tworzenia projektu, można teraz skonfigurować nową aplikację sieci Web. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj**. Wybierz kartę **profil** , a następnie kliknij przycisk **Microsoft Azure Websites**. Jeśli nie jesteś zalogowany do Azure, wyświetli się monit o zalogowanie.
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-W oknie dialogowym **istniejących witryn sieci Web** kliknij przycisk **New**.
+W oknie dialogowym **istniejące witryny sieci Web** kliknij pozycję **Nowy**.
 
 ![](part-10/_static/image9.png)
 
-Wprowadź nazwę lokacji. Wybierz subskrypcję platformy Azure i region. W obszarze **serwera bazy danych**, wybierz opcję **Utwórz nowy serwer**, lub wybierz istniejący serwer. Kliknij przycisk **Utwórz**.
+Wprowadź nazwę lokacji. Wybierz swoją subskrypcję platformy Azure i region. W obszarze **serwer bazy danych**wybierz pozycję **Utwórz nowy serwer**lub wybierz istniejący serwer. Kliknij przycisk **Utwórz**.
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-Kliknij przycisk **Ustawienia** i zaznacz opcję &quot;Wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
+Kliknij kartę **Ustawienia** i sprawdź, &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
 
 > [!div class="step-by-step"]
-> [Poprzednie](part-9.md)
+> [Wstecz](part-9.md)

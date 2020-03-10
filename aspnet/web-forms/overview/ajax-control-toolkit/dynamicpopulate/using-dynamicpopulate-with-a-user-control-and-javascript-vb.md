@@ -9,11 +9,11 @@ ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ee5923ad6d8b101f689a0564aef8b1e0e00a7639
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78613674"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodem JavaScript (VB)
 
@@ -63,11 +63,11 @@ Na koniec Dodaj kontrolkę użytkownika do strony. Musisz tylko ustawić jego at
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample8.aspx)]
 
-I to wszystko! Strona działa zgodnie z oczekiwaniami: użytkownik klika jeden z przycisków radiowych, formant w zestawie narzędzi wywołuje usługę sieci Web i wyświetla bieżącą datę w żądanym formacie.
+I to wszystko. Strona działa zgodnie z oczekiwaniami: użytkownik klika jeden z przycisków radiowych, formant w zestawie narzędzi wywołuje usługę sieci Web i wyświetla bieżącą datę w żądanym formacie.
 
 [![przyciski radiowe znajdują się w kontrolce użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
 
 Przyciski radiowe znajdują się w kontrolce użytkownika ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Ubiegł](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [Wstecz](dynamically-populating-a-control-using-javascript-code-vb.md)

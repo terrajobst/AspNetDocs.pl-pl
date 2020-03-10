@@ -1,91 +1,91 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
-title: Uwierzytelnianie użytkowników za pomocą uwierzytelniania Windows (C#) | Dokumentacja firmy Microsoft
+title: Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu WindowsC#() | Microsoft Docs
 author: microsoft
-description: Dowiedz się, jak używać uwierzytelniania Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie Windows w ramach Twojej aplikacji sieci web co...
+description: Dowiedz się, jak używać uwierzytelniania systemu Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie systemu Windows w sieci Web współdziałanie z aplikacją...
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 418bb07e-f369-4119-b4b0-08f890f7abb2
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
 ms.openlocfilehash: bb3909bff2791c15a8737fc12cac69f79b55733f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125441"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624125"
 ---
 # <a name="authenticating-users-with-windows-authentication-c"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania systemu Windows (C#)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak używać uwierzytelniania Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie Windows w pliku konfiguracji sieci web aplikacji i jak skonfigurować uwierzytelnianie za pomocą programu IIS. Na koniec dowiesz się, jak używać atrybutu [Authorize] do ograniczania dostępu do akcji kontrolera do konkretnych użytkowników Windows lub grup.
+> Dowiedz się, jak używać uwierzytelniania systemu Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie systemu Windows w pliku konfiguracji sieci Web aplikacji i jak skonfigurować uwierzytelnianie za pomocą usług IIS. Na koniec dowiesz się, jak używać atrybutu [autoryzuje], aby ograniczyć dostęp do akcji kontrolera do określonych użytkowników lub grup systemu Windows.
 
-Celem tego samouczka jest wyjaśniają, jak możesz korzystać ze zabezpieczeń funkcji wbudowanych w Internet Information Services do hasła ochrony widoków w aplikacji MVC. Dowiesz się, jak umożliwić akcji kontrolera być przywoływane tylko przez określonych użytkowników Windows lub użytkowników, którzy są członkami określonej grupy Windows.
+Celem tego samouczka jest wyjaśnienie, w jaki sposób można korzystać z funkcji zabezpieczeń wbudowanych w Internet Information Services do ochrony danych w widokach w aplikacjach MVC. Dowiesz się, jak zezwolić na wywoływanie akcji kontrolera tylko określonym użytkownikom systemu Windows lub użytkownikom należącym do określonych grup systemu Windows.
 
-Przy użyciu uwierzytelniania Windows sens, kiedy tworzysz wewnętrznej witryny sieci Web firmy (witryny intranetowej) i chcesz, aby użytkownicy mogli korzystać z ich standardowe Windows użytkownika nazwy i hasła podczas uzyskiwania dostępu do witryny sieci Web. Jeśli tworzysz na zewnątrz połączonego z witryny sieci Web (Internet witrynę sieci Web) uwierzytelnianie formularzy zamiast tego Rozważ użycie.
+Korzystanie z uwierzytelniania systemu Windows jest sensowne podczas tworzenia wewnętrznej witryny internetowej firmy (witryny intranetowej) i chcesz, aby użytkownicy mogli używać standardowych nazw użytkowników i haseł systemu Windows podczas uzyskiwania dostępu do witryny sieci Web. Jeśli tworzysz stronę sieci Web na zewnątrz (internetową witrynę sieci Web), zamiast tego Rozważ użycie uwierzytelniania formularzy.
 
-#### <a name="enabling-windows-authentication"></a>Włączanie uwierzytelniania Windows
+#### <a name="enabling-windows-authentication"></a>Włączanie uwierzytelniania systemu Windows
 
-Podczas tworzenia nowej aplikacji platformy ASP.NET MVC, uwierzytelnianie Windows nie jest włączone domyślnie. Uwierzytelnianie formularzy jest to domyślny typ uwierzytelniania, który jest włączony dla aplikacji MVC. Należy włączyć uwierzytelnianie Windows, modyfikując plik konfiguracji (web.config) w sieci web aplikacji MVC. Znajdź &lt;uwierzytelniania&gt; sekcji i zmodyfikuj go, aby używać Windows zamiast uwierzytelniania formularzy w następujący sposób:
+Podczas tworzenia nowej aplikacji ASP.NET MVC uwierzytelnianie systemu Windows nie jest domyślnie włączone. Uwierzytelnianie formularzy jest domyślnym typem uwierzytelniania włączonych dla aplikacji MVC. Należy włączyć uwierzytelnianie systemu Windows, modyfikując plik konfiguracji sieci Web aplikacji MVC (Web. config). Znajdź sekcję &lt;Authentication&gt; i zmodyfikuj ją tak, aby korzystała z systemu Windows zamiast uwierzytelniania formularzy w następujący sposób:
 
 [!code-xml[Main](authenticating-users-with-windows-authentication-cs/samples/sample1.xml)]
 
-Po włączeniu uwierzytelniania Windows, serwer sieci web staje się odpowiedzialna za uwierzytelnianie użytkowników. Zazwyczaj istnieją dwa różne typy serwerów sieci web, które można użyć podczas tworzenia i wdrażania aplikacji ASP.NET MVC.
+Po włączeniu uwierzytelniania systemu Windows serwer sieci Web będzie odpowiedzialny za uwierzytelnianie użytkowników. Zazwyczaj istnieją dwa różne typy serwerów sieci Web, które są używane podczas tworzenia i wdrażania aplikacji ASP.NET MVC.
 
-Najpierw podczas tworzenia aplikacji MVC, należy użyć serwera sieci Web platformy ASP.NET Development dołączone do programu Visual Studio. Domyślnie serwer sieci Web programu ASP.NET Development wykonuje wszystkich stron w kontekście bieżącego konta Windows (niezależnie od konto używane do logowania się do Windows).
+Najpierw podczas tworzenia aplikacji MVC należy użyć serwera sieci Web ASP.NET Development dołączonego do programu Visual Studio. Domyślnie serwer ASP.NET Development Web wykonuje wszystkie strony w kontekście bieżącego konta systemu Windows (dowolnego konta użytego do zalogowania się do systemu Windows).
 
-Serwer sieci Web programu ASP.NET Development obsługuje również uwierzytelnianie NTLM. Kliknij prawym przyciskiem myszy nazwę projektu w oknie Eksploratora rozwiązań i wybierając pozycję Właściwości, można włączyć uwierzytelnianie NTLM. Następnie wybierz kartę sieci Web i zaznacz pole wyboru NTLM (patrz rysunek 1).
+Serwer sieci Web ASP.NET Development obsługuje również uwierzytelnianie NTLM. Uwierzytelnianie NTLM można włączyć, klikając prawym przyciskiem myszy nazwę projektu w oknie Eksplorator rozwiązań i wybierając pozycję Właściwości. Następnie wybierz kartę Sieć Web i zaznacz pole wyboru NTLM (patrz rysunek 1).
 
-**Rysunek 1 — włączenie uwierzytelniania NTLM dla serwera sieci Web programu ASP.NET Development**
+**Rysunek 1 — Włączanie uwierzytelniania NTLM dla serwera ASP.NET Development Web**
 
 ![clip_image002](authenticating-users-with-windows-authentication-cs/_static/image1.jpg)
 
-W produkcyjnej aplikacji internetowej strony, należy użyć usług IIS jako serwera sieci web. Usługi IIS obsługują kilka typów uwierzytelniania, w tym:
+W przypadku produkcyjnej aplikacji sieci Web program IIS jest używany jako serwer sieci Web. Usługi IIS obsługują kilka typów uwierzytelniania, w tym:
 
-- Uwierzytelnianie podstawowe — zdefiniowany w ramach protokołu HTTP 1.0. Wysyła nazwy użytkownika i hasła w postaci zwykłego tekstu (kodowanie Base64) przez Internet. — Uwierzytelnianie szyfrowane — wysyła skrót hasła, zamiast hasła, przez internet. — Zintegrowane uwierzytelnianie Windows (NTLM) — najlepszy typ uwierzytelniania do użycia w środowisku sieci intranet przy użyciu systemu windows. -Certyfikat uwierzytelniania — umożliwia użycie uwierzytelniania przy użyciu certyfikatu klienta. Mapuje certyfikat do konta użytkownika Windows.
+- Uwierzytelnianie podstawowe — zdefiniowane jako część protokołu HTTP 1,0. Wysyła nazwy użytkowników i hasła w postaci zwykłego tekstu (kodowane algorytmem Base64) przez Internet. — Uwierzytelnianie szyfrowane — wysyła skrót hasła zamiast samego hasła przez Internet. -Zintegrowane uwierzytelnianie systemu Windows (NTLM) — najlepszy typ uwierzytelniania do użycia w środowiskach intranetowych przy użyciu systemu Windows. -Uwierzytelnianie certyfikatu — umożliwia uwierzytelnianie przy użyciu certyfikatu po stronie klienta. Certyfikat jest mapowany na konto użytkownika systemu Windows.
 
 > [!NOTE] 
 > 
-> Aby uzyskać bardziej szczegółowym omówieniem tych różnych typów uwierzytelniania, zobacz [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
+> Aby zapoznać się z bardziej szczegółowym omówieniem tych różnych typów uwierzytelniania, zobacz [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
-Aby włączyć określonego typu uwierzytelniania, można użyć Menedżera internetowych usług informacyjnych. Należy pamiętać, że wszystkie typy uwierzytelniania nie są dostępne w przypadku każdej wersji systemu operacyjnego. Ponadto jeśli używasz usług IIS 7.0, Windows Vista, należy włączyć różnych typów uwierzytelniania Windows zanim pojawią się w Menedżera internetowych usług informacyjnych. Otwórz **Panelu sterowania, programy, programy i funkcje, Windows, Włącz lub wyłącz funkcje**i rozwiń węzeł Internetowe usługi informacyjne (zobacz rysunek 2).
+Aby włączyć określony typ uwierzytelniania, można użyć Menedżera Internet Information Services. Należy pamiętać, że wszystkie typy uwierzytelniania nie są dostępne w przypadku każdego systemu operacyjnego. Ponadto, jeśli używasz usług IIS 7,0 z systemem Windows Vista, musisz włączyć różne typy uwierzytelniania systemu Windows, zanim zostaną one wyświetlone w Menedżerze Internet Information Services. Otwórz **Panel sterowania, programy, programy i funkcje, Włącz lub wyłącz funkcje systemu Windows**, a następnie rozwiń węzeł Internet Information Services (patrz rysunek 2).
 
-**Rysunek 2 — funkcje usług IIS Windows włączenie**
+**Rysunek 2 — Włączanie funkcji usług IIS systemu Windows**
 
 ![clip_image004](authenticating-users-with-windows-authentication-cs/_static/image2.jpg)
 
-Za pomocą programu Internet Information Services, można włączyć lub wyłączyć różnego rodzaju uwierzytelniania. Przykładowo, rysunek 3 ilustruje wyłączenie uwierzytelniania anonimowego i włączanie uwierzytelniania zintegrowanego Windows (NTLM) podczas korzystania z usług IIS 7.0.
+Za pomocą Internet Information Services można włączać lub wyłączać różne typy uwierzytelniania. Na przykład rysunek 3 ilustruje wyłączenie uwierzytelniania anonimowego i włączenie zintegrowanego uwierzytelniania systemu Windows (NTLM) w przypadku korzystania z usług IIS 7,0.
 
-**Rysunek 3 — Włączanie uwierzytelniania zintegrowanego Windows**
+**Rysunek 3 — Włączanie zintegrowanego uwierzytelniania systemu Windows**
 
 ![clip_image006](authenticating-users-with-windows-authentication-cs/_static/image3.jpg)
 
-#### <a name="authorizing-windows-users-and-groups"></a>Autoryzowanie Windows użytkowników i grup
+#### <a name="authorizing-windows-users-and-groups"></a>Autoryzowanie użytkowników i grup systemu Windows
 
-Po włączeniu uwierzytelniania Windows, można użyć atrybutu [Authorize] do kontrolowania dostępu do kontrolerów i akcji kontrolera. Ten atrybut może być stosowane do całego kontrolera MVC lub akcji określony kontroler.
+Po włączeniu uwierzytelniania systemu Windows można użyć atrybutu [autoryzuje], aby kontrolować dostęp do kontrolerów lub akcji kontrolera. Ten atrybut może być stosowany do całego kontrolera MVC lub konkretnej akcji kontrolera.
 
-Na przykład kontrolera głównego w ofercie 1 udostępnia trzy czynności o nazwie indeks() CompanySecrets() i StephenSecrets(). Każda osoba może wywołać akcję indeks(). Jednak tylko członkowie lokalnej grupy Menedżerowie Windows wywołać akcję CompanySecrets(). Na koniec tylko użytkownika domeny Windows o nazwie Autor: Stephen (w domenie Redmond) wywołać akcję StephenSecrets().
+Na przykład kontroler Home na liście 1 ujawnia trzy akcje o nazwach index (), CompanySecrets () i StephenSecrets (). Każdy może wywoływać akcję index (). Jednak tylko członkowie lokalnej grupy menedżerów systemu Windows mogą wywoływać akcję CompanySecrets (). Na koniec tylko użytkownik domeny systemu Windows o nazwie Stephen (w domenie Redmond) może wywołać akcję StephenSecrets ().
 
-**Wyświetlanie listy 1 – Controllers\HomeController.cs**
+**Lista 1 – Controllers\HomeController.cs**
 
 [!code-csharp[Main](authenticating-users-with-windows-authentication-cs/samples/sample2.cs)]
 
 > [!NOTE] 
 > 
-> Ze względu na Windows (Kontrola konta), podczas pracy z usługą Windows Vista lub Windows Server 2008, do lokalnej grupy Administratorzy będą zachowywać się inaczej niż inne grupy. Atrybut [Authorize] poprawnie nie rozpozna członkiem lokalnej grupy administratorów, chyba że zmodyfikujesz ustawień funkcji Kontrola konta użytkownika na komputerze.
+> Ze względu na kontrolę konta użytkownika systemu Windows (UAC) podczas pracy z systemem Windows Vista lub Windows Server 2008 lokalna Grupa Administratorzy będzie zachowywać się inaczej niż w przypadku innych grup. Atrybut [autoryzuje] nie rozpoznaje prawidłowo członka lokalnej grupy administratorów, chyba że zmienisz ustawienia kontroli konta użytkownika komputera.
 
-Dokładnie co się stanie po użytkownik podejmie próbę wywołania akcji kontrolera, nie będąc odpowiednie uprawnienia, zależy od typu uwierzytelnianie jest włączone. Domyślnie, korzystając z programem ASP.NET Development Server po prostu pobrać pustą stronę. Strona jest obsługiwana przy użyciu **401 nieautoryzowane** stanu odpowiedzi HTTP.
+Dokładnie to, co się stanie w przypadku próby wywołania akcji kontrolera bez uzyskania odpowiednich uprawnień, zależy od typu włączonego uwierzytelniania. Domyślnie w przypadku korzystania z serwera ASP.NET Development wystarczy uzyskać pustą stronę. Strona jest obsługiwana z **nieautoryzowanym** stanem odpowiedzi HTTP 401.
 
-Jeśli z drugiej strony, usług IIS za pomocą wyłączone uwierzytelnianie anonimowe i włączone uwierzytelnianie podstawowe, a następnie nadal jest wyświetlany monit okna dialogowego logowania każdorazowo żądania strony chronione (zobacz rysunek 4).
+Jeśli z drugiej strony korzystasz z usług IIS z wyłączonym uwierzytelnianiem anonimowym i włączona jest funkcja uwierzytelnianie podstawowe, podczas każdego żądania chronionej strony będziesz otrzymywać okna dialogowe logowania.
 
-**Rysunek 4 — okno dialogowe logowania uwierzytelniania podstawowego**
+**Rysunek 4 — okno dialogowe logowania do uwierzytelniania podstawowego**
 
 ![clip_image008](authenticating-users-with-windows-authentication-cs/_static/image4.jpg)
 
 #### <a name="summary"></a>Podsumowanie
 
-W tym samouczku wyjaśniono, jak można użyć uwierzytelniania Windows w kontekście aplikacji ASP.NET MVC. Przedstawiono sposób włączania uwierzytelniania Windows w pliku konfiguracji sieci web aplikacji oraz jak skonfigurować uwierzytelnianie za pomocą programu IIS. Na koniec pokazaliśmy ci, jak używać atrybutu [Authorize] do ograniczania dostępu do akcji kontrolera do konkretnych użytkowników Windows lub grup.
+W tym samouczku wyjaśniono, jak można użyć uwierzytelniania systemu Windows w kontekście aplikacji ASP.NET MVC. Wiesz już, jak włączyć uwierzytelnianie systemu Windows w pliku konfiguracji sieci Web aplikacji i jak skonfigurować uwierzytelnianie za pomocą usług IIS. Na koniec przedstawiono sposób użycia atrybutu [autoryzuje] w celu ograniczenia dostępu do akcji kontrolera dla określonych użytkowników lub grup systemu Windows.
 
 > [!div class="step-by-step"]
 > [Poprzednie](authenticating-users-with-forms-authentication-cs.md)

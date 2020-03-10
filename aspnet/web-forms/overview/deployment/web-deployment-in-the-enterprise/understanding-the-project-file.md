@@ -9,11 +9,11 @@ ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
 ms.openlocfilehash: 419fe51aaf65bddcc2c50380f099f842a8d9439c
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445697"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78626232"
 ---
 # <a name="understanding-the-project-file"></a>Zrozumienie pliku projektu
 
@@ -23,7 +23,7 @@ Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 > Pliki projektu Microsoft Build Engine (MSBuild) znajdują się na serca procesu kompilacji i wdrożenia. Ten temat rozpoczyna się od omówienia koncepcji programu MSBuild i pliku projektu. Opisuje on najważniejsze składniki, które należy wykonać podczas pracy z plikami projektu, i działa za pomocą przykładowego sposobu użycia plików projektu do wdrożenia rzeczywistych aplikacji.
 > 
-> Dowiesz się:
+> Zawartość:
 > 
 > - Jak MSBuild używa plików projektu MSBuild do kompilowania projektów.
 > - Sposób integracji programu MSBuild z technologiami wdrażania, takimi jak narzędzie Web Deployment Internet Information Services (IIS) (Web Deploy).
@@ -213,7 +213,7 @@ Podzielenie plików projektu w ten sposób jest dobrym podejściem do przestrzeg
 > [!NOTE]
 > Aby uzyskać wskazówki dotyczące dostosowywania plików projektu specyficznych dla środowiska dla własnych środowisk serwerów, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Ten temat zawiera ogólne wprowadzenie do plików projektów programu MSBuild i wyjaśniono, jak można utworzyć własne niestandardowe pliki projektu w celu kontrolowania procesu kompilacji. Wprowadzono również koncepcję dzielenia plików projektu na instrukcje uniwersalnej kompilacji i właściwości kompilacji specyficzne dla środowiska, aby ułatwić tworzenie i wdrażanie projektów w wielu miejscach docelowych.
 
@@ -224,5 +224,5 @@ W następnym temacie, [opisującym proces kompilacji](understanding-the-build-pr
 Aby uzyskać bardziej szczegółowe wprowadzenie do plików projektu i WPP, zobacz [wewnątrz Microsoft Build Engine: korzystanie z programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) przez Sayed Ibrahim Hashimi i William BARTHOLOMEW, ISBN: 978-0-7356-4524-0.
 
 > [!div class="step-by-step"]
-> [Poprzedni](setting-up-the-contact-manager-solution.md)
-> [Następny](understanding-the-build-process.md)
+> [Poprzednie](setting-up-the-contact-manager-solution.md)
+> [dalej](understanding-the-build-process.md)

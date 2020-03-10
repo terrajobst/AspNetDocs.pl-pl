@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-user-product-reviews
-title: Tailspin Spyworks — Dodawanie recenzji użytkownika dotyczących produktów | Dokumentacja firmy Microsoft
+title: Tailspin Spyworks — Dodawanie przeglądów produktu użytkownika | Microsoft Docs
 author: JoeStagner
-description: Stagner Jan dodaje przeglądy od klientów, na stronie szczegółów produktu w przykładowej aplikacji formularzy sieci Web Tailspin Spyworks.
+description: Jan Stagner dodaje przeglądy od klientów do strony szczegółów produktu w przykładowej aplikacji formularzy sieci Web Tailspin Spyworks.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: b2e8c3af-7dcf-432b-b01b-4740bcb00897
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-user-product-reviews
 msc.type: video
 ms.openlocfilehash: 79ab3ef3d8fa0ba7eac2ff18092fd360e7296f85
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381318"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78627569"
 ---
 # <a name="tailspin-spyworks---adding-user-product-reviews"></a>Tailspin Spyworks — dodawanie recenzji użytkownika dotyczących produktów
 
-przez [Stagner Jan](https://github.com/JoeStagner)
+Jan [Stagner](https://github.com/JoeStagner)
 
-Stagner Jan dodaje przeglądy od klientów, na stronie szczegółów produktu w przykładowej aplikacji formularzy sieci Web Tailspin Spyworks.
+Jan Stagner dodaje przeglądy od klientów do strony szczegółów produktu w przykładowej aplikacji formularzy sieci Web Tailspin Spyworks.
 
-[&#9654;Obejrzyj film wideo (41 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-adding-user-product-reviews)
+[&#9654;Obejrzyj wideo (41 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-adding-user-product-reviews)
 
 > [!div class="step-by-step"]
 > [Poprzednie](tailspin-spyworks-final-check-out.md)

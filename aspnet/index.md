@@ -6,13 +6,13 @@ author: Rick-Anderson
 ms.author: riande
 title: Dokumentacja platformy ASP.NET
 ms.date: 08/24/2018
-description: Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i inne materiały.
+description: Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej.
 ms.openlocfilehash: 6309704444d60d42d49c3a8f1683045dc503e761
-ms.sourcegitcommit: cd35be4b25eb05724a5f074214bbdf6573349eda
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161691"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616425"
 ---
 <!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
@@ -23,7 +23,7 @@ ms.locfileid: "70161691"
                 <a href="#core">ASP.NET Core</a>
                 <ul id="core">
                     <li>
-                        <a href="#core_overview">Podsumowanie</a>
+                        <a href="#core_overview">Omówienie</a>
                         <ul id="core_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -80,7 +80,7 @@ ms.locfileid: "70161691"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Odwołanie do biblioteki API</h3>
+                                                    <h3>Dokumentacja interfejsu API</h3>
                                                     <p>Poznaj bibliotekę klas platformy ASP.NET Core.</p>
                                                 </div>
                                             </div>
@@ -153,7 +153,7 @@ ms.locfileid: "70161691"
                         </ul>
                     </li>
                     <li>
-                        <a href="#core_tutorials">Podręcznik</a>
+                        <a href="#core_tutorials">Samouczki</a>
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
@@ -279,7 +279,7 @@ ms.locfileid: "70161691"
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję dokumentacji Visual Studio 2015/project.json</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -290,7 +290,7 @@ ms.locfileid: "70161691"
                 <a href="#aspnet">ASP.NET</a>
                 <ul id="aspnet">
                     <li>
-                        <a href="#aspnet_overview">Podsumowanie</a>
+                        <a href="#aspnet_overview">Omówienie</a>
                         <ul id="aspnet_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -385,7 +385,7 @@ ms.locfileid: "70161691"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Interfejsy Web API</h3>
+                                                    <h3>Interfejsy API sieci Web</h3>
                                                     <p>Dowiedz się, jak utworzyć internetowy interfejs API przy użyciu wzorca ASP.NET Web API 2 i programu Visual Studio.</p>
                                                 </div>
                                             </div>
@@ -439,7 +439,7 @@ ms.locfileid: "70161691"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_framework">Platform</a>
+                        <a href="#aspnet_framework">Platformy</a>
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -568,7 +568,7 @@ ms.locfileid: "70161691"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_tutorials">Podręcznik</a>
+                        <a href="#aspnet_tutorials">Samouczki</a>
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
@@ -605,7 +605,7 @@ ms.locfileid: "70161691"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Wprowadzenie do korzystania z wzorca ASP.NET Web API 2</h3>
+                                                    <h3>Wprowadzenie do składnika Web API 2 platformy ASP.NET</h3>
                                                     <p>Ta seria samouczków obejmuje podstawy tworzenia internetowego interfejsu API przy użyciu wzorca ASP.NET Web API 2 i programu Visual Studio.</p>
                                                 </div>
                                             </div>

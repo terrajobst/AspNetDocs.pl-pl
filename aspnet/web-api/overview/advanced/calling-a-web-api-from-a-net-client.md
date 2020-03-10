@@ -8,18 +8,18 @@ ms.date: 11/24/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 960960d26863cc3f725eee8a6c98844c5d3ce721
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: ab3ba71839123e848dffaa59871f9dac8c1a88d0
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519183"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622620"
 ---
 # <a name="call-a-web-api-from-a-net-client-c"></a>Wywoływanie internetowego interfejsu API z klienta platformy .NETC#()
 
 według [Jan Wasson](https://github.com/MikeWasson) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Pobierz ukończony projekt](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Instrukcje pobierania](/aspnet/core/tutorials/#how-to-download-a-sample). 
+[Pobierz ukończony projekt](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Instrukcje pobierania](/aspnet/core/tutorials/#how-to-download-a-sample). 
 
 W tym samouczku pokazano, jak wywołać interfejs API sieci Web z aplikacji .NET przy użyciu [systemu .NET. http. HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
@@ -55,7 +55,7 @@ Poprzedni kod jest kompletną aplikacją kliencką.
 
 Zainstaluj pakiet biblioteki klienta internetowego interfejsu API za pomocą Menedżera pakietów NuGet.
 
-Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**. W konsoli Menedżera pakietów (PMC) wpisz następujące polecenie:
+W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet** > **konsola Menedżera pakietów**. W konsoli Menedżera pakietów (PMC) wpisz następujące polecenie:
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
@@ -165,11 +165,11 @@ Podobnie jak pobieranie, żądanie usunięcia nie ma treści żądania. Nie musi
 
 Aby przetestować aplikację kliencką:
 
-1. [Pobierz](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) i uruchom aplikację serwera. [Instrukcje pobierania](/aspnet/core/#how-to-download-a-sample). Sprawdź, czy aplikacja serwera działa. Na przykład `http://localhost:64195/api/products` powinna zwrócić listę produktów.
+1. [Pobierz](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) i uruchom aplikację serwera. [Instrukcje pobierania](/aspnet/core/#how-to-download-a-sample). Sprawdź, czy aplikacja serwera działa. Na przykład `http://localhost:64195/api/products` powinna zwrócić listę produktów.
 2. Ustaw podstawowy identyfikator URI dla żądań HTTP. Zmień numer portu na port używany w aplikacji serwera.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 
-3. Uruchom aplikację kliencką. Zostaną wyświetlone następujące dane wyjściowe:
+3. Uruchom aplikację kliencką. Generowane są następujące dane wyjściowe:
 
    ```console
    Created at http://localhost:64195/api/products/4

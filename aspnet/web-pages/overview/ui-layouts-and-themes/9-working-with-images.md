@@ -1,222 +1,222 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/9-working-with-images
-title: Praca z obrazami w witrynie ASP.NET Web Pages (Razor) | Dokumentacja firmy Microsoft
+title: Praca z obrazami w witrynie ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym rozdziale pokazano, jak dodać, wyświetlania i manipulowania obrazami (zmienić rozmiar, przerzucić i dodawać znaki wodne) w witrynie sieci Web.
+description: W tym rozdziale pokazano, jak dodawać i wyświetlać obrazy (zmieniać rozmiar, przerzucać i dodawać znaki wodne) w witrynie sieci Web.
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 778c4e58-4372-4d25-bab9-aec4a8d8e38d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/9-working-with-images
 msc.type: authoredcontent
 ms.openlocfilehash: 53514b3c314fc182a43c82974ffcfa8158a636a1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114387"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631860"
 ---
 # <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Praca z obrazami w witrynie ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule przedstawiono sposób dodawania, wyświetlania i manipulowania obrazami (zmienić rozmiar, przerzucić i dodawać znaki wodne) w witrynie internetowej ASP.NET Web Pages (Razor).
+> W tym artykule opisano sposób dodawania, wyświetlania i manipulowania obrazami (zmiany rozmiaru, przerzucania i dodawania znaków wodnych) w witrynie internetowej ASP.NET Web Pages (Razor).
 > 
 > Zawartość:
 > 
-> - Jak dynamicznie dodać obraz do strony.
+> - Sposób dynamicznego dodawania obrazu do strony.
 > - Jak umożliwić użytkownikom przekazywanie obrazu.
 > - Jak zmienić rozmiar obrazu.
 > - Jak przerzucić lub obrócić obraz.
 > - Jak dodać znak wodny do obrazu.
 > - Jak używać obrazu jako znaku wodnego.
 > 
-> Poniżej przedstawiono funkcje wprowadzone w artykule programowania programu ASP.NET:
+> Są to funkcje programowania ASP.NET wprowadzone w artykule:
 > 
-> - `WebImage` Pomocnika.
-> - `Path` Obiektu, który udostępnia metody, które pozwala manipulować ścieżkę i nazwy plików.
+> - Pomocnik `WebImage`.
+> - Obiekt `Path`, który dostarcza metody, które umożliwiają manipulowanie ścieżkami i nazwami plików.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
+> - ASP.NET strony sieci Web (Razor) 2
 > - WebMatrix 2
 >   
 > 
-> W tym samouczku współpracuje również z programu WebMatrix 3.
+> Ten samouczek współpracuje również z programem WebMatrix 3.
 
 <a id="Adding_an_Image"></a>
-## <a name="adding-an-image-to-a-web-page-dynamically"></a>Dynamiczne dodawanie obrazu do strony sieci Web
+## <a name="adding-an-image-to-a-web-page-dynamically"></a>Dynamiczne Dodawanie obrazu do strony sieci Web
 
-Można dodać obrazy do witryny sieci Web i do poszczególnych stron podczas tworzenia witryny sieci Web. Można także pozwolić użytkownikom przekazywanie obrazów, które mogą być przydatne dla zadań, takich jak umożliwienie im na dodawanie zdjęcie w profilu.
+Podczas tworzenia witryny sieci Web można dodawać obrazy do witryny sieci Web oraz do poszczególnych stron. Możesz również umożliwić użytkownikom przekazywanie obrazów, co może być przydatne w przypadku zadań, takich jak dodanie zdjęcia do profilu.
 
-Jeśli obraz nie jest jeszcze dostępna w witrynie i chcesz tylko wyświetlić go na stronie, używasz języka HTML `<img>` elementu w następujący sposób:
+Jeśli obraz jest już dostępny w witrynie i chcesz, aby był on wyświetlany na stronie, użyj elementu HTML `<img>` w następujący sposób:
 
 [!code-html[Main](9-working-with-images/samples/sample1.html)]
 
-Czasami jednak musisz mieć możliwość wyświetlania obrazów dynamicznie &#8212; oznacza to, nie wiem, jakie obraz do wyświetlania, dopóki strona nie zostanie uruchomiony.
+Czasami trzeba mieć możliwość dynamicznego &#8212; wyświetlania obrazów, co oznacza, że nie wiesz, jaki obraz ma być wyświetlany, dopóki strona nie zostanie uruchomiona.
 
-Procedura w tej sekcji przedstawiono sposób wyświetlania obrazu na bieżąco, w którym użytkownicy określić nazwę pliku obrazu z listy nazw obrazów. Wybierają nazwę obrazu z listy rozwijanej, a gdy przesyła strony, obraz, który została wybrana opcja jest wyświetlana.
+Procedura opisana w tej sekcji pokazuje, jak wyświetlić obraz na bieżąco, gdzie użytkownicy określają nazwę pliku obrazu na podstawie listy nazw obrazów. Wybierają nazwę obrazu z listy rozwijanej, a po przesłaniu strony zostanie wyświetlony wybrany obraz.
 
-![[Obraz] ](9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
+![Image](9-working-with-images/_static/image1.jpg "ch9images-1. jpg")
 
 1. W programie WebMatrix Utwórz nową witrynę sieci Web.
-2. Dodaj nową stronę o nazwie *DynamicImage.cshtml*.
-3. W folderze głównym witryny sieci Web, należy dodać nowy folder i nadaj mu nazwę *obrazów*.
-4. Dodaj cztery obrazy *obrazów* właśnie utworzony folder. (Wszystkie obrazy mają będzie przydatna, czy, ale powinien mieści się na stronie). Zmiana nazwy obrazów *Photo1.jpg*, *Photo2.jpg*, *Photo3.jpg*, i *Photo4.jpg*. (Nie będzie używać *Photo4.jpg* w tej procedurze, ale użyjemy go w dalszej części tego artykułu.)
+2. Dodaj nową stronę o nazwie *DynamicImage. cshtml*.
+3. W folderze głównym witryny sieci Web Dodaj nowy folder i nadaj mu nazwę *obrazy*.
+4. Dodaj cztery obrazy do folderu *obrazy* , który właśnie został utworzony. (Wszystkie obrazy, które są przydatne, będą się znajdować na stronie). Zmień nazwy obrazów *Photo1. jpg*, *Photo2. jpg*, *Photo3. jpg*i *Photo4. jpg*. (Nie będziesz używać *Photo4. jpg* w tej procedurze, ale będziesz ich używać w dalszej części artykułu).
 5. Upewnij się, że cztery obrazy nie są oznaczone jako tylko do odczytu.
-6. Zastąp istniejącą zawartość na stronie następujących czynności:
+6. Zastąp istniejącą zawartość na stronie następującymi:
 
     [!code-cshtml[Main](9-working-with-images/samples/sample2.cshtml)]
 
-    Ciała strony ma listy rozwijanej ( `<select>` elementu) o nazwie `photoChoice`. Lista zawiera trzy opcje, a `value` atrybut każdej z opcji listy ma nazwę jednego z obrazów, które należy umieścić w *obrazów* folderu. Zasadniczo lista umożliwia użytkownikowi wybranie przyjaznej nazwy, takie jak &quot;1 zdjęcie&quot;, a następnie przekazuje *.jpg* nazwy pliku po przesłaniu strony.
+    Treść strony ma listę rozwijaną (`<select>` element) o nazwie `photoChoice`. Lista zawiera trzy opcje, a atrybut `value` każdej opcji listy ma nazwę jednego z obrazów umieszczonych w folderze *obrazy* . Zasadniczo lista umożliwia użytkownikowi wybranie przyjaznej nazwy, takiej jak &quot;Photo 1&quot;, a następnie przekazanie nazwy pliku *jpg* podczas przesyłania strony.
 
-    W kodzie, można uzyskać wybranych przez użytkownika (innymi słowy, nazwa pliku obrazu) z listy, czytając `Request["photoChoice"]`. Należy najpierw sprawdzić, czy zaznaczenie na wszystkich. Jeśli, możesz zbudować ścieżki dla obrazu, który składa się z nazwy folderu obrazów i nazwa pliku obrazu użytkownika. (Jeśli próbowano zbudować ścieżki, ale żadne w `Request["photoChoice"]`, będzie wyświetlany komunikat o błędzie.) Skutkuje to ścieżka względna następująco:
+    W kodzie można uzyskać wybór użytkownika (innymi słowy, nazwę pliku obrazu) z listy, odczytując `Request["photoChoice"]`. Najpierw widzisz, czy w ogóle istnieje zaznaczenie. Jeśli istnieje, należy skonstruować ścieżkę do obrazu, który składa się z nazwy folderu dla obrazów i nazwy pliku obrazu użytkownika. (Jeśli próbowano utworzyć ścieżkę, ale nie było nic w `Request["photoChoice"]`, wystąpi błąd). Skutkuje to ścieżką względną w następujący sposób:
 
-    *images/Photo1.jpg*
+    *obrazy/Photo1. jpg*
 
-    Ścieżka jest przechowywany w zmiennej o nazwie `imagePath` będą potrzebne w dalszej części strony.
+    Ścieżka jest przechowywana w zmiennej o nazwie `imagePath`, która będzie potrzebna później na stronie.
 
-    W treści, dostępna jest również `<img>` element, który służy do wyświetlania obrazu, który użytkownik pobrane. `src` Atrybut nie jest równa nazwy pliku lub adresu URL, tak samo, jak można wyświetlić element statyczny. Zamiast tego jest równa `@imagePath`, co oznacza, że pobiera ona swoją wartość ze ścieżki ustawić w kodzie.
+    W treści znajduje się również element `<img>`, który służy do wyświetlania obrazu, który został wybrany przez użytkownika. Atrybut `src` nie jest ustawiony na nazwę pliku lub adres URL, na przykład w celu wyświetlenia statycznego elementu. Zamiast tego jest ustawiony na `@imagePath`, co oznacza, że pobiera jego wartość z ścieżki ustawionej w kodzie.
 
-    Przy pierwszym uruchomieniu strony, jednak nie ma żadnego obrazu do wyświetlenia, ponieważ użytkownik nie wybrał niczego. To zwykle oznacza, że `src` atrybut może być pusty i obraz, który będzie wyświetlany jako czerwone &quot;x&quot; (lub niezależnie od przeglądarki renderowanie, gdy nie można odnaleźć obrazu). Aby tego uniknąć, możesz umieścić `<img>` element `if` blok, który umożliwia sprawdzenie, aby zobaczyć, czy `imagePath` zmienna ma niczego w nim. Jeśli użytkownik niczego, `imagePath` zawiera ścieżkę. Jeśli użytkownik nie wybierz obraz lub ta strona jest wyświetlana, jeśli jest to po raz pierwszy, `<img>` element nie jest jeszcze renderowane.
-7. Zapisz plik i uruchomić strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.)
-8. Wybierz obraz z listy rozwijanej, a następnie kliknij przycisk **przykładowy obraz**. Upewnij się, czy widzisz różnych obrazów dla różnych opcji.
+    Przy pierwszym uruchomieniu strony nie ma obrazu do wyświetlenia, ponieważ użytkownik nie zaznaczył niczego. Zwykle oznacza to, że atrybut `src` będzie pusty, a obraz będzie wyświetlany jako czerwona &quot;x&quot; (lub niezależnie od tego, czy przeglądarka jest renderowana, gdy nie można znaleźć obrazu). Aby tego uniknąć, należy umieścić element `<img>` w bloku `if`, który sprawdza, czy zmienna `imagePath` ma coś w nim. Jeśli użytkownik wykonał zaznaczenie, `imagePath` zawiera ścieżkę. Jeśli użytkownik nie wybrał obrazu lub gdy jest wyświetlany po raz pierwszy, element `<img>` nie jest jeszcze renderowany.
+7. Zapisz plik i Uruchom stronę w przeglądarce. (Upewnij się, że strona została wybrana w obszarze roboczym **pliki** przed jej uruchomieniem).
+8. Wybierz obraz z listy rozwijanej, a następnie kliknij pozycję **przykład obrazu**. Upewnij się, że widzisz różne obrazy dla różnych opcji.
 
 <a id="Uploading_an_Image"></a>
 ## <a name="uploading-an-image"></a>Przekazywanie obrazu
 
-W poprzednim przykładzie pokazano sposób wyświetlania obrazu dynamicznie, ale działał tylko w przypadku obrazów, które zostały już w witrynie sieci Web. Ta procedura pokazuje, jak umożliwić użytkownikom przekazywanie obrazu, który następnie jest wyświetlany na stronie. W programie ASP.NET można manipulować obrazów na bieżąco, za pomocą `WebImage` pomocnika, która posiada metody, które umożliwiają tworzenie, modyfikowania i zapisać obrazy. `WebImage` Pomocnika obsługuje wszystkie typowe web obraz typów plików, w tym *.jpg*, *.png*, i *.bmp*. W tym artykule użyjemy *.jpg* obrazów, ale Wy możecie użyć dowolnego typu obraz.
+W poprzednim przykładzie pokazano sposób dynamicznego wyświetlania obrazu, ale działał on tylko z obrazami, które już znajdowały się w witrynie sieci Web. Ta procedura pokazuje, jak umożliwić użytkownikom przekazywanie obrazu, który jest następnie wyświetlany na stronie. W ASP.NET można manipulować obrazami na bieżąco przy użyciu pomocnika `WebImage`, który ma metody umożliwiające tworzenie, manipulowanie i zapisywanie obrazów. Pomocnik `WebImage` obsługuje wszystkie popularne typy plików obrazów sieci Web, w tym *jpg*, *. png*i *. bmp*. W tym artykule zostaną użyte obrazy *jpg* , ale można użyć dowolnego typu obrazu.
 
-![[Obraz] ](9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
+![Image](9-working-with-images/_static/image2.jpg "ch9images-2. jpg")
 
-1. Dodaj nową stronę i nadaj mu nazwę *UploadImage.cshtml*.
-2. Zastąp istniejącą zawartość na stronie następujących czynności: 
+1. Dodaj nową stronę i nadaj jej nazwę *UploadImage. cshtml*.
+2. Zastąp istniejącą zawartość na stronie następującymi: 
 
     [!code-cshtml[Main](9-working-with-images/samples/sample3.cshtml)]
 
-    Treść tekstu ma `<input type="file">` element, który umożliwia użytkownikom, wybierz plik do przekazania. Po kliknięciu **przesyłania**, przesyłania pliku, o których one pobrane z formularza.
+    Treść tekstu ma `<input type="file">` element, który umożliwia użytkownikom wybranie pliku do przekazania. Po kliknięciu przycisku **Prześlij**, pobrany plik zostanie przesłany wraz z formularzem.
 
-    Aby uzyskać przekazanego obrazu, należy użyć `WebImage` pomocnika, która udostępnia szeroką gamę użyteczne metody do pracy z obrazami. W szczególności użyj `WebImage.GetImageFromRequest` uzyskać przekazany obraz (jeśli istnieje) i zapisz go w zmiennej o nazwie `photo`.
+    Aby uzyskać przekazany obraz, użyj pomocnika `WebImage`, który ma wszystkie przydatne metody pracy z obrazami. W celu uzyskania przekazanego obrazu (jeśli istnieje) i zapisania go w zmiennej o nazwie `photo`można użyć `WebImage.GetImageFromRequest`.
 
-    Dużo pracy, w tym przykładzie obejmuje pobierania i ustawiania nazwy pliku i ścieżki. Problem polega na tym, czy chcesz uzyskać nazwy (i tylko nazwę) obraz, który użytkownik przekazał, a następnie utwórz nową ścieżkę dla Dokąd chcesz dojść do przechowywania obrazu. Ponieważ użytkownicy potencjalnie może przekazać wiele obrazów, które mają taką samą nazwę, umożliwia nieco dodatkowy kod tworzenia unikatowych nazw i upewnij się, że użytkownicy nie zastępuj istniejących obrazów.
+    Duża część pracy w tym przykładzie obejmuje pobieranie i Ustawianie nazw plików i ścieżek. Problem polega na tym, że chcesz uzyskać nazwę (i tylko nazwę) obrazu przekazanego przez użytkownika, a następnie utworzyć nową ścieżkę do lokalizacji, w której ma zostać zapisany obraz. Ponieważ użytkownicy mogą potencjalnie przekazać wiele obrazów o tej samej nazwie, należy użyć dodatkowego kodu do utworzenia unikatowych nazw i upewnić się, że użytkownicy nie zastępują istniejących obrazów.
 
-    Jeśli obraz rzeczywiście został przekazany (test `if (photo != null)`), możesz uzyskać nazwę obrazu za pomocą obrazu na `FileName` właściwości. Gdy użytkownik przesyła obraz, `FileName` zawiera oryginalna nazwa użytkownika, który zawiera ścieżkę z komputera użytkownika. Jego może wyglądać następująco:
+    Jeśli obraz rzeczywiście został przekazany (test `if (photo != null)`), nazwa obrazu jest pobierana z właściwości `FileName` obrazu. Gdy użytkownik przekaże obraz, `FileName` zawiera oryginalną nazwę użytkownika, która zawiera ścieżkę z komputera użytkownika. Może wyglądać następująco:
 
     *C:\Users\Joe\Pictures\SamplePhoto1.jpg*
 
-    Te informacje ścieżki nie ma jednak &#8212; Ty chcesz po prostu rzeczywiste nazwy plików (*SamplePhoto1.jpg*). Po prostu pliku ze ścieżki mogą odłączenia przy użyciu `Path.GetFileName` metoda następująco:
+    Nie chcesz, aby wszystkie informacje o ścieżce były &#8212; aktualne, mimo że chcesz tylko rzeczywistą nazwę pliku (*SamplePhoto1. jpg*). Można rozdzielić tylko plik ze ścieżki przy użyciu metody `Path.GetFileName`, tak jak to:
 
     [!code-csharp[Main](9-working-with-images/samples/sample4.cs)]
 
-    Następnie utworzysz nowy unikatową nazwę pliku, dodając identyfikatora GUID na oryginalną nazwę. (Aby uzyskać więcej informacji o identyfikatorach GUID, zobacz [dotyczące identyfikatorów GUID](#SB_AboutGUIDs) w dalszej części tego artykułu.) Następnie możesz utworzyć pełną ścieżkę, która służy do zapisania obrazu. Zapisz ścieżkę składa się z nową nazwę pliku, folderu (obrazy) i bieżącej lokalizacji witryny sieci Web.
+    Następnie można utworzyć nową unikatową nazwę pliku, dodając identyfikator GUID do oryginalnej nazwy. (Aby uzyskać więcej informacji o identyfikatorach GUID, zobacz [Informacje o identyfikatorach GUID](#SB_AboutGUIDs) w dalszej części tego artykułu). Następnie utworzysz kompletną ścieżkę, której można użyć do zapisania obrazu. Ścieżka zapisu składa się z nowej nazwy pliku, folderu (obrazów) i bieżącej lokalizacji witryny sieci Web.
 
     > [!NOTE]
-    > W kolejności, w kodzie zapisać plik w *obrazów* folderu, aplikacja musi odczytu i zapisu uprawnienia do tego folderu. Na komputerze deweloperskim to nie jest zazwyczaj problem. Jednak podczas publikowania witryny dostawcy hostingu serwera sieci web, konieczne może być jawnie ustawić te uprawnienia. Jeśli możesz uruchomić ten kod na serwerze dostawcy hostingu i występują błędy, skontaktuj się z dostawcy hostingu, aby dowiedzieć się, jak ustawić te uprawnienia.
+    > Aby kod zapisywał pliki w folderze *obrazy* , aplikacja musi mieć uprawnienia do odczytu i zapisu dla tego folderu. Na komputerze deweloperskim zwykle nie jest to problem. Jednak po opublikowaniu lokacji programu na serwerze sieci Web dostawcy hostingu może być konieczne jawne ustawienie tych uprawnień. Jeśli ten kod jest uruchamiany na serwerze dostawcy hostingu i pojawia się błąd, należy skontaktować się z dostawcą hostingu, aby dowiedzieć się, jak ustawić te uprawnienia.
 
-    Na koniec Przekaż Zapisz ścieżkę do `Save` metody `WebImage` pomocnika. Spowoduje to zapisanie przekazanego obrazu pod nową nazwą. Zapisz metoda wygląda następująco: `photo.Save(@"~\" + imagePath)`. Pełna ścieżka jest dołączany do `@"~\"`, która jest bieżąca lokalizacja witryny sieci Web. (Aby uzyskać informacje o `~` operatora, zobacz [wprowadzenie do platformy ASP.NET sieci Web programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_WorkingWithFileAndFolderPaths).)
+    Na koniec przekazanie ścieżki zapisu do metody `Save` pomocnika `WebImage`. Spowoduje to zapisanie przekazanego obrazu pod nową nazwą. Metoda Save wygląda następująco: `photo.Save(@"~\" + imagePath)`. Pełna ścieżka jest dołączana do `@"~\"`, która jest bieżącą lokalizacją witryny sieci Web. (Aby uzyskać informacje na temat operatora `~`, zobacz [wprowadzenie do programowania w sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_WorkingWithFileAndFolderPaths)).
 
-    Co w poprzednim przykładzie treść strony zawiera `<img>` element, aby wyświetlić obraz. Jeśli `imagePath` została ustawiona, `<img>` element jest renderowany i jego `src` ma ustawioną wartość atrybutu `imagePath` wartość.
+    Jak w poprzednim przykładzie, treść strony zawiera element `<img>`, aby wyświetlić obraz. Jeśli ustawiono `imagePath`, element `<img>` jest renderowany, a jego atrybut `src` jest ustawiony na wartość `imagePath`.
 3. Uruchom stronę w przeglądarce.
-4. Przekazywanie obrazu i upewnij się, że jest wyświetlany na stronie.
-5. W witrynie, otwórz *obrazów* folderu. Zobaczysz, że został dodany nowy plik których nazwa pliku wygląda następująco: 
+4. Przekaż obraz i upewnij się, że jest on wyświetlany na stronie.
+5. W swojej lokacji Otwórz folder *images* . Zobaczysz, że dodano nowy plik, którego nazwa pliku wygląda następująco: 
 
-    *45ea4527-7ddd-4965-b9ca-c6444982b342\_MyPhoto.png*
+    *45ea4527-7ddd-4965-b9ca-c6444982b342\_moje zdjęcie. png*
 
-    Jest to obraz, który został przekazany z identyfikatorem GUID poprzedza nazwę. (Własny plik będzie miał inny identyfikator GUID i prawdopodobnie nosi nazwę coś innego niż *MyPhoto.png*.)
+    Jest to obraz, który został przekazany z identyfikatorem GUID poprzedzonym prefiksem nazwy. (Własny plik ma inny identyfikator GUID i prawdopodobnie nazywa się coś innego niż *. png*).
 
 > [!TIP] 
 > 
 > <a id="SB_AboutGUIDs"></a>
 > ### <a name="about-guids"></a>Identyfikatory GUID — informacje
 > 
-> Identyfikator GUID (globalnie unikatowy identyfikator) jest identyfikatorem, który zazwyczaj jest wyświetlana w formacie następująco: `936DA01F-9ABD-4d9d-80C7-02AF85C822A8`. Cyfry i litery (od A do F) różnią się dla każdego identyfikatora GUID, ale wszystkie one oparte na wzorcu przy użyciu grup 8-4-4-4-12 znaków. (Z technicznego punktu widzenia identyfikator GUID jest liczbą 16-bajtowy/128-bitowy). Gdy będziesz potrzebować identyfikatora GUID, można wywołać wyspecjalizowany kod, który generuje identyfikator GUID dla Ciebie. Idei identyfikatorów GUID jest fakt, że między inwestują rozmiar liczby (3.4 x 10<sup>38</sup>) i algorytm generującego go, wynikowa liczba praktycznie musi być jednym z rodzajem. Identyfikatory GUID są w związku z tym dobrym sposobem na potrzeby generowania nazw, w przypadku elementów, gdy musisz gwarantować, że nie używasz tej samej nazwie dwa razy. Wadą jest oczywiście, że identyfikatory GUID nie są szczególnie przyjazny dla użytkownika i tak często ma być używany, gdy nazwa jest używana tylko w przypadku kodu.
+> Identyfikator GUID (Globally Unique ID) jest identyfikatorem, który zwykle jest renderowany w formacie podobnym do: `936DA01F-9ABD-4d9d-80C7-02AF85C822A8`. Liczby i litery (od A-F) różnią się w zależności od identyfikatora GUID, ale wszystkie są zgodne z wzorcem używania grup z 8-4-4-4-12 znaków. (Technicznie identyfikator GUID jest liczbą 16-bajtową/128-bitową). Jeśli potrzebujesz identyfikatora GUID, możesz wywołać wyspecjalizowany kod, który generuje identyfikator GUID. Pomysł związany z identyfikatorami GUID polega na tym, że pomiędzy olbrzymim rozmiarem liczby (3,4 x 10<sup>38</sup>) a algorytmem generowania go, wynikowy numer jest praktycznie gwarantowany jako jeden z rodzajów. Dlatego identyfikatory GUID są dobrym sposobem na generowanie nazw dla elementów, gdy należy zagwarantujeć, że nie będziesz używać tej samej nazwy dwa razy. Minusem, oczywiście, jest to, że identyfikatory GUID nie są szczególnie przyjazne dla użytkownika, więc mają być używane, gdy nazwa jest używana tylko w kodzie.
 
 <a id="Resizing_an_Image"></a>
 ## <a name="resizing-an-image"></a>Zmiana rozmiaru obrazu
 
-Witryny sieci Web akceptuje obrazów z użytkownikiem, można zmienić rozmiar obrazów, aby wyświetlić lub zapisać je. Możesz ponownie użyć `WebImage` pomocnika, w tym.
+Jeśli witryna sieci Web akceptuje obrazy od użytkownika, możesz chcieć zmienić rozmiar obrazów przed ich wyświetleniem lub zapisaniem. Można ponownie użyć pomocnika `WebImage` dla tego elementu.
 
-Ta procedura pokazuje, jak zmienić rozmiar przekazanego obrazu do utworzenia miniatury, a następnie Zapisz miniatury i oryginalny obraz w witrynie sieci Web. Wyświetlić miniaturę na stronie i użyj hiperlink, aby przekierować użytkowników do obrazu w pełnym rozmiarze.
+Ta procedura pokazuje, jak zmienić rozmiar przekazanego obrazu w celu utworzenia miniatury, a następnie zapisania miniatury i oryginalnego obrazu w witrynie sieci Web. Wyświetlenie miniatury na stronie i użycie hiperłącza umożliwia przekierowanie użytkowników do pełnego obrazu.
 
-![[Obraz] ](9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
+![Image](9-working-with-images/_static/image3.jpg "ch9images-3. jpg")
 
-1. Dodaj nową stronę o nazwie *Thumbnail.cshtml*.
-2. W *obrazów* folderze utwórz podfolder o nazwie *thumbs*.
-3. Zastąp istniejącą zawartość na stronie następujących czynności: 
+1. Dodaj nową stronę o nazwie *Thumbnail. cshtml*.
+2. W folderze *obrazy* utwórz podfolder o nazwie *kciuki*.
+3. Zastąp istniejącą zawartość na stronie następującymi: 
 
     [!code-cshtml[Main](9-working-with-images/samples/sample5.cshtml)]
 
-    Ten kod jest podobny do kodu z poprzedniego przykładu. Różnica polega na tym, ten kod zapisuje obraz, dwa razy, gdy normalnie i jeden raz po utworzeniu miniatury kopię obrazu. Najpierw pobierz przekazany obraz i zapisz go w *obrazów* folderu. Możesz następnie utworzyć nową ścieżkę dla obraz miniatury. Aby utworzyć miniatury, należy wywołać `WebImage` Pomocnika `Resize` metodę, aby utworzyć obraz 60 pikseli przez 60 pikseli. W przykładzie pokazano, jak zachować współczynnik proporcji i jak można zapobiec obraz jest powiększany (w przypadku, gdy nowy rozmiar będzie faktycznie powiększyć obraz). Obrazów o zmienionym rozmiarze są następnie zapisywane w *thumbs* podfolderu.
+    Ten kod jest podobny do kodu z poprzedniego przykładu. Różnica polega na tym, że ten kod zapisuje dwa razy, po utworzeniu miniatury obrazu. Najpierw uzyskasz przekazany obraz i zapiszesz go w folderze *images* . Następnie utwórz nową ścieżkę dla obrazu miniatury. Aby w rzeczywistości utworzyć miniaturę, należy wywołać metodę `Resize` pomocnika `WebImage`, aby utworzyć obraz 60 pikseli przez 60 pikseli. W przykładzie pokazano, jak zachować współczynnik proporcji i jak można zapobiec powiększaniu obrazu (w przypadku, gdy nowy rozmiar będzie w rzeczywistości większy). Obraz o zmienionym rozmiarze jest następnie zapisywany w podfolderze *kciuków* .
 
-    Na końcu znaczników, możesz używać tego samego `<img>` element z dynamicznego `src` atrybut, który widzisz w poprzednich przykładach, aby warunkowo wyświetlany obraz. W takim przypadku możesz wyświetlić miniaturę. Możesz także użyć `<a>` elementu, aby utworzyć hiperłącze do dużych wersję obrazu. Podobnie jak w przypadku `src` atrybutu `<img>` elementu, ustaw `href` atrybutu `<a>` element dynamicznie, aby niezależnie od rodzaju znajduje się w `imagePath`. Aby upewnić się, że ścieżki może działać jako adres URL, możesz przekazać `imagePath` do `Html.AttributeEncode` metody, która konwertuje znaki, które są ok w adresie URL zastrzeżone znaki w ścieżce.
+    Na końcu znacznika należy użyć tego samego `<img>` elementu z atrybutem Dynamic `src`, który był widoczny w poprzednich przykładach, aby warunkowo pokazać obraz. W takim przypadku wyświetlana jest miniatura. Należy również użyć elementu `<a>`, aby utworzyć hiperłącze do dużej wersji obrazu. Podobnie jak w przypadku atrybutu `src` elementu `<img>`, atrybut `href` elementu `<a>` jest ustawiany dynamicznie do każdego, co jest w `imagePath`. Aby upewnić się, że ścieżka może współpracować z adresem URL, należy przekazać `imagePath` do metody `Html.AttributeEncode`, która konwertuje zastrzeżone znaki w ścieżce do znaków, które są poprawne w adresie URL.
 4. Uruchom stronę w przeglądarce.
-5. Przekaż zdjęcie i sprawdź, czy jest wyświetlany miniatury.
+5. Przekaż zdjęcie i sprawdź, czy miniatura jest pokazana.
 6. Kliknij miniaturę, aby wyświetlić obraz w pełnym rozmiarze.
-7. W *obrazów* i *obrazów/thumbs*, należy pamiętać, że nowe pliki zostały dodane.
+7. Zwróć uwagę na *obrazy* i *obrazy/kciuki*, aby dodać nowe pliki.
 
 <a id="Rotating_and_Flipping"></a>
 ## <a name="rotating-and-flipping-an-image"></a>Obracanie i przerzucanie obrazu
 
-`WebImage` Pomocnika umożliwia także Przerzucanie i obracanie obrazów. Ta procedura pokazuje, jak pobrać obraz z serwera, przerzucić obraz nogami (w pionie), zapisz go, a następnie Wyświetl odwrócony obraz, na stronie. W tym przykładzie po prostu używasz plików, masz już na serwerze (*Photo2.jpg*). W rzeczywistej aplikacji będzie prawdopodobnie przerzucić obraz o nazwie otrzymasz dynamicznie, jak w poprzednich przykładach.
+Pomocnik `WebImage` umożliwia również przerzucanie i obracanie obrazów. Ta procedura pokazuje, jak pobrać obraz z serwera, przerzucić obraz o 180 stopni (w pionie), zapisać go, a następnie wyświetlić przerzucony obraz na stronie. W tym przykładzie właśnie korzystasz z pliku znajdującego się już na serwerze (*Photo2. jpg*). W rzeczywistej aplikacji prawdopodobnie zarzucasz obraz, którego nazwa otrzymujesz dynamicznie, podobnie jak w poprzednich przykładach.
 
-![[Obraz] ](9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
+![Image](9-working-with-images/_static/image4.jpg "ch9images-4. jpg")
 
-1. Dodaj nową stronę o nazwie *FlipImage.cshtml*.
-2. Zastąp istniejącą zawartość na stronie następujących czynności: 
+1. Dodaj nową stronę o nazwie *FlipImage. cshtml*.
+2. Zastąp istniejącą zawartość na stronie następującymi: 
 
     [!code-cshtml[Main](9-working-with-images/samples/sample6.cshtml)]
 
-    Kod używa `WebImage` element pomocniczy służący do pobierania obrazu z serwera. Utwórz ścieżkę do obrazu przy użyciu tej samej techniki, które są używane w przykładach wcześniej do zapisywania obrazów i przekazać tę ścieżkę, podczas tworzenia obrazów przy użyciu `WebImage`:
+    Kod używa pomocnika `WebImage` do pobrania obrazu z serwera. Ścieżkę do obrazu można utworzyć za pomocą tej samej techniki, która została użyta we wcześniejszych przykładach do zapisywania obrazów, i przekazać tę ścieżkę podczas tworzenia obrazu przy użyciu `WebImage`:
 
     [!code-javascript[Main](9-working-with-images/samples/sample7.js)]
 
-    Jeśli obraz zostanie znaleziony, konstruowania nową ścieżkę i nazwę, jak w przypadku wcześniejszych przykładów. Aby przerzucić obraz, należy wywołać `FlipVertical` metody, a następnie zapisać go ponownie.
+    W przypadku znalezienia obrazu można utworzyć nową ścieżkę i nazwę pliku, tak jak w poprzednich przykładach. Aby przerzucić obraz, należy wywołać metodę `FlipVertical`, a następnie ponownie zapisać obraz.
 
-    Obraz ponownie jest wyświetlany na stronie przy użyciu `<img>` element z `src` ustawioną wartość atrybutu `imagePath`.
-3. Uruchom stronę w przeglądarce. Obraz dla *Photo2.jpg* przedstawiono odwrócony.
-4. Odśwież stronę lub żądania strony ponownie, aby zobaczyć, że obraz jest odwrócony po prawej stronie się ponownie.
+    Obraz zostanie ponownie wyświetlony na stronie przy użyciu `<img>` elementu z atrybutem `src` ustawionym na `imagePath`.
+3. Uruchom stronę w przeglądarce. Obraz dla *Photo2. jpg* zostanie wyświetlony na osi poziomej.
+4. Odśwież stronę lub zażądaj ponownie strony, aby zobaczyć, że obraz został przerzucony ponownie po prawej stronie.
 
-Aby obrócić obraz, należy użyć tego samego kodu, chyba że zamiast wywoływać metodę `FlipVertical` lub `FlipHorizontal`, należy wywołać `RotateLeft` lub `RotateRight`.
+Aby obrócić obraz, należy użyć tego samego kodu, z tą różnicą, że zamiast wywoływania `FlipVertical` lub `FlipHorizontal`, należy wywołać `RotateLeft` lub `RotateRight`.
 
 <a id="Adding_a_Watermark"></a>
 ## <a name="adding-a-watermark-to-an-image"></a>Dodawanie znaku wodnego do obrazu
 
-Po dodaniu obrazów do swojej witryny sieci Web, możesz chcieć dodać znak wodny do obrazu, zanim go zapisać lub wyświetlić go na stronie. Znaki wodne są często używają Dodaj informacje o prawach autorskich do obrazu lub anonsować ich nazwy firmy.
+Podczas dodawania obrazów do witryny sieci Web możesz chcieć dodać znak wodny do obrazu przed jego zapisaniem lub wyświetlić na stronie. Osoby często używają znaków wodnych, aby dodawać informacje o prawach autorskich do obrazu lub anonsować swoją nazwę biznesową.
 
-![[Obraz] ](9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
+![Image](9-working-with-images/_static/image5.jpg "ch9images-5. jpg")
 
-1. Dodaj nową stronę o nazwie *Watermark.cshtml*.
-2. Zastąp istniejącą zawartość na stronie następujących czynności: 
+1. Dodaj nową stronę o nazwie *znak wodny. cshtml*.
+2. Zastąp istniejącą zawartość na stronie następującymi: 
 
     [!code-cshtml[Main](9-working-with-images/samples/sample8.cshtml)]
 
-    Ten kod jest podobny kod w *FlipImage.cshtml* strony wcześniej (jednak tym razem z zastosowaniem *Photo3.jpg* pliku). Aby dodać znak wodny, należy wywołać `WebImage` Pomocnika `AddTextWatermark` metody, aby zapisać obraz. W wywołaniu `AddTextWatermark`, należy przekazać tekst &quot;test&quot;, ustaw kolor czcionki na żółty i ustaw rodzinę czcionek Arial. (Mimo że nie jest w tym miejscu pokazano `WebImage` pomocnika pozwala także określić nieprzezroczystość rodzinę czcionek i rozmiar czcionki i położenie tekstu znaku wodnego.) Podczas zapisywania obrazu nie może być tylko do odczytu.
+    Ten kod jest podobny do kodu na stronie *FlipImage. cshtml* z wcześniejszego (chociaż ten czas używa pliku *Photo3. jpg* ). Aby dodać znak wodny, należy wywołać metodę `AddTextWatermark` pomocnika `WebImage` przed zapisaniem obrazu. W wywołaniu do `AddTextWatermark`przekazywać tekst &quot;"mój znak wodny&quot;, Ustaw kolor czcionki na żółty i ustaw dla rodziny czcionek czcionkę Arial. (Chociaż nie jest to tutaj widoczne, pomocnik `WebImage` umożliwia również określanie krycia, rodziny czcionek i rozmiaru czcionki oraz położenia tekstu znaku wodnego.) Po zapisaniu obrazu nie może być tylko do odczytu.
 
-    Jak przedstawiono przed, obraz jest wyświetlany na stronie przy użyciu `<img>` element z atrybutem src ustawiony na wartość `@imagePath`.
-3. Uruchom stronę w przeglądarce. Zwróć uwagę, tekst "Test" w prawym dolnym rogu obrazu.
+    Jak widać wcześniej, obraz jest wyświetlany na stronie przy użyciu elementu `<img>` z atrybutem src ustawionym na `@imagePath`.
+3. Uruchom stronę w przeglądarce. Zwróć uwagę na tekst "mój znak wodny" w prawym dolnym rogu obrazu.
 
 <a id="Using_an_Image_as_a_Watermark"></a>
-## <a name="using-an-image-as-a-watermark"></a>Przy użyciu obrazu jako znaku wodnego
+## <a name="using-an-image-as-a-watermark"></a>Używanie obrazu jako znaku wodnego
 
-Zamiast przy użyciu tekstu dla limitu, możesz użyć innego obrazu. Osoby czasami używać obrazów, takich jak logo firmy jako znaku wodnego, lub używają obrazu znaku wodnego zamiast tekstu, aby uzyskać informacje o prawach autorskich.
+Zamiast używać tekstu dla znaku wodnego, można użyć innego obrazu. Osoby czasami używają obrazów takich jak logo firmy jako znak wodny lub używają obrazu znaku wodnego zamiast tekstu do informacji o prawach autorskich.
 
-![[Obraz] ](9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
+![Image](9-working-with-images/_static/image6.jpg "ch9images-6. jpg")
 
-1. Dodaj nową stronę o nazwie *ImageWatermark.cshtml*.
-2. Dodawanie obrazu do *obrazów* folderu pełnić logo, a zmiana nazwy obrazu *MyCompanyLogo.jpg*. Ten obraz powinien być obrazu, który możesz zobaczyć wyraźnie po ustawieniu 80 pikseli szerokości i wysokości 20 pikseli.
-3. Zastąp istniejącą zawartość na stronie następujących czynności: 
+1. Dodaj nową stronę o nazwie *ImageWatermark. cshtml*.
+2. Dodaj obraz do folderu *obrazy* , którego możesz użyć jako logo, a następnie zmień nazwę obrazu *MyCompanyLogo. jpg*. Obraz powinien być obrazem, który można zobaczyć jasno, gdy jest ustawiony na 80 pikseli szerokości i 20 pikseli.
+3. Zastąp istniejącą zawartość na stronie następującymi: 
 
     [!code-cshtml[Main](9-working-with-images/samples/sample9.cshtml)]
 
-    To jest inna wersja nad kodem we wcześniejszych przykładach. W takim przypadku należy wywołać `AddImageWatermark` dodawania obrazu znaku wodnego do obrazu docelowego (*Photo3.jpg*) przed zapisaniem obrazu. Gdy wywołujesz `AddImageWatermark`, ustaw jego szerokość w pikselach 80 i na 20 pikseli wysokości. *MyCompanyLogo.jpg* obraz jest wyrównany w poziomie w Centrum i wyrównane w pionie w dolnej części obrazu docelowego. Przezroczystość jest ustawiony na 100% i uzupełnienie jest równa 10 pikseli. Jeśli obraz znaku wodnego jest większy niż obrazu docelowego, nic się nie stanie. Obraz znaku wodnego jest większy niż obrazu docelowego, a następnie ustaw dopełnienie obrazu znaku wodnego do zera, znaku wodnego jest ignorowana.
+    Jest to kolejna odmiana kodu z wcześniejszych przykładów. W takim przypadku należy wywołać `AddImageWatermark`, aby dodać obraz znaku wodnego do obrazu docelowego (*Photo3. jpg*) przed zapisaniem obrazu. Gdy wywołasz `AddImageWatermark`, Szerokość jest ustawiana na 80 pikseli i wysokość do 20 pikseli. Obraz *MyCompanyLogo. jpg* jest wyrównany w poziomie i wyrównany w pionie w dolnej części obrazu docelowego. Nieprzezroczystość jest ustawiona na 100%, a uzupełnienie ma wartość 10 pikseli. Jeśli obraz znaku wodnego jest większy niż obraz docelowy, nic się nie dzieje. Jeśli obraz znaku wodnego jest większy niż obraz docelowy i ustawisz uzupełnienie dla znaku wodnego obrazu na zero, znak wodny zostanie zignorowany.
 
-    Jak wcześniej, wyświetlanie obrazów przy użyciu `<img>` elementu i dynamiczny `src` atrybutu.
-4. Uruchom stronę w przeglądarce. Należy zauważyć, że obraz znaku wodnego pojawia się w dolnej części głównego obrazu.
+    Tak jak wcześniej, obraz zostanie wyświetlony przy użyciu elementu `<img>` i atrybutu `src` Dynamic.
+4. Uruchom stronę w przeglądarce. Zauważ, że obraz znaku wodnego pojawia się u dołu obrazu głównego.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
 [Praca z plikami w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202896)
 
-[Wprowadzenie do programowania z użyciem składni Razor strony sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkID=251587)
+[Wprowadzenie do programowania stron sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=251587)

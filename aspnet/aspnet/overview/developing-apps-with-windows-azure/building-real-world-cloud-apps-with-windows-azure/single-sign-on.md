@@ -9,11 +9,11 @@ ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
 ms.openlocfilehash: 1ca93cce22487295a24aae95437b3e69dfc5b504
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457144"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78617447"
 ---
 # <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)
 
@@ -177,7 +177,7 @@ W tym rozdziale zawarto te Azure Active Directory, Visual Studio i ASP.NET, uła
 <a id="resources"></a>
 ## <a name="resources"></a>Zasoby
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 - [Dokumentacja Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Strona portalu dokumentacji usługi Azure AD w witrynie windowsazure.com. Samouczki krok po kroku znajdują się w sekcji **programowanie** .
 - [Multi-Factor Authentication platformy Azure](https://docs.microsoft.com/azure/multi-factor-authentication/). Strona portalu z dokumentacją dotyczącą uwierzytelniania wieloskładnikowego na platformie Azure.

@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
-title: 'Samouczek: Tworzenie modeli danych i aplikacji sieci Web dla platformy EF bazy danych, najpierw z platformą ASP.NET MVC'
-description: Ten samouczek koncentruje się na temat tworzenia aplikacji sieci web i generowania modeli danych, w oparciu o tabelach bazy danych.
+title: 'Samouczek: Tworzenie aplikacji sieci Web i modeli danych dla EF Database First za pomocą ASP.NET MVC'
+description: Ten samouczek koncentruje się na tworzeniu aplikacji sieci Web i generowaniu modeli danych opartych na tabelach bazy danych.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,98 +10,98 @@ ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: 30fd42be5677df6fa6ee0630914098c30d21385b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404523"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616271"
 ---
-# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Samouczek: Tworzenie modeli danych i aplikacji sieci Web dla platformy EF bazy danych, najpierw z platformą ASP.NET MVC
+# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Samouczek: Tworzenie aplikacji sieci Web i modeli danych dla EF Database First za pomocą ASP.NET MVC
 
- Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych.
+ Korzystając z szkieletów MVC, Entity Framework i ASP.NET, można utworzyć aplikację sieci Web, która udostępnia interfejs istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie generować kod, który umożliwia użytkownikom wyświetlanie, edytowanie, tworzenie i usuwanie danych znajdujących się w tabeli bazy danych. Wygenerowany kod odpowiada kolumnom w tabeli bazy danych.
 
-Ten samouczek koncentruje się na temat tworzenia aplikacji sieci web i generowania modeli danych, w oparciu o tabelach bazy danych.
+Ten samouczek koncentruje się na tworzeniu aplikacji sieci Web i generowaniu modeli danych opartych na tabelach bazy danych.
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Tworzenie aplikacji sieci web ASP.NET
-> * Generowanie modelu
+> * Tworzenie aplikacji internetowej platformy ASP.NET
+> * Generuj modele
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Wprowadzenie do First w programie Entity Framework 6 bazy danych za pomocą MVC 5](setting-up-database.md)
+* [Wprowadzenie do Entity Framework 6 Database First przy użyciu MVC 5](setting-up-database.md)
 
-## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci web ASP.NET
+## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji internetowej platformy ASP.NET
 
-W nowym rozwiązaniu lub tego samego rozwiązania co projekt bazy danych, Utwórz nowy projekt w programie Visual Studio i wybierz **aplikacji sieci Web ASP.NET** szablonu. Nadaj projektowi nazwę **ContosoSite**.
+W nowym rozwiązaniu lub w tym samym rozwiązaniu co projekt bazy danych Utwórz nowy projekt w programie Visual Studio i wybierz szablon **aplikacji sieci Web ASP.NET** . Nazwij projekt **ContosoSite**.
 
-![Tworzenie projektu](creating-the-web-application/_static/image1.png)
+![Utwórz projekt](creating-the-web-application/_static/image1.png)
 
 Kliknij przycisk **OK**.
 
-W oknie Nowy projekt ASP.NET wybierz **MVC** szablonu. Możesz wyczyścić **Hostuj w chmurze** opcji teraz, ponieważ wdroży aplikację w chmurze później. Kliknij przycisk **OK** do tworzenia aplikacji.
+W oknie Nowy projekt ASP.NET wybierz szablon **MVC** . Możesz teraz wyczyścić opcję **host w chmurze** , ponieważ później zostanie wdrożona aplikacja w chmurze. Kliknij przycisk **OK** , aby utworzyć aplikację.
 
-Projekt zostanie utworzony przy użyciu domyślnych plików i folderów.
+Projekt jest tworzony z domyślnymi plikami i folderami.
 
-W tym samouczku użyjesz programu Entity Framework 6. W projekcie za pomocą okna Zarządzanie pakietami NuGet, należy dokładnie wersją programu Entity Framework. Jeśli to konieczne, zaktualizuj swoją wersję programu Entity Framework.
+W tym samouczku użyjesz Entity Framework 6. Możesz dwukrotnie sprawdzić wersję Entity Framework w projekcie za pomocą okna Zarządzanie pakietami NuGet. W razie potrzeby Zaktualizuj swoją wersję Entity Framework.
 
 ![Pokaż wersję](creating-the-web-application/_static/image3.png)
 
-## <a name="generate-the-models"></a>Generowanie modelu
+## <a name="generate-the-models"></a>Generuj modele
 
-Teraz utworzysz modeli Entity Framework z tabel bazy danych. Te modele są klas, które będą używane do pracy z danymi. Każdy model odzwierciedla tabeli w bazie danych i zawiera właściwości, które odnoszą się do kolumn w tabeli.
+Teraz utworzysz modele Entity Framework z tabel bazy danych. Te modele są klasami, które będą używane do pracy z danymi. Każdy model odzwierciedla tabelę w bazie danych i zawiera właściwości, które odnoszą się do kolumn w tabeli.
 
-Kliknij prawym przyciskiem myszy **modeli** folder, a następnie wybierz **Dodaj** i **nowy element**.
+Kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj** i **nowy element**.
 
-W oknie Dodaj nowy element, wybierz **danych** w okienku po lewej stronie i **ADO.NET Entity Data Model** spośród opcji w środkowym okienku. Nadaj nowemu plikowi modelu **ContosoModel**.
+W oknie Dodawanie nowego elementu wybierz pozycję **dane** w lewym okienku i **ADO.NET Entity Data Model** z opcji w środkowym okienku. Nazwij nowy plik modelu **ContosoModel**.
 
-Kliknij przycisk **Dodaj**.
+Kliknij pozycję **Add** (Dodaj).
 
-W kreatorze modelu danych jednostki, wybierz **projektancie platformy EF z bazy danych**.
+W Kreatorze Entity Data Model wybierz pozycję **Dr Designer z bazy danych**.
 
 Kliknij przycisk **Dalej**.
 
-Jeśli masz połączenia z bazą danych zdefiniowanych w środowisku deweloperskim, może zostać wyświetlony jeden z tych połączeń wstępnie wybrana. Jednak należy utworzyć nowe połączenie z bazą danych utworzoną w pierwszej części tego samouczka. Kliknij przycisk **nowe połączenie** przycisku.
+Jeśli masz połączenia bazy danych zdefiniowane w środowisku deweloperskim, może zostać wyświetlony jeden z tych połączeń wstępnie wybranych. Jednak chcesz utworzyć nowe połączenie z bazą danych utworzoną w pierwszej części tego samouczka. Kliknij przycisk **nowe połączenie** .
 
-W oknie dialogowym właściwości połączenia należy podać nazwę serwera lokalnego, w którym utworzono bazę danych (w tym przypadku **\ProjectsV13 (localdb)**). Po podaniu nazwy serwera, należy wybrać ContosoUniversityData z dostępnych baz danych.
+W okno Właściwości połączenia Podaj nazwę lokalnego serwera, na którym została utworzona baza danych (w tym przypadku **(LocalDB) \ProjectsV13**). Po podania nazwy serwera wybierz ContosoUniversityData z dostępnych baz danych.
 
 ![Ustawianie właściwości połączenia](creating-the-web-application/_static/image8.png)
 
 Kliknij przycisk **OK**.
 
-Właściwości połączenia poprawne są teraz wyświetlane. Można użyć domyślnej nazwy dla połączenia w pliku Web.Config.
+Zostaną wyświetlone poprawne właściwości połączenia. Możesz użyć nazwy domyślnej dla połączenia w pliku Web. config.
 
 Kliknij przycisk **Dalej**.
 
-Wybierz najnowszą wersję programu Entity Framework.
+Wybierz najnowszą wersję Entity Framework.
 
 Kliknij przycisk **Dalej**.
 
-Wybierz **tabel** do generowania modeli wszystkie trzy tabele.
+Wybierz pozycję **tabele** , aby wygenerować modele dla wszystkich trzech tabel.
 
-Kliknij przycisk **Zakończ**.
+Kliknij przycisk **Finish** (Zakończ).
 
-Jeśli pojawi się ostrzeżenie o zabezpieczeniach, wybierz opcję **OK** kontynuowanie działania w szablonie.
+Jeśli zostanie wyświetlone ostrzeżenie o zabezpieczeniach, wybierz **przycisk OK** , aby kontynuować uruchamianie szablonu.
 
-Modele są generowane na podstawie tabel bazy danych i wyświetlony diagram pokazuje właściwości i relacje między tabelami.
+Modele są generowane na podstawie tabel bazy danych i wyświetlany jest diagram, który pokazuje właściwości i relacje między tabelami.
 
 ![Diagram modelu](creating-the-web-application/_static/image11.png)
 
-Folder modeli teraz zawiera wiele nowych plików związanych z modeli, które zostały wygenerowane z bazy danych.
+Folder modele zawiera teraz wiele nowych plików związanych z modelami, które zostały wygenerowane na podstawie bazy danych programu.
 
-**ContosoModel.Context.cs** plik zawiera klasę dziedziczącą po **DbContext** klasy, a także właściwości dla każdej klasy modelu, który odnosi się do tabeli bazy danych. **Course.cs**, **Enrollment.cs**, i **Student.cs** pliki zawierają klasy modeli, które reprezentują tabele bazy danych. Użyjesz klasy modelu i klasy kontekstu podczas pracy z funkcją szkieletów.
+Plik **ContosoModel.Context.cs** zawiera klasę, która dziedziczy z klasy **DbContext** , i udostępnia właściwość dla każdej klasy modelu, która odpowiada tabeli bazy danych. Pliki **Course.cs**, **Enrollment.cs**i **student.cs** zawierają klasy modelu, które reprezentują tabele baz danych. Podczas pracy z szkieletami należy używać zarówno klasy kontekstu, jak i klas modelu.
 
-Przed kontynuowaniem za pomocą tego samouczka, skompiluj projekt. W następnej sekcji spowoduje wygenerowanie kodu opartego na modeli danych, ale ta sekcja nie będzie działać, jeśli projekt nie został zbudowany.
+Przed kontynuowaniem pracy z tym samouczkiem Skompiluj projekt. W następnej sekcji zostanie wygenerowany kod oparty na modelach danych, ale ta sekcja nie będzie działała, jeśli projekt nie został skompilowany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Utworzona aplikacja internetowa platformy ASP.NET
-> * Wygenerowany modele
+> * Utworzono aplikację sieci Web ASP.NET
+> * Wygenerowane modele
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć wygenerowanie kodu opartego na modeli danych.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć generowanie kodu na podstawie modeli danych.
 > [!div class="nextstepaction"]
 > [Generowanie widoków](generating-views.md)

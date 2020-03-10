@@ -1,221 +1,221 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
-title: Tworzenie spójnego układu we wzorcu ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
+title: Tworzenie spójnego układu w witrynach ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: Aby umożliwić bardziej efektywne tworzenie stron sieci web, można utworzyć wielokrotnego użytku bloki zawartości (na przykład nagłówków i stopek) dla witryny sieci Web, a użytkownik c...
+description: Aby zwiększyć efektywność tworzenia stron sieci Web dla swojej witryny, możesz utworzyć bloki zawartości (takie jak nagłówki i stopki) w witrynie sieci Web, a ty c...
 ms.author: riande
 ms.date: 03/10/2014
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
 ms.openlocfilehash: 3f63ce68ae4c13970ac0df196167ace0b22b592c
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67411257"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78627450"
 ---
 # <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>Tworzenie spójnego układu w witrynach ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule wyjaśniono, jak skorzystać układu stron w witrynie internetowej ASP.NET Web Pages (Razor) do tworzenia wielokrotnego użytku bloki zawartości (na przykład nagłówków i stopek) i tworzenie spójnego wyglądu dla wszystkich stron w witrynie.
+> W tym artykule wyjaśniono, jak można użyć stron układu w witrynie internetowej ASP.NET Web Pages (Razor) do tworzenia bloków zawartości (takich jak nagłówki i stopki) oraz do tworzenia spójnego wyglądu wszystkich stron w witrynie.
 > 
-> **Zawartość:** 
+> **Dowiesz się:** 
 > 
-> - Jak utworzyć wielokrotnego użytku bloki zawartości, takich jak nagłówki i stopki.
-> - Jak utworzyć spójnego wyglądu dla wszystkich stron w witrynie przy użyciu układu.
+> - Jak tworzyć bloki wielokrotnego użytku zawartości, takie jak nagłówki i stopki.
+> - Jak utworzyć spójny wygląd wszystkich stron w witrynie przy użyciu układu.
 > - Jak przekazać dane w czasie wykonywania do strony układu.
 > 
-> Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzona w artykule:
+> Są to funkcje ASP.NET wprowadzone w artykule:
 > 
-> - Bloki zawartości, które są pliki zawierające zawartości w formacie HTML do wstawienia na wielu stronach.
-> - Układ stron, które są strony zawierające zawartości w formacie HTML, który może być współużytkowany przez strony w witrynie internetowej.
-> - `RenderPage`, `RenderBody`, I `RenderSection` metod, które informują miejsca do wstawienia elementów strony ASP.NET.
-> - `PageData` Słownika, która umożliwia udostępnianie danych między bloki zawartości i układu strony.
+> - Bloki zawartości, które są plikami zawierającymi zawartość sformatowaną w formacie HTML do wstawienia na wielu stronach.
+> - Strony układu, które są stronami zawierającymi zawartość sformatowaną w formacie HTML, które mogą być współużytkowane przez strony w witrynie sieci Web.
+> - Metody `RenderPage`, `RenderBody`i `RenderSection`, które informują ASP.NET, gdzie należy wstawiać elementy strony.
+> - Słownik `PageData`, który umożliwia udostępnianie danych między blokami zawartości i stronami układu.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
-## <a name="about-layout-pages"></a>Układ strony — informacje
+## <a name="about-layout-pages"></a>Strony układu — informacje
 
-Wiele witryn sieci Web ma zawartość, która jest wyświetlana na każdej stronie, takie jak nagłówek i stopka lub informacje dla użytkowników, że są one rejestrowane w pole. ASP.NET umożliwia utworzenie oddzielnego pliku z bloku zawartości, która może zawierać tekstu, znaczników i kodu, tak jak zwykły strony sieci web. Następnie można wstawić blok zawartości w innych stron w witrynie, w której chcesz umieścić informacje. Dzięki temu nie trzeba skopiować i wkleić tę samą zawartość do każdej strony. Tworzenie typowych zawartości następująco również sprawia, że łatwiej zaktualizować lokację. Jeśli zachodzi potrzeba zmiany zawartości, można aktualizować tylko pojedynczy plik, a zmiany są stosowane wszędzie, gdzie został wstawiony zawartości.
+Wiele witryn sieci Web zawiera zawartość, która jest wyświetlana na każdej stronie, na przykład nagłówek i stopka, lub pole informujące użytkowników, że są zalogowani. ASP.NET umożliwia utworzenie oddzielnego pliku z blokiem zawartości, który może zawierać tekst, znaczniki i kod, podobnie jak zwykła Strona sieci Web. Następnie można wstawić blok zawartości na innych stronach w witrynie, w których mają być wyświetlane informacje. Dzięki temu nie trzeba kopiować i wklejać tej samej zawartości na każdej stronie. Tworzenie wspólnej zawartości, takiej jak to również ułatwia aktualizowanie lokacji. Jeśli trzeba zmienić zawartość, można po prostu zaktualizować pojedynczy plik, a zmiany zostaną odzwierciedlone wszędzie tam, gdzie zawartość została wstawiona.
 
-Na poniższym diagramie przedstawiono, jak zawartości blokuje pracy. Gdy przeglądarka zgłasza żądanie strony z serwera sieci web, ASP.NET wstawia bloki zawartości w punkcie gdzie `RenderPage` metoda jest wywoływana strony głównej. Zakończono strony (scalonych) jest następnie wysyłany do przeglądarki.
+Na poniższym diagramie przedstawiono sposób działania bloków zawartości. Gdy przeglądarka żąda strony z serwera sieci Web, ASP.NET wstawia bloki zawartości w punkcie, w którym Metoda `RenderPage` jest wywoływana na stronie głównej. Strona ukończona (scalona) jest następnie wysyłana do przeglądarki.
 
-![Diagram koncepcyjny przedstawiający, jak metoda RenderPage wstawia odwołania strony do bieżącej strony.](3-creating-a-consistent-look/_static/image1.jpg)
+![Diagram koncepcyjny pokazujący, jak Metoda RenderPage wstawia przywoływaną stronę do bieżącej strony.](3-creating-a-consistent-look/_static/image1.jpg)
 
-W tej procedurze utworzysz stronę, która odwołuje się dwa bloki zawartości (nagłówek i stopka), które znajdują się w oddzielnych plikach. Można użyć tych samych bloków zawartości w dowolnej stronie w witrynie. Gdy wszystko będzie gotowe, zostanie wyświetlona strona z informacją następująco:
+W tej procedurze utworzysz stronę odwołującą się do dwóch bloków zawartości (nagłówka i stopki), które znajdują się w oddzielnych plikach. Tych samych bloków zawartości można używać na dowolnej stronie w witrynie. Gdy skończysz, zobaczysz stronę podobną do tej:
 
-![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderPage.](3-creating-a-consistent-look/_static/image2.png)
+![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchamiania strony zawierającej wywołania metody RenderPage.](3-creating-a-consistent-look/_static/image2.png)
 
-1. W folderze głównym witryny sieci Web, Utwórz plik o nazwie *Index.cshtml*.
-2. Zastąp istniejący kod znaczników następujących czynności:
+1. W folderze głównym witryny sieci Web Utwórz plik o nazwie *index. cshtml*.
+2. Zastąp istniejący znacznik następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample1.html)]
 3. W folderze głównym Utwórz folder o nazwie *Shared*.
 
     > [!NOTE]
-    > Jest to powszechną praktyką do przechowywania plików, które są współużytkowane przez strony sieci web w folderze o nazwie *Shared*.
-4. W *Shared* folderze utwórz plik o nazwie  *\_Header.cshtml*.
-5. Zastąp istniejącą zawartość następujących czynności:
+    > Typowym sposobem przechowywania plików udostępnianych między stronami sieci Web w folderze o nazwie *Shared*.
+4. W folderze *udostępnionym* Utwórz plik o nazwie *\_header. cshtml*.
+5. Zastąp jakąkolwiek istniejącą zawartość następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample2.html)]
 
-    Należy zauważyć, że nazwa pliku jest  *\_Header.cshtml*, od znaku podkreślenia (\_) jako prefiksu. Program ASP.NET nie wyśle strony do przeglądarki, jeśli jej nazwa rozpoczyna się od znaku podkreślenia. Zapobiega to żądanie (przypadkowo lub w inny sposób) tych stron bezpośrednio osób. To dobry pomysł, aby użyć podkreślenia do stron nazwy, które ma bloki zawartości, ponieważ nie chcesz tak naprawdę użytkownicy, aby móc żądać tych stron &#8212; istnieje wyłącznie do wstawienia do innych stron.
-6. W *Shared* folderze utwórz plik o nazwie  *\_Footer.cshtml* i Zastąp zawartość następującym kodem:
+    Należy zauważyć, że nazwa pliku jest *\_header. cshtml*z podkreśleniem (\_) jako prefiks. ASP.NET nie wyśle strony do przeglądarki, jeśli jej nazwa zaczyna się od znaku podkreślenia. Dzięki temu osoby nie żądają (przypadkowo lub w inny sposób) tych stron bezpośrednio. Dobrym pomysłem jest użycie podkreślenia do nazwy stron, w których znajdują się w nich bloki zawartości, ponieważ nie chcesz, aby użytkownicy mogli zażądać tych stron &#8212; , które mogą być wstawiane do innych stron.
+6. W folderze *udostępnionym* Utwórz plik o nazwie *\_footer. cshtml* i Zastąp zawartość następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample3.html)]
-7. W *Index.cshtml* strony, należy dodać dwa wywołania `RenderPage` metody, jak pokazano poniżej:
+7. Na stronie *index. cshtml* Dodaj dwa wywołania metody `RenderPage`, jak pokazano poniżej:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample4.html)]
 
-    To pokazuje, jak wstawić blok zawartości do strony sieci web. Należy wywołać `RenderPage` metody i przekaż mu nazwę pliku, którego zawartość ma zostać wstawiony w tym momencie. W tym miejscu wstawiasz zawartość  *\_Header.cshtml* i  *\_Footer.cshtml* pliki do *Index.cshtml* pliku.
-8. Uruchom *Index.cshtml* strony w przeglądarce. (W programie WebMatrix w **pliki** obszaru roboczego, kliknij prawym przyciskiem myszy plik, a następnie wybierz pozycję **Uruchom w przeglądarce**.)
-9. W przeglądarce Wyświetl źródło strony. (Na przykład w programie Internet Explorer, kliknij prawym przyciskiem myszy strony, a następnie kliknij przycisk **Wyświetl źródło**.)
+    Pokazuje, jak wstawić blok zawartości do strony sieci Web. Należy wywołać metodę `RenderPage` i przekazać ją do nazwy pliku, którego zawartość ma zostać wstawiona w tym momencie. W tym miejscu wstawiasz zawartość pliku *nagłówkowego\_. cshtml* i *\_plików stopki. cshtml* , który jest plikiem *index. cshtml* .
+8. Uruchom stronę *index. cshtml* w przeglądarce. (W programie WebMatrix w obszarze roboczym **pliki** kliknij plik prawym przyciskiem myszy, a następnie wybierz polecenie **Uruchom w przeglądarce**).
+9. W przeglądarce Wyświetl źródło strony. (Na przykład w programie Internet Explorer kliknij prawym przyciskiem myszy stronę, a następnie kliknij pozycję **Wyświetl źródło**).
 
-    Dzięki temu możesz zobaczyć znaczników strony sieci web, które są wysyłane do przeglądarki, która łączy znaczników strony indeksu z bloki zawartości. W poniższym przykładzie przedstawiono źródła strony, który jest renderowany *Index.cshtml*. Wywołania `RenderPage` wstawiony do *Index.cshtml* zostały zastąpione rzeczywistej zawartości pliki nagłówków i stopek.
+    Dzięki temu można zobaczyć adiustację strony sieci Web, która jest wysyłana do przeglądarki, która łączy znaczniki strony indeksu z blokami zawartości. Poniższy przykład pokazuje Źródło strony, które jest renderowane dla *index. cshtml*. Wywołania `RenderPage`, które zostały wstawione do pliku *index. cshtml* , zostały zastąpione rzeczywistą zawartością plików nagłówkowych i stopek.
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample5.html)]
 
-## <a name="creating-a-consistent-look-using-layout-pages"></a>Tworzenie spójnego wyglądu za pomocą strony układu
+## <a name="creating-a-consistent-look-using-layout-pages"></a>Tworzenie spójnego wyglądu przy użyciu stron układu
 
-Do tej pory wiesz, że jest łatwy do uwzględnienia tej samej zawartości na wielu stronach. Jest bardziej ustrukturyzowane podejście do tworzenia spójnego wyglądu witryny do użycia strony układu. Strona układu definiuje strukturę strony sieci web, ale nie zawiera żadnych rzeczywistej zawartości. Po utworzeniu strony układu można utworzyć strony sieci web z zawartością, a następnie połączyć je do strony układu. Te strony będą wyświetlane, będzie można sformatować zgodnie ze strony układu. (W tym sensie, strony układu działa jako to rodzaj szablonu dla zawartości, która jest zdefiniowana w innych stron.)
+Do tej pory widzisz, że można łatwo dołączać tę samą zawartość na wielu stronach. Bardziej strukturalną metodą tworzenia spójnego wyglądu witryny jest użycie stron układu. Strona układu definiuje strukturę strony sieci Web, ale nie zawiera żadnej rzeczywistej zawartości. Po utworzeniu strony układu można utworzyć strony sieci Web zawierające zawartość, a następnie połączyć je ze stroną układu. Po wyświetleniu tych stron zostaną one sformatowane zgodnie ze stroną układu. (W tym sensie Strona układu działa jako rodzaj szablonu dla zawartości zdefiniowanej na innych stronach).
 
-Strony układu jest podobne do dowolnej strony HTML, z tą różnicą, że zawiera on wywołanie `RenderBody` metody. Pozycja `RenderBody` metody w stronę układu określa, gdzie informacji z poziomu strony zawartości zostaną dołączone.
+Strona układu jest tak samo jak każda strona HTML, z tą różnicą, że zawiera wywołanie metody `RenderBody`. Pozycja metody `RenderBody` na stronie układ określa, gdzie znajdują się informacje ze strony zawartości.
 
-Na poniższym diagramie przedstawiono sposób zawartości strony i układu strony są łączone w czasie wykonywania, aby utworzyć stronę sieci web zakończona. Przeglądarka żąda zawartości strony. Strona zawartości zawiera kod określający stronę układu dla strony struktury. Na stronie układu, zawartość jest wstawiany w punkcie, w którym `RenderBody` metoda jest wywoływana. Zawartość, blokuje również mogą być wstawiane do strony układu, wywołując `RenderPage` metody w taki sposób, jak w poprzedniej sekcji. Po zakończeniu strony sieci web jest wysyłana do przeglądarki.
+Na poniższym diagramie przedstawiono sposób łączenia stron zawartości i stron układu w czasie wykonywania w celu utworzenia gotowej strony sieci Web. Przeglądarka żąda strony zawartości. Strona zawartość zawiera kod, który określa stronę układu do użycia dla struktury strony. Na stronie układ zawartość jest wstawiana w punkcie, w którym wywoływana jest metoda `RenderBody`. Bloki zawartości można także wstawiać do strony układ, wywołując metodę `RenderPage`, tak jak w poprzedniej sekcji. Gdy strona sieci Web zostanie ukończona, jest wysyłana do przeglądarki.
 
-![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderBody.](3-creating-a-consistent-look/_static/image3.jpg)
+![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchamiania strony zawierającej wywołania metody RenderBody.](3-creating-a-consistent-look/_static/image3.jpg)
 
-Poniższa procedura pokazuje, jak utworzyć układ stron zawartości strony i link do niego.
+Poniższa procedura pokazuje, jak utworzyć stronę układu i połączyć strony z zawartością.
 
-1. W *Shared* folderu witryny sieci Web, Utwórz plik o nazwie  *\_Layout1.cshtml*.
-2. Zastąp istniejącą zawartość następujących czynności:
+1. W folderze *udostępnionym* witryny sieci Web Utwórz plik o nazwie *\_Layout1. cshtml*.
+2. Zastąp jakąkolwiek istniejącą zawartość następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample6.html)]
 
-    Możesz użyć `RenderPage` metody na stronie układu, aby wstawić bloki zawartości. Strona układu może zawierać tylko jedno wywołanie `RenderBody` metody.
-3. W *Shared* folderze utwórz plik o nazwie  *\_Header2.cshtml* i Zastąp istniejącą zawartość następującym kodem:
+    Aby wstawić bloki zawartości, użyj metody `RenderPage` na stronie układu. Strona układu może zawierać tylko jedno wywołanie metody `RenderBody`.
+3. W folderze *udostępnionym* Utwórz plik o nazwie *\_Header2. cshtml* i Zastąp każdą istniejącą zawartość następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample7.html)]
-4. W folderze głównym, Utwórz nowy folder i nadaj mu nazwę *style*.
-5. W *style* folderze utwórz plik o nazwie *Site.css* i dodaj następujące definicje styl:
+4. W folderze głównym Utwórz nowy folder i nadaj mu nazwę *Style*.
+5. W folderze *Style* Utwórz plik o nazwie *site. css* i Dodaj następujące definicje stylów:
 
     [!code-css[Main](3-creating-a-consistent-look/samples/sample8.css)]
 
-    Te definicje styl są tu tylko po to, aby pokazać, jak arkusze stylów można używać ze strony układu. Jeśli chcesz, można zdefiniować własne style dla tych elementów.
-6. W folderze głównym, Utwórz plik o nazwie *Content1.cshtml* i Zastąp istniejącą zawartość następującym kodem:
+    Te definicje stylów są tutaj tylko pokazujące, w jaki sposób arkusze stylów mogą być używane ze stronami układu. Jeśli chcesz, możesz zdefiniować własne style dla tych elementów.
+6. W folderze głównym Utwórz plik o nazwie *Content1. cshtml* i Zastąp każdą istniejącą zawartość następującym:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample9.cshtml)]
 
-    Jest to strona, która będzie używać strony układu. Blok kodu, w górnej części strony wskazuje stronę układu, które będą formatowane tej zawartości.
-7. Uruchom *Content1.cshtml* w przeglądarce. Renderowanej strony używa formatu i arkusz stylów zdefiniowany w  *\_Layout1.cshtml* i tekst (zawartość) zdefiniowany w *Content1.cshtml*.
+    To jest strona, która będzie używać strony układu. Blok kodu w górnej części strony wskazuje stronę układu, która ma być używana do formatowania tej zawartości.
+7. Uruchom *Content1. cshtml* w przeglądarce. Renderowane strony używa formatu i arkusza stylów zdefiniowanego w *\_Layout1. cshtml* i tekstu (zawartości) zdefiniowanego w *Content1. cshtml*.
 
-    ![[image]](3-creating-a-consistent-look/_static/image4.png)
+    ![Image](3-creating-a-consistent-look/_static/image4.png)
 
-    Możesz powtórzyć krok 6, aby utworzyć dodatkowe strony zawartości, które będzie mogło współużytkować tę samą stronę układu.
+    Możesz powtórzyć krok 6, aby utworzyć dodatkowe strony zawartości, które następnie mogą współużytkować tę samą stronę układu.
 
     > [!NOTE]
-    > Można skonfigurować witryny, dzięki czemu można automatycznie używać tej samej stronie układ dla stron zawartości w folderze. Aby uzyskać więcej informacji, zobacz [Dostosowywanie zachowania dla całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906).
+    > Możesz skonfigurować witrynę tak, aby można było automatycznie używać tej samej strony układu dla wszystkich stron zawartości w folderze. Aby uzyskać szczegółowe informacje, zobacz [Dostosowywanie zachowania całej witryny dla stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906).
 
-## <a name="designing-layout-pages-that-have-multiple-content-sections"></a>Projektowanie stron układu, które mają wiele sekcji zawartości
+## <a name="designing-layout-pages-that-have-multiple-content-sections"></a>Projektowanie stron układu z wieloma sekcjami zawartości
 
-Zawartość strony może mieć wiele sekcji, co jest przydatne, jeśli chcesz używać układów, które mają wiele obszarów z zawartością wymienne. Na stronie zawartości Nadaj każdej sekcji unikatową nazwę. (Domyślnej sekcji zostanie pozostawiony bez nazwy.) Na stronie układu, możesz dodać `RenderBody` metodę, aby określić, gdzie powinna zostać wyświetlona sekcja bez nazwy (wartość domyślna). Następnie należy dodać oddzielny `RenderSection` metody w celu pojedynczo render nazwanej sekcji.
+Strona zawartości może zawierać wiele sekcji, co jest przydatne, jeśli chcesz użyć układów mających wiele obszarów z wymienną zawartością. Na stronie zawartość nadaj każdej sekcji unikatową nazwę. (Sekcja domyślna pozostaje nienazwana). Na stronie układ Dodaj metodę `RenderBody`, aby określić, gdzie powinna zostać wyświetlona sekcja nienazwana (domyślna). Następnie należy dodać oddzielne metody `RenderSection`, aby wyrenderować nazwane sekcje pojedynczo.
 
-Na poniższym diagramie przedstawiono, jak ASP.NET obsługuje zawartość, która jest podzielona na sekcje. Każda sekcja o nazwie znajduje się w bloku sekcji na stronie zawartości. (Są one nazwane `Header` i `List` w przykładzie.) Struktura wstawia sekcji zawartość do strony układu w punkcie, w którym `RenderSection` metoda jest wywoływana. Sekcja bez nazwy (wartość domyślna) jest wstawiana w punkcie, w którym `RenderBody` metoda jest wywoływana, zgodnie z wcześniej.
+Na poniższym diagramie przedstawiono sposób, w jaki ASP.NET obsługuje zawartość, która jest dzielona na wiele sekcji. Każda nazwana sekcja jest zawarta w bloku sekcji na stronie zawartości. (Są one nazwane `Header` i `List` w tym przykładzie). Struktura wstawia sekcję zawartości na stronę układ w punkcie, w którym wywoływana jest metoda `RenderSection`. Sekcja bez nazwy (domyślnie) jest wstawiana w punkcie, w którym wywoływana jest metoda `RenderBody`, jak pokazano wcześniej.
 
-![Diagram koncepcyjny przedstawiający, jak metoda RenderSection wstawia sekcje odwołania do bieżącej strony.](3-creating-a-consistent-look/_static/image5.jpg)
+![Diagram koncepcyjny przedstawiający sposób wstawiania przez metodę RenderSection odwołań do bieżącej strony.](3-creating-a-consistent-look/_static/image5.jpg)
 
-Ta procedura pokazuje, jak utworzyć strony zawartości, która ma wiele sekcji zawartości i sposób renderowania za pomocą strony układu, która obsługuje wiele sekcji zawartości.
+Ta procedura pokazuje, jak utworzyć stronę zawartości z wieloma sekcjami zawartości i jak renderować ją przy użyciu strony układu, która obsługuje wiele sekcji zawartości.
 
-1. W *Shared* folderze utwórz plik o nazwie  *\_Layout2.cshtml*.
-2. Zastąp istniejącą zawartość następujących czynności:
+1. W folderze *udostępnionym* Utwórz plik o nazwie *\_Layout2. cshtml*.
+2. Zastąp jakąkolwiek istniejącą zawartość następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample10.html)]
 
-    Możesz użyć `RenderSection` metody do renderowania sekcje nagłówka i listy.
-3. W folderze głównym, Utwórz plik o nazwie *Content2.cshtml* i Zastąp istniejącą zawartość następującym kodem:
+    Użyj metody `RenderSection`, aby renderować zarówno nagłówek, jak i listę.
+3. W folderze głównym Utwórz plik o nazwie *Content2. cshtml* i Zastąp każdą istniejącą zawartość następującym:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample11.cshtml)]
 
-    Ta strona zawartości zawiera blok kodu, w górnej części strony. Każda sekcja o nazwie znajduje się w bloku sekcji. Pozostałej części strony zawiera sekcja zawartość domyślna (bez nazwy).
-4. Uruchom *Content2.cshtml* w przeglądarce.
+    Ta strona zawartości zawiera blok kodu w górnej części strony. Każda nazwana sekcja jest zawarta w bloku sekcji. Pozostała część strony zawiera domyślną sekcję zawartości (bez nazwy).
+4. Uruchom *Content2. cshtml* w przeglądarce.
 
-    ![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchomienie strony, która zawiera wywołania metody RenderSection.](3-creating-a-consistent-look/_static/image6.png)
+    ![Zrzut ekranu przedstawiający stronę w przeglądarce, która wynika z uruchamiania strony zawierającej wywołania metody RenderSection.](3-creating-a-consistent-look/_static/image6.png)
 
-## <a name="making-content-sections-optional"></a>Tworzenie opcjonalne sekcje zawartości
+## <a name="making-content-sections-optional"></a>Wprowadzanie opcjonalnych sekcji zawartości
 
-Zwykle sekcje, które tworzysz na stronie zawartości musi odpowiadać sekcje, które są zdefiniowane w stronę układu. Mogą wystąpić błędy, ponieważ wystąpienia któregokolwiek z następujących czynności:
+Zwykle sekcje, które tworzysz na stronie zawartości, muszą pasować do sekcji, które są zdefiniowane na stronie układu. Błędy można uzyskać w następujących przypadku:
 
-- Strona zawartości zawiera sekcja, która nie ma odpowiedniej sekcji na stronie układu.
-- Strona układu zawiera sekcja, dla których nie ma żadnej zawartości.
-- Strona układu zawiera wywołania metody, w których podejmowana jest próba renderowania tej samej sekcji w więcej niż jeden raz.
+- Strona zawartość zawiera sekcję, która nie ma odpowiedniej sekcji na stronie układ.
+- Strona układu zawiera sekcję, dla której nie ma zawartości.
+- Strona układu zawiera wywołania metod, które próbują renderować tę samą sekcję więcej niż raz.
 
-Jednak można zastąpić to zachowanie dla nazwanej sekcji przez zadeklarowanie sekcja ma być opcjonalne w stronę układu. Dzięki temu można zdefiniować wiele stron zawartości mogą dzielić stronę układu, ale którzy mogą lub nie może mieć zawartości dla określonego obszaru.
+Można jednak zastąpić to zachowanie dla nazwanej sekcji, deklarując sekcję jako opcjonalną na stronie układ. Pozwala to definiować wiele stron zawartości, które mogą udostępniać stronę układu, ale mogą lub nie mieć zawartości dla określonej sekcji.
 
-1. Otwórz *Content2.cshtml* i usuń następującą sekcję:
+1. Otwórz *Content2. cshtml* i Usuń następującą sekcję:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample12.cshtml)]
-2. Zapisz stronę, a następnie uruchom go w przeglądarce. Wyświetlany jest komunikat o błędzie, ponieważ strony zawartości nie udostępnia zawartość sekcji zdefiniowana na stronie układu, a mianowicie sekcji nagłówka.
+2. Zapisz stronę, a następnie uruchom ją w przeglądarce. Zostanie wyświetlony komunikat o błędzie, ponieważ strona zawartości nie udostępnia zawartości dla sekcji zdefiniowanej na stronie układ, a mianowicie sekcji nagłówek.
 
-    ![Zrzut ekranu pokazujący błąd występujący po uruchomieniu strony, która wywołuje metodę RenderSection, ale nie podano odpowiedniej sekcji.](3-creating-a-consistent-look/_static/image7.png)
-3. W *Shared* folder, otwórz  *\_Layout2.cshtml* strony, a następnie Zastąp ten wiersz:
+    ![Zrzut ekranu pokazujący błąd występujący w przypadku uruchomienia strony wywołującej metodę RenderSection, ale nie podano odpowiedniej sekcji.](3-creating-a-consistent-look/_static/image7.png)
+3. W folderze *udostępnionym* otwórz stronę *\_Layout2. cshtml* i Zastąp następujący wiersz:
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample13.js)]
 
-    następującym kodem:
+    przy użyciu następującego kodu:
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample14.js)]
 
-    Alternatywnie możesz Zastąp poprzedniego wiersza kodu, które poniższy blok kodu, który generuje te same wyniki:
+    Alternatywnie, można zastąpić poprzedni wiersz kodu następującym blokiem kodu, który tworzy te same wyniki:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample15.cshtml)]
-4. Uruchom *Content2.cshtml* strony w przeglądarce ponownie. (Jeśli nadal masz tę stronę w przeglądarce, możesz po prostu odświeżyć go). Tym razem zostanie wyświetlona strona z żaden błąd nawet, jeśli go nie ma nagłówka.
+4. Uruchom ponownie stronę *Content2. cshtml* w przeglądarce. (Jeśli nadal masz otwartą Tę stronę w przeglądarce, możesz ją po prostu odświeżyć). Ta strona jest wyświetlana bez błędów, mimo że nie ma nagłówka.
 
-## <a name="passing-data-to-layout-pages"></a>Przekazywanie danych do strony układu
+## <a name="passing-data-to-layout-pages"></a>Przekazywanie danych do stron układu
 
-Konieczne może być danymi zdefiniowanymi w strony zawartości, który należy do odwoływania się do strony układu. Jeśli tak, należy przekazać dane ze strony zawartość do strony układu. Na przykład możesz chcieć wyświetlić stan logowania użytkownika lub możesz chcieć pokazać lub ukryć obszarów zawartości na podstawie danych wejściowych użytkownika.
+Na stronie zawartości należy określić dane, które należy odwołać na stronie układu. Jeśli tak, musisz przekazać dane ze strony zawartości do strony układu. Na przykład może być konieczne wyświetlenie stanu logowania użytkownika lub wyświetlenie lub ukrycie obszarów zawartości na podstawie danych wejściowych użytkownika.
 
-Aby przekazać dane ze strony zawartość do strony układ, można umieścić wartości `PageData` właściwości strony zawartość. `PageData` Właściwości to zbiór par nazwa/wartość, w których przechowywane są dane, które mają być przekazywane między stronami. Na stronie układu, można następnie odczytać wartości z `PageData` właściwości.
+Aby przekazać dane ze strony zawartości do strony układu, można umieścić wartości we właściwości `PageData` na stronie zawartość. Właściwość `PageData` jest kolekcją par nazwa/wartość, które zawierają dane, które mają być przekazywane między stronami. Na stronie układ można odczytać wartości z właściwości `PageData`.
 
-Oto inny diagram. To pokazuje jak używać platformy ASP.NET `PageData` właściwość, aby przekazać wartości ze strony zawartość do strony układu. Po rozpoczęciu tworzenia stron sieci web platformy ASP.NET tworzy `PageData` kolekcji. Na stronie zawartości pisanie kodu, aby umieścić dane `PageData` kolekcji. Wartości w `PageData` kolekcji można także uzyskać dostęp przez innych sekcjach strony zawartości lub dodatkowe bloki zawartości.
+Oto inny diagram. Ten element pokazuje, w jaki sposób ASP.NET może używać właściwości `PageData` do przekazywania wartości ze strony zawartości do strony układu. Po rozpoczęciu tworzenia strony sieci Web ASP.NET tworzy kolekcję `PageData`. Na stronie zawartość można napisać kod, aby umieścić dane w kolekcji `PageData`. Do wartości w kolekcji `PageData` mogą być również dostępne inne sekcje na stronie zawartość lub przez dodatkowe bloki zawartości.
 
-![Diagram koncepcyjny, który pokazuje, jak wypełnić słownika PageData i przekazać te informacje do strony układu strony zawartości.](3-creating-a-consistent-look/_static/image8.jpg)
+![Diagram koncepcyjny pokazujący, jak strona zawartości może wypełnić słownik PageData i przekazać te informacje do strony układu.](3-creating-a-consistent-look/_static/image8.jpg)
 
-Poniższa procedura pokazuje, jak przekazywanie danych od strony zawartości do strony układu. Po uruchomieniu strony wyświetli przycisk, który umożliwia użytkownikowi ukryć lub pokazać listy, która jest zdefiniowana w stronę układu. Gdy użytkownik kliknie przycisk, ustawia wartość PRAWDA/FAŁSZ (wartość logiczna) w `PageData` właściwości. Strona układu odczytuje tę wartość i jeśli ma wartość false, ukrywa listę. Wartość służy również na stronie zawartości do określenia, czy mają być wyświetlane **Ukryj listę** przycisk lub **Pokaż listę** przycisku.
+Poniższa procedura pokazuje, jak przekazać dane ze strony zawartości do strony układu. Po uruchomieniu strony wyświetla przycisk, który umożliwia użytkownikowi ukrycie lub pokazanie listy zdefiniowanej na stronie układ. Gdy użytkownicy kliknieją przycisk, ustawia wartość PRAWDA/FAŁSZ (wartość logiczna) we właściwości `PageData`. Strona układu odczytuje tę wartość, a jeśli jest fałszywa, ukrywa listę. Ta wartość jest również używana na stronie zawartość, aby określić, czy ma być wyświetlany przycisk **Ukryj listę** lub przycisk **Pokaż listę** .
 
-![[image]](3-creating-a-consistent-look/_static/image9.jpg)
+![Image](3-creating-a-consistent-look/_static/image9.jpg)
 
-1. W folderze głównym, Utwórz plik o nazwie *Content3.cshtml* i Zastąp istniejącą zawartość następującym kodem:
+1. W folderze głównym Utwórz plik o nazwie *Content3. cshtml* i Zastąp każdą istniejącą zawartość następującym:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample16.cshtml)]
 
-    Kod przechowuje dwóch fragmentów danych w `PageData` właściwość &#8212; tytuł strony sieci web i wartość PRAWDA lub FAŁSZ, aby określić, czy w celu wyświetlenia listy.
+    Kod przechowuje dwie fragmenty danych we właściwości &#8212; `PageData` tytuł strony sieci Web i wartość PRAWDA lub FAŁSZ, aby określić, czy ma zostać wyświetlona lista.
 
-    Należy zauważyć, że program ASP.NET pozwala umieść kod znaczników HTML strony warunkowo przy użyciu bloku kodu. Na przykład `if/else` bloku w treści strony określa formularz do wyświetlania w zależności od tego, czy `PageData["ShowList"]` jest ustawiona na wartość true.
-2. W *Shared* folderze utwórz plik o nazwie  *\_Layout3.cshtml* i Zastąp istniejącą zawartość następującym kodem:
+    Zwróć uwagę, że ASP.NET umożliwia umieszczenie znacznika HTML na stronie warunkowo przy użyciu bloku kodu. Na przykład blok `if/else` w treści strony określa, który formularz ma być wyświetlany w zależności od tego, czy `PageData["ShowList"]` jest ustawiona na wartość true.
+2. W folderze *udostępnionym* Utwórz plik o nazwie *\_Layout3. cshtml* i Zastąp każdą istniejącą zawartość następującym:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample17.cshtml)]
 
-    Strona układu zawiera wyrażenie w `<title>` element, który pobiera wartość tytuł `PageData` właściwości. Korzysta również `ShowList` wartość `PageData` właściwości w celu określenia, czy ma być wyświetlany blok zawartości listy.
-3. W *Shared* folderze utwórz plik o nazwie  *\_List.cshtml* i Zastąp istniejącą zawartość następującym kodem:
+    Strona układu zawiera wyrażenie w `<title>` elementu, który pobiera wartość tytułu z właściwości `PageData`. Używa również wartości `ShowList` właściwości `PageData`, aby określić, czy ma być wyświetlany blok zawartości listy.
+3. W folderze *udostępnionym* Utwórz plik o nazwie *\_list. cshtml* i Zastąp każdą istniejącą zawartość następującym:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample18.html)]
-4. Uruchom *Content3.cshtml* strony w przeglądarce. Ta strona jest wyświetlana przy użyciu listy widocznych w lewej części strony i **Ukryj listę** znajdujący się u dołu.
+4. Uruchom stronę *Content3. cshtml* w przeglądarce. Zostanie wyświetlona strona z listą widoczną po lewej stronie i przycisk **Ukryj listę** u dołu.
 
-    ![Zrzut ekranu przedstawiający stronę zawierającą listy i przycisk, który jest wyświetlany komunikat "Ukryj List".](3-creating-a-consistent-look/_static/image10.png)
-5. Kliknij przycisk **Ukryj listę**. Lista znika i przycisku zmienia się na **Pokaż listę**.
+    ![Zrzut ekranu przedstawiający stronę zawierającą listę i przycisk "Ukryj listę".](3-creating-a-consistent-look/_static/image10.png)
+5. Kliknij przycisk **Ukryj listę**. Lista znika i przycisk zmieni się, aby **wyświetlić listę**.
 
-    ![Zrzut ekranu przedstawiający stronę, która nie zawiera listy i przycisk, który jest wyświetlany komunikat "Pokaż listę".](3-creating-a-consistent-look/_static/image11.png)
-6. Kliknij przycisk **Pokaż listę** przycisku i listy zostaną wyświetlone ponownie.
+    ![Zrzut ekranu przedstawiający stronę, która nie zawiera listy i przycisku "Pokaż listę".](3-creating-a-consistent-look/_static/image11.png)
+6. Kliknij przycisk **Pokaż listę** i ponownie Wyświetl listę.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Dostosowywanie zachowania dla całej witryny dla stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)
+[Dostosowywanie zachowania całej witryny dla stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)

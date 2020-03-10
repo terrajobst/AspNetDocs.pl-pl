@@ -9,11 +9,11 @@ ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 81d72c666925e89729464e7ea696bde8d323e277
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74641726"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78605960"
 ---
 # <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Formularz rekord główny/szczegóły korzystający z listy punktowanej rekordów głównych z kontrolką DataList szczegółów (VB)
 
@@ -255,4 +255,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Zack Nowak. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [Wstecz](master-detail-filtering-acess-two-pages-datalist-vb.md)

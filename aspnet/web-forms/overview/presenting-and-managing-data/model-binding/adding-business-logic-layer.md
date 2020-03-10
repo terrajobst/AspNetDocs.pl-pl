@@ -1,64 +1,64 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: Dodawanie warstwy logiki biznesowej do projektu, który używa wiązania modelu i formularzy sieci web | Dokumentacja firmy Microsoft
+title: Dodawanie warstwy logiki biznesowej do projektu używającego powiązań modelu i formularzy sieci Web | Microsoft Docs
 author: Rick-Anderson
-description: W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji więcej proste —...
+description: Ta seria samouczków pokazuje podstawowe aspekty używania powiązania modelu z projektem formularzy sieci Web ASP.NET. Powiązanie modelu sprawia, że interakcje danych są bardziej proste-...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
 ms.openlocfilehash: a824d06d3781e11706f2a48d44ea3ad89bdb7c8b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109162"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634835"
 ---
-# <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Dodawanie warstwy logiki biznesowej do projektu, który używa wiązania modelu i formularzy sieci web
+# <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Dodawanie warstwy logiki biznesowej do projektu używającego powiązań modelu i formularzy sieci Web
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji prostszą niż rozwiązywania problemów związanych z danymi obiektów źródła (takich jak kontrolki ObjectDataSource lub SqlDataSource). Ta seria rozpoczyna się od wprowadzające informacje i przenosi do bardziej zaawansowanych pojęciach w kolejnych samouczkach.
+> Ta seria samouczków pokazuje podstawowe aspekty używania powiązania modelu z projektem formularzy sieci Web ASP.NET. Powiązanie modelu sprawia, że interakcje danych są bardziej proste, niż w przypadku obiektów źródła danych (np. ObjectDataSource lub kontrolki SqlDataSource). Ta seria rozpoczyna się od materiału wstępnego i przenosi do bardziej zaawansowanych koncepcji w kolejnych samouczkach.
 > 
-> W tym samouczku przedstawiono sposób tworzenia powiązania modelu za pomocą warstwy logiki biznesowej. Ustawi Członkowskie OnCallingDataMethods, aby określić, czy obiekt inny niż bieżąca strona jest używane do wywołania metody dotyczące danych.
+> W tym samouczku pokazano, jak używać powiązania modelu z warstwą logiki biznesowej. Należy ustawić składową OnCallingDataMethods, aby określić, że obiekt inny niż bieżąca strona jest używany do wywoływania metod danych.
 > 
-> Ten samouczek opiera się na projekt utworzony w [wcześniej](retrieving-data.md) części tej serii.
+> Ten samouczek jest oparty na projekcie utworzonym w [poprzednich](retrieving-data.md) częściach serii.
 > 
-> Możesz [Pobierz](https://go.microsoft.com/fwlink/?LinkId=286116) kompletnego projektu w języku C# lub VB. Kod do pobrania w programach Visual Studio 2012 lub Visual Studio 2013. Używa szablonu programu Visual Studio 2012, który różni się nieco od szablonu programu Visual Studio 2013, przedstawione w tym samouczku.
+> Możesz [pobrać](https://go.microsoft.com/fwlink/?LinkId=286116) kompletny projekt w C# języku lub VB. Kod do pobrania współdziała z programem Visual Studio 2012 lub Visual Studio 2013. Używa szablonu programu Visual Studio 2012, który jest nieco inny niż szablon Visual Studio 2013 przedstawiony w tym samouczku.
 
-## <a name="what-youll-build"></a>Będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-Wiązanie modelu umożliwia umieść kod interakcji danych, w pliku związanym z kodem dla strony sieci web lub w klasie logiki oddzielne biznesowych. Poprzednich samouczków wykazały, jak używać plików z kodem dla danych interakcję kodu. Ta metoda działa w przypadku małych witryn, ale może to prowadzić do kodu powtórzeń i większa trudności podczas obsługi dużej witryny. Może też być bardzo trudne, programowo testować kod, który znajduje się w kodzie plików, ponieważ nie istnieje żadne warstwę abstrakcji.
+Powiązanie modelu umożliwia umieszczenie kodu interakcji z danymi w pliku związanym z kodem dla strony sieci Web lub w oddzielnej klasie logiki biznesowej. W poprzednich samouczkach pokazano, jak używać plików związanych z kodem dla kodu interakcji z danymi. Ta metoda działa w przypadku małych lokacji, ale może prowadzić do powtarzania kodu i większego trudności podczas konserwacji dużej lokacji. Może być również bardzo trudne do programistycznego testowania kodu, który znajduje się w pliku znajdującym się w kodzie, ponieważ nie ma warstwy abstrakcji.
 
-Można scentralizować dane kod interakcji, można utworzyć warstwy logiki biznesowej, która zawiera całą logikę do interakcji z danymi. Następnie możesz wywołać warstwę logiki biznesowej ze stron sieci web. W tym samouczku pokazano, jak przenieść cały kod, które zostały napisane w poprzednich samouczkach do warstwy logiki biznesowej, a następnie użyj tego kodu na stronach.
+Aby scentralizować kod interakcji z danymi, można utworzyć warstwę logiki biznesowej, która zawiera całą logikę interakcji z danymi. Następnie Wywołaj warstwę logiki biznesowej ze stron sieci Web. W tym samouczku pokazano, jak przenieść cały kod zapisany w poprzednich samouczkach do warstwy logiki biznesowej, a następnie użyć tego kodu ze stron.
 
-W ramach tego samouczka należy:
+W tym samouczku przedstawiono następujące instrukcje:
 
-1. Przenieś kod z plików z kodem do warstwy logiki biznesowej
-2. Zmień swoje formanty powiązane z danymi do wywołania metody warstwy logiki biznesowej
+1. Przenoszenie kodu z plików związanych z kodem do warstwy logiki biznesowej
+2. Zmień kontrolki powiązane z danymi, aby wywoływać metody z warstwy logiki biznesowej
 
 ## <a name="create-business-logic-layer"></a>Tworzenie warstwy logiki biznesowej
 
-Teraz utworzysz klasę, która jest wywoływana ze stron sieci web. Metody tej klasy wyglądać podobnie do metody, które są używane w poprzednich samouczkach i zawierać atrybuty dostawcy wartości.
+Teraz utworzysz klasę, która jest wywoływana ze stron sieci Web. Metody w tej klasie wyglądają podobnie jak metody używane w poprzednich samouczkach i zawierają atrybuty dostawcy wartości.
 
-Najpierw Dodaj nowy folder o nazwie **LOGIKI**.
+Najpierw Dodaj nowy folder o nazwie **logiki biznesowej**.
 
 ![Dodaj folder](adding-business-logic-layer/_static/image1.png)
 
-W folderze LOGIKI, Utwórz nową klasę o nazwie **SchoolBL.cs**. Będzie zawierać wszystkie operacje danych, które pierwotnie znajdowały się w plikach związanym z kodem. Te metody są prawie takie same jak metody w pliku związanym z kodem, ale będzie zawierać pewne zmiany.
+W folderze LOGIKI biznesowej Utwórz nową klasę o nazwie **SchoolBL.cs**. Będzie zawierać wszystkie operacje na danych, które pierwotnie znajdowały się w plikach związanych z kodem. Metody są prawie takie same jak metody w pliku związanym z kodem, ale zawierają pewne zmiany.
 
-Najważniejsze zmiany, należy pamiętać, jest już wykonujesz kodu z w ramach wystąpienia **strony** klasy. Zawiera klasy strony **TryUpdateModel** metody i **ModelState** właściwości. Kiedy ten kod jest przenoszony do warstwy logiki biznesowej, masz już wystąpienie klasy strony, aby wywołać te elementy członkowskie. Aby obejść ten problem, należy dodać **ModelMethodContext** parametru do dowolnej metody, która uzyskuje dostęp do TryUpdateModel lub ModelState. Użyjesz tego parametru ModelMethodContext można wywołać TryUpdateModel lub pobrać element ModelState. Nie trzeba wprowadzić na stronie sieci web, aby uwzględnić ten nowy parametr zmiany.
+Najważniejszym zmianą w notatce jest to, że kod nie jest już wykonywany z poziomu instancji klasy **Page** . Klasa Page zawiera metodę **TryUpdateModel** i Właściwość **ModelState** . Gdy ten kod jest przenoszony do warstwy logiki biznesowej, nie ma już wystąpienia klasy Page do wywołania tych elementów członkowskich. Aby obejść ten problem, należy dodać parametr **ModelMethodContext** do dowolnej metody, która uzyskuje dostęp do TryUpdateModel lub ModelState. Ten parametr ModelMethodContext służy do wywoływania TryUpdateModel lub pobierania ModelState. Nie trzeba zmieniać żadnych elementów na stronie sieci Web, aby uwzględnić ten nowy parametr.
 
 Zastąp kod w SchoolBL.cs następującym kodem.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample1.cs)]
 
-## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>Popraw istniejących stron do pobierania danych z warstwy logiki biznesowej
+## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>Popraw istniejące strony, aby pobrać dane z warstwy logiki biznesowej
 
-Na koniec przekonwertuje stron Students.aspx AddStudent.aspx i Courses.aspx korzystania z zapytania w pliku związanym z kodem za pomocą warstwy logiki biznesowej.
+Na koniec przekonwertujesz strony uczniowie. aspx, addstudents. aspx i kursy. aspx z używania zapytań w pliku związanym z kodem, aby użyć warstwy logiki biznesowej.
 
-Pliki związane z kodem dla uczniów, AddStudent i kursów usunąć lub komentarz następujące metody zapytania:
+W plikach związanych z kodem dla studentów, addstudenta i kursów Usuń lub Skomentuj następujące metody zapytania:
 
 - studentsGrid\_GetData
 - studentsGrid\_UpdateItem
@@ -66,33 +66,33 @@ Pliki związane z kodem dla uczniów, AddStudent i kursów usunąć lub komentar
 - addStudentForm\_InsertItem
 - coursesGrid\_GetData
 
-Możesz teraz powinien mieć żadnego kodu w pliku związanym z kodem, które odnoszą się do operacji na danych.
+W pliku związanym z kodem nie powinien już znajdować się kod, który odnosi się do operacji na danych.
 
-**OnCallingDataMethods** programu obsługi zdarzeń można określić obiekt ma być używany dla metody dotyczące danych. W Students.aspx Dodaj wartość dla tego programu obsługi zdarzeń i zmieniać nazwy metod danych do nazw metod w klasie logiki biznesowej.
+Program obsługi zdarzeń **OnCallingDataMethods** umożliwia określenie obiektu, który ma być używany w metodach danych. W uczniów. aspx Dodaj wartość dla tego programu obsługi zdarzeń i Zmień nazwy metod danych na nazwy metod w klasie logiki biznesowej.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample2.aspx?highlight=3-4,8)]
 
-W pliku związanym z kodem Students.aspx należy zdefiniować program obsługi zdarzeń dla zdarzenia CallingDataMethods. Ta procedura obsługi zdarzeń służy do określenia klasy logiki biznesowej dla operacji na danych.
+W pliku związanym z kodem dla uczniów. aspx Zdefiniuj program obsługi zdarzeń dla zdarzenia CallingDataMethods. W tym obsłudze zdarzeń należy określić klasę logiki biznesowej dla operacji na danych.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample3.cs)]
 
-W AddStudent.aspx wprowadzić zmiany podobne.
+W polu addstudent. aspx wprowadź podobne zmiany.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample4.aspx?highlight=3-4)]
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample5.cs)]
 
-W Courses.aspx wprowadzić zmiany podobne.
+W polu kursy. aspx Zmień podobne zmiany.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample6.aspx?highlight=3-4)]
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample7.cs)]
 
-Uruchom aplikację i zwróć uwagę, wszystkie strony działać zgodnie z ich były wcześniej. Logika sprawdzania poprawności działa poprawnie.
+Uruchom aplikację i zwróć uwagę, że wszystkie strony działają tak jak wcześniej. Logika walidacji działa poprawnie.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym samouczku ponownie strukturę aplikacji przy użyciu warstwy dostępu do danych i warstwy logiki biznesowej. Określono, że formanty danych użyć obiektu, który nie jest stroną bieżące operacje na danych.
+W tym samouczku utworzysz swoją aplikację, aby użyć warstwy dostępu do danych i warstwy logiki biznesowej. Określono, że kontrolki danych używają obiektu, który nie jest bieżącą stroną dla operacji na danych.
 
 > [!div class="step-by-step"]
-> [Poprzednie](using-query-string-values-to-retrieve-data.md)
+> [Wstecz](using-query-string-values-to-retrieve-data.md)

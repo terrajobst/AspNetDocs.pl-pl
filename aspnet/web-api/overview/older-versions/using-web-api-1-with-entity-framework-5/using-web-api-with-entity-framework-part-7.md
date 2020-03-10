@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: Część 7. Tworzenie strony głównej | Microsoft Docs
+title: 'Część 7: Tworzenie strony głównej | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,13 +9,13 @@ ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: fe4074c701159a137be3644d65ca844f160c2399
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599988"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598680"
 ---
-# <a name="part-7-creating-the-main-page"></a>Część 7. Tworzenie strony głównej
+# <a name="part-7-creating-the-main-page"></a>Część 7: Tworzenie strony głównej
 
 według [Jan Wasson](https://github.com/MikeWasson)
 
@@ -44,7 +44,7 @@ W oparciu o przedstawiony wcześniej projekt nasz model widoku wymaga observable
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample3.js)]
 
-Użytkownicy mogą dodawać elementy z listy produktów do koszyka i usuwać elementy z koszyka. Aby hermetyzować te funkcje, utworzymy kolejną klasę View-model, która reprezentuje produkt. Dodaj następujący kod do `AppViewModel`:
+Użytkownicy mogą dodawać elementy z listy produktów do koszyka i usuwać elementy z koszyka. Aby hermetyzować te funkcje, utworzymy kolejną klasę View-model, która reprezentuje produkt. Dodaj następujący kod do pliku `AppViewModel`:
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample4.js?highlight=4)]
 
@@ -80,7 +80,7 @@ Oto powiązania z listą produktów:
 
 To iteruje tablicę produkty i wyświetla nazwę i cenę. Przycisk "Dodaj do zamówienia" jest widoczny tylko wtedy, gdy użytkownik jest zalogowany.
 
-Przycisk "Dodaj do zamówienia" wywołuje `addItemToCart` w wystąpieniu `ProductViewModel` dla produktu. Przedstawia to całkiem funkcję odcinania. js: Gdy model widoku zawiera inne modele widoku, można zastosować powiązania z modelem wewnętrznym. W tym przykładzie powiązania w `foreach` są stosowane do każdego wystąpienia `ProductViewModel`. To podejście jest znacznie bardziej przejrzyste niż umieszczenie wszystkich funkcji w jednym modelu widoku.
+Przycisk "Dodaj do zamówienia" wywołuje `addItemToCart` w wystąpieniu `ProductViewModel` dla produktu. Przedstawia to całkiem funkcję odcinania. js: gdy model widoku zawiera inne modele widoku, można zastosować powiązania z modelem wewnętrznym. W tym przykładzie powiązania w `foreach` są stosowane do każdego wystąpienia `ProductViewModel`. To podejście jest znacznie bardziej przejrzyste niż umieszczenie wszystkich funkcji w jednym modelu widoku.
 
 **Koszyk**
 
@@ -116,4 +116,4 @@ Dodatkowe zasoby:
 - [Centrum deweloperów Entity Framework](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
-> [Poprzednie](using-web-api-with-entity-framework-part-6.md)
+> [Wstecz](using-web-api-with-entity-framework-part-6.md)

@@ -1,35 +1,35 @@
 ---
 uid: web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
-title: Śledzenie we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Śledzenie w programie ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
-description: Pokazuje, jak włączyć śledzenie w programie ASP.NET Web API.
+description: Pokazuje, jak włączyć śledzenie w interfejsie API sieci Web ASP.NET.
 ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: a01acb649556d06ab9828ceab0fcbdf363bbc0d1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59405901"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598554"
 ---
-# <a name="tracing-in-aspnet-web-api-2"></a>Śledzenie we wzorcu ASP.NET Web API 2
+# <a name="tracing-in-aspnet-web-api-2"></a>Śledzenie w programie ASP.NET Web API 2
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-> Jeśli chcesz debugować aplikację sieci web, to nie nie zastąpi dobry zestaw dzienniki śledzenia. W tym samouczku pokazano, jak włączyć śledzenie w programie ASP.NET Web API. Ta funkcja służy do śledzenia struktury Web API działanie przed i po wywołuje kontroler. Można również użyć do śledzenia własnego kodu.
+> Podczas próby debugowania aplikacji sieci Web nie ma znaczenia dla dobrego zestawu dzienników śledzenia. W tym samouczku pokazano, jak włączyć śledzenie w interfejsie API sieci Web ASP.NET. Za pomocą tej funkcji można śledzić działanie platformy internetowego interfejsu API przed wywołaniem kontrolera i po nim. Można go również użyć do śledzenia własnego kodu.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 >
-> - [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) (współpracuje również z programu Visual Studio 2015)
+> - [Visual studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) (działa również z programem visual Studio 2015)
 > - Internetowy interfejs API 2
-> - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
+> - [Microsoft. AspNet. WebApi. Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
-## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Włącz System.Diagnostics śledzenie w składniku Web API
+## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Włącz śledzenie system. Diagnostics w interfejsie Web API
 
-Najpierw utworzymy nowy projekt aplikacji sieci Web ASP.NET. W programie Visual Studio z **pliku** menu, wybierz opcję **New** > **projektu**. W obszarze **szablony**, **Web**, wybierz opcję **aplikacji sieci Web ASP.NET**.
+Najpierw utworzymy nowy projekt aplikacji sieci Web ASP.NET. W programie Visual Studio w menu **plik** wybierz pozycję **Nowy** **projekt** > . W obszarze **Szablony**, **Sieć Web**wybierz pozycję **aplikacja sieci Web ASP.NET**.
 
 [![](tracing-in-aspnet-web-api/_static/image2.png)](tracing-in-aspnet-web-api/_static/image1.png)
 
@@ -37,93 +37,93 @@ Wybierz szablon projektu interfejsu API sieci Web.
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, następnie **konsoli Zarządzanie pakietów**.
+W menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet**, a następnie polecenie **Zarządzanie pakietem**.
 
 W oknie Konsola Menedżera pakietów wpisz następujące polecenia.
 
 [!code-console[Main](tracing-in-aspnet-web-api/samples/sample1.cmd)]
 
-Pierwsze polecenie powoduje zainstalowanie najnowszego pakietu śledzenia interfejsu API sieci Web. Aktualizuje core pakiety interfejsu API sieci Web. Drugie polecenie aktualizuje pakiet WebApi.WebHost do najnowszej wersji.
+Pierwsze polecenie instaluje najnowszy pakiet śledzenia interfejsu API sieci Web. Aktualizuje również podstawowe pakiety interfejsów API sieci Web. Drugie polecenie aktualizuje pakiet WebApi. WebHost do najnowszej wersji.
 
 > [!NOTE]
-> Pod kątem określonej wersji interfejsu API sieci Web, należy użyć flagi wersji, po zainstalowaniu pakietu śledzenia.
+> Jeśli chcesz wskazać określoną wersję interfejsu API sieci Web, Użyj flagi-Version podczas instalacji pakietu śledzenia.
 
-Otwórz plik WebApiConfig.cs w aplikacji\_folder początkowy. Dodaj następujący kod do **zarejestrować** metody.
+Otwórz plik WebApiConfig.cs w folderze Start\_. Dodaj następujący kod do metody **register** .
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Ten kod dodaje [klasę SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) klasy potok składnika Web API. **Klasę SystemDiagnosticsTraceWriter** klasy zapisuje informacje śledzenia do [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
+Ten kod dodaje klasę [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) do potoku interfejsu API sieci Web. Klasa **SystemDiagnosticsTraceWriter** zapisuje ślady do [System. Diagnostics. Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
-Aby wyświetlić ślady, uruchom aplikację w debugerze. W przeglądarce przejdź do `/api/values`.
+Aby wyświetlić ślady, uruchom aplikację w debugerze. W przeglądarce przejdź do strony `/api/values`.
 
 ![](tracing-in-aspnet-web-api/_static/image5.png)
 
-Instrukcji śledzenia są zapisywane w oknie danych wyjściowych w programie Visual Studio. (Z **widoku** menu, wybierz opcję **dane wyjściowe**).
+Instrukcje śledzenia są zapisywane w oknie danych wyjściowych w programie Visual Studio. (Z menu **Widok** wybierz pozycję **dane wyjściowe**).
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Ponieważ **klasę SystemDiagnosticsTraceWriter** zapisuje informacje śledzenia do **System.Diagnostics.Trace**, możesz zarejestrować odbiorniki śledzenia dodatkowe; na przykład, aby zapisać ślady w pliku dziennika. Aby uzyskać więcej informacji na temat składników zapisywania śledzenia, zobacz [detektorów śledzenia](https://msdn.microsoft.com/library/4y5y10s7.aspx) tematu w witrynie MSDN.
+Ponieważ **SystemDiagnosticsTraceWriter** zapisuje ślady do **System. Diagnostics. Trace**, można zarejestrować dodatkowe detektory śledzenia; na przykład, aby zapisać ślady w pliku dziennika. Aby uzyskać więcej informacji na temat składników zapisywania śladów, zobacz temat [detektory śledzenia](https://msdn.microsoft.com/library/4y5y10s7.aspx) w witrynie MSDN.
 
-### <a name="configuring-systemdiagnosticstracewriter"></a>Konfigurowanie klasę SystemDiagnosticsTraceWriter
+### <a name="configuring-systemdiagnosticstracewriter"></a>Konfigurowanie SystemDiagnosticsTraceWriter
 
-Poniższy kod przedstawia sposób konfigurowania moduł zapisujący śledzenia.
+Poniższy kod przedstawia sposób konfigurowania składnika zapisywania śledzenia.
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample3.cs)]
 
-Istnieją dwa ustawienia, które mogą kontrolować:
+Istnieją dwa ustawienia, które można kontrolować:
 
-- IsVerbose: W przypadku wartości FAŁSZ Każdy ślad zawiera minimalne informacje. W przypadku opcji true ślady zawierają więcej informacji.
-- MinimumLevel: Ustawia minimalny poziom śledzenia. Poziomy śledzenia, w kolejności, są debugowania, Info, Ostrzegaj, błędów i błąd krytyczny.
+- Isverbose: w przypadku wartości false każdy ślad zawiera minimalną ilość informacji. Jeśli wartość jest równa true, ślady zawierają więcej informacji.
+- MinimumLevel: ustawia minimalny poziom śledzenia. Poziomy śledzenia, w kolejności, są debugowaniem, informacjami, ostrzeżeniem, błędem i krytycznym.
 
-## <a name="adding-traces-to-your-web-api-application"></a>Dodawanie danych śledzenia do aplikacji sieci Web interfejsu API
+## <a name="adding-traces-to-your-web-api-application"></a>Dodawanie śladów do aplikacji internetowego interfejsu API
 
-Dodawanie moduł zapisujący śledzenia umożliwia bezpośredni dostęp do śledzenia, utworzone przez potok składnika Web API. Moduł zapisujący śledzenia umożliwia również śledzenie własnego kodu:
+Dodanie składnika zapisywania śledzenia daje natychmiastowy dostęp do śladów utworzonych przez potok interfejsu API sieci Web. Możesz również użyć składnika zapisywania śledzenia do śledzenia własnego kodu:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample4.cs)]
 
-Aby uzyskać moduł zapisujący śledzenia, należy wywołać **HttpConfiguration.Services.GetTraceWriter**. Z kontrolera, ta metoda jest dostępna za pośrednictwem **ApiController.Configuration** właściwości.
+Aby uzyskać składnik zapisywania śledzenia, wywołaj **HttpConfiguration. Services. GetTraceWriter**. Z poziomu kontrolera ta metoda jest dostępna za pośrednictwem właściwości **ApiController. Configuration** .
 
-Do zapisu, śledzenia, można wywołać **ITraceWriter.Trace** metoda bezpośrednio, ale [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) klasa definiuje kilka metod rozszerzenia, które są bardziej przyjazny. Na przykład **informacje** metoda powyżej tworzy śledzenia z poziomu śledzenia **informacje**.
+Aby napisać ślad, można wywołać metodę **ITraceWriter. Trace** , ale Klasa [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) definiuje niektóre metody rozszerzające, które są bardziej przyjazne. Na przykład pokazana powyżej Metoda **info** tworzy ślad z **informacjami**o poziomie śledzenia.
 
 ## <a name="web-api-tracing-infrastructure"></a>Infrastruktura śledzenia interfejsu API sieci Web
 
-W tej sekcji opisano sposób pisania moduł zapisujący śledzenia niestandardowego interfejsu API sieci Web.
+W tej sekcji opisano sposób pisania niestandardowego składnika zapisywania śledzenia dla internetowego interfejsu API.
 
-Pakiet Microsoft.AspNet.WebApi.Tracing jest oparty na bardziej ogólnych Infrastruktura śledzenia w interfejsie API sieci Web. Zamiast używania Microsoft.AspNet.WebApi.Tracing, można także podłączyć niektóre inne biblioteki śledzenia/rejestrowania, takich jak [NLog](http://nlog-project.org/) lub [log4net](http://logging.apache.org/log4net/).
+Pakiet Microsoft. AspNet. WebApi. Tracing został utworzony na podstawie bardziej ogólnej infrastruktury śledzenia w interfejsie API sieci Web. Zamiast używać elementu Microsoft. AspNet. WebApi. Tracing, można również podłączyć inne biblioteki śledzenia/rejestrowania, takie jak [nLOG](http://nlog-project.org/) lub [log4net](http://logging.apache.org/log4net/).
 
-Aby zbierać dane śledzenia, należy zaimplementować **ITraceWriter** interfejsu. Poniżej przedstawiono prosty przykład:
+Aby zebrać ślady, zaimplementuj Interfejs **ITraceWriter** . Oto prosty przykład:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample5.cs)]
 
-**ITraceWriter.Trace** metoda tworzy śledzenia. Obiekt wywołujący określa poziom kategorii i śledzenia. Kategoria może być dowolnym ciągiem zdefiniowanej przez użytkownika. Implementacja **śledzenia** należy wykonać następujące czynności:
+Metoda **ITraceWriter. Trace** tworzy ślad. Obiekt wywołujący określa kategorię i poziom śledzenia. Kategoria może być dowolnym ciągiem zdefiniowanym przez użytkownika. W ramach implementacji **śledzenia** należy wykonać następujące czynności:
 
-1. Utwórz nową **TraceRecord**. Go zainicjować za pomocą żądania, kategorii i poziomie śledzenia, jak pokazano. Te wartości są dostarczane przez obiekt wywołujący.
-2. Wywoływanie *traceAction* delegować. Wewnątrz tego delegata oczekuje obiektu wywołującego do wypełnienia w pozostałej części **TraceRecord**.
-3. Zapis **TraceRecord**, przy użyciu dowolnej techniki rejestrowania, którą chcesz. Przykład pokazany w tym miejscu po prostu wywoła **System.Diagnostics.Trace**.
+1. Utwórz nowy **TraceRecord**. Zainicjuj go przy użyciu żądania, kategorii i poziomu śledzenia, jak pokazano poniżej. Te wartości są udostępniane przez obiekt wywołujący.
+2. Wywołaj delegata *traceAction* . Wewnątrz tego delegata oczekuje się, że obiekt wywołujący będzie wypełniał resztę **TraceRecord**.
+3. Napisz **TraceRecord**przy użyciu dowolnej techniki rejestrowania. W przykładzie pokazano po prostu wywołania do **System. Diagnostics. Trace**.
 
-## <a name="setting-the-trace-writer"></a>Ustawienie moduł zapisujący śledzenia
+## <a name="setting-the-trace-writer"></a>Ustawianie składnika zapisywania śledzenia
 
-Aby włączyć śledzenie, należy skonfigurować interfejsu API sieci Web, aby użyć swojej **ITraceWriter** implementacji. W tym za pośrednictwem **HttpConfiguration** obiektu, jak pokazano w poniższym kodzie:
+Aby włączyć śledzenie, należy skonfigurować internetowy interfejs API do korzystania z implementacji **ITraceWriter** . Można to zrobić za pomocą obiektu **HttpConfiguration** , jak pokazano w poniższym kodzie:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample6.cs)]
 
-Moduł zapisujący śledzenia tylko jedna może być aktywne. Domyślnie, internetowy interfejs API ustawia &quot;pusta&quot; śledzenia, która nie wykonuje żadnych działań. ( &quot;Pusta&quot; śledzący istnieje, dzięki czemu kod śledzenia nie trzeba sprawdzić, czy moduł zapisujący śledzenia jest **null** przed napisaniem śledzenia.)
+Tylko jeden składnik zapisywania śledzenia może być aktywny. Domyślnie interfejs API sieci Web ustawia &quot;No-op&quot; Tracer, który nic nie robi. (&quot;No-op&quot; Tracer istnieje, tak że kod śledzenia nie musi sprawdzać, czy moduł zapisujący śledzenia ma **wartość null** przed zapisaniem śladu.)
 
-## <a name="how-web-api-tracing-works"></a>Jak internetowy interfejs API śledzenia działa
+## <a name="how-web-api-tracing-works"></a>Jak działa śledzenie interfejsu API sieci Web
 
-Śledzenie w ramach interfejsu API sieci Web używa *fasady* wzorca: Po włączeniu funkcji śledzenia interfejsu API sieci Web opakowuje różne części Potok żądań z klasami, które wykonują wywołania śledzenia.
+Śledzenie w interfejsie API sieci Web używa wzorca *elewacji* : gdy śledzenie jest włączone, interfejs API sieci Web otacza różne części potoku żądań z klasami, które wykonują wywołania śledzenia.
 
-Na przykład podczas wybierania kontrolera, potok używa **IHttpControllerSelector** interfejsu. Z włączonym śledzeniem potoku wstawia klasę, która implementuje **IHttpControllerSelector** , ale wywołania za pośrednictwem rzeczywistej implementacji:
+Na przykład podczas wybierania kontrolera potok używa interfejsu **IHttpControllerSelector** . Po włączeniu śledzenia potok wstawia klasę implementującą **IHttpControllerSelector** , ale wywołuje do rzeczywistej implementacji:
 
-![Śledzenie interfejsu API sieci Web używa wzorca fasady.](tracing-in-aspnet-web-api/_static/image8.png)
+![Śledzenie interfejsu API sieci Web używa wzorca elewacji.](tracing-in-aspnet-web-api/_static/image8.png)
 
-Zalety tego projektu:
+Korzyści wynikające z tego projektu obejmują:
 
-- Jeśli moduł zapisujący śledzenia nie zostaną dodane, składniki śledzenia nie są tworzone i mieć żadnego wpływu na wydajność.
-- Jeśli zastąpisz domyślnych usług takich jak **IHttpControllerSelector** przy użyciu własnych niestandardowych implementacji śledzenia nie występuje, ponieważ śledzenie odbywa się przez obiekt otoki.
+- Jeśli nie dodasz składnika zapisywania śladów, składniki śledzenia nie są tworzone i nie mają wpływu na wydajność.
+- Jeśli zastąpisz domyślne usługi, takie jak **IHttpControllerSelector** z własną implementacją niestandardową, nie będzie to miało wpływ na śledzenie, ponieważ śledzenie jest wykonywane przez obiekt otoki.
 
-Możesz również zastąpić całej struktury framework śledzenia interfejsu API sieci Web za pomocą własnych niestandardowych framework, zastępując domyślne **ITraceManager** usługi:
+Możesz również zastąpić całą strukturę śledzenia interfejsu API sieci Web własnymi platformami niestandardowymi, zastępując domyślną usługę **ITraceManager** :
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample7.cs)]
 
-Implementowanie **ITraceManager.Initialize** zainicjować systemu śledzenia. Należy pamiętać, że spowoduje to zastąpienie *całego* framework śledzenia, łącznie ze wszystkimi kod śledzenia, która jest wbudowana w interfejsu API sieci Web.
+Zaimplementuj **ITraceManager. Initialize** , aby zainicjować system śledzenia. Należy pamiętać, że spowoduje to zastąpienie *całej* struktury śledzenia, w tym wszystkich kodów śledzenia wbudowanych w interfejs API sieci Web.

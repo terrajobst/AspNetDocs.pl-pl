@@ -9,11 +9,11 @@ ms.assetid: 0c2df5d4-c2dd-486d-b0ed-fe831c6b596c
 msc.legacyurl: /identity
 msc.type: categoryindex
 ms.openlocfilehash: 48e75d6a2a151befe7ea796b149d2d030712d799
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418355"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616978"
 ---
 # <a name="aspnet-identity"></a>ASP.NET Identity
 
@@ -25,7 +25,7 @@ ms.locfileid: "59418355"
         - [ASP.NET Identity — zalecane zasoby](overview/getting-started/aspnet-identity-recommended-resources.md)
         - [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
         - [Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory](overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-        - [ASP.NET Identity: Używanie usługi MySQL Storage przy użyciu dostawcy MySQL programu EntityFramework (C#)](overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+        - [ASP.NET Identity: używanie usługi MySQL Storage z dostawcą MySQL programu EntityFramework (C#)](overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
     - [Funkcje i interfejs API](overview/features-api/index.md)
 
         - [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych na platformie ASP.NET i w usłudze Azure App Service](overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)

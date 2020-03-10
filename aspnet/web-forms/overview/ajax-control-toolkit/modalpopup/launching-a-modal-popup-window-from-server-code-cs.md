@@ -9,11 +9,11 @@ ms.assetid: 2f67d8ef-73ca-447d-a0cc-6e3168431e6a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
 ms.openlocfilehash: fec0ce2cdd24333f65201301718440e1a09d930e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599043"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78613296"
 ---
 # <a name="launching-a-modal-popup-window-from-server-code-c"></a>Uruchamianie modalnego okna podręcznego z kodu serwera (C#)
 
@@ -68,4 +68,4 @@ Funkcja `$find()` szuka nazwanego elementu na stronie i oczekuje identyfikatora 
 Modalne okno podręczne pojawia się po kliknięciu jednego z przycisków ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](launching-a-modal-popup-window-from-server-code-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Next](using-modalpopup-with-a-repeater-control-cs.md)
+> [Dalej](using-modalpopup-with-a-repeater-control-cs.md)

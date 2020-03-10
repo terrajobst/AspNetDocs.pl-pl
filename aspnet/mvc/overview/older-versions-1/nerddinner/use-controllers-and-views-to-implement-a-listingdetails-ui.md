@@ -1,301 +1,301 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: Użyj widoków i kontrolerów, aby zaimplementować interfejs użytkownika lista/szczegóły | Dokumentacja firmy Microsoft
+title: Używanie kontrolerów i widoków do implementowania interfejsu użytkownika listy/szczegółów | Microsoft Docs
 author: microsoft
-description: Krok 4 pokazano, jak dodać kontroler do aplikacji, która korzysta z zalet nasz model, aby zapewnić użytkownikom środowisko nawigacji lista/szczegóły danych...
+description: Krok 4 pokazuje, jak dodać kontroler do aplikacji, która wykorzystuje nasz model, aby udostępnić użytkownikom listę/szczegóły środowiska nawigacji...
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 64116e56-1c9a-4f07-8097-bb36cbb6e57f
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: 74319fe5ea4c79b50140834349e2fdf86420cfbb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128204"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600745"
 ---
 # <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Implementowanie interfejsu użytkownika typu lista/szczegóły przy użyciu kontrolerów i widoków
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Jest to krok 4 bezpłatne [samouczek aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , przeszukiwania — szczegółowe instrukcje dotyczące tworzenia małych, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
+> Jest to krok 4 bezpłatnego [samouczka dotyczącego aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , który zawiera instrukcje tworzenia niewielkiej, ale kompletnej aplikacji sieci Web przy użyciu ASP.NET MVC 1.
 > 
-> Krok 4 przedstawiono sposób dodawania kontrolera do aplikacji, która korzysta z zalet nasz model, aby zapewnić użytkownikom danych lista/szczegóły środowisko nawigacji dla kolacji w naszej witrynie NerdDinner.
+> Krok 4 pokazuje, jak dodać kontroler do aplikacji, która korzysta z naszego modelu, aby udostępnić użytkownikom listę/szczegóły środowiska nawigacji dla obiadów w naszej witrynie NerdDinner.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
+> Jeśli używasz ASP.NET MVC 3, zalecamy użycie [wprowadzenie ze samouczkami ze sklepu MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) .
 
-## <a name="nerddinner-step-4-controllers-and-views"></a>NerdDinner krok 4: Kontrolery i widoki
+## <a name="nerddinner-step-4-controllers-and-views"></a>NerdDinner krok 4: kontrolery i widoki
 
-Za pomocą platform tradycyjnej sieci web (klasyczne środowisko ASP, PHP, ASP.NET Web Forms itp.) przychodzących adresów URL są zwykle mapowane na pliki na dysku. Na przykład: żądania dla adresu URL, takich jak "/ Products.aspx" lub "/ Products.php" mogą być przetwarzane przez plik "Products.aspx" lub "Products.php".
+W przypadku tradycyjnych platform sieci Web (klasycznych technologii ASP, PHP, ASP.NET Web Forms itp.) przychodzące adresy URL są zazwyczaj mapowane na pliki na dysku. Na przykład: żądanie dotyczące adresu URL, takiego jak "/Products.aspx" lub "/Products.php", może być przetwarzane przez plik "Products. aspx" lub "Products. php".
 
-Oparte na sieci Web platformy MVC adresy URL są mapowane na kod serwera w nieco inny sposób. Zamiast mapowania przychodzących adresów URL do plików, zamiast tego mapowania ich adresy URL do metod w klasach. Te klasy są nazywane "Kontrolerów" i są one odpowiedzialne za przetwarzanie przychodzących żądań HTTP, Obsługa danych wejściowych użytkownika, pobierania i zapisywania danych i określania odpowiedź do wysłania z powrotem do klienta (wyświetlania kodu HTML, Pobierz plik, przekierowanie na inny Adres URL itp.).
+Sieci Web platformy MVC mapują adresy URL na kod serwera w nieco inny sposób. Zamiast mapować przychodzące adresy URL na pliki, zamiast tego mapują adresy URL na metody klasy. Klasy te są nazywane "kontrolerami" i są odpowiedzialne za przetwarzanie przychodzących żądań HTTP, obsługę danych wejściowych użytkownika, pobieranie i zapisywanie danych oraz określanie odpowiedzi na odesłanie do klienta (wyświetlanie kodu HTML, pobieranie pliku, przekierowanie do innego Adres URL itd.
 
-Teraz, gdy zostały utworzyliśmy podstawowy model dla naszej aplikacji NerdDinner, naszym kolejnym krokiem będzie dodać kontroler do aplikacji, która wykorzystuje ona użytkownikom danych lista/szczegóły środowisko nawigacji dla kolacji w naszej witrynie.
+Teraz, gdy Utworzyliśmy podstawowy model naszej aplikacji NerdDinner, następnym krokiem będzie dodanie kontrolera do aplikacji, która korzysta z niej w celu udostępnienia użytkownikom informacji o wykorzystaniu i nawigacji w przypadku obiadów w naszej witrynie.
 
 ### <a name="adding-a-dinnerscontroller-controller"></a>Dodawanie kontrolera DinnersController
 
-Firma Microsoft będzie zacząć, klikając prawym przyciskiem myszy w folderze "Kontrolerów" w projekcie sieci web, a następnie wybierz **Add -&gt;kontrolera** polecenia menu (można również wykonać tego polecenia, wpisując Ctrl-M, Ctrl + C):
+Rozpocznie się po kliknięciu prawym przyciskiem myszy folderu "controllers" w naszym projekcie sieci Web, a następnie wybraniu polecenia menu **kontrolera Add-&gt;** (można także wykonać to polecenie, wpisując CTRL-M, Ctrl-C):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image1.png)
 
-Zostanie wyświetlone okno dialogowe "Dodaj kontroler":
+Spowoduje to wyświetlenie okna dialogowego "Dodawanie kontrolera":
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image2.png)
 
-Firma Microsoft będzie Nazwij nowy kontroler o nazwie "DinnersController" i kliknij przycisk "Dodaj". Program Visual Studio spowoduje dodanie pliku DinnersController.cs naszego katalogu \Controllers:
+Zmienimy nazwę nowego kontrolera "DinnersController" i klikniesz przycisk "Dodaj". Program Visual Studio doda następnie plik DinnersController.cs w katalogu \Controllers:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image3.png)
 
-Otworzy się również się nową klasę DinnersController w edytorze kodu.
+Zostanie również otwarta nowa klasa DinnersController w edytorze kodu.
 
-### <a name="adding-index-and-details-action-methods-to-the-dinnerscontroller-class"></a>Dodawanie indeks() i metod akcji Details() do klasy DinnersController
+### <a name="adding-index-and-details-action-methods-to-the-dinnerscontroller-class"></a>Dodawanie metod akcji index () i Details () do klasy DinnersController
 
-Chcemy włączyć odwiedzających, przeglądając listę nadchodzących kolacji i zezwolić im na kliknięcie dowolnej obiad na liście, aby wyświetlić szczegółowe informacje na ten temat za pomocą naszej aplikacji. Możemy to zrobić poprzez publikowanie następujące adresy URL z naszej aplikacji:
+Chcemy umożliwić odwiedzającym korzystanie z naszej aplikacji, aby przeglądać listę nadchodzących obiadów i zezwolić im na kliknięcie dowolnego obiadu na liście, aby zobaczyć szczegółowe informacje na jego temat. W tym celu należy opublikować następujące adresy URL z naszej aplikacji:
 
-| **Adres URL** | **Cel** |
+| **Adres URL** | **Przeznaczenie** |
 | --- | --- |
-| */Dinners/* | Wyświetl listę nadchodzących kolacji HTML |
-| */Dinners/szczegóły / [id]* | Wyświetl szczegółowe informacje o określonych obiad wskazywany przez parametr "id" osadzone w adresie URL — która będzie odpowiadała DinnerID systemu obiad w bazie danych. Na przykład: /Dinners/Details/2 spowoduje wyświetlenia strony HTML ze szczegółowymi informacjami o obiad, którego wartość DinnerID to 2. |
+| */Dinners/* | Wyświetl listę HTML z nadchodzących obiadów |
+| */Dinners/Details/[ID]* | Wyświetl szczegóły dotyczące określonego obiadu wskazywanego przez parametr "ID" osadzony w adresie URL, który będzie pasować do DinnerIDego obiadu w bazie danych. Na przykład:/Dinners/Details/2 wyświetli stronę HTML ze szczegółowymi informacjami na temat obiadu, którego wartość DinnerID wynosi 2. |
 
-Opublikujemy początkowe implementacje tych adresów URL, dodając dwa publiczne "metod akcji" do klasy Nasze DinnersController podobnie jak poniżej:
+Opublikujemy wstępne implementacje tych adresów URL, dodając dwie publiczne "metody akcji" do naszej klasy DinnersController, jak poniżej:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample1.cs)]
 
-Następnie utworzymy uruchamianie aplikacji NerdDinner i wywoływać je przy użyciu naszego przeglądarki. Pisanie w *"/ kolacji /"* spowoduje, że adres URL naszych *indeks()* metody wykonywania i wyśle ponownie następującą odpowiedź:
+Następnie uruchomimy aplikację NerdDinner i użyjemy naszej przeglądarki, aby je wywoływać. Wpisanie adresu URL *"/Dinners/"* spowoduje uruchomienie metody *index ()* i wysłanie następującej odpowiedzi:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image4.png)
 
-Pisanie w *"/ kolacji/szczegóły/2"* spowoduje, że adres URL naszych *Details()* metodę, aby uruchomić i odsyłania następującą odpowiedź:
+Wpisanie adresu URL *"/Dinners/Details/2"* spowoduje uruchomienie naszej metody *Details ()* i wysłanie następującej odpowiedzi:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image5.png)
 
-Możesz się zastanawiać — jak platformy ASP.NET MVC wiedzieć, aby utworzyć klasy Nasze DinnersController i wywoływanie tych metod? Aby zrozumieć, że możemy przyjrzeć szybkiego działa jak routingu.
+Być może zastanawiasz się, jak ASP.NET MVC, aby utworzyć naszą klasę DinnersController i wywoływać te metody? Aby zrozumieć, że Przyjrzyjmy się, jak działa Routing.
 
-### <a name="understanding-aspnet-mvc-routing"></a>Omówienie platformy ASP.NET MVC routingu
+### <a name="understanding-aspnet-mvc-routing"></a>Zrozumienie routingu ASP.NET MVC
 
-Platforma ASP.NET MVC zawiera zaawansowany aparat routingu adresów URL, który zapewnia dużą elastyczność w kontrolowaniu, jak adresy URL są mapowane do klas kontrolera. Pozwala dostosować sposób wybiera której klasy kontrolera, aby utworzyć, którą metodę należy wywoływać w nim, a także skonfigurować różne sposoby zmiennych można automatycznie pochodzącą z adresu URL/Querystring analizy i przekazywany do metody jako parametr w ASP.NET MVC argumenty. System ten zapewnia elastyczność całkowicie optymalizacji witryny pod kątem Wyszukiwarek (optymalizacji dla aparatów wyszukiwania), a także publikowanie dowolnego Struktura adresu URL, którą chcemy z aplikacji.
+ASP.NET MVC zawiera wydajny aparat routingu URL, który zapewnia dużą elastyczność kontroli nad sposobem mapowania adresów URL na klasy kontrolerów. Pozwala nam na całkowite dostosowanie sposobu, w jaki ASP.NET MVC wybiera klasę kontrolera do utworzenia, którą metodę należy wywołać, a także skonfigurować różne sposoby, aby zmienne mogły być automatycznie analizowane przy użyciu adresu URL/QueryString i przekazane do metody jako argumenty parametrów. Zapewnia elastyczną, aby całkowicie zoptymalizować lokację pod kątem funkcji optymalizacji aparatu wyszukiwania, a także opublikować dowolną strukturę adresów URL z aplikacji.
 
-Domyślnie nowe projekty ASP.NET MVC pochodzą ze zbiorem wstępnie skonfigurowanych reguł routingu adresów URL już zarejestrowany. Pozwala na łatwe wprowadzenie do aplikacji bez konieczności jawnego konfigurowania niczego. Rejestracje reguły routingu domyślnego można znaleźć w klasie "Aplikacja" z naszych projektów — które firma Microsoft można otworzyć przez dwukrotne kliknięcie pliku "Global.asax" w katalogu głównym w projekcie:
+Domyślnie nowe projekty ASP.NET MVC są dostarczane ze wstępnie skonfigurowanym zestawem reguł routingu adresów URL, które są już zarejestrowane. Dzięki temu można łatwo zacząć korzystać z aplikacji bez konieczności jawnego konfigurowania jakichkolwiek elementów. Rejestracje domyślnych reguł routingu można znaleźć w klasie "aplikacja" naszych projektów, którą można otworzyć przez dwukrotne kliknięcie pliku "Global. asax" w katalogu głównym naszego projektu:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image6.png)
 
-Domyślne reguły routingu platformy ASP.NET MVC są rejestrowane w metodzie "RegisterRoutes" tej klasy:
+Domyślne reguły routingu ASP.NET MVC są rejestrowane w metodzie "RegisterRoutes" tej klasy:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample2.cs)]
 
-"Trasy. MapRoute() "wywołania metody powyżej rejestruje domyślną regułę routingu, która mapuje przychodzących adresów URL do klas kontrolera, używając formatu adresu URL:" / {controller} / {action} / {id} "— w przypadku, gdy"controller"jest nazwą klasy kontrolera do utworzenia wystąpienia,"action"to nazwa publiczne metody do wywołania na i "id" jest parametrem opcjonalnym osadzone w adresie URL, który może być przekazywany jako argument do metody. Trzeci parametr przekazany do wywołania metody "MapRoute()" to zbiór wartości domyślne, aby używać wartości identyfikatora kontroler/akcji w przypadku, gdy nie są obecne w adresie URL (kontroler = "Home", Akcja = "Index", Id = "").
+"Trasy. Plik maproute () "wywołanie metody powyżej rejestruje domyślną regułę routingu, która mapuje przychodzące adresy URL na klasy kontrolerów przy użyciu formatu adresu URL:"/{Controller}/{Action}/{ID} "— gdzie" Controller "jest nazwą klasy kontrolera do wystąpienia," Akcja "jest nazwą metody publicznej do wywołania, a" ID "jest opcjonalnym parametrem osadzonym w adresie URL, który może być przekazaniem jako argument do metody. Trzeci parametr przesłany do wywołania metody "plik maproute ()" jest zestawem wartości domyślnych, które są używane dla wartości kontrolera/akcji/identyfikatora w przypadku, gdy nie występują w adresie URL (Controller = "Strona główna", Akcja = "indeks", identyfikator = "").
 
-Poniżej znajduje się tabela, która pokazuje, jak różne adresy URL są zamapowane przy użyciu domyślnego "<em>/ {kontrolerów} / {action} / {id}"</em>reguły trasy:
+Poniżej znajduje się tabela, która pokazuje, w jaki sposób różne adresy URL są mapowane przy użyciu domyślnej reguły trasy "<em>/{controllers}/{Action}/{ID}"</em>:
 
-| **Adres URL** | **Klasa kontrolera** | **Metody akcji** | **Parametry przekazane** |
+| **Adres URL** | **Klasa kontrolera** | **Action — Metoda** | **Parametry zakończone** |
 | --- | --- | --- | --- |
-| */ Kolacji/szczegóły/2* | DinnersController | Details(ID) | id=2 |
-| */ Kolacji/Edit/5* | DinnersController | Edit(ID) | id=5 |
-| */Dinners/Create* | DinnersController | Create() | Brak |
-| */ Kolacji* | DinnersController | Index() | Brak |
-| *Domowych* | HomeController | Index() | Brak |
-| */* | HomeController | Index() | Brak |
+| */Dinners/Details/2* | DinnersController | Szczegóły (identyfikator) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edytuj (identyfikator) | id=5 |
+| */Dinners/Create* | DinnersController | Utwórz () | N/D |
+| */Dinners* | DinnersController | Index() | N/D |
+| */Home* | HomeController | Index() | N/D |
+| */* | HomeController | Index() | N/D |
 
-Ostatnie trzy wiersze Pokaż wartości domyślne (kontroler = domu, akcja = indeks, identyfikator = "") używana. Ponieważ metoda "Index" jest zarejestrowany jako domyślnej nazwy akcji, jeśli nie jest określony, "/ kolacji" i "/ Home" Przyczyna adresy URL indeks() metody akcji do wywołania na ich klasy kontrolera. Ponieważ kontroler "Home" jest zarejestrowany jako domyślny kontroler, jeśli nie jest określony, adres URL "/" powoduje, że HomeController ma zostać utworzony i metody akcji indeks() go do wywołania.
+W ostatnich trzech wierszach są wyświetlane wartości domyślne (Controller = Home, Action = index, ID = ""). Ponieważ metoda "index" jest zarejestrowana jako domyślna nazwa akcji, jeśli nie jest określona, adresy URL "/Dinners" i "/Home" powodują wywoływanie metody akcji index () dla ich klas kontrolera. Ponieważ kontroler "Home" jest zarejestrowany jako kontroler domyślny, jeśli nie jest określony, adres URL "/" powoduje utworzenie HomeController oraz metodę akcji index (), która ma zostać wywołana.
 
-Jeśli nie potrzebujesz tych reguł routingu adresów URL domyślnego dobra wiadomość jest czy można łatwo zmienić — po prostu je edytować w metodzie RegisterRoutes powyżej. Dla naszej aplikacji NerdDinner, użyjemy nie zmienia żadnych reguł routingu adresów URL domyślnego — zamiast tego po prostu użyjemy ich jako-to.
+Jeśli nie chcesz, aby te domyślne reguły routingu adresów URL były łatwe do zmiany — wystarczy je edytować w powyższej metodzie RegisterRoutes. Mimo że nasza aplikacja NerdDinner nie zmienia żadnych domyślnych reguł routingu adresów URL, zamiast tego będziemy korzystać z nich w stanie takim, w jakim się znajdują.
 
-### <a name="using-the-dinnerrepository-from-our-dinnerscontroller"></a>Za pomocą DinnerRepository z naszych DinnersController
+### <a name="using-the-dinnerrepository-from-our-dinnerscontroller"></a>Korzystanie z DinnerRepository z naszej DinnersController
 
-Teraz Przyjrzyjmy zastąpić naszych bieżąca implementacja parametru DinnersController indeks() i Details() metody akcji przy użyciu implementacji, które używają nasz model.
+Zastąpmy teraz bieżącą implementację metod akcji index () DinnersController () i Details () z implementacjami korzystającymi z naszego modelu.
 
-Użyjemy klasy DinnerRepository wcześniej skompilowany Aby zaimplementować to zachowanie. Firma Microsoft będzie rozpocząć przez dodanie instrukcji "using", który odwołuje się do przestrzeni nazw "NerdDinner.Models", a następnie Zadeklaruj wystąpienie naszych DinnerRepository jako pole w klasie naszych DinnerController.
+Użyjemy wcześniej wbudowanej klasy DinnerRepository, aby zaimplementować zachowanie. Zaczniemy od dodania instrukcji "Using", która odwołuje się do przestrzeni nazw "NerdDinner. Models", a następnie zadeklaruj wystąpienie naszego DinnerRepository jako pole w naszej klasie DinnerController.
 
-Później w tym rozdziale utworzymy wprowadzono koncepcję "Wstrzykiwanie zależności" i pokazują nasze kontrolerów, aby uzyskać odwołanie do DinnerRepository, która umożliwia lepsze jednostki w inny sposób testowania — ale po prawej stronie teraz po prostu utworzymy wystąpienie naszych DinnerRepository wbudowane, podobnie jak poniżej.
+W dalszej części tego rozdziału wprowadzimy koncepcję "iniekcji zależności" i pokazano inny sposób, aby nasze kontrolery uzyskały odwołanie do DinnerRepository, które umożliwią lepsze testowanie jednostek — ale po prostu utworzymy wystąpienie naszego DinnerRepository w tekście poniżej.
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample3.cs)]
 
-Teraz możemy przystąpić do generowania odpowiedzi HTML, ponownie za pomocą naszych obiekty modelu pobrane dane.
+Teraz jesteśmy gotowi do wygenerowania odpowiedzi HTML z powrotem przy użyciu podanych obiektów modelu danych.
 
-### <a name="using-views-with-our-controller"></a>Korzystanie z widoków z kontrolera
+### <a name="using-views-with-our-controller"></a>Używanie widoków z naszym kontrolerem
 
-Choć jest możliwe do pisania kodu w ramach naszych metody akcji, aby złożyć HTML, a następnie użyj *Response.Write()* metody pomocnika do wysłania do klienta, że podejście staje się niewydolna dość szybko. Znacznie lepszym rozwiązaniem jest dla nas do wykonywania tylko aplikacji i danych logiki wewnątrz naszych DinnersController metody akcji, a następnie przekazać dane potrzebne do renderowania odpowiedzi HTML do szablonu oddzielnych "view", który jest odpowiedzialny za podawania reprezentacji w formacie HTML z niej. Jak zobaczymy za chwilę "view" szablonu jest plik tekstowy, który zawiera zazwyczaj kombinacją kod znaczników HTML i renderowania osadzonego kodu.
+Chociaż można napisać kod w naszych metodach działania, aby złożyć HTML, a następnie użyć metody pomocnika *Response. Write ()* w celu wysłania jej z powrotem do klienta, to podejście stanie się dość nieporęczny szybko. Znacznie lepszym rozwiązaniem jest tylko wykonywanie logiki aplikacji i danych w naszych metodach działania DinnersController, a następnie przekazywanie danych potrzebnych do renderowania odpowiedzi HTML do oddzielnego szablonu "widok", który jest odpowiedzialny za wyprowadzanie reprezentacji HTML z niego. Jak zobaczymy na chwilę, szablon "widok" jest plikiem tekstowym, który zwykle zawiera kombinację znaczników HTML i osadzonego kodu renderowania.
 
-Oddzielenie logiki naszych kontrolera od naszych renderowania widoku zapewnia kilka korzyści big Data. W szczególności ułatwia wymuszanie "separacji" między kodem aplikacji i kodem formatowanie renderowania interfejsu użytkownika. To ułatwia znacznie test jednostkowy logiki aplikacji w izolacji od logiki renderowania interfejsu użytkownika. Ułatwia on później zmodyfikować szablony renderowania interfejsu użytkownika, bez konieczności wprowadzania zmian w kodzie aplikacji. I jej może ułatwić dla deweloperów i projektantów, współpracę nad projektami.
+Rozdzielenie naszej logiki kontrolera od naszego renderowania widoku przynosi wiele korzyści. W szczególności pomaga wymusić wyraźne "oddzielenie obaw" między kodem aplikacji i formatowaniem interfejsu użytkownika/kodem renderowania. Dzięki temu można znacznie łatwiej przetestować logikę aplikacji w celu odizolowania od logiki renderowania interfejsu użytkownika. Ułatwia to późniejsze modyfikowanie szablonów renderowania interfejsu użytkownika bez konieczności wprowadzania zmian w kodzie aplikacji. Może to ułatwić deweloperom i projektantom współpracę wspólnie z projektami.
 
-Aktualizujemy nasze klasy DinnersController, aby wskazać, że chcemy użyć szablonu widoku do odesłania odpowiedzi interfejsu użytkownika HTML, zmieniając podpisy metod naszych metod akcji dwóch miał typ zwracany "void", aby zamiast tego zwracany typ "ActionResult". Następnie możemy wywołać *View()* metody pomocniczej dla klasy bazowej kontrolera do zwrócenia z powrotem do obiektu "ViewResult" takich jak:
+Możemy zaktualizować naszą klasę DinnersController, aby wskazać, że chcemy użyć szablonu widoku w celu wysłania odpowiedzi z powrotem do interfejsu użytkownika HTML, zmieniając sygnatury metod naszych dwóch metod akcji, z których ma zostać zwrócony typ "void", aby zamiast tego był typem zwracanym "ActionResult". Następnie możemy wywołać metodę pomocnika *View ()* w klasie podstawowej kontrolera w celu zwrócenia z powrotem obiektu "ViewResult", takiego jak poniżej:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample4.cs)]
 
-Podpis *View()* metodę pomocnika używamy powyżej wygląda jak poniżej:
+Sygnatura metody pomocnika *widoku ()* , z której korzystamy powyżej, wygląda jak poniżej:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image7.png)
 
-Pierwszy parametr *View()* metody pomocnika to nazwa pliku szablonu widoku, firma Microsoft ma być używany do renderowania odpowiedzi HTML. Drugi parametr jest obiektu modelu, który zawiera dane, które szablon widoku wymaga do renderowania odpowiedzi HTML.
+Pierwszy parametr do metody pomocnika *View ()* jest nazwą pliku szablonu widoku, który ma być używany do renderowania odpowiedzi html. Drugi parametr jest obiektem modelu, który zawiera dane, których wymaga szablon widoku w celu renderowania odpowiedzi HTML.
 
-W ramach naszych metody akcji indeks() dzwonimy *View()* metody pomocnika i wskazujący, że chcemy renderować HTML listę kolacji za pomocą szablonu usługi "Index" w widoku. Firma Microsoft kończy się sukcesem szablon widoku sekwencji obiektów obiad do generowania listy od:
+W naszej metodzie działania indeksu () wywoływana jest metoda pomocnika *widoku ()* i wskazująca, że chcemy renderować listę z obiadów HTML przy użyciu szablonu widoku "index" (indeks). Przekazujemy szablon widoku z sekwencją obiektów obiadu, aby wygenerować listę z:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample5.cs)]
 
-W ramach naszych Details() metody akcji, kolejna próba pobrania obiektu obiad przy użyciu identyfikatora podana w adresie URL. Jeśli zostanie znaleziony prawidłowy obiad, nazywamy *View()* metody pomocnika, wskazujący, chcemy renderowania pobrano obiekt obiad przy użyciu szablonu widoku "Szczegóły". Jeśli wymagana jest nieprawidłowa obiad, firma Microsoft renderowania przydatne komunikat o błędzie oznacza, że Dinner nie istnieje, przy użyciu szablonu widoku "NotFound" (i przeciążoną wersję *View()* metody pomocnika, która po prostu przyjmuje nazwę szablonu ):
+W naszej metodzie akcji () podjęto próbę pobrania obiektu obiadu przy użyciu identyfikatora podanego w adresie URL. Jeśli zostanie znaleziony prawidłowy obiad, wywołamy metodę pomocnika *View ()* , wskazując, że chcemy użyć szablonu widoku "Szczegóły" w celu renderowania pobranego obiektu obiadu. Jeśli zażądano nieprawidłowego obiadu, zostanie wyświetlony komunikat o błędzie informujący o tym, że obiad nie istnieje przy użyciu szablonu widoku "NotFound" (i przeciążonej wersji metody pomocnika *View ()* , która po prostu przyjmuje nazwę szablonu):
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample6.cs)]
 
-Przejdźmy teraz wdrożyć Przeglądanie szablonów "NotFound", "Szczegóły" i "Index".
+Zaimplementujmy teraz szablony widoków "NotFound", "Details" i "index".
 
-### <a name="implementing-the-notfound-view-template"></a>Implementowanie "NotFound" Wyświetl szablon
+### <a name="implementing-the-notfound-view-template"></a>Implementowanie szablonu widoku "NotFound"
 
-Rozpocznie się dzięki wdrożeniu Wyświetl szablon "NotFound" — która wyświetla komunikat z przyjazną błąd wskazujący, że nie można znaleźć żądanej firmy dinner.
+Zaczniemy od implementacji szablonu widoku "NotFound" — który wyświetla przyjazny komunikat o błędzie informujący o tym, że nie można znaleźć żądanego obiadu.
 
-Utworzymy nowy szablon widoku, ustawiając kursor naszych tekstu w obrębie metody akcji kontrolera, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie menu "Dodaj widok" (Firma Microsoft może również wykonywania tego polecenia, wpisując Ctrl-M, Ctrl-V):
+Utworzymy nowy szablon widoku poprzez rozmieszczenie kursora tekstu w ramach metody akcji kontrolera, a następnie kliknięcie prawym przyciskiem myszy i wybranie polecenia menu "Dodaj widok" (można również wykonać to polecenie, wpisując CTRL-M, Ctrl-V):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image8.png)
 
-Zostanie wyświetlone okno dialogowe "Dodaj widok", takich jak poniżej. Domyślnie okno dialogowe zostanie wstępnie wprowadzona nazwa widoku, aby utworzyć dopasowany do nazwy metody akcji kursor w momencie tworzenia okna dialogowego została uruchomiona (w tym przypadku "Szczegóły"). Ponieważ chcemy najpierw zaimplementować w szablonie "NotFound", utworzymy przesłaniania tej nazwy widoku i ustawić go jako zamiast "NotFound":
+Spowoduje to wyświetlenie okna dialogowego "Dodawanie widoku", takiego jak poniżej. Domyślnie okno dialogowe spowoduje wstępne wypełnienie nazwy widoku, który zostanie utworzony w celu dopasowania do nazwy metody akcji, w której znajduje się kursor, gdy okno dialogowe zostało uruchomione (w tym przypadku "Szczegóły"). Ponieważ chcemy najpierw zaimplementować szablon "NotFound", przesłonimy tę nazwę widoku i ustawimy ją jako "NotFound":
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image9.png)
 
-Kliknięcie przycisku "Dodaj", programu Visual Studio Utwórz nowy szablon widoku "NotFound.aspx" dla nas w katalogu "\Views\Dinners" (co spowoduje również utworzenie, jeśli katalog nie istnieje):
+Po kliknięciu przycisku "Dodaj" program Visual Studio utworzy nowy szablon widoku "NotFound. aspx" dla nas w katalogu "\Views\Dinners" (który również zostanie utworzony, jeśli katalog jeszcze nie istnieje):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image10.png)
 
-Otworzy się również się nasz nowy szablon widoku "NotFound.aspx" w edytorze kodu:
+Zostanie również otwarty nasz nowy szablon widoku "NotFound. aspx" w edytorze kodu:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image11.png)
 
-Wyświetl szablony domyślne mają dwa "zawartości regiony" gdzie możemy dodać treści i kodu. Pierwsza z nich umożliwia nam dostosować "title" strony HTML wysyłanych z powrotem. Drugi pozwala nam dostosować "głównego zawartość" strony HTML wysyłanych z powrotem.
+Widok szablony domyślnie ma dwa "regiony zawartości", w których można dodać zawartość i kod. Po pierwsze pozwala nam dostosować "tytuł" strony HTML wysłanej z powrotem. Druga pozwala na dostosowanie "głównej zawartości strony HTML wysłanej z powrotem.
 
-Do zaimplementowania naszych "NotFound" Wyświetl szablon dodamy niektóre podstawowe elementy:
+Aby zaimplementować nasz szablon widoku "NotFound", dodamy zawartość podstawową:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample7.aspx)]
 
-Firma Microsoft mogą następnie korzystać z niego w przeglądarce. W tym celu możemy żądania *"/ kolacji/szczegóły/9999"* adresu URL. Ten będzie odnosił się do obiad, obecnie nie istnieje w bazie danych, która spowoduje, że nasze metody akcji DinnersController.Details() do renderowania naszych "NotFound" Wyświetl szablon:
+Możemy to zrobić w przeglądarce. Aby to umożliwić, zażądaj adresu URL *"/Dinners/Details/9999"* . Odnosi się to do obiadu, który nie istnieje w bazie danych i spowoduje, że metoda akcji DinnersController. Details () będzie renderować nasz szablon widoku "NotFound":
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image12.png)
 
-Jedyną operacją, której można zauważyć na zrzucie ekranu powyżej jest, że szablon widoku podstawowym odziedziczył wiele kod HTML, który otacza głównej zawartości na ekranie. Jest to spowodowane nasz szablon widoku używa szablonu "strony wzorcowej", która umożliwia nam zastosowanie spójnego układu we wszystkich widokach w witrynie. Omówimy, jak strony wzorcowe pracy więcej w dalszej części tego samouczka.
+W tym celu należy zauważyć, że na powyższym zrzucie ekranu jest to, że nasz podstawowy szablon widoku dziedziczy zbiór kodu HTML, który otacza główną zawartość na ekranie. Wynika to z faktu, że nasz szablon widoku używa szablonu "Strona główna", który umożliwia nam stosowanie spójnego układu we wszystkich widokach w witrynie. Będziemy omawiać, jak strony wzorcowe pracują więcej w dalszej części tego samouczka.
 
-### <a name="implementing-the-details-view-template"></a>Implementowanie "Szczegóły" Wyświetl szablon
+### <a name="implementing-the-details-view-template"></a>Implementowanie szablonu widoku "Szczegóły"
 
-Przejdźmy teraz wdrożyć szablonie widok "Szczegóły" — zostanie generują kod HTML dla pojedynczego modelu obiad.
+Teraz zaimplementujmy szablon widoku "Szczegóły", który będzie generował kod HTML dla pojedynczego modelu obiadu.
 
-Firma Microsoft będzie to zrobić, ustawiając kursor naszych tekstu w obrębie szczegóły metody akcji, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie "Dodaj widok" (lub naciśnij klawisze Ctrl-M, Ctrl-V):
+Zajmiemy się tym rozmieszczeniem kursora tekstu w metodzie akcji Details, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie menu "Dodaj widok" (lub naciśnij klawisze CTRL-M, Ctrl-V):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image13.png)
 
-Zostanie wyświetlone okno dialogowe "Dodaj widok". Zachowamy nazwę widoku domyślnego ("szczegóły"). Firma Microsoft będzie również zaznaczyć pole wyboru "Utwórz widok silnie typizowane" w oknie dialogowym i wybierz (przy użyciu listy rozwijanej pola kombi) nazwę typu modelu, który możemy przechodzi z kontrolera do widoku. Dla tego widoku możemy przekazanie obiektu obiad (w pełni kwalifikowana nazwa dla tego typu to: "NerdDinner.Models.Dinner"):
+Spowoduje to wyświetlenie okna dialogowego "Dodawanie widoku". Zachowamy domyślną nazwę widoku ("Szczegóły"). Zaznaczmy również pole wyboru "Utwórz widok z silną nazwą" w oknie dialogowym, a następnie wybierz (przy użyciu listy rozwijanej ComboBox) nazwę typu modelu przekazywanego z kontrolera do widoku. W tym widoku przekazujemy obiekt obiadu (w pełni kwalifikowana nazwa tego typu to: "NerdDinner. models. obiad"):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image14.png)
 
-W przeciwieństwie do poprzednich szablonu, gdzie wybrano utworzyć "Pusty widok", tym razem, którymi firma Microsoft będzie automatycznie "tworzenia szkieletu" widok przy użyciu szablonu "Szczegóły". Firma Microsoft może wskazywać, zmieniając "Wyświetl zawartość" listy rozwijanej w oknie dialogowym powyżej.
+W przeciwieństwie do poprzedniego szablonu, w przypadku wybrania opcji utworzenia "pustego widoku" ten czas zostanie wybrany automatycznie "szkieletem" dla widoku przy użyciu szablonu "Szczegóły". Możemy to potwierdzić, zmieniając listę rozwijaną "Wyświetl zawartość" w oknie dialogowym powyżej.
 
-"Tworzenia szkieletów" spowoduje wygenerowanie początkowej wdrożenia na podstawie obiektu obiad, firma Microsoft jest przekazanie do niego szablon widoku szczegółów. Zapewnia to prosty sposób nam na szybkie rozpoczęcie pracy w naszej implementacji szablonu widoku.
+"Rusztowanie" spowoduje wygenerowanie początkowej implementacji naszego szablonu widoku szczegółów na podstawie obiektu obiadu, który przekazujemy do niego. Zapewnia to łatwy sposób na szybkie rozpoczęcie pracy nad implementacją szablonu widoku.
 
-Kliknięcie przycisku "Dodaj", Visual Studio utworzy nowy plik szablonu widoku "Details.aspx" nam naszym katalogu "\Views\Dinners":
+Po kliknięciu przycisku "Dodaj" program Visual Studio utworzy nowy plik szablonu widoku "Szczegóły. aspx" dla nas w katalogu "\Views\Dinners":
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image15.png)
 
-Otworzy się również się nasz nowy szablon widoku "Details.aspx" w edytorze kodu. Będzie zawierać implementację szkieletu początkowa widoku szczegółów, oparte na modelu obiad. Aparat tworzenia szkieletów używa odbicia .NET, aby wyświetlić właściwości publicznej, widoczne w klasie przekazano go, a spowoduje to dodanie odpowiedniej zawartości na podstawie każdego typu, który odnajdzie:
+Zostanie również otwarty nasz nowy szablon widoku "Szczegóły. aspx" w edytorze kodu. Będzie zawierać wstępną implementację szkieletu widoku szczegółów na podstawie modelu obiadu. Aparat tworzenia szkieletów używa odbicia platformy .NET, aby przyjrzeć się właściwościom publicznym narażonym na klasę przekazaną i dodać odpowiednią zawartość w oparciu o każdy znaleziony typ:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample8.aspx)]
 
-Firma Microsoft może zażądać *"/ 1/szczegóły/kolacji"* adresu URL, aby zobaczyć, jak wygląda tej implementacji szkieletu "szczegóły" w przeglądarce. Przy użyciu tego adresu URL, zostanie wyświetlony jeden z kolacji, zapoczątkowany ręcznie naszej bazie danych wtedy stworzyliśmy najpierw:
+Możemy zażądać adresu URL *"/Dinners/Details/1"* , aby sprawdzić, jak wygląda implementacja szkieletu "Szczegóły" w przeglądarce. Użycie tego adresu URL spowoduje wyświetlenie jednego z obiadów, które zostały ręcznie dodane do naszej bazy danych po jej utworzeniu:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image16.png)
 
-Pobiera nam szybko uruchamiać wdrożenia i zapewnia nam za pomocą początkowego stosowania naszych widok Details.aspx. Firma Microsoft następnie go i dostosować go dostosować interfejsu użytkownika, zgodnie z wymaganiami naszych.
+Pozwala to na szybkie uruchamianie i wykonywanie wstępnych implementacji naszego widoku szczegółów. aspx. Możemy następnie przejść i dopasować go, aby dostosować interfejs użytkownika do naszego zadowolenia.
 
-Gdy spojrzymy na szablon Details.aspx dokładniej, firma Microsoft znajdują się aby go statyczny kod HTML zawiera także osadzone w kodzie. &lt;%%&gt; nuggets kodu wykonanie kodu, gdy szablon widoku renderuje, i &lt;% = %&gt; nuggets kodu wykonywania kodu zawartych w nich i następnie renderowania wynik w strumieniu wyjściowym szablonu.
+Gdy sprawdzimy szablon szczegóły. aspx dokładniej, zobaczymy, że zawiera on statyczny kod HTML, a także osadzony kodu renderowania. &lt;%%&gt; kod wykonywania kodu Nuggets, gdy renderuje szablon widoku i &lt;% =%&gt; kod Nuggets wykonywania zawartego w nich kodu, a następnie Renderuj wynik do strumienia wyjściowego szablonu.
 
-W naszym widoku, który uzyskuje dostęp do obiektu modelu "Obiad", który został przekazany z naszych kontrolera, używając właściwości "Model" silnie typizowane, możemy napisać kod. Program Visual Studio zapewnia pełny kod funkcji intellisense podczas uzyskiwania dostępu do tej właściwości "Model" w edytorze:
+Możemy napisać kod w naszym widoku, który uzyskuje dostęp do obiektu modelu "obiad", który został przesłany przez nasz kontroler przy użyciu właściwości "model" o jednoznacznie określonym typie. Program Visual Studio udostępnia nam pełny kod — IntelliSense podczas uzyskiwania dostępu do tej właściwości "model" w edytorze:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image17.png)
 
-Upewnijmy się dostosowaliśmy, tak aby źródła dla naszych ostateczny szablon widoku szczegółów wygląda jak poniżej:
+Wprowadźmy kilka dostosowań, aby źródło dla naszego końcowego szablonu widoku szczegółów wyglądało jak poniżej:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample9.aspx)]
 
-Podczas dostępu do *"/ 1/szczegóły/kolacji"* adresu URL ponownie będzie teraz renderowania, takich jak poniżej:
+Gdy będziemy ponownie uzyskiwać dostęp do adresu URL *"/Dinners/Details/1"* , będzie on teraz renderowany w następujący sposób:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image18.png)
 
-### <a name="implementing-the-index-view-template"></a>Implementowanie "Index" Wyświetl szablon
+### <a name="implementing-the-index-view-template"></a>Implementowanie szablonu widoku "index"
 
-Przejdźmy teraz wdrożyć szablon widoku "Index" — która generuje listę nadchodzących kolacji. Zadanie do wykonania, to firma Microsoft będzie umieść kursor naszych tekstu w metodzie akcji indeksu, a następnie kliknij prawym przyciskiem myszy kliknij polecenie menu "Dodaj widok" (lub naciśnij klawisze Ctrl-M, Ctrl-V).
+Teraz zaimplementujmy szablon widoku "index", który spowoduje wygenerowanie listy przyszłych obiadów. Aby to zrobić, zmienimy kursor tekstowy w ramach metody akcji index, a następnie kliknij prawym przyciskiem myszy i wybierz polecenie menu "Dodaj widok" (lub naciśnij klawisze CTRL-M, Ctrl-V).
 
-W oknie dialogowym "Dodaj widok" Firma Microsoft nadal Wyświetl szablon o nazwie "Index" i zaznacz pole wyboru "Utwórz widok silnie typizowane". Tym razem wybierzemy automatycznie Generuj szablon widoku "List" i wybierz pozycję "NerdDinner.Models.Dinner" jako typ modelu przekazywane do widoku (który ponieważ został wskazany, tworzymy "List" szkieletu spowoduje, że okno dialogowe Dodaj widok założył, firma Microsoft przekazywanie sekwencji obiektów obiad z kontrolera do widoku):
+W oknie dialogowym "Dodawanie widoku" zachowasz szablon widoku o nazwie "index" i wybierzesz pole wyboru "Utwórz widok o jednoznacznie określonym typie". Tym razem wybierzemy automatyczne wygenerowanie szablonu widoku "list" i wybranie "NerdDinner. models. obiad" jako typu modelu przekazana do widoku (który wskazuje, że tworzysz szkielet "list", spowoduje to, że w oknie dialogowym Dodawanie widoku zostanie założono, że przekazywanie sekwencji obiektów obiadu z naszego kontrolera do widoku):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image19.png)
 
-Kliknięcie przycisku "Dodaj", Visual Studio utworzy nowy plik szablonu "Index.aspx" Widok nam naszym katalogu "\Views\Dinners". Jej będzie "tworzenia szkieletu" początkowej implementacji znajdujący się w nim zapewniająca HTML zapoznać się z dostępnymi kolacji przekażemy do widoku.
+Po kliknięciu przycisku "Dodaj" program Visual Studio utworzy nowy plik szablonu widoku "index. aspx" dla nas w katalogu "\Views\Dinners". W tym celu zostanie wyświetlona wstępna implementacja szkieletu, która zawiera tabelę HTML zawierającą uroczyste obiady do widoku.
 
-Firma Microsoft uruchamiania aplikacji i dostępu *"/ kolacji /"* renderowanie zostanie przeprowadzone w naszej listy kolacji adresu URL w następujący sposób:
+Po uruchomieniu aplikacji i otrzymaniu dostępu do adresu URL *"/Dinners/"* zostanie wyrenderowana nasza lista obiadów, takich jak:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image20.png)
 
-Rozwiązanie tabeli powyżej daje nam układu siatki w naszych danych obiad — nie jest dość chcemy dla naszych klientów, połączonego z listy obiad. Firma Microsoft może zaktualizować szablon widoku Index.aspx i zmodyfikuj je listy mniejszą liczbę kolumn danych, a następnie użyć &lt;ul&gt; element do renderowania je zamiast tabeli za pomocą poniższego kodu:
+Powyższe rozwiązanie tabeli umożliwia nam tworzenie układu przypominającego siatkę naszych danych obiadu — co nie jest dość potrzebne dla naszej listy obiadów z klientem. Możemy zaktualizować szablon widoku index. aspx i zmodyfikować go w taki sposób, aby wyświetlał mniejszą liczbę kolumn danych, i użyć elementu &lt;ul&gt;, aby renderować je zamiast tabeli przy użyciu poniższego kodu:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample10.aspx)]
 
-Używamy słowa kluczowego "var" w ramach powyższych instrukcji foreach, ponieważ jest używana pętla nad każdym obiad w naszym modelu. Te zaznajomiony z języka C# 3.0 wydaje się, że za pomocą "var" oznacza, że obiekt obiad z późnym wiązaniem. Zamiast tego oznacza, że kompilator używa wnioskowanie o typie względem silnie typizowane właściwości "Model" (czyli typu "IEnumerable&lt;obiad&gt;") i kompilowanie zmiennej lokalnej "obiad" jako typu Dinner — oznacza, że uzyskujemy pełną funkcja IntelliSense i kompilacji, szukanie wewnątrz bloków kodu:
+Używamy słowa kluczowego "var" w powyższej instrukcji foreach, ponieważ pętla każdego obiadu w naszym modelu. Osoby nieznające C# 3,0 mogą myśleć, że użycie "var" oznacza, że obiekt obiadu jest opóźniony. Zamiast tego oznacza, że kompilator używa wnioskowania typu względem właściwości "model" o jednoznacznie określonym typie, czyli typu "IEnumerable&lt;obiad&gt;") i kompilowania lokalnej zmiennej "obiad" jako typu obiadu, co oznacza, że w blokach kodu zostanie wypełniona pełna funkcja IntelliSense i sprawdzanie czasu kompilacji:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image21.png)
 
-Gdy odświeżymy */Dinners* adresu URL w przeglądarce, nasze naszych wygląda teraz zaktualizować widok, takich jak poniżej:
+Po trafieniu na adres URL */Dinners* w naszej przeglądarce nasz zaktualizowany widok wygląda teraz następująco:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image22.png)
 
-To wygląda lepiej —, ale nie jest całkowicie istnieje jeszcze. Nasze ostatnim krokiem jest umożliwienie użytkownikom końcowym kliknij poszczególne kolacji na liście i zobaczyć szczegółowe informacje o nich. Firma Microsoft będzie implementowana przez renderowaniu elementów HTML hiperłącze, które łącze do metody akcji szczegółowe informacje na naszym DinnersController.
+Jest to dokładniejsze wyszukiwanie, ale nie jest jeszcze w całości. Ostatnim krokiem jest umożliwienie użytkownikom końcowym klikania poszczególnych obiadów na liście i wyświetlania szczegółowych informacji o nich. Zaimplementujemy to przez renderowanie elementów hiperłączy HTML, które łączą się z metodą akcji szczegółów w naszym DinnersController.
 
-Firma Microsoft może generować te hiperłącza w naszym widoku indeksu w jednej z dwóch sposobów. Pierwsza to ręczne tworzenie HTML &lt;&gt; elementów, takich jak poniżej, gdzie wbudowaliśmy &lt;%%&gt; blokuje w ramach &lt;&gt; elementu HTML:
+Można generować te hiperłącza w naszym widoku indeksu na jeden z dwóch sposobów. Pierwszym z nich jest ręczne utworzenie kodu HTML &lt;&gt; elementy, takie jak poniżej, gdzie osadzamy &lt;%%&gt; bloków w &lt;&gt; elementu HTML:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image23.png)
 
-Inną metodą, możemy użyć jest z zalet wbudowane metody pomocnika "Html.ActionLink()" w ramach platformy ASP.NET MVC, który obsługuje programowe tworzenie kodu HTML &lt;&gt; element, który stanowi łącze do innej metody akcji w Kontroler:
+Alternatywnym podejściem, którego można użyć, jest skorzystanie z wbudowanej metody pomocnika "html. ActionLink ()" w ramach ASP.NET MVC, która obsługuje Programistyczne tworzenie kodu HTML &lt;element&gt;, który łączy się z inną metodą akcji na kontrolerze:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample11.aspx)]
 
-Pierwszy parametr do metody pomocnika Html.ActionLink() jest tekst łącza do wyświetlenia (w tym przypadku tytuł dinner), drugi parametr jest nazwa akcji kontrolera, chcemy, aby wygenerować łącze do (w tym przypadku metoda szczegóły), a trzeci parametr jest zestaw parametrów do wysłania do akcji (zaimplementowane jako anonimowy typ o wartości nazwy właściwości). W tym przypadku jest określenie parametru "id" obiad możemy chcesz się połączyć, a ponieważ domyślny routing adresów URL reguły we wzorcu ASP.NET MVC jest "{Controller} / {Action} / {id}" metody pomocnika Html.ActionLink() wygeneruje następujące wyniki:
+Pierwszy parametr do pliku HTML. ActionLink () — metoda pomocnika to tekst linku do wyświetlenia (w tym przypadku tytuł obiadu), drugi parametr to nazwa akcji kontrolera, do której chcemy wygenerować łącze (w tym przypadku Metoda Details), a trzeci parametr to zestaw parametrów do wysłania do akcji (zaimplementowany jako typ anonimowy przy użyciu nazwy właściwości/wartości). W tym przypadku określamy parametr "ID" obiadu, z którym chcemy się połączyć, a ponieważ domyślna reguła routingu adresu URL w ASP.NET MVC to "{Controller}/{Action}/{id}" metoda pomocnika html. ActionLink () generuje następujące dane wyjściowe:
 
 [!code-html[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample12.html)]
 
-Nasze widoku Index.aspx firma Microsoft podejście metody pomocnika Html.ActionLink() i mieć każdego obiad łącza listy odpowiednie szczegóły adres URL:
+W naszym widoku index. aspx będziemy używać metody pomocnika html. ActionLink () i mieć każdy obiad na liście w linku do odpowiedniego adresu URL szczegółów:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample13.aspx)]
 
-A teraz, gdy firma Microsoft trafiony */Dinners* adres URL listy obiad wygląda jak poniżej:
+A teraz, gdy trafimy adres URL */Dinners* , nasz list obiadu wygląda następująco:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image24.png)
 
-Po kliknięciu dowolnego kolacji na liście przejdziemy szczegółowe informacje na ten temat:
+Po kliknięciu dowolnego obiadu na liście będziemy przeglądać szczegółowe informacje na jego temat:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image25.png)
 
-### <a name="convention-based-naming-and-the-views-directory-structure"></a>Oparty na konwencji nazewnictwa i struktury katalogów \Views
+### <a name="convention-based-naming-and-the-views-directory-structure"></a>Nazewnictwo oparte na konwencji i struktura katalogów \Views
 
-Aplikacje platformy ASP.NET MVC domyślnie za katalog oparty na Konwencji strukturę nadawania nazw podczas rozpoznawania Przeglądanie szablonów. Umożliwia to deweloperom uniknąć konieczności pełnej kwalifikacji ścieżka lokalizacji podczas odwoływania się do widoków z w obrębie klasy kontrolera. Domyślnie platformy ASP.NET MVC będzie szukać pliku szablonu widoku w * \Views\[ControllerName]\* katalogu poniżej aplikacji.
+ASP.NET aplikacje MVC domyślnie wykorzystują strukturę nazewnictwa katalogu na podstawie Konwencji podczas rozpoznawania szablonów widoków. Dzięki temu deweloperzy nie muszą w pełni kwalifikować ścieżki lokalizacji podczas odwoływania się do widoków z poziomu klasy kontrolera. Domyślnie ASP.NET MVC szuka pliku szablonu widoku znajdującego się w katalogu * \Views\[ControllerName\*] pod aplikacją.
 
-Na przykład mamy pracowano klasy DinnersController — która jawnie odwoływać się do trzech Przeglądanie szablonów: "Index", "Szczegóły" i "NotFound". ASP.NET MVC domyślnie wyszuka tych widoków w obrębie *\Views\Dinners* katalogu poniżej nasz katalog główny aplikacji:
+Na przykład pracujemy nad klasą DinnersController — która jawnie odwołuje się do trzech szablonów widoków: "index", "Details" i "NotFound". ASP.NET MVC będzie domyślnie szukać tych widoków w katalogu *\Views\Dinners* pod naszym katalogiem głównym aplikacji:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image26.png)
 
-Zwróć uwagę, powyżej jak tam są obecnie dostępne trzy klasy kontrolera w projekcie (DinnersController, HomeController i elementu AccountController — ostatnie dwa dodano domyślnie podczas tworzenia projektu), istnieją trzy podkatalogi (po jednym dla każdego Kontroler) w katalogu \Views.
+Zwróć uwagę na to, że istnieją trzy klasy kontrolera w projekcie (DinnersController, HomeController i elementu AccountController — ostatnie dwa zostały dodane domyślnie podczas tworzenia projektu), a istnieją trzy podkatalogi (po jednym dla każdej kontroler) w katalogu \Views.
 
-Widoki odwoływać się z główną i kont kontrolerów automatycznie rozwiąże ich Przeglądanie szablonów z odpowiednich *\Views\Home* i *\Views\Account* katalogów. *\Views\Shared* podkatalogu zapewnia sposób przechowywania Przeglądanie szablonów, które są ponownie używane w obrębie wielu kontrolerów w aplikacji. Gdy platformy ASP.NET MVC próbuje rozpoznać szablonu widoku, najpierw będzie sprawdzać w ramach *\Views\[kontrolera]* określonego katalogu i nie można znaleźć Wyświetl szablon zostanie ona wyszukana w ramach *\Views\ Udostępnione* katalogu.
+Widoki z odwołaniami z kontrolerów głównych i kont automatycznie rozwiązują szablony widoków z odpowiednich katalogów *\Views\Home* i *\Views\Account* . Podkatalog *\Views\Shared* umożliwia przechowywanie szablonów widoków, które są ponownie używane na wielu kontrolerach w aplikacji. Gdy ASP.NET MVC próbuje rozpoznać szablon widoku, najpierw sprawdzi w określonym katalogu *\Views\[Controller]* i jeśli nie może znaleźć szablonu widoku, będzie wyglądał w katalogu *\Views\Shared* .
 
-Jeśli chodzi o nazw poszczególnych Przeglądanie szablonów, zalecane wskazówki jest Wyświetl szablon ma taką samą nazwę jak metody akcji, który spowodował jego renderowania. Na przykład powyżej naszych "Index" metody akcji jest przy użyciu widoku "Index" do renderowania wynik widoku, a metody akcji "Szczegóły" jest w widoku "Szczegóły" do renderowania wyniki. Ułatwia to szybko wyświetlić szablon, który jest skojarzony z każdej akcji.
+Gdy przyjdzie do nazewnictwa poszczególnych szablonów widoków, zalecaną wskazówką jest udostępnienie szablonu widoku tej samej nazwy co metoda działania, która spowodowała renderowanie. Na przykład powyżej nasza metoda działania "index" używa widoku "index", aby renderować wynik widoku, a metoda akcji "Szczegóły" używa widoku "Szczegóły", aby renderować wyniki. Dzięki temu można łatwo szybko sprawdzić, który szablon jest skojarzony z poszczególnymi akcjami.
 
-Deweloperzy nie muszą jawnie określ nazwę szablonu widoku, gdy szablon widoku ma taką samą nazwę jak metoda akcji wywoływanej na kontrolerze. Możemy zamiast tego po prostu przekazać obiekt modelu do metody pomocnika "View()" (bez określenia nazwy widoku) i platformy ASP.NET MVC zostanie automatycznie wywnioskować, że chcemy użyć *\Views\[ControllerName]\[ActionName]* Wyświetl szablon na dysku, aby go renderować.
+Deweloperzy nie muszą jawnie określać nazwy szablonu widoku, gdy szablon widoku ma taką samą nazwę jak Metoda akcji wywoływana na kontrolerze. Zamiast tego można przekazać obiekt modelu do metody pomocnika "View ()" (bez określenia nazwy widoku), a ASP.NET MVC automatycznie wywnioskuje, że chcemy użyć *\Views\[ControllerName]\[ActionName]* Wyświetl szablon na dysku, aby go renderować.
 
-Pozwoli to nam trochę wyczyścić naszego kodu kontrolera i uniknąć duplikowania nazwa dwa razy w naszym kodzie:
+Dzięki temu możemy czyścić kod kontrolera nieco trochę i uniknąć duplikowania nazwy dwukrotnie w naszym kodzie:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample14.cs)]
 
-Powyższy kod to wszystkie, które jest niezbędne do zaimplementowania nieuprzywilejowany lista obiad/szczegóły środowiska dla witryny.
+Powyższym kodem jest wszystko, co jest konieczne do zaimplementowania w celu uzyskania szczegółowych informacji o tym, jak to działa.
 
 #### <a name="next-step"></a>Następny krok
 
-W efekcie powstał obiad dobre rozwiązanie, przeglądania Internetu skompilowane.
+Teraz masz wbudowaną funkcję przeglądania obiadu.
 
-Przejdźmy teraz włączyć obsługę edytowania formularza danych CRUD (tworzenia, odczytu, Update, Delete).
+Teraz Włącz obsługę edycji formularzy danych w programie CRUD (tworzenie, odczytywanie, aktualizowanie, usuwanie).
 
 > [!div class="step-by-step"]
 > [Poprzednie](build-a-model-with-business-rule-validations.md)

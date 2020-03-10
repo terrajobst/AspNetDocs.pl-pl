@@ -1,355 +1,355 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: Wprowadzenie do składnika ASP.NET Web Pages — podstawy programowania | Dokumentacja firmy Microsoft
+title: Wprowadzenie do stron sieci Web ASP.NET — Podstawy programowania | Microsoft Docs
 author: Rick-Anderson
-description: 'W tym samouczku przedstawiono omówienie jak do programu ASP.NET Web Pages o składni Razor. Zawartość: Podstawowej składni "Razor" używaną dla żądania ściągnięcia...'
+description: 'Ten samouczek zawiera omówienie sposobu programowania programu na stronach sieci Web ASP.NET za pomocą składnia Razor. Dowiesz się: podstawowa składnia "Razor" używana dla żądania ściągnięcia...'
 ms.author: riande
 ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
 ms.openlocfilehash: 474de7671ac2931e5ba9ff635d77385403644521
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130512"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628479"
 ---
-# <a name="introducing-aspnet-web-pages---programming-basics"></a>Wprowadzenie do wzorca ASP.NET Web Pages — podstawy programowania
+# <a name="introducing-aspnet-web-pages---programming-basics"></a>Wprowadzenie do stron sieci Web ASP.NET — Podstawy programowania
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym samouczku przedstawiono omówienie jak do programu ASP.NET Web Pages o składni Razor.
+> Ten samouczek zawiera omówienie sposobu programowania programu na stronach sieci Web ASP.NET za pomocą składnia Razor.
 > 
 > Zawartość:
 > 
-> - Podstawowa składnia "Razor", używanej do programowania w produkcie ASP.NET Web Pages.
-> - Niektóre podstawowe języka C#, czyli języka programowania, które będą używane.
-> - Niektóre podstawowe pojęcia dotyczące programowania dla stron sieci Web.
-> - Jak zainstalować pakiety (składniki, które zawierają wstępnie kodu) za pomocą witryny.
+> - Podstawowa składnia "Razor", która jest używana do programowania na stronach sieci Web ASP.NET.
+> - Podstawowe C#, czyli język programowania, którego będziesz używać.
+> - Niektóre podstawowe koncepcje programowania dla stron sieci Web.
+> - Jak zainstalować pakiety (składniki zawierające wstępnie skompilowany kod) do użycia z witryną programu.
 > - Jak używać *pomocników* do wykonywania typowych zadań programistycznych.
 >   
 > 
-> Funkcje/technologie omówione:
+> Omówione funkcje/technologie:
 > 
-> - I Menedżer pakietów NuGet.
-> - `Gravatar` Pomocnika.
+> - Narzędzia NuGet i Menedżer pakietów.
+> - Pomocnik `Gravatar`.
 
-Niniejszy samouczek jest głównie w ramach ćwiczenia w wprowadzenie do programowania składni, którego będziesz używać dla stron ASP.NET Web Pages. Poznasz *składni Razor* i język programowania kodu, który został napisany w języku C#. Masz możliwość wypróbowania tej składni w poprzednim samouczku; w tym samouczku wyjaśnimy więcej składni.
+Ten samouczek jest przede wszystkim celem wprowadzenia do składni programowania, która będzie używana dla stron sieci Web ASP.NET. Dowiesz się więcej na temat *składnia Razor* i kodu, który jest C# pisany w języku programowania. Możliwość wypróbowania innowacyjnego tę składnię w poprzednim samouczku; w tym samouczku wyjaśnimy składnię więcej.
 
-Gwarantujemy, że ten samouczek obejmuje większość programowania zobaczysz w pojedynczej instrukcji i jest jedynym samouczek, który jest *tylko* o programowaniu. W pozostałych samouczków w tym zestawie faktycznie utworzysz stron, które wykonują ciekawe rzeczy.
+Firma Microsoft gwarantuje, że ten samouczek obejmuje większość programowania, które zobaczysz w jednym samouczku i *że jest to jedyny samouczek dotyczący* programowania. W pozostałych samouczkach tego zestawu utworzysz strony, które są interesujące.
 
-Zdobędziesz także wiedzę na temat *pomocników*. Obiekt pomocnika jest składnikiem — zapakowane w górę fragment kodu —, można dodać do strony. Pomocnik wykonuje pracę, które w przeciwnym razie może być uciążliwe lub złożone i dlatego należy ręcznie.
+Zapoznaj się również z *pomocą techniczną*. Pomocnik to składnik — spakowany fragment kodu, który można dodać do strony. Pomocnik wykonuje zadanie, które w przeciwnym razie może być żmudnym lub złożone.
 
-## <a name="creating-a-page-to-play-with-razor"></a>Tworzenie strony, aby odtworzyć ze składnią Razor
+## <a name="creating-a-page-to-play-with-razor"></a>Tworzenie strony do odtwarzania przy użyciu Razor
 
-W tej sekcji będziesz odtwarzania nieco ze składnią Razor, więc otrzymujesz poznać podstawową składnię.
+W tej sekcji poznasz bit z Razor, aby poznać podstawową składnię.
 
-Uruchom program WebMatrix, jeśli nie jest jeszcze uruchomiona. Użyjesz witryny sieci Web utworzonej w poprzednim samouczku ([Rozpoczynanie pracy przy użyciu stron sieci Web](https://go.microsoft.com/fwlink/?LinkId=251578)). Aby otworzyć go ponownie, kliknij przycisk **obszarze Moje witryny** i wybierz polecenie **WebPageMovies**:
+Uruchom program WebMatrix, jeśli nie jest jeszcze uruchomiony. Użyjesz witryny sieci Web utworzonej w poprzednim samouczku ([wprowadzenie ze stronami sieci Web](https://go.microsoft.com/fwlink/?LinkId=251578)). Aby go otworzyć, kliknij pozycję **Moje witryny** i wybierz pozycję **WebPageMovies**:
 
-![Wyświetlane opcje Otwórz witrynę i obszarze Moje witryny wyróżnione ekranu startowego programu WebMatrix](intro-to-web-pages-programming/_static/image1.png)
+![Ekran startowy WebMatrix z wyróżnionymi opcjami otwartej witryny i witrynami podświetlonymi](intro-to-web-pages-programming/_static/image1.png)
 
-Wybierz **pliki** obszaru roboczego.
+Wybierz obszar roboczy **pliki** .
 
-Na wstążce kliknij **New** Tworzenie strony. Wybierz **CSHTML** i nadaj nowej stronie *TestRazor.cshtml*.
+Na wstążce kliknij przycisk **New (nowy** ), aby utworzyć stronę. Wybierz pozycję **cshtml** i nadaj nazwę nowej stronie *TestRazor. cshtml*.
 
 Kliknij przycisk **OK**.
 
-Skopiuj następujące do pliku, zastępując całkowicie, co jest już.
+Skopiuj następujący plik do pliku, aby całkowicie zastąpić to, co już istnieje.
 
 > [!NOTE]
-> Podczas kopiowania kodu lub języka znaczników w przykładach w stronę, wcięcia i wyrównanie może nie być taki sam jak w tym samouczku. Wcięcia i wyrównanie nie wpływają na jak kod jest wykonywany, mimo że.
+> Podczas kopiowania kodu lub znaczników z przykładów na stronę, wcięcia i wyrównanie mogą nie być takie same jak w samouczku. Wcięcia i wyrównanie nie wpływają na sposób działania kodu, chociaż.
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample1.cshtml)]
 
-## <a name="examining-the-example-page"></a>Badanie przykładowa strona
+## <a name="examining-the-example-page"></a>Badanie przykładowej strony
 
-Większość zostanie wyświetlony jest zwykłe HTML. U góry istnieje jednak ten blok kodu:
+Większość wyświetlonych elementów to zwykły kod HTML. Jednak w górnej części tego bloku kodu jest:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample2.cshtml)]
 
-Zwróć uwagę, następujące elementy dotyczące ten blok kodu:
+Zwróć uwagę na następujące kwestie dotyczące tego bloku kodu:
 
-- Znakiem @ ASP.NET informuje, poniżej znajduje się kod Razor, HTML nie. ASP.NET traktują wszystko po znaku jako kod, dopóki nie działa w kod HTML ponownie @. (W tym przypadku to &lt;! DOCTYPE&gt; elementu.
-- Nawiasy klamrowe ({i}) należy umieścić blok kodu Razor, jeśli kod ma więcej niż jeden wiersz. Nawiasy klamrowe Poinformuj ASP.NET, gdzie kod dla tego bloku rozpoczyna i kończy.
-- / / Znaków mark komentarz — oznacza to, że część kodu, który nie będzie uruchomiony.
-- Każda instrukcja musi być zakończona średnikiem (;). (Nie komentarze, mimo że.)
-- Można przechowywać wartości w *zmienne*, które są tworzone (*zadeklarować*) przy użyciu var. — słowo kluczowe Kiedy tworzysz zmienną, nadajesz mu nazwę, która może zawierać litery, cyfry i znak podkreślenia (\_). Nazwy zmiennych nie może zaczynać się cyfrą i nie można użyć nazwy programowania — słowo kluczowe (takie jak var).
-- Ciągi znaków (na przykład "ASP.NET" i "Stron sieci Web") należy ująć w znaki cudzysłowu. (Muszą być podwójne znaki cudzysłowu). Numery nie są w znaki cudzysłowu.
-- Białe znaki spoza znaki cudzysłowu nie ma znaczenia. Podziały wierszy przede wszystkim nie ma znaczenia; wyjątkiem jest, że nie można podzielić ciąg w cudzysłowie w wierszach. Wcięcia i wyrównanie nie ma znaczenia.
+- @ Znak informuje ASP.NET, że poniżej znajduje się kod Razor, a nie HTML. ASP.NET potraktuje wszystko po znaku @ jako kod, dopóki nie zostanie on ponownie uruchomiony w kodzie HTML. (W tym przypadku jest to &lt;! Element DOCTYPE&gt;.
+- Nawiasy klamrowe ({i}) otaczają blok kodu Razor, jeśli kod ma więcej niż jeden wiersz. Nawiasy poinformują ASP.NET, gdzie kod dla tego bloku zaczyna się i kończą.
+- Znaki//oznaczają komentarz — to znaczy część kodu, który nie zostanie wykonany.
+- Każda instrukcja musi kończyć się średnikiem (;). (Nie komentarze, chociaż.)
+- Możesz przechowywać wartości w *zmiennych*, które tworzysz (*deklaruj*) przy użyciu var słowa kluczowego. Podczas tworzenia zmiennej nadaj jej nazwę, która może zawierać litery, cyfry i znaki podkreślenia (\_). Nazwy zmiennych nie mogą rozpoczynać się od cyfry i nie mogą używać nazwy słowa kluczowego programowania (na przykład var).
+- Ciągi znaków (takie jak "ASP.NET" i "Web Pages") należy ująć w cudzysłów. (Muszą to być podwójne cudzysłowy). Liczby nie są ujęte w cudzysłów.
+- Odstępy poza znakami cudzysłowu nie mają znaczenia. Podziały wierszy nie mają znaczenia; wyjątek polega na tym, że nie można podzielić ciągu w cudzysłowie w wierszach. Wcięcia i wyrównanie nie mają znaczenia.
 
-To coś, co nie jest jasne, w tym przykładzie, że cały kod jest uwzględniana wielkość liter. Oznacza to, że zmienna TheSum jest zmienną inną niż zmienne, które może być nazwane theSum lub thesum. Podobnie var jest słowem kluczowym, ale nie jest Var.
+Nie jest to oczywiste w tym przykładzie, że cały kod uwzględnia wielkość liter. Oznacza to, że zmienna TheSum jest inną zmienną niż zmienne, które mogą mieć nazwę theSum lub TheSum. Podobnie, var jest słowem kluczowym, ale var nie jest.
 
-### <a name="objects-and-properties-and-methods"></a>Obiekty, właściwości i metod
+### <a name="objects-and-properties-and-methods"></a>Obiekty i właściwości i metody
 
-Następnie jest wyrażenie DateTime.Now. W prostych słowach daty/godziny jest *obiektu*. Obiekt to właśnie można programować za pomocą — strony pola tekstowego, pliku, obraz, żądania sieci web, wiadomości e-mail, rekord klienta, itp. Obiekty mają co najmniej jeden *właściwości* opisują ich właściwości. Obiekt pola tekstowego jest właściwością Text (między innymi), obiekt żądania ma właściwość adres Url (i inne), wiadomość e-mail ma właściwość od i do właściwości, i tak dalej. Obiektów ma także *metody* , które są "zleceń" mogą wykonywać. Można będzie się praca z obiektami partii.
+A następnie istnieje element DateTime. Now. W przypadku prostych warunków Data/godzina jest *obiektem*. Obiekt to element, który można programować z — stroną, polem tekstowym, plikiem, obrazem, żądaniem sieci Web, wiadomością e-mail, rekordem klienta itd. Obiekty mają jedną lub więcej *Właściwości* , które opisują ich cechy. Obiekt pola tekstowego ma właściwość Text (między innymi), obiekt żądania ma właściwość adresu URL (i inne), wiadomość e-mail ma właściwość od i do i tak dalej. Obiekty mają również *metody* , które są "zlecenia", które mogą wykonywać. Będziesz pracować z obiektami.
 
-Jak widać w przykładzie, daty/godziny jest obiekt, który umożliwia program daty i godziny. Ma właściwość o nazwie teraz, która zwraca bieżącą datę i godzinę.
+Jak widać na przykład, wartość DateTime jest obiektem, który umożliwia zaprogramowanie dat i godzin. Ma on właściwość o nazwie Now, która zwraca bieżącą datę i godzinę.
 
-### <a name="using-code-to-render-markup-in-the-page"></a>Przy użyciu kodu do renderowania kodu znaczników na stronie
+### <a name="using-code-to-render-markup-in-the-page"></a>Renderowanie znaczników na stronie przy użyciu kodu
 
-W treści strony Zwróć uwagę, że:
+W treści strony Zwróć uwagę na następujące kwestie:
 
 [!code-html[Main](intro-to-web-pages-programming/samples/sample3.html)]
 
-Ponownie znaku @ mówi ASP.NET tego poniżej jest kod, nie w formacie HTML. Znaczniki można dodać wraz z wyrażeniem kodu i ASP.NET spowoduje, że wartość prawo wyrażenia w tym momencie. W tym przykładzie @a spowoduje, że niezależnie od wartości jest zmienną o nazwie, @product renderuje, niezależnie od rodzaju jest w zmiennej o nazwie produktu i tak dalej.
+Ponownie znak @ informuje ASP.NET, że jest to kod, a nie HTML. W znaczniku można dodać @, a po nim wyrażenie kodu, a ASP.NET będzie renderować wartość tego wyrażenia bezpośrednio w tym momencie. W przykładzie @a będzie renderowany niezależnie od wartości zmiennej o nazwie a, @product renderuje w zmiennej o nazwie Product i tak dalej.
 
-Nie trzeba się ograniczać do zmiennych, mimo że. W kilku przypadkach, znakiem @ poprzedzający wyrażenie:
+Nie są ograniczone do zmiennych, chociaż. W tym miejscu w kilku wystąpieniach znak @ poprzedza wyrażenie:
 
-- @(\*b) powoduje wyświetlenie iloczyn niezależnie od rodzaju znajduje się w zmiennych i b. ( \* Operator oznacza mnożenia.)
-- @(technologia + "" + produkt) powoduje wyświetlenie wartości w zmiennych technologii i produktów po ich złączenie i dodawanie odstęp między. Łączenie ciągów operator (+) jest taka sama jak operator dodawania liczb. ASP.NET zazwyczaj można stwierdzić, czy pracujesz z międzynarodowymi numerami identyfikującymi lub z ciągami i wykonuje właściwe za pomocą operatora +.
-- @Request.Url renderuje właściwość Url obiektu żądania. Obiekt żądania zawiera informacje o bieżącym żądaniu za pomocą przeglądarki i oczywiście właściwość adres Url zawiera adres URL tego bieżące żądanie.
+- @ (a\*b) renderuje iloczyn dowolnego elementu to zmienne a i b. (Operator \* oznacza mnożenie).
+- @ (technologia + "" + Product) renderuje wartości w zmiennej technologii i produkcie po ich łączeniu i dodawaniu odstępu między. Operator (+) służący do łączenia ciągów jest taki sam jak operator do dodawania liczb. ASP.NET może zazwyczaj stwierdzić, czy pracujesz z liczbami lub z ciągami i czy z operatorem +.
+- @Request.Url renderuje Właściwość adresu URL obiektu żądania. Obiekt request zawiera informacje o bieżącym żądaniu z przeglądarki oraz o tym, że właściwość adresu URL zawiera adres URL tego bieżącego żądania.
 
-Przykład jest też przeznaczona do pokazania, jak pracę na różne sposoby. Można wykonywania obliczeń w bloku kodu, u góry, umieścić wyniki w zmiennej i renderowania zmiennej w znacznikach. Lub możesz zrobić obliczeń w prawo wyrażenia w znaczniku. Zależy od podejścia, którego używasz, co robisz oraz, do pewnego stopnia na własnych preferencji.
+Przykład został również zaprojektowany, aby pokazać, że można wykonywać zadania na różne sposoby. Możesz wykonywać obliczenia w bloku kodu u góry, umieścić wyniki w zmiennej, a następnie renderować zmienną w znaczniku. Lub można wykonywać obliczenia w prawidłowym wyrażeniu w znaczniku. Używane podejście zależy od tego, co robisz, i do pewnego stopnia zgodnie z własnymi preferencjami.
 
 ### <a name="seeing-the-code-in-action"></a>Wyświetlanie kodu w akcji
 
-Kliknij prawym przyciskiem myszy nazwę pliku, a następnie wybierz **Uruchom w przeglądarce**. Zostanie wyświetlona strona w przeglądarce przy użyciu wartości i wyrażeń rozwiązany na stronie.
+Kliknij prawym przyciskiem myszy nazwę pliku, a następnie wybierz polecenie **Uruchom w przeglądarce**. Zostanie wyświetlona strona w przeglądarce ze wszystkimi wartościami i wyrażeniami, które zostały rozwiązane na stronie.
 
-![Strona "TestRazor" uruchomiony w przeglądarce](intro-to-web-pages-programming/_static/image2.png)
+![Strona "TestRazor" uruchomiona w przeglądarce](intro-to-web-pages-programming/_static/image2.png)
 
-Spójrz na źródło w przeglądarce.
+Przyjrzyj się źródłu w przeglądarce.
 
-!['Test Razor' źródła strony w przeglądarce](intro-to-web-pages-programming/_static/image3.png)
+![Źródło strony "test Razor" w przeglądarce](intro-to-web-pages-programming/_static/image3.png)
 
-Zgodnie z oczekiwaniami z środowiska w poprzednim samouczku jest Brak kodu Razor na stronie. Wszystko, co widzisz są wartości wyświetlane rzeczywistych. Po uruchomieniu strony, możesz sprawiamy, że żądania do serwera sieci web, która jest wbudowana w programie WebMatrix. Po odebraniu żądania ASP.NET rozpoznaje wszystkie wartości i wyrażenia i renderuje ich wartości do strony. Wysyła następnie strony do przeglądarki.
+Zgodnie z oczekiwaniami w poprzednim samouczku, żaden kod Razor nie znajduje się na stronie. Wszystkie wyświetlane są rzeczywiste wartości wyświetlania. Po uruchomieniu strony użytkownik wysyła żądanie do serwera sieci Web, który jest wbudowany w Program WebMatrix. Gdy żądanie zostanie odebrane, ASP.NET rozpoznaje wszystkie wartości i wyrażenia i renderuje ich wartości na stronie. Następnie wysyła stronę do przeglądarki.
 
 > [!TIP] 
 > 
-> **Razor i C#**
+> **Razor iC#**
 > 
-> Do chwili obecnej mówiliśmy już pracujesz ze składnią Razor. Jest to istotne, ale nie jest pełną wątku. Rzeczywiste języka programowania używasz nosi nazwę *C#*. C# został utworzony przez firmę Microsoft za pośrednictwem lat temu i stało się jedną z podstawowego języków programowania do tworzenia aplikacji Windows. Wszystkie reguły, które w tym samouczku temat nazwać zmienną oraz tworzenie instrukcji i tak dalej są faktycznie wszystkie reguły języka C#.
+> Do tej pory mamy już, że pracujesz z składnia Razor. To prawda, ale nie jest to kompletna historia. Sam używany język programowania jest wywoływany *C#* . C#został utworzony przez firmę Microsoft na dekadę temu i stał się jednym z podstawowych języków programowania do tworzenia aplikacji systemu Windows. Wszystkie zasady, które wystąpiły, aby określić nazwę zmiennej i sposób tworzenia instrukcji i tak dalej, są faktycznie wszystkimi regułami C# języka.
 > 
-> Razor w szczególności dotyczy niewielki zestaw konwencje jak osadzić ten kod w stronę. Na przykład Konwencji do oznaczania kodu na stronie, a za pomocą @ {}, aby osadzić blok kodu jest aspektem Razor strony. Pomocnicy również są traktowane jako część Razor. Składnia razor jest używany w większej liczbie miejsc niż po prostu w składniku ASP.NET Web Pages. (Na przykład jest używany w także widoki ASP.NET MVC.)
+> Razor odwołuje się dokładniej do małego zestawu konwencji dotyczących sposobu osadzania tego kodu na stronie. Na przykład Konwencja używania @ do oznaczania kodu na stronie i używania @ {} do osadzenia bloku kodu jest aspektem Razor strony. Pomocniki są również uznawane za części Razor. Składnia Razor jest używany w większej liczbie miejsc niż tylko w ASP.NET stronach sieci Web. (Na przykład jest również używany w widokach ASP.NET MVC).
 > 
-> Firma Microsoft wspomnieć o to, ponieważ jeśli szukasz informacji na temat programowania stron ASP.NET Web Pages znajdziesz mnóstwo odwołania do aparatu Razor. Jednak wiele te odwołania nie dotyczą co teraz zrobić i dlatego może być mylące. I w rzeczywistości wielu programowania pytania naprawdę mają zostać o pracy w języku C# lub pracy za pomocą platformy ASP.NET. Dlatego spojrzeć specjalnie dla informacji na temat Razor nie może być potrzebne odpowiedzi.
+> Wspominamy, że jeśli szukasz informacji o programowaniu ASP.NET strony sieci Web, znajdziesz wiele odwołań do Razor. Jednak wiele z tych odwołań nie ma zastosowania do wykonywanych operacji i dlatego może być mylące. W rzeczywistości wiele pytań związanych z programowaniem jest naprawdę w trakcie pracy z ASP.NET C# lub pracy z nim. Dlatego jeśli szukasz szczegółowych informacji na temat Razor, możesz nie znaleźć potrzebnych odpowiedzi.
 
-## <a name="adding-some-conditional-logic"></a>Dodawanie niektóre warunkowe logiki
+## <a name="adding-some-conditional-logic"></a>Dodawanie logiki warunkowej
 
-Jest jedną z najważniejszych funkcji o przy użyciu kodu na stronie sieci, można zmienić, co się stanie w zależności od różnych kryteriów. W tej części samouczka możesz będzie Poeksperymentuj z kilka sposobów, aby zmienić informacje wyświetlane na stronie.
+Jedną z doskonałych funkcji dotyczących używania kodu na stronie jest możliwość zmiany tego, co się dzieje na podstawie różnych warunków. W tej części samouczka znajdziesz różne sposoby zmiany elementów wyświetlanych na stronie.
 
-Przykład będzie prosty i nieco contrived tak, aby firma Microsoft może skupić się na logikę warunkową. Strona którą utworzysz, będziesz to robić:
+Przykład będzie prosty i dość contrived, dzięki czemu możemy skoncentrować się na logice warunkowej. Ta strona zostanie utworzona:
 
-- Pokaż inny tekst na stronie, w zależności od tego, czy jest po raz pierwszy ta strona jest wyświetlana, lub czy został kliknięty przycisk do przesyłania strony. Który będzie stanowić pierwszy test warunkowy.
-- Wyświetli się komunikat tylko wtedy, gdy wartość jest przekazywana w ciągu zapytania adresu URL (http://...?show=true). Który będzie stanowić drugi test warunkowy.
+- Pokaż inny tekst na stronie w zależności od tego, czy jest on wyświetlany po raz pierwszy, czy kliknięto przycisk w celu przesłania strony. Jest to pierwszy test warunkowy.
+- Wyświetlaj komunikat tylko wtedy, gdy określona wartość jest przekazana w ciągu zapytania adresu URL (http://...? show = true). Jest to drugi test warunkowy.
 
-W programie WebMatrix, Utwórz stronę i nadaj mu nazwę *TestRazorPart2.cshtml*. (Na wstążce kliknij **New**, wybierz **CSHTML**, nadaj plikowi nazwę, a następnie kliknij **OK**.)
+W programie WebMatrix Utwórz stronę i nadaj jej nazwę *TestRazorPart2. cshtml*. Na wstążce kliknij pozycję **Nowy**, wybierz pozycję **cshtml**, Nazwij plik, a następnie kliknij przycisk **OK**.
 
-Zastąp zawartość tej strony następujących czynności:
+Zamień zawartość tej strony na następujące elementy:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample4.cshtml)]
 
-Blok kodu, u góry inicjuje zmienną o nazwie wiadomości z tekstem. W treści strony zawartość zmiennej wiadomości są wyświetlane wewnątrz &lt;p&gt; elementu. Zawiera także znaczników &lt;wejściowych&gt; elementu do utworzenia **przesyłania** przycisku.
+Blok kodu u góry inicjuje zmienną o nazwie Message z tekstem. W treści strony zawartość zmiennej komunikatu jest wyświetlana wewnątrz elementu &lt;p&gt;. Znacznik zawiera również element &lt;Input&gt;, aby utworzyć przycisk **Prześlij** .
 
-Uruchom stronę aby zobaczyć, jak działa teraz. Na razie różnią się statyczną stronę nawet wtedy, gdy klikniesz **przesyłania** przycisku.
+Uruchom stronę, aby zobaczyć, jak działa teraz. Na razie jest to po prostu strona statyczna, nawet jeśli klikniesz przycisk **Prześlij** .
 
-Wróć do programu WebMatrix. Wewnątrz bloku kodu, Dodaj następujący wyróżniony kod *po* wiersza, która inicjuje komunikat:
+Wróć do WebMatrix. W bloku kodu, Dodaj następujący wyróżniony kod *po* wierszu, który inicjuje komunikat:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample5.cshtml?highlight=4-6)]
 
-### <a name="the-if---block"></a>Jeśli blok {}
+### <a name="the-if---block"></a>Blok if {}
 
-Co właśnie został dodany został if warunku. W kodzie Jeśli warunek ma strukturę następująco:
+Właśnie dodany element był warunkiem IF. W kodzie, warunek if ma strukturę taką jak:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample6.cs)]
 
-Warunek do sprawdzenia jest w nawiasach. Musi on mieć wartość lub wyrażenie, które zwraca wartość PRAWDA lub FAŁSZ. Jeśli warunek jest spełniony, program ASP.NET działa instrukcji lub instrukcji, które znajdują się wewnątrz nawiasów klamrowych. (To są *następnie* wchodzi w skład *if, a następnie* logiki.) Jeśli warunek nie jest spełniony, zostanie pominięty bloku kodu.
+Warunek do przetestowania jest w nawiasach. Musi być wartością lub wyrażeniem zwracającym wartość true lub false. Jeśli warunek ma wartość true, ASP.NET uruchamia instrukcję lub instrukcje, które znajdują się w nawiasach klamrowych. (Są *to częścią* logiki *if-then* ). Jeśli warunek ma wartość false, blok kodu jest pomijany.
 
-Poniżej przedstawiono kilka przykładów warunki, które można przetestować w przypadku instrukcji:
+Poniżej przedstawiono kilka przykładów warunków, które można testować w instrukcji if:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Zmienne dla wartości lub względem wyrażenia można przetestować przy użyciu *operatora logicznego* lub *operator porównania*: równe (==) większa (&gt;), mniej niż (&lt;), większa niż lub równe (&gt;=) i mniejsze niż lub równe (&lt;=). ! = Oznacza operator nie jest równa — na przykład, jeśli (! = 0) oznacza, że *Jeśli nie jest równa 0*.
+Można testować zmienne względem wartości lub względem wyrażeń przy użyciu *operatora logicznego* lub *operatora porównania*: równe (= =), większe niż (&gt;), mniejsze niż (&lt;), większe niż lub równe (&gt;=) i mniejsze lub równe (&lt;=). Operator! = nie jest równy — na przykład jeśli (a! = 0) oznacza, że *wartość nie jest równa 0*.
 
 > [!NOTE]
-> Upewnij się, że można zauważyć, że operator porównania dla równości się (==) nie jest taka sama jak wartość =. = — Operator jest używany tylko do przypisywania wartości (var = 2). Jeśli te operatory są mieszały się, albo otrzymasz błąd lub niektóre dziwne wyniki.
+> Upewnij się, że operator porównania dla operatora równości (= =) nie jest taki sam jak wartość =. Operator = służy tylko do przypisywania wartości (var a = 2). Jeśli te operatory są mieszane, wystąpi błąd lub uzyskasz pewne nietypowe wyniki.
 
-Aby sprawdzić, czy coś, co ma wartość true, jest pełną składnię if(IsDone == true). Jednak możesz również użyć if(IsDone) skrótów. Jeśli nie ma żadnego operatora porównania, ASP.NET zakłada, testujesz przypadku wartości true.
+Aby sprawdzić, czy coś ma wartość true, Pełna składnia to if (isdone = = true). Ale można również użyć skrótu if (isdone). Jeśli nie ma operatora porównania, ASP.NET zakłada, że test jest prawdziwy.
 
-! Operator samodzielnie oznacza logiczne NOT. Na przykład, warunek if (! Oznacza, że IsPost) *Jeśli IsPost nie zostanie spełniony*.
+Polu! operator sam oznacza wartość logiczną NOT. Na przykład warunek if (! Ispost) oznacza, *że właściwość ispost nie ma wartości true*.
 
-Warunki można połączyć za pomocą operator logiczny oraz (&amp; &amp; operator) lub logiczne OR (|| — operator). Na przykład ostatniego, jeśli warunki w poprzednim oznacza przykłady *Jeśli FileProcessingIsDone nie jest ustawiony na wartość true, displayMessage i ma wartość false*.
+Możesz połączyć warunki przy użyciu operatora logicznego i (&amp;&amp;) lub operatora logicznego OR (| |). Na przykład ostatni warunek if w powyższych przykładach oznacza, *że FileProcessingIsDone nie ma wartości true, a displayMessage jest ustawiona na false*.
 
 ### <a name="the-else-block"></a>Blok else
 
-Jedno końcowe o tym, czy bloki: Jeśli blok może następować innego bloku. Przydaje się inny blok jest trzeba wykonać różny kod, gdy warunek jest fałszywy. Poniżej przedstawiono prosty przykład:
+Jedną z końcowych rzeczy o if Blocks: blok if może następować blok else. Blok else jest przydatny w przypadku, gdy warunek ma wartość false. Oto prosty przykład:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample8.cs)]
 
-W kolejnych samouczkach w tej serii, w którym jest przydatne przy użyciu innego bloku, pojawi się kilka przykładów.
+W kolejnych samouczkach w tej serii znajdziesz kilka przykładów, w których jest przydatny blok else.
 
-### <a name="testing-whether-the-request-is-a-submit-post"></a>Sprawdzenie, czy żądanie jest przesyłania (post)
+### <a name="testing-whether-the-request-is-a-submit-post"></a>Testowanie, czy żądanie jest przesłane (post)
 
-Istnieje więcej, ale teraz wrócić do przykładu, który ma if(IsPost) warunek {...}. IsPost jest faktycznie właściwością bieżącej strony. Przy pierwszym żądaniu strony IsPost zwraca wartość false. Jednak jeśli kliknięcie przycisku, lub w przeciwnym razie ją następnie przesłać — oznacza to, że wpis — IsPost zwraca wartość true. Dlatego IsPost pozwala określić, czy jesteś zajmujących przesyłania formularza. (Pod względem zleceń HTTP, jeśli żądanie jest operacją GET IsPost zwraca wartość false. Jeśli żądanie jest operacji POST, IsPost zwraca wartość true.) Później w samouczku będziesz pracować wejściowych formularzy, gdzie ten test staje się szczególnie przydatne.
+Istnieje więcej, ale Wróćmy do przykładu, który ma warunek if (ispost) {...}. Właściwość ispost jest w rzeczywistości właściwością bieżącej strony. Gdy strona jest żądana po raz pierwszy, funkcja ispost zwraca wartość false. Jeśli jednak klikniesz przycisk lub w inny sposób prześlesz stronę — to znaczy, opublikujemy ją — funkcja ispost zwraca wartość true. Dzięki temu można określić, czy zamierzasz przesłać formularz. (W odniesieniu do zleceń HTTP, jeśli żądanie jest operacją GET, funkcja ispost zwraca wartość false. Jeśli żądanie jest operacją POST, funkcja ispost zwraca wartość true.) W późniejszym samouczku będziesz korzystać z formularzy wejściowych, w których ten test jest szczególnie użyteczny.
 
-Uruchom stronę. Ponieważ jest to po raz pierwszy masz żądanej strony, zostanie wyświetlony "Jest po raz pierwszy żądanej strony". Ten ciąg jest wartość, która zainicjować zmienną wiadomości. Jest test if(IsPost), ale zwraca wartość false w chwili, tak aby blokował kod wewnątrz if nie zostanie uruchomiona.
+Uruchom stronę. Ponieważ po raz pierwszy żądasz strony, zobaczysz "jest to pierwsze żądanie strony". Ten ciąg jest wartością, do której zainicjowano zmienną komunikatów. Istnieje test if (ispost), ale który zwraca wartość false, więc kod wewnątrz bloku if nie jest uruchamiany.
 
-Kliknij przycisk **przesyłania** przycisku. Strona zostanie ponownie wywołana. Jako wcześniej, zmienna wiadomości jest równa "Jest pierwszym...". Jednak tym razem if(IsPost) testu zwraca wartość true, dzięki czemu kod wewnątrz czy zablokować przebiegów. Kod zmienia wartość zmiennej wiadomości na inną wartość, czyli o tym, co jest renderowany w znaczniku.
+Kliknij przycisk **Prześlij** . Strona zostanie ponownie zażądana. Tak jak wcześniej zmienna komunikatu jest ustawiona na "jest to pierwszy raz...". Jednak ten czas test if (ispost) zwraca wartość true, więc kod wewnątrz bloku if zostanie uruchomiony. Kod zmienia wartość zmiennej Message na inną wartość, która jest renderowana w znaczniku.
 
-Teraz Dodaj if warunku w znaczniku. Poniżej &lt;p&gt; element, który zawiera **przesyłania** przycisku, Dodaj następujący kod:
+Teraz Dodaj warunek if w znaczniku. Poniżej elementu &lt;p&gt; zawierającego przycisk **Prześlij** Dodaj następujące znaczniki:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample9.cshtml)]
 
-Dodawany kod wewnątrz znaczników, więc trzeba zacząć @. A następnie if jest test podobnej do tej, dodano wcześniej w bloku kodu. Wewnątrz nawiasów klamrowych, jednak w przypadku dodawania zwykłego HTML — co najmniej to zwykłe dopóki nie zostanie osiągnięty do @DateTime.Now. Jest to inny trochę kodu Razor, więc ponownie trzeba dodać przed nim.
+Dodajesz kod wewnątrz znacznika, więc musisz zacząć od @. Następnie istnieje test if podobny do tego, który został dodany wcześniej w bloku kodu. W nawiasach klamrowych, mimo że dodawana jest zwykła zawartość HTML — co najmniej jest zwykłe do momentu, aż do @DateTime.Now. Jest to kolejny mały bit kodu Razor, dlatego należy dodać @ przed nim.
 
-Zwrócić uwagę na to, można dodać, jeśli warunki zarówno kod block u góry, a w znaczniku. Jeśli używasz if warunku w treści strony wierszy wewnątrz bloku może być znaczników lub innego kodu. W takiej sytuacji i podobnie jak w dowolnym momencie możesz mieszać znaczników i kodu, należy użyć się to gotowość do ASP.NET gdy kod jest.
+W tym miejscu możesz dodać warunki, jeśli w bloku kodu u góry i w znaczniku. W przypadku użycia warunku if w treści strony linie wewnątrz bloku mogą być znacznikiem lub kodem. W takim przypadku i tak samo jak w przypadku mieszania znaczników i kodu, musisz użyć @, aby ASP.NET, gdzie kod jest.
 
-Uruchom stronę, a następnie kliknij przycisk **przesyłania**. Teraz nie tylko widzisz inny komunikat podczas przesyłania ("po przesłaniu..."), ale zostanie wyświetlony nowy komunikat, który wyświetla datę i godzinę.
+Uruchom stronę i kliknij pozycję **Prześlij**. Ten czas nie tylko widzisz inny komunikat podczas przesyłania ("teraz przesłano..."), ale zobaczysz nową wiadomość, która wyświetla datę i godzinę.
 
-![Prześlij stronie 'Test aparatu Razor 2', uruchomiony w przeglądarce z sygnaturą czasową wyświetlane po](intro-to-web-pages-programming/_static/image4.png)
+![Strona "test Razor 2" działająca w przeglądarce z sygnaturą czasową wyświetlaną po przesłaniu](intro-to-web-pages-programming/_static/image4.png)
 
 ### <a name="testing-the-value-of-a-query-string"></a>Testowanie wartości ciągu zapytania
 
-Co więcej testów. Ten czas, jaki dodasz if blok, który sprawdza czy wartość o nazwie show, które mogą być przekazywane w ciągu zapytania. (Podobnie do następującego: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) poznasz, jak zmienić stronę, aby wiadomości możesz już został wyświetlania ("Jest pierwszym..." itp.) jest wyświetlana tylko wtedy, jeśli wartość show ma wartość true.
+Jeszcze jeden test. Tym razem dodasz blok IF, który testuje wartość o nazwie show, która może być przekazana w ciągu zapytania. (W tym: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) Zmienisz stronę w taki sposób, aby komunikat był wyświetlany ("jest to pierwszy raz..." itp.), tylko wtedy, gdy wartość parametru show ma wartość true.
 
-U dołu (ale wewnątrz) bloku kodu, w górnej części strony, Dodaj następujący fragment kodu:
+Na dole (ale wewnątrz) blok kodu w górnej części strony Dodaj następujące elementy:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample10.cs)]
 
-Kompletny kod wygląd teraz blok jak w poniższym przykładzie. (Należy pamiętać, że po skopiowaniu kodu na stronie wcięcie może wyglądać inaczej. Ale który nie ma wpływu na sposób uruchamiania kodu).
+Pełny blok kodu wygląda teraz podobnie jak w poniższym przykładzie. (Pamiętaj, że po skopiowaniu kodu na stronę, wcięcie może wyglądać inaczej. Ale nie ma to wpływu na sposób uruchamiania kodu.
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample11.cshtml)]
 
-Nowy kod w bloku inicjuje zmienną o nazwie obiektu na wartość false. Następnie wykonuje if testu do wyszukiwania wartości w ciągu zapytania. W przypadku najpierw żądania strony, ma adres URL podobny do poniższego:
+Nowy kod w bloku inicjuje zmienną o nazwie showMessage na wartość false. Następnie wykonuje test IF, aby wyszukać wartość w ciągu zapytania. Pierwsze żądanie strony ma adres URL podobny do tego:
 
 `http://localhost:43097/TestRazorPart2.cshtml`
 
-Kod określa, czy adres URL zawiera zmienną o nazwie show w ciągu zapytania, podobnie jak w tej wersji adresu URL:
+Kod określa, czy adres URL zawiera zmienną o nazwie show w ciągu zapytania, taką jak ta wersja adresu URL:
 
-`http://localhost:43097/TestRazorPart2.cshtml`?show=true
+`http://localhost:43097/TestRazorPart2.cshtml`? show = true
 
-Badanie sprawdza właściwości QueryString obiektu żądania. Ciąg zapytania zawiera element o nazwie show, a ten element jest ustawiona na wartość true, jeśli blok uruchamia i ustawia zmienną obiektu na wartość true.
+Test sam sprawdza Właściwość QueryString obiektu request. Jeśli ciąg zapytania zawiera element o nazwie show, a jeśli ten element jest ustawiony na wartość true, blok if działa i ustawia zmienną showMessage na wartość true.
 
-Jak widać jest sposobem, w tym miejscu. Jak wynika z nazwy, ciąg zapytania jest ciąg. Jednak możesz tylko przetestować dla wartości true i false Jeśli wartość, którą testujesz jest wartość logiczna (true/false). Przed przetestowaniem wartość zmiennej show w ciągu zapytania, musisz przekonwertować wartość typu Boolean. To jest metoda AsBool — przyjmuje ciąg jako dane wejściowe i konwertuje ją na wartość logiczną. Wyraźnie widać Jeśli ciąg ma wartość "prawda", metoda AsBool konwertuje tę wartość na true. Jeśli wartość ciągu jest inny, AsBool zwraca wartość false.
+W tym miejscu znajduje się lewę, którą można zobaczyć. Podobnie jak nazwa mówi, ciąg zapytania jest ciągiem. Jednakże można testować tylko dla wartości true i false, jeśli testowana wartość jest wartością logiczną (true/false). Aby można było przetestować wartość zmiennej show w ciągu zapytania, należy przekonwertować ją na wartość logiczną. To właśnie Metoda AsBool — Pobiera ciąg jako dane wejściowe i konwertuje go na wartość logiczną. Jasno, jeśli ciąg ma wartość "true", Metoda AsBool konwertuje tę wartość na true. Jeśli wartość ciągu jest coś innego, AsBool zwraca wartość false.
 
 > [!TIP] 
 > 
-> **Typy danych i metod As()**
+> **Typy danych i metody AS ()**
 > 
-> Firma Microsoft tylko tym do tej pory gdy tworzysz zmienną, użycie var. — słowo kluczowe To nie jest cały artykuł, mimo że. W celu manipulowania wartością — do dodawania numerów, lub ciągów, porównywanie dat lub testowania PRAWDA/FAŁSZ — C# ma do pracy z odpowiedniej wewnętrznej reprezentacji wartości. C# można *zwykle* zorientować się, jakie powinny być tę reprezentację (oznacza to, co *typu* dane) oparte na wykonujesz wartościami. Teraz, a następnie jednak ją tej czynności nie. W przeciwnym razie ma pomagać wskazując jawnie jak C# powinny reprezentować danych. Metoda AsBool robi to — informuje C#, że wartość ciągu "true" lub "false" powinny być traktowane jako wartość logiczna. Istnieją podobne metody do reprezentowania ciągów jako innych typów, takich jak AsInt (traktowanej jako liczba całkowita), AsDateTime (traktowanej jako daty/godziny), AsFloat (traktowanej jako liczba zmiennoprzecinkowa) i tak dalej. Korzystając z tych metod (), jeśli C# nie może reprezentować wartość ciągu zgodnie z żądaniem, zobaczysz błąd.
+> Mamy do tej pory, że podczas tworzenia zmiennej używane jest słowo kluczowe var. To nie jest cały wątek, chociaż. W celu manipulowania wartościami — w celu dodawania numerów lub łączenia ciągów, porównywania dat lub testowania dla prawdy/fałszu — C# musi współpracować z odpowiednią wewnętrzną reprezentacją wartości. C#*zwykle* może określać, co powinna być reprezentacja (czyli jakie *typy* danych są), na podstawie tego, co robią wartości. Teraz, ale nie jest to możliwe. Jeśli nie, musisz uzyskać pomoc, jawnie wskazując, jak C# powinny być reprezentowane dane. Metoda AsBool to — informuje C# , że wartość ciągu "true" lub "false" powinna być traktowana jako wartość logiczna. Podobne metody istnieją do reprezentowania ciągów jako innych typów, takich jak AsInt (Traktuj jako integer), AsDateTime (Traktuj jako data/godzina), AsFloat (Traktuj jako liczbę zmiennoprzecinkową) i tak dalej. Jeśli używasz tych metod AS (), jeśli C# nie może reprezentować wartości ciągu zgodnie z żądaniem, zobaczysz błąd.
 
-W znaczniku strony, należy usunąć lub skomentować tego elementu (w tym miejscu wyświetleniem skomentowanej się):
+W znaczniku strony Usuń lub Skomentuj ten element (w tym miejscu jest wyświetlany komentarz):
 
 [!code-html[Main](intro-to-web-pages-programming/samples/sample12.html)]
 
-Po prawej stronie, gdzie została usunięta lub oznaczone jako komentarz ten tekst, Dodaj następujący kod:
+Z prawej strony, w której został usunięty lub oznaczony jako komentarz, Dodaj następujący tekst:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample13.cshtml)]
 
-Jeśli test jest w stanie, jeśli zmienna obiektu ma wartość true, renderowanie &lt;p&gt; element z wartością zmiennej wiadomości.
+Test if wskazuje, że jeśli zmienna showMessage ma wartość true, renderuje element &lt;p&gt; z wartością zmiennej Message.
 
-### <a name="summary-of-your-conditional-logic"></a>Podsumowanie warunkowe logiki
+### <a name="summary-of-your-conditional-logic"></a>Podsumowanie logiki warunkowej
 
-W przypadku, gdy nie masz całkowitej pewności co do co właśnie wykonano, w tym miejscu znajduje się podsumowanie.
+W przypadku, gdy nie masz całkowicie pewności, co zostało zrobione, poniżej przedstawiono podsumowanie.
 
-- Zmienna wiadomości jest inicjowana na domyślny ciąg ("to jest pierwszym...").
-- Jeśli żądanie strony jest wynikiem przesyłania (post), wartość komunikatu jest zmieniona na "po przesłaniu..."
-- Zmienna obiektu jest ustawiana na wartość false.
-- Jeśli ciąg zapytania zawiera? Pokaż = true, zmienna obiektu jest ustawiona na wartość true.
-- W znaczniku, jeśli obiektu ma wartość true &lt;p&gt; element jest renderowany pokazujący wartość komunikatu. (Jeśli obiektu nie jest spełniony, nic nie jest renderowany w tym momencie w znaczniku.)
-- W znaczniku, jeśli żądanie jest żądaniem post &lt;p&gt; element jest renderowany, który wyświetla datę i godzinę.
+- Zmienna komunikatu jest inicjowana do domyślnego ciągu ("jest to pierwszy raz...").
+- Jeśli żądanie strony jest wynikiem przesłania (post), wartość komunikatu jest zmieniana na "teraz przesłane..."
+- Zmienna showMessage jest inicjowana na wartość false.
+- Jeśli ciąg zapytania zawiera? show = true, zmienna showMessage jest ustawiona na wartość true.
+- W znaczniku, jeśli showMessage ma wartość true, renderowany jest element &lt;p&gt;, który pokazuje wartość komunikatu. (Jeśli showMessage ma wartość false, nic nie jest renderowane w tym momencie w znaczniku).
+- W znaczniku, jeśli żądanie jest wpisem, jest renderowany &lt;p&gt; element, który wyświetla datę i godzinę.
 
-Uruchom stronę. Nie ma, ponieważ obiektu ma wartość false, dzięki czemu w znaczniku testu if(showMessage) zwraca wartość false.
+Uruchom stronę. Nie ma komunikatu, ponieważ showMessage ma wartość false, więc w przypadku testu znaczników if (showMessage) zwraca wartość false.
 
-Kliknij przycisk **Submit** (Prześlij). Zostanie wyświetlony, daty i godziny, ale nadal żaden komunikat.
+Kliknij przycisk **Prześlij**. Zobaczysz datę i godzinę, ale nadal nie ma komunikatu.
 
-W przeglądarce przejdź do pola Adres URL i Dodaj następujący element do końca adresu URL:? Pokaż = true, a następnie naciśnij klawisz Enter.
+W przeglądarce przejdź do pola adres URL i Dodaj następujący tekst na końcu adresu URL:? show = true, a następnie naciśnij klawisz ENTER.
 
-!['Test aparatu Razor 2' strony w przeglądarka wyświetlająca ciąg zapytania](intro-to-web-pages-programming/_static/image5.png)
+![Strona "test Razor 2" w przeglądarce przedstawiająca ciąg zapytania](intro-to-web-pages-programming/_static/image5.png)
 
-Ta strona jest wyświetlana ponownie. (Ponieważ zmieniono adres URL jest nowe żądanie nie Prześlij). Kliknij przycisk **przesyłania** ponownie. Komunikat pojawi się ponownie, kiedy jest data i godzina.
+Zostanie wyświetlona ponownie strona. (Ze względu na to, że adres URL został zmieniony, jest to nowe żądanie, a nie przesłanie.) Kliknij przycisk **Prześlij** ponownie. Komunikat zostanie wyświetlony ponownie, zgodnie z datą i godziną.
 
-![Strona "Test aparatu Razor 2", po przesyłanie po ciągu zapytania](intro-to-web-pages-programming/_static/image6.png)
+![Strona "test Razor 2" po przesłaniu, gdy istnieje ciąg zapytania](intro-to-web-pages-programming/_static/image6.png)
 
-W adresie URL, należy zmienić? Pokaż = true na? Pokaż = false, a następnie naciśnij klawisz Enter. Ponownie prześlij stronie. Strona jest powrót do sposobu uruchamiania — żaden komunikat.
+W adresie URL Zmień wartość? show = true na? show = false i naciśnij klawisz ENTER. Prześlij ponownie stronę. Strona jest powracana do sposobu rozpoczęcia — Brak komunikatu.
 
-Jak wspomniano wcześniej, logikę w tym przykładzie jest trochę contrived. Jednakże, jeśli zamierza pojawiają się w wielu stron sieci i potrwa co najmniej jedną z formularzy, w tym samouczku w tym miejscu.
+Jak wspomniano wcześniej, logika tego przykładu jest nieco contrived. Jeśli jednak przejdziesz na wiele stron i zostanie on użyty co najmniej jeden z formularzy, które były widoczne w tym miejscu.
 
-## <a name="installing-a-helper-displaying-a-gravatar-image"></a>Instalowanie pomocnika (wyświetlanie obrazu Gravatar)
+## <a name="installing-a-helper-displaying-a-gravatar-image"></a>Instalowanie pomocnika (wyświetlanie obrazu skonfigurowali Gravatar)
 
-Niektóre zadania, ludzie często chcemy na stronach sieci web, które wymagają dużej ilości kodu lub dodatkowe wiedzy. Przykłady: wyświetlanie wykresu dla danych. umieszczanie Facebook "Jak" przycisk na stronie; Wysyłanie wiadomości e-mail z witryny sieci Web; Przycinanie i zmienianie rozmiaru obrazów; Korzystając z systemu PayPal, dla danej witryny. Aby ułatwić wykonaj te rodzaje elementów, ASP.NET Web Pages umożliwia korzystanie z *pomocników*. Pomocnicy są składnikami instalowanej lokacji i umożliwiające wykonywanie typowych zadań przy użyciu zaledwie kilku wierszy kodu Razor.
+Niektóre zadania, które często mają być wykonywane na stronach sieci Web, wymagają dużej ilości kodu lub wymagają dodatkowej wiedzy. Przykłady: Wyświetlanie wykresu dla danych; Umieszczanie na stronie przycisku "Like" w serwisie Facebook Wysyłanie wiadomości e-mail z witryny sieci Web; Przycinanie lub zmienianie rozmiarów obrazów; Korzystanie z systemu PayPal dla witryny. Aby ułatwić Ci wykonywanie tego rodzaju rzeczy, ASP.NET strony sieci Web umożliwiają korzystanie z *pomocników*. Pomocnicy to składniki instalowane dla lokacji programu, które umożliwiają wykonywanie typowych zadań przy użyciu tylko kilku wierszy kodu Razor.
 
-Strony ASP.NET Web Pages ma kilka pomocników wbudowane. Wiele wątków, są jednak dostępne w pakietach (dodatki), które są dostarczane przy użyciu Menedżera pakietów NuGet. NuGet pozwala wybrać pakiet do zainstalowania, a następnie ta odpowiada za wszystkie szczegóły instalacji.
+Strony sieci Web ASP.NET zawierają kilka pomocników wbudowanych w. Jednak wiele pomocników jest dostępnych w pakietach (dodatków) udostępnianych za pomocą Menedżera pakietów NuGet. Pakiet NuGet umożliwia wybranie pakietu do zainstalowania, a następnie uwzględnia wszystkie szczegóły instalacji.
 
-W tej części samouczka zainstalujesz pomocnika, który umożliwia wyświetlanie obrazu Gravatar ("Awatar rozpoznany globalnie"). Dowiesz się dwie rzeczy. Jeden to jak Znajdowanie i instalowanie pomocnika. Dowiesz się, jak obiekt pomocnika można łatwo zrobić coś, które w przeciwnym razie trzeba zrobić przy użyciu dużej ilości kodu, trzeba napisać samodzielnie.
+W tej części samouczka zainstalujesz pomocnika, który umożliwia wyświetlenie obrazu skonfigurowali Gravatar ("globalnie rozpoznany awatar"). Poznasz dwie rzeczy. Jednym z nich jest znalezienie i zainstalowanie pomocnika. Dowiesz się również, jak pomocnik ułatwia wykonywanie czynności, które w przeciwnym razie trzeba wykonać przy użyciu dużej ilości kodu, którą trzeba napisać.
 
-Możesz zarejestrować własne Gravatar w witrynie internetowej Gravatar na [ http://www.gravatar.com/ ](http://www.gravatar.com/), ale nie jest istotne, aby utworzyć konto Gravatar do wykonania tej części samouczka.
+Możesz zarejestrować własne skonfigurowali Gravatar w witrynie sieci Web skonfigurowali Gravatar w [http://www.gravatar.com/](http://www.gravatar.com/), ale nie jest to konieczne do utworzenia konta skonfigurowali Gravatar w celu wykonania tej części samouczka.
 
-W programie WebMatrix, kliknij przycisk **NuGet** przycisku.
+W programie WebMatrix kliknij przycisk **NuGet** .
 
-![Okno dialogowe galerii pakietów NuGet w programie WebMatrix](intro-to-web-pages-programming/_static/image7.png)
+![Okno dialogowe Galeria NuGet w programie WebMatrix](intro-to-web-pages-programming/_static/image7.png)
 
-To spowoduje uruchomienie Menedżera pakietów NuGet i wyświetla dostępnych pakietów. (Nie wszystkie pakiety są pomocnicy; niektóre dodają funkcje do programu WebMatrix sam niektóre są dodatkowe szablony itd.) Może zostać komunikat o błędzie dotyczący niezgodności wersji. Możesz zignorować ten komunikat o błędzie, klikając **OK** , a następnie za pomocą tego samouczka.
+Spowoduje to uruchomienie Menedżera pakietów NuGet i wyświetlenie dostępnych pakietów. (Nie wszystkie pakiety są pomocnikami, niektóre dodają funkcje do samej macierzy WebMatrix, niektóre są dodatkowymi szablonami itd.) Może zostać wyświetlony komunikat o błędzie dotyczący niezgodności wersji. Aby zignorować ten komunikat o błędzie, kliknij przycisk **OK** i Kontynuuj pracę z tym samouczkiem.
 
-![Okno dialogowe galerii pakietów NuGet w programie WebMatrix](intro-to-web-pages-programming/_static/image8.png)
+![Okno dialogowe Galeria NuGet w programie WebMatrix](intro-to-web-pages-programming/_static/image8.png)
 
-W polu wyszukiwania wprowadź "pomocników platformy asp.net". NuGet zawiera pakiety, które pasują do kryteriów wyszukiwania.
+W polu wyszukiwania wprowadź ciąg "Pomocnicy asp.net". Pakiet NuGet pokazuje pakiety, które pasują do wyszukiwanych terminów.
 
-![Galeria NuGet w programie WebMatrix przedstawiający pakietów](intro-to-web-pages-programming/_static/image9.png)
+![Galeria NuGet w programie WebMatrix pokazująca pakiety](intro-to-web-pages-programming/_static/image9.png)
 
-Bibliotekę pomocników platformy ASP.NET sieci Web zawiera kod, aby uprościć wiele typowych zadań, łącznie z użyciem Gravatar obrazów. Wybierz **bibliotekę pomocników sieci Web platformy ASP.NET** pakietu, a następnie kliknij przycisk **zainstalować** uruchomienia Instalatora. Wybierz **tak** po wyświetleniu monitu, jeśli chcesz zainstalować pakiet, a następnie zaakceptuj warunki, aby ukończyć instalację.
+Biblioteka pomocników sieci Web ASP.NET zawiera kod, który upraszcza wiele typowych zadań, takich jak korzystanie z obrazów skonfigurowali Gravatar. Wybierz pakiet **biblioteki ASP.NET Web pomocnicys** , a następnie kliknij przycisk **Instaluj** , aby uruchomić Instalatora. Wybierz opcję **tak** po wyświetleniu monitu, jeśli chcesz zainstalować pakiet, a następnie zaakceptuj warunki, aby zakończyć instalację.
 
-To wszystko. NuGet pobiera i instaluje wszystkim, w tym wszelkie dodatkowe składniki, które mogą być wymagane (*zależności*).
+Gotowe. Pakiet NuGet pobiera i instaluje wszystko, w tym wszelkie dodatkowe składniki, które mogą być wymagane (*zależności*).
 
-Jeśli zaistnieje należy odinstalować pomocnika, proces jest bardzo podobne. Kliknij przycisk **NuGet** przycisku, kliknij przycisk **zainstalowane** kartę, a następnie wybierz pakiet, który chcesz odinstalować.
+Jeśli z jakiegoś powodu trzeba odinstalować pomocnika, proces jest bardzo podobny. Kliknij przycisk **NuGet** , kliknij kartę **zainstalowane** i wybierz pakiet, który chcesz odinstalować.
 
-## <a name="using-a-helper-in-a-page"></a>Używanie Pomocnika na stronie
+## <a name="using-a-helper-in-a-page"></a>Korzystanie z pomocnika na stronie
 
-Teraz użyjesz pomocnika, który został zainstalowany. Proces dodawania pomocnika do strony jest podobny dla większości pomocników.
+Teraz będziesz używać pomocnika, który właśnie został zainstalowany. Proces dodawania pomocnika do strony jest podobny w przypadku większości pomocników.
 
-W programie WebMatrix, Utwórz stronę i nadaj mu nazwę *GravatarTest.cshml*. (Tworzysz specjalną stroną, aby przetestować pomocnika, ale pomocników można użyć w dowolnej stronie w witrynie).
+W programie WebMatrix Utwórz stronę i nadaj jej nazwę *GravatarTest. cshml*. (Tworzysz specjalną stronę do testowania pomocnika, ale możesz użyć pomocników na dowolnej stronie w witrynie).
 
-Wewnątrz &lt;treści&gt; elementu Dodawanie &lt;div&gt; elementu. Wewnątrz &lt;div&gt; elementu, wpisz:
+Wewnątrz elementu &lt;Body&gt;, Dodaj element &lt;DIV&gt;. Wewnątrz elementu &lt;DIV&gt;, wpisz:
 
 @Gravatar.
 
-Znak @, jest takiego samego znaku wcześniej użyto do oznaczania kodu Razor. **Gravatar** obiekt pomocnika, w którym pracujesz.
+@ Znak jest tym samym znakiem, który był używany do oznaczania kodu Razor. **Skonfigurowali Gravatar** jest obiektem pomocnika, z którym pracujesz.
 
-Jak najszybciej po wpisaniu kropki (.), program WebMatrix Wyświetla listę *metody* (funkcje) udostępnia pomocnika Gravatar:
+Gdy tylko wpiszesz kropkę (.), WebMatrix wyświetla listę *metod* (funkcji), które udostępnia pomocnik skonfigurowali Gravatar:
 
-![Gravatar pomocnika technologii IntelliSense, listy rozwijanej listy](intro-to-web-pages-programming/_static/image10.png)
+![Lista rozwijana IntelliSense pomocnika skonfigurowali Gravatar](intro-to-web-pages-programming/_static/image10.png)
 
-Ta funkcja jest znany jako *IntelliSense*. Pomaga ono kodowania, podając odpowiednie w kontekście opcji. Technologia IntelliSense działa z HTML, CSS, kod ASP.NET, JavaScript i innych językach, które są obsługiwane w programie WebMatrix. Jest innym funkcja, która ułatwia tworzenie stron sieci web w programie WebMatrix.
+Ta funkcja jest nazywana technologią *IntelliSense*. Ułatwia to kod, zapewniając wybór odpowiednich kontekstów. Technologia IntelliSense współpracuje z językiem HTML, CSS, kodem ASP.NET, JavaScript i innymi językami, które są obsługiwane w programie WebMatrix. Jest to inna funkcja, która ułatwia tworzenie stron sieci Web w programie WebMatrix.
 
-G naciśnij klawisz na klawiaturze, zobacz, że funkcja IntelliSense znajduje metodę GetHtml. Naciśnij klawisz Tab. Funkcja IntelliSense wstawia wybranej metody (GetHtml). Wpisz nawias otwierający i zwróć uwagę, że nawias zamykający jest automatycznie dodawany. Wpisz swój adres e-mail w znaki cudzysłowu między dwoma nawiasami. Jeśli masz konto Gravatar, zostanie zwrócony swoje zdjęcie profilowe. Jeśli nie masz konta Gravatar, zwracany jest domyślnego obrazu. Gdy wszystko będzie gotowe, wiersz wygląda następująco:
+Naciśnij pozycję G na klawiaturze, a zobaczysz, że technologia IntelliSense odnajdzie metodę GetHtml. Naciśnij klawisz Tab. Technologia IntelliSense wstawia wybraną metodę (GetHtml). Wpisz otwarty nawias i Zauważ, że nawias zamykający jest automatycznie dodawany. Wpisz swój adres e-mail w cudzysłowie między dwoma nawiasami. Jeśli masz konto skonfigurowali Gravatar, zostanie zwrócony obraz profilu. Jeśli nie masz konta skonfigurowali Gravatar, zwracany jest obraz domyślny. Gdy skończysz, wiersz będzie wyglądać następująco:
 
 [!code-css[Main](intro-to-web-pages-programming/samples/sample14.css)]
 
-Teraz można wyświetlić strony w przeglądarce. Obraz lub domyślny obraz jest wyświetlany w zależności od tego, czy masz konto Gravatar.
+Teraz Wyświetl stronę w przeglądarce. Wyświetlany jest obraz lub obraz domyślny, w zależności od tego, czy masz konto skonfigurowali Gravatar.
 
-![Gravatar](intro-to-web-pages-programming/_static/image11.png) ![domyślny obraz](intro-to-web-pages-programming/_static/image12.png)
+![Skonfigurowali Gravatar](intro-to-web-pages-programming/_static/image11.png) ![obraz domyślny](intro-to-web-pages-programming/_static/image12.png)
 
-Aby poznać co robi pomocnika dla Ciebie, Wyświetl źródło strony w przeglądarce. Wraz z HTML, które były dostępne na stronie zostanie wyświetlony element obrazu, który zawiera identyfikator. Jest to kod, który pomocnika renderowany na stronie w miejscu, w którym masz @Gravatar.GetHtml. Pomocnik trwało informacje udostępniane i wygenerowany kod, który komunikuje się bezpośrednio z Gravatar w celu uzyskania ponownie prawidłowy obraz podane konto.
+Aby uzyskać informacje o tym, co robi pomocnik, Wyświetl źródło strony w przeglądarce. Wraz z kodem HTML na stronie zobaczysz element obrazu, który zawiera identyfikator. Jest to kod, który pomocnik jest renderowany na stronie w miejscu, w którym @Gravatar.GetHtml. Pomocnik przejął podane informacje i wygenerował kod, który bezpośrednio nastawia się na skonfigurowali Gravatar w celu przywrócenia poprawnego obrazu dla podanego konta.
 
-Metoda GetHtml umożliwia również dostosować obraz, zapewniając innych parametrów. Poniższy kod pokazuje, jak żądania obrazu o szerokości i wysokości 40 pikseli i używa obrazu określoną wartość domyślną, o nazwie **wavatar** Jeśli określone konto nie istnieje.
+Metoda GetHtml umożliwia również dostosowanie obrazu, dostarczając inne parametry. Poniższy kod pokazuje, jak zażądać obrazu ma szerokość i wysokość 40 pikseli, i używa określonego obrazu domyślnego o nazwie **wavatar** , jeśli określone konto nie istnieje.
 
 [!code-javascript[Main](intro-to-web-pages-programming/samples/sample15.js)]
 
-Ten kod tworzy podobny następujące wyniki (domyślny obraz losowo różnią się).
+Ten kod generuje coś takiego jak poniższy wynik (obraz domyślny będzie się znacznie różnić).
 
 ![](intro-to-web-pages-programming/_static/image13.png)
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-Aby zachować ten krótki samouczek, musimy skupić się na tylko kilka podstawowych. Oczywiście istnieje *partii* więcej Razor i C#. Dowiesz się więcej, jak przejść przez te samouczki. Jeśli chcesz dowiedzieć się więcej na temat programowania aspektów Razor i C# od razu, możesz przeczytać, aby uzyskać bardziej szczegółowe wprowadzenie: [Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890).
+Aby zachować ten samouczek krótko, musiałeś skupić się tylko na kilku podstawach. Naturalnie, istnieje *wiele* więcej niż Razor i C#. Dowiesz się więcej na temat tych samouczków. Jeśli chcesz dowiedzieć się więcej o aspektach programistycznych Razor i C# teraz, możesz zapoznać się z dokładniejszym wprowadzeniem tutaj: [wprowadzenie do ASP.NET programowanie sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890).
 
-Następny samouczek wprowadza do pracy z bazą danych. Ten samouczek będzie stosowany, tworzenie przykładowej aplikacji, która pozwala na liście ulubionych filmów.
+W następnym samouczku przedstawiono pracę z bazą danych programu. W tym samouczku rozpocznie się Tworzenie przykładowej aplikacji, która umożliwia wyświetlanie listy ulubionych filmów.
 
-## <a name="complete-listing-for-testrazor-page"></a>Kompletna lista TestRazor strony
+## <a name="complete-listing-for-testrazor-page"></a>Ukończ listę dla strony TestRazor
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample16.cshtml)]
 
-## <a name="complete-listing-for-testrazorpart2-page"></a>Kompletna lista TestRazorPart2 strony
+## <a name="complete-listing-for-testrazorpart2-page"></a>Ukończ listę dla strony TestRazorPart2
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample17.cshtml)]
 
-## <a name="complete-listing-for-gravatartest-page"></a>Kompletna lista GravatarTest strony
+## <a name="complete-listing-for-gravatartest-page"></a>Ukończ listę dla strony GravatarTest
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample18.cshtml)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Pomocnik usługi Twitter](../../ui-layouts-and-themes/twitter-helper.md)
 
 > [!div class="step-by-step"]

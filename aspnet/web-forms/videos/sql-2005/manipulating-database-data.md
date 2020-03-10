@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/sql-2005/manipulating-database-data
-title: Manipulowanie danymi bazy danych | Dokumentacja firmy Microsoft
+title: Manipulowanie danymi bazy danych | Microsoft Docs
 author: microsoft
-description: Początkujących programu SQL Server zawiera informacje o obiektach ADO.NET i wykonywanie instrukcji SQL z platformy ADO.NET. Eksploruj program SQL oraz informacje na temat insert, update i delete w komórce jednowątkowej...
+description: SQL Server początkujących zapoznaj się z ADO.NET obiektów i wykonywaniem instrukcji SQL z ADO.NET. Poznaj SQL i Dowiedz się więcej na temat wstawiania, aktualizowania i usuwania sta...
 ms.author: riande
 ms.date: 03/29/2006
 ms.assetid: 03a4cdda-480f-43fa-891c-a976633d90ae
 msc.legacyurl: /web-forms/videos/sql-2005/manipulating-database-data
 msc.type: video
 ms.openlocfilehash: 10f9379a27f96ac4acb77af1a6062a42aaecc14f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391679"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78618112"
 ---
 # <a name="manipulating-database-data"></a>Manipulowanie danymi bazy danych
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-Początkujących programu SQL Server zawiera informacje o obiektach ADO.NET i wykonywanie instrukcji SQL z platformy ADO.NET. Eksploruj SQL i Dowiedz się więcej o insert, update i usuwania instrukcji.
+SQL Server początkujących zapoznaj się z ADO.NET obiektów i wykonywaniem instrukcji SQL z ADO.NET. Poznaj SQL i Dowiedz się więcej na temat instrukcji INSERT, Update i DELETE.
 
-[&#9654;Obejrzyj film wideo (40 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/manipulating-database-data)
+[&#9654;Obejrzyj wideo (40 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/manipulating-database-data)
 
 > [!div class="step-by-step"]
 > [Poprzednie](designing-relational-database-tables.md)

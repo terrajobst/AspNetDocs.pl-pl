@@ -1,105 +1,105 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
-title: Za pomocą rozszerzenie kontrolki ColorPicker (C#) | Dokumentacja firmy Microsoft
+title: Za pomocą rozszerzenia formantu ColorPicker (C#) | Microsoft Docs
 author: microsoft
-description: ColorPicker jest rozszerzeń ASP.NET AJAX, który udostępnia funkcjonalność pobrania kolor po stronie klienta za pomocą interfejsu użytkownika w kontrolce popup. Będzie można dołączyć do dowolnej platformy ASP.NET...
+description: ColorPicker to rozszerzenie AJAX ASP.NET, które zapewnia funkcję wybierania koloru po stronie klienta z interfejsem użytkownika w kontrolce podręczny. Może być dołączony do dowolnego ASP.NET...
 ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 0d86a1e7-a910-4ab2-b85c-7a9ea6906c39
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
 msc.type: authoredcontent
 ms.openlocfilehash: ac510ab353878038c1c7a103bfbf6d32fb1b2686
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108158"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78614045"
 ---
-# <a name="using-the-colorpicker-control-extender-c"></a>Za pomocą rozszerzenie kontrolki ColorPicker (C#)
+# <a name="using-the-colorpicker-control-extender-c"></a>Korzystanie z rozszerzenia formantu ColorPicker (C#)
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-> ColorPicker jest rozszerzeń ASP.NET AJAX, który udostępnia funkcjonalność pobrania kolor po stronie klienta za pomocą interfejsu użytkownika w kontrolce popup. Będzie można dołączyć do dowolnej kontrolki ASP.NET TextBox. Go.
+> ColorPicker to rozszerzenie AJAX ASP.NET, które zapewnia funkcję wybierania koloru po stronie klienta z interfejsem użytkownika w kontrolce podręczny. Może być dołączany do dowolnej kontrolki TextBox ASP.NET. Go.
 
-Celem tego samouczka jest wyjaśniają, jak można użyć rozszerzenie kontrolki Toolkit ColorPicker kontrolka AJAX. Rozszerzenie kontrolki ColorPicker wyświetla menu podręczne okno dialogowe, umożliwiające wybierz kolor. ColorPicker jest przydatne, gdy chcesz zapewnić intuicyjnego interfejsu użytkownika dla użytkownika, aby wybrać kolor.
+Celem tego samouczka jest wyjaśnienie, jak można użyć rozszerzenia kontroli składnika ColorPicker zestawu narzędzi AJAX Control Toolkit. Rozszerzenie formantu ColorPicker wyświetla okno dialogowe, które umożliwia wybranie koloru. Składnik ColorPicker jest przydatny, gdy chcesz udostępnić intuicyjny interfejs użytkownika, aby użytkownik mógł wybrać kolor.
 
-## <a name="extending-a-textbox-control-with-the-colorpicker-control-extender"></a>Rozszerzanie Formant TextBox z rozszerzenie kontrolki ColorPicker
+## <a name="extending-a-textbox-control-with-the-colorpicker-control-extender"></a>Rozszerzanie formantu TextBox za pomocą rozszerzenia formantu ColorPicker
 
-Wyobraź sobie, na przykład chcesz utworzyć witrynę sieci Web, który umożliwia tworzenie dostosowanych wizytówki przez osoby odwiedzające. Osoby odwiedzające można wprowadzić tekst wizytówki i wybierz kolor. Strony ASP.NET w ofercie 1 zawiera dwie kontrolki TextBox o nazwie txtCardText i txtCardColor. Gdy prześlesz formularz, są wyświetlane wybrane wartości (patrz rysunek 1).
+Załóżmy na przykład, że chcesz utworzyć witrynę sieci Web, która umożliwia odwiedzającym tworzenie dostosowanych kart firmowych. Odwiedzający mogą wprowadzić tekst dla karty biznesowej i wybrać kolor. Strona ASP.NET na liście 1 zawiera dwa kontrolki TextBox o nazwach txtCardText i txtCardColor. Po przesłaniu formularza wybrane wartości są wyświetlane (patrz rysunek 1).
 
-[![Prosty formularz do tworzenia wizytówkę](using-the-colorpicker-control-extender-cs/_static/image1.jpg)](using-the-colorpicker-control-extender-cs/_static/image1.png)
+[![prosty formularz do tworzenia karty biznesowej](using-the-colorpicker-control-extender-cs/_static/image1.jpg)](using-the-colorpicker-control-extender-cs/_static/image1.png)
 
-**Rysunek 01**: Prosty formularz do tworzenia wizytówki ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image2.png))
+**Ilustracja 01**: prosty formularz do tworzenia karty biznesowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image2.png))
 
-**Wyświetlanie listy 1 - CreateCard.aspx**
+**Lista 1-karta. aspx**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-cs/samples/sample1.aspx)]
 
-Formularz w ofercie 1 działa, ale nie udostępnia doskonałe środowisko użytkownika. Użytkownik będzie musiał wpisać koloru w polu tekstowym. Jeśli użytkownik chce wyspecjalizowane kolor — na przykład tylko odpowiednie odcień zielony PLA -, a następnie użytkownik musi ustalić kod HTML koloru bez pomocy.
+Formularz z listą 1 działa, ale nie zapewnia doskonałego środowiska użytkownika. Użytkownik musi wpisać kolor do pola tekstowego. Jeśli użytkownik chce mieć wyspecjalizowany kolor — na przykład tylko prawy odcień PEA zielony — a następnie użytkownik musi ustalić kod koloru HTML bez pomocy.
 
-Rozszerzenie kontrolki ColorPicker służy do tworzenia lepszego środowiska użytkownika. ColorPicker wyświetla okno dialogowe kolorów, po przeniesieniu fokusu do kontrolki TextBox (patrz rysunek 2).
+Można użyć rozszerzenia formantu ColorPicker do utworzenia lepszego środowiska użytkownika. Składnik ColorPicker wyświetla okno dialogowe koloru po przeniesieniu fokusu do kontrolki TextBox (patrz rysunek 2).
 
-[![Rozszerzenie kontrolki ColorPicker](using-the-colorpicker-control-extender-cs/_static/image2.jpg)](using-the-colorpicker-control-extender-cs/_static/image3.png)
+[![rozszerzenia formantu ColorPicker](using-the-colorpicker-control-extender-cs/_static/image2.jpg)](using-the-colorpicker-control-extender-cs/_static/image3.png)
 
-**Rysunek 02**: Rozszerzenie kontrolki ColorPicker ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image4.png))
+**Ilustracja 02**: rozszerzenie kontrolki ColorPicker ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image4.png))
 
-Należy wykonać dwa kroki, aby rozszerzenie kontrolki ColorPicker za pomocą formularza w ofercie 1:
+Należy wykonać dwa kroki, aby użyć rozszerzenia formantu ColorPicker z formularzem na liście 1:
 
-1. Dodawanie formantu ScriptManager do strony
+1. Dodawanie kontrolki ScriptManager do strony
 2. Dodaj rozszerzenie kontrolki ColorPicker do strony
 
-Zanim użyjesz ColorPicker, należy dodać Menedżera skryptów do strony. Dobrym miejscem do dodania funkcja ScriptManager jest bezpośrednio poniżej po stronie serwera otwierania &lt;formularza&gt; tagu. Funkcja ScriptManager można przeciągnąć na stronę z przybornika (funkcja ScriptManager znajduje się na karcie rozszerzenia AJAX). Alternatywnie można wpisać następującego tagu w widoku źródła pod otwierający tag formularza po stronie serwera:
+Aby można było używać składnika ColorPicker, należy dodać element ScriptManager do strony. Dobrym miejscem na dodanie elementu ScriptManager jest prawo poniżej otwierającego&gt; tagu &lt;po stronie serwera. Możesz przeciągnąć element ScriptManager na stronę z przybornika (element ScriptManager znajduje się na karcie rozszerzenia AJAX). Alternatywnie można wpisać następujący tag do widoku źródła poniżej otwierającego znacznika formularza po stronie serwera:
 
-&lt;asp:ScriptManager ID="ScriptManager1" runat="server" /&gt;
+&lt;ASP: ScriptManager ID = "ScriptManager1" runat = "Server"/&gt;
 
-Najprostszym sposobem na stronie Dodaj rozszerzenie kontrolki ColorPicker jest w widoku Projekt. Jeśli wskaźnik myszy nad txtCardColor pola tekstowego, opcja inteligentne zadań jest wyświetlana, zapewniającą można dodać urządzenia extender (zobacz rysunek 3). W przypadku wybrania tej opcji, zostanie wyświetlony Kreator urządzenia Extender, (zobacz rysunek 4).
+Najprostszym sposobem dodania rozszerzenia formantu ColorPicker do strony jest widok projektu. Jeśli umieścisz wskaźnik myszy nad polem tekstowym txtCardColor, zostanie wyświetlona opcja inteligentnego zadania, która umożliwia dodanie rozszerzenia (patrz rysunek 3). W przypadku wybrania tej opcji zostanie wyświetlony Kreator rozszerzenia (zobacz rysunek 4).
 
-[![Dodawanie urządzenia extender](using-the-colorpicker-control-extender-cs/_static/image3.jpg)](using-the-colorpicker-control-extender-cs/_static/image5.png)
+[![dodawania rozszerzenia](using-the-colorpicker-control-extender-cs/_static/image3.jpg)](using-the-colorpicker-control-extender-cs/_static/image5.png)
 
-**Rysunek 03**: Dodawanie urządzenia extender ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image6.png))
+**Ilustracja 03**: Dodawanie rozszerzenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image6.png))
 
-[![Wybieranie rozszerzenia kontrolki zestawu narzędzi za pomocą kreatora rozszerzeń](using-the-colorpicker-control-extender-cs/_static/image4.jpg)](using-the-colorpicker-control-extender-cs/_static/image7.png)
+[![Wybieranie rozszerzenia kontrolki za pomocą Kreatora rozszerzania](using-the-colorpicker-control-extender-cs/_static/image4.jpg)](using-the-colorpicker-control-extender-cs/_static/image7.png)
 
-**Rysunek 04**: Wybieranie rozszerzenia kontrolki zestawu narzędzi za pomocą kreatora rozszerzeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image8.png))
+**Rysunek 04**: wybór rozszerzenia kontrolki za pomocą Kreatora rozszerzania ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image8.png))
 
-Można wybrać rozszerzenie ColorPicker rozszerzenie txtCardColor pola tekstowego przy użyciu rozszerzeń ColorPicker. Kliknij przycisk OK, aby zamknąć okno dialogowe.
+Można wybrać rozszerzenie ColorPicker, aby rozszerzać pole tekstowe txtCardColor z przedłużaczem ColorPicker. Kliknij przycisk OK, aby zamknąć okno dialogowe.
 
-Po wprowadzeniu tych zmian, źródła dla strony wyglądają jak lista 2.
+Po wprowadzeniu tych zmian Źródło strony wygląda jak lista 2.
 
-Wyświetlanie listy 2 - CreateCard.aspx (z ColorPicker)
+Lista 2 — Tworzenie karty. aspx (z ColorPicker)
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-cs/samples/sample2.aspx)]
 
-Należy zauważyć, że strona zawiera teraz formant ColorPickerExtender, który pojawia się bezpośrednio pod txtCardColor formant pola tekstowego. Kontrolka ColorPickerExtender rozszerza formant txtCardColor tak, aby wyświetlał okna dialogowego selektora kolorów.
+Zauważ, że strona zawiera teraz kontrolkę ColorPickerExtender, która pojawia się bezpośrednio pod kontrolką TextBox txtCardColor. Formant ColorPickerExtender rozszerza formant txtCardColor tak, aby wyświetlał okno dialogowe selektora kolorów.
 
-## <a name="using-a-button-to-launch-the-color-picker-dialog"></a>Za pomocą przycisku można uruchomić okna dialogowego selektora kolorów
+## <a name="using-a-button-to-launch-the-color-picker-dialog"></a>Używanie przycisku do uruchamiania okna dialogowego selektora kolorów
 
 Rozszerzenie ColorPicker obsługuje następujące właściwości:
 
-- PopupButtonId — identyfikator przycisk na stronie, która powoduje, że są wyświetlane okno dialogowe próbnika kolorów.
-- PopupPosition — pozycja, względem formantu docelowego, okna dialogowego selektora kolorów. Możliwe wartości to bezwzględną, Centrum, BottomLeft, BottomRight, TopLeft, TopRight i po lewej stronie (wartość domyślna to BottomLeft).
+- PopupButtonId — identyfikator przycisku na stronie, który powoduje wyświetlenie okna dialogowego selektora kolorów.
+- PopupPosition — pozycja względem kontrolki Target okna dialogowego selektora kolorów. Możliwe wartości to bezwzględne, Center, BottomLeft, BottomRight, TopLeft, TopRight, Right i Left (wartość domyślna to BottomLeft).
 - SampleControlId — identyfikator formantu, który wyświetla wybrany kolor.
-- SelectedColor — kolor początkowy wybranych przez ColorPicker.
+- SelectedColor — początkowy kolor wybrany przez składnik ColorPicker.
 
-Aby dostosować sposób wyświetlania okna dialogowego selektora kolorów i sposób wyświetlania kolorów, można użyć tych właściwości. Na stronie w ofercie 3 ilustruje, jak skorzystać z kilku z tych właściwości.
+Za pomocą tych właściwości można dostosować sposób wyświetlania okna dialogowego selektora kolorów oraz sposobu wyświetlania zaznaczonego koloru. Na stronie z listą 3 pokazano, jak można użyć kilku z tych właściwości.
 
-**Wyświetlanie listy 3 - CreateCardButton.aspx**
+**Lista 3-CreateCardButton. aspx**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-cs/samples/sample3.aspx)]
 
-Na stronie w ofercie 3 obejmuje wybierz kolor przycisku (zobacz rysunek 5). Po kliknięciu tego przycisku, powyżej pola tekstowego pojawi się okno dialogowe selektora kolorów. Jeśli wybierzesz kolor z poziomu okna dialogowego wybrany kolor pojawia się jako kolor tła lblSample formant etykiety.
+Strona na liście 3 zawiera przycisk Wybierz kolor (patrz rysunek 5). Po kliknięciu tego przycisku zostanie wyświetlone okno dialogowe selektora kolorów powyżej pola tekstowego. W przypadku wybrania koloru z okna dialogowego wybrany kolor zostanie wyświetlony jako kolor tła kontrolki etykiety lblSample.
 
-Właściwość ColorPicker PopupButtonID jest używana do kojarzenia przycisk wyboru koloru z rozszerzeń ColorPicker. Podczas podawania wartości dla właściwości PopupButtonID okna dialogowego selektora kolorów nie jest już wyświetlany formantu docelowego po ustawieniu fokusu. Należy kliknąć przycisk aby wyświetlić okno dialogowe.
+Właściwość ColorPicker PopupButtonID służy do kojarzenia przycisku Wybierz kolor z przedłużaczem ColorPicker. Gdy podasz wartość właściwości PopupButtonID, okno dialogowe selektora kolorów nie pojawia się już, gdy formant docelowy ma fokus. Aby wyświetlić okno dialogowe, należy kliknąć przycisk.
 
-Właściwość SampleControlID jest używana do kojarzenia kontrolkę wyświetlającą wybranego koloru z ColorPicker. ColorPicker zmienia kolor tła tego formantu do aktualnie wybranego koloru.
+Właściwość SampleControlID służy do kojarzenia kontrolki wyświetlającej wybrany kolor z elementem ColorPicker. Składnik ColorPicker zmienia kolor tła kontrolki na aktualnie wybrany kolor.
 
-[![Wyświetlanie okna dialogowego selektora kolorów przy użyciu przycisku](using-the-colorpicker-control-extender-cs/_static/image5.jpg)](using-the-colorpicker-control-extender-cs/_static/image9.png)
+[![wyświetlania okna dialogowego selektora kolorów z przyciskiem](using-the-colorpicker-control-extender-cs/_static/image5.jpg)](using-the-colorpicker-control-extender-cs/_static/image9.png)
 
-**Rysunek 05**: Wyświetlanie okna dialogowego selektora kolorów przy użyciu przycisku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image10.png))
+**Ilustracja 05**: wyświetlanie okna dialogowego selektora kolorów z przyciskiem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-colorpicker-control-extender-cs/_static/image10.png))
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku przedstawiono sposób użyć rozszerzenie kontrolki ColorPicker, aby wyświetlić okno podręczne okno dialogowe selektora kolorów. Najpierw zbadaliśmy się, jak można wyświetlić okno dialogowe, gdy fokus zostanie przeniesiony do kontrolki TextBox. Następnie pokazaliśmy ci, jak utworzyć przycisk, który wyświetla okno dialogowe selektora kolorów, po kliknięciu przycisku.
+W tym samouczku przedstawiono sposób użycia rozszerzenia formantu ColorPicker do wyświetlania okna dialogowego selektora kolorów menu podręcznego. Najpierw sprawdziłem, jak można wyświetlić okno dialogowe, gdy fokus jest przenoszony do kontrolki TextBox. Następnie pokazano, jak utworzyć przycisk, który wyświetla okno dialogowe selektora kolorów po kliknięciu przycisku.
 
 > [!div class="step-by-step"]
-> [Next](using-the-colorpicker-control-extender-vb.md)
+> [Dalej](using-the-colorpicker-control-extender-vb.md)

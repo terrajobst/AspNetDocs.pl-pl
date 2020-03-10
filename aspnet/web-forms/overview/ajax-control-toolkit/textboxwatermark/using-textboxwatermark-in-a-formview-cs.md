@@ -9,11 +9,11 @@ ms.assetid: e6ee90bf-32a5-4987-a384-15cc7dd30c8a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 13ac0da5ca53756aa7c660cdc47c96f0c865b006
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611305"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78627149"
 ---
 # <a name="using-textboxwatermark-in-a-formview-c"></a>Używanie kontrolki TextBoxWatermark w kontrolce FormView (C#)
 
@@ -52,4 +52,4 @@ Teraz, gdy użytkownik zmieni tryb wstawiania kontrolki `FormView`, pole tekstow
 Znak wodny w polu pochodzi z rozszerzenia (kliknij,[Aby wyświetlić obraz o pełnym rozmiarze](using-textboxwatermark-in-a-formview-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Next](using-textboxwatermark-with-validation-controls-cs.md)
+> [Dalej](using-textboxwatermark-with-validation-controls-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: c8204c05-ec27-40fe-933d-88e4e727a482
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 629d79505cebd49c2f05333bfbf78166f80fc6cb
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607033"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78614402"
 ---
 # <a name="animating-in-response-to-user-interaction-vb"></a>Wykonywanie animacji w odpowiedzi na interakcję z użytkownikiem (VB)
 

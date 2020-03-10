@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 4b2c88280df39aa81d60f9508910e8fe5d6db6b8
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519118"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616817"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Potwierdzenie konta i odzyskiwanie hasła przy użyciu ASP.NET IdentityC#()
 
@@ -63,7 +63,7 @@ Wybranie przycisku **Resetuj** spowoduje potwierdzenie resetowania hasła.
 
 <a id="createMvc"></a>
 
-## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji internetowej ASP.NET
+## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji internetowej platformy ASP.NET
 
 Zacznij od zainstalowania i uruchomienia [programu Visual Studio 2017](https://visualstudio.microsoft.com/).
 
@@ -83,7 +83,7 @@ Zacznij od zainstalowania i uruchomienia [programu Visual Studio 2017](https://v
 
 Domyślny magazyn danych dla ASP.NET Identity jest Entity Framework, ale można go skonfigurować tak, aby korzystał z innych magazynów danych i dodać dodatkowe pola. Zobacz sekcję [dodatkowe zasoby](#addRes) na końcu tego samouczka.
 
-[Klasa startowa Owin](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *Startup.cs* ) jest wywoływana, gdy aplikacja zostanie uruchomiona i wywoła metodę `ConfigureAuth` w *aplikacji\_Start\Startup.auth.cs*, która konfiguruje potok Owin i inicjuje ASP.NET Identity. Sprawdź `ConfigureAuth` metody. Każde wywołanie `CreatePerOwinContext` rejestruje wywołanie zwrotne (zapisane w `OwinContext`), które zostanie wywołane raz na żądanie w celu utworzenia wystąpienia określonego typu. Można ustawić punkt przerwania w konstruktorze i metodę `Create` każdego typu (`ApplicationDbContext, ApplicationUserManager`) i sprawdzić, czy są one wywoływane dla każdego żądania. Wystąpienie `ApplicationDbContext` i `ApplicationUserManager` jest przechowywane w kontekście OWIN, do którego można uzyskać dostęp w całej aplikacji. ASP.NET Identity podłączane do potoku OWIN za pomocą oprogramowania pośredniczącego plików cookie. Aby uzyskać więcej informacji, zobacz [Zarządzanie okresem istnienia żądania dla klasy usermanager w ASP.NET Identity](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
+[Klasa startowa Owin](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *Startup.cs* ) jest wywoływana, gdy aplikacja zostanie uruchomiona i wywoła metodę `ConfigureAuth` w *aplikacji\_Start\Startup.auth.cs*, która konfiguruje potok Owin i inicjuje ASP.NET Identity. Przeanalizuj metodę `ConfigureAuth`. Każde wywołanie `CreatePerOwinContext` rejestruje wywołanie zwrotne (zapisane w `OwinContext`), które zostanie wywołane raz na żądanie w celu utworzenia wystąpienia określonego typu. Można ustawić punkt przerwania w konstruktorze i metodę `Create` każdego typu (`ApplicationDbContext, ApplicationUserManager`) i sprawdzić, czy są one wywoływane dla każdego żądania. Wystąpienie `ApplicationDbContext` i `ApplicationUserManager` jest przechowywane w kontekście OWIN, do którego można uzyskać dostęp w całej aplikacji. ASP.NET Identity podłączane do potoku OWIN za pomocą oprogramowania pośredniczącego plików cookie. Aby uzyskać więcej informacji, zobacz [Zarządzanie okresem istnienia żądania dla klasy usermanager w ASP.NET Identity](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
 
 Po zmianie profilu zabezpieczeń jest generowana nowa Sygnatura zabezpieczeń, która będzie przechowywana w polu `SecurityStamp` tabeli *AspNetUsers* . Zwróć uwagę, że pole `SecurityStamp` różni się od pliku cookie zabezpieczeń. Plik cookie zabezpieczeń nie jest przechowywany w tabeli `AspNetUsers` (lub w innym miejscu w bazie danych tożsamości). Token pliku cookie zabezpieczeń jest z podpisem własnym przy użyciu funkcji [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) i jest tworzony z informacjami o `UserId, SecurityStamp` i czasie wygaśnięcia.
 

@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
-title: 'Samouczek: Zmień bazę danych dla platformy EF Database First w aplikacji ASP.NET MVC'
-description: Ten samouczek koncentruje się na wprowadzanie aktualizacji struktury bazy danych i propagowanie tej zmiany w całej aplikacji sieci web.
+title: 'Samouczek: zmiana bazy danych dla Database First EF z aplikacją ASP.NET MVC'
+description: Ten samouczek koncentruje się na wprowadzaniu aktualizacji struktury bazy danych i propagowaniu zmian w całej aplikacji sieci Web.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,64 +10,64 @@ ms.assetid: cfd5c083-a319-482e-8f25-5b38caa93954
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
 ms.openlocfilehash: 52cad1120908cf0d4f85770f8e2690f9415c5f56
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070238"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616264"
 ---
-# <a name="tutorial-change-the-database-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Zmień bazę danych dla platformy EF Database First w aplikacji ASP.NET MVC
+# <a name="tutorial-change-the-database-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: zmiana bazy danych dla Database First EF z aplikacją ASP.NET MVC
 
-Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych.
+Korzystając z szkieletów MVC, Entity Framework i ASP.NET, można utworzyć aplikację sieci Web, która udostępnia interfejs istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie generować kod, który umożliwia użytkownikom wyświetlanie, edytowanie, tworzenie i usuwanie danych znajdujących się w tabeli bazy danych. Wygenerowany kod odpowiada kolumnom w tabeli bazy danych.
 
-Ten samouczek koncentruje się na wprowadzanie aktualizacji struktury bazy danych i propagowanie tej zmiany w całej aplikacji sieci web.
+Ten samouczek koncentruje się na wprowadzaniu aktualizacji struktury bazy danych i propagowaniu zmian w całej aplikacji sieci Web.
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dodaj kolumnę
-> * Dodaj właściwość do widoków
+> * Dodawanie kolumny
+> * Dodawanie właściwości do widoków
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Generowanie widoków](generating-views.md)
 
-## <a name="add-a-column"></a>Dodaj kolumnę
+## <a name="add-a-column"></a>Dodawanie kolumny
 
-Jeśli zaktualizujesz strukturę tabeli w bazie danych, należy upewnić się, Twoja zmiana jest propagowana do modelu danych, widoków i kontrolerów.
+W przypadku aktualizowania struktury tabeli w bazie danych należy upewnić się, że zmiana jest propagowana do modelu danych, widoków i kontrolera.
 
-W tym samouczku dodasz nową kolumnę do tabeli dla uczniów, aby zarejestrować drugie imię studenta. Aby dodać tę kolumnę, otwórz projekt bazy danych, a następnie otwórz plik Student.sql. Za pomocą projektanta lub kodu T-SQL, Dodaj kolumnę o nazwie **MiddleName** , jest NVARCHAR(50) i dopuszcza wartości NULL.
+W tym samouczku dodasz nową kolumnę do tabeli Students, aby zarejestrować nazwę środkową ucznia. Aby dodać tę kolumnę, Otwórz projekt bazy danych i Otwórz plik student. SQL. Za pomocą projektanta lub kodu T-SQL Dodaj kolumnę o nazwie **MiddleName** , która jest nvarchar (50) i dopuszcza wartości null.
 
-Wdróż tę zmianę z lokalną bazą danych, uruchamiając projekt bazy danych (lub F5). Nowe pole jest dodawane do tabeli. Jeśli nie ma go w Eksploratorze obiektów SQL Server, kliknij przycisk Odśwież w okienku.
+Wdróż tę zmianę w lokalnej bazie danych, uruchamiając projekt bazy danych (lub F5). Nowe pole zostanie dodane do tabeli. Jeśli nie widzisz go w Eksplorator obiektów SQL Server, kliknij przycisk Odśwież w okienku.
 
-![Pokaż nowej kolumny](changing-the-database/_static/image2.png)
+![Pokaż nową kolumnę](changing-the-database/_static/image2.png)
 
-Nowa kolumna istnieje w tabeli bazy danych, ale ona obecnie nie istnieje w klasie modelu danych. Należy zaktualizować model w celu uwzględnienia nowej kolumny. W **modeli** folder, otwórz **ContosoModel.edmx** plik, aby wyświetlić diagram modelu. Zwróć uwagę, model dla uczniów nie zawiera właściwości MiddleName. Kliknij prawym przyciskiem myszy w dowolnym miejscu na powierzchni projektowej, a następnie wybierz pozycję **Model aktualizacji z bazy danych**.
+Nowa kolumna istnieje w tabeli bazy danych, ale nie istnieje obecnie w klasie modelu danych. Musisz zaktualizować model, aby dołączyć nową kolumnę. W folderze **modele** Otwórz plik **ContosoModel. edmx** , aby wyświetlić Diagram modelu. Zwróć uwagę, że model ucznia nie zawiera właściwości MiddleName. Kliknij prawym przyciskiem myszy w dowolnym miejscu na powierzchni projektowej, a następnie wybierz polecenie **Aktualizuj model z bazy danych**.
 
-W Kreatorze aktualizacji wybierz **Odśwież** , a następnie wybierz pozycję **tabel** > **dbo** > **uczniów**. Kliknij przycisk **Zakończ**.
+W Kreatorze aktualizacji wybierz kartę **Odśwież** , a następnie wybierz pozycję **tabele** > **dbo** > **student**. Kliknij przycisk **Finish** (Zakończ).
 
-Po zakończeniu procesu aktualizacji diagram zawiera nowe **MiddleName** właściwości. Zapisz **ContosoModel.edmx** pliku. Musisz zapisać ten plik nowej właściwości są propagowane do **Student.cs** klasy. Zostały teraz zaktualizowane bazy danych i modelu.
+Po zakończeniu procesu aktualizacji diagram bazy danych zawiera nową właściwość **MiddleName** . Zapisz plik **ContosoModel. edmx** . Musisz zapisać ten plik, aby uzyskać nową właściwość do propagowania do klasy **student.cs** . Baza danych i model zostały zaktualizowane.
 
 Skompiluj rozwiązanie.
 
-## <a name="add-the-property-to-the-views"></a>Dodaj właściwość do widoków
+## <a name="add-the-property-to-the-views"></a>Dodawanie właściwości do widoków
 
-Niestety widoki nadal nie zawierają nową właściwość. Aby zaktualizować widoki dostępne są dwie opcje — można ponownie wygenerować widoki dodając ponownie funkcją szkieletów dla klasy dla uczniów, lub można ręcznie dodawać nowych właściwości do istniejących widoków. W tym samouczku dodasz szkieletu ponownie, ponieważ nie wprowadzono zmian dostosowane widoki generowane automatycznie. Należy rozważyć, ręcznie dodając właściwość, jeśli wprowadzono zmiany do widoków i nie chcesz utracić te zmiany.
+Niestety, widoki nadal nie zawierają nowej właściwości. Aby zaktualizować widoki, które są dostępne, możesz ponownie wygenerować widoki przez ponowne dodanie szkieletu dla klasy uczniów lub można ręcznie dodać nową właściwość do istniejących widoków. W tym samouczku dodasz szkielet ponownie, ponieważ nie wprowadzono żadnych niestandardowych zmian w widokach generowanych automatycznie. Możesz rozważyć ręczne dodanie właściwości po wprowadzeniu zmian w widokach i nie chcesz utracić tych zmian.
 
-Aby upewnić się, widoki są ponownie tworzone, Usuń **studentów** folderze **widoków**i Usuń **StudentsController**. Następnie kliknij prawym przyciskiem myszy **kontrolerów** folderze i Dodaj funkcją szkieletów dla **uczniów** modelu. Ponownie, nazwy kontrolera **StudentsController**. Wybierz pozycję **Dodaj**.
+Aby upewnić się, że widoki są odtwarzane, Usuń folder **uczniów** w obszarze **widoki**i Usuń **StudentsController**. Następnie kliknij prawym przyciskiem myszy folder **controllers** , a następnie Dodaj szkielet dla modelu **ucznia** . Ponownie Nazwij kontroler **StudentsController**. Wybierz pozycję **Dodaj**.
 
-Ponownie skompiluj rozwiązanie. Widoki zawierają teraz właściwość MiddleName.
+Ponownie skompiluj rozwiązanie. Widoki zawierają teraz Właściwość MiddleName.
 
 ![Pokaż drugie imię](changing-the-database/_static/image5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dodano kolumnę
-> * Dodaje właściwość do widoków
+> * Dodano właściwość do widoków
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak dostosować widok do wyświetlania szczegółów rekordu dla uczniów.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak dostosować widok na potrzeby wyświetlania szczegółowych informacji o rekordzie ucznia.
 > [!div class="nextstepaction"]
 > [Dostosowywanie widoku](customizing-a-view.md)

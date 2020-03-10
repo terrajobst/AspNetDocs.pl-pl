@@ -9,11 +9,11 @@ ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 5aaf97dc8448dcb7b94ef2e4e23f34fd37ac4426
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115188"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78605043"
 ---
 # <a name="creating-a-data-access-layer-c"></a>Tworzenie warstwy dostępu do danych (C#)
 
@@ -168,7 +168,7 @@ Ten kod nie wymaga od nas zapisania jednego bitu kodu specyficznego dla dostępu
 
 Każdy obiekt użyty w tym przykładzie jest również silnie wpisany, co pozwala programowi Visual Studio zapewnić sprawdzanie typów funkcji IntelliSense i czasu kompilacji. I najlepsze dla wszystkich tabel danych zwracanych przez TableAdapter można powiązać z kontrolkami sieci Web z danymi ASP.NET, takimi jak GridView, DetailsView, DropDownList, formant CheckBoxList i kilka innych. Poniższy przykład ilustruje powiązanie elementu DataTable zwróconego przez metodę **getProducts ()** z elementem GridView w zaledwie scant trzy wiersze kodu na **stronie,\_** obsłudze zdarzeń ładowania.
 
-AllProducts. aspx
+AllProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample2.aspx)]
 
@@ -422,7 +422,7 @@ Te dane mogą być również wyświetlane w dowolnym z ASP. Kontrolki sieci Web 
 
 Sprawdzimy, jak wyświetlać takie raporty o szczegółach głównych w przyszłych samouczkach. Na razie ten przykład został zaprojektowany tak, aby zilustrować użycie metody niestandardowej dodanej do klasy **Northwind. SuppliersRow** .
 
-SuppliersAndProducts. aspx
+SuppliersAndProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample24.aspx)]
 
@@ -469,4 +469,4 @@ Aby uzyskać więcej informacji na temat tematów omówionych w tym samouczku, z
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci ołowiu dla tego samouczka były Piotr Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez i Carlos Santos. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](creating-a-business-logic-layer-cs.md)
+> [Dalej](creating-a-business-logic-layer-cs.md)

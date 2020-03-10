@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
 ms.openlocfilehash: 2f0b47d45bce82c71d1864536309f9e2ffed2d63
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519131"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616915"
 ---
 # <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementowanie niestandardowego dostawcy magazynu MySQL dla systemu ASP.NET Identity
 
@@ -73,7 +73,7 @@ Na potrzeby tego przykładu klasy warstwy dostępu do danych zawierają instrukc
 
 ## <a name="create-a-mysql-database-instance-on-azure"></a>Tworzenie wystąpienia bazy danych MySQL na platformie Azure
 
-1. Zaloguj się do [Portalu Azure](https://manage.windowsazure.com/).
+1. Zaloguj się do [Azure Portal](https://manage.windowsazure.com/).
 2. Kliknij pozycję **+ Nowy** w dolnej części strony, a następnie wybierz pozycję **Zapisz**.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image1.png)
 3. W kreatorze **Wybierz i dodatek** wybierz pozycję **baza danych MySQL ClearDB** , a następnie kliknij strzałkę Dalej w prawym dolnym rogu okna dialogowego.  
@@ -121,7 +121,7 @@ W razie potrzeby zainstaluj [Visual Studio Express 2013 dla sieci Web](https://g
 5. Kliknij prawym przyciskiem myszy projekt IdentityMySQLDemo, wybierz pozycję **Dodaj**, **odwołanie, rozwiązanie, projekty,** wybierz projekt ASPNET. Identity. MySQL, a następnie kliknij przycisk **OK**.
 6. W projekcie IdentityMySQLDemo Zastąp wszystkie odwołania do  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
-   Program  z usługą  
+   elementem  
      `using AspNet.Identity.MySQL;`
 7. W IdentityModels.cs Ustaw **ApplicationDbContext** na pochodny od **MySqlDatabase** i Uwzględnij konstruktora, który przyjmuje jeden parametr z nazwą połączenia.  
 

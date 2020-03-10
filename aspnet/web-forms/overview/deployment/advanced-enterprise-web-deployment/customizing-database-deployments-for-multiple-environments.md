@@ -1,139 +1,139 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
-title: Dostosowywanie wdrożeń bazy danych w wielu środowiskach | Dokumentacja firmy Microsoft
+title: Dostosowywanie wdrożeń baz danych dla wielu środowisk | Microsoft Docs
 author: jrjlee
-description: 'W tym temacie opisano, jak dostosować właściwości bazy danych w środowiskach docelowych określonych w ramach procesu wdrażania. Uwaga: Temat zakłada th...'
+description: 'W tym temacie opisano sposób dostosowywania właściwości bazy danych do określonych środowisk docelowych w ramach procesu wdrażania. Uwaga: w temacie założono, że...'
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: a172979a-1318-4318-a9c6-4f9560d26267
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
 ms.openlocfilehash: 8ae8cb1a322afb95c5d2e8d5e73c7825c7b2fe5a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108303"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78604028"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>Dostosowywanie wdrożeń bazy danych dla wielu środowisk
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano, jak dostosować właściwości bazy danych w środowiskach docelowych określonych w ramach procesu wdrażania.
+> W tym temacie opisano sposób dostosowywania właściwości bazy danych do określonych środowisk docelowych w ramach procesu wdrażania.
 > 
 > > [!NOTE]
-> > Temat zakłada wdrażany projekt bazy danych programu Visual Studio 2010 przy użyciu MSBuild.exe i VSDBCMD.exe. Aby uzyskać więcej informacji na temat Dlaczego możesz wybrać tej metody, zobacz [wdrażanie w Internecie w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md) i [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
+> > W temacie przyjęto założenie, że jest wdrażany projekt bazy danych programu Visual Studio 2010 przy użyciu programu MSBuild. exe i VSDBCMD. exe. Aby uzyskać więcej informacji na temat przyczyn tego podejścia, zobacz [wdrażanie w sieci Web w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md) i [wdrażanie projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
 > 
 > 
-> Podczas wdrażania projektu bazy danych do wielu miejsc docelowych, często warto dostosować właściwości wdrożenia bazy danych dla każdego środowiska docelowego. Na przykład w środowiskach testowych będzie najczęściej ponownego tworzenia bazy danych przy każdym wdrożeniu w środowiskach przejściowych lub produkcyjnych może być znacznie częściej wprowadzić aktualizacje przyrostowe, aby zachować swoje dane.
+> Podczas wdrażania projektu bazy danych w wielu miejscach docelowych często chcesz dostosować właściwości wdrażania bazy danych dla każdego środowiska docelowego. Na przykład w środowiskach testowych zwykle ponownie utworzysz bazę danych w każdym wdrożeniu, podczas gdy w środowisku przejściowym lub produkcyjnym znacznie bardziej zachodzi potrzeba przeprowadzenia aktualizacji przyrostowych w celu zachowania danych.
 > 
-> W projekcie bazy danych programu Visual Studio 2010 ustawienia wdrożenia są zawarte w pliku konfiguracji (.sqldeployment) wdrożenia. W tym temacie pokazano sposób tworzenia plików konfiguracyjnych specyficznych dla środowiska wdrażania i określ ten, którego chcesz użyć jako parametru VSDBCMD.
+> W projekcie bazy danych programu Visual Studio 2010 ustawienia wdrożenia są zawarte w pliku konfiguracji wdrożenia (. sqldeployment). W tym temacie pokazano, jak utworzyć pliki konfiguracji wdrożenia specyficzne dla środowiska i określić, który ma być używany jako parametr VSDBCMD.
 
-Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
+Ten temat stanowi część szeregu samouczków opartych na wymaganiach dotyczących wdrażania w przedsiębiorstwie fikcyjnej firmy o nazwie Fabrikam, Inc. W tej serii samouczków jest stosowane&#x2014;przykładowe rozwiązanie&#x2014;do reprezentowania aplikacji sieci Web, [które ma](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)realistyczny poziom złożoności, w tym aplikacji ASP.NET MVC 3, usługi Windows Communication Foundation (WCF) i projektu bazy danych.
 
-Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowana przez dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
+Metoda wdrażania w tym samouczku jest oparta na rozłożeniu pliku projektu dzielonego opisanym w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowany przez dwa pliki&#x2014;projektu, zawierający instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego, oraz jeden zawierający ustawienia kompilacji i wdrożenia specyficznego dla środowiska. W czasie kompilacji plik projektu specyficzny dla środowiska jest scalany z plikiem projektu Environment-niezależny od w celu utworzenia kompletnego zestawu instrukcji kompilacji.
 
-## <a name="task-overview"></a>Omówienie zadań
+## <a name="task-overview"></a>Przegląd zadania
 
 W tym temacie założono, że:
 
-- Użyj podejście split projektu plików do wdrożenia rozwiązania, zgodnie z opisem w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md).
-- Wywoływanie VSDBCMD z pliku projektu, aby wdrożyć projekt bazy danych, zgodnie z opisem w [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+- Należy użyć podejścia Rozdziel plik projektu do wdrożenia rozwiązania, zgodnie z opisem w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md).
+- Należy wywołać VSDBCMD z pliku projektu, aby wdrożyć projekt bazy danych, zgodnie z opisem w [opisie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 
-Aby utworzyć system wdrożenia, który obsługuje różne właściwości wdrożenia bazy danych między środowiskami docelowej, musisz:
+Aby utworzyć system wdrażania, który obsługuje Zmienianie właściwości wdrożenia bazy danych między środowiskami docelowymi, należy wykonać następujące:
 
-- Utwórz plik konfiguracji (.sqldeployment) wdrożenia dla każdego środowiska docelowego.
+- Utwórz plik konfiguracji wdrożenia (. sqldeployment) dla każdego środowiska docelowego.
 - Utwórz polecenie VSDBCMD, które określa plik konfiguracji wdrożenia jako przełącznik wiersza polecenia.
-- Parametryzuj VSDBCMD polecenia w pliku projektu aparatu Microsoft Build Engine (MSBuild), dzięki czemu opcje VSDBCMD są odpowiednie dla środowiska docelowego.
+- Sparametryzuj polecenie VSDBCMD w pliku projektu Microsoft Build Engine (MSBuild), tak aby opcje VSDBCMD były odpowiednie dla środowiska docelowego.
 
-W tym temacie pokazują sposób wykonywania każdego z tych procedur.
+W tym temacie przedstawiono sposób wykonywania każdej z tych procedur.
 
-## <a name="creating-environment-specific-deployment-configuration-files"></a>Tworzenie plików konfiguracyjnych specyficznych dla środowiska wdrażania
+## <a name="creating-environment-specific-deployment-configuration-files"></a>Tworzenie plików konfiguracji wdrożenia specyficznych dla środowiska
 
-Projekt bazy danych zawiera domyślnie plik konfiguracji pojedynczego wdrożenia o nazwie *Database.sqldeployment*. Jeśli możesz otworzyć ten plik w programie Visual Studio 2010, zostanie wyświetlony opcje innego wdrożenia, które są dostępne dla użytkownika:
+Domyślnie projekt bazy danych zawiera plik konfiguracji o pojedynczym wdrożeniu o nazwie *Database. sqldeployment*. Jeśli otworzysz ten plik w programie Visual Studio 2010, możesz zobaczyć różne dostępne opcje wdrażania:
 
-- **Sortowanie porównanie wdrożenia**. Dzięki temu można zdecydować, czy do korzystania z sortowania bazy danych projektu ( *źródła* sortowania) lub z sortowaniem bazy danych na serwerze docelowym ( *docelowej* sortowania). W większości przypadków będziesz chciał użyć sortowania źródła, podczas wdrażania do rozwoju lub środowiska testowego. Podczas wdrażania w środowisku tymczasowym lub produkcyjnym zwykle należy pozostawić bez zmian, aby uniknąć jakichkolwiek problemów współdziałanie docelowym sortowaniu.
-- **Wdrażanie bazy danych właściwości**. Dzięki temu można zdecydować, czy zastosować właściwości bazy danych zgodnie z definicją w *Database.sqlsettings* pliku. Podczas wdrażania bazy danych po raz pierwszy, należy wdrożyć właściwości bazy danych. Jeśli aktualizujesz istniejącą bazę danych, właściwości powinien już znajdować się w miejscu, a nie należy wdrażać je ponownie.
-- **Zawsze ponownie utworzyć bazę danych**. Dzięki temu, który określa, czy ponownie utworzyć docelowej bazy danych, za każdym razem, gdy wdrażanie lub zmiany przyrostowe do docelowej bazy danych na bieżąco ze schematu. Jeśli ponownie utworzyć bazę danych, utracisz wszystkie dane w istniejącej bazy danych. Dlatego należy zwykle ustawić to **false** dla wdrożeń w środowiskach przejściowych lub produkcyjnych.
-- **Zablokować wdrożenie przyrostowe, gdy może wystąpić utrata danych**. Dzięki temu można wybrać, czy wdrożenie ma zostać zatrzymana, jeśli zmiana schematu bazy danych spowoduje utratę danych. Zazwyczaj Ustaw tę opcję na **true** wdrożenia do środowiska produkcyjnego, aby zapewnić możliwość interweniować i chronić wszystkie ważne dane. Jeśli ustawiono **zawsze ponownie utwórz bazę danych** do **false**, to ustawienie nie będzie miała zastosowania.
-- **Wykonaj wdrożenie w trybie jednego użytkownika**. Nie stanowi to zwykle problemu w środowiskach deweloperskich lub testowania. Jednak należy zwykle ustawić to **true** dla wdrożeń w środowiskach przejściowych lub produkcyjnych. To uniemożliwia użytkownikom wprowadzanie zmian do bazy danych, gdy wdrożenie jest w toku.
-- **Utwórz kopię zapasową bazy danych przed wdrożeniem**. Zazwyczaj Ustaw tę opcję na **true** podczas wdrażania w środowisku produkcyjnym w celu ochrony przed utratą danych. Możesz również ustawić ją na **true** podczas wdrażania w środowisku przejściowym, jeśli tymczasowej bazy danych zawiera dużą ilość danych.
-- **Generuj instrukcje usuwania obiektów, które znajdują się w docelowej bazie danych, ale nie są w projekcie bazy danych**. W większości przypadków jest to całkowite i istotnych części wprowadzania przyrostowych zmian do bazy danych. Jeśli ustawiono **zawsze ponownie utwórz bazę danych** do **false**, to ustawienie nie będzie miała zastosowania.
-- **Nie używaj instrukcji ALTER ASSEMBLY można zaktualizować typów CLR**. To ustawienie określa, jak zaktualizować typowych języka wspólnego (CLR) do nowszych wersji zestawów programu SQL Server. To powinien być ustawiony na **false** w większości scenariuszy.
+- **Sortowanie porównania wdrożenia**. Pozwala to zdecydować, czy należy użyć sortowania bazy danych projektu (sortowania *źródła* ) czy sortowania bazy danych serwera docelowego (sortowanie *docelowe* ). W większości przypadków podczas wdrażania programu w środowisku deweloperskim lub testowym warto użyć sortowania źródłowego. Podczas wdrażania w środowisku przejściowym lub produkcyjnym zwykle warto pozostawić sortowanie docelowe bez zmian, aby uniknąć problemów ze współdziałaniem.
+- **Wdróż właściwości bazy danych**. Dzięki temu można wybrać, czy mają być stosowane właściwości bazy danych, zgodnie z definicją w pliku *Database. sqlsettings* . Podczas wdrażania bazy danych po raz pierwszy należy wdrożyć właściwości bazy danych. W przypadku aktualizowania istniejącej bazy danych właściwości powinny być już na miejscu i nie trzeba ich wdrażać ponownie.
+- **Zawsze należy ponownie utworzyć bazę danych**. Dzięki temu można zdecydować, czy należy ponownie utworzyć docelową bazę danych przy każdym wdrożeniu lub wprowadzić przyrostowe zmiany, aby zapewnić aktualność docelowej bazy danych ze schematem. Jeśli utworzysz ponownie bazę danych, utracisz wszystkie dane w istniejącej bazie danych. W związku z tym należy zwykle ustawić **wartość false** dla wdrożeń w środowisku przejściowym lub produkcyjnym.
+- **Blokuj wdrożenie przyrostowe, jeśli może wystąpić utrata danych**. Dzięki temu można określić, czy wdrożenie ma zostać zatrzymane, jeśli zmiana schematu bazy danych spowoduje utratę danych. Zwykle to ustawienie ma **wartość true** w przypadku wdrożenia w środowisku produkcyjnym, co daje możliwość interwencji i ochrony wszelkich ważnych danych. Jeśli ustawiono opcję **zawsze ponownie utwórz bazę danych** na **wartość false**, to ustawienie nie będzie miało żadnego efektu.
+- **Wykonaj wdrożenie w trybie jednego użytkownika**. Nie jest to zwykle problemem w środowiskach deweloperskich i testowych. Należy jednak zazwyczaj ustawić **wartość true** dla wdrożeń w środowisku przejściowym lub produkcyjnym. Uniemożliwia to użytkownikom wprowadzanie zmian w bazie danych w czasie trwania wdrożenia.
+- **Wykonaj kopię zapasową bazy danych przed wdrożeniem**. Zazwyczaj ta wartość jest ustawiona na **true** podczas wdrażania w środowisku produkcyjnym, jako środek ostrożności przed utratą danych. Można również ustawić **wartość true** podczas wdrażania w środowisku przejściowym, jeśli Tymczasowa baza danych zawiera dużą ilość danych.
+- **Generuj instrukcje drop dla obiektów, które znajdują się w docelowej bazie danych, ale nie znajdują się w projekcie bazy danych**. W większości przypadków jest to integralna i istotna część tworzenia przyrostowych zmian w bazie danych. Jeśli ustawiono opcję **zawsze ponownie utwórz bazę danych** na **wartość false**, to ustawienie nie będzie miało żadnego efektu.
+- **Nie należy używać instrukcji ALTER Assembly do aktualizowania typów CLR**. To ustawienie określa, w jaki sposób SQL Server ma aktualizować typy środowiska uruchomieniowego języka wspólnego (CLR) do nowszych wersji zestawu. Ta wartość powinna być ustawiona na **false** w większości scenariuszy.
 
-W poniższej tabeli przedstawiono typowe wdrożenie ustawienia w środowiskach różnych miejsc docelowych. Jednak ustawienia mogą być różne w zależności od wymagań dokładne.
+W tej tabeli przedstawiono typowe ustawienia wdrażania dla różnych środowisk docelowych. Jednak Twoje ustawienia mogą się różnić w zależności od konkretnych wymagań.
 
-|  | Testowanie dla deweloperów | Etap przejściowy/integracji | Produkcji |
+|  | Programowanie/testowanie | Przemieszczanie/integracja | Produkcja |
 | --- | --- | --- | --- |
-| **Sortowanie porównanie wdrożenia** | Source | Cel | Cel |
-| **Wdrażanie właściwości bazy danych** | Prawda | Tylko po raz pierwszy | Tylko po raz pierwszy |
-| **Zawsze ponownie utworzyć bazę danych** | Prawda | False | False |
-| **Zablokować wdrożenie przyrostowe, gdy może wystąpić utrata danych** | False | Być może | Prawda |
-| **Wykonywanie skryptu wdrożenia w trybie jednego użytkownika** | False | Prawda | Prawda |
-| **Tworzenie kopii zapasowej bazy danych przed przystąpieniem do wdrożenia** | False | Być może | Prawda |
-| **Generuj instrukcje usuwania obiektów, które znajdują się w docelowej bazie danych, ale nie są w projekcie bazy danych** | False | Prawda | Prawda |
-| **Nie używaj instrukcji ALTER ASSEMBLY można zaktualizować typów CLR** | False | False | False |
+| **Sortowanie porównania wdrożenia** | Element źródłowy | Środowisko docelowe | Środowisko docelowe |
+| **Wdróż właściwości bazy danych** | True | Tylko raz | Tylko raz |
+| **Zawsze ponownie Twórz bazę danych** | True | Fałsz | Fałsz |
+| **Blokuj wdrożenie przyrostowe, jeśli może wystąpić utrata danych** | Fałsz | Może | True |
+| **Wykonaj skrypt wdrażania w trybie jednego użytkownika** | Fałsz | True | True |
+| **Tworzenie kopii zapasowej bazy danych przed wdrożeniem** | Fałsz | Może | True |
+| **Generuj instrukcje DROP dla obiektów, które znajdują się w docelowej bazie danych, ale nie znajdują się w projekcie bazy danych** | Fałsz | True | True |
+| **Nie używaj instrukcji ALTER ASSEMBLY do aktualizowania typów CLR** | Fałsz | Fałsz | Fałsz |
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat właściwości wdrożenia bazy danych i zagadnienia dotyczące środowiska, zobacz [przegląd z ustawienia projektu bazy danych](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [jak: Konfigurowanie właściwości szczegóły wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx), [tworzenia i wdrażania bazy danych do środowiska izolowanego rozwoju](https://msdn.microsoft.com/library/dd193409.aspx), i [tworzenia i wdrażania baz danych w tymczasowym lub produkcyjnym środowisku](https://msdn.microsoft.com/library/dd193413.aspx).
+> Aby uzyskać więcej informacji na temat właściwości wdrażania bazy danych i zagadnień dotyczących środowiska, zobacz [Omówienie ustawień projektu bazy danych](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [instrukcje: Konfigurowanie właściwości szczegółów wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx), [Kompilowanie i wdrażanie bazy danych w izolowanym środowisku programistycznym](https://msdn.microsoft.com/library/dd193409.aspx)oraz [Tworzenie i wdrażanie baz danych w środowisku przejściowym lub produkcyjnym](https://msdn.microsoft.com/library/dd193413.aspx).
 
-Aby zapewnić obsługę wdrażania projektu bazy danych do wielu miejsc docelowych, należy utworzyć plik konfiguracji wdrożenia dla każdego środowiska docelowego.
+Aby zapewnić obsługę wdrożenia projektu bazy danych w wielu miejscach docelowych, należy utworzyć plik konfiguracji wdrożenia dla każdego środowiska docelowego.
 
-**Aby utworzyć plik konfiguracji specyficznych dla środowiska**
+**Aby utworzyć plik konfiguracji specyficzny dla środowiska**
 
-1. W programie Visual Studio 2010 w **Eksploratora rozwiązań** , kliknij prawym przyciskiem myszy projekt bazy danych, a następnie kliknij przycisk **właściwości**.
-2. Na stronie właściwości projektu bazy danych na **Wdróż** na karcie **plik konfiguracji wdrożenia** wiersz, kliknij przycisk **New**.
+1. W programie Visual Studio 2010, w oknie **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt bazy danych, a następnie kliknij polecenie **Właściwości**.
+2. Na stronie właściwości projektu bazy danych na karcie **wdrażanie** w wierszu **plik konfiguracji wdrożenia** kliknij pozycję **Nowy**.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
-3. W **nowy plik konfiguracji wdrożenia** okna dialogowego pole, nadaj plikowi nazwę opisową (na przykład **TestEnvironment.sqldeployment**), a następnie kliknij przycisk **Zapisz**.
-4. Na *[nazwa_pliku]* **.sqldeployment** strony, ustaw właściwości wdrożenia w celu dopasowania do wymagań środowiska docelowego, a następnie zapisz plik.
+3. W oknie dialogowym **nowy plik konfiguracji wdrożenia** Nadaj plikowi zrozumiałą nazwę (na przykład **TestEnvironment. sqldeployment**), a następnie kliknij przycisk **Zapisz**.
+4. Na stronie *[filename] * * *. sqldeployment** ustaw właściwości wdrożenia zgodne z wymaganiami środowiska docelowego, a następnie Zapisz plik.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
-5. Należy zauważyć, że nowy plik zostanie dodany do właściwości folderu w projekcie bazy danych.
+5. Zwróć uwagę, że nowy plik zostanie dodany do folderu właściwości w projekcie bazy danych.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image3.png)
 
 ## <a name="specifying-the-deployment-configuration-file-in-vsdbcmd"></a>Określanie pliku konfiguracji wdrożenia w VSDBCMD
 
-Gdy używasz konfiguracje rozwiązania (na przykład Debug i Release) w programie Visual Studio 2010, można skojarzyć z plikiem konfiguracyjnym wdrożenia z konfiguracjami. Podczas kompilowania określoną konfigurację procesu kompilacji generuje specyficznych dla konfiguracji wdrażania pliku manifestu, który wskazuje plik konfiguracyjny specyficznych dla konfiguracji wdrażania. Jednak jest jednym z głównych celów podejścia do wdrażania opisanych w tych samouczkach aby zapewnić użytkownikom możliwość kontrolowania procesu wdrażania bez korzystania z programu Visual Studio 2010 i konfiguracje rozwiązania. W przypadku tej metody konfiguracji rozwiązania jest taki sam, niezależnie od docelowego środowiska wdrażania. Dostosować wdrożenia bazy danych do określonego miejsca docelowego środowiska, do VSDBCMD opcje wiersza polecenia służy do określania pliku konfiguracji wdrożenia.
+W przypadku używania konfiguracji rozwiązania (takich jak debugowanie i wydawanie) w programie Visual Studio 2010 można skojarzyć plik konfiguracji wdrożenia z każdą konfiguracją. Podczas kompilowania określonej konfiguracji proces kompilacji generuje plik manifestu wdrożenia specyficzny dla konfiguracji, który wskazuje plik konfiguracyjny wdrożenia specyficzny dla konfiguracji. Jednym z głównych celów podejścia do wdrożenia opisanego w tych samouczkach jest jednak umożliwienie użytkownikom kontrolowania procesu wdrażania bez korzystania z programu Visual Studio 2010 i konfiguracji rozwiązań. W tym podejściu Konfiguracja rozwiązania jest taka sama, niezależnie od docelowego środowiska wdrażania. Aby dostosować wdrożenie bazy danych do określonego środowiska docelowego, można użyć opcji wiersza polecenia VSDBCMD, aby określić plik konfiguracji wdrożenia.
 
-Aby określić plik konfiguracji wdrożenia w Twojej VSDBCMD, użyj **p:/DeploymentConfigurationFile** Przełącz i podaj pełną ścieżkę do pliku. Spowoduje to zastąpienie pliku konfiguracji wdrożenia, który identyfikuje manifestu wdrażania. Na przykład można użyć tego polecenia VSDBCMD wdrażania **ContactManager** bazy danych do środowiska testowego:
+Aby określić plik konfiguracji wdrożenia w VSDBCMD, użyj przełącznika **p:/DeploymentConfigurationFile** i podaj pełną ścieżkę do pliku. Spowoduje to zastąpienie pliku konfiguracji wdrożenia, który identyfikuje manifest wdrożenia. Na przykład można użyć tego polecenia VSDBCMD do wdrożenia bazy danych **ContactManager** w środowisku testowym:
 
 [!code-console[Main](customizing-database-deployments-for-multiple-environments/samples/sample1.cmd)]
 
 > [!NOTE]
-> Należy zauważyć, że proces kompilacji może Zmień nazwę pliku .sqldeployment podczas kopiowania pliku do katalogu wyjściowego.
+> Należy pamiętać, że proces kompilacji może zmienić nazwę pliku wdrożenia. sqldeployment, gdy plik jest kopiowany do katalogu wyjściowego.
 
-Użycie zmiennych poleceń SQL w skrypty SQL przed wdrożeniem lub po wdrożeniu, można użyć podejście podobne do skojarzenia z plikiem .sqlcmdvars specyficznymi dla środowiska z wdrożeniem. W tym przypadku używasz **p:/SqlCommandVariablesFile** przełącznik, aby zidentyfikować .sqlcmdvars pliku.
+Jeśli używasz zmiennych poleceń SQL w skryptach SQL przed wdrożeniem lub po wdrożeniu, możesz użyć podobnej metody, aby skojarzyć plik sqlcmdvars specyficzny dla środowiska ze wdrożeniem. W takim przypadku należy użyć przełącznika **p:/SqlCommandVariablesFile** , aby zidentyfikować plik. sqlcmdvars.
 
-## <a name="running-the-vsdbcmd-command-from-an-msbuild-project-file"></a>Uruchamiając polecenie VSDBCMD z pliku projektu MSBuild
+## <a name="running-the-vsdbcmd-command-from-an-msbuild-project-file"></a>Uruchamianie polecenia VSDBCMD z pliku projektu programu MSBuild
 
-Możesz wywołać polecenie VSDBCMD w pliku projektu MSBuild przy użyciu **Exec** zadanie w ramach obiekt docelowy programu MSBuild. W najprostszej postaci wyglądała następująco:
+Można wywołać polecenie VSDBCMD z pliku projektu programu MSBuild przy użyciu zadania **exec** w elemencie docelowym programu MSBuild. W najprostszej postaci będzie wyglądać następująco:
 
 [!code-xml[Main](customizing-database-deployments-for-multiple-environments/samples/sample2.xml)]
 
-- W praktyce aby ułatwić odczytywanie i ponownego użycia, plików projektu należy utworzyć właściwości do przechowywania różnych parametrów wiersza polecenia. Ułatwia użytkownikom podawanie wartości właściwości w pliku projektu specyficznymi dla środowiska lub zastąpić wartości domyślne w wierszu polecenia programu MSBuild. Jeśli używasz podziału podejście pliku projektu, opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), należy rozdzielać właściwości między dwoma plikami i instrukcje kompilacji, na których odpowiednio:
-- Ustawienia specyficzne dla środowiska, takie jak nazwa pliku konfiguracji wdrożenia, parametry połączenia bazy danych i nazwa docelowej bazy danych powinny przejść w pliku projektu specyficznego dla danego środowiska.
-- Docelowy programu MSBuild, który uruchamia polecenie VSDBCMD, wraz z dowolnego universal właściwości, takie jak lokalizacja pliku wykonywalnego VSDBCMD, należy go w pliku projektu uniwersalnej.
+- W ćwiczeniu, aby ułatwić odczytywanie i ponowne używanie plików projektu, należy utworzyć właściwości do przechowywania różnych parametrów wiersza polecenia. Ułatwia to użytkownikom udostępnianie wartości właściwości w pliku projektu specyficznym dla środowiska lub przesłonięcie wartości domyślnych z wiersza polecenia programu MSBuild. Jeśli używasz podejścia do rozdzielnego pliku projektu opisanego w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), należy podzielić instrukcje kompilacji i właściwości między tymi dwoma plikami odpowiednio:
+- Ustawienia specyficzne dla środowiska, takie jak nazwa pliku konfiguracji wdrożenia, parametry połączenia z bazą danych i Nazwa docelowej bazy danych, powinny przejść do pliku projektu specyficznego dla środowiska.
+- Obiekt docelowy programu MSBuild, który uruchamia polecenie VSDBCMD, wraz ze wszystkimi właściwościami uniwersalnymi, takimi jak lokalizacja pliku wykonywalnego VSDBCMD, powinien znajdować się w pliku uniwersalnego projektu.
 
-Należy również upewnić się, skompiluj projekt bazy danych, zanim wywołania VSDBCMD tak, aby plik .deploymanifest jest utworzone i gotowe do użycia. Możesz zobaczyć pełny przykład tej metody, w tym temacie [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md), który przeprowadzi Cię przez pliki projektu [Contact Manager przykładowe rozwiązanie](../web-deployment-in-the-enterprise/the-contact-manager-solution.md).
+Należy również upewnić się, że projekt bazy danych został utworzony przed wywołaniem VSDBCMD w celu utworzenia pliku deploymanifest i gotowości do użycia. Możesz zobaczyć pełny przykład tego podejścia w temacie [opisującym proces kompilowania](../web-deployment-in-the-enterprise/understanding-the-build-process.md), który przeprowadzi Cię przez pliki projektu w [przykładowym rozwiązaniu Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym temacie opisano, jak dostosować właściwości bazy danych do różnych miejsc docelowych środowisk podczas wdrażania projektów bazy danych przy użyciu programu MSBuild i VSDBCMD. To podejście jest przydatne, gdy zajdzie potrzeba wdrożenia projektów bazy danych jako część większe, rozwiązania w skali przedsiębiorstwa. Rozwiązania te często są wdrażane w wielu miejsc docelowych, takich jak piaskownicy środowiska deweloperskie lub testowe, przejściowe lub integracji i produkcji lub środowiskach produkcyjnych. Każda z tych środowisk docelowych zwykle wymaga unikatowego zestawu właściwości wdrożenia bazy danych.
+W tym temacie opisano, jak można dopasować właściwości bazy danych do różnych środowisk docelowych podczas wdrażania projektów bazy danych za pomocą programu MSBuild i VSDBCMD. Takie podejście jest przydatne, gdy trzeba wdrożyć projekty bazy danych w ramach większych rozwiązań w skali korporacyjnej. Te rozwiązania są często wdrażane w wielu miejscach docelowych, takich jak środowiska deweloperskie lub testowe w trybie piaskownicy, platformy przygotowywania lub integracji oraz środowiska produkcyjne lub na żywo. Każdy z tych środowisk docelowych zazwyczaj wymaga unikatowego zestawu właściwości wdrożenia bazy danych.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat wdrażania projektów bazy danych przy użyciu VSDBCMD.exe, zobacz [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać więcej informacji na temat korzystania z niestandardowych plików projektu MSBuild do kontrolowania procesu wdrażania, zobacz [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+Aby uzyskać więcej informacji na temat wdrażania projektów bazy danych przy użyciu programu VSDBCMD. exe, zobacz [wdrażanie projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać więcej informacji na temat używania niestandardowych plików projektów programu MSBuild do kontrolowania procesu wdrażania, zobacz [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [zrozumienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 
 Te artykuły w witrynie MSDN zawierają bardziej ogólne wskazówki dotyczące wdrażania bazy danych:
 
-- [Omówienie ustawienia projektu bazy danych](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
-- [Instrukcje: Konfigurowanie właściwości szczegóły wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx)
-- [Twórz i wdrażaj bazy danych do środowiska izolowanego rozwoju](https://msdn.microsoft.com/library/dd193409.aspx)
-- [Tworzenie i wdrażanie baz danych w tymczasowym lub produkcyjnym środowisku](https://msdn.microsoft.com/library/dd193413.aspx)
+- [Omówienie ustawień projektu bazy danych](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Instrukcje: Konfigurowanie właściwości szczegółów wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Kompiluj i wdrażaj bazy danych w izolowanym środowisku programistycznym](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Kompilowanie i wdrażanie baz danych w środowisku przejściowym lub produkcyjnym](https://msdn.microsoft.com/library/dd193413.aspx)
 
 > [!div class="step-by-step"]
 > [Poprzednie](performing-a-what-if-deployment.md)

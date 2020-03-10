@@ -9,11 +9,11 @@ ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
 ms.openlocfilehash: dfe09085f26c62c566649bc6f570aa25367a0f07
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594754"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624097"
 ---
 # <a name="preventing-javascript-injection-attacks-vb"></a>Zapobieganie atakom polegającym na wstrzyknięciu kodu JavaScript (VB)
 
@@ -112,4 +112,4 @@ Dlaczego to zły? Jeśli kiedykolwiek zajdzie potrzeba wyświetlenia danych bazy
 Celem tego samouczka było zascarenie się z potencjalnym atakiem z użyciem kodu JavaScript. W tym samouczku omówiono dwie podejścia do obrony aplikacji ASP.NET MVC przed atakami polegającymi na iniekcji kodu JavaScript: możesz kodować HTML dane przesłane przez użytkownika w widoku lub można kodować HTML dane przesyłane przez użytkownika w kontrolerze.
 
 > [!div class="step-by-step"]
-> [Ubiegł](authenticating-users-with-windows-authentication-vb.md)
+> [Wstecz](authenticating-users-with-windows-authentication-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-message-handlers
-title: Programy obsługi komunikatów HTTP we wzorcu ASP.NET Web API — ASP.NET 4.x
+title: Procedury obsługi komunikatów HTTP w interfejsie Web API ASP.NET — ASP.NET 4. x
 author: MikeWasson
-description: Omówienie obsługi komunikatów HTTP w dla aplikacji ASP.NET Web API platformy ASP.NET 4.x
+description: Omówienie obsługi komunikatów HTTP w interfejsie Web API ASP.NET dla ASP.NET 4. x
 ms.author: riande
 ms.date: 02/13/2012
 ms.custom: seoapril2019
@@ -10,141 +10,141 @@ ms.assetid: 9002018b-3aa3-4358-bb1c-fbb5bc751d01
 msc.legacyurl: /web-api/overview/advanced/http-message-handlers
 msc.type: authoredcontent
 ms.openlocfilehash: a8e6f1da8df4802e1acf7779a2fc75bfe8ab876f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115548"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622585"
 ---
-# <a name="http-message-handlers-in-aspnet-web-api"></a>Programy obsługi komunikatów HTTP we wzorcu ASP.NET Web API
+# <a name="http-message-handlers-in-aspnet-web-api"></a>Procedury obsługi komunikatów HTTP w interfejsie API sieci Web ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-A *obsługi wiadomości* to klasa, która odbierze żądanie HTTP, a następnie zwraca odpowiedź HTTP. Programy obsługi komunikatów dziedziczyć abstrakcyjnej **klasa HttpMessageHandler** klasy.
+*Program obsługi komunikatów* jest klasą, która odbiera żądanie HTTP i zwraca odpowiedź HTTP. Procedury obsługi komunikatów pochodzą od abstrakcyjnej klasy **HttpMessageHandler** .
 
-Zazwyczaj szereg programy obsługi komunikatów są połączone. Pierwszego programu obsługi odebrania żądania HTTP, przetwarza je i zapewnia żądania do następnej procedury obsługi. W pewnym momencie odpowiedzi jest tworzony i powraca łańcuch. Ten wzorzec jest nazywany *delegowanie* programu obsługi.
+Zwykle seria programów obsługi komunikatów jest łańcuchowo. Pierwsza procedura obsługi odbiera żądanie HTTP, wykonuje pewne przetwarzanie i przekazuje żądanie do kolejnej procedury obsługi. W pewnym momencie zostanie utworzona odpowiedź i przejdzie tworzenie kopii zapasowej łańcucha. Ten wzorzec jest nazywany programem obsługi *delegowania* .
 
 ![](http-message-handlers/_static/image1.png)
 
-## <a name="server-side-message-handlers"></a>Programy obsługi komunikatów po stronie serwera
+## <a name="server-side-message-handlers"></a>Procedury obsługi komunikatów po stronie serwera
 
-Po stronie serwera potok składnika Web API używa obsługi niektórych wbudowanych wiadomości:
+Po stronie serwera potok interfejsu API sieci Web używa wbudowanych programów obsługi komunikatów:
 
-- **HttpServer** pobiera żądania od hosta.
-- **HttpRoutingDispatcher** wysyła żądania na podstawie trasy.
-- **HttpControllerDispatcher** wysyła żądanie do kontrolera internetowego interfejsu API.
+- **HttpServer** pobiera żądanie od hosta.
+- **HttpRoutingDispatcher** wysyła żądanie na podstawie trasy.
+- **HttpControllerDispatcher** wysyła żądanie do kontrolera interfejsu API sieci Web.
 
-Niestandardowe programy obsługi można dodać do potoku. Programy obsługi komunikatów dla zastosowań dobre są odciąż przekrojowe zagadnienia, które działają na poziomie HTTP wiadomości (zamiast akcji kontrolera). Może na przykład program obsługi komunikatów:
+Możesz dodać niestandardowe programy obsługi do potoku. Procedury obsługi komunikatów są przydatne w przypadku zagadnień związanych z wycinaniem, które działają na poziomie komunikatów HTTP (a nie w ramach akcji kontrolera). Na przykład program obsługi komunikatów może:
 
-- Odczytywać lub modyfikować nagłówki żądania.
+- Odczytaj lub zmodyfikuj nagłówki żądania.
 - Dodaj nagłówek odpowiedzi do odpowiedzi.
-- Sprawdź poprawność żądania, zanim dotrą kontrolera.
+- Weryfikuj żądania przed osiągnięciem kontrolera.
 
-Ten diagram przedstawia dwa niestandardowe programy obsługi dodaje do potoku:
+Ten diagram przedstawia dwa niestandardowe programy obsługi wstawione do potoku:
 
 ![](http-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> Po stronie klienta HttpClient używa także procedury obsługi komunikatów. Aby uzyskać więcej informacji, zobacz [programy obsługi komunikatów HttpClient](httpclient-message-handlers.md).
+> Po stronie klienta program HttpClient również używa programów obsługi komunikatów. Aby uzyskać więcej informacji, zobacz [procedury obsługi komunikatów HttpClient](httpclient-message-handlers.md).
 
-## <a name="custom-message-handlers"></a>Programy obsługi komunikatów niestandardowych
+## <a name="custom-message-handlers"></a>Niestandardowe programy obsługi komunikatów
 
-Aby napisać program obsługi komunikatów niestandardowych, pochodzi od **System.Net.Http.DelegatingHandler** i zastąpić **SendAsync** metody. Ta metoda ma następujący podpis:
+Aby napisać niestandardową procedurę obsługi komunikatów, pochodzi od **systemu .NET. http. DelegatingHandler** i przesłania metodę **SendAsync** . Ta metoda ma następujący podpis:
 
 [!code-csharp[Main](http-message-handlers/samples/sample1.cs)]
 
-Ta metoda przyjmuje **HttpRequestMessage** jako dane wejściowe i asynchronicznie zwraca **obiektu HttpResponseMessage**. Typowa implementacja wykonuje następujące czynności:
+Metoda przyjmuje **HttpRequestMessage** jako dane wejściowe i asynchronicznie zwraca **HttpResponseMessage**. Typowa implementacja wykonuje następujące czynności:
 
-1. Przetwarzanie komunikatu żądania.
-2. Wywołaj `base.SendAsync` wysyłać żądania do wewnętrznego programu obsługi.
-3. Wewnętrzny program obsługi zwraca komunikat odpowiedzi. (Ten krok jest asynchroniczne).
-4. Przetworzenie odpowiedzi i zwraca go do obiektu wywołującego.
+1. Przetwórz komunikat żądania.
+2. Wywołaj `base.SendAsync`, aby wysłać żądanie do wewnętrznej procedury obsługi.
+3. Procedura obsługi wewnętrznej zwraca komunikat odpowiedzi. (Ten krok jest asynchroniczny).
+4. Przetwórz odpowiedź i zwróć ją do obiektu wywołującego.
 
-Oto przykład prosta:
+Oto prosty przykład:
 
 [!code-csharp[Main](http-message-handlers/samples/sample2.cs)]
 
 > [!NOTE]
-> Wywołanie `base.SendAsync` jest asynchroniczna. Jeśli program obsługi ma wszelkie prace po tym wywołaniu, użyj **await** — słowo kluczowe, jak pokazano.
+> Wywołanie `base.SendAsync` jest asynchroniczne. Jeśli program obsługi wykonuje wszelkie działania po tym wywołaniu, użyj słowa kluczowego **await** , jak pokazano.
 
-Obsługi delegowania można również pominąć wewnętrznym programem obsługi i bezpośrednio tworzyć odpowiedzi:
+Procedura delegowania może również pominąć wewnętrzną procedurę obsługi i bezpośrednio utworzyć odpowiedź:
 
 [!code-csharp[Main](http-message-handlers/samples/sample3.cs)]
 
-Jeśli delegowanie obsługi tworzy odpowiedź bez wywoływania `base.SendAsync`, żądanie pomija pozostałego potoku. Może to być przydatne w przypadku obsługi, która weryfikuje żądanie (Tworzenie odpowiedź o błędzie).
+Jeśli program obsługi delegowania Tworzy odpowiedź bez wywoływania `base.SendAsync`, żądanie pomija resztę potoku. Może to być przydatne w przypadku programu obsługi, który sprawdza poprawność żądania (Tworzenie odpowiedzi na błąd).
 
 ![](http-message-handlers/_static/image3.png)
 
-## <a name="adding-a-handler-to-the-pipeline"></a>Dodawanie obsługi do potoku
+## <a name="adding-a-handler-to-the-pipeline"></a>Dodawanie programu obsługi do potoku
 
-Aby dodać program obsługi komunikatów po stronie serwera, należy dodać program obsługi **HttpConfiguration.MessageHandlers** kolekcji. Jeśli szablon "Platformy ASP.NET MVC 4 aplikacja sieci Web" są używane do tworzenia projektu, możesz to zrobić to wewnątrz **WebApiConfig** klasy:
+Aby dodać program obsługi komunikatów po stronie serwera, Dodaj program obsługi do kolekcji **HttpConfiguration. MessageHandlers** . Jeśli do utworzenia projektu użyto szablonu "aplikacja sieci Web ASP.NET MVC 4", można to zrobić wewnątrz klasy **WebApiConfig** :
 
 [!code-csharp[Main](http-message-handlers/samples/sample4.cs)]
 
-Programy obsługi komunikatów są wywoływane w tej samej kolejności, w jakiej występują w **MessageHandlers** kolekcji. Z powodu zagnieżdżenia, komunikat odpowiedzi jest wysyłane w drugą stronę. Ostatnią procedurę obsługi jest pierwszy komunikat odpowiedzi.
+Procedury obsługi komunikatów są wywoływane w takiej samej kolejności, w jakiej występują w kolekcji **MessageHandlers** . Ponieważ są one zagnieżdżone, komunikat odpowiedzi jest przesyłany w innym kierunku. Oznacza to, że ostatnim programem obsługi jest pierwszy, aby uzyskać komunikat odpowiedzi.
 
-Należy zauważyć, że nie musisz ustawić wewnętrzny obsługi; w ramach interfejsu API sieci Web automatycznie nawiązuje połączenie obsługi komunikatów.
+Zwróć uwagę, że nie musisz ustawiać wewnętrznych programów obsługi; Struktura internetowego interfejsu API automatycznie łączy programy obsługi komunikatów.
 
-Jeśli jesteś [hostingu samodzielnego](../older-versions/self-host-a-web-api.md), Utwórz wystąpienie obiektu **HttpSelfHostConfiguration** klasy i dodawanie obsługi do **MessageHandlers** kolekcji.
+W przypadku samoobsługowego [udostępniania](../older-versions/self-host-a-web-api.md)Utwórz wystąpienie klasy **HttpSelfHostConfiguration** i Dodaj programy obsługi do kolekcji **MessageHandlers** .
 
 [!code-csharp[Main](http-message-handlers/samples/sample5.cs)]
 
-Teraz Przyjrzyjmy się kilka przykładów programy obsługi komunikatów niestandardowych.
+Teraz przyjrzyjmy się kilku przykładom niestandardowych programów obsługi komunikatów.
 
-## <a name="example-x-http-method-override"></a>Przykład: X-HTTP-Method-Override
+## <a name="example-x-http-method-override"></a>Przykład: X-HTTP-Method-override
 
-X-HTTP-Method-Override jest niestandardowy nagłówek HTTP. Jest ona przeznaczona dla klientów, którzy nie mogą wysyłać pewne typy żądań HTTP, takich jak PUT lub DELETE. Zamiast tego klient wysyła żądanie POST i ustawia dla nagłówka X-HTTP-Method-Override żądanej metody. Na przykład:
+Metoda X-HTTP-Method-override jest niestandardowym nagłówkiem HTTP. Jest ona przeznaczona dla klientów, którzy nie mogą wysyłać określonych typów żądań HTTP, takich jak PUT lub DELETE. Zamiast tego klient wysyła żądanie POST i ustawia do odpowiedniej metody nagłówek X-HTTP-Method-override. Na przykład:
 
 [!code-console[Main](http-message-handlers/samples/sample6.cmd)]
 
-Poniżej przedstawiono program obsługi komunikatów, który dodaje obsługę X-HTTP-Method-Override:
+Oto procedura obsługi komunikatów, która dodaje obsługę funkcji X-HTTP-Method-override:
 
 [!code-csharp[Main](http-message-handlers/samples/sample7.cs)]
 
-W **SendAsync** metody obsługi sprawdza, czy komunikat żądania jest żądaniem POST i czy zawiera nagłówek X-HTTP-Method-Override. Jeśli tak, sprawdza poprawność wartości nagłówka, a następnie modyfikuje metoda żądania. Ponadto program obsługi wyjątku wywołuje `base.SendAsync` do przekazywania wiadomości do następnej procedury obsługi.
+W metodzie **SendAsync** program obsługi sprawdza, czy komunikat żądania jest żądaniem post i czy zawiera nagłówek X-HTTP-Method-override. Jeśli tak, sprawdza poprawność wartości nagłówka, a następnie modyfikuje metodę żądania. Na koniec program obsługi wywołuje `base.SendAsync`, aby przekazać komunikat do kolejnej procedury obsługi.
 
-Gdy żądanie dotrze **HttpControllerDispatcher** klasy **HttpControllerDispatcher** będzie kierować żądania oparte na metodzie zaktualizowane żądanie.
+Gdy żądanie osiągnie klasę **HttpControllerDispatcher** , **HttpControllerDispatcher** kieruje żądanie na podstawie zaktualizowanej metody żądania.
 
-## <a name="example-adding-a-custom-response-header"></a>Przykład: Dodawanie nagłówka odpowiedzi niestandardowych
+## <a name="example-adding-a-custom-response-header"></a>Przykład: Dodawanie niestandardowego nagłówka odpowiedzi
 
-Poniżej przedstawiono program obsługi komunikatów, umożliwiający dodawanie niestandardowego nagłówka do każdego komunikatu odpowiedzi:
+Oto procedura obsługi komunikatów, która dodaje niestandardowy nagłówek do każdego komunikatu odpowiedzi:
 
 [!code-csharp[Main](http-message-handlers/samples/sample8.cs)]
 
-Po pierwsze, program obsługi wyjątku wywołuje `base.SendAsync` do przekazania żądania do obsługi wiadomości wewnętrznego. Wewnętrzny program obsługi zwraca komunikat odpowiedzi, ale robi tak asynchronicznie przy użyciu **zadań&lt;T&gt;**  obiektu. Komunikat odpowiedzi nie jest dostępna tylko do `base.SendAsync` kończy asynchronicznie.
+Najpierw program obsługi wywołuje `base.SendAsync`, aby przekazać żądanie do wewnętrznego programu obsługi komunikatów. Procedura obsługi wewnętrznej zwraca komunikat odpowiedzi, ale robi to asynchronicznie przy użyciu **&lt;zadania t&gt;** obiektu. Komunikat odpowiedzi nie jest dostępny, dopóki `base.SendAsync` nie zostanie ukończona asynchronicznie.
 
-W tym przykładzie użyto **await** — słowo kluczowe do wykonywania pracy asynchronicznie po `SendAsync` kończy. Jeśli masz na celu platformy .NET Framework 4.0, użyj **zadań**&lt;T&gt;**. ContinueWith** metody:
+W tym przykładzie za pomocą słowa kluczowego **await** można wykonać pracę asynchroniczną po zakończeniu `SendAsync`. Jeśli jesteś celem .NET Framework 4,0, użyj **zadania**&lt;t&gt; **. ContinueWith** :
 
 [!code-csharp[Main](http-message-handlers/samples/sample9.cs)]
 
-## <a name="example-checking-for-an-api-key"></a>Przykład: Wyszukiwanie klucza interfejsu API
+## <a name="example-checking-for-an-api-key"></a>Przykład: sprawdzanie klucza interfejsu API
 
-Niektóre usługi sieci web wymagają klientów uwzględnić klucza interfejsu API w ich żądania. Poniższy przykład pokazuje, jak program obsługi komunikatów można sprawdzić żądania, aby uzyskać prawidłowy klucz interfejsu API:
+Niektóre usługi sieci Web wymagają od klientów dołączenia klucza interfejsu API do żądania. Poniższy przykład pokazuje, jak program obsługi komunikatów może sprawdzić żądania dla prawidłowego klucza interfejsu API:
 
 [!code-csharp[Main](http-message-handlers/samples/sample10.cs)]
 
-Ten program obsługi szuka klucza interfejsu API w ciągu zapytania identyfikatora URI. (W tym przykładzie przyjęto założenie, że klucz jest ciąg statyczny. Rzeczywistej implementacji będzie prawdopodobnie użyć bardziej złożoną walidację). Jeśli ciąg zapytania zawiera klucz, program obsługi przekazuje żądanie do wewnętrznym programem obsługi.
+Ta procedura obsługi wyszukuje klucz interfejsu API w ciągu zapytania identyfikatora URI. (W tym przykładzie Załóżmy, że klucz jest ciągiem statycznym. Rzeczywista implementacja prawdopodobnie użyje bardziej złożonej walidacji.) Jeśli ciąg zapytania zawiera klucz, program obsługi przekaże żądanie do wewnętrznej procedury obsługi.
 
-Jeśli żądanie nie ma prawidłowego klucza, program obsługi tworzy komunikat odpowiedzi ze stanem 403, dostęp zabroniony. W tym przypadku nie wywołuje program obsługi `base.SendAsync`, więc wewnętrznym programem obsługi nigdy nie odbiera żądanie, ani nie kontrolera. W związku z tym kontrolera można założyć, że wszystkie żądania przychodzące ma prawidłowy klucz interfejsu API.
+Jeśli żądanie nie ma prawidłowego klucza, program obsługi tworzy komunikat odpowiedzi ze stanem 403, dostęp zabroniony. W takim przypadku program obsługi nie wywołuje `base.SendAsync`, więc wewnętrzna procedura obsługi nigdy nie otrzymuje żądania ani nie jest kontrolerem. W związku z tym kontroler może założyć, że wszystkie żądania przychodzące mają prawidłowy klucz interfejsu API.
 
 > [!NOTE]
-> Jeśli klucz interfejsu API ma zastosowanie tylko do określonych akcji kontrolera, należy wziąć pod uwagę przy użyciu filtru akcji zamiast programu obsługi komunikatów. Filtry akcji uruchamiania routingu identyfikator URI zostanie wykonane.
+> Jeśli klucz interfejsu API dotyczy tylko niektórych akcji kontrolera, należy rozważyć użycie filtru akcji zamiast procedury obsługi komunikatów. Filtry akcji są uruchamiane po wykonaniu routingu URI.
 
-## <a name="per-route-message-handlers"></a>Programy obsługi komunikatów Route
+## <a name="per-route-message-handlers"></a>Procedury obsługi komunikatów na trasie
 
-Programy obsługi w **HttpConfiguration.MessageHandlers** kolekcji są stosowane globalnie.
+Procedury obsługi w kolekcji **HttpConfiguration. MessageHandlers** mają zastosowanie globalnie.
 
-Alternatywnie można dodać program obsługi komunikatów do określonej trasy, podczas definiowania trasy:
+Alternatywnie można dodać program obsługi komunikatów do określonej trasy podczas definiowania trasy:
 
 [!code-csharp[Main](http-message-handlers/samples/sample11.cs?highlight=16)]
 
-W tym przykładzie, jeśli pasuje do identyfikatora URI żądania "Route2", żądanie jest wysyłane do `MessageHandler2`. Na poniższym diagramie przedstawiono potok dla tych na dwa sposoby:
+W tym przykładzie, jeśli identyfikator URI żądania pasuje do "Route2", żądanie jest wysyłane do `MessageHandler2`. Na poniższym diagramie przedstawiono potok dla tych dwóch tras:
 
 ![](http-message-handlers/_static/image4.png)
 
-Należy zauważyć, że `MessageHandler2` zastępuje domyślny **HttpControllerDispatcher**. W tym przykładzie `MessageHandler2` tworzy odpowiedź, a żądania które pasują do "Route2" nigdy nie przechodź do kontrolera. Dzięki temu można zastąpić całego mechanizmu kontrolera interfejsu API sieci Web przy użyciu własnego niestandardowego punktu końcowego.
+Zwróć uwagę, że `MessageHandler2` zastępuje domyślny **HttpControllerDispatcher**. W tym przykładzie `MessageHandler2` tworzy odpowiedź i żądania, które pasują do "Route2", nigdy nie przechodzą do kontrolera. Dzięki temu można zamienić cały mechanizm kontrolera internetowego interfejsu API na własny niestandardowy punkt końcowy.
 
-Alternatywnie program obsługi komunikatów dla trasy można delegować do **HttpControllerDispatcher**, który następnie wysyła do kontrolera.
+Alternatywnie program obsługi komunikatów na trasie może delegować do **HttpControllerDispatcher**, który następnie wysyła do kontrolera.
 
 ![](http-message-handlers/_static/image5.png)
 

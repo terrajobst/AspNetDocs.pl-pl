@@ -9,11 +9,11 @@ ms.assetid: 14133833-e518-4347-87b9-6b6f71f14a77
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 12bc7f0430f1f30ff964cd9547ee1e9b0aa7423c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574301"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78613884"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>Dostosowywanie indeksu Z kontrolki DropShadow (C#)
 
@@ -63,4 +63,4 @@ Przed: element menu nie jest widoczny ([kliknij, aby wyświetlić obraz o pełny
 Po: pojawia się pozycja menu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
 
 > [!div class="step-by-step"]
-> [Next](manipulating-dropshadow-properties-from-client-code-cs.md)
+> [Dalej](manipulating-dropshadow-properties-from-client-code-cs.md)

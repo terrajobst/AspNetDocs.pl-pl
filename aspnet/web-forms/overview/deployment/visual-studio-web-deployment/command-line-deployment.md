@@ -9,11 +9,11 @@ ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 13cfe4492398b59f2c80394689cc113ccb218c60
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74634204"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630922"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: wdrożenie wiersza polecenia
 
@@ -102,7 +102,7 @@ Trzy metody publikowania są obsługiwane w przypadku publikowania w wierszu pol
 
 Konfiguracja kompilacji i platforma musi być ustawiona w programie Visual Studio lub w wierszu polecenia. Profile publikowania obejmują właściwości o nazwie `LastUsedBuildConfiguration` i `LastUsedPlatform`, ale nie można ustawić tych właściwości w celu określenia sposobu kompilowania projektu. Aby uzyskać więcej informacji, zobacz [MSBuild: jak ustawić właściwość konfiguracji](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) na blogu Sayed Hashimi.
 
-## <a name="deploy-to-staging"></a>Wdróż do przemieszczania
+## <a name="deploy-to-staging"></a>Wdrażanie w środowisku przejściowym
 
 Aby wdrożyć na platformie Azure, musisz dodać hasło do wiersza polecenia. Jeśli hasło zostało zapisane w profilu publikowania w programie Visual Studio, zostało zapisane w postaci zaszyfrowanej w pliku *. pubxml. User* . Ten plik nie jest używany przez program MSBuild podczas wdrażania wiersza polecenia, więc musisz przekazać hasło w parametrze wiersza polecenia.
 
@@ -119,7 +119,7 @@ Aby wdrożyć na platformie Azure, musisz dodać hasło do wiersza polecenia. Je
 
     Jak widać wcześniej w środowisku testowym, może być konieczne utworzenie niektórych uczniów, aby wyświetlić statystyki na stronie **informacje** .
 
-## <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
+## <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
 
 Proces wdrażania w środowisku produkcyjnym jest podobny do procesu przemieszczania.
 

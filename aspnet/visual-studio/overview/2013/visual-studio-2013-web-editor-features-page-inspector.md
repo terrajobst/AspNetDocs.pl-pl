@@ -1,24 +1,24 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-editor-features-page-inspector
-title: Funkcje Visual Studio 2013 w sieci Web edytora — narzędzie Page Inspector | Dokumentacja firmy Microsoft
+title: Visual Studio 2013 funkcje edytora sieci Web — Inspektor strony | Microsoft Docs
 author: shanselman
-description: Scott Hanselman pokazuje, jak funkcja narzędzie Page Inspector w programie Visual Studio 2013 umożliwia interaktywnie pracować ze znacznikami renderowanej strony, w pełni zintegrowane...
+description: Scott Hanselman pokazuje, jak funkcja inspektora stron w Visual Studio 2013 pozwala interaktywnie współpracować z renderowanym znacznikiem strony, w pełni zintegrowane w...
 ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 17b67048-c61c-4ac0-a73a-a8079b493253
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-page-inspector
 msc.type: video
 ms.openlocfilehash: aa6a01a37b6f39f87e2b77d351b221aee415a3c5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418849"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622711"
 ---
 # <a name="visual-studio-2013-web-editor-features---page-inspector"></a>Funkcje edytora internetowego programu Visual Studio 2013 — narzędzie Page Inspector
 
-przez [Scotta Hanselmana](https://github.com/shanselman)
+przez [Scott Hanselman](https://github.com/shanselman)
 
-Scott Hanselman pokazuje, jak funkcja narzędzie Page Inspector w programie Visual Studio 2013 umożliwia interaktywnie pracować ze znacznikami renderowanej strony, w pełni zintegrowana z kodem źródłowym, który czyniło je.
+Scott Hanselman pokazuje, jak funkcja inspektora stron w Visual Studio 2013 pozwala interaktywnie współpracować z renderowanym znacznikiem strony, w pełni zintegrowanym z kodem źródłowym, który go wyrenderowano.
 
-[&#9654;Obejrzyj film wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2013-web-editor-features-page-inspector)
+[&#9654;Obejrzyj wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2013-web-editor-features-page-inspector)

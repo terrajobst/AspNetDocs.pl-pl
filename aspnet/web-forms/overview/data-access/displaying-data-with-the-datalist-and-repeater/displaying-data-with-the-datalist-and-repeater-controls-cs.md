@@ -9,11 +9,11 @@ ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 09d3faf811f21a66bb5c234f71d77b2552ae6516
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623115"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78611861"
 ---
 # <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>Wyświetlanie danych za pomocą kontrolek DataList i Repeater (C#)
 
@@ -111,7 +111,7 @@ Podobnie jak w widoku GridView, element DataList oferuje wiele właściwości zw
 
 Zgodnie z opisem w sekcji [Wyświetlanie danych za pomocą](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md) samouczka elementu ObjectDataSource, plik skórki określa domyślne właściwości dotyczące wyglądu dla kontrolki sieci Web; Motyw to kolekcja plików skórki, CSS, obrazów i JavaScript, które definiują konkretny wygląd i działanie witryny sieci Web. W samouczku *Wyświetlanie danych z elementem ObjectDataSource* został utworzony motyw `DataWebControls` (który jest zaimplementowany jako folder w folderze `App_Themes`), który ma, obecnie dwa pliki skórki — `GridView.skin` i `DetailsView.skin`. Pozwól s dodać trzeci plik skórki, aby określić wstępnie zdefiniowane ustawienia stylu dla elementu DataList.
 
-Aby dodać plik skórki, kliknij prawym przyciskiem myszy folder `App_Themes/DataWebControls`, wybierz polecenie Dodaj nowy element, a następnie wybierz z listy opcję plik skórki. Nadaj plikowi nazwę `DataList.skin`.
+Aby dodać plik skórki, kliknij prawym przyciskiem myszy folder `App_Themes/DataWebControls`, wybierz polecenie Dodaj nowy element, a następnie wybierz z listy opcję plik skórki. Nazwij plik `DataList.skin`.
 
 [![utworzyć nowy plik skórki o nazwie DataList. Skin](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
 
@@ -267,4 +267,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Yaakov Ellis, Liz Shulok, Randy Schmidt i Stacy Park. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](formatting-the-datalist-and-repeater-based-upon-data-cs.md)
+> [Dalej](formatting-the-datalist-and-repeater-based-upon-data-cs.md)

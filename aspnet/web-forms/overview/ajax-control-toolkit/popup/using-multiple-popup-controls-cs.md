@@ -9,11 +9,11 @@ ms.assetid: 91511b0b-311d-481f-9e7c-73f07b813b79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8700fe89af591e8b481e853580b0efa0cddbf1bc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611652"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78612652"
 ---
 # <a name="using-multiple-popup-controls-c"></a>Używanie wielu kontrolek Popup (C#)
 
@@ -52,4 +52,4 @@ Teraz za każdym razem, gdy klikniesz wewnątrz pola tekstowego, Kalendarz zosta
 Kalendarz pojawia się, gdy użytkownik kliknie w polu tekstowym ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-multiple-popup-controls-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Next](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+> [Dalej](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)

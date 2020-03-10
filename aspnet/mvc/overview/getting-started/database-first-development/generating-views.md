@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
-title: 'Samouczek: Generowanie widoków dla platformy EF Database First w aplikacji ASP.NET MVC'
-description: Ten samouczek koncentruje się na przy użyciu platformy ASP.NET tworzenie szkieletów widoków i kontrolerów.
+title: 'Samouczek: Generowanie widoków dla Database First EF z aplikacją ASP.NET MVC'
+description: Ten samouczek koncentruje się na używaniu szkieletu ASP.NET w celu wygenerowania kontrolerów i widoków.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,96 +10,96 @@ ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
 ms.openlocfilehash: e71e13e22d8a72e1699cfc70d4d93af603edba5b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121227"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616208"
 ---
-# <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Generowanie widoków dla platformy EF Database First w aplikacji ASP.NET MVC
+# <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Generowanie widoków dla Database First EF z aplikacją ASP.NET MVC
 
-Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych.
+Korzystając z szkieletów MVC, Entity Framework i ASP.NET, można utworzyć aplikację sieci Web, która udostępnia interfejs istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie generować kod, który umożliwia użytkownikom wyświetlanie, edytowanie, tworzenie i usuwanie danych znajdujących się w tabeli bazy danych. Wygenerowany kod odpowiada kolumnom w tabeli bazy danych.
 
-Ten samouczek koncentruje się na przy użyciu platformy ASP.NET tworzenie szkieletów widoków i kontrolerów.
+Ten samouczek koncentruje się na używaniu szkieletu ASP.NET w celu wygenerowania kontrolerów i widoków.
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dodaj szkielet
-> * Dodawanie łączy do nowych widoków
-> * Wyświetlanie widoków dla uczniów
-> * Wyświetlanie widoków rejestracji
+> * Dodawanie szkieletu
+> * Dodawanie linków do nowych widoków
+> * Wyświetl widoki uczniów
+> * Wyświetl widoki rejestracji
 
-## <a name="prerequisite"></a>Wymaganie wstępne
+## <a name="prerequisite"></a>Wymagania wstępne
 
-* [Tworzenie modeli danych i aplikacji sieci web](creating-the-web-application.md)
+* [Tworzenie aplikacji sieci Web i modeli danych](creating-the-web-application.md)
 
-## <a name="add-scaffold"></a>Dodaj szkielet
+## <a name="add-scaffold"></a>Dodawanie szkieletu
 
-Jesteś gotowy do generowania kodu, który zapewni operacji danych w warstwie standardowa dla klasy modelu. Możesz dodać kod przez dodawanie elementu szkieletu. Istnieje wiele opcji dla typu tworzenia szkieletów, które można dodać; w tym samouczku szkieletu obejmuje kontrolera i widoki, które odnoszą się do modeli dla uczniów i rejestracji, utworzony w poprzedniej sekcji.
+Możesz przystąpić do generowania kodu, który będzie dostarczać standardowe operacje na danych dla klas modelu. Kod można dodać poprzez dodanie elementu szkieletu. Istnieje wiele opcji dla typu szkieletu, który można dodać; w tym samouczku szkielet obejmuje kontroler i widoki zgodne z modelami uczniów i rejestracji utworzonymi w poprzedniej sekcji.
 
-Aby zachować spójność w projekcie, dodasz nowy kontroler do istniejącej **kontrolerów** folderu. Kliknij prawym przyciskiem myszy **kontrolerów** folder, a następnie wybierz **Dodaj** > **nowy element szkieletu**.
+Aby zachować spójność w projekcie, należy dodać nowy kontroler do folderu istniejące **Kontrolery** . Kliknij prawym przyciskiem myszy folder **controllers** , a następnie wybierz pozycję **Dodaj** > **nowy element szkieletowy**.
 
-Wybierz **kontroler MVC 5 z widokami używający narzędzia Entity Framework** opcji. Ta opcja spowoduje wygenerowanie kontrolera i widoki dla aktualizowanie, usuwanie, tworzenie i wyświetlanie danych w modelu.
+Wybierz **kontroler MVC 5 z widokami, używając opcji Entity Framework** . Ta opcja spowoduje wygenerowanie kontrolera i widoków do aktualizowania, usuwania, tworzenia i wyświetlania danych w modelu.
 
-![Dodaj kontroler mvc](generating-views/_static/image2.png)
+![Dodaj kontroler MVC](generating-views/_static/image2.png)
 
-Wybierz **uczniów (ContosoSite.Models)** klasy modelu i wybierz **ContosoUniversityDataEntities (ContosoSite.Models)** dla klasy kontekstu. Zachowaj nazwę kontrolera jako **StudentsController**.
+Wybierz pozycję **student (ContosoSite. models)** dla klasy model i wybierz pozycję **ContosoUniversityDataEntities (ContosoSite. models)** dla klasy kontekstu. Zachowaj nazwę kontrolera jako **StudentsController**.
 
-Kliknij przycisk **Dodaj**.
+Kliknij pozycję **Add** (Dodaj).
 
-Jeśli otrzymasz komunikat o błędzie, może to być, ponieważ nie skompilowano projekt w poprzedniej sekcji. Jeśli tak, spróbuj skompilować projekt, a następnie ponownie Dodaj element szkieletowy.
+Jeśli wystąpi błąd, może to być spowodowane tym, że projekt nie został skompilowany w poprzedniej sekcji. Jeśli tak, spróbuj skompilować projekt, a następnie ponownie Dodaj element szkieletowy.
 
-Po zakończeniu procedury generowania kodu zobaczysz nowy kontroler i widoków w swoim projekcie **kontrolerów** i **widoków** > **studentów** folderów .
+Po zakończeniu procesu generowania kodu zobaczysz nowy kontroler i widoki w **kontrolerach** i **widokach** projektu, > foldery **uczniów** .
 
-Ponownie wykonaj te same czynności, ale Dodaj szkielet dla **rejestracji** klasy. Po zakończeniu będziesz mieć **EnrollmentsController.cs** plików i folderów w obszarze **widoków** o nazwie **rejestracje** z widokami Create, Delete, szczegółowe informacje, edycji i indeksu.
+Wykonaj ponownie te same kroki, ale Dodaj szkielet dla klasy **rejestracji** . Po zakończeniu masz plik **EnrollmentsController.cs** i folder w obszarze **widoki** o nazwie **rejestracje** za pomocą widoków Utwórz, Usuń, szczegóły, Edytuj i Indeksuj.
 
-## <a name="add-links-to-new-views"></a>Dodawanie łączy do nowych widoków
+## <a name="add-links-to-new-views"></a>Dodawanie linków do nowych widoków
 
-Aby ułatwić przejście do nowych widoków, można dodać kilka hiperłącza do widoków indeksu dla uczniów i rejestracji. Otwórz plik w rozmiarze **widoków** > **macierzystego** > *Index.cshtml*, który jest stroną główną witryny. Dodaj następujący kod poniżej jumbotron.
+Aby ułatwić przechodzenie do nowych widoków, można dodać kilka hiperlinków do widoków indeksów dla studentów i rejestracji. Otwórz plik w **widokach** > **Home** > *index. cshtml*, który jest stroną główną Twojej witryny. Dodaj następujący kod poniżej Jumbotron.
 
 [!code-cshtml[Main](generating-views/samples/sample1.cshtml)]
 
-W przypadku metody ActionLink pierwszy parametr jest tekst do wyświetlenia w linku. Drugi parametr jest to akcja, a trzeci parametr jest nazwa kontrolera. Na przykład pierwszy link wskazuje akcji indeksu w StudentsController. Rzeczywiste hiperłącze jest zbudowany z tych wartości. Pierwszy link ostatecznie przejście do **Index.cshtml** plików w ramach **widoków/uczniów** folderu.
+Dla metody ActionLink pierwszy parametr jest tekstem, który ma być wyświetlany w łączu. Drugi parametr jest akcją, a trzeci parametr jest nazwą kontrolera. Na przykład pierwszy link wskazuje akcję indeks w StudentsController. Rzeczywiste hiperłącze jest zbudowane z tych wartości. Pierwszy link ostatecznie przybierze użytkownikom plik **index. cshtml** w folderze **widoki/uczniowie** .
 
-## <a name="display-student-views"></a>Wyświetlanie widoków dla uczniów
+## <a name="display-student-views"></a>Wyświetl widoki uczniów
 
-Zweryfikuje kod poprawnie dodany do projektu wyświetla listę uczniów i umożliwia użytkownikom edytowanie, tworzenie lub usuwanie rekordów dla uczniów w bazie danych.
+Upewnij się, że kod dodany do projektu prawidłowo wyświetla listę studentów i umożliwia użytkownikom edytowanie, tworzenie i usuwanie rekordów uczniów w bazie danych.
 
-Kliknij prawym przyciskiem myszy **widoków** > **Home** > *Index.cshtml* pliku, a następnie wybierz **Pokaż w przeglądarce**. Na stronie głównej aplikacji wybierz **listę uczniów**.
+Kliknij prawym przyciskiem myszy **widoki** > **Home** > *index. cshtml* plik, a następnie wybierz pozycję **Wyświetl w przeglądarce**. Na stronie głównej aplikacji wybierz pozycję **Lista uczniów**.
 
 ![](generating-views/_static/image6.png)
 
-Na **indeksu** strony, zwróć uwagę na listę uczniów i łącza, aby zmodyfikować te dane. Wybierz **Utwórz nowy** łącze i podanie kilku wartości dotyczących nowego studenta. Kliknij przycisk **Utwórz**i zwróć uwagę, dodaniu nowego studenta do listy.
+Na stronie **indeks** należy zwrócić uwagę na listę studentów i linki do zmodyfikowania tych danych. Wybierz pozycję **Utwórz nowe** łącze i podaj wartości dla nowego ucznia. Kliknij przycisk **Utwórz**i zwróć uwagę na to, że nowy student zostanie dodany do listy.
 
-Po powrocie **indeksu** wybierz opcję **Edytuj** połączyć, a następnie zmienić niektóre z wartości dla uczniów lub studentów. Kliknij przycisk **Zapisz**i zwróć uwagę, rekord dla uczniów został zmieniony.
+Wróć na stronę **indeks** , wybierz link **Edytuj** i Zmień niektóre wartości dla ucznia. Kliknij przycisk **Zapisz**i zwróć uwagę, że rekord ucznia został zmieniony.
 
-Na koniec wybierz pozycję **Usuń** link i upewnij się, że chcesz usunąć rekord, klikając **Usuń** przycisku.
+Na koniec wybierz łącze **Usuń** i Potwierdź, że chcesz usunąć rekord, klikając przycisk **Usuń** .
 
-Bez pisania żadnego kodu, można dodać widoków, które wykonują typowe operacje na danych w tabeli dla uczniów.
+Bez pisania kodu, dodano widoki, które wykonują Typowe operacje na danych w tabeli uczniów.
 
-Być może zauważono, że tekst etykiety dla pola jest oparty na właściwość bazy danych (takich jak **LastName**) który nie jest zawsze mają być wyświetlane na stronie sieci web. Na przykład, lepiej jest etykieta **nazwisko**. Naprawi ten problem wyświetlaną w dalszej części tego samouczka.
+Być może zauważono, że etykieta tekstowa dla pola jest oparta na właściwości bazy danych (takiej jak **LastName**), która nie musi być wyświetlana na stronie sieci Web. Na przykład możesz preferować etykietę jako **nazwisko**. Ten problem z wyświetlaniem zostanie naprawiony w dalszej części tego samouczka.
 
-## <a name="display-enrollment-views"></a>Wyświetlanie widoków rejestracji
+## <a name="display-enrollment-views"></a>Wyświetl widoki rejestracji
 
-Baza danych zawiera relację jeden do wielu między tabelami, studentów i rejestracji i relacji jeden do wielu między tabelami kursu i rejestracji. Widoki dla rejestracji prawidłowo obsługiwać te relacje. Przejdź do strony głównej witryny i wybierz **listę rejestracje** link a następnie **Utwórz nowy** łącza.
+Baza danych zawiera relację jeden do wielu między tabelami uczniów i rejestracji oraz relacją jeden-do-wielu między tabelami kurs i rejestracja. Widoki na potrzeby rejestracji poprawnie obsługują te relacje. Przejdź do strony głównej witryny i wybierz łącze **Lista rejestracji** , a następnie **Utwórz nowy** link.
 
-W widoku wyświetlane formularz służący do tworzenia nowego rekordu rejestracji. W szczególności zwróć uwagę, że formularz zawiera **CourseID** listy rozwijanej i **StudentID** listy rozwijanej. Oba są wypełnione wartościami z powiązanych tabel.
+Widok wyświetla formularz służący do tworzenia nowego rekordu rejestracji. W szczególności należy zauważyć, że formularz zawiera listę rozwijaną **CourseID** i listę rozwijaną **StudentID** . Oba są wypełniane wartościami z powiązanych tabel.
 
-Ponadto sprawdzanie poprawności podanych wartości jest automatycznie stosowana zależności dla typu danych pola. **Klasa** musi zawierać cyfry, dzięki czemu jest wyświetlany komunikat o błędzie, jeśli zostanie podjęta próba zapewniają niezgodną wartość: *Pola klasy korporacyjnej musi być liczbą.*
+Ponadto sprawdzanie poprawności podanych wartości jest automatycznie stosowane na podstawie typu danych pola. **Klasa** wymaga liczby, więc zostanie wyświetlony komunikat o błędzie, jeśli spróbujesz podać niezgodną wartość: *Klasa pola musi być liczbą.*
 
-Upewnieniu się, że widoki generowane automatycznie umożliwiają użytkownikom pracę z danymi w bazie danych. W następnym samouczku z tej serii możesz zaktualizować bazę danych i wprowadzić odpowiednie zmiany w aplikacji sieci web.
+Sprawdzono, że automatycznie generowane widoki umożliwiają użytkownikom współpracują z danymi w bazie danych. W następnym samouczku w tej serii będziesz aktualizować bazę danych i wprowadzać odpowiednie zmiany w aplikacji sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Dodano szkieletu
+> * Dodano szkielet
 > * Dodano linki do nowych widoków
-> * Widoki wyświetlanych dla uczniów
-> * Widoki wyświetlane rejestracji
+> * Wyświetlone widoki uczniów
+> * Wyświetlone widoki rejestracji
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak zmienić bazę danych programu.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zmienić bazę danych.
 > [!div class="nextstepaction"]
-> [Zmień bazę danych](changing-the-database.md)
+> [Zmiana bazy danych](changing-the-database.md)

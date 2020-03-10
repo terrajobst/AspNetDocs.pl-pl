@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/error-handling/exception-handling
-title: Obsługa wyjątków w wzorca ASP.NET Web API — ASP.NET 4.x
+title: Obsługa wyjątków w interfejsie Web API ASP.NET — ASP.NET 4. x
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -10,106 +10,106 @@ ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
 ms.openlocfilehash: dbdbab6aefec840e2fec9e9cd33f3d124093750e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125305"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622319"
 ---
-# <a name="exception-handling-in-aspnet-web-api"></a>Obsługa wyjątków w Web API platformy ASP.NET
+# <a name="exception-handling-in-aspnet-web-api"></a>Obsługa wyjątków w interfejsie API sieci Web ASP.NET
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-W tym artykule opisano, błędów i obsługa wyjątków w Web API platformy ASP.NET.
+W tym artykule opisano obsługę błędów i wyjątków w interfejsie API sieci Web ASP.NET.
 
 - [HttpResponseException](#httpresponserexception)
 - [Filtry wyjątków](#exception_filters)
-- [Rejestrowanie filtry wyjątków](#registering_exception_filters)
+- [Rejestrowanie filtrów wyjątków](#registering_exception_filters)
 - [HttpError](#httperror)
 
 <a id="httpresponserexception"></a>
 ## <a name="httpresponseexception"></a>HttpResponseException
 
-Co się stanie, jeśli kontroler Web API zgłosi nieprzechwycony wyjątek? Domyślnie większość wyjątków są tłumaczone na odpowiedź HTTP z kodem stanu 500, wewnętrzny błąd serwera.
+Co się stanie, Jeśli kontroler internetowego interfejsu API zgłasza nieprzechwycony wyjątek? Domyślnie większość wyjątków jest tłumaczona na odpowiedź HTTP z kodem stanu 500, wewnętrzny błąd serwera.
 
-**HttpResponseException** typu jest przypadkiem szczególnym. Ten wyjątek zwraca do kod stanu HTTP, który określisz w Konstruktorze wyjątku. Na przykład poniższa metoda zwraca 404, nie można odnaleźć, jeśli *identyfikator* parametr jest nieprawidłowy.
+Typ **HttpResponseException** jest szczególnym przypadkiem. Ten wyjątek zwraca kod stanu HTTP określony w konstruktorze wyjątków. Na przykład następująca metoda zwraca 404, nie znaleziono, jeśli parametr *ID* jest nieprawidłowy.
 
 [!code-csharp[Main](exception-handling/samples/sample1.cs)]
 
-Większą kontrolę nad odpowiedzi, można także skonstruować komunikat całej odpowiedzi i dołącz go za pomocą **HttpResponseException:** 
+Aby uzyskać większą kontrolę nad odpowiedzią, można również utworzyć cały komunikat odpowiedzi i dołączyć go do **HttpResponseException:** 
 
 [!code-csharp[Main](exception-handling/samples/sample2.cs)]
 
 <a id="exception_filters"></a>
 ## <a name="exception-filters"></a>Filtry wyjątków
 
-Można dostosować, jak internetowy interfejs API obsługuje wyjątki, pisząc *filtra wyjątku*. Filtra wyjątku jest wykonywany, gdy metoda kontrolera zgłasza wyjątek nieobsługiwany wyjątek, który jest *nie* **HttpResponseException** wyjątku. **HttpResponseException** typ jest to szczególny przypadek, ponieważ jest on zaprojektowany specjalnie w celu zwrócenia odpowiedź HTTP.
+Możesz dostosować sposób, w jaki interfejs API sieci Web obsługuje wyjątki, pisząc *Filtr wyjątków*. Filtr wyjątku jest wykonywany, gdy metoda kontrolera zgłasza dowolny nieobsługiwany wyjątek, który *nie* jest wyjątkiem **HttpResponseException** . Typ **HttpResponseException** jest szczególnym przypadkiem, ponieważ został zaprojektowany specjalnie w celu ZWRÓCENIA odpowiedzi HTTP.
 
-Filtry wyjątków zaimplementować **System.Web.Http.Filters.IExceptionFilter** interfejsu. Najprostszym sposobem pisanie filtra wyjątku jest pochodną **System.Web.Http.Filters.ExceptionFilterAttribute** klasy, a także Przesłoń **OnException** metody.
+Filtry wyjątków implementują interfejs **System. Web. http. filters. IExceptionFilter** . Najprostszym sposobem pisania filtru wyjątków jest uzyskanie z klasy **System. Web. http. filters. ExceptionFilterAttribute** i zastąpienie metody **onException** .
 
 > [!NOTE]
-> Filtry wyjątków w interfejsie API sieci Web platformy ASP.NET są podobne do tych we wzorcu ASP.NET MVC. Jednak są deklarowane w oddzielnych przestrzeni nazw, a funkcja oddzielnie. W szczególności **atrybutu HandleErrorAttribute** klasa używana w MVC nie obsługuje wyjątki wyrzucane przez kontrolerów internetowych interfejsów API.
+> Filtry wyjątków w interfejsie Web API ASP.NET są podobne do tych w ASP.NET MVC. Jednak są one deklarowane w odrębnej przestrzeni nazw i funkcji oddzielnie. W szczególności Klasa **HandleErrorAttribute** używana w MVC nie obsługuje wyjątków zgłoszonych przez kontrolery interfejsu API sieci Web.
 
-Oto filtr, który konwertuje **NotImplementedException** wyjątki w przypadku stanu HTTP kodu 501, nie zaimplementowano:
+Poniżej znajduje się filtr, który konwertuje **NotImplementedException** wyjątków na kod stanu HTTP 501, nie zaimplementowane:
 
 [!code-csharp[Main](exception-handling/samples/sample3.cs)]
 
-**Odpowiedzi** właściwość **HttpActionExecutedContext** obiekt zawiera komunikat odpowiedzi HTTP, który zostanie wysłany do klienta.
+Właściwość **Response** obiektu **HttpActionExecutedContext** zawiera komunikat odpowiedzi HTTP, który zostanie wysłany do klienta.
 
 <a id="registering_exception_filters"></a>
-## <a name="registering-exception-filters"></a>Rejestrowanie filtry wyjątków
+## <a name="registering-exception-filters"></a>Rejestrowanie filtrów wyjątków
 
-Istnieje kilka sposobów, aby zarejestrować filtra wyjątku interfejsu API sieci Web:
+Istnieje kilka sposobów rejestrowania filtru wyjątków interfejsu API sieci Web:
 
-- Za akcję
-- Kontroler
-- Globalnie
+- Według akcji
+- Według kontrolera
+- globalnie
 
 Aby zastosować filtr do określonej akcji, Dodaj filtr jako atrybut do akcji:
 
 [!code-csharp[Main](exception-handling/samples/sample4.cs)]
 
-Aby zastosować filtr do wszystkich akcji w kontrolerze, Dodaj filtr jako atrybut do klasy kontrolera:
+Aby zastosować filtr do wszystkich akcji na kontrolerze, Dodaj filtr jako atrybut do klasy kontrolera:
 
 [!code-csharp[Main](exception-handling/samples/sample5.cs)]
 
-Aby zastosować filtr globalnie do wszystkich kontrolerów składnika Web API, należy dodać wystąpienia filtru w celu **GlobalConfiguration.Configuration.Filters** kolekcji. Zastosuj filtry wyjątków w tej kolekcji do dowolnej akcji kontrolera interfejsu API sieci Web.
+Aby zastosować filtr globalnie do wszystkich kontrolerów interfejsu API sieci Web, Dodaj wystąpienie filtru do kolekcji **GlobalConfiguration. Configuration. filters** . Filtry wyjątków w tej kolekcji mają zastosowanie do dowolnej akcji kontrolera interfejsu API sieci Web.
 
 [!code-csharp[Main](exception-handling/samples/sample6.cs)]
 
-Jeśli używasz szablonu projektu "Aplikacja sieci Web 4 MVC ASP.NET" do tworzenia projektu, umieść kod konfiguracji interfejsu API sieci Web wewnątrz `WebApiConfig` klasy, która znajduje się w aplikacji\_folder początkowy:
+Jeśli tworzysz projekt przy użyciu szablonu projektu "aplikacja sieci Web ASP.NET MVC 4", umieść kod konfiguracji interfejsu API sieci Web wewnątrz klasy `WebApiConfig`, która znajduje się w aplikacji\_folderze początkowym:
 
 [!code-csharp[Main](exception-handling/samples/sample7.cs?highlight=5)]
 
 <a id="httperror"></a>
 ## <a name="httperror"></a>HttpError
 
-**HttpError** obiekt zapewnia spójny sposób, aby zwrócić informacje o błędzie w treści odpowiedzi. Poniższy przykład pokazuje, jak zwrócić kod stanu HTTP 404 (nie znaleziono) za pomocą **HttpError** w treści odpowiedzi.
+Obiekt **HttpError** zapewnia spójny sposób zwrócenia informacji o błędach w treści odpowiedzi. Poniższy przykład pokazuje, jak zwrócić kod stanu HTTP 404 (nie znaleziono) z **HttpError** w treści odpowiedzi.
 
 [!code-csharp[Main](exception-handling/samples/sample8.cs)]
 
-**CreateErrorResponse** metodę rozszerzającą zdefiniowano **System.Net.Http.HttpRequestMessageExtensions** klasy. Wewnętrznie **CreateErrorResponse** tworzy **HttpError** wystąpienia, a następnie tworzy **obiektu HttpResponseMessage** zawierający **HttpError**.
+**CreateErrorResponse** to metoda rozszerzająca zdefiniowana w klasie **System .NET. http. HttpRequestMessageExtensions** . Wewnętrznie, **CreateErrorResponse** tworzy wystąpienie **HttpError** , a następnie tworzy **HttpResponseMessage** , który zawiera **HttpError**.
 
-W tym przykładzie Jeśli metoda zakończy się pomyślnie, zwracany jest produkt w odpowiedzi HTTP. Ale jeśli żądana produktu nie zostanie znaleziony, odpowiedź HTTP zawiera **HttpError** w treści żądania. Odpowiedź może wyglądać następująco:
+W tym przykładzie, jeśli metoda zakończy się pomyślnie, zwraca produkt w odpowiedzi HTTP. Ale jeśli żądany produkt nie zostanie znaleziony, odpowiedź HTTP zawiera **HttpError** w treści żądania. Odpowiedź może wyglądać następująco:
 
 [!code-console[Main](exception-handling/samples/sample9.cmd)]
 
-Należy zauważyć, że **HttpError** został wydany do formatu JSON, w tym przykładzie. Jedną z zalet za pomocą **HttpError** jest, że przechodzi on przez takie same [negocjacji zawartości](../formats-and-model-binding/content-negotiation.md) i serializacji przetwarzania jak wszystkie inne z silnie typizowanym modelem.
+Zwróć uwagę, że w tym przykładzie **HttpError** został Zserializowany do formatu JSON. Jedną z zalet korzystania z **HttpError** jest to, że przechodzą przez ten sam proces [negocjacji zawartości](../formats-and-model-binding/content-negotiation.md) i serializacji co inny model o jednoznacznie określonym typie.
 
-### <a name="httperror-and-model-validation"></a>HttpError i sprawdzanie poprawności modelu
+### <a name="httperror-and-model-validation"></a>HttpError i walidacja modelu
 
-Do weryfikacji modelu, można przekazać stan modelu do **CreateErrorResponse**, aby uwzględnić błędy sprawdzania poprawności w odpowiedzi:
+Aby sprawdzić poprawność modelu, można przekazać stan modelu do **CreateErrorResponse**, aby uwzględnić błędy walidacji w odpowiedzi:
 
 [!code-csharp[Main](exception-handling/samples/sample10.cs)]
 
-W tym przykładzie może zwrócić następującą odpowiedź:
+Ten przykład może zwrócić następujące odpowiedzi:
 
 [!code-console[Main](exception-handling/samples/sample11.cmd)]
 
-Aby uzyskać więcej informacji o weryfikacji modelu, zobacz [weryfikacji modelu programu ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
+Aby uzyskać więcej informacji na temat weryfikacji modelu, zobacz [Walidacja modelu w ASP.NET Web API](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
 
-### <a name="using-httperror-with-httpresponseexception"></a>Przy użyciu HttpResponseException HttpError
+### <a name="using-httperror-with-httpresponseexception"></a>Używanie HttpError z HttpResponseException
 
-Poprzednie przykłady zwrócą **obiektu HttpResponseMessage** wiadomości z akcji kontrolera, ale można również użyć **HttpResponseException** do zwrócenia **HttpError**. Dzięki temu można zwrócić silnie typizowanym modelem w przypadku powodzenia normalne, podczas zwracania nadal **HttpError** Jeśli występuje błąd:
+Poprzednie przykłady zwracają komunikat **HttpResponseMessage** z akcji kontrolera, ale można również użyć **HttpResponseException** do zwrócenia **HttpError**. Dzięki temu można zwrócić silnie wpisaną model w normalnym przypadku sukcesu, ale nadal zwraca **HttpError** , jeśli wystąpi błąd:
 
 [!code-csharp[Main](exception-handling/samples/sample12.cs)]

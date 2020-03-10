@@ -9,11 +9,11 @@ ms.assetid: 1d1a7c93-971d-4690-9c5e-dac0e5014a09
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: a953c00acc4c37fd563321477b6b21689d6e686c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576444"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78620905"
 ---
 # <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>Formularz typu rekord główny/szczegóły korzystający z kontrolki GridView umożliwiającej wybór rekordu głównego z kontrolką DetailView szczegółów (VB)
 
@@ -140,4 +140,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzent potencjalnych klientów dla tego samouczka został Hilton Giesenow. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](master-detail-filtering-across-two-pages-vb.md)
+> [Wstecz](master-detail-filtering-across-two-pages-vb.md)

@@ -9,11 +9,11 @@ ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
 ms.openlocfilehash: 504202068f5db4f8614bba02e8066ffecfd15b48
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74619238"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78618049"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -21,7 +21,7 @@ ms.locfileid: "74619238"
 - [Uwagi dotyczące instalacji](#installation-notes)
 - [Wymagania dotyczące oprogramowania](#software-requirements)
 - [Dokumentacja](#documentation)
-- [Pomocy](#support)
+- [Pomoc techniczna](#support)
 - [Uaktualnianie projektu ASP.NET MVC 2 do ASP.NET aktualizacji narzędzi MVC 3](#upgrading)
 - [Aktualizacja narzędzi ASP.NET MVC 3 (12 kwietnia 2011)](#tu-changes)
 
@@ -141,7 +141,7 @@ Samouczki i inne informacje dotyczące ASP.NET MVC są dostępne na stronie MVC 
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>Obsługa
+## <a name="support"></a>Pomoc techniczna
 
 Jest to w pełni obsługiwana wersja. Informacje o uzyskiwaniu pomocy technicznej można znaleźć w [witrynie sieci web pomoc techniczna firmy Microsoft](https://support.microsoft.com/).
 
@@ -175,8 +175,8 @@ Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 2 do wersji 3, wyko
 6. W Eksplorator rozwiązań usuń odwołanie do elementu *System. Web. MVC* (które wskazuje bibliotekę DLL w wersji 2), a następnie Dodaj odwołanie do elementu *System. Web. MVC* (v 3.0.0.0).
 7. Dodaj odwołanie do elementu System. Web. Webpages. dll i system. Web. helps. dll. Te zestawy znajdują się w następujących folderach: 
 
-    - % ProgramFiles% \ Microsoft ASP. NET\ASP.NET MVC 3 \ zestawy
-    - % ProgramFiles% \ Microsoft ASP. NET\ASP.NET Web Pages\v1.0\Assemblies
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
 8. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nazwę projektu i wybierz polecenie Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę projektu i wybierz polecenie Edytuj *ProjectName*. csproj.
 9. Znajdź element *ProjectTypeGuids* i Zastąp ciąg {F85E285D-A4E0-4152-9332-AB1D724D3325} atrybutem {E53F8FEA-EAE0-44A6-8774-FFD645390401}.
 10. Zapisz zmiany, kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie Załaduj ponownie projekt.
@@ -268,7 +268,7 @@ Szablony projektu zawierają teraz następujące wersje skryptów jQuery:
 
 - jQuery 1.5.1
 - Weryfikacja jQuery 1,8
-- Interfejs użytkownika jQuery 1.8.11
+- jQuery UI 1.8.11
 
 Te biblioteki są dołączone jako wstępnie zainstalowane pakiety NuGet.
 
@@ -355,7 +355,7 @@ Zmiana nazwy pliku Razor przy użyciu Eksplorator rozwiązań, gdy plik zostanie
 - W przypadku instalowania ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na którym nie jest zainstalowany program Visual Studio, a następnie instalowania programu Visual Studio, należy ponownie zainstalować ASP.NET MVC 3. Programy Visual Studio i Visual Web Developer Express Share Components, które są uaktualniane przez Instalatora ASP.NET MVC 3. Ten sam problem występuje, jeśli zainstalujesz ASP.NET MVC 3 dla programu Visual Studio na komputerze, na którym nie jest zainstalowany program Visual Web Developer Express, a następnie zainstalujesz program Visual Web Developer Express.
 
 <a id="RTM-BC"></a>
-## <a name="breaking-changes"></a>Fundamentalne zmiany
+## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 - W poprzednich wersjach ASP.NET MVC filtry akcji są tworzone na żądanie z wyjątkiem kilku przypadków. Takie zachowanie nigdy nie było gwarantowane, ale tylko szczegóły implementacji i kontrakt dla filtrów były traktowane jako bezstanowe. W ASP.NET MVC 3 filtry są buforowane bardziej agresywnie. W związku z tym wszystkie niestandardowe filtry akcji, które nieprawidłowo przechowują stan wystąpienia, mogą być uszkodzone.
 - Kolejność wykonywania filtrów wyjątków została zmieniona dla filtrów wyjątków, które mają taką samą wartość *kolejności* . W ASP.NET MVC 2 i starszych, filtry wyjątków na kontrolerze, które mają taką samą wartość *kolejności* jak te w metodzie akcji są wykonywane przed filtrami wyjątków dla metody akcji. Zwykle jest to przypadek, gdy filtry wyjątków są stosowane bez określonej wartości *kolejności* . W ASP.NET MVC 3 Ta kolejność została odwrócona, tak aby najbardziej specyficzna procedura obsługi wyjątków była wykonywana w pierwszej kolejności. Tak jak w starszych wersjach, jeśli właściwość *Order* jest jawnie określona, filtry są uruchamiane w określonej kolejności.
@@ -457,7 +457,7 @@ Rozwiązano problem polegający na tym, że metoda *LabelFor* renderowana *dla* 
 We wcześniejszych wersjach jawne wartości, które zostały przesłane do metody *RenderAction* , zostały zignorowane na rzecz bieżących wartości formularza podczas wiązania modelu wewnątrz akcji podrzędnej. Poprawka gwarantuje, że jawne wartości mają pierwszeństwo podczas wiązania modelu.
 
 <a id="_Toc2_BC"></a>
-## <a name="breaking-changes"></a>Fundamentalne zmiany
+## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 - W poprzednich wersjach ASP.NET MVC filtry akcji zostały utworzone dla każdego żądania, z wyjątkiem kilku przypadków. Takie zachowanie nigdy nie było gwarantowane, ale tylko szczegóły implementacji i kontrakt dla filtrów były traktowane jako bezstanowe. W ASP.NET MVC 3 filtry są buforowane bardziej agresywnie. W związku z tym wszystkie niestandardowe filtry akcji, które nieprawidłowo przechowują stan wystąpienia, mogą być uszkodzone.
 - Kolejność wykonywania filtrów wyjątków została zmieniona dla filtrów wyjątków, które mają taką samą wartość *kolejności* . W ASP.NET MVC 2 i starszych, filtry wyjątków na kontrolerze, który ma taką samą wartość *kolejności* jak te w metodzie akcji, zostały wykonane przed filtrami wyjątku w metodzie akcji. Zwykle zdarza się to w przypadku zastosowania filtrów wyjątków bez określonej wartości *kolejności* . W ASP.NET MVC 3 Ta kolejność została odwrócona, tak aby najbardziej specyficzna procedura obsługi wyjątków była wykonywana w pierwszej kolejności. Tak jak w starszych wersjach, jeśli właściwość *Order* jest jawnie określona, filtry są uruchamiane w określonej kolejności.
@@ -535,7 +535,7 @@ Nowy atrybut walidacji programu *CompareAttribute* umożliwia porównanie warto�
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample15.cs)]
 
-#### <a name="remoteattribute"></a>Zdalnyattribute
+#### <a name="remoteattribute"></a>RemoteAttribute
 
 Nowy atrybut *remoteattribute* Validation ma zalety zdalnego modułu sprawdzania poprawności wtyczki walidacji jQuery, który umożliwia walidację po stronie klienta wywoływanie metody na serwerze, który wykonuje rzeczywistą logikę walidacji.
 
@@ -602,7 +602,7 @@ Alternatywnie, aby wyłączyć weryfikację żądań dla każdej właściwości 
 [!code-csharp[Main](mvc3-release-notes/samples/sample24.cs)]
 
 <a id="_Toc276711794"></a>
-## <a name="breaking-changes"></a>Fundamentalne zmiany
+## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 - Kolejność wykonywania filtrów wyjątków została zmieniona dla filtrów wyjątków, które mają taką samą wartość *kolejności* . W ASP.NET MVC 2 i starszych, filtry wyjątków na kontrolerze, które miały takie samo *Zamówienie* jak te na metodzie akcji, zostały wykonane przed filtrami wyjątku w metodzie akcji. Zwykle zdarza się to w przypadku zastosowania filtrów wyjątków bez określonej wartości *kolejności* . W ASP.NET MVC 3 Ta kolejność została odwrócona, tak aby najbardziej specyficzna procedura obsługi wyjątków była wykonywana w pierwszej kolejności. Tak jak w starszych wersjach, jeśli właściwość *Order* jest jawnie określona, filtry są uruchamiane w określonej kolejności.
 - Dodano nową właściwość o nazwie *FileExtensions* do klasy podstawowej *VirtualPathProviderViewEngine* . Podczas wyszukiwania widoku według ścieżki (a nie według nazwy) uwzględniane są tylko widoki z rozszerzeniem pliku znajdującym się na liście określonej przez tę nową właściwość. Jest to istotna zmiana dla tych, którzy rejestrują niestandardowego dostawcę kompilacji w celu włączenia niestandardowego rozszerzenia pliku dla widoków formularzy sieci Web i odwołują się do tych widoków przy użyciu pełnej ścieżki, a nie nazwy. Obejście polega na zmodyfikowaniu wartości właściwości *FileExtensions* w celu uwzględnienia niestandardowego rozszerzenia pliku.
@@ -622,7 +622,7 @@ Alternatywnie, aby wyłączyć weryfikację żądań dla każdej właściwości 
 - Podczas edytowania widoku Razor (plik. cshtml) element menu Przejdź do kontrolera w programie Visual Studio nie będzie dostępny i nie ma fragmentów kodu.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
-## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 beta
+## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 Beta
 
 ASP.NET MVC 3 beta wydano 6 października 2010. Poniższe uwagi dotyczą wersji beta i podlegają wszelkim aktualizacjom lub zmianom przywoływanym w powyższej sekcji ASP.NET MVC 3 Release Candidate.
 
@@ -669,8 +669,8 @@ Nowe technologie ASP.NET Web Pages zawierają zestaw metod pomocniczych, które 
 | **Pomagając** | **Opis** |
 | --- | --- |
 | Wykres | Renderuje wykres w widoku. Zawiera metody, takie jak Chart. ToWebImage, Chart. Save i Chart. Write. |
-| Modułu | Używa algorytmów wyznaczania wartości skrótu do prawidłowego tworzenia haseł solonych i skrótów. |
-| Siatka sieci | Renderuje kolekcję obiektów (zazwyczaj dane z bazy danych) jako siatkę. Obsługuje stronicowanie i sortowanie. |
+| Crypto | Używa algorytmów wyznaczania wartości skrótu do prawidłowego tworzenia haseł solonych i skrótów. |
+| WebGrid | Renderuje kolekcję obiektów (zazwyczaj dane z bazy danych) jako siatkę. Obsługuje stronicowanie i sortowanie. |
 | Obraz webimage | Renderuje obraz. |
 | Poczty internetowej | Wysyła wiadomość e-mail. |
 
@@ -733,15 +733,15 @@ Nowe wydanie obejmuje obsługę rozpoznawania zależności dla następujących u
 
 ASP.NET MVC zawiera metody pomocnika AJAX, takie jak:
 
-- AJAX. ActionLink
-- AJAX. RouteLink
-- AJAX. BeginForm
-- AJAX. BeginRouteForm
+- Ajax.ActionLink
+- Ajax.RouteLink
+- Ajax.BeginForm
+- Ajax.BeginRouteForm
 
 Te metody używają języka JavaScript do wywołania metody akcji na serwerze zamiast korzystania z pełnego ogłaszania zwrotnego. Ta funkcja została zaktualizowana tak, aby korzystać z platformy jQuery w sposób niedyskretny. Zamiast w sposób nieinwazyjny emitować wbudowane skrypty klienta, te metody pomocnika oddzielą zachowanie od znaczników przez emitowanie atrybutów HTML5 przy użyciu prefiksu *Data-AJAX* . Zachowanie jest następnie stosowane do znaczników przez odwołanie do odpowiednich plików JavaScript. Upewnij się, że istnieją następujące pliki JavaScript:
 
-- jQuery-1.4.1. js
-- jQuery. niezauważalny. AJAX. js
+- jquery-1.4.1.js
+- jquery.unobtrusive.ajax.js
 
 Ta funkcja jest domyślnie włączona w pliku Web. config w szablonach nowych projektów ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [Dodano flagi dla całej aplikacji na potrzeby sprawdzania poprawności klienta i](#0.1_AddedApplicationWideFlagsForClientValida) nieosobnego kodu JavaScript w dalszej części tego dokumentu.
 
@@ -757,9 +757,9 @@ Wymaga to, aby Właściwość ViewContext. UnobtrusiveJavaScriptEnabled została
 
 Upewnij się również, że istnieją odwołania do następujących plików JavaScript.
 
-- jQuery-1.4.1. js
-- jQuery. Validate. js
-- jQuery. Validate. niezauważalne. js
+- jquery-1.4.1.js
+- jquery.validate.js
+- jquery.validate.unobtrusive.js
 
 Ta funkcja jest domyślnie włączona w pliku Web. config w szablonach nowych projektów ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [nowe flagi dla całej aplikacji dotyczące sprawdzania poprawności klienta i](#0.1_AddedApplicationWideFlagsForClientValida) nieosobnego kodu JavaScript w dalszej części tego dokumentu.
 
@@ -839,7 +839,7 @@ JsonValueProviderFactory jest teraz domyślnie zarejestrowany.
 
 Kolejność wykonywania filtrów wyjątków została zmieniona dla filtrów wyjątków, które mają taką samą wartość kolejności. W ASP.NET MVC 2 i starszych, filtry wyjątków na kontrolerze z taką samą kolejnością jak w przypadku metody akcji zostały wykonane przed filtrami wyjątku w metodzie akcji. Zwykle zdarza się to w przypadku zastosowania filtrów wyjątków bez określonej wartości kolejności. W ASP.NET MVC 3 Ta kolejność została odwrócona, tak aby najbardziej specyficzna procedura obsługi wyjątków była wykonywana w pierwszej kolejności. Tak jak w starszych wersjach, jeśli Właściwość Order jest jawnie określona, filtry są uruchamiane w określonej kolejności.
 
-## <a id="0.1__Toc274034230"></a>Znane problemy
+## <a id="0.1__Toc274034230"></a> Znane problemy
 
 Podczas instalacji okno dialogowe akceptacji umowy EULA wyświetla postanowienia licencyjne w oknie, które jest mniejsze niż zamierzone.
 

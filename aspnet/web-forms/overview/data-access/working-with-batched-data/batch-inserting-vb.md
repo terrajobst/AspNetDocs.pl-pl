@@ -9,11 +9,11 @@ ms.assetid: 48e2a4ae-77ca-4208-a204-c38c690ffb59
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 413a0e209b1899414eaab70aff07ee0d3223f28f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74643122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78618574"
 ---
 # <a name="batch-inserting-vb"></a>Wstawianie w partiach (VB)
 
@@ -236,4 +236,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci dla liderów w tym samouczku zostały Hilton Giesenow i S Ren Jacob Lauritsen. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Ubiegł](batch-deleting-vb.md)
+> [Wstecz](batch-deleting-vb.md)

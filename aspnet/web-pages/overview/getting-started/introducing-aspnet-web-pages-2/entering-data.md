@@ -1,259 +1,259 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy | Dokumentacja firmy Microsoft
+title: Wprowadzenie do stron sieci Web ASP.NET — wprowadzanie danych bazy danych przy użyciu formularzy | Microsoft Docs
 author: Rick-Anderson
-description: W tym samouczku pokazano, jak utworzyć formularz wprowadzania, a następnie wprowadź dane, który można pobrać z formularza do tabeli bazy danych użycia stron ASP.NET Web Pages (...)
+description: W tym samouczku pokazano, jak utworzyć formularz wprowadzania, a następnie wprowadzić dane uzyskane z formularza do tabeli bazy danych w przypadku używania stron sieci Web ASP.NET (...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
 ms.openlocfilehash: b9354a7b97a7df9020a681f709e16a92650cfcf0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132973"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624538"
 ---
-# <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy
+# <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Wprowadzenie do stron sieci Web ASP.NET — wprowadzanie danych bazy danych za pomocą formularzy
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> Ten samouczek pokazuje, jak utworzyć formularz wprowadzania, a następnie wprowadź dane, który można pobrać z formularza do tabeli bazy danych użycia stron ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii za pośrednictwem [podstawy formularzy HTML strony ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581).
+> W tym samouczku pokazano, jak utworzyć formularz wprowadzania, a następnie wprowadzić dane uzyskane z formularza do tabeli bazy danych w przypadku używania stron sieci Web ASP.NET (Razor). Przyjęto założenie, że serie zostały wykonane za pomocą [podstaw formularzy HTML na stronach sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251581).
 > 
 > Zawartość:
 > 
-> - Więcej informacji o sposobie przetwarzania formularzach wprowadzania.
-> - Jak dodawać dane (Wstaw) w bazie danych.
-> - Jak upewnić się, że użytkownicy wprowadzono wymaganej wartości w postaci (sposób sprawdzania poprawności danych wejściowych użytkownika).
-> - Jak wyświetlić błędy sprawdzania poprawności.
+> - Więcej informacji o sposobie przetwarzania formularzy wprowadzania.
+> - Dodawanie (wstawianie) danych w bazie danych.
+> - Jak upewnić się, że użytkownicy wprowadzili wymaganą wartość w formularzu (jak sprawdzić poprawność danych wejściowych użytkownika).
+> - Jak wyświetlić błędy walidacji.
 > - Jak przejść do innej strony z bieżącej strony.
 >   
 > 
-> Funkcje/technologie omówione:
+> Omówione funkcje/technologie:
 > 
-> - `Database.Execute` Metody.
-> - SQL `Insert Into` — instrukcja
-> - `Validation` Pomocnika.
-> - `Response.Redirect` Metody.
+> - Metoda `Database.Execute`.
+> - Instrukcja SQL `Insert Into`
+> - Pomocnik `Validation`.
+> - Metoda `Response.Redirect`.
 
-## <a name="what-youll-build"></a>Jakie będziesz tworzyć
+## <a name="what-youll-build"></a>Co będziesz kompilować
 
-W tym samouczku wcześniej pokazujący, jak utworzyć bazę danych, wprowadzone dane z bazy danych, edytując bazy danych bezpośrednio w programie WebMatrix, pracy w **bazy danych** obszaru roboczego. W przypadku większości aplikacji, która nie jest praktycznym sposobem dane umieszczane w bazie danych, mimo że. Dlatego w tym samouczku utworzysz opartego na sieci web interfejs, umożliwiający Ty, ani wprowadzać dane i zapisz go w bazie danych.
+W samouczku, który pokazano, jak utworzyć bazę danych, wprowadzono dane bazy danych, edytując bazę danych bezpośrednio w programie WebMatrix, pracując w obszarze roboczym **bazy danych** . W większości aplikacji to nie jest praktyczny sposób umieszczania danych w bazie danych, chociaż. W tym samouczku utworzysz interfejs oparty na sieci Web, który pozwala na wprowadzanie danych i zapisywanie ich w bazie danych.
 
-Utworzysz strony, w którym możesz wprowadzić nowe filmy. Strona będzie zawierać formularza zgłoszenia, który ma pola (pola tekstowe), gdzie można wprowadzić tytuł filmu, gatunku i roku. Strona będzie wyglądała podobna do tej strony:
+Utworzysz stronę umożliwiającą wprowadzanie nowych filmów. Strona będzie zawierać formularz wprowadzania zawierający pola (pola tekstowe), w których można wprowadzić tytuł filmu, gatunek i rok. Strona będzie wyglądać następująco:
 
-!["Dodawanie filmu" strony w przeglądarce](entering-data/_static/image1.png)
+![Strona "Dodaj film" w przeglądarce](entering-data/_static/image1.png)
 
-Pola tekstowe będzie HTML `<input>` elementy, które będzie wyglądać jak ten kod znaczników:
+Pola tekstowe będą `<input>` elementy HTML, które będą wyglądać jak w tym znaczniku:
 
 `<input type="text" name="genre" value="" />`
 
-## <a name="creating-the-basic-entry-form"></a>Tworzenie formularza podstawowego
+## <a name="creating-the-basic-entry-form"></a>Tworzenie podstawowego formularza wprowadzania
 
-Utwórz stronę o nazwie *AddMovie.cshtml*.
+Utwórz stronę o nazwie *addmovie. cshtml*.
 
-Zastąp, co znajduje się w pliku następującym kodem. Zastąp wszystko; wkrótce zostanie dodana blok kodu u góry.
+Zastąp zawartość pliku następującym znacznikiem. Zastąp wszystko; Wkrótce dodasz blok kodu u góry.
 
 [!code-cshtml[Main](entering-data/samples/sample1.cshtml)]
 
-Ten przykład przedstawia typowy HTML podczas tworzenia formularza. Używa ona `<input>` elementów dla pola tekstowe i przycisk Prześlij. Podpisy dla pola tekstowe są tworzone przy użyciu standardu `<label>` elementów. `<fieldset>` i `<legend>` elementy umieść nieuprzywilejowany ramkę wokół formularza.
+Ten przykład pokazuje typowy kod HTML na potrzeby tworzenia formularza. Używa `<input>` elementów dla pól tekstowych i dla przycisku Prześlij. Podpisy dla pól tekstowych są tworzone przy użyciu standardowych elementów `<label>`. Elementy `<fieldset>` i `<legend>` umieszczają w postaci całkiem dobre pole.
 
-Należy zauważyć, że na tej stronie `<form>` element używa `post` jako wartość pozycji `method` atrybutu. W poprzednim samouczku utworzono formularz, który jest używany `get` metody. Było poprawne, mimo że przesłać formularza, wartości do serwera, żądanie nie wprowadzone zmiany. Wszystko, co tak było pobierania danych na różne sposoby. Jednak w tym stronie *będzie* zmiany — zamierzamy dodawać nowe rekordy bazy danych. Dlatego należy używać tego formularza `post` metody. (Aby uzyskać więcej informacji o różnicach między `GET` i `POST` operacji, zobacz[GET, POST i bezpieczeństwa zlecenie HTTP](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) paska bocznego w poprzednim samouczku.)
+Zwróć uwagę na to, że na tej stronie element `<form>` używa `post` jako wartości atrybutu `method`. W poprzednim samouczku utworzono formularz, który używa metody `get`. Jest to poprawne, ponieważ mimo że formularz przesłał wartości do serwera, żądanie nie wprowadza żadnych zmian. Wszystkie dane były pobierane na różne sposoby. Jednak na tej *stronie wprowadzisz* zmiany — będziesz dodawać nowe rekordy bazy danych. W związku z tym formularz powinien używać metody `post`. (Aby uzyskać więcej informacji o różnicach między operacjami `GET` i `POST`, zobacz pasek boczny[bezpieczeństwa czasowników Get, post i http](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) w poprzednim samouczku.)
 
-Należy zauważyć, że każde pole tekstowe ma `name` — element (`title`, `genre`, `year`). Jak w poprzednim samouczku, te nazwy są ważne, ponieważ muszą mieć te nazwy, dzięki czemu możesz później uzyskać dane wejściowe użytkownika. Możesz użyć dowolnej nazwy. Pomocne jest użycie znaczące nazwy, które ułatwiają należy pamiętać, jakie dane pracujemy z użyciem.
+Zwróć uwagę, że każde pole tekstowe ma `name` element (`title`, `genre`, `year`). Jak widać w poprzednim samouczku, te nazwy są ważne, ponieważ trzeba mieć te nazwy, aby można było później uzyskać dane wejściowe użytkownika. Możesz użyć dowolnych nazw. Warto używać znaczących nazw, które ułatwiają zapamiętywanie danych, z którymi pracujesz.
 
-`value` Atrybut każdego `<input>` element zawiera ilość kodu Razor (na przykład `Request.Form["title"]`). Pokazaliśmy ci, wersja ta procedura w poprzednim samouczku, aby zachować wartość wprowadzona w polu tekstowym (jeśli istnieją) po przesłaniu formularza.
+Atrybut `value` każdego elementu `<input>` zawiera bit kodu Razor (na przykład `Request.Form["title"]`). W poprzednim samouczku poznasz wersję tej lewie, aby zachować wartość wprowadzoną w polu tekstowym (jeśli istnieje) po przesłaniu formularza.
 
 ## <a name="getting-the-form-values"></a>Pobieranie wartości formularza
 
-Następnie dodasz kod, który przetwarza formularza. Konspekt artykułu będzie wykonywać następujące czynności:
+Następnie Dodaj kod, który przetwarza formularz. W obszarze konspekt należy wykonać następujące czynności:
 
-1. Sprawdź, czy strona jest przesyłana (przesłano). Chcesz w kodzie tylko wtedy, gdy użytkownicy kliknięty przycisk, nie wtedy, gdy strona pierwszego uruchomienia.
-2. Pobiera wartości, które użytkownik wprowadził w polach tekstowych. W tym przypadku ponieważ korzysta z formularza `POST` zlecenie, Pobierz wartości formularza z `Request.Form` kolekcji.
-3. Wstaw wartości jako nowego rekordu w *filmy* tabeli bazy danych.
+1. Sprawdź, czy strona jest ogłaszana (została przesłana). Chcesz, aby kod był uruchamiany tylko wtedy, gdy użytkownik kliknął przycisk, a nie podczas pierwszego uruchomienia strony.
+2. Pobierz wartości wprowadzone przez użytkownika do pól tekstowych. W tym przypadku, ponieważ formularz używa zlecenia `POST`, otrzymujesz wartości formularza z kolekcji `Request.Form`.
+3. Wstaw wartości jako nowy rekord w tabeli bazy danych *filmów* .
 
 W górnej części pliku Dodaj następujący kod:
 
 [!code-cshtml[Main](entering-data/samples/sample2.cshtml)]
 
-Pierwszych kilka wierszy tworzenia zmiennych (`title`, `genre`, i `year`) do przechowywania wartości w polach tekstowych. Wiersz `if(IsPost)` upewnia się, że zmienne są ustawiane *tylko* po użytkownik kliknie **dodać film** przycisk — oznacza to, kiedy formularz została opublikowana.
+Pierwsze kilka wierszy tworzy zmienne (`title`, `genre`i `year`), aby przechowywać wartości z pól tekstowych. Wiersz `if(IsPost)` upewnij się, że zmienne są ustawiane *tylko* wtedy, gdy użytkownik kliknie przycisk **Dodaj film** , czyli po opublikowaniu formularza.
 
-Jak przedstawiono wcześniej samouczka można pobrać wartość w polu tekstowym za pomocą wyrażenia takie jak `Request.Form["name"]`, gdzie *nazwa* nazywa się `<input>` elementu.
+Jak pokazano w poprzednim samouczku, uzyskasz wartość pola tekstowego przy użyciu wyrażenia, takiego jak `Request.Form["name"]`, gdzie *name* jest nazwą elementu `<input>`.
 
-Nazwy zmiennych (`title`, `genre`, i `year`) są dowolne. Takie jak nazwy, które można przypisać do `<input>` elementy, można je wywoływać wszystko chcesz. (Nazwy zmiennych nie muszą być zgodne z atrybutami name `<input>` elementów w formularzu.) Ale podobnie jak w przypadku `<input>` elementów, to dobry pomysł, aby użyć nazwy zmiennych, które odzwierciedlają dane, które zawierają. Podczas pisania kodu, spójne nazwy ułatwiają aby zapamiętać dane pracujemy z użyciem.
+Nazwy zmiennych (`title`, `genre`i `year`) są dowolne. Podobnie jak w przypadku nazw przypisanych do `<input>` elementów, możesz je wywoływać w dowolny sposób. (Nazwy zmiennych nie muszą odpowiadać atrybutom nazwy elementów `<input>` w formularzu). Ale podobnie jak w przypadku elementów `<input>`, dobrym pomysłem jest użycie nazw zmiennych, które odzwierciedlają zawarte w nich dane. Gdy piszesz kod, spójne nazwy ułatwiają zapamiętywanie danych, z którymi pracujesz.
 
 ## <a name="adding-data-to-the-database"></a>Dodawanie danych do bazy danych
 
-W kodzie zablokujemy Cię właśnie dodanej, po prostu *wewnątrz* zamykającego nawiasu klamrowego ( `}` ) z `if` blokuje (nie tylko wewnątrz bloku kodu), Dodaj następujący kod:
+W bloku kodu, który właśnie został dodany, tuż *wewnątrz* zamykającego nawiasu klamrowego (`}`) bloku `if` (nie tylko wewnątrz bloku kodu), Dodaj następujący kod:
 
 [!code-csharp[Main](entering-data/samples/sample3.cs)]
 
-Ten przykład jest podobny do kodu, którego użyto w poprzednim samouczku do pobierania i wyświetlania danych. Wiersz, który rozpoczyna się od `db =` otwiera bazy danych, takich jak wcześniej i następny wiersz określa instrukcję SQL ponownie jako przedstawiono wcześniej. Jednak tym razem definiuje SQL `Insert Into` instrukcji. Poniższy przykład pokazuje ogólna składnia `Insert Into` instrukcji:
+Ten przykład przypomina kod użyty w poprzednim samouczku do pobierania i wyświetlania danych. Wiersz rozpoczynający się od `db =` otwiera bazę danych, jak poprzednio, a następny wiersz definiuje instrukcję SQL ponownie, jak wcześniej. Jednak ten czas definiuje instrukcję SQL `Insert Into`. Poniższy przykład przedstawia ogólną składnię instrukcji `Insert Into`:
 
 `INSERT INTO table (column1, column2, column3, ...) VALUES (value1, value2, value3, ...)`
 
-Innymi słowy należy określić tabeli, wstawianie, wyświetlona lista kolumn do wstawienia do, a następnie listę wartości do wstawienia. (Wspomniane wcześniej SQL nie jest uwzględniana wielkość liter, ale niektórzy wielką literą słów kluczowych, aby ułatwić interpretowanie polecenie).
+Innymi słowy, należy określić tabelę do wstawienia, a następnie wyświetlić listę kolumn do wstawienia, a następnie wyświetlić listę wartości do wstawienia. (Jak wspomniano wcześniej, w języku SQL nie jest rozróżniana wielkość liter, ale niektóre osoby mają wielkie słowa kluczowe, aby ułatwić odczytywanie polecenia).
 
-Kolumny, które w przypadku wstawiania do już są wymienione w poleceniu — `(Title, Genre, Year)`. Interesujące części jest, jak pobrać wartości z pól tekstowych do `VALUES` część polecenia. Zamiast wartości faktycznych można zobaczyć `@0`, `@1`, i `@2`, które z kolei są symbolami zastępczymi. Po uruchomieniu polecenia (na `db.Execute` wiersza), możesz przekazać wartości, które stało się z pól tekstowych.
+Kolumny, które są wstawiane, są już wymienione w poleceniu — `(Title, Genre, Year)`. Interesująca część polega na tym, jak otrzymujesz wartości z pól tekstowych do `VALUES` części polecenia. Zamiast wartości rzeczywistych widoczne są `@0`, `@1`i `@2`, które są symbolami zastępczymi kursów. Po uruchomieniu polecenia (w wierszu `db.Execute`) przekazywane są wartości z pól tekstowych.
 
-**Ważne!** Należy pamiętać, że jedynie nigdy nie powinna zawierać dane wprowadzone w tryb online przez użytkownika w instrukcji SQL jest użycie symboli zastępczych, jak widać w tym miejscu (`VALUES(@0, @1, @2)`). Jeśli możesz połączyć dane wejściowe użytkownika w instrukcji SQL, należy otworzyć samodzielnie do ataku polegającego na iniekcji SQL zgodnie z objaśnieniem w [podstawy formularzy stron ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (poprzedniego samouczka).
+**Ważne!** Należy pamiętać, że jedynym sposobem, w jaki należy uwzględnić dane wprowadzone w trybie online przez użytkownika w instrukcji SQL, jest użycie symboli zastępczych, jak widać tutaj (`VALUES(@0, @1, @2)`). Jeśli połączysz dane wprowadzane przez użytkownika z instrukcją SQL, możesz otworzyć siebie do ataku polegającego na iniekcji SQL, jak wyjaśniono w [formularzach podstawowe informacje na stronach sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251581) (poprzedni samouczek).
 
-Nadal wewnątrz `if` zablokować, Dodaj następujący wiersz po `db.Execute` wiersza:
+Nadal wewnątrz bloku `if`, Dodaj następujący wiersz po wierszu `db.Execute`:
 
 [!code-css[Main](entering-data/samples/sample4.css)]
 
-Po ten nowy film został wstawiony do bazy danych, ten wiersz skacze możesz (przekierowania) do *filmy* strony, aby było widać filmu wprowadzonej. `~` Operator oznacza "root witryny sieci Web". ( `~` Operator działa tylko na stronach ASP.NET, nie w formacie HTML ogólnie.)
+Po wstawieniu nowego filmu do bazy danych ten wiersz przeskakuje użytkownika (przekierowania) do strony *filmy* , aby zobaczyć właśnie wprowadzony film. Operator `~` oznacza "katalog główny witryny sieci Web". (Operator `~` działa tylko na stronach ASP.NET, a nie w języku HTML Generally).
 
-Ukończony blok kodu wygląda następująco:
+Pełny blok kodu wygląda podobnie do tego przykładu:
 
 [!code-cshtml[Main](entering-data/samples/sample5.cshtml)]
 
-## <a name="testing-the-insert-command-so-far"></a>Testowanie polecenia Insert (pory)
+## <a name="testing-the-insert-command-so-far"></a>Testowanie polecenia INSERT (dotąd)
 
-Nie masz jeszcze zrobione, ale teraz jest odpowiedni moment, aby przetestować.
+Nie zostało to jeszcze zrobione, ale teraz jest to dobry czas na przetestowanie.
 
-W plikach w programie WebMatrix w widoku drzewa kliknij prawym przyciskiem myszy *AddMovie.cshtml* strony, a następnie kliknij przycisk **Uruchom w przeglądarce**.
+W widoku drzewa plików w programie WebMatrix kliknij prawym przyciskiem myszy stronę *addmovie. cshtml* , a następnie kliknij polecenie **Uruchom w przeglądarce**.
 
-!["Dodawanie filmu" strony w przeglądarce](entering-data/_static/image2.png)
+![Strona "Dodaj film" w przeglądarce](entering-data/_static/image2.png)
 
-(Jeśli na końcu innej strony w przeglądarce, upewnij się, że adres URL jest `http://localhost:nnnnn/AddMovie`), gdzie *nnnnn* jest numerem portu, którego używasz.)
+(Jeśli w przeglądarce zostanie zainstalowana inna strona, upewnij się, że adres URL jest `http://localhost:nnnnn/AddMovie`), gdzie *nnnnn* jest numerem portu, którego używasz.)
 
-Czy został wyświetlony strona błędu Jeśli tak, należy uważnie przeczytać i upewnij się, że kod wyglądał dokładnie co zostało wymienione wcześniej.
+Czy pojawiły się strona błędu? Jeśli tak, przeczytaj ją uważnie i upewnij się, że kod wygląda dokładnie na wymienionym wcześniej.
 
-Wprowadź filmu w postaci &mdash; na przykład użyć "Dla obywateli Wójcik", "Dramat" i "1941". (Lub zależności od potrzeb). Następnie kliknij przycisk **dodać film**.
+Wprowadź film w formularzu &mdash; na przykład użyj "Obywatel Kane", "dramat" i "1941". (Lub niezależnie od siebie). Następnie kliknij pozycję **Dodaj film**.
 
-Jeśli wszystko przebiegnie poprawnie, użytkownik jest przekierowany do *filmy* strony. Upewnij się, że znajduje się nowy film.
+Jeśli wszystko przebiegnie prawidłowo, nastąpi przekierowanie do strony *filmów* . Upewnij się, że Twój nowy film znajduje się na liście.
 
-![Strona filmy, przedstawiający nowo dodana filmu](entering-data/_static/image3.png)
+![Strona filmów pokazująca nowo dodany film](entering-data/_static/image3.png)
 
-## <a name="validating-user-input"></a>Walidacja danych wejściowych użytkownika
+## <a name="validating-user-input"></a>Sprawdzanie poprawności danych wejściowych użytkownika
 
-Wróć do *AddMovie* strony lub uruchomić go ponownie. Wprowadź inny film, ale tym razem, wprowadź tylko tytuł &mdash; na przykład, wprowadź "Rejstrowanie rejestrowanie logowanie ' w Rain". Następnie kliknij przycisk **dodać film**.
+Wróć do strony *addmovie* lub uruchom ją ponownie. Wprowadź inny film, ale tym razem wprowadź tylko tytuł, &mdash; na przykład wprowadź "Singin' w deszczu". Następnie kliknij pozycję **Dodaj film**.
 
-Są przekierowywane do *filmy* strony. Możesz znaleźć ten nowy film, ale jest on niepełny.
+Nastąpi ponowne przekierowanie na stronę *filmów* . Nowy film można znaleźć, ale jest on niekompletny.
 
-![Filmy stronie nowy Film przedstawiający, którym brakuje niektórych wartości](entering-data/_static/image4.png)
+![Strona filmów pokazująca nowy film, w którym brakuje niektórych wartości](entering-data/_static/image4.png)
 
-Podczas tworzenia *filmy* tabeli jawnie wspomniałeś, żadne pole może mieć wartości null. W tym miejscu masz formularz wprowadzania dla nowych filmów, a teraz pozostawić puste pola. To jest błąd.
+Po utworzeniu tabeli *filmów* jawnie określono, że żadne z pól nie może mieć wartości null. Tutaj masz formularz wprowadzania nowych filmów i opuszczasz pola. To jest błąd.
 
-W tym przypadku faktycznie nie zgłaszać bazy danych (lub *throw*) wystąpił błąd. Nie podasz gatunku lub roku, dlatego ten kod w *AddMovie* strony traktować te wartości jako tak zwane *puste ciągi*. Gdy SQL `Insert Into` polecenie zadziałało, pola gatunku i rok w tamtym przydatnych danych w nich, ale nie zostały one wartość null.
+W takim przypadku baza danych w rzeczywistości nie *podnosi lub nie*zgłasza błędu. Nie podano gatunku lub roku, dlatego kod na stronie *addmovie* traktuje te wartości jako *ciągi puste*. Gdy uruchomiono polecenie SQL `Insert Into`, pola gatunek i rok nie miały przydatnych danych, ale nie mają wartości null.
 
-Oczywiście nie chcesz umożliwić użytkownikom wprowadzanie informacji o filmach połowie puste do bazy danych. Jest to rozwiązanie do sprawdzania poprawności danych wejściowych użytkownika. Początkowo sprawdzanie poprawności po prostu zostanie upewnij się, że użytkownik wpisze wartość dla wszystkich pól (oznacza to, że żaden z nich zawiera pusty ciąg znaków).
+Oczywiście nie chcesz zezwalać użytkownikom na wprowadzanie informacji o połowach pustych do bazy danych. Rozwiązaniem jest zweryfikowanie danych wejściowych użytkownika. Początkowo Walidacja będzie mieć pewność, że użytkownik wprowadził wartość dla wszystkich pól (oznacza to, że żaden z nich nie zawiera pustego ciągu).
 
 > [!TIP]
 > 
-> **Wartość null i pustych ciągów**
+> **Ciągi o wartości null i puste**
 > 
-> W programowaniu istnieje różnica między różnych pojęcia "braku wartości". Ogólnie rzecz biorąc, wartość jest *null* Jeśli nigdy nie została ustawiona lub zainicjowany w dowolny sposób. Z kolei można ustawić zmiennej, która oczekuje, że dane znakowe (ciągi), aby *pusty ciąg*. W takim przypadku wartość nie jest równa null; po prostu zostały jawnie ustawiana jest na ciąg znaków, którego długość ma wartość zero. Te dwie instrukcje wyświetlenie różnicy:
+> W programowaniu istnieje rozróżnienie między różnymi pojęciemi "brak wartości". Ogólnie rzecz biorąc, wartość jest *równa null* , jeśli nigdy nie została ustawiona lub nie została zainicjowana w jakikolwiek sposób. Natomiast zmienna, która oczekuje, że dane znakowe (ciągi) można ustawić na *pusty ciąg*. W takim przypadku wartość nie jest równa null; jest on właśnie jawnie ustawiony na ciąg znaków, którego długość wynosi zero. Te dwie instrukcje przedstawiają różnicę:
 > 
 > [!code-csharp[Main](entering-data/samples/sample6.cs)]
 > 
-> Nieco jest bardziej skomplikowane niż ta, ale istotną kwestią jest to, że `null` reprezentuje rodzaj nieokreślony stan.
+> Jest nieco bardziej skomplikowany niż ten, ale ważnym punktem jest to, że `null` reprezentuje sortowanie stanu nieokreślony.
 > 
-> Teraz, a następnie ważne jest zrozumieć dokładnie gdy ma wartość null, i kiedy jest tylko pustym ciągiem. W kodzie dla *AddMovie* strony, można pobrać wartości pola przy użyciu `Request.Form["title"]` i tak dalej. Po pierwszym uruchomieniu strony (przed kliknięciem przycisku), wartość `Request.Form["title"]` ma wartość null. Jednak gdy prześlesz formularz, `Request.Form["title"]` pobiera wartość `title` pola tekstowego. Nie jest jasne, ale puste pole tekstowe nie jest równa null; ją po prostu zawiera pusty ciąg. Gdy kod jest uruchamiany w odpowiedzi na przycisk kliknij przycisk, `Request.Form["title"]` zawiera pusty ciąg.
+> Teraz ważne jest, aby dokładnie zrozumieć, kiedy wartość jest równa null i kiedy jest tylko pustym ciągiem. W kodzie strony *addmovie* uzyskasz wartości pól tekstowych przy użyciu `Request.Form["title"]` i tak dalej. Gdy strona jest uruchamiana po raz pierwszy (przed kliknięciem przycisku), wartość `Request.Form["title"]` ma wartość null. Ale podczas przesyłania formularza `Request.Form["title"]` Pobiera wartość pola tekstowego `title`. Nie jest to oczywiste, ale puste pole tekstowe nie ma wartości null; po prostu zawiera pusty ciąg. Tak więc, gdy kod jest uruchamiany w odpowiedzi na kliknięcie przycisku, `Request.Form["title"]` zawiera pusty ciąg.
 > 
-> Ta różnica jest ważna Podczas tworzenia *filmy* tabeli jawnie wspomniałeś, żadne pole może mieć wartości null. Jednak w tym miejscu masz formularz wprowadzania dla nowych filmów i jest pozostawienie pustego pola. Można oczekiwać rozsądnie bazy danych, błąd podczas próby zapisania nowe filmy, które nie mają wartości gatunku lub roku. Ale to punkt &mdash; nawet jeśli te pola tekstowe jest puste, wartości nie ma wartość null; są one puste ciągi. W rezultacie, możesz zapisać nowe filmy w bazie danych z tych kolumn pusty &mdash; , ale nie o wartości null! &mdash; wartości. W związku z tym należy upewnić się, że użytkownicy nie przesyłaj pustym ciągiem, co można zrobić, sprawdzając poprawność danych wejściowych użytkownika.
+> Dlaczego to odrębne znaczenie? Po utworzeniu tabeli *filmów* jawnie określono, że żadne z pól nie może mieć wartości null. Ale w tym miejscu masz formularz wprowadzania nowych filmów i opuszczasz pola puste. Przed próbą zapisania nowych filmów, które nie zawierały wartości dla gatunku lub roku, należy oczekiwać, że baza danych ma zaistnieć skargę. Ale jest to punkt &mdash; nawet wtedy, gdy te pola tekstowe zostaną pozostawione puste, wartości nie będą puste. są to puste ciągi. W efekcie można zapisać nowe filmy w bazie danych z tymi kolumnami puste &mdash; ale nie wartości null! wartości &mdash;. W związku z tym trzeba upewnić się, że użytkownicy nie przesyłają pustego ciągu, co można zrobić, sprawdzając dane wejściowe użytkownika.
 
-### <a name="the-validation-helper"></a>Pomocnik weryfikacji
+### <a name="the-validation-helper"></a>Pomocnik walidacji
 
-ASP.NET Web Pages obejmuje Pomocnika &mdash; `Validation` Pomocnika &mdash; , można użyć, aby upewnić się, że użytkownicy wprowadzają dane, które spełniają Twoje wymagania. `Validation` Pomocnika jest jednym z wątków, które jest kompilowany w do stron ASP.NET Web Pages, więc nie trzeba go zainstalować jako pakiet za pomocą NuGet, sposób pomocnika Gravatar jest zainstalowany w samouczku wcześniej.
+ASP.NET Web Pages zawiera pomocnika &mdash; `Validation` pomocnik &mdash;, za pomocą którego można upewnić się, że użytkownicy wprowadzają dane spełniające Twoje wymagania. Pomocnik `Validation` jest jednym z pomocników wbudowanych w ASP.NET stron sieci Web, więc nie trzeba instalować jej jako pakietu przy użyciu narzędzia NuGet, w jaki sposób zainstalowano pomocnika skonfigurowali Gravatar w poprzednim samouczku.
 
-Aby sprawdzić poprawność danych wejściowych użytkownika, wykonasz następujące czynności:
+Aby sprawdzić poprawność danych wejściowych użytkownika, wykonaj następujące czynności:
 
-- Użyj kodu, aby określić wymaganie wartości w polach tekstowych na stronie.
-- Umieść testu kod tak, aby informacje filmu są dodawane do bazy danych, tylko wtedy, gdy wszystko, co sprawdza poprawność prawidłowo.
-- Dodaj kod do znaczników, aby wyświetlić komunikaty o błędach.
+- Użyj kodu, aby określić, że wartości w polach tekstowych na stronie mają być wymagane.
+- Należy umieścić test w kodzie, aby informacje o filmie były dodawane do bazy danych tylko wtedy, gdy wszystko jest poprawnie zweryfikowane.
+- Dodaj kod do znacznika, aby wyświetlić komunikaty o błędach.
 
-W bloku kodu w *AddMovie* strony, prawo do góry u góry przed deklaracji zmiennych, Dodaj następujący kod:
+W bloku kodu na stronie *Addmovie* na początku przed deklaracjami zmiennych Dodaj następujący kod:
 
 [!code-csharp[Main](entering-data/samples/sample7.cs)]
 
-Należy wywołać `Validation.RequireField` jeden raz dla każdego pola (`<input>` elementu) gdzie chcesz wymagać wpis. Można również dodać niestandardowy komunikat o błędzie dla każdego wywołania, tak jak to tutaj. (Firma Microsoft zróżnicowane wiadomości, aby zobrazować można umieścić coś, co chcesz istnieje).
+Należy wywołać `Validation.RequireField` raz dla każdego pola (`<input>` elementu), gdzie ma być wymagany wpis. Możesz również dodać niestandardowy komunikat o błędzie dla każdego wywołania, tak jak tutaj. (Zmieniamy komunikaty po prostu, aby pokazać, że możesz umieścić coś w tym miejscu).
 
-W przypadku problemu chcesz uniemożliwić nowe informacje film z wstawiane do bazy danych. W `if(IsPost)` blokowania, należy użyć `&&` (operator logiczny oraz), aby dodać inny warunek, który umożliwia sprawdzenie `Validation.IsValid()`. Gdy wszystko będzie gotowe, cały `if(IsPost)` blok będzie wyglądać podobnie do tego kodu:
+Jeśli wystąpił problem, chcesz uniemożliwić wstawianie nowych informacji o filmie do bazy danych programu. W bloku `if(IsPost)` Użyj `&&` (koniunkcja logiczna i), aby dodać kolejny warunek, który testuje `Validation.IsValid()`. Gdy wszystko będzie gotowe, cały blok `if(IsPost)` będzie wyglądać następująco:
 
 [!code-csharp[Main](entering-data/samples/sample8.cs)]
 
-Jeśli występuje błąd sprawdzania poprawności z żadnym z pól, które są zarejestrowane przy użyciu `Validation` Pomocnika `Validation.IsValid` metoda zwraca wartość false. I w takim przypadku Brak kodu, w tym bloku zostaną uruchomione, dzięki czemu żadnych wpisów nieprawidłowy film zostanie wstawiony do bazy danych. I oczywiście możesz teraz nie przekierowana do *filmy* strony.
+Jeśli wystąpi błąd walidacji w dowolnym z pól, które zostały zarejestrowane przy użyciu pomocnika `Validation`, Metoda `Validation.IsValid` zwróci wartość false. W takim przypadku żaden kod w tym bloku nie zostanie uruchomiony, więc żadne nieprawidłowe wpisy filmu nie zostaną wstawione do bazy danych. I oczywiście nie przekierowywać Cię do strony *filmów* .
 
-Ukończony blok kodu, w tym kod sprawdzania poprawności wygląda teraz następująco:
+Pełny blok kodu, w tym kod sprawdzania poprawności, wygląda teraz następująco:
 
 [!code-cshtml[Main](entering-data/samples/sample9.cshtml?highlight=10)]
 
 ## <a name="displaying-validation-errors"></a>Wyświetlanie błędów walidacji
 
-Ostatnim krokiem jest, aby wyświetlić komunikaty o błędach. Można wyświetlić pojedyncze wiadomości dla każdego błędu weryfikacji, lub możesz wyświetlić podsumowanie i / lub. W tym samouczku wykonasz zarówno tak, aby zobaczyć, jak to działa.
+Ostatnim krokiem jest wyświetlenie wszystkich komunikatów o błędach. Można wyświetlić poszczególne komunikaty dla każdego błędu walidacji lub można wyświetlić podsumowanie albo oba te błędy. W tym samouczku wykonasz oba czynności, aby zobaczyć, jak to działa.
 
-Obok każdego `<input>` element, który jest sprawdzanie poprawności, wywołanie `Html.ValidationMessage` metody i przekaż mu nazwę z `<input>` element one sprawdzania poprawności. Możesz umieścić `Html.ValidationMessage` metoda po prawej stronie, gdzie ma być wyświetlany komunikat o błędzie. Po uruchomieniu strony, `Html.ValidationMessage` metoda renderuje `<span>` elementu, gdzie błąd sprawdzania poprawności. (Jeśli nie ma błędów, `<span>` element jest renderowany, ale nie ma żadnego tekstu w nim.)
+Obok każdego elementu `<input>`, który jest weryfikowany, wywołaj metodę `Html.ValidationMessage` i przekaż ją do nazwy elementu `<input>`, którego dotyczy Walidacja. Należy umieścić metodę `Html.ValidationMessage`, w której ma pojawić się komunikat o błędzie. Po uruchomieniu strony `Html.ValidationMessage` Metoda renderuje `<span>` elementu, w którym zostanie wystawiony błąd walidacji. (Jeśli nie ma żadnego błędu, element `<span>` jest renderowany, ale nie zawiera tekstu.)
 
-Zmień adiustację tak, na stronie, aby obejmowała `Html.ValidationMessage` metody dla każdego z trzech `<input>` elementów na stronie, takich jak w tym przykładzie:
+Zmień adiustację na stronie tak, aby zawierała metodę `Html.ValidationMessage` dla każdego z trzech elementów `<input>` na stronie, jak w tym przykładzie:
 
 [!code-cshtml[Main](entering-data/samples/sample10.cshtml?highlight=3,8,13)]
 
-Aby zobaczyć, jak działa podsumowania, dodać następujący kod znaczników i kodu bezpośrednio po `<h1>Add a Movie</h1>` elementu na stronie:
+Aby zobaczyć, jak działa podsumowanie, Dodaj również następujące znaczniki i kod po elemencie `<h1>Add a Movie</h1>` na stronie:
 
 [!code-cshtml[Main](entering-data/samples/sample11.cshtml)]
 
-Domyślnie `Html.ValidationSummary` metoda Wyświetla wszystkie komunikaty sprawdzania poprawności w postaci listy ( `<ul>` element, który znajduje się wewnątrz `<div>` elementu). Podobnie jak w przypadku `Html.ValidationMessage` metody zawsze renderowania kodu znaczników dla podsumowania weryfikacji; Jeśli nie ma żadnych błędów, elementów listy są renderowane.
+Domyślnie metoda `Html.ValidationSummary` wyświetla wszystkie komunikaty weryfikacyjne na liście (element `<ul>` znajdujący się wewnątrz elementu `<div>`). Podobnie jak w przypadku metody `Html.ValidationMessage`, znaczniki dla podsumowania walidacji są zawsze renderowane; Jeśli nie ma żadnych błędów, nie są renderowane żadne elementy listy.
 
-Podsumowanie może być alternatywny sposób wyświetlania komunikatów dotyczących sprawdzania poprawności, a nie za pomocą `Html.ValidationMessage` metodę w celu wyświetlenia każdego błędu określonego pola. Możesz też podsumowanie i szczegóły. Możesz też `Html.ValidationSummary` metodę, aby wyświetlić ogólny błąd, a następnie użyj poszczególnych `Html.ValidationMessage` wywołania w celu wyświetlenia szczegółowych informacji.
+Podsumowanie może być alternatywnym sposobem wyświetlania komunikatów weryfikacyjnych zamiast przy użyciu metody `Html.ValidationMessage` do wyświetlania każdego błędu związanego z polem. Można też użyć podsumowania i szczegółów. Można też użyć metody `Html.ValidationSummary`, aby wyświetlić błąd ogólny, a następnie użyć pojedynczych wywołań `Html.ValidationMessage`, aby wyświetlić szczegóły.
 
-Stronie zakończenia wygląda teraz następująco:
+Pełna strona wygląda teraz następująco:
 
 [!code-cshtml[Main](entering-data/samples/sample12.cshtml)]
 
-To wszystko. Teraz możesz przetestować stronę przez dodawanie filmu, ale pomijając jedną lub więcej pól. Po wykonaniu, zostanie wyświetlony następujący błąd wyświetlania:
+Gotowe. Możesz teraz przetestować stronę, dodając film, ale pozostawiając co najmniej jedno pole. Gdy to zrobisz, zostanie wyświetlony następujący komunikat o błędzie:
 
-![Dodaj stronę Film przedstawiający komunikaty o błędach weryfikacji](entering-data/_static/image5.png)
+![Dodawanie strony filmu zawierającej komunikaty o błędach walidacji](entering-data/_static/image5.png)
 
-## <a name="styling-the-validation-error-messages"></a>Ustawianie stylów komunikatów o błędach weryfikacji
+## <a name="styling-the-validation-error-messages"></a>Określanie stylu komunikatów o błędach walidacji
 
-Widać, że istnieją komunikaty o błędach, ale ich nie naprawdę wyróżniały się bardzo dobrze. Jest łatwe do określania stylu komunikatów o błędach, mimo że.
+Zobaczysz, że są wyświetlane komunikaty o błędach, ale nie są one naprawdę bardzo dobrze. Istnieje prosty sposób na styl komunikatów o błędach.
 
-Do określania stylu poszczególne komunikaty o błędach, które są wyświetlane przez `Html.ValidationMessage`, Utwórz klasę style CSS, o nazwie `field-validation-error`. Aby zdefiniować wygląd podsumowania weryfikacji, należy utworzyć klasę style CSS o nazwie `validation-summary-errors`.
+Aby w stylu poszczególnych komunikatów o błędach, które są wyświetlane przez `Html.ValidationMessage`, Utwórz klasę stylów CSS o nazwie `field-validation-error`. Aby zdefiniować poszukiwanie podsumowania walidacji, Utwórz klasę stylów CSS o nazwie `validation-summary-errors`.
 
-Aby zobaczyć, jak działa ta technika, Dodaj `<style>` element wewnątrz `<head>` części strony. Następnie zdefiniuj stylu klasy o nazwie `field-validation-error` i `validation-summary-errors` zawierające następujące reguły:
+Aby zobaczyć, jak działa ta technika, Dodaj element `<style>` w sekcji `<head>` strony. Następnie zdefiniuj klasy stylów o nazwie `field-validation-error` i `validation-summary-errors`, które zawierają następujące reguły:
 
 [!code-cshtml[Main](entering-data/samples/sample13.cshtml?highlight=4-17)]
 
-Zwykle prawdopodobnie umieścić informacje dotyczące stylu w oddzielnych *.css* pliku, ale dla uproszczenia można je umieścić w stronę teraz. (W dalszej części tego samouczka zestawu przeniesienie reguły CSS do osobnego *.css* pliku.)
+Zazwyczaj prawdopodobnie umieścisz informacje o stylu w oddzielnym pliku *. css* , ale dla uproszczenia możesz umieścić je na stronie. (W dalszej części tego samouczka przeniesiesz reguły CSS do oddzielnego pliku *. css* ).
 
-Jeśli występuje błąd sprawdzania poprawności `Html.ValidationMessage` metoda renderuje `<span>` element, który zawiera `class="field-validation-error"`. Dodanie definicji stylu dla tej klasy, można skonfigurować komunikat wygląda następująco. Jeśli występują błędy, `ValidationSummary` metoda renderuje podobnie dynamicznie atrybut `class="validation-summary-errors"`.
+W przypadku błędu walidacji metoda `Html.ValidationMessage` renderuje element `<span>`, który zawiera `class="field-validation-error"`. Dodając definicję stylu dla tej klasy, można skonfigurować wygląd wiadomości. W przypadku wystąpienia błędów Metoda `ValidationSummary` podobnie dynamicznie renderuje atrybut `class="validation-summary-errors"`.
 
-Ponownie uruchom strony i celowo Opuść kilka pól. Błędy są teraz lepiej widoczne. (W rzeczywistości są one overdone, ale jest, że jedynie pokazanie, co można zrobić).
+Ponownie uruchom stronę i zanotuj kilka pól. Błędy są teraz bardziej zauważalne. (W rzeczywistości są one overdone, ale właśnie pokazują, co można zrobić).
 
-![Dodaj stronę Film przedstawiający błędy sprawdzania poprawności, które zostały różne](entering-data/_static/image6.png)
+![Dodawanie strony filmu zawierającej błędy walidacji, które zostały przypisane do stylu](entering-data/_static/image6.png)
 
-## <a name="adding-a-link-to-the-movies-page"></a>Dodawanie Linku do strony filmy
+## <a name="adding-a-link-to-the-movies-page"></a>Dodawanie linku do strony filmów
 
-Jeden ostatnim krokiem jest zapewnienie wygodne przejść do *AddMovie* strony z oryginalnej listy filmów.
+Jednym z etapów końcowych jest wygodne przechodzenie do strony *addmovie* z oryginalnej listy filmów.
 
-Otwórz *filmy* strony. Po zamykającym `</div>` tag, który następuje po `WebGrid` pomocnika, Dodaj następujący kod:
+Otwórz ponownie stronę *filmy* . Po tagu `</div>` zamykającego, który następuje po Pomocniku `WebGrid`, Dodaj następujący znacznik:
 
 [!code-cshtml[Main](entering-data/samples/sample14.cshtml)]
 
-Jak przedstawiono wcześniej ASP.NET interpretuje `~` operatora jako katalogu głównego witryny sieci Web. Nie trzeba stosować `~` operatora; można użyć znaczników `<a href="./AddMovie">Add a movie</a>` lub w inny sposób zdefiniować ścieżkę, która rozumie HTML. Ale `~` operator to dobra metoda ogólne podczas tworzenia łączy do stron Razor, ponieważ sprawia, że witryna bardziej elastyczne — Jeśli przesuniesz bieżącą stronę do podfolderu łącze nadal przejdzie *AddMovie* strony. (Należy pamiętać, że `~` operator działa tylko w *.cshtml* stron. ASP.NET rozpoznaje ją, ale nie jest to standardowy HTML).
+Zgodnie z oczekiwaniami ASP.NET interpretuje operator `~` jako element główny witryny sieci Web. Nie musisz używać operatora `~`; Możesz użyć znacznika `<a href="./AddMovie">Add a movie</a>` lub innego sposobu definiowania ścieżki zrozumiałej dla kodu HTML. Jednak operator `~` jest dobrym podejściem, gdy tworzysz linki dla stron Razor, ponieważ lokacja jest bardziej elastyczna — Jeśli przenosisz bieżącą stronę do podfolderu, link nadal przejdzie do strony *addmovie* . (Należy pamiętać, że operator `~` działa tylko na stronach *. cshtml* . ASP.NET rozumie, ale nie jest to standardowy kod HTML.
 
-Gdy wszystko będzie gotowe, uruchom *filmy* strony. Ta strona będzie wyglądać:
+Gdy skończysz, Uruchom stronę *filmy* . Będzie wyglądać podobnie do tej strony:
 
-![Strona filmów z linkiem do strony "Dodaj filmy"](entering-data/_static/image7.png)
+![Strona filmów z linkiem do strony "Dodawanie filmów"](entering-data/_static/image7.png)
 
-Kliknij przycisk **Dodawanie filmu** łącze, aby upewnić się, że przejdzie do *AddMovie* strony.
+Kliknij link **Dodaj film** , aby upewnić się, że przechodzi do strony *addmovie* .
 
-## <a name="coming-up-next"></a>Pojawi się dalej
+## <a name="coming-up-next"></a>Przyszłe przejście
 
-W następnym samouczku dowiesz się, jak umożliwić użytkownikom edytowanie danych, który jest już w bazie danych.
+W następnym samouczku dowiesz się, jak umożliwić użytkownikom edycję danych znajdujących się już w bazie danych.
 
-## <a name="complete-listing-for-addmovie-page"></a>Kompletna lista AddMovie strony
+## <a name="complete-listing-for-addmovie-page"></a>Pełna lista dla strony addmovie
 
 [!code-cshtml[Main](entering-data/samples/sample15.cshtml)]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
-- [Wstaw do instrukcji SQL](http://www.w3schools.com/sql/sql_insert.asp) witrynie W3Schools
-- [Walidacja danych wejściowych użytkownika we wzorcu ASP.NET Web Pages witryn](https://go.microsoft.com/fwlink/?LinkId=253002). Więcej informacji na temat pracy z `Validation` pomocnika.
+- [Wprowadzenie do programowania w ASP.NET sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Instrukcja INSERT języka SQL](http://www.w3schools.com/sql/sql_insert.asp) w witrynie w3schools
+- [Sprawdzanie poprawności danych wejściowych użytkownika w witrynach stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002). Więcej informacji na temat pracy z pomocnikiem `Validation`.
 
 > [!div class="step-by-step"]
 > [Poprzednie](form-basics.md)

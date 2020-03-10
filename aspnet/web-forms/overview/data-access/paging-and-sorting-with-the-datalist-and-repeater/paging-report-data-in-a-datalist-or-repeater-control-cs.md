@@ -9,11 +9,11 @@ ms.assetid: e8e0809b-25c4-4c3b-8d12-9a17048148ae
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 16686c7e41926698c0da9c60d3cf26e858f5daca
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74617750"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78620639"
 ---
 # <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Stronicowanie danych raportu w kontrolce DataList lub Repeater (C#)
 
@@ -244,4 +244,4 @@ Szczęśliwe programowanie!
 Ta seria samouczków została sprawdzona przez wielu przydatnych recenzentów. Recenzenci liderzy dla tego samouczka to Liz Shulok, Krzysztof Pespisa i Bernadette Leigh. Chcesz przeglądać moje nadchodzące artykuły MSDN? Jeśli tak, upuść mi linię w [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Next](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+> [Dalej](sorting-data-in-a-datalist-or-repeater-control-cs.md)

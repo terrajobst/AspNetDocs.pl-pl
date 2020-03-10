@@ -1,158 +1,158 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
-title: Tworzenie definicji kompilacji, który obsługuje wdrażanie | Dokumentacja firmy Microsoft
+title: Tworzenie definicji kompilacji, która obsługuje wdrożenie | Microsoft Docs
 author: jrjlee
-description: Jeśli chcesz wykonywać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, należy utworzyć definicję kompilacji w projekcie zespołowym. Ten temat des...
+description: Jeśli chcesz wykonać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, musisz utworzyć definicję kompilacji w projekcie zespołowym. Ten temat des...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: fe47a018-f6d0-4979-80e7-5b1fa75a5865
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: e11c91a824446572aaf0b3bc6954b9b8ffb4eaff
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133957"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78604000"
 ---
 # <a name="creating-a-build-definition-that-supports-deployment"></a>Tworzenie definicji kompilacji, która obsługuje wdrożenie
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Jeśli chcesz wykonywać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, należy utworzyć definicję kompilacji w projekcie zespołowym. W tym temacie opisano sposób tworzenia nowej definicji kompilacji w programie TFS i sposobie kontrolowania wdrażania w Internecie jako część procesu kompilacji w kompilacji zespołu.
+> Jeśli chcesz wykonać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, musisz utworzyć definicję kompilacji w projekcie zespołowym. W tym temacie opisano sposób tworzenia nowej definicji kompilacji w programie TFS oraz kontrolowania wdrożenia sieci Web w ramach procesu kompilacji w kompilacji zespołu.
 
-Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
+Ten temat stanowi część szeregu samouczków opartych na wymaganiach dotyczących wdrażania w przedsiębiorstwie fikcyjnej firmy o nazwie Fabrikam, Inc. W tej serii samouczków jest stosowane&#x2014;przykładowe rozwiązanie&#x2014;do reprezentowania aplikacji sieci Web, [które ma](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)realistyczny poziom złożoności, w tym aplikacji ASP.NET MVC 3, usługi Windows Communication Foundation (WCF) i projektu bazy danych.
 
-Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w której procesu kompilacji i wdrażania jest kontrolowany przez dwa pliki projektu&#x2014;jeden zawierającej instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
+Metoda wdrażania w tym samouczku jest oparta na rozłożeniu pliku projektu dzielonego opisanym w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji i wdrożenia jest kontrolowany przez dwa pliki&#x2014;projektu, zawierający instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego, oraz jeden zawierający ustawienia kompilacji i wdrożenia specyficznego dla środowiska. W czasie kompilacji plik projektu specyficzny dla środowiska jest scalany z plikiem projektu Environment-niezależny od w celu utworzenia kompletnego zestawu instrukcji kompilacji.
 
-## <a name="task-overview"></a>Omówienie zadań
+## <a name="task-overview"></a>Przegląd zadania
 
-Definicja kompilacji jest mechanizm, który kontroluje, jak i kiedy kompilacje miejsce w przypadku projektów zespołowych w programie TFS. Określa Każda definicja kompilacji:
+Definicja kompilacji jest mechanizmem, który kontroluje, jak i kiedy powstają kompilacje dla projektów zespołowych w programie TFS. Każda definicja kompilacji określa:
 
-- Czynności, które chcesz skompilować, takich jak pliki rozwiązania programu Visual Studio lub niestandardowe pliki projektu aparatu Microsoft Build Engine (MSBuild).
-- Kryteria określające, gdy kompilacja powinno zająć miejsce, takich jak wyzwalacze ręczne, ciągłej integracji (CI) lub warunkowych zaewidencjonowań.
-- Lokalizacja, do którego Team Build powinien wysyłać dane wyjściowe kompilacji, w tym artefaktów wdrożenia, takie jak pakiety programu web i skrypty bazy danych.
-- Ilość czasu, który ma być przechowywana każdej kompilacji.
+- Elementy, które chcesz skompilować, takie jak pliki rozwiązania programu Visual Studio lub pliki projektu niestandardowego Microsoft Build Engine (MSBuild).
+- Kryteria, które określają, kiedy należy wykonać kompilację, takie jak wyzwalacze ręczne, ciągła integracja (CI) lub ewidencjonowanie warunkowe.
+- Lokalizacja, do której Kompilacja zespołu powinna wysyłać dane wyjściowe kompilacji, w tym artefakty wdrożenia, takie jak pakiety sieci Web i skrypty baz danych.
+- Czas, przez który każda kompilacja powinna zostać zachowana.
 - Różne inne parametry procesu kompilacji.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat definicji kompilacji, zobacz [zdefiniować proces kompilacji](https://msdn.microsoft.com/library/ms181715.aspx).
+> Aby uzyskać więcej informacji na temat definicji kompilacji, zobacz [Definiowanie procesu kompilacji](https://msdn.microsoft.com/library/ms181715.aspx).
 
-W tym temacie pokazano sposób tworzenia definicji kompilacji, który używa ciągłej integracji, tak aby kompilacja zostaje wyzwolona, gdy deweloper wprowadza nową zawartość. Jeśli kompilacja zakończy się powodzeniem, usługa kompilacji jest uruchamiany pliku niestandardowego projektu, aby wdrożyć to rozwiązanie w środowisku testowym.
+W tym temacie pokazano, jak utworzyć definicję kompilacji korzystającą z elementu CI, aby kompilacja była wyzwalana, gdy deweloper sprawdzi nową zawartość. Jeśli kompilacja zakończy się powodzeniem, usługa kompilacji uruchamia niestandardowy plik projektu w celu wdrożenia rozwiązania w środowisku testowym.
 
-Po wyzwoleniu kompilacji, działania te należy wykonać:
+W przypadku wyzwolenia kompilacji muszą wystąpić następujące akcje:
 
-- Team Build należy najpierw skompilować rozwiązanie. W ramach tego procesu Team Build wywoła Web Publishing potoku (WPP) do generowania pakietów wdrażania sieci web dla wszystkich projektów aplikacji sieci web w rozwiązaniu. Team Build będzie również uruchomić wszystkie testy jednostkowe skojarzonego z rozwiązaniem.
-- Jeśli kompilacja rozwiązania kończy się niepowodzeniem, Team Build powinien wykonywać żadnych dalszych czynności. Niepowodzenie testów jednostkowych powinny być traktowane jako niepowodzenie kompilacji.
-- Kompilacja rozwiązania kończy się powodzeniem, Team Build powinien uruchamiać pliku niestandardowego projektu, który kontroluje wdrażania rozwiązania. W ramach tego procesu Team Build wywoła narzędzie Internet Information Services (IIS) Web Deployment (Web Deploy), instalacja aplikacji spakowane w sieci web na serwerach docelowych w sieci web i będzie go wywoływać uruchamianie tworzenia bazy danych za pomocą narzędzia VSDBCMD.exe skrypty na serwerach docelowych w bazie danych.
+- Najpierw Kompilacja zespołu powinna kompilować rozwiązanie. W ramach tego procesu Kompilacja zespołu wywoła potok publikowania w sieci Web (WPP) w celu generowania pakietów wdrażania sieci Web dla każdego projektu aplikacji sieci Web w rozwiązaniu. Kompilacja zespołu uruchomi również wszystkie testy jednostkowe skojarzone z rozwiązaniem.
+- Jeśli kompilacja rozwiązania nie powiedzie się, Kompilacja zespołu nie powinna podejmować dalszych działań. Niepowodzenia testów jednostkowych powinny być traktowane jako niepowodzenie kompilacji.
+- Jeśli kompilacja rozwiązania powiodła się, Kompilacja zespołu powinna uruchomić niestandardowy plik projektu, który kontroluje wdrożenie rozwiązania. W ramach tego procesu Kompilacja zespołu wywoła narzędzie Web Deployment (Web Deploy) Internet Information Services (IIS), aby zainstalować spakowane aplikacje sieci Web na docelowych serwerach sieci Web i wywoływać narzędzie VSDBCMD. exe w celu uruchomienia tworzenia bazy danych skrypty na docelowych serwerach baz danych.
 
-Obrazuje to proces:
+Ilustruje to proces:
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image1.png)
 
-[Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) przykładowe rozwiązanie zawiera niestandardowy plik projektu MSBuild *Publish.proj*, którą można uruchomić z programu MSBuild lub Team Build. Zgodnie z opisem w [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md), ten plik projektu zdefiniowana logika, która wdraża swoich pakietów sieci web i baz danych w środowisku docelowym. Plik zawiera logikę, które pomija budynku i proces pakowania, jeśli działa on w programie Team Build, pozostawiając tylko zadania wdrażania do uruchomienia. To jest, ponieważ podczas automatyzacji wdrażania w ten sposób zwykle należy upewnić się, że rozwiązanie zostanie skompilowane pomyślnie i przekazuje wszystkie testy jednostkowe, przed rozpoczęciem procesu wdrażania.
+Przykładowe rozwiązanie [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) obejmuje plik niestandardowego projektu programu MSBuild, *Publish. proj*, który można uruchomić z poziomu programu MSBuild lub kompilacji zespołowej. Zgodnie z opisem w temacie [proces kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md)ten plik projektu definiuje logikę, która wdraża pakiety i bazy danych sieci Web w środowisku docelowym. Plik zawiera logikę, która pomija proces kompilowania i tworzenia pakietów, jeśli jest uruchomiony w kompilacji zespołowej, pozostawiając tylko zadania wdrażania do uruchomienia. Jest to spowodowane tym, że w przypadku automatyzowania wdrażania w ten sposób zwykle warto upewnić się, że rozwiązanie zostanie pomyślnie skompilowane i przejdzie wszystkie testy jednostkowe przed rozpoczęciem procesu wdrażania.
 
-Następnej sekcji opisano sposób wykonania tego procesu, tworząc nową definicję kompilacji.
+W następnej sekcji wyjaśniono, jak zaimplementować ten proces, tworząc nową definicję kompilacji.
 
 > [!NOTE]
-> Ta procedura&#x2014;w której automatycznego jednego procesu kompilacji, testów i wdraża to rozwiązanie&#x2014;może być najbardziej nadaje się do wdrożenia do środowisk testowych. W przypadku środowisk przemieszczania i produkcji możesz znacznie bardziej prawdopodobne, aby wdrożyć zawartość z poprzedniej kompilacji, która została już zweryfikowana i sprawdzone w środowisku testowym. Takie podejście jest opisane w następnym temacie [wdrażanie określonej kompilacji](deploying-a-specific-build.md).
+> Ta procedura&#x2014;, w której pojedynczy zautomatyzowany proces kompiluje, testuje i wdraża rozwiązanie&#x2014;, prawdopodobnie najlepiej nadaje się do wdrożenia w środowiskach testowych. W przypadku środowisk przejściowych i produkcyjnych znacznie bardziej zajdzie potrzeba wdrożenia zawartości z poprzedniej kompilacji, która została już zweryfikowana i sprawdzona w środowisku testowym. Ta metoda jest opisana w następnym temacie, który [wdraża konkretną kompilację](deploying-a-specific-build.md).
 
-### <a name="who-performs-this-procedure"></a>Ta procedura osób wykonujących?
+### <a name="who-performs-this-procedure"></a>Kto wykonuje tę procedurę?
 
-Zazwyczaj administratora TFS wykonuje tę procedurę. W niektórych przypadkach lider zespołu deweloperów może potrwać odpowiedzialności dla kolekcji projektów zespołowych w programie TFS. Aby utworzyć nową definicję kompilacji, musisz być członkiem **Administratorzy kompilacji kolekcji projektów** grupy dla kolekcji projektu zespołowego, który zawiera rozwiązania.
+Zazwyczaj ta procedura jest wykonywana przez administratora serwera TFS. W niektórych przypadkach lider zespołu deweloperów może podjąć odpowiedzialność za kolekcję projektu zespołowego w programie TFS. Aby utworzyć nową definicję kompilacji, musisz być członkiem grupy **administratorzy kompilacji kolekcji projektów** dla kolekcji projektów zespołowych, która zawiera Twoje rozwiązanie.
 
-## <a name="create-a-build-definition-for-ci-and-deployment"></a>Utwórz definicję kompilacji ciągłej integracji i wdrażania
+## <a name="create-a-build-definition-for-ci-and-deployment"></a>Tworzenie definicji kompilacji dla elementu konfiguracji i wdrożenia
 
-Następna procedura zawiera opis sposobu tworzenia definicji kompilacji, która wyzwala ciągłej integracji. Jeśli kompilacja zakończy się powodzeniem, rozwiązanie będzie wdrożone przy użyciu logiki w niestandardowy plik projektu programu MSBuild.
+W następnej procedurze opisano sposób tworzenia definicji kompilacji, która jest wyzwalana przez wyzwalacze konfiguracji. Jeśli kompilacja zakończy się pomyślnie, rozwiązanie zostanie wdrożone przy użyciu logiki w niestandardowym pliku projektu programu MSBuild.
 
-**Aby utworzyć definicję kompilacji ciągłej integracji i wdrażania**
+**Aby utworzyć definicję kompilacji dla CI i wdrożenia**
 
-1. W programie Visual Studio 2010 w **Team Explorer** oknie rozwinięciu węzła projektu zespołu, kliknij prawym przyciskiem myszy **kompilacje**, a następnie kliknij przycisk **Nowa definicja kompilacji**.
+1. W programie Visual Studio 2010, w oknie **Team Explorer** rozwiń węzeł projektu zespołowego, kliknij prawym przyciskiem myszy pozycję **kompilacje**, a następnie kliknij pozycję **Nowa definicja kompilacji**.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image2.png)
-2. Na **ogólne** kartę, nadaj nazwę definicji kompilacji (na przykład **DeployToTest**) i opcjonalny opis.
-3. Na **wyzwalacza** , a następnie wybierz kryteria, na których chcesz Wyzwalaj nową kompilację. Na przykład, jeśli chcesz skompilować rozwiązanie i wdrażania do środowiska testowego, za każdym razem, gdy programista zaewidencjonuje nowy kod, wybierz **ciągłej integracji**.
-4. Na **ustawienia domyślne kompilacji** na karcie **Kopiuj dane wyjściowe kompilacji do następującego folderu docelowego** wpisz ścieżkę Universal Naming Convention (UNC) folderu wrzucania (na przykład  **\\TFSBUILD\Drops**).
+2. Na karcie **Ogólne** nadaj definicji kompilacji nazwę (na przykład **DeployToTest**) i opcjonalny opis.
+3. Na karcie **wyzwalacz** Wybierz kryteria, dla których chcesz wyzwolić nową kompilację. Jeśli na przykład chcesz skompilować rozwiązanie i wdrożyć je do środowiska testowego za każdym razem, gdy deweloper sprawdzi nowy kod, wybierz pozycję **ciągła integracja**.
+4. Na karcie **Ustawienia domyślne kompilacji** w polu **Kopiuj dane wyjściowe kompilacji do poniższego folderu drop** wpisz ścieżkę Universal Naming Convention (UNC) folderu docelowego (na przykład **\\TFSBUILD\Drops**).
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image3.png)
 
     > [!NOTE]
-    > Kilka kompilacji, w zależności od skonfigurowanych zasad przechowywania są przechowywane w tej lokalizacji docelowej. Jeśli chcesz opublikować artefakty wdrażania z kompilacji w określonym w tymczasowym lub produkcyjnym środowisku, to której można je znaleźć.
-5. Na **procesu** na karcie **plik procesu kompilacji** listy rozwijanej, pozostaw **DefaultTemplate.xaml** wybrane. Jest to jeden z domyślnych szablonów procesów kompilacji, które poproś o dodanie Cię do wszystkich nowych projektów zespołowych.
-6. W **parametrów procesu kompilacji** tabelę, kliknij opcję w **elementy do kompilacji** wiersza, a następnie kliknij przycisk **wielokropka** przycisku.
+    > Ta lokalizacja docelowa przechowuje kilka kompilacji, w zależności od skonfigurowanych zasad przechowywania. Jeśli chcesz opublikować artefakty wdrożenia z określonej kompilacji w środowisku przejściowym lub produkcyjnym, możesz je znaleźć.
+5. Na karcie **proces** na liście rozwijanej **plik procesu kompilacji** pozostaw wybraną opcję **DefaultTemplate. XAML** . Jest to jeden z domyślnych szablonów procesu kompilacji, które zostaną dodane do wszystkich nowych projektów zespołowych.
+6. W tabeli **parametry procesu kompilacji** kliknij w wierszu **elementy do skompilowania** , a następnie kliknij przycisk **wielokropka** .
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image4.png)
-7. W **elementy do kompilacji** okno dialogowe, kliknij przycisk **Dodaj**.
+7. W oknie dialogowym **elementy do skompilowania** kliknij pozycję **Dodaj**.
 8. Przejdź do lokalizacji pliku rozwiązania, a następnie kliknij przycisk **OK**.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image5.png)
-9. W **elementy do kompilacji** okno dialogowe, kliknij przycisk **Dodaj**.
-10. W **elementów typu** listy rozwijanej wybierz **pliki projektu MSBuild**.
-11. Przejdź do lokalizacji pliku niestandardowego projektu za pomocą którego możesz kontrolować proces wdrażania, wybierz plik, a następnie kliknij przycisk **OK**.
+9. W oknie dialogowym **elementy do skompilowania** kliknij pozycję **Dodaj**.
+10. Z listy rozwijanej **elementy typu** wybierz pozycję **pliki projektu programu MSBuild**.
+11. Przejdź do lokalizacji niestandardowego pliku projektu, za pomocą którego kontrolujesz proces wdrażania, wybierz plik, a następnie kliknij przycisk **OK**.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image6.png)
-12. **Elementy do kompilacji** okno dialogowe powinna zostać wyświetlona dwa elementy. Kliknij przycisk **OK**.
+12. Okno dialogowe **elementy do skompilowania** powinno teraz pokazać dwa elementy. Kliknij przycisk **OK**.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image7.png)
-13. Na **procesu** na karcie **parametrów procesu kompilacji** tabeli, a następnie rozwiń **zaawansowane** sekcji.
-14. W **argumenty MSBuild** wierszy, dodawać żadnych argumentów wiersza polecenia programu MSBuild, *albo* wymaga elementów do kompilacji. W tym scenariuszu rozwiązania Contact Manager wymagane są następujące argumenty:
+13. Na karcie **proces** w tabeli **parametry procesu kompilacji** rozwiń sekcję **Zaawansowane** .
+14. W wierszu **argumenty programu MSBuild** Dodaj dowolne argumenty wiersza polecenia programu MSBuild, które są wymagane przez *każdy* z elementów do skompilowania. W scenariuszu rozwiązania Contact Manager wymagane są następujące argumenty:
 
     [!code-console[Main](creating-a-build-definition-that-supports-deployment/samples/sample1.cmd)]
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image8.png)
 15. W tym przykładzie:
 
-    1. **DeployOnBuild = true** i **DeployTarget = pakiet** argumenty są wymagane w przypadku, gdy tworzysz rozwiązanie Contact Manager. To powoduje, że program MSBuild, aby utworzyć pakiety wdrażania sieci web po utworzeniu każdego projektu aplikacji sieci web zgodnie z opisem w [budowanie i projektów aplikacji sieci Web pakietu](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md).
-    2. **TargetEnvPropsFile** argument jest wymagany, gdy tworzysz *Publish.proj* pliku. Ta właściwość wskazuje lokalizację pliku konfiguracji specyficznych dla środowiska, zgodnie z opisem w [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
-16. Na **zasady przechowywania** skonfiguruj, jak wiele kompilacji dla każdego typu, aby zachować zgodnie z potrzebami.
-17. Kliknij pozycję **Zapisz**.
+    1. Argumenty **DeployOnBuild = true** i **DeployTarget = Package** są wymagane podczas tworzenia rozwiązania Contact Manager. Powoduje to utworzenie przez program MSBuild pakietów wdrażania sieci Web po skompilowaniu każdego projektu aplikacji sieci Web, zgodnie z opisem w temacie [Tworzenie i pakowanie projektów aplikacji sieci Web](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md).
+    2. Argument **TargetEnvPropsFile** jest wymagany podczas kompilowania pliku *Publish. proj* . Ta właściwość wskazuje lokalizację pliku konfiguracji specyficznego dla środowiska, zgodnie z opisem w temacie [Opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+16. Na karcie **zasady przechowywania** Skonfiguruj liczbę kompilacji poszczególnych typów, które mają być zachowane zgodnie z potrzebami.
+17. Kliknij przycisk **Save** (Zapisz).
 
 ## <a name="queue-a-build"></a>Kolejkowanie kompilacji
 
-Na tym etapie utworzono przynajmniej jedną nową definicję kompilacji. Proces kompilacji, który zdefiniowano teraz zostanie uruchomiona zgodnie z wyzwalaczy, które określiłeś w definicji kompilacji.
+W tym momencie utworzono co najmniej jedną nową definicję kompilacji. Zdefiniowany przez użytkownika proces kompilacji będzie teraz uruchamiany zgodnie z wyzwalaczami określonymi w definicji kompilacji.
 
-Jeśli skonfigurowano definicję kompilacji, aby użyć elementu konfiguracji, możesz sprawdzić swoją definicję kompilacji, na dwa sposoby:
+Jeśli definicja kompilacji została skonfigurowana tak, aby korzystała z CI, można testować definicję kompilacji na dwa sposoby:
 
-- Zaewidencjonuj część zawartości do projektu zespołowego w celu wyzwolenia automatycznych kompilacji.
-- Ręcznie Kolejkowanie kompilacji.
+- Zaewidencjonuj część zawartości w projekcie zespołowym, aby wyzwolić automatyczną kompilację.
+- Ręcznie Twórz kompilację do kolejki.
 
-**Aby ręcznie zakolejkować kompilację**
+**Aby ręcznie umieścić kompilację w kolejce**
 
-1. W **Team Explorer** okna, kliknij prawym przyciskiem myszy definicji kompilacji, a następnie kliknij przycisk **Zakolejkuj nową kompilację**.
+1. W oknie **Team Explorer** kliknij prawym przyciskiem myszy definicję kompilacji, a następnie kliknij pozycję **kolejka nowa kompilacja**.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image9.png)
-2. W **Zakolejkuj kompilację** okno dialogowe, sprawdź właściwości kompilacji, a następnie kliknij **kolejki**.
+2. W oknie dialogowym **kompilacja kolejki** Przejrzyj właściwości kompilacji, a następnie kliknij pozycję **Kolejka**.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-Aby przejrzeć postęp i wyniki kompilacji&#x2014;niezależnie od tego, czy zostało wyzwolone ręcznie lub automatycznie&#x2014;kliknij dwukrotnie definicję kompilacji w **Team Explorer** okna. Spowoduje to otwarcie **Build Explorer** kartę.
+Aby sprawdzić postęp i wynik kompilacji&#x2014;, niezależnie od tego, czy została ona wyzwolona ręcznie, czy automatycznie&#x2014;dwukrotnie kliknij definicję kompilacji w oknie **Team Explorer** . Spowoduje to otwarcie karty programu **Build Explorer** .
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
-W tym miejscu można rozwiązywać niepowodzenia kompilacji. Dwukrotne kliknięcie jednej z kompilacji można wyświetlić podsumowanie i kliknij, aby szczegółowe pliki dzienników.
+W tym miejscu możesz rozwiązywać problemy z kompilacjami zakończonymi niepowodzeniem. W przypadku dwukrotnego kliknięcia pojedynczej kompilacji można wyświetlić informacje podsumowujące i kliknąć pozycję, aby uzyskać szczegółowe pliki dziennika.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image12.png)
 
-Rozwiązywanie problemów z kompilacji nie powiodło się i rozwiązać wszelkie problemy, przed podjęciem próby innej kompilacji, można użyć tych informacji.
+Tych informacji można użyć do rozwiązywania problemów z kompilacjami zakończonymi niepowodzeniem i rozwiązanie wszelkich problemów przed próbą kolejnej kompilacji.
 
 > [!NOTE]
-> Kompilacje, które są wykonywane logiki wdrożenia prawdopodobnie może zakończyć się niepowodzeniem, dopóki serwer kompilacji udzielono wszystkie uprawnienia wymagane w środowisku docelowym. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołu](configuring-permissions-for-team-build-deployment.md).
+> Kompiluje, że logika wdrożenia wykonawczego może zakończyć się niepowodzeniem do momentu udzielenia serwerowi kompilacji wszelkich uprawnień wymaganych w środowisku docelowym. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień do wdrożenia kompilacji zespołowej](configuring-permissions-for-team-build-deployment.md).
 
 ## <a name="monitor-the-build-process"></a>Monitorowanie procesu kompilacji
 
-TFS udostępnia szeroki zakres funkcji, które ułatwiają monitorowanie procesu kompilacji. Na przykład TFS można wysyłać wiadomości e-mail lub wyświetlić alerty w obszarze powiadomień paska zadań po zakończeniu kompilacji. Aby uzyskać więcej informacji, zobacz [uruchamiania i monitorowanie kompilacji](https://msdn.microsoft.com/library/ms181721.aspx).
+TFS oferuje szeroką gamę funkcji, które ułatwiają monitorowanie procesu kompilacji. Na przykład TFS może wysłać wiadomość e-mail lub wyświetlić alerty w obszarze powiadomień paska zadań, gdy kompilacja została ukończona. Aby uzyskać więcej informacji, zobacz [Uruchamianie i monitorowanie kompilacji](https://msdn.microsoft.com/library/ms181721.aspx).
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym temacie opisano sposób tworzenia definicji kompilacji w programie TFS. Definicja kompilacji jest skonfigurowana do ciągłej integracji, aby proces kompilacji jest uruchamiany w każdym przypadku, gdy programista zaewidencjonuje zawartości do projektu zespołowego. Definicja kompilacji wykonuje niestandardowego pliku projektu MSBuild do wdrażania pakietów sieci web i skrypty bazy danych do środowiska serwera docelowego.
+W tym temacie opisano sposób tworzenia definicji kompilacji w programie TFS. Definicja kompilacji jest skonfigurowana dla elementu konfiguracji, więc proces kompilacji jest uruchamiany za każdym razem, gdy deweloper sprawdzi zawartość w projekcie zespołowym. Definicja kompilacji wykonuje niestandardowy plik projektu MSBuild do wdrażania pakietów sieci Web i skryptów bazy danych w środowisku serwera docelowego.
 
-Aby automatycznego wdrażania została wykonana pomyślnie, jako część procesu kompilacji należy przyznać odpowiednie uprawnienia do konta usługi kompilacji na serwerach sieci web docelowego i docelowy serwer bazy danych. Ostatnim temacie w tym samouczku [Konfigurowanie uprawnień dla wdrożenia kompilacji zespołu](configuring-permissions-for-team-build-deployment.md), w tym artykule opisano sposób identyfikowania i konfigurowania uprawnień wymaganych do automatycznego wdrażania z serwera Team Build.
+Aby zautomatyzowane wdrożenie powiodło się w ramach procesu kompilacji, należy przyznać odpowiednie uprawnienia do konta usługi kompilacji na docelowych serwerach sieci Web i docelowym serwerze bazy danych. Ostatni temat w tym samouczku, [Konfigurowanie uprawnień do wdrożenia kompilacji zespołowej](configuring-permissions-for-team-build-deployment.md), opisuje sposób identyfikowania i konfigurowania uprawnień wymaganych do automatycznego wdrażania z serwera kompilacji zespołu.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat tworzenia definicji kompilacji, zobacz [tworzenie Basic Build Definition](https://msdn.microsoft.com/library/ms181716.aspx) i [zdefiniować proces kompilacji](https://msdn.microsoft.com/library/ms181715.aspx). Aby uzyskać więcej wskazówek dotyczących kolejkowania kompilacji, zobacz [kolejkować kompilację](https://msdn.microsoft.com/library/ms181722.aspx).
+Aby uzyskać więcej informacji na temat tworzenia definicji kompilacji, zobacz [Tworzenie podstawowej definicji kompilacji](https://msdn.microsoft.com/library/ms181716.aspx) i [Definiowanie procesu kompilacji](https://msdn.microsoft.com/library/ms181715.aspx). Aby uzyskać więcej wskazówek dotyczących kompilacji w kolejkach, zobacz [Queue a Build](https://msdn.microsoft.com/library/ms181722.aspx).
 
 > [!div class="step-by-step"]
 > [Poprzednie](configuring-a-tfs-build-server-for-web-deployment.md)

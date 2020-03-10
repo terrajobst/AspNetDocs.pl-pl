@@ -9,11 +9,11 @@ ms.assetid: f96f4800-19ef-44c0-b457-55e777eb5de8
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 msc.type: authoredcontent
 ms.openlocfilehash: aaeadde258a2855343a5bfb1e5ee76000e04f6bd
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74593877"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600276"
 ---
 # <a name="creating-custom-html-helpers-vb"></a>Tworzenie niestandardowych pomocników HTML (VB)
 
@@ -33,17 +33,17 @@ Pomocnik HTML to tylko Metoda zwracająca ciąg. Ciąg może reprezentować dowo
 
 Struktura ASP.NET MVC obejmuje następujący zestaw standardowych pomocników HTML (to nie jest kompletna lista):
 
-- HTML. ActionLink ()
-- HTML. BeginForm ()
-- HTML. CheckBox ()
-- HTML. DropDownList ()
-- HTML. EndForm ()
-- HTML. Hidden ()
-- HTML. ListBox ()
-- HTML. Password ()
-- HTML. RadioButton ()
-- HTML. TextArea ()
-- HTML. TextBox ()
+- Html.ActionLink()
+- Html.BeginForm()
+- Html.CheckBox()
+- Html.DropDownList()
+- Html.EndForm()
+- Html.Hidden()
+- Html.ListBox()
+- Html.Password()
+- Html.RadioButton()
+- Html.TextArea()
+- Html.TextBox()
 
 Rozważmy na przykład formularz z listą 1. Ten formularz jest renderowany przy użyciu dwóch standardowych pomocników HTML (patrz rysunek 1). Ten formularz używa metod pomocniczych `Html.BeginForm()` i `Html.TextBox()`.
 

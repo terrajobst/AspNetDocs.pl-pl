@@ -1,139 +1,139 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: Wprowadzenie do debugowania ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
+title: Wprowadzenie do debugowania ASP.NET stron sieci Web (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: Debugowanie jest proces znajdowaniem i naprawianiem błędów na swoich stronach kodu. W tym rozdziale przedstawiono niektóre narzędzia i techniki, można użyć do debugowania i analyz...
+description: Debugowanie to proces znajdowania i naprawiania błędów na stronach kodowych. W tym rozdziale przedstawiono niektóre narzędzia i techniki, których można użyć do debugowania i Analyz...
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
 ms.openlocfilehash: ae7d871e56326610c043dc20fe6e0919e1b4ac89
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624370"
 ---
-# <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Wprowadzenie do debugowania ASP.NET Web Pages (Razor) witryn
+# <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Wprowadzenie do debugowania ASP.NET stron sieci Web (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano różne sposoby debugowania stron w witrynie internetowej ASP.NET Web Pages (Razor). Debugowanie jest proces znajdowaniem i naprawianiem błędów na swoich stronach kodu.
+> W tym artykule wyjaśniono różne sposoby debugowania stron w witrynie internetowej ASP.NET Web Pages (Razor). Debugowanie to proces znajdowania i naprawiania błędów na stronach kodowych.
 >
-> **Zawartość:**
+> **Dowiesz się:**
 >
-> - Jak wyświetlić informacje, które ułatwia analizowanie i debugowanie stron.
-> - Jak używać debugowania narzędzi w programie Visual Studio.
+> - Jak wyświetlić informacje, które ułatwiają analizowanie i debugowanie stron.
+> - Jak korzystać z narzędzi debugowania w programie Visual Studio.
 >
 >
-> Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzona w artykule:
+> Są to funkcje ASP.NET wprowadzone w artykule:
 >
-> - `ServerInfo` Pomocnika.
-> - `ObjectInfo` Pomocnik.
+> - Pomocnik `ServerInfo`.
+> - pomocnik `ObjectInfo`.
 >
 >
 > ## <a name="software-versions"></a>Wersje oprogramowania
 >
 >
-> - ASP.NET Web Pages (Razor) 3
-> - Visual Studio 2013
+> - ASP.NET strony sieci Web (Razor) 3
+> - Program Visual Studio 2013
 >
 >
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2. Można użyć program WebMatrix 3, ale zintegrowany debuger nie jest obsługiwane.
+> Ten samouczek działa również z ASP.NET Web Pages 2. Możesz użyć programu WebMatrix 3, ale Zintegrowany debuger nie jest obsługiwany.
 
-Jest istotnym elementem Rozwiązywanie problemów z błędami i problemów w kodzie w pierwszej kolejności ich unikać. Możesz to zrobić poprzez umieszczenie sekcji kodu, które mogą spowodować błędy w `try/catch` bloków. Aby uzyskać więcej informacji, zobacz sekcję na obsługi błędów w [wprowadzenie do platformy ASP.NET sieci Web programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890).
+Ważnym aspektem rozwiązywania problemów związanych z błędami i problemami w kodzie jest uniknięcie ich w pierwszej kolejności. Można to zrobić, umieszczając sekcje kodu, które mogą spowodować błędy w blokach `try/catch`. Aby uzyskać więcej informacji, zapoznaj się z sekcją dotyczącą obsługi błędów [wprowadzanych w ASP.NET programowanie sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890).
 
-`ServerInfo` Pomocnika jest narzędziem diagnostycznym, który zawiera przegląd informacji o środowisku serwera sieci web hostującego strony sieci. Pokazano także informacje o żądaniu HTTP, która jest wysyłana, gdy przeglądarka żąda strony. `ServerInfo` Pomocnik wyświetli bieżącej tożsamości użytkownika, typ przeglądarki, który zgłosił żądanie, i tak dalej. Tego rodzaju informacje mogą pomóc rozwiązać typowe problemy.
+Pomocnik `ServerInfo` jest narzędziem diagnostycznym, które zawiera przegląd informacji o środowisku serwera sieci Web, który hostuje Twoją stronę. Przedstawiono w nim również informacje o żądaniu HTTP, które są wysyłane, gdy przeglądarka żąda strony. Pomocnik `ServerInfo` wyświetla bieżącą tożsamość użytkownika, typ przeglądarki, która złożyła żądanie itd. Tego rodzaju informacje mogą pomóc w rozwiązywaniu typowych problemów.
 
-1. Utwórz nową stronę sieci web o nazwie *ServerInfo.cshtml*.
-2. Na końcu strony, tuż przed zamykającym `</body>` tagów, należy dodać `@ServerInfo.GetHtml()`:
+1. Utwórz nową stronę sieci Web o nazwie *ServerInfo. cshtml*.
+2. Na końcu strony tuż przed tagiem zamykającym `</body>` Dodaj `@ServerInfo.GetHtml()`:
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample1.cshtml)]
 
-    Możesz dodać `ServerInfo` kod w dowolnym miejscu strony. Ale dodanie go na końcu będą przechowywane oddzielnie od innych treści strony, dzięki czemu łatwiej odczytać dane wyjściowe.
+    Możesz dodać kod `ServerInfo` w dowolnym miejscu na stronie. Jednak dodanie go na końcu spowoduje, że dane wyjściowe będą oddzielone od innych zawartości strony, co ułatwia ich odczytywanie.
 
     > [!NOTE]
     >
-    > **Ważne** przed przeniesieniem stron sieci web na serwerze produkcyjnym, należy usunąć wszelkie kod diagnostyczny ze stron sieci web. Dotyczy to `ServerInfo` pomocnika, a także inne techniki diagnostyczne w tym artykule obejmujące, dodając kod do strony. Ponieważ informacje tego typu mogą być przydatne dla osób z wadami złośliwego działania, które nie mają odwiedzających witrynę sieci Web, aby wyświetlić informacje o Twojej nazwy serwera, nazwy użytkowników, ścieżki na serwerze i podobne szczegóły.
-3. Zapisz stronę i uruchom go w przeglądarce.
+    > **Ważne** Przed przeniesieniem stron sieci Web na serwer produkcyjny należy usunąć dowolny kod diagnostyczny ze stron sieci Web. Ma to zastosowanie do pomocnika `ServerInfo`, a także innych technik diagnostycznych w tym artykule, które obejmują dodawanie kodu do strony. Nie chcesz, aby osoby odwiedzające witrynę sieci Web widzieli informacje o nazwie serwera, nazwach użytkowników, ścieżkach na serwerze i podobnych szczegółach, ponieważ ten typ informacji może być przydatny dla osób mających złośliwy cel.
+3. Zapisz stronę i uruchom ją w przeglądarce.
 
     ![Debugging-1](introduction-to-debugging/_static/image1.jpg)
 
-    `ServerInfo` Pomocnik wyświetli cztery tabele informacje na stronie:
+    Pomocnik `ServerInfo` wyświetla cztery tabele informacji na stronie:
 
-   - Konfiguracja serwera. Ta sekcja zawiera informacje o hostingu serwera sieci web, w tym nazwę komputera, wersja korzystasz z platformy ASP.NET, nazwa domeny i czas serwera.
-   - Zmienne serwera programu ASP.NET. Ta sekcja zawiera szczegółowe informacje o wiele szczegółów protokołu HTTP (o nazwie zmienne HTTP) i wartości, które są dostępne w ramach każdego żądania strony sieci web.
-   - Informacje o środowisko wykonawcze protokołu HTTP. Ta sekcja zawiera szczegółowe informacje o tym, która wersja programu Microsoft .NET Framework działa strony sieci web, ścieżka, szczegółowe informacje o pamięci podręcznej i tak dalej. (Jak przedstawiono w [wprowadzenie do platformy ASP.NET sieci Web programowania z użyciem składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890), za pomocą Razor składni są tworzone przy użyciu technologii serwera sieci web platformy ASP.NET firmy Microsoft, która sama rozbudowane oprogramowania w oparciu stron ASP.NET Web Pages Tworzenie biblioteki o nazwie .NET Framework.)
-   - Zmienne środowiskowe. Ta sekcja zawiera listę wszystkich zmiennych środowiskowych lokalnych i ich wartości, na serwerze sieci web.
+   - Konfiguracja serwera. Ta sekcja zawiera informacje na temat hostingu serwera sieci Web, w tym nazwy komputera, używanej wersji programu ASP.NET, nazwy domeny i czasu serwera.
+   - Zmienne serwera ASP.NET. Ta sekcja zawiera szczegółowe informacje dotyczące wielu szczegółów protokołu HTTP (nazywanych zmiennymi HTTP) i wartości, które są częścią każdego żądania strony sieci Web.
+   - Informacje o środowisku uruchomieniowym protokołu HTTP. Ta sekcja zawiera szczegółowe informacje na temat wersji platformy Microsoft .NETej, w której działa strona sieci Web, ścieżki, szczegółów dotyczących pamięci podręcznej itd. (W miarę zdobywania w programie [ASP.NET programowanie sieci Web przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET stron sieci Web korzystających z składnia Razor są oparte na technologii serwera sieci Web ASP.NET firmy Microsoft, która jest wbudowana w rozbudowana Biblioteka programistyczna oprogramowania o nazwie .NET Framework.)
+   - Zmienne środowiskowe. Ta sekcja zawiera listę wszystkich lokalnych zmiennych środowiskowych i ich wartości na serwerze sieci Web.
 
-     Pełny opis wszystkich serwera i żądania informacje wykracza poza zakres tego artykułu, ale możesz zobaczyć, że `ServerInfo` pomocnika zwraca dużą ilość informacji diagnostycznych. Aby uzyskać więcej informacji o wartościach, `ServerInfo` zwraca, zobacz [rozpoznawane zmienne środowiskowe](https://technet.microsoft.com/library/dd560744(WS.10).aspx) w witrynie Microsoft TechNet i [zmienne serwera usług IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) w witrynie MSDN.
+     Pełny opis wszystkich informacji o serwerze i żądaniu wykracza poza zakres tego artykułu, ale można zobaczyć, że pomocnik `ServerInfo` zwraca wiele informacji diagnostycznych. Aby uzyskać więcej informacji na temat wartości zwracanych przez `ServerInfo`, zobacz [rozpoznane zmienne środowiskowe](https://technet.microsoft.com/library/dd560744(WS.10).aspx) w witrynie sieci Web Microsoft TechNet i [zmiennych serwera IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) w witrynie MSDN.
 
-## <a name="embedding-output-expressions-to-display-page-values"></a>Osadzanie wyrażeń dane wyjściowe do wyświetlania wartości strony
+## <a name="embedding-output-expressions-to-display-page-values"></a>Osadzanie wyrażeń wyjściowych w celu wyświetlenia wartości strony
 
-Innym sposobem, aby zobaczyć, co się dzieje w kodzie jest osadzanie wyrażeń danych wyjściowych strony. Jak już wiadomo, można bezpośrednio danych wyjściowych wartość zmiennej przez dodanie podobny `@myVariable` lub `@(subTotal * 12)` ze stroną. Do debugowania, można umieścić wyrażenia te dane wyjściowe w strategiczny punktach w kodzie. Dzięki temu można sprawdzić wartości zmiennych klucza lub wynikiem obliczenia, po uruchomieniu strony. Po zakończeniu debugowania, możesz usunąć wyrażeń lub komentarz je automatycznie. Ta procedura przedstawia typowy sposób debugować strony przy użyciu wyrażenia osadzone.
+Innym sposobem, aby zobaczyć, co się dzieje w kodzie, jest osadzenie wyrażeń wyjściowych na stronie. Jak wiadomo, możesz bezpośrednio wyprowadzić wartość zmiennej przez dodanie elementu, takiego jak `@myVariable` lub `@(subTotal * 12)` do strony. W przypadku debugowania można umieścić te wyrażenia danych wyjściowych w punktach strategicznych w kodzie. Dzięki temu można zobaczyć wartości zmiennych kluczowych lub wynik obliczeń, gdy strona zostanie uruchomiona. Po zakończeniu debugowania można usunąć wyrażenia lub dodać do nich komentarz. Ta procedura ilustruje typowy sposób użycia osadzonych wyrażeń do ułatwienia debugowania strony.
 
-1. Tworzenie nowej strony programu WebMatrix, który nosi nazwę *OutputExpression.cshtml*.
-2. Zastąp zawartości przy użyciu następujących stron:
+1. Utwórz nową stronę sieci Web o nazwie *OutputExpression. cshtml*.
+2. Zastąp zawartość strony następującym:
 
     [!code-html[Main](introduction-to-debugging/samples/sample2.html)]
 
-    W przykładzie użyto `switch` instrukcję, aby sprawdzić wartość `weekday` zmiennych, a następnie wyświetlana jest komunikat różne wyniki w zależności od dzień tygodnia. W tym przykładzie `if` bloku, w pierwszym bloku kodu zmienia arbitralnie dzień tygodnia, dodając jeden dzień na wartość bieżący dzień tygodnia. Jest to błąd, który został wprowadzony w celach ilustracyjnych.
-3. Zapisz stronę i uruchom go w przeglądarce.
+    W przykładzie używa się instrukcji `switch`, aby sprawdzić wartość zmiennej `weekday`, a następnie wyświetlić inny komunikat wyjściowy w zależności od dnia tygodnia. W tym przykładzie blok `if` w ramach pierwszego bloku kodu arbitralnie zmienia dzień tygodnia, dodając jeden dzień do bieżącej wartości dnia tygodnia. Jest to błąd wprowadzony w celach ilustracji.
+3. Zapisz stronę i uruchom ją w przeglądarce.
 
-    Strony wyświetli komunikat o niewłaściwej dzień tygodnia. Niezależnie od dnia tygodnia faktycznie jest, zostanie wyświetlony komunikat później przez jeden dzień. Mimo że w tym przypadku wiesz, dlaczego wiadomości jest wyłączona (ponieważ celowo ustawiana wartość niepoprawne dnia), w rzeczywistości jest często wiadomo, gdzie przebieg procesu problem w kodzie. Aby debugować, musisz dowiedzieć się, co dzieje się do wartości zmiennych i obiektów kluczy takich jak `weekday`.
-4. Dodaj dane wyjściowe wyrażeń, wstawiając `@weekday` pokazany w dwóch miejscach wskazywanym przez komentarze w kodzie. Wyrażenia te dane wyjściowe będą wyświetlane wartości zmiennej w tym momencie podczas wykonywania kodu.
+    Na stronie zostanie wyświetlony komunikat dotyczący nieprawidłowego dnia tygodnia. Każdy dzień tygodnia, w którym faktycznie jest, zobaczysz komunikat przez jeden dzień później. Chociaż w tym przypadku wiesz, dlaczego komunikat jest wyłączony (ponieważ kod świadomie ustawia nieprawidłową wartość dnia), w rzeczywistości często trudno jest wiedzieć, gdzie elementy w kodzie są błędne. Aby debugować, należy dowiedzieć się, co dzieje się z wartościami kluczowych obiektów i zmiennych, takimi jak `weekday`.
+4. Dodaj wyrażenia wyjściowe, wstawiając `@weekday` jak pokazano w dwóch miejscach wskazywanych przez komentarze w kodzie. Te wyrażenia wyjściowe będą wyświetlały wartości zmiennej w tym momencie wykonywania kodu.
 
     [!code-csharp[Main](introduction-to-debugging/samples/sample3.cs?highlight=2-3,15-16)]
 5. Zapisz i Uruchom stronę w przeglądarce.
 
-    Zostanie wyświetlona strona rzeczywistych dzień tygodnia, najpierw, a następnie zaktualizowane dzień tygodnia, który wynikiem dodawania jeden dzień, a następnie Wynikowy komunikat z `switch` instrukcji. Dane wyjściowe z dwóch wyrażeń zmiennych (`@weekday`) nie zawiera spacji między dni, ponieważ nie został dodany kod HTML `<p>` tagów, aby dane wyjściowe; wyrażenia znajdują się tylko do testowania.
+    Na stronie jest wyświetlany pierwszy dzień tygodnia, a następnie zaktualizowany dzień tygodnia, który wynika z dodawania jednego dnia, a następnie wynikowy komunikat z instrukcji `switch`. Dane wyjściowe z dwóch wyrażeń zmiennych (`@weekday`) nie zawierają spacji między dniami, ponieważ nie dodano żadnych tagów `<p>` HTML do danych wyjściowych. wyrażenia są przeznaczone tylko do testowania.
 
     ![Debugging-2](introduction-to-debugging/_static/image2.jpg)
 
-    Teraz możesz zobaczyć, gdzie znajduje się błąd. Kiedy najpierw wyświetlamy `weekday` zmiennej w kodzie, pokazuje poprawnym dniem. Po wyświetleniu go za drugim razem po `if` blokuje w kodzie, dzień jest wyłączona przez jeden. Aby było wiadomo, czy ma zdarzyło się coś między pierwszym i drugim wygląd zmiennej dzień tygodnia. Gdyby to prawdziwej usterki, tego rodzaju podejście pomóc zawęzić lokalizacji kodu, który jest przyczyną problemu.
-6. Napraw kod na stronie, usuwając wyrażeń dwóch danych wyjściowych, które dodano i usuwanie kod, który zmienia dzień tygodnia. Pełną, pozostałe bloku kodu wygląda następująco:
+    Teraz można zobaczyć, gdzie występuje błąd. Po pierwszym wyświetleniu zmiennej `weekday` w kodzie zostanie wyświetlony właściwy dzień. Gdy wyświetlasz go po raz drugi, po bloku `if` w kodzie, dzień jest wyłączony o jeden. Wiadomo, że coś się stało między pierwszym i drugim wyglądem zmiennej dnia tygodnia. Jeśli była to prawdziwa usterka, ten rodzaj podejścia pomoże Ci zawęzić lokalizację kodu powodującego problem.
+6. Popraw kod na stronie, usuwając dwa dodane wyrażenia wyjściowe i usuwając kod, który zmienia dzień tygodnia. Pozostały pełny blok kodu wygląda podobnie do poniższego przykładu:
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample4.cshtml)]
-7. Uruchom stronę w przeglądarce. Tym razem, zostanie wyświetlony komunikat poprawne wyświetlany dla rzeczywistego dzień tygodnia.
+7. Uruchom stronę w przeglądarce. Tym razem zobaczysz prawidłowy komunikat wyświetlany dla rzeczywistego dnia tygodnia.
 
-## <a name="using-the-objectinfo-helper-to-display-object-values"></a>Aby wyświetlić wartości obiektu przy użyciu Pomocnika ObjectInfo
+## <a name="using-the-objectinfo-helper-to-display-object-values"></a>Wyświetlanie wartości obiektów przy użyciu pomocnika ObjectInfo
 
-`ObjectInfo` Pomocnika Wyświetla typ i wartość każdego obiektu przekazywania do niej. Służy do wyświetlania wartości zmiennych i obiektów w kodzie (tak samo jak przy użyciu wyrażeń dane wyjściowe w poprzednim przykładzie), a także możesz zobaczyć dane typu informacji o obiekcie.
+Pomocnik `ObjectInfo` wyświetla typ i wartość każdego przekazanego obiektu. Można jej użyć do wyświetlenia wartości zmiennych i obiektów w kodzie (takich jak w przypadku wyrażeń wyjściowych w poprzednim przykładzie), a ponadto można wyświetlić informacje o typie danych dotyczące obiektu.
 
-1. Otwórz plik o nazwie *OutputExpression.cshtml* utworzonego wcześniej.
-2. Zastąp cały kod na stronie następujący blok kodu:
+1. Otwórz plik o nazwie *OutputExpression. cshtml* , który został utworzony wcześniej.
+2. Zastąp cały kod na stronie następującym blokiem kodu:
 
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
 3. Zapisz i Uruchom stronę w przeglądarce.
 
     ![Debugging-4](introduction-to-debugging/_static/image3.jpg)
 
-    W tym przykładzie `ObjectInfo` Pomocnik wyświetli dwa elementy:
+    W tym przykładzie pomocnik `ObjectInfo` wyświetla dwa elementy:
 
-   - Typ. Dla zmiennej pierwszy typ jest `DayOfWeek`. Druga zmienna jest typ `String`.
-   - Wartość. W tym przypadku, ponieważ wartość zmiennej powitanie jest już wyświetlane na stronie, wartość jest wyświetlana ponownie gdy możesz przekazać zmienną do `ObjectInfo`.
+   - Typ. Dla pierwszej zmiennej typ jest `DayOfWeek`. Dla drugiej zmiennej typ jest `String`.
+   - Wartość. W tym przypadku, ponieważ na stronie jest już wyświetlana wartość zmiennej Greetings, wartość jest wyświetlana ponownie po przekazanie zmiennej do `ObjectInfo`.
 
-     W przypadku bardziej złożonych obiektów `ObjectInfo` pomocnika można wyświetlić więcej informacji &#8212; zasadniczo można wyświetlać, typy i wartości wszystkich właściwości tego obiektu.
+     W przypadku bardziej złożonych obiektów pomocnik `ObjectInfo` może wyświetlić więcej informacji &#8212; zasadniczo, można wyświetlić typy i wartości wszystkich właściwości obiektu.
 
-## <a name="using-debugging-tools-in-visual-studio"></a>Za pomocą narzędzia do debugowania w programie Visual Studio
+## <a name="using-debugging-tools-in-visual-studio"></a>Korzystanie z narzędzi debugowania w programie Visual Studio
 
-W przypadku bardziej kompleksowe środowisko debugowania, użyj [programu Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Za pomocą programu Visual Studio można ustawić punkt przerwania w kodzie, w wierszu, który ma zostać sprawdzony.
+Aby uzyskać bardziej kompleksowe środowisko debugowania, użyj [programu Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Za pomocą programu Visual Studio można ustawić punkt przerwania w kodzie w wierszu, który chcesz sprawdzić.
 
 ![Ustaw punkt przerwania](introduction-to-debugging/_static/image1.png)
 
-Podczas testowania witryny sieci web, wykonywanie kodu zostanie zatrzymany w punkcie przerwania.
+Podczas testowania witryny sieci Web kod wykonywany zostaje zatrzymany w punkcie przerwania.
 
-![osiągnięcia punktu przerwania](introduction-to-debugging/_static/image2.png)
+![dostęp do punktu przerwania](introduction-to-debugging/_static/image2.png)
 
-Można sprawdzić bieżące wartości zmiennych i krok po kroku kodu wiersz po wierszu.
+Można przeanalizować bieżące wartości zmiennych i krok po kroku przez kod po wierszu.
 
 ![Zobacz wartości](introduction-to-debugging/_static/image3.png)
 
-Aby uzyskać informacje o użyciu zintegrowany debuger programu Visual Studio debugowanie stron Razor programu ASP.NET, zobacz [programowania stron ASP.NET Web Pages (Razor) przy użyciu programu Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854).
+Aby uzyskać informacje o używaniu zintegrowanego debugera w programie Visual Studio do debugowania stron ASP.NET Razor, zobacz [programowanie ASP.NET Web Pages (Razor) przy użyciu programu Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-- [Programowanie wzorca ASP.NET Web Pages (Razor) przy użyciu programu Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [Zmienne serwera usług IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
-- [Rozpoznane zmienne środowiskowe](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)
+- [Programowanie ASP.NET stron sieci Web (Razor) przy użyciu programu Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
+- [Zmienne serwera IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
+- [Rozpoznawane zmienne środowiskowe](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

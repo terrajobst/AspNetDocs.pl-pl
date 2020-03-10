@@ -1,93 +1,93 @@
 ---
 uid: web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
-title: Tworzenie adresów URL można odczytać we wzorcu ASP.NET Web Pages witryny (Razor) | Dokumentacja firmy Microsoft
+title: Tworzenie możliwych do odczytania adresów URL w witrynach ASP.NET Web Pages (Razor) | Microsoft Docs
 author: Rick-Anderson
-description: W tym artykule opisano, routing w witrynie sieci Web ASP.NET Web Pages (Razor) i jak dzięki temu można używać adresów URL, które były bardziej czytelne i lepszym miejscem dla optymalizacji dla aparatów wyszukiwania. Po otwarciu...
+description: W tym artykule opisano Routing w witrynie internetowej ASP.NET Web Pages (Razor) i sposób, w jaki można korzystać z adresów URL, które są bardziej czytelne i lepsze w przypadku optymalizacji. Co się stanie...
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: a8aac1ac-89de-4415-afe0-97a41c6423d2
 msc.legacyurl: /web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 msc.type: authoredcontent
 ms.openlocfilehash: 832db8e144cab730f16c78f67c12feb9b7c92c7c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131768"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628395"
 ---
-# <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>Tworzenie adresów URL do odczytu w witrynach ASP.NET Web Pages (Razor)
+# <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>Tworzenie możliwych do odczytania adresów URL w witrynach ASP.NET Web Pages (Razor)
 
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+Autor [FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano, routing w witrynie sieci Web ASP.NET Web Pages (Razor) i jak dzięki temu można używać adresów URL, które były bardziej czytelne i lepszym miejscem dla optymalizacji dla aparatów wyszukiwania.
+> W tym artykule opisano Routing w witrynie internetowej ASP.NET Web Pages (Razor) i sposób, w jaki można korzystać z adresów URL, które są bardziej czytelne i lepsze w przypadku optymalizacji.
 > 
 > Zawartość:
 > 
-> - Jak aplikacja ASP.NET używa routingu pozwala używać bardziej czytelne i którą można przeszukiwać adresów URL.
+> - Jak ASP.NET korzysta z routingu, aby umożliwić korzystanie z bardziej czytelnych i przeszukiwanych adresów URL.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używane w samouczku
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET strony sieci Web (Razor) 3
 >   
 > 
-> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2.
+> Ten samouczek działa również z ASP.NET Web Pages 2.
 
-## <a name="about-routing"></a>Temat routingu
+## <a name="about-routing"></a>Informacje o routingu
 
-Adresy URL dla strony w witrynie sieci może mieć wpływ na stopnia działania lokacji. Adres URL to &quot;przyjazna&quot; może ułatwić użytkownicy będą mogli korzystać z witryny. Może on również okazać pomocny przy użyciu optymalizacji dla aparatów wyszukiwania (SEO) dla tej witryny. Witryn sieci Web platformy ASP.NET to możliwość używania przyjazne adresy URL automatycznie.
+Adresy URL stron w witrynie mogą mieć wpływ na działanie lokacji. Adres URL, który jest &quot;przyjazny&quot; może ułatwić innym osobom korzystanie z tej witryny. Może również pomóc w połączeniu z optymalizacją aparatu wyszukiwania (wyszukiwarka) dla witryny. Witryny sieci Web ASP.NET umożliwiają automatyczne korzystanie z przyjaznych adresów URL.
 
-ASP.NET umożliwia tworzenie istotnych adresów URL, które opisują akcje użytkownika, a nie po prostu wskazuje plik na serwerze. Należy wziąć pod uwagę te adresy URL dla fikcyjnej blog:
+ASP.NET umożliwia tworzenie znaczących adresów URL, które opisują akcje użytkownika zamiast wskazywać na plik na serwerze. Te adresy URL należy wziąć pod uwagę dla fikcyjnego bloga:
 
 - `http://www.contoso.com/Blog/blog.cshtml?categories=hardware`
 - `http://www.contoso.com//Blog/blog.cshtml?startdate=2009-11-01&enddate=2009-11-30`
 
-Porównaj te adresy URL do poniższych:
+Porównaj te adresy URL z następującymi:
 
 - `http://www.contoso.com/Blog/categories/hardware/`
 - `http://www.contoso.com/Blog/2009/November`
 
-Pierwszy parę, użytkownik musi wiedzieć, że blogu jest wyświetlana przy użyciu *blog.cshtml* strony, a następnie miałby do konstruowania ciągu zapytania, który pobiera odpowiednie zakresu kategorii lub daty. Drugi zestaw przykładów jest znacznie łatwiejsze, pojmować i tworzenia.
+W pierwszej parze użytkownik musi wiedzieć, że blog jest wyświetlany przy użyciu strony *blog. cshtml* , a następnie musi utworzyć ciąg zapytania, który pobiera prawą kategorię lub zakres dat. Drugi zestaw przykładów jest znacznie łatwiejszy do comprehend i tworzenia.
 
-Adresy URL, na przykład pierwszy też wskazywać bezpośrednio do określonego pliku (*blog.cshtml*). Jeśli z jakiegoś powodu blogu zostały przeniesione do innego folderu na serwerze lub blogu zostały przepisane, aby użyć innej strony, linki może być nieprawidłowa. Drugi zestaw adresów URL nie wskazuje na konkretnej stronie, nawet jeśli zmiany w implementacji blogu lub lokalizacji, adresy URL nadal będzie nieprawidłowa.
+Adresy URL pierwszego przykładu wskazują również na określony plik (*blog. cshtml*). Jeśli z jakiegoś powodu blog został przeniesiony do innego folderu na serwerze, lub jeśli blog został ponownie zapisany w celu użycia innej strony, linki byłyby nieodpowiednie. Drugi zestaw adresów URL nie wskazuje na określoną stronę, więc nawet w przypadku zmiany implementacji lub lokalizacji blogu adresy URL nadal będą prawidłowe.
 
-W składniku ASP.NET Web Pages można utworzyć bardziej przyjaznej adresy URL, podobnie jak w powyższych przykładach ponieważ aplikacja ASP.NET używa *routingu*. Routing tworzy mapowanie logicznych z adres URL strony (lub stron), który można wykonać żądania. Ponieważ mapowanie jest logiczną (nie fizycznej, do konkretnego pliku), routing zapewnia dużą elastyczność w sposób definiowania adresów URL dla witryny.
+Na stronach sieci Web ASP.NET można tworzyć bardziej przyjaznej adresy URL, takie jak te w powyższych przykładach, ponieważ usługa ASP.NET używa *routingu*. Routing tworzy logiczne mapowanie na podstawie adresu URL strony (lub stron), które mogą spełnić żądanie. Ponieważ mapowanie jest logiczne (nie fizyczne, do określonego pliku), routing zapewnia dużą elastyczność w zakresie definiowania adresów URL dla witryny.
 
 ## <a name="how-routing-works"></a>Jak działa Routing
 
-ASP.NET przetwarza żądanie, odczytywanych jest adres URL, aby określić sposób kierowania go. Aplikacja ASP.NET próbuje dopasować poszczególnych segmentów adresu URL do plików na dysku, przechodząc od lewej do prawej. W przypadku dopasowania niczego pozostały w adresie URL jest przekazywany do strony jako *informacji o ścieżce*.
+Gdy ASP.NET przetwarza żądanie, odczytuje adres URL, aby określić sposób ich trasy. ASP.NET próbuje dopasować poszczególne segmenty adresu URL do plików na dysku, przechodząc od lewej do prawej. W przypadku dopasowania wszystkie pozostałe elementy w adresie URL są przesyłane do strony jako *Informacje o ścieżce*.
 
-Wyobraź sobie, że ktoś sprawia, że żądanie przy użyciu tego adresu URL:
+Załóżmy, że ktoś wysyła żądanie przy użyciu tego adresu URL:
 
 `http://www.contoso.com/a/b/c`
 
-Wyszukiwanie wykracza następująco:
+Wyszukiwanie przebiega następująco:
 
-1. Czy istnieje plik o ścieżkę i nazwę */a/b/c.cshtml*? Jeśli tak, uruchom tę stronę i przekaż żadnych informacji do niego. W przeciwnym razie...
-2. Czy istnieje plik o ścieżkę i nazwę */a/b.cshtml*? Jeśli tak, uruchom tę stronę i przekaż wartość `c` do niego. W przeciwnym razie...
-3. Czy istnieje plik o ścieżkę i nazwę */a.cshtml*? Jeśli tak, uruchom tę stronę i przekaż wartość `b/c` do niego.
+1. Czy istnieje plik o ścieżce i nazwie */a/b/c.cshtml*? Jeśli tak, uruchom tę stronę i Przekaż do niej informacje. W innym przypadku...
+2. Czy istnieje plik o ścieżce i nazwie */a/b.cshtml*? Jeśli tak, uruchom tę stronę i przekaż wartość `c`. W przeciwnym razie...
+3. Czy istnieje plik o ścieżce i nazwie */a.cshtml*? Jeśli tak, uruchom tę stronę i przekaż wartość `b/c`.
 
-Jeśli wyszukiwanie znaleziono dokładne nie jest zgodna dla *.cshtml* pliki w ich określonych folderów, ASP.NET kontynuuje wyszukiwanie te pliki z kolei:
+Jeśli w określonych folderach nie znaleziono dokładnego dopasowania dla plików *. cshtml* , ASP.NET nadal szuka następujących plików:
 
-1. */a/b/c/default.cshtml* (nie informacji o ścieżce).
-2. */a/b/c/index.cshtml* (nie informacji o ścieżce).
+1. */a/b/c/default.cshtml* (brak informacji o ścieżce).
+2. */a/b/c/index.cshtml* (brak informacji o ścieżce).
 
 > [!NOTE]
-> Aby być niejasne, żądania dotyczące określonych stron (oznacza to, że te żądania, które obejmują *.cshtml* rozszerzenie nazwy pliku) działają tak samo, jak można oczekiwać. Żądanie, takie jak `http://www.contoso.com/a/b.cshtml` uruchomią się stronę *b.cshtml* porządku.
+> Aby można było wyczyścić, żądania dla określonych stron (czyli żądań zawierających rozszerzenie nazwy pliku *. cshtml* ) działają podobnie jak w przypadku oczekiwań. Żądanie, takie jak `http://www.contoso.com/a/b.cshtml`, uruchomi stronę *b. cshtml* w prawidłowy sposób.
 
-Wewnątrz strony, można uzyskać informacji o ścieżce za pomocą strony `UrlData` właściwość, która jest słownikiem. Wyobraź sobie, że masz plik o nazwie *ViewCustomers.cshtml* i lokacji pobiera tego żądania:
+Wewnątrz strony możesz uzyskać informacje o ścieżce za pośrednictwem właściwości `UrlData` strony, która jest słownikiem. Załóżmy, że masz plik o nazwie *ViewCustomers. cshtml* , a witryna otrzymuje to żądanie:
 
 `http://mysite.com/myWebSite/ViewCustomers/1000`
 
-Zgodnie z opisem w powyższych reguł, żądanie przejdzie do strony. Na stronie można użyć kodu, jak pokazano poniżej, aby pobrać i wyświetlić informacje o ścieżce (w tym przypadku wartość &quot;1000&quot;):
+Zgodnie z opisem w powyższych regułach żądanie zostanie umieszczone na stronie. Wewnątrz strony można użyć kodu, takiego jak następujące, aby uzyskać i wyświetlić informacje o ścieżce (w tym przypadku wartość &quot;1000&quot;):
 
 [!code-html[Main](creating-readable-urls-in-aspnet-web-pages-sites/samples/sample1.html)]
 
 > [!NOTE]
-> Ponieważ routingu nie zawiera pełnej nazwy pliku, może istnieć niejednoznaczności w przypadku stron, które mają taką samą nazwę, ale inne rozszerzenia nazwy pliku (na przykład *MyPage.cshtml* i *MyPage.html*) . Aby uniknąć problemów z routingiem, najlepiej upewnij się, że nie masz strony w witrynie, których nazwy różnią się tylko w ich rozszerzenia.
+> Ponieważ Routing nie obejmuje pełnych nazw plików, może wystąpić niejednoznaczność, jeśli masz strony mające taką samą nazwę, ale inne rozszerzenia nazwy pliku (np *. webpage. cshtml* i *webpage. html*). Aby uniknąć problemów z routingiem, najlepiej upewnić się, że nie masz stron w swojej witrynie, których nazwy różnią się tylko w ich rozszerzeniu.
 
 <a id="Additional_Resources"></a>
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Dodatkowe materiały
 
-[Program WebMatrix - adresy URL, UrlData i routingu pod kątem Wyszukiwarek](http://www.mikesdotnetting.com/Article/165/WebMatrix-URLs-UrlData-and-Routing-for-SEO). Ten wpis w blogu przez Mike'a Brind zapewnia pewne dodatkowe szczegóły dotyczące działa jak routing w składniku ASP.NET Web Pages.
+[WebMatrix — adresy URL, UrlData i Routing dla aparatu optymalizacji](http://www.mikesdotnetting.com/Article/165/WebMatrix-URLs-UrlData-and-Routing-for-SEO). Ten wpis w blogu z Jan solance zawiera kilka dodatkowych informacji na temat sposobu działania routingu na stronach sieci Web ASP.NET.

@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
-title: Jak używać narzędzia rejestracji usług IIS do konfigurowania programu ASP.NET | Dokumentacja firmy Microsoft
+title: Jak używać narzędzia rejestracji ASP.NET IIS do konfigurowania ASP.NET | Microsoft Docs
 author: rick-anderson
-description: W tym wideo pikseli Chris pokazuje, jak skonfigurować ASP.NET przy użyciu narzędzia rejestracji usług IIS platformy ASP.NET. Najpierw Zobacz, jak rozszerzeń plików są mapowane do ASP.NET...
+description: W tym filmie wideo Krzysztof pikseli pokazuje, jak skonfigurować ASP.NET za pomocą narzędzia rejestracji ASP.NET IIS. Najpierw Zobacz, jak rozszerzenia plików są mapowane na ASP.NET w...
 ms.author: riande
 ms.date: 05/01/2008
 ms.assetid: 2565839b-30b8-45e1-946e-34fffe940c48
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
 msc.type: video
 ms.openlocfilehash: ac54ab7aea1608ebba1f5d89e9a63b0a3f795937
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59415690"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78602908"
 ---
-# <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a>Jak używać narzędzia rejestracji usług IIS do konfigurowania programu ASP.NET
+# <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a>Jak używać narzędzia rejestracji ASP.NET IIS do konfigurowania ASP.NET
 
-przez [Chris pikseli](https://twitter.com/chrispels)
+[Krzysztof pikseli](https://twitter.com/chrispels)
 
-W tym wideo pikseli Chris pokazuje, jak skonfigurować ASP.NET przy użyciu narzędzia rejestracji usług IIS platformy ASP.NET. Najpierw Zobacz, jak rozszerzeń plików są mapowane do platformy ASP.NET dla witryn globalnych i sieci web site przez web w Menedżerze usług IIS. Te mapowania skryptów stanowią podstawę do konfigurowania poszczególnych aplikacji ASP.NET do uruchamiania w określonej wersji programu .NET Framework. Następnie możesz zapoznać się jak aspnet\_regiis.exe, narzędzia wiersza polecenia narzędzia rejestracji usług IIS jest specyficzny dla każdej wersji programu .NET Framework i jak może służyć do różnych zadań, takich jak ustalania, jakie wersje programu ASP.NET są zainstalowane na komputerze i co Aplikacje ASP.NET są mapowane do tej wersji. Następnie Dowiedz się, jak zainstalować i odinstalowywania programu ASP.NET na komputerze przy użyciu narzędzia do rejestracji. Poznasz również sposób użycia narzędzia do rejestracji można zainstalować, odinstalować ani zaktualizować wiele aplikacji programu ASP.NET dla określonej wersji programu .NET Framework. Na przykład zobaczyć, jak instalowanie programu ASP.NET 2.0 i aktualizowanie ma skryptu
+W tym filmie wideo Krzysztof pikseli pokazuje, jak skonfigurować ASP.NET za pomocą narzędzia rejestracji ASP.NET IIS. Najpierw zapoznaj się z tematem jak rozszerzenia plików są mapowane na ASP.NET w Menedżerze usług IIS w oparciu o Lokacje globalne i witryny sieci Web w sieci Web. Te mapy skryptów stanowią podstawę do konfigurowania poszczególnych aplikacji ASP.NET do uruchamiania w określonej wersji .NET Framework. Następnie zapoznaj się z tematem jak ASPNET\_regiis. exe, narzędzie wiersza polecenia narzędzia rejestracji IIS, jest specyficzne dla każdej wersji .NET Framework i jak można go użyć dla różnych zadań, takich jak określanie, które wersje ASP.NET są zainstalowane na komputerze i jakie aplikacje ASP.NET są mapowane do tej wersji. Następnie Dowiedz się, jak instalować i odinstalowywać ASP.NET na komputerze przy użyciu narzędzia do rejestracji. Dowiedz się również, jak za pomocą narzędzia rejestracji zainstalować, odinstalować lub zaktualizować wiele aplikacji ASP.NET dla określonej wersji .NET Framework. Na przykład zobacz Jak zainstalować ASP.NET 2,0 i Aktualizuj skrypt ma
 
-[&#9654;Obejrzyj film wideo (27 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet)
+[&#9654;Obejrzyj wideo (27 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet)

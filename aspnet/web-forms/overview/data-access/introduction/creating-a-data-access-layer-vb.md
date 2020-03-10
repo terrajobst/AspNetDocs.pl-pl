@@ -9,11 +9,11 @@ ms.assetid: 6227233a-6254-4b6b-9a89-947efef22330
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 51c9255f80f83a68cf26decf318347752498491a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74635137"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78604560"
 ---
 # <a name="creating-a-data-access-layer-vb"></a>Tworzenie warstwy dostępu do danych (VB)
 
@@ -168,11 +168,11 @@ Ten kod nie wymaga od nas zapisania jednego bitu kodu specyficznego dla dostępu
 
 Każdy obiekt użyty w tym przykładzie jest również silnie wpisany, co pozwala programowi Visual Studio zapewnić sprawdzanie typów funkcji IntelliSense i czasu kompilacji. I najlepsze dla wszystkich tabel danych zwracanych przez TableAdapter można powiązać z kontrolkami sieci Web z danymi ASP.NET, takimi jak GridView, DetailsView, DropDownList, formant CheckBoxList i kilka innych. Poniższy przykład ilustruje powiązanie elementu DataTable zwróconego przez metodę `GetProducts()` z elementem GridView w zaledwie scant trzy wiersze kodu w ramach programu obsługi zdarzeń `Page_Load`.
 
-AllProducts. aspx
+AllProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample2.aspx)]
 
-AllProducts. aspx. vb
+AllProducts.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample3.vb)]
 
@@ -226,11 +226,11 @@ Te zapytania parametryczne można przetestować bezpośrednio z projektanta obie
 
 Dzięki metodzie `GetProductsByCategoryID(categoryID)` w naszym DAL możemy teraz utworzyć stronę ASP.NET, która wyświetla tylko te produkty w określonej kategorii. W poniższym przykładzie pokazano wszystkie produkty, które znajdują się w kategorii napoje, które mają `CategoryID` 1.
 
-Napoje. aspx
+Beverages.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample4.aspx)]
 
-Napoje. aspx. vb
+Beverages.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample5.vb)]
 
@@ -422,11 +422,11 @@ Te dane mogą być również wyświetlane w dowolnym z ASP. Kontrolki sieci Web 
 
 Sprawdzimy, jak wyświetlać takie raporty o szczegółach głównych w przyszłych samouczkach. Na razie ten przykład został zaprojektowany tak, aby zilustrować użycie metody niestandardowej dodanej do klasy `Northwind.SuppliersRow`.
 
-SuppliersAndProducts. aspx
+SuppliersAndProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample24.aspx)]
 
-SuppliersAndProducts. aspx. vb
+SuppliersAndProducts.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample25.vb)]
 

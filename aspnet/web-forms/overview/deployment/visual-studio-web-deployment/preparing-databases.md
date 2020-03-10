@@ -9,11 +9,11 @@ ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
 ms.openlocfilehash: cdcb3578725c41e3c801afd54e6d34455bc4b281
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74618533"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78636998"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>ASP.NET wdrażanie w sieci Web przy użyciu programu Visual Studio: przygotowanie do wdrożenia bazy danych
 
@@ -185,7 +185,7 @@ Na pierwszej stronie Centrum instalacji SQL Server kliknij pozycję **nowy SQL S
 4. W oknie dialogowym **generowanie i publikowanie skryptów** kliknij pozycję **Ustaw opcje obsługi skryptów**.
 
     Możesz pominąć krok **Wybierz obiekty** , ponieważ wartością domyślną jest **skrypt cała baza danych i wszystkie obiekty bazy danych** .
-5. Kliknij pozycję **Zaawansowane**.
+5. Kliknij pozycję **Advanced** (Zaawansowane).
 
     ![Opcje skryptów programu SSMS](preparing-databases/_static/image12.png)
 6. W oknie dialogowym **Zaawansowane opcje obsługi skryptów** przewiń w dół do obszaru **dane w polu skrypt**, a następnie kliknij opcję **tylko dane** na liście rozwijanej.
@@ -197,7 +197,7 @@ Na pierwszej stronie Centrum instalacji SQL Server kliknij pozycję **nowy SQL S
 10. Kliknij przycisk **dalej** , aby przejść do karty **Podsumowanie** , a następnie ponownie kliknij przycisk **dalej** , aby utworzyć skrypt.
 
     ![Utworzono skrypt programu SSMS](preparing-databases/_static/image14.png)
-11. Kliknij przycisk **Zakończ**.
+11. Kliknij przycisk **Finish** (Zakończ).
 
 ### <a name="create-the-production-database-script"></a>Tworzenie skryptu produkcyjnej bazy danych
 

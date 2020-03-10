@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/index
-title: Edytowanie, wstawianie i usuwanie danych | Dokumentacja firmy Microsoft
+title: Edytowanie, wstawianie i usuwanie danych | Microsoft Docs
 author: rick-anderson
-description: W tych samouczkach zobaczysz, jak zamapować metod formantu ObjectDataSource metody LOGIKI i sposób konfigurowania GridView DetailsView i FormView co...
+description: W tych samouczkach przedstawiono sposób mapowania metod formantu ObjectDataSource na metody LOGIKI biznesowej oraz sposób konfigurowania elementów GridView, DetailsView i FormView co...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 9fc60498-ced4-47c6-b2cf-8d464e6aeef8
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data
 msc.type: chapter
 ms.openlocfilehash: 4657a52b05c1cf8a991158f212d6b6ce849ef276
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109053"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78607717"
 ---
 # <a name="editing-inserting-and-deleting-data"></a>Edytowanie, wstawianie i usuwanie danych
 
-> W tych samouczkach zobaczysz, jak zamapować metod formantu ObjectDataSource metody LOGIKI i sposobie konfigurowania DetailsView, w widoku GridView i FormView Określa, aby zezwolić użytkownikom na modyfikowanie danych.
+> W tych samouczkach przedstawiono sposób mapowania metod formantu ObjectDataSource na metody LOGIKI biznesowej oraz sposób konfigurowania formantów GridView, DetailsView i FormView, aby umożliwić użytkownikom modyfikowanie danych.
 
 - [Omówienie wstawiania, aktualizowania i usuwania danych (C#)](an-overview-of-inserting-updating-and-deleting-data-cs.md)
 - [Badanie zdarzeń powiązanych ze wstawianiem, aktualizowaniem i usuwaniem (C#)](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

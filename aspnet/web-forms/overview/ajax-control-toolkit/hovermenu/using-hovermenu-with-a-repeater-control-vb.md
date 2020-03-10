@@ -9,11 +9,11 @@ ms.assetid: 7f07c112-cd4f-4427-9699-57cfab2791fd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 9386aa2fe3a6174bbed52218337107733cb1fa99
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606654"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78621577"
 ---
 # <a name="using-hovermenu-with-a-repeater-control-vb"></a>Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (VB)
 
@@ -56,4 +56,4 @@ Teraz każdy element w źródle danych wyświetla okno podręczne z prawej stron
 Menu aktywacja pojawia się obok każdego elementu w wzmacniake ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-hovermenu-with-a-repeater-control-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Ubiegł](using-hovermenu-with-a-repeater-control-cs.md)
+> [Wstecz](using-hovermenu-with-a-repeater-control-cs.md)

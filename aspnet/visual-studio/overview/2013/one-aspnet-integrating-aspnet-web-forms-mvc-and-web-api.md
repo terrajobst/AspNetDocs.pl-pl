@@ -1,31 +1,31 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: 'Ćwiczenia praktyczne: Jedna platforma ASP.NET: Integrowanie wzorca ASP.NET Web Forms, MVC i interfejs API sieci Web | Dokumentacja firmy Microsoft'
+title: 'Wskazówki dotyczące laboratorium: jeden ASP.NET: Integrowanie formularzy sieci Web ASP.NET, MVC i Web API | Microsoft Docs'
 author: rick-anderson
-description: ASP.NET to architektura służąca do tworzenia witryn sieci Web, aplikacji i usług przy użyciu technologii specjalne, np. MVC, interfejs API sieci Web i innych. Przy użyciu rozszerzeń ASP.NET h...
+description: ASP.NET to struktura służąca do kompilowania witryn sieci Web, aplikacji i usług przy użyciu specjalistycznych technologii, takich jak MVC, Web API i inne. Z rozszerzeniem ASP.NET h...
 ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 165d104b5d3ef3281af449cc8673ad96f531d628
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113081"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78623201"
 ---
-# <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Ćwiczenia praktyczne: Jedna platforma ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API
+# <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Ćwiczenia praktyczne: One ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API
 
-Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
+przez [zespół Camp sieci Web](https://twitter.com/webcamps)
 
-[Pobierz Camp Web szkolenia Kit](https://aka.ms/webcamps-training-kit)
+[Pobierz zestaw szkoleniowy dla sieci Web Camp](https://aka.ms/webcamps-training-kit)
 
-> ASP.NET to architektura służąca do tworzenia witryn sieci Web, aplikacji i usług przy użyciu technologii specjalne, np. MVC, interfejs API sieci Web i innych. Z rozszerzeniem ASP.NET obserwowała, jak od jego utworzenia i zaakceptowania muszą być tych technologii zintegrowane, działania w kierunku miały miejsce ostatnie wysiłków **One ASP.NET**.
+> ASP.NET to struktura służąca do kompilowania witryn sieci Web, aplikacji i usług przy użyciu specjalistycznych technologii, takich jak MVC, Web API i inne. Wraz z ASP.NET ekspansji pojawiły się od momentu jego utworzenia, a wyrażone w tym przypadku muszą mieć zintegrowane technologie, podczas pracy w kierunku **jednego ASP.NET**.
 > 
-> Visual Studio 2013 wprowadza nowy jednolity system, który umożliwia tworzenie aplikacji i korzystać z technologii ASP.NET w jednym projekcie. Ta funkcja eliminuje konieczność pobrania jedna technologia na początku projektu i hokejowego z nim, a zamiast tego zaleca się korzystanie z wielu platform ASP.NET, w ramach jednego projektu.
+> W Visual Studio 2013 wprowadzono nowy ujednolicony system projektu, który umożliwia tworzenie aplikacji i używanie wszystkich technologii ASP.NET w jednym projekcie. Ta funkcja eliminuje konieczność wyboru jednej technologii na początku projektu i naklejenia z nią, a zamiast tego zaleca użycie wielu platform ASP.NET w ramach jednego projektu.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowe kod i fragmenty kodu są zawarte w zestawie szkoleń w sieci Web Camp, które są dostępne w [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit).
 
 <a id="Overview"></a>
 ## <a name="overview"></a>Omówienie
@@ -33,403 +33,403 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
 
-W tym praktyczne laboratorium dowiesz się jak:
+W tym ćwiczeniu dowiesz się, jak:
 
-- Tworzenie witryny sieci Web, na podstawie **One ASP.NET** typ projektu
-- Użyj innych **ASP.NET** platform, na przykład **MVC** i **interfejsu API sieci Web** w tym samym projekcie
-- Identyfikowanie główne składniki **ASP.NET** aplikacji
-- Skorzystaj z zalet **funkcja tworzenia szkieletu ASP.NET** framework, automatyczne tworzenie widoków i kontrolerów w celu wykonywania operacji CRUD, oparte na klasach modeli
-- Udostępnianie tego samego zestawu danych w formatach machine - i czytelny dla człowieka, za pomocą właściwych narzędzi dla każdego zadania
+- Tworzenie witryny sieci Web opartej na **jednym** typie projektu ASP.NET
+- Korzystanie z różnych platform **ASP.NET** , takich jak **MVC** i **Web API** w tym samym projekcie
+- Zidentyfikuj główne składniki aplikacji **ASP.NET**
+- Korzystanie z platformy tworzenia **szkieletów ASP.NET** do automatycznego tworzenia kontrolerów i widoków w celu wykonywania operacji CRUD na podstawie klas modelu
+- Udostępnianie tego samego zestawu informacji w formatach maszynowych i czytelnych przez człowieka przy użyciu odpowiedniego narzędzia dla każdego zadania
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego laboratorium praktycznego niezbędne jest, następujące elementy:
+Następujące czynności są wymagane do wykonania tego laboratorium praktycznego:
 
-- [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/) or greater
+- [Visual Studio Express 2013 dla sieci Web](https://www.microsoft.com/visualstudio/) lub nowszego
 - [Visual Studio 2013 Update 1](https://go.microsoft.com/fwlink/?LinkId=301714)
 
 <a id="Setup"></a>
-### <a name="setup"></a>Konfiguracja
+### <a name="setup"></a>Konfigurowanie
 
-Aby można było uruchomić ćwiczeń opisanych w tym praktyczne laboratorium, należy najpierw skonfigurować swoje środowisko.
+Aby można było uruchomić ćwiczenia w tym ćwiczeniu, należy najpierw skonfigurować środowisko.
 
-1. Otwórz Eksploratora Windows i przejdź do laboratorium **źródła** folderu.
-2. Kliknij prawym przyciskiem myszy **plik Setup.cmd** i wybierz **Uruchom jako administrator** do uruchamiania procesu instalacji, który będzie skonfigurować środowisko i zainstalować fragmenty kodu programu Visual Studio, w tym środowisku laboratoryjnym.
-3. Jeśli zostanie wyświetlone okno dialogowe kontroli konta użytkownika, upewnij się, działania, aby kontynuować.
+1. Otwórz Eksploratora Windows i przejdź do folderu **źródłowego** laboratorium.
+2. Kliknij prawym przyciskiem myszy pozycję **Setup. cmd** i wybierz polecenie **Uruchom jako administrator** , aby uruchomić proces instalacji, który skonfiguruje środowisko i zainstaluje fragmenty kodu programu Visual Studio dla tego laboratorium.
+3. Jeśli zostanie wyświetlone okno dialogowe Kontrola konta użytkownika, potwierdź akcję, aby wykonać operację.
 
 > [!NOTE]
-> Upewnij się, że wszystkie zależności w tym środowisku laboratoryjnym sprawdzeniu przed uruchomieniem Instalatora.
+> Upewnij się, że wszystkie zależności dla tego laboratorium zostały sprawdzone przed uruchomieniem Instalatora.
 
 <a id="CodeSnippets"></a>
-### <a name="using-the-code-snippets"></a>Za pomocą fragmentów kodu
+### <a name="using-the-code-snippets"></a>Używanie fragmentów kodu
 
-W dokumencie laboratorium należy poinstruować można wstawiać bloki kodu. Dla wygody większość ten kod jest dostarczany jako Visual Studio fragmenty kodu, które są dostępne w Visual Studio 2013, aby uniknąć konieczności Dodaj ją ręcznie.
+W całym dokumencie laboratoryjnym pojawi się monit o wstawienie bloków kodu. Dla wygody większość tego kodu jest udostępniana jako fragmenty Visual Studio Code, do których można uzyskać dostęp z poziomu Visual Studio 2013, aby uniknąć konieczności ręcznego dodawania go.
 
 > [!NOTE]
-> Każdy wykonywania towarzyszy początkowy rozwiązanie znajduje się w **rozpocząć** folderu ćwiczeniu, która umożliwia wykonanie każdego wykonywania niezależnie od innych. Należy pamiętać, że fragmenty kodu, które są dodawane podczas wykonywania brakuje te uruchamianie rozwiązań i może nie działać, dopóki nie zakończysz wykonywania. Wewnątrz kodu źródłowego dla ćwiczenia, można również znaleźć **zakończenia** folderu zawierającego rozwiązania programu Visual Studio z kodem, który powstały na skutek wykonaniu kroków w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
+> Każdemu z nich towarzyszy rozpoczęcie rozwiązanie znajdujące się w folderze **BEGIN** w ćwiczeniu, który umożliwia wykonywanie poszczególnych czynności niezależnie od innych. Należy pamiętać, że fragmenty kodu dodawane podczas wykonywania nie są dostępne w tych rozwiązaniach i mogą nie działać do czasu ukończenia ćwiczenia. Wewnątrz kodu źródłowego dla ćwiczenia znajdziesz również folder **końcowy** zawierający rozwiązanie programu Visual Studio z kodem, który wynika z wykonania czynności w odpowiednim ćwiczeniu. Te rozwiązania można wykorzystać jako wskazówkę, jeśli potrzebujesz dodatkowej pomocy podczas pracy w ramach tego praktycznego laboratorium.
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Ćwiczenia
+## <a name="exercises"></a>Symulacyjn
 
-To ćwiczenie praktyczne obejmuje następujących czynnościach:
+To laboratorium praktyczne obejmuje następujące ćwiczenia:
 
 1. [Tworzenie nowego projektu formularzy sieci Web](#Exercise1)
-2. [Tworzenie szkieletów kontrolera MVC](#Exercise2)
-3. [Tworzenie szkieletów kontrolera interfejsu API sieci Web](#Exercise3)
+2. [Tworzenie kontrolera MVC przy użyciu szkieletu](#Exercise2)
+3. [Tworzenie kontrolera interfejsu API sieci Web przy użyciu szkieletu](#Exercise3)
 
-Szacowany czas do ukończenia tego laboratorium: **60 minut**
+Szacowany czas wykonywania tego laboratorium: **60 minut**
 
 > [!NOTE]
-> Przy pierwszym uruchomieniu programu Visual Studio, należy wybrać jedną z kolekcji wstępnie zdefiniowanych ustawień. Każda kolekcja wstępnie zdefiniowanych służy do dopasowywania style rozwoju i określa układy okna, zachowanie edytora, fragmenty kodu IntelliSense i opcje w oknach dialogowych. Procedury przedstawione w tym środowisku laboratoryjnym opisano czynności niezbędnych do wykonywania danego zadania w programie Visual Studio, korzystając z **ogólnych ustawieniach projektowych** kolekcji. Jeśli wybierzesz kolekcji różne ustawienia dla swojego środowiska programowania, może być różnice w krokach, które należy wziąć pod uwagę.
+> Po pierwszym uruchomieniu programu Visual Studio należy wybrać jedną z wstępnie zdefiniowanych kolekcji ustawień. Każda wstępnie zdefiniowana kolekcja jest zaprojektowana tak, aby była zgodna z konkretnym stylem deweloperskim i określa układy okien, zachowanie edytora, fragmenty kodu IntelliSense i opcje okna dialogowego. Procedury przedstawione w tym laboratorium opisują akcje niezbędne do wykonania danego zadania w programie Visual Studio, gdy jest używana **Ogólna kolekcja ustawień deweloperskich** . W przypadku wybrania innej kolekcji ustawień dla środowiska programistycznego mogą wystąpić różnice w czynnościach, które należy wziąć pod uwagę.
 
 <a id="Exercise1"></a>
 ### <a name="exercise-1-creating-a-new-web-forms-project"></a>Ćwiczenie 1: Tworzenie nowego projektu formularzy sieci Web
 
-W tym ćwiczeniu utworzysz nową lokację formularzy sieci Web przy użyciu programu Visual Studio 2013 **One ASP.NET** ujednolicone środowisko projektu, który pozwoli łatwo zintegrować składniki formularzy sieci Web, MVC i interfejs API sieci Web w tej samej aplikacji. Będzie Poznaj rozwiązanie wygenerowany i zidentyfikować jej części, a na koniec zobaczysz witryny sieci Web w działaniu.
+W tym ćwiczeniu zostanie utworzona nowa witryna formularzy sieci Web w Visual Studio 2013 przy użyciu **jednego ASP.NET** ujednoliconego środowiska projektowego, dzięki któremu można łatwo zintegrować składniki Web Forms, MVC i Web API w tej samej aplikacji. Następnie zostanie zbadane wygenerowane rozwiązanie i zidentyfikowanie jego części, a wreszcie zostanie wyświetlona witryna sieci Web w działaniu.
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1--creating-a-new-site-using-the-one-aspnet-experience"></a>Zadanie 1 — Tworzenie nowej lokacji za pomocą jednego środowiska ASP.NET
+#### <a name="task-1--creating-a-new-site-using-the-one-aspnet-experience"></a>Zadanie 1 — Tworzenie nowej witryny przy użyciu jednego środowiska ASP.NET
 
-W ramach tego zadania, użytkownik rozpocznie Tworzenie nowej witryny sieci Web w programie Visual Studio na podstawie **One ASP.NET** typ projektu. **One ASP.NET** łączy wszystkie technologie ASP.NET i daje możliwość mieszać i dopasowywać je zgodnie z potrzebami. Następnie rozpoznają różnych składników Web Forms, MVC i interfejs API sieci Web, znajdujące się obok siebie w ramach aplikacji.
+W tym zadaniu rozpocznie się tworzenie nowej witryny sieci Web w programie Visual Studio w oparciu o typ projektu **ASP.NET** . **Jedna ASP.NET** łączy wszystkie technologie ASP.NET i pozwala na ich mieszanie i dopasowanie odpowiednio do potrzeb. Następnie zostaną rozpoznane różne składniki formularzy Web Forms, MVC i Web API, które znajdują się obok siebie w aplikacji.
 
-1. Otwórz **Visual Studio Express 2013 for Web** i wybierz **pliku | Nowy projekt...**  można uruchomić nowego rozwiązania.
+1. Otwórz **Visual Studio Express 2013 dla sieci Web** i wybierz pozycję **plik | Nowy projekt...** , aby rozpocząć nowe rozwiązanie.
 
     ![Tworzenie nowego projektu](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image1.png)
 
     *Tworzenie nowego projektu*
-2. W **nowy projekt** okno dialogowe, wybierz opcję **aplikacji sieci Web ASP.NET** w obszarze **Visual C# | Web** kartę i upewnij się, **.NET Framework 4.5** jest zaznaczone. Nadaj projektowi nazwę *MyHybridSite*, wybierz **lokalizacji** i kliknij przycisk **OK**.
+2. W oknie dialogowym **Nowy projekt** wybierz pozycję **aplikacja sieci Web ASP.NET** w obszarze **Wizualizacja C# |** Upewnij się, że jest zaznaczona **.NET Framework 4,5** . Nazwij projekt *MyHybridSite*, wybierz **lokalizację** i kliknij przycisk **OK**.
 
     ![Nowy projekt aplikacji sieci Web ASP.NET](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image2.png)
 
     *Tworzenie nowego projektu aplikacji sieci Web ASP.NET*
-3. W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **formularzy sieci Web** szablonu, a następnie wybierz **MVC** i **interfejsu API sieci Web** opcje. Ponadto upewnij się, że **uwierzytelniania** ustawiono opcję **indywidualne konta użytkowników**. Kliknij przycisk **OK** aby kontynuować.
+3. W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **formularze sieci Web** i wybierz opcje **MVC** i **Web API** . Upewnij się również, że opcja **uwierzytelniania** jest ustawiona na **konta poszczególnych użytkowników**. Kliknij przycisk **OK** , aby kontynuować.
 
-    ![Tworzenie nowego projektu za pomocą szablonu formularzy sieci Web, w tym składników Web API i MVC](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image3.png)
+    ![Tworzenie nowego projektu za pomocą szablonu formularzy sieci Web, w tym składnika Web API i składników MVC](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image3.png)
 
-    *Tworzenie nowego projektu za pomocą szablonu formularzy sieci Web, w tym składników Web API i MVC*
-4. Teraz możesz eksplorować strukturę wygenerowanego rozwiązania.
+    *Tworzenie nowego projektu za pomocą szablonu formularzy sieci Web, w tym składnika Web API i składników MVC*
+4. Teraz możesz zapoznać się ze strukturą wygenerowanego rozwiązania.
 
-    ![Eksplorowanie wygenerowanej rozwiązania](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image4.png)
+    ![Eksplorowanie wygenerowanego rozwiązania](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image4.png)
 
-    *Eksplorowanie wygenerowanej rozwiązania*
+    *Eksplorowanie wygenerowanego rozwiązania*
 
-    1. **Konto:** Ten folder zawiera strony formularzy sieci Web do rejestracji, zaloguj się do i zarządzanie kontami użytkowników w aplikacji. Ten folder jest dodawany, gdy **indywidualne konta użytkowników** wybrano opcję uwierzytelniania podczas konfigurowania szablonu projektu formularzy sieci Web.
-    2. **Modele:** Ten folder zawiera klasy reprezentujące dane aplikacji.
-    3. **Kontrolery** i **widoków**: Te foldery są wymagane dla **platformy ASP.NET MVC** i **ASP.NET Web API** składników. Przedstawimy technologii MVC i interfejs API sieci Web w następnym ćwiczeniach.
-    4. **Default.aspx**, **Contact.aspx** i **About.aspx** pliki są wstępnie zdefiniowane stron formularzy sieci Web, które służy jako punkt wyjścia do tworzenia stron, które są specyficzne dla użytkownika aplikacja. Logikę programistyczną tych plików znajduje się w oddzielnym pliku, nazywane &quot;związanym z kodem&quot; pliku, który ma &quot;. aspx.vb&quot; lub &quot;. aspx.cs&quot; rozszerzenia (w zależności od język używany). Logika związanym z kodem działa na serwerze i dynamicznie generuje dane wyjściowe HTML dla strony.
-    5. **Site.Master** i **Site.Mobile.Master** stron zdefiniować wygląd i działanie i standardowe zachowanie wszystkich stron w aplikacji.
-5. Kliknij dwukrotnie **Default.aspx** plik, aby eksplorować zawartość strony.
+    1. **Konto:** Ten folder zawiera strony formularza sieci Web, które umożliwiają rejestrację i logowanie do kont użytkowników aplikacji oraz zarządzanie nimi. Ten folder jest dodawany w przypadku wybrania opcji uwierzytelnianie **poszczególnych kont użytkowników** podczas konfiguracji szablonu projektu formularzy sieci Web.
+    2. **Modele:** Ten folder będzie zawierać klasy, które reprezentują dane aplikacji.
+    3. **Kontrolery** i **widoki**: te foldery są wymagane dla składników **interfejsu API sieci Web** **ASP.NET MVC** i ASP.NET. W następnych ćwiczeniach znajdziesz technologie MVC i interfejsu API sieci Web.
+    4. **Default. aspx**, **Contact. aspx** i **Informacje o plikach. aspx** są wstępnie zdefiniowanymi stronami formularzy sieci Web, których można użyć jako punktów początkowych w celu utworzenia stron specyficznych dla aplikacji. Logika programowania tych plików znajduje się w osobnym pliku, zwanym &quot;&quot; pliku, który ma &quot;. aspx. vb&quot; lub &quot;. aspx.cs&quot; rozszerzenia (w zależności od używanego języka). Logika związany z kodem jest uruchamiana na serwerze i dynamicznie tworzy dane wyjściowe HTML dla strony.
+    5. Strony **site. Master** i **site. Mobile. Master** definiują wygląd i działanie oraz standardowe zachowanie wszystkich stron w aplikacji.
+5. Kliknij dwukrotnie plik **default. aspx** , aby poznać zawartość strony.
 
-    ![Eksplorowanie strony Default.aspx](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image5.png)
+    ![Eksplorowanie domyślnej strony. aspx](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image5.png)
 
-    *Eksplorowanie strony Default.aspx*
+    *Eksplorowanie domyślnej strony. aspx*
 
     > [!NOTE]
-    > **Strony** dyrektywę w górnej części pliku definiuje atrybuty strony formularzy sieci Web. Na przykład **MasterPageFile** atrybut określa ścieżkę do poziomu głównego stronie — w tym przypadku *Site.Master* stronie — i **Inherits** definiuje atrybut osobna klasa kodu strony dziedziczenia. Ta klasa znajduje się w pliku ustalany na podstawie **CodeBehind** atrybutu.
+    > Dyrektywa **Page** w górnej części pliku definiuje atrybuty strony formularzy sieci Web. Na przykład atrybut **MasterPageFile** określa ścieżkę do strony głównej — w tym przypadku strona *site. Master* i atrybut **Inherits** definiuje klasę powiązany kod dla strony do dziedziczenia. Ta klasa znajduje się w pliku określonym przez atrybut **CodeBehind** .
     > 
-    > **Asp: Content** kontroli rzeczywiste zawartością strony (tekst, znaczników i kontrolki) i jest mapowany na **asp: ContentPlaceHolder** kontrolki na stronie głównej. W tym przypadku będzie renderowana zawartość strony wewnątrz *MainContent* kontroli *Site.Master* strony.
-6. Rozwiń **aplikacji\_Start** folderu i zwróć uwagę, **WebApiConfig.cs** pliku. Programu Visual Studio tego pliku są zawarte w wygenerowanym rozwiązaniu, ponieważ dołączył interfejsu API sieci Web podczas konfigurowania projektu z szablonu aplikacji One ASP.NET.
-7. Otwórz **WebApiConfig.cs** pliku. W *WebApiConfig* klasy można znaleźć konfiguracji skojarzone z internetowego interfejsu API, który mapuje HTTP kieruje do **kontrolerów internetowych interfejsów API**.
+    > Formant **ASP: zawartość** przechowuje rzeczywistą zawartość strony (tekst, znacznik i kontrolki) i jest zamapowana na kontrolkę **ASP: ContentPlaceHolder** na stronie wzorcowej. W takim przypadku zawartość strony będzie renderowana wewnątrz kontrolki *kontrolka mainContent* zdefiniowanej na stronie *site. Master* .
+6. Rozwiń węzeł **aplikacji\_Start** i zwróć uwagę na plik **WebApiConfig.cs** . Program Visual Studio uwzględniał ten plik w wygenerowanym rozwiązaniu, ponieważ dołączono internetowy interfejs API podczas konfigurowania projektu przy użyciu jednego szablonu ASP.NET.
+7. Otwórz plik **WebApiConfig.cs** . W klasie *WebApiConfig* znajduje się konfiguracja skojarzona z interfejsem API sieci Web, która mapuje trasy protokołu HTTP na **Kontrolery interfejsu API sieci Web**.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample1.cs)]
-8. Otwórz **RouteConfig.cs** pliku. Wewnątrz *RegisterRoutes* metody, można znaleźć konfiguracji skojarzone z MVC, która mapuje trasy HTTP **kontrolerów MVC**.
+8. Otwórz plik **RouteConfig.cs** . Wewnątrz metody *RegisterRoutes* znajduje się konfiguracja skojarzona z MVC, która mapuje trasy protokołu HTTP na **Kontrolery MVC**.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample2.cs)]
 
 <a id="Ex1Task2"></a>
-#### <a name="task-2--running-the-solution"></a>Zadanie 2 — uruchamianie rozwiązania
+#### <a name="task-2--running-the-solution"></a>Zadanie 2 — Uruchamianie rozwiązania
 
-W ramach tego zadania będzie uruchomić wygenerowanego rozwiązanie, zapoznaj się z aplikacji i część jej dostępnych funkcji, takich jak ponownego zapisywania adresów URL i wbudowanego uwierzytelniania za pomocą.
+W tym zadaniu zostanie uruchomione wygenerowane rozwiązanie, zbadasz aplikację i niektóre jej funkcje, takie jak ponowne zapisywanie adresów URL i uwierzytelnianie wbudowane.
 
-1. Aby uruchomić rozwiązanie, naciśnij klawisz **F5** lub kliknij przycisk **Start** znajdujący się na pasku narzędzi. Strona główna aplikacji powinna zostać otwarta w przeglądarce.
+1. Aby uruchomić rozwiązanie, naciśnij klawisz **F5** lub kliknij przycisk **Start** znajdujący się na pasku narzędzi. Strona główna aplikacji powinna być otwarta w przeglądarce.
 
     ![Uruchamianie rozwiązania](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image6.png)
-2. Sprawdź, czy strony formularzy sieci Web są wywoływane. Aby to zrobić, należy dołączyć **/contact.aspx** do adresu URL w pasku adresu i naciśnij klawisz **Enter**.
+2. Sprawdź, czy strony formularzy sieci Web są wywoływane. W tym celu Dołącz **/Contact.aspx** do adresu URL na pasku adresu i naciśnij klawisz **Enter**.
 
     ![Przyjazne adresy URL](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image7.png)
 
     *Przyjazne adresy URL*
 
     > [!NOTE]
-    > Jak widać, zmiana adresu URL do **/skontaktuj się z pomocą**. Począwszy od **platformy ASP.NET 4**możliwości routingu adresów URL zostały dodane do formularzy sieci Web, dzięki czemu można napisać adresy URL, takich jak *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* zamiast  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Aby uzyskać więcej informacji zobacz [routingu adresów URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
-3. Może teraz zapoznać się przepływ uwierzytelniania w aplikacji. Aby to zrobić, kliknij przycisk **zarejestrować** w prawym górnym rogu strony.
+    > Jak widać, adres URL zmieni się na **/Contact**. Począwszy od **ASP.NET 4**, możliwości routingu adresów URL zostały dodane do formularzy sieci Web, dzięki czemu można pisać adresy URL, takie jak *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* , a nie *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)* . Aby uzyskać więcej informacji, zobacz [Routing adresów URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+3. Teraz zostanie zbadany przepływ uwierzytelniania zintegrowany z aplikacją. W tym celu kliknij pozycję **zarejestruj** w prawym górnym rogu strony.
 
     ![Rejestrowanie nowego użytkownika](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
 
     *Rejestrowanie nowego użytkownika*
-4. W **zarejestrować** wpisz **nazwa_użytkownika** i **hasło**, a następnie kliknij przycisk **zarejestrować**.
+4. Na stronie **Rejestr** wprowadź **nazwę użytkownika** i **hasło**, a następnie kliknij pozycję **zarejestruj**.
 
     ![Strona rejestracji](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image9.png)
 
     *Strona rejestracji*
-5. Aplikacja rejestruje nowe konto, a użytkownik jest uwierzytelniony.
+5. Aplikacja rejestruje nowe konto, a użytkownik jest uwierzytelniany.
 
     ![Użytkownik uwierzytelniony](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image10.png)
 
     *Użytkownik uwierzytelniony*
-6. Wróć do programu Visual Studio, a następnie naciśnij klawisz **SHIFT + F5** Aby zatrzymać debugowanie.
+6. Wróć do programu Visual Studio i naciśnij klawisze **Shift + F5** , aby zatrzymać debugowanie.
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-creating-an-mvc-controller-using-scaffolding"></a>Ćwiczenie 2: Tworzenie szkieletów kontrolera MVC
+### <a name="exercise-2-creating-an-mvc-controller-using-scaffolding"></a>Ćwiczenie 2: Tworzenie kontrolera MVC przy użyciu szkieletu
 
-W tym ćwiczeniu będzie korzystać z platformę ASP.NET tworzenie szkieletów udostępniane przez program Visual Studio, aby utworzyć kontroler składnika ASP.NET MVC 5 z akcjami i widokami Razor do wykonywania operacji CRUD, bez konieczności pisania nawet jednego wiersza kodu. Proces tworzenia szkieletów użyje Entity Framework Code First generowanie kontekstu danych i schemat bazy danych w bazie danych SQL.
+W tym ćwiczeniu wykorzystasz platformę tworzenia szkieletów ASP.NET zapewnianą przez program Visual Studio, aby utworzyć kontroler ASP.NET MVC 5 z akcjami i widokami Razor do wykonywania operacji CRUD, bez konieczności pisania pojedynczego wiersza kodu. Proces tworzenia szkieletu będzie używać Entity Framework Code First do wygenerowania kontekstu danych i schematu bazy danych w bazie danych SQL.
 
-**O programu Entity Framework Code najpierw**
+**Informacje o Entity Framework Code First**
 
-Entity Framework (EF) to maper obiektowo relacyjny (ORM), który pozwala na tworzenie aplikacji dostęp do danych przez programowania, korzystając z modelu koncepcyjnego aplikacji zamiast programowanie bezpośrednio przy użyciu schematu magazyn relacyjny.
+Entity Framework (EF) to Mapowanie obiektowo-relacyjne (ORM), które umożliwia tworzenie aplikacji do uzyskiwania dostępu do danych przez Programowanie przy użyciu modelu aplikacji koncepcyjnej zamiast programowania bezpośrednio przy użyciu relacyjnego schematu magazynu.
 
-Entity Framework Code First modelowania przepływu pracy pozwala na używanie własnych klas domeny do reprezentowania model, który EF opiera się na podczas wykonywania zapytania, funkcji śledzenia zmian i aktualizacji. Za pomocą Code First przepływ pracy tworzenia oprogramowania, nie trzeba zacząć aplikację przez utworzenie bazy danych lub określenie schematu. Zamiast tego można napisać standardowych klas platformy .NET, które określają najbardziej odpowiednie obiekty modelu domeny dla swojej aplikacji i Entity Framework spowoduje utworzenie bazy danych dla Ciebie.
+Przepływ pracy modelowania Entity Framework Code First umożliwia korzystanie z własnych klas domeny do reprezentowania modelu, na którym opiera się program Dr podczas wykonywania zapytań, śledzenia zmian i aktualizowania funkcji. Korzystając z przepływu pracy tworzenia Code First, nie musisz rozpoczynać swojej aplikacji, tworząc bazę danych lub określając schemat. Zamiast tego można napisać standardowe klasy .NET, które definiują najbardziej odpowiednie obiekty modelu domeny dla aplikacji, a Entity Framework utworzy bazę danych.
 
 > [!NOTE]
-> Dowiedz się więcej na temat platformy Entity Framework [tutaj](../../../entity-framework.md).
+> Więcej informacji na temat Entity Framework można znaleźć [tutaj](../../../entity-framework.md).
 
 <a id="Ex2Task1"></a>
 #### <a name="task-1--creating-a-new-model"></a>Zadanie 1 — Tworzenie nowego modelu
 
-Teraz określi **osoby** klasy, która będzie model używany przez proces tworzenia szkieletu do tworzenia widoków i kontrolerów MVC. Rozpocznie się przez utworzenie **osoby** klasy modelu, a operacje CRUD na kontrolerze zostaną automatycznie utworzone przy użyciu funkcji tworzenia szkieletów.
+Teraz zdefiniujemy klasy **Person** , która będzie modelem używanym przez proces tworzenia szkieletu, aby utworzyć kontroler MVC i widoki. Zacznij od utworzenia klasy modelu **osoby** i CRUD operacje w kontrolerze zostaną automatycznie utworzone przy użyciu funkcji tworzenia szkieletów.
 
-1. Otwórz **Visual Studio Express 2013 for Web** i **MyHybridSite.sln** rozwiązanie znajduje się w **/Ex2-MvcScaffolding/początkowy w źródle** folderu. Alternatywnie można kontynuować z rozwiązaniem uzyskanym w poprzednim ćwiczeniu.
-2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **modeli** folderu **MyHybridSite** projektu, a następnie wybierz **Dodaj | Klasa...** .
+1. Otwórz **Visual Studio Express 2013 dla sieci Web** i rozwiązania **MyHybridSite. sln** znajdującego się w folderze **Source/Ex2-MvcScaffolding/BEGIN** . Alternatywnie możesz kontynuować z rozwiązaniem uzyskanym w poprzednim ćwiczeniu.
+2. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **modele** projektu **MyHybridSite** i wybierz polecenie **Dodaj | Klasa...** .
 
     ![Dodawanie klasy modelu osoby](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image11.png)
 
     *Dodawanie klasy modelu osoby*
-3. W **Dodaj nowy element** okno dialogowe, nazwij plik *osoba.cs* i kliknij przycisk **Dodaj**.
+3. W oknie dialogowym **Dodaj nowy element** nazwij plik *Person.cs* i kliknij przycisk **Dodaj**.
 
     ![Tworzenie klasy modelu osoby](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image12.png)
 
     *Tworzenie klasy modelu osoby*
-4. Zastąp zawartość **osoba.cs** pliku następującym kodem. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
+4. Zastąp zawartość pliku **Person.cs** następującym kodem. Naciśnij **kombinację klawiszy Ctrl + S** , aby zapisać zmiany.
 
-    (Code Snippet — *PersonClass BringingTogetherOneAspNet - Ex2 -*)
+    (Fragment kodu- *BringingTogetherOneAspNet-Ex2-PersonClass*)
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample3.cs)]
-5. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **MyHybridSite** projektu, a następnie wybierz **kompilacji**, lub naciśnij **CTRL + SHIFT + B** do skompilowania projektu.
+5. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **MyHybridSite** i wybierz polecenie **Kompiluj**lub naciśnij **klawisze CTRL + SHIFT + B** , aby skompilować projekt.
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2--creating-an-mvc-controller"></a>Zadanie 2 — Tworzenie kontrolera MVC
 
-Teraz, gdy **osoby** model został utworzony, ponieważ będziesz korzystać scaffolding ASP.NET MVC za pomocą platformy Entity Framework do tworzenia akcji kontrolera CRUD i widoków **osoby**.
+Teraz, gdy jest tworzony model **osoby** , użyjesz szkieletu ASP.NET MVC z Entity Framework, aby utworzyć akcje i widoki kontrolera CRUD dla **osoby**.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów** folderu **MyHybridSite** projektu, a następnie wybierz **Dodaj | Nowy element szkieletowy...** .
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **controllers (kontrolery** ) projektu **MyHybridSite** i wybierz polecenie **Dodaj | Nowy element szkieletowy..** .
 
-    ![Tworzenie nowego szkieletu kontrolera](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image13.png)
+    ![Tworzenie nowego kontrolera szkieletowego](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image13.png)
 
-    *Tworzenie nowego kontrolera szkielet*
-2. W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC 5 z widokami używający narzędzia Entity Framework** a następnie kliknij przycisk **Dodaj.**
+    *Tworzenie nowego kontrolera szkieletowego*
+2. W oknie dialogowym **Dodawanie szkieletu** wybierz **kontroler MVC 5 z widokami, używając Entity Framework** a następnie kliknij przycisk **Dodaj.**
 
-    ![Wybieranie kontroler MVC 5 z widokami i Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image14.png)
+    ![Wybieranie kontrolera MVC 5 z widokami i Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image14.png)
 
-    *Wybieranie kontroler MVC 5 z widokami i Entity Framework*
-3. Ustaw *MvcPersonController* jako **nazwy kontrolera**, wybierz opcję **używać asynchronicznych akcji kontrolera** opcji, a następnie wybierz pozycję **osoby (MyHybridSite.Models)**  jako **klasa modelu**.
+    *Wybieranie kontrolera MVC 5 z widokami i Entity Framework*
+3. Ustaw *MvcPersonController* jako **nazwę kontrolera**, wybierz opcję **Użyj akcji kontrolerów asynchronicznych** i wybierz **osobę (MyHybridSite. models)** jako **klasę modelu**.
 
-    ![Dodawanie kontrolera MVC za pomocą tworzenia szkieletów](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image15.png)
+    ![Dodawanie kontrolera MVC z szkieletem](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image15.png)
 
-    *Dodawanie kontrolera MVC za pomocą tworzenia szkieletów*
-4. W obszarze **klasa kontekstu danych**, kliknij przycisk **nowy kontekst danych...** .
+    *Dodawanie kontrolera MVC z szkieletem*
+4. W obszarze **Klasa kontekstu danych**kliknij pozycję **nowy kontekst danych..** .
 
-    ![Tworząc nowy kontekst danych](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image16.png)
+    ![Tworzenie nowego kontekstu danych](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image16.png)
 
-    *Tworząc nowy kontekst danych*
-5. W **nowy kontekst danych** okno dialogowe, nazwa nowy kontekst danych *PersonContext* i kliknij przycisk **Dodaj**.
+    *Tworzenie nowego kontekstu danych*
+5. W oknie dialogowym **nowy kontekst danych** Nazwij nowy kontekst danych *PersonContext* i kliknij przycisk **Dodaj**.
 
     ![Tworzenie nowego PersonContext](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image17.png)
 
     *Tworzenie nowego typu PersonContext*
-6. Kliknij przycisk **Dodaj** do utworzenia nowego kontrolera dla **osoby** z tworzenia szkieletów. Program Visual Studio wygeneruje wtedy akcji kontrolera, kontekst danych osoby i widokami Razor.
+6. Kliknij przycisk **Dodaj** , aby utworzyć nowy kontroler dla **osoby** z szkieletem. Program Visual Studio wygeneruje następnie akcje kontrolera, kontekst danych osoby i widoki Razor.
 
-    ![Po utworzeniu kontroler MVC z tworzenia szkieletów](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image18.png)
+    ![Po utworzeniu kontrolera MVC przy użyciu szkieletu](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image18.png)
 
-    *Po utworzeniu kontroler MVC z tworzenia szkieletów*
-7. Otwórz **MvcPersonController.cs** w pliku **kontrolerów** folderu. Należy zauważyć, że metody akcji CRUD został wygenerowany automatycznie.
+    *Po utworzeniu kontrolera MVC przy użyciu szkieletu*
+7. Otwórz plik **MvcPersonController.cs** w folderze **controllers** . Zauważ, że metody akcji CRUD zostały wygenerowane automatycznie.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample4.cs)]
 
     > [!NOTE]
-    > Wybierając **używać asynchronicznych akcji kontrolera** pole wyboru szkieletu opcje w poprzednich krokach, program Visual Studio generuje metod asynchronicznych akcji dla wszystkich akcji, które obejmują dostęp do kontekstu danych osoby. Zalecane jest, że używasz metod asynchronicznych akcji dla długotrwałych, innego niż procesor CPU powiązane żądania w celu unikania blokowania serwera sieci Web z wykonywania pracy, podczas przetwarzania żądania.
+    > Zaznaczając pole wyboru **Użyj akcji kontrolera asynchronicznego** z opcji tworzenia szkieletów w poprzednich krokach, program Visual Studio generuje asynchroniczne metody akcji dla wszystkich akcji, które obejmują dostęp do kontekstu danych osoby. Zalecane jest używanie asynchronicznych metod akcji dla długotrwałych żądań niezwiązanych z procesorem CPU, aby uniknąć zablokowania pracy serwera sieci Web podczas przetwarzania żądania.
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--running-the-solution"></a>Zadanie 3 — uruchamianie rozwiązania
+#### <a name="task-3--running-the-solution"></a>Zadanie 3 — Uruchamianie rozwiązania
 
-W tym zadaniu uruchomisz rozwiązanie ponownie, aby sprawdzić, czy widoków dla **osoby** działają zgodnie z oczekiwaniami. Należy dodać nową osobę, aby sprawdzić, czy zostaje pomyślnie zapisane w bazie danych.
+W tym zadaniu zostanie ponownie uruchomione rozwiązanie, aby sprawdzić, czy widoki dla **osób** działają zgodnie z oczekiwaniami. Dodasz nową osobę, aby sprawdzić, czy została pomyślnie zapisana w bazie danych.
 
-1. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie.
-2. Przejdź do **/MvcPerson**. Widok szkieletu, który pokazuje listę osób, powinny być wyświetlane.
-3. Kliknij przycisk **Utwórz nową** na dodawanie nowej osoby.
+1. Naciśnij klawisz **F5** , aby uruchomić rozwiązanie.
+2. Przejdź do **/MvcPerson**. Widok szkieletu, który pokazuje listę osób, powinna zostać wyświetlona.
+3. Kliknij przycisk **Utwórz nowy** , aby dodać nową osobę.
 
-    ![Przejdź do szkieletu widoków MVC](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image19.png)
+    ![Przechodzenie do widoków szkieletowych MVC](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image19.png)
 
-    *Przejdź do szkieletu widoków MVC*
-4. W **Utwórz** wyświetlanie, podaj **nazwa** i **wiek** osoby, a następnie kliknij przycisk **Utwórz**.
+    *Przechodzenie do widoków szkieletowych MVC*
+4. W widoku **Utwórz** Podaj **nazwę** i **wiek** osoby, a następnie kliknij pozycję **Utwórz**.
 
     ![Dodawanie nowej osoby](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image20.png)
 
     *Dodawanie nowej osoby*
-5. Nowej osoby zostanie dodany do listy. Na liście elementów kliknij **szczegóły** do wyświetlenia widoku szczegółów osoby. Następnie w **szczegóły** wyświetlić, kliknij przycisk **powrót do listy** aby powrócić do widoku listy.
+5. Nowa osoba zostanie dodana do listy. Na liście element kliknij pozycję **szczegóły** , aby wyświetlić widok szczegółów osoby. Następnie w widoku **szczegółów** kliknij przycisk **wstecz do listy** , aby wrócić do widoku listy.
 
     ![Widok szczegółów osoby](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image21.png)
 
     *Widok szczegółów osoby*
-6. Kliknij przycisk **Usuń** łącze, aby usunąć osoby. W **Usuń** wyświetlić, kliknij przycisk **Usuń** o potwierdzenie operacji.
+6. Kliknij link **Usuń** , aby usunąć osobę. W widoku **Usuń** kliknij pozycję **Usuń** , aby potwierdzić operację.
 
     ![Usuwanie osoby](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image22.png)
 
     *Usuwanie osoby*
-7. Wróć do programu Visual Studio, a następnie naciśnij klawisz **SHIFT + F5** Aby zatrzymać debugowanie.
+7. Wróć do programu Visual Studio i naciśnij klawisze **Shift + F5** , aby zatrzymać debugowanie.
 
 <a id="Exercise3"></a>
-### <a name="exercise-3-creating-a-web-api-controller-using-scaffolding"></a>Ćwiczenie 3: Tworzenie szkieletów kontrolera interfejsu API sieci Web
+### <a name="exercise-3-creating-a-web-api-controller-using-scaffolding"></a>Ćwiczenie 3: Tworzenie kontrolera interfejsu API sieci Web za pomocą szkieletu
 
-Strukturę interfejsu API sieci Web jest częścią stosu ASP.NET i mają ułatwić Implementowanie usług HTTP, zwykle wysyłania i odbierania danych w formacie JSON lub XML za pomocą interfejsu API RESTful.
+Struktura internetowego interfejsu API jest częścią stosu ASP.NET i została zaprojektowana w celu ułatwienia wdrażania usług HTTP, zazwyczaj wysyłania i otrzymywania danych w formacie JSON lub XML za pośrednictwem interfejsu API RESTful.
 
-W tym ćwiczeniu funkcja tworzenia szkieletu ASP.NET będzie użyć ponownie, aby wygenerować kontroler Web API. Będzie używać tego samego **osoby** i **PersonContext** klas z poprzednim ćwiczeniu, aby zapewnić te same dane osoby w formacie JSON. Zobaczysz, jak udostępnić te same zasoby na różne sposoby, w ramach tej samej aplikacji ASP.NET.
+W tym ćwiczeniu ponownie użyjesz szkieletu ASP.NET, aby wygenerować kontroler interfejsu API sieci Web. Użyjesz tej samej **osoby** i **PersonContext** z poprzedniego ćwiczenia, aby zapewnić te same dane osobom w formacie JSON. Zobaczysz, jak można uwidocznić te same zasoby na różne sposoby w tej samej aplikacji ASP.NET.
 
 <a id="Ex3Task1"></a>
 #### <a name="task-1--creating-a-web-api-controller"></a>Zadanie 1 — Tworzenie kontrolera interfejsu API sieci Web
 
-W tym zadaniu zostanie utworzony nowy **kontroler internetowego interfejsu API** , spowodują ujawnienie danych osobowych w formacie usprawnia maszyny, takich jak JSON.
+W tym zadaniu utworzysz nowy **kontroler interfejsu API sieci Web** , który będzie uwidaczniał dane osoby w formacie, który jest przeznaczony do użycia maszynowego, na przykład JSON.
 
-1. Jeśli nie jest jeszcze otwarty, otwórz **Visual Studio Express 2013 for Web** , a następnie otwórz **MyHybridSite.sln** rozwiązanie znajduje się w **/Ex3-WebAPI/początkowy w źródle** folderu. Alternatywnie można kontynuować z rozwiązaniem uzyskanym w poprzednim ćwiczeniu.
+1. Jeśli nie zostało to jeszcze zrobione, Otwórz **Visual Studio Express 2013 dla sieci Web** i Otwórz rozwiązanie **MyHybridSite. sln** znajdujące się w folderze **Source/Ex3-WebAPI/BEGIN** . Alternatywnie możesz kontynuować z rozwiązaniem uzyskanym w poprzednim ćwiczeniu.
 
     > [!NOTE]
-    > W przypadku uruchomienia za pomocą rozwiązania Rozpocznij od 3 do wykonywania, naciśnij klawisz **CTRL + SHIFT + B** do skompilowania rozwiązania.
-2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów** folderu **MyHybridSite** projektu, a następnie wybierz **Dodaj | Nowy element szkieletowy...** .
+    > Jeśli zaczniesz od rozwiązania BEGIN 3, naciśnij **kombinację klawiszy Ctrl + Shift + B** , aby skompilować rozwiązanie.
+2. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **controllers (kontrolery** ) projektu **MyHybridSite** i wybierz polecenie **Dodaj | Nowy element szkieletowy..** .
 
-    ![Tworzenie nowego szkieletu kontrolera](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image23.png)
+    ![Tworzenie nowego kontrolera szkieletowego](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image23.png)
 
-    *Tworzenie nowego szkieletu kontrolera*
-3. W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **interfejsu API sieci Web** w lewym okienku, a następnie **kontroler internetowego interfejsu API 2 z akcjami używający narzędzia Entity Framework** w środkowym okienku, a następnie kliknij przycisk  **Dodaj.**
+    *Tworzenie nowego kontrolera szkieletowego*
+3. W oknie dialogowym **Dodawanie szkieletu** wybierz pozycję **interfejs API sieci Web** w okienku po lewej stronie, a następnie kliknij pozycję **Kontroler sieci Web API 2 z akcjami, używając Entity Framework** w środkowym okienku, a następnie klikając przycisk **Dodaj.**
 
-    ![Wybieranie kontroler 2 internetowego interfejsu API z akcjami i Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "wybierając kontroler internetowego interfejsu API 2 z akcjami i Entity Framework")
+    ![Wybieranie kontrolera Web API 2 z akcjami i Entity Framework](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "Wybieranie kontrolera Web API 2 z akcjami i Entity Framework")
 
-    *Wybieranie kontroler internetowego interfejsu API 2 z akcjami i Entity Framework*
-4. Ustaw *ApiPersonController* jako **nazwy kontrolera**, wybierz opcję **używać asynchronicznych akcji kontrolera** opcji, a następnie wybierz pozycję **osoby (MyHybridSite.Models)**  i **PersonContext (MyHybridSite.Models)** jako **modelu** i **kontekstu danych** klasy odpowiednio. Następnie kliknij przycisk **Dodaj**.
+    *Wybieranie kontrolera Web API 2 z akcjami i Entity Framework*
+4. Ustaw *ApiPersonController* jako **nazwę kontrolera**, wybierz opcję **Użyj akcji kontrolerów asynchronicznych** i wybierz **osobę (MyHybridSite. models)** i **PersonContext (MyHybridSite. models)** jako odpowiednio **model** i klasy **kontekstu danych** . Następnie kliknij pozycję **Dodaj**.
 
-    ![Dodawanie kontrolera interfejsu API sieci Web za pomocą tworzenia szkieletów](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "Dodawanie kontrolera interfejsu API sieci Web za pomocą tworzenia szkieletów")
+    ![Dodawanie kontrolera interfejsu API sieci Web z szkieletem](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "Dodawanie kontrolera interfejsu API sieci Web z szkieletem")
 
-    *Dodawanie kontrolera interfejsu API sieci Web za pomocą tworzenia szkieletów*
-5. Program Visual Studio wygeneruje wtedy **ApiPersonController** klasie z atrybutem cztery akcje CRUD do pracy z danymi.
+    *Dodawanie kontrolera interfejsu API sieci Web z szkieletem*
+5. Program Visual Studio wygeneruje następnie klasę **ApiPersonController** z czterema akcjami CRUD do pracy z danymi.
 
-    ![Po utworzeniu kontroler Web API za pomocą tworzenia szkieletów](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image26.png "po utworzeniu kontroler Web API za pomocą tworzenia szkieletów")
+    ![Po utworzeniu kontrolera interfejsu API sieci Web przy użyciu szkieletu](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image26.png "Po utworzeniu kontrolera interfejsu API sieci Web przy użyciu szkieletu")
 
-    *Po utworzeniu kontroler Web API za pomocą tworzenia szkieletów*
-6. Otwórz **ApiPersonController.cs** plik i sprawdzić *GetPeople* metody akcji. Ta metoda wysyła zapytanie pola db **PersonContext** typu, aby pobrać dane osoby.
+    *Po utworzeniu kontrolera interfejsu API sieci Web przy użyciu szkieletu*
+6. Otwórz plik **ApiPersonController.cs** i sprawdź *metodę akcji* GetActions. Ta metoda wysyła zapytanie do pola DB typu **PersonContext** w celu uzyskania danych dotyczących osób.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample5.cs)]
-7. Teraz zauważyć komentarz powyżej definicję metody. Zawiera identyfikator URI, który udostępnia tę akcję, który będzie używany w ramach następnego zadania.
+7. Teraz Zwróć uwagę na komentarz powyżej definicji metody. Zawiera identyfikator URI, który uwidacznia tę akcję, która zostanie użyta w następnym zadaniu.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample6.cs)]
 
     > [!NOTE]
-    > Domyślnie interfejs API sieci Web jest skonfigurowany do zapytań, aby przechwycić */interfejs API* ścieżki w celu uniknięcia kolizji z kontrolerów MVC. Jeśli potrzebujesz zmienić to ustawienie, zapoznaj się [routingu ASP.NET Web API](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).
+    > Domyślnie internetowy interfejs API jest skonfigurowany do przechwytywania zapytań do ścieżki */API* , aby uniknąć kolizji z kontrolerami MVC. Jeśli chcesz zmienić to ustawienie, zapoznaj się z tematem [Routing in ASP.NET Web API](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).
 
 <a id="Ex3Task2"></a>
-#### <a name="task-2--running-the-solution"></a>Zadanie 2 — uruchamianie rozwiązania
+#### <a name="task-2--running-the-solution"></a>Zadanie 2 — Uruchamianie rozwiązania
 
-W ramach tego zadania będzie używać programu Internet Explorer **narzędzi deweloperskich F12** Aby sprawdzić pełną odpowiedź z kontrolera interfejsu API sieci Web. Zobaczysz, jak przechwytywać ruch sieciowy, aby uzyskać lepszy wgląd w dane aplikacji.
+W tym zadaniu będziesz używać **narzędzi deweloperskich** programu Internet Explorer F12, aby sprawdzić pełną odpowiedź z kontrolera interfejsu API sieci Web. Zobaczysz, jak można przechwytywać ruch sieciowy, aby uzyskać więcej informacji o danych aplikacji.
 
 > [!NOTE]
-> Upewnij się, że **programu Internet Explorer** wybrano **Start** znajdujący się na pasku narzędzi programu Visual Studio.
+> Upewnij **się, że** na pasku narzędzi programu Visual Studio jest wybrany program **Internet Explorer** .
 > 
-> ![Internet Explorer option](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image27.png)
+> ![Opcja programu Internet Explorer](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image27.png)
 > 
-> **Narzędzi deweloperskich F12** mają szeroki zestaw funkcji, która nie została uwzględniona w tym hands-na-laboratorium. Aby dowiedzieć się więcej na ten temat, zapoznaj się [przy użyciu narzędzi deweloperskich F12](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
+> **Narzędzia programistyczne F12** mają szeroki zestaw funkcji, które nie są omówione w tym ćwiczeniu. Jeśli chcesz dowiedzieć się więcej na ten temat, zobacz [Korzystanie z narzędzi programistycznych F12](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
 
-1. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie.
+1. Naciśnij klawisz **F5** , aby uruchomić rozwiązanie.
 
     > [!NOTE]
-    > Aby można było wykonać to zadanie prawidłowo, aplikacja musi mieć danych. Jeśli baza danych jest pusta, można wrócić do zadanie 3 w wersji 2 wykonywania i postępuj zgodnie z instrukcjami na temat tworzenia nowej osoby za pomocą widoków MVC.
-2. W przeglądarce naciśnij **F12** otworzyć **narzędzi deweloperskich** panelu. Naciśnij klawisz **CTRL** + **4** lub kliknij przycisk **sieci** ikonę, a następnie kliknij przycisk zieloną strzałkę, aby rozpocząć przechwytywanie ruchu sieciowego.
+    > Aby prawidłowo wykonać to zadanie, aplikacja musi mieć dane. Jeśli baza danych jest pusta, możesz wrócić do zadania 3 w ćwiczeniu 2 i postępować zgodnie z instrukcjami dotyczącymi tworzenia nowej osoby przy użyciu widoków MVC.
+2. W przeglądarce naciśnij klawisz **F12** , aby otworzyć panel **Narzędzia deweloperskie** . Naciśnij klawisz **CTRL** + **4** lub kliknij ikonę **sieci** , a następnie kliknij przycisk Zielona strzałka, aby rozpocząć przechwytywanie ruchu sieciowego.
 
-    ![Inicjowanie interfejsu API sieci Web, przechwytywanie sieci](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image28.png "przechwytywania sieci Inicjowanie interfejsu API sieci Web")
+    ![Inicjowanie przechwytywania sieci Web API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image28.png "Inicjowanie przechwytywania sieci Web API")
 
-    *Inicjuje Przechwytywanie sieci interfejsu API sieci Web*
-3. Dołącz **interfejsu api/ApiPerson** do adresu URL w pasku adresu przeglądarki. Teraz Sprawdź szczegóły odpowiedzi z **ApiPersonController**.
+    *Inicjowanie przechwytywania sieci Web API*
+3. Dołącz **interfejs API/ApiPerson** do adresu URL na pasku adresu przeglądarki. Teraz sprawdzisz szczegóły odpowiedzi z **ApiPersonController**.
 
-    ![Trwa pobieranie danych osobowych za pomocą interfejsu API sieci Web](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image29.png "podczas pobierania danych osobowych za pomocą interfejsu API sieci Web")
+    ![Pobieranie danych osoby za poorednictwem internetowego interfejsu API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image29.png "Pobieranie danych osoby za poorednictwem internetowego interfejsu API")
 
-    *Trwa pobieranie danych osobowych za pomocą interfejsu API sieci Web*
+    *Pobieranie danych osoby za poorednictwem internetowego interfejsu API*
 
     > [!NOTE]
-    > Po zakończeniu pobierania, pojawi się akcję przy użyciu pobranego pliku. Pozostaw to okno dialogowe otwarte, aby móc obejrzeć zawartość odpowiedzi za pomocą okna narzędzia dla deweloperów.
-4. Teraz Sprawdź treść odpowiedzi. Aby to zrobić, kliknij przycisk **szczegóły** kartę, a następnie kliknij przycisk **treść odpowiedzi**. Możesz sprawdzić, czy pobrane dane znajduje się lista obiektów z właściwościami **identyfikator**, **nazwa** i **wiek** odpowiadające **osoby** Klasa.
+    > Po zakończeniu pobierania zostanie wyświetlony monit o wykonanie akcji z pobranym plikiem. Pozostaw otwarte okno dialogowe, aby móc oglądać zawartość odpowiedzi za pomocą okna narzędzia deweloperów.
+4. Teraz sprawdzimy treść odpowiedzi. Aby to zrobić, kliknij kartę **szczegóły** , a następnie kliknij pozycję **treść odpowiedzi**. Możesz sprawdzić, czy pobrane dane to lista obiektów o **identyfikatorze**właściwości, **nazwie** i **wieku** odpowiadającemu klasie **Person** .
 
-    ![Przeglądanie sieci Web w treści odpowiedzi interfejsu API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image30.png "przeglądania sieci Web w treści odpowiedzi interfejsu API")
+    ![Wyświetlanie treści odpowiedzi interfejsu API sieci Web](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image30.png "Wyświetlanie treści odpowiedzi interfejsu API sieci Web")
 
-    *Treść odpowiedzi interfejsu API sieci Web wyświetlania*
+    *Wyświetlanie treści odpowiedzi interfejsu API sieci Web*
 
 <a id="Ex3Task3"></a>
 #### <a name="task-3--adding-web-api-help-pages"></a>Zadanie 3 — Dodawanie stron pomocy interfejsu API sieci Web
 
-Podczas tworzenia internetowego interfejsu API, warto utworzyć stronę pomocy, aby inni deweloperzy powinni wiedzieć, jak wywołać interfejs API. Należy utworzyć i ręcznie zaktualizuj strony dokumentacji, ale zaleca się automatyczne generowanie je, aby uniknąć konieczności wykonaj prac konserwacyjnych. W tym zadaniu użyjesz pakietu Nuget do automatycznego generowania strony pomocy internetowego interfejsu API do rozwiązania.
+Podczas tworzenia interfejsu API sieci Web warto utworzyć stronę pomocy, aby inni deweloperzy wiedzieli, jak wywołać interfejs API. Możesz tworzyć i aktualizować strony dokumentacji ręcznie, ale lepiej jest generować je automatycznie, aby uniknąć konieczności wykonywania zadań konserwacyjnych. W tym zadaniu zostanie użyty pakiet NuGet do automatycznego generowania stron pomocy interfejsu API sieci Web w rozwiązaniu.
 
-1. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżera pakietów NuGet**, a następnie kliknij przycisk **Konsola Menedżera pakietów**.
-2. W **Konsola Menedżera pakietów** okna, wykonaj następujące polecenie:
+1. W menu **Narzędzia** w programie Visual Studio wybierz pozycję **Menedżer pakietów NuGet**, a następnie kliknij pozycję **konsola Menedżera pakietów**.
+2. W oknie **konsola Menedżera pakietów** wykonaj następujące polecenie:
 
     [!code-powershell[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample7.ps1)]
 
     > [!NOTE]
-    > **Microsoft.AspNet.WebApi.HelpPage** pakiet instaluje konieczne zestawy i dodaje widoków MVC dla stron pomocy, w obszarze **obszarów/HelpPage** folderu.
+    > Pakiet **Microsoft. ASPNET. WebApi. HelpPage** instaluje niezbędne zestawy i dodaje widoki MVC dla stron pomocy w folderze **Areas/HelpPage** .
 
-    ![Obszar HelpPage](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image31.png "HelpPage obszaru")
+    ![Obszar HelpPage](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image31.png "Obszar HelpPage")
 
     *Obszar HelpPage*
-3. Domyślnie pomocy strony zawierają symbol zastępczy parametrów dla dokumentacji. Komentarze dokumentacji XML umożliwia tworzenie w dokumentacji. Aby włączyć tę funkcję, otwórz **HelpPageConfig.cs** plik znajdujący się w **obszarów/HelpPage/aplikacji\_Start** folder i usuń znaczniki komentarza następujący wiersz:
+3. Domyślnie strony pomocy mają ciągi zastępcze dla dokumentacji. Możesz użyć komentarzy dokumentacji XML, aby utworzyć dokumentację. Aby włączyć tę funkcję, Otwórz plik **HelpPageConfig.cs** znajdujący się w folderze **Areas/HelpPage/App\_Start** i Usuń komentarz z następującego wiersza:
 
     [!code-javascript[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample8.js)]
-4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt **MyHybridSite**, wybierz opcję **właściwości** i kliknij przycisk **kompilacji** kartę.
+4. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **MyHybridSite**, wybierz pozycję **Właściwości** i kliknij kartę **kompilacja** .
 
-    ![Tworzenie karty](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image32.png "Tworzenie sekcji")
+    ![Karta kompilacja](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image32.png "Sekcja kompilacji")
 
-    *Tworzenie karty*
-5. W obszarze **dane wyjściowe**, wybierz opcję **pliku dokumentacji XML**. Wpisz w polu edycji **aplikacji\_Data/XmlDocument.xml**.
+    *Karta kompilacja*
+5. W obszarze **dane wyjściowe**wybierz pozycję **plik dokumentacji XML**. W polu edycji wpisz **aplikacja\_dane/XmlDocument. XML**.
 
-    ![Dane wyjściowe sekcji na karcie kompilacja](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "danych wyjściowych sekcji na karcie kompilacja")
+    ![Sekcja danych wyjściowych na karcie kompilacja](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "Sekcja danych wyjściowych na karcie kompilacja")
 
     *Sekcja danych wyjściowych na karcie kompilacja*
-6. Naciśnij klawisz **CTRL** + **S** Aby zapisać zmiany.
-7. Otwórz **ApiPersonController.cs** plik wchodzącej w skład **kontrolerów** folderu.
-8. Wprowadź nowy wiersz między *GetPeople* podpis metody i */ / GET interfejsu api/ApiPerson* komentarz, a następnie wpisz trzy ukośników.
+6. Naciśnij klawisz **CTRL** + **S** , aby zapisać zmiany.
+7. Otwórz plik **ApiPersonController.cs** z folderu **controllers** .
+8. Wprowadź nowy wiersz między sygnaturą metody *getludzie* i komentarzem *//Get API/ApiPerson* , a następnie wpisz trzy ukośniki.
 
     > [!NOTE]
-    > Program Visual Studio automatycznie wstawia elementy XML, które definiują w dokumentacji metody.
-9. Dodawanie tekstu podsumowania i wartość zwracana dla *GetPeople* metody. Powinno to wyglądać następująco.
+    > Program Visual Studio automatycznie wstawia elementy XML, które definiują dokumentację metody.
+9. Dodaj tekst podsumowania i wartość zwracaną dla metody *getludzie* . Powinien wyglądać podobnie do poniższego.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample9.cs)]
-10. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie.
-11. Dołącz **/help** do adresu URL w pasku adresu, aby przejść do strony pomocy.
+10. Naciśnij klawisz **F5** , aby uruchomić rozwiązanie.
+11. Dołącz **/help** do adresu URL na pasku adresu, aby przejść do strony pomocy.
 
-    ![Strona pomocy interfejsu API sieci Web platformy ASP.NET](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image34.png "strona pomocy interfejsu API sieci Web platformy ASP.NET")
+    ![Strona pomocy interfejsu API sieci Web ASP.NET](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image34.png "Strona pomocy interfejsu API sieci Web ASP.NET")
 
-    *Strona pomocy interfejsu API sieci Web platformy ASP.NET*
+    *Strona pomocy interfejsu API sieci Web ASP.NET*
 
     > [!NOTE]
-    > Główną zawartością strony znajduje się tabela interfejsów API, pogrupowane według kontrolera. Wpisy tabeli są generowane dynamicznie przy użyciu **IApiExplorer** interfejsu. Jeśli dodasz lub zaktualizować Kontroler interfejsu API tabeli zostaną automatycznie zaktualizowane przy następnej kompilacji aplikacji.
+    > Główna Zawartość strony jest tabelą interfejsów API pogrupowanych według kontrolera. Wpisy tabeli są generowane dynamicznie przy użyciu interfejsu **IApiExplorer** . W przypadku dodania lub zaktualizowania kontrolera interfejsu API tabela zostanie automatycznie zaktualizowana przy następnym kompilowaniu aplikacji.
     > 
-    > **API** kolumna zawiera metodę HTTP oraz względnego identyfikatora URI. **Opis** kolumna zawierała informacje, który został wyodrębniony z dokumentacji metody.
-12. Należy zauważyć, że opis, który dodaje powyżej definicję metody jest wyświetlana w kolumnie Opis.
+    > Kolumna **API** zawiera listę metod http i względnego identyfikatora URI. Kolumna **Description** zawiera informacje, które zostały wyodrębnione z dokumentacji metody.
+12. Należy zauważyć, że opis dodany powyżej definicji metody jest wyświetlany w kolumnie Opis.
 
-    ![Opis metody interfejsu API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image35.png "opis metody interfejsu API")
+    ![Opis metody interfejsu API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image35.png "Opis metody interfejsu API")
 
     *Opis metody interfejsu API*
-13. Kliknij jeden z metody interfejsu API, aby przejść do strony z bardziej szczegółowe informacje, w tym przykładowe ciała odpowiedzi.
+13. Kliknij jedną z metod interfejsu API, aby przejść do strony zawierającej bardziej szczegółowe informacje, w tym przykładowe treści odpowiedzi.
 
-    ![Strona informacji o szczegółów](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image36.png "szczegółowe informacje o stronie")
+    ![Strona informacji szczegółowych](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image36.png "Strona informacji szczegółowych")
 
-    *Szczegółowe informacje na stronie*
+    *Strona informacji szczegółowych*
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie
 
-Przez ukończenie tego laboratorium praktycznego wiesz już, jak:
+Dzięki zakończeniu tego praktycznego laboratorium wiesz, jak:
 
-- Utwórz nową aplikację sieci Web za pomocą jednego środowiska ASP.NET w programie Visual Studio 2013
-- Integrowanie wiele technologii ASP.NET z jednego pojedynczego projektu
-- Generowanie widoków i kontrolerów MVC z klas modelu za pomocą programu ASP.NET tworzenie szkieletów
-- Generowanie kontrolerów internetowych interfejsów API, które używają funkcji, takich jak programowanie Async oraz dostęp do danych za pomocą platformy Entity Framework
-- Automatyczne generowanie stron pomocy interfejsu API sieci Web dla kontrolerów
+- Utwórz nową aplikację sieci Web przy użyciu jednego środowiska ASP.NET w Visual Studio 2013
+- Integruj wiele technologii ASP.NET w jeden projekt
+- Generowanie kontrolerów MVC i widoków z klas modelu za pomocą tworzenia szkieletów ASP.NET
+- Generuj Kontrolery interfejsu API sieci Web, które wykorzystują funkcje, takie jak programowanie asynchroniczne i dostęp do danych za pomocą Entity Framework
+- Automatycznie Generuj strony pomocy interfejsu API sieci Web dla Twoich kontrolerów

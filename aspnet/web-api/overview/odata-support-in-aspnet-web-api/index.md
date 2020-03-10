@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
-title: OData we wzorcu ASP.NET Web API — ASP.NET 4.x
+title: Usługa OData w ASP.NET Web API-ASP.NET 4. x
 author: rick-anderson
-description: Jak utworzyć punkty końcowe OData w interfejsie API sieci Web platformy ASP.NET dla platformy ASP.NET 4.x
+description: Jak utworzyć punkty końcowe OData w interfejsie API sieci Web ASP.NET dla ASP.NET 4. x
 ms.author: riande
 ms.date: 08/17/2012
 ms.custom: seoapril2019
@@ -10,15 +10,15 @@ ms.assetid: 9151c605-e911-4f24-95b5-ca310b105abf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
 ms.openlocfilehash: 6d84b458a02b63b24334b137afdb5b710d91c5ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133166"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598764"
 ---
-# <a name="odata-in-aspnet-web-api"></a>OData w interfejsie Web API platformy ASP.NET
+# <a name="odata-in-aspnet-web-api"></a>Usługa OData w interfejsie API sieci Web ASP.NET
 
-> Jak utworzyć punkty końcowe OData w interfejsie API sieci Web platformy ASP.NET dla platformy ASP.NET 4.x. OData jest protokół dostępu do danych w sieci Web. Zapewnia jednolity sposób, w celu wykonywania zapytań i manipulowania zestawami danych. Internetowy interfejs API obsługuje zarówno w wersji 3 i 4 wersja protokołu OData.
+> Jak utworzyć punkty końcowe OData w interfejsie API sieci Web ASP.NET dla ASP.NET 4. x. OData to protokół dostępu do danych dla sieci Web. Zapewnia jednolity sposób wykonywania zapytań i manipulowania zestawami danych. Interfejs API sieci Web obsługuje zarówno wersję 3, jak i wersję 4 protokołu OData.
 
 - [OData v4](odata-v4/index.md)
 

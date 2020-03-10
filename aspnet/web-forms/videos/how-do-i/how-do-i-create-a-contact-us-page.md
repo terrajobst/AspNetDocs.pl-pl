@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-contact-us-page
-title: Jak utworzyć skontaktuj się z nami strona
+title: Jak utworzyć stronę kontakt z nami
 author: microsoft
-description: Tworzenie strony sieci web do zbierania informacji od użytkownika za pomocą kontrolki kreatora, zweryfikuj te informacje i wysyłać Skonfi przy użyciu klasy System.Net.Mail...
+description: Utwórz stronę sieci Web, aby zebrać informacje od użytkownika z kontrolką kreatora, sprawdzić poprawność tych informacji i użyć klasy System .NET. mail do wysyłania skonfi...
 ms.author: riande
 ms.date: 01/24/2006
 ms.assetid: d93c8f22-14ad-4b2d-a279-b62af15eb5df
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-contact-us-page
 msc.type: video
 ms.openlocfilehash: 006bccd45d661298a87f8483f07e5e5be1396d04
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398927"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624678"
 ---
-# <a name="how-do-i-create-a-contact-us-page"></a>[Jak mogę] Tworzenie strony "Skontaktuj się z nami"?
+# <a name="how-do-i-create-a-contact-us-page"></a>[Jak:] Czy utworzyć stronę "kontakt z nami"?
 
-przez [firmy Microsoft](https://github.com/microsoft)
+przez [firmę Microsoft](https://github.com/microsoft)
 
-Tworzenie strony sieci web do zbierania informacji od użytkownika za pomocą kontrolki kreatora, zweryfikuj te informacje i wysyłać wiadomości e-mail z potwierdzeniem przy użyciu klasy System.Net.Mail.
+Utwórz stronę sieci Web, aby zebrać informacje od użytkownika z kontrolką kreatora, sprawdzić poprawność tych informacji i użyć klasy System .NET. mail do wysyłania wiadomości e-mail z potwierdzeniem.
 
-[&#9654;Obejrzyj film wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-contact-us-page)
+[&#9654;Obejrzyj wideo (13 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-contact-us-page)

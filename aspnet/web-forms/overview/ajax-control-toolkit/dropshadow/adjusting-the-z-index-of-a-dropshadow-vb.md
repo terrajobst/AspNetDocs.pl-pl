@@ -9,11 +9,11 @@ ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 10495a9590ce1f25e9e3fa218ac5144268f50711
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574182"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78613919"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>Dostosowywanie indeksu Z kontrolki DropShadow (VB)
 

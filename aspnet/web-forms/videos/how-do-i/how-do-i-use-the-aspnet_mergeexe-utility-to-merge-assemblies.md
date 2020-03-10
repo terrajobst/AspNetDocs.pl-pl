@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
-title: '[Jak mogę] Scalanie zestawów przy użyciu narzędzia aspnet_merge.exe | Dokumentacja firmy Microsoft'
+title: '[Jak:] Scal zestawy za pomocą narzędzia aspnet_merge. exe | Microsoft Docs'
 author: rick-anderson
-description: W tym filmie pokazano pikseli Chris pokazują, jak połączyć zestawy, które zostały skompilowane przy użyciu aspnet_compiler.exe utilit przy użyciu narzędzia aspnet_merge.exe...
+description: W tym filmie wideo Krzysztof pikseli pokazuje, jak używać narzędzia aspnet_merge. exe do łączenia zestawów, które zostały skompilowane przy użyciu aspnet_compiler. exe utilit...
 ms.author: riande
 ms.date: 06/26/2008
 ms.assetid: 2bfd5353-2a35-449e-aeff-0fb94cf10030
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
 msc.type: video
 ms.openlocfilehash: 7e768c508441bc08ff53c04e3d9982179fdfc88f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410386"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78602880"
 ---
-# <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[Jak mogę] Scalanie zestawów przy użyciu narzędzia aspnet_merge.exe
+# <a name="how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies"></a>[Jak:] Scalanie zestawów za pomocą narzędzia aspnet_merge. exe
 
-przez [Chris pikseli](https://twitter.com/chrispels)
+[Krzysztof pikseli](https://twitter.com/chrispels)
 
-W tym filmie pokazano pikseli Chris pokazują, jak używać aspnet\_merge.exe narzędzie w celu łączenia zestawów, które zostały skompilowane przy użyciu aspnet\_compiler.exe narzędzia. Najpierw należy wyświetlić dane wyjściowe z procesu kompilacji platformy ASP.NET, aby dowiedzieć się, jakie zestawy są tworzone. Dowiedz się, mechanika przy użyciu aspnet\_merge.exe narzędzie do scalania zestawów z kompilacji witryny sieci web, pierwszy widzisz sposób kontrolowania skompilowanego zestawu nazw z opcją — prefiks. Następnie zobacz, jak do scalenia wszystkich zestawów skompilowanej witryny sieci web w jednym zestawie. Ponadto Dowiedz się, jak i scalanie tylko zestawów, które są związane z zawartością (aspx, ascs itp.) w ramach jednego zestawu, pozostawiając zestawy najwyższego poziomu, takie jak aplikacja\_code.dll reprezentujący App\_katalogu z kodem. Podczas każdej opcji omówiono zalety i wady tej opcji.
+W tym filmie wideo Krzysztof pikseli pokazuje, jak używać narzędzia ASPNET\_merge. exe do łączenia zestawów, które zostały skompilowane przy użyciu programu ASPNET\_kompilatora. exe. Najpierw Przejrzyj dane wyjściowe procesu kompilacji ASP.NET, aby dowiedzieć się, jakie zestawy zostały utworzone. Następnie Dowiedz się, jak Mechanics za pomocą narzędzia ASPNET\_merge. exe, aby scalić zestawy z kompilacji witryny sieci Web, najpierw Zobacz, jak kontrolować skompilowane nazwy zestawów za pomocą opcji – prefix. Następnie Zobacz, jak scalić wszystkie zestawy dla skompilowanej witryny sieci Web w jeden zestaw. Na koniec dowiesz się, jak scalić tylko zestawy powiązane z zawartością (aspx, ASCS itp.) do jednego zestawu, pozostawiając zestawy najwyższego poziomu, takie jak aplikacja\_Code. dll reprezentująca folder/App\_Code. W każdej opcji omówiono zalety i wady tej opcji.
 
-[&#9654;Obejrzyj film wideo (28 w minutach)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies)
+[&#9654;Obejrzyj wideo (28 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies)

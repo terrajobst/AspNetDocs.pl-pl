@@ -9,11 +9,11 @@ ms.assetid: f949aafa-fe57-43b0-b722-f0dd33a900be
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b5e9874fb5b6d3e55c8af5b85d12bf1ffacc116b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574844"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78614213"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-c"></a>Wypełnianie listy przy użyciu kontrolki CascadingDropDown (C#)
 
@@ -64,4 +64,4 @@ Załadowanie strony w przeglądarce spowoduje wyzwolenie listy dla trzech dostaw
 Lista jest wypełniana automatycznie ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](filling-a-list-using-cascadingdropdown-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Next](using-cascadingdropdown-with-a-database-cs.md)
+> [Dalej](using-cascadingdropdown-with-a-database-cs.md)

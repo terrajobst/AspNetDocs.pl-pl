@@ -1,125 +1,125 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: Wykonywanie analizy warunkowej, jeśli wdrożenie | Dokumentacja firmy Microsoft
+title: Wykonywanie wdrożenia What If | Microsoft Docs
 author: jrjlee
-description: W tym temacie opisano sposób przeprowadzania "co jeśli" (lub symulowanych) wdrożenia przy użyciu narzędzia do wdrażania sieci Web usług Internet Information Services (IIS) (Web Deploy) i V...
+description: W tym temacie opisano sposób wykonywania wdrożeń "co jeśli" (lub symulowanych) przy użyciu narzędzia Web Deployment Internet Information Services (Web Deploy) i programu V...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: c711b453-01ac-4e65-a48c-93d99bf22e58
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 73a0e038cc0d4ebae0ffc8ed3fd2de4c9dad673c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127081"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628892"
 ---
 # <a name="performing-a-what-if-deployment"></a>Wykonywanie wdrożenia z użyciem analizy warunkowej
 
-przez [Jason Lee](https://github.com/jrjlee)
+Autor [Jason Lewandowski](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano sposób przeprowadzania "what if" (lub symulowanych) przy użyciu narzędzia do wdrażania sieci Web usług Internet Information Services (IIS) (Web Deploy) i VSDBCMD wdrożeń. Dzięki temu można ustalenie efektów logiki wdrożenia w środowisku określonego celu, aby rzeczywiście wdrożyć aplikację.
+> W tym temacie opisano sposób wykonywania wdrożeń "co jeśli" (lub symulowanych) przy użyciu narzędzia Web Deployment Internet Information Services (Web Deploy) i VSDBCMD. Dzięki temu można określić efekty logiki wdrożenia w określonym środowisku docelowym przed faktycznym wdrożeniem aplikacji.
 
-Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
+Ten temat stanowi część szeregu samouczków opartych na wymaganiach dotyczących wdrażania w przedsiębiorstwie fikcyjnej firmy o nazwie Fabrikam, Inc. W tej serii samouczków jest stosowane&#x2014;przykładowe rozwiązanie&#x2014;do reprezentowania aplikacji sieci Web, [które ma](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)realistyczny poziom złożoności, w tym aplikacji ASP.NET MVC 3, usługi Windows Communication Foundation (WCF) i projektu bazy danych.
 
-Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w której procesu kompilacji i wdrażania jest kontrolowany przez dwa pliki projektu&#x2014;jeden zawierającej instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
+Metoda wdrażania w tym samouczku jest oparta na rozłożeniu pliku projektu dzielonego opisanym w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji i wdrożenia jest kontrolowany przez dwa pliki&#x2014;projektu, zawierający instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego, oraz jeden zawierający ustawienia kompilacji i wdrożenia specyficznego dla środowiska. W czasie kompilacji plik projektu specyficzny dla środowiska jest scalany z plikiem projektu Environment-niezależny od w celu utworzenia kompletnego zestawu instrukcji kompilacji.
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Wykonywanie wdrożenia "What If" dla pakietów internetowych
 
-Narzędzie Web Deploy zawiera funkcje, które umożliwia wykonywanie wdrożeń w "what if" (lub wersja próbna) trybu. Podczas wdrażania artefaktów w trybie "what if", narzędzie Web Deploy, generuje plik dziennika, tak, jakby były wykonywane wdrożenia, ale faktycznie nie zmienia żadnych na serwerze docelowym. Przeglądanie plików dziennika, może pomóc Ci zrozumieć, jaki wpływ wdrożenia będzie mieć na serwerze docelowym, w szczególności:
+Web Deploy obejmuje funkcje, które umożliwiają wykonywanie wdrożeń w trybie "co jeśli" (lub wersja próbna). W przypadku wdrażania artefaktów w trybie "co w przypadku" Web Deploy generuje plik dziennika tak, jakby zostało wykonane wdrożenie, ale w rzeczywistości nie zmienia niczego na serwerze docelowym. Przegląd pliku dziennika może pomóc zrozumieć, jaki wpływ na wdrożenie będzie miał na serwerze docelowym, w szczególności:
 
-- Co będzie poproś o dodanie Cię.
-- Jakie zostaną zaktualizowani.
-- Co zostanie usunięty.
+- Co zostanie dodane.
+- Co zostanie zaktualizowane.
+- Co spowoduje usunięcie.
 
-Ponieważ wdrożenia "what if" faktycznie nie zmienia żadnych na serwerze docelowym, co zawsze nie jest przewidzieć wdrożenia, zostanie wykonane pomyślnie.
+Ze względu na to, że wdrożenie "co jeśli" nie zmienia się w rzeczywistości na serwerze docelowym, to nie zawsze jest przewidywane, czy wdrożenie zakończy się pomyślnie.
 
-Zgodnie z opisem w [wdrażanie pakietów internetowych](../web-deployment-in-the-enterprise/deploying-web-packages.md), można wdrożyć pakietów sieci web za pomocą narzędzia Web Deploy na dwa sposoby&#x2014;za pomocą narzędzia wiersza polecenia MSDeploy.exe, bezpośrednio lub przez uruchomienie *. pliku deploy.cmd* pliku generuje procesu kompilacji.
+Zgodnie z opisem w artykule [wdrażanie pakietów internetowych](../web-deployment-in-the-enterprise/deploying-web-packages.md)można wdrażać pakiety sieci Web przy użyciu Web Deploy&#x2014;na dwa sposoby przy użyciu narzędzia wiersza polecenia MSDeploy. exe bezpośrednio lub przez uruchomienie pliku *Deploy. cmd* , który generuje proces kompilacji.
 
-Jeśli używasz programu MSDeploy.exe bezpośrednio, możesz uruchamiać wdrożenia "what if", dodając **whatif** flagi do swojej dyspozycji. Na przykład aby ocenić, co się stanie, jeśli wdrożono pakiet ContactManager.Mvc.zip w środowisku przejściowym, polecenie MSDeploy powinien wyglądać następująco:
+Jeśli używasz programu MSDeploy. exe bezpośrednio, możesz uruchomić wdrożenie "co jeśli", dodając flagę **– whatIf** do polecenia. Na przykład, aby sprawdzić, co się stanie w przypadku wdrożenia pakietu ContactManager. MVC. zip w środowisku przejściowym, polecenie MSDeploy powinno wyglądać następująco:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample1.cmd)]
 
-Gdy jesteś zadowolony z wyników wdrożenia "what if", możesz usunąć **whatif** flagi do uruchamiania na żywo wdrożenia.
+Gdy wyniki wdrożenia "co w przypadku" są zadowalające, można usunąć flagę **– whatIf** , aby uruchomić wdrożenie na żywo.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o opcjach wiersza polecenia programu MSDeploy.exe, zobacz [ustawienia operacji wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
+> Aby uzyskać więcej informacji na temat opcji wiersza polecenia programu MSDeploy. exe, zobacz [Web Deploy ustawienia operacji](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
-Jeśli używasz *. pliku deploy.cmd* pliku, możesz uruchomić wdrożenia "what if", umieszczając **/t** flaga Flaga (tryb wersji próbnej) zamiast **/y** Flaga ("yes" lub tryb aktualizacji) polecenie. Na przykład, można obliczyć, co się stanie, jeśli wdrożono pakiet ContactManager.Mvc.zip, uruchamiając *. pliku deploy.cmd* pliku polecenia powinny wyglądać następująco:
+Jeśli używasz pliku *. deploy. cmd* , możesz uruchomić wdrożenie "co jeśli", dołączając flagę **/t** flag (tryb wersji próbnej) zamiast flagi **/y** ("tak" lub "tryb aktualizacji") w poleceniu. Na przykład, aby sprawdzić, co się stanie w przypadku wdrożenia pakietu ContactManager. MVC. zip, uruchamiając plik *. deploy. cmd* , polecenie powinno wyglądać następująco:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample2.cmd)]
 
-Gdy jesteś zadowolony z wyników wdrożenia "tryb wersji próbnej", możesz zastąpić **/t** flaga z **/y** flagi do uruchamiania na żywo wdrożenia:
+Gdy wyniki wdrożenia "w trybie próbnym" są zadowalające, można zamienić flagę **/t** na flagę **/y** , aby uruchomić wdrożenie na żywo:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample3.cmd)]
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat opcji wiersza polecenia dla *. pliku deploy.cmd* plików, zobacz [jak: Zainstaluj pakiet wdrożeniowy, przy użyciu pliku pliku deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Jeśli uruchamiasz *. pliku deploy.cmd* plików bez określania flagi, wiersza polecenia wyświetli listę dostępnych flag.
+> Aby uzyskać więcej informacji na temat opcji wiersza polecenia dla plików *Deploy. cmd* , zobacz [How to: Install a Deployment Package using the Deploy. cmd plik](https://msdn.microsoft.com/library/ff356104.aspx). Jeśli uruchomisz plik *Deploy. cmd* bez określania żadnych flag, w wierszu polecenia zostanie wyświetlona lista dostępnych flag.
 
-## <a name="performing-a-what-if-deployment-for-databases"></a>Wykonywanie wdrożenia "What If" dla bazy danych
+## <a name="performing-a-what-if-deployment-for-databases"></a>Wykonywanie wdrożenia "What If" dla baz danych
 
-W tej sekcji założono, że używasz narzędzia VSDBCMD przeprowadzić wdrożenie przyrostowe, oparte na schemacie bazy danych. To podejście jest opisane bardziej szczegółowo w [wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Zaleca się, że możesz zapoznać się z tego tematu przed zastosowaniem pojęcia opisane w tym miejscu.
+W tej sekcji założono, że używasz narzędzia VSDBCMD do wykonywania przyrostowych, opartych na schemacie wdrożenia bazy danych. To podejście jest bardziej szczegółowo opisane w temacie [wdrażanie projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Zalecamy zapoznanie się z tym tematem przed zastosowaniem pojęć opisanych w tym miejscu.
 
-Kiedy używasz VSDBCMD w **Wdróż** trybu, można użyć **/dd** (lub **/DeployToDatabase**) flaga kontroli VSDBCMD powoduje faktyczne wdrożenie bazy danych lub po prostu generuje skrypt wdrożenia. Jeśli wdrażasz pliku .dbschema jest to zachowanie:
+W przypadku korzystania z VSDBCMD w trybie **wdrażania** można użyć flagi **/DD** (lub **/DeployToDatabase**), aby określić, czy VSDBCMD faktycznie wdraża bazę danych, czy po prostu generuje skrypt wdrożenia. Jeśli wdrażasz plik. DbSchema, jest to zachowanie:
 
-- Jeśli określisz **/dd+** lub **/dd**, VSDBCMD wygeneruje skryptu wdrażania i wdrażanie bazy danych.
-- Jeśli określisz **/dd-** lub pominięta, VSDBCMD spowoduje wygenerowanie skryptu wdrażania.
+- Jeśli określisz polecenie **/DD +** lub **/DD**, VSDBCMD wygeneruje skrypt wdrożenia i przeprowadzi wdrożenie bazy danych.
+- Jeśli określisz **/DD-** lub pominięto przełącznik, VSDBCMD wygeneruje tylko skrypt wdrożenia.
 
 > [!NOTE]
-> Jeśli wdrażasz .deploymanifest pliku, a nie plikiem .dbschema zachowanie **/dd** przełącznik jest o wiele bardziej skomplikowane. Zasadniczo VSDBCMD zignoruje wartość **/dd** przełącznika, jeśli plik .deploymanifest zawiera **DeployToDatabase** element z wartością **True**. [Wdrażanie projektów baz danych](../web-deployment-in-the-enterprise/deploying-database-projects.md) opisano to zachowanie w całości.
+> Jeśli wdrażasz plik. deploymanifest, a nie plik. DbSchema, zachowanie przełącznika **/DD** jest znacznie bardziej skomplikowane. Zasadniczo, VSDBCMD zignoruje wartość przełącznika **/DD** , jeśli plik. deploymanifest zawiera element **DeployToDatabase** o wartości **true**. [Wdrożenie projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md) opisuje to zachowanie w całości.
 
-Na przykład, można wygenerować skryptu wdrażania dla **ContactManager** bazy danych bez faktycznego wdrażania bazy danych, a polecenie VSDBCMD powinna wyglądać następująco:
+Na przykład w celu wygenerowania skryptu wdrażania bazy danych **ContactManager** bez faktycznego wdrażania bazy danych polecenie VSDBCMD powinno wyglądać następująco:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample4.cmd)]
 
-VSDBCMD to narzędzie wdrażania bazy danych różnicowych i jako takie przez skrypt wdrażania jest generowana dynamicznie ma zawierać wszystkie niezbędne do aktualizacji bieżącej bazy danych, jeśli taki istnieje określony schemat polecenia SQL. Przeglądanie przez skrypt wdrażania to wygodny sposób, aby ustalić, jaki wpływ wdrożenia będą mogli korzystać w bieżącej bazie danych i danych, które zawiera. Na przykład możesz chcieć określić:
+VSDBCMD to narzędzie do wdrażania różnicowych baz danych, a w związku z tym skrypt wdrożenia jest generowany dynamicznie w taki sposób, aby zawierał wszystkie polecenia SQL niezbędne do zaktualizowania bieżącej bazy danych, jeśli taka istnieje, do określonego schematu. Sprawdzenie, czy skrypt wdrożenia jest przydatny, aby określić, jaki ma wpływ wdrożenie na bieżącą bazę danych i zawarte w nim dane. Na przykład możesz chcieć określić:
 
-- Zostaną usunięte wszystkie istniejące tabele i czy, spowoduje utratę danych.
-- Czy kolejność operacji niesie ze sobą ryzyko utraty danych, na przykład, jeśli podział lub scalania tabel.
+- Czy istniejące tabele zostaną usunięte i czy spowoduje to utratę danych.
+- Czy kolejność operacji polega na wykorzystaniu ryzyka utraty danych, na przykład w przypadku dzielenia lub scalania tabel.
 
-Jeśli jesteś zadowolony z skryptu wdrażania, możesz powtórzyć VSDBCMD z **/dd+** flagę, aby wprowadzić zmiany. Alternatywnie możesz edytować skrypt wdrożeniowy do potrzeb, a następnie uruchomić go ręcznie na serwerze bazy danych.
+Jeśli masz zadowolony ze skryptu wdrażania, możesz powtórzyć VSDBCMD z flagą **/DD +** , aby wprowadzić zmiany. Alternatywnie można edytować skrypt wdrożenia w celu spełnienia wymagań, a następnie wykonać go ręcznie na serwerze bazy danych.
 
-## <a name="integrating-what-if-functionality-into-custom-project-files"></a>Integrowanie funkcji "What If" pliki projektów niestandardowych
+## <a name="integrating-what-if-functionality-into-custom-project-files"></a>Integrowanie funkcji "What If" w niestandardowych plikach projektu
 
-W bardziej złożonych scenariuszy wdrażania, możesz będziesz chciał użyć niestandardowy plik aparatu Microsoft Build Engine (MSBuild) projektu do hermetyzacji logikę kompilacji i wdrażania, zgodnie z opisem w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Na przykład w [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) przykładowe rozwiązanie *Publish.proj* pliku:
+W bardziej złożonych scenariuszach wdrażania należy użyć pliku projektu niestandardowego Microsoft Build Engine (MSBuild) do hermetyzacji logiki kompilowania i wdrażania, zgodnie z opisem w artykule [Omówienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Na przykład w przykładowym rozwiązaniu [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) plik *Publish. proj* :
 
 - Kompiluje rozwiązanie.
-- Pakowanie i wdrażanie aplikacji ContactManager.Mvc, korzysta się z narzędzia Web Deploy.
-- Pakowanie i wdrażanie aplikacji ContactManager.Service, korzysta się z narzędzia Web Deploy.
-- Wdraża **ContactManager** bazy danych.
+- Używa Web Deploy do pakowania i wdrażania aplikacji ContactManager. MVC.
+- Używa Web Deploy do pakowania i wdrażania aplikacji ContactManager. Service.
+- Wdraża bazę danych **ContactManager** .
 
-Po zintegrowaniu wdrożenia wielu pakietów sieci web i/lub baz danych w procesie pojedynczy krok w ten sposób może także opcję wykonania całego wdrożenia w trybie "what if".
+Po zintegrowaniu wdrożenia wielu pakietów i/lub baz danych sieci Web w jednoetapowy proces w ten sposób można również użyć opcji wykonywania całego wdrożenia w trybie "co w przypadku".
 
-*Publish.proj* plik pokazuje, jak to zrobić. Najpierw należy utworzyć właściwość do przechowywania wartości "what if":
+Plik *Publish. proj* pokazuje, jak to zrobić. Najpierw należy utworzyć właściwość do przechowywania wartości "co jeśli":
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample5.xml)]
 
-W tym przypadku został utworzony właściwość o nazwie **WhatIf** z wartością domyślną **false**. Użytkownicy mogą przesłaniać tę wartość przez ustawienie właściwości **true** w parametr wiersza polecenia, jak będzie wyświetlana wkrótce.
+W tym przypadku utworzono właściwość o nazwie **whatIf** z wartością domyślną **false**. Użytkownicy mogą przesłonić tę wartość przez ustawienie dla właściwości wartości **true** w parametrze wiersza polecenia, ponieważ wkrótce zobaczysz.
 
-Następny etap to próby parametryzacji dowolnego narzędzia Web Deploy i VSDBCMD polecenia, aby odzwierciedlić flagi **WhatIf** wartości właściwości. Na przykład następny element docelowy (pobierane z *Publish.proj* pliku i uproszczonym) uruchamia *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web. Domyślnie, polecenie zawiera **/Y** switch ("yes" lub tryb aktualizacji). Jeśli **WhatIf** ustawiono **true**, zostanie zastąpiony przez **/t** przełącznika (wersji próbnej lub tryb "what if").
+Następnym etapem jest Sparametryzuj wszystkich poleceń Web Deploy i VSDBCMD, aby flagi odzwierciedlały wartość właściwości **whatIf** . Na przykład następny element docelowy (pobrany z pliku *Publish. proj* i uproszczony) uruchamia plik *Deploy. cmd* w celu wdrożenia pakietu internetowego. Domyślnie polecenie zawiera przełącznik **/y** ("tak" lub "tryb aktualizacji"). Jeśli wartość **whatIf** jest ustawiona na **true**, zostanie zastąpiona przez przełącznik **/t** (wersja próbna lub tryb "co w przypadku").
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
-Podobnie następny element docelowy korzysta z narzędzia VSDBCMD wdrażanie bazy danych. Domyślnie **/dd** przełącznik nie jest dołączony. Oznacza to, że VSDBCMD spowoduje to wygenerowanie skryptu wdrażania, ale nie spowoduje wdrożenia bazy danych&#x2014;innymi słowy, "what if" scenariusza. Jeśli **WhatIf** nie ustawiono właściwości **true**, **/dd** przełącznik jest dodawany i VSDBCMD wdroży bazy danych.
+Podobnie w następnym miejscu docelowym do wdrożenia bazy danych jest stosowane narzędzie VSDBCMD. Domyślnie przełącznik **/DD** nie jest uwzględniony. Oznacza to, że program VSDBCMD generuje skrypt wdrożenia, ale nie będzie wdrażał&#x2014;bazy danych inaczej mówiąc, scenariusza "co w przypadku". Jeśli właściwość **whatIf** nie jest ustawiona na **wartość true**, zostanie dodany przełącznik **/DD** , a VSDBCMD będzie wdrażał bazę danych.
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
 
-Można użyć tej samej metody próby parametryzacji wszystkich odpowiednich poleceń w pliku projektu. Jeśli chcesz uruchamiać wdrożenie "what if" można następnie wystarczy podać **WhatIf** wartości właściwości w wierszu polecenia:
+Możesz użyć tego samego podejścia, aby Sparametryzuj wszystkie odpowiednie polecenia w pliku projektu. Jeśli chcesz uruchomić wdrożenie "co jeśli", możesz po prostu podać wartość właściwości **whatIf** z wiersza polecenia:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample8.cmd)]
 
-W ten sposób można uruchomić wdrożenia "what if" dla wszystkich składników usługi projektu w jednym kroku.
+W ten sposób można uruchomić wdrożenie "co jeśli" dla wszystkich składników projektu w jednym kroku.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
-W tym temacie opisano sposób uruchamiania "what if" wdrożeń za pomocą narzędzia Web Deploy, VSDBCMD i MSBuild. Wdrożenie "what if" pozwala ocenić wpływ proponowanej wdrożenia przed faktycznie wprowadź zmiany w środowisku docelowym.
+W tym temacie opisano sposób uruchamiania wdrożeń "co jeśli" przy użyciu Web Deploy, VSDBCMD i MSBuild. Wdrożenie "co jeśli" pozwala oszacować wpływ proponowanego wdrożenia przed faktycznym wprowadzeniem zmian w środowisku docelowym.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat składni wiersza polecenia narzędzia Web Deploy, zobacz [ustawienia operacji wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Aby uzyskać wskazówki dotyczące opcji wiersza polecenia, korzystając z *. pliku deploy.cmd* plików, zobacz [jak: Zainstaluj pakiet wdrożeniowy, przy użyciu pliku pliku deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Aby uzyskać wskazówki dotyczące VSDBCMD składni wiersza polecenia, zobacz [VSDBCMD dokumentacja wiersza polecenia. Plik EXE (wdrożenia i importowanie schematu)](https://msdn.microsoft.com/library/dd193283.aspx).
+Aby uzyskać więcej informacji o składni wiersza polecenia Web Deploy, zobacz [Web Deploy ustawienia operacji](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Aby uzyskać wskazówki dotyczące opcji wiersza polecenia przy użyciu pliku *. deploy. cmd* , zobacz [How to: Install a Deployment Package using the Deploy. cmd plik](https://msdn.microsoft.com/library/ff356104.aspx). Wskazówki dotyczące składni wiersza polecenia VSDBCMD można znaleźć w temacie [Dokumentacja wiersza polecenia dla VSDBCMD. EXE (wdrożenie i importowanie schematu)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 > [!div class="step-by-step"]
 > [Poprzednie](advanced-enterprise-web-deployment.md)

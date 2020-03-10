@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
-title: Tworzenie klienta JavaScript | Dokumentacja firmy Microsoft
+title: Tworzenie klienta JavaScript | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,64 +9,64 @@ ms.assetid: 20360326-b123-4b1e-abae-1d350edf4ce4
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
 ms.openlocfilehash: 74f2cc4e5e401d690042b05b028dfc0c46ae282a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413896"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622347"
 ---
 # <a name="create-the-javascript-client"></a>Tworzenie klienta JavaScript
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
 [Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
-W tej sekcji utworzysz klienta dla aplikacji, za pomocą kodu HTML, JavaScript oraz [struktura Knockout.js](http://knockoutjs.com/) biblioteki. Utworzymy aplikację kliencką w etapach:
+W tej sekcji utworzysz klienta dla aplikacji, używając języka HTML, JavaScript i biblioteki [separowania. js](http://knockoutjs.com/) . Utworzymy aplikację kliencką na etapach:
 
 - Wyświetlanie listy książek.
 - Wyświetlanie szczegółów książki.
 - Dodawanie nowej książki.
 
-Bibliotekę Knockout używa wzorca Model-View-ViewModel (MVVM):
+Biblioteka odcinania używa wzorca Model-View-ViewModel (MVVM):
 
-- **Modelu** jest po stronie serwera reprezentacja danych w domenie firmy (w naszym przypadku, książek i autorzy).
-- **Widoku** to warstwa prezentacji (HTML).
-- **Model widoku** jest obiekt JavaScript, który przechowuje modeli. Model widoku jest abstrakcji kodu interfejsu użytkownika. Go nie zna reprezentacji w formacie HTML. Zamiast tego, reprezentuje abstrakcyjnej funkcji widoku, takie jak &quot;listy książek&quot;.
+- **Model** jest reprezentacją po stronie serwera danych w domenie biznesowej (w naszym przypadku, książki i autorzy).
+- **Widok** jest warstwą prezentacji (html).
+- **Model widoku** to obiekt JavaScript, który zawiera modele. Model widoku jest abstrakcją kodu interfejsu użytkownika. Nie ma informacji o reprezentacji HTML. Zamiast tego reprezentuje funkcje abstrakcyjne widoku, takie jak &quot;listy książek&quot;.
 
-Widok jest powiązany z danymi model widoku. Model widoku aktualizacje są automatycznie odzwierciedlane w widoku. Model widoku również pobiera zdarzenia w widoku, takich jak kliknięcie przycisku.
+Widok jest powiązany z danymi z modelem widoku. Aktualizacje modelu widoku są automatycznie odzwierciedlane w widoku. Model widoku pobiera również zdarzenia z widoku, takie jak kliknięcia przycisku.
 
 ![](part-6/_static/image1.png)
 
-Tej metody można łatwo zmienić układ i interfejsu użytkownika aplikacji, ponieważ powiązania, można zmienić bez konieczności ponownego zapisu żadnego kodu. Na przykład może wyświetlać listę elementów jako `<ul>`, zmienić ją później do tabeli.
+Takie podejście ułatwia zmianę układu i interfejsu użytkownika aplikacji, ponieważ można zmienić powiązania, bez konieczności ponownego pisania kodu. Na przykład można wyświetlić listę elementów jako `<ul>`, a następnie zmienić ją później na tabelę.
 
-## <a name="add-the-knockout-library"></a>Dodaj bibliotekę Knockout
+## <a name="add-the-knockout-library"></a>Dodawanie biblioteki odcinania
 
-W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**. Następnie wybierz pozycję **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+W programie Visual Studio w menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet**. Następnie wybierz pozycję **konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](part-6/samples/sample1.cmd)]
 
-To polecenie dodaje pliki Knockout na folder skryptów.
+To polecenie dodaje pliki odcinania do folderu skrypty.
 
 ## <a name="create-the-view-model"></a>Tworzenie modelu widoku
 
-Dodaj plik języka JavaScript o nazwie app.js na folder skryptów. (W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder skryptów, wybierz **Dodaj**, a następnie wybierz **plik JavaScript**.) Wklej następujący kod:
+Dodaj plik języka JavaScript o nazwie App. js do folderu Scripts. (W Eksplorator rozwiązań kliknij prawym przyciskiem myszy folder skrypty, wybierz polecenie **Dodaj**, a następnie wybierz pozycję **plik JavaScript**). Wklej następujący kod:
 
 [!code-javascript[Main](part-6/samples/sample2.js)]
 
-W Knockout `observable` klasa umożliwia powiązanie danych. Zawartość możliwość obserwowania zmiany, możliwość obserwowania powiadamia wszystkie formanty powiązane z danymi, dzięki czemu mogą aktualizować same. ( `observableArray` Klasy jest tablica wersją *obserwowalnymi*.) Na początek z nasz model widoku ma dwa dostrzegalne elementy:
+W odcinania Klasa `observable` włącza powiązanie danych. Gdy zawartość zauważalnej zmiany, zauważalnie powiadamia wszystkie kontrolki powiązane z danymi, aby mogli ją zaktualizować. (Klasa `observableArray` to wersja tablicy, która jest *zauważalna*). Aby zacząć od, nasz model widoku ma dwa observables:
 
-- `books` zawiera listy książek.
-- `error` zawiera komunikat o błędzie w przypadku niepowodzenia wywołania AJAX.
+- `books` zawiera listę książek.
+- `error` zawiera komunikat o błędzie, jeśli wywołanie AJAX zakończy się niepowodzeniem.
 
-`getAllBooks` Metoda przeprowadza wywołanie AJAX w celu uzyskania listy książek. A następnie umieszcza ono wynik na `books` tablicy.
+Metoda `getAllBooks` umożliwia wywołanie AJAX w celu uzyskania listy książek. Następnie wypycha wynik do tablicy `books`.
 
-`ko.applyBindings` Metodą jest częścią biblioteki Knockout. Jej modelu widoku jako parametr przyjmuje i konfiguruje powiązanie danych.
+Metoda `ko.applyBindings` jest częścią biblioteki odcinania. Przyjmuje model widoku jako parametr i konfiguruje powiązanie danych.
 
-## <a name="add-a-script-bundle"></a>Dodaj pakiet skryptu
+## <a name="add-a-script-bundle"></a>Dodawanie pakietu skryptu
 
-Tworzenie pakietów to funkcja w programie ASP.NET 4.5, który można łatwo połączyć lub wiele plików pakietu w jednym pliku. Tworzenie pakietów pozwala zmniejszyć liczbę żądań do serwera, co może poprawić czas ładowania strony.
+Zgrupowanie to funkcja w programie ASP.NET 4,5, która ułatwia łączenie wielu plików w jeden plik i tworzenie ich. Zgrupowanie zmniejsza liczbę żądań do serwera, co może poprawić czas ładowania strony.
 
-Otwórz plik App\_Start/BundleConfig.cs. Dodaj następujący kod do metody RegisterBundles.
+Otwórz aplikację pliku\_Start/BundleConfig. cs. Dodaj następujący kod do metody RegisterBundles.
 
 [!code-csharp[Main](part-6/samples/sample3.cs)]
 

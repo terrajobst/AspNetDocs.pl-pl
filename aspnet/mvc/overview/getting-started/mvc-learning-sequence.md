@@ -9,11 +9,11 @@ ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
 ms.openlocfilehash: 46b089a896c6b1b92437ff1f5488214a3a0a9838
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455935"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78602516"
 ---
 # <a name="mvc-recommended-tutorials-and-articles"></a>Zalecane samouczki i artykuły dotyczące wzorca MVC
 
@@ -33,7 +33,7 @@ Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 - [Wprowadzenie z Code First Dr 6 przy użyciu MVC 5](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) Nagroda Dykstraa z serii omówieniach głęboka do EF.
 
 <a id="wj"></a>
-## <a name="security"></a>Bezpieczeństwo
+## <a name="security"></a>Zabezpieczenia
 
 - [Tworzenie aplikacji ASP.NET MVC z uwierzytelnianiem i bazą danych SQL oraz wdrażanie na platformie Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) Ten popularny samouczek przeprowadzi Cię przez proces tworzenia prostej aplikacji i dodawania członkostwa i ról.
 - [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem w serwisach Facebook, Twitter, LinkedIn i Google OAuth2](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) W tym samouczku pokazano, jak utworzyć aplikację sieci Web ASP.NET MVC 5, która umożliwia użytkownikom logowanie się przy użyciu protokołu OAuth 2,0 z poświadczeniami od zewnętrznego dostawcy uwierzytelniania, takiego jak Facebook, Twitter, LinkedIn, Microsoft lub Google.

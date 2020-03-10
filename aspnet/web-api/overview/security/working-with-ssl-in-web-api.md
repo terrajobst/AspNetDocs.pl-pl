@@ -1,97 +1,97 @@
 ---
 uid: web-api/overview/security/working-with-ssl-in-web-api
-title: Praca z protokołem SSL w składniku Web API | Dokumentacja firmy Microsoft
+title: Praca z protokołem SSL w interfejsie API sieci Web | Microsoft Docs
 author: MikeWasson
-description: Pokazuje, jak używać protokołu SSL przy użyciu interfejsu API sieci Web platformy ASP.NET, w tym o korzystaniu z certyfikatów klientów SSL.
+description: Pokazuje, jak używać protokołu SSL z interfejsem API sieci Web ASP.NET, w tym przy użyciu certyfikatów klienta SSL.
 ms.author: riande
 ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 31589b3713b1f1a9b98d12906bfef81f8bf5e3f9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59386160"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598638"
 ---
 # <a name="working-with-ssl-in-web-api"></a>Praca z protokołem SSL w składniku Web API
 
-przez [Mike Wasson](https://github.com/MikeWasson)
+według [Jan Wasson](https://github.com/MikeWasson)
 
-Kilka typowych schematów uwierzytelniania nie są bezpieczne przy użyciu zwykłego protokołu HTTP. W szczególności uwierzytelnianie podstawowe i uwierzytelnianie formularzy Wyślij niezaszyfrowane poświadczeń. Do zabezpieczenia, te schematy uwierzytelniania *musi* używania protokołu SSL. Ponadto certyfikaty klienta SSL może służyć do uwierzytelniania klientów.
+Kilka typowych schematów uwierzytelniania nie jest zabezpieczonych za pośrednictwem zwykłego protokołu HTTP. W szczególności uwierzytelnianie podstawowe i uwierzytelnianie formularzy wysyłają nieszyfrowane poświadczenia. Aby zapewnić bezpieczeństwo, te schematy uwierzytelniania *muszą* używać protokołu SSL. Ponadto certyfikaty klienta SSL mogą służyć do uwierzytelniania klientów.
 
 ## <a name="enabling-ssl-on-the-server"></a>Włączanie protokołu SSL na serwerze
 
-Aby skonfigurować protokół SSL w usługach IIS 7 lub nowszy:
+Aby skonfigurować protokół SSL w usługach IIS 7 lub nowszym:
 
-- Utwórz lub uzyskać certyfikat. W przypadku testowania można utworzyć certyfikatu z podpisem własnym.
+- Utwórz lub Pobierz certyfikat. W celu przetestowania można utworzyć certyfikat z podpisem własnym.
 - Dodaj powiązanie HTTPS.
 
-Aby uzyskać więcej informacji, zobacz [jak się protokołu SSL w usługach IIS 7](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Aby uzyskać szczegółowe informacje, zobacz [jak skonfigurować protokół SSL w usługach IIS 7](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-W przypadku lokalnego testowania można włączyć protokołu SSL w usługach IIS Express z programu Visual Studio. W oknie właściwości ustaw **włączony protokół SSL** do **True**. Zanotuj wartość ustawienia **adresu URL protokołu SSL**; Użyj tego adresu URL do testowania połączeń HTTPS.
+W przypadku testowania lokalnego można włączyć protokół SSL w IIS Express z programu Visual Studio. W okno Właściwości należy ustawić **wartość true**dla **protokołu SSL** . Zwróć uwagę na wartość **adresu URL protokołu SSL**; Użyj tego adresu URL do testowania połączeń HTTPS.
 
 ![](working-with-ssl-in-web-api/_static/image1.png)
 
-### <a name="enforcing-ssl-in-a-web-api-controller"></a>Wymuszanie protokołu SSL w kontrolerze interfejsu API sieci Web
+### <a name="enforcing-ssl-in-a-web-api-controller"></a>Wymuszanie protokołu SSL w kontrolerze internetowego interfejsu API
 
-Jeśli masz zarówno przy użyciu protokołu HTTPS i powiązanie HTTP, klienci nadal mogą używać protokołu HTTP dostęp do witryny. Mogą zezwalać na niektóre zasoby, które mają być dostępne za pośrednictwem protokołu HTTP, podczas gdy inne zasoby wymagają protokołu SSL. W takim przypadku umożliwia filtr akcji wymagać protokołu SSL dla chronionych zasobów. Poniższy kod pokazuje filtr uwierzytelniania interfejsu API sieci Web, który sprawdza, czy protokół SSL:
+Jeśli masz powiązanie HTTPS i HTTP, klienci mogą nadal korzystać z protokołu HTTP w celu uzyskania dostępu do lokacji. Niektóre zasoby mogą być dostępne za pośrednictwem protokołu HTTP, podczas gdy inne zasoby wymagają protokołu SSL. W takim przypadku należy użyć filtru akcji, aby wymagać protokołu SSL dla chronionych zasobów. Poniższy kod przedstawia filtr uwierzytelniania interfejsu API sieci Web, który sprawdza, czy protokół SSL:
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample1.cs)]
 
-Dodaj filtr do wszystkich działań interfejsu API sieci Web wymaga protokołu SSL:
+Dodaj ten filtr do wszystkich akcji internetowego interfejsu API, które wymagają protokołu SSL:
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample2.cs)]
 
 ## <a name="ssl-client-certificates"></a>Certyfikaty klienta SSL
 
-Protokół SSL umożliwia uwierzytelnianie za pomocą certyfikatów infrastruktury kluczy publicznych. Serwer, musisz podać certyfikat, który uwierzytelnia serwer do klienta. Mniej typowe dla od klienta zapewnienia certyfikatu do serwera, ale są jedną z opcji uwierzytelnianie klientów. Aby używać certyfikatów klientów przy użyciu protokołu SSL, należy rozdystrybuować podpisanych certyfikatów dla użytkowników. Dla wielu typów aplikacji nie będzie to środowisko użytkownika, ale w niektórych środowiskach (na przykład enterprise) może być możliwe.
+Protokół SSL zapewnia uwierzytelnianie przy użyciu certyfikatów infrastruktury kluczy publicznych. Serwer musi dostarczyć certyfikat uwierzytelniający serwer dla klienta. Klient nie może dostarczyć certyfikatu do serwera, ale jest to jedna z opcji uwierzytelniania klientów. Aby można było używać certyfikatów klienta z protokołem SSL, musisz mieć możliwość dystrybucji podpisanych certyfikatów do użytkowników. W przypadku wielu typów aplikacji nie jest to dobre środowisko użytkownika, ale w niektórych środowiskach (na przykład Enterprise) może być możliwe.
 
 | Zalety | Wady |
 | --- | --- |
-| -Certyfikat poświadczeń są mocniejszych niż nazwy użytkownika i hasła. — SSL zapewnia pełną bezpiecznego kanału, za pomocą uwierzytelniania, integralności i szyfrowania wiadomości. | -Należy uzyskać i zarządzanie certyfikatami infrastruktury kluczy publicznych. Platforma klienta muszą obsługiwać certyfikatów klientów SSL. |
+| -Poświadczenia certyfikatu są takie same, jak nazwa użytkownika i hasło. — Protokół SSL zapewnia kompletny bezpieczny kanał, z uwierzytelnianiem, integralnością komunikatów i szyfrowaniem komunikatów. | — Należy uzyskać certyfikaty PKI i zarządzać nimi. -Platforma kliencka musi obsługiwać certyfikaty klienta SSL. |
 
-Aby skonfigurować usługi IIS, aby zaakceptować certyfikaty klienta, otwórz Menedżera usług IIS i wykonaj następujące czynności:
+Aby skonfigurować usługi IIS do akceptowania certyfikatów klienta, Otwórz Menedżera usług IIS i wykonaj następujące czynności:
 
-1. Kliknij węzeł witryny w widoku drzewa.
-2. Kliknij dwukrotnie **ustawienia protokołu SSL** funkcji w środkowym okienku.
-3. W obszarze **certyfikaty klienta**, wybierz jedną z następujących opcji: 
+1. Kliknij węzeł lokacja w widoku drzewa.
+2. Kliknij dwukrotnie funkcję **Ustawienia protokołu SSL** w środkowym okienku.
+3. W obszarze **Certyfikaty klienta**wybierz jedną z następujących opcji: 
 
-    - **Zaakceptuj**: Usługi IIS będzie akceptować certyfikat klienta, ale nie wymaga jednego.
-    - **Wymagaj**: Wymaga certyfikatu klienta. (Aby włączyć tę opcję, należy również wybrać "Wymagaj protokołu SSL")
+    - **Akceptuj**: program IIS zaakceptuje certyfikat od klienta, ale nie wymaga takiego certyfikatu.
+    - **Wymagaj**: Wymagaj certyfikatu klienta. (Aby włączyć tę opcję, należy również wybrać opcję "Wymagaj protokołu SSL").
 
-Te opcje można również ustawić w pliku ApplicationHost.config:
+Możesz również ustawić te opcje w pliku ApplicationHost. config:
 
 [!code-xml[Main](working-with-ssl-in-web-api/samples/sample3.xml)]
 
-**SslNegotiateCert** flagi oznacza, że usługi IIS będzie akceptować certyfikat klienta, ale nie wymaga jednego (odpowiada opcji "Zaakceptuj" w Menedżerze usług IIS). Aby jest wymagany certyfikat, należy ustawić **SslRequireCert** flagi. W przypadku testowania można również ustawić te opcje w usługach IIS Express, w lokalnym hosta aplikacji. Plik konfiguracji znajduje się w "Documents\IISExpress\config".
+Flaga **SslNegotiateCert** oznacza, że usługi IIS będą akceptować certyfikat od klienta, ale nie wymagają one (odpowiednik opcji "Akceptuj" w Menedżerze usług IIS). Aby wymagać certyfikatu, Ustaw flagę **SslRequireCert** . W celu przetestowania można również ustawić te opcje w IIS Express w lokalnym hoście aplikacji. Plik konfiguracji znajdujący się w lokalizacji "Documents\IISExpress\config".
 
 ### <a name="creating-a-client-certificate-for-testing"></a>Tworzenie certyfikatu klienta do testowania
 
-Do celów testowych możesz użyć [MakeCert.exe](/windows/desktop/SecCrypto/makecert) do utworzenia certyfikatu klienta. Najpierw utwórz urząd główny testu:
+Do celów testowych można użyć programu [Makecert. exe](/windows/desktop/SecCrypto/makecert) , aby utworzyć certyfikat klienta. Najpierw utwórz testowy główny urząd certyfikacji:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 
-Użycie narzędzia MakeCert wyświetli monit o podanie hasła klucza prywatnego.
+MakeCert wyświetli monit o wprowadzenie hasła dla klucza prywatnego.
 
-Następnie Dodaj certyfikat do badania serwera "Zaufane główne urzędy certyfikacji" przechowywać w następujący sposób:
+Następnie Dodaj certyfikat do magazynu "Zaufane główne urzędy certyfikacji" serwera testowego w następujący sposób:
 
 1. Otwórz program MMC.
-2. W obszarze **pliku**, wybierz opcję **Dodaj/Usuń przystawkę**.
-3. Wybierz **konto komputera**.
-4. Wybierz **komputera lokalnego** i Ukończ pracę kreatora.
+2. W obszarze **plik**wybierz pozycję **Dodaj/Usuń przystawkę**.
+3. Wybierz pozycję **konto komputera**.
+4. Wybierz pozycję **komputer lokalny** i Ukończ pracę kreatora.
 5. W okienku nawigacji rozwiń węzeł "Zaufane główne urzędy certyfikacji".
-6. Na **akcji** menu wskaż **wszystkie zadania**, a następnie kliknij przycisk **importu** można uruchomić Kreatora importu certyfikatów.
-7. Przejdź do pliku certyfikatu, TempCA.cer.
-8. Kliknij przycisk **Otwórz**, następnie kliknij przycisk **dalej** i Ukończ pracę kreatora. (Możesz wyświetli monit o ponowne wprowadzenie hasła.)
+6. W menu **Akcja** wskaż polecenie **wszystkie zadania**, a następnie kliknij przycisk **Importuj** , aby uruchomić Kreatora importu certyfikatów.
+7. Przejdź do pliku certyfikatu, TempCA. cer.
+8. Kliknij przycisk **Otwórz**, a następnie kliknij przycisk **dalej** i Ukończ pracę kreatora. (Zostanie wyświetlony monit o ponowne wprowadzenie hasła).
 
-Teraz można utworzyć certyfikatu klienta, który jest podpisany przez pierwszy certyfikat:
+Teraz Utwórz certyfikat klienta podpisany przy użyciu pierwszego certyfikatu:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample5.cmd)]
 
-### <a name="using-client-certificates-in-web-api"></a>Przy użyciu certyfikatów klienta w interfejsie Web API
+### <a name="using-client-certificates-in-web-api"></a>Używanie certyfikatów klienta w internetowym interfejsie API
 
-Po stronie serwera można uzyskać certyfikat klienta, przez wywołanie metody [GetClientCertificate](https://msdn.microsoft.com/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx) komunikatu żądania. Metoda zwraca wartość null, jeśli brak certyfikatu klienta. W przeciwnym razie zwraca **X509Certificate2** wystąpienia. Aby uzyskać informacje na podstawie certyfikatu, takie jak wystawcy i tematu, należy użyć tego obiektu. Następnie przy użyciu tych informacji do uwierzytelniania i/lub autoryzacji.
+Po stronie serwera można uzyskać certyfikat klienta, wywołując [GetClientCertificate](https://msdn.microsoft.com/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx) w komunikacie żądania. Metoda zwraca wartość null, jeśli nie ma certyfikatu klienta. W przeciwnym razie zwraca wystąpienie **X509Certificate2** . Użyj tego obiektu, aby uzyskać informacje z certyfikatu, takie jak wystawca i podmiot. Następnie możesz użyć tych informacji do uwierzytelniania i/lub autoryzacji.
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample6.cs)]

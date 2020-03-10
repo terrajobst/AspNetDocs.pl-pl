@@ -1,72 +1,72 @@
 ---
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
-title: Za pomocą klasa TagBuilder do tworzenia pomocników HTML (C#) | Dokumentacja firmy Microsoft
+title: Używanie klasy TagBuilder do kompilowania pomocników HTML (C#) | Microsoft Docs
 author: StephenWalther
-description: 'Autor: Stephen Walther wprowadza do klasy przydatne narzędzia w platformę ASP.NET MVC, nazwana klasa TagBuilder. Klasa TagBuilder do mogą używać łatwo...'
+description: Stephen Walther wprowadza do przydatnej klasy narzędzi w strukturze ASP.NET MVC o nazwie klasy TagBuilder. Można użyć klasy TagBuilder, aby łatwo...
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 3975a52f-bd15-4edd-8f3d-1df93672515b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c8eaea9932a30c744b9a69861619ce9458b5a23a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130303"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600031"
 ---
-# <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>Za pomocą klasa TagBuilder do tworzenia pomocników HTML (C#)
+# <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>Używanie klasy TagBuilder do kompilowania pomocników HTML (C#)
 
-przez [Walther Autor: Stephen](https://github.com/StephenWalther)
+Autor [Stephen Walther](https://github.com/StephenWalther)
 
-> Autor: Stephen Walther wprowadza do klasy przydatne narzędzia w platformę ASP.NET MVC, nazwana klasa TagBuilder. Klasa TagBuilder umożliwia łatwe tworzenie tagów HTML.
+> Stephen Walther wprowadza do przydatnej klasy narzędzi w strukturze ASP.NET MVC o nazwie klasy TagBuilder. Można użyć klasy TagBuilder, aby łatwo tworzyć Tagi HTML.
 
-Platforma ASP.NET MVC zawiera klasę przydatne narzędzie nazwana klasa TagBuilder, używanego podczas tworzenia pomocników HTML. Klasa TagBuilder jak sugeruje nazwa klasy, można w łatwy sposób tworzyć tagi HTML. W tym samouczku krótki podano klasa TagBuilder do przeglądu i dowiesz się, jak używać tej klasy, podczas tworzenia prostego pomocnika kodu HTML, który renderuje HTML &lt;img&gt; tagów.
+Struktura ASP.NET MVC zawiera użyteczną klasę narzędzi o nazwie Klasa TagBuilder, której można użyć podczas tworzenia pomocników HTML. Klasa TagBuilder, jako nazwa klasy sugeruje, pozwala łatwo tworzyć Tagi HTML. W tym krótkim samouczku udostępniono Przegląd klasy TagBuilder i dowiesz się, jak używać tej klasy podczas kompilowania prostego pomocnika HTML, który renderuje Tagi &lt;IMG&gt; HTML.
 
-## <a name="overview-of-the-tagbuilder-class"></a>Omówienie klasa TagBuilder
+## <a name="overview-of-the-tagbuilder-class"></a>Przegląd klasy TagBuilder
 
-Klasa TagBuilder znajduje się w przestrzeni nazw System.Web.Mvc. Ma pięć metod:
+Klasa TagBuilder jest zawarta w przestrzeni nazw System. Web. MVC. Ma pięć metod:
 
-- AddCssClass() — umożliwia dodanie nowego *klasy = ""* atrybut w tagu.
-- GenerateId() — umożliwia dodanie atrybutu identyfikator tagu. Ta metoda automatycznie zastępuje kropki w identyfikatorze (domyślnie parametr kropki są zastępowane przez znaki podkreślenia)
-- MergeAttribute() — umożliwia dodanie atrybutów tagu. Istnieje wiele przeciążeń z tej metody.
-- SetInnerText() — umożliwia ustawianie tekst zawarty wewnątrz tagu. Tekst wewnętrzny jest automatycznie kodowanie HTML.
-- ToString() — umożliwia renderowania tagu. Można określić, czy chcesz utworzyć tag normalne, tagu początkowego, tagu końcowego lub tagu samozamykającego.
+- AddCssClass () — umożliwia dodanie nowego atrybutu *Class = ""* do tagu.
+- GenerateId () — umożliwia dodanie atrybutu ID do znacznika. Ta metoda automatycznie zastępuje okresy w identyfikatorze (domyślnie okresy są zamieniane na znaki podkreślenia)
+- Mergeattribute () — umożliwia dodanie atrybutów do tagu. Istnieje wiele przeciążeń tej metody.
+- SetInnerText () — umożliwia ustawienie wewnętrznego tekstu znacznika. Tekst wewnętrzny jest automatycznie zakodowany w formacie HTML.
+- ToString () — umożliwia renderowanie znacznika. Możesz określić, czy chcesz utworzyć tag normalny, tag początkowy, tag końcowy lub tag samozamykający.
 
-Klasa TagBuilder ma cztery właściwości ważne:
+Klasa TagBuilder ma cztery ważne właściwości:
 
 - Atrybuty — reprezentuje wszystkie atrybuty znacznika.
-- Idatributedotreplacement — reprezentuje znak używany przez metodę GenerateId() do zastępowania kropki (wartość domyślna to znaku podkreślenia).
-- InnerHTML — reprezentuje wewnętrzny zawartości znacznika. Przypisywanie ciąg do tej właściwości *nie* ciąg kodowanie HTML.
-- TagName — reprezentuje nazwę tagu.
+- IdAttributeDotReplacement — reprezentuje znak używany przez metodę GenerateId () do zastępowania kropek (wartość domyślna to podkreślenie).
+- InnerHTML — reprezentuje wewnętrzną zawartość znacznika. Przypisanie ciągu do tej właściwości nie *powoduje* kodowania ciągu html.
+- TagName-reprezentuje nazwę znacznika.
 
-Te metody i właściwości zapewniają wszystkie podstawowe metody i właściwości, które są potrzebne do zbudowania potraktowane jak tag HTML. Tak naprawdę nie trzeba używać klasa TagBuilder. Można zamiast tego użyj klasy StringBuilder. Jednak klasa TagBuilder sprawia, że Twoja praca była nieco łatwiejsza.
+Te metody i właściwości zawierają wszystkie podstawowe metody i właściwości, które należy wykonać, aby utworzyć tag HTML. Nie musisz naprawdę używać klasy TagBuilder. Zamiast tego można użyć klasy StringBuilder. Jednak Klasa TagBuilder sprawia, że życie jest nieco prostsze.
 
-## <a name="creating-an-image-html-helper"></a>Tworzenie obrazu pomocnika kodu HTML
+## <a name="creating-an-image-html-helper"></a>Tworzenie pomocnika HTML obrazu
 
-Podczas tworzenia wystąpienia klasy TagBuilder możesz przekazywać nazwę jednostki tag, który chcesz skompilować do konstruktora TagBuilder. Następnie możesz wywołać metod, takich jak metody AddCssClass i MergeAttribute(), aby zmodyfikować atrybuty znacznika. Na koniec możesz wywołać metodę ToString() do renderowania tagu.
+Podczas tworzenia wystąpienia klasy TagBuilder, należy przekazać nazwę tagu, który chcesz skompilować do konstruktora TagBuilder. Następnie można wywołać metody, takie jak AddCssClass i Mergeattribute (), aby zmodyfikować atrybuty znacznika. Na koniec należy wywołać metodę ToString (), aby renderować tag.
 
-Na przykład wyświetlanie listy 1 zawiera pomocnika kodu HTML z obrazu. Pomocnik obrazu jest implementowane wewnętrznie z TagBuilder, który reprezentuje HTML &lt;img&gt; tagu.
+Na przykład lista 1 zawiera pomocnika HTML obrazu. Pomocnik obrazu jest implementowany wewnętrznie z TagBuilder, który reprezentuje tag&gt; HTML &lt;img.
 
-**Wyświetlanie listy 1 - Helpers\ImageHelper.cs**
+**Lista 1 — Helpers\ImageHelper.cs**
 
 [!code-csharp[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample1.cs)]
 
-Klasa w ofercie 1 zawiera dwa statyczne przeciążone metody o nazwie obrazu. Po wywołaniu metody Image(), można przekazać do obiektu, który reprezentuje zestaw atrybutów HTML, czy nie.
+Klasa na liście 1 zawiera dwie statyczne metody przeciążone o nazwie Image. Po wywołaniu metody Image () można przekazać obiekt, który reprezentuje zestaw atrybutów HTML.
 
-Zwróć uwagę, jak metoda TagBuilder.MergeAttribute() służy do Dodaj poszczególne atrybuty, takie jak atrybut src do TagBuilder. Zwróć uwagę, co więcej, jak metoda TagBuilder.MergeAttributes() służy do dodawania Kolekcja atrybutów do TagBuilder. Metoda MergeAttributes() akceptuje słownik&lt;ciąg, obiekt&gt; parametru. Klasa RouteValueDictionary jest używana do konwersji obiekt reprezentujący kolekcję atrybutów do słownika&lt;ciąg, obiekt&gt;.
+Zwróć uwagę, jak Metoda TagBuilder. Mergeattribute () służy do dodawania pojedynczych atrybutów, takich jak atrybut src do TagBuilder. Należy zauważyć, że Ponadto Metoda TagBuilder. MergeAttributes () służy do dodawania kolekcji atrybutów do TagBuilder. Metoda MergeAttributes () akceptuje&lt;słownika,&gt; parametr obiektu. Klasa RouteValueDictionary jest używana do konwersji obiektu reprezentującego kolekcję atrybutów do słownika&lt;ciągu,&gt;obiektu.
 
-Po utworzeniu Pomocnik obrazu, można użyć pomocnika, w sekcji Widoki ASP.NET MVC, podobnie jak inne standardowe pomocników HTML. Wyświetl w ofercie 2 użyto Pomocnik obrazu, aby wyświetlić dwa razy ten sam obraz Xbox (patrz rysunek 1). Pomocnik Image() nazywa się zarówno z i bez Kolekcja atrybutów HTML.
+Po utworzeniu pomocnika obrazów można używać pomocnika w widokach ASP.NET MVC podobnie jak w przypadku innych pomocników w języku HTML. Widok w liście 2 używa pomocnika obrazu do wyświetlenia tego samego obrazu konsoli Xbox dwa razy (patrz rysunek 1). Pomocnik obrazu () jest wywoływana zarówno z, jak i bez kolekcji atrybutów HTML.
 
-**Wyświetlanie listy 2 - Home\Index.aspx**
+**Lista 2 — Home\Index.aspx**
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample2.aspx)]
 
-[![Okno dialogowe Nowy projekt](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
+[![okno dialogowe Nowy projekt](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
 
-**Rysunek 01**: Przy użyciu Pomocnika obrazu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))
+**Ilustracja 01**. Korzystanie z pomocnika obrazu ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))
 
-Zwróć uwagę, należy zaimportować skojarzone z elementem pomocniczym obrazu w górnej części widoku Index.aspx przestrzeni nazw. Pomocnik jest importowany z następującą dyrektywę:
+Należy zauważyć, że należy zaimportować przestrzeń nazw skojarzoną z pomocnikiem obrazu w górnej części widoku index. aspx. Pomocnik zostaje zaimportowany do następującej dyrektywy:
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample3.aspx)]
 

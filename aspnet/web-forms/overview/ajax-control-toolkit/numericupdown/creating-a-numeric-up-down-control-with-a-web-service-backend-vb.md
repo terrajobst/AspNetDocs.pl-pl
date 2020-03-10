@@ -9,11 +9,11 @@ ms.assetid: afa59dfa-fef1-43d3-8fdd-aea3be36ed3c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 2bf6e1b27180589d39e308de62b5be1f47fa8fe2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606374"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78612995"
 ---
 # <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Tworzenie kontrolki Numeric Up/Down z zapleczem usługi internetowej (VB)
 
@@ -57,4 +57,4 @@ Jeśli uruchomisz stronę, Zauważ, że wartość w polu tekstowym zawsze podwaj
 Wyświetlane są tylko liczby, które są potęgą 2 ([kliknij, aby wyświetlić obraz o pełnym rozmiarze](creating-a-numeric-up-down-control-with-a-web-service-backend-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
-> [Ubiegł](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)
+> [Wstecz](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)
